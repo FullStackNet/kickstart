@@ -56,20 +56,7 @@
 		</delete>
 	</target>
 
-	<target name="compile" depends="init, platform">
-	</target>
-
-
-	<!-- ****************** compile base platform classes ******************** -->
-	<!-- compile base -->
-	<target name="base" depends="platform ">
-	</target>
-	<!-- ****************** compile modules ******************** -->
-	<target name="modules" depends="platform">
-	</target>
-
-	<!-- compile authentication-->
-	<target name="platform">
+	<target name="compile" depends="init">
 		<javac fork="true" memoryinitialsize="256m" memorymaximumsize="512m" srcdir="${src}" 
                 destdir="${classes}" classpath="${extclasspath}" debug="true">
 			<include name="**/*.java"/>
@@ -81,6 +68,9 @@
             includes="**"
             excludes="*.jar">
 		</jar>
+	</target>
+	
+	<target name="build" depends="compile">
 		<copy todir="${build_home}/build-1-0/c4t-manager" overwrite="true">
 			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
@@ -137,4 +127,5 @@
 							</fileset>
 		</copy>
 	</target>
+	
 </project>
