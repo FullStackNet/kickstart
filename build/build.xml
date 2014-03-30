@@ -10,7 +10,6 @@
 	<property name="classes" value="classes"/>
 	<property name="bin" value="bin"/>
 	<property name="conf" value="conf"/>
-	<property name="extclasses" value="thirdparty"/>
 	<property name="AntDir" value="build/AntScripts"/>
 	<property name="jarprefix" value="c4t"/>
 	<property name="RELEASENAME" value="c4t"/>
@@ -29,19 +28,20 @@
 	<property name="test_home" value="${env.C4T_TEST_HOME}"/>
 	<property name="monitor_home" value="${env.C4T_MONITOR_HOME}"/>
 	<property name="agent_home" value="${env.C4T_AGENT_HOME}"/>
+	<property name="libs" value="${env.C4T_LIBS}"/>
+	<property name="thirdparty" value="${env.C4T_THIRDPARTY}"/>
 	<!-- classpath -->
 	<property name="extclasspath" 
-             value="
-		     ${extclasses}/commons-lang-2.4.jar:
-    		 ${extclasses}/c4t-dds.jar:
-		     ${extclasses}/c4t-message-bus.jar:
-    	 	 ${extclasses}/gson-1.6.jar:
-			 ${extclasses}/commons-codec-1.2.jar:
-			 ${extclasses}/servlet-api-2.5-20081211.jar:
-    		 ${extclasses}/mail.jar:
-    		 ${extclasses}/c4t-db.jar:
-    		 ${extclasses}/sigar.jar:
-    		 ${extclasses}/uuid-3.2.jar"
+             value=" ${thirdparty}/commons-lang-2.4.jar:
+		     ${thirdparty}/c4t-dds.jar:
+		     ${thirdparty}/c4t-message-bus.jar:
+    	 	 ${thirdparty}/gson-1.6.jar:
+			 ${thirdparty}/commons-codec-1.2.jar:
+			 ${thirdparty}/servlet-api-2.5-20081211.jar:
+    		 ${thirdparty}/mail.jar:
+    		 ${thirdparty}/c4t-db.jar:
+    		 ${thirdparty}/sigar.jar:
+    		 ${thirdparty}/uuid-3.2.jar"
  	/>
 	<!-- initilization process-->
 	<target name="init">
@@ -76,89 +76,65 @@
 		</javac>
 
 
-		<jar jarfile="${classes}/${jarprefix}-platform.jar"
+		<jar jarfile="${libs}/${jarprefix}-platform.jar"
             basedir="${classes}"
             includes="**"
             excludes="*.jar">
 		</jar>
-		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${manager_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
-		</copy>
-		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${alert_manager_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
-		</copy>
-		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${gateway_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
-		</copy>
-		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${simulator_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
-		</copy>
-		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${v3_simulator_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
-		</copy>
-		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${web_service_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
-		</copy>
-		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${test_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
-		</copy>
-		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${monitor_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
-		</copy>
-		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${agent_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
-		</copy>
 		<copy todir="${build_home}/build-1-0/c4t-manager" overwrite="true">
-			<fileset dir="${classes}/">
+			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="${build_home}/build-1-0/c4t-alert-manager" overwrite="true">
-			<fileset dir="${classes}/">
+			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="${build_home}/build-1-0/c4t-mobd-manager" overwrite="true">
-					<fileset dir="${classes}/">
+					<fileset dir="${libs}/">
 						<include name="c4t-platform.jar"/>
 					</fileset>
 		</copy>
 		<copy todir="${build_home}/build-1-0/c4t-mobd-simulator" overwrite="true">
-			<fileset dir="${classes}/">
+			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="${build_home}/build-1-0/c4t-v3-simulator" overwrite="true">
-			<fileset dir="${classes}/">
+			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="${build_home}/build-1-0/c4t-gateway" overwrite="true">
-			<fileset dir="${classes}/">
+			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="${build_home}/build-1-0/c4t-monitor" overwrite="true">
-			<fileset dir="${classes}/">
+			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="${build_home}/build-1-0/c4t-agent" overwrite="true">
-			<fileset dir="${classes}/">
+			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="${build_home}/build-1-0/c4t-web-server/context/c4t/WEB-INF/lib" overwrite="true">
-					<fileset dir="${classes}/">
+					<fileset dir="${libs}/">
 						<include name="c4t-platform.jar"/>
 					</fileset>
 		</copy>
 		<copy todir="${build_home}/build-1-0/c4t-web-server/context/vms/WEB-INF/lib" overwrite="true">
-							<fileset dir="${classes}/">
+							<fileset dir="${libs}/">
 								<include name="c4t-platform.jar"/>
 							</fileset>
 				</copy>
 		<copy todir="${build_home}/build-1-0/c4t-web-server/context/ui/WEB-INF/lib" overwrite="true">
-							<fileset dir="${classes}/">
+							<fileset dir="${libs}/">
 								<include name="c4t-platform.jar"/>
 							</fileset>
-				</copy>
-	
-		<copy todir="${message_home}/thirdparty" overwrite="true">
-			<fileset dir="${classes}/">
-				<include name="c4t-platform.jar"/>
-			</fileset>
 		</copy>
 	</target>
 </project>
