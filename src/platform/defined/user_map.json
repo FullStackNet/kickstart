@@ -1,0 +1,45 @@
+{
+	"user_map" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'applications':
+			{
+				'name':'applications',
+				'type':'Map'
+			},
+			'appliances':
+			{
+				'name':'appliances',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'devices':
+			{
+				'name':'devices',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'alerts':
+			{
+				'name':'alerts',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'notifications':
+			{
+				'name':'notifications',
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}

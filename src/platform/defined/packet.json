@@ -1,0 +1,45 @@
+{
+	"packet" :
+	{
+		"cluster": "DB_PACKET",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'controller_id':
+			{
+				'name':'controller_id',
+				'length': 128,
+				'type':'String'
+			},
+			'packet_type':
+			{
+				'name':'packet_type',
+				'type':'String',
+				'length' : 16,
+				'comment' : "SEND/RECIVED"
+			},
+			'message_type':
+			{
+				'name':'message_type',
+				'type':'String',
+				'length' : 32
+			},
+			'message_time':
+			{
+				'name':'message_time',
+				'type':'long'
+			},
+			'data':
+			{
+				'name':'data',
+				'type':'String',
+				'length' : 4000
+			}
+		}
+	}
+}

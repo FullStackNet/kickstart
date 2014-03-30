@@ -1,0 +1,56 @@
+{
+	"DeviceNotification" :
+	{
+		"category" : "20",
+		"command" : "5",
+		"packet_type" : "1",
+		"message_id" : ['id'],		
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'type':'String'
+			},
+			'notificationTime':
+			{
+				'name':'notificationTime',
+				'type':'long'
+			},
+			'deviceType':
+			{
+				'name':'deviceType',
+				'length': 32,
+				'type':'String'
+			},
+			'deviceId':
+			{
+				'name':'deviceId',
+				'length': 128,
+				'type':'String'
+			},
+			'alertType':
+			{
+				'name':'alertType',
+				'type':'String'
+			},
+			'severity':
+			{
+				'name':'severity',
+				'type':'byte'
+			},
+			'state':
+			{
+				'name':'state',
+				'type':'byte'
+			},
+			'data':
+			{
+				'name':'data',
+				'type':'String',
+				'length' : 256
+			}
+		}
+	}
+}

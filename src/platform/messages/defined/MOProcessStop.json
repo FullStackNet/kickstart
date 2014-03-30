@@ -1,0 +1,16 @@
+{
+	"MOProcessStop" :
+	{
+		"category" : "6",
+		"command" : "5",
+		"packet_type" : "1",
+		"fields":
+		{
+			'process_name':
+			{
+				'type':'String',
+				'length' : 128
+			}					
+		}
+	}
+}

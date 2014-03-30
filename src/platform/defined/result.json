@@ -1,0 +1,21 @@
+{
+	"result":
+	{
+		"fields":
+		{
+			"errCode":
+			{
+				"type": "int"
+			},
+			"message":
+			{
+				"type": "String"
+			},
+			"sessionId":
+			{
+				"type": "String"
+			}
+		},
+		"comment": "Result"
+	}
+}

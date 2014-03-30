@@ -1,0 +1,11 @@
+{
+	"HeartBeat" :
+	{
+		"category" : "9",
+		"command" : "0",
+		"packet_type" : "1",
+		"fields":
+		{
+		}
+	}
+}

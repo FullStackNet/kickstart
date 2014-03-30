@@ -1,0 +1,81 @@
+{
+	"GatewayConfiguration" :
+	{
+		"category" : "1",
+		"command" : "3",
+		"packet_type" : "1",
+		"fields":
+		{
+			'power_priority':
+			{
+				'name':'power_priority',
+				'length': 5,
+				'type': 'String'
+			},
+			'db_enabled':
+			{
+				'name':'db_enabled',
+				'type': 'byte'
+			},
+			'controller_heartbeat_interval':
+			{
+				'name':'controller_heartbeat_interval',
+				'type': 'short'
+			},
+			'controller_reconnect':
+			{
+				'name':'controller_reconnect',
+				'type': 'short'
+			},
+			'data_read_interval':
+			{
+				'name':'data_read_interval',
+				'type': 'short'
+			},
+			'controller_type':
+			{
+				'name':'controller_type',
+				'length': 6,
+				'type': 'String'
+			},
+			'controller_ip':
+			{
+				'name':'controller_ip',
+				'length': 20,
+				'type': 'String'
+			},
+			'controller_port':
+			{
+				'name':'controller_port',
+				'type': 'short'
+			},
+			'controller_usb_port':
+			{
+				'name':'controller_usb_port',
+				'length': 32,
+				'type': 'String'
+			},
+			'controller_baudrate':
+			{
+				'name':'controller_baudrate',
+				'type': 'int'
+			},
+			'modules':
+			{
+				'name':'modules',
+				'length': 128,
+				'type': 'String'
+			},
+			'application':
+			{
+				'name':'application',
+				'type': 'byte'
+			},
+			'heartbeat_interval':
+			{
+				'name':'heartbeat_interval',
+				'type': 'short'
+			}
+		}
+	}
+}

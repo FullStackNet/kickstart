@@ -1,0 +1,17 @@
+{
+	"AuthenticationResponse" :
+	{
+		"category" : "0",
+		"command" : "0",
+		"packet_type" : "2",
+		"fields":
+		{
+			'sessionId':
+			{
+				'name':'sessionId',
+				'type':'String',
+				'length' : 128
+			}
+		}
+	}
+}

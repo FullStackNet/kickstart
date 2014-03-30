@@ -1,0 +1,42 @@
+{
+	"ControllerPacketCapture" :
+	{
+		"category" : "20",
+		"command" : "13",
+		"packet_type" : "1",
+		"message_id" : ['controller_id'],		
+		"fields":
+		{
+			'controller_id':
+			{
+				'name':'controller_id',
+				'length': 128,
+				'type':'String'
+			},
+			'packet_type':
+			{
+				'name':'packet_type',
+				'type':'String',
+				'length' : 16,
+				'comment' : "SEND/RECIVED"
+			},
+			'message_type':
+			{
+				'name':'message_type',
+				'type':'String',
+				'length' : 32
+			},
+			'message_time':
+			{
+				'name':'message_time',
+				'type':'long'
+			},
+			'data':
+			{
+				'name':'data',
+				'type':'String',
+				'length' : 4000
+			}
+		}
+	}
+}

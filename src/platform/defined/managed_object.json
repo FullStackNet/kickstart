@@ -1,0 +1,123 @@
+{
+	"managed_object" :
+	{
+		"cluster": "DB_CONFIG",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'type':
+			{
+				'length': 128,
+				'type':'String',
+				"commit" : "PROCESS/THREAD"
+			},
+			'monitor_type':
+			{
+				'type':'int',
+				"commit" : "HEART_BEAT - 1, PORT_SCAN - 2"
+			},
+			'location':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'ip_address':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'message_bus_url':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'modules':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'db_enabled':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : 'N'
+			},
+			'client_message_queue_size' : {
+				'type' : 'int'
+			},
+			'server_message_queue_size' : {
+				'type' : 'int'
+			},
+			'process_id':
+			{
+				'length': 20,
+				'type':'String'
+			},
+			'version':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'port':
+			{
+				'type':'int'
+			},
+			'state':
+			{
+				'type':'String',
+				'length' : 1
+			},
+			'last_up_detected':
+			{
+				'type':'timestamp'
+			},
+			'cpu_usage':
+			{
+				'type':'double'
+			},
+			'free_memory':
+			{
+				'type':'long'
+			},
+			'total_memory':
+			{
+				'type':'long'
+			},
+			'usage_memory':
+			{
+				'type':'long'
+			},
+			'free_disk':
+			{
+				'type':'long'
+			},
+			'total_disk':
+			{
+				'type':'long'
+			},
+			'usage_disk':
+			{
+				'type':'long'
+			},
+			'number_of_connections':
+			{
+				'type':'long'
+			},
+			'number_of_controllers':
+			{
+				'type':'long'
+			}
+		}
+	}
+}

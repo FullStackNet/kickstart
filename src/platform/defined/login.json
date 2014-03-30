@@ -1,0 +1,29 @@
+{
+	"login" :
+	{
+		"transient" : true,
+		"fields":
+		{
+			'email_id':
+			{
+				'name':'make_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'password':
+			{
+				'name':'password',
+				'length': 16,
+				'required': true,
+				'type':'String'
+			},
+			'session_id':
+			{
+				'name':'session_id',
+				'length': 128,
+				'type':'String'
+			}					
+		}
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"GetSensor" :
+	{
+		"category" : "20",
+		"command" : "3",
+		"packet_type" : "1",
+		"fields":
+		{
+		}
+	}
+}

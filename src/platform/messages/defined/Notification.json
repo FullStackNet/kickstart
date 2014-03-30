@@ -1,0 +1,18 @@
+{
+	"Notification" :
+	{
+		"category" : "20",
+		"command" : "12",
+		"packet_type" : "1",
+		"message_id" : ['id'],		
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'type':'String'
+			}
+		}
+	}
+}

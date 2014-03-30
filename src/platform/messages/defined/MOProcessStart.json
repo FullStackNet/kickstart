@@ -1,0 +1,16 @@
+{
+	"MOProcessStart" :
+	{
+		"category" : "6",
+		"command" : "6",
+		"packet_type" : "1",
+		"fields":
+		{
+			'process_name':
+			{
+				'type':'String',
+				'length' : 128
+			}				
+		}
+	}
+}

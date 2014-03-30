@@ -1,0 +1,68 @@
+{
+	"register" :
+	{
+		"transient" : true,
+		"fields":
+		{
+			'first_name':
+			{
+				'name':'first_name',
+				'length': 64,
+				'type':'String',
+				'required': true
+			},
+			'last_name':
+			{
+				'name':'last_name',
+				'length': 64,
+				'type':'String',
+				'required': true
+			},
+			'email_id':
+			{
+				'name':'make_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'password':
+			{
+				'name':'password',
+				'length': 16,
+				'required': true,
+				'type':'String'
+			},
+			'mobile_no':
+			{
+				'name':'mobile_no',
+				'length': 16,
+				'required': true,
+				'type':'String'
+			},
+			'city':
+			{
+				'name':'city',
+				'length': 32,
+				'type':'String'
+			},
+			'state':
+			{
+				'name':'state',
+				'length': 32,
+				'type':'String'
+			},
+			'country':
+			{
+				'name':'country',
+				'length': 32,
+				'type':'String'
+			},
+			'pincode':
+			{
+				'name':'pincode',
+				'length': 12,
+				'type':'String'
+			}					
+		}
+	}
+}

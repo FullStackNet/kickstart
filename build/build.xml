@@ -1,0 +1,164 @@
+
+<!-- build scripts for the m16 -->
+
+<project name="c4t-platform" default="compile" basedir="../">
+	<description>
+       this is build.xml file to be used for building the c4t-platform project.
+    </description>
+	<!-- build variables -->
+	<property name="src" value="src"/>
+	<property name="classes" value="classes"/>
+	<property name="bin" value="bin"/>
+	<property name="conf" value="conf"/>
+	<property name="extclasses" value="thirdparty"/>
+	<property name="AntDir" value="build/AntScripts"/>
+	<property name="jarprefix" value="c4t"/>
+	<property name="RELEASENAME" value="c4t"/>
+	<property name="REL_VER" value="1.0"/>
+	<property name="BUILD_VER" value="10.001"/>
+	<property environment="env"/>
+	<property name="java_home" value="${env.JAVA6}"/>
+	<property name="manager_home" value="${env.C4T_MANAGER_HOME}"/>
+	<property name="alert_manager_home" value="${env.C4T_ALERT_MANAGER_HOME}"/>
+	<property name="gateway_home" value="${env.C4T_GATEWAY_HOME}"/>
+	<property name="web_service_home" value="${env.C4T_WEB_SERVICE_HOME}"/>
+	<property name="build_home" value="${env.C4T_BUILD_HOME}"/>
+	<property name="message_home" value="${env.C4T_MESSAGE_HOME}"/>
+	<property name="simulator_home" value="${env.C4T_SIMULATOR_HOME}"/>
+	<property name="v3_simulator_home" value="${env.C4T_V3_SIMULATOR_HOME}"/>
+	<property name="test_home" value="${env.C4T_TEST_HOME}"/>
+	<property name="monitor_home" value="${env.C4T_MONITOR_HOME}"/>
+	<property name="agent_home" value="${env.C4T_AGENT_HOME}"/>
+	<!-- classpath -->
+	<property name="extclasspath" 
+             value="
+		     ${extclasses}/commons-lang-2.4.jar:
+    		 ${extclasses}/c4t-dds.jar:
+		     ${extclasses}/c4t-message-bus.jar:
+    	 	 ${extclasses}/gson-1.6.jar:
+			 ${extclasses}/commons-codec-1.2.jar:
+			 ${extclasses}/servlet-api-2.5-20081211.jar:
+    		 ${extclasses}/mail.jar:
+    		 ${extclasses}/c4t-db.jar:
+    		 ${extclasses}/sigar.jar:
+    		 ${extclasses}/uuid-3.2.jar"
+ 	/>
+	<!-- initilization process-->
+	<target name="init">
+		<mkdir dir="${classes}"/>
+	</target>
+
+	<target name="clean">
+		<delete includeemptydirs="true">
+			<fileset dir="${classes}" casesensitive="no">
+				<include name="**/*"/>
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="compile" depends="init, platform">
+	</target>
+
+
+	<!-- ****************** compile base platform classes ******************** -->
+	<!-- compile base -->
+	<target name="base" depends="platform ">
+	</target>
+	<!-- ****************** compile modules ******************** -->
+	<target name="modules" depends="platform">
+	</target>
+
+	<!-- compile authentication-->
+	<target name="platform">
+		<javac fork="true" memoryinitialsize="256m" memorymaximumsize="512m" srcdir="${src}" 
+                destdir="${classes}" classpath="${extclasspath}" debug="true">
+			<include name="**/*.java"/>
+		</javac>
+
+
+		<jar jarfile="${classes}/${jarprefix}-platform.jar"
+            basedir="${classes}"
+            includes="**"
+            excludes="*.jar">
+		</jar>
+		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${manager_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
+		</copy>
+		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${alert_manager_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
+		</copy>
+		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${gateway_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
+		</copy>
+		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${simulator_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
+		</copy>
+		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${v3_simulator_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
+		</copy>
+		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${web_service_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
+		</copy>
+		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${test_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
+		</copy>
+		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${monitor_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
+		</copy>
+		<copy file="${classes}/${jarprefix}-platform.jar" tofile="${agent_home}/thirdparty/${jarprefix}-platform.jar" overwrite="true">
+		</copy>
+		<copy todir="${build_home}/build-1-0/c4t-manager" overwrite="true">
+			<fileset dir="${classes}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/build-1-0/c4t-alert-manager" overwrite="true">
+			<fileset dir="${classes}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/build-1-0/c4t-mobd-manager" overwrite="true">
+					<fileset dir="${classes}/">
+						<include name="c4t-platform.jar"/>
+					</fileset>
+		</copy>
+		<copy todir="${build_home}/build-1-0/c4t-mobd-simulator" overwrite="true">
+			<fileset dir="${classes}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/build-1-0/c4t-v3-simulator" overwrite="true">
+			<fileset dir="${classes}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/build-1-0/c4t-gateway" overwrite="true">
+			<fileset dir="${classes}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/build-1-0/c4t-monitor" overwrite="true">
+			<fileset dir="${classes}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/build-1-0/c4t-agent" overwrite="true">
+			<fileset dir="${classes}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/build-1-0/c4t-web-server/context/c4t/WEB-INF/lib" overwrite="true">
+					<fileset dir="${classes}/">
+						<include name="c4t-platform.jar"/>
+					</fileset>
+		</copy>
+		<copy todir="${build_home}/build-1-0/c4t-web-server/context/vms/WEB-INF/lib" overwrite="true">
+							<fileset dir="${classes}/">
+								<include name="c4t-platform.jar"/>
+							</fileset>
+				</copy>
+		<copy todir="${build_home}/build-1-0/c4t-web-server/context/ui/WEB-INF/lib" overwrite="true">
+							<fileset dir="${classes}/">
+								<include name="c4t-platform.jar"/>
+							</fileset>
+				</copy>
+	
+		<copy todir="${message_home}/thirdparty" overwrite="true">
+			<fileset dir="${classes}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+	</target>
+</project>

@@ -1,0 +1,24 @@
+{
+	"DeviceConfiguration" :
+	{
+		"category" : "20",
+		"command" : "10",
+		"packet_type" : "1",
+		"message_id" : ['deviceId'],
+		"fields":
+		{
+			'deviceId':
+			{
+				'name':'deviceId',
+				'length': 10,
+				'type':'String'
+			},
+			'configuration':
+			{
+				'name':'configuration',
+				'type':'String',
+				'length' : 2048
+			}
+		}
+	}
+}

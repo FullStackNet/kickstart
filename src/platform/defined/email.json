@@ -1,0 +1,22 @@
+{
+	"email" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'type':
+			{
+				'name':'type',
+				'length': 128,
+				'type':'String'
+			}
+		}
+	}
+}
