@@ -46,7 +46,7 @@ public class UIServletContext {
 		}
 		this.sessionId = sessionId;
 		mPageBuilder = new PageBuilder(this);
-		params = new HashMap<>();
+		params = new HashMap<String , String>();
 	}
 	
 	public void addParam(String name,String value) {
