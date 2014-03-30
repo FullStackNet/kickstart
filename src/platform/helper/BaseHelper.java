@@ -666,7 +666,7 @@ public class BaseHelper {
 		} catch (Exception e) {
 			return;
 		}
-		Map<String, Object> _newMap = new HashMap<>();
+		Map<String, Object> _newMap = new HashMap<String, Object>();
 		Map<String, Object> map = _fetchedResource.convertResourceToMap();
 		if (map.get(fieldName) == null)
 			return;

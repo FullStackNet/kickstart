@@ -53,7 +53,7 @@ public class Managed_objectHelper extends BaseHelper {
 
 	public Map<String, Long>  getTypes() {
 		BaseResource[] reasources = getAll();
-		Map<String, Long> map = new HashMap<>();
+		Map<String, Long> map = new HashMap<String, Long>();
 		for(BaseResource resource : reasources) {
 			managed_object object = (managed_object)resource;
 			if (object.getType() == null) continue;
@@ -68,7 +68,7 @@ public class Managed_objectHelper extends BaseHelper {
 	
 	public Map<String, Long>  getLocation() {
 		BaseResource[] reasources = getAll();
-		Map<String, Long> map = new HashMap<>();
+		Map<String, Long> map = new HashMap<String, Long>();
 		for(BaseResource resource : reasources) {
 			managed_object object = (managed_object)resource;
 			if (object.getLocation() == null) continue;
@@ -83,7 +83,7 @@ public class Managed_objectHelper extends BaseHelper {
 	
 	public Map<String, Long>  getIPAddress() {
 		BaseResource[] reasources = getAll();
-		Map<String, Long> map = new HashMap<>();
+		Map<String, Long> map = new HashMap<String, Long>();
 		for(BaseResource resource : reasources) {
 			managed_object object = (managed_object)resource;
 			if (object.getIp_address() == null) continue;

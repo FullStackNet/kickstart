@@ -307,7 +307,7 @@ public class ApplianceHelper extends BaseHelper {
 			if (current_fuel_filling > 0.0) {
 				Appliance_time_seriesHelper.getInstance().addTimeSeries(_controller.getAppliance_id(), 
 						C4T_PARAMETER.FUEL_FILLING.toString(), new Date(time), current_fuel_filling);
-				Map<String, Object> fuelAddedData = new HashMap<>();
+				Map<String, Object> fuelAddedData = new HashMap<String, Object>();
 				fuelAddedData.put("Fuel Added", current_fuel_filling);
 				NotificationHelper.getInstance().addNotificationFromAppliance(_appliance, 
 						NotificationFactory.NOTIFICATION_FUEL_ADDED, NotificationFactory.SEVERIRY_INFO, fuelAddedData, new Date(time));

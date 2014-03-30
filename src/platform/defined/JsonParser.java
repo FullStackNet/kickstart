@@ -92,7 +92,7 @@ public class JsonParser {
 		}
 	}
 	private void processIndex(String name, JsonObject indexJson) {
-		ArrayList<String> list = new ArrayList<>();
+		ArrayList<String> list = new ArrayList<String>();
 		for(Entry<String, JsonElement> entry : indexJson.entrySet()) {
 			list.add(entry.getKey());
 		}
