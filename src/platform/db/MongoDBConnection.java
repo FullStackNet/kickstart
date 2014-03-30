@@ -190,7 +190,7 @@ public class MongoDBConnection extends DbConnection {
 		if (dataMap == null)
 			return null;
 		Map<String, Field> map = metaData.getFields();
-		Map<String, Object> row = new HashMap<>();
+		Map<String, Object> row = new HashMap<String, Object>();
 		for (Map.Entry<String, Field> entry : map.entrySet()) {
 			String columnName =  (String) entry.getKey();
 			Object value =  dataMap.get(columnName);
@@ -334,7 +334,7 @@ public class MongoDBConnection extends DbConnection {
 			if (dataMap == null)
 				continue;
 			Map<String, Field> map = metaData.getFields();
-			Map<String, Object> row = new HashMap<>();
+			Map<String, Object> row = new HashMap<String, Object>();
 			for (Map.Entry<String, Field> entry : map.entrySet()) {
 				String columnName =  (String) entry.getKey();
 				Field field = entry.getValue();
@@ -665,7 +665,7 @@ public class MongoDBConnection extends DbConnection {
 		while (cursor.hasNext()) {
 			BasicDBObject dataMap = (BasicDBObject)cursor.next();
 			Map<String, Field> map = metaData.getFields();
-			Map<String, Object> row = new HashMap<>();
+			Map<String, Object> row = new HashMap<String, Object>();
 			for (Map.Entry<String, Field> entry : map.entrySet()) {
 				String columnName =  (String) entry.getKey();
 				Object value =  dataMap.get(columnName);
