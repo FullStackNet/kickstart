@@ -70,6 +70,17 @@ public class AlertHelper extends BaseHelper {
 		}
 	}
 	
+	public void handleApplianceTempered(appliance _appliance) {
+		appliance __appliance  = new appliance(_appliance.getId());
+		__appliance.setTempered("Y");
+		try {
+			ApplianceHelper.getInstance().update(__appliance);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void addAlertFromAppliance(appliance _appliance,
 			String alertId, int severity, Map<String, Object> data, Date alertTime)  {
 		
@@ -97,6 +108,8 @@ public class AlertHelper extends BaseHelper {
 			handleApplianceLowFuel(_appliance,alertTime);
 		} else if (AlertFactory.ALERT_LOW_FUEL_NORMAL.equals(alertId)) {
 			handleApplianceLowFuelNormal(_appliance);
+		} else if (AlertFactory.ALERT_TEMPERED.equals(alertId)) {
+			handleApplianceTempered(_appliance);
 		}
 	}
 

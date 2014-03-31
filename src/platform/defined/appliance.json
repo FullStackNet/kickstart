@@ -1033,6 +1033,11 @@
 				'default':'N',
 				'length': 1,
 				'type':'String'
+			},
+			'tempered' : {
+				'default':'N',
+				'length': 1,
+				'type':'String'
 			}
 		}
 	}

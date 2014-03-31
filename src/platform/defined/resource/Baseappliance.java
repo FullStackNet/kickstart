@@ -172,6 +172,7 @@ public abstract class Baseappliance extends BaseResource {
 	private String starterTriggered = null;
 	private String waterInFuel = null;
 	private String remoteControl = null;
+	private String tempered = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -326,6 +327,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_STARTERTRIGGERED = "starterTriggered";
 	public static String FIELD_WATERINFUEL = "waterInFuel";
 	public static String FIELD_REMOTECONTROL = "remoteControl";
+	public static String FIELD_TEMPERED = "tempered";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("appliance");
@@ -1072,6 +1074,11 @@ public abstract class Baseappliance extends BaseResource {
 		remoteControlField.setLength(1);
 		metaData.addField(remoteControlField);
 
+		Field temperedField = new Field("tempered", "String");
+		temperedField.setDefaultValue("N");
+		temperedField.setLength(1);
+		metaData.addField(temperedField);
+
 
 		metaData.setTableName("appliance");
 
@@ -1234,6 +1241,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.starterTriggered = obj.starterTriggered;
 		this.waterInFuel = obj.waterInFuel;
 		this.remoteControl = obj.remoteControl;
+		this.tempered = obj.tempered;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -1443,6 +1451,8 @@ public abstract class Baseappliance extends BaseResource {
 			waterInFuel = "N";
 		if(remoteControl == null)
 			remoteControl = "N";
+		if(tempered == null)
+			tempered = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -1753,6 +1763,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("waterInFuel", waterInFuel);
 		if(remoteControl != null)
 			map.put("remoteControl", remoteControl);
+		if(tempered != null)
+			map.put("tempered", tempered);
 		return map;
 	}
 
@@ -2067,6 +2079,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("waterInFuel", waterInFuel);
 		if(remoteControl != null)
 			map.put("remoteControl", remoteControl);
+		if(tempered != null)
+			map.put("tempered", tempered);
 		return map;
 	}
 
@@ -2227,6 +2241,7 @@ public abstract class Baseappliance extends BaseResource {
 		starterTriggered = (String) map.get("starterTriggered");
 		waterInFuel = (String) map.get("waterInFuel");
 		remoteControl = (String) map.get("remoteControl");
+		tempered = (String) map.get("tempered");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -2833,6 +2848,10 @@ public abstract class Baseappliance extends BaseResource {
 		Object remoteControlObj = map.get("remoteControl");
 		if(remoteControlObj != null)
 			remoteControl = remoteControlObj.toString();
+
+		Object temperedObj = map.get("tempered");
+		if(temperedObj != null)
+			tempered = temperedObj.toString();
 
 	}
 
@@ -4895,6 +4914,18 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetRemoteControl() {
 		this.remoteControl = "N";
+	}
+
+	public String getTempered() {
+		return tempered != null ? tempered : "N";
+	}
+
+	public void setTempered(String tempered) {
+		this.tempered = tempered;
+	}
+
+	public void unSetTempered() {
+		this.tempered = "N";
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

@@ -10,6 +10,7 @@ public class AlertFactory {
 	public static String DICONNECTED = "DISCONNECTED";
 	public static String CONNECTED = "DISCONNECTED";
 	public static String ALERT_SOS = "SOS";
+	public static String ALERT_TEMPERED = "TEMPERED";
 	public static String ALERT_OBD_LOW_BATTERY = "OBD_LOW_BATTERY";
 	public static String ALERT_EXTERNAL_LOW_POWER = "EXTERNAL_LOW_POWER";
 	public static String ALERT_TOW = "TOW_ALERT";
