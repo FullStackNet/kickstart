@@ -53,7 +53,7 @@
     </script>
 </target>
 
-<target name="update.version.build" depends="calculate.version.build">
+<target name="update.version.build">
     <propertyfile file="${versionFileName}">
         <entry key="build.number" type="int" operation="=" value="${currentBuild}" />
         <entry key="version.number" type="string" operation="=" value="${currentVersion}" />
@@ -107,7 +107,7 @@
 		</jar>
 	</target>
 	
-	<target name="build" depends="compile">
+	<target name="build" depends="update.version.build, compile">
 		<copy todir="${build_home}/c4t-manager" overwrite="true">
 			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
