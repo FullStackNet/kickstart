@@ -796,7 +796,7 @@
 			'speed':
 			{
 				'name':'speed',
-				''default':'0.00',
+				'default':'0.00',
 				'length': 20,
 				'precision': 3,
 				'type':'Number'
