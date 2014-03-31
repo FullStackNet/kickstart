@@ -134,7 +134,7 @@ public abstract class Baseappliance extends BaseResource {
 	private Number last_processed_grid_reading = null;
 	private Number langitude = null;
 	private Number latitude = null;
-	private Number speed = null;
+	private Integer speed = null;
 	private String driveType = null;
 	private String currentDriverId = null;
 	private Number engineTemperature = null;
@@ -885,10 +885,9 @@ public abstract class Baseappliance extends BaseResource {
 		latitudeField.setPrecision(8);
 		metaData.addField(latitudeField);
 
-		Field speedField = new Field("speed", "Number");
-		speedField.setDefaultValue(0.00);
-		speedField.setLength(20);
-		speedField.setPrecision(3);
+		Field speedField = new Field("speed", "int");
+		speedField.setDefaultValue(0);
+		speedField.setLength(6);
 		metaData.addField(speedField);
 
 		Field driveTypeField = new Field("driveType", "String");
@@ -1385,7 +1384,7 @@ public abstract class Baseappliance extends BaseResource {
 		if(latitude == null)
 			latitude = 0.00;
 		if(speed == null)
-			speed = 0.00;
+			speed = 0;
 		if(driveType == null)
 			driveType = "OWN";
 		if(engineTemperature == null)
@@ -2190,7 +2189,7 @@ public abstract class Baseappliance extends BaseResource {
 		last_processed_grid_reading = (Number) map.get("last_processed_grid_reading");
 		langitude = (Number) map.get("langitude");
 		latitude = (Number) map.get("latitude");
-		speed = (Number) map.get("speed");
+		speed = (Integer) map.get("speed");
 		driveType = (String) map.get("driveType");
 		currentDriverId = (String) map.get("currentDriverId");
 		engineTemperature = (Number) map.get("engineTemperature");
@@ -2685,7 +2684,7 @@ public abstract class Baseappliance extends BaseResource {
 
 		Object speedObj = map.get("speed");
 		if(speedObj != null)
-			speed = new Double(speedObj.toString());
+			speed = new Integer(speedObj.toString());
 
 		Object driveTypeObj = map.get("driveType");
 		if(driveTypeObj != null)
@@ -4402,16 +4401,20 @@ public abstract class Baseappliance extends BaseResource {
 		this.latitude = 0.00;
 	}
 
-	public Number getSpeed() {
-		return speed != null ? speed : 0.00;
+	public Integer getSpeed() {
+		return speed != null ? speed : 0;
 	}
 
-	public void setSpeed(Number speed) {
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	public void setSpeed(Integer speed) {
 		this.speed = speed;
 	}
 
 	public void unSetSpeed() {
-		this.speed = 0.00;
+		this.speed = 0;
 	}
 
 	public String getDriveType() {
