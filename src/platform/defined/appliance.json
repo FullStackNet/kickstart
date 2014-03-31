@@ -1038,6 +1038,16 @@
 				'default':'N',
 				'length': 1,
 				'type':'String'
+			},
+			'featureEngineMonitoring' : {
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'featureTracking' : {
+				'default':'N',
+				'length': 1,
+				'type':'String'
 			}
 		}
 	}

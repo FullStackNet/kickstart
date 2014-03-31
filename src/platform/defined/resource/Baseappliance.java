@@ -173,6 +173,8 @@ public abstract class Baseappliance extends BaseResource {
 	private String waterInFuel = null;
 	private String remoteControl = null;
 	private String tempered = null;
+	private String featureEngineMonitoring = null;
+	private String featureTracking = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -328,6 +330,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_WATERINFUEL = "waterInFuel";
 	public static String FIELD_REMOTECONTROL = "remoteControl";
 	public static String FIELD_TEMPERED = "tempered";
+	public static String FIELD_FEATUREENGINEMONITORING = "featureEngineMonitoring";
+	public static String FIELD_FEATURETRACKING = "featureTracking";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("appliance");
@@ -1079,6 +1083,16 @@ public abstract class Baseappliance extends BaseResource {
 		temperedField.setLength(1);
 		metaData.addField(temperedField);
 
+		Field featureEngineMonitoringField = new Field("featureEngineMonitoring", "String");
+		featureEngineMonitoringField.setDefaultValue("N");
+		featureEngineMonitoringField.setLength(1);
+		metaData.addField(featureEngineMonitoringField);
+
+		Field featureTrackingField = new Field("featureTracking", "String");
+		featureTrackingField.setDefaultValue("N");
+		featureTrackingField.setLength(1);
+		metaData.addField(featureTrackingField);
+
 
 		metaData.setTableName("appliance");
 
@@ -1242,6 +1256,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.waterInFuel = obj.waterInFuel;
 		this.remoteControl = obj.remoteControl;
 		this.tempered = obj.tempered;
+		this.featureEngineMonitoring = obj.featureEngineMonitoring;
+		this.featureTracking = obj.featureTracking;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -1453,6 +1469,10 @@ public abstract class Baseappliance extends BaseResource {
 			remoteControl = "N";
 		if(tempered == null)
 			tempered = "N";
+		if(featureEngineMonitoring == null)
+			featureEngineMonitoring = "N";
+		if(featureTracking == null)
+			featureTracking = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -1765,6 +1785,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("remoteControl", remoteControl);
 		if(tempered != null)
 			map.put("tempered", tempered);
+		if(featureEngineMonitoring != null)
+			map.put("featureEngineMonitoring", featureEngineMonitoring);
+		if(featureTracking != null)
+			map.put("featureTracking", featureTracking);
 		return map;
 	}
 
@@ -2081,6 +2105,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("remoteControl", remoteControl);
 		if(tempered != null)
 			map.put("tempered", tempered);
+		if(featureEngineMonitoring != null)
+			map.put("featureEngineMonitoring", featureEngineMonitoring);
+		if(featureTracking != null)
+			map.put("featureTracking", featureTracking);
 		return map;
 	}
 
@@ -2242,6 +2270,8 @@ public abstract class Baseappliance extends BaseResource {
 		waterInFuel = (String) map.get("waterInFuel");
 		remoteControl = (String) map.get("remoteControl");
 		tempered = (String) map.get("tempered");
+		featureEngineMonitoring = (String) map.get("featureEngineMonitoring");
+		featureTracking = (String) map.get("featureTracking");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -2852,6 +2882,14 @@ public abstract class Baseappliance extends BaseResource {
 		Object temperedObj = map.get("tempered");
 		if(temperedObj != null)
 			tempered = temperedObj.toString();
+
+		Object featureEngineMonitoringObj = map.get("featureEngineMonitoring");
+		if(featureEngineMonitoringObj != null)
+			featureEngineMonitoring = featureEngineMonitoringObj.toString();
+
+		Object featureTrackingObj = map.get("featureTracking");
+		if(featureTrackingObj != null)
+			featureTracking = featureTrackingObj.toString();
 
 	}
 
@@ -4926,6 +4964,30 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetTempered() {
 		this.tempered = "N";
+	}
+
+	public String getFeatureEngineMonitoring() {
+		return featureEngineMonitoring != null ? featureEngineMonitoring : "N";
+	}
+
+	public void setFeatureEngineMonitoring(String featureEngineMonitoring) {
+		this.featureEngineMonitoring = featureEngineMonitoring;
+	}
+
+	public void unSetFeatureEngineMonitoring() {
+		this.featureEngineMonitoring = "N";
+	}
+
+	public String getFeatureTracking() {
+		return featureTracking != null ? featureTracking : "N";
+	}
+
+	public void setFeatureTracking(String featureTracking) {
+		this.featureTracking = featureTracking;
+	}
+
+	public void unSetFeatureTracking() {
+		this.featureTracking = "N";
 	}
 	public String getCluster() {
 		return "DB_DEVICE";
