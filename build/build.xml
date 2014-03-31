@@ -107,7 +107,7 @@
 		</jar>
 	</target>
 	
-	<target name="build" depends="compile">
+	<target name="build" depends="update.version.build,compile">
 		<copy todir="${build_home}/c4t-manager" overwrite="true">
 			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
