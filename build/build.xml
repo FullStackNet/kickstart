@@ -7,6 +7,7 @@
     </description>
 	<!-- build variables -->
 	<property name="src" value="src"/>
+	<property name="build" value="build"/>
 	<property name="classes" value="classes"/>
 	<property name="bin" value="bin"/>
 	<property name="conf" value="conf"/>
@@ -30,7 +31,43 @@
 	<property name="agent_home" value="${env.C4T_AGENT_HOME}"/>
 	<property name="libs" value="${env.C4T_LIBS}"/>
 	<property name="thirdparty" value="${env.C4T_THIRDPARTY}"/>
-	<!-- classpath -->
+	<property name="versionFileName" value="${build}/build.properties" />
+	<property file="${versionFileName}" />  
+	<property name="currentVersion" value="1.0"/>
+	<property name="version_descriptor" value="${src}/platform/version/VersionManager.java" />
+ 	<property name="version_descriptor_template" value="${src}/platform/version/VersionManager.templete" />
+ 	<target name="calculate.version.build">
+    <script language="javascript">
+        <![CDATA[             
+            var currentVersion = project.getProperty("currentVersion");
+            var oldVersion = project.getProperty("version.number");
+            var buildNumber = project.getProperty("build.number");
+
+            if (!currentVersion.equals(oldVersion)){
+                project.setProperty("currentBuild", 1);
+            } else {
+                var newBuildNumber = ++buildNumber;
+                project.setProperty("currentBuild", newBuildNumber);
+            }
+        ]]> 
+    </script>
+</target>
+
+<target name="update.version.build" depends="calculate.version.build">
+    <propertyfile file="${versionFileName}">
+        <entry key="build.number" type="int" operation="=" value="${currentBuild}" />
+        <entry key="version.number" type="string" operation="=" value="${currentVersion}" />
+    </propertyfile>
+    <echo message="New version: ${currentVersion}.${currentBuild}" />
+	<copy file="${version_descriptor_template}" 
+ 			tofile="${version_descriptor}" 
+ 		overwrite="true" />
+	 <replace file="${version_descriptor}" 
+		 token="@@VERSION@@" 
+ 		 value="${currentVersion}.${currentBuild}" />
+</target>
+
+ 	<!-- classpath -->
 	<property name="extclasspath" 
              value=" ${thirdparty}/commons-lang-2.4.jar:
 		     ${thirdparty}/c4t-dds.jar:
@@ -70,7 +107,7 @@
 		</jar>
 	</target>
 	
-	<target name="build" depends="compile">
+	<target name="build" depends="update.version.build, compile">
 		<copy todir="${build_home}/c4t-manager" overwrite="true">
 			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
