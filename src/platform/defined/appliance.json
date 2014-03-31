@@ -796,9 +796,10 @@
 			'speed':
 			{
 				'name':'speed',
-				'default':'0',
-				'length': 4,
-				'type':'int'
+				''default':'0.00',
+				'length': 20,
+				'precision': 3,
+				'type':'Number'
 			},
 			'driveType':
 			{
