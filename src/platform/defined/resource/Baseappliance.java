@@ -172,6 +172,7 @@ public abstract class Baseappliance extends BaseResource {
 	private String starterTriggered = null;
 	private String waterInFuel = null;
 	private String remoteControl = null;
+	private String test = null;
 	private String tempered = null;
 	private String featureEngineMonitoring = null;
 	private String featureTracking = null;
@@ -329,6 +330,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_STARTERTRIGGERED = "starterTriggered";
 	public static String FIELD_WATERINFUEL = "waterInFuel";
 	public static String FIELD_REMOTECONTROL = "remoteControl";
+	public static String FIELD_TEST = "test";
 	public static String FIELD_TEMPERED = "tempered";
 	public static String FIELD_FEATUREENGINEMONITORING = "featureEngineMonitoring";
 	public static String FIELD_FEATURETRACKING = "featureTracking";
@@ -1078,6 +1080,11 @@ public abstract class Baseappliance extends BaseResource {
 		remoteControlField.setLength(1);
 		metaData.addField(remoteControlField);
 
+		Field testField = new Field("test", "String");
+		testField.setDefaultValue("N");
+		testField.setLength(1);
+		metaData.addField(testField);
+
 		Field temperedField = new Field("tempered", "String");
 		temperedField.setDefaultValue("N");
 		temperedField.setLength(1);
@@ -1255,6 +1262,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.starterTriggered = obj.starterTriggered;
 		this.waterInFuel = obj.waterInFuel;
 		this.remoteControl = obj.remoteControl;
+		this.test = obj.test;
 		this.tempered = obj.tempered;
 		this.featureEngineMonitoring = obj.featureEngineMonitoring;
 		this.featureTracking = obj.featureTracking;
@@ -1467,6 +1475,8 @@ public abstract class Baseappliance extends BaseResource {
 			waterInFuel = "N";
 		if(remoteControl == null)
 			remoteControl = "N";
+		if(test == null)
+			test = "N";
 		if(tempered == null)
 			tempered = "N";
 		if(featureEngineMonitoring == null)
@@ -1783,6 +1793,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("waterInFuel", waterInFuel);
 		if(remoteControl != null)
 			map.put("remoteControl", remoteControl);
+		if(test != null)
+			map.put("test", test);
 		if(tempered != null)
 			map.put("tempered", tempered);
 		if(featureEngineMonitoring != null)
@@ -2103,6 +2115,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("waterInFuel", waterInFuel);
 		if(remoteControl != null)
 			map.put("remoteControl", remoteControl);
+		if(test != null)
+			map.put("test", test);
 		if(tempered != null)
 			map.put("tempered", tempered);
 		if(featureEngineMonitoring != null)
@@ -2269,6 +2283,7 @@ public abstract class Baseappliance extends BaseResource {
 		starterTriggered = (String) map.get("starterTriggered");
 		waterInFuel = (String) map.get("waterInFuel");
 		remoteControl = (String) map.get("remoteControl");
+		test = (String) map.get("test");
 		tempered = (String) map.get("tempered");
 		featureEngineMonitoring = (String) map.get("featureEngineMonitoring");
 		featureTracking = (String) map.get("featureTracking");
@@ -2878,6 +2893,10 @@ public abstract class Baseappliance extends BaseResource {
 		Object remoteControlObj = map.get("remoteControl");
 		if(remoteControlObj != null)
 			remoteControl = remoteControlObj.toString();
+
+		Object testObj = map.get("test");
+		if(testObj != null)
+			test = testObj.toString();
 
 		Object temperedObj = map.get("tempered");
 		if(temperedObj != null)
@@ -4952,6 +4971,18 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetRemoteControl() {
 		this.remoteControl = "N";
+	}
+
+	public String getTest() {
+		return test != null ? test : "N";
+	}
+
+	public void setTest(String test) {
+		this.test = test;
+	}
+
+	public void unSetTest() {
+		this.test = "N";
 	}
 
 	public String getTempered() {

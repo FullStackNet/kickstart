@@ -31,6 +31,7 @@ public abstract class Basecustomer extends BaseResource {
 	private String country = null;
 	private String remark = null;
 	private String fleetService = null;
+	private String schoolTrackerService = null;
 	private String dgService = null;
 	private String selfOwned = null;
 	private String leasedOut = null;
@@ -48,6 +49,7 @@ public abstract class Basecustomer extends BaseResource {
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_FLEETSERVICE = "fleetService";
+	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_SELFOWNED = "selfOwned";
 	public static String FIELD_LEASEDOUT = "leasedOut";
@@ -108,6 +110,10 @@ public abstract class Basecustomer extends BaseResource {
 		fleetServiceField.setLength(1);
 		metaData.addField(fleetServiceField);
 
+		Field schoolTrackerServiceField = new Field("schoolTrackerService", "String");
+		schoolTrackerServiceField.setLength(1);
+		metaData.addField(schoolTrackerServiceField);
+
 		Field dgServiceField = new Field("dgService", "String");
 		dgServiceField.setLength(1);
 		metaData.addField(dgServiceField);
@@ -145,6 +151,7 @@ public abstract class Basecustomer extends BaseResource {
 		this.country = obj.country;
 		this.remark = obj.remark;
 		this.fleetService = obj.fleetService;
+		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
 		this.selfOwned = obj.selfOwned;
 		this.leasedOut = obj.leasedOut;
@@ -181,6 +188,8 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("remark", remark);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
+		if(schoolTrackerService != null)
+			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
 			map.put("dgService", dgService);
 		if(selfOwned != null)
@@ -218,6 +227,8 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("remark", remark);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
+		if(schoolTrackerService != null)
+			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
 			map.put("dgService", dgService);
 		if(selfOwned != null)
@@ -247,6 +258,7 @@ public abstract class Basecustomer extends BaseResource {
 		country = (String) map.get("country");
 		remark = (String) map.get("remark");
 		fleetService = (String) map.get("fleetService");
+		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
 		selfOwned = (String) map.get("selfOwned");
 		leasedOut = (String) map.get("leasedOut");
@@ -301,6 +313,10 @@ public abstract class Basecustomer extends BaseResource {
 		Object fleetServiceObj = map.get("fleetService");
 		if(fleetServiceObj != null)
 			fleetService = fleetServiceObj.toString();
+
+		Object schoolTrackerServiceObj = map.get("schoolTrackerService");
+		if(schoolTrackerServiceObj != null)
+			schoolTrackerService = schoolTrackerServiceObj.toString();
 
 		Object dgServiceObj = map.get("dgService");
 		if(dgServiceObj != null)
@@ -522,6 +538,22 @@ public abstract class Basecustomer extends BaseResource {
 
 	public void unSetFleetService() {
 		this.fleetService = null;
+	}
+
+	public String getSchoolTrackerService() {
+		return schoolTrackerService;
+	}
+
+	public String getSchoolTrackerServiceEx() {
+		return schoolTrackerService != null ? schoolTrackerService : "";
+	}
+
+	public void setSchoolTrackerService(String schoolTrackerService) {
+		this.schoolTrackerService = schoolTrackerService;
+	}
+
+	public void unSetSchoolTrackerService() {
+		this.schoolTrackerService = null;
 	}
 
 	public String getDgService() {

@@ -65,6 +65,11 @@
 				'length': 1,
 				'type':'String'
 			},
+			'schoolTrackerService':
+			{
+				'length': 1,
+				'type':'String'
+			},
 			'dgService':
 			{
 				'length': 1,

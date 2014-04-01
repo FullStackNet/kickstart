@@ -3,8 +3,6 @@ package platform.helper;
 import java.util.ArrayList;
 import java.util.Map;
 
-import platform.db.Expression;
-import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.customer;
 import platform.util.Util;
@@ -25,22 +23,11 @@ public class CustomerHelper extends BaseHelper {
 		}
 		return instance;
 	}
-	public ArrayList<Map<String, Object>> getFleetCustomerListMap() {
-		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		Expression expression = new Expression(customer.FIELD_FLEETSERVICE, REL_OP.EQ, "Y");
-		BaseResource[] resources = getByExpression(expression);
-		if (Util.isEmpty(resources))
-			return list;
-		for (BaseResource resource : resources) {
-			list.add(resource.convertResourceToMap());
-		}
-		return list;
-	}
 	
-	public ArrayList<Map<String, Object>> getDGCustomerListMap() {
+	
+	public ArrayList<Map<String, Object>> getCustomerListMap() {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		Expression expression = new Expression(customer.FIELD_DGSERVICE, REL_OP.EQ, "Y");
-		BaseResource[] resources = getByExpression(expression);
+		BaseResource[] resources = getAll();
 		if (Util.isEmpty(resources))
 			return list;
 		for (BaseResource resource : resources) {
