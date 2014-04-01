@@ -12,11 +12,13 @@ import platform.util.Util;
 public class  Controller {
 	public static String CONTROLLER_TYPE_OBD= "OBD";
 	public static String CONTROLLER_TYPE_DG_CONTROLLER = "DG_CONTROLLER";
+	public static String CONTROLLER_TYPE_TRACKER = "TRACKER";
 	
 	public static String[] getList() {
 		String[] list = {
 				CONTROLLER_TYPE_DG_CONTROLLER,
 				CONTROLLER_TYPE_OBD,
+				CONTROLLER_TYPE_TRACKER
 		};
 		return list;
 	}
