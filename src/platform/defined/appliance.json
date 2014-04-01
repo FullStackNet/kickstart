@@ -1034,6 +1034,11 @@
 				'length': 1,
 				'type':'String'
 			},
+			'test' : {
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
 			'tempered' : {
 				'default':'N',
 				'length': 1,
