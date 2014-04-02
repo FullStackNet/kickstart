@@ -106,7 +106,7 @@ public abstract class BaseProcess {
 	
 		MessageManager messageManager = new MessageManager();
 		registerMessage(messageManager);
-		connector = new Connector(messageBusURL, ApplicationConstants.APPLICATION_NAME_PACKET_LOGGER, userName, password, messageManager);
+		connector = new Connector(messageBusURL,getProcessType(), userName, password, messageManager);
 		connector.addPeer(ApplicationConstants.APPLICATION_NAME_MONITOR);
 		connector.addPeer(ApplicationConstants.APPLICATION_NAME_APPLICATION_SERVER);
 		registerPeers();

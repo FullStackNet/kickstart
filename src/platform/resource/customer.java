@@ -36,4 +36,11 @@ public class customer extends Basecustomer {
 		}
 		return false;
 	}
+	
+	public boolean isSchoolTrackerServiceEnable() {
+		if ("Y".equalsIgnoreCase(getSchoolTrackerService())) {
+			return true;
+		}
+		return false;
+	}
 }
