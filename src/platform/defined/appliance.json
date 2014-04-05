@@ -780,18 +780,14 @@
 			'langitude':
 			{
 				'name':'langitude',
-				'default':'0.00',
-				'length': 20,
-				'precision': 8,
-				'type':'Number'
+				'type':'String',
+				'length' : 32
 			},
 			'latitude':
 			{
 				'name':'langitude',
-				'default':'0.00',
-				'length': 20,
-				'precision': 8,
-				'type':'Number'
+				'type':'String',
+				'length' : 32
 			},
 			'speed':
 			{

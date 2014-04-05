@@ -132,8 +132,8 @@ public abstract class Baseappliance extends BaseResource {
 	private Number last_processed_fuel_quantity = null;
 	private Number last_processed_db_reading = null;
 	private Number last_processed_grid_reading = null;
-	private Number langitude = null;
-	private Number latitude = null;
+	private String langitude = null;
+	private String latitude = null;
 	private Integer speed = null;
 	private String driveType = null;
 	private String currentDriverId = null;
@@ -881,16 +881,12 @@ public abstract class Baseappliance extends BaseResource {
 		last_processed_grid_readingField.setPrecision(4);
 		metaData.addField(last_processed_grid_readingField);
 
-		Field langitudeField = new Field("langitude", "Number");
-		langitudeField.setDefaultValue(0.00);
-		langitudeField.setLength(20);
-		langitudeField.setPrecision(8);
+		Field langitudeField = new Field("langitude", "String");
+		langitudeField.setLength(32);
 		metaData.addField(langitudeField);
 
-		Field latitudeField = new Field("latitude", "Number");
-		latitudeField.setDefaultValue(0.00);
-		latitudeField.setLength(20);
-		latitudeField.setPrecision(8);
+		Field latitudeField = new Field("latitude", "String");
+		latitudeField.setLength(32);
 		metaData.addField(latitudeField);
 
 		Field speedField = new Field("speed", "int");
@@ -1411,10 +1407,6 @@ public abstract class Baseappliance extends BaseResource {
 			last_processed_db_reading = 0.00;
 		if(last_processed_grid_reading == null)
 			last_processed_grid_reading = 0.00;
-		if(langitude == null)
-			langitude = 0.00;
-		if(latitude == null)
-			latitude = 0.00;
 		if(speed == null)
 			speed = 0;
 		if(driveType == null)
@@ -2243,8 +2235,8 @@ public abstract class Baseappliance extends BaseResource {
 		last_processed_fuel_quantity = (Number) map.get("last_processed_fuel_quantity");
 		last_processed_db_reading = (Number) map.get("last_processed_db_reading");
 		last_processed_grid_reading = (Number) map.get("last_processed_grid_reading");
-		langitude = (Number) map.get("langitude");
-		latitude = (Number) map.get("latitude");
+		langitude = (String) map.get("langitude");
+		latitude = (String) map.get("latitude");
 		speed = (Integer) map.get("speed");
 		driveType = (String) map.get("driveType");
 		currentDriverId = (String) map.get("currentDriverId");
@@ -2736,11 +2728,11 @@ public abstract class Baseappliance extends BaseResource {
 
 		Object langitudeObj = map.get("langitude");
 		if(langitudeObj != null)
-			langitude = new Double(langitudeObj.toString());
+			langitude = langitudeObj.toString();
 
 		Object latitudeObj = map.get("latitude");
 		if(latitudeObj != null)
-			latitude = new Double(latitudeObj.toString());
+			latitude = latitudeObj.toString();
 
 		Object speedObj = map.get("speed");
 		if(speedObj != null)
@@ -4453,28 +4445,36 @@ public abstract class Baseappliance extends BaseResource {
 		this.last_processed_grid_reading = 0.00;
 	}
 
-	public Number getLangitude() {
-		return langitude != null ? langitude : 0.00;
+	public String getLangitude() {
+		return langitude;
 	}
 
-	public void setLangitude(Number langitude) {
+	public String getLangitudeEx() {
+		return langitude != null ? langitude : "";
+	}
+
+	public void setLangitude(String langitude) {
 		this.langitude = langitude;
 	}
 
 	public void unSetLangitude() {
-		this.langitude = 0.00;
+		this.langitude = null;
 	}
 
-	public Number getLatitude() {
-		return latitude != null ? latitude : 0.00;
+	public String getLatitude() {
+		return latitude;
 	}
 
-	public void setLatitude(Number latitude) {
+	public String getLatitudeEx() {
+		return latitude != null ? latitude : "";
+	}
+
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
 
 	public void unSetLatitude() {
-		this.latitude = 0.00;
+		this.latitude = null;
 	}
 
 	public Integer getSpeed() {
