@@ -209,6 +209,7 @@ class ClientReadHandler extends Communication implements Runnable {
 				break;
 			}
 			if (session.isDelete()) {
+				ApplicationLogger.info("Session mark deleted ...."+session.getClientId(), this.getClass());
 				break;
 			}
 			if (GlobalDataManager.getInstance().isShutdown()) {
@@ -230,6 +231,7 @@ class ClientReadHandler extends Communication implements Runnable {
 				}
 				responseMessageQueue.cleanUnAttendedMessage(session);
 			} catch (ApplicationException e) {
+				ApplicationLogger.info("Exiting the Session due to exception "+e.getMessage()+"...."+session.getClientId(), this.getClass());
 				break;
 			}
 		}
