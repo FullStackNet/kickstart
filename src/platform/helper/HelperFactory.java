@@ -12,6 +12,7 @@ public class HelperFactory {
 	public static String HELPER_SENSOR= "sensor";
 	public static String HELPER_CONTROLLER = "sensor";
 	public static String HELPER_CUSTOMER = "customer";
+
 	
 	
 	public static HelperFactory instance;
