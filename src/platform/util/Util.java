@@ -1153,4 +1153,40 @@ public class Util {
 		}
 		return ""+value+" B";
 	}
+	
+	public static double convertLongitudeToDouble(String str) {
+		int multipler = 1;
+		str = str.replace("E", "");
+		if (str.contains("W")) {
+			str = str.replace("W", "");
+			multipler = -1;
+		}
+		str = str.replace(".", "-");
+		String[] decSplit = str.split("-");
+		String firstString = decSplit[0];
+		String str1 = firstString.substring(firstString.length()-2, firstString.length());
+		String str2 = firstString.substring(0, firstString.length()-2);
+		double value = Integer.parseInt(str2)+Double.parseDouble(str1+"."+decSplit[1])/60;
+		System.out.println(str);
+		System.out.println(str1+"-"+str2);
+		return (multipler)*value;
+	}
+
+	public static double convertLatitudeToDouble(String str) {
+		int multipler = 1;
+		str = str.replace("N", "");
+		if (str.contains("S")) {
+			str = str.replace("S", "");
+			multipler = -1;
+		}
+		str = str.replace(".", "-");
+		String[] decSplit = str.split("-");
+		String firstString = decSplit[0];
+		String str1 = firstString.substring(firstString.length()-2, firstString.length());
+		String str2 = firstString.substring(0, firstString.length()-2);
+		double value = Integer.parseInt(str2)+Double.parseDouble(str1+"."+decSplit[1])/60;
+		System.out.println(str);
+		System.out.println(str1+"-"+str2);
+		return (multipler)*value;
+	}
 }
