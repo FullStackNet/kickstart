@@ -62,6 +62,9 @@ public abstract class BaseTableView extends BaseView {
 	}
 
 	protected String getModifyURL(String id) {
+		if (getDefinition().getModifyURL().contains("?")) {
+			return getDefinition().getModifyURL()+"&id="+id+"&op=modify";
+		}
 		return getDefinition().getModifyURL()+"?id="+id+"&op=modify";
 	}
 
