@@ -23,6 +23,10 @@ public class COMBO {
 		value = ""+value;
 		for(int i=0; i< list.size(); i++) {
 			option = new OPTION();
+			if (list.get(i) == null) continue;
+			if (list.get(i).getId() == null) continue;
+			if (list.get(i).getValue() == null) continue;
+				
 			option.addAttribute("value", list.get(i).getId().toString());
 			option.setText(list.get(i).getValue().toString());
 			if (list.get(i).getId().equals(value)) {

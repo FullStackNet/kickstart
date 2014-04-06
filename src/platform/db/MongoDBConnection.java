@@ -217,6 +217,8 @@ public class MongoDBConnection extends DbConnection {
 						row.put(columnName, ((Double)value).shortValue());
 					} else if (field.getType().equalsIgnoreCase("byte")) {
 						row.put(columnName, ((Double)value).byteValue());
+					} else if (field.getType().equalsIgnoreCase("string")) {
+						row.put(columnName, value.toString());
 					} else {
 						row.put(columnName, value);
 					}
@@ -357,6 +359,8 @@ public class MongoDBConnection extends DbConnection {
 									row.put(columnName, ((Double)value).shortValue());
 								} else if (field.getType().equalsIgnoreCase("byte")) {
 									row.put(columnName, ((Double)value).byteValue());
+								}  else if (field.getType().equalsIgnoreCase("string")) {
+									row.put(columnName, value.toString());
 								} else {
 									row.put(columnName, value);
 								}

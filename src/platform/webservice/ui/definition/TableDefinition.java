@@ -19,6 +19,7 @@ public class TableDefinition {
 	
 	boolean dailyTotal;
 	boolean monthlyTotal;
+	long width;
 	
 	private ArrayList<JoinField> joinFields;
 	
@@ -151,5 +152,11 @@ public class TableDefinition {
 	}
 	public void setMonthlyTotal(boolean monthlyTotal) {
 		this.monthlyTotal = monthlyTotal;
+	}
+	public long getWidth() {
+		return width;
+	}
+	public void setWidth(long width) {
+		this.width = width;
 	}
 }
