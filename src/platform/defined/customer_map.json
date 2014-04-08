@@ -20,6 +20,16 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
+			'invite':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'join':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
 			'controllers':
 			{
 				'type':'Array',

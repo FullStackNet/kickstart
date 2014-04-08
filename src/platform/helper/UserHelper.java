@@ -5,6 +5,7 @@ import java.util.Map;
 
 import platform.db.Expression;
 import platform.db.JoinField;
+import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.user;
@@ -44,7 +45,26 @@ public class UserHelper extends BaseHelper {
 		return null;
 	}
 
+	public user getByMobileId(String mobileno) {
+		Expression e = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
+		BaseResource[] resources = UserHelper.getInstance().getByExpression(e);
+		if (!Util.isEmpty(resources)) {
+			return (user)resources[0];
+		}
+		return null;
+	}
+	
+	public user getByMobileOrEmailId(String mobileno,String emailId) {
+		Expression e1 = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
+		Expression e2 = new Expression(user.FIELD_EMAIL_ID, REL_OP.EQ, emailId);
+		Expression e = new Expression(e1, LOG_OP.OR, e2);
 		
+		BaseResource[] resources = getByExpression(e);
+		if (!Util.isEmpty(resources)) {
+			return (user)resources[0];
+		}
+		return null;
+	}
 	public ArrayList<Map<String, Object>> getC4TAdmin() {
 		ArrayList<Map<String, Object>>  users = new ArrayList<Map<String, Object>>();
 		Expression expression = new Expression(user.FIELD_TYPE, REL_OP.EQ, user.USER_TYPE_C4T_ADMIN);

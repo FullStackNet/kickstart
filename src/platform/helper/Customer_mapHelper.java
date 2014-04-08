@@ -69,6 +69,13 @@ public class Customer_mapHelper extends BaseHelper {
 		AddOrUpdate(_customer_map);
 	}
 	
+	public void addInvite(String customerId,String inviteId) throws ApplicationException {
+		customer_map _customer_map = new customer_map();
+		_customer_map.setId(customerId);
+		_customer_map.addInvite(inviteId);
+		AddOrUpdate(_customer_map);
+	}
+	
 	public void addLocation(String customerId,String locationId) throws ApplicationException {
 		customer_map _customer_map = new customer_map();
 		_customer_map.setId(customerId);

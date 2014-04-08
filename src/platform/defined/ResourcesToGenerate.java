@@ -54,5 +54,6 @@ public class ResourcesToGenerate {
 		new ResourceMap("session", "platform.resource.session"),
 		new ResourceMap("user", "platform.resource.user"),
 		new ResourceMap("user_map", "platform.resource.user_map"),
+		new ResourceMap("invite", "platform.resource.invite"),
 	};
 }

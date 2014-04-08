@@ -18,35 +18,39 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Baseuser extends BaseResource {
+public abstract class Baseinvite extends BaseResource {
 	private String id = null;
-	private String password = null;
 	private String type = null;
 	private String name = null;
 	private String mobile_no = null;
 	private String email_id = null;
 	private String customer_id = null;
-	private String state = null;
+	private String invite_type = null;
+	private String reference_id = null;
+	private String reference_name = null;
 	private String fleetService = null;
 	private String schoolTrackerService = null;
 	private String dgService = null;
 	private String key = null;
+	private String status = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
-	public static String FIELD_STATE = "state";
+	public static String FIELD_INVITE_TYPE = "invite_type";
+	public static String FIELD_REFERENCE_ID = "reference_id";
+	public static String FIELD_REFERENCE_NAME = "reference_name";
 	public static String FIELD_FLEETSERVICE = "fleetService";
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_KEY = "key";
+	public static String FIELD_STATUS = "status";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("user");
+	private final static ResourceMetaData metaData = new ResourceMetaData("invite");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -55,11 +59,6 @@ public abstract class Baseuser extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
-
-		Field passwordField = new Field("password", "String");
-		passwordField.setRequired(true);
-		passwordField.setLength(32);
-		metaData.addField(passwordField);
 
 		Field typeField = new Field("type", "String");
 		typeField.setRequired(true);
@@ -82,9 +81,17 @@ public abstract class Baseuser extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
-		Field stateField = new Field("state", "String");
-		stateField.setLength(32);
-		metaData.addField(stateField);
+		Field invite_typeField = new Field("invite_type", "String");
+		invite_typeField.setLength(128);
+		metaData.addField(invite_typeField);
+
+		Field reference_idField = new Field("reference_id", "String");
+		reference_idField.setLength(128);
+		metaData.addField(reference_idField);
+
+		Field reference_nameField = new Field("reference_name", "String");
+		reference_nameField.setLength(128);
+		metaData.addField(reference_nameField);
 
 		Field fleetServiceField = new Field("fleetService", "String");
 		fleetServiceField.setLength(1);
@@ -102,27 +109,33 @@ public abstract class Baseuser extends BaseResource {
 		keyField.setLength(128);
 		metaData.addField(keyField);
 
+		Field statusField = new Field("status", "String");
+		statusField.setLength(128);
+		metaData.addField(statusField);
 
-		metaData.setTableName("user");
+
+		metaData.setTableName("invite");
 
 		metaData.setCluster("DB_PROFILE");
 	}
 
-	public Baseuser() {}
+	public Baseinvite() {}
 
-	public Baseuser(Baseuser obj) {
+	public Baseinvite(Baseinvite obj) {
 		this.id = obj.id;
-		this.password = obj.password;
 		this.type = obj.type;
 		this.name = obj.name;
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
 		this.customer_id = obj.customer_id;
-		this.state = obj.state;
+		this.invite_type = obj.invite_type;
+		this.reference_id = obj.reference_id;
+		this.reference_name = obj.reference_name;
 		this.fleetService = obj.fleetService;
 		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
 		this.key = obj.key;
+		this.status = obj.status;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -133,8 +146,6 @@ public abstract class Baseuser extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(password != null)
-			map.put("password", password);
 		if(type != null)
 			map.put("type", type);
 		if(name != null)
@@ -145,8 +156,12 @@ public abstract class Baseuser extends BaseResource {
 			map.put("email_id", email_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if(state != null)
-			map.put("state", state);
+		if(invite_type != null)
+			map.put("invite_type", invite_type);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
+		if(reference_name != null)
+			map.put("reference_name", reference_name);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
 		if(schoolTrackerService != null)
@@ -155,6 +170,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("dgService", dgService);
 		if(key != null)
 			map.put("key", key);
+		if(status != null)
+			map.put("status", status);
 		return map;
 	}
 
@@ -162,8 +179,6 @@ public abstract class Baseuser extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(validatePassword(add))
-			map.put("password", password);
 		if(validateType(add))
 			map.put("type", type);
 		if(name != null)
@@ -174,8 +189,12 @@ public abstract class Baseuser extends BaseResource {
 			map.put("email_id", email_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if(state != null)
-			map.put("state", state);
+		if(invite_type != null)
+			map.put("invite_type", invite_type);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
+		if(reference_name != null)
+			map.put("reference_name", reference_name);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
 		if(schoolTrackerService != null)
@@ -184,6 +203,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("dgService", dgService);
 		if(key != null)
 			map.put("key", key);
+		if(status != null)
+			map.put("status", status);
 		return map;
 	}
 
@@ -194,27 +215,25 @@ public abstract class Baseuser extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		password = (String) map.get("password");
 		type = (String) map.get("type");
 		name = (String) map.get("name");
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
 		customer_id = (String) map.get("customer_id");
-		state = (String) map.get("state");
+		invite_type = (String) map.get("invite_type");
+		reference_id = (String) map.get("reference_id");
+		reference_name = (String) map.get("reference_name");
 		fleetService = (String) map.get("fleetService");
 		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
 		key = (String) map.get("key");
+		status = (String) map.get("status");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
-
-		Object passwordObj = map.get("password");
-		if(passwordObj != null)
-			password = passwordObj.toString();
 
 		Object typeObj = map.get("type");
 		if(typeObj != null)
@@ -236,9 +255,17 @@ public abstract class Baseuser extends BaseResource {
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
 
-		Object stateObj = map.get("state");
-		if(stateObj != null)
-			state = stateObj.toString();
+		Object invite_typeObj = map.get("invite_type");
+		if(invite_typeObj != null)
+			invite_type = invite_typeObj.toString();
+
+		Object reference_idObj = map.get("reference_id");
+		if(reference_idObj != null)
+			reference_id = reference_idObj.toString();
+
+		Object reference_nameObj = map.get("reference_name");
+		if(reference_nameObj != null)
+			reference_name = reference_nameObj.toString();
 
 		Object fleetServiceObj = map.get("fleetService");
 		if(fleetServiceObj != null)
@@ -255,6 +282,10 @@ public abstract class Baseuser extends BaseResource {
 		Object keyObj = map.get("key");
 		if(keyObj != null)
 			key = keyObj.toString();
+
+		Object statusObj = map.get("status");
+		if(statusObj != null)
+			status = statusObj.toString();
 
 	}
 
@@ -284,28 +315,6 @@ public abstract class Baseuser extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public String getPasswordEx() {
-		return password != null ? password : "";
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public void unSetPassword() {
-		this.password = null;
-	}
-
-	public boolean validatePassword(boolean add) throws ApplicationException {
-		if(add && password == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[password]");
-		return password != null;
 	}
 
 	public String getType() {
@@ -394,20 +403,52 @@ public abstract class Baseuser extends BaseResource {
 		this.customer_id = null;
 	}
 
-	public String getState() {
-		return state;
+	public String getInvite_type() {
+		return invite_type;
 	}
 
-	public String getStateEx() {
-		return state != null ? state : "";
+	public String getInvite_typeEx() {
+		return invite_type != null ? invite_type : "";
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setInvite_type(String invite_type) {
+		this.invite_type = invite_type;
 	}
 
-	public void unSetState() {
-		this.state = null;
+	public void unSetInvite_type() {
+		this.invite_type = null;
+	}
+
+	public String getReference_id() {
+		return reference_id;
+	}
+
+	public String getReference_idEx() {
+		return reference_id != null ? reference_id : "";
+	}
+
+	public void setReference_id(String reference_id) {
+		this.reference_id = reference_id;
+	}
+
+	public void unSetReference_id() {
+		this.reference_id = null;
+	}
+
+	public String getReference_name() {
+		return reference_name;
+	}
+
+	public String getReference_nameEx() {
+		return reference_name != null ? reference_name : "";
+	}
+
+	public void setReference_name(String reference_name) {
+		this.reference_name = reference_name;
+	}
+
+	public void unSetReference_name() {
+		this.reference_name = null;
 	}
 
 	public String getFleetService() {
@@ -472,6 +513,22 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetKey() {
 		this.key = null;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public String getStatusEx() {
+		return status != null ? status : "";
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public void unSetStatus() {
+		this.status = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";
