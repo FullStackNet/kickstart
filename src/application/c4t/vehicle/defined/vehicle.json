@@ -1,0 +1,246 @@
+{
+	"vehicle" :
+	{
+		"cluster": "DB_DEVICE",
+		"table"  => "appliance",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String',
+				'required': true
+			},
+			'make_id':
+			{
+				'name':'make_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'auto' : true,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'name':'user_id',
+				'length': 128,
+				'auto' : true,
+				'type':'String'
+			},
+			'model_id':
+			{
+				'name':'model_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'type':
+			{
+				'name':'type',
+				'length': 32,
+				'type':'String',
+				'auto': "VEHICLE"
+			},
+			'sub_type':
+			{
+				'name':'type',
+				'length': 32,
+				'type':'String',
+				'remark' : "CAR/BUS/TRUCK"
+			},
+			'manager':
+			{
+				'name':'manager',
+				'length': 128,
+				'type':'String',
+				'required': true
+			},
+			'serial_no':
+			{
+				'name':'serial_no',
+				'length': 64,
+				'type':'String'
+			},
+			'manufecturing_date':
+			{
+				'name':'manufecturing_date',
+				'length': 32,
+				'type':'String'
+			},
+			'next_servicing_date':
+			{
+				'name':'next_servicing_date',
+				'length': 32,
+				'type':'String'
+			},
+			'threshold_fuel_level':
+			{
+				'name':'threshold_fuel_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'capacity':
+			{
+				'name':'capacity',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'maintainace_run_hour':
+			{
+				'name':'maintainace_run_hour',
+				'length': 10,
+				'type':'int'
+			},
+			'connected':
+			{
+				'name':'connected',
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'config':
+			{
+				'name':'config',
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'fuel_level':
+			{
+				'name':'fuel_level',
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'fuel_quantity':
+			{
+				'name':'fuel_quantity',
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'state':
+			{
+				'name':'state',
+				'default':'N',
+				'length': 32,
+				'type':'String'
+			},
+			'last_disconnect_time':
+			{
+				'name':'last_disconnect_time',
+				'type':'timestamp'
+			},
+			'last_update_time':
+			{
+				'name':'last_update_time',
+				'type':'timestamp'
+			},
+			'activated':
+			{
+				'name':'activated',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'langitude':
+			{
+				'name':'langitude',
+				'default':'0.00',
+				'length': 20,
+				'precision': 8,
+				'type':'Number'
+			},
+			'latitude':
+			{
+				'name':'langitude',
+				'default':'0.00',
+				'length': 20,
+				'precision': 8,
+				'type':'Number'
+			},
+			'speed':
+			{
+				'name':'speed',
+				'default':'0',
+				'length': 4,
+				'type':'int'
+			},
+			'driveType':
+			{
+				'name':'driveType',
+				'default':'OWN',
+				'length': 32,
+				'type':'String',
+				'remark' : "Drive type OWN/DRIVER"
+			},
+			'currentDriverId':
+			{
+				'name':'currentDriverId',
+				'length': 32,
+				'type':'String'
+			},
+			'engineTemperature':
+			{
+				'name':'engineTemperature',
+				'default':'0.0',
+				'length': 6,
+				'precision': 2,
+				'type':'Number'
+			},
+			'ignitionState':
+			{
+				'name':'ignitionState',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'engineOverHeatState':
+			{
+				'name':'engineOverHeatState',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'lowBatteryState':
+			{
+				'name':'lowBatteryState',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'obdLowBatteryState':
+			{
+				'name':'obdLowBatteryState',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'batteryLevel':
+			{
+				'name':'batteryLevel',
+				'default':'0.0',
+				'length': 6,
+				'precision': 2,
+				'type':'Number'
+			}
+		}
+	}
+}

@@ -1,0 +1,65 @@
+{
+	"customer_vehicle_map" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'remark' : "customer Id"
+			},
+			'drivers':
+			{
+				'name':'drivers',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'routes':
+			{
+				'name':'routes',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'schedules':
+			{
+				'name':'schedules',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'fleetManagers':
+			{
+				'name':'fleetManagers',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'fleetOwners':
+			{
+				'name':'fleetOwners',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'stopages':
+			{
+				'name':'stopages',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'students':
+			{
+				'name':'students',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'schedule_stopage':
+			{
+				'name':'schedule_stopage',
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}

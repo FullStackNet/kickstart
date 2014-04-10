@@ -1,0 +1,110 @@
+{
+	"vehicle_summary" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'group_name':
+			{
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'appliance_type':
+			{
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'today_fuel_consumed':
+			{
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'today_fuel_loss':
+			{
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'fuel_quantity':
+			{
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'number_of_low_fuel':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			},
+			'number_of_high_water_temp':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			},
+			'number_of_high_canopy_temp':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			},
+			'number_of_high_coolant_temp':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			},
+			'number_of_dg_on':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			},
+			'number_of_dg_off':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			},
+			'number_of_dg_grid_both_running':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			},
+			'number_of_dg_grid_both_not_running':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			},
+			'number_of_start_failed':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			},
+			'number_of_not_performed':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			},
+			'number_of_not_performed_well':
+			{
+				'default':'0',
+				'length': 10,
+				'type':'int'
+			}
+		}
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"schedule_stopage" :
+	{
+		"cluster": "DB_CONFIG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'name':'user_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'schedule_id':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'stopage_id':
+			{
+				'name':'stopage_id',
+				'length': 128,
+				'type':'String'
+			},
+			'scheduleTime':
+			{
+				'name':'scheduleTime',
+				'length': 6,
+				'type':'String'
+			},
+			'stopage_order':
+			{
+				'name':'stopage_order',
+				'type':'int'
+			}	
+		}
+	}
+}

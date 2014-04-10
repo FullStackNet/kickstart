@@ -1,0 +1,149 @@
+{
+	"student" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'name':'school_id',
+				'length': 128,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'address1':
+			{
+				'name':'address1',
+				'length': 128,
+				'type':'String'
+			},
+			'address2':
+			{
+				'name':'address2',
+				'length': 128,
+				'type':'String'
+			},
+			'address3':
+			{
+				'name':'address3',
+				'length': 128,
+				'type':'String'
+			},
+			'city':
+			{
+				'name':'city',
+				'length': 128,
+				'type':'String'
+			},
+			'state':
+			{
+				'name':'state',
+				'length': 128,
+				'type':'String'
+			},
+			'country':
+			{
+				'name':'country',
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_schedule_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_schedule_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'other_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'other_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_email_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_email_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'other_email_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'name':'user_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'remark':
+			{
+				'name':'remark',
+				'length': 512,
+				'type':'String'
+			}
+		}
+	}
+}
