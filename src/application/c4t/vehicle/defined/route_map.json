@@ -1,0 +1,26 @@
+{
+	"route_map" :
+	{
+		"cluster": "DB_CONFIG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'stopages':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'users':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}

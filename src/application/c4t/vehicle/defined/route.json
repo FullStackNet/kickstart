@@ -55,16 +55,6 @@
 				'required': true,
 				'type':'String'
 			},
-			'stopages':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
-			'users':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
 			'appliance_id':
 			{
 				'name':'appliance_id',

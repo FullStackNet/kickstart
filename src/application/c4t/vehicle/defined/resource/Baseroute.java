@@ -27,8 +27,6 @@ public abstract class Baseroute extends BaseResource {
 	private String by_route = null;
 	private String customer_id = null;
 	private String user_id = null;
-	private ArrayList<Object> stopages = null;
-	private ArrayList<Object> users = null;
 	private String appliance_id = null;
 	private String driver_id = null;
 	private String attendent_id = null;
@@ -43,8 +41,6 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_BY_ROUTE = "by_route";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
-	public static String FIELD_STOPAGES = "stopages";
-	public static String FIELD_USERS = "users";
 	public static String FIELD_APPLIANCE_ID = "appliance_id";
 	public static String FIELD_DRIVER_ID = "driver_id";
 	public static String FIELD_ATTENDENT_ID = "attendent_id";
@@ -92,12 +88,6 @@ public abstract class Baseroute extends BaseResource {
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
 
-		Field stopagesField = new Field("stopages", "Array");
-		metaData.addField(stopagesField);
-
-		Field usersField = new Field("users", "Array");
-		metaData.addField(usersField);
-
 		Field appliance_idField = new Field("appliance_id", "String");
 		appliance_idField.setLength(128);
 		metaData.addField(appliance_idField);
@@ -135,8 +125,6 @@ public abstract class Baseroute extends BaseResource {
 		this.by_route = obj.by_route;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
-		this.stopages = obj.stopages;
-		this.users = obj.users;
 		this.appliance_id = obj.appliance_id;
 		this.driver_id = obj.driver_id;
 		this.attendent_id = obj.attendent_id;
@@ -166,10 +154,6 @@ public abstract class Baseroute extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
-		if(stopages != null)
-			map.put("stopages", stopages);
-		if(users != null)
-			map.put("users", users);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
 		if(driver_id != null)
@@ -201,10 +185,6 @@ public abstract class Baseroute extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(validateUser_id(add))
 			map.put("user_id", user_id);
-		if(stopages != null)
-			map.put("stopages", stopages);
-		if(users != null)
-			map.put("users", users);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
 		if(driver_id != null)
@@ -232,8 +212,6 @@ public abstract class Baseroute extends BaseResource {
 		by_route = (String) map.get("by_route");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
-		stopages = (ArrayList<Object>) map.get("stopages");
-		users = (ArrayList<Object>) map.get("users");
 		appliance_id = (String) map.get("appliance_id");
 		driver_id = (String) map.get("driver_id");
 		attendent_id = (String) map.get("attendent_id");
@@ -274,8 +252,6 @@ public abstract class Baseroute extends BaseResource {
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
 
-		stopages = (ArrayList<Object>) map.get("stopages");
-		users = (ArrayList<Object>) map.get("users");
 		Object appliance_idObj = map.get("appliance_id");
 		if(appliance_idObj != null)
 			appliance_id = appliance_idObj.toString();
@@ -448,44 +424,6 @@ public abstract class Baseroute extends BaseResource {
 		if(add && user_id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[user_id]");
 		return user_id != null;
-	}
-
-	public ArrayList<Object> getStopages() {
-		return stopages;
-	}
-
-
-	public void setStopages(ArrayList<Object> stopages) {
-		this.stopages = stopages;
-	}
-
-	public void addStopages(Object value) {
-		if(stopages == null)
-			stopages = new ArrayList<Object>();
-		stopages.add(value);
-	}
-
-	public void unSetStopages() {
-		this.stopages = null;
-	}
-
-	public ArrayList<Object> getUsers() {
-		return users;
-	}
-
-
-	public void setUsers(ArrayList<Object> users) {
-		this.users = users;
-	}
-
-	public void addUsers(Object value) {
-		if(users == null)
-			users = new ArrayList<Object>();
-		users.add(value);
-	}
-
-	public void unSetUsers() {
-		this.users = null;
 	}
 
 	public String getAppliance_id() {
