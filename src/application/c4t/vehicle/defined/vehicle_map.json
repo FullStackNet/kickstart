@@ -1,0 +1,29 @@
+{
+	"vehicle_map" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'remark' : "vehicle Id"
+			},
+			'schedules':
+			{
+				'name':'schedules',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'stopages':
+			{
+				'name':'stopages',
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}
