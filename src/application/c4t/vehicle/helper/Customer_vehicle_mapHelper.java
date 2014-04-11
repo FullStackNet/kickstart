@@ -138,13 +138,4 @@ public class Customer_vehicle_mapHelper extends BaseHelper {
 		return StopageHelper.getInstance().getListMapById(_customer_map.getStopages().toArray(new String[_customer_map.getStopages().size()]),
 				new String[]{stopage.FIELD_NAME});
 	}
-	
-	public ArrayList<Map<String, Object>> getScheduleStopageListMap(String customerId) {
-		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		customer_vehicle_map _customer_map = (customer_vehicle_map)getById(customerId);
-		if ((_customer_map == null) || (_customer_map.getSchedule_stopage() == null))
-			return list;
-		return Schedule_stopageHelper.getInstance().getListMapById(_customer_map.getSchedule_stopage().toArray(new String[_customer_map.getSchedule_stopage().size()]),
-				new String[]{schedule.FIELD_NAME});
-	}
 }

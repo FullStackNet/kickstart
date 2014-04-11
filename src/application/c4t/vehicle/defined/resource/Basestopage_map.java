@@ -18,19 +18,15 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Basevehicle_map extends BaseResource {
+public abstract class Basestopage_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> schedules = null;
-	private ArrayList<Object> stopages = null;
 	private ArrayList<Object> notify_users = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_SCHEDULES = "schedules";
-	public static String FIELD_STOPAGES = "stopages";
 	public static String FIELD_NOTIFY_USERS = "notify_users";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("vehicle_map");
+	private final static ResourceMetaData metaData = new ResourceMetaData("stopage_map");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -40,27 +36,19 @@ public abstract class Basevehicle_map extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
-		Field schedulesField = new Field("schedules", "Array");
-		metaData.addField(schedulesField);
-
-		Field stopagesField = new Field("stopages", "Array");
-		metaData.addField(stopagesField);
-
 		Field notify_usersField = new Field("notify_users", "Array");
 		metaData.addField(notify_usersField);
 
 
-		metaData.setTableName("vehicle_map");
+		metaData.setTableName("stopage_map");
 
-		metaData.setCluster("DB_DEVICE");
+		metaData.setCluster("DB_CONFIG");
 	}
 
-	public Basevehicle_map() {}
+	public Basestopage_map() {}
 
-	public Basevehicle_map(Basevehicle_map obj) {
+	public Basestopage_map(Basestopage_map obj) {
 		this.id = obj.id;
-		this.schedules = obj.schedules;
-		this.stopages = obj.stopages;
 		this.notify_users = obj.notify_users;
 	}
 
@@ -72,10 +60,6 @@ public abstract class Basevehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(schedules != null)
-			map.put("schedules", schedules);
-		if(stopages != null)
-			map.put("stopages", stopages);
 		if(notify_users != null)
 			map.put("notify_users", notify_users);
 		return map;
@@ -85,10 +69,6 @@ public abstract class Basevehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(schedules != null)
-			map.put("schedules", schedules);
-		if(stopages != null)
-			map.put("stopages", stopages);
 		if(notify_users != null)
 			map.put("notify_users", notify_users);
 		return map;
@@ -101,8 +81,6 @@ public abstract class Basevehicle_map extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		schedules = (ArrayList<Object>) map.get("schedules");
-		stopages = (ArrayList<Object>) map.get("stopages");
 		notify_users = (ArrayList<Object>) map.get("notify_users");
 	}
 
@@ -111,8 +89,6 @@ public abstract class Basevehicle_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		schedules = (ArrayList<Object>) map.get("schedules");
-		stopages = (ArrayList<Object>) map.get("stopages");
 		notify_users = (ArrayList<Object>) map.get("notify_users");
 	}
 
@@ -144,44 +120,6 @@ public abstract class Basevehicle_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getSchedules() {
-		return schedules;
-	}
-
-
-	public void setSchedules(ArrayList<Object> schedules) {
-		this.schedules = schedules;
-	}
-
-	public void addSchedules(Object value) {
-		if(schedules == null)
-			schedules = new ArrayList<Object>();
-		schedules.add(value);
-	}
-
-	public void unSetSchedules() {
-		this.schedules = null;
-	}
-
-	public ArrayList<Object> getStopages() {
-		return stopages;
-	}
-
-
-	public void setStopages(ArrayList<Object> stopages) {
-		this.stopages = stopages;
-	}
-
-	public void addStopages(Object value) {
-		if(stopages == null)
-			stopages = new ArrayList<Object>();
-		stopages.add(value);
-	}
-
-	public void unSetStopages() {
-		this.stopages = null;
-	}
-
 	public ArrayList<Object> getNotify_users() {
 		return notify_users;
 	}
@@ -201,7 +139,7 @@ public abstract class Basevehicle_map extends BaseResource {
 		this.notify_users = null;
 	}
 	public String getCluster() {
-		return "DB_DEVICE";
+		return "DB_CONFIG";
 	}
 	public String getClusterType() {
 		return "REPLICATED";

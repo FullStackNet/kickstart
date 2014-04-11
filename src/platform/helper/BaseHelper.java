@@ -302,6 +302,10 @@ public class BaseHelper {
 		return  convertList2Array(list);
 	}
 	
+	public ArrayList<BaseResource> getListById(String[] ids) {
+		return getListById(ids, null, null);
+	}
+	
 	public ArrayList<BaseResource> getListById(String[] ids,String[] orderby) {
 		return getListById(ids, orderby, null);
 	}
@@ -446,6 +450,11 @@ public class BaseHelper {
 		}
 		return resourceList;
 	}
+	
+	public Map<String, BaseResource> getMapById(String[] ids) {
+		return getMapById(ids, null,null);
+	}
+	
 	public Map<String, BaseResource> getMapById(String[] ids,String[] orderBy) {
 		return getMapById(ids, orderBy,null);
 	}

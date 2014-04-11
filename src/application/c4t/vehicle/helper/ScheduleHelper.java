@@ -5,7 +5,6 @@ import java.util.Map;
 
 import platform.db.JoinField;
 import platform.helper.BaseHelper;
-import platform.util.ApplicationException;
 import application.c4t.vehicle.resource.customer_vehicle_map;
 import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.resource.schedule;
@@ -23,13 +22,6 @@ public class ScheduleHelper extends BaseHelper {
 		if (instance == null)
 			instance = new ScheduleHelper();
 		return instance;
-	}
-	
-	public void addStopage(String scheduleId,String stopageId) throws ApplicationException {
-		schedule _map = new schedule();
-		_map.setId(scheduleId);
-		_map.addStopages(stopageId);
-		AddOrUpdate(_map);
 	}
 	
 	public ArrayList<Map<String, Object>> getCustomerSchedulesMap(String customerId) {

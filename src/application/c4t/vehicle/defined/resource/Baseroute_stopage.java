@@ -18,27 +18,29 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Baseschedule_stopage extends BaseResource {
+public abstract class Baseroute_stopage extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String customer_id = null;
 	private String user_id = null;
-	private String schedule_id = null;
+	private String route_id = null;
 	private String stopage_id = null;
-	private String scheduleTime = null;
 	private Integer stopage_order = null;
+	private Double distance_from_previous_stop = null;
+	private Integer time_from_previous_stop = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
-	public static String FIELD_SCHEDULE_ID = "schedule_id";
+	public static String FIELD_ROUTE_ID = "route_id";
 	public static String FIELD_STOPAGE_ID = "stopage_id";
-	public static String FIELD_SCHEDULETIME = "scheduleTime";
 	public static String FIELD_STOPAGE_ORDER = "stopage_order";
+	public static String FIELD_DISTANCE_FROM_PREVIOUS_STOP = "distance_from_previous_stop";
+	public static String FIELD_TIME_FROM_PREVIOUS_STOP = "time_from_previous_stop";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("schedule_stopage");
+	private final static ResourceMetaData metaData = new ResourceMetaData("route_stopage");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -63,38 +65,41 @@ public abstract class Baseschedule_stopage extends BaseResource {
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
 
-		Field schedule_idField = new Field("schedule_id", "String");
-		schedule_idField.setLength(128);
-		metaData.addField(schedule_idField);
+		Field route_idField = new Field("route_id", "String");
+		route_idField.setLength(128);
+		metaData.addField(route_idField);
 
 		Field stopage_idField = new Field("stopage_id", "String");
 		stopage_idField.setLength(128);
 		metaData.addField(stopage_idField);
 
-		Field scheduleTimeField = new Field("scheduleTime", "String");
-		scheduleTimeField.setLength(6);
-		metaData.addField(scheduleTimeField);
-
 		Field stopage_orderField = new Field("stopage_order", "int");
 		metaData.addField(stopage_orderField);
 
+		Field distance_from_previous_stopField = new Field("distance_from_previous_stop", "double");
+		metaData.addField(distance_from_previous_stopField);
 
-		metaData.setTableName("schedule_stopage");
+		Field time_from_previous_stopField = new Field("time_from_previous_stop", "int");
+		metaData.addField(time_from_previous_stopField);
+
+
+		metaData.setTableName("route_stopage");
 
 		metaData.setCluster("DB_CONFIG");
 	}
 
-	public Baseschedule_stopage() {}
+	public Baseroute_stopage() {}
 
-	public Baseschedule_stopage(Baseschedule_stopage obj) {
+	public Baseroute_stopage(Baseroute_stopage obj) {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
-		this.schedule_id = obj.schedule_id;
+		this.route_id = obj.route_id;
 		this.stopage_id = obj.stopage_id;
-		this.scheduleTime = obj.scheduleTime;
 		this.stopage_order = obj.stopage_order;
+		this.distance_from_previous_stop = obj.distance_from_previous_stop;
+		this.time_from_previous_stop = obj.time_from_previous_stop;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -111,14 +116,16 @@ public abstract class Baseschedule_stopage extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
-		if(schedule_id != null)
-			map.put("schedule_id", schedule_id);
+		if(route_id != null)
+			map.put("route_id", route_id);
 		if(stopage_id != null)
 			map.put("stopage_id", stopage_id);
-		if(scheduleTime != null)
-			map.put("scheduleTime", scheduleTime);
 		if(stopage_order != null)
 			map.put("stopage_order", stopage_order);
+		if(distance_from_previous_stop != null)
+			map.put("distance_from_previous_stop", distance_from_previous_stop);
+		if(time_from_previous_stop != null)
+			map.put("time_from_previous_stop", time_from_previous_stop);
 		return map;
 	}
 
@@ -132,14 +139,16 @@ public abstract class Baseschedule_stopage extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(validateUser_id(add))
 			map.put("user_id", user_id);
-		if(schedule_id != null)
-			map.put("schedule_id", schedule_id);
+		if(route_id != null)
+			map.put("route_id", route_id);
 		if(stopage_id != null)
 			map.put("stopage_id", stopage_id);
-		if(scheduleTime != null)
-			map.put("scheduleTime", scheduleTime);
 		if(stopage_order != null)
 			map.put("stopage_order", stopage_order);
+		if(distance_from_previous_stop != null)
+			map.put("distance_from_previous_stop", distance_from_previous_stop);
+		if(time_from_previous_stop != null)
+			map.put("time_from_previous_stop", time_from_previous_stop);
 		return map;
 	}
 
@@ -153,10 +162,11 @@ public abstract class Baseschedule_stopage extends BaseResource {
 		name = (String) map.get("name");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
-		schedule_id = (String) map.get("schedule_id");
+		route_id = (String) map.get("route_id");
 		stopage_id = (String) map.get("stopage_id");
-		scheduleTime = (String) map.get("scheduleTime");
 		stopage_order = (Integer) map.get("stopage_order");
+		distance_from_previous_stop = (Double) map.get("distance_from_previous_stop");
+		time_from_previous_stop = (Integer) map.get("time_from_previous_stop");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -176,21 +186,25 @@ public abstract class Baseschedule_stopage extends BaseResource {
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
 
-		Object schedule_idObj = map.get("schedule_id");
-		if(schedule_idObj != null)
-			schedule_id = schedule_idObj.toString();
+		Object route_idObj = map.get("route_id");
+		if(route_idObj != null)
+			route_id = route_idObj.toString();
 
 		Object stopage_idObj = map.get("stopage_id");
 		if(stopage_idObj != null)
 			stopage_id = stopage_idObj.toString();
 
-		Object scheduleTimeObj = map.get("scheduleTime");
-		if(scheduleTimeObj != null)
-			scheduleTime = scheduleTimeObj.toString();
-
 		Object stopage_orderObj = map.get("stopage_order");
 		if(stopage_orderObj != null)
 			stopage_order = new Integer(stopage_orderObj.toString());
+
+		Object distance_from_previous_stopObj = map.get("distance_from_previous_stop");
+		if(distance_from_previous_stopObj != null)
+			distance_from_previous_stop = new Double(distance_from_previous_stopObj.toString());
+
+		Object time_from_previous_stopObj = map.get("time_from_previous_stop");
+		if(time_from_previous_stopObj != null)
+			time_from_previous_stop = new Integer(time_from_previous_stopObj.toString());
 
 	}
 
@@ -288,20 +302,20 @@ public abstract class Baseschedule_stopage extends BaseResource {
 		return user_id != null;
 	}
 
-	public String getSchedule_id() {
-		return schedule_id;
+	public String getRoute_id() {
+		return route_id;
 	}
 
-	public String getSchedule_idEx() {
-		return schedule_id != null ? schedule_id : "";
+	public String getRoute_idEx() {
+		return route_id != null ? route_id : "";
 	}
 
-	public void setSchedule_id(String schedule_id) {
-		this.schedule_id = schedule_id;
+	public void setRoute_id(String route_id) {
+		this.route_id = route_id;
 	}
 
-	public void unSetSchedule_id() {
-		this.schedule_id = null;
+	public void unSetRoute_id() {
+		this.route_id = null;
 	}
 
 	public String getStopage_id() {
@@ -318,22 +332,6 @@ public abstract class Baseschedule_stopage extends BaseResource {
 
 	public void unSetStopage_id() {
 		this.stopage_id = null;
-	}
-
-	public String getScheduleTime() {
-		return scheduleTime;
-	}
-
-	public String getScheduleTimeEx() {
-		return scheduleTime != null ? scheduleTime : "";
-	}
-
-	public void setScheduleTime(String scheduleTime) {
-		this.scheduleTime = scheduleTime;
-	}
-
-	public void unSetScheduleTime() {
-		this.scheduleTime = null;
 	}
 
 	public Integer getStopage_order() {
@@ -354,6 +352,46 @@ public abstract class Baseschedule_stopage extends BaseResource {
 
 	public void unSetStopage_order() {
 		this.stopage_order = null;
+	}
+
+	public Double getDistance_from_previous_stop() {
+		return distance_from_previous_stop;
+	}
+
+	public double getDistance_from_previous_stopEx() {
+		return distance_from_previous_stop != null ? distance_from_previous_stop : 0;
+	}
+
+	public void setDistance_from_previous_stop(double distance_from_previous_stop) {
+		this.distance_from_previous_stop = distance_from_previous_stop;
+	}
+
+	public void setDistance_from_previous_stop(Double distance_from_previous_stop) {
+		this.distance_from_previous_stop = distance_from_previous_stop;
+	}
+
+	public void unSetDistance_from_previous_stop() {
+		this.distance_from_previous_stop = null;
+	}
+
+	public Integer getTime_from_previous_stop() {
+		return time_from_previous_stop;
+	}
+
+	public int getTime_from_previous_stopEx() {
+		return time_from_previous_stop != null ? time_from_previous_stop : 0;
+	}
+
+	public void setTime_from_previous_stop(int time_from_previous_stop) {
+		this.time_from_previous_stop = time_from_previous_stop;
+	}
+
+	public void setTime_from_previous_stop(Integer time_from_previous_stop) {
+		this.time_from_previous_stop = time_from_previous_stop;
+	}
+
+	public void unSetTime_from_previous_stop() {
+		this.time_from_previous_stop = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

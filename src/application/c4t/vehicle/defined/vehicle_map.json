@@ -23,6 +23,12 @@
 				'name':'stopages',
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'notify_users':
+			{
+				'name':'notify_users',
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}

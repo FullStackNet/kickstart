@@ -54,6 +54,12 @@
 				'length': 128,
 				'required': true,
 				'type':'String'
+			},
+			'stopages':
+			{
+				'name':'stopages',
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}

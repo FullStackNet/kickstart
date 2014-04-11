@@ -24,7 +24,6 @@ public abstract class Baseschedule extends BaseResource {
 	private String customer_id = null;
 	private String user_id = null;
 	private String route_id = null;
-	private ArrayList<Object> stopages = null;
 	private String appliance_id = null;
 	private String driver_id = null;
 	private String attendent_id = null;
@@ -40,13 +39,13 @@ public abstract class Baseschedule extends BaseResource {
 	private String fri_schedule = null;
 	private String sat_schedule = null;
 	private String sun_schedule = null;
+	private ArrayList<Object> stopages = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_ROUTE_ID = "route_id";
-	public static String FIELD_STOPAGES = "stopages";
 	public static String FIELD_APPLIANCE_ID = "appliance_id";
 	public static String FIELD_DRIVER_ID = "driver_id";
 	public static String FIELD_ATTENDENT_ID = "attendent_id";
@@ -62,6 +61,7 @@ public abstract class Baseschedule extends BaseResource {
 	public static String FIELD_FRI_SCHEDULE = "fri_schedule";
 	public static String FIELD_SAT_SCHEDULE = "sat_schedule";
 	public static String FIELD_SUN_SCHEDULE = "sun_schedule";
+	public static String FIELD_STOPAGES = "stopages";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("schedule");
@@ -91,9 +91,6 @@ public abstract class Baseschedule extends BaseResource {
 		Field route_idField = new Field("route_id", "String");
 		route_idField.setLength(128);
 		metaData.addField(route_idField);
-
-		Field stopagesField = new Field("stopages", "Array");
-		metaData.addField(stopagesField);
 
 		Field appliance_idField = new Field("appliance_id", "String");
 		appliance_idField.setLength(128);
@@ -162,6 +159,9 @@ public abstract class Baseschedule extends BaseResource {
 		sun_scheduleField.setLength(1);
 		metaData.addField(sun_scheduleField);
 
+		Field stopagesField = new Field("stopages", "Array");
+		metaData.addField(stopagesField);
+
 
 		metaData.setTableName("schedule");
 
@@ -176,7 +176,6 @@ public abstract class Baseschedule extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
 		this.route_id = obj.route_id;
-		this.stopages = obj.stopages;
 		this.appliance_id = obj.appliance_id;
 		this.driver_id = obj.driver_id;
 		this.attendent_id = obj.attendent_id;
@@ -192,6 +191,7 @@ public abstract class Baseschedule extends BaseResource {
 		this.fri_schedule = obj.fri_schedule;
 		this.sat_schedule = obj.sat_schedule;
 		this.sun_schedule = obj.sun_schedule;
+		this.stopages = obj.stopages;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -227,8 +227,6 @@ public abstract class Baseschedule extends BaseResource {
 			map.put("user_id", user_id);
 		if(route_id != null)
 			map.put("route_id", route_id);
-		if(stopages != null)
-			map.put("stopages", stopages);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
 		if(driver_id != null)
@@ -259,6 +257,8 @@ public abstract class Baseschedule extends BaseResource {
 			map.put("sat_schedule", sat_schedule);
 		if(sun_schedule != null)
 			map.put("sun_schedule", sun_schedule);
+		if(stopages != null)
+			map.put("stopages", stopages);
 		return map;
 	}
 
@@ -277,8 +277,6 @@ public abstract class Baseschedule extends BaseResource {
 			map.put("user_id", user_id);
 		if(route_id != null)
 			map.put("route_id", route_id);
-		if(stopages != null)
-			map.put("stopages", stopages);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
 		if(driver_id != null)
@@ -309,6 +307,8 @@ public abstract class Baseschedule extends BaseResource {
 			map.put("sat_schedule", sat_schedule);
 		if(sun_schedule != null)
 			map.put("sun_schedule", sun_schedule);
+		if(stopages != null)
+			map.put("stopages", stopages);
 		return map;
 	}
 
@@ -323,7 +323,6 @@ public abstract class Baseschedule extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
 		route_id = (String) map.get("route_id");
-		stopages = (ArrayList<Object>) map.get("stopages");
 		appliance_id = (String) map.get("appliance_id");
 		driver_id = (String) map.get("driver_id");
 		attendent_id = (String) map.get("attendent_id");
@@ -339,6 +338,7 @@ public abstract class Baseschedule extends BaseResource {
 		fri_schedule = (String) map.get("fri_schedule");
 		sat_schedule = (String) map.get("sat_schedule");
 		sun_schedule = (String) map.get("sun_schedule");
+		stopages = (ArrayList<Object>) map.get("stopages");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -362,7 +362,6 @@ public abstract class Baseschedule extends BaseResource {
 		if(route_idObj != null)
 			route_id = route_idObj.toString();
 
-		stopages = (ArrayList<Object>) map.get("stopages");
 		Object appliance_idObj = map.get("appliance_id");
 		if(appliance_idObj != null)
 			appliance_id = appliance_idObj.toString();
@@ -423,6 +422,7 @@ public abstract class Baseschedule extends BaseResource {
 		if(sun_scheduleObj != null)
 			sun_schedule = sun_scheduleObj.toString();
 
+		stopages = (ArrayList<Object>) map.get("stopages");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -527,25 +527,6 @@ public abstract class Baseschedule extends BaseResource {
 
 	public void unSetRoute_id() {
 		this.route_id = null;
-	}
-
-	public ArrayList<Object> getStopages() {
-		return stopages;
-	}
-
-
-	public void setStopages(ArrayList<Object> stopages) {
-		this.stopages = stopages;
-	}
-
-	public void addStopages(Object value) {
-		if(stopages == null)
-			stopages = new ArrayList<Object>();
-		stopages.add(value);
-	}
-
-	public void unSetStopages() {
-		this.stopages = null;
 	}
 
 	public String getAppliance_id() {
@@ -758,6 +739,25 @@ public abstract class Baseschedule extends BaseResource {
 
 	public void unSetSun_schedule() {
 		this.sun_schedule = "Y";
+	}
+
+	public ArrayList<Object> getStopages() {
+		return stopages;
+	}
+
+
+	public void setStopages(ArrayList<Object> stopages) {
+		this.stopages = stopages;
+	}
+
+	public void addStopages(Object value) {
+		if(stopages == null)
+			stopages = new ArrayList<Object>();
+		stopages.add(value);
+	}
+
+	public void unSetStopages() {
+		this.stopages = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

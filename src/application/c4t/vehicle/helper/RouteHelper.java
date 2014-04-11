@@ -5,6 +5,7 @@ import java.util.Map;
 
 import platform.db.JoinField;
 import platform.helper.BaseHelper;
+import platform.util.ApplicationException;
 import application.c4t.vehicle.resource.customer_vehicle_map;
 import application.c4t.vehicle.resource.route;
 
@@ -23,6 +24,12 @@ public class RouteHelper extends BaseHelper {
 		return instance;
 	}
 	
+	public void addStopage(String routeId,String stopageId) throws ApplicationException {
+		route _map = new route();
+		_map.setId(routeId);
+		_map.addStopages(stopageId);
+		AddOrUpdate(_map);
+	}
 	public ArrayList<Map<String, Object>> getCustomerRoutesMap(String customerId) {
 		customer_vehicle_map _customer_map = (customer_vehicle_map)Customer_vehicle_mapHelper.getInstance().getById(customerId);
 		if ((_customer_map == null) || (_customer_map.getRoutes() == null))

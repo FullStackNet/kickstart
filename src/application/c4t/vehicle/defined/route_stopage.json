@@ -1,5 +1,5 @@
 {
-	"schedule_stopage" :
+	"route_stopage" :
 	{
 		"cluster": "DB_CONFIG",
 		"fields":
@@ -32,7 +32,7 @@
 				'required': true,
 				'type':'String'
 			},
-			'schedule_id':
+			'route_id':
 			{
 				'name':'name',
 				'length': 128,
@@ -44,17 +44,21 @@
 				'length': 128,
 				'type':'String'
 			},
-			'scheduleTime':
-			{
-				'name':'scheduleTime',
-				'length': 6,
-				'type':'String'
-			},
 			'stopage_order':
 			{
 				'name':'stopage_order',
 				'type':'int'
-			}	
+			},
+			'distance_from_previous_stop':
+			{
+				'name':'distance_from_previous_stop',
+				'type':'double'
+			},
+			'time_from_previous_stop':
+			{
+				'name':'time_from_previous_stop',
+				'type':'int'
+			}		
 		}
 	}
 }

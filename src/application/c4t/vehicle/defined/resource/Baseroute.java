@@ -27,6 +27,7 @@ public abstract class Baseroute extends BaseResource {
 	private String by_route = null;
 	private String customer_id = null;
 	private String user_id = null;
+	private ArrayList<Object> stopages = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -36,6 +37,7 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_BY_ROUTE = "by_route";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_STOPAGES = "stopages";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route");
@@ -78,6 +80,9 @@ public abstract class Baseroute extends BaseResource {
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
 
+		Field stopagesField = new Field("stopages", "Array");
+		metaData.addField(stopagesField);
+
 
 		metaData.setTableName("route");
 
@@ -95,6 +100,7 @@ public abstract class Baseroute extends BaseResource {
 		this.by_route = obj.by_route;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
+		this.stopages = obj.stopages;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -119,6 +125,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(stopages != null)
+			map.put("stopages", stopages);
 		return map;
 	}
 
@@ -140,6 +148,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(validateUser_id(add))
 			map.put("user_id", user_id);
+		if(stopages != null)
+			map.put("stopages", stopages);
 		return map;
 	}
 
@@ -157,6 +167,7 @@ public abstract class Baseroute extends BaseResource {
 		by_route = (String) map.get("by_route");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
+		stopages = (ArrayList<Object>) map.get("stopages");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -192,6 +203,7 @@ public abstract class Baseroute extends BaseResource {
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
 
+		stopages = (ArrayList<Object>) map.get("stopages");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -344,6 +356,25 @@ public abstract class Baseroute extends BaseResource {
 		if(add && user_id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[user_id]");
 		return user_id != null;
+	}
+
+	public ArrayList<Object> getStopages() {
+		return stopages;
+	}
+
+
+	public void setStopages(ArrayList<Object> stopages) {
+		this.stopages = stopages;
+	}
+
+	public void addStopages(Object value) {
+		if(stopages == null)
+			stopages = new ArrayList<Object>();
+		stopages.add(value);
+	}
+
+	public void unSetStopages() {
+		this.stopages = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";
