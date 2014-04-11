@@ -10,7 +10,6 @@ import platform.util.ApplicationException;
 import application.c4t.vehicle.resource.customer_vehicle_map;
 import application.c4t.vehicle.resource.driver;
 import application.c4t.vehicle.resource.route;
-import application.c4t.vehicle.resource.schedule;
 import application.c4t.vehicle.resource.stopage;
 
 public class Customer_vehicle_mapHelper extends BaseHelper {
@@ -110,15 +109,6 @@ public class Customer_vehicle_mapHelper extends BaseHelper {
 			return list;
 		return RouteHelper.getInstance().getListMapById(_customer_map.getRoutes().toArray(new String[_customer_map.getRoutes().size()]),
 				new String[]{route.FIELD_NAME});
-	}
-	
-	public ArrayList<Map<String, Object>> getScheduleListMap(String customerId) {
-		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		customer_vehicle_map _customer_map = (customer_vehicle_map)getById(customerId);
-		if ((_customer_map == null) || (_customer_map.getSchedules()== null))
-			return list;
-		return ScheduleHelper.getInstance().getListMapById(_customer_map.getSchedules().toArray(new String[_customer_map.getSchedules().size()]),
-				new String[]{schedule.FIELD_NAME});
 	}
 	
 	public ArrayList<Map<String, Object>> getDriverListMap(String customerId) {

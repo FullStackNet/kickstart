@@ -29,7 +29,6 @@ public abstract class Baseroute extends BaseResource {
 	private String user_id = null;
 	private ArrayList<Object> stopages = null;
 	private ArrayList<Object> users = null;
-	private ArrayList<Object> students = null;
 	private String appliance_id = null;
 	private String driver_id = null;
 	private String attendent_id = null;
@@ -46,7 +45,6 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_STOPAGES = "stopages";
 	public static String FIELD_USERS = "users";
-	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_APPLIANCE_ID = "appliance_id";
 	public static String FIELD_DRIVER_ID = "driver_id";
 	public static String FIELD_ATTENDENT_ID = "attendent_id";
@@ -100,9 +98,6 @@ public abstract class Baseroute extends BaseResource {
 		Field usersField = new Field("users", "Array");
 		metaData.addField(usersField);
 
-		Field studentsField = new Field("students", "Array");
-		metaData.addField(studentsField);
-
 		Field appliance_idField = new Field("appliance_id", "String");
 		appliance_idField.setLength(128);
 		metaData.addField(appliance_idField);
@@ -142,7 +137,6 @@ public abstract class Baseroute extends BaseResource {
 		this.user_id = obj.user_id;
 		this.stopages = obj.stopages;
 		this.users = obj.users;
-		this.students = obj.students;
 		this.appliance_id = obj.appliance_id;
 		this.driver_id = obj.driver_id;
 		this.attendent_id = obj.attendent_id;
@@ -176,8 +170,6 @@ public abstract class Baseroute extends BaseResource {
 			map.put("stopages", stopages);
 		if(users != null)
 			map.put("users", users);
-		if(students != null)
-			map.put("students", students);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
 		if(driver_id != null)
@@ -213,8 +205,6 @@ public abstract class Baseroute extends BaseResource {
 			map.put("stopages", stopages);
 		if(users != null)
 			map.put("users", users);
-		if(students != null)
-			map.put("students", students);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
 		if(driver_id != null)
@@ -244,7 +234,6 @@ public abstract class Baseroute extends BaseResource {
 		user_id = (String) map.get("user_id");
 		stopages = (ArrayList<Object>) map.get("stopages");
 		users = (ArrayList<Object>) map.get("users");
-		students = (ArrayList<Object>) map.get("students");
 		appliance_id = (String) map.get("appliance_id");
 		driver_id = (String) map.get("driver_id");
 		attendent_id = (String) map.get("attendent_id");
@@ -287,7 +276,6 @@ public abstract class Baseroute extends BaseResource {
 
 		stopages = (ArrayList<Object>) map.get("stopages");
 		users = (ArrayList<Object>) map.get("users");
-		students = (ArrayList<Object>) map.get("students");
 		Object appliance_idObj = map.get("appliance_id");
 		if(appliance_idObj != null)
 			appliance_id = appliance_idObj.toString();
@@ -498,25 +486,6 @@ public abstract class Baseroute extends BaseResource {
 
 	public void unSetUsers() {
 		this.users = null;
-	}
-
-	public ArrayList<Object> getStudents() {
-		return students;
-	}
-
-
-	public void setStudents(ArrayList<Object> students) {
-		this.students = students;
-	}
-
-	public void addStudents(Object value) {
-		if(students == null)
-			students = new ArrayList<Object>();
-		students.add(value);
-	}
-
-	public void unSetStudents() {
-		this.students = null;
 	}
 
 	public String getAppliance_id() {

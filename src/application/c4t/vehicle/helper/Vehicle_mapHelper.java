@@ -9,7 +9,6 @@ import platform.helper.UserHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.resource.customer_vehicle_map;
-import application.c4t.vehicle.resource.schedule;
 import application.c4t.vehicle.resource.stopage;
 import application.c4t.vehicle.resource.vehicle_map;
 
@@ -57,21 +56,13 @@ public class Vehicle_mapHelper extends BaseHelper {
 				new String[]{stopage.FIELD_NAME});
 	}
 	
-	public ArrayList<BaseResource> getSheduleList(String vehicleId) {
-		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
-		vehicle_map _map = (vehicle_map)getById(vehicleId);
-		if ((_map == null) || (_map.getSchedules() == null))
-			return list;
-		return ScheduleHelper.getInstance().getListById(_map.getSchedules().toArray(new String[_map.getSchedules().size()]),null);
-	}
-	
 	public ArrayList<Map<String, Object>> getStopageListMap(String vehicleId) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		vehicle_map _map = (vehicle_map)getById(vehicleId);
 		if ((_map == null) || (_map.getStopages() == null))
 			return list;
 		return StopageHelper.getInstance().getListMapById(_map.getStopages().toArray(new String[_map.getStopages().size()]),
-				new String[]{schedule.FIELD_NAME});
+				new String[]{stopage.FIELD_NAME});
 	}
 	
 	public Map<String,BaseResource> getNotifyUsersMap(String stopageId) {
