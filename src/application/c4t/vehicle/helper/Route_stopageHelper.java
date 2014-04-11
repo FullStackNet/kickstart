@@ -8,7 +8,6 @@ import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.resource.route_stopage;
-import application.c4t.vehicle.resource.schedule;
 import application.c4t.vehicle.resource.stopage;
 
 
