@@ -6,7 +6,7 @@ import java.util.Map;
 import platform.db.JoinField;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
-import application.c4t.vehicle.resource.route;
+import application.c4t.vehicle.resource.route_map;
 import application.c4t.vehicle.resource.route_stopage;
 import application.c4t.vehicle.resource.stopage;
 
@@ -31,7 +31,7 @@ public class Route_stopageHelper extends BaseHelper {
 	}
 	
 	public ArrayList<Map<String, Object>> getRouteStopageListMap(String routeId,ArrayList<JoinField> joinFields) {
-		route _map = (route)RouteHelper.getInstance().getById(routeId);
+		route_map _map = (route_map)Route_mapHelper.getInstance().getById(routeId);
 		if ((_map == null) || (_map.getStopages() == null))
 			return null;
 		return getByJoining(_map.getStopages().toArray(new String[_map.getStopages().size()]),joinFields,new String[]{stopage.FIELD_NAME});
