@@ -1,0 +1,23 @@
+{
+	"school_route_map" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'remark' : "customer Id"
+			},
+			'students':
+			{
+				'name':'students',
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}

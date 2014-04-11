@@ -24,7 +24,6 @@ public class ResourcesToGenerate {
 		new ResourceMap("customer_vehicle_map", "application.c4t.vehicle.resource.customer_vehicle_map"),
 		new ResourceMap("driver", "application.c4t.vehicle.resource.driver"),
 		new ResourceMap("route", "application.c4t.vehicle.resource.route"),
-		new ResourceMap("schedule", "application.c4t.vehicle.resource.schedule"),
 		new ResourceMap("trip", "application.c4t.vehicle.resource.trip"),
 		new ResourceMap("vehicle", "application.c4t.vehicle.resource.vehicle"),
 		new ResourceMap("vehicle_summary", "application.c4t.vehicle.resource.vehicle_summary"),

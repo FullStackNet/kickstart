@@ -57,9 +57,43 @@
 			},
 			'stopages':
 			{
-				'name':'stopages',
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'users':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'appliance_id':
+			{
+				'name':'appliance_id',
+				'length': 128,
+				'type':'String'
+			},
+			'driver_id':
+			{
+				'name':'driver_id',
+				'length': 128,
+				'type':'String'
+			},
+			'attendent_id':
+			{
+				'name':'attendent_id',
+				'length': 128,
+				'type':'String'
+			},
+			'start_time':
+			{
+				'name':'start_time',
+				'length': 10,
+				'type':'String'
+			},
+			'end_time':
+			{
+				'name':'end_time',
+				'length': 10,
+				'type':'String'
 			}
 		}
 	}

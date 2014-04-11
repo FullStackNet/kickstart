@@ -6,59 +6,55 @@
 		{
 			'id':
 			{
-				'name':'id',
 				'length': 128,
 				'required': true,
 				'type':'String'
 			},
 			'name':
 			{
-				'name':'name',
 				'length': 128,
 				'required': true,
 				'type':'String'
 			},
 			'customer_id':
 			{
-				'name':'customer_id',
 				'length': 128,
 				'required': true,
 				'type':'String'
 			},
 			'user_id':
 			{
-				'name':'user_id',
 				'length': 128,
 				'required': true,
 				'type':'String'
 			},
 			'route_id':
 			{
-				'name':'name',
 				'length': 128,
 				'type':'String'
 			},
 			'stopage_id':
 			{
-				'name':'stopage_id',
 				'length': 128,
 				'type':'String'
 			},
 			'stopage_order':
 			{
-				'name':'stopage_order',
 				'type':'int'
 			},
 			'distance_from_previous_stop':
 			{
-				'name':'distance_from_previous_stop',
 				'type':'double'
 			},
 			'time_from_previous_stop':
 			{
-				'name':'time_from_previous_stop',
 				'type':'int'
-			}		
+			},
+			'users':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
 		}
 	}
 }

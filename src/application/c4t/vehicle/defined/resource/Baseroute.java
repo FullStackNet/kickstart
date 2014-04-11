@@ -28,6 +28,13 @@ public abstract class Baseroute extends BaseResource {
 	private String customer_id = null;
 	private String user_id = null;
 	private ArrayList<Object> stopages = null;
+	private ArrayList<Object> users = null;
+	private ArrayList<Object> students = null;
+	private String appliance_id = null;
+	private String driver_id = null;
+	private String attendent_id = null;
+	private String start_time = null;
+	private String end_time = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -38,6 +45,13 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_STOPAGES = "stopages";
+	public static String FIELD_USERS = "users";
+	public static String FIELD_STUDENTS = "students";
+	public static String FIELD_APPLIANCE_ID = "appliance_id";
+	public static String FIELD_DRIVER_ID = "driver_id";
+	public static String FIELD_ATTENDENT_ID = "attendent_id";
+	public static String FIELD_START_TIME = "start_time";
+	public static String FIELD_END_TIME = "end_time";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route");
@@ -83,6 +97,32 @@ public abstract class Baseroute extends BaseResource {
 		Field stopagesField = new Field("stopages", "Array");
 		metaData.addField(stopagesField);
 
+		Field usersField = new Field("users", "Array");
+		metaData.addField(usersField);
+
+		Field studentsField = new Field("students", "Array");
+		metaData.addField(studentsField);
+
+		Field appliance_idField = new Field("appliance_id", "String");
+		appliance_idField.setLength(128);
+		metaData.addField(appliance_idField);
+
+		Field driver_idField = new Field("driver_id", "String");
+		driver_idField.setLength(128);
+		metaData.addField(driver_idField);
+
+		Field attendent_idField = new Field("attendent_id", "String");
+		attendent_idField.setLength(128);
+		metaData.addField(attendent_idField);
+
+		Field start_timeField = new Field("start_time", "String");
+		start_timeField.setLength(10);
+		metaData.addField(start_timeField);
+
+		Field end_timeField = new Field("end_time", "String");
+		end_timeField.setLength(10);
+		metaData.addField(end_timeField);
+
 
 		metaData.setTableName("route");
 
@@ -101,6 +141,13 @@ public abstract class Baseroute extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
 		this.stopages = obj.stopages;
+		this.users = obj.users;
+		this.students = obj.students;
+		this.appliance_id = obj.appliance_id;
+		this.driver_id = obj.driver_id;
+		this.attendent_id = obj.attendent_id;
+		this.start_time = obj.start_time;
+		this.end_time = obj.end_time;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -127,6 +174,20 @@ public abstract class Baseroute extends BaseResource {
 			map.put("user_id", user_id);
 		if(stopages != null)
 			map.put("stopages", stopages);
+		if(users != null)
+			map.put("users", users);
+		if(students != null)
+			map.put("students", students);
+		if(appliance_id != null)
+			map.put("appliance_id", appliance_id);
+		if(driver_id != null)
+			map.put("driver_id", driver_id);
+		if(attendent_id != null)
+			map.put("attendent_id", attendent_id);
+		if(start_time != null)
+			map.put("start_time", start_time);
+		if(end_time != null)
+			map.put("end_time", end_time);
 		return map;
 	}
 
@@ -150,6 +211,20 @@ public abstract class Baseroute extends BaseResource {
 			map.put("user_id", user_id);
 		if(stopages != null)
 			map.put("stopages", stopages);
+		if(users != null)
+			map.put("users", users);
+		if(students != null)
+			map.put("students", students);
+		if(appliance_id != null)
+			map.put("appliance_id", appliance_id);
+		if(driver_id != null)
+			map.put("driver_id", driver_id);
+		if(attendent_id != null)
+			map.put("attendent_id", attendent_id);
+		if(start_time != null)
+			map.put("start_time", start_time);
+		if(end_time != null)
+			map.put("end_time", end_time);
 		return map;
 	}
 
@@ -168,6 +243,13 @@ public abstract class Baseroute extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
 		stopages = (ArrayList<Object>) map.get("stopages");
+		users = (ArrayList<Object>) map.get("users");
+		students = (ArrayList<Object>) map.get("students");
+		appliance_id = (String) map.get("appliance_id");
+		driver_id = (String) map.get("driver_id");
+		attendent_id = (String) map.get("attendent_id");
+		start_time = (String) map.get("start_time");
+		end_time = (String) map.get("end_time");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -204,6 +286,28 @@ public abstract class Baseroute extends BaseResource {
 			user_id = user_idObj.toString();
 
 		stopages = (ArrayList<Object>) map.get("stopages");
+		users = (ArrayList<Object>) map.get("users");
+		students = (ArrayList<Object>) map.get("students");
+		Object appliance_idObj = map.get("appliance_id");
+		if(appliance_idObj != null)
+			appliance_id = appliance_idObj.toString();
+
+		Object driver_idObj = map.get("driver_id");
+		if(driver_idObj != null)
+			driver_id = driver_idObj.toString();
+
+		Object attendent_idObj = map.get("attendent_id");
+		if(attendent_idObj != null)
+			attendent_id = attendent_idObj.toString();
+
+		Object start_timeObj = map.get("start_time");
+		if(start_timeObj != null)
+			start_time = start_timeObj.toString();
+
+		Object end_timeObj = map.get("end_time");
+		if(end_timeObj != null)
+			end_time = end_timeObj.toString();
+
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -375,6 +479,124 @@ public abstract class Baseroute extends BaseResource {
 
 	public void unSetStopages() {
 		this.stopages = null;
+	}
+
+	public ArrayList<Object> getUsers() {
+		return users;
+	}
+
+
+	public void setUsers(ArrayList<Object> users) {
+		this.users = users;
+	}
+
+	public void addUsers(Object value) {
+		if(users == null)
+			users = new ArrayList<Object>();
+		users.add(value);
+	}
+
+	public void unSetUsers() {
+		this.users = null;
+	}
+
+	public ArrayList<Object> getStudents() {
+		return students;
+	}
+
+
+	public void setStudents(ArrayList<Object> students) {
+		this.students = students;
+	}
+
+	public void addStudents(Object value) {
+		if(students == null)
+			students = new ArrayList<Object>();
+		students.add(value);
+	}
+
+	public void unSetStudents() {
+		this.students = null;
+	}
+
+	public String getAppliance_id() {
+		return appliance_id;
+	}
+
+	public String getAppliance_idEx() {
+		return appliance_id != null ? appliance_id : "";
+	}
+
+	public void setAppliance_id(String appliance_id) {
+		this.appliance_id = appliance_id;
+	}
+
+	public void unSetAppliance_id() {
+		this.appliance_id = null;
+	}
+
+	public String getDriver_id() {
+		return driver_id;
+	}
+
+	public String getDriver_idEx() {
+		return driver_id != null ? driver_id : "";
+	}
+
+	public void setDriver_id(String driver_id) {
+		this.driver_id = driver_id;
+	}
+
+	public void unSetDriver_id() {
+		this.driver_id = null;
+	}
+
+	public String getAttendent_id() {
+		return attendent_id;
+	}
+
+	public String getAttendent_idEx() {
+		return attendent_id != null ? attendent_id : "";
+	}
+
+	public void setAttendent_id(String attendent_id) {
+		this.attendent_id = attendent_id;
+	}
+
+	public void unSetAttendent_id() {
+		this.attendent_id = null;
+	}
+
+	public String getStart_time() {
+		return start_time;
+	}
+
+	public String getStart_timeEx() {
+		return start_time != null ? start_time : "";
+	}
+
+	public void setStart_time(String start_time) {
+		this.start_time = start_time;
+	}
+
+	public void unSetStart_time() {
+		this.start_time = null;
+	}
+
+	public String getEnd_time() {
+		return end_time;
+	}
+
+	public String getEnd_timeEx() {
+		return end_time != null ? end_time : "";
+	}
+
+	public void setEnd_time(String end_time) {
+		this.end_time = end_time;
+	}
+
+	public void unSetEnd_time() {
+		this.end_time = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";
