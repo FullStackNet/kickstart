@@ -22,22 +22,20 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 	private String id = null;
 	private ArrayList<Object> drivers = null;
 	private ArrayList<Object> routes = null;
-	private ArrayList<Object> schedules = null;
 	private ArrayList<Object> fleetManagers = null;
 	private ArrayList<Object> fleetOwners = null;
 	private ArrayList<Object> stopages = null;
 	private ArrayList<Object> students = null;
-	private ArrayList<Object> schedule_stopage = null;
+	private ArrayList<Object> route_stopage = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_DRIVERS = "drivers";
 	public static String FIELD_ROUTES = "routes";
-	public static String FIELD_SCHEDULES = "schedules";
 	public static String FIELD_FLEETMANAGERS = "fleetManagers";
 	public static String FIELD_FLEETOWNERS = "fleetOwners";
 	public static String FIELD_STOPAGES = "stopages";
 	public static String FIELD_STUDENTS = "students";
-	public static String FIELD_SCHEDULE_STOPAGE = "schedule_stopage";
+	public static String FIELD_ROUTE_STOPAGE = "route_stopage";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("customer_vehicle_map");
@@ -56,9 +54,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		Field routesField = new Field("routes", "Array");
 		metaData.addField(routesField);
 
-		Field schedulesField = new Field("schedules", "Array");
-		metaData.addField(schedulesField);
-
 		Field fleetManagersField = new Field("fleetManagers", "Array");
 		metaData.addField(fleetManagersField);
 
@@ -71,8 +66,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		Field studentsField = new Field("students", "Array");
 		metaData.addField(studentsField);
 
-		Field schedule_stopageField = new Field("schedule_stopage", "Array");
-		metaData.addField(schedule_stopageField);
+		Field route_stopageField = new Field("route_stopage", "Array");
+		metaData.addField(route_stopageField);
 
 
 		metaData.setTableName("customer_vehicle_map");
@@ -86,12 +81,11 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		this.id = obj.id;
 		this.drivers = obj.drivers;
 		this.routes = obj.routes;
-		this.schedules = obj.schedules;
 		this.fleetManagers = obj.fleetManagers;
 		this.fleetOwners = obj.fleetOwners;
 		this.stopages = obj.stopages;
 		this.students = obj.students;
-		this.schedule_stopage = obj.schedule_stopage;
+		this.route_stopage = obj.route_stopage;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -106,8 +100,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 			map.put("drivers", drivers);
 		if(routes != null)
 			map.put("routes", routes);
-		if(schedules != null)
-			map.put("schedules", schedules);
 		if(fleetManagers != null)
 			map.put("fleetManagers", fleetManagers);
 		if(fleetOwners != null)
@@ -116,8 +108,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 			map.put("stopages", stopages);
 		if(students != null)
 			map.put("students", students);
-		if(schedule_stopage != null)
-			map.put("schedule_stopage", schedule_stopage);
+		if(route_stopage != null)
+			map.put("route_stopage", route_stopage);
 		return map;
 	}
 
@@ -129,8 +121,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 			map.put("drivers", drivers);
 		if(routes != null)
 			map.put("routes", routes);
-		if(schedules != null)
-			map.put("schedules", schedules);
 		if(fleetManagers != null)
 			map.put("fleetManagers", fleetManagers);
 		if(fleetOwners != null)
@@ -139,8 +129,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 			map.put("stopages", stopages);
 		if(students != null)
 			map.put("students", students);
-		if(schedule_stopage != null)
-			map.put("schedule_stopage", schedule_stopage);
+		if(route_stopage != null)
+			map.put("route_stopage", route_stopage);
 		return map;
 	}
 
@@ -153,12 +143,11 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		id = (String) map.get("id");
 		drivers = (ArrayList<Object>) map.get("drivers");
 		routes = (ArrayList<Object>) map.get("routes");
-		schedules = (ArrayList<Object>) map.get("schedules");
 		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
 		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
 		stopages = (ArrayList<Object>) map.get("stopages");
 		students = (ArrayList<Object>) map.get("students");
-		schedule_stopage = (ArrayList<Object>) map.get("schedule_stopage");
+		route_stopage = (ArrayList<Object>) map.get("route_stopage");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -168,12 +157,11 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 		drivers = (ArrayList<Object>) map.get("drivers");
 		routes = (ArrayList<Object>) map.get("routes");
-		schedules = (ArrayList<Object>) map.get("schedules");
 		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
 		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
 		stopages = (ArrayList<Object>) map.get("stopages");
 		students = (ArrayList<Object>) map.get("students");
-		schedule_stopage = (ArrayList<Object>) map.get("schedule_stopage");
+		route_stopage = (ArrayList<Object>) map.get("route_stopage");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -240,25 +228,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 	public void unSetRoutes() {
 		this.routes = null;
-	}
-
-	public ArrayList<Object> getSchedules() {
-		return schedules;
-	}
-
-
-	public void setSchedules(ArrayList<Object> schedules) {
-		this.schedules = schedules;
-	}
-
-	public void addSchedules(Object value) {
-		if(schedules == null)
-			schedules = new ArrayList<Object>();
-		schedules.add(value);
-	}
-
-	public void unSetSchedules() {
-		this.schedules = null;
 	}
 
 	public ArrayList<Object> getFleetManagers() {
@@ -337,23 +306,23 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		this.students = null;
 	}
 
-	public ArrayList<Object> getSchedule_stopage() {
-		return schedule_stopage;
+	public ArrayList<Object> getRoute_stopage() {
+		return route_stopage;
 	}
 
 
-	public void setSchedule_stopage(ArrayList<Object> schedule_stopage) {
-		this.schedule_stopage = schedule_stopage;
+	public void setRoute_stopage(ArrayList<Object> route_stopage) {
+		this.route_stopage = route_stopage;
 	}
 
-	public void addSchedule_stopage(Object value) {
-		if(schedule_stopage == null)
-			schedule_stopage = new ArrayList<Object>();
-		schedule_stopage.add(value);
+	public void addRoute_stopage(Object value) {
+		if(route_stopage == null)
+			route_stopage = new ArrayList<Object>();
+		route_stopage.add(value);
 	}
 
-	public void unSetSchedule_stopage() {
-		this.schedule_stopage = null;
+	public void unSetRoute_stopage() {
+		this.route_stopage = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

@@ -3,11 +3,10 @@ package application.c4t.vehicle.helper;
 import platform.helper.BaseHelper;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.resource.route_map;
-import application.c4t.vehicle.resource.stopage_map;
 
 public class Route_mapHelper extends BaseHelper {
 	public Route_mapHelper() {
-		super(new stopage_map());
+		super(new route_map());
 		// TODO Auto-generated constructor stub
 	}
 	

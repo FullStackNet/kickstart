@@ -26,10 +26,10 @@ public class Vehicle_mapHelper extends BaseHelper {
 		return instance;
 	}
 	
-	public void addSchedule(String vehicleId,String scheduleId) throws ApplicationException {
+	public void addRoute(String vehicleId,String routeId) throws ApplicationException {
 		vehicle_map _map = new vehicle_map();
 		_map.setId(vehicleId);
-		_map.addSchedules(scheduleId);
+		_map.addRoutes(routeId);
 		AddOrUpdate(_map);
 	}
 	

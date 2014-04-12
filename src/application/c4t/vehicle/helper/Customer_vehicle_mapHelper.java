@@ -40,17 +40,11 @@ public class Customer_vehicle_mapHelper extends BaseHelper {
 		AddOrUpdate(_map);
 	}
 	
-	public void addSchedule(String customerId,String scheduleId) throws ApplicationException {
-		customer_vehicle_map _map = new customer_vehicle_map();
-		_map.setId(customerId);
-		_map.addSchedules(scheduleId);
-		AddOrUpdate(_map);
-	}
 	
-	public void addScheduleStopage(String customerId,String stopageId) throws ApplicationException {
+	public void addRouteStopage(String customerId,String stopageId) throws ApplicationException {
 		customer_vehicle_map _map = new customer_vehicle_map();
 		_map.setId(customerId);
-		_map.addSchedule_stopage(stopageId);
+		_map.addRoute_stopage(stopageId);
 		AddOrUpdate(_map);
 	}
 	

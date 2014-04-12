@@ -8,7 +8,6 @@ import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import application.c4t.vehicle.resource.route_map;
 import application.c4t.vehicle.resource.route_stopage;
-import application.c4t.vehicle.resource.stopage;
 
 
 public class Route_stopageHelper extends BaseHelper {
@@ -34,6 +33,6 @@ public class Route_stopageHelper extends BaseHelper {
 		route_map _map = (route_map)Route_mapHelper.getInstance().getById(routeId);
 		if ((_map == null) || (_map.getStopages() == null))
 			return null;
-		return getByJoining(_map.getStopages().toArray(new String[_map.getStopages().size()]),joinFields,new String[]{stopage.FIELD_NAME});
+		return getByJoining(_map.getStopages().toArray(new String[_map.getStopages().size()]),joinFields,new String[]{route_stopage.FIELD_STOPAGE_ORDER});
 	}
 }

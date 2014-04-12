@@ -20,12 +20,12 @@ import java.util.*;
  */
 public abstract class Basevehicle_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> schedules = null;
+	private ArrayList<Object> routes = null;
 	private ArrayList<Object> stopages = null;
 	private ArrayList<Object> notify_users = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_SCHEDULES = "schedules";
+	public static String FIELD_ROUTES = "routes";
 	public static String FIELD_STOPAGES = "stopages";
 	public static String FIELD_NOTIFY_USERS = "notify_users";
 
@@ -40,8 +40,8 @@ public abstract class Basevehicle_map extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
-		Field schedulesField = new Field("schedules", "Array");
-		metaData.addField(schedulesField);
+		Field routesField = new Field("routes", "Array");
+		metaData.addField(routesField);
 
 		Field stopagesField = new Field("stopages", "Array");
 		metaData.addField(stopagesField);
@@ -59,7 +59,7 @@ public abstract class Basevehicle_map extends BaseResource {
 
 	public Basevehicle_map(Basevehicle_map obj) {
 		this.id = obj.id;
-		this.schedules = obj.schedules;
+		this.routes = obj.routes;
 		this.stopages = obj.stopages;
 		this.notify_users = obj.notify_users;
 	}
@@ -72,8 +72,8 @@ public abstract class Basevehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(schedules != null)
-			map.put("schedules", schedules);
+		if(routes != null)
+			map.put("routes", routes);
 		if(stopages != null)
 			map.put("stopages", stopages);
 		if(notify_users != null)
@@ -85,8 +85,8 @@ public abstract class Basevehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(schedules != null)
-			map.put("schedules", schedules);
+		if(routes != null)
+			map.put("routes", routes);
 		if(stopages != null)
 			map.put("stopages", stopages);
 		if(notify_users != null)
@@ -101,7 +101,7 @@ public abstract class Basevehicle_map extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		schedules = (ArrayList<Object>) map.get("schedules");
+		routes = (ArrayList<Object>) map.get("routes");
 		stopages = (ArrayList<Object>) map.get("stopages");
 		notify_users = (ArrayList<Object>) map.get("notify_users");
 	}
@@ -111,7 +111,7 @@ public abstract class Basevehicle_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		schedules = (ArrayList<Object>) map.get("schedules");
+		routes = (ArrayList<Object>) map.get("routes");
 		stopages = (ArrayList<Object>) map.get("stopages");
 		notify_users = (ArrayList<Object>) map.get("notify_users");
 	}
@@ -144,23 +144,23 @@ public abstract class Basevehicle_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getSchedules() {
-		return schedules;
+	public ArrayList<Object> getRoutes() {
+		return routes;
 	}
 
 
-	public void setSchedules(ArrayList<Object> schedules) {
-		this.schedules = schedules;
+	public void setRoutes(ArrayList<Object> routes) {
+		this.routes = routes;
 	}
 
-	public void addSchedules(Object value) {
-		if(schedules == null)
-			schedules = new ArrayList<Object>();
-		schedules.add(value);
+	public void addRoutes(Object value) {
+		if(routes == null)
+			routes = new ArrayList<Object>();
+		routes.add(value);
 	}
 
-	public void unSetSchedules() {
-		this.schedules = null;
+	public void unSetRoutes() {
+		this.routes = null;
 	}
 
 	public ArrayList<Object> getStopages() {

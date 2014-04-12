@@ -24,12 +24,6 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
-			'schedules':
-			{
-				'name':'schedules',
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
 			'fleetManagers':
 			{
 				'name':'fleetManagers',
@@ -54,7 +48,7 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
-			'schedule_stopage':
+			'route_stopage':
 			{
 				'name':'schedule_stopage',
 				'type':'Array',

@@ -12,9 +12,9 @@
 				'type':'String',
 				'remark' : "vehicle Id"
 			},
-			'schedules':
+			'routes':
 			{
-				'name':'schedules',
+				'name':'routes',
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
