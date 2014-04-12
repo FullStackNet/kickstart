@@ -17,6 +17,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'type':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'route_no':
+			{
+				'length': 32,
+				'type':'String'
+			},
 			'state':
 			{
 				'name':'state',

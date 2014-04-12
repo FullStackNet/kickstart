@@ -21,6 +21,8 @@ import java.util.*;
 public abstract class Baseroute extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String type = null;
+	private String route_no = null;
 	private String state = null;
 	private String from_point = null;
 	private String to_point = null;
@@ -35,6 +37,8 @@ public abstract class Baseroute extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_TYPE = "type";
+	public static String FIELD_ROUTE_NO = "route_no";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_FROM_POINT = "from_point";
 	public static String FIELD_TO_POINT = "to_point";
@@ -61,6 +65,14 @@ public abstract class Baseroute extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field typeField = new Field("type", "String");
+		typeField.setLength(32);
+		metaData.addField(typeField);
+
+		Field route_noField = new Field("route_no", "String");
+		route_noField.setLength(32);
+		metaData.addField(route_noField);
 
 		Field stateField = new Field("state", "String");
 		stateField.setLength(128);
@@ -119,6 +131,8 @@ public abstract class Baseroute extends BaseResource {
 	public Baseroute(Baseroute obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.type = obj.type;
+		this.route_no = obj.route_no;
 		this.state = obj.state;
 		this.from_point = obj.from_point;
 		this.to_point = obj.to_point;
@@ -142,6 +156,10 @@ public abstract class Baseroute extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(type != null)
+			map.put("type", type);
+		if(route_no != null)
+			map.put("route_no", route_no);
 		if(state != null)
 			map.put("state", state);
 		if(from_point != null)
@@ -173,6 +191,10 @@ public abstract class Baseroute extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(type != null)
+			map.put("type", type);
+		if(route_no != null)
+			map.put("route_no", route_no);
 		if(state != null)
 			map.put("state", state);
 		if(from_point != null)
@@ -206,6 +228,8 @@ public abstract class Baseroute extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		type = (String) map.get("type");
+		route_no = (String) map.get("route_no");
 		state = (String) map.get("state");
 		from_point = (String) map.get("from_point");
 		to_point = (String) map.get("to_point");
@@ -227,6 +251,14 @@ public abstract class Baseroute extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object typeObj = map.get("type");
+		if(typeObj != null)
+			type = typeObj.toString();
+
+		Object route_noObj = map.get("route_no");
+		if(route_noObj != null)
+			route_no = route_noObj.toString();
 
 		Object stateObj = map.get("state");
 		if(stateObj != null)
@@ -316,6 +348,38 @@ public abstract class Baseroute extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public String getTypeEx() {
+		return type != null ? type : "";
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void unSetType() {
+		this.type = null;
+	}
+
+	public String getRoute_no() {
+		return route_no;
+	}
+
+	public String getRoute_noEx() {
+		return route_no != null ? route_no : "";
+	}
+
+	public void setRoute_no(String route_no) {
+		this.route_no = route_no;
+	}
+
+	public void unSetRoute_no() {
+		this.route_no = null;
 	}
 
 	public String getState() {
