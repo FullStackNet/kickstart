@@ -1049,6 +1049,10 @@
 				'default':'N',
 				'length': 1,
 				'type':'String'
+			},
+			'currentRouteId' : {
+				'length': 128,
+				'type':'String'
 			}
 		}
 	}
