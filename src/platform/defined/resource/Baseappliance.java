@@ -177,6 +177,7 @@ public abstract class Baseappliance extends BaseResource {
 	private String featureEngineMonitoring = null;
 	private String featureTracking = null;
 	private String currentRouteId = null;
+	private String lastStopageId = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -336,6 +337,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_FEATUREENGINEMONITORING = "featureEngineMonitoring";
 	public static String FIELD_FEATURETRACKING = "featureTracking";
 	public static String FIELD_CURRENTROUTEID = "currentRouteId";
+	public static String FIELD_LASTSTOPAGEID = "lastStopageId";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("appliance");
@@ -1102,6 +1104,10 @@ public abstract class Baseappliance extends BaseResource {
 		currentRouteIdField.setLength(128);
 		metaData.addField(currentRouteIdField);
 
+		Field lastStopageIdField = new Field("lastStopageId", "String");
+		lastStopageIdField.setLength(128);
+		metaData.addField(lastStopageIdField);
+
 
 		metaData.setTableName("appliance");
 
@@ -1269,6 +1275,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.featureEngineMonitoring = obj.featureEngineMonitoring;
 		this.featureTracking = obj.featureTracking;
 		this.currentRouteId = obj.currentRouteId;
+		this.lastStopageId = obj.lastStopageId;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -1802,6 +1809,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("featureTracking", featureTracking);
 		if(currentRouteId != null)
 			map.put("currentRouteId", currentRouteId);
+		if(lastStopageId != null)
+			map.put("lastStopageId", lastStopageId);
 		return map;
 	}
 
@@ -2126,6 +2135,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("featureTracking", featureTracking);
 		if(currentRouteId != null)
 			map.put("currentRouteId", currentRouteId);
+		if(lastStopageId != null)
+			map.put("lastStopageId", lastStopageId);
 		return map;
 	}
 
@@ -2291,6 +2302,7 @@ public abstract class Baseappliance extends BaseResource {
 		featureEngineMonitoring = (String) map.get("featureEngineMonitoring");
 		featureTracking = (String) map.get("featureTracking");
 		currentRouteId = (String) map.get("currentRouteId");
+		lastStopageId = (String) map.get("lastStopageId");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -2917,6 +2929,10 @@ public abstract class Baseappliance extends BaseResource {
 		Object currentRouteIdObj = map.get("currentRouteId");
 		if(currentRouteIdObj != null)
 			currentRouteId = currentRouteIdObj.toString();
+
+		Object lastStopageIdObj = map.get("lastStopageId");
+		if(lastStopageIdObj != null)
+			lastStopageId = lastStopageIdObj.toString();
 
 	}
 
@@ -5051,6 +5067,22 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetCurrentRouteId() {
 		this.currentRouteId = null;
+	}
+
+	public String getLastStopageId() {
+		return lastStopageId;
+	}
+
+	public String getLastStopageIdEx() {
+		return lastStopageId != null ? lastStopageId : "";
+	}
+
+	public void setLastStopageId(String lastStopageId) {
+		this.lastStopageId = lastStopageId;
+	}
+
+	public void unSetLastStopageId() {
+		this.lastStopageId = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

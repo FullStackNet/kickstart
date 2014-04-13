@@ -59,12 +59,12 @@
 				'length': 128,
 				'type':'String'
 			},
-			'pickup_route_id':
+			'pickup_route_stopage_id':
 			{
 				'length': 128,
 				'type':'String'
 			},
-			'dropped_route_id':
+			'dropped_route_stopage_id':
 			{
 				'length': 128,
 				'type':'String'
@@ -148,11 +148,6 @@
 				'name':'remark',
 				'length': 512,
 				'type':'String'
-			},
-			'users':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
 			}
 		}
 	}

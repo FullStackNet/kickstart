@@ -28,8 +28,9 @@ public abstract class Basestudent extends BaseResource {
 	private String city = null;
 	private String state = null;
 	private String country = null;
-	private String pickup_schedule_id = null;
-	private String dropped_schedule_id = null;
+	private String pickup_route_stopage_id = null;
+	private String dropped_route_stopage_id = null;
+	private String stopage_id = null;
 	private String father_name = null;
 	private String father_mobile_no = null;
 	private String mother_name = null;
@@ -54,8 +55,9 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
-	public static String FIELD_PICKUP_SCHEDULE_ID = "pickup_schedule_id";
-	public static String FIELD_DROPPED_SCHEDULE_ID = "dropped_schedule_id";
+	public static String FIELD_PICKUP_ROUTE_STOPAGE_ID = "pickup_route_stopage_id";
+	public static String FIELD_DROPPED_ROUTE_STOPAGE_ID = "dropped_route_stopage_id";
+	public static String FIELD_STOPAGE_ID = "stopage_id";
 	public static String FIELD_FATHER_NAME = "father_name";
 	public static String FIELD_FATHER_MOBILE_NO = "father_mobile_no";
 	public static String FIELD_MOTHER_NAME = "mother_name";
@@ -114,13 +116,17 @@ public abstract class Basestudent extends BaseResource {
 		countryField.setLength(128);
 		metaData.addField(countryField);
 
-		Field pickup_schedule_idField = new Field("pickup_schedule_id", "String");
-		pickup_schedule_idField.setLength(128);
-		metaData.addField(pickup_schedule_idField);
+		Field pickup_route_stopage_idField = new Field("pickup_route_stopage_id", "String");
+		pickup_route_stopage_idField.setLength(128);
+		metaData.addField(pickup_route_stopage_idField);
 
-		Field dropped_schedule_idField = new Field("dropped_schedule_id", "String");
-		dropped_schedule_idField.setLength(128);
-		metaData.addField(dropped_schedule_idField);
+		Field dropped_route_stopage_idField = new Field("dropped_route_stopage_id", "String");
+		dropped_route_stopage_idField.setLength(128);
+		metaData.addField(dropped_route_stopage_idField);
+
+		Field stopage_idField = new Field("stopage_id", "String");
+		stopage_idField.setLength(128);
+		metaData.addField(stopage_idField);
 
 		Field father_nameField = new Field("father_name", "String");
 		father_nameField.setLength(128);
@@ -198,8 +204,9 @@ public abstract class Basestudent extends BaseResource {
 		this.city = obj.city;
 		this.state = obj.state;
 		this.country = obj.country;
-		this.pickup_schedule_id = obj.pickup_schedule_id;
-		this.dropped_schedule_id = obj.dropped_schedule_id;
+		this.pickup_route_stopage_id = obj.pickup_route_stopage_id;
+		this.dropped_route_stopage_id = obj.dropped_route_stopage_id;
+		this.stopage_id = obj.stopage_id;
 		this.father_name = obj.father_name;
 		this.father_mobile_no = obj.father_mobile_no;
 		this.mother_name = obj.mother_name;
@@ -240,10 +247,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
-		if(pickup_schedule_id != null)
-			map.put("pickup_schedule_id", pickup_schedule_id);
-		if(dropped_schedule_id != null)
-			map.put("dropped_schedule_id", dropped_schedule_id);
+		if(pickup_route_stopage_id != null)
+			map.put("pickup_route_stopage_id", pickup_route_stopage_id);
+		if(dropped_route_stopage_id != null)
+			map.put("dropped_route_stopage_id", dropped_route_stopage_id);
+		if(stopage_id != null)
+			map.put("stopage_id", stopage_id);
 		if(father_name != null)
 			map.put("father_name", father_name);
 		if(father_mobile_no != null)
@@ -295,10 +304,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
-		if(pickup_schedule_id != null)
-			map.put("pickup_schedule_id", pickup_schedule_id);
-		if(dropped_schedule_id != null)
-			map.put("dropped_schedule_id", dropped_schedule_id);
+		if(pickup_route_stopage_id != null)
+			map.put("pickup_route_stopage_id", pickup_route_stopage_id);
+		if(dropped_route_stopage_id != null)
+			map.put("dropped_route_stopage_id", dropped_route_stopage_id);
+		if(stopage_id != null)
+			map.put("stopage_id", stopage_id);
 		if(father_name != null)
 			map.put("father_name", father_name);
 		if(father_mobile_no != null)
@@ -345,8 +356,9 @@ public abstract class Basestudent extends BaseResource {
 		city = (String) map.get("city");
 		state = (String) map.get("state");
 		country = (String) map.get("country");
-		pickup_schedule_id = (String) map.get("pickup_schedule_id");
-		dropped_schedule_id = (String) map.get("dropped_schedule_id");
+		pickup_route_stopage_id = (String) map.get("pickup_route_stopage_id");
+		dropped_route_stopage_id = (String) map.get("dropped_route_stopage_id");
+		stopage_id = (String) map.get("stopage_id");
 		father_name = (String) map.get("father_name");
 		father_mobile_no = (String) map.get("father_mobile_no");
 		mother_name = (String) map.get("mother_name");
@@ -400,13 +412,17 @@ public abstract class Basestudent extends BaseResource {
 		if(countryObj != null)
 			country = countryObj.toString();
 
-		Object pickup_schedule_idObj = map.get("pickup_schedule_id");
-		if(pickup_schedule_idObj != null)
-			pickup_schedule_id = pickup_schedule_idObj.toString();
+		Object pickup_route_stopage_idObj = map.get("pickup_route_stopage_id");
+		if(pickup_route_stopage_idObj != null)
+			pickup_route_stopage_id = pickup_route_stopage_idObj.toString();
 
-		Object dropped_schedule_idObj = map.get("dropped_schedule_id");
-		if(dropped_schedule_idObj != null)
-			dropped_schedule_id = dropped_schedule_idObj.toString();
+		Object dropped_route_stopage_idObj = map.get("dropped_route_stopage_id");
+		if(dropped_route_stopage_idObj != null)
+			dropped_route_stopage_id = dropped_route_stopage_idObj.toString();
+
+		Object stopage_idObj = map.get("stopage_id");
+		if(stopage_idObj != null)
+			stopage_id = stopage_idObj.toString();
 
 		Object father_nameObj = map.get("father_name");
 		if(father_nameObj != null)
@@ -622,36 +638,52 @@ public abstract class Basestudent extends BaseResource {
 		this.country = null;
 	}
 
-	public String getPickup_schedule_id() {
-		return pickup_schedule_id;
+	public String getPickup_route_stopage_id() {
+		return pickup_route_stopage_id;
 	}
 
-	public String getPickup_schedule_idEx() {
-		return pickup_schedule_id != null ? pickup_schedule_id : "";
+	public String getPickup_route_stopage_idEx() {
+		return pickup_route_stopage_id != null ? pickup_route_stopage_id : "";
 	}
 
-	public void setPickup_schedule_id(String pickup_schedule_id) {
-		this.pickup_schedule_id = pickup_schedule_id;
+	public void setPickup_route_stopage_id(String pickup_route_stopage_id) {
+		this.pickup_route_stopage_id = pickup_route_stopage_id;
 	}
 
-	public void unSetPickup_schedule_id() {
-		this.pickup_schedule_id = null;
+	public void unSetPickup_route_stopage_id() {
+		this.pickup_route_stopage_id = null;
 	}
 
-	public String getDropped_schedule_id() {
-		return dropped_schedule_id;
+	public String getDropped_route_stopage_id() {
+		return dropped_route_stopage_id;
 	}
 
-	public String getDropped_schedule_idEx() {
-		return dropped_schedule_id != null ? dropped_schedule_id : "";
+	public String getDropped_route_stopage_idEx() {
+		return dropped_route_stopage_id != null ? dropped_route_stopage_id : "";
 	}
 
-	public void setDropped_schedule_id(String dropped_schedule_id) {
-		this.dropped_schedule_id = dropped_schedule_id;
+	public void setDropped_route_stopage_id(String dropped_route_stopage_id) {
+		this.dropped_route_stopage_id = dropped_route_stopage_id;
 	}
 
-	public void unSetDropped_schedule_id() {
-		this.dropped_schedule_id = null;
+	public void unSetDropped_route_stopage_id() {
+		this.dropped_route_stopage_id = null;
+	}
+
+	public String getStopage_id() {
+		return stopage_id;
+	}
+
+	public String getStopage_idEx() {
+		return stopage_id != null ? stopage_id : "";
+	}
+
+	public void setStopage_id(String stopage_id) {
+		this.stopage_id = stopage_id;
+	}
+
+	public void unSetStopage_id() {
+		this.stopage_id = null;
 	}
 
 	public String getFather_name() {

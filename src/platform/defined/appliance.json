@@ -1053,6 +1053,10 @@
 			'currentRouteId' : {
 				'length': 128,
 				'type':'String'
+			},
+			'lastStopageId' : {
+				'length': 128,
+				'type':'String'
 			}
 		}
 	}

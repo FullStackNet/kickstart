@@ -27,18 +27,23 @@ public class Vehicle_mapHelper extends BaseHelper {
 	}
 	
 	public void addRoute(String vehicleId,String routeId) throws ApplicationException {
+		if (vehicleId == null) return;
+		if (routeId == null) return;
 		vehicle_map _map = new vehicle_map();
 		_map.setId(vehicleId);
 		_map.addRoutes(routeId);
 		AddOrUpdate(_map);
 	}
 	
-	public void addStopage(String vehicleId,String stopageId) throws ApplicationException {
+	public void removeRoute(String vehicleId,String routeId) throws ApplicationException {
+		if (vehicleId == null) return;
+		if (routeId == null) return;
 		vehicle_map _map = new vehicle_map();
 		_map.setId(vehicleId);
-		_map.addStopages(stopageId);
-		AddOrUpdate(_map);
+		_map.addRoutes(routeId);
+		unset(_map);
 	}
+	
 	
 	public void deleteStopage(String vehicleId,String stopageId) throws ApplicationException {
 		vehicle_map _map = new vehicle_map();
@@ -53,15 +58,6 @@ public class Vehicle_mapHelper extends BaseHelper {
 		if ((_map == null) || (_map.getStopages() == null))
 			return list;
 		return StopageHelper.getInstance().getListById(_map.getStopages().toArray(new String[_map.getStopages().size()]),
-				new String[]{stopage.FIELD_NAME});
-	}
-	
-	public ArrayList<Map<String, Object>> getStopageListMap(String vehicleId) {
-		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		vehicle_map _map = (vehicle_map)getById(vehicleId);
-		if ((_map == null) || (_map.getStopages() == null))
-			return list;
-		return StopageHelper.getInstance().getListMapById(_map.getStopages().toArray(new String[_map.getStopages().size()]),
 				new String[]{stopage.FIELD_NAME});
 	}
 	

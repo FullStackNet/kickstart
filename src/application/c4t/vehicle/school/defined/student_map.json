@@ -1,7 +1,7 @@
 {
-	"route_map" :
+	"student_map" :
 	{
-		"cluster": "DB_CONFIG",
+		"cluster": "DB_PROFILE",
 		"fields":
 		{
 			'id':
@@ -11,17 +11,7 @@
 				'required': true,
 				'type':'String'
 			},
-			'route_stopages':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
 			'users':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
-			'appliances':
 			{
 				'type':'Array',
 				'valueType' : 'Object' 

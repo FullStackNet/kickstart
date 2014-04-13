@@ -5,6 +5,7 @@ import java.util.Map;
 
 import platform.db.JoinField;
 import platform.helper.BaseHelper;
+import platform.helper.UserHelper;
 import platform.resource.BaseResource;
 import application.c4t.vehicle.resource.route_map;
 import application.c4t.vehicle.resource.route_stopage;
@@ -31,8 +32,15 @@ public class Route_stopageHelper extends BaseHelper {
 	
 	public ArrayList<Map<String, Object>> getRouteStopageListMap(String routeId,ArrayList<JoinField> joinFields) {
 		route_map _map = (route_map)Route_mapHelper.getInstance().getById(routeId);
-		if ((_map == null) || (_map.getStopages() == null))
+		if ((_map == null) || (_map.getRoute_stopages() == null))
 			return null;
-		return getByJoining(_map.getStopages().toArray(new String[_map.getStopages().size()]),joinFields,new String[]{route_stopage.FIELD_STOPAGE_ORDER});
+		return getByJoining(_map.getRoute_stopages().toArray(new String[_map.getRoute_stopages().size()]),joinFields,new String[]{route_stopage.FIELD_STOPAGE_ORDER});
+	}
+	
+	public ArrayList<BaseResource> getRouteStopageUserList(String routeStopageId) {
+		route_stopage _map = (route_stopage)Route_stopageHelper.getInstance().getById(routeStopageId);
+		if ((_map == null) || (_map.getUsers() == null))
+			return null;
+		return UserHelper.getInstance().getListById(_map.getUsers().toArray(new String[_map.getUsers().size()]),null);
 	}
 }

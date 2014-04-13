@@ -20,12 +20,14 @@ import java.util.*;
  */
 public abstract class Baseroute_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> stopages = null;
+	private ArrayList<Object> route_stopages = null;
 	private ArrayList<Object> users = null;
+	private ArrayList<Object> appliances = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_STOPAGES = "stopages";
+	public static String FIELD_ROUTE_STOPAGES = "route_stopages";
 	public static String FIELD_USERS = "users";
+	public static String FIELD_APPLIANCES = "appliances";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route_map");
@@ -38,11 +40,14 @@ public abstract class Baseroute_map extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
-		Field stopagesField = new Field("stopages", "Array");
-		metaData.addField(stopagesField);
+		Field route_stopagesField = new Field("route_stopages", "Array");
+		metaData.addField(route_stopagesField);
 
 		Field usersField = new Field("users", "Array");
 		metaData.addField(usersField);
+
+		Field appliancesField = new Field("appliances", "Array");
+		metaData.addField(appliancesField);
 
 
 		metaData.setTableName("route_map");
@@ -54,8 +59,9 @@ public abstract class Baseroute_map extends BaseResource {
 
 	public Baseroute_map(Baseroute_map obj) {
 		this.id = obj.id;
-		this.stopages = obj.stopages;
+		this.route_stopages = obj.route_stopages;
 		this.users = obj.users;
+		this.appliances = obj.appliances;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -66,10 +72,12 @@ public abstract class Baseroute_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(stopages != null)
-			map.put("stopages", stopages);
+		if(route_stopages != null)
+			map.put("route_stopages", route_stopages);
 		if(users != null)
 			map.put("users", users);
+		if(appliances != null)
+			map.put("appliances", appliances);
 		return map;
 	}
 
@@ -77,10 +85,12 @@ public abstract class Baseroute_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(stopages != null)
-			map.put("stopages", stopages);
+		if(route_stopages != null)
+			map.put("route_stopages", route_stopages);
 		if(users != null)
 			map.put("users", users);
+		if(appliances != null)
+			map.put("appliances", appliances);
 		return map;
 	}
 
@@ -91,8 +101,9 @@ public abstract class Baseroute_map extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		stopages = (ArrayList<Object>) map.get("stopages");
+		route_stopages = (ArrayList<Object>) map.get("route_stopages");
 		users = (ArrayList<Object>) map.get("users");
+		appliances = (ArrayList<Object>) map.get("appliances");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -100,8 +111,9 @@ public abstract class Baseroute_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		stopages = (ArrayList<Object>) map.get("stopages");
+		route_stopages = (ArrayList<Object>) map.get("route_stopages");
 		users = (ArrayList<Object>) map.get("users");
+		appliances = (ArrayList<Object>) map.get("appliances");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -132,23 +144,23 @@ public abstract class Baseroute_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getStopages() {
-		return stopages;
+	public ArrayList<Object> getRoute_stopages() {
+		return route_stopages;
 	}
 
 
-	public void setStopages(ArrayList<Object> stopages) {
-		this.stopages = stopages;
+	public void setRoute_stopages(ArrayList<Object> route_stopages) {
+		this.route_stopages = route_stopages;
 	}
 
-	public void addStopages(Object value) {
-		if(stopages == null)
-			stopages = new ArrayList<Object>();
-		stopages.add(value);
+	public void addRoute_stopages(Object value) {
+		if(route_stopages == null)
+			route_stopages = new ArrayList<Object>();
+		route_stopages.add(value);
 	}
 
-	public void unSetStopages() {
-		this.stopages = null;
+	public void unSetRoute_stopages() {
+		this.route_stopages = null;
 	}
 
 	public ArrayList<Object> getUsers() {
@@ -168,6 +180,25 @@ public abstract class Baseroute_map extends BaseResource {
 
 	public void unSetUsers() {
 		this.users = null;
+	}
+
+	public ArrayList<Object> getAppliances() {
+		return appliances;
+	}
+
+
+	public void setAppliances(ArrayList<Object> appliances) {
+		this.appliances = appliances;
+	}
+
+	public void addAppliances(Object value) {
+		if(appliances == null)
+			appliances = new ArrayList<Object>();
+		appliances.add(value);
+	}
+
+	public void unSetAppliances() {
+		this.appliances = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

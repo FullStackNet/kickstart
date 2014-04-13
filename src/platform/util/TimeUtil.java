@@ -285,6 +285,36 @@ public class TimeUtil {
 		if (startTime == null) return "-";
 		return ago(startTime.getTime());
 	}
+	
+	public static long getDayTime(String timeZone,Date time) {
+		long dayTime = 0;
+		if (timeZone == null)
+			timeZone = "IST";
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		cal.setTime(time);
+		long hr = cal.get(Calendar.HOUR_OF_DAY);
+		long mm = cal.get(Calendar.MINUTE);
+		long ss = cal.get(Calendar.SECOND);
+		dayTime = ss+(mm*60L)+(hr*60L*60L);
+		return dayTime;
+	}
+	
+	public static long getDayTime(String time) {
+		long dayTime = 0;
+		time = time.trim();
+		String[] times = time.split(":");
+		if (times.length > 0) {
+			dayTime = Long.parseLong(times[0])*60L*60L;
+		}
+		if (times.length > 1) {
+			dayTime = dayTime+Long.parseLong(times[1])*60L;
+		}
+		if (times.length > 2) {
+			dayTime = dayTime+Long.parseLong(times[2]);
+		}
+		return dayTime;
+	}
+	
 	public static String ago(long startTime) {
 		Date endTime= new Date();
 		long elapsedTime = endTime.getTime()-startTime;

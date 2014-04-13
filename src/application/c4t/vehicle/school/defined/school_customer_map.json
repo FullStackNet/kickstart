@@ -6,7 +6,6 @@
 		{
 			'id':
 			{
-				'name':'id',
 				'length': 128,
 				'required': true,
 				'type':'String',
@@ -14,7 +13,11 @@
 			},
 			'students':
 			{
-				'name':'students',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'route_stopages':
+			{
 				'type':'Array',
 				'valueType' : 'Object' 
 			}

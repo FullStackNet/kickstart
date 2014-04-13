@@ -101,6 +101,27 @@ public class ApplianceHelper extends BaseHelper {
 
 	}
 	
+	public void updateLastStopage(String applianceId,String lastStopageId) {
+		appliance _appliance = new appliance(applianceId);
+		_appliance.setLastStopageId(lastStopageId);
+		try {
+			ApplianceHelper.getInstance().update(_appliance);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void updateCurrentRoute(String applianceId,String currentRouteId) {
+		appliance _appliance = new appliance(applianceId);
+		_appliance.setCurrentRouteId(currentRouteId);
+		try {
+			ApplianceHelper.getInstance().update(_appliance);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void updateDGData(controller _controller,
 			appliance _appliance,
 			double fuelLevel, double fuelQuantity,double canopyTemperature,
