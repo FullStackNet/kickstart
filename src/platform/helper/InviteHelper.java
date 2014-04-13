@@ -17,7 +17,7 @@ import platform.util.Util;
 public class InviteHelper extends BaseHelper {
 	
 	public InviteHelper() {
-		super(new profile());
+		super(new invite());
 		// TODO Auto-generated constructor stub
 	}
 	private static InviteHelper instance;
@@ -63,7 +63,7 @@ public class InviteHelper extends BaseHelper {
 		}
 		
 	}
-	public invite verifyKey(String mobileno,String emailId,String key) throws ApplicationException {
+	public invite verifyKey(String emailId,String mobileno,String key) throws ApplicationException {
 		if (key == null) 
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid key");
 		Expression e1 = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
@@ -78,7 +78,6 @@ public class InviteHelper extends BaseHelper {
 				if (_invite.getStatusEx().equals(invite.INVITE_STATUS_JOINED)) {
 					throw new ApplicationException(ExceptionSeverity.ERROR, "Already Joined");
 				}
-				updateStatus(_invite.getId(), invite.INVITE_STATUS_JOINED);
 				return _invite;
 			}
 		} else {

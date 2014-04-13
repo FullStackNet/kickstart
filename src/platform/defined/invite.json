@@ -84,7 +84,19 @@
 			{
 				'length': 128,
 				'type':'String'
-			}				
+			},
+			'password':
+			{
+				'length': 128,
+				'type':'String',
+				'transient' : true
+			},
+			'confirm_password':
+			{
+				'length': 128,
+				'type':'String',
+				'transient' : true
+			}
 		}
 	}
 }

@@ -33,6 +33,8 @@ public abstract class Baseinvite extends BaseResource {
 	private String dgService = null;
 	private String key = null;
 	private String status = null;
+	private String password = null;
+	private String confirm_password = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TYPE = "type";
@@ -48,6 +50,8 @@ public abstract class Baseinvite extends BaseResource {
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_KEY = "key";
 	public static String FIELD_STATUS = "status";
+	public static String FIELD_PASSWORD = "password";
+	public static String FIELD_CONFIRM_PASSWORD = "confirm_password";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("invite");
@@ -136,6 +140,8 @@ public abstract class Baseinvite extends BaseResource {
 		this.dgService = obj.dgService;
 		this.key = obj.key;
 		this.status = obj.status;
+		this.password = obj.password;
+		this.confirm_password = obj.confirm_password;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -172,6 +178,10 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("key", key);
 		if(status != null)
 			map.put("status", status);
+		if(password != null)
+			map.put("password", password);
+		if(confirm_password != null)
+			map.put("confirm_password", confirm_password);
 		return map;
 	}
 
@@ -205,6 +215,10 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("key", key);
 		if(status != null)
 			map.put("status", status);
+		if(password != null)
+			map.put("password", password);
+		if(confirm_password != null)
+			map.put("confirm_password", confirm_password);
 		return map;
 	}
 
@@ -529,6 +543,38 @@ public abstract class Baseinvite extends BaseResource {
 
 	public void unSetStatus() {
 		this.status = null;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public String getPasswordEx() {
+		return password != null ? password : "";
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void unSetPassword() {
+		this.password = null;
+	}
+
+	public String getConfirm_password() {
+		return confirm_password;
+	}
+
+	public String getConfirm_passwordEx() {
+		return confirm_password != null ? confirm_password : "";
+	}
+
+	public void setConfirm_password(String confirm_password) {
+		this.confirm_password = confirm_password;
+	}
+
+	public void unSetConfirm_password() {
+		this.confirm_password = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";
