@@ -44,7 +44,7 @@ public class Customer_vehicle_mapHelper extends BaseHelper {
 	public void addRouteStopage(String customerId,String stopageId) throws ApplicationException {
 		customer_vehicle_map _map = new customer_vehicle_map();
 		_map.setId(customerId);
-		_map.addRoute_stopage(stopageId);
+		_map.addRoute_stopages(stopageId);
 		AddOrUpdate(_map);
 	}
 	
@@ -126,9 +126,9 @@ public class Customer_vehicle_mapHelper extends BaseHelper {
 	public ArrayList<Map<String, Object>> getRouteStopageListMap(String customerId) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		customer_vehicle_map _customer_map = (customer_vehicle_map)getById(customerId);
-		if ((_customer_map == null) || (_customer_map.getRoute_stopage() == null))
+		if ((_customer_map == null) || (_customer_map.getRoute_stopages() == null))
 			return list;
-		return Route_stopageHelper.getInstance().getListMapById(_customer_map.getRoute_stopage().toArray(new String[_customer_map.getRoute_stopage().size()]),
+		return Route_stopageHelper.getInstance().getListMapById(_customer_map.getRoute_stopages().toArray(new String[_customer_map.getRoute_stopages().size()]),
 				new String[]{stopage.FIELD_NAME});
 	}
 }
