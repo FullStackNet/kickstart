@@ -7,6 +7,7 @@ import application.c4t.vehicle.school.helper.Student_mapHelper;
 import platform.exception.ExceptionEnum;
 import platform.helper.InviteHelper;
 import platform.helper.UserHelper;
+import platform.helper.User_mapHelper;
 import platform.resource.BaseResource;
 import platform.resource.invite;
 import platform.resource.user;
@@ -51,6 +52,7 @@ public class InviteService extends BaseService{
 				_user.setPassword(Util.doubleMD5(_resource.getPasswordEx()));
 				UserHelper.getInstance().add(_user);
 				Student_mapHelper.getInstance().addUser(_fetched_resource.getReference_id(), _user.getId());
+				//User_mapHelper.getInstance().addAppliance(userId, applianceId);
 			}
 		} 
 	}
