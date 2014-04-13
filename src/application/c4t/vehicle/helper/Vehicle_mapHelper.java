@@ -8,13 +8,12 @@ import platform.helper.BaseHelper;
 import platform.helper.UserHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
-import application.c4t.vehicle.resource.customer_vehicle_map;
 import application.c4t.vehicle.resource.stopage;
 import application.c4t.vehicle.resource.vehicle_map;
 
 public class Vehicle_mapHelper extends BaseHelper {
 	public Vehicle_mapHelper() {
-		super(new customer_vehicle_map());
+		super(new vehicle_map());
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -58,6 +57,15 @@ public class Vehicle_mapHelper extends BaseHelper {
 		if ((_map == null) || (_map.getStopages() == null))
 			return list;
 		return StopageHelper.getInstance().getListById(_map.getStopages().toArray(new String[_map.getStopages().size()]),
+				new String[]{stopage.FIELD_NAME});
+	}
+	
+	public ArrayList<BaseResource> getRouteList(String vehicleId) {
+		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
+		vehicle_map _map = (vehicle_map)getById(vehicleId);
+		if ((_map == null) || (_map.getRoutes() == null))
+			return list;
+		return RouteHelper.getInstance().getListById(_map.getRoutes().toArray(new String[_map.getRoutes().size()]),
 				new String[]{stopage.FIELD_NAME});
 	}
 	

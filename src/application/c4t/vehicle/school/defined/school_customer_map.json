@@ -15,11 +15,6 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
-			},
-			'route_stopages':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
 			}
 		}
 	}

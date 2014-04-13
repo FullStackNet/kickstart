@@ -122,4 +122,13 @@ public class Customer_vehicle_mapHelper extends BaseHelper {
 		return StopageHelper.getInstance().getListMapById(_customer_map.getStopages().toArray(new String[_customer_map.getStopages().size()]),
 				new String[]{stopage.FIELD_NAME});
 	}
+	
+	public ArrayList<Map<String, Object>> getRouteStopageListMap(String customerId) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		customer_vehicle_map _customer_map = (customer_vehicle_map)getById(customerId);
+		if ((_customer_map == null) || (_customer_map.getRoute_stopage() == null))
+			return list;
+		return Route_stopageHelper.getInstance().getListMapById(_customer_map.getRoute_stopage().toArray(new String[_customer_map.getRoute_stopage().size()]),
+				new String[]{stopage.FIELD_NAME});
+	}
 }

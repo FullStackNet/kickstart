@@ -73,6 +73,13 @@ public class RouteHelper extends BaseHelper {
 	}
 	
 	route getValidRoute(appliance _fetched_appliance, Date logTime) {
+		ArrayList<BaseResource> routeList = Vehicle_mapHelper.getInstance().getRouteList(_fetched_appliance.getId());
+		for(int i= 0; i <  routeList.size(); i++) {
+			route _route = (route)routeList.get(i);
+			if (isValidRoute(_route, logTime, _fetched_appliance.getTimeZone())) {
+				return _route;
+			}
+		}
 		return null;
 	}
 	
@@ -99,10 +106,6 @@ public class RouteHelper extends BaseHelper {
 		if (current_route == null) {
 			return ;
 		}
-		if (!isValidRoute(current_route,logTime,_fetched_appliance.getTimeZone())) {
-			return ;
-		}
-		
 		ApplianceHelper.getInstance().updateCurrentRoute(_fetched_appliance.getId(),
 				current_route.getId());
 	
@@ -133,6 +136,7 @@ public class RouteHelper extends BaseHelper {
 				sendNotification(_fetched_appliance, _route_stopage);
 				ApplianceHelper.getInstance().updateLastStopage(_fetched_appliance.getId(), 
 						_stopage.getId());
+				return;
 			}
 		}
 	}

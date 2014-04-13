@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import platform.resource.BaseResource;
 import platform.resource.controller;
 import platform.resource.gateway;
+import platform.util.ApplicationException;
 
 
 public class ControllerHelper extends BaseHelper {
@@ -21,6 +22,21 @@ public class ControllerHelper extends BaseHelper {
 		return instance;
 	}
 	
+	
+	public void updateManager(String controllerId, String manager) {
+		if (controllerId ==null) return;
+		if (manager == null) return;
+		
+		controller _controller = new controller();
+		_controller.setId(controllerId);
+		_controller.setManager(manager);
+		try {
+			ControllerHelper.getInstance().update(_controller);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public int getControllerCountByGatewayId(String gatewayId) {
 		gateway _gateway = (gateway)GatewayHelper.getInstance().getById(gatewayId);

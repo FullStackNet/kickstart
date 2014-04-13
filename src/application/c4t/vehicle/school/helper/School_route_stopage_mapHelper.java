@@ -12,7 +12,7 @@ import application.c4t.vehicle.school.resource.student;
 
 public class School_route_stopage_mapHelper extends BaseHelper {
 	public School_route_stopage_mapHelper() {
-		super(new school_customer_map());
+		super(new school_route_storage_map());
 		// TODO Auto-generated constructor stub
 	}
 
@@ -31,6 +31,15 @@ public class School_route_stopage_mapHelper extends BaseHelper {
 		_map.setId(routeStopageId);
 		_map.addStudents(studentId);
 		AddOrUpdate(_map);
+	}
+	
+	public void removeStudent(String routeStopageId,String studentId) throws ApplicationException {
+		if (studentId == null) return;
+		if (routeStopageId == null) return;
+		school_route_storage_map _map = new school_route_storage_map();
+		_map.setId(routeStopageId);
+		_map.addStudents(studentId);
+		unset(_map);
 	}
 
 	public ArrayList<BaseResource> getStudentList(String routeStopageId) {
