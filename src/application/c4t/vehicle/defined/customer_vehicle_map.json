@@ -6,7 +6,6 @@
 		{
 			'id':
 			{
-				'name':'id',
 				'length': 128,
 				'required': true,
 				'type':'String',
@@ -14,43 +13,36 @@
 			},
 			'drivers':
 			{
-				'name':'drivers',
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
 			'routes':
 			{
-				'name':'routes',
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
 			'fleetManagers':
 			{
-				'name':'fleetManagers',
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
 			'fleetOwners':
 			{
-				'name':'fleetOwners',
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
 			'stopages':
 			{
-				'name':'stopages',
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
 			'students':
 			{
-				'name':'students',
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
-			'route_stopage':
+			'route_stopages':
 			{
-				'name':'schedule_stopage',
 				'type':'Array',
 				'valueType' : 'Object' 
 			}

@@ -26,7 +26,7 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 	private ArrayList<Object> fleetOwners = null;
 	private ArrayList<Object> stopages = null;
 	private ArrayList<Object> students = null;
-	private ArrayList<Object> route_stopage = null;
+	private ArrayList<Object> route_stopages = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_DRIVERS = "drivers";
@@ -35,7 +35,7 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 	public static String FIELD_FLEETOWNERS = "fleetOwners";
 	public static String FIELD_STOPAGES = "stopages";
 	public static String FIELD_STUDENTS = "students";
-	public static String FIELD_ROUTE_STOPAGE = "route_stopage";
+	public static String FIELD_ROUTE_STOPAGES = "route_stopages";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("customer_vehicle_map");
@@ -66,8 +66,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		Field studentsField = new Field("students", "Array");
 		metaData.addField(studentsField);
 
-		Field route_stopageField = new Field("route_stopage", "Array");
-		metaData.addField(route_stopageField);
+		Field route_stopagesField = new Field("route_stopages", "Array");
+		metaData.addField(route_stopagesField);
 
 
 		metaData.setTableName("customer_vehicle_map");
@@ -85,7 +85,7 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		this.fleetOwners = obj.fleetOwners;
 		this.stopages = obj.stopages;
 		this.students = obj.students;
-		this.route_stopage = obj.route_stopage;
+		this.route_stopages = obj.route_stopages;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -108,8 +108,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 			map.put("stopages", stopages);
 		if(students != null)
 			map.put("students", students);
-		if(route_stopage != null)
-			map.put("route_stopage", route_stopage);
+		if(route_stopages != null)
+			map.put("route_stopages", route_stopages);
 		return map;
 	}
 
@@ -129,8 +129,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 			map.put("stopages", stopages);
 		if(students != null)
 			map.put("students", students);
-		if(route_stopage != null)
-			map.put("route_stopage", route_stopage);
+		if(route_stopages != null)
+			map.put("route_stopages", route_stopages);
 		return map;
 	}
 
@@ -147,7 +147,7 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
 		stopages = (ArrayList<Object>) map.get("stopages");
 		students = (ArrayList<Object>) map.get("students");
-		route_stopage = (ArrayList<Object>) map.get("route_stopage");
+		route_stopages = (ArrayList<Object>) map.get("route_stopages");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -161,7 +161,7 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
 		stopages = (ArrayList<Object>) map.get("stopages");
 		students = (ArrayList<Object>) map.get("students");
-		route_stopage = (ArrayList<Object>) map.get("route_stopage");
+		route_stopages = (ArrayList<Object>) map.get("route_stopages");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -306,23 +306,23 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		this.students = null;
 	}
 
-	public ArrayList<Object> getRoute_stopage() {
-		return route_stopage;
+	public ArrayList<Object> getRoute_stopages() {
+		return route_stopages;
 	}
 
 
-	public void setRoute_stopage(ArrayList<Object> route_stopage) {
-		this.route_stopage = route_stopage;
+	public void setRoute_stopages(ArrayList<Object> route_stopages) {
+		this.route_stopages = route_stopages;
 	}
 
-	public void addRoute_stopage(Object value) {
-		if(route_stopage == null)
-			route_stopage = new ArrayList<Object>();
-		route_stopage.add(value);
+	public void addRoute_stopages(Object value) {
+		if(route_stopages == null)
+			route_stopages = new ArrayList<Object>();
+		route_stopages.add(value);
 	}
 
-	public void unSetRoute_stopage() {
-		this.route_stopage = null;
+	public void unSetRoute_stopages() {
+		this.route_stopages = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

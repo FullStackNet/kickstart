@@ -95,6 +95,24 @@
 				'length': 10,
 				'type':'String'
 			}
-		}
+		},
+		"information" : 
+		{
+			"add" : 
+			 {
+				1 : {
+					context : "On Adding route",
+					resource : "customer_vehicle_map",
+					to_field : "routes" ,
+					comment : "pick the route id and customer id from context and add into routes array in customer_vehicle_map"
+				},
+				2 : {
+					context : "On Adding route if vehicle is specified",
+					resource : "vehicle_map",
+					to_field : "routes", 
+					comment : "pick the route id and vehicle id  and add into routes array in vehicle_map"
+				}
+			}
+		}		
 	}
 }
