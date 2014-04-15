@@ -1,13 +1,10 @@
 package platform.helper;
 
-import javax.print.attribute.standard.Severity;
-
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.invite;
-import platform.resource.profile;
 import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
