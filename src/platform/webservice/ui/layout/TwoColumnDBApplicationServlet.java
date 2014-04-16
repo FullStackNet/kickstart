@@ -44,11 +44,8 @@ public abstract class TwoColumnDBApplicationServlet extends BaseUIServlet {
 	public String getWebPage(UIServletContext context) {
 		// TODO Auto-generated method stub
 		TwoColumnLayout layout = new TwoColumnLayout(context);
-		HeaderView headerView = new HeaderView(context);
+		HeaderView headerView = new HeaderView(context, layout.getHeader());
 		headerView.buildUI();
-		layout.getHeader().addChild(headerView.getView());
-		HeaderMenu headerMenu = new HeaderMenu(context, layout.getMenu());
-		headerMenu.buildUI();
 		layout.getLeftColumn().addChild(getWebLeftMenu(context));
 		layout.getContent().addChild(getWebContentView(context));
 		context.getPageBuilder().setLayout(layout);

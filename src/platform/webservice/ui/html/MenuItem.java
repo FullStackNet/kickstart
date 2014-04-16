@@ -1,6 +1,7 @@
 package platform.webservice.ui.html;
 
 import platform.webservice.ui.util.Attribute;
+import platform.webservice.ui.util.ImageUtils;
 
 
 
@@ -11,6 +12,17 @@ public class MenuItem {
 	public MenuItem(String label, String link) {
 		mItem = new LI();
 		A a = new A();
+		a.setText(label);
+		a.addAttribute(new Attribute("href", link));
+		mItem.addChild(a);
+	}
+	
+	public MenuItem(String label, String link, String imgsrc) {
+		mItem = new LI();
+		A a = new A();
+		IMG i = new IMG();
+		i.setSRC(imgsrc);
+		a.addChild(i);
 		a.setText(label);
 		a.addAttribute(new Attribute("href", link));
 		mItem.addChild(a);
