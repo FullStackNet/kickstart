@@ -36,11 +36,6 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
-			'students':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
 			'route_stopages':
 			{
 				'type':'Array',

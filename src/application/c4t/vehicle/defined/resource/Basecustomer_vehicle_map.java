@@ -25,7 +25,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 	private ArrayList<Object> fleetManagers = null;
 	private ArrayList<Object> fleetOwners = null;
 	private ArrayList<Object> stopages = null;
-	private ArrayList<Object> students = null;
 	private ArrayList<Object> route_stopages = null;
 
 	public static String FIELD_ID = "id";
@@ -34,7 +33,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 	public static String FIELD_FLEETMANAGERS = "fleetManagers";
 	public static String FIELD_FLEETOWNERS = "fleetOwners";
 	public static String FIELD_STOPAGES = "stopages";
-	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_ROUTE_STOPAGES = "route_stopages";
 
 	private static final long serialVersionUID = 1L;
@@ -63,9 +61,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		Field stopagesField = new Field("stopages", "Array");
 		metaData.addField(stopagesField);
 
-		Field studentsField = new Field("students", "Array");
-		metaData.addField(studentsField);
-
 		Field route_stopagesField = new Field("route_stopages", "Array");
 		metaData.addField(route_stopagesField);
 
@@ -84,7 +79,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		this.fleetManagers = obj.fleetManagers;
 		this.fleetOwners = obj.fleetOwners;
 		this.stopages = obj.stopages;
-		this.students = obj.students;
 		this.route_stopages = obj.route_stopages;
 	}
 
@@ -106,8 +100,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 			map.put("fleetOwners", fleetOwners);
 		if(stopages != null)
 			map.put("stopages", stopages);
-		if(students != null)
-			map.put("students", students);
 		if(route_stopages != null)
 			map.put("route_stopages", route_stopages);
 		return map;
@@ -127,8 +119,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 			map.put("fleetOwners", fleetOwners);
 		if(stopages != null)
 			map.put("stopages", stopages);
-		if(students != null)
-			map.put("students", students);
 		if(route_stopages != null)
 			map.put("route_stopages", route_stopages);
 		return map;
@@ -146,7 +136,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
 		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
 		stopages = (ArrayList<Object>) map.get("stopages");
-		students = (ArrayList<Object>) map.get("students");
 		route_stopages = (ArrayList<Object>) map.get("route_stopages");
 	}
 
@@ -160,7 +149,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
 		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
 		stopages = (ArrayList<Object>) map.get("stopages");
-		students = (ArrayList<Object>) map.get("students");
 		route_stopages = (ArrayList<Object>) map.get("route_stopages");
 	}
 
@@ -285,25 +273,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 	public void unSetStopages() {
 		this.stopages = null;
-	}
-
-	public ArrayList<Object> getStudents() {
-		return students;
-	}
-
-
-	public void setStudents(ArrayList<Object> students) {
-		this.students = students;
-	}
-
-	public void addStudents(Object value) {
-		if(students == null)
-			students = new ArrayList<Object>();
-		students.add(value);
-	}
-
-	public void unSetStudents() {
-		this.students = null;
 	}
 
 	public ArrayList<Object> getRoute_stopages() {

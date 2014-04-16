@@ -70,12 +70,6 @@ public class Customer_vehicle_mapHelper extends BaseHelper {
 		AddOrUpdate(_map);
 	}
 	
-	public void addStudent(String customerId,String student) throws ApplicationException {
-		customer_vehicle_map _map = new customer_vehicle_map();
-		_map.setId(customerId);
-		_map.addStudents(student);
-		AddOrUpdate(_map);
-	}
 	
 	public ArrayList<Map<String, Object>> getFleetManagersListMap(String customerId) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
