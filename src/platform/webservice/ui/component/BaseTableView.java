@@ -9,14 +9,17 @@ import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.definition.TableDefinition;
 import platform.webservice.ui.html.A;
+import platform.webservice.ui.html.P;
 import platform.webservice.ui.html.TABLE;
 import platform.webservice.ui.html.TBODY;
 import platform.webservice.ui.html.TD;
 import platform.webservice.ui.html.TH;
 import platform.webservice.ui.html.THEAD;
 import platform.webservice.ui.html.TR;
+import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.renderer.BaseRenderer;
 import platform.webservice.ui.util.Attribute;
+import platform.webservice.ui.util.ImageUtils;
 import platform.webservice.ui.util.UIConstants;
 
 
@@ -120,6 +123,8 @@ public abstract class BaseTableView extends BaseView {
 
 	void buildUI(ArrayList<Map<String, Object>> list) {
 		mTable = new TABLE(mDefinition.getId(), mDefinition.getClassName());
+		mTable.addAttribute(new Attribute("cellpadding", "0"));
+		mTable.addAttribute(new Attribute("cellspacing", "0"));
 		renderHeading();
 		TBODY tbody = new TBODY();
 		mTable.addChild(tbody);
@@ -130,16 +135,19 @@ public abstract class BaseTableView extends BaseView {
 			}
 		}
 		if (mDefinition.isAddButton()) {
+			P p = new P();
 			A a = new A();
-			a.addAttribute("class","button");
-			a.setText("+ Add New");
+			IMG img = new IMG();
+			img.setSRC(ImageUtils.ADD_NEW_ITEM);
+			a.addChild(img);
 			String url = mDefinition.getAddButtonURL();
 			if (url.indexOf("?") > 0) {
 				a.setHref(url+"&op=add");
 			} else {
 				a.setHref(url+"?op=add");
 			}
-			getView().addChild(a);
+			p.addChild(a);
+			getView().addChild(p);
 		}
 		getView().addChild(mTable);
 	}
