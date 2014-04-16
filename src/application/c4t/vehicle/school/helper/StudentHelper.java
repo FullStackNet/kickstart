@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import platform.helper.BaseHelper;
-import application.c4t.vehicle.helper.Customer_vehicle_mapHelper;
 import application.c4t.vehicle.school.resource.school_customer_map;
 import application.c4t.vehicle.school.resource.student;
 
