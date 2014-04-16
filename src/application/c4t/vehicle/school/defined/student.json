@@ -69,11 +69,6 @@
 				'length': 128,
 				'type':'String'
 			},
-			'stopage_id':
-			{
-				'length': 128,
-				'type':'String'
-			},
 			'father_name':
 			{
 				'length': 128,

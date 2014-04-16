@@ -49,11 +49,6 @@
 			'time_from_previous_stop':
 			{
 				'type':'int'
-			},
-			'users':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
 			}
 		}
 	}

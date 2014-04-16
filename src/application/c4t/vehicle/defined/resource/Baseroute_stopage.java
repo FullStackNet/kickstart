@@ -28,7 +28,6 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private Integer stopage_order = null;
 	private Double distance_from_previous_stop = null;
 	private Integer time_from_previous_stop = null;
-	private ArrayList<Object> users = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -39,7 +38,6 @@ public abstract class Baseroute_stopage extends BaseResource {
 	public static String FIELD_STOPAGE_ORDER = "stopage_order";
 	public static String FIELD_DISTANCE_FROM_PREVIOUS_STOP = "distance_from_previous_stop";
 	public static String FIELD_TIME_FROM_PREVIOUS_STOP = "time_from_previous_stop";
-	public static String FIELD_USERS = "users";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route_stopage");
@@ -84,9 +82,6 @@ public abstract class Baseroute_stopage extends BaseResource {
 		Field time_from_previous_stopField = new Field("time_from_previous_stop", "int");
 		metaData.addField(time_from_previous_stopField);
 
-		Field usersField = new Field("users", "Array");
-		metaData.addField(usersField);
-
 
 		metaData.setTableName("route_stopage");
 
@@ -105,7 +100,6 @@ public abstract class Baseroute_stopage extends BaseResource {
 		this.stopage_order = obj.stopage_order;
 		this.distance_from_previous_stop = obj.distance_from_previous_stop;
 		this.time_from_previous_stop = obj.time_from_previous_stop;
-		this.users = obj.users;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -132,8 +126,6 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("distance_from_previous_stop", distance_from_previous_stop);
 		if(time_from_previous_stop != null)
 			map.put("time_from_previous_stop", time_from_previous_stop);
-		if(users != null)
-			map.put("users", users);
 		return map;
 	}
 
@@ -157,8 +149,6 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("distance_from_previous_stop", distance_from_previous_stop);
 		if(time_from_previous_stop != null)
 			map.put("time_from_previous_stop", time_from_previous_stop);
-		if(users != null)
-			map.put("users", users);
 		return map;
 	}
 
@@ -177,7 +167,6 @@ public abstract class Baseroute_stopage extends BaseResource {
 		stopage_order = (Integer) map.get("stopage_order");
 		distance_from_previous_stop = (Double) map.get("distance_from_previous_stop");
 		time_from_previous_stop = (Integer) map.get("time_from_previous_stop");
-		users = (ArrayList<Object>) map.get("users");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -217,7 +206,6 @@ public abstract class Baseroute_stopage extends BaseResource {
 		if(time_from_previous_stopObj != null)
 			time_from_previous_stop = new Integer(time_from_previous_stopObj.toString());
 
-		users = (ArrayList<Object>) map.get("users");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -404,25 +392,6 @@ public abstract class Baseroute_stopage extends BaseResource {
 
 	public void unSetTime_from_previous_stop() {
 		this.time_from_previous_stop = null;
-	}
-
-	public ArrayList<Object> getUsers() {
-		return users;
-	}
-
-
-	public void setUsers(ArrayList<Object> users) {
-		this.users = users;
-	}
-
-	public void addUsers(Object value) {
-		if(users == null)
-			users = new ArrayList<Object>();
-		users.add(value);
-	}
-
-	public void unSetUsers() {
-		this.users = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

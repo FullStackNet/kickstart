@@ -42,23 +42,6 @@ public class Route_mapHelper extends BaseHelper {
 		unset(_map);
 	}
 	
-	public void addAppliance(String routeId,String applianceId) throws ApplicationException {
-		if (routeId == null) return;
-		if (applianceId == null) return;
-		route_map _map = new route_map();
-		_map.setId(routeId);
-		_map.addAppliances(applianceId);
-		AddOrUpdate(_map);
-	}
-	
-	public void removeAppliance(String routeId,String applianceId) throws ApplicationException {
-		if (routeId == null) return;
-		if (applianceId == null) return;
-		route_map _map = new route_map();
-		_map.setId(routeId);
-		_map.addAppliances(applianceId);
-		unset(_map);
-	}
 	
 	public ArrayList<BaseResource> getRouteStopageList(String routeId) {
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();

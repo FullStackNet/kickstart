@@ -20,11 +20,6 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
-			},
-			'appliances':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
 			}
 		}
 	}

@@ -36,11 +36,4 @@ public class Route_stopageHelper extends BaseHelper {
 			return null;
 		return getByJoining(_map.getRoute_stopages().toArray(new String[_map.getRoute_stopages().size()]),joinFields,new String[]{route_stopage.FIELD_STOPAGE_ORDER});
 	}
-	
-	public ArrayList<BaseResource> getRouteStopageUserList(String routeStopageId) {
-		route_stopage _map = (route_stopage)Route_stopageHelper.getInstance().getById(routeStopageId);
-		if ((_map == null) || (_map.getUsers() == null))
-			return null;
-		return UserHelper.getInstance().getListById(_map.getUsers().toArray(new String[_map.getUsers().size()]),null);
-	}
 }
