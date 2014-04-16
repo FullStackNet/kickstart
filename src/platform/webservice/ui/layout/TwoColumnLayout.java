@@ -22,17 +22,7 @@ public class TwoColumnLayout extends BaseLayout {
 		
 		mLayoutHeader = new Div();
 		mLayoutHeader.addAttribute(new Attribute("id", "header"));
-		mLayoutContainer.addChild(mLayoutHeader);
-		
-		
-		Div div = new Div();
-		div.addAttribute(new Attribute("id", "navigation"));
-		
-		mLayoutMenu = new UL();
-		div.addChild(mLayoutMenu);
-		
-		mLayoutContainer.addChild(div);
-		
+		mLayoutContainer.addChild(mLayoutHeader);		
 		
 		Div content_container  = new Div();
 		content_container.addAttribute(new Attribute("id", "content-container"));
