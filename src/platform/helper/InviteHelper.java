@@ -71,11 +71,12 @@ public class InviteHelper extends BaseHelper {
 		if (!Util.isEmpty(resources)) {
 			for(int i= 0; i < resources.length; i++) {
 				invite _invite = (invite)resources[i];
-				if (key.equals(_invite.getKey()))
-				if (_invite.getStatusEx().equals(invite.INVITE_STATUS_JOINED)) {
-					throw new ApplicationException(ExceptionSeverity.ERROR, "Already Joined");
+				if (key.equals(_invite.getKey())) {
+					if (_invite.getStatusEx().equals(invite.INVITE_STATUS_JOINED)) {
+						throw new ApplicationException(ExceptionSeverity.ERROR, "Already Joined");
+					}
+					return _invite;
 				}
-				return _invite;
 			}
 		} else {
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Invitation");

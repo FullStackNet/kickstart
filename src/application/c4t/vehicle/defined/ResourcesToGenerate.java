@@ -30,6 +30,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("vehicle_summary", "application.c4t.vehicle.resource.vehicle_summary"),
 		new ResourceMap("stopage", "application.c4t.vehicle.resource.stopage"),
 		new ResourceMap("route_stopage", "application.c4t.vehicle.resource.route_stopage"),
+		new ResourceMap("route_stopage_map", "application.c4t.vehicle.resource.route_stopage_map"),
 		new ResourceMap("vehicle_map", "application.c4t.vehicle.resource.vehicle_map"),
 		new ResourceMap("stopage_map", "application.c4t.vehicle.resource.stopage_map"),
 	};

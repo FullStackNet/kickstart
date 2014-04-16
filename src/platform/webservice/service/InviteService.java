@@ -14,7 +14,9 @@ import platform.util.Util;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 import platform.webservice.WebServiceContants;
+import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
+import application.c4t.vehicle.school.resource.student;
 
 public class InviteService extends BaseService{
 	public InviteService() {
@@ -49,7 +51,10 @@ public class InviteService extends BaseService{
 				_user.setPassword(Util.doubleMD5(_resource.getPasswordEx()));
 				UserHelper.getInstance().add(_user);
 				Student_mapHelper.getInstance().addUser(_fetched_resource.getReference_id(), _user.getId());
-				//User_mapHelper.getInstance().addAppliance(userId, applianceId);
+				//User_mapHelper.getInstance().addApplianr(userId, applianceId);
+				student _student = (student)StudentHelper.getInstance().getById(_fetched_resource.getReference_id());
+				if (_student == null)
+					return;
 			}
 		} 
 	}
