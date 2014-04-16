@@ -14,7 +14,7 @@ public class Device {
 	
 	
 	
-	public static String DEVICE_MANAGER_V3 = "V3";
+	public static String DEVICE_MANAGER_C4T = "C4T";
 	public static String DEVICE_MANAGER_V3TRACKER = "V3TRACKER";
 	public static String DEVICE_MANAGER_DIC = "DIC";
 	public static String DEVICE_MANAGER_NETVOX = "NETVOX";
@@ -35,7 +35,7 @@ public class Device {
 	
 	public static String[] getManagerList() {
 		String[] list = {
-				DEVICE_MANAGER_V3,
+				DEVICE_MANAGER_C4T,
 				DEVICE_MANAGER_DIC,
 				DEVICE_MANAGER_NETVOX,
 				DEVICE_MANAGER_MOBD,
