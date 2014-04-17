@@ -28,6 +28,16 @@ public class HelperUtils {
 		return list;
 	}
 
+	public static ArrayList<Map<String,Object>> convertArray2ListMap(BaseResource[] resources) {
+		ArrayList<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+		if (Util.isEmpty(resources))
+			return list;
+		for(int i=0;i < resources.length; i++) {
+			list.add( resources[i].convertResourceToMap());
+		}
+		return list;
+	}
+	
 	public static String[] convertMap2IdArray(Map<String, Object> map) {
 		String[] ids = new String[map.size()];
 		int count = 0;

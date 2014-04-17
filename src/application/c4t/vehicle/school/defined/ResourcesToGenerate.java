@@ -21,7 +21,6 @@ public class ResourcesToGenerate {
 	 * Make sure there is a default constructor (with no args) in the extending class.
 	 */
 	public static ResourceMap[] resourceMaps =  {
-		new ResourceMap("school_customer_map", "application.c4t.vehicle.school.resource.customer_vehicle_map"),
 		new ResourceMap("student", "application.c4t.vehicle.school.resource.student"),
 		new ResourceMap("school_route_map", "application.c4t.vehicle.school.resource.school_route_map"),
 		new ResourceMap("school_route_stopage_map", "application.c4t.vehicle.school.resource.school_route__stopage_map"),

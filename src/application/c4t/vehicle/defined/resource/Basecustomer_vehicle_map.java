@@ -20,20 +20,12 @@ import java.util.*;
  */
 public abstract class Basecustomer_vehicle_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> drivers = null;
-	private ArrayList<Object> routes = null;
 	private ArrayList<Object> fleetManagers = null;
 	private ArrayList<Object> fleetOwners = null;
-	private ArrayList<Object> stopages = null;
-	private ArrayList<Object> route_stopages = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_DRIVERS = "drivers";
-	public static String FIELD_ROUTES = "routes";
 	public static String FIELD_FLEETMANAGERS = "fleetManagers";
 	public static String FIELD_FLEETOWNERS = "fleetOwners";
-	public static String FIELD_STOPAGES = "stopages";
-	public static String FIELD_ROUTE_STOPAGES = "route_stopages";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("customer_vehicle_map");
@@ -46,23 +38,11 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
-		Field driversField = new Field("drivers", "Array");
-		metaData.addField(driversField);
-
-		Field routesField = new Field("routes", "Array");
-		metaData.addField(routesField);
-
 		Field fleetManagersField = new Field("fleetManagers", "Array");
 		metaData.addField(fleetManagersField);
 
 		Field fleetOwnersField = new Field("fleetOwners", "Array");
 		metaData.addField(fleetOwnersField);
-
-		Field stopagesField = new Field("stopages", "Array");
-		metaData.addField(stopagesField);
-
-		Field route_stopagesField = new Field("route_stopages", "Array");
-		metaData.addField(route_stopagesField);
 
 
 		metaData.setTableName("customer_vehicle_map");
@@ -74,12 +54,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 	public Basecustomer_vehicle_map(Basecustomer_vehicle_map obj) {
 		this.id = obj.id;
-		this.drivers = obj.drivers;
-		this.routes = obj.routes;
 		this.fleetManagers = obj.fleetManagers;
 		this.fleetOwners = obj.fleetOwners;
-		this.stopages = obj.stopages;
-		this.route_stopages = obj.route_stopages;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -90,18 +66,10 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(drivers != null)
-			map.put("drivers", drivers);
-		if(routes != null)
-			map.put("routes", routes);
 		if(fleetManagers != null)
 			map.put("fleetManagers", fleetManagers);
 		if(fleetOwners != null)
 			map.put("fleetOwners", fleetOwners);
-		if(stopages != null)
-			map.put("stopages", stopages);
-		if(route_stopages != null)
-			map.put("route_stopages", route_stopages);
 		return map;
 	}
 
@@ -109,18 +77,10 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(drivers != null)
-			map.put("drivers", drivers);
-		if(routes != null)
-			map.put("routes", routes);
 		if(fleetManagers != null)
 			map.put("fleetManagers", fleetManagers);
 		if(fleetOwners != null)
 			map.put("fleetOwners", fleetOwners);
-		if(stopages != null)
-			map.put("stopages", stopages);
-		if(route_stopages != null)
-			map.put("route_stopages", route_stopages);
 		return map;
 	}
 
@@ -131,12 +91,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		drivers = (ArrayList<Object>) map.get("drivers");
-		routes = (ArrayList<Object>) map.get("routes");
 		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
 		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
-		stopages = (ArrayList<Object>) map.get("stopages");
-		route_stopages = (ArrayList<Object>) map.get("route_stopages");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -144,12 +100,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		drivers = (ArrayList<Object>) map.get("drivers");
-		routes = (ArrayList<Object>) map.get("routes");
 		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
 		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
-		stopages = (ArrayList<Object>) map.get("stopages");
-		route_stopages = (ArrayList<Object>) map.get("route_stopages");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -178,44 +130,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
-	}
-
-	public ArrayList<Object> getDrivers() {
-		return drivers;
-	}
-
-
-	public void setDrivers(ArrayList<Object> drivers) {
-		this.drivers = drivers;
-	}
-
-	public void addDrivers(Object value) {
-		if(drivers == null)
-			drivers = new ArrayList<Object>();
-		drivers.add(value);
-	}
-
-	public void unSetDrivers() {
-		this.drivers = null;
-	}
-
-	public ArrayList<Object> getRoutes() {
-		return routes;
-	}
-
-
-	public void setRoutes(ArrayList<Object> routes) {
-		this.routes = routes;
-	}
-
-	public void addRoutes(Object value) {
-		if(routes == null)
-			routes = new ArrayList<Object>();
-		routes.add(value);
-	}
-
-	public void unSetRoutes() {
-		this.routes = null;
 	}
 
 	public ArrayList<Object> getFleetManagers() {
@@ -254,44 +168,6 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 	public void unSetFleetOwners() {
 		this.fleetOwners = null;
-	}
-
-	public ArrayList<Object> getStopages() {
-		return stopages;
-	}
-
-
-	public void setStopages(ArrayList<Object> stopages) {
-		this.stopages = stopages;
-	}
-
-	public void addStopages(Object value) {
-		if(stopages == null)
-			stopages = new ArrayList<Object>();
-		stopages.add(value);
-	}
-
-	public void unSetStopages() {
-		this.stopages = null;
-	}
-
-	public ArrayList<Object> getRoute_stopages() {
-		return route_stopages;
-	}
-
-
-	public void setRoute_stopages(ArrayList<Object> route_stopages) {
-		this.route_stopages = route_stopages;
-	}
-
-	public void addRoute_stopages(Object value) {
-		if(route_stopages == null)
-			route_stopages = new ArrayList<Object>();
-		route_stopages.add(value);
-	}
-
-	public void unSetRoute_stopages() {
-		this.route_stopages = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

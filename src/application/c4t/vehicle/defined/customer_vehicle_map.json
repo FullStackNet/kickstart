@@ -11,32 +11,12 @@
 				'type':'String',
 				'remark' : "customer Id"
 			},
-			'drivers':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
-			'routes':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
 			'fleetManagers':
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
 			'fleetOwners':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
-			'stopages':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
-			'route_stopages':
 			{
 				'type':'Array',
 				'valueType' : 'Object' 

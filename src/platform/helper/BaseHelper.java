@@ -9,6 +9,7 @@ import platform.db.DbConnection;
 import platform.db.DbManager;
 import platform.db.Expression;
 import platform.db.JoinField;
+import platform.db.REL_OP;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
@@ -213,11 +214,14 @@ public class BaseHelper {
 	}
 	
 	public BaseResource[] getByExpression(Expression expression) {
+		return getByExpression(expression,null);
+	}
+	public BaseResource[] getByExpression(Expression expression, String[] orderby) {
 		BaseResource[] resources = null;
 		DbConnection connection = null;
 		try {
 			connection = DbManager.getInstance().getConnection(this.getResource());
-			List<Map<String, Object>> rows = connection.getByExpression(resource.getMetaData(),expression, null);
+			List<Map<String, Object>> rows = connection.getByExpression(resource.getMetaData(),expression, orderby);
 			resources = new BaseResource[rows.size()];
 			int i = 0;
 			for(Map<String, Object> row : rows) {
@@ -299,7 +303,7 @@ public class BaseHelper {
 
 	public BaseResource[] getById(String[] ids,String[] orderBy) {
 		ArrayList<BaseResource> list = getListById(ids, orderBy);
-		return  convertList2Array(list);
+		return  HelperUtils.convertList2Array(list);
 	}
 	
 	public ArrayList<BaseResource> getListById(String[] ids) {
@@ -318,7 +322,7 @@ public class BaseHelper {
 		
 	public BaseResource[] getArrayById(String[] ids,String[] orderby, Expression expression) {
 		ArrayList<BaseResource> list = getListById(ids, orderby, expression);
-		return convertList2Array(list);
+		return HelperUtils.convertList2Array(list);
 	}
 	
 	public ArrayList<BaseResource> getListById(String[] ids,String[] orderby, Expression expression) {
@@ -442,7 +446,7 @@ public class BaseHelper {
 				continue;
 			BaseHelper childHelper = HelperFactory.getInstance().getHelper(joinField.getResource());
 			Map<String, Map<String, Object>>  foriegnMap = null;
-			foriegnMap = childHelper.getMapMapById(convertMap2IdArray(list),orderBy);
+			foriegnMap = childHelper.getMapMapById(HelperUtils.convertMap2IdArray(list),orderBy);
 			resourceMap.put(joinField.getJoiningId(), foriegnMap);
 		}
 
@@ -501,7 +505,7 @@ public class BaseHelper {
 				continue;
 			BaseHelper childHelper = HelperFactory.getInstance().getHelper(joinField.getResource());
 			Map<String, Map<String, Object>>  foriegnMap = null;
-			foriegnMap = childHelper.getMapMapById(convertMap2IdArray(list),orderBy);
+			foriegnMap = childHelper.getMapMapById(HelperUtils.convertMap2IdArray(list),orderBy);
 			resourceMap.put(joinField.getJoiningId(), foriegnMap);
 		}
 
@@ -587,37 +591,6 @@ public class BaseHelper {
 		String[] ids = idList.toArray(new String[idList.size()]);
 		return  getById(ids,orderBy);
 	}
-
-	public BaseResource[] convertList2Array(ArrayList<BaseResource> list) {
-		if (Util.isEmpty(list))
-			return null;
-		BaseResource[] resources = new BaseResource[list.size()];
-		for(int i=0;i < list.size(); i++) {
-			resources[i] = list.get(i);
-		}
-		return resources;
-	}
-
-	public ArrayList<BaseResource> convertArray2List(BaseResource[] resources) {
-		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
-		if (Util.isEmpty(resources))
-			return null;
-		for(int i=0;i < resources.length; i++) {
-			list.add( resources[i]);
-		}
-		return list;
-	}
-
-	String[] convertMap2IdArray(Map<String, Object> map) {
-		String[] ids = new String[map.size()];
-		int count = 0;
-		for (Map.Entry<String, Object> entry : map.entrySet()) {
-			ids[count] = entry.getKey();
-			count++;
-		}
-		return ids;
-	}
-
 
 	public BaseResource getById(String id) {
 		BaseResource clonedResource = null;
@@ -772,6 +745,11 @@ public class BaseHelper {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public BaseResource[] getByCustomerId(String customerId) {
+		Expression e = new Expression("customer_id", REL_OP.EQ, customerId);
+		return getByExpression(e, new String[]{"name"});
 	}
 	
 	public void reset(BaseResource _fetchedResource,String id,String fieldName) {

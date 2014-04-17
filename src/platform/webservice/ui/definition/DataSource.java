@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import platform.helper.BaseHelper;
+import platform.resource.BaseResource;
+import platform.util.Util;
 
 public class DataSource {
 	public static String EXPRESSION = "EXPRESSION";
@@ -27,6 +29,19 @@ public class DataSource {
 		super();
 		this.type = HELPER;
 		this.helper = helper;
+		this.keyField = keyField;
+		this.valueField = valueField;
+	}
+	
+	public DataSource(String keyField, String valueField , BaseResource[] resources) {
+		super();
+		this.type = LISTMAP;
+		listMap = new ArrayList<Map<String, Object>>();
+		if (!Util.isEmpty(resources)) {
+			for(int i=0; i < resources.length; i++) {
+				listMap.add(resources[i].convertResourceToMap());
+			}
+		}
 		this.keyField = keyField;
 		this.valueField = valueField;
 	}
