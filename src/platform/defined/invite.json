@@ -28,13 +28,15 @@
 			{
 				'name':'mobile_no',
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				index : true
 			},
 			'email_id':
 			{
 				'name':'email_id',
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				index : true
 			},
 			'customer_id':
 			{

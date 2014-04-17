@@ -74,10 +74,12 @@ public abstract class Baseinvite extends BaseResource {
 		metaData.addField(nameField);
 
 		Field mobile_noField = new Field("mobile_no", "String");
+		mobile_noField.setIndexed(true);
 		mobile_noField.setLength(128);
 		metaData.addField(mobile_noField);
 
 		Field email_idField = new Field("email_id", "String");
+		email_idField.setIndexed(true);
 		email_idField.setLength(128);
 		metaData.addField(email_idField);
 

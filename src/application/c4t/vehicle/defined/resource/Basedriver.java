@@ -105,6 +105,7 @@ public abstract class Basedriver extends BaseResource {
 		metaData.addField(remarkField);
 
 		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setIndexed(true);
 		customer_idField.setRequired(true);
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
