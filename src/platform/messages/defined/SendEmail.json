@@ -1,0 +1,36 @@
+{
+	"SendEmail" :
+	{
+		"category" : "6",
+		"command" : "15",
+		"packet_type" : "1",
+		"fields":
+		{
+			'to':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'from':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'params':
+			{
+				'length': 4096,
+				'type':'String'
+			}
+		}
+	}
+}
