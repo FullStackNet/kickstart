@@ -42,7 +42,8 @@
 			{
 				'name':'customer_id',
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				'index' : true
 			},
 			'invite_type':
 			{

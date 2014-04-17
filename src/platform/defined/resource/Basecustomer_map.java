@@ -9,15 +9,10 @@
 
 package platform.defined.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -27,7 +22,6 @@ public abstract class Basecustomer_map extends BaseResource {
 	private String id = null;
 	private ArrayList<Object> appliances = null;
 	private ArrayList<Object> sensors = null;
-	private ArrayList<Object> invite = null;
 	private ArrayList<Object> join = null;
 	private ArrayList<Object> controllers = null;
 	private ArrayList<Object> locations = null;
@@ -35,7 +29,6 @@ public abstract class Basecustomer_map extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_APPLIANCES = "appliances";
 	public static String FIELD_SENSORS = "sensors";
-	public static String FIELD_INVITE = "invite";
 	public static String FIELD_JOIN = "join";
 	public static String FIELD_CONTROLLERS = "controllers";
 	public static String FIELD_LOCATIONS = "locations";
@@ -56,9 +49,6 @@ public abstract class Basecustomer_map extends BaseResource {
 
 		Field sensorsField = new Field("sensors", "Array");
 		metaData.addField(sensorsField);
-
-		Field inviteField = new Field("invite", "Array");
-		metaData.addField(inviteField);
 
 		Field joinField = new Field("join", "Array");
 		metaData.addField(joinField);
@@ -81,7 +71,6 @@ public abstract class Basecustomer_map extends BaseResource {
 		this.id = obj.id;
 		this.appliances = obj.appliances;
 		this.sensors = obj.sensors;
-		this.invite = obj.invite;
 		this.join = obj.join;
 		this.controllers = obj.controllers;
 		this.locations = obj.locations;
@@ -99,8 +88,6 @@ public abstract class Basecustomer_map extends BaseResource {
 			map.put("appliances", appliances);
 		if(sensors != null)
 			map.put("sensors", sensors);
-		if(invite != null)
-			map.put("invite", invite);
 		if(join != null)
 			map.put("join", join);
 		if(controllers != null)
@@ -118,8 +105,6 @@ public abstract class Basecustomer_map extends BaseResource {
 			map.put("appliances", appliances);
 		if(sensors != null)
 			map.put("sensors", sensors);
-		if(invite != null)
-			map.put("invite", invite);
 		if(join != null)
 			map.put("join", join);
 		if(controllers != null)
@@ -138,7 +123,6 @@ public abstract class Basecustomer_map extends BaseResource {
 		id = (String) map.get("id");
 		appliances = (ArrayList<Object>) map.get("appliances");
 		sensors = (ArrayList<Object>) map.get("sensors");
-		invite = (ArrayList<Object>) map.get("invite");
 		join = (ArrayList<Object>) map.get("join");
 		controllers = (ArrayList<Object>) map.get("controllers");
 		locations = (ArrayList<Object>) map.get("locations");
@@ -151,7 +135,6 @@ public abstract class Basecustomer_map extends BaseResource {
 
 		appliances = (ArrayList<Object>) map.get("appliances");
 		sensors = (ArrayList<Object>) map.get("sensors");
-		invite = (ArrayList<Object>) map.get("invite");
 		join = (ArrayList<Object>) map.get("join");
 		controllers = (ArrayList<Object>) map.get("controllers");
 		locations = (ArrayList<Object>) map.get("locations");
@@ -221,25 +204,6 @@ public abstract class Basecustomer_map extends BaseResource {
 
 	public void unSetSensors() {
 		this.sensors = null;
-	}
-
-	public ArrayList<Object> getInvite() {
-		return invite;
-	}
-
-
-	public void setInvite(ArrayList<Object> invite) {
-		this.invite = invite;
-	}
-
-	public void addInvite(Object value) {
-		if(invite == null)
-			invite = new ArrayList<Object>();
-		invite.add(value);
-	}
-
-	public void unSetInvite() {
-		this.invite = null;
 	}
 
 	public ArrayList<Object> getJoin() {
