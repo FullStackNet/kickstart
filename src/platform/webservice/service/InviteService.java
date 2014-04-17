@@ -56,7 +56,10 @@ public class InviteService extends BaseService{
 				if (_student == null)
 					return;
 			}
-		} 
+		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_RESEND_INVITE)) {
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Need to implement");
+		} else  
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Action");
 	}
 
 	

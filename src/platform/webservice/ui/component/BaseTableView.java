@@ -10,6 +10,7 @@ import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.definition.TableDefinition;
 import platform.webservice.ui.html.A;
 import platform.webservice.ui.html.IMG;
+import platform.webservice.ui.html.JS;
 import platform.webservice.ui.html.P;
 import platform.webservice.ui.html.TABLE;
 import platform.webservice.ui.html.TBODY;
@@ -35,6 +36,7 @@ public abstract class BaseTableView extends BaseView {
 	public BaseTableView(UIServletContext ctx) {
 		super();
 		mContext = ctx;
+		ctx.getPageBuilder().addJS(new JS("action_handle.js", "/ui/js/"));
 		populateDefinition();
 	}
 
