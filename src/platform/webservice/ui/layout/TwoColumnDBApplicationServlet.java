@@ -4,7 +4,6 @@ import platform.webservice.WebServiceContants;
 import platform.webservice.ui.BaseUIServlet;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.html.BaseHTMLComponent;
-import platform.webservice.ui.view.HeaderMenu;
 import platform.webservice.ui.view.HeaderView;
 
 public abstract class TwoColumnDBApplicationServlet extends BaseUIServlet {

@@ -9,8 +9,8 @@ import platform.exception.ExceptionEnum;
 import platform.message.Message;
 import platform.protocol.Writer;
 import platform.util.ApplicationException;
-import platform.util.Field;
 import platform.util.ExceptionSeverity;
+import platform.util.Field;
 import platform.util.Util;
 
 public class DCWriter extends Writer {

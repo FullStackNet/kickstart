@@ -16,8 +16,8 @@ import platform.message.MessageHeader;
 import platform.message.MessageManager;
 import platform.protocol.Reader;
 import platform.util.ApplicationException;
-import platform.util.Field;
 import platform.util.ExceptionSeverity;
+import platform.util.Field;
 
 public class OBDReader extends Reader {
 	char startchar;

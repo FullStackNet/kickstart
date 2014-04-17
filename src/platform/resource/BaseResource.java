@@ -16,7 +16,6 @@ import java.util.Map.Entry;
 
 import org.apache.commons.lang.ArrayUtils;
 
-import platform.db.DBConsts;
 import platform.db.ResourceMetaData;
 import platform.util.ApplicationException;
 import platform.util.Field;

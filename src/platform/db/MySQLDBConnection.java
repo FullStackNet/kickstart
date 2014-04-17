@@ -18,8 +18,8 @@ import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.Conf;
-import platform.util.Field;
 import platform.util.ExceptionSeverity;
+import platform.util.Field;
 import platform.util.Util;
 
 

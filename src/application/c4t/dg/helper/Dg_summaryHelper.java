@@ -2,11 +2,11 @@ package application.c4t.dg.helper;
 
 import java.util.ArrayList;
 
-import application.c4t.dg.resource.dg_summary;
 import platform.helper.BaseHelper;
 import platform.helper.User_mapHelper;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
+import application.c4t.dg.resource.dg_summary;
 
 
 public class Dg_summaryHelper extends BaseHelper {

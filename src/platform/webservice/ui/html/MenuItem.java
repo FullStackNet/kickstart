@@ -1,7 +1,6 @@
 package platform.webservice.ui.html;
 
 import platform.webservice.ui.util.Attribute;
-import platform.webservice.ui.util.ImageUtils;
 
 
 

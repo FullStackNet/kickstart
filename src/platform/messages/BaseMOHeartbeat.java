@@ -9,10 +9,12 @@
 
 package platform.messages;
 
-import platform.message.*;
-import platform.util.*;
-import java.util.*;
-import platform.communication.*;
+import java.util.HashMap;
+import java.util.Map;
+
+import platform.communication.Session;
+import platform.message.Message;
+import platform.util.Field;
 
 public abstract class BaseMOHeartbeat extends Message {
 	private static final long serialVersionUID = 1L;

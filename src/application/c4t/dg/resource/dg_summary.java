@@ -1,7 +1,7 @@
 package application.c4t.dg.resource;
 
-import application.c4t.dg.defined.resource.Basedg_summary;
 import platform.util.Util;
+import application.c4t.dg.defined.resource.Basedg_summary;
 
 public class dg_summary extends Basedg_summary {
 

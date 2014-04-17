@@ -11,8 +11,8 @@ package platform.util.security;
 import org.apache.commons.codec.binary.Base64;
 
 import platform.util.ApplicationException;
-import platform.util.Profiler;
 import platform.util.ExceptionSeverity;
+import platform.util.Profiler;
 import platform.util.Util;
 
 /*
