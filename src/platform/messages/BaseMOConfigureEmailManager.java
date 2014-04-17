@@ -14,7 +14,7 @@ import platform.util.*;
 import java.util.*;
 import platform.communication.*;
 
-public abstract class BaseMOConfigureAlertManager extends Message {
+public abstract class BaseMOConfigureEmailManager extends Message {
 	private static final long serialVersionUID = 1L;
 	private String mo_name = null;
 	private String self_ip_address = null;
@@ -22,10 +22,10 @@ public abstract class BaseMOConfigureAlertManager extends Message {
 	private String connect_url = null;
 
 
-	public BaseMOConfigureAlertManager() {
+	public BaseMOConfigureEmailManager() {
 		super();
 		setCategory((byte)6);
-		setCommand((byte)9);
+		setCommand((byte)14);
 		setPacketType((byte)1);
 	}
 
@@ -75,7 +75,7 @@ public abstract class BaseMOConfigureAlertManager extends Message {
 
  	public int getMessageSize() {return 512;}
 
- 	public String getName() {return "MOConfigureAlertManager";}
+ 	public String getName() {return "MOConfigureEmailManager";}
 
 public Message process(Session session,Message parentMessage) {return null;}
 

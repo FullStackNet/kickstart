@@ -9,12 +9,10 @@
 
 package platform.messages;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.communication.Session;
-import platform.message.Message;
-import platform.util.Field;
+import platform.message.*;
+import platform.util.*;
+import java.util.*;
+import platform.communication.*;
 
 public abstract class BaseAuthentication extends Message {
 	private static final long serialVersionUID = 1L;

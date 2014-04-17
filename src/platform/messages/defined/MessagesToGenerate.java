@@ -53,6 +53,7 @@ public class MessagesToGenerate {
 		new MessageMap("MOConfigureAgent"), // 6/11/1
 		new MessageMap("MOConfigureMonitor"), // 6/12/1
 		new MessageMap("MOStatsAgent"), // 6/13/1
+		new MessageMap("MOConfigureEmailManager"), // 6/14/1
 		
 
 	};
