@@ -752,6 +752,11 @@ public class BaseHelper {
 		return getByExpression(e, new String[]{"name"});
 	}
 	
+	public ArrayList<Map<String, Object>> getListMapByCustomerId(String customerId,ArrayList<JoinField> joinFields) {
+		Expression e = new Expression("customer_id", REL_OP.EQ, customerId);
+		return getByJoining(e,joinFields,new String[]{"name"});
+	}
+	
 	public void reset(BaseResource _fetchedResource,String id,String fieldName) {
 		BaseResource _resource = null;
 		try {
