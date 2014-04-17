@@ -1,0 +1,22 @@
+{
+	"school_user_map" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'comment' : "user ids"
+			},
+			'students':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}

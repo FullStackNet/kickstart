@@ -25,6 +25,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("school_route_map", "application.c4t.vehicle.school.resource.school_route_map"),
 		new ResourceMap("school_route_stopage_map", "application.c4t.vehicle.school.resource.school_route__stopage_map"),
 		new ResourceMap("student_map", "application.c4t.vehicle.school.resource.student_map"),
+		new ResourceMap("school_user_map", "application.c4t.vehicle.school.resource.school_user_map"),
 		
 	};
 }
