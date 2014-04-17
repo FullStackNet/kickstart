@@ -11,11 +11,6 @@
 				'required': true,
 				'type':'String'
 			},
-			'route_stopages':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
 			'users':
 			{
 				'type':'Array',

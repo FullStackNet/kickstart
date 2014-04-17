@@ -217,7 +217,7 @@ public class BaseHelper {
 		DbConnection connection = null;
 		try {
 			connection = DbManager.getInstance().getConnection(this.getResource());
-			List<Map<String, Object>> rows = connection.getByExpression(resource.getMetaData(),expression);
+			List<Map<String, Object>> rows = connection.getByExpression(resource.getMetaData(),expression, null);
 			resources = new BaseResource[rows.size()];
 			int i = 0;
 			for(Map<String, Object> row : rows) {
@@ -239,7 +239,7 @@ public class BaseHelper {
 		DbConnection connection = null;
 		try {
 			connection = DbManager.getInstance().getConnection(this.getResource());
-			return connection.getByExpression(resource.getMetaData(),expression);
+			return connection.getByExpression(resource.getMetaData(),expression, null);
 		} catch(Exception e) {	
 			e.printStackTrace();
 		} finally {
@@ -347,6 +347,22 @@ public class BaseHelper {
 		return getListMapById(ids, orderBy, null);
 	}
 	
+	
+	public ArrayList<Map<String, Object>> getListMapById(Expression expression,String[] orderBy) {
+		DbConnection connection = null;
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			list = (ArrayList<Map<String, Object>>) connection.getByExpression(resource.getMetaData(),expression,orderBy);
+		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return list;
+	}
+	
 	public ArrayList<Map<String, Object>> getListMapById(String[] ids,String[] orderBy, Expression expression) {
 		DbConnection connection = null;
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
@@ -398,6 +414,60 @@ public class BaseHelper {
 		return rows;
 	}
 
+	public ArrayList<Map<String, Object>> getByJoining(Expression e,ArrayList<JoinField> joinFields, String[] orderBy) {
+		ArrayList<Map<String, Object>> resourceList = new ArrayList<Map<String, Object>>();
+		BaseHelper masterHelper = HelperFactory.getInstance().getHelper(resource.getMetaData().getName());
+		resourceList = masterHelper.getListMapById(e, orderBy);
+		Map<String, Map<String, Object>> map = new HashMap<String, Map<String, Object>>();
+		for(Map<String, Object> resource : resourceList) {
+			for(JoinField joinField : joinFields) {
+				Map<String, Object> idList = null;
+				idList = map.get(joinField.getJoiningId());
+				if (idList == null) {
+					idList = new HashMap<String, Object>();
+				}
+				if (resource.get(joinField.getJoiningId()) != null) {
+					String value = resource.get(joinField.getJoiningId()).toString();
+					idList.put(value,1);
+				}
+				map.put(joinField.getJoiningId(), idList);
+			}
+		}
+
+		Map<String, Map<String,Map<String, Object>>> resourceMap = new HashMap<String, Map<String,Map<String, Object>>>();
+
+		for(JoinField joinField : joinFields) {
+			Map<String, Object> list = map.get(joinField.getJoiningId());
+			if (Util.isEmpty(list)) 
+				continue;
+			BaseHelper childHelper = HelperFactory.getInstance().getHelper(joinField.getResource());
+			Map<String, Map<String, Object>>  foriegnMap = null;
+			foriegnMap = childHelper.getMapMapById(convertMap2IdArray(list),orderBy);
+			resourceMap.put(joinField.getJoiningId(), foriegnMap);
+		}
+
+		for(Map<String, Object> resource : resourceList) {
+			for(JoinField joinField : joinFields) {
+				Map<String, Map<String, Object>>  mapForiegnKey = resourceMap.get(joinField.getJoiningId());
+				if (mapForiegnKey == null) continue;
+				String joinId = (String)resource.get(joinField.getJoiningId());
+				Map<String, Object> childMap = mapForiegnKey.get(joinId);
+				if (childMap == null) 
+					continue;
+				Map<String,String> fieldMap = joinField.getFieldMap();
+				for (Map.Entry<String, String> entry : fieldMap.entrySet()) {
+					resource.put(entry.getKey(), childMap.get(entry.getValue()));
+				}
+			}
+		}
+		return resourceList;
+	}
+
+	
+	public ArrayList<Map<String, Object>> getByJoining(Expression e,ArrayList<JoinField> joinFields) {
+		return getByJoining(e, joinFields,null);
+	}
+	
 	public ArrayList<Map<String, Object>> getByJoining(String id,ArrayList<JoinField> joinFields, String[] orderBy) {
 		return getByJoining(new String[]{id}, joinFields,orderBy);
 	}
@@ -452,6 +522,8 @@ public class BaseHelper {
 		return resourceList;
 	}
 	
+	
+	
 	public Map<String, BaseResource> getMapById(String[] ids) {
 		return getMapById(ids, null,null);
 	}
@@ -483,6 +555,29 @@ public class BaseHelper {
 		return  map;
 	}
 
+	public Map<String, BaseResource> getMapById(Expression expression,String[] orderBy) {
+		BaseResource clonedResource = null;
+		DbConnection connection = null;
+		Map<String, BaseResource> map = new HashMap<String, BaseResource>();
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			ArrayList<Map<String, Object>> rows = (ArrayList<Map<String, Object>>) connection.getByExpression(resource.getMetaData(), expression, orderBy);
+			if (!Util.isEmpty(rows)) {
+				for(int i=0;i < rows.size(); i++) {
+					clonedResource = (BaseResource) this.resource.clone();
+					clonedResource.convertMapToResource(rows.get(i));
+					map.put(clonedResource.getId(), clonedResource);
+				}
+			}
+		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return  map;
+	}
+	
 	public Map<String, BaseResource> getMapById(ArrayList<String> idList,String[] orderBy) {
 		String[] ids = idList.toArray(new String[idList.size()]);
 		return  getMapById(ids,orderBy);
@@ -493,7 +588,7 @@ public class BaseHelper {
 		return  getById(ids,orderBy);
 	}
 
-	BaseResource[] convertList2Array(ArrayList<BaseResource> list) {
+	public BaseResource[] convertList2Array(ArrayList<BaseResource> list) {
 		if (Util.isEmpty(list))
 			return null;
 		BaseResource[] resources = new BaseResource[list.size()];
@@ -501,6 +596,16 @@ public class BaseHelper {
 			resources[i] = list.get(i);
 		}
 		return resources;
+	}
+
+	public ArrayList<BaseResource> convertArray2List(BaseResource[] resources) {
+		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
+		if (Util.isEmpty(resources))
+			return null;
+		for(int i=0;i < resources.length; i++) {
+			list.add( resources[i]);
+		}
+		return list;
 	}
 
 	String[] convertMap2IdArray(Map<String, Object> map) {

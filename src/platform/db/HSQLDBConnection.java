@@ -709,7 +709,7 @@ public class HSQLDBConnection extends DbConnection {
 
 	@Override
 	public List<Map<String, Object>> getByExpression(ResourceMetaData metaData,
-			Expression expression) {
+			Expression expression,  String[] orderby) {
 		// TODO Auto-generated method stub
 		return null;
 	}

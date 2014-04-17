@@ -56,6 +56,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		metaData.addField(nameField);
 
 		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setIndexed(true);
 		customer_idField.setRequired(true);
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
@@ -66,6 +67,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		metaData.addField(user_idField);
 
 		Field route_idField = new Field("route_id", "String");
+		route_idField.setIndexed(true);
 		route_idField.setLength(128);
 		metaData.addField(route_idField);
 

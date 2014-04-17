@@ -3,11 +3,11 @@ package application.c4t.vehicle.helper;
 import java.util.ArrayList;
 import java.util.Map;
 
+import platform.db.Expression;
 import platform.db.JoinField;
+import platform.db.REL_OP;
 import platform.helper.BaseHelper;
-import platform.helper.UserHelper;
 import platform.resource.BaseResource;
-import application.c4t.vehicle.resource.route_map;
 import application.c4t.vehicle.resource.route_stopage;
 
 
@@ -30,10 +30,13 @@ public class Route_stopageHelper extends BaseHelper {
 		return instance;
 	}
 	
+	public BaseResource[] getRouteStopageByRouteId(String routeId) {
+		Expression expression = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.EQ, routeId);
+		return getByExpression(expression);
+	}
+	
 	public ArrayList<Map<String, Object>> getRouteStopageListMap(String routeId,ArrayList<JoinField> joinFields) {
-		route_map _map = (route_map)Route_mapHelper.getInstance().getById(routeId);
-		if ((_map == null) || (_map.getRoute_stopages() == null))
-			return null;
-		return getByJoining(_map.getRoute_stopages().toArray(new String[_map.getRoute_stopages().size()]),joinFields,new String[]{route_stopage.FIELD_STOPAGE_ORDER});
+		Expression expression = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.EQ, routeId);
+		return getByJoining(expression,joinFields,new String[]{route_stopage.FIELD_STOPAGE_ORDER});
 	}
 }

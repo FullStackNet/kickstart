@@ -109,11 +109,11 @@ public class RouteHelper extends BaseHelper {
 		ApplianceHelper.getInstance().updateCurrentRoute(_fetched_appliance.getId(),
 				current_route.getId());
 	
-		ArrayList<BaseResource> list = Route_mapHelper.getInstance().getRouteStopageList(current_route.getId());
-		if (Util.isEmpty(list))
+		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(current_route.getId());
+		if (Util.isEmpty(route_stopages))
 			return;
-		for(int i=0; i < list.size(); i++) {
-			route_stopage _route_stopage = (route_stopage) list.get(i);
+		for(int i=0; i < route_stopages.length; i++) {
+			route_stopage _route_stopage = (route_stopage) route_stopages[i];
 			stopage _stopage = (stopage)StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
 			if (_stopage == null)
 				continue;

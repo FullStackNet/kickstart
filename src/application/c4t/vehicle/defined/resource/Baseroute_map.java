@@ -20,11 +20,9 @@ import java.util.*;
  */
 public abstract class Baseroute_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> route_stopages = null;
 	private ArrayList<Object> users = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_ROUTE_STOPAGES = "route_stopages";
 	public static String FIELD_USERS = "users";
 
 	private static final long serialVersionUID = 1L;
@@ -37,9 +35,6 @@ public abstract class Baseroute_map extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
-
-		Field route_stopagesField = new Field("route_stopages", "Array");
-		metaData.addField(route_stopagesField);
 
 		Field usersField = new Field("users", "Array");
 		metaData.addField(usersField);
@@ -54,7 +49,6 @@ public abstract class Baseroute_map extends BaseResource {
 
 	public Baseroute_map(Baseroute_map obj) {
 		this.id = obj.id;
-		this.route_stopages = obj.route_stopages;
 		this.users = obj.users;
 	}
 
@@ -66,8 +60,6 @@ public abstract class Baseroute_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(route_stopages != null)
-			map.put("route_stopages", route_stopages);
 		if(users != null)
 			map.put("users", users);
 		return map;
@@ -77,8 +69,6 @@ public abstract class Baseroute_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(route_stopages != null)
-			map.put("route_stopages", route_stopages);
 		if(users != null)
 			map.put("users", users);
 		return map;
@@ -91,7 +81,6 @@ public abstract class Baseroute_map extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		route_stopages = (ArrayList<Object>) map.get("route_stopages");
 		users = (ArrayList<Object>) map.get("users");
 	}
 
@@ -100,7 +89,6 @@ public abstract class Baseroute_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		route_stopages = (ArrayList<Object>) map.get("route_stopages");
 		users = (ArrayList<Object>) map.get("users");
 	}
 
@@ -130,25 +118,6 @@ public abstract class Baseroute_map extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
-	}
-
-	public ArrayList<Object> getRoute_stopages() {
-		return route_stopages;
-	}
-
-
-	public void setRoute_stopages(ArrayList<Object> route_stopages) {
-		this.route_stopages = route_stopages;
-	}
-
-	public void addRoute_stopages(Object value) {
-		if(route_stopages == null)
-			route_stopages = new ArrayList<Object>();
-		route_stopages.add(value);
-	}
-
-	public void unSetRoute_stopages() {
-		this.route_stopages = null;
 	}
 
 	public ArrayList<Object> getUsers() {

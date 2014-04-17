@@ -20,7 +20,8 @@
 			{
 				'length': 128,
 				'required': true,
-				'type':'String'
+				'type':'String',
+				index : true
 			},
 			'user_id':
 			{
@@ -31,7 +32,8 @@
 			'route_id':
 			{
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				index : true
 			},
 			'stopage_id':
 			{
