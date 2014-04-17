@@ -8,6 +8,7 @@ import platform.db.JoinField;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
+import platform.util.ApplicationException;
 import application.c4t.vehicle.resource.route_stopage;
 
 
@@ -36,7 +37,14 @@ public class Route_stopageHelper extends BaseHelper {
 	}
 	
 	public ArrayList<Map<String, Object>> getRouteStopageListMap(String routeId,ArrayList<JoinField> joinFields) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		Expression expression = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.EQ, routeId);
-		return getByJoining(expression,joinFields,new String[]{route_stopage.FIELD_STOPAGE_ORDER});
+		try {
+			list = getByJoining(expression,joinFields,new String[]{route_stopage.FIELD_STOPAGE_ORDER});
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 }

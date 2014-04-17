@@ -418,9 +418,11 @@ public class BaseHelper {
 		return rows;
 	}
 
-	public ArrayList<Map<String, Object>> getByJoining(Expression e,ArrayList<JoinField> joinFields, String[] orderBy) {
+	public ArrayList<Map<String, Object>> getByJoining(Expression e,ArrayList<JoinField> joinFields, String[] orderBy) throws ApplicationException {
 		ArrayList<Map<String, Object>> resourceList = new ArrayList<Map<String, Object>>();
 		BaseHelper masterHelper = HelperFactory.getInstance().getHelper(resource.getMetaData().getName());
+		if (masterHelper == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, resource.getMetaData().getName() + " not registered with the helper factory ...");
 		resourceList = masterHelper.getListMapById(e, orderBy);
 		Map<String, Map<String, Object>> map = new HashMap<String, Map<String, Object>>();
 		for(Map<String, Object> resource : resourceList) {
@@ -469,7 +471,14 @@ public class BaseHelper {
 
 	
 	public ArrayList<Map<String, Object>> getByJoining(Expression e,ArrayList<JoinField> joinFields) {
-		return getByJoining(e, joinFields,null);
+		ArrayList<Map<String, Object>>  list = new ArrayList<Map<String, Object>>();
+		try {
+			list = getByJoining(e, joinFields,null);
+		} catch (ApplicationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return list;
 	}
 	
 	public ArrayList<Map<String, Object>> getByJoining(String id,ArrayList<JoinField> joinFields, String[] orderBy) {
@@ -753,8 +762,15 @@ public class BaseHelper {
 	}
 	
 	public ArrayList<Map<String, Object>> getListMapByCustomerId(String customerId,ArrayList<JoinField> joinFields) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		Expression e = new Expression("customer_id", REL_OP.EQ, customerId);
-		return getByJoining(e,joinFields,new String[]{"name"});
+		try {
+			list =  getByJoining(e,joinFields,new String[]{"name"});
+		} catch (ApplicationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return list;
 	}
 	
 	public void reset(BaseResource _fetchedResource,String id,String fieldName) {
