@@ -143,7 +143,6 @@ public class ResourceGenerator {
 	private static String VALIDATE_METHOD_MAX_FILE_BLOCK = "\t\tif(%s != null && %s.length > %s)\n\t\t\tthrow new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.MAXIMUM_VALIDATION_FAILED, \"%s\", \"%s\");\n";
 	private static String VALIDATE_METHOD_FILE_TYPE_BLOCK = "\t\tif(%s != null && !ResourceUtil.inArray(%s, %s))\n\t\t\tthrow new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_FILE_TYPE);\n";
 	private static String VALIDATE_METHOD_CLOSE = "\t\treturn %s != null;\n\t}\n";
-	private static String GET_RESULT_CLASS = "\tpublic abstract Class<?> getResultClass();\n";
 	private static StringBuffer generated;
 	private static boolean isDefaultValueAvailable;
 	private static Map<Field, String> defaultValuesMap;
