@@ -43,14 +43,14 @@ public class HeaderView extends BaseView {
         headerMenuDiv.addChild(menuContainer);
         headerDiv.addChild(headerMenuDiv);
 
-        Div iconDiv = new Div(null, "icon");
-        Div profileDiv = new Div(null, "profile");
-        A a = new A();
-        IMG profileImg = new IMG();
-        profileImg.setSRC(ImageUtils.PROFILE_LOGO);
-        a.addChild(profileImg);
-        profileDiv.addChild(a);
-        iconDiv.addChild(profileDiv);
-        headerDiv.addChild(iconDiv);
+        //Div iconDiv = new Div(null, "icon");
+        //Div profileDiv = new Div(null, "profile");
+        //A a = new A();
+        //IMG profileImg = new IMG();
+       // profileImg.setSRC(ImageUtils.PROFILE_LOGO);
+        //a.addChild(profileImg);
+        //profileDiv.addChild(a);
+        //iconDiv.addChild(profileDiv);
+        //headerDiv.addChild(iconDiv);
 	}
 }
