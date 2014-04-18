@@ -118,6 +118,16 @@
 				<include name="c4t-platform.jar"/>
 			</fileset>
 		</copy>
+		<copy todir="${build_home}/c4t-sms-manager" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-notification-manager" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
 		<copy todir="${build_home}/c4t-alert-manager" overwrite="true">
 			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
