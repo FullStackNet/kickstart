@@ -1,0 +1,31 @@
+{
+	"MOConfigureNotificationManager" :
+	{
+		"category" : "6",
+		"command" : "18",
+		"packet_type" : "1",
+		"fields":
+		{
+			'mo_name':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'self_ip_address':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'location':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'connect_url':
+			{
+				'type':'String',
+				'length' : 128
+			}			
+		}
+	}
+}

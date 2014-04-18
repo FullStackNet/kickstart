@@ -86,6 +86,12 @@ public class EmailDispatcher {
 		sendToUser(new String[] {toEmailId}, iMailReply, subject, message);
 	}
 	
+	public void sendMail(String toEmailIds, IMailReply iMailReply, String subject, String templete,
+			Map<String, String> params) throws ApplicationException 
+	{
+		sendMail(new String[]{toEmailIds}, iMailReply, subject, templete, params);
+	}
+	
 	public void sendMail(String[] toEmailIds, IMailReply iMailReply, String subject, String templete,
 			Map<String, String> params) throws ApplicationException 
 	{

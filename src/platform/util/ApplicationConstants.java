@@ -54,6 +54,8 @@ public class ApplicationConstants {
 	public static String PROPERTY_IMEI = "imei";
 	public static String APPLICATION_NAME_MANAGER = "MANAGER";
 	public static String APPLICATION_NAME_EMAIL_MANAGER = "EMAIL-MANAGER";
+	public static String APPLICATION_NAME_SMS_MANAGER = "SMS-MANAGER";
+	public static String APPLICATION_NAME_NOTIFICATION_MANAGER = "NOTIFICATION-MANAGER";
 	public static String APPLICATION_NAME_MONITOR = "MONITOR";
 	public static String APPLICATION_NAME_PACKET_LOGGER = "PACKET_LOGGER";
 	public static String APPLICATION_NAME_ALERT_MANAGER = "ALERT-MANAGER";
