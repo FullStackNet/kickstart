@@ -5,9 +5,12 @@ import java.util.Map;
 import platform.exception.ExceptionEnum;
 import platform.helper.InviteHelper;
 import platform.helper.UserHelper;
+import platform.manager.ApplicationManager;
+import platform.message.SendEmail;
 import platform.resource.BaseResource;
 import platform.resource.invite;
 import platform.resource.user;
+import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Util;
@@ -57,7 +60,18 @@ public class InviteService extends BaseService{
 					return;
 			}
 		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_RESEND_INVITE)) {
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Need to implement");
+			invite _invite = (invite)InviteHelper.getInstance().getById(resource.getId());
+			if (_invite == null)
+				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Request");
+			if (invite.INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE.equals(_invite.getInvite_type())) {
+				if (_invite.getEmail_id() != null) {
+					SendEmail resendMail = new SendEmail();
+					resendMail.setTo(_invite.getEmail_id());
+					resendMail.setType(ApplicationConstants.MAIL_TYPE_INVITE_PARENT);
+					ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+							resendMail);
+				}
+			}
 		} else  
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Action");
 	}

@@ -505,16 +505,15 @@ public class Util {
 	public static String readFileFromLocal(String template,
 			Map<String, String> params) {
 		String messageWithTokens = "";
-		Map<String, String> env = System.getenv();
-		String currentdir = (String) env.get("DM_HOME");
+		String currentdir = System.getProperty("user.dir");
 		if (currentdir == null) {
 			currentdir = ".";
 		}
 		try {
-			FileInputStream fstream = new FileInputStream(currentdir
+			String file = currentdir
 					+ File.separator + "conf" + File.separator
-					+ "mail_templates" + File.separator + template + ".html");
-		
+					+ "mail_templates" + File.separator + template + ".html";
+			FileInputStream fstream = new FileInputStream(file);
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine;
@@ -528,7 +527,7 @@ public class Util {
 		if (params != null) {
 			for (Map.Entry<String, String> param : params.entrySet()) {
 				String value = param.getValue();
-				String key = param.getKey();
+				String key = "!!!"+param.getKey()+"!!!";
 				messageWithTokens = messageWithTokens.replaceAll(key, value);
 			}
 		}

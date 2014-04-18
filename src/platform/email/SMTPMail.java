@@ -1,18 +1,18 @@
 /*
- * Copyright 2010-2020 M16, Inc. All rights reserved.
+ * Copyright 2010-2020 ExceptionSeverity, Inc. All rights reserved.
  * This software and documentation contain valuable trade
- * secrets and proprietary property belonging to M16, Inc.
+ * secrets and proprietary property belonging to ExceptionSeverity, Inc.
  * None of this software and documentation may be copied,
  * duplicated or disclosed without the express
- * written permission of M16, Inc.
+ * written permission of ExceptionSeverity, Inc.
  */
 
 package platform.email;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.ConnectException;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.Properties;
@@ -20,6 +20,7 @@ import java.util.StringTokenizer;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
+import javax.mail.Address;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.SendFailedException;
@@ -30,289 +31,32 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import platform.log.ApplicationLogger;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
+import platform.util.Util;
 
-
-/**
- * 
- * @author saurabhd
- * 
- */
 public class SMTPMail {
-
 	// SMTP Variables...
-	String serverAddr;
+	private String serverAddr;
+	private String toAddr[];
+	private String ccAddr[];
+	private String bccAddr[];
+	private String fromAddr;
+	private Address[] replyToAddresses;
+	private String subject;
+	private String fileAttachment;
+	private String userName;
+	private String password;
+	private Session session;
+	private int smtp_timeout;
+	private int smtp_conn_timeout;
+	private String smtpssl_port;
 
-	String toAddr[];
-
-	String ccAddr[];
-
-	String bccAddr[];
-
-	String fromAddr;
-
-	String subject;
-
-	String fileAttachment;
-
-	String userName;
-
-	String password;
-
-	Session session;
-
-	int smtp_timeout;
-
-	int smtp_conn_timeout;
-
-	String smtpssl_port;
-
-	boolean isSSL;
-
-	public SMTPMail() {
-
-	}
-	/**
-	 * 
-	 * @param server
-	 * @param from
-	 * @param to
-	 * @param sub
-	 * @throws IOException
-	 */
-	public SMTPMail(String server, String from, String to,String cc,String bcc, String sub)
-			throws IOException {
+	public SMTPMail(String server, String from, String replyTo, String to[], String cc[],String bcc[], String sub,
+				String fileAttach, String usr, String pwd, boolean ssl)
+						throws ApplicationException {
 		serverAddr = "";
-		fromAddr = "admin@m16.com";
-		subject = "";
-		fileAttachment = null;
-		userName = "";
-		password = "";
-		smtp_timeout = 0;
-		smtp_conn_timeout = 0;
-		smtpssl_port = "465";
-		toAddr[0] = to;
-		ccAddr[0] = cc;
-		bccAddr[0] = bcc;
-		fromAddr = from;
-		subject = sub;
-		serverAddr = server;
-		Properties props = new Properties();
-		props.put("mail.smtp.host", serverAddr);
-		smtp_timeout = getSmtpTimeout();
-		if (smtp_timeout != -1)
-			props.put("mail.smtp.timeout", (new StringBuilder()).append("")
-					.append(smtp_timeout).toString());
-		smtp_conn_timeout = getSmtpConnectionTimeout();
-		if (smtp_conn_timeout != -1)
-			props.put("mail.smtp.connectiontimeout", (new StringBuilder())
-					.append("").append(smtp_conn_timeout).toString());
-		session = Session.getInstance(props, null);
-	}
-
-	/**
-	 * 
-	 * @param server
-	 * @param from
-	 * @param to
-	 * @param sub
-	 * @throws IOException
-	 */
-	public SMTPMail(String server, String from, String to[],String cc[],String bcc[], String sub)
-			throws IOException {
-		serverAddr = "";
-		fromAddr = "admin@m16.com";
-		subject = "";
-		fileAttachment = null;
-		userName = "";
-		password = "";
-		smtp_timeout = 0;
-		smtp_conn_timeout = 0;
-		smtpssl_port = "465";
-		toAddr = to;
-		ccAddr = cc;
-		bccAddr = bcc;
-		fromAddr = from;
-		subject = sub;
-		serverAddr = server;
-		Properties props = new Properties();
-		props.put("mail.smtp.host", serverAddr);
-		smtp_timeout = getSmtpTimeout();
-		if (smtp_timeout != -1)
-			props.put("mail.smtp.timeout", (new StringBuilder()).append("")
-					.append(smtp_timeout).toString());
-		smtp_conn_timeout = getSmtpConnectionTimeout();
-		if (smtp_conn_timeout != -1)
-			props.put("mail.smtp.connectiontimeout", (new StringBuilder())
-					.append("").append(smtp_conn_timeout).toString());
-		session = Session.getInstance(props, null);
-	}
-
-	/**
-	 * 
-	 * @param server
-	 * @param from
-	 * @param to
-	 * @param sub
-	 * @param usr
-	 * @param pwd
-	 * @throws IOException
-	 */
-	public SMTPMail(String server, String from, String to[],String cc[],String bcc[] , String sub,
-			String usr, String pwd) throws IOException {
-		serverAddr = "";
-		subject = "";
-		fileAttachment = null;
-		userName = "";
-		password = "";
-		smtp_timeout = 0;
-		smtp_conn_timeout = 0;
-		smtpssl_port = "465";
-		toAddr = to;
-		ccAddr = cc;
-		bccAddr = bcc;
-		fromAddr = from;
-		subject = sub;
-		serverAddr = server;
-		userName = usr;
-		password = pwd;
-		Properties props = new Properties();
-		props.put("mail.smtp.host", serverAddr);
-		props.put("mail.smtp.auth", "true");
-		smtp_timeout = getSmtpTimeout();
-		if (smtp_timeout != -1)
-			props.put("mail.smtp.timeout", (new StringBuilder()).append("")
-					.append(smtp_timeout).toString());
-		smtp_conn_timeout = getSmtpConnectionTimeout();
-		if (smtp_conn_timeout != -1)
-			props.put("mail.smtp.connectiontimeout", (new StringBuilder())
-					.append("").append(smtp_conn_timeout).toString());
-		String decPassword = null;
-		try {
-			// decPassword = Coding.convertFromBase(password);
-			decPassword = password;
-		} catch (Exception e) {
-			System.out.println("Exception while Decrpting PASSWORD ");
-			e.printStackTrace();
-		}
-		SmtpAuthenticator auth = new SmtpAuthenticator(userName,
-				decPassword);
-		session = Session.getInstance(props, auth);
-	}
-
-	/**
-	 * 
-	 * @param server
-	 * @param from
-	 * @param to
-	 * @param sub
-	 * @param fileAttach
-	 * @throws IOException
-	 */
-	public SMTPMail(String server, String from, String to[],String cc[],String bcc[] ,String sub,
-			String fileAttach) throws IOException {
-		serverAddr = "";
-		fromAddr = "admin@m16.com";
-		subject = "";
-		fileAttachment = null;
-		userName = "";
-		password = "";
-		smtp_timeout = 0;
-		smtp_conn_timeout = 0;
-		smtpssl_port = "465";
-		toAddr = to;
-		ccAddr = cc;
-		bccAddr = bcc;
-		fromAddr = from;
-		subject = sub;
-		serverAddr = server;
-		fileAttachment = fileAttach;
-		Properties props = new Properties();
-		props.put("mail.smtp.host", serverAddr);
-		smtp_timeout = getSmtpTimeout();
-		if (smtp_timeout != -1)
-			props.put("mail.smtp.timeout", (new StringBuilder()).append("")
-					.append(smtp_timeout).toString());
-		smtp_conn_timeout = getSmtpConnectionTimeout();
-		if (smtp_conn_timeout != -1)
-			props.put("mail.smtp.connectiontimeout", (new StringBuilder())
-					.append("").append(smtp_conn_timeout).toString());
-		session = Session.getInstance(props, null);
-	}
-
-	/**
-	 * 
-	 * @param server
-	 * @param from
-	 * @param to
-	 * @param sub
-	 * @param fileAttach
-	 * @param usr
-	 * @param pwd
-	 * @throws IOException
-	 */
-	public SMTPMail(String server, String from, String to[],String cc[],String bcc[], String sub,
-			String fileAttach, String usr, String pwd) throws IOException {
-		serverAddr = "";
-		fromAddr = "admin@m16.com";
-		subject = "";
-		fileAttachment = null;
-		userName = "";
-		password = "";
-		smtp_timeout = 0;
-		smtp_conn_timeout = 0;
-		smtpssl_port = "465";
-		toAddr = to;
-		ccAddr = cc;
-		bccAddr = bcc;
-		fromAddr = from;
-		subject = sub;
-		serverAddr = server;
-		fileAttachment = fileAttach;
-		userName = usr;
-		password = pwd;
-		Properties props = new Properties();
-		props.put("mail.smtp.host", serverAddr);
-		props.put("mail.smtp.auth", "true");
-		smtp_timeout = getSmtpTimeout();
-		if (smtp_timeout != -1)
-			props.put("mail.smtp.timeout", (new StringBuilder()).append("")
-					.append(smtp_timeout).toString());
-		smtp_conn_timeout = getSmtpConnectionTimeout();
-		if (smtp_conn_timeout != -1)
-			props.put("mail.smtp.connectiontimeout", (new StringBuilder())
-					.append("").append(smtp_conn_timeout).toString());
-		String decPassword = null;
-		try {
-			// decPassword = Coding.convertFromBase(password);
-			decPassword = password;
-		} catch (Exception e) {
-			System.out.println("Exception while Decrpting PASSWORD ");
-			e.printStackTrace();
-		}
-		SmtpAuthenticator auth = new SmtpAuthenticator(userName,
-				decPassword);
-		session = Session.getInstance(props, auth);
-	}
-
-	/**
-	 * 
-	 * @param server
-	 * @param from
-	 * @param to
-	 * @param sub
-	 * @param fileAttach
-	 * @param usr
-	 * @param pwd
-	 * @param ssl
-	 * @throws IOException
-	 */
-	public SMTPMail(String server, String from, String to[],String cc[],String bcc[], String sub,
-			String fileAttach, String usr, String pwd, boolean ssl)
-					throws IOException {
-		serverAddr = "";
-		fromAddr = "admin@m16.com";
 		subject = "";
 		fileAttachment = null;
 		userName = "";
@@ -336,6 +80,8 @@ public class SMTPMail {
 		userName = usr;
 		password = pwd;
 		try {
+			if (!Util.isEmpty(replyTo))
+				replyToAddresses = new InternetAddress[] {new InternetAddress(replyTo)};
 			Properties props = getMailDetails(ssl);
 			if (!ssl) {
 				if (userName.equals("") || password.equals(""))
@@ -347,7 +93,7 @@ public class SMTPMail {
 						decPassword = password;
 					} catch (Exception e) {
 						System.err
-						.println("Exception while Decrypting PASSWORD ");
+								.println("Exception while Decrypting PASSWORD ");
 						e.printStackTrace();
 					}
 					props.put("mail.smtp.auth", "true");
@@ -365,7 +111,7 @@ public class SMTPMail {
 						decPassword = password;
 					} catch (Exception e) {
 						System.err
-						.println("Exception while Decrypting PASSWORD ");
+								.println("Exception while Decrypting PASSWORD ");
 						e.printStackTrace();
 					}
 					props.put("mail.smtp.auth", "true");
@@ -375,18 +121,11 @@ public class SMTPMail {
 				}
 			}
 		} catch (Exception e) {
-			System.err.println((new StringBuilder()).append("Exception is : ")
-					.append(e).toString());
-			e.printStackTrace();
+			throw new ApplicationException(ExceptionSeverity.ERROR, e.toString());
 		}
 	}
 
-	/**
-	 * 
-	 * @param isSSLMode
-	 * @return
-	 */
-	public Properties getMailDetails(boolean isSSLMode) {
+	private Properties getMailDetails(boolean isSSLMode) {
 		Properties props = new Properties();
 		props.put("mail.smtp.host", serverAddr);
 		smtp_timeout = getSmtpTimeout();
@@ -409,127 +148,49 @@ public class SMTPMail {
 		return props;
 	}
 
-	/**
-	 * 
-	 * @param from
-	 */
-	public void setFromAddress(String from) {
-		fromAddr = from;
-	}
-
-	/**
-	 * 
-	 * @param to
-	 */
-	public void setToAddress(String to) {
-		String too[] = new String[1];
-		too[0] = to;
-		setToAddress(too);
-	}
-
-	public void setCcAddress(String cc) {
-		String ccc[] = new String[1];
-		ccc[0] = cc;
-		setToAddress(ccc);
-	}
-
-	public void setBccAddress(String bcc) {
-		String too[] = new String[1];
-		too[0] = bcc;
-		setToAddress(too);
-	}
-
-	/**
-	 * 
-	 * @param to
-	 */
-	public void setToAddress(String to[]) {
-		toAddr = to;
-	}
-
-	public void setCcAddress(String cc[]) {
-		bccAddr = cc;
-	}
-
-	public void setBccAddress(String bcc[]) {
-		bccAddr = bcc;
-	}
-
-	/**
-	 * 
-	 * @param sub
-	 */
-	public void setSubject(String sub) {
-		subject = sub;
-	}
-
-	/**
-	 * 
-	 * @param file
-	 */
-	public void setFileAttachment(String file) {
-		fileAttachment = file;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public String getSslPort() {
+	private String getSslPort() {
 		smtpssl_port = System.getProperty("smtp.sslport");
 		if (smtpssl_port != null && !smtpssl_port.equals(""))
 			return smtpssl_port;
-		
-		return "465";
+		else
+			return "465";
 	}
 
-	/**
-	 * 
-	 * Actual method to send the message
-	 * 
-	 * @param message
-	 * @throws IOException
-	 * @throws ApplicationException 
-	 */
-	public void sendMessage(String message) throws IOException, ApplicationException {
+	public void sendMessage(String message) throws ApplicationException {
 		try {
-			if (fromAddr == null) throw new ApplicationException(ExceptionSeverity.ERROR, "From address is wrong");
 			MimeMessage msg = new MimeMessage(session);
+			if (!Util.isEmpty(replyToAddresses))
+				msg.setReplyTo(replyToAddresses);
 			msg.setFrom(new InternetAddress(fromAddr));
 			InternetAddress address[] = new InternetAddress[toAddr.length];
 			InternetAddress address1[] = null;
 			InternetAddress address2[] = null;
 			if(bccAddr != null && bccAddr.length>0){
-				address1 = new InternetAddress[bccAddr.length];
-				for (int i = 0; i < toAddr.length; i++)
-					address[i] = new InternetAddress(toAddr[i]);
+			 address1 = new InternetAddress[bccAddr.length];
 			}
 			if(ccAddr != null && ccAddr.length>0){
-				address2 = new InternetAddress[ccAddr.length];
-			}
-
-
+				 address2 = new InternetAddress[ccAddr.length];
+				}
+			
+			for (int i = 0; i < toAddr.length; i++)
+				address[i] = new InternetAddress(toAddr[i]);
 			if(bccAddr != null && bccAddr.length>0){
-				if (address1 != null) {
-					for (int i = 0; i < bccAddr.length; i++)
-						address1[i] = new InternetAddress(bccAddr[i]);
-				}
+			for (int i = 0; i < bccAddr.length; i++)
+				address1[i] = new InternetAddress(bccAddr[i]);
 			}
-
+			
 			if(ccAddr != null && ccAddr.length>0){
-				if (address2 != null) {
-					for (int i = 0; i < ccAddr.length; i++)
-						address2[i] = new InternetAddress(ccAddr[i]);
+				for (int i = 0; i < ccAddr.length; i++)
+					address2[i] = new InternetAddress(ccAddr[i]);
 				}
-			}
-
+			
 			msg.setRecipients(javax.mail.Message.RecipientType.TO, address);
 			if(address1 != null && address1.length>0){
-				msg.setRecipients(javax.mail.Message.RecipientType.BCC, address1);
+			msg.setRecipients(javax.mail.Message.RecipientType.BCC, address1);
 			}
 			if(address2 != null && address2.length>0){
 				msg.setRecipients(javax.mail.Message.RecipientType.CC, address2);
-			}
+				}
 			String charset = "UTF-8";
 			if (charset != null && !charset.trim().equals(""))
 				msg.setSubject(subject, charset);
@@ -539,7 +200,7 @@ public class SMTPMail {
 			MimeBodyPart messageBodyPart = new MimeBodyPart();
 			if (charset != null && !charset.trim().equals(""))
 				messageBodyPart.setContent(message, "text/html");
-			//messageBodyPart.setText(message, charset);
+				//messageBodyPart.setText(message, charset);
 			else
 				messageBodyPart.setContent(message, "text/html");
 			Multipart multipart = new MimeMultipart();
@@ -562,64 +223,51 @@ public class SMTPMail {
 			msg.setContent(multipart);
 			Transport.send(msg);
 		} catch (MessagingException mex) {
-			System.err.println((new StringBuilder()).append(
-					"Exception while sending mail notification. ").append(
-							mex.getMessage()).toString());
 			Exception ex = mex;
 			do {
 				if (ex instanceof SendFailedException) {
 					SendFailedException sfex = (SendFailedException) ex;
 					javax.mail.Address invalid[] = sfex.getInvalidAddresses();
 					if (invalid != null) {
-						System.err.println("    ** Invalid Addresses");
-						if (invalid != null) {
-							for (int i = 0; i < invalid.length; i++)
-								System.err.println((new StringBuilder())
-										.append("         ").append(invalid[i])
-										.toString());
+						ApplicationLogger.error("    ** Invalid Addresses", getClass());
+						for (int i = 0; i < invalid.length; i++)
+							ApplicationLogger.error((new StringBuilder())
+									.append("         ").append(invalid[i])
+									.toString(), getClass());
 
-						}
 					}
 					javax.mail.Address validUnsent[] = sfex
 							.getValidUnsentAddresses();
 					if (validUnsent != null) {
-						System.err.println("    ** ValidUnsent Addresses");
-						if (validUnsent != null) {
-							for (int i = 0; i < validUnsent.length; i++)
-								System.err.println((new StringBuilder())
-										.append("         ").append(
-												validUnsent[i]).toString());
+						ApplicationLogger.error("    ** ValidUnsent Addresses", getClass());
+						for (int i = 0; i < validUnsent.length; i++)
+							ApplicationLogger.error((new StringBuilder())
+									.append("         ").append(
+											validUnsent[i]).toString(), getClass());
 
-						}
 					}
 					javax.mail.Address validSent[] = sfex
 							.getValidSentAddresses();
 					if (validSent != null) {
-						System.err.println("    ** ValidSent Addresses");
-						if (validSent != null) {
-							for (int i = 0; i < validSent.length; i++)
-								System.err.println((new StringBuilder())
-										.append("         ").append(
-												validSent[i]).toString());
+						ApplicationLogger.error("    ** ValidSent Addresses", getClass());
+						for (int i = 0; i < validSent.length; i++)
+							ApplicationLogger.error((new StringBuilder())
+									.append("         ").append(
+											validSent[i]).toString(), getClass());
 
-						}
 					}
 				}
 				if (!(ex instanceof ConnectException)
 						&& !(ex instanceof UnknownHostException)
+						&& !(ex instanceof SocketTimeoutException)
 						&& !(ex instanceof SocketException))
 					continue;
-				System.err
-				.println("Invalid HostName or Port, unable to connect the mail server");
 				break;
-			} while ((ex = ((MessagingException) ex).getNextException()) != null);
+			} while (ex instanceof MessagingException && (ex = ((MessagingException) ex).getNextException()) != null);
+			throw new ApplicationException(ExceptionSeverity.ERROR, mex.toString());
 		}
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	private int getSmtpTimeout() {
 		int retTimeoutVal;
 		int smtpTimeout;
@@ -636,20 +284,16 @@ public class SMTPMail {
 		try {
 			System.err.println((new StringBuilder()).append(
 					"Invalid SMTP timeout value specified : ").append(
-							smtpTimeout).append(", setting default infinite timeout")
-							.toString());
+					smtpTimeout).append(", setting default infinite timeout")
+					.toString());
 			return retTimeoutVal;
 		} catch (Exception e) {
 			System.err
-			.println("Invalid SMTP timeout value, setting default infinite timeout");
+					.println("Invalid SMTP timeout value, setting default infinite timeout");
 		}
 		return retTimeoutVal;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	private int getSmtpConnectionTimeout() {
 		int retConnTimeoutVal;
 		String connTimeout;
@@ -670,93 +314,8 @@ public class SMTPMail {
 			return retConnTimeoutVal;
 		} catch (Exception e) {
 			System.err
-			.println("Invalid SMTP connection timeout value, setting default infinite timeout");
+					.println("Invalid SMTP connection timeout value, setting default infinite timeout");
 		}
 		return retConnTimeoutVal;
-	}
-
-	/**
-	 * 
-	 * @throws IOException
-	 */
-	public void close() throws IOException {
-		// TODO
-	}
-
-	public static void main(String[] args) throws ApplicationException {
-		try {
-			SMTPMail s = new SMTPMail("smtp.gmail.com", "m16root@gmail.com", new String[]{"wtbackupmail@gmail.com"}, new String[]{"wtbackupmail@gmail.com"}, null, "Hey.. u got a message",
-					null, "m16root@gmail.com", "m16root_pass", true);
-			s.sendMessage("You have got a new message!!!!");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public String getFromAddr() {
-		return fromAddr;
-	}
-	public void setFromAddr(String fromAddr) {
-		this.fromAddr = fromAddr;
-	}
-	public boolean isSSL() {
-		return isSSL;
-	}
-	public void setSSL(boolean isSSL) {
-		this.isSSL = isSSL;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getServerAddr() {
-		return serverAddr;
-	}
-	public void setServerAddr(String serverAddr) {
-		this.serverAddr = serverAddr;
-	}
-	public Session getSession() {
-		return session;
-	}
-	public void setSession(Session session) {
-		this.session = session;
-	}
-	public int getSmtp_conn_timeout() {
-		return smtp_conn_timeout;
-	}
-	public void setSmtp_conn_timeout(int smtp_conn_timeout) {
-		this.smtp_conn_timeout = smtp_conn_timeout;
-	}
-	public int getSmtp_timeout() {
-		return smtp_timeout;
-	}
-	public void setSmtp_timeout(int smtp_timeout) {
-		this.smtp_timeout = smtp_timeout;
-	}
-	public String getSmtpssl_port() {
-		return smtpssl_port;
-	}
-	public void setSmtpssl_port(String smtpssl_port) {
-		this.smtpssl_port = smtpssl_port;
-	}
-	public String[] getToAddr() {
-		return toAddr;
-	}
-	public void setToAddr(String[] toAddr) {
-		this.toAddr = toAddr;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public String getFileAttachment() {
-		return fileAttachment;
-	}
-	public String getSubject() {
-		return subject;
 	}
 }

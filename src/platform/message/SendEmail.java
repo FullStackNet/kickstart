@@ -4,7 +4,6 @@ import platform.communication.Session;
 import platform.messages.BaseSendEmail;
 
 public class SendEmail extends BaseSendEmail {
-
 	/**
 	 * 
 	 */
