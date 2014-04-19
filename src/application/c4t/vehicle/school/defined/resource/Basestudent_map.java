@@ -19,11 +19,13 @@ import java.util.*;
  * 
  */
 public abstract class Basestudent_map extends BaseResource {
-	private String id = null;
+	private String id = null; //student id
 	private ArrayList<Object> users = null;
+	private ArrayList<Object> parents = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_USERS = "users";
+	public static String FIELD_PARENTS = "parents";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("student_map");
@@ -39,6 +41,9 @@ public abstract class Basestudent_map extends BaseResource {
 		Field usersField = new Field("users", "Array");
 		metaData.addField(usersField);
 
+		Field parentsField = new Field("parents", "Array");
+		metaData.addField(parentsField);
+
 
 		metaData.setTableName("student_map");
 
@@ -50,6 +55,7 @@ public abstract class Basestudent_map extends BaseResource {
 	public Basestudent_map(Basestudent_map obj) {
 		this.id = obj.id;
 		this.users = obj.users;
+		this.parents = obj.parents;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -62,6 +68,8 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("id", id);
 		if(users != null)
 			map.put("users", users);
+		if(parents != null)
+			map.put("parents", parents);
 		return map;
 	}
 
@@ -71,6 +79,8 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("id", id);
 		if(users != null)
 			map.put("users", users);
+		if(parents != null)
+			map.put("parents", parents);
 		return map;
 	}
 
@@ -82,6 +92,7 @@ public abstract class Basestudent_map extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		users = (ArrayList<Object>) map.get("users");
+		parents = (ArrayList<Object>) map.get("parents");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -90,6 +101,7 @@ public abstract class Basestudent_map extends BaseResource {
 			id = idObj.toString();
 
 		users = (ArrayList<Object>) map.get("users");
+		parents = (ArrayList<Object>) map.get("parents");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -137,6 +149,25 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void unSetUsers() {
 		this.users = null;
+	}
+
+	public ArrayList<Object> getParents() {
+		return parents;
+	}
+
+
+	public void setParents(ArrayList<Object> parents) {
+		this.parents = parents;
+	}
+
+	public void addParents(Object value) {
+		if(parents == null)
+			parents = new ArrayList<Object>();
+		parents.add(value);
+	}
+
+	public void unSetParents() {
+		this.parents = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

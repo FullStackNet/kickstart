@@ -27,4 +27,13 @@ public class Student_mapHelper extends BaseHelper {
 		_map.addUsers(userId);
 		AddOrUpdate(_map);
 	}
+	
+	public void addParent(String studentId,String parentId) throws ApplicationException {
+		if (studentId == null) return;
+		if (parentId == null) return;
+		student_map _map = new student_map();
+		_map.setId(studentId);
+		_map.addParents(parentId);
+		AddOrUpdate(_map);
+	}
 }

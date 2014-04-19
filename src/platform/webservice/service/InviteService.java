@@ -21,6 +21,7 @@ import platform.util.Util;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 import platform.webservice.WebServiceContants;
+import application.c4t.vehicle.school.helper.School_user_mapHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.student;
@@ -81,8 +82,10 @@ public class InviteService extends BaseService{
 				Student_mapHelper.getInstance().addUser(_fetched_resource.getReference_id(), _user.getId());
 				//User_mapHelper.getInstance().addApplianr(userId, applianceId);
 				student _student = (student)StudentHelper.getInstance().getById(_fetched_resource.getReference_id());
-				if (_student == null)
-					return;
+				if (_student != null) {
+					Student_mapHelper.getInstance().addUser(_student.getId(), _user.getId());
+					School_user_mapHelper.getInstance().addStudent(_user.getId(),_student.getId());
+				}
 			}
 		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_RESEND_INVITE)) {
 			invite _invite = (invite)InviteHelper.getInstance().getById(resource.getId());
