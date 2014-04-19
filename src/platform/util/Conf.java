@@ -80,11 +80,7 @@ public class Conf {
 						try {
 							System.out.println("Read from local context ...");
 							Map<String, String> env = System.getenv();
-							currentdir = (String) env.get("C4T_HOME");
-							if (currentdir == null) {
-								currentdir = System.getProperty("user.dir");
-							}
-							
+							currentdir = System.getProperty("user.dir");
 							FileInputStream fi = new FileInputStream(currentdir
 									+ File.separator + "conf" + File.separator
 									+ fileName);
@@ -107,11 +103,7 @@ public class Conf {
 					// probably, we are in the local m_Context
 					try {
 						Map<String, String> env = System.getenv();
-						currentdir = (String) env.get("M2M_HOME");
-						if (currentdir == null) {
 							currentdir = System.getProperty("user.dir");
-						}
-						
 						FileInputStream fi = new FileInputStream(currentdir
 								+ File.separator + "conf" + File.separator
 								+ fileName);

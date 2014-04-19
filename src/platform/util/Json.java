@@ -87,6 +87,11 @@ public class Json {
 		return gson.toJson(result);
 	}
 	
+	public static String maptoString(Map<String, String> map) {
+		Gson gson = new Gson();
+		return gson.toJson(map);
+	}
+	
 	public static BaseResource stringToResource(String jsonText, String className) throws ApplicationException {
 		try {
 			Gson gson = new Gson();

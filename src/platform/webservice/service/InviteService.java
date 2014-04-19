@@ -1,18 +1,22 @@
 package platform.webservice.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import platform.exception.ExceptionEnum;
+import platform.helper.CustomerHelper;
 import platform.helper.InviteHelper;
 import platform.helper.UserHelper;
 import platform.manager.ApplicationManager;
 import platform.message.SendEmail;
 import platform.resource.BaseResource;
+import platform.resource.customer;
 import platform.resource.invite;
 import platform.resource.user;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
+import platform.util.Json;
 import platform.util.Util;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
@@ -26,7 +30,28 @@ public class InviteService extends BaseService{
 		super(InviteHelper.getInstance(),new invite());
 	}
 
-
+	public void sendParentInvite(invite _invite) {
+		SendEmail resendMail = new SendEmail();
+		resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_PARENT);
+		resendMail.setTo(_invite.getEmail_id());
+		resendMail.setType(ApplicationConstants.MAIL_TYPE_INVITE_PARENT);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("NAME", _invite.getName());
+		map.put("STUDENT_NAME", _invite.getReference_name());
+		map.put("ACTIVATION_TOKEN", _invite.getKey());
+		String school_name = "";
+		customer _customer = (customer)CustomerHelper.getInstance().getById(_invite.getCustomer_id());
+		if (_customer != null) {
+			school_name = _customer.getName();
+		}
+		map.put("SCHOOL_NAME", school_name);
+		map.put("ACTIVATE_URL", "http://my.cloud4things.com/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+		String params = Json.maptoString(map);
+		resendMail.setParams(params);
+		ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+				resendMail);
+	}
+	
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
 		if (action.equalsIgnoreCase(WebServiceContants.OPERATION_CONFIRM)) {
 			invite _resource = (invite) resource;
@@ -65,11 +90,7 @@ public class InviteService extends BaseService{
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Request");
 			if (invite.INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE.equals(_invite.getInvite_type())) {
 				if (_invite.getEmail_id() != null) {
-					SendEmail resendMail = new SendEmail();
-					resendMail.setTo(_invite.getEmail_id());
-					resendMail.setType(ApplicationConstants.MAIL_TYPE_INVITE_PARENT);
-					ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
-							resendMail);
+					sendParentInvite(_invite);
 				}
 			}
 		} else  

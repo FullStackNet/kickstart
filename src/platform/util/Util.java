@@ -27,13 +27,14 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Random;
 
 import platform.log.ApplicationLogger;
 
 import com.eaio.uuid.UUID;
 
 public class Util {
-
+	private static final Random generator = new Random();  
 	public static byte[] getByte(short data) {
 		byte[] packet = new byte[2];
 		packet[0] = (byte) (data & 0xff);
@@ -1188,4 +1189,10 @@ public class Util {
 		System.out.println(str1+"-"+str2);
 		return (multipler)*value;
 	}
+	
+	public static String getRandonToken() {
+		
+		long number = 100000 + generator.nextInt(900000);
+	    return "" +number;  
+}
 }
