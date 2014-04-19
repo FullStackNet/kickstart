@@ -17,6 +17,11 @@
 				'name':'students',
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'alert_students':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}

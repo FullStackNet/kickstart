@@ -21,6 +21,16 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'pickup_alert_stopages':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'drop_alert_stopages':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}

@@ -49,6 +49,15 @@ public class School_route_stopage_mapHelper extends BaseHelper {
 				new String[]{student.FIELD_NAME});
 	}
 	
+	public ArrayList<BaseResource> getAlertStudentList(String routeStopageId) {
+		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
+		school_route_storage_map _map = (school_route_storage_map)getById(routeStopageId);
+		if ((_map == null) || (_map.getAlert_students() == null))
+			return list;
+		return StudentHelper.getInstance().getListById(_map.getAlert_students().toArray(new String[_map.getAlert_students().size()]),
+				new String[]{student.FIELD_NAME});
+	}
+	
 	public ArrayList<BaseResource> getStudentUserList(String routeStopageId) {
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		school_route_storage_map _customer_map = (school_route_storage_map)getById(routeStopageId);

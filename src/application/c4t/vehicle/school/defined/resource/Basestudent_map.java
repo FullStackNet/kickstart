@@ -22,10 +22,14 @@ public abstract class Basestudent_map extends BaseResource {
 	private String id = null; //student id
 	private ArrayList<Object> users = null;
 	private ArrayList<Object> parents = null;
+	private ArrayList<Object> pickup_alert_stopages = null;
+	private ArrayList<Object> drop_alert_stopages = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_USERS = "users";
 	public static String FIELD_PARENTS = "parents";
+	public static String FIELD_PICKUP_ALERT_STOPAGES = "pickup_alert_stopages";
+	public static String FIELD_DROP_ALERT_STOPAGES = "drop_alert_stopages";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("student_map");
@@ -44,6 +48,12 @@ public abstract class Basestudent_map extends BaseResource {
 		Field parentsField = new Field("parents", "Array");
 		metaData.addField(parentsField);
 
+		Field pickup_alert_stopagesField = new Field("pickup_alert_stopages", "Array");
+		metaData.addField(pickup_alert_stopagesField);
+
+		Field drop_alert_stopagesField = new Field("drop_alert_stopages", "Array");
+		metaData.addField(drop_alert_stopagesField);
+
 
 		metaData.setTableName("student_map");
 
@@ -56,6 +66,8 @@ public abstract class Basestudent_map extends BaseResource {
 		this.id = obj.id;
 		this.users = obj.users;
 		this.parents = obj.parents;
+		this.pickup_alert_stopages = obj.pickup_alert_stopages;
+		this.drop_alert_stopages = obj.drop_alert_stopages;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -70,6 +82,10 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("users", users);
 		if(parents != null)
 			map.put("parents", parents);
+		if(pickup_alert_stopages != null)
+			map.put("pickup_alert_stopages", pickup_alert_stopages);
+		if(drop_alert_stopages != null)
+			map.put("drop_alert_stopages", drop_alert_stopages);
 		return map;
 	}
 
@@ -81,6 +97,10 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("users", users);
 		if(parents != null)
 			map.put("parents", parents);
+		if(pickup_alert_stopages != null)
+			map.put("pickup_alert_stopages", pickup_alert_stopages);
+		if(drop_alert_stopages != null)
+			map.put("drop_alert_stopages", drop_alert_stopages);
 		return map;
 	}
 
@@ -93,6 +113,8 @@ public abstract class Basestudent_map extends BaseResource {
 		id = (String) map.get("id");
 		users = (ArrayList<Object>) map.get("users");
 		parents = (ArrayList<Object>) map.get("parents");
+		pickup_alert_stopages = (ArrayList<Object>) map.get("pickup_alert_stopages");
+		drop_alert_stopages = (ArrayList<Object>) map.get("drop_alert_stopages");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -102,6 +124,8 @@ public abstract class Basestudent_map extends BaseResource {
 
 		users = (ArrayList<Object>) map.get("users");
 		parents = (ArrayList<Object>) map.get("parents");
+		pickup_alert_stopages = (ArrayList<Object>) map.get("pickup_alert_stopages");
+		drop_alert_stopages = (ArrayList<Object>) map.get("drop_alert_stopages");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -168,6 +192,44 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void unSetParents() {
 		this.parents = null;
+	}
+
+	public ArrayList<Object> getPickup_alert_stopages() {
+		return pickup_alert_stopages;
+	}
+
+
+	public void setPickup_alert_stopages(ArrayList<Object> pickup_alert_stopages) {
+		this.pickup_alert_stopages = pickup_alert_stopages;
+	}
+
+	public void addPickup_alert_stopages(Object value) {
+		if(pickup_alert_stopages == null)
+			pickup_alert_stopages = new ArrayList<Object>();
+		pickup_alert_stopages.add(value);
+	}
+
+	public void unSetPickup_alert_stopages() {
+		this.pickup_alert_stopages = null;
+	}
+
+	public ArrayList<Object> getDrop_alert_stopages() {
+		return drop_alert_stopages;
+	}
+
+
+	public void setDrop_alert_stopages(ArrayList<Object> drop_alert_stopages) {
+		this.drop_alert_stopages = drop_alert_stopages;
+	}
+
+	public void addDrop_alert_stopages(Object value) {
+		if(drop_alert_stopages == null)
+			drop_alert_stopages = new ArrayList<Object>();
+		drop_alert_stopages.add(value);
+	}
+
+	public void unSetDrop_alert_stopages() {
+		this.drop_alert_stopages = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

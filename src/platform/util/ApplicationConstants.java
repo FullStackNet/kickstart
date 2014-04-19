@@ -97,5 +97,5 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_INVITE_PARENT = "INVITE_PARENT";
 	public static String MAIL_SUBJECT_INVITE_PARENT = "Activate student stpoage alert service";
 	public static String SMS_TYPE_INVITE_PARENT = "INVITE_PARENT";
-
+	public static String SMS_TYPE_SEND_STOPAGE_REACHED = "STOPAGE_REACHED";
 }

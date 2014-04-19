@@ -21,9 +21,11 @@ import java.util.*;
 public abstract class Baseschool_route_stopage_map extends BaseResource {
 	private String id = null;
 	private ArrayList<Object> students = null;
+	private ArrayList<Object> alert_students = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_STUDENTS = "students";
+	public static String FIELD_ALERT_STUDENTS = "alert_students";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("school_route_stopage_map");
@@ -39,6 +41,9 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 		Field studentsField = new Field("students", "Array");
 		metaData.addField(studentsField);
 
+		Field alert_studentsField = new Field("alert_students", "Array");
+		metaData.addField(alert_studentsField);
+
 
 		metaData.setTableName("school_route_stopage_map");
 
@@ -50,6 +55,7 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 	public Baseschool_route_stopage_map(Baseschool_route_stopage_map obj) {
 		this.id = obj.id;
 		this.students = obj.students;
+		this.alert_students = obj.alert_students;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -62,6 +68,8 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 			map.put("id", id);
 		if(students != null)
 			map.put("students", students);
+		if(alert_students != null)
+			map.put("alert_students", alert_students);
 		return map;
 	}
 
@@ -71,6 +79,8 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 			map.put("id", id);
 		if(students != null)
 			map.put("students", students);
+		if(alert_students != null)
+			map.put("alert_students", alert_students);
 		return map;
 	}
 
@@ -82,6 +92,7 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		students = (ArrayList<Object>) map.get("students");
+		alert_students = (ArrayList<Object>) map.get("alert_students");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -90,6 +101,7 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 			id = idObj.toString();
 
 		students = (ArrayList<Object>) map.get("students");
+		alert_students = (ArrayList<Object>) map.get("alert_students");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -137,6 +149,25 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 
 	public void unSetStudents() {
 		this.students = null;
+	}
+
+	public ArrayList<Object> getAlert_students() {
+		return alert_students;
+	}
+
+
+	public void setAlert_students(ArrayList<Object> alert_students) {
+		this.alert_students = alert_students;
+	}
+
+	public void addAlert_students(Object value) {
+		if(alert_students == null)
+			alert_students = new ArrayList<Object>();
+		alert_students.add(value);
+	}
+
+	public void unSetAlert_students() {
+		this.alert_students = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

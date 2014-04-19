@@ -73,7 +73,6 @@ public class V3_DG_SNG_01VendorDataHandler extends VendorDataHandler {
 		double fuelQuantity = 0.0;
 		double cBatteryVoltage = 0.0;
 		double ctemperature = 0.0;
-		double capacity = 0.0;
 		double coolantTemperature=0.0;
 		Short batteryVoltage = (Short)map.get("port3000");
 		cBatteryVoltage = batteryVoltage*_controller.getMultiple_factor_port3000Ex();
@@ -84,7 +83,6 @@ public class V3_DG_SNG_01VendorDataHandler extends VendorDataHandler {
 		Short canopyTemperature = (Short)map.get("port3002");
 		ctemperature =  canopyTemperature*_controller.getMultiple_factor_port3002Ex();
 		ctemperature = Util.round(ctemperature, 2);
-	
 		Short _coolantTemperature = (Short)map.get("port3003");
 		coolantTemperature =  _coolantTemperature*_controller.getMultiple_factor_port3003Ex();
 		coolantTemperature = Util.round(coolantTemperature, 2);

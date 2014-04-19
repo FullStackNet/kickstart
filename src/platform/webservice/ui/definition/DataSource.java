@@ -111,12 +111,14 @@ public class DataSource {
 				data.add(value);
 			}
 		} else if(type.equals(LISTMAP)) {
-			for(int i=0 ;i < listMap.size() ; i++) {
-				Map<String, Object> map = listMap.get(i);
-				String keyValue = (String) map.get(keyField);
-				Object object = map.get(valueField);
-				IdValue value = new IdValue(keyValue, object);
-				data.add(value);
+			if (listMap != null) {
+				for(int i=0 ;i < listMap.size() ; i++) {
+					Map<String, Object> map = listMap.get(i);
+					String keyValue = (String) map.get(keyField);
+					Object object = map.get(valueField);
+					IdValue value = new IdValue(keyValue, object);
+					data.add(value);
+				}
 			}
 		} 
 		return data;
