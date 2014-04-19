@@ -1,6 +1,8 @@
 package application.c4t.vehicle.school.helper;
 
 import platform.helper.BaseHelper;
+import platform.resource.BaseResource;
+import platform.resource.user;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.school_user_map;
 
@@ -27,4 +29,13 @@ public class School_user_mapHelper extends BaseHelper {
 		_map.addStudents(studentId);
 		AddOrUpdate(_map);
 	}
+	
+	public BaseResource[] getStudents(String userId) {
+		school_user_map _map = (school_user_map)getById(userId);
+		if ((_map == null) || (_map.getStudents() == null))
+			return null;
+		return StudentHelper.getInstance().getById(_map.getStudents().toArray(new String[_map.getStudents().size()]),
+				new String[]{user.FIELD_NAME});
+	}
+	
 }
