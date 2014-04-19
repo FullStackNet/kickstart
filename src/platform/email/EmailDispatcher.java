@@ -99,6 +99,12 @@ public class EmailDispatcher {
 		sendToUser(toEmailIds,iMailReply,subject,message);
 	}
 	
+	public void sendSMSMail(String subject, String templete,Map<String, String> params) throws ApplicationException 
+	{
+		String message = Util.readSMSFileFromLocal(templete.toLowerCase(), params);
+		sendToUser(new String[]{uniqueId},null,subject,message);
+	}
+	
 	//Use this to send mail to end users (like registration) - SendMail.send("toEmailIds", "subject", "message")
 	public void sendToUser(String[] toEmailIds, IMailReply iMailReply, String subject, String message) throws ApplicationException {
 		if(doNotMail || Util.isEmpty(toEmailIds))
