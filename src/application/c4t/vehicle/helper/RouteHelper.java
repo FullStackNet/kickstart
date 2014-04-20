@@ -188,7 +188,8 @@ public class RouteHelper extends BaseHelper {
 				sendNotification(_fetched_appliance, _route_stopage);
 				ApplianceHelper.getInstance().updateLastStopage(_fetched_appliance.getId(), 
 						_stopage.getId());
-				return;
+				Route_stopageHelper.getInstance().updateReachedTime(_route_stopage.getId());
+				break;
 			}
 		}
 	}
