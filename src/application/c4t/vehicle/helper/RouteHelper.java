@@ -7,6 +7,7 @@ import java.util.Map;
 
 import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
+import platform.log.ApplicationLogger;
 import platform.manager.ApplicationManager;
 import platform.message.SendSMS;
 import platform.resource.BaseResource;
@@ -184,6 +185,7 @@ public class RouteHelper extends BaseHelper {
 			if (distance < 0) {
 				distance = distance*(-1);
 			}
+			ApplicationLogger.info("distance from stopage "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
 			if (distance  < ApplicationConstants.STOPAGE_RADIUS_KM) {
 				sendNotification(_fetched_appliance, _route_stopage);
 				ApplianceHelper.getInstance().updateLastStopage(_fetched_appliance.getId(), 
