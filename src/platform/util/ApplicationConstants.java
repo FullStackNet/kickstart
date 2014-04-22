@@ -93,7 +93,7 @@ public class ApplicationConstants {
 	public static long MANAGED_OBJECT_HEARTBEAT = 30000L;
 	public static int MANAGED_OBJECT_MONITOR_TYPE_HEARTBEAT = 1;
 	public static int MANAGED_OBJECT_MONITOR_TYPE_PORT_SCAN = 2;
-	public static double STOPAGE_RADIUS_KM = 0.150;
+	public static double STOPAGE_RADIUS_KM = 0.050;
 	public static String MAIL_TYPE_INVITE_PARENT = "INVITE_PARENT";
 	public static String MAIL_SUBJECT_INVITE_PARENT = "Activate student stpoage alert service";
 	public static String SMS_TYPE_INVITE_PARENT = "INVITE_PARENT";

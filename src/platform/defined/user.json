@@ -77,6 +77,11 @@
 			{
 				'length': 128,
 				'type':'String'
+			},
+			'routeSettingService':
+			{
+				'length': 1,
+				'type':'String'
 			}			
 		}
 	}
