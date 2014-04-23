@@ -10,11 +10,6 @@
 				'required': true,
 				'type':'String'
 			},
-			'appliances':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
-			},
 			'sensors':
 			{
 				'type':'Array',
