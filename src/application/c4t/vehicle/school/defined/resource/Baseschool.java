@@ -27,7 +27,6 @@ public abstract class Baseschool extends BaseResource {
 	private String city = null;
 	private String state = null;
 	private String country = null;
-	private String customer_id = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -37,7 +36,6 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
-	public static String FIELD_CUSTOMER_ID = "customer_id";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("school");
@@ -78,12 +76,6 @@ public abstract class Baseschool extends BaseResource {
 		countryField.setLength(128);
 		metaData.addField(countryField);
 
-		Field customer_idField = new Field("customer_id", "String");
-		customer_idField.setIndexed(true);
-		customer_idField.setRequired(true);
-		customer_idField.setLength(128);
-		metaData.addField(customer_idField);
-
 
 		metaData.setTableName("school");
 
@@ -101,7 +93,6 @@ public abstract class Baseschool extends BaseResource {
 		this.city = obj.city;
 		this.state = obj.state;
 		this.country = obj.country;
-		this.customer_id = obj.customer_id;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -126,8 +117,6 @@ public abstract class Baseschool extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
-		if(customer_id != null)
-			map.put("customer_id", customer_id);
 		return map;
 	}
 
@@ -149,8 +138,6 @@ public abstract class Baseschool extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
-		if(validateCustomer_id(add))
-			map.put("customer_id", customer_id);
 		return map;
 	}
 
@@ -168,7 +155,6 @@ public abstract class Baseschool extends BaseResource {
 		city = (String) map.get("city");
 		state = (String) map.get("state");
 		country = (String) map.get("country");
-		customer_id = (String) map.get("customer_id");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -203,10 +189,6 @@ public abstract class Baseschool extends BaseResource {
 		Object countryObj = map.get("country");
 		if(countryObj != null)
 			country = countryObj.toString();
-
-		Object customer_idObj = map.get("customer_id");
-		if(customer_idObj != null)
-			customer_id = customer_idObj.toString();
 
 	}
 
@@ -348,28 +330,6 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetCountry() {
 		this.country = null;
-	}
-
-	public String getCustomer_id() {
-		return customer_id;
-	}
-
-	public String getCustomer_idEx() {
-		return customer_id != null ? customer_id : "";
-	}
-
-	public void setCustomer_id(String customer_id) {
-		this.customer_id = customer_id;
-	}
-
-	public void unSetCustomer_id() {
-		this.customer_id = null;
-	}
-
-	public boolean validateCustomer_id(boolean add) throws ApplicationException {
-		if(add && customer_id == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[customer_id]");
-		return customer_id != null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

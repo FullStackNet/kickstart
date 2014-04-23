@@ -52,14 +52,6 @@
 				'name':'country',
 				'length': 128,
 				'type':'String'
-			},
-			'customer_id':
-			{
-				'name':'customer_id',
-				'length': 128,
-				'required': true,
-				'type':'String',
-				'index' : true
 			}
 		}
 	}
