@@ -68,6 +68,11 @@
 			'reached_time':
 			{
 				'type':'long'
+			},
+			'stopage_radius':
+			{
+				'type':'double',
+				'default' : "50"
 			}
 		}
 	}

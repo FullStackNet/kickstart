@@ -31,6 +31,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private Double distance_from_previous_stop = null;
 	private Integer time_from_previous_stop = null;
 	private Long reached_time = null;
+	private Double stopage_radius = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -44,6 +45,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	public static String FIELD_DISTANCE_FROM_PREVIOUS_STOP = "distance_from_previous_stop";
 	public static String FIELD_TIME_FROM_PREVIOUS_STOP = "time_from_previous_stop";
 	public static String FIELD_REACHED_TIME = "reached_time";
+	public static String FIELD_STOPAGE_RADIUS = "stopage_radius";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route_stopage");
@@ -93,6 +95,10 @@ public abstract class Baseroute_stopage extends BaseResource {
 		Field reached_timeField = new Field("reached_time", "long");
 		metaData.addField(reached_timeField);
 
+		Field stopage_radiusField = new Field("stopage_radius", "double");
+		stopage_radiusField.setDefaultValue(50.0);
+		metaData.addField(stopage_radiusField);
+
 
 		metaData.setTableName("route_stopage");
 
@@ -114,6 +120,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		this.distance_from_previous_stop = obj.distance_from_previous_stop;
 		this.time_from_previous_stop = obj.time_from_previous_stop;
 		this.reached_time = obj.reached_time;
+		this.stopage_radius = obj.stopage_radius;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -123,6 +130,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private void setDefaultValues() {
 		if(reached == null)
 			reached = "N";
+		if(stopage_radius == null)
+			stopage_radius = 50.0;
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -151,6 +160,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("time_from_previous_stop", time_from_previous_stop);
 		if(reached_time != null)
 			map.put("reached_time", reached_time);
+		if(stopage_radius != null)
+			map.put("stopage_radius", stopage_radius);
 		return map;
 	}
 
@@ -183,6 +194,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("time_from_previous_stop", time_from_previous_stop);
 		if(reached_time != null)
 			map.put("reached_time", reached_time);
+		if(stopage_radius != null)
+			map.put("stopage_radius", stopage_radius);
 		return map;
 	}
 
@@ -202,6 +215,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		distance_from_previous_stop = (Double) map.get("distance_from_previous_stop");
 		time_from_previous_stop = (Integer) map.get("time_from_previous_stop");
 		reached_time = (Long) map.get("reached_time");
+		stopage_radius = (Double) map.get("stopage_radius");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -244,6 +258,10 @@ public abstract class Baseroute_stopage extends BaseResource {
 		Object reached_timeObj = map.get("reached_time");
 		if(reached_timeObj != null)
 			reached_time = new Long(reached_timeObj.toString());
+
+		Object stopage_radiusObj = map.get("stopage_radius");
+		if(stopage_radiusObj != null)
+			stopage_radius = new Double(stopage_radiusObj.toString());
 
 	}
 
@@ -479,6 +497,22 @@ public abstract class Baseroute_stopage extends BaseResource {
 
 	public void unSetReached_time() {
 		this.reached_time = null;
+	}
+
+	public Double getStopage_radius() {
+		return stopage_radius != null ? stopage_radius : 50.0;
+	}
+
+	public void setStopage_radius(double stopage_radius) {
+		this.stopage_radius = stopage_radius;
+	}
+
+	public void setStopage_radius(Double stopage_radius) {
+		this.stopage_radius = stopage_radius;
+	}
+
+	public void unSetStopage_radius() {
+		this.stopage_radius = 50.0;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";
