@@ -115,6 +115,8 @@ public class RouteHelper extends BaseHelper {
 	}
 	
 	boolean isValidRoute(route _route, Date logTime , String timeZone) {
+		if (!"Y".equals(_route.getActive()))
+				return false;
 		long logDaytime = TimeUtil.getDayTime(timeZone,logTime);
 		long routeStartDayTime = TimeUtil.getDayTime(_route.getStart_time());
 		long routeEndDayTime = TimeUtil.getDayTime(_route.getEnd_time());
@@ -159,6 +161,7 @@ public class RouteHelper extends BaseHelper {
 		if (current_route == null) {
 			return ;
 		}
+		
 		ApplianceHelper.getInstance().updateCurrentRoute(_fetched_appliance.getId(),
 				current_route.getId());
 	
