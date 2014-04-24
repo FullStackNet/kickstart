@@ -2,8 +2,9 @@ package application.c4t.vehicle.school.resource;
 
 import platform.util.Util;
 import application.c4t.vehicle.school.defined.resource.Baseschool;
+import application.c4t.vehicle.school.defined.resource.Baseschool_group;
 
-public class school_group extends Baseschool {
+public class school_group extends Baseschool_group {
 
 	/**
 	 * 
