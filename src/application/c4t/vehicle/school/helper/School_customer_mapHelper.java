@@ -21,11 +21,11 @@ public class School_customer_mapHelper extends BaseHelper {
 		return instance;
 	}
 	
-	public void addSchool(String userId,String schoolId) throws ApplicationException {
+	public void addSchool(String customerId,String schoolId) throws ApplicationException {
 		if (schoolId == null) return;
-		if (userId == null) return;
+		if (customerId == null) return;
 		school_customer_map _map = new school_customer_map();
-		_map.setId(userId);
+		_map.setId(customerId);
 		_map.addSchools(schoolId);
 		AddOrUpdate(_map);
 	}

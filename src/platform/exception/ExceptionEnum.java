@@ -107,4 +107,12 @@ public enum ExceptionEnum {
 			 return "Invalid Query";
 		}
 	},
+	/*User is trying to do something, ehich is not supported
+	 */
+	NOT_SUPPORTED
+	{
+		 public String toString() {
+			 return "Not Supported";
+		}
+	},
 }
