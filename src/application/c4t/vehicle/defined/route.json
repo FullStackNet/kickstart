@@ -6,14 +6,12 @@
 		{
 			'id':
 			{
-				'name':'id',
 				'length': 128,
 				'required': true,
 				'type':'String'
 			},
 			'name':
 			{
-				'name':'name',
 				'length': 128,
 				'type':'String'
 			},
@@ -29,31 +27,26 @@
 			},
 			'state':
 			{
-				'name':'state',
 				'length': 128,
 				'type':'String'
 			},
 			'from_point':
 			{
-				'name':'from_point',
 				'length': 128,
 				'type':'String'
 			},
 			'to_point':
 			{
-				'name':'to_point',
 				'length': 128,
 				'type':'String'
 			},
 			'by_route':
 			{
-				'name':'by_route',
 				'length': 128,
 				'type':'String'
 			},
 			'customer_id':
 			{
-				'name':'customer_id',
 				'length': 128,
 				'required': true,
 				'type':'String',
@@ -61,40 +54,40 @@
 			},
 			'user_id':
 			{
-				'name':'user_id',
 				'length': 128,
 				'required': true,
 				'type':'String'
 			},
 			'appliance_id':
 			{
-				'name':'appliance_id',
 				'length': 128,
 				'type':'String'
 			},
 			'driver_id':
 			{
-				'name':'driver_id',
 				'length': 128,
 				'type':'String'
 			},
 			'attendent_id':
 			{
-				'name':'attendent_id',
 				'length': 128,
 				'type':'String'
 			},
 			'start_time':
 			{
-				'name':'start_time',
 				'length': 10,
 				'type':'String'
 			},
 			'end_time':
 			{
-				'name':'end_time',
 				'length': 10,
 				'type':'String'
+			},
+			'active':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
 			}
 		},
 		"information" : 

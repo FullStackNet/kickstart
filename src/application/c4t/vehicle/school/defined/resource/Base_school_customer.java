@@ -7,7 +7,7 @@
  * written permission of M16, Inc.
  */
 
-package application.c4t.vehicle.defined.resource;
+package application.c4t.vehicle.school.defined.resource;
 
 import platform.resource.BaseResource;
 import platform.util.*;
@@ -18,17 +18,17 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Basecustomer_vehicle_map extends BaseResource {
+public abstract class Base_school_customer extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> fleetManagers = null;
-	private ArrayList<Object> fleetOwners = null;
+	private String customer_id = null;
+	private String school_id = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_FLEETMANAGERS = "fleetManagers";
-	public static String FIELD_FLEETOWNERS = "fleetOwners";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_SCHOOL_ID = "school_id";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("customer_vehicle_map");
+	private final static ResourceMetaData metaData = new ResourceMetaData("_school_customer");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -38,24 +38,26 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
-		Field fleetManagersField = new Field("fleetManagers", "Array");
-		metaData.addField(fleetManagersField);
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
 
-		Field fleetOwnersField = new Field("fleetOwners", "Array");
-		metaData.addField(fleetOwnersField);
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
 
 
-		metaData.setTableName("customer_vehicle_map");
+		metaData.setTableName("_school_customer");
 
-		metaData.setCluster("DB_DEVICE");
+		metaData.setCluster("DB_PROFILE");
 	}
 
-	public Basecustomer_vehicle_map() {}
+	public Base_school_customer() {}
 
-	public Basecustomer_vehicle_map(Basecustomer_vehicle_map obj) {
+	public Base_school_customer(Base_school_customer obj) {
 		this.id = obj.id;
-		this.fleetManagers = obj.fleetManagers;
-		this.fleetOwners = obj.fleetOwners;
+		this.customer_id = obj.customer_id;
+		this.school_id = obj.school_id;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -66,10 +68,10 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(fleetManagers != null)
-			map.put("fleetManagers", fleetManagers);
-		if(fleetOwners != null)
-			map.put("fleetOwners", fleetOwners);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		return map;
 	}
 
@@ -77,10 +79,10 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(fleetManagers != null)
-			map.put("fleetManagers", fleetManagers);
-		if(fleetOwners != null)
-			map.put("fleetOwners", fleetOwners);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		return map;
 	}
 
@@ -91,8 +93,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
-		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
+		customer_id = (String) map.get("customer_id");
+		school_id = (String) map.get("school_id");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -100,8 +102,14 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
-		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
+
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -132,45 +140,39 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getFleetManagers() {
-		return fleetManagers;
+	public String getCustomer_id() {
+		return customer_id;
 	}
 
-
-	public void setFleetManagers(ArrayList<Object> fleetManagers) {
-		this.fleetManagers = fleetManagers;
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
 	}
 
-	public void addFleetManagers(Object value) {
-		if(fleetManagers == null)
-			fleetManagers = new ArrayList<Object>();
-		fleetManagers.add(value);
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
 	}
 
-	public void unSetFleetManagers() {
-		this.fleetManagers = null;
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
-	public ArrayList<Object> getFleetOwners() {
-		return fleetOwners;
+	public String getSchool_id() {
+		return school_id;
 	}
 
-
-	public void setFleetOwners(ArrayList<Object> fleetOwners) {
-		this.fleetOwners = fleetOwners;
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
 	}
 
-	public void addFleetOwners(Object value) {
-		if(fleetOwners == null)
-			fleetOwners = new ArrayList<Object>();
-		fleetOwners.add(value);
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
 	}
 
-	public void unSetFleetOwners() {
-		this.fleetOwners = null;
+	public void unSetSchool_id() {
+		this.school_id = null;
 	}
 	public String getCluster() {
-		return "DB_DEVICE";
+		return "DB_PROFILE";
 	}
 	public String getClusterType() {
 		return "REPLICATED";

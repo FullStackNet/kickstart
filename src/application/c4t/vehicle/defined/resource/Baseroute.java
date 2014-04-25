@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -38,6 +34,7 @@ public abstract class Baseroute extends BaseResource {
 	private String attendent_id = null;
 	private String start_time = null;
 	private String end_time = null;
+	private String active = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -54,6 +51,7 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_ATTENDENT_ID = "attendent_id";
 	public static String FIELD_START_TIME = "start_time";
 	public static String FIELD_END_TIME = "end_time";
+	public static String FIELD_ACTIVE = "active";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route");
@@ -125,6 +123,11 @@ public abstract class Baseroute extends BaseResource {
 		end_timeField.setLength(10);
 		metaData.addField(end_timeField);
 
+		Field activeField = new Field("active", "String");
+		activeField.setDefaultValue("N");
+		activeField.setLength(1);
+		metaData.addField(activeField);
+
 
 		metaData.setTableName("route");
 
@@ -149,10 +152,16 @@ public abstract class Baseroute extends BaseResource {
 		this.attendent_id = obj.attendent_id;
 		this.start_time = obj.start_time;
 		this.end_time = obj.end_time;
+		this.active = obj.active;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(active == null)
+			active = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -187,10 +196,15 @@ public abstract class Baseroute extends BaseResource {
 			map.put("start_time", start_time);
 		if(end_time != null)
 			map.put("end_time", end_time);
+		if(active != null)
+			map.put("active", active);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -222,6 +236,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("start_time", start_time);
 		if(end_time != null)
 			map.put("end_time", end_time);
+		if(active != null)
+			map.put("active", active);
 		return map;
 	}
 
@@ -246,6 +262,7 @@ public abstract class Baseroute extends BaseResource {
 		attendent_id = (String) map.get("attendent_id");
 		start_time = (String) map.get("start_time");
 		end_time = (String) map.get("end_time");
+		active = (String) map.get("active");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -308,6 +325,10 @@ public abstract class Baseroute extends BaseResource {
 		Object end_timeObj = map.get("end_time");
 		if(end_timeObj != null)
 			end_time = end_timeObj.toString();
+
+		Object activeObj = map.get("active");
+		if(activeObj != null)
+			active = activeObj.toString();
 
 	}
 
@@ -573,6 +594,18 @@ public abstract class Baseroute extends BaseResource {
 
 	public void unSetEnd_time() {
 		this.end_time = null;
+	}
+
+	public String getActive() {
+		return active != null ? active : "N";
+	}
+
+	public void setActive(String active) {
+		this.active = active;
+	}
+
+	public void unSetActive() {
+		this.active = "N";
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

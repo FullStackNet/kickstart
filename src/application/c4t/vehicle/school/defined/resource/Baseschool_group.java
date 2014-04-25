@@ -7,7 +7,7 @@
  * written permission of M16, Inc.
  */
 
-package application.c4t.vehicle.defined.resource;
+package application.c4t.vehicle.school.defined.resource;
 
 import platform.resource.BaseResource;
 import platform.util.*;
@@ -18,17 +18,17 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Basecustomer_vehicle_map extends BaseResource {
+public abstract class Baseschool_group extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> fleetManagers = null;
-	private ArrayList<Object> fleetOwners = null;
+	private String name = null;
+	private String short_name = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_FLEETMANAGERS = "fleetManagers";
-	public static String FIELD_FLEETOWNERS = "fleetOwners";
+	public static String FIELD_NAME = "name";
+	public static String FIELD_SHORT_NAME = "short_name";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("customer_vehicle_map");
+	private final static ResourceMetaData metaData = new ResourceMetaData("school_group");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -38,24 +38,26 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
-		Field fleetManagersField = new Field("fleetManagers", "Array");
-		metaData.addField(fleetManagersField);
+		Field nameField = new Field("name", "String");
+		nameField.setLength(128);
+		metaData.addField(nameField);
 
-		Field fleetOwnersField = new Field("fleetOwners", "Array");
-		metaData.addField(fleetOwnersField);
+		Field short_nameField = new Field("short_name", "String");
+		short_nameField.setLength(128);
+		metaData.addField(short_nameField);
 
 
-		metaData.setTableName("customer_vehicle_map");
+		metaData.setTableName("school_group");
 
-		metaData.setCluster("DB_DEVICE");
+		metaData.setCluster("DB_PROFILE");
 	}
 
-	public Basecustomer_vehicle_map() {}
+	public Baseschool_group() {}
 
-	public Basecustomer_vehicle_map(Basecustomer_vehicle_map obj) {
+	public Baseschool_group(Baseschool_group obj) {
 		this.id = obj.id;
-		this.fleetManagers = obj.fleetManagers;
-		this.fleetOwners = obj.fleetOwners;
+		this.name = obj.name;
+		this.short_name = obj.short_name;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -66,10 +68,10 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(fleetManagers != null)
-			map.put("fleetManagers", fleetManagers);
-		if(fleetOwners != null)
-			map.put("fleetOwners", fleetOwners);
+		if(name != null)
+			map.put("name", name);
+		if(short_name != null)
+			map.put("short_name", short_name);
 		return map;
 	}
 
@@ -77,10 +79,10 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(fleetManagers != null)
-			map.put("fleetManagers", fleetManagers);
-		if(fleetOwners != null)
-			map.put("fleetOwners", fleetOwners);
+		if(name != null)
+			map.put("name", name);
+		if(short_name != null)
+			map.put("short_name", short_name);
 		return map;
 	}
 
@@ -91,8 +93,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
-		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
+		name = (String) map.get("name");
+		short_name = (String) map.get("short_name");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -100,8 +102,14 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
-		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
+		Object nameObj = map.get("name");
+		if(nameObj != null)
+			name = nameObj.toString();
+
+		Object short_nameObj = map.get("short_name");
+		if(short_nameObj != null)
+			short_name = short_nameObj.toString();
+
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -132,45 +140,39 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getFleetManagers() {
-		return fleetManagers;
+	public String getName() {
+		return name;
 	}
 
-
-	public void setFleetManagers(ArrayList<Object> fleetManagers) {
-		this.fleetManagers = fleetManagers;
+	public String getNameEx() {
+		return name != null ? name : "";
 	}
 
-	public void addFleetManagers(Object value) {
-		if(fleetManagers == null)
-			fleetManagers = new ArrayList<Object>();
-		fleetManagers.add(value);
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void unSetFleetManagers() {
-		this.fleetManagers = null;
+	public void unSetName() {
+		this.name = null;
 	}
 
-	public ArrayList<Object> getFleetOwners() {
-		return fleetOwners;
+	public String getShort_name() {
+		return short_name;
 	}
 
-
-	public void setFleetOwners(ArrayList<Object> fleetOwners) {
-		this.fleetOwners = fleetOwners;
+	public String getShort_nameEx() {
+		return short_name != null ? short_name : "";
 	}
 
-	public void addFleetOwners(Object value) {
-		if(fleetOwners == null)
-			fleetOwners = new ArrayList<Object>();
-		fleetOwners.add(value);
+	public void setShort_name(String short_name) {
+		this.short_name = short_name;
 	}
 
-	public void unSetFleetOwners() {
-		this.fleetOwners = null;
+	public void unSetShort_name() {
+		this.short_name = null;
 	}
 	public String getCluster() {
-		return "DB_DEVICE";
+		return "DB_PROFILE";
 	}
 	public String getClusterType() {
 		return "REPLICATED";

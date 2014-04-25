@@ -7,6 +7,7 @@ import java.util.Map;
 
 import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
+import platform.log.ApplicationLogger;
 import platform.manager.ApplicationManager;
 import platform.message.SendSMS;
 import platform.resource.BaseResource;
@@ -114,6 +115,8 @@ public class RouteHelper extends BaseHelper {
 	}
 	
 	boolean isValidRoute(route _route, Date logTime , String timeZone) {
+		if (!"Y".equals(_route.getActive()))
+				return false;
 		long logDaytime = TimeUtil.getDayTime(timeZone,logTime);
 		long routeStartDayTime = TimeUtil.getDayTime(_route.getStart_time());
 		long routeEndDayTime = TimeUtil.getDayTime(_route.getEnd_time());
@@ -158,6 +161,7 @@ public class RouteHelper extends BaseHelper {
 		if (current_route == null) {
 			return ;
 		}
+		
 		ApplianceHelper.getInstance().updateCurrentRoute(_fetched_appliance.getId(),
 				current_route.getId());
 	
@@ -184,11 +188,17 @@ public class RouteHelper extends BaseHelper {
 			if (distance < 0) {
 				distance = distance*(-1);
 			}
-			if (distance  < ApplicationConstants.STOPAGE_RADIUS_KM) {
+			double stopage_radius = ApplicationConstants.STOPAGE_RADIUS_KM;
+			if (_route_stopage.getStopage_radius() != null)
+				stopage_radius = _route_stopage.getStopage_radius();
+			
+			ApplicationLogger.info("distance from stopage "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
+			if (distance  < stopage_radius) {
 				sendNotification(_fetched_appliance, _route_stopage);
 				ApplianceHelper.getInstance().updateLastStopage(_fetched_appliance.getId(), 
 						_stopage.getId());
-				return;
+				Route_stopageHelper.getInstance().updateReachedTime(_route_stopage.getId());
+				break;
 			}
 		}
 	}

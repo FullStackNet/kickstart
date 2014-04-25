@@ -40,6 +40,19 @@
 				'length': 128,
 				'type':'String'
 			},
+			'stopage_name':
+			{
+				'length': 128,
+				'type':'String',
+				'transient' : true
+			},
+			'reached':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N",
+				'transient' : true
+			},
 			'stopage_order':
 			{
 				'type':'int'
@@ -51,6 +64,15 @@
 			'time_from_previous_stop':
 			{
 				'type':'int'
+			},
+			'reached_time':
+			{
+				'type':'long'
+			},
+			'stopage_radius':
+			{
+				'type':'double',
+				'default' : "50"
 			}
 		}
 	}

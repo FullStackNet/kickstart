@@ -74,6 +74,12 @@
 				"severity" : "ERROR",
 				"message": "Invalid Query",
 				"description": "User is trying to query which is not implemented."				 
+			},
+			{
+				"code" : "NOT_SUPPORTED",
+				"severity" : "ERROR",
+				"message": "Not Supported",
+				"description": "User is trying to do something, ehich is not supported"				 
 			}
 			
 		]

@@ -3,7 +3,6 @@ package platform.helper;
 import java.util.ArrayList;
 import java.util.Map;
 
-import platform.resource.appliance;
 import platform.resource.controller;
 import platform.resource.customer_map;
 import platform.resource.sensor;
@@ -24,13 +23,7 @@ public class Customer_mapHelper extends BaseHelper {
 		return instance;
 	}
 	
-	public void addAppliance(String customerId,String applianceId) throws ApplicationException {
-		customer_map _customer_map = new customer_map();
-		_customer_map.setId(customerId);
-		_customer_map.addAppliances(applianceId);
-		AddOrUpdate(_customer_map);
-	}
-	
+
 	public ArrayList<Map<String, Object>> getSensorsMapList(String customerId) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		customer_map _customer_map = (customer_map)getSelectedFieldsById(customerId,
@@ -50,16 +43,6 @@ public class Customer_mapHelper extends BaseHelper {
 			return list;
 		return ControllerHelper.getInstance().getListMapById(_customer_map.getControllers().toArray(new String[_customer_map.getControllers().size()]),
 				new String[]{controller.FIELD_NAME});
-	}
-	
-	public ArrayList<Map<String, Object>> getAppliancesMapList(String customerId) {
-		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		customer_map _customer_map = (customer_map)getSelectedFieldsById(customerId,
-						customer_map.FIELD_APPLIANCES);
-		if ((_customer_map == null) || (_customer_map.getAppliances() == null))
-			return list;
-		return ApplianceHelper.getInstance().getListMapById(_customer_map.getAppliances().toArray(new String[_customer_map.getAppliances().size()]),
-				new String[]{appliance.FIELD_NAME});
 	}
 	
 	public void addSensor(String customerId,String sensorId) throws ApplicationException {

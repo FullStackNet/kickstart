@@ -9,7 +9,6 @@ import platform.exception.ExceptionEnum;
 import platform.helper.ApplianceHelper;
 import platform.helper.Appliance_mapHelper;
 import platform.helper.ControllerHelper;
-import platform.helper.Customer_mapHelper;
 import platform.helper.User_mapHelper;
 import platform.manager.ApplicationManager;
 import platform.message.DeviceAction;
@@ -29,11 +28,12 @@ public class ApplianceService extends BaseService{
 	}
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
-		appliance _appliance = (appliance) resource;
+		appliance _resource = (appliance) resource;
+		_resource.setCustomer_id(ctx.getCustomerId());
+		_resource.setUser_id(ctx.getUserId());
 		getHelper().add(resource);
-		Appliance_mapHelper.getInstance().addAdmin(_appliance.getId(),ctx.getUserId());
-		User_mapHelper.getInstance().addAppliance(ctx.getUserId(), _appliance.getId());
-		Customer_mapHelper.getInstance().addAppliance(ctx.getCustomerId(), _appliance.getId());
+		Appliance_mapHelper.getInstance().addAdmin(_resource.getId(),ctx.getUserId());
+		User_mapHelper.getInstance().addAppliance(ctx.getUserId(), _resource.getId());
 	}
 
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {

@@ -20,14 +20,12 @@ import java.util.*;
  */
 public abstract class Basecustomer_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> appliances = null;
 	private ArrayList<Object> sensors = null;
 	private ArrayList<Object> join = null;
 	private ArrayList<Object> controllers = null;
 	private ArrayList<Object> locations = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_APPLIANCES = "appliances";
 	public static String FIELD_SENSORS = "sensors";
 	public static String FIELD_JOIN = "join";
 	public static String FIELD_CONTROLLERS = "controllers";
@@ -43,9 +41,6 @@ public abstract class Basecustomer_map extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
-
-		Field appliancesField = new Field("appliances", "Array");
-		metaData.addField(appliancesField);
 
 		Field sensorsField = new Field("sensors", "Array");
 		metaData.addField(sensorsField);
@@ -69,7 +64,6 @@ public abstract class Basecustomer_map extends BaseResource {
 
 	public Basecustomer_map(Basecustomer_map obj) {
 		this.id = obj.id;
-		this.appliances = obj.appliances;
 		this.sensors = obj.sensors;
 		this.join = obj.join;
 		this.controllers = obj.controllers;
@@ -84,8 +78,6 @@ public abstract class Basecustomer_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(appliances != null)
-			map.put("appliances", appliances);
 		if(sensors != null)
 			map.put("sensors", sensors);
 		if(join != null)
@@ -101,8 +93,6 @@ public abstract class Basecustomer_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(appliances != null)
-			map.put("appliances", appliances);
 		if(sensors != null)
 			map.put("sensors", sensors);
 		if(join != null)
@@ -121,7 +111,6 @@ public abstract class Basecustomer_map extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		appliances = (ArrayList<Object>) map.get("appliances");
 		sensors = (ArrayList<Object>) map.get("sensors");
 		join = (ArrayList<Object>) map.get("join");
 		controllers = (ArrayList<Object>) map.get("controllers");
@@ -133,7 +122,6 @@ public abstract class Basecustomer_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		appliances = (ArrayList<Object>) map.get("appliances");
 		sensors = (ArrayList<Object>) map.get("sensors");
 		join = (ArrayList<Object>) map.get("join");
 		controllers = (ArrayList<Object>) map.get("controllers");
@@ -166,25 +154,6 @@ public abstract class Basecustomer_map extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
-	}
-
-	public ArrayList<Object> getAppliances() {
-		return appliances;
-	}
-
-
-	public void setAppliances(ArrayList<Object> appliances) {
-		this.appliances = appliances;
-	}
-
-	public void addAppliances(Object value) {
-		if(appliances == null)
-			appliances = new ArrayList<Object>();
-		appliances.add(value);
-	}
-
-	public void unSetAppliances() {
-		this.appliances = null;
 	}
 
 	public ArrayList<Object> getSensors() {

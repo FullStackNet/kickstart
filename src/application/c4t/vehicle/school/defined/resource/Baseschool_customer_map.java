@@ -7,7 +7,7 @@
  * written permission of M16, Inc.
  */
 
-package application.c4t.vehicle.defined.resource;
+package application.c4t.vehicle.school.defined.resource;
 
 import platform.resource.BaseResource;
 import platform.util.*;
@@ -18,17 +18,17 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Basecustomer_vehicle_map extends BaseResource {
-	private String id = null;
-	private ArrayList<Object> fleetManagers = null;
-	private ArrayList<Object> fleetOwners = null;
+public abstract class Baseschool_customer_map extends BaseResource {
+	private String id = null; //customer ids
+	private ArrayList<Object> schools = null;
+	private ArrayList<Object> students = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_FLEETMANAGERS = "fleetManagers";
-	public static String FIELD_FLEETOWNERS = "fleetOwners";
+	public static String FIELD_SCHOOLS = "schools";
+	public static String FIELD_STUDENTS = "students";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("customer_vehicle_map");
+	private final static ResourceMetaData metaData = new ResourceMetaData("school_customer_map");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -38,24 +38,24 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
-		Field fleetManagersField = new Field("fleetManagers", "Array");
-		metaData.addField(fleetManagersField);
+		Field schoolsField = new Field("schools", "Array");
+		metaData.addField(schoolsField);
 
-		Field fleetOwnersField = new Field("fleetOwners", "Array");
-		metaData.addField(fleetOwnersField);
+		Field studentsField = new Field("students", "Array");
+		metaData.addField(studentsField);
 
 
-		metaData.setTableName("customer_vehicle_map");
+		metaData.setTableName("school_customer_map");
 
-		metaData.setCluster("DB_DEVICE");
+		metaData.setCluster("DB_PROFILE");
 	}
 
-	public Basecustomer_vehicle_map() {}
+	public Baseschool_customer_map() {}
 
-	public Basecustomer_vehicle_map(Basecustomer_vehicle_map obj) {
+	public Baseschool_customer_map(Baseschool_customer_map obj) {
 		this.id = obj.id;
-		this.fleetManagers = obj.fleetManagers;
-		this.fleetOwners = obj.fleetOwners;
+		this.schools = obj.schools;
+		this.students = obj.students;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -66,10 +66,10 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(fleetManagers != null)
-			map.put("fleetManagers", fleetManagers);
-		if(fleetOwners != null)
-			map.put("fleetOwners", fleetOwners);
+		if(schools != null)
+			map.put("schools", schools);
+		if(students != null)
+			map.put("students", students);
 		return map;
 	}
 
@@ -77,10 +77,10 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(fleetManagers != null)
-			map.put("fleetManagers", fleetManagers);
-		if(fleetOwners != null)
-			map.put("fleetOwners", fleetOwners);
+		if(schools != null)
+			map.put("schools", schools);
+		if(students != null)
+			map.put("students", students);
 		return map;
 	}
 
@@ -91,8 +91,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
-		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
+		schools = (ArrayList<Object>) map.get("schools");
+		students = (ArrayList<Object>) map.get("students");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -100,8 +100,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
-		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
+		schools = (ArrayList<Object>) map.get("schools");
+		students = (ArrayList<Object>) map.get("students");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -132,45 +132,45 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getFleetManagers() {
-		return fleetManagers;
+	public ArrayList<Object> getSchools() {
+		return schools;
 	}
 
 
-	public void setFleetManagers(ArrayList<Object> fleetManagers) {
-		this.fleetManagers = fleetManagers;
+	public void setSchools(ArrayList<Object> schools) {
+		this.schools = schools;
 	}
 
-	public void addFleetManagers(Object value) {
-		if(fleetManagers == null)
-			fleetManagers = new ArrayList<Object>();
-		fleetManagers.add(value);
+	public void addSchools(Object value) {
+		if(schools == null)
+			schools = new ArrayList<Object>();
+		schools.add(value);
 	}
 
-	public void unSetFleetManagers() {
-		this.fleetManagers = null;
+	public void unSetSchools() {
+		this.schools = null;
 	}
 
-	public ArrayList<Object> getFleetOwners() {
-		return fleetOwners;
+	public ArrayList<Object> getStudents() {
+		return students;
 	}
 
 
-	public void setFleetOwners(ArrayList<Object> fleetOwners) {
-		this.fleetOwners = fleetOwners;
+	public void setStudents(ArrayList<Object> students) {
+		this.students = students;
 	}
 
-	public void addFleetOwners(Object value) {
-		if(fleetOwners == null)
-			fleetOwners = new ArrayList<Object>();
-		fleetOwners.add(value);
+	public void addStudents(Object value) {
+		if(students == null)
+			students = new ArrayList<Object>();
+		students.add(value);
 	}
 
-	public void unSetFleetOwners() {
-		this.fleetOwners = null;
+	public void unSetStudents() {
+		this.students = null;
 	}
 	public String getCluster() {
-		return "DB_DEVICE";
+		return "DB_PROFILE";
 	}
 	public String getClusterType() {
 		return "REPLICATED";

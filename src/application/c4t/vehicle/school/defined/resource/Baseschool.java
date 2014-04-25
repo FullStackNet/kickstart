@@ -7,7 +7,7 @@
  * written permission of M16, Inc.
  */
 
-package application.c4t.vehicle.defined.resource;
+package application.c4t.vehicle.school.defined.resource;
 
 import platform.resource.BaseResource;
 import platform.util.*;
@@ -18,39 +18,27 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Basedriver extends BaseResource {
+public abstract class Baseschool extends BaseResource {
 	private String id = null;
 	private String name = null;
-	private String emailId = null;
-	private String mobile_no = null;
 	private String address1 = null;
 	private String address2 = null;
 	private String address3 = null;
 	private String city = null;
 	private String state = null;
 	private String country = null;
-	private String license_number = null;
-	private String remark = null;
-	private String customer_id = null;
-	private String user_id = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
-	public static String FIELD_EMAILID = "emailId";
-	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_ADDRESS1 = "address1";
 	public static String FIELD_ADDRESS2 = "address2";
 	public static String FIELD_ADDRESS3 = "address3";
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
-	public static String FIELD_LICENSE_NUMBER = "license_number";
-	public static String FIELD_REMARK = "remark";
-	public static String FIELD_CUSTOMER_ID = "customer_id";
-	public static String FIELD_USER_ID = "user_id";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("driver");
+	private final static ResourceMetaData metaData = new ResourceMetaData("school");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -63,14 +51,6 @@ public abstract class Basedriver extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
-
-		Field emailIdField = new Field("emailId", "String");
-		emailIdField.setLength(128);
-		metaData.addField(emailIdField);
-
-		Field mobile_noField = new Field("mobile_no", "String");
-		mobile_noField.setLength(128);
-		metaData.addField(mobile_noField);
 
 		Field address1Field = new Field("address1", "String");
 		address1Field.setLength(128);
@@ -96,48 +76,23 @@ public abstract class Basedriver extends BaseResource {
 		countryField.setLength(128);
 		metaData.addField(countryField);
 
-		Field license_numberField = new Field("license_number", "String");
-		license_numberField.setLength(128);
-		metaData.addField(license_numberField);
 
-		Field remarkField = new Field("remark", "String");
-		remarkField.setLength(512);
-		metaData.addField(remarkField);
-
-		Field customer_idField = new Field("customer_id", "String");
-		customer_idField.setIndexed(true);
-		customer_idField.setRequired(true);
-		customer_idField.setLength(128);
-		metaData.addField(customer_idField);
-
-		Field user_idField = new Field("user_id", "String");
-		user_idField.setRequired(true);
-		user_idField.setLength(128);
-		metaData.addField(user_idField);
-
-
-		metaData.setTableName("driver");
+		metaData.setTableName("school");
 
 		metaData.setCluster("DB_PROFILE");
 	}
 
-	public Basedriver() {}
+	public Baseschool() {}
 
-	public Basedriver(Basedriver obj) {
+	public Baseschool(Baseschool obj) {
 		this.id = obj.id;
 		this.name = obj.name;
-		this.emailId = obj.emailId;
-		this.mobile_no = obj.mobile_no;
 		this.address1 = obj.address1;
 		this.address2 = obj.address2;
 		this.address3 = obj.address3;
 		this.city = obj.city;
 		this.state = obj.state;
 		this.country = obj.country;
-		this.license_number = obj.license_number;
-		this.remark = obj.remark;
-		this.customer_id = obj.customer_id;
-		this.user_id = obj.user_id;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -150,10 +105,6 @@ public abstract class Basedriver extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
-		if(emailId != null)
-			map.put("emailId", emailId);
-		if(mobile_no != null)
-			map.put("mobile_no", mobile_no);
 		if(address1 != null)
 			map.put("address1", address1);
 		if(address2 != null)
@@ -166,14 +117,6 @@ public abstract class Basedriver extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
-		if(license_number != null)
-			map.put("license_number", license_number);
-		if(remark != null)
-			map.put("remark", remark);
-		if(customer_id != null)
-			map.put("customer_id", customer_id);
-		if(user_id != null)
-			map.put("user_id", user_id);
 		return map;
 	}
 
@@ -183,10 +126,6 @@ public abstract class Basedriver extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
-		if(emailId != null)
-			map.put("emailId", emailId);
-		if(mobile_no != null)
-			map.put("mobile_no", mobile_no);
 		if(address1 != null)
 			map.put("address1", address1);
 		if(address2 != null)
@@ -199,14 +138,6 @@ public abstract class Basedriver extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
-		if(license_number != null)
-			map.put("license_number", license_number);
-		if(remark != null)
-			map.put("remark", remark);
-		if(validateCustomer_id(add))
-			map.put("customer_id", customer_id);
-		if(validateUser_id(add))
-			map.put("user_id", user_id);
 		return map;
 	}
 
@@ -218,18 +149,12 @@ public abstract class Basedriver extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
-		emailId = (String) map.get("emailId");
-		mobile_no = (String) map.get("mobile_no");
 		address1 = (String) map.get("address1");
 		address2 = (String) map.get("address2");
 		address3 = (String) map.get("address3");
 		city = (String) map.get("city");
 		state = (String) map.get("state");
 		country = (String) map.get("country");
-		license_number = (String) map.get("license_number");
-		remark = (String) map.get("remark");
-		customer_id = (String) map.get("customer_id");
-		user_id = (String) map.get("user_id");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -240,14 +165,6 @@ public abstract class Basedriver extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
-
-		Object emailIdObj = map.get("emailId");
-		if(emailIdObj != null)
-			emailId = emailIdObj.toString();
-
-		Object mobile_noObj = map.get("mobile_no");
-		if(mobile_noObj != null)
-			mobile_no = mobile_noObj.toString();
 
 		Object address1Obj = map.get("address1");
 		if(address1Obj != null)
@@ -272,22 +189,6 @@ public abstract class Basedriver extends BaseResource {
 		Object countryObj = map.get("country");
 		if(countryObj != null)
 			country = countryObj.toString();
-
-		Object license_numberObj = map.get("license_number");
-		if(license_numberObj != null)
-			license_number = license_numberObj.toString();
-
-		Object remarkObj = map.get("remark");
-		if(remarkObj != null)
-			remark = remarkObj.toString();
-
-		Object customer_idObj = map.get("customer_id");
-		if(customer_idObj != null)
-			customer_id = customer_idObj.toString();
-
-		Object user_idObj = map.get("user_id");
-		if(user_idObj != null)
-			user_id = user_idObj.toString();
 
 	}
 
@@ -333,38 +234,6 @@ public abstract class Basedriver extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
-	}
-
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public String getEmailIdEx() {
-		return emailId != null ? emailId : "";
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	public void unSetEmailId() {
-		this.emailId = null;
-	}
-
-	public String getMobile_no() {
-		return mobile_no;
-	}
-
-	public String getMobile_noEx() {
-		return mobile_no != null ? mobile_no : "";
-	}
-
-	public void setMobile_no(String mobile_no) {
-		this.mobile_no = mobile_no;
-	}
-
-	public void unSetMobile_no() {
-		this.mobile_no = null;
 	}
 
 	public String getAddress1() {
@@ -461,82 +330,6 @@ public abstract class Basedriver extends BaseResource {
 
 	public void unSetCountry() {
 		this.country = null;
-	}
-
-	public String getLicense_number() {
-		return license_number;
-	}
-
-	public String getLicense_numberEx() {
-		return license_number != null ? license_number : "";
-	}
-
-	public void setLicense_number(String license_number) {
-		this.license_number = license_number;
-	}
-
-	public void unSetLicense_number() {
-		this.license_number = null;
-	}
-
-	public String getRemark() {
-		return remark;
-	}
-
-	public String getRemarkEx() {
-		return remark != null ? remark : "";
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-
-	public void unSetRemark() {
-		this.remark = null;
-	}
-
-	public String getCustomer_id() {
-		return customer_id;
-	}
-
-	public String getCustomer_idEx() {
-		return customer_id != null ? customer_id : "";
-	}
-
-	public void setCustomer_id(String customer_id) {
-		this.customer_id = customer_id;
-	}
-
-	public void unSetCustomer_id() {
-		this.customer_id = null;
-	}
-
-	public boolean validateCustomer_id(boolean add) throws ApplicationException {
-		if(add && customer_id == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[customer_id]");
-		return customer_id != null;
-	}
-
-	public String getUser_id() {
-		return user_id;
-	}
-
-	public String getUser_idEx() {
-		return user_id != null ? user_id : "";
-	}
-
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
-
-	public void unSetUser_id() {
-		this.user_id = null;
-	}
-
-	public boolean validateUser_id(boolean add) throws ApplicationException {
-		if(add && user_id == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[user_id]");
-		return user_id != null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

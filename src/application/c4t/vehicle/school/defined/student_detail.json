@@ -1,0 +1,171 @@
+{
+	"student_detail" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'name':'school_id',
+				'length': 128,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_route_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_route_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_start_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_end_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_vehicle_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_driver_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_driver_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_driver_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_route_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_route_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_start_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_end_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_vehicle_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_driver_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_driver_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_driver_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'bus_started':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'last_stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'last_stopage_time':
+			{
+				'type':'long'
+			},
+			'reaching_time':
+			{
+				'type':'long'
+			},
+			'reached':
+			{
+				'length': 1,
+				'type':'String'
+			}
+		}
+	}
+}
