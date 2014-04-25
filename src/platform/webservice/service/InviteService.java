@@ -95,8 +95,8 @@ public class InviteService extends BaseService{
 				if (_user.getName() == null)
 					_user.setName(_fetched_resource.getName());
 				_user.setPassword(Util.doubleMD5(_resource.getPasswordEx()));
-				UserHelper.getInstance().add(_user);
-				Student_mapHelper.getInstance().addUser(_fetched_resource.getReference_id(), _user.getId());
+				UserHelper.getInstance().AddOrUpdate(_user);
+				//Student_mapHelper.getInstance().addUser(_fetched_resource.getReference_id(), _user.getId());
 				//User_mapHelper.getInstance().addApplianr(userId, applianceId);
 				student _student = (student)StudentHelper.getInstance().getById(_fetched_resource.getReference_id());
 				if (_student != null) {
