@@ -7,6 +7,7 @@ import platform.helper.UserHelper;
 import platform.helper.User_mapHelper;
 import platform.resource.BaseResource;
 import platform.resource.customer;
+import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.webservice.BaseService;
@@ -15,7 +16,7 @@ import platform.webservice.WebServiceContants;
 
 public class UserService extends BaseService{
 	public UserService() {
-		super(UserHelper.getInstance(),new customer());
+		super(UserHelper.getInstance(),new user());
 	}
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
