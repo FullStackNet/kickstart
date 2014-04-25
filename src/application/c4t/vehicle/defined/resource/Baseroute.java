@@ -124,7 +124,6 @@ public abstract class Baseroute extends BaseResource {
 		metaData.addField(end_timeField);
 
 		Field activeField = new Field("active", "String");
-		activeField.setDefaultValue("N");
 		activeField.setLength(1);
 		metaData.addField(activeField);
 
@@ -157,11 +156,6 @@ public abstract class Baseroute extends BaseResource {
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
-	}
-
-	private void setDefaultValues() {
-		if(active == null)
-			active = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -202,9 +196,6 @@ public abstract class Baseroute extends BaseResource {
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
-		if(add)
-			setDefaultValues();
-
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -597,7 +588,11 @@ public abstract class Baseroute extends BaseResource {
 	}
 
 	public String getActive() {
-		return active != null ? active : "N";
+		return active;
+	}
+
+	public String getActiveEx() {
+		return active != null ? active : "";
 	}
 
 	public void setActive(String active) {
@@ -605,7 +600,7 @@ public abstract class Baseroute extends BaseResource {
 	}
 
 	public void unSetActive() {
-		this.active = "N";
+		this.active = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

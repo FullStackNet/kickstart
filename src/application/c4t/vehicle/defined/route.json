@@ -86,8 +86,7 @@
 			'active':
 			{
 				'length': 1,
-				'type':'String',
-				'default' : "N"
+				'type':'String'
 			}
 		},
 		"information" : 
