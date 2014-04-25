@@ -1,5 +1,8 @@
 package platform.webservice.service;
 
+import java.util.Map;
+
+import platform.exception.ExceptionEnum;
 import platform.helper.ControllerHelper;
 import platform.helper.Customer_mapHelper;
 import platform.helper.DeviceHelper;
@@ -71,5 +74,17 @@ public class ControllerService extends BaseService{
 	
 	public void update(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		getHelper().update(resource);
+	}
+	private enum QueryTypes {
+		//Expects emailId. Returns the profile associated with this emailId.
+		QUERY_APPLIANCE_CONTROLLER,
+	};
+	
+	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
+		if(QueryTypes.QUERY_APPLIANCE_CONTROLLER.toString().equals(queryId)) {
+			String applianceId = (String)map.get(controller.FIELD_APPLIANCE_ID);
+			return ControllerHelper.getInstance().getByApplianceId(applianceId);
+		}
+		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_QUERY);
 	}
 }

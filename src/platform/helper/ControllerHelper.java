@@ -2,6 +2,7 @@ package platform.helper;
 
 import java.util.ArrayList;
 
+import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.controller;
 import platform.resource.gateway;
@@ -53,5 +54,10 @@ public class ControllerHelper extends BaseHelper {
 			return null;
 		ArrayList<Object> list = _gateway.getControllers();
 		return ControllerHelper.getInstance().getById(list.toArray(new String[list.size()]), null);
+	}
+	
+	public BaseResource[] getByApplianceId(String applianceId) {
+		platform.db.Expression e = new platform.db.Expression(controller.FIELD_APPLIANCE_ID,REL_OP.EQ, applianceId);
+		return getByExpression(e);
 	}
 }

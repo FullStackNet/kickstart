@@ -2,6 +2,7 @@ package platform.webservice.service;
 
 import java.util.Map;
 
+import application.c4t.vehicle.school.helper.Student_mapHelper;
 import platform.appliances.ApplianceConstants;
 import platform.db.Expression;
 import platform.db.REL_OP;
@@ -179,7 +180,8 @@ public class ApplianceService extends BaseService{
 		QUERY_APPLIANCE_HIGH_WATER_TEMP ,
 		QUERY_APPLIANCE_HIGH_COOLANT_TEMP,
 		QUERY_ALERT,
-		QUERY_NOTIFICATION
+		QUERY_NOTIFICATION,
+		QUERY_BUS_SIMULATOR
 	};
 
 	public BaseResource get(ServletContext ctx, String uid) {
@@ -197,6 +199,9 @@ public class ApplianceService extends BaseService{
 			return User_mapHelper.getInstance().getApplinacesArray(userId);
 		} else if(QueryTypes.QUERY_APPLIANCE_RUNNING.toString().equals(queryId)) {
 			return User_mapHelper.getInstance().getRunningApplinacesArray(ctx.getUserId());
+		} else if(QueryTypes.QUERY_BUS_SIMULATOR.toString().equals(queryId)) {
+			return ApplianceHelper.getInstance().getByCustomerId(ctx.getCustomerId());
+			///Student_mapHelper.getInstance().get
 		} else if(QueryTypes.QUERY_APPLIANCE_NOT_RUNNING.toString().equals(queryId)) {
 			return User_mapHelper.getInstance().getNotRunningApplinacesArray(ctx.getUserId());
 		} else if(QueryTypes.QUERY_APPLIANCE_LOW_FUEL.toString().equals(queryId)) {
