@@ -33,6 +33,13 @@ public abstract class Basedriver extends BaseResource {
 	private String remark = null;
 	private String customer_id = null;
 	private String user_id = null;
+	private String dob = null;
+	private String licenseExpiry = null;
+	private String dateOfJoining = null;
+	private String eyeSight = null;
+	private String qualification = null;
+	private String referenceName = null;
+	private String referenceMobile_no = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -48,6 +55,13 @@ public abstract class Basedriver extends BaseResource {
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_DOB = "dob";
+	public static String FIELD_LICENSEEXPIRY = "licenseExpiry";
+	public static String FIELD_DATEOFJOINING = "dateOfJoining";
+	public static String FIELD_EYESIGHT = "eyeSight";
+	public static String FIELD_QUALIFICATION = "qualification";
+	public static String FIELD_REFERENCENAME = "referenceName";
+	public static String FIELD_REFERENCEMOBILE_NO = "referenceMobile_no";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("driver");
@@ -115,6 +129,34 @@ public abstract class Basedriver extends BaseResource {
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
 
+		Field dobField = new Field("dob", "String");
+		dobField.setLength(28);
+		metaData.addField(dobField);
+
+		Field licenseExpiryField = new Field("licenseExpiry", "String");
+		licenseExpiryField.setLength(28);
+		metaData.addField(licenseExpiryField);
+
+		Field dateOfJoiningField = new Field("dateOfJoining", "String");
+		dateOfJoiningField.setLength(28);
+		metaData.addField(dateOfJoiningField);
+
+		Field eyeSightField = new Field("eyeSight", "String");
+		eyeSightField.setLength(10);
+		metaData.addField(eyeSightField);
+
+		Field qualificationField = new Field("qualification", "String");
+		qualificationField.setLength(128);
+		metaData.addField(qualificationField);
+
+		Field referenceNameField = new Field("referenceName", "String");
+		referenceNameField.setLength(128);
+		metaData.addField(referenceNameField);
+
+		Field referenceMobile_noField = new Field("referenceMobile_no", "String");
+		referenceMobile_noField.setLength(128);
+		metaData.addField(referenceMobile_noField);
+
 
 		metaData.setTableName("driver");
 
@@ -138,6 +180,13 @@ public abstract class Basedriver extends BaseResource {
 		this.remark = obj.remark;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
+		this.dob = obj.dob;
+		this.licenseExpiry = obj.licenseExpiry;
+		this.dateOfJoining = obj.dateOfJoining;
+		this.eyeSight = obj.eyeSight;
+		this.qualification = obj.qualification;
+		this.referenceName = obj.referenceName;
+		this.referenceMobile_no = obj.referenceMobile_no;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -174,6 +223,20 @@ public abstract class Basedriver extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(dob != null)
+			map.put("dob", dob);
+		if(licenseExpiry != null)
+			map.put("licenseExpiry", licenseExpiry);
+		if(dateOfJoining != null)
+			map.put("dateOfJoining", dateOfJoining);
+		if(eyeSight != null)
+			map.put("eyeSight", eyeSight);
+		if(qualification != null)
+			map.put("qualification", qualification);
+		if(referenceName != null)
+			map.put("referenceName", referenceName);
+		if(referenceMobile_no != null)
+			map.put("referenceMobile_no", referenceMobile_no);
 		return map;
 	}
 
@@ -207,6 +270,20 @@ public abstract class Basedriver extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(validateUser_id(add))
 			map.put("user_id", user_id);
+		if(dob != null)
+			map.put("dob", dob);
+		if(licenseExpiry != null)
+			map.put("licenseExpiry", licenseExpiry);
+		if(dateOfJoining != null)
+			map.put("dateOfJoining", dateOfJoining);
+		if(eyeSight != null)
+			map.put("eyeSight", eyeSight);
+		if(qualification != null)
+			map.put("qualification", qualification);
+		if(referenceName != null)
+			map.put("referenceName", referenceName);
+		if(referenceMobile_no != null)
+			map.put("referenceMobile_no", referenceMobile_no);
 		return map;
 	}
 
@@ -230,6 +307,13 @@ public abstract class Basedriver extends BaseResource {
 		remark = (String) map.get("remark");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
+		dob = (String) map.get("dob");
+		licenseExpiry = (String) map.get("licenseExpiry");
+		dateOfJoining = (String) map.get("dateOfJoining");
+		eyeSight = (String) map.get("eyeSight");
+		qualification = (String) map.get("qualification");
+		referenceName = (String) map.get("referenceName");
+		referenceMobile_no = (String) map.get("referenceMobile_no");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -288,6 +372,34 @@ public abstract class Basedriver extends BaseResource {
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
+
+		Object dobObj = map.get("dob");
+		if(dobObj != null)
+			dob = dobObj.toString();
+
+		Object licenseExpiryObj = map.get("licenseExpiry");
+		if(licenseExpiryObj != null)
+			licenseExpiry = licenseExpiryObj.toString();
+
+		Object dateOfJoiningObj = map.get("dateOfJoining");
+		if(dateOfJoiningObj != null)
+			dateOfJoining = dateOfJoiningObj.toString();
+
+		Object eyeSightObj = map.get("eyeSight");
+		if(eyeSightObj != null)
+			eyeSight = eyeSightObj.toString();
+
+		Object qualificationObj = map.get("qualification");
+		if(qualificationObj != null)
+			qualification = qualificationObj.toString();
+
+		Object referenceNameObj = map.get("referenceName");
+		if(referenceNameObj != null)
+			referenceName = referenceNameObj.toString();
+
+		Object referenceMobile_noObj = map.get("referenceMobile_no");
+		if(referenceMobile_noObj != null)
+			referenceMobile_no = referenceMobile_noObj.toString();
 
 	}
 
@@ -537,6 +649,118 @@ public abstract class Basedriver extends BaseResource {
 		if(add && user_id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[user_id]");
 		return user_id != null;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public String getDobEx() {
+		return dob != null ? dob : "";
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	public void unSetDob() {
+		this.dob = null;
+	}
+
+	public String getLicenseExpiry() {
+		return licenseExpiry;
+	}
+
+	public String getLicenseExpiryEx() {
+		return licenseExpiry != null ? licenseExpiry : "";
+	}
+
+	public void setLicenseExpiry(String licenseExpiry) {
+		this.licenseExpiry = licenseExpiry;
+	}
+
+	public void unSetLicenseExpiry() {
+		this.licenseExpiry = null;
+	}
+
+	public String getDateOfJoining() {
+		return dateOfJoining;
+	}
+
+	public String getDateOfJoiningEx() {
+		return dateOfJoining != null ? dateOfJoining : "";
+	}
+
+	public void setDateOfJoining(String dateOfJoining) {
+		this.dateOfJoining = dateOfJoining;
+	}
+
+	public void unSetDateOfJoining() {
+		this.dateOfJoining = null;
+	}
+
+	public String getEyeSight() {
+		return eyeSight;
+	}
+
+	public String getEyeSightEx() {
+		return eyeSight != null ? eyeSight : "";
+	}
+
+	public void setEyeSight(String eyeSight) {
+		this.eyeSight = eyeSight;
+	}
+
+	public void unSetEyeSight() {
+		this.eyeSight = null;
+	}
+
+	public String getQualification() {
+		return qualification;
+	}
+
+	public String getQualificationEx() {
+		return qualification != null ? qualification : "";
+	}
+
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+
+	public void unSetQualification() {
+		this.qualification = null;
+	}
+
+	public String getReferenceName() {
+		return referenceName;
+	}
+
+	public String getReferenceNameEx() {
+		return referenceName != null ? referenceName : "";
+	}
+
+	public void setReferenceName(String referenceName) {
+		this.referenceName = referenceName;
+	}
+
+	public void unSetReferenceName() {
+		this.referenceName = null;
+	}
+
+	public String getReferenceMobile_no() {
+		return referenceMobile_no;
+	}
+
+	public String getReferenceMobile_noEx() {
+		return referenceMobile_no != null ? referenceMobile_no : "";
+	}
+
+	public void setReferenceMobile_no(String referenceMobile_no) {
+		this.referenceMobile_no = referenceMobile_no;
+	}
+
+	public void unSetReferenceMobile_no() {
+		this.referenceMobile_no = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

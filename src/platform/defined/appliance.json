@@ -1057,6 +1057,29 @@
 			'lastStopageId' : {
 				'length': 128,
 				'type':'String'
+			},
+			'sittingCapacity': {
+				'type': 'long'
+			},
+			'insuranceExpiry': {
+				'length': 28,
+				'type': 'String'
+			},
+			'pollutionCertificateExpiry': {
+				'length': 28,
+				'type': 'String'
+			},
+			'vehicleFitnessExpiry': {
+				'length': 28,
+				'type': 'String'
+			},
+			'lastService': {
+				'length': 28,
+				'type': 'String'
+			},
+			'fuelType': {
+				'length': 10,
+				'type': 'String'
 			}
 		}
 	}

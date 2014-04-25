@@ -178,6 +178,12 @@ public abstract class Baseappliance extends BaseResource {
 	private String featureTracking = null;
 	private String currentRouteId = null;
 	private String lastStopageId = null;
+	private Long sittingCapacity = null;
+	private String insuranceExpiry = null;
+	private String pollutionCertificateExpiry = null;
+	private String vehicleFitnessExpiry = null;
+	private String lastService = null;
+	private String fuelType = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -338,6 +344,12 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_FEATURETRACKING = "featureTracking";
 	public static String FIELD_CURRENTROUTEID = "currentRouteId";
 	public static String FIELD_LASTSTOPAGEID = "lastStopageId";
+	public static String FIELD_SITTINGCAPACITY = "sittingCapacity";
+	public static String FIELD_INSURANCEEXPIRY = "insuranceExpiry";
+	public static String FIELD_POLLUTIONCERTIFICATEEXPIRY = "pollutionCertificateExpiry";
+	public static String FIELD_VEHICLEFITNESSEXPIRY = "vehicleFitnessExpiry";
+	public static String FIELD_LASTSERVICE = "lastService";
+	public static String FIELD_FUELTYPE = "fuelType";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("appliance");
@@ -1108,6 +1120,29 @@ public abstract class Baseappliance extends BaseResource {
 		lastStopageIdField.setLength(128);
 		metaData.addField(lastStopageIdField);
 
+		Field sittingCapacityField = new Field("sittingCapacity", "long");
+		metaData.addField(sittingCapacityField);
+
+		Field insuranceExpiryField = new Field("insuranceExpiry", "String");
+		insuranceExpiryField.setLength(28);
+		metaData.addField(insuranceExpiryField);
+
+		Field pollutionCertificateExpiryField = new Field("pollutionCertificateExpiry", "String");
+		pollutionCertificateExpiryField.setLength(28);
+		metaData.addField(pollutionCertificateExpiryField);
+
+		Field vehicleFitnessExpiryField = new Field("vehicleFitnessExpiry", "String");
+		vehicleFitnessExpiryField.setLength(28);
+		metaData.addField(vehicleFitnessExpiryField);
+
+		Field lastServiceField = new Field("lastService", "String");
+		lastServiceField.setLength(28);
+		metaData.addField(lastServiceField);
+
+		Field fuelTypeField = new Field("fuelType", "String");
+		fuelTypeField.setLength(10);
+		metaData.addField(fuelTypeField);
+
 
 		metaData.setTableName("appliance");
 
@@ -1276,6 +1311,12 @@ public abstract class Baseappliance extends BaseResource {
 		this.featureTracking = obj.featureTracking;
 		this.currentRouteId = obj.currentRouteId;
 		this.lastStopageId = obj.lastStopageId;
+		this.sittingCapacity = obj.sittingCapacity;
+		this.insuranceExpiry = obj.insuranceExpiry;
+		this.pollutionCertificateExpiry = obj.pollutionCertificateExpiry;
+		this.vehicleFitnessExpiry = obj.vehicleFitnessExpiry;
+		this.lastService = obj.lastService;
+		this.fuelType = obj.fuelType;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -1811,6 +1852,18 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("currentRouteId", currentRouteId);
 		if(lastStopageId != null)
 			map.put("lastStopageId", lastStopageId);
+		if(sittingCapacity != null)
+			map.put("sittingCapacity", sittingCapacity);
+		if(insuranceExpiry != null)
+			map.put("insuranceExpiry", insuranceExpiry);
+		if(pollutionCertificateExpiry != null)
+			map.put("pollutionCertificateExpiry", pollutionCertificateExpiry);
+		if(vehicleFitnessExpiry != null)
+			map.put("vehicleFitnessExpiry", vehicleFitnessExpiry);
+		if(lastService != null)
+			map.put("lastService", lastService);
+		if(fuelType != null)
+			map.put("fuelType", fuelType);
 		return map;
 	}
 
@@ -2137,6 +2190,18 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("currentRouteId", currentRouteId);
 		if(lastStopageId != null)
 			map.put("lastStopageId", lastStopageId);
+		if(sittingCapacity != null)
+			map.put("sittingCapacity", sittingCapacity);
+		if(insuranceExpiry != null)
+			map.put("insuranceExpiry", insuranceExpiry);
+		if(pollutionCertificateExpiry != null)
+			map.put("pollutionCertificateExpiry", pollutionCertificateExpiry);
+		if(vehicleFitnessExpiry != null)
+			map.put("vehicleFitnessExpiry", vehicleFitnessExpiry);
+		if(lastService != null)
+			map.put("lastService", lastService);
+		if(fuelType != null)
+			map.put("fuelType", fuelType);
 		return map;
 	}
 
@@ -2303,6 +2368,12 @@ public abstract class Baseappliance extends BaseResource {
 		featureTracking = (String) map.get("featureTracking");
 		currentRouteId = (String) map.get("currentRouteId");
 		lastStopageId = (String) map.get("lastStopageId");
+		sittingCapacity = (Long) map.get("sittingCapacity");
+		insuranceExpiry = (String) map.get("insuranceExpiry");
+		pollutionCertificateExpiry = (String) map.get("pollutionCertificateExpiry");
+		vehicleFitnessExpiry = (String) map.get("vehicleFitnessExpiry");
+		lastService = (String) map.get("lastService");
+		fuelType = (String) map.get("fuelType");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -2933,6 +3004,30 @@ public abstract class Baseappliance extends BaseResource {
 		Object lastStopageIdObj = map.get("lastStopageId");
 		if(lastStopageIdObj != null)
 			lastStopageId = lastStopageIdObj.toString();
+
+		Object sittingCapacityObj = map.get("sittingCapacity");
+		if(sittingCapacityObj != null)
+			sittingCapacity = new Long(sittingCapacityObj.toString());
+
+		Object insuranceExpiryObj = map.get("insuranceExpiry");
+		if(insuranceExpiryObj != null)
+			insuranceExpiry = insuranceExpiryObj.toString();
+
+		Object pollutionCertificateExpiryObj = map.get("pollutionCertificateExpiry");
+		if(pollutionCertificateExpiryObj != null)
+			pollutionCertificateExpiry = pollutionCertificateExpiryObj.toString();
+
+		Object vehicleFitnessExpiryObj = map.get("vehicleFitnessExpiry");
+		if(vehicleFitnessExpiryObj != null)
+			vehicleFitnessExpiry = vehicleFitnessExpiryObj.toString();
+
+		Object lastServiceObj = map.get("lastService");
+		if(lastServiceObj != null)
+			lastService = lastServiceObj.toString();
+
+		Object fuelTypeObj = map.get("fuelType");
+		if(fuelTypeObj != null)
+			fuelType = fuelTypeObj.toString();
 
 	}
 
@@ -5083,6 +5178,106 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetLastStopageId() {
 		this.lastStopageId = null;
+	}
+
+	public Long getSittingCapacity() {
+		return sittingCapacity;
+	}
+
+	public long getSittingCapacityEx() {
+		return sittingCapacity != null ? sittingCapacity : 0L;
+	}
+
+	public void setSittingCapacity(long sittingCapacity) {
+		this.sittingCapacity = sittingCapacity;
+	}
+
+	public void setSittingCapacity(Long sittingCapacity) {
+		this.sittingCapacity = sittingCapacity;
+	}
+
+	public void unSetSittingCapacity() {
+		this.sittingCapacity = null;
+	}
+
+	public String getInsuranceExpiry() {
+		return insuranceExpiry;
+	}
+
+	public String getInsuranceExpiryEx() {
+		return insuranceExpiry != null ? insuranceExpiry : "";
+	}
+
+	public void setInsuranceExpiry(String insuranceExpiry) {
+		this.insuranceExpiry = insuranceExpiry;
+	}
+
+	public void unSetInsuranceExpiry() {
+		this.insuranceExpiry = null;
+	}
+
+	public String getPollutionCertificateExpiry() {
+		return pollutionCertificateExpiry;
+	}
+
+	public String getPollutionCertificateExpiryEx() {
+		return pollutionCertificateExpiry != null ? pollutionCertificateExpiry : "";
+	}
+
+	public void setPollutionCertificateExpiry(String pollutionCertificateExpiry) {
+		this.pollutionCertificateExpiry = pollutionCertificateExpiry;
+	}
+
+	public void unSetPollutionCertificateExpiry() {
+		this.pollutionCertificateExpiry = null;
+	}
+
+	public String getVehicleFitnessExpiry() {
+		return vehicleFitnessExpiry;
+	}
+
+	public String getVehicleFitnessExpiryEx() {
+		return vehicleFitnessExpiry != null ? vehicleFitnessExpiry : "";
+	}
+
+	public void setVehicleFitnessExpiry(String vehicleFitnessExpiry) {
+		this.vehicleFitnessExpiry = vehicleFitnessExpiry;
+	}
+
+	public void unSetVehicleFitnessExpiry() {
+		this.vehicleFitnessExpiry = null;
+	}
+
+	public String getLastService() {
+		return lastService;
+	}
+
+	public String getLastServiceEx() {
+		return lastService != null ? lastService : "";
+	}
+
+	public void setLastService(String lastService) {
+		this.lastService = lastService;
+	}
+
+	public void unSetLastService() {
+		this.lastService = null;
+	}
+
+	public String getFuelType() {
+		return fuelType;
+	}
+
+	public String getFuelTypeEx() {
+		return fuelType != null ? fuelType : "";
+	}
+
+	public void setFuelType(String fuelType) {
+		this.fuelType = fuelType;
+	}
+
+	public void unSetFuelType() {
+		this.fuelType = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";
