@@ -192,9 +192,9 @@ public class RouteHelper extends BaseHelper {
 			}
 			double stopage_radius = ApplicationConstants.STOPAGE_RADIUS_KM;
 			if (_route_stopage.getStopage_radius() != null)
-				stopage_radius = _route_stopage.getStopage_radius();
+				stopage_radius = _route_stopage.getStopage_radius()/1000;
 			
-			ApplicationLogger.info("Distance from stopage "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
+			ApplicationLogger.info("Distance from stopage "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance + " , Radius : " +stopage_radius, this.getClass());
 			if (distance  < stopage_radius) {
 				ApplicationLogger.info("Found the stop "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
 				sendNotification(_fetched_appliance, _route_stopage);
