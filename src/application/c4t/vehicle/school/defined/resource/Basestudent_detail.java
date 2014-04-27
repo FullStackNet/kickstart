@@ -51,6 +51,11 @@ public abstract class Basestudent_detail extends BaseResource {
 	private Long last_stopage_time = null;
 	private Long reaching_time = null;
 	private String reached = null;
+	private String alert_pickup_route_stopage_id = null;
+	private String alert_dropped_route_stopage_id = null;
+	private String stopage_alert_sms = null;
+	private String stopage_alert_mobile_app = null;
+	private String stopage_alert_email = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_SCHOOL_ID = "school_id";
@@ -84,6 +89,11 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_LAST_STOPAGE_TIME = "last_stopage_time";
 	public static String FIELD_REACHING_TIME = "reaching_time";
 	public static String FIELD_REACHED = "reached";
+	public static String FIELD_ALERT_PICKUP_ROUTE_STOPAGE_ID = "alert_pickup_route_stopage_id";
+	public static String FIELD_ALERT_DROPPED_ROUTE_STOPAGE_ID = "alert_dropped_route_stopage_id";
+	public static String FIELD_STOPAGE_ALERT_SMS = "stopage_alert_sms";
+	public static String FIELD_STOPAGE_ALERT_MOBILE_APP = "stopage_alert_mobile_app";
+	public static String FIELD_STOPAGE_ALERT_EMAIL = "stopage_alert_email";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("student_detail");
@@ -218,6 +228,29 @@ public abstract class Basestudent_detail extends BaseResource {
 		reachedField.setLength(1);
 		metaData.addField(reachedField);
 
+		Field alert_pickup_route_stopage_idField = new Field("alert_pickup_route_stopage_id", "String");
+		alert_pickup_route_stopage_idField.setLength(128);
+		metaData.addField(alert_pickup_route_stopage_idField);
+
+		Field alert_dropped_route_stopage_idField = new Field("alert_dropped_route_stopage_id", "String");
+		alert_dropped_route_stopage_idField.setLength(128);
+		metaData.addField(alert_dropped_route_stopage_idField);
+
+		Field stopage_alert_smsField = new Field("stopage_alert_sms", "String");
+		stopage_alert_smsField.setDefaultValue("N");
+		stopage_alert_smsField.setLength(1);
+		metaData.addField(stopage_alert_smsField);
+
+		Field stopage_alert_mobile_appField = new Field("stopage_alert_mobile_app", "String");
+		stopage_alert_mobile_appField.setDefaultValue("Y");
+		stopage_alert_mobile_appField.setLength(1);
+		metaData.addField(stopage_alert_mobile_appField);
+
+		Field stopage_alert_emailField = new Field("stopage_alert_email", "String");
+		stopage_alert_emailField.setDefaultValue("N");
+		stopage_alert_emailField.setLength(1);
+		metaData.addField(stopage_alert_emailField);
+
 
 		metaData.setTableName("student_detail");
 
@@ -259,10 +292,24 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.last_stopage_time = obj.last_stopage_time;
 		this.reaching_time = obj.reaching_time;
 		this.reached = obj.reached;
+		this.alert_pickup_route_stopage_id = obj.alert_pickup_route_stopage_id;
+		this.alert_dropped_route_stopage_id = obj.alert_dropped_route_stopage_id;
+		this.stopage_alert_sms = obj.stopage_alert_sms;
+		this.stopage_alert_mobile_app = obj.stopage_alert_mobile_app;
+		this.stopage_alert_email = obj.stopage_alert_email;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(stopage_alert_sms == null)
+			stopage_alert_sms = "N";
+		if(stopage_alert_mobile_app == null)
+			stopage_alert_mobile_app = "Y";
+		if(stopage_alert_email == null)
+			stopage_alert_email = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -331,10 +378,23 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("reaching_time", reaching_time);
 		if(reached != null)
 			map.put("reached", reached);
+		if(alert_pickup_route_stopage_id != null)
+			map.put("alert_pickup_route_stopage_id", alert_pickup_route_stopage_id);
+		if(alert_dropped_route_stopage_id != null)
+			map.put("alert_dropped_route_stopage_id", alert_dropped_route_stopage_id);
+		if(stopage_alert_sms != null)
+			map.put("stopage_alert_sms", stopage_alert_sms);
+		if(stopage_alert_mobile_app != null)
+			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
+		if(stopage_alert_email != null)
+			map.put("stopage_alert_email", stopage_alert_email);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -400,6 +460,16 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("reaching_time", reaching_time);
 		if(reached != null)
 			map.put("reached", reached);
+		if(alert_pickup_route_stopage_id != null)
+			map.put("alert_pickup_route_stopage_id", alert_pickup_route_stopage_id);
+		if(alert_dropped_route_stopage_id != null)
+			map.put("alert_dropped_route_stopage_id", alert_dropped_route_stopage_id);
+		if(stopage_alert_sms != null)
+			map.put("stopage_alert_sms", stopage_alert_sms);
+		if(stopage_alert_mobile_app != null)
+			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
+		if(stopage_alert_email != null)
+			map.put("stopage_alert_email", stopage_alert_email);
 		return map;
 	}
 
@@ -441,6 +511,11 @@ public abstract class Basestudent_detail extends BaseResource {
 		last_stopage_time = (Long) map.get("last_stopage_time");
 		reaching_time = (Long) map.get("reaching_time");
 		reached = (String) map.get("reached");
+		alert_pickup_route_stopage_id = (String) map.get("alert_pickup_route_stopage_id");
+		alert_dropped_route_stopage_id = (String) map.get("alert_dropped_route_stopage_id");
+		stopage_alert_sms = (String) map.get("stopage_alert_sms");
+		stopage_alert_mobile_app = (String) map.get("stopage_alert_mobile_app");
+		stopage_alert_email = (String) map.get("stopage_alert_email");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -571,6 +646,26 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object reachedObj = map.get("reached");
 		if(reachedObj != null)
 			reached = reachedObj.toString();
+
+		Object alert_pickup_route_stopage_idObj = map.get("alert_pickup_route_stopage_id");
+		if(alert_pickup_route_stopage_idObj != null)
+			alert_pickup_route_stopage_id = alert_pickup_route_stopage_idObj.toString();
+
+		Object alert_dropped_route_stopage_idObj = map.get("alert_dropped_route_stopage_id");
+		if(alert_dropped_route_stopage_idObj != null)
+			alert_dropped_route_stopage_id = alert_dropped_route_stopage_idObj.toString();
+
+		Object stopage_alert_smsObj = map.get("stopage_alert_sms");
+		if(stopage_alert_smsObj != null)
+			stopage_alert_sms = stopage_alert_smsObj.toString();
+
+		Object stopage_alert_mobile_appObj = map.get("stopage_alert_mobile_app");
+		if(stopage_alert_mobile_appObj != null)
+			stopage_alert_mobile_app = stopage_alert_mobile_appObj.toString();
+
+		Object stopage_alert_emailObj = map.get("stopage_alert_email");
+		if(stopage_alert_emailObj != null)
+			stopage_alert_email = stopage_alert_emailObj.toString();
 
 	}
 
@@ -1104,6 +1199,74 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetReached() {
 		this.reached = null;
+	}
+
+	public String getAlert_pickup_route_stopage_id() {
+		return alert_pickup_route_stopage_id;
+	}
+
+	public String getAlert_pickup_route_stopage_idEx() {
+		return alert_pickup_route_stopage_id != null ? alert_pickup_route_stopage_id : "";
+	}
+
+	public void setAlert_pickup_route_stopage_id(String alert_pickup_route_stopage_id) {
+		this.alert_pickup_route_stopage_id = alert_pickup_route_stopage_id;
+	}
+
+	public void unSetAlert_pickup_route_stopage_id() {
+		this.alert_pickup_route_stopage_id = null;
+	}
+
+	public String getAlert_dropped_route_stopage_id() {
+		return alert_dropped_route_stopage_id;
+	}
+
+	public String getAlert_dropped_route_stopage_idEx() {
+		return alert_dropped_route_stopage_id != null ? alert_dropped_route_stopage_id : "";
+	}
+
+	public void setAlert_dropped_route_stopage_id(String alert_dropped_route_stopage_id) {
+		this.alert_dropped_route_stopage_id = alert_dropped_route_stopage_id;
+	}
+
+	public void unSetAlert_dropped_route_stopage_id() {
+		this.alert_dropped_route_stopage_id = null;
+	}
+
+	public String getStopage_alert_sms() {
+		return stopage_alert_sms != null ? stopage_alert_sms : "N";
+	}
+
+	public void setStopage_alert_sms(String stopage_alert_sms) {
+		this.stopage_alert_sms = stopage_alert_sms;
+	}
+
+	public void unSetStopage_alert_sms() {
+		this.stopage_alert_sms = "N";
+	}
+
+	public String getStopage_alert_mobile_app() {
+		return stopage_alert_mobile_app != null ? stopage_alert_mobile_app : "Y";
+	}
+
+	public void setStopage_alert_mobile_app(String stopage_alert_mobile_app) {
+		this.stopage_alert_mobile_app = stopage_alert_mobile_app;
+	}
+
+	public void unSetStopage_alert_mobile_app() {
+		this.stopage_alert_mobile_app = "Y";
+	}
+
+	public String getStopage_alert_email() {
+		return stopage_alert_email != null ? stopage_alert_email : "N";
+	}
+
+	public void setStopage_alert_email(String stopage_alert_email) {
+		this.stopage_alert_email = stopage_alert_email;
+	}
+
+	public void unSetStopage_alert_email() {
+		this.stopage_alert_email = "N";
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

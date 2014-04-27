@@ -165,6 +165,34 @@
 			{
 				'length': 1,
 				'type':'String'
+			},
+			'alert_pickup_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'alert_dropped_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'stopage_alert_sms':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'stopage_alert_mobile_app':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"Y"
+			},
+			'stopage_alert_email':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
 			}
 		}
 	}
