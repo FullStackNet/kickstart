@@ -567,6 +567,37 @@ public class Util {
 		return messageWithTokens;
 	}
 	
+	public static String readNotificationFileFromLocal(String template,
+			Map<String, String> params) {
+		String messageWithTokens = "";
+		String currentdir = System.getProperty("user.dir");
+		if (currentdir == null) {
+			currentdir = ".";
+		}
+		try {
+			String file = currentdir
+					+ File.separator + "conf" + File.separator
+					+ "notification_templates" + File.separator + template + ".html";
+			FileInputStream fstream = new FileInputStream(file);
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			String strLine;
+			while ((strLine = br.readLine()) != null) {
+				messageWithTokens = messageWithTokens + strLine;
+			}
+			br.close();
+		} catch (Exception e) {// Catch exception if any
+			System.err.println("Error: " + e.getMessage());
+		}
+		if (params != null) {
+			for (Map.Entry<String, String> param : params.entrySet()) {
+				String value = param.getValue();
+				String key = "!!!"+param.getKey()+"!!!";
+				messageWithTokens = messageWithTokens.replaceAll(key, value);
+			}
+		}
+		return messageWithTokens;
+	}
 	public static  boolean isHex (String in) {
 		boolean ret = false;
 		try {
