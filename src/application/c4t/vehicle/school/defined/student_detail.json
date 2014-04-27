@@ -176,6 +176,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'alert_pickup_stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'alert_dropped_stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'stopage_alert_sms':
 			{
 				'length': 1,

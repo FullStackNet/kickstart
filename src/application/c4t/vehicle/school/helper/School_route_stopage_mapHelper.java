@@ -40,6 +40,23 @@ public class School_route_stopage_mapHelper extends BaseHelper {
 		unset(_map);
 	}
 
+	public void addAlertStudent(String routeStopageId,String studentId) throws ApplicationException {
+		if (studentId == null) return;
+		if (routeStopageId == null) return;
+		school_route_storage_map _map = new school_route_storage_map();
+		_map.setId(routeStopageId);
+		_map.addAlert_students(studentId);
+		AddOrUpdate(_map);
+	}
+	
+	public void removeAlertStudent(String routeStopageId,String studentId) throws ApplicationException {
+		if (studentId == null) return;
+		if (routeStopageId == null) return;
+		school_route_storage_map _map = new school_route_storage_map();
+		_map.setId(routeStopageId);
+		_map.addAlert_students(studentId);
+		unset(_map);
+	}
 	public ArrayList<BaseResource> getStudentList(String routeStopageId) {
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		school_route_storage_map _customer_map = (school_route_storage_map)getById(routeStopageId);

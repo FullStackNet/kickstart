@@ -53,6 +53,8 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String reached = null;
 	private String alert_pickup_route_stopage_id = null;
 	private String alert_dropped_route_stopage_id = null;
+	private String alert_pickup_stopage_name = null;
+	private String alert_dropped_stopage_name = null;
 	private String stopage_alert_sms = null;
 	private String stopage_alert_mobile_app = null;
 	private String stopage_alert_email = null;
@@ -91,6 +93,8 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_REACHED = "reached";
 	public static String FIELD_ALERT_PICKUP_ROUTE_STOPAGE_ID = "alert_pickup_route_stopage_id";
 	public static String FIELD_ALERT_DROPPED_ROUTE_STOPAGE_ID = "alert_dropped_route_stopage_id";
+	public static String FIELD_ALERT_PICKUP_STOPAGE_NAME = "alert_pickup_stopage_name";
+	public static String FIELD_ALERT_DROPPED_STOPAGE_NAME = "alert_dropped_stopage_name";
 	public static String FIELD_STOPAGE_ALERT_SMS = "stopage_alert_sms";
 	public static String FIELD_STOPAGE_ALERT_MOBILE_APP = "stopage_alert_mobile_app";
 	public static String FIELD_STOPAGE_ALERT_EMAIL = "stopage_alert_email";
@@ -236,6 +240,14 @@ public abstract class Basestudent_detail extends BaseResource {
 		alert_dropped_route_stopage_idField.setLength(128);
 		metaData.addField(alert_dropped_route_stopage_idField);
 
+		Field alert_pickup_stopage_nameField = new Field("alert_pickup_stopage_name", "String");
+		alert_pickup_stopage_nameField.setLength(128);
+		metaData.addField(alert_pickup_stopage_nameField);
+
+		Field alert_dropped_stopage_nameField = new Field("alert_dropped_stopage_name", "String");
+		alert_dropped_stopage_nameField.setLength(128);
+		metaData.addField(alert_dropped_stopage_nameField);
+
 		Field stopage_alert_smsField = new Field("stopage_alert_sms", "String");
 		stopage_alert_smsField.setDefaultValue("N");
 		stopage_alert_smsField.setLength(1);
@@ -294,6 +306,8 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.reached = obj.reached;
 		this.alert_pickup_route_stopage_id = obj.alert_pickup_route_stopage_id;
 		this.alert_dropped_route_stopage_id = obj.alert_dropped_route_stopage_id;
+		this.alert_pickup_stopage_name = obj.alert_pickup_stopage_name;
+		this.alert_dropped_stopage_name = obj.alert_dropped_stopage_name;
 		this.stopage_alert_sms = obj.stopage_alert_sms;
 		this.stopage_alert_mobile_app = obj.stopage_alert_mobile_app;
 		this.stopage_alert_email = obj.stopage_alert_email;
@@ -382,6 +396,10 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("alert_pickup_route_stopage_id", alert_pickup_route_stopage_id);
 		if(alert_dropped_route_stopage_id != null)
 			map.put("alert_dropped_route_stopage_id", alert_dropped_route_stopage_id);
+		if(alert_pickup_stopage_name != null)
+			map.put("alert_pickup_stopage_name", alert_pickup_stopage_name);
+		if(alert_dropped_stopage_name != null)
+			map.put("alert_dropped_stopage_name", alert_dropped_stopage_name);
 		if(stopage_alert_sms != null)
 			map.put("stopage_alert_sms", stopage_alert_sms);
 		if(stopage_alert_mobile_app != null)
@@ -464,6 +482,10 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("alert_pickup_route_stopage_id", alert_pickup_route_stopage_id);
 		if(alert_dropped_route_stopage_id != null)
 			map.put("alert_dropped_route_stopage_id", alert_dropped_route_stopage_id);
+		if(alert_pickup_stopage_name != null)
+			map.put("alert_pickup_stopage_name", alert_pickup_stopage_name);
+		if(alert_dropped_stopage_name != null)
+			map.put("alert_dropped_stopage_name", alert_dropped_stopage_name);
 		if(stopage_alert_sms != null)
 			map.put("stopage_alert_sms", stopage_alert_sms);
 		if(stopage_alert_mobile_app != null)
@@ -513,6 +535,8 @@ public abstract class Basestudent_detail extends BaseResource {
 		reached = (String) map.get("reached");
 		alert_pickup_route_stopage_id = (String) map.get("alert_pickup_route_stopage_id");
 		alert_dropped_route_stopage_id = (String) map.get("alert_dropped_route_stopage_id");
+		alert_pickup_stopage_name = (String) map.get("alert_pickup_stopage_name");
+		alert_dropped_stopage_name = (String) map.get("alert_dropped_stopage_name");
 		stopage_alert_sms = (String) map.get("stopage_alert_sms");
 		stopage_alert_mobile_app = (String) map.get("stopage_alert_mobile_app");
 		stopage_alert_email = (String) map.get("stopage_alert_email");
@@ -654,6 +678,14 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object alert_dropped_route_stopage_idObj = map.get("alert_dropped_route_stopage_id");
 		if(alert_dropped_route_stopage_idObj != null)
 			alert_dropped_route_stopage_id = alert_dropped_route_stopage_idObj.toString();
+
+		Object alert_pickup_stopage_nameObj = map.get("alert_pickup_stopage_name");
+		if(alert_pickup_stopage_nameObj != null)
+			alert_pickup_stopage_name = alert_pickup_stopage_nameObj.toString();
+
+		Object alert_dropped_stopage_nameObj = map.get("alert_dropped_stopage_name");
+		if(alert_dropped_stopage_nameObj != null)
+			alert_dropped_stopage_name = alert_dropped_stopage_nameObj.toString();
 
 		Object stopage_alert_smsObj = map.get("stopage_alert_sms");
 		if(stopage_alert_smsObj != null)
@@ -1231,6 +1263,38 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetAlert_dropped_route_stopage_id() {
 		this.alert_dropped_route_stopage_id = null;
+	}
+
+	public String getAlert_pickup_stopage_name() {
+		return alert_pickup_stopage_name;
+	}
+
+	public String getAlert_pickup_stopage_nameEx() {
+		return alert_pickup_stopage_name != null ? alert_pickup_stopage_name : "";
+	}
+
+	public void setAlert_pickup_stopage_name(String alert_pickup_stopage_name) {
+		this.alert_pickup_stopage_name = alert_pickup_stopage_name;
+	}
+
+	public void unSetAlert_pickup_stopage_name() {
+		this.alert_pickup_stopage_name = null;
+	}
+
+	public String getAlert_dropped_stopage_name() {
+		return alert_dropped_stopage_name;
+	}
+
+	public String getAlert_dropped_stopage_nameEx() {
+		return alert_dropped_stopage_name != null ? alert_dropped_stopage_name : "";
+	}
+
+	public void setAlert_dropped_stopage_name(String alert_dropped_stopage_name) {
+		this.alert_dropped_stopage_name = alert_dropped_stopage_name;
+	}
+
+	public void unSetAlert_dropped_stopage_name() {
+		this.alert_dropped_stopage_name = null;
 	}
 
 	public String getStopage_alert_sms() {
