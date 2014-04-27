@@ -69,6 +69,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'alert_pickup_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'alert_dropped_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'father_name':
 			{
 				'length': 128,

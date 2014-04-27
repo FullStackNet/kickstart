@@ -30,6 +30,8 @@ public abstract class Basestudent extends BaseResource {
 	private String country = null;
 	private String pickup_route_stopage_id = null;
 	private String dropped_route_stopage_id = null;
+	private String alert_pickup_route_stopage_id = null;
+	private String alert_dropped_route_stopage_id = null;
 	private String father_name = null;
 	private String father_mobile_no = null;
 	private String mother_name = null;
@@ -56,6 +58,8 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_PICKUP_ROUTE_STOPAGE_ID = "pickup_route_stopage_id";
 	public static String FIELD_DROPPED_ROUTE_STOPAGE_ID = "dropped_route_stopage_id";
+	public static String FIELD_ALERT_PICKUP_ROUTE_STOPAGE_ID = "alert_pickup_route_stopage_id";
+	public static String FIELD_ALERT_DROPPED_ROUTE_STOPAGE_ID = "alert_dropped_route_stopage_id";
 	public static String FIELD_FATHER_NAME = "father_name";
 	public static String FIELD_FATHER_MOBILE_NO = "father_mobile_no";
 	public static String FIELD_MOTHER_NAME = "mother_name";
@@ -121,6 +125,14 @@ public abstract class Basestudent extends BaseResource {
 		Field dropped_route_stopage_idField = new Field("dropped_route_stopage_id", "String");
 		dropped_route_stopage_idField.setLength(128);
 		metaData.addField(dropped_route_stopage_idField);
+
+		Field alert_pickup_route_stopage_idField = new Field("alert_pickup_route_stopage_id", "String");
+		alert_pickup_route_stopage_idField.setLength(128);
+		metaData.addField(alert_pickup_route_stopage_idField);
+
+		Field alert_dropped_route_stopage_idField = new Field("alert_dropped_route_stopage_id", "String");
+		alert_dropped_route_stopage_idField.setLength(128);
+		metaData.addField(alert_dropped_route_stopage_idField);
 
 		Field father_nameField = new Field("father_name", "String");
 		father_nameField.setLength(128);
@@ -201,6 +213,8 @@ public abstract class Basestudent extends BaseResource {
 		this.country = obj.country;
 		this.pickup_route_stopage_id = obj.pickup_route_stopage_id;
 		this.dropped_route_stopage_id = obj.dropped_route_stopage_id;
+		this.alert_pickup_route_stopage_id = obj.alert_pickup_route_stopage_id;
+		this.alert_dropped_route_stopage_id = obj.alert_dropped_route_stopage_id;
 		this.father_name = obj.father_name;
 		this.father_mobile_no = obj.father_mobile_no;
 		this.mother_name = obj.mother_name;
@@ -245,6 +259,10 @@ public abstract class Basestudent extends BaseResource {
 			map.put("pickup_route_stopage_id", pickup_route_stopage_id);
 		if(dropped_route_stopage_id != null)
 			map.put("dropped_route_stopage_id", dropped_route_stopage_id);
+		if(alert_pickup_route_stopage_id != null)
+			map.put("alert_pickup_route_stopage_id", alert_pickup_route_stopage_id);
+		if(alert_dropped_route_stopage_id != null)
+			map.put("alert_dropped_route_stopage_id", alert_dropped_route_stopage_id);
 		if(father_name != null)
 			map.put("father_name", father_name);
 		if(father_mobile_no != null)
@@ -300,6 +318,10 @@ public abstract class Basestudent extends BaseResource {
 			map.put("pickup_route_stopage_id", pickup_route_stopage_id);
 		if(dropped_route_stopage_id != null)
 			map.put("dropped_route_stopage_id", dropped_route_stopage_id);
+		if(alert_pickup_route_stopage_id != null)
+			map.put("alert_pickup_route_stopage_id", alert_pickup_route_stopage_id);
+		if(alert_dropped_route_stopage_id != null)
+			map.put("alert_dropped_route_stopage_id", alert_dropped_route_stopage_id);
 		if(father_name != null)
 			map.put("father_name", father_name);
 		if(father_mobile_no != null)
@@ -348,6 +370,8 @@ public abstract class Basestudent extends BaseResource {
 		country = (String) map.get("country");
 		pickup_route_stopage_id = (String) map.get("pickup_route_stopage_id");
 		dropped_route_stopage_id = (String) map.get("dropped_route_stopage_id");
+		alert_pickup_route_stopage_id = (String) map.get("alert_pickup_route_stopage_id");
+		alert_dropped_route_stopage_id = (String) map.get("alert_dropped_route_stopage_id");
 		father_name = (String) map.get("father_name");
 		father_mobile_no = (String) map.get("father_mobile_no");
 		mother_name = (String) map.get("mother_name");
@@ -408,6 +432,14 @@ public abstract class Basestudent extends BaseResource {
 		Object dropped_route_stopage_idObj = map.get("dropped_route_stopage_id");
 		if(dropped_route_stopage_idObj != null)
 			dropped_route_stopage_id = dropped_route_stopage_idObj.toString();
+
+		Object alert_pickup_route_stopage_idObj = map.get("alert_pickup_route_stopage_id");
+		if(alert_pickup_route_stopage_idObj != null)
+			alert_pickup_route_stopage_id = alert_pickup_route_stopage_idObj.toString();
+
+		Object alert_dropped_route_stopage_idObj = map.get("alert_dropped_route_stopage_id");
+		if(alert_dropped_route_stopage_idObj != null)
+			alert_dropped_route_stopage_id = alert_dropped_route_stopage_idObj.toString();
 
 		Object father_nameObj = map.get("father_name");
 		if(father_nameObj != null)
@@ -653,6 +685,38 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetDropped_route_stopage_id() {
 		this.dropped_route_stopage_id = null;
+	}
+
+	public String getAlert_pickup_route_stopage_id() {
+		return alert_pickup_route_stopage_id;
+	}
+
+	public String getAlert_pickup_route_stopage_idEx() {
+		return alert_pickup_route_stopage_id != null ? alert_pickup_route_stopage_id : "";
+	}
+
+	public void setAlert_pickup_route_stopage_id(String alert_pickup_route_stopage_id) {
+		this.alert_pickup_route_stopage_id = alert_pickup_route_stopage_id;
+	}
+
+	public void unSetAlert_pickup_route_stopage_id() {
+		this.alert_pickup_route_stopage_id = null;
+	}
+
+	public String getAlert_dropped_route_stopage_id() {
+		return alert_dropped_route_stopage_id;
+	}
+
+	public String getAlert_dropped_route_stopage_idEx() {
+		return alert_dropped_route_stopage_id != null ? alert_dropped_route_stopage_id : "";
+	}
+
+	public void setAlert_dropped_route_stopage_id(String alert_dropped_route_stopage_id) {
+		this.alert_dropped_route_stopage_id = alert_dropped_route_stopage_id;
+	}
+
+	public void unSetAlert_dropped_route_stopage_id() {
+		this.alert_dropped_route_stopage_id = null;
 	}
 
 	public String getFather_name() {
