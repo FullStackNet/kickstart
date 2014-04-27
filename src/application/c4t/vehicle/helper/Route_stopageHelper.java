@@ -106,6 +106,8 @@ public class Route_stopageHelper extends BaseHelper {
 						long routeStartDayTime = TimeUtil.getDayTime(_route.getStart_time());
 						long routeEndDayTime = TimeUtil.getDayTime(_route.getEnd_time());
 						long duration = routeEndDayTime -routeStartDayTime + (5*60*1000L);
+						System.out.println("Duration"+duration +"routeEndDayTime : "+routeEndDayTime+"routeStartDayTime : "+routeStartDayTime+", timediff :"+timediff+" currentTime :" + currentTime + "_route_stopage.getReached_time()"+new Date(_route_stopage.getReached_time()));
+						
 						if (timediff > duration) {
 							 lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
 							_route_stopage.setReached_time(lastReachTime);
@@ -115,10 +117,12 @@ public class Route_stopageHelper extends BaseHelper {
 							_route_stopage.setReached("Y");
 						}
 					} else {
+						 System.out.println("getReached_time is null");
 						 lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
 						_route_stopage.setReached_time(lastReachTime);
 					}
 				} else {
+					 System.out.println("Invalid Route");
 					 lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
 					_route_stopage.setReached_time(lastReachTime);
 				}
