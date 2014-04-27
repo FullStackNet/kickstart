@@ -46,6 +46,9 @@ public abstract class Basestudent extends BaseResource {
 	private String customer_id = null;
 	private String user_id = null;
 	private String remark = null;
+	private String stopage_alert_sms = null;
+	private String stopage_alert_mobile_app = null;
+	private String stopage_alert_email = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_SCHOOL_ID = "school_id";
@@ -74,6 +77,9 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_REMARK = "remark";
+	public static String FIELD_STOPAGE_ALERT_SMS = "stopage_alert_sms";
+	public static String FIELD_STOPAGE_ALERT_MOBILE_APP = "stopage_alert_mobile_app";
+	public static String FIELD_STOPAGE_ALERT_EMAIL = "stopage_alert_email";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("student");
@@ -193,6 +199,21 @@ public abstract class Basestudent extends BaseResource {
 		remarkField.setLength(512);
 		metaData.addField(remarkField);
 
+		Field stopage_alert_smsField = new Field("stopage_alert_sms", "String");
+		stopage_alert_smsField.setDefaultValue("N");
+		stopage_alert_smsField.setLength(1);
+		metaData.addField(stopage_alert_smsField);
+
+		Field stopage_alert_mobile_appField = new Field("stopage_alert_mobile_app", "String");
+		stopage_alert_mobile_appField.setDefaultValue("Y");
+		stopage_alert_mobile_appField.setLength(1);
+		metaData.addField(stopage_alert_mobile_appField);
+
+		Field stopage_alert_emailField = new Field("stopage_alert_email", "String");
+		stopage_alert_emailField.setDefaultValue("N");
+		stopage_alert_emailField.setLength(1);
+		metaData.addField(stopage_alert_emailField);
+
 
 		metaData.setTableName("student");
 
@@ -229,10 +250,22 @@ public abstract class Basestudent extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
 		this.remark = obj.remark;
+		this.stopage_alert_sms = obj.stopage_alert_sms;
+		this.stopage_alert_mobile_app = obj.stopage_alert_mobile_app;
+		this.stopage_alert_email = obj.stopage_alert_email;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(stopage_alert_sms == null)
+			stopage_alert_sms = "N";
+		if(stopage_alert_mobile_app == null)
+			stopage_alert_mobile_app = "Y";
+		if(stopage_alert_email == null)
+			stopage_alert_email = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -291,10 +324,19 @@ public abstract class Basestudent extends BaseResource {
 			map.put("user_id", user_id);
 		if(remark != null)
 			map.put("remark", remark);
+		if(stopage_alert_sms != null)
+			map.put("stopage_alert_sms", stopage_alert_sms);
+		if(stopage_alert_mobile_app != null)
+			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
+		if(stopage_alert_email != null)
+			map.put("stopage_alert_email", stopage_alert_email);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -350,6 +392,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("user_id", user_id);
 		if(remark != null)
 			map.put("remark", remark);
+		if(stopage_alert_sms != null)
+			map.put("stopage_alert_sms", stopage_alert_sms);
+		if(stopage_alert_mobile_app != null)
+			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
+		if(stopage_alert_email != null)
+			map.put("stopage_alert_email", stopage_alert_email);
 		return map;
 	}
 
@@ -386,6 +434,9 @@ public abstract class Basestudent extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
 		remark = (String) map.get("remark");
+		stopage_alert_sms = (String) map.get("stopage_alert_sms");
+		stopage_alert_mobile_app = (String) map.get("stopage_alert_mobile_app");
+		stopage_alert_email = (String) map.get("stopage_alert_email");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -496,6 +547,18 @@ public abstract class Basestudent extends BaseResource {
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
 			remark = remarkObj.toString();
+
+		Object stopage_alert_smsObj = map.get("stopage_alert_sms");
+		if(stopage_alert_smsObj != null)
+			stopage_alert_sms = stopage_alert_smsObj.toString();
+
+		Object stopage_alert_mobile_appObj = map.get("stopage_alert_mobile_app");
+		if(stopage_alert_mobile_appObj != null)
+			stopage_alert_mobile_app = stopage_alert_mobile_appObj.toString();
+
+		Object stopage_alert_emailObj = map.get("stopage_alert_email");
+		if(stopage_alert_emailObj != null)
+			stopage_alert_email = stopage_alert_emailObj.toString();
 
 	}
 
@@ -953,6 +1016,42 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetRemark() {
 		this.remark = null;
+	}
+
+	public String getStopage_alert_sms() {
+		return stopage_alert_sms != null ? stopage_alert_sms : "N";
+	}
+
+	public void setStopage_alert_sms(String stopage_alert_sms) {
+		this.stopage_alert_sms = stopage_alert_sms;
+	}
+
+	public void unSetStopage_alert_sms() {
+		this.stopage_alert_sms = "N";
+	}
+
+	public String getStopage_alert_mobile_app() {
+		return stopage_alert_mobile_app != null ? stopage_alert_mobile_app : "Y";
+	}
+
+	public void setStopage_alert_mobile_app(String stopage_alert_mobile_app) {
+		this.stopage_alert_mobile_app = stopage_alert_mobile_app;
+	}
+
+	public void unSetStopage_alert_mobile_app() {
+		this.stopage_alert_mobile_app = "Y";
+	}
+
+	public String getStopage_alert_email() {
+		return stopage_alert_email != null ? stopage_alert_email : "N";
+	}
+
+	public void setStopage_alert_email(String stopage_alert_email) {
+		this.stopage_alert_email = stopage_alert_email;
+	}
+
+	public void unSetStopage_alert_email() {
+		this.stopage_alert_email = "N";
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

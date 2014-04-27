@@ -154,6 +154,24 @@
 				'name':'remark',
 				'length': 512,
 				'type':'String'
+			},
+			'stopage_alert_sms':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'stopage_alert_mobile_app':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"Y"
+			},
+			'stopage_alert_email':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
 			}
 		}
 	}
