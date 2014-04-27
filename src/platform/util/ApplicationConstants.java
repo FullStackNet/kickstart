@@ -96,6 +96,9 @@ public class ApplicationConstants {
 	public static double STOPAGE_RADIUS_KM = 0.350;
 	public static String MAIL_TYPE_INVITE_PARENT = "INVITE_PARENT";
 	public static String MAIL_SUBJECT_INVITE_PARENT = "Activate student stpoage alert service";
+	public static String MAIL_SUBJECT_STOPAGE_REACHED = "Alert for Stopage Reached";
+	public static String MAIL_TYPE_STOPAGE_REACHED = "STOPAGE_REACHED";
 	public static String SMS_TYPE_INVITE_PARENT = "INVITE_PARENT";
 	public static String SMS_TYPE_SEND_STOPAGE_REACHED = "STOPAGE_REACHED";
+	public static String NOTIFICATION_TYPE_STOPAGE_REACHED = "STOPAGE_REACHED";
 }
