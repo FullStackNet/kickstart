@@ -126,9 +126,9 @@ public class RouteHelper extends BaseHelper {
 				userMap.put(_users.get(j).getId(), _users.get(j));
 				String str = studentMap.get(_users.get(j).getId());
 				if (str == null) {
-					str = _student.getName(); 
+					str = _student.getNameEx(); 
 				} else {
-					str = str +","+_student.getName();
+					str = str +","+_student.getNameEx();
 				}
 				studentMap.put(_users.get(j).getId(), str);
 			}
@@ -162,9 +162,9 @@ public class RouteHelper extends BaseHelper {
 				userMap.put(_users.get(j).getId(), _users.get(j));
 				String str = studentMap.get(_users.get(j).getId());
 				if (str == null) {
-					str = _student.getName(); 
+					str = _student.getNameEx(); 
 				} else {
-					str = str +","+_student.getName();
+					str = str +","+_student.getNameEx();
 				}
 				studentMap.put(_users.get(j).getId(), str);
 			}
