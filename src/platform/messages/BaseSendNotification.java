@@ -16,7 +16,7 @@ import platform.communication.*;
 
 public abstract class BaseSendNotification extends Message {
 	private static final long serialVersionUID = 1L;
-	private String id = null;
+	private String notify_id = null;
 	private String type = null;
 	private String params = null;
 
@@ -31,19 +31,19 @@ public abstract class BaseSendNotification extends Message {
 	public void populate_field() {
  		if (fields != null) return ;
 		fields = new Field[3];
-		fields[0] =  new Field("id","String",128);
+		fields[0] =  new Field("notify_id","String",128);
 		fields[1] =  new Field("type","String",128);
 		fields[2] =  new Field("params","String",4096);
 	}
 
 	public void dump() {
-		System.out.println("id	:	 "+id);
+		System.out.println("notify_id	:	 "+notify_id);
 		System.out.println("type	:	 "+type);
 		System.out.println("params	:	 "+params);
 	}
 	public String getDump() {
 		String str="";
-		str = str +",id:"+id;
+		str = str +",notify_id:"+notify_id;
 		str = str +",type:"+type;
 		str = str +",params:"+params;
 		return str;
@@ -51,8 +51,8 @@ public abstract class BaseSendNotification extends Message {
 
 	public Map<String, Object> convertMessageToMap() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		if(id != null)
-			map.put("id", id);
+		if(notify_id != null)
+			map.put("notify_id", notify_id);
 		if(type != null)
 			map.put("type", type);
 		if(params != null)
@@ -61,7 +61,7 @@ public abstract class BaseSendNotification extends Message {
 	}
 
 	public void convertMapToMessage(Map<String, Object> map) {
-		id = (String) map.get("id");
+		notify_id = (String) map.get("notify_id");
 		type = (String) map.get("type");
 		params = (String) map.get("params");
 	}
@@ -72,20 +72,20 @@ public abstract class BaseSendNotification extends Message {
 
 public Message process(Session session,Message parentMessage) {return null;}
 
-	public String getId() {
-		return id;
+	public String getNotify_id() {
+		return notify_id;
 	}
 
-	public String getIdEx() {
-		return id != null ? id : "";
+	public String getNotify_idEx() {
+		return notify_id != null ? notify_id : "";
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setNotify_id(String notify_id) {
+		this.notify_id = notify_id;
 	}
 
-	public void unSetId() {
-		this.id = null;
+	public void unSetNotify_id() {
+		this.notify_id = null;
 	}
 
 	public String getType() {

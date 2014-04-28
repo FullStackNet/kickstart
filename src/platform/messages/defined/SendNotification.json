@@ -6,7 +6,7 @@
 		"packet_type" : "1",
 		"fields":
 		{
-			'id':
+			'notify_id':
 			{
 				'length': 128,
 				'type':'String'
