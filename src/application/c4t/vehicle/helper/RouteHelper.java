@@ -239,7 +239,7 @@ public class RouteHelper extends BaseHelper {
 				continue;
 			if (_stopage.getLongitude() == null) 
 				continue;
-			if (_stopage.getId().equals(_fetched_appliance.getLastStopageId())) {
+			if (_route_stopage.getId().equals(_fetched_appliance.getLastStopageId())) {
 				continue;
 			}
 			double dLatitude = Double.parseDouble(latitude);
@@ -259,7 +259,7 @@ public class RouteHelper extends BaseHelper {
 				ApplicationLogger.info("Found the stop "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
 				sendNotification(_fetched_appliance, _route_stopage);
 				ApplianceHelper.getInstance().updateLastStopage(_fetched_appliance.getId(), 
-						_stopage.getId());
+						_route_stopage.getId());
 				Route_stopageHelper.getInstance().updateReachedTime(_route_stopage.getId());
 				break;
 			}
