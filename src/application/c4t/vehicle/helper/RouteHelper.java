@@ -220,7 +220,7 @@ public class RouteHelper extends BaseHelper {
 		if (current_route == null) {
 			return ;
 		}
-		stopage _last_stopage = (stopage)StopageHelper.getInstance().getById(_fetched_appliance.getLastStopageId());
+		route_stopage _last_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(_fetched_appliance.getLastStopageId());
 		if (_last_stopage != null)
 			ApplicationLogger.info("Last stopage reported for "+_fetched_appliance.getNameEx()+" is "+_last_stopage.getNameEx(), this.getClass());
 
