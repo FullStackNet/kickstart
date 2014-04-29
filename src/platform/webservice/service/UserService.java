@@ -50,6 +50,17 @@ public class UserService extends BaseService{
 			_user.setKey(_update_user.getKey());
 			notifyForgotPassword(_user);
 			return;
+		}  else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_RESET_PASSWORD)) {
+			user _resource = (user) resource;
+			user fetched = (user)UserHelper.getInstance().getById(_resource.getId());
+			if (fetched == null)
+				throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_USER);
+			
+			user update_resource= new user();
+			update_resource.setId(_resource.getId());
+			update_resource.setPassword(_resource.getPassword());
+			UserHelper.getInstance().update(update_resource);
+			return;
 		}
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_ACTION);
 	}
