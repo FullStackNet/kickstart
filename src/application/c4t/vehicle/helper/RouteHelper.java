@@ -230,6 +230,10 @@ public class RouteHelper extends BaseHelper {
 		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(current_route.getId());
 		if (Util.isEmpty(route_stopages))
 			return;
+	
+		double short_stopage_distance = 0;
+		route_stopage found_route_stopage = null;
+		
 		for(int i=0; i < route_stopages.length; i++) {
 			route_stopage _route_stopage = (route_stopage) route_stopages[i];
 			stopage _stopage = (stopage)StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
@@ -257,12 +261,20 @@ public class RouteHelper extends BaseHelper {
 			ApplicationLogger.info("Distance from stopage "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance + " , Radius : " +stopage_radius, this.getClass());
 			if (distance  < stopage_radius) {
 				ApplicationLogger.info("Found the stop "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
-				sendNotification(_fetched_appliance, _route_stopage);
-				ApplianceHelper.getInstance().updateLastStopage(_fetched_appliance.getId(), 
-						_route_stopage.getId());
-				Route_stopageHelper.getInstance().updateReachedTime(_route_stopage.getId());
-				break;
+				if ((short_stopage_distance == 0.0) || (distance < short_stopage_distance)) {
+					ApplicationLogger.info("Now short distance is this stop "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
+					short_stopage_distance = distance;
+					found_route_stopage = _route_stopage;
+				}
 			}
+		}
+		
+		if (found_route_stopage != null) {
+			ApplicationLogger.info("Finally decided on this stop based on shortest distance "+ found_route_stopage.getNameEx() +" for "+ short_stopage_distance, this.getClass());
+			sendNotification(_fetched_appliance, found_route_stopage);
+			ApplianceHelper.getInstance().updateLastStopage(_fetched_appliance.getId(), 
+					found_route_stopage.getId());
+			Route_stopageHelper.getInstance().updateReachedTime(found_route_stopage.getId());
 		}
 	}
 }
