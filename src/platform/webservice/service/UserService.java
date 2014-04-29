@@ -84,7 +84,7 @@ public class UserService extends BaseService{
 			mail.setType(ApplicationConstants.MAIL_TYPE_FORGOT_PASSWORD);
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("TOKEN", _user.getKey());
-			map.put("URL", "http://my.cloud4things.com/ui/confirm_forgot_password_url?id="+_user.getId()+"&key="+_user.getKey());
+			map.put("URL", "http://my.cloud4things.com/ui/confirm_forgot_password?id="+_user.getId()+"&key="+_user.getKey());
 			String params = Json.maptoString(map);
 			mail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
