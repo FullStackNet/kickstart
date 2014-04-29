@@ -14,4 +14,7 @@ public class WebServiceContants {
 	public final static String OPERATION_UPGRADE = "UPGRADE";
 	public final static String OPERATION_PACKET_CAPTURE_START = "START_PACKET_CAPTURE";
 	public final static String OPERATION_PACKET_CAPTURE_STOP = "STOP_PACKET_CAPTURE";
+	public final static String OPERATION_CONFIRM_FORGOT_PASSWORD_TOKEN = "CONFIRM_FORGOT_PASSWORD_TOKEN";
+	public final static String OPERATION_FORGOT_PASSWORD = "FORGOT_PASSWORD";
+
 }

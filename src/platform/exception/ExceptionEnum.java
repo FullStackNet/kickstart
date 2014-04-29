@@ -115,4 +115,20 @@ public enum ExceptionEnum {
 			 return "Not Supported";
 		}
 	},
+	/*Not Supported Action
+	 */
+	INVALID_ACTION
+	{
+		 public String toString() {
+			 return "Invalid Action";
+		}
+	},
+	/*Invalid User
+	 */
+	INVALID_USER
+	{
+		 public String toString() {
+			 return "Invalid User";
+		}
+	},
 }

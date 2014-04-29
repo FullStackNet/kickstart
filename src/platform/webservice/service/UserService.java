@@ -1,15 +1,21 @@
 package platform.webservice.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import platform.exception.ExceptionEnum;
 import platform.helper.UserHelper;
 import platform.helper.User_mapHelper;
+import platform.manager.ApplicationManager;
+import platform.message.SendEmail;
+import platform.message.SendSMS;
 import platform.resource.BaseResource;
-import platform.resource.customer;
 import platform.resource.user;
+import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
+import platform.util.Json;
+import platform.util.Util;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 import platform.webservice.WebServiceContants;
@@ -26,8 +32,55 @@ public class UserService extends BaseService{
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
 		if (action.equalsIgnoreCase(WebServiceContants.OPERATION_MODIFY)) {
 			update(ctx, resource);
-		} 
+			return;
+		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_FORGOT_PASSWORD)) {
+			user _resource = (user) resource;
+			
+			user _user = UserHelper.getInstance().getByEmailId(_resource.getEmail_id());
+			if (_user == null) {
+				_user = UserHelper.getInstance().getByMobileId(_resource.getEmail_id());
+			}
+			if (_user == null) {
+				throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_USER);
+			}
+			user _update_user = new user();
+			_update_user.setId(_user.getId());
+			_update_user.setKey(Util.getRandonToken());
+			UserHelper.getInstance().update(_update_user);
+			_user.setKey(_update_user.getKey());
+			notifyForgotPassword(_user);
+			return;
+		}
+		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_ACTION);
 	}
+	
+	void notifyForgotPassword(user _user) {
+		if (_user.getMobile_no() != null) {
+			SendSMS sms = new SendSMS();
+			sms.setMobile_no(_user.getMobile_no());
+			sms.setType(ApplicationConstants.SMS_TYPE_FORGOT_PASSWORD);
+			Map<String, String> smsMap = new HashMap<String, String>();
+			smsMap.put("TOKEN", _user.getKey());
+			String params = Json.maptoString(smsMap);
+			sms.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
+					sms);
+		}
+		if (_user.getEmail_id() != null) {
+			SendEmail mail = new SendEmail();
+			mail.setSubject(ApplicationConstants.MAIL_SUBJECT_FORGOT_PASSWORD);
+			mail.setTo(_user.getEmail_id());
+			mail.setType(ApplicationConstants.MAIL_TYPE_FORGOT_PASSWORD);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("TOKEN", _user.getKey());
+			map.put("URL", "http://my.cloud4things.com/ui/confirm_forgot_password_url?id="+_user.getId()+"&key="+_user.getKey());
+			String params = Json.maptoString(map);
+			mail.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+					mail);
+		}
+	}
+	
 	public void update(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		getHelper().update(resource);
 	}

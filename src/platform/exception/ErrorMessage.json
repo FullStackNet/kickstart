@@ -80,6 +80,18 @@
 				"severity" : "ERROR",
 				"message": "Not Supported",
 				"description": "User is trying to do something, ehich is not supported"				 
+			},
+			{
+				"code" : "INVALID_ACTION",
+				"severity" : "ERROR",
+				"message": "Invalid Action",
+				"description": "Not Supported Action"				 
+			},
+			{
+				"code" : "INVALID_USER",
+				"severity" : "ERROR",
+				"message": "Invalid User",
+				"description": "Invalid User"				 
 			}
 			
 		]
