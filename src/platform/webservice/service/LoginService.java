@@ -19,6 +19,9 @@ public class LoginService extends BaseService{
 		login _login = (login) resource;
 		user _user = UserHelper.getInstance().getByEmailId(_login.getEmail_id());
 		if (_user == null)
+			_user = UserHelper.getInstance().getByMobileId(_login.getEmail_id());
+		
+		if (_user == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid User Id or Password");
 		if (_login.getPassword().equals(_user.getPassword())) {
 			return;
