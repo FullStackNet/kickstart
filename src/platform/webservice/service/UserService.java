@@ -35,7 +35,6 @@ public class UserService extends BaseService{
 			return;
 		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_FORGOT_PASSWORD)) {
 			user _resource = (user) resource;
-			
 			user _user = UserHelper.getInstance().getByEmailId(_resource.getEmail_id());
 			if (_user == null) {
 				_user = UserHelper.getInstance().getByMobileId(_resource.getEmail_id());
@@ -50,7 +49,19 @@ public class UserService extends BaseService{
 			_user.setKey(_update_user.getKey());
 			notifyForgotPassword(_user);
 			return;
-		}  else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_RESET_PASSWORD)) {
+		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_CHANGE_PASSWORD)) {
+			String userId = ctx.getUserId();
+			user _resource = (user)resource;
+			user _user = (user)UserHelper.getInstance().getById(userId);
+			if (_user == null) {
+				throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_USER);
+			}
+			user _update_user = new user();
+			_update_user.setId(_user.getId());
+			_update_user.setPassword(_resource.getPassword());
+			UserHelper.getInstance().update(_update_user);
+			return;
+		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_RESET_PASSWORD)) {
 			user _resource = (user) resource;
 			user fetched = (user)UserHelper.getInstance().getById(_resource.getId());
 			if (fetched == null)
@@ -99,7 +110,8 @@ public class UserService extends BaseService{
 	private enum QueryTypes {
 		QUERY_ALERT,
 		QUERY_NOTIFICATION,
-		QUERY_USER_SERVICE
+		QUERY_USER_SERVICE,
+		QUERY_USER_ID_BY_EMAIL_OR_MOBILE
 	};
 	
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
@@ -117,6 +129,19 @@ public class UserService extends BaseService{
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Session is expired or not authenticated.");
 			}
 			return User_mapHelper.getInstance().getNotificationArray(userId);
+		}  else if(QueryTypes.QUERY_USER_ID_BY_EMAIL_OR_MOBILE.toString().equals(queryId)) {
+			System.out.println("Received Query "+queryId);
+			String id = (String)map.get("id");
+			user _fetchedUser = (user)UserHelper.getInstance().getByEmailId(id);
+			if (_fetchedUser == null) {
+				_fetchedUser = (user)UserHelper.getInstance().getByMobileId(id);
+			}
+			if (_fetchedUser == null) {
+				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid user");
+			}
+			
+			 user _user = new user(_fetchedUser.getId());
+			return new user[]{_user};
 		} else if(QueryTypes.QUERY_USER_SERVICE.toString().equals(queryId)) {
 			System.out.println("Received Query "+queryId);
 			String userId = ctx.getUserId();

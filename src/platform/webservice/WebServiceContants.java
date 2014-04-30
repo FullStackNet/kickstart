@@ -17,4 +17,5 @@ public class WebServiceContants {
 	public final static String OPERATION_CONFIRM_FORGOT_PASSWORD_TOKEN = "CONFIRM_FORGOT_PASSWORD_TOKEN";
 	public final static String OPERATION_FORGOT_PASSWORD = "FORGOT_PASSWORD";
 	public final static String OPERATION_RESET_PASSWORD = "RESET_PASSWORD";
+	public final static String OPERATION_CHANGE_PASSWORD = "CHANGE_PASSWORD";
 }
