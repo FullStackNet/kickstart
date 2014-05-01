@@ -1,0 +1,49 @@
+package platform.helper;
+
+import java.util.ArrayList;
+
+import platform.resource.BaseResource;
+import platform.resource.conversation;
+import platform.util.Util;
+
+
+public class ConversationHelper extends BaseHelper {
+	
+	public ConversationHelper() {
+		super(new conversation());
+		// TODO Auto-generated constructor stub
+	}
+	private static ConversationHelper instance;
+	
+	public static ConversationHelper getInstance() {
+		if (instance == null)
+			instance = new ConversationHelper();
+		return instance;
+	}
+	
+	public BaseResource[] getConversation(String userId, String toUserID,String last_conversation_time) {
+		String id = conversation.id(userId, toUserID);
+		conversation _resource = (conversation)getById(id);
+		if (Util.isEmpty(_resource.getMessages()))
+				return null;
+		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
+		for(int i =0; i < _resource.getMessages().size() ; i++) {
+			String message = (String)_resource.getMessages().get(i);
+			int pos = message.indexOf(":");
+			String time = message.substring(0, pos-1);
+			message = message.substring(pos+1);
+					
+			if (last_conversation_time != null) {
+				long l_last_conversation_time = Long.parseLong(last_conversation_time);
+				long message_time =  Long.parseLong(time);
+				if (message_time <= l_last_conversation_time)
+					continue;
+			}
+			conversation messageResource = new conversation();
+			messageResource.setMessage_time(Long.parseLong(time));
+			messageResource.setMessage(message);
+			list.add(messageResource);
+		}
+		return list.toArray(new conversation[list.size()]);
+	}
+}

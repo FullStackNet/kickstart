@@ -59,5 +59,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("invite", "platform.resource.invite"),
 		new ResourceMap("service", "platform.resource.service"),
 		new ResourceMap("sim", "platform.resource.sim"),
+		new ResourceMap("conversation", "platform.resource.conversation"),
+		new ResourceMap("conversation_summary", "platform.resource.conversation_summary"),
+		
 	};
 }

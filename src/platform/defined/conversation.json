@@ -1,0 +1,35 @@
+{
+	"conversation" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 260,
+				'required': true,
+				'type':'String',
+				"comments" : "From^To"
+			},
+			'to_user_id': {
+				'type':'String',
+				'length':  128,
+				'transient' : true		
+			},
+			'message_time': {
+				'type':'long',
+				'transient' : true		
+			},
+			'message': {
+				'type':'String',
+				'length':  1024,
+				'transient' : true		
+			},
+			'messages': {
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}
