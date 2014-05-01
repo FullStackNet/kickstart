@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import platform.exception.ExceptionEnum;
+import platform.helper.InviteHelper;
 import platform.helper.UserHelper;
 import platform.helper.User_mapHelper;
 import platform.manager.ApplicationManager;
 import platform.message.SendEmail;
 import platform.message.SendSMS;
 import platform.resource.BaseResource;
+import platform.resource.invite;
 import platform.resource.user;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
@@ -24,9 +26,54 @@ public class UserService extends BaseService{
 	public UserService() {
 		super(UserHelper.getInstance(),new user());
 	}
+	
+	public void sendInvite(invite _invite) {
+		if (_invite.getEmail_id() != null) {
+			SendEmail email =  new SendEmail();
+			email.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_CUSTOMER_ADMIN);
+			email.setTo(_invite.getEmail_id());
+			email.setType(ApplicationConstants.MAIL_TYPE_INVITE_CUSTOMER_ADMIN);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("Name", _invite.getName());
+			map.put("ACTIVATION_TOKEN", _invite.getKey());
+			map.put("CUSTOMER_NAME", "C4T Admin");
+			map.put("ACTIVATE_URL", "http://my.cloud4things.com/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			String params = Json.maptoString(map);
+			email.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, email);
+		}
+	}
+	
+	public void invite(ServletContext ctx, user _resource) throws ApplicationException{
+		if (!Util.isEmpty(_resource.getEmail_id())) {
+			invite _invite = (invite) InviteHelper.getInstance().getByEmailId(_resource.getEmail_id());
+			if (_invite == null) {
+				_invite = new invite();
+				if (user.USER_TYPE_CUSTOMER_ADMIN.equalsIgnoreCase( _resource.getType())) {
+					_invite.setInvite_type(invite.INVITE_TYPE_JOIN_CUSTOMER_ADMIN);
+				} else if (user.USER_TYPE_C4T_ADMIN.equalsIgnoreCase(_resource.getType())) {
+					_invite.setInvite_type(invite.INVITE_TYPE_JOIN_C4T_ADMIN);
+				} else if (user.USER_TYPE_USER.equalsIgnoreCase(_resource.getType())) {
+					_invite.setInvite_type(invite.INVITE_TYPE_JOIN_USER);
+				}
+				_invite.setName(_resource.getName());
+				_invite.setEmail_id(_resource.getEmail_id());
+				_invite.setType(_resource.getType());
+				_invite.setKey(Util.getRandonToken());
+				_invite.setDgService(_resource.getDgService());
+				_invite.setFleetService(_resource.getFleetService());
+				_invite.setSchoolTrackerService(_resource.getSchoolTrackerService());
+				InviteHelper.getInstance().add(_invite);
+				sendInvite(_invite);
+			}
+		}
+	}
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
+		user _resource = (user) resource;
+		_resource.setCustomer_id(ctx.getCustomerId());
 		getHelper().add(resource);
+		invite(ctx, _resource);
 	}
 
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
