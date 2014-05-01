@@ -68,7 +68,7 @@ public class InviteService extends BaseService{
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
 		if (action.equalsIgnoreCase(WebServiceContants.OPERATION_CONFIRM)) {
 			invite _resource = (invite) resource;
-			if (_resource.getPassword() == null) {
+			if ((_resource.getPassword() == null) || (_resource.getPassword().isEmpty())) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Empty Password not allowed");
 			}
 
