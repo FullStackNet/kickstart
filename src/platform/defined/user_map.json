@@ -39,6 +39,12 @@
 				'name':'notifications',
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'invites':
+			{
+				'name':'invites',
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}

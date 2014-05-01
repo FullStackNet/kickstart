@@ -1,5 +1,9 @@
 package platform.helper;
 
+import application.c4t.vehicle.school.helper.School_user_mapHelper;
+import application.c4t.vehicle.school.helper.StudentHelper;
+import application.c4t.vehicle.school.helper.Student_mapHelper;
+import application.c4t.vehicle.school.resource.student;
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
@@ -34,11 +38,16 @@ public class InviteHelper extends BaseHelper {
 		return null;
 	}
 
-	public invite getByMobileOrEmailId(String mobileno,String emailId) {
+	public invite getInvite(String mobileno,String emailId,String referenceId) {
+		if (mobileno == null) {
+			mobileno = "dummy";
+		}
 		Expression e1 = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
 		Expression e2 = new Expression(user.FIELD_EMAIL_ID, REL_OP.EQ, emailId);
-		Expression e = new Expression(e1, LOG_OP.OR, e2);
-
+		Expression e3 = new Expression(e1, LOG_OP.OR, e2);
+		Expression e4 = new Expression(invite.FIELD_REFERENCE_ID, REL_OP.EQ, referenceId);
+		Expression e = new Expression(e3, LOG_OP.AND, e4);
+			
 		BaseResource[] resources = getByExpression(e);
 		if (!Util.isEmpty(resources)) {
 			return (invite)resources[0];
@@ -46,6 +55,15 @@ public class InviteHelper extends BaseHelper {
 		return null;
 	}
 
+	public invite getByReferenceId(String referenceId) {
+		Expression e = new Expression(invite.FIELD_REFERENCE_ID, REL_OP.EQ, referenceId);
+		BaseResource[] resources = getByExpression(e);
+		if (!Util.isEmpty(resources)) {
+			return (invite)resources[0];
+		}
+		return null;
+	}
+	
 	public void updateStatus(String inviteId,String status) {
 		if (inviteId == null) return;
 		if (status == null) return;
@@ -86,5 +104,37 @@ public class InviteHelper extends BaseHelper {
 			return (invite)resources[0];
 		}
 		return null;
+	}
+	
+	public void parentInviteAccepted(invite _invite) throws ApplicationException {
+		user _user = UserHelper.getInstance().getByMobileOrEmailId(_invite.getMobile_no(), _invite.getEmail_id());
+		if (_user == null) {
+			_user = new user();
+			_user.setType(user.USER_TYPE_USER);
+		}
+		if (_user.getMobile_no() == null)
+			_user.setMobile_no(_invite.getMobile_no());
+		if (_user.getEmail_id() == null)
+			_user.setEmail_id(_invite.getEmail_id());
+		if (_user.getName() == null)
+			_user.setName(_invite.getName());
+		_user.setSchoolTrackerService("Y");
+		_user.setPassword(Util.doubleMD5(_invite.getPasswordEx()));
+		UserHelper.getInstance().AddOrUpdate(_user);
+		//Student_mapHelper.getInstance().addUser(_fetched_resource.getReference_id(), _user.getId());
+		//User_mapHelper.getInstance().addApplianr(userId, applianceId);
+		student _student = (student)StudentHelper.getInstance().getById(_invite.getReference_id());
+		if (_student != null) {
+			Student_mapHelper.getInstance().addUser(_student.getId(), _user.getId());
+			School_user_mapHelper.getInstance().addStudent(_user.getId(),_student.getId());
+		}
+	}
+	
+	public void acceptInvite(String id) throws ApplicationException {
+		invite _fetched_resource = (invite)getById(id);
+		if (invite.INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE.equals(_fetched_resource.getInvite_type())) {
+			// check the user if exists
+			InviteHelper.getInstance().parentInviteAccepted(_fetched_resource);
+		}
 	}
 }

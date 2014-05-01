@@ -28,6 +28,8 @@ public class LoginServlet extends BaseServlet {
 
 		login _login = (login)resource;
 		user _user = UserHelper.getInstance().getByEmailId(_login.getEmail_id());
+		if (_user == null)
+			_user = UserHelper.getInstance().getByMobileId(_login.getEmail_id());
 		ctx.setCustomerId(_user.getCustomer_id());
 		ctx.setUserId(_user.getId());
 		ctx.setUserName(_user.getName());

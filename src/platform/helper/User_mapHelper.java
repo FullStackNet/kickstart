@@ -52,6 +52,13 @@ public class User_mapHelper extends BaseHelper {
 		AddOrUpdate(_user_map);
 	}
 	
+	public void addInvite(String userId,String inviteId) throws ApplicationException {
+		user_map _user_map = new user_map();
+		_user_map.setId(userId);
+		_user_map.addInvites(inviteId);
+		AddOrUpdate(_user_map);
+	}
+	
 	public void addDevice(String userId,String deviceId) throws ApplicationException {
 		user_map _user_map = new user_map();
 		_user_map.setId(userId);
@@ -178,7 +185,12 @@ public class User_mapHelper extends BaseHelper {
 				new String[]{notification.FIELD_NOTIFICATION_TIME+" DESC"});
 	}
 	
-	
+	public BaseResource[] getInviteArray(String userId) {
+		user_map _map = (user_map)getSelectedFieldsById(userId,user_map.FIELD_INVITES);
+		if ((_map == null) || (_map.getInvites() == null))
+			return null;
+		return InviteHelper.getInstance().getArrayById(_map.getInvites().toArray(new String[_map.getInvites().size()]), null);
+	}
 	
 	public ArrayList<Map<String, Object>> getAlertsListMap(String applianceId) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
