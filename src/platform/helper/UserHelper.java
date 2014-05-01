@@ -56,10 +56,10 @@ public class UserHelper extends BaseHelper {
 	
 	public user getByMobileOrEmailId(String mobileno,String emailId) {
 		Expression e1 = null, e2 = null, e = null;
-		if (!mobileno.isEmpty()) {
+		if (mobileno != null) {
 			e1 = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
 		}
-		if (!emailId.isEmpty()) {
+		if (emailId != null) {
 			e2 = new Expression(user.FIELD_EMAIL_ID, REL_OP.EQ, emailId);
 		}
 		

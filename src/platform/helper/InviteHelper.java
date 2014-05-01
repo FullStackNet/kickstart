@@ -106,35 +106,36 @@ public class InviteHelper extends BaseHelper {
 		return null;
 	}
 	
-	public void parentInviteAccepted(invite _invite) throws ApplicationException {
-		user _user = UserHelper.getInstance().getByMobileOrEmailId(_invite.getMobile_no(), _invite.getEmail_id());
+	public void parentInviteAccepted(invite _invite, String userId ) throws ApplicationException {
+		//Student_mapHelper.getInstance().addUser(_fetched_resource.getReference_id(), _user.getId());
+		//User_mapHelper.getInstance().addApplianr(userId, applianceId);
+		student _student = (student)StudentHelper.getInstance().getById(_invite.getReference_id());
+		if (_student != null) {
+			Student_mapHelper.getInstance().addUser(_student.getId(), userId);
+			School_user_mapHelper.getInstance().addStudent(userId,_student.getId());
+		}
+	}
+	
+	public void acceptInvite(invite _invite) throws ApplicationException {
+		invite _fetched_resource = (invite)getById(_invite.getId());
+		user _user = UserHelper.getInstance().getByMobileOrEmailId(_fetched_resource.getMobile_no(), _fetched_resource.getEmail_id());
 		if (_user == null) {
 			_user = new user();
 			_user.setType(user.USER_TYPE_USER);
 		}
 		if (_user.getMobile_no() == null)
-			_user.setMobile_no(_invite.getMobile_no());
+			_user.setMobile_no(_fetched_resource.getMobile_no());
 		if (_user.getEmail_id() == null)
-			_user.setEmail_id(_invite.getEmail_id());
+			_user.setEmail_id(_fetched_resource.getEmail_id());
 		if (_user.getName() == null)
-			_user.setName(_invite.getName());
-		_user.setSchoolTrackerService("Y");
-		_user.setPassword(Util.doubleMD5(_invite.getPasswordEx()));
-		UserHelper.getInstance().AddOrUpdate(_user);
-		//Student_mapHelper.getInstance().addUser(_fetched_resource.getReference_id(), _user.getId());
-		//User_mapHelper.getInstance().addApplianr(userId, applianceId);
-		student _student = (student)StudentHelper.getInstance().getById(_invite.getReference_id());
-		if (_student != null) {
-			Student_mapHelper.getInstance().addUser(_student.getId(), _user.getId());
-			School_user_mapHelper.getInstance().addStudent(_user.getId(),_student.getId());
-		}
-	}
-	
-	public void acceptInvite(String id) throws ApplicationException {
-		invite _fetched_resource = (invite)getById(id);
+			_user.setName(_fetched_resource.getName());
+		if (_invite.getPasswordEx() != null)
+			_user.setPassword(Util.doubleMD5(_invite.getPasswordEx()));
 		if (invite.INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE.equals(_fetched_resource.getInvite_type())) {
 			// check the user if exists
-			InviteHelper.getInstance().parentInviteAccepted(_fetched_resource);
+			_user.setSchoolTrackerService("Y");
+			InviteHelper.getInstance().parentInviteAccepted(_fetched_resource, _user.getId());
 		}
+		UserHelper.getInstance().AddOrUpdate(_user);
 	}
 }
