@@ -35,6 +35,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_SERVER_PORT = "server_port";
 	public static String PROPERTY_OBD_SERVER = "obd_server";
 	public static String PROPERTY_V3_SERVER = "v3_server";
+	public static String PROPERTY_CISTRACKER_SERVER = "cistracker_server";
 	public static String PROPERTY_OBD_SERVER_PORT = "obd_server_port";
 	public static String PROPERTY_DC_SERVER_PORT = "dc_server_port";
 	public static String PROPERTY_V3_SERVER_PORT = "v3_server_port";
@@ -45,6 +46,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_REGISTERED_OBD = "registered_obd";
 	public static String PROPERTY_OBD_DATA_SEND_INTERVAL = "obd_data_send_interval";
 	public static String PROPERTY_V3_DATA_SEND_INTERVAL = "v3_data_send_interval";
+	public static String PROPERTY_DATA_SEND_INTERVAL = "data_send_interval";
 	public static String PROPERTY_OBD_AUTHORIZED_PHONE_NUMBER = "obd_authorized_phone_number";	
 	public static String PROPERTY_OBD_LISTEN_IN_PHONE_NUMBER = "obd_listen_in_phone_number";	
 	public static String PROPERTY_OBD_GPS_LOG_INTERVAL = "obd_gps_log_interval";		
