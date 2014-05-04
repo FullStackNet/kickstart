@@ -69,6 +69,10 @@
 			{
 				'type':'long'
 			},
+			'reached_duration':
+			{
+				'type':'int'
+			},
 			'stopage_radius':
 			{
 				'type':'double',

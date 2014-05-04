@@ -31,6 +31,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private Double distance_from_previous_stop = null;
 	private Integer time_from_previous_stop = null;
 	private Long reached_time = null;
+	private Integer reached_duration = null;
 	private Double stopage_radius = null;
 
 	public static String FIELD_ID = "id";
@@ -45,6 +46,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	public static String FIELD_DISTANCE_FROM_PREVIOUS_STOP = "distance_from_previous_stop";
 	public static String FIELD_TIME_FROM_PREVIOUS_STOP = "time_from_previous_stop";
 	public static String FIELD_REACHED_TIME = "reached_time";
+	public static String FIELD_REACHED_DURATION = "reached_duration";
 	public static String FIELD_STOPAGE_RADIUS = "stopage_radius";
 
 	private static final long serialVersionUID = 1L;
@@ -95,6 +97,9 @@ public abstract class Baseroute_stopage extends BaseResource {
 		Field reached_timeField = new Field("reached_time", "long");
 		metaData.addField(reached_timeField);
 
+		Field reached_durationField = new Field("reached_duration", "int");
+		metaData.addField(reached_durationField);
+
 		Field stopage_radiusField = new Field("stopage_radius", "double");
 		stopage_radiusField.setDefaultValue(50.0);
 		metaData.addField(stopage_radiusField);
@@ -120,6 +125,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		this.distance_from_previous_stop = obj.distance_from_previous_stop;
 		this.time_from_previous_stop = obj.time_from_previous_stop;
 		this.reached_time = obj.reached_time;
+		this.reached_duration = obj.reached_duration;
 		this.stopage_radius = obj.stopage_radius;
 	}
 
@@ -160,6 +166,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("time_from_previous_stop", time_from_previous_stop);
 		if(reached_time != null)
 			map.put("reached_time", reached_time);
+		if(reached_duration != null)
+			map.put("reached_duration", reached_duration);
 		if(stopage_radius != null)
 			map.put("stopage_radius", stopage_radius);
 		return map;
@@ -194,6 +202,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("time_from_previous_stop", time_from_previous_stop);
 		if(reached_time != null)
 			map.put("reached_time", reached_time);
+		if(reached_duration != null)
+			map.put("reached_duration", reached_duration);
 		if(stopage_radius != null)
 			map.put("stopage_radius", stopage_radius);
 		return map;
@@ -215,6 +225,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		distance_from_previous_stop = (Double) map.get("distance_from_previous_stop");
 		time_from_previous_stop = (Integer) map.get("time_from_previous_stop");
 		reached_time = (Long) map.get("reached_time");
+		reached_duration = (Integer) map.get("reached_duration");
 		stopage_radius = (Double) map.get("stopage_radius");
 	}
 
@@ -258,6 +269,10 @@ public abstract class Baseroute_stopage extends BaseResource {
 		Object reached_timeObj = map.get("reached_time");
 		if(reached_timeObj != null)
 			reached_time = new Long(reached_timeObj.toString());
+
+		Object reached_durationObj = map.get("reached_duration");
+		if(reached_durationObj != null)
+			reached_duration = new Integer(reached_durationObj.toString());
 
 		Object stopage_radiusObj = map.get("stopage_radius");
 		if(stopage_radiusObj != null)
@@ -497,6 +512,26 @@ public abstract class Baseroute_stopage extends BaseResource {
 
 	public void unSetReached_time() {
 		this.reached_time = null;
+	}
+
+	public Integer getReached_duration() {
+		return reached_duration;
+	}
+
+	public int getReached_durationEx() {
+		return reached_duration != null ? reached_duration : 0;
+	}
+
+	public void setReached_duration(int reached_duration) {
+		this.reached_duration = reached_duration;
+	}
+
+	public void setReached_duration(Integer reached_duration) {
+		this.reached_duration = reached_duration;
+	}
+
+	public void unSetReached_duration() {
+		this.reached_duration = null;
 	}
 
 	public Double getStopage_radius() {

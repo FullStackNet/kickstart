@@ -111,20 +111,28 @@ public class Route_stopageHelper extends BaseHelper {
 						if (timediff > duration) {
 							 lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
 							_route_stopage.setReached_time(lastReachTime);
+							 long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
+							_route_stopage.setReached_duration((int)(lastReachTime-current_time));
 						} else {
+							long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
 							lastReachTime = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date(_route_stopage.getReached_time()));
 							_route_stopage.setReached_time(lastReachTime);
 							_route_stopage.setReached("Y");
+							_route_stopage.setReached_duration((int)(current_time - lastReachTime));
 						}
 					} else {
 						 System.out.println("getReached_time is null");
 						 lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
 						_route_stopage.setReached_time(lastReachTime);
+						 long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
+						_route_stopage.setReached_duration((int)(lastReachTime-current_time));
 					}
 				} else {
 					 System.out.println("Invalid Route");
 					 lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
 					_route_stopage.setReached_time(lastReachTime);
+					 long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
+					_route_stopage.setReached_duration((int)(lastReachTime-current_time));
 				}
 			}
 		}
