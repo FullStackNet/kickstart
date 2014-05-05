@@ -81,6 +81,8 @@ public class Route_stopageHelper extends BaseHelper {
 	}
 
 	public route_stopage getRealTimeStopage(String routeStopageId) {
+		if (routeStopageId == null)
+			return null;
 		route_stopage _route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(routeStopageId);
 		if (_route_stopage != null) {
 			route _route  = (route) RouteHelper.getInstance().getById(_route_stopage.getRoute_id());
