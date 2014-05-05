@@ -39,9 +39,8 @@
 			'last_open_time': {
 				'type':'long'		
 			},
-			'message': {
-				'type':'String',
-				'transient' : true		
+			'message_text': {
+				'type':'String'		
 			}
 		}
 	}

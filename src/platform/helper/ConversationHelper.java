@@ -41,7 +41,7 @@ public class ConversationHelper extends BaseHelper {
 			}
 			conversation messageResource = new conversation();
 			messageResource.setMessage_time(Long.parseLong(time));
-			messageResource.setMessage(message);
+			messageResource.setMessage_text(message);
 			list.add(messageResource);
 		}
 		return list.toArray(new conversation[list.size()]);

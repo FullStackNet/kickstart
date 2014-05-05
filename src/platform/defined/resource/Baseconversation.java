@@ -22,13 +22,13 @@ public abstract class Baseconversation extends BaseResource {
 	private String id = null;
 	private String to_user_id = null;
 	private Long message_time = null;
-	private String message = null;
+	private String message_text = null;
 	private ArrayList<Object> messages = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TO_USER_ID = "to_user_id";
 	public static String FIELD_MESSAGE_TIME = "message_time";
-	public static String FIELD_MESSAGE = "message";
+	public static String FIELD_MESSAGE_TEXT = "message_text";
 	public static String FIELD_MESSAGES = "messages";
 
 	private static final long serialVersionUID = 1L;
@@ -57,7 +57,7 @@ public abstract class Baseconversation extends BaseResource {
 		this.id = obj.id;
 		this.to_user_id = obj.to_user_id;
 		this.message_time = obj.message_time;
-		this.message = obj.message;
+		this.message_text = obj.message_text;
 		this.messages = obj.messages;
 	}
 
@@ -73,8 +73,8 @@ public abstract class Baseconversation extends BaseResource {
 			map.put("to_user_id", to_user_id);
 		if(message_time != null)
 			map.put("message_time", message_time);
-		if(message != null)
-			map.put("message", message);
+		if(message_text != null)
+			map.put("message_text", message_text);
 		if(messages != null)
 			map.put("messages", messages);
 		return map;
@@ -88,8 +88,8 @@ public abstract class Baseconversation extends BaseResource {
 			map.put("to_user_id", to_user_id);
 		if(message_time != null)
 			map.put("message_time", message_time);
-		if(message != null)
-			map.put("message", message);
+		if(message_text != null)
+			map.put("message_text", message_text);
 		if(messages != null)
 			map.put("messages", messages);
 		return map;
@@ -177,20 +177,20 @@ public abstract class Baseconversation extends BaseResource {
 		this.message_time = null;
 	}
 
-	public String getMessage() {
-		return message;
+	public String getMessage_text() {
+		return message_text;
 	}
 
-	public String getMessageEx() {
-		return message != null ? message : "";
+	public String getMessage_textEx() {
+		return message_text != null ? message_text : "";
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMessage_text(String message_text) {
+		this.message_text = message_text;
 	}
 
-	public void unSetMessage() {
-		this.message = null;
+	public void unSetMessage_text() {
+		this.message_text = null;
 	}
 
 	public ArrayList<Object> getMessages() {

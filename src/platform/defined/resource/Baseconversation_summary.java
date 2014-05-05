@@ -25,7 +25,7 @@ public abstract class Baseconversation_summary extends BaseResource {
 	private String from_user_name = null;
 	private Long message_time = null;
 	private Long last_open_time = null;
-	private String message = null;
+	private String message_text = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_USER_ID = "user_id";
@@ -33,7 +33,7 @@ public abstract class Baseconversation_summary extends BaseResource {
 	public static String FIELD_FROM_USER_NAME = "from_user_name";
 	public static String FIELD_MESSAGE_TIME = "message_time";
 	public static String FIELD_LAST_OPEN_TIME = "last_open_time";
-	public static String FIELD_MESSAGE = "message";
+	public static String FIELD_MESSAGE_TEXT = "message_text";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("conversation_summary");
@@ -68,6 +68,9 @@ public abstract class Baseconversation_summary extends BaseResource {
 		Field last_open_timeField = new Field("last_open_time", "long");
 		metaData.addField(last_open_timeField);
 
+		Field message_textField = new Field("message_text", "String");
+		metaData.addField(message_textField);
+
 
 		metaData.setTableName("conversation_summary");
 
@@ -83,7 +86,7 @@ public abstract class Baseconversation_summary extends BaseResource {
 		this.from_user_name = obj.from_user_name;
 		this.message_time = obj.message_time;
 		this.last_open_time = obj.last_open_time;
-		this.message = obj.message;
+		this.message_text = obj.message_text;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -104,8 +107,8 @@ public abstract class Baseconversation_summary extends BaseResource {
 			map.put("message_time", message_time);
 		if(last_open_time != null)
 			map.put("last_open_time", last_open_time);
-		if(message != null)
-			map.put("message", message);
+		if(message_text != null)
+			map.put("message_text", message_text);
 		return map;
 	}
 
@@ -123,8 +126,8 @@ public abstract class Baseconversation_summary extends BaseResource {
 			map.put("message_time", message_time);
 		if(last_open_time != null)
 			map.put("last_open_time", last_open_time);
-		if(message != null)
-			map.put("message", message);
+		if(message_text != null)
+			map.put("message_text", message_text);
 		return map;
 	}
 
@@ -140,6 +143,7 @@ public abstract class Baseconversation_summary extends BaseResource {
 		from_user_name = (String) map.get("from_user_name");
 		message_time = (Long) map.get("message_time");
 		last_open_time = (Long) map.get("last_open_time");
+		message_text = (String) map.get("message_text");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -166,6 +170,10 @@ public abstract class Baseconversation_summary extends BaseResource {
 		Object last_open_timeObj = map.get("last_open_time");
 		if(last_open_timeObj != null)
 			last_open_time = new Long(last_open_timeObj.toString());
+
+		Object message_textObj = map.get("message_text");
+		if(message_textObj != null)
+			message_text = message_textObj.toString();
 
 	}
 
@@ -303,20 +311,20 @@ public abstract class Baseconversation_summary extends BaseResource {
 		this.last_open_time = null;
 	}
 
-	public String getMessage() {
-		return message;
+	public String getMessage_text() {
+		return message_text;
 	}
 
-	public String getMessageEx() {
-		return message != null ? message : "";
+	public String getMessage_textEx() {
+		return message_text != null ? message_text : "";
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMessage_text(String message_text) {
+		this.message_text = message_text;
 	}
 
-	public void unSetMessage() {
-		this.message = null;
+	public void unSetMessage_text() {
+		this.message_text = null;
 	}
 	public String getCluster() {
 		return "DB_LOG";

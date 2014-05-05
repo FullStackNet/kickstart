@@ -21,7 +21,7 @@
 				'type':'long',
 				'transient' : true		
 			},
-			'message': {
+			'message_text': {
 				'type':'String',
 				'length':  1024,
 				'transient' : true		

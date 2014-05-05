@@ -126,7 +126,7 @@ public class DbManager {
 					
 					for(BaseResource resource : resources) {
 						cluster cluster = (cluster)resource;
-						MySQLDBConnection connection = new MySQLDBConnection(cluster.getId(),cluster.getCluster(),cluster.getServer(), cluster.getUser_name(),cluster.getPassword(),cluster.getDb_name());
+						MySQLDBConnection connection = new MySQLDBConnection(cluster.getId(),cluster.getCluster_name(),cluster.getServer(), cluster.getUser_name(),cluster.getPassword(),cluster.getDb_name());
 						connectionList.add(connection);
 					}
 					connectionMap.put("main",connectionList);
@@ -145,7 +145,7 @@ public class DbManager {
 					cluster cluster = (cluster)resource;
 					i = 0;
 					while (i < MAX_MYSQL_CONNECTIONS) { 
-						MySQLDBConnection connection = new MySQLDBConnection(cluster.getId(),cluster.getCluster(),cluster.getServer(), cluster.getUser_name(),cluster.getPassword(),cluster.getDb_name());
+						MySQLDBConnection connection = new MySQLDBConnection(cluster.getId(),cluster.getCluster_name(),cluster.getServer(), cluster.getUser_name(),cluster.getPassword(),cluster.getDb_name());
 						connectionList.add(connection);
 						i++;
 					}
@@ -186,7 +186,7 @@ public class DbManager {
 						throw new ApplicationException(-1," Cluster not found -> "+clusterName+"::"+resourceName+"::"+keyValue);
 					for(BaseResource resource : resources) {
 						cluster cluster = (cluster)resource;
-						MongoDBConnection connection = new MongoDBConnection(cluster.getId(),cluster.getCluster(),cluster.getServer(),cluster.getPort(),cluster.getUser_name(),cluster.getPassword(),cluster.getDb_name());
+						MongoDBConnection connection = new MongoDBConnection(cluster.getId(),cluster.getCluster_name(),cluster.getServer(),cluster.getPort(),cluster.getUser_name(),cluster.getPassword(),cluster.getDb_name());
 						connectionList.add(connection);
 					}
 					connectionMap.put(DBNameEnum.DB_CONFIG.toString(),connectionList);
@@ -207,7 +207,7 @@ public class DbManager {
 					cluster cluster = (cluster)resource;
 					i = 0;
 					while (i < MAX_MONGO_DB_CONNECTIONS) { 
-						MongoDBConnection connection = new MongoDBConnection(cluster.getId(),cluster.getCluster(),cluster.getServer(),cluster.getPort(),cluster.getUser_name(),cluster.getPassword(),cluster.getDb_name());
+						MongoDBConnection connection = new MongoDBConnection(cluster.getId(),cluster.getCluster_name(),cluster.getServer(),cluster.getPort(),cluster.getUser_name(),cluster.getPassword(),cluster.getDb_name());
 						connectionList.add(connection);
 						i++;
 					}
