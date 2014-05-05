@@ -102,6 +102,17 @@ public class Route_stopageHelper extends BaseHelper {
 		if (_student == null) return null;
 		route_stopage real_time_pickup_route_stopage =  getRealTimeStopage(_student.getPickup_route_stopage_id());
 		route_stopage real_time_dropped_route_stopage =  getRealTimeStopage(_student.getDropped_route_stopage_id());
+		if ((real_time_pickup_route_stopage == null) && (real_time_dropped_route_stopage == null)) {
+			return null;
+		}
+		if ((real_time_pickup_route_stopage == null) && (real_time_dropped_route_stopage != null)) {
+			return getRouteStopageDetail(real_time_dropped_route_stopage.getRoute_id());
+		}
+		
+		if ((real_time_pickup_route_stopage != null) && (real_time_dropped_route_stopage == null)) {
+			return getRouteStopageDetail(real_time_pickup_route_stopage.getRoute_id());
+		}
+		
 		if (real_time_dropped_route_stopage.getReached_durationEx() < real_time_pickup_route_stopage.getReached_durationEx()) {
 			return getRouteStopageDetail(real_time_dropped_route_stopage.getRoute_id());
 		}
