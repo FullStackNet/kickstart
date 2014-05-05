@@ -17,10 +17,12 @@ import platform.util.Util;
 import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.resource.route_stopage;
 import application.c4t.vehicle.resource.stopage;
+import application.c4t.vehicle.school.helper.StudentHelper;
+import application.c4t.vehicle.school.resource.student;
 
 
 public class Route_stopageHelper extends BaseHelper {
-	
+
 	public Route_stopageHelper(BaseResource resource) {
 		super(resource);
 		// TODO Auto-generated constructor stub
@@ -31,18 +33,18 @@ public class Route_stopageHelper extends BaseHelper {
 		// TODO Auto-generated constructor stub
 	}
 	private static Route_stopageHelper instance;
-	
+
 	public static Route_stopageHelper getInstance() {
 		if (instance == null)
 			instance = new Route_stopageHelper();
 		return instance;
 	}
-	
+
 	public BaseResource[] getRouteStopageByRouteId(String routeId) {
 		Expression expression = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.EQ, routeId);
 		return getByExpression(expression);
 	}
-	
+
 	public void updateReachedTime(String routeStopageId) {
 		route_stopage _route_stopage = new route_stopage();
 		_route_stopage.setId(routeStopageId);
@@ -54,7 +56,7 @@ public class Route_stopageHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public ArrayList<Map<String, Object>> getRouteStopageListMap(String routeId,ArrayList<JoinField> joinFields) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		Expression expression = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.EQ, routeId);
@@ -66,17 +68,46 @@ public class Route_stopageHelper extends BaseHelper {
 		}
 		return list;
 	}
-	
+
 	boolean isValidRoute(route _route, Date logTime , String timeZone) {
 		long logDaytime = TimeUtil.getDayTime(timeZone,logTime);
 		long routeStartDayTime = TimeUtil.getDayTime(_route.getStart_time());
 		long routeEndDayTime = TimeUtil.getDayTime(_route.getEnd_time());
 		if ((logDaytime >= routeStartDayTime) &&
 				(logDaytime <= routeEndDayTime)) {
-				return true;	
+			return true;	
 		}
 		return false;
 	}
+
+	public route_stopage getRealTimeStopage(String routeStopageId) {
+		route_stopage _route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(routeStopageId);
+		if (_route_stopage != null) {
+			route _route  = (route) RouteHelper.getInstance().getById(_route_stopage.getRoute_id());
+			if (_route != null) {
+				BaseResource[] _route_stopages = getRouteStopageDetail(_route.getId());
+				for(BaseResource resource : _route_stopages) {
+					route_stopage realtime_route_stopage = (route_stopage)resource;
+					if (realtime_route_stopage.getId() == routeStopageId) {
+						return realtime_route_stopage;
+					}
+				}
+			}
+		}
+		return null;
+	}
+	
+	public BaseResource[] getClosedRouteStopageDetailByStudent(String studentId) {
+		student _student = (student) StudentHelper.getInstance().getById(studentId);
+		if (_student == null) return null;
+		route_stopage real_time_pickup_route_stopage =  getRealTimeStopage(_student.getPickup_route_stopage_id());
+		route_stopage real_time_dropped_route_stopage =  getRealTimeStopage(_student.getDropped_route_stopage_id());
+		if (real_time_dropped_route_stopage.getReached_durationEx() < real_time_pickup_route_stopage.getReached_durationEx()) {
+			return getRouteStopageDetail(real_time_dropped_route_stopage.getRoute_id());
+		}
+		return getRouteStopageDetail(real_time_pickup_route_stopage.getRoute_id());
+	}
+	
 	
 	public BaseResource[] getRouteStopageDetail(String routeId) {
 		BaseResource[] resources = null;
@@ -86,7 +117,7 @@ public class Route_stopageHelper extends BaseHelper {
 		appliance _appliance = ApplianceHelper.getInstance().getById(_route.getAppliance_id());
 		if (_appliance == null)
 			return null;
-		
+
 		boolean valid_route = isValidRoute(_route, new Date(), _appliance.getTimeZone());
 		long lastReachTime = TimeUtil.getDayTime(_route.getStart_time());
 		Expression expression = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.EQ, routeId);
@@ -107,11 +138,11 @@ public class Route_stopageHelper extends BaseHelper {
 						long routeEndDayTime = TimeUtil.getDayTime(_route.getEnd_time());
 						long duration = (routeEndDayTime -routeStartDayTime)*1000 + (5*60*1000L);
 						System.out.println("Duration"+duration +"routeEndDayTime : "+routeEndDayTime+"routeStartDayTime : "+routeStartDayTime+", timediff :"+timediff+" currentTime :" + currentTime + "_route_stopage.getReached_time()"+new Date(_route_stopage.getReached_time()));
-						
+
 						if (timediff > duration) {
-							 lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
+							lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
 							_route_stopage.setReached_time(lastReachTime);
-							 long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
+							long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
 							_route_stopage.setReached_duration((int)(lastReachTime-current_time));
 						} else {
 							long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
@@ -121,22 +152,22 @@ public class Route_stopageHelper extends BaseHelper {
 							_route_stopage.setReached_duration((int)(current_time - lastReachTime));
 						}
 					} else {
-						 System.out.println("getReached_time is null");
-						 lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
+						System.out.println("getReached_time is null");
+						lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
 						_route_stopage.setReached_time(lastReachTime);
-						 long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
+						long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
 						_route_stopage.setReached_duration((int)(lastReachTime-current_time));
 					}
 				} else {
-					 System.out.println("Invalid Route");
-					 lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
+					System.out.println("Invalid Route");
+					lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
 					_route_stopage.setReached_time(lastReachTime);
-					 long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
+					long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
 					_route_stopage.setReached_duration((int)(lastReachTime-current_time));
 				}
 			}
 		}
 		return resources;
 	}
-	
+
 }
