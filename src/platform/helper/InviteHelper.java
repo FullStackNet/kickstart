@@ -134,6 +134,7 @@ public class InviteHelper extends BaseHelper {
 		if (invite.INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE.equals(_fetched_resource.getInvite_type())) {
 			// check the user if exists
 			_user.setSchoolTrackerService("Y");
+			_user.setParentService("Y");
 			InviteHelper.getInstance().parentInviteAccepted(_fetched_resource, _user.getId());
 		}
 		UserHelper.getInstance().AddOrUpdate(_user);
