@@ -57,21 +57,35 @@
 				'length': 32,
 				'type':'String'
 			},
-			
+			'parentService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'teacherService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'fleetService':
 			{
 				'length': 1,
-				'type':'String'
+				'type':'String',
+				'default' : "N"
 			},
 			'schoolTrackerService':
 			{
 				'length': 1,
-				'type':'String'
+				'type':'String',
+				'default' : "N"
 			},
 			'dgService':
 			{
 				'length': 1,
-				'type':'String'
+				'type':'String',
+				'default' : "N"
 			},
 			'key':
 			{
@@ -81,7 +95,8 @@
 			'routeSettingService':
 			{
 				'length': 1,
-				'type':'String'
+				'type':'String',
+				'default' : "N"
 			}			
 		}
 	}

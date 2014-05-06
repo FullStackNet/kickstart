@@ -27,6 +27,8 @@ public abstract class Baseuser extends BaseResource {
 	private String email_id = null;
 	private String customer_id = null;
 	private String state = null;
+	private String parentService = null;
+	private String teacherService = null;
 	private String fleetService = null;
 	private String schoolTrackerService = null;
 	private String dgService = null;
@@ -41,6 +43,8 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_STATE = "state";
+	public static String FIELD_PARENTSERVICE = "parentService";
+	public static String FIELD_TEACHERSERVICE = "teacherService";
 	public static String FIELD_FLEETSERVICE = "fleetService";
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
@@ -90,15 +94,28 @@ public abstract class Baseuser extends BaseResource {
 		stateField.setLength(32);
 		metaData.addField(stateField);
 
+		Field parentServiceField = new Field("parentService", "String");
+		parentServiceField.setDefaultValue("N");
+		parentServiceField.setLength(1);
+		metaData.addField(parentServiceField);
+
+		Field teacherServiceField = new Field("teacherService", "String");
+		teacherServiceField.setDefaultValue("N");
+		teacherServiceField.setLength(1);
+		metaData.addField(teacherServiceField);
+
 		Field fleetServiceField = new Field("fleetService", "String");
+		fleetServiceField.setDefaultValue("N");
 		fleetServiceField.setLength(1);
 		metaData.addField(fleetServiceField);
 
 		Field schoolTrackerServiceField = new Field("schoolTrackerService", "String");
+		schoolTrackerServiceField.setDefaultValue("N");
 		schoolTrackerServiceField.setLength(1);
 		metaData.addField(schoolTrackerServiceField);
 
 		Field dgServiceField = new Field("dgService", "String");
+		dgServiceField.setDefaultValue("N");
 		dgServiceField.setLength(1);
 		metaData.addField(dgServiceField);
 
@@ -107,6 +124,7 @@ public abstract class Baseuser extends BaseResource {
 		metaData.addField(keyField);
 
 		Field routeSettingServiceField = new Field("routeSettingService", "String");
+		routeSettingServiceField.setDefaultValue("N");
 		routeSettingServiceField.setLength(1);
 		metaData.addField(routeSettingServiceField);
 
@@ -127,6 +145,8 @@ public abstract class Baseuser extends BaseResource {
 		this.email_id = obj.email_id;
 		this.customer_id = obj.customer_id;
 		this.state = obj.state;
+		this.parentService = obj.parentService;
+		this.teacherService = obj.teacherService;
 		this.fleetService = obj.fleetService;
 		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
@@ -136,6 +156,21 @@ public abstract class Baseuser extends BaseResource {
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(parentService == null)
+			parentService = "N";
+		if(teacherService == null)
+			teacherService = "N";
+		if(fleetService == null)
+			fleetService = "N";
+		if(schoolTrackerService == null)
+			schoolTrackerService = "N";
+		if(dgService == null)
+			dgService = "N";
+		if(routeSettingService == null)
+			routeSettingService = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -156,6 +191,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(state != null)
 			map.put("state", state);
+		if(parentService != null)
+			map.put("parentService", parentService);
+		if(teacherService != null)
+			map.put("teacherService", teacherService);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
 		if(schoolTrackerService != null)
@@ -170,6 +209,9 @@ public abstract class Baseuser extends BaseResource {
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -187,6 +229,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(state != null)
 			map.put("state", state);
+		if(parentService != null)
+			map.put("parentService", parentService);
+		if(teacherService != null)
+			map.put("teacherService", teacherService);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
 		if(schoolTrackerService != null)
@@ -214,6 +260,8 @@ public abstract class Baseuser extends BaseResource {
 		email_id = (String) map.get("email_id");
 		customer_id = (String) map.get("customer_id");
 		state = (String) map.get("state");
+		parentService = (String) map.get("parentService");
+		teacherService = (String) map.get("teacherService");
 		fleetService = (String) map.get("fleetService");
 		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
@@ -253,6 +301,14 @@ public abstract class Baseuser extends BaseResource {
 		Object stateObj = map.get("state");
 		if(stateObj != null)
 			state = stateObj.toString();
+
+		Object parentServiceObj = map.get("parentService");
+		if(parentServiceObj != null)
+			parentService = parentServiceObj.toString();
+
+		Object teacherServiceObj = map.get("teacherService");
+		if(teacherServiceObj != null)
+			teacherService = teacherServiceObj.toString();
 
 		Object fleetServiceObj = map.get("fleetService");
 		if(fleetServiceObj != null)
@@ -428,12 +484,32 @@ public abstract class Baseuser extends BaseResource {
 		this.state = null;
 	}
 
-	public String getFleetService() {
-		return fleetService;
+	public String getParentService() {
+		return parentService != null ? parentService : "N";
 	}
 
-	public String getFleetServiceEx() {
-		return fleetService != null ? fleetService : "";
+	public void setParentService(String parentService) {
+		this.parentService = parentService;
+	}
+
+	public void unSetParentService() {
+		this.parentService = "N";
+	}
+
+	public String getTeacherService() {
+		return teacherService != null ? teacherService : "N";
+	}
+
+	public void setTeacherService(String teacherService) {
+		this.teacherService = teacherService;
+	}
+
+	public void unSetTeacherService() {
+		this.teacherService = "N";
+	}
+
+	public String getFleetService() {
+		return fleetService != null ? fleetService : "N";
 	}
 
 	public void setFleetService(String fleetService) {
@@ -441,15 +517,11 @@ public abstract class Baseuser extends BaseResource {
 	}
 
 	public void unSetFleetService() {
-		this.fleetService = null;
+		this.fleetService = "N";
 	}
 
 	public String getSchoolTrackerService() {
-		return schoolTrackerService;
-	}
-
-	public String getSchoolTrackerServiceEx() {
-		return schoolTrackerService != null ? schoolTrackerService : "";
+		return schoolTrackerService != null ? schoolTrackerService : "N";
 	}
 
 	public void setSchoolTrackerService(String schoolTrackerService) {
@@ -457,15 +529,11 @@ public abstract class Baseuser extends BaseResource {
 	}
 
 	public void unSetSchoolTrackerService() {
-		this.schoolTrackerService = null;
+		this.schoolTrackerService = "N";
 	}
 
 	public String getDgService() {
-		return dgService;
-	}
-
-	public String getDgServiceEx() {
-		return dgService != null ? dgService : "";
+		return dgService != null ? dgService : "N";
 	}
 
 	public void setDgService(String dgService) {
@@ -473,7 +541,7 @@ public abstract class Baseuser extends BaseResource {
 	}
 
 	public void unSetDgService() {
-		this.dgService = null;
+		this.dgService = "N";
 	}
 
 	public String getKey() {
@@ -493,11 +561,7 @@ public abstract class Baseuser extends BaseResource {
 	}
 
 	public String getRouteSettingService() {
-		return routeSettingService;
-	}
-
-	public String getRouteSettingServiceEx() {
-		return routeSettingService != null ? routeSettingService : "";
+		return routeSettingService != null ? routeSettingService : "N";
 	}
 
 	public void setRouteSettingService(String routeSettingService) {
@@ -505,7 +569,7 @@ public abstract class Baseuser extends BaseResource {
 	}
 
 	public void unSetRouteSettingService() {
-		this.routeSettingService = null;
+		this.routeSettingService = "N";
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

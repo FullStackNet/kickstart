@@ -90,7 +90,7 @@ public class Route_stopageHelper extends BaseHelper {
 				BaseResource[] _route_stopages = getRouteStopageDetail(_route.getId());
 				for(BaseResource resource : _route_stopages) {
 					route_stopage realtime_route_stopage = (route_stopage)resource;
-					if (realtime_route_stopage.getId() == routeStopageId) {
+					if (realtime_route_stopage.getId().equals(routeStopageId)) {
 						return realtime_route_stopage;
 					}
 				}

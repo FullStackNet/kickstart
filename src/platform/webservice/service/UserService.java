@@ -195,16 +195,10 @@ public class UserService extends BaseService{
 			if (userId == null) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Session is expired or not authenticated.");
 			}
-			user _fetchedUser = (user)UserHelper.getInstance().getById(userId);
-			if (_fetchedUser == null) {
+			user _user = (user)UserHelper.getInstance().getById(userId);
+			if (_user == null) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid user");
 			}
-			
-			user _user = new user(_fetchedUser.getId());
-			_user.setDgService(_fetchedUser.getDgService());
-			_user.setFleetService(_fetchedUser.getFleetService());
-			_user.setSchoolTrackerService(_fetchedUser.getSchoolTrackerService());
-			_user.setRouteSettingService(_fetchedUser.getRouteSettingService());
 			return new user[]{_user};
 		} 
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_QUERY);
