@@ -16,4 +16,6 @@ public abstract class SensorManager {
 		public abstract void configAudit(Sensor Sensor);
 		public abstract void updateFirmware(Sensor Sensor,byte majorVersion,long minorVersion);
 		public abstract void configure(Sensor Sensor,String configure);
+		public abstract String getType();
+		
 }
