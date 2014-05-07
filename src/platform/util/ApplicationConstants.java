@@ -8,6 +8,7 @@ public class ApplicationConstants {
 	public static String V3_CONFIGURATION_FILE = "v3";
 	public static String V3TRACKER_CONFIGURATION_FILE = "v3tracker";
 	public static String CISTRACKER_CONFIGURATION_FILE = "cistracker";
+	public static String ACPTRACKER_CONFIGURATION_FILE = "acptracker";
 	public static int PROCESS_WAIT_TIME_BEFORE_EXIT = 10000;
 	
 	public static String DB_FILE = "db";
@@ -41,6 +42,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_V3_SERVER_PORT = "v3_server_port";
 	public static String PROPERTY_V3TRACKER_SERVER_PORT = "v3tracker_server_port";
 	public static String PROPERTY_CISTRACKER_SERVER_PORT = "cistracker_server_port";
+	public static String PROPERTY_ACPTRACKER_SERVER_PORT = "acptracker_server_port";
 	public static String PROPERTY_MAX_CONNECTIONS = "max_connections";
 	public static String PROPERTY_SIMULATORS = "simulators";
 	public static String PROPERTY_REGISTERED_OBD = "registered_obd";
@@ -78,7 +80,7 @@ public class ApplicationConstants {
 	public static int	V3_DEFAULT_PORT = 5385;
 	public static int	V3TRACKER_DEFAULT_PORT = 5387;
 	public static int	CISTRACKER_DEFAULT_PORT = 5389;
-	public static int	ACPTRACKER_DEFAULT_PORT = 5388;
+	public static int	ACPTRACKER_DEFAULT_PORT = 5391;
 	public static String DEFAULT_DB_SERVER = "localhost";
 	public static String DEFAULT_DB_USERNAME = "root";
 	public static String SESSION_ID = "session_id";
