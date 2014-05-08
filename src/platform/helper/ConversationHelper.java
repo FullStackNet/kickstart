@@ -24,13 +24,16 @@ public class ConversationHelper extends BaseHelper {
 	public BaseResource[] getConversation(String userId, String toUserID,String last_conversation_time) {
 		String id = conversation.id(userId, toUserID);
 		conversation _resource = (conversation)getById(id);
-		if (Util.isEmpty(_resource.getMessages()))
+		if ((_resource == null ) || Util.isEmpty(_resource.getMessages()))
 				return null;
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		for(int i =0; i < _resource.getMessages().size() ; i++) {
 			String message = (String)_resource.getMessages().get(i);
 			int pos = message.indexOf(":");
-			String time = message.substring(0, pos-1);
+			String direction = message.substring(0, pos);
+			message = message.substring(pos+1);
+			pos = message.indexOf(":");
+			String time = message.substring(0, pos);
 			message = message.substring(pos+1);
 					
 			if (last_conversation_time != null) {
@@ -42,6 +45,7 @@ public class ConversationHelper extends BaseHelper {
 			conversation messageResource = new conversation();
 			messageResource.setMessage_time(Long.parseLong(time));
 			messageResource.setMessage_text(message);
+			messageResource.setDirection(direction);
 			list.add(messageResource);
 		}
 		return list.toArray(new conversation[list.size()]);

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 import platform.db.Expression;
 import platform.db.JoinField;
 import platform.db.REL_OP;
@@ -11,6 +13,7 @@ import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
+import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
@@ -18,6 +21,7 @@ import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.resource.route_stopage;
 import application.c4t.vehicle.resource.stopage;
 import application.c4t.vehicle.school.helper.StudentHelper;
+import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.student;
 
 
@@ -45,6 +49,23 @@ public class Route_stopageHelper extends BaseHelper {
 		return getByExpression(expression);
 	}
 
+	public BaseResource[] getUserByStopageId(String route_stopageId) {
+		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
+		BaseResource[] students = StudentHelper.getInstance().getStudentByRouteStopageId(route_stopageId);
+		if ((students == null) || Util.isEmpty(students)) {
+			return null;
+		}
+		for(BaseResource resource : students) {
+			student _student = (student) resource;
+			ArrayList<BaseResource> users = Student_mapHelper.getInstance().getUsersList(_student.getId());
+			if ( Util.isEmpty(users)) {
+				continue;
+			}
+			list.addAll(users);
+		}
+		return list.toArray(new user[list.size()]);
+	}
+	
 	public void updateReachedTime(String routeStopageId) {
 		route_stopage _route_stopage = new route_stopage();
 		_route_stopage.setId(routeStopageId);

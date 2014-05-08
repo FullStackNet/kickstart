@@ -4,6 +4,7 @@ import java.util.Map;
 
 import platform.exception.ExceptionEnum;
 import platform.helper.ConversationHelper;
+import platform.helper.Conversation_summaryHelper;
 import platform.resource.BaseResource;
 import platform.resource.conversation;
 import platform.resource.conversation_summary;
@@ -22,12 +23,12 @@ public class ConversationService extends BaseService{
 		
 		String id = conversation.id(ctx.getUserId(), _resource.getTo_user_id());
 		conversation _update_resource =new conversation(id);
-		_update_resource.addMessages(System.currentTimeMillis()+":"+_resource.getMessage_text());
+		_update_resource.addMessages("TO:"+System.currentTimeMillis()+":"+_resource.getMessage_text());
 		getHelper().AddOrUpdate(_update_resource);
 		
 		id = conversation.id(_resource.getTo_user_id(),ctx.getUserId());
 		_update_resource =new conversation(id);
-		_update_resource.addMessages(System.currentTimeMillis()+":"+_resource.getMessage_text());
+		_update_resource.addMessages("FROM:"+System.currentTimeMillis()+":"+_resource.getMessage_text());
 		getHelper().AddOrUpdate(_update_resource);
 		
 		
@@ -37,7 +38,7 @@ public class ConversationService extends BaseService{
 		summary.setFrom_user_name(ctx.getUserName());
 		summary.setMessage_time(System.currentTimeMillis());
 		summary.setMessage_text(_resource.getMessage_text());
-		
+		Conversation_summaryHelper.getInstance().AddOrUpdate(summary);
 	}
 
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {

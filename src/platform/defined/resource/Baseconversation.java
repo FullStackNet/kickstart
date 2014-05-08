@@ -23,12 +23,14 @@ public abstract class Baseconversation extends BaseResource {
 	private String to_user_id = null;
 	private Long message_time = null;
 	private String message_text = null;
+	private String direction = null;
 	private ArrayList<Object> messages = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TO_USER_ID = "to_user_id";
 	public static String FIELD_MESSAGE_TIME = "message_time";
 	public static String FIELD_MESSAGE_TEXT = "message_text";
+	public static String FIELD_DIRECTION = "direction";
 	public static String FIELD_MESSAGES = "messages";
 
 	private static final long serialVersionUID = 1L;
@@ -58,6 +60,7 @@ public abstract class Baseconversation extends BaseResource {
 		this.to_user_id = obj.to_user_id;
 		this.message_time = obj.message_time;
 		this.message_text = obj.message_text;
+		this.direction = obj.direction;
 		this.messages = obj.messages;
 	}
 
@@ -75,6 +78,8 @@ public abstract class Baseconversation extends BaseResource {
 			map.put("message_time", message_time);
 		if(message_text != null)
 			map.put("message_text", message_text);
+		if(direction != null)
+			map.put("direction", direction);
 		if(messages != null)
 			map.put("messages", messages);
 		return map;
@@ -90,6 +95,8 @@ public abstract class Baseconversation extends BaseResource {
 			map.put("message_time", message_time);
 		if(message_text != null)
 			map.put("message_text", message_text);
+		if(direction != null)
+			map.put("direction", direction);
 		if(messages != null)
 			map.put("messages", messages);
 		return map;
@@ -191,6 +198,22 @@ public abstract class Baseconversation extends BaseResource {
 
 	public void unSetMessage_text() {
 		this.message_text = null;
+	}
+
+	public String getDirection() {
+		return direction;
+	}
+
+	public String getDirectionEx() {
+		return direction != null ? direction : "";
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+
+	public void unSetDirection() {
+		this.direction = null;
 	}
 
 	public ArrayList<Object> getMessages() {
