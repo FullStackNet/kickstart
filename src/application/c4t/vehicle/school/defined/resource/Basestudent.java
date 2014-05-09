@@ -29,7 +29,11 @@ public abstract class Basestudent extends BaseResource {
 	private String state = null;
 	private String country = null;
 	private String pickup_route_stopage_id = null;
+	private String pickup_route_id = null;
+	private String pickup_stopage_id = null;
 	private String dropped_route_stopage_id = null;
+	private String dropped_route_id = null;
+	private String dropped_stopage_id = null;
 	private String alert_pickup_route_stopage_id = null;
 	private String alert_dropped_route_stopage_id = null;
 	private String father_name = null;
@@ -60,7 +64,11 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_PICKUP_ROUTE_STOPAGE_ID = "pickup_route_stopage_id";
+	public static String FIELD_PICKUP_ROUTE_ID = "pickup_route_id";
+	public static String FIELD_PICKUP_STOPAGE_ID = "pickup_stopage_id";
 	public static String FIELD_DROPPED_ROUTE_STOPAGE_ID = "dropped_route_stopage_id";
+	public static String FIELD_DROPPED_ROUTE_ID = "dropped_route_id";
+	public static String FIELD_DROPPED_STOPAGE_ID = "dropped_stopage_id";
 	public static String FIELD_ALERT_PICKUP_ROUTE_STOPAGE_ID = "alert_pickup_route_stopage_id";
 	public static String FIELD_ALERT_DROPPED_ROUTE_STOPAGE_ID = "alert_dropped_route_stopage_id";
 	public static String FIELD_FATHER_NAME = "father_name";
@@ -93,10 +101,12 @@ public abstract class Basestudent extends BaseResource {
 		metaData.addField(idField);
 
 		Field school_idField = new Field("school_id", "String");
+		school_idField.setIndexed(true);
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
 
 		Field nameField = new Field("name", "String");
+		nameField.setIndexed(true);
 		nameField.setLength(128);
 		metaData.addField(nameField);
 
@@ -125,18 +135,42 @@ public abstract class Basestudent extends BaseResource {
 		metaData.addField(countryField);
 
 		Field pickup_route_stopage_idField = new Field("pickup_route_stopage_id", "String");
+		pickup_route_stopage_idField.setIndexed(true);
 		pickup_route_stopage_idField.setLength(128);
 		metaData.addField(pickup_route_stopage_idField);
 
+		Field pickup_route_idField = new Field("pickup_route_id", "String");
+		pickup_route_idField.setIndexed(true);
+		pickup_route_idField.setLength(128);
+		metaData.addField(pickup_route_idField);
+
+		Field pickup_stopage_idField = new Field("pickup_stopage_id", "String");
+		pickup_stopage_idField.setIndexed(true);
+		pickup_stopage_idField.setLength(128);
+		metaData.addField(pickup_stopage_idField);
+
 		Field dropped_route_stopage_idField = new Field("dropped_route_stopage_id", "String");
+		dropped_route_stopage_idField.setIndexed(true);
 		dropped_route_stopage_idField.setLength(128);
 		metaData.addField(dropped_route_stopage_idField);
 
+		Field dropped_route_idField = new Field("dropped_route_id", "String");
+		dropped_route_idField.setIndexed(true);
+		dropped_route_idField.setLength(128);
+		metaData.addField(dropped_route_idField);
+
+		Field dropped_stopage_idField = new Field("dropped_stopage_id", "String");
+		dropped_stopage_idField.setIndexed(true);
+		dropped_stopage_idField.setLength(128);
+		metaData.addField(dropped_stopage_idField);
+
 		Field alert_pickup_route_stopage_idField = new Field("alert_pickup_route_stopage_id", "String");
+		alert_pickup_route_stopage_idField.setIndexed(true);
 		alert_pickup_route_stopage_idField.setLength(128);
 		metaData.addField(alert_pickup_route_stopage_idField);
 
 		Field alert_dropped_route_stopage_idField = new Field("alert_dropped_route_stopage_id", "String");
+		alert_dropped_route_stopage_idField.setIndexed(true);
 		alert_dropped_route_stopage_idField.setLength(128);
 		metaData.addField(alert_dropped_route_stopage_idField);
 
@@ -233,7 +267,11 @@ public abstract class Basestudent extends BaseResource {
 		this.state = obj.state;
 		this.country = obj.country;
 		this.pickup_route_stopage_id = obj.pickup_route_stopage_id;
+		this.pickup_route_id = obj.pickup_route_id;
+		this.pickup_stopage_id = obj.pickup_stopage_id;
 		this.dropped_route_stopage_id = obj.dropped_route_stopage_id;
+		this.dropped_route_id = obj.dropped_route_id;
+		this.dropped_stopage_id = obj.dropped_stopage_id;
 		this.alert_pickup_route_stopage_id = obj.alert_pickup_route_stopage_id;
 		this.alert_dropped_route_stopage_id = obj.alert_dropped_route_stopage_id;
 		this.father_name = obj.father_name;
@@ -290,8 +328,16 @@ public abstract class Basestudent extends BaseResource {
 			map.put("country", country);
 		if(pickup_route_stopage_id != null)
 			map.put("pickup_route_stopage_id", pickup_route_stopage_id);
+		if(pickup_route_id != null)
+			map.put("pickup_route_id", pickup_route_id);
+		if(pickup_stopage_id != null)
+			map.put("pickup_stopage_id", pickup_stopage_id);
 		if(dropped_route_stopage_id != null)
 			map.put("dropped_route_stopage_id", dropped_route_stopage_id);
+		if(dropped_route_id != null)
+			map.put("dropped_route_id", dropped_route_id);
+		if(dropped_stopage_id != null)
+			map.put("dropped_stopage_id", dropped_stopage_id);
 		if(alert_pickup_route_stopage_id != null)
 			map.put("alert_pickup_route_stopage_id", alert_pickup_route_stopage_id);
 		if(alert_dropped_route_stopage_id != null)
@@ -358,8 +404,16 @@ public abstract class Basestudent extends BaseResource {
 			map.put("country", country);
 		if(pickup_route_stopage_id != null)
 			map.put("pickup_route_stopage_id", pickup_route_stopage_id);
+		if(pickup_route_id != null)
+			map.put("pickup_route_id", pickup_route_id);
+		if(pickup_stopage_id != null)
+			map.put("pickup_stopage_id", pickup_stopage_id);
 		if(dropped_route_stopage_id != null)
 			map.put("dropped_route_stopage_id", dropped_route_stopage_id);
+		if(dropped_route_id != null)
+			map.put("dropped_route_id", dropped_route_id);
+		if(dropped_stopage_id != null)
+			map.put("dropped_stopage_id", dropped_stopage_id);
 		if(alert_pickup_route_stopage_id != null)
 			map.put("alert_pickup_route_stopage_id", alert_pickup_route_stopage_id);
 		if(alert_dropped_route_stopage_id != null)
@@ -417,7 +471,11 @@ public abstract class Basestudent extends BaseResource {
 		state = (String) map.get("state");
 		country = (String) map.get("country");
 		pickup_route_stopage_id = (String) map.get("pickup_route_stopage_id");
+		pickup_route_id = (String) map.get("pickup_route_id");
+		pickup_stopage_id = (String) map.get("pickup_stopage_id");
 		dropped_route_stopage_id = (String) map.get("dropped_route_stopage_id");
+		dropped_route_id = (String) map.get("dropped_route_id");
+		dropped_stopage_id = (String) map.get("dropped_stopage_id");
 		alert_pickup_route_stopage_id = (String) map.get("alert_pickup_route_stopage_id");
 		alert_dropped_route_stopage_id = (String) map.get("alert_dropped_route_stopage_id");
 		father_name = (String) map.get("father_name");
@@ -480,9 +538,25 @@ public abstract class Basestudent extends BaseResource {
 		if(pickup_route_stopage_idObj != null)
 			pickup_route_stopage_id = pickup_route_stopage_idObj.toString();
 
+		Object pickup_route_idObj = map.get("pickup_route_id");
+		if(pickup_route_idObj != null)
+			pickup_route_id = pickup_route_idObj.toString();
+
+		Object pickup_stopage_idObj = map.get("pickup_stopage_id");
+		if(pickup_stopage_idObj != null)
+			pickup_stopage_id = pickup_stopage_idObj.toString();
+
 		Object dropped_route_stopage_idObj = map.get("dropped_route_stopage_id");
 		if(dropped_route_stopage_idObj != null)
 			dropped_route_stopage_id = dropped_route_stopage_idObj.toString();
+
+		Object dropped_route_idObj = map.get("dropped_route_id");
+		if(dropped_route_idObj != null)
+			dropped_route_id = dropped_route_idObj.toString();
+
+		Object dropped_stopage_idObj = map.get("dropped_stopage_id");
+		if(dropped_stopage_idObj != null)
+			dropped_stopage_id = dropped_stopage_idObj.toString();
 
 		Object alert_pickup_route_stopage_idObj = map.get("alert_pickup_route_stopage_id");
 		if(alert_pickup_route_stopage_idObj != null)
@@ -734,6 +808,38 @@ public abstract class Basestudent extends BaseResource {
 		this.pickup_route_stopage_id = null;
 	}
 
+	public String getPickup_route_id() {
+		return pickup_route_id;
+	}
+
+	public String getPickup_route_idEx() {
+		return pickup_route_id != null ? pickup_route_id : "";
+	}
+
+	public void setPickup_route_id(String pickup_route_id) {
+		this.pickup_route_id = pickup_route_id;
+	}
+
+	public void unSetPickup_route_id() {
+		this.pickup_route_id = null;
+	}
+
+	public String getPickup_stopage_id() {
+		return pickup_stopage_id;
+	}
+
+	public String getPickup_stopage_idEx() {
+		return pickup_stopage_id != null ? pickup_stopage_id : "";
+	}
+
+	public void setPickup_stopage_id(String pickup_stopage_id) {
+		this.pickup_stopage_id = pickup_stopage_id;
+	}
+
+	public void unSetPickup_stopage_id() {
+		this.pickup_stopage_id = null;
+	}
+
 	public String getDropped_route_stopage_id() {
 		return dropped_route_stopage_id;
 	}
@@ -748,6 +854,38 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetDropped_route_stopage_id() {
 		this.dropped_route_stopage_id = null;
+	}
+
+	public String getDropped_route_id() {
+		return dropped_route_id;
+	}
+
+	public String getDropped_route_idEx() {
+		return dropped_route_id != null ? dropped_route_id : "";
+	}
+
+	public void setDropped_route_id(String dropped_route_id) {
+		this.dropped_route_id = dropped_route_id;
+	}
+
+	public void unSetDropped_route_id() {
+		this.dropped_route_id = null;
+	}
+
+	public String getDropped_stopage_id() {
+		return dropped_stopage_id;
+	}
+
+	public String getDropped_stopage_idEx() {
+		return dropped_stopage_id != null ? dropped_stopage_id : "";
+	}
+
+	public void setDropped_stopage_id(String dropped_stopage_id) {
+		this.dropped_stopage_id = dropped_stopage_id;
+	}
+
+	public void unSetDropped_stopage_id() {
+		this.dropped_stopage_id = null;
 	}
 
 	public String getAlert_pickup_route_stopage_id() {
