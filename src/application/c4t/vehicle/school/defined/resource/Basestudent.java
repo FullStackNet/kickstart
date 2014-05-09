@@ -47,6 +47,7 @@ public abstract class Basestudent extends BaseResource {
 	private String other_email_id = null;
 	private String class_name = null;
 	private String section_name = null;
+	private String class_section_name = null;
 	private String customer_id = null;
 	private String user_id = null;
 	private String remark = null;
@@ -82,6 +83,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_OTHER_EMAIL_ID = "other_email_id";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_SECTION_NAME = "section_name";
+	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_REMARK = "remark";
@@ -218,6 +220,11 @@ public abstract class Basestudent extends BaseResource {
 		section_nameField.setLength(16);
 		metaData.addField(section_nameField);
 
+		Field class_section_nameField = new Field("class_section_name", "String");
+		class_section_nameField.setIndexed(true);
+		class_section_nameField.setLength(32);
+		metaData.addField(class_section_nameField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setIndexed(true);
 		customer_idField.setRequired(true);
@@ -285,6 +292,7 @@ public abstract class Basestudent extends BaseResource {
 		this.other_email_id = obj.other_email_id;
 		this.class_name = obj.class_name;
 		this.section_name = obj.section_name;
+		this.class_section_name = obj.class_section_name;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
 		this.remark = obj.remark;
@@ -364,6 +372,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("class_name", class_name);
 		if(section_name != null)
 			map.put("section_name", section_name);
+		if(class_section_name != null)
+			map.put("class_section_name", class_section_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(user_id != null)
@@ -440,6 +450,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("class_name", class_name);
 		if(section_name != null)
 			map.put("section_name", section_name);
+		if(class_section_name != null)
+			map.put("class_section_name", class_section_name);
 		if(validateCustomer_id(add))
 			map.put("customer_id", customer_id);
 		if(validateUser_id(add))
@@ -489,6 +501,7 @@ public abstract class Basestudent extends BaseResource {
 		other_email_id = (String) map.get("other_email_id");
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
+		class_section_name = (String) map.get("class_section_name");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
 		remark = (String) map.get("remark");
@@ -609,6 +622,10 @@ public abstract class Basestudent extends BaseResource {
 		Object section_nameObj = map.get("section_name");
 		if(section_nameObj != null)
 			section_name = section_nameObj.toString();
+
+		Object class_section_nameObj = map.get("class_section_name");
+		if(class_section_nameObj != null)
+			class_section_name = class_section_nameObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -1094,6 +1111,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetSection_name() {
 		this.section_name = null;
+	}
+
+	public String getClass_section_name() {
+		return class_section_name;
+	}
+
+	public String getClass_section_nameEx() {
+		return class_section_name != null ? class_section_name : "";
+	}
+
+	public void setClass_section_name(String class_section_name) {
+		this.class_section_name = class_section_name;
+	}
+
+	public void unSetClass_section_name() {
+		this.class_section_name = null;
 	}
 
 	public String getCustomer_id() {

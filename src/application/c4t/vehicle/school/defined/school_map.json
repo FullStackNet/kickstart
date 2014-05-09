@@ -17,7 +17,7 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
-			'class_section':
+			'class_sections':
 			{
 				'type':'Array',
 				'valueType' : 'Object' 

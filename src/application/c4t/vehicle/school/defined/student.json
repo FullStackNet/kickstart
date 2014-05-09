@@ -164,6 +164,12 @@
 				'length': 16,
 				'type':'String'
 			},
+			'class_section_name':
+			{
+				'length': 32,
+				'type':'String',
+				index : true
+			},
 			'customer_id':
 			{
 				'name':'customer_id',

@@ -21,13 +21,13 @@ import java.util.*;
 public abstract class Baseschool_map extends BaseResource {
 	private String id = null; //school id
 	private ArrayList<Object> classes = null;
-	private ArrayList<Object> class_section = null;
+	private ArrayList<Object> class_sections = null;
 	private ArrayList<Object> teachers = null;
 	private ArrayList<Object> students = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_CLASSES = "classes";
-	public static String FIELD_CLASS_SECTION = "class_section";
+	public static String FIELD_CLASS_SECTIONS = "class_sections";
 	public static String FIELD_TEACHERS = "teachers";
 	public static String FIELD_STUDENTS = "students";
 
@@ -45,8 +45,8 @@ public abstract class Baseschool_map extends BaseResource {
 		Field classesField = new Field("classes", "Array");
 		metaData.addField(classesField);
 
-		Field class_sectionField = new Field("class_section", "Array");
-		metaData.addField(class_sectionField);
+		Field class_sectionsField = new Field("class_sections", "Array");
+		metaData.addField(class_sectionsField);
 
 		Field teachersField = new Field("teachers", "Array");
 		metaData.addField(teachersField);
@@ -65,7 +65,7 @@ public abstract class Baseschool_map extends BaseResource {
 	public Baseschool_map(Baseschool_map obj) {
 		this.id = obj.id;
 		this.classes = obj.classes;
-		this.class_section = obj.class_section;
+		this.class_sections = obj.class_sections;
 		this.teachers = obj.teachers;
 		this.students = obj.students;
 	}
@@ -80,8 +80,8 @@ public abstract class Baseschool_map extends BaseResource {
 			map.put("id", id);
 		if(classes != null)
 			map.put("classes", classes);
-		if(class_section != null)
-			map.put("class_section", class_section);
+		if(class_sections != null)
+			map.put("class_sections", class_sections);
 		if(teachers != null)
 			map.put("teachers", teachers);
 		if(students != null)
@@ -95,8 +95,8 @@ public abstract class Baseschool_map extends BaseResource {
 			map.put("id", id);
 		if(classes != null)
 			map.put("classes", classes);
-		if(class_section != null)
-			map.put("class_section", class_section);
+		if(class_sections != null)
+			map.put("class_sections", class_sections);
 		if(teachers != null)
 			map.put("teachers", teachers);
 		if(students != null)
@@ -112,7 +112,7 @@ public abstract class Baseschool_map extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		classes = (ArrayList<Object>) map.get("classes");
-		class_section = (ArrayList<Object>) map.get("class_section");
+		class_sections = (ArrayList<Object>) map.get("class_sections");
 		teachers = (ArrayList<Object>) map.get("teachers");
 		students = (ArrayList<Object>) map.get("students");
 	}
@@ -123,7 +123,7 @@ public abstract class Baseschool_map extends BaseResource {
 			id = idObj.toString();
 
 		classes = (ArrayList<Object>) map.get("classes");
-		class_section = (ArrayList<Object>) map.get("class_section");
+		class_sections = (ArrayList<Object>) map.get("class_sections");
 		teachers = (ArrayList<Object>) map.get("teachers");
 		students = (ArrayList<Object>) map.get("students");
 	}
@@ -175,23 +175,23 @@ public abstract class Baseschool_map extends BaseResource {
 		this.classes = null;
 	}
 
-	public ArrayList<Object> getClass_section() {
-		return class_section;
+	public ArrayList<Object> getClass_sections() {
+		return class_sections;
 	}
 
 
-	public void setClass_section(ArrayList<Object> class_section) {
-		this.class_section = class_section;
+	public void setClass_sections(ArrayList<Object> class_sections) {
+		this.class_sections = class_sections;
 	}
 
-	public void addClass_section(Object value) {
-		if(class_section == null)
-			class_section = new ArrayList<Object>();
-		class_section.add(value);
+	public void addClass_sections(Object value) {
+		if(class_sections == null)
+			class_sections = new ArrayList<Object>();
+		class_sections.add(value);
 	}
 
-	public void unSetClass_section() {
-		this.class_section = null;
+	public void unSetClass_sections() {
+		this.class_sections = null;
 	}
 
 	public ArrayList<Object> getTeachers() {

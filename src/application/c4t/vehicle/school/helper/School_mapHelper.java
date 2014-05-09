@@ -35,6 +35,15 @@ public class School_mapHelper extends BaseHelper {
 		AddOrUpdate(_map);
 	}
 	
+	public void addClass_section(String schoolId,String class_section_name) throws ApplicationException {
+		if (schoolId == null) return;
+		if (class_section_name == null) return;
+		school_map _map = new school_map();
+		_map.setId(schoolId);
+		_map.addClass_sections(class_section_name);
+		AddOrUpdate(_map);
+	}
+	
 	public void removeStudent(String schoolId,String studentId) throws ApplicationException {
 		if (schoolId == null) return;
 		if (studentId == null) return;
