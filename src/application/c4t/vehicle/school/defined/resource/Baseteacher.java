@@ -79,6 +79,7 @@ public abstract class Baseteacher extends BaseResource {
 		metaData.addField(nameField);
 
 		Field school_idField = new Field("school_id", "String");
+		school_idField.setIndexed(true);
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
 

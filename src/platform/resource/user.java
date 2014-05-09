@@ -14,6 +14,7 @@ public class user extends Baseuser {
 	public static String USER_TYPE_FLEET_OWNER = "FLEET_OWNER";
 	public static String USER_TYPE_USER = "USER";
 	
+	
 	/**
 	 * 
 	 */

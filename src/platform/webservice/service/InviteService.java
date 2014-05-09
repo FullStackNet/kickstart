@@ -64,6 +64,43 @@ public class InviteService extends BaseService{
 		}
 	}
 	
+	public void sendTeacherInvite(invite _invite) {
+		String school_name = "";
+		customer _customer = (customer)CustomerHelper.getInstance().getById(_invite.getCustomer_id());
+		if (_customer != null) {
+			school_name = _customer.getName();
+		}
+
+		if (_invite.getMobile_no() != null) {
+			SendEmail resendMail = new SendEmail();
+			resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_TEACHER);
+			resendMail.setTo(_invite.getEmail_id());
+			resendMail.setType(ApplicationConstants.MAIL_TYPE_INVITE_TEACHER);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("NAME", _invite.getName());
+			map.put("TEACHER_NAME", _invite.getReference_name());
+			map.put("ACTIVATION_TOKEN", _invite.getKey());
+			map.put("SCHOOL_NAME", school_name);
+			map.put("ACTIVATE_URL", "http://my.cloud4things.com/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			String params = Json.maptoString(map);
+			resendMail.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+					resendMail);
+		}
+		if (_invite.getMobile_no() != null) {
+			SendSMS smsMessage = new SendSMS();
+			smsMessage.setMobile_no(_invite.getMobile_no());
+			smsMessage.setType(ApplicationConstants.SMS_TYPE_INVITE_TEACHER);
+			Map<String, String> smsMap = new HashMap<String, String>();
+			smsMap.put("TEACHER_NAME", _invite.getReference_name());
+			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
+			smsMap.put("SCHOOL_NAME", school_name);
+			String params = Json.maptoString(smsMap);
+			smsMessage.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
+					smsMessage);
+		}
+	}
 	
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
 		if (action.equalsIgnoreCase(WebServiceContants.OPERATION_CONFIRM)) {
@@ -86,6 +123,10 @@ public class InviteService extends BaseService{
 			if (invite.INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE.equals(_invite.getInvite_type())) {
 				if (_invite.getEmail_id() != null) {
 					sendParentInvite(_invite);
+				}
+			}else if (invite.INVITE_TYPE_JOIN_TEACHER.equals(_invite.getInvite_type())) {
+				if (_invite.getEmail_id() != null) {
+					sendTeacherInvite(_invite);
 				}
 			}
 		} else  

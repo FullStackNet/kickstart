@@ -34,6 +34,6 @@ public class ResourcesToGenerate {
 		new ResourceMap("school_customer", "application.c4t.vehicle.school.resource.school_customer"),
 		new ResourceMap("school_map", "application.c4t.vehicle.school.resource.school_map"),
 		new ResourceMap("teacher", "application.c4t.vehicle.school.resource.teacher"),
-		
+		new ResourceMap("teacher_map", "application.c4t.vehicle.school.resource.teacher_map"),
 	};
 }

@@ -15,13 +15,15 @@
 			{
 				'name':'school_id',
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				'index' : true
 			},
 			'name':
 			{
 				'name':'name',
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				'index' : true
 			},
 			'address1':
 			{
@@ -62,22 +64,50 @@
 			'pickup_route_stopage_id':
 			{
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				'index' : true
+			},
+			'pickup_route_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'pickup_stopage_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
 			},
 			'dropped_route_stopage_id':
 			{
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				'index' : true
+			},
+			'dropped_route_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'dropped_stopage_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
 			},
 			'alert_pickup_route_stopage_id':
 			{
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				'index' : true
 			},
 			'alert_dropped_route_stopage_id':
 			{
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				'index' : true
 			},
 			'father_name':
 			{

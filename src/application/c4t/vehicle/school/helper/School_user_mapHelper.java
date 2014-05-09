@@ -30,6 +30,15 @@ public class School_user_mapHelper extends BaseHelper {
 		AddOrUpdate(_map);
 	}
 	
+	public void addTeacher(String userId,String teacherId) throws ApplicationException {
+		if (teacherId == null) return;
+		if (userId == null) return;
+		school_user_map _map = new school_user_map();
+		_map.setId(userId);
+		_map.addTeachers(teacherId);
+		AddOrUpdate(_map);
+	}
+	
 	public BaseResource[] getStudents(String userId) {
 		school_user_map _map = (school_user_map)getById(userId);
 		if ((_map == null) || (_map.getStudents() == null))
@@ -38,4 +47,11 @@ public class School_user_mapHelper extends BaseHelper {
 				new String[]{user.FIELD_NAME});
 	}
 	
+	public BaseResource[] getTeachers(String userId) {
+		school_user_map _map = (school_user_map)getById(userId);
+		if ((_map == null) || (_map.getTeachers() == null))
+			return null;
+		return TeacherHelper.getInstance().getById(_map.getTeachers().toArray(new String[_map.getTeachers().size()]),
+				new String[]{user.FIELD_NAME});
+	}
 }

@@ -21,10 +21,12 @@ import java.util.*;
 public abstract class Baseschool_route_stopage_map extends BaseResource {
 	private String id = null;
 	private ArrayList<Object> students = null;
+	private ArrayList<Object> teachers = null;
 	private ArrayList<Object> alert_students = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_STUDENTS = "students";
+	public static String FIELD_TEACHERS = "teachers";
 	public static String FIELD_ALERT_STUDENTS = "alert_students";
 
 	private static final long serialVersionUID = 1L;
@@ -41,6 +43,9 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 		Field studentsField = new Field("students", "Array");
 		metaData.addField(studentsField);
 
+		Field teachersField = new Field("teachers", "Array");
+		metaData.addField(teachersField);
+
 		Field alert_studentsField = new Field("alert_students", "Array");
 		metaData.addField(alert_studentsField);
 
@@ -55,6 +60,7 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 	public Baseschool_route_stopage_map(Baseschool_route_stopage_map obj) {
 		this.id = obj.id;
 		this.students = obj.students;
+		this.teachers = obj.teachers;
 		this.alert_students = obj.alert_students;
 	}
 
@@ -68,6 +74,8 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 			map.put("id", id);
 		if(students != null)
 			map.put("students", students);
+		if(teachers != null)
+			map.put("teachers", teachers);
 		if(alert_students != null)
 			map.put("alert_students", alert_students);
 		return map;
@@ -79,6 +87,8 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 			map.put("id", id);
 		if(students != null)
 			map.put("students", students);
+		if(teachers != null)
+			map.put("teachers", teachers);
 		if(alert_students != null)
 			map.put("alert_students", alert_students);
 		return map;
@@ -92,6 +102,7 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		students = (ArrayList<Object>) map.get("students");
+		teachers = (ArrayList<Object>) map.get("teachers");
 		alert_students = (ArrayList<Object>) map.get("alert_students");
 	}
 
@@ -101,6 +112,7 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 			id = idObj.toString();
 
 		students = (ArrayList<Object>) map.get("students");
+		teachers = (ArrayList<Object>) map.get("teachers");
 		alert_students = (ArrayList<Object>) map.get("alert_students");
 	}
 
@@ -149,6 +161,25 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 
 	public void unSetStudents() {
 		this.students = null;
+	}
+
+	public ArrayList<Object> getTeachers() {
+		return teachers;
+	}
+
+
+	public void setTeachers(ArrayList<Object> teachers) {
+		this.teachers = teachers;
+	}
+
+	public void addTeachers(Object value) {
+		if(teachers == null)
+			teachers = new ArrayList<Object>();
+		teachers.add(value);
+	}
+
+	public void unSetTeachers() {
+		this.teachers = null;
 	}
 
 	public ArrayList<Object> getAlert_students() {

@@ -16,6 +16,11 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'teachers':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}

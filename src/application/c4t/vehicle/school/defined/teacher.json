@@ -21,7 +21,8 @@
 			{
 				'name':'school_id',
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				'index' : true
 			},
 			'address1':
 			{

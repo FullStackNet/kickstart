@@ -44,7 +44,6 @@ public class School_mapHelper extends BaseHelper {
 		unset(_map);
 	}
 	
-	
 	public ArrayList<BaseResource> getStudentsList(String studentId) {
 		ArrayList<BaseResource>  map = new ArrayList<BaseResource>();
 		school_map _map = (school_map)getSelectedFieldsById(studentId,school_map.FIELD_STUDENTS);

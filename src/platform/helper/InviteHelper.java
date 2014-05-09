@@ -3,7 +3,10 @@ package platform.helper;
 import application.c4t.vehicle.school.helper.School_user_mapHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
+import application.c4t.vehicle.school.helper.TeacherHelper;
+import application.c4t.vehicle.school.helper.Teacher_mapHelper;
 import application.c4t.vehicle.school.resource.student;
+import application.c4t.vehicle.school.resource.teacher;
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
@@ -116,6 +119,14 @@ public class InviteHelper extends BaseHelper {
 		}
 	}
 	
+	public void teacherInviteAccepted(invite _invite, String userId ) throws ApplicationException {
+		teacher _teacher = (teacher)TeacherHelper.getInstance().getById(_invite.getReference_id());
+		if (_teacher != null) {
+			Teacher_mapHelper.getInstance().addUser(_teacher.getId(), userId);
+			School_user_mapHelper.getInstance().addStudent(userId,_teacher.getId());
+		}
+	}
+	
 	public void acceptInvite(invite _invite) throws ApplicationException {
 		invite _fetched_resource = (invite)getById(_invite.getId());
 		user _user = UserHelper.getInstance().getByMobileOrEmailId(_fetched_resource.getMobile_no(), _fetched_resource.getEmail_id());
@@ -136,6 +147,11 @@ public class InviteHelper extends BaseHelper {
 			_user.setSchoolTrackerService("Y");
 			_user.setParentService("Y");
 			InviteHelper.getInstance().parentInviteAccepted(_fetched_resource, _user.getId());
+		}
+		if (invite.INVITE_TYPE_JOIN_TEACHER.equals(_fetched_resource.getInvite_type())) {
+			// check the user if exists
+			_user.setTeacherService("Y");
+			InviteHelper.getInstance().teacherInviteAccepted(_fetched_resource, _user.getId());
 		}
 		UserHelper.getInstance().AddOrUpdate(_user);
 	}

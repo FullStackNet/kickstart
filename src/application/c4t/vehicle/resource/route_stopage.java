@@ -17,6 +17,11 @@ public class route_stopage extends Baseroute_stopage {
 	public route_stopage(String id) {
 		this.setId(id);
 	}	
+	
+	public static String id(String routeId, String stopageId) {
+		return routeId+"^"+stopageId;
+	}	
+	
 	@Override
 	public Class<?> getResultClass() {
 		// TODO Auto-generated method stub

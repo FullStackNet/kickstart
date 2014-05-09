@@ -209,6 +209,7 @@ public abstract class BaseForm extends BaseView {
 				}
 				TR row = new TR();
 				TD column = new TD();
+				column.addAttribute("width","150px");
 				column.setText(field.getLabel());
 				row.addChild(column);
 				column = new TD();

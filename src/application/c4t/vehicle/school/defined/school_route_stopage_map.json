@@ -18,6 +18,11 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
+			'teachers':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
 			'alert_students':
 			{
 				'type':'Array',
