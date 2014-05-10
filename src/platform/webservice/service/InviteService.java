@@ -33,7 +33,7 @@ public class InviteService extends BaseService{
 			school_name = _customer.getName();
 		}
 
-		if (_invite.getMobile_no() != null) {
+		if (_invite.getEmail_id() != null) {
 			SendEmail resendMail = new SendEmail();
 			resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_PARENT);
 			resendMail.setTo(_invite.getEmail_id());
@@ -71,7 +71,7 @@ public class InviteService extends BaseService{
 			school_name = _customer.getName();
 		}
 
-		if (_invite.getMobile_no() != null) {
+		if (_invite.getEmail_id() != null) {
 			SendEmail resendMail = new SendEmail();
 			resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_TEACHER);
 			resendMail.setTo(_invite.getEmail_id());
@@ -81,6 +81,42 @@ public class InviteService extends BaseService{
 			map.put("TEACHER_NAME", _invite.getReference_name());
 			map.put("ACTIVATION_TOKEN", _invite.getKey());
 			map.put("SCHOOL_NAME", school_name);
+			map.put("ACTIVATE_URL", "http://my.cloud4things.com/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			String params = Json.maptoString(map);
+			resendMail.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+					resendMail);
+		}
+		if (_invite.getMobile_no() != null) {
+			SendSMS smsMessage = new SendSMS();
+			smsMessage.setMobile_no(_invite.getMobile_no());
+			smsMessage.setType(ApplicationConstants.SMS_TYPE_INVITE_TEACHER);
+			Map<String, String> smsMap = new HashMap<String, String>();
+			smsMap.put("TEACHER_NAME", _invite.getReference_name());
+			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
+			smsMap.put("SCHOOL_NAME", school_name);
+			String params = Json.maptoString(smsMap);
+			smsMessage.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
+					smsMessage);
+		}
+	}
+	
+	public void sendCustomerAdminInvite(invite _invite) {
+		String school_name = "";
+		customer _customer = (customer)CustomerHelper.getInstance().getById(_invite.getCustomer_id());
+		if (_customer != null) {
+			school_name = _customer.getName();
+		}
+
+		if (_invite.getEmail_id() != null) {
+			SendEmail resendMail = new SendEmail();
+			resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_CUSTOMER_ADMIN);
+			resendMail.setTo(_invite.getEmail_id());
+			resendMail.setType(ApplicationConstants.MAIL_TYPE_INVITE_CUSTOMER_ADMIN);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("NAME", _invite.getName());
+			map.put("ACTIVATION_TOKEN", _invite.getKey());
 			map.put("ACTIVATE_URL", "http://my.cloud4things.com/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
@@ -128,7 +164,11 @@ public class InviteService extends BaseService{
 				if (_invite.getEmail_id() != null) {
 					sendTeacherInvite(_invite);
 				}
-			}
+			}else if (invite.INVITE_TYPE_JOIN_CUSTOMER_ADMIN.equals(_invite.getInvite_type())) {
+				if (_invite.getEmail_id() != null) {
+					sendCustomerAdminInvite(_invite);
+				}
+			} 
 		} else  
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Action");
 	}
