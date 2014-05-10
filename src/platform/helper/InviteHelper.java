@@ -150,6 +150,7 @@ public class InviteHelper extends BaseHelper {
 		}
 		if (invite.INVITE_TYPE_JOIN_TEACHER.equals(_fetched_resource.getInvite_type())) {
 			// check the user if exists
+			_user.setSchoolTrackerService("Y");
 			_user.setTeacherService("Y");
 			InviteHelper.getInstance().teacherInviteAccepted(_fetched_resource, _user.getId());
 		}
