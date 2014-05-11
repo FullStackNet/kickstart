@@ -71,7 +71,9 @@ public class UserService extends BaseService{
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		user _resource = (user) resource;
-		_resource.setCustomer_id(ctx.getCustomerId());
+		if (_resource.getCustomer_id() == null) {
+			_resource.setCustomer_id(ctx.getCustomerId());
+		}
 		getHelper().add(resource);
 		invite(ctx, _resource);
 	}
