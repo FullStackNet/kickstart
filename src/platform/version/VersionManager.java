@@ -1,5 +1,5 @@
 package platform.version;
 
 public class VersionManager {
-	public static String VERSION = "1.0.86";
+	public static String VERSION = "1.0.87";
 }
