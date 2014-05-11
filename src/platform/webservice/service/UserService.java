@@ -34,7 +34,7 @@ public class UserService extends BaseService{
 			email.setTo(_invite.getEmail_id());
 			email.setType(ApplicationConstants.MAIL_TYPE_INVITE_CUSTOMER_ADMIN);
 			Map<String, String> map = new HashMap<String, String>();
-			map.put("Name", _invite.getName());
+			map.put("NAME", _invite.getName());
 			map.put("ACTIVATION_TOKEN", _invite.getKey());
 			map.put("CUSTOMER_NAME", "C4T Admin");
 			map.put("ACTIVATE_URL", "http://my.cloud4things.com/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
