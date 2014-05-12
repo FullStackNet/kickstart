@@ -9,6 +9,7 @@ import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.definition.TableDefinition;
 import platform.webservice.ui.html.A;
+import platform.webservice.ui.html.H3;
 import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.JS;
 import platform.webservice.ui.html.P;
@@ -62,6 +63,20 @@ public abstract class BaseTableView extends BaseView {
 			th.setText(field.getLabel());
 			row.addChild(th);
 		}
+		thead.addChild(row);
+		mTable.addChild(thead);
+	}
+	
+	protected void renderTitle() {
+		THEAD thead = new THEAD();
+		TR row = new TR();
+		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");
+		TD td = new TD();
+		td.addAttribute("colspan", "10");
+		td.addAttribute("align", "center");
+		td.addAttribute("style","text-align:center;padding:0;");
+		td.addChild(new H3(mDefinition.getTitle()));
+		row.addChild(td);
 		thead.addChild(row);
 		mTable.addChild(thead);
 	}
@@ -127,15 +142,17 @@ public abstract class BaseTableView extends BaseView {
 		mTable = new TABLE(mDefinition.getId(), mDefinition.getClassName());
 		mTable.addAttribute(new Attribute("cellpadding", "0"));
 		mTable.addAttribute(new Attribute("cellspacing", "0"));
-		renderHeading();
-		TBODY tbody = new TBODY();
-		mTable.addChild(tbody);
-		if (list != null) {
-			for(int i =0 ; i < list.size(); i++) {
-				renderRow(tbody, list.get(i));
-				renderDataRow(tbody, list.get(i));
-			}
+		if (mDefinition.getTitle() != null) {
+			renderTitle();
 		}
+		THEAD thead = new THEAD();
+		TR row = new TR();
+		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");
+		TD td = new TD();
+		td.addAttribute("colspan", "10");
+		td.addAttribute("align", "center");
+		td.addAttribute("style","padding:0;");
+		row.addChild(td);
 		if (mDefinition.isAddButton()) {
 			P p = new P();
 			A a = new A();
@@ -149,8 +166,21 @@ public abstract class BaseTableView extends BaseView {
 				a.setHref(url+"?op=add");
 			}
 			p.addChild(a);
-			getView().addChild(p);
+			td.addChild(p);
 		}
+		thead.addChild(row);
+		mTable.addChild(thead);
+		renderHeading();
+		
+		TBODY tbody = new TBODY();
+		mTable.addChild(tbody);
+		if (list != null) {
+			for(int i =0 ; i < list.size(); i++) {
+				renderRow(tbody, list.get(i));
+				renderDataRow(tbody, list.get(i));
+			}
+		}
+		
 		getView().addChild(mTable);
 	}
 

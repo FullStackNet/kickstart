@@ -9,6 +9,7 @@ import platform.db.JoinField;
 import platform.db.REL_OP;
 import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
+import platform.helper.HelperUtils;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
 import platform.resource.user;
@@ -62,6 +63,20 @@ public class Route_stopageHelper extends BaseHelper {
 			list.addAll(users);
 		}
 		return list.toArray(new user[list.size()]);
+	}
+	
+	public BaseResource[] getPickupRouteStopage(String customerId) {
+		BaseResource[] routes = RouteHelper.getInstance().getPickupRoutesForCustomer(customerId);
+		String[] route_ids = HelperUtils.convertResource2IdArray(routes);
+		Expression e = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.IN, route_ids);
+		return getByExpression(e, new String[]{route_stopage.FIELD_NAME});
+	}
+	
+	public BaseResource[] getDroppedRouteStopage(String customerId) {
+		BaseResource[] routes = RouteHelper.getInstance().getDropRoutesForCustomer(customerId);
+		String[] route_ids = HelperUtils.convertResource2IdArray(routes);
+		Expression e = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.IN, route_ids);
+		return getByExpression(e, new String[]{route_stopage.FIELD_NAME});
 	}
 	
 	public void updateReachedTime(String routeStopageId) {

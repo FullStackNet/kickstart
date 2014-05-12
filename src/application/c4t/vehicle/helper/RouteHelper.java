@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.db.Expression;
+import platform.db.LOG_OP;
+import platform.db.REL_OP;
 import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
 import platform.log.ApplicationLogger;
@@ -42,7 +45,20 @@ public class RouteHelper extends BaseHelper {
 		return instance;
 	}
 
-
+	public BaseResource[] getPickupRoutesForCustomer(String customerId) {
+		Expression e1 = new platform.db.Expression(route.FIELD_CUSTOMER_ID, REL_OP.EQ, customerId);
+		Expression e2= new platform.db.Expression(route.FIELD_TYPE, REL_OP.EQ, route.ROUTE_TYPE_PICKUP);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
+	
+	public BaseResource[] getDropRoutesForCustomer(String customerId) {
+		Expression e1 = new platform.db.Expression(route.FIELD_CUSTOMER_ID, REL_OP.EQ, customerId);
+		Expression e2= new platform.db.Expression(route.FIELD_TYPE, REL_OP.EQ, route.ROUTE_TYPE_DROP);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
+	
 	void sendNotification2Users(Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
 			appliance _appliance, route_stopage _route_stopage,

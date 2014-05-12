@@ -5,6 +5,14 @@ import application.c4t.vehicle.defined.resource.Baseroute;
 
 public class route extends Baseroute {
 	
+	public static String ROUTE_TYPE_PICKUP = "PICKUP";
+	public static String ROUTE_TYPE_DROP = "DROP";
+	public static String[] ROUTE_TYPE = {
+		ROUTE_TYPE_PICKUP,
+		ROUTE_TYPE_DROP
+	};
+	
+	
 	/**
 	 * 
 	 */
