@@ -62,7 +62,7 @@ public abstract class Baseteacher_subject extends BaseResource {
 		metaData.addField(section_nameField);
 
 		Field class_section_nameField = new Field("class_section_name", "String");
-		class_section_nameField.setLength(32);
+		class_section_nameField.setLength(65);
 		metaData.addField(class_section_nameField);
 
 		Field school_idField = new Field("school_id", "String");

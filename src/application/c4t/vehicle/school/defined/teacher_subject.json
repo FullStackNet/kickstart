@@ -29,7 +29,7 @@
 			},
 			'class_section_name':
 			{
-				'length': 32,
+				'length': 65,
 				'type':'String'
 			},
 			'school_id':

@@ -2,6 +2,8 @@ package platform.helper;
 
 import java.util.ArrayList;
 
+import platform.db.Expression;
+import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.conversation;
 import platform.util.Util;
@@ -19,6 +21,11 @@ public class ConversationHelper extends BaseHelper {
 		if (instance == null)
 			instance = new ConversationHelper();
 		return instance;
+	}
+	
+	public void deleteConversation(String id) {
+		Expression e = new Expression(conversation.FIELD_ID, REL_OP.EQ, id);
+		deleteByExpression(e);
 	}
 	
 	public BaseResource[] getConversation(String userId, String toUserID,String last_conversation_time) {
