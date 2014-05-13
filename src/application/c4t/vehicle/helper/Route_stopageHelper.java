@@ -15,7 +15,6 @@ import platform.resource.BaseResource;
 import platform.resource.appliance;
 import platform.resource.controller;
 import platform.resource.user;
-import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
