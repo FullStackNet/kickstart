@@ -277,7 +277,7 @@
 			'connected':
 			{
 				'name':'connected',
-				'default':'Y',
+				'default':'N',
 				'length': 1,
 				'type':'String'
 			},

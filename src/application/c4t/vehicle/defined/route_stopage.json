@@ -77,6 +77,17 @@
 			{
 				'type':'double',
 				'default' : "50"
+			},
+			'controller_connected':
+			{
+				'type':'String',
+				'length': 1,
+				'trancient' : true
+			},
+			'controller_last_update_time':
+			{
+				'type':'long',
+				'trancient' : true
 			}
 		}
 	}

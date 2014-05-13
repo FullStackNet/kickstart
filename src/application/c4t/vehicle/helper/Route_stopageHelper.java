@@ -9,10 +9,13 @@ import platform.db.JoinField;
 import platform.db.REL_OP;
 import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
+import platform.helper.ControllerHelper;
 import platform.helper.HelperUtils;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
+import platform.resource.controller;
 import platform.resource.user;
+import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
@@ -165,6 +168,7 @@ public class Route_stopageHelper extends BaseHelper {
 		}
 	}
 	public BaseResource[] getRouteStopageDetail(String routeId) {
+		String connected = "Y";
 		BaseResource[] resources = null;
 		route _route = (route)RouteHelper.getInstance().getById(routeId);
 		if (_route == null)
@@ -172,7 +176,14 @@ public class Route_stopageHelper extends BaseHelper {
 		appliance _appliance = ApplianceHelper.getInstance().getById(_route.getAppliance_id());
 		if (_appliance == null)
 			return null;
-
+		BaseResource[] _controllers = ControllerHelper.getInstance().getByApplianceId(_appliance.getId());
+		if (!Util.isEmpty(_controllers)) {
+			controller _controller = (controller)_controllers[0];
+			long diff = System.currentTimeMillis()-_appliance.getLast_update_time();
+			if (diff > _controller.getData_read_interval()*2) {
+				connected = "N";
+			}
+		}
 		boolean valid_route = isValidRoute(_route, new Date(), _appliance.getTimeZone());
 		long lastReachTime = TimeUtil.getDayTime(_route.getStart_time());
 		Expression expression = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.EQ, routeId);
@@ -182,6 +193,8 @@ public class Route_stopageHelper extends BaseHelper {
 				route_stopage _route_stopage = (route_stopage) resource;
 				if (_route_stopage == null)
 					continue;
+				_route_stopage.setController_connected(connected);
+				_route_stopage.setController_last_update_time(_appliance.getLast_update_time());
 				stopage _stopage = (stopage) StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
 				if (_stopage != null) {
 					_route_stopage.setStopage_name(_stopage.getName());

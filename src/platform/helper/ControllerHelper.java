@@ -1,6 +1,7 @@
 package platform.helper;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
@@ -31,6 +32,20 @@ public class ControllerHelper extends BaseHelper {
 		controller _controller = new controller();
 		_controller.setId(controllerId);
 		_controller.setManager(manager);
+		try {
+			ControllerHelper.getInstance().update(_controller);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateLastDataReceivedTime(String controllerId, Date time) {
+		if (controllerId ==null) return;
+		
+		controller _controller = new controller();
+		_controller.setId(controllerId);
+		_controller.setLast_data_received(time.getTime());
 		try {
 			ControllerHelper.getInstance().update(_controller);
 		} catch (ApplicationException e) {

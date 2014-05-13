@@ -33,6 +33,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private Long reached_time = null;
 	private Integer reached_duration = null;
 	private Double stopage_radius = null;
+	private String controller_connected = null;
+	private Long controller_last_update_time = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -48,6 +50,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 	public static String FIELD_REACHED_TIME = "reached_time";
 	public static String FIELD_REACHED_DURATION = "reached_duration";
 	public static String FIELD_STOPAGE_RADIUS = "stopage_radius";
+	public static String FIELD_CONTROLLER_CONNECTED = "controller_connected";
+	public static String FIELD_CONTROLLER_LAST_UPDATE_TIME = "controller_last_update_time";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route_stopage");
@@ -104,6 +108,13 @@ public abstract class Baseroute_stopage extends BaseResource {
 		stopage_radiusField.setDefaultValue(50.0);
 		metaData.addField(stopage_radiusField);
 
+		Field controller_connectedField = new Field("controller_connected", "String");
+		controller_connectedField.setLength(1);
+		metaData.addField(controller_connectedField);
+
+		Field controller_last_update_timeField = new Field("controller_last_update_time", "long");
+		metaData.addField(controller_last_update_timeField);
+
 
 		metaData.setTableName("route_stopage");
 
@@ -127,6 +138,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 		this.reached_time = obj.reached_time;
 		this.reached_duration = obj.reached_duration;
 		this.stopage_radius = obj.stopage_radius;
+		this.controller_connected = obj.controller_connected;
+		this.controller_last_update_time = obj.controller_last_update_time;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -170,6 +183,10 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("reached_duration", reached_duration);
 		if(stopage_radius != null)
 			map.put("stopage_radius", stopage_radius);
+		if(controller_connected != null)
+			map.put("controller_connected", controller_connected);
+		if(controller_last_update_time != null)
+			map.put("controller_last_update_time", controller_last_update_time);
 		return map;
 	}
 
@@ -206,6 +223,10 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("reached_duration", reached_duration);
 		if(stopage_radius != null)
 			map.put("stopage_radius", stopage_radius);
+		if(controller_connected != null)
+			map.put("controller_connected", controller_connected);
+		if(controller_last_update_time != null)
+			map.put("controller_last_update_time", controller_last_update_time);
 		return map;
 	}
 
@@ -227,6 +248,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 		reached_time = (Long) map.get("reached_time");
 		reached_duration = (Integer) map.get("reached_duration");
 		stopage_radius = (Double) map.get("stopage_radius");
+		controller_connected = (String) map.get("controller_connected");
+		controller_last_update_time = (Long) map.get("controller_last_update_time");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -277,6 +300,14 @@ public abstract class Baseroute_stopage extends BaseResource {
 		Object stopage_radiusObj = map.get("stopage_radius");
 		if(stopage_radiusObj != null)
 			stopage_radius = new Double(stopage_radiusObj.toString());
+
+		Object controller_connectedObj = map.get("controller_connected");
+		if(controller_connectedObj != null)
+			controller_connected = controller_connectedObj.toString();
+
+		Object controller_last_update_timeObj = map.get("controller_last_update_time");
+		if(controller_last_update_timeObj != null)
+			controller_last_update_time = new Long(controller_last_update_timeObj.toString());
 
 	}
 
@@ -548,6 +579,42 @@ public abstract class Baseroute_stopage extends BaseResource {
 
 	public void unSetStopage_radius() {
 		this.stopage_radius = 50.0;
+	}
+
+	public String getController_connected() {
+		return controller_connected;
+	}
+
+	public String getController_connectedEx() {
+		return controller_connected != null ? controller_connected : "";
+	}
+
+	public void setController_connected(String controller_connected) {
+		this.controller_connected = controller_connected;
+	}
+
+	public void unSetController_connected() {
+		this.controller_connected = null;
+	}
+
+	public Long getController_last_update_time() {
+		return controller_last_update_time;
+	}
+
+	public long getController_last_update_timeEx() {
+		return controller_last_update_time != null ? controller_last_update_time : 0L;
+	}
+
+	public void setController_last_update_time(long controller_last_update_time) {
+		this.controller_last_update_time = controller_last_update_time;
+	}
+
+	public void setController_last_update_time(Long controller_last_update_time) {
+		this.controller_last_update_time = controller_last_update_time;
+	}
+
+	public void unSetController_last_update_time() {
+		this.controller_last_update_time = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";
