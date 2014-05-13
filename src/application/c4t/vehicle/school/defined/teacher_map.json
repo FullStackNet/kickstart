@@ -10,9 +10,14 @@
 				'length': 128,
 				'required': true,
 				'type':'String',
-				'comment' : "student id"
+				'comment' : "teacher id"
 			},
 			'users':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'class_sections':
 			{
 				'type':'Array',
 				'valueType' : 'Object' 

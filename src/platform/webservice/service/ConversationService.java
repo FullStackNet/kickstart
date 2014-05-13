@@ -5,13 +5,16 @@ import java.util.Map;
 import platform.exception.ExceptionEnum;
 import platform.helper.ConversationHelper;
 import platform.helper.Conversation_summaryHelper;
+import platform.helper.UserHelper;
 import platform.resource.BaseResource;
 import platform.resource.conversation;
 import platform.resource.conversation_summary;
+import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
+import platform.webservice.WebServiceContants;
 
 public class ConversationService extends BaseService{
 	public ConversationService() {
@@ -42,7 +45,19 @@ public class ConversationService extends BaseService{
 	}
 
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
-		
+		if (action.equalsIgnoreCase(WebServiceContants.OPERATION_DELETE)) {
+			conversation _resource = (conversation) resource;
+			String userId = ctx.getUserId();
+			String toUser = (String)(_resource.getTo_user_id());
+			String id = conversation.id(userId, toUser);
+			conversation _conversation = (conversation) ConversationHelper.getInstance().getById(id);
+			if (_conversation == null) {
+				throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_USER);
+			}
+			ConversationHelper.getInstance().deleteConversation(id);
+			return;
+		}
+		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_ACTION);
 	}
 	
 	public void update(ServletContext ctx, BaseResource resource) throws ApplicationException {
