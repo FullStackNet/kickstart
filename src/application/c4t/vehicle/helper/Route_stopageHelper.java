@@ -179,9 +179,13 @@ public class Route_stopageHelper extends BaseHelper {
 		BaseResource[] _controllers = ControllerHelper.getInstance().getByApplianceId(_appliance.getId());
 		if (!Util.isEmpty(_controllers)) {
 			controller _controller = (controller)_controllers[0];
-			long diff = System.currentTimeMillis()-_appliance.getLast_update_time();
-			if (diff > _controller.getData_read_interval()*2) {
+			if (_appliance.getLast_update_time() == null) {
 				connected = "N";
+			} else {
+				long diff = System.currentTimeMillis()-_appliance.getLast_update_time();
+				if (diff > _controller.getData_read_interval()*3) {
+					connected = "N";
+				}
 			}
 		}
 		boolean valid_route = isValidRoute(_route, new Date(), _appliance.getTimeZone());
