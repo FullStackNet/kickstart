@@ -143,7 +143,6 @@ public class User_mapHelper extends BaseHelper {
 		return ApplianceHelper.getInstance().getByJoining(ids, joinFields,null);
 	}
 
-	
 	public ArrayList<Map<String, Object>> getDevices(String userId,ArrayList<JoinField> joinFields) {
 		HelperFactory.getInstance().register(DeviceHelper.getInstance());
 		ArrayList<Map<String, Object>>  devices = null;

@@ -9,6 +9,7 @@ import platform.db.DbConnection;
 import platform.db.DbManager;
 import platform.db.Expression;
 import platform.db.JoinField;
+import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
@@ -769,6 +770,21 @@ public class BaseHelper {
 		} catch (ApplicationException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		}
+		return list;
+	}
+	
+	
+	public ArrayList<Map<String, Object>> getListMapByCustomerIdForType(String customerId,String type,ArrayList<JoinField> joinFields) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		Expression e1 = new Expression("customer_id", REL_OP.EQ, customerId);
+		Expression e2 = new Expression("type", REL_OP.EQ, type);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		try {
+			list =  getByJoining(e,joinFields,new String[]{"name"});
+		} catch (ApplicationException exp) {
+			// TODO Auto-generated catch block
+			exp.printStackTrace();
 		}
 		return list;
 	}
