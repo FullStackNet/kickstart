@@ -27,6 +27,7 @@ public abstract class Baseschool extends BaseResource {
 	private String city = null;
 	private String state = null;
 	private String country = null;
+	private String group_id = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -36,6 +37,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
+	public static String FIELD_GROUP_ID = "group_id";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("school");
@@ -76,6 +78,10 @@ public abstract class Baseschool extends BaseResource {
 		countryField.setLength(128);
 		metaData.addField(countryField);
 
+		Field group_idField = new Field("group_id", "String");
+		group_idField.setLength(128);
+		metaData.addField(group_idField);
+
 
 		metaData.setTableName("school");
 
@@ -93,6 +99,7 @@ public abstract class Baseschool extends BaseResource {
 		this.city = obj.city;
 		this.state = obj.state;
 		this.country = obj.country;
+		this.group_id = obj.group_id;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -117,6 +124,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
+		if(group_id != null)
+			map.put("group_id", group_id);
 		return map;
 	}
 
@@ -138,6 +147,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
+		if(group_id != null)
+			map.put("group_id", group_id);
 		return map;
 	}
 
@@ -155,6 +166,7 @@ public abstract class Baseschool extends BaseResource {
 		city = (String) map.get("city");
 		state = (String) map.get("state");
 		country = (String) map.get("country");
+		group_id = (String) map.get("group_id");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -189,6 +201,10 @@ public abstract class Baseschool extends BaseResource {
 		Object countryObj = map.get("country");
 		if(countryObj != null)
 			country = countryObj.toString();
+
+		Object group_idObj = map.get("group_id");
+		if(group_idObj != null)
+			group_id = group_idObj.toString();
 
 	}
 
@@ -330,6 +346,22 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetCountry() {
 		this.country = null;
+	}
+
+	public String getGroup_id() {
+		return group_id;
+	}
+
+	public String getGroup_idEx() {
+		return group_id != null ? group_id : "";
+	}
+
+	public void setGroup_id(String group_id) {
+		this.group_id = group_id;
+	}
+
+	public void unSetGroup_id() {
+		this.group_id = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";
