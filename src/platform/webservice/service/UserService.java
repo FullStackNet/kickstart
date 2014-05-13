@@ -57,6 +57,7 @@ public class UserService extends BaseService{
 					_invite.setInvite_type(invite.INVITE_TYPE_JOIN_USER);
 				}
 				_invite.setName(_resource.getName());
+				_invite.setReference_name(_resource.getName());
 				_invite.setEmail_id(_resource.getEmail_id());
 				_invite.setType(_resource.getType());
 				_invite.setKey(Util.getRandonToken());

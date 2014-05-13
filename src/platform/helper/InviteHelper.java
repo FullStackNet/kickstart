@@ -140,7 +140,7 @@ public class InviteHelper extends BaseHelper {
 			_user.setEmail_id(_fetched_resource.getEmail_id());
 		if (_user.getName() == null)
 			_user.setName(_fetched_resource.getName());
-		if (_invite.getPasswordEx() != null)
+		if (_invite.getPassword() != null)
 			_user.setPassword(Util.doubleMD5(_invite.getPasswordEx()));
 		if (invite.INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE.equals(_fetched_resource.getInvite_type())) {
 			// check the user if exists
