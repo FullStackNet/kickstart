@@ -182,7 +182,7 @@ public class Route_stopageHelper extends BaseHelper {
 				connected = "N";
 			} else {
 				long diff = System.currentTimeMillis()-_appliance.getLast_update_time();
-				if (diff > _controller.getData_read_interval()*3) {
+				if (diff > _controller.getData_read_interval()*3*1000L) {
 					connected = "N";
 				}
 			}
@@ -198,6 +198,7 @@ public class Route_stopageHelper extends BaseHelper {
 					continue;
 				_route_stopage.setController_connected(connected);
 				_route_stopage.setController_last_update_time(_appliance.getLast_update_time());
+				
 				stopage _stopage = (stopage) StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
 				if (_stopage != null) {
 					_route_stopage.setStopage_name(_stopage.getName());
