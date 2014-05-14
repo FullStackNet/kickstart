@@ -337,7 +337,7 @@ public abstract class Basecontroller extends BaseResource {
 		metaData.addField(activatedField);
 
 		Field connectedField = new Field("connected", "String");
-		connectedField.setDefaultValue("Y");
+		connectedField.setDefaultValue("N");
 		connectedField.setLength(1);
 		metaData.addField(connectedField);
 
@@ -524,7 +524,7 @@ public abstract class Basecontroller extends BaseResource {
 		if(activated == null)
 			activated = "N";
 		if(connected == null)
-			connected = "Y";
+			connected = "N";
 		if(hardware_error == null)
 			hardware_error = "N";
 		if(config == null)
@@ -1820,7 +1820,7 @@ public abstract class Basecontroller extends BaseResource {
 	}
 
 	public String getConnected() {
-		return connected != null ? connected : "Y";
+		return connected != null ? connected : "N";
 	}
 
 	public void setConnected(String connected) {
@@ -1828,7 +1828,7 @@ public abstract class Basecontroller extends BaseResource {
 	}
 
 	public void unSetConnected() {
-		this.connected = "Y";
+		this.connected = "N";
 	}
 
 	public String getHardware_error() {

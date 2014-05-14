@@ -114,7 +114,33 @@
 				'length': 128,
 				'type':'String'
 			},
+			'father_email_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'father_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_dob':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			
+			'father_occupation':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_role':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_company_name':
 			{
 				'length': 128,
 				'type':'String'
@@ -124,7 +150,32 @@
 				'length': 128,
 				'type':'String'
 			},
+			'mother_dob':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'mother_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_occupation':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_role':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_company_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_email_id':
 			{
 				'length': 128,
 				'type':'String'
@@ -135,16 +186,6 @@
 				'type':'String'
 			},
 			'other_mobile_no':
-			{
-				'length': 128,
-				'type':'String'
-			},
-			'father_email_id':
-			{
-				'length': 128,
-				'type':'String'
-			},
-			'mother_email_id':
 			{
 				'length': 128,
 				'type':'String'

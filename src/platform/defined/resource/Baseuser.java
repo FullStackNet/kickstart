@@ -26,6 +26,10 @@ public abstract class Baseuser extends BaseResource {
 	private String mobile_no = null;
 	private String email_id = null;
 	private String customer_id = null;
+	private String dob = null;
+	private String occupation = null;
+	private String role = null;
+	private String company_name = null;
 	private String state = null;
 	private String parentService = null;
 	private String teacherService = null;
@@ -42,6 +46,10 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_DOB = "dob";
+	public static String FIELD_OCCUPATION = "occupation";
+	public static String FIELD_ROLE = "role";
+	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_PARENTSERVICE = "parentService";
 	public static String FIELD_TEACHERSERVICE = "teacherService";
@@ -89,6 +97,22 @@ public abstract class Baseuser extends BaseResource {
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
+
+		Field dobField = new Field("dob", "String");
+		dobField.setLength(128);
+		metaData.addField(dobField);
+
+		Field occupationField = new Field("occupation", "String");
+		occupationField.setLength(128);
+		metaData.addField(occupationField);
+
+		Field roleField = new Field("role", "String");
+		roleField.setLength(128);
+		metaData.addField(roleField);
+
+		Field company_nameField = new Field("company_name", "String");
+		company_nameField.setLength(128);
+		metaData.addField(company_nameField);
 
 		Field stateField = new Field("state", "String");
 		stateField.setLength(32);
@@ -144,6 +168,10 @@ public abstract class Baseuser extends BaseResource {
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
 		this.customer_id = obj.customer_id;
+		this.dob = obj.dob;
+		this.occupation = obj.occupation;
+		this.role = obj.role;
+		this.company_name = obj.company_name;
 		this.state = obj.state;
 		this.parentService = obj.parentService;
 		this.teacherService = obj.teacherService;
@@ -189,6 +217,14 @@ public abstract class Baseuser extends BaseResource {
 			map.put("email_id", email_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(dob != null)
+			map.put("dob", dob);
+		if(occupation != null)
+			map.put("occupation", occupation);
+		if(role != null)
+			map.put("role", role);
+		if(company_name != null)
+			map.put("company_name", company_name);
 		if(state != null)
 			map.put("state", state);
 		if(parentService != null)
@@ -227,6 +263,14 @@ public abstract class Baseuser extends BaseResource {
 			map.put("email_id", email_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(dob != null)
+			map.put("dob", dob);
+		if(occupation != null)
+			map.put("occupation", occupation);
+		if(role != null)
+			map.put("role", role);
+		if(company_name != null)
+			map.put("company_name", company_name);
 		if(state != null)
 			map.put("state", state);
 		if(parentService != null)
@@ -259,6 +303,10 @@ public abstract class Baseuser extends BaseResource {
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
 		customer_id = (String) map.get("customer_id");
+		dob = (String) map.get("dob");
+		occupation = (String) map.get("occupation");
+		role = (String) map.get("role");
+		company_name = (String) map.get("company_name");
 		state = (String) map.get("state");
 		parentService = (String) map.get("parentService");
 		teacherService = (String) map.get("teacherService");
@@ -297,6 +345,22 @@ public abstract class Baseuser extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object dobObj = map.get("dob");
+		if(dobObj != null)
+			dob = dobObj.toString();
+
+		Object occupationObj = map.get("occupation");
+		if(occupationObj != null)
+			occupation = occupationObj.toString();
+
+		Object roleObj = map.get("role");
+		if(roleObj != null)
+			role = roleObj.toString();
+
+		Object company_nameObj = map.get("company_name");
+		if(company_nameObj != null)
+			company_name = company_nameObj.toString();
 
 		Object stateObj = map.get("state");
 		if(stateObj != null)
@@ -466,6 +530,70 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public String getDobEx() {
+		return dob != null ? dob : "";
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	public void unSetDob() {
+		this.dob = null;
+	}
+
+	public String getOccupation() {
+		return occupation;
+	}
+
+	public String getOccupationEx() {
+		return occupation != null ? occupation : "";
+	}
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
+	public void unSetOccupation() {
+		this.occupation = null;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public String getRoleEx() {
+		return role != null ? role : "";
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public void unSetRole() {
+		this.role = null;
+	}
+
+	public String getCompany_name() {
+		return company_name;
+	}
+
+	public String getCompany_nameEx() {
+		return company_name != null ? company_name : "";
+	}
+
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
+	}
+
+	public void unSetCompany_name() {
+		this.company_name = null;
 	}
 
 	public String getState() {
