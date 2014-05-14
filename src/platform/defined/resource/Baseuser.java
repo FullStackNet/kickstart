@@ -38,6 +38,7 @@ public abstract class Baseuser extends BaseResource {
 	private String dgService = null;
 	private String key = null;
 	private String routeSettingService = null;
+	private String schoolAdminService = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_PASSWORD = "password";
@@ -58,6 +59,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_KEY = "key";
 	public static String FIELD_ROUTESETTINGSERVICE = "routeSettingService";
+	public static String FIELD_SCHOOLADMINSERVICE = "schoolAdminService";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("user");
@@ -152,6 +154,11 @@ public abstract class Baseuser extends BaseResource {
 		routeSettingServiceField.setLength(1);
 		metaData.addField(routeSettingServiceField);
 
+		Field schoolAdminServiceField = new Field("schoolAdminService", "String");
+		schoolAdminServiceField.setDefaultValue("N");
+		schoolAdminServiceField.setLength(1);
+		metaData.addField(schoolAdminServiceField);
+
 
 		metaData.setTableName("user");
 
@@ -180,6 +187,7 @@ public abstract class Baseuser extends BaseResource {
 		this.dgService = obj.dgService;
 		this.key = obj.key;
 		this.routeSettingService = obj.routeSettingService;
+		this.schoolAdminService = obj.schoolAdminService;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -199,6 +207,8 @@ public abstract class Baseuser extends BaseResource {
 			dgService = "N";
 		if(routeSettingService == null)
 			routeSettingService = "N";
+		if(schoolAdminService == null)
+			schoolAdminService = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -241,6 +251,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("key", key);
 		if(routeSettingService != null)
 			map.put("routeSettingService", routeSettingService);
+		if(schoolAdminService != null)
+			map.put("schoolAdminService", schoolAdminService);
 		return map;
 	}
 
@@ -287,6 +299,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("key", key);
 		if(routeSettingService != null)
 			map.put("routeSettingService", routeSettingService);
+		if(schoolAdminService != null)
+			map.put("schoolAdminService", schoolAdminService);
 		return map;
 	}
 
@@ -315,6 +329,7 @@ public abstract class Baseuser extends BaseResource {
 		dgService = (String) map.get("dgService");
 		key = (String) map.get("key");
 		routeSettingService = (String) map.get("routeSettingService");
+		schoolAdminService = (String) map.get("schoolAdminService");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -393,6 +408,10 @@ public abstract class Baseuser extends BaseResource {
 		Object routeSettingServiceObj = map.get("routeSettingService");
 		if(routeSettingServiceObj != null)
 			routeSettingService = routeSettingServiceObj.toString();
+
+		Object schoolAdminServiceObj = map.get("schoolAdminService");
+		if(schoolAdminServiceObj != null)
+			schoolAdminService = schoolAdminServiceObj.toString();
 
 	}
 
@@ -698,6 +717,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetRouteSettingService() {
 		this.routeSettingService = "N";
+	}
+
+	public String getSchoolAdminService() {
+		return schoolAdminService != null ? schoolAdminService : "N";
+	}
+
+	public void setSchoolAdminService(String schoolAdminService) {
+		this.schoolAdminService = schoolAdminService;
+	}
+
+	public void unSetSchoolAdminService() {
+		this.schoolAdminService = "N";
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

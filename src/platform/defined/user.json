@@ -123,7 +123,13 @@
 				'length': 1,
 				'type':'String',
 				'default' : "N"
-			}				
+			},
+			'schoolAdminService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			}					
 		}
 	}
 }
