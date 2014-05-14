@@ -180,7 +180,8 @@ public class ApplianceService extends BaseService{
 		QUERY_APPLIANCE_HIGH_COOLANT_TEMP,
 		QUERY_ALERT,
 		QUERY_NOTIFICATION,
-		QUERY_BUS_SIMULATOR
+		QUERY_BUS_SIMULATOR,
+		QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN
 	};
 
 	public BaseResource get(ServletContext ctx, String uid) {
@@ -189,6 +190,9 @@ public class ApplianceService extends BaseService{
 	}
 
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
+		if(QueryTypes.QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN.toString().equals(queryId)) {
+			return ApplianceHelper.getInstance().getSchoolBusAdminDetail(ctx.getCustomerId());
+		}
 		if(QueryTypes.QUERY_USER_APPLIANCES_SUMMARY.toString().equals(queryId)) {
 			System.out.println("Received Query "+queryId);
 			String userId = ctx.getUserId();

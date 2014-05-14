@@ -1080,7 +1080,31 @@
 			'fuelType': {
 				'length': 10,
 				'type': 'String'
-			}
+			},
+			current_route_name : {
+				 transient : true,
+				'length': 128,
+				'type': 'String'
+			},
+			current_route_schedule : {
+				 transient : true,
+				'length': 128,
+				'type': 'String'
+			},
+			last_stopage_name : {
+				 transient : true,
+				'length': 128,
+				'type': 'String'
+			},
+			last_stopage_reached_time : {
+				 transient : true,
+				'type': 'long'
+			},
+			controller_id : {
+				 transient : true,
+				'length': 128,
+				'type': 'String'
+			}					
 		}
 	}
 }

@@ -18,6 +18,13 @@ import platform.resource.notification;
 import platform.sensor.C4T_PARAMETER;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
+import platform.util.Util;
+import application.c4t.vehicle.helper.RouteHelper;
+import application.c4t.vehicle.helper.Route_stopageHelper;
+import application.c4t.vehicle.helper.StopageHelper;
+import application.c4t.vehicle.resource.route;
+import application.c4t.vehicle.resource.route_stopage;
+import application.c4t.vehicle.resource.stopage;
 
 
 public class ApplianceHelper extends BaseHelper {
@@ -35,17 +42,58 @@ public class ApplianceHelper extends BaseHelper {
 		}
 		return instance;
 	}
-	
+
 	public appliance getById(String id) {
 		return (appliance)super.getById(id);
 	}
 
-	
+	public BaseResource[] getSchoolBusAdminDetail(String customerId) {
+		BaseResource[] appliances;
+		appliances = ApplianceHelper.getInstance().getByCustomerIdForType(customerId,"VEHICLE");
+		if (Util.isEmpty(appliances)) 
+			return null;
+		for(BaseResource resource : appliances) {
+			appliance _appliance = (appliance) resource;
+			route _route = (route)RouteHelper.getInstance().getById(_appliance.getCurrentRouteId());
+			if ((_route != null) && RouteHelper.getInstance().isValidRoute(_route, _appliance.getTimeZone())) {
+				_appliance.setCurrent_route_name(_route.getName());
+				route_stopage _route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(_appliance.getLastStopageId());
+				if (_route_stopage != null) {
+					if (!_route_stopage.getRoute_id().equals(_route.getId())) {
+						_appliance.setCurrent_route_name(null);
+					} else {
+						_appliance.setCurrent_route_schedule(_route.getStart_timeEx()+"-"+_route.getEnd_timeEx());
+						stopage _stopage = (stopage)StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
+						if (_stopage != null) {
+							_appliance.setLast_stopage_name(_stopage.getName());
+							_appliance.setLast_stopage_reached_time(_route_stopage.getReached_timeEx());
+						}
+					}
+				}
+			}
+			String connected = "Y";
+			BaseResource[] _controllers = ControllerHelper.getInstance().getByApplianceId(_appliance.getId());
+			if (!Util.isEmpty(_controllers)) {
+				controller _controller = (controller)_controllers[0];
+				_appliance.setController_id(_controller.getId());
+				if (_appliance.getLast_update_time() == null) {
+					connected = "N";
+				} else {
+					long diff = System.currentTimeMillis()-_appliance.getLast_update_time();
+					if (diff > _controller.getData_read_interval()*3*1000L) {
+						connected = "N";
+					}
+				}
+			}
+			_appliance.setConnected(connected);
+		}
+		return appliances;
+	}
 	
 	public void cleanData(String userId,BaseResource resource) {
 		appliance _fetchedAppliance = getById(resource.getId());
 		if (_fetchedAppliance == null) return;
-		
+
 		reset(_fetchedAppliance,resource.getId(), appliance.FIELD_AIRFLOW);
 		reset(_fetchedAppliance,resource.getId(), appliance.FIELD_ATMOSHERICPRESSURE);
 		reset(_fetchedAppliance,resource.getId(), appliance.FIELD_AVERAGE_FUEL_CONSUMPTION);
@@ -89,7 +137,7 @@ public class ApplianceHelper extends BaseHelper {
 
 		Expression expression = new Expression(appliance_time_series.FIELD_APPLIANCE_ID, REL_OP.EQ, resource.getId());
 		Appliance_time_seriesHelper.getInstance().deleteByExpression(expression);
-		
+
 		expression = new Expression(appliance_running_log.FIELD_APPLIANCE_ID, REL_OP.EQ, resource.getId());
 		Appliance_running_logHelper.getInstance().deleteByExpression(expression);
 
@@ -100,7 +148,7 @@ public class ApplianceHelper extends BaseHelper {
 		NotificationHelper.getInstance().deleteByExpression(expression);
 
 	}
-	
+
 	public void updateLastStopage(String applianceId,String lastStopageId) {
 		appliance _appliance = new appliance(applianceId);
 		_appliance.setLastStopageId(lastStopageId);
@@ -121,7 +169,7 @@ public class ApplianceHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateDGData(controller _controller,
 			appliance _appliance,
 			double fuelLevel, double fuelQuantity,double canopyTemperature,
@@ -131,7 +179,7 @@ public class ApplianceHelper extends BaseHelper {
 			long time) {
 		double current_fuel_consumption = 0.0;
 		double current_fuel_filling = 0.0;
-		
+
 		//Update the Appliance state and data
 		appliance __appliance = new appliance(_controller.getAppliance_id());
 		__appliance.setGrid_state("N");
@@ -142,7 +190,7 @@ public class ApplianceHelper extends BaseHelper {
 		__appliance.setWaterInFuel("N");
 		__appliance.setOverSpeedState("N");
 		__appliance.setStarterTriggered("N");
-			
+
 
 		if (bOilPressure == 1) {
 			__appliance.setLowOilPressureState("Y");
@@ -172,21 +220,21 @@ public class ApplianceHelper extends BaseHelper {
 		if (dgstate == 1) {
 			__appliance.setState("Y");
 		}
-		
+
 		// Notification and alerts
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 		dataMap.put(C4T_PARAMETER.FUEL_QUANTITY.toString(), fuelQuantity);	
 		if (_appliance.getFuel_quantity() != null) {
 			if (fuelQuantity < _appliance.getFuel_quantity().doubleValue()) {
-				 double fuel_consumption = _appliance.getFuel_quantity().doubleValue() - fuelQuantity;
-				 current_fuel_consumption = _appliance.getCurrent_fuel_consumption().doubleValue()+fuel_consumption;
+				double fuel_consumption = _appliance.getFuel_quantity().doubleValue() - fuelQuantity;
+				current_fuel_consumption = _appliance.getCurrent_fuel_consumption().doubleValue()+fuel_consumption;
 				__appliance.setCurrent_fuel_consumption(current_fuel_consumption);
 				dataMap.put(C4T_PARAMETER.FUEL_CONSUMPTION.toString(), current_fuel_consumption);	
 			} else if (fuelQuantity >  _appliance.getFuel_quantity().doubleValue()) {
 				current_fuel_filling = fuelQuantity - _appliance.getFuel_quantity().doubleValue();
 			}
 		}
-		
+
 		if ("N".equals(_appliance.getState())) {
 			if (dgstate == 1) {
 				current_fuel_consumption = 0.0;
@@ -202,7 +250,7 @@ public class ApplianceHelper extends BaseHelper {
 						NotificationFactory.SEVERIRY_INFO, dataMap, new Date(time));
 			}
 		}
-		
+
 		if (_appliance.getThreshold_fuel_level().doubleValue() > 0.0) {
 			if (fuelQuantity < _appliance.getThreshold_fuel_level().doubleValue()) {
 				if (!"Y".equals(_appliance.getLowFuelState())) {
@@ -211,7 +259,7 @@ public class ApplianceHelper extends BaseHelper {
 							AlertFactory.ALERT_LOW_FUEL, (int)AlertFactory.SEVERIRY_CRITICAL,null,new Date(time));
 				}
 			}
-			
+
 			if (fuelQuantity > _appliance.getThreshold_fuel_level().doubleValue()) {
 				if ("Y".equals(_appliance.getLowFuelState())) {
 					__appliance.setLowFuelState("N");
@@ -220,7 +268,7 @@ public class ApplianceHelper extends BaseHelper {
 				}
 			}
 		}
-		
+
 		if (_appliance.getThreshold_temperature_max_level().doubleValue() > 0.0) {
 			if (canopyTemperature > _appliance.getThreshold_temperature_max_level().doubleValue()) {
 				if (!"Y".equals(_appliance.getHigh_canopy_temperature())) {
@@ -229,7 +277,7 @@ public class ApplianceHelper extends BaseHelper {
 							AlertFactory.ALERT_HIGH_CANOPY_TEMPERATURE, (int)AlertFactory.SEVERIRY_CRITICAL,null,new Date(time));
 				}
 			}
-			
+
 			if (canopyTemperature < _appliance.getThreshold_temperature_max_level().doubleValue()) {
 				if ("Y".equals(_appliance.getHigh_canopy_temperature())) {
 					__appliance.setHigh_canopy_temperature("N");
@@ -246,7 +294,7 @@ public class ApplianceHelper extends BaseHelper {
 							AlertFactory.ALERT_LOW_BATTERY_VOLTAGE, (int)AlertFactory.SEVERIRY_CRITICAL,null,new Date(time));
 				}
 			}
-			
+
 			if (batteryVoltage > _appliance.getThreshold_voltage_min_level().doubleValue()) {
 				if ("Y".equals(_appliance.getLowBatteryState())) {
 					__appliance.setLowBatteryState("N");
@@ -255,25 +303,25 @@ public class ApplianceHelper extends BaseHelper {
 				}
 			}
 		}
-		
+
 		// Update the daily/monthly fuel consumption /fuel loss /run hours
-		
+
 		if ("Y".equals(_appliance.getState())) {
 			long last_reading_updated = _appliance.getLast_reading_updated();
 			int run_time = (int) (time -last_reading_updated);
 			if (!TimeUtil.isSameDate(_appliance.getTimeZone(), last_reading_updated, time)) {
-				 run_time = (int)TimeUtil.todayTimePassed(_appliance.getTimeZone(),time);
+				run_time = (int)TimeUtil.todayTimePassed(_appliance.getTimeZone(),time);
 				__appliance.setToday_run_time(run_time);
 			} else {
 				__appliance.setToday_run_time(_appliance.getToday_run_timeEx()+run_time);
 			}
 			if (!TimeUtil.isSameMonth(_appliance.getTimeZone(), last_reading_updated, time)) {
-				 run_time = (int)TimeUtil.todayTimePassed(_appliance.getTimeZone(),time);
+				run_time = (int)TimeUtil.todayTimePassed(_appliance.getTimeZone(),time);
 				__appliance.setCurrent_month_run_time(run_time);
 			} else {
 				__appliance.setCurrent_month_run_time(_appliance.getCurrent_month_run_timeEx()+run_time);
 			}
-		
+
 			if (fuelQuantity < _appliance.getFuel_quantity().doubleValue()) {
 				double fuel_consumption = _appliance.getFuel_quantity().doubleValue() - fuelQuantity;
 				if (!TimeUtil.isSameDate(_appliance.getTimeZone(), last_reading_updated, time)) {
@@ -319,8 +367,8 @@ public class ApplianceHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
+
 		// update time series Data
 		try {
 			Appliance_time_seriesHelper.getInstance().addTimeSeries(_controller.getAppliance_id(), 
@@ -343,5 +391,5 @@ public class ApplianceHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-			
+
 }

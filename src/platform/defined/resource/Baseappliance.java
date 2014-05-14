@@ -184,6 +184,10 @@ public abstract class Baseappliance extends BaseResource {
 	private String vehicleFitnessExpiry = null;
 	private String lastService = null;
 	private String fuelType = null;
+	private String current_route_name = null;
+	private String current_route_schedule = null;
+	private String last_stopage_name = null;
+	private Long last_stopage_reached_time = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -350,6 +354,10 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_VEHICLEFITNESSEXPIRY = "vehicleFitnessExpiry";
 	public static String FIELD_LASTSERVICE = "lastService";
 	public static String FIELD_FUELTYPE = "fuelType";
+	public static String FIELD_CURRENT_ROUTE_NAME = "current_route_name";
+	public static String FIELD_CURRENT_ROUTE_SCHEDULE = "current_route_schedule";
+	public static String FIELD_LAST_STOPAGE_NAME = "last_stopage_name";
+	public static String FIELD_LAST_STOPAGE_REACHED_TIME = "last_stopage_reached_time";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("appliance");
@@ -365,10 +373,6 @@ public abstract class Baseappliance extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
-
-		Field controller_idField = new Field("controller_id", "String");
-		controller_idField.setLength(128);
-		metaData.addField(controller_idField);
 
 		Field imeiField = new Field("imei", "String");
 		imeiField.setIndexed(true);
@@ -1317,6 +1321,10 @@ public abstract class Baseappliance extends BaseResource {
 		this.vehicleFitnessExpiry = obj.vehicleFitnessExpiry;
 		this.lastService = obj.lastService;
 		this.fuelType = obj.fuelType;
+		this.current_route_name = obj.current_route_name;
+		this.current_route_schedule = obj.current_route_schedule;
+		this.last_stopage_name = obj.last_stopage_name;
+		this.last_stopage_reached_time = obj.last_stopage_reached_time;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -1864,6 +1872,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("lastService", lastService);
 		if(fuelType != null)
 			map.put("fuelType", fuelType);
+		if(current_route_name != null)
+			map.put("current_route_name", current_route_name);
+		if(current_route_schedule != null)
+			map.put("current_route_schedule", current_route_schedule);
+		if(last_stopage_name != null)
+			map.put("last_stopage_name", last_stopage_name);
+		if(last_stopage_reached_time != null)
+			map.put("last_stopage_reached_time", last_stopage_reached_time);
 		return map;
 	}
 
@@ -2202,6 +2218,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("lastService", lastService);
 		if(fuelType != null)
 			map.put("fuelType", fuelType);
+		if(current_route_name != null)
+			map.put("current_route_name", current_route_name);
+		if(current_route_schedule != null)
+			map.put("current_route_schedule", current_route_schedule);
+		if(last_stopage_name != null)
+			map.put("last_stopage_name", last_stopage_name);
+		if(last_stopage_reached_time != null)
+			map.put("last_stopage_reached_time", last_stopage_reached_time);
 		return map;
 	}
 
@@ -2213,7 +2237,6 @@ public abstract class Baseappliance extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
-		controller_id = (String) map.get("controller_id");
 		imei = (String) map.get("imei");
 		vin = (String) map.get("vin");
 		make_id = (String) map.get("make_id");
@@ -2384,10 +2407,6 @@ public abstract class Baseappliance extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
-
-		Object controller_idObj = map.get("controller_id");
-		if(controller_idObj != null)
-			controller_id = controller_idObj.toString();
 
 		Object imeiObj = map.get("imei");
 		if(imeiObj != null)
@@ -5278,6 +5297,74 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetFuelType() {
 		this.fuelType = null;
+	}
+
+	public String getCurrent_route_name() {
+		return current_route_name;
+	}
+
+	public String getCurrent_route_nameEx() {
+		return current_route_name != null ? current_route_name : "";
+	}
+
+	public void setCurrent_route_name(String current_route_name) {
+		this.current_route_name = current_route_name;
+	}
+
+	public void unSetCurrent_route_name() {
+		this.current_route_name = null;
+	}
+
+	public String getCurrent_route_schedule() {
+		return current_route_schedule;
+	}
+
+	public String getCurrent_route_scheduleEx() {
+		return current_route_schedule != null ? current_route_schedule : "";
+	}
+
+	public void setCurrent_route_schedule(String current_route_schedule) {
+		this.current_route_schedule = current_route_schedule;
+	}
+
+	public void unSetCurrent_route_schedule() {
+		this.current_route_schedule = null;
+	}
+
+	public String getLast_stopage_name() {
+		return last_stopage_name;
+	}
+
+	public String getLast_stopage_nameEx() {
+		return last_stopage_name != null ? last_stopage_name : "";
+	}
+
+	public void setLast_stopage_name(String last_stopage_name) {
+		this.last_stopage_name = last_stopage_name;
+	}
+
+	public void unSetLast_stopage_name() {
+		this.last_stopage_name = null;
+	}
+
+	public Long getLast_stopage_reached_time() {
+		return last_stopage_reached_time;
+	}
+
+	public long getLast_stopage_reached_timeEx() {
+		return last_stopage_reached_time != null ? last_stopage_reached_time : 0L;
+	}
+
+	public void setLast_stopage_reached_time(long last_stopage_reached_time) {
+		this.last_stopage_reached_time = last_stopage_reached_time;
+	}
+
+	public void setLast_stopage_reached_time(Long last_stopage_reached_time) {
+		this.last_stopage_reached_time = last_stopage_reached_time;
+	}
+
+	public void unSetLast_stopage_reached_time() {
+		this.last_stopage_reached_time = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";
