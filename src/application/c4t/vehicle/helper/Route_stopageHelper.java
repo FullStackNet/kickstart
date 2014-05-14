@@ -105,6 +105,12 @@ public class Route_stopageHelper extends BaseHelper {
 		return list;
 	}
 
+	
+	
+	boolean isValidRoute(route _route, String timeZone) {
+		return isValidRoute(_route, new Date(), timeZone);
+	}
+	
 	boolean isValidRoute(route _route, Date logTime , String timeZone) {
 		long logDaytime = TimeUtil.getDayTime(timeZone,logTime);
 		long routeStartDayTime = TimeUtil.getDayTime(_route.getStart_time());

@@ -59,6 +59,7 @@ public class RouteHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 	
+	
 	void sendNotification2Users(Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
 			appliance _appliance, route_stopage _route_stopage,
@@ -202,7 +203,7 @@ public class RouteHelper extends BaseHelper {
 		return false;
 	}
 
-	route getValidRoute(appliance _fetched_appliance, Date logTime) {
+	public route getValidRoute(appliance _fetched_appliance, Date logTime) {
 		ArrayList<BaseResource> routeList = Vehicle_mapHelper.getInstance().getRouteList(_fetched_appliance.getId());
 		for(int i= 0; i <  routeList.size(); i++) {
 			route _route = (route)routeList.get(i);
@@ -213,6 +214,11 @@ public class RouteHelper extends BaseHelper {
 		return null;
 	}
 
+	public route getValidRoute(appliance _fetched_appliance) {
+		Date logTime = new Date();
+		return getValidRoute(_fetched_appliance,logTime);
+	}
+	
 	public void checkStopageAndSendNotification(String applianceId,String latitude, 
 			String longitude,Date logTime) {
 		appliance _appliance = ApplianceHelper.getInstance().getById(applianceId);
