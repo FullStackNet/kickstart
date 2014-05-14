@@ -190,7 +190,12 @@ public class RouteHelper extends BaseHelper {
 		sendNotification2Users(userMap, studentMap,_appliance, _route_stopage,appAlert,smsAlert,emailAlert);
 	}
 
-	boolean isValidRoute(route _route, Date logTime , String timeZone) {
+	public boolean isValidRoute(route _route, String timeZone) {
+		return isValidRoute(_route, new Date(), timeZone);
+	}
+
+	
+	public boolean isValidRoute(route _route, Date logTime , String timeZone) {
 		if (!"Y".equals(_route.getActive()))
 			return false;
 		long logDaytime = TimeUtil.getDayTime(timeZone,logTime);
