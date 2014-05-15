@@ -183,7 +183,6 @@ public abstract class Baseappliance extends BaseResource {
 	private String pollutionCertificateExpiry = null;
 	private String vehicleFitnessExpiry = null;
 	private String lastService = null;
-	private String fuelType = null;
 	private String current_route_name = null;
 	private String current_route_schedule = null;
 	private String last_stopage_name = null;
@@ -353,7 +352,6 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_POLLUTIONCERTIFICATEEXPIRY = "pollutionCertificateExpiry";
 	public static String FIELD_VEHICLEFITNESSEXPIRY = "vehicleFitnessExpiry";
 	public static String FIELD_LASTSERVICE = "lastService";
-	public static String FIELD_FUELTYPE = "fuelType";
 	public static String FIELD_CURRENT_ROUTE_NAME = "current_route_name";
 	public static String FIELD_CURRENT_ROUTE_SCHEDULE = "current_route_schedule";
 	public static String FIELD_LAST_STOPAGE_NAME = "last_stopage_name";
@@ -1143,10 +1141,6 @@ public abstract class Baseappliance extends BaseResource {
 		lastServiceField.setLength(28);
 		metaData.addField(lastServiceField);
 
-		Field fuelTypeField = new Field("fuelType", "String");
-		fuelTypeField.setLength(10);
-		metaData.addField(fuelTypeField);
-
 
 		metaData.setTableName("appliance");
 
@@ -1320,7 +1314,6 @@ public abstract class Baseappliance extends BaseResource {
 		this.pollutionCertificateExpiry = obj.pollutionCertificateExpiry;
 		this.vehicleFitnessExpiry = obj.vehicleFitnessExpiry;
 		this.lastService = obj.lastService;
-		this.fuelType = obj.fuelType;
 		this.current_route_name = obj.current_route_name;
 		this.current_route_schedule = obj.current_route_schedule;
 		this.last_stopage_name = obj.last_stopage_name;
@@ -1870,8 +1863,6 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("vehicleFitnessExpiry", vehicleFitnessExpiry);
 		if(lastService != null)
 			map.put("lastService", lastService);
-		if(fuelType != null)
-			map.put("fuelType", fuelType);
 		if(current_route_name != null)
 			map.put("current_route_name", current_route_name);
 		if(current_route_schedule != null)
@@ -2216,8 +2207,6 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("vehicleFitnessExpiry", vehicleFitnessExpiry);
 		if(lastService != null)
 			map.put("lastService", lastService);
-		if(fuelType != null)
-			map.put("fuelType", fuelType);
 		if(current_route_name != null)
 			map.put("current_route_name", current_route_name);
 		if(current_route_schedule != null)
@@ -2396,7 +2385,6 @@ public abstract class Baseappliance extends BaseResource {
 		pollutionCertificateExpiry = (String) map.get("pollutionCertificateExpiry");
 		vehicleFitnessExpiry = (String) map.get("vehicleFitnessExpiry");
 		lastService = (String) map.get("lastService");
-		fuelType = (String) map.get("fuelType");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -3043,10 +3031,6 @@ public abstract class Baseappliance extends BaseResource {
 		Object lastServiceObj = map.get("lastService");
 		if(lastServiceObj != null)
 			lastService = lastServiceObj.toString();
-
-		Object fuelTypeObj = map.get("fuelType");
-		if(fuelTypeObj != null)
-			fuelType = fuelTypeObj.toString();
 
 	}
 
@@ -5281,22 +5265,6 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetLastService() {
 		this.lastService = null;
-	}
-
-	public String getFuelType() {
-		return fuelType;
-	}
-
-	public String getFuelTypeEx() {
-		return fuelType != null ? fuelType : "";
-	}
-
-	public void setFuelType(String fuelType) {
-		this.fuelType = fuelType;
-	}
-
-	public void unSetFuelType() {
-		this.fuelType = null;
 	}
 
 	public String getCurrent_route_name() {

@@ -1077,10 +1077,7 @@
 				'length': 28,
 				'type': 'String'
 			},
-			'fuelType': {
-				'length': 10,
-				'type': 'String'
-			},
+			
 			current_route_name : {
 				 transient : true,
 				'length': 128,
