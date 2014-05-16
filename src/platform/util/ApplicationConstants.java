@@ -28,6 +28,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_PORT = "port";
 	public static String PROPERTY_USERNAME = "username";
 	public static String PROPERTY_PASSWORD = "password";
+	public static String PROPERTY_API_KEY = "api_key";
 	public static String PROPERTY_MODULES = "modules";
 	public static String PROPERTY_CLIENT_MESSAGE_QUEUE_SIZE = "client_message_queue_size";
 	public static String PROPERTY_SERVER_MESSAGE_QUEUE_SIZE = "server_message_queue_size";

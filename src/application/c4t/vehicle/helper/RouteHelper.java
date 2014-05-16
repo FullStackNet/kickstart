@@ -100,6 +100,7 @@ public class RouteHelper extends BaseHelper {
 			if ("Y".equals(appAlert) && (_user.getMobile_no() != null)) {
 				SendNotification notificationMessage = new SendNotification();
 				notificationMessage.setNotify_id(_user.getId());
+				notificationMessage.setTitle("Stopage Reached");
 				notificationMessage.setType(ApplicationConstants.NOTIFICATION_TYPE_STOPAGE_REACHED);
 				Map<String, String> map = new HashMap<String, String>();
 				map.put("STOPAGE", _stopage.getName());

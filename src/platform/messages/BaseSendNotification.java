@@ -17,6 +17,7 @@ import platform.communication.*;
 public abstract class BaseSendNotification extends Message {
 	private static final long serialVersionUID = 1L;
 	private String notify_id = null;
+	private String title = null;
 	private String type = null;
 	private String params = null;
 
@@ -30,20 +31,23 @@ public abstract class BaseSendNotification extends Message {
 
 	public void populate_field() {
  		if (fields != null) return ;
-		fields = new Field[3];
+		fields = new Field[4];
 		fields[0] =  new Field("notify_id","String",128);
-		fields[1] =  new Field("type","String",128);
-		fields[2] =  new Field("params","String",4096);
+		fields[1] =  new Field("title","String",128);
+		fields[2] =  new Field("type","String",128);
+		fields[3] =  new Field("params","String",4096);
 	}
 
 	public void dump() {
 		System.out.println("notify_id	:	 "+notify_id);
+		System.out.println("title	:	 "+title);
 		System.out.println("type	:	 "+type);
 		System.out.println("params	:	 "+params);
 	}
 	public String getDump() {
 		String str="";
 		str = str +",notify_id:"+notify_id;
+		str = str +",title:"+title;
 		str = str +",type:"+type;
 		str = str +",params:"+params;
 		return str;
@@ -53,6 +57,8 @@ public abstract class BaseSendNotification extends Message {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(notify_id != null)
 			map.put("notify_id", notify_id);
+		if(title != null)
+			map.put("title", title);
 		if(type != null)
 			map.put("type", type);
 		if(params != null)
@@ -62,11 +68,12 @@ public abstract class BaseSendNotification extends Message {
 
 	public void convertMapToMessage(Map<String, Object> map) {
 		notify_id = (String) map.get("notify_id");
+		title = (String) map.get("title");
 		type = (String) map.get("type");
 		params = (String) map.get("params");
 	}
 
- 	public int getMessageSize() {return 4352;}
+ 	public int getMessageSize() {return 4480;}
 
  	public String getName() {return "SendNotification";}
 
@@ -86,6 +93,22 @@ public Message process(Session session,Message parentMessage) {return null;}
 
 	public void unSetNotify_id() {
 		this.notify_id = null;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public String getTitleEx() {
+		return title != null ? title : "";
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void unSetTitle() {
+		this.title = null;
 	}
 
 	public String getType() {
