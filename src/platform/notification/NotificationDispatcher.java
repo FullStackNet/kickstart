@@ -73,7 +73,7 @@ public class NotificationDispatcher {
 		sendNotification(channel, title,message);
 	}
 	//Use this to send mail to end users (like registration) - SendMail.send("toEmailIds", "subject", "message")
-	void sendNotification(String channel, String title, String message) throws Exception {
+	public void sendNotification(String channel, String title, String message) throws Exception {
 		if (sessionId == null) {
 			populateSessionId();
 		}
