@@ -96,7 +96,7 @@ public class Connector {
 						// send error to sender
 						return;
 					}
-					msg.dump();
+					ApplicationLogger.info(msg.getSender()+" Recieved Message "+msg.getName()+" from " + msg.getSender()+ "\n\t"+msg.getDump(), this.getClass());
 					cr4Session = SessionManager.getInstance().getSession(msg.getSender());
 					process_message(cr4Session, msg);
 					System.out.println(getName()+" recieved message ...."+name);
@@ -165,8 +165,7 @@ public class Connector {
 			producer = peerMap.get(targetId);
 		}
 		try {
-			 ApplicationLogger.info(message.getSender()+" Sending Message "+message.getName()+" to " + targetId , this.getClass());
-			 message.dump();
+			 ApplicationLogger.info(message.getSender()+" Sending Message "+message.getName()+" to " + targetId + "\n"+message.getDump(), this.getClass());
 			 Message msg = getMessage();
 			 encoder.encode(msg, message);
 			 producer.send(msg);
