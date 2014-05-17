@@ -35,12 +35,12 @@ public class Server  {
 	
 	public synchronized void incrementConnection() {
 		numberOfConnection ++;
-		ApplicationLogger.info("Incremented connections " + numberOfConnection , this.getClass());
+		ApplicationLogger.info("Incremented connections for " + context.getName()+"("+context.getPort()+" -> total connection"+ numberOfConnection , this.getClass());
 	}
 	
 	public synchronized void decrementConnection() {
 		numberOfConnection --;
-		ApplicationLogger.info("Decremented connections " + numberOfConnection , this.getClass());
+		ApplicationLogger.info("Decremented connections for " +context.getName()+"("+context.getPort()+" -> total connection"+ numberOfConnection , this.getClass());
 	}
 	
 	public Server(ServerContext context) {
@@ -173,7 +173,7 @@ class ClientReadHandler extends Communication implements Runnable {
 		session.setKey(handle.toString());
 		session.setMax_message_queue_per_client(server.getContext().getMaxMessageQueueSizePerClient());
 		SessionManager.getInstance().addSession(session);
-		ApplicationLogger.info("Connection received from client  ....",this.getClass());
+		ApplicationLogger.info("Connection received from client  ....for "+server.getContext().getName()+"("+server.getContext().getPort()+")",this.getClass());
 		server.incrementConnection();
 	}
 
@@ -205,7 +205,7 @@ class ClientReadHandler extends Communication implements Runnable {
 	public void run () {
 		while(true) {
 			if (!isValidSession()) {
-				ApplicationLogger.info("Invalid session terminating it ...."+session.getClientId(), this.getClass());
+				ApplicationLogger.info("Invalid session terminating it ...."+session.getClientId() +" for "+server.getContext().getName()+"("+server.getContext().getPort()+")", this.getClass());
 				break;
 			}
 			if (session.isDelete()) {
@@ -213,7 +213,7 @@ class ClientReadHandler extends Communication implements Runnable {
 				break;
 			}
 			if (GlobalDataManager.getInstance().isShutdown()) {
-				ApplicationLogger.info("Shuting down client connection ...."+session.getClientId(), this.getClass());
+				ApplicationLogger.info("Shuting down client connection ...." +session.getClientId() + "for "+server.getContext().getName()+"("+server.getContext().getPort()+")" , this.getClass());
 				break;
 			}
 			try {
@@ -236,7 +236,7 @@ class ClientReadHandler extends Communication implements Runnable {
 			}
 		}
 		try {
-			ApplicationLogger.warn("Peered closed the connection closing the connection "+session.getClientId(), this.getClass());
+			ApplicationLogger.warn("Peered closed the connection closing the connection "+session.getClientId()+" for "+server.getContext().getName()+"("+server.getContext().getPort()+")", this.getClass());
 			((Socket)handle).close();
 
 		} catch(Exception e) {
