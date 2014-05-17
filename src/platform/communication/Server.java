@@ -35,12 +35,12 @@ public class Server  {
 	
 	public synchronized void incrementConnection() {
 		numberOfConnection ++;
-		ApplicationLogger.info("Incremented connections for " + context.getName()+"("+context.getPort()+") -> total connection"+ numberOfConnection , this.getClass());
+		ApplicationLogger.info("Incremented connections for " + context.getName()+"("+context.getPort()+") -> total connection -> "+ numberOfConnection , this.getClass());
 	}
 	
 	public synchronized void decrementConnection() {
 		numberOfConnection --;
-		ApplicationLogger.info("Decremented connections for " +context.getName()+"("+context.getPort()+") -> total connection"+ numberOfConnection , this.getClass());
+		ApplicationLogger.info("Decremented connections for " +context.getName()+"("+context.getPort()+") -> total connection  ->  "+ numberOfConnection , this.getClass());
 	}
 	
 	public Server(ServerContext context) {
