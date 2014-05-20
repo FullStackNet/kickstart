@@ -6,8 +6,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Date;
 import java.util.Map;
 
+import platform.log.ApplicationLogger;
 import platform.util.Util;
 
 import com.google.gson.JsonObject;
@@ -20,18 +22,21 @@ public class NotificationDispatcher {
 	private String api_key= "uHzBjHDBcS5gfpSTMA5vrcBAurHXiRoY";
 	private String sessionId;
 	private String URL_ACS = "https://api.cloud.appcelerator.com/v1/";
-	
+	Date lastSessionUpdated = null;
+	long count = 0;
 	public void populateSessionId() throws Exception{
 		URL url = null;
+		HttpURLConnection conn = null;
+		BufferedReader rd  = null;
 		try {
 			url = new URL(URL_ACS+"users/login.json?key="+api_key+"&login="+username+"&password="+password);
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("POST");
 			if (conn.getResponseCode() != 200) {
 				throw new Exception(conn.getResponseMessage());
 			}
 			InputStream is = conn.getInputStream();
-			BufferedReader rd = new BufferedReader(
+			rd = new BufferedReader(
 					new InputStreamReader(is));
 			StringBuilder sb = new StringBuilder();
 			String line;
@@ -50,9 +55,15 @@ public class NotificationDispatcher {
 				sessionId=meta.substring(0, fin);
 				System.out.println("Got the Session Id :"+sessionId);
 			}else{
-				System.out.println("No encuentra");
+				ApplicationLogger.error("Error in login ", this.getClass());
 			}
 		} catch (Exception e) {
+			if (rd != null) {
+				rd.close();
+			}
+			if (conn != null)
+				conn.disconnect();
+			ApplicationLogger.error("Error in login " + " Response :: "+e.getMessage() , this.getClass());
 			throw new Exception("Problem in getting session"+e);
 		}
 	}
@@ -64,7 +75,7 @@ public class NotificationDispatcher {
 	}
 	
 	NotificationDispatcher() {
-		
+		lastSessionUpdated = new Date();
 	}
 	
 	public void sendNotification(String channel, String title, String templete,Map<String, String> params) throws Exception 
@@ -74,6 +85,10 @@ public class NotificationDispatcher {
 	}
 	//Use this to send mail to end users (like registration) - SendMail.send("toEmailIds", "subject", "message")
 	public void sendNotification(String channel, String title, String message) throws Exception {
+		Date currentTime = new Date();
+		if ((currentTime.getTime() - lastSessionUpdated.getTime() > (30*60*1000L))) {
+			sessionId = null;
+		}
 		if (sessionId == null) {
 			populateSessionId();
 		}
@@ -82,26 +97,27 @@ public class NotificationDispatcher {
 	
 	void sendMessage(String channel, String title, String message) throws Exception{
 		URL url = null;
+		HttpURLConnection conn = null;
+		BufferedReader rd  = null;
 		try {
 			JsonObject cred = new JsonObject();
 			cred.addProperty("alert",message);
 			cred.addProperty("title",title);
 			cred.addProperty("vibrate",true);
 			cred.addProperty("sound","default");
-
-
-			String ruta=URL_ACS+"push_notification/notify.json?key="+api_key+"&to_ids=everyone&channel="+channel;
-			ruta = ruta+"&session_id="+sessionId+"&_session_id="+sessionId+"&payload="+URLEncoder.encode(cred.toString());
+			String ruta=URL_ACS+"push_notification/notify.json?key="+URLEncoder.encode(api_key,"UTF-8")+"&to_ids=everyone&channel="+URLEncoder.encode(channel,"UTF-8");
+			ruta = ruta+"&session_id="+URLEncoder.encode(sessionId,"UTF-8")+"&_session_id="+URLEncoder.encode(sessionId,"UTF-8")+"&payload="+URLEncoder.encode(cred.toString(),"UTF-8");
 			System.out.println("URL : " +ruta);
+			ApplicationLogger.info("URL " +ruta, this.getClass());
 			url = new URL(ruta);
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("POST");
 			if (conn.getResponseCode() != 200) {
 				System.out.println("Response code " +conn.getResponseCode());
 				throw new Exception(conn.getResponseMessage());
 			}
 			InputStream is = conn.getInputStream();
-			BufferedReader rd = new BufferedReader(
+			rd = new BufferedReader(
 					new InputStreamReader(is));
 			StringBuilder sb = new StringBuilder();
 			String line;
@@ -110,15 +126,20 @@ public class NotificationDispatcher {
 			}
 			rd.close();
 			conn.disconnect();
-			System.out.println(sb.toString());
 			String respuesta=sb.toString();
-
 			if(respuesta.contains("status\": \"ok") && respuesta.contains("code\": 200") ){
+				ApplicationLogger.info("Send successfully Message " + channel + "::"+title+"::"+ message, this.getClass());
 				System.out.println("Successfully Send message " + title +"::" +message + "to channel "+channel);
 			}else{
-				System.out.println("Problem in sending notification "+respuesta);
+				ApplicationLogger.error("Error in sending message " + channel + "::"+title+"::"+ message+" Response :: "+respuesta, this.getClass());
 			}
 		} catch (Exception e) {
+			if (rd != null) {
+				rd.close();
+			}
+			if (conn != null)
+				conn.disconnect();
+			ApplicationLogger.error("Error in sending message " + channel + "::"+title+"::"+ message + " Response :: "+e.getMessage() , this.getClass());
 			throw new Exception("Problem in sending notification "+e);
 		}
 	}
