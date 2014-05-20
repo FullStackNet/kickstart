@@ -33,4 +33,12 @@ public class Route_stopage_mapHelper extends BaseHelper {
 		_map.addNotify_users(userId);
 		AddOrUpdate(_map);
 	}
+	
+	public void addTime_taken_from_previous_stop(String routeStopageId,long time) throws ApplicationException {
+		if (routeStopageId == null) return;
+		route_stopage_map _map = new route_stopage_map();
+		_map.setId(routeStopageId);
+		_map.addTime_taken_from_previous_stop(time);
+		AddOrUpdate(_map);
+	}
 }

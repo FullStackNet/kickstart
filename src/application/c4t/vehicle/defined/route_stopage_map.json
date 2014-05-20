@@ -14,6 +14,11 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'time_taken_from_previous_stop':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}

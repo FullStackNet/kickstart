@@ -21,9 +21,11 @@ import java.util.*;
 public abstract class Baseroute_stopage_map extends BaseResource {
 	private String id = null;
 	private ArrayList<Object> notify_users = null;
+	private ArrayList<Object> time_taken_from_previous_stop = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NOTIFY_USERS = "notify_users";
+	public static String FIELD_TIME_TAKEN_FROM_PREVIOUS_STOP = "time_taken_from_previous_stop";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route_stopage_map");
@@ -39,6 +41,9 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 		Field notify_usersField = new Field("notify_users", "Array");
 		metaData.addField(notify_usersField);
 
+		Field time_taken_from_previous_stopField = new Field("time_taken_from_previous_stop", "Array");
+		metaData.addField(time_taken_from_previous_stopField);
+
 
 		metaData.setTableName("route_stopage_map");
 
@@ -50,6 +55,7 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 	public Baseroute_stopage_map(Baseroute_stopage_map obj) {
 		this.id = obj.id;
 		this.notify_users = obj.notify_users;
+		this.time_taken_from_previous_stop = obj.time_taken_from_previous_stop;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -62,6 +68,8 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 			map.put("id", id);
 		if(notify_users != null)
 			map.put("notify_users", notify_users);
+		if(time_taken_from_previous_stop != null)
+			map.put("time_taken_from_previous_stop", time_taken_from_previous_stop);
 		return map;
 	}
 
@@ -71,6 +79,8 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 			map.put("id", id);
 		if(notify_users != null)
 			map.put("notify_users", notify_users);
+		if(time_taken_from_previous_stop != null)
+			map.put("time_taken_from_previous_stop", time_taken_from_previous_stop);
 		return map;
 	}
 
@@ -82,6 +92,7 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		notify_users = (ArrayList<Object>) map.get("notify_users");
+		time_taken_from_previous_stop = (ArrayList<Object>) map.get("time_taken_from_previous_stop");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -90,6 +101,7 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 			id = idObj.toString();
 
 		notify_users = (ArrayList<Object>) map.get("notify_users");
+		time_taken_from_previous_stop = (ArrayList<Object>) map.get("time_taken_from_previous_stop");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -137,6 +149,25 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 
 	public void unSetNotify_users() {
 		this.notify_users = null;
+	}
+
+	public ArrayList<Object> getTime_taken_from_previous_stop() {
+		return time_taken_from_previous_stop;
+	}
+
+
+	public void setTime_taken_from_previous_stop(ArrayList<Object> time_taken_from_previous_stop) {
+		this.time_taken_from_previous_stop = time_taken_from_previous_stop;
+	}
+
+	public void addTime_taken_from_previous_stop(Object value) {
+		if(time_taken_from_previous_stop == null)
+			time_taken_from_previous_stop = new ArrayList<Object>();
+		time_taken_from_previous_stop.add(value);
+	}
+
+	public void unSetTime_taken_from_previous_stop() {
+		this.time_taken_from_previous_stop = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";
