@@ -668,19 +668,15 @@ public class BaseServlet extends HttpServlet
 
 	public void addSessionCookie(HttpServletRequest request, HttpServletResponse response, String sessionId, String keepMeLogin) {
 		Cookie sessionCookie = new Cookie(ApplicationConstants.SESSION_ID, sessionId);
-		if ((keepMeLogin != null) && keepMeLogin.equals("Y")) {
 			// This cookie expiration should be same for recruiterLogin cookie in ui:LoginView:_onRecProfileSuccess()
-			sessionCookie.setMaxAge(60*60*24*30); // 30 days
-		}
+		sessionCookie.setMaxAge(60*60*24*30); // 30 days
 		sessionCookie.setPath("/");
 		setDomainForCookie(request, sessionCookie);
 		response.addCookie(sessionCookie);
 		
 		Cookie sessionCookie8080 = new Cookie(ApplicationConstants.SESSION_ID, sessionId);
-		if ((keepMeLogin != null) && keepMeLogin.equals("Y")) {
 			// This cookie expiration should be same for recruiterLogin cookie in ui:LoginView:_onRecProfileSuccess()
-			sessionCookie8080.setMaxAge(60*60*24*30); // 30 days
-		}
+		sessionCookie8080.setMaxAge(60*60*24*30); // 30 days
 		sessionCookie8080.setPath("/");
 		setDomainForCookie8080(request, sessionCookie8080);
 		response.addCookie(sessionCookie8080);
