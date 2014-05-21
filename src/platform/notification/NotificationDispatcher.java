@@ -29,7 +29,7 @@ public class NotificationDispatcher {
 		HttpURLConnection conn = null;
 		BufferedReader rd  = null;
 		try {
-			url = new URL(URL_ACS+"users/login.json?key="+api_key+"&login="+username+"&password="+password);
+			url = new URL(URL_ACS+"users/login.json?key="+URLEncoder.encode(api_key,"UTF-8")+"&login="+URLEncoder.encode(username,"UTF-8")+"&password="+URLEncoder.encode(password,"UTF-8"));
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("POST");
 			if (conn.getResponseCode() != 200) {
