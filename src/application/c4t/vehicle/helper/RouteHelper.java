@@ -209,10 +209,17 @@ public class RouteHelper extends BaseHelper {
 		return false;
 	}
 
+	public BaseResource[] getRoutebyApplianceId(String applianceId) {
+		Expression e = new Expression(route.FIELD_APPLIANCE_ID, REL_OP.EQ, applianceId);
+		return getByExpression(e);
+	}
+	
 	public route getValidRoute(appliance _fetched_appliance, Date logTime) {
-		ArrayList<BaseResource> routeList = Vehicle_mapHelper.getInstance().getRouteList(_fetched_appliance.getId());
-		for(int i= 0; i <  routeList.size(); i++) {
-			route _route = (route)routeList.get(i);
+		BaseResource[] routes = getRoutebyApplianceId(_fetched_appliance.getId());
+		if (Util.isEmpty(routes))
+			return null;
+		for(int i= 0; i <  routes.length; i++) {
+			route _route = (route)routes[i];
 			if (isValidRoute(_route, logTime, _fetched_appliance.getTimeZone())) {
 				return _route;
 			}
