@@ -123,7 +123,7 @@ public class InviteHelper extends BaseHelper {
 		teacher _teacher = (teacher)TeacherHelper.getInstance().getById(_invite.getReference_id());
 		if (_teacher != null) {
 			Teacher_mapHelper.getInstance().addUser(_teacher.getId(), userId);
-			School_user_mapHelper.getInstance().addStudent(userId,_teacher.getId());
+			School_user_mapHelper.getInstance().addTeacher(userId,_teacher.getId());
 		}
 	}
 	
@@ -152,7 +152,7 @@ public class InviteHelper extends BaseHelper {
 			// check the user if exists
 			_user.setSchoolTrackerService("Y");
 			_user.setTeacherService("Y");
-			InviteHelper.getInstance().teacherInviteAccepted(_fetched_resource, _user.getId());
+			teacherInviteAccepted(_fetched_resource, _user.getId());
 		}
 		UserHelper.getInstance().AddOrUpdate(_user);
 	}

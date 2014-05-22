@@ -51,10 +51,9 @@ public class ConversationService extends BaseService{
 			String toUser = (String)(_resource.getTo_user_id());
 			String id = conversation.id(userId, toUser);
 			conversation _conversation = (conversation) ConversationHelper.getInstance().getById(id);
-			if (_conversation == null) {
-				throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_USER);
-			}
-			ConversationHelper.getInstance().deleteConversation(id);
+			if (_conversation != null) {
+				ConversationHelper.getInstance().deleteConversation(id);
+			}			
 			return;
 		}
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_ACTION);

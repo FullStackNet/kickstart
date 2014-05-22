@@ -4,7 +4,9 @@ import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.resource.user;
 import platform.util.ApplicationException;
+import platform.util.Util;
 import application.c4t.vehicle.school.resource.school_user_map;
+import application.c4t.vehicle.school.resource.teacher;
 
 
 public class School_user_mapHelper extends BaseHelper {
@@ -53,5 +55,18 @@ public class School_user_mapHelper extends BaseHelper {
 			return null;
 		return TeacherHelper.getInstance().getById(_map.getTeachers().toArray(new String[_map.getTeachers().size()]),
 				new String[]{user.FIELD_NAME});
+	}
+	
+	public String getTeacherIdFromUserId(String userId) {
+		school_user_map _map = (school_user_map)getById(userId);
+		if ((_map == null) || (_map.getTeachers() == null) || (Util.isEmpty(_map.getTeachers())))
+			return null;
+		
+		teacher _teacher = (teacher)TeacherHelper.getInstance().getById((String)_map.getTeachers().get(0));
+		if (_teacher == null) {
+			return null;
+		}
+		
+		return _teacher.getId();
 	}
 }

@@ -1257,5 +1257,17 @@ public class Util {
 		
 		long number = 100000 + generator.nextInt(900000);
 	    return "" +number;  
-}
+	}
+	
+	public static String getClassSectionName(String class_name, String section_name) {
+		String class_section_name = "";
+		if (class_name != null) {
+			class_section_name = class_name;
+		}
+		
+		if (section_name != null) {
+			class_section_name = class_section_name+" "+section_name;
+		}
+		return class_name+" "+section_name;
+	}
 }

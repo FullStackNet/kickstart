@@ -49,6 +49,13 @@ public class StudentHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 	
+	public BaseResource[]  getStudentByClassSectionName(String school_id, String class_section_name) {
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
+		Expression e2 = new Expression(student.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
+		Expression e  = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
+	
 	public BaseResource[] getUserByClassName(String school_id,String class_name) {
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		BaseResource[] students = getStudentByClassName(school_id,class_name);
@@ -80,6 +87,12 @@ public class StudentHelper extends BaseHelper {
 			}
 			list.addAll(users);
 		}
+		return list.toArray(new user[list.size()]);
+	}
+	
+	public BaseResource[] getUserByStudentId(String student_id) {
+		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
+		list = Student_mapHelper.getInstance().getUsersList(student_id);
 		return list.toArray(new user[list.size()]);
 	}
 }

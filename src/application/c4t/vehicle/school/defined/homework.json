@@ -1,0 +1,70 @@
+{
+	"homework" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'teacher_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'class_section_name':
+			{
+				'length': 65,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'subject_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'title':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'description':{
+				'length': 4096,
+				'type': 'String'
+			},
+			'creation_timestamp': {
+				'type': 'timestamp'
+			},
+			'submit_timestamp': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}
