@@ -203,6 +203,30 @@
 				'length': 1,
 				'type':'String',
 				'default' :"N"
+			},
+			'feature_parent2parent_chat':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_homework':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_parent2teacher_chat':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_teacher2parent_chat':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
 			}
 		}
 	}

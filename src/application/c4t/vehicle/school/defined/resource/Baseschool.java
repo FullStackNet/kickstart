@@ -28,6 +28,10 @@ public abstract class Baseschool extends BaseResource {
 	private String state = null;
 	private String country = null;
 	private String group_id = null;
+	private String feature_parent2parent_chat = null;
+	private String feature_homework = null;
+	private String feature_parent2teacher_chat = null;
+	private String feature_teacher2parent_chat = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -38,6 +42,10 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_GROUP_ID = "group_id";
+	public static String FIELD_FEATURE_PARENT2PARENT_CHAT = "feature_parent2parent_chat";
+	public static String FIELD_FEATURE_HOMEWORK = "feature_homework";
+	public static String FIELD_FEATURE_PARENT2TEACHER_CHAT = "feature_parent2teacher_chat";
+	public static String FIELD_FEATURE_TEACHER2PARENT_CHAT = "feature_teacher2parent_chat";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("school");
@@ -82,6 +90,26 @@ public abstract class Baseschool extends BaseResource {
 		group_idField.setLength(128);
 		metaData.addField(group_idField);
 
+		Field feature_parent2parent_chatField = new Field("feature_parent2parent_chat", "String");
+		feature_parent2parent_chatField.setDefaultValue("N");
+		feature_parent2parent_chatField.setLength(1);
+		metaData.addField(feature_parent2parent_chatField);
+
+		Field feature_homeworkField = new Field("feature_homework", "String");
+		feature_homeworkField.setDefaultValue("N");
+		feature_homeworkField.setLength(1);
+		metaData.addField(feature_homeworkField);
+
+		Field feature_parent2teacher_chatField = new Field("feature_parent2teacher_chat", "String");
+		feature_parent2teacher_chatField.setDefaultValue("N");
+		feature_parent2teacher_chatField.setLength(1);
+		metaData.addField(feature_parent2teacher_chatField);
+
+		Field feature_teacher2parent_chatField = new Field("feature_teacher2parent_chat", "String");
+		feature_teacher2parent_chatField.setDefaultValue("N");
+		feature_teacher2parent_chatField.setLength(1);
+		metaData.addField(feature_teacher2parent_chatField);
+
 
 		metaData.setTableName("school");
 
@@ -100,10 +128,25 @@ public abstract class Baseschool extends BaseResource {
 		this.state = obj.state;
 		this.country = obj.country;
 		this.group_id = obj.group_id;
+		this.feature_parent2parent_chat = obj.feature_parent2parent_chat;
+		this.feature_homework = obj.feature_homework;
+		this.feature_parent2teacher_chat = obj.feature_parent2teacher_chat;
+		this.feature_teacher2parent_chat = obj.feature_teacher2parent_chat;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(feature_parent2parent_chat == null)
+			feature_parent2parent_chat = "N";
+		if(feature_homework == null)
+			feature_homework = "N";
+		if(feature_parent2teacher_chat == null)
+			feature_parent2teacher_chat = "N";
+		if(feature_teacher2parent_chat == null)
+			feature_teacher2parent_chat = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -126,10 +169,21 @@ public abstract class Baseschool extends BaseResource {
 			map.put("country", country);
 		if(group_id != null)
 			map.put("group_id", group_id);
+		if(feature_parent2parent_chat != null)
+			map.put("feature_parent2parent_chat", feature_parent2parent_chat);
+		if(feature_homework != null)
+			map.put("feature_homework", feature_homework);
+		if(feature_parent2teacher_chat != null)
+			map.put("feature_parent2teacher_chat", feature_parent2teacher_chat);
+		if(feature_teacher2parent_chat != null)
+			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -149,6 +203,14 @@ public abstract class Baseschool extends BaseResource {
 			map.put("country", country);
 		if(group_id != null)
 			map.put("group_id", group_id);
+		if(feature_parent2parent_chat != null)
+			map.put("feature_parent2parent_chat", feature_parent2parent_chat);
+		if(feature_homework != null)
+			map.put("feature_homework", feature_homework);
+		if(feature_parent2teacher_chat != null)
+			map.put("feature_parent2teacher_chat", feature_parent2teacher_chat);
+		if(feature_teacher2parent_chat != null)
+			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		return map;
 	}
 
@@ -167,6 +229,10 @@ public abstract class Baseschool extends BaseResource {
 		state = (String) map.get("state");
 		country = (String) map.get("country");
 		group_id = (String) map.get("group_id");
+		feature_parent2parent_chat = (String) map.get("feature_parent2parent_chat");
+		feature_homework = (String) map.get("feature_homework");
+		feature_parent2teacher_chat = (String) map.get("feature_parent2teacher_chat");
+		feature_teacher2parent_chat = (String) map.get("feature_teacher2parent_chat");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -205,6 +271,22 @@ public abstract class Baseschool extends BaseResource {
 		Object group_idObj = map.get("group_id");
 		if(group_idObj != null)
 			group_id = group_idObj.toString();
+
+		Object feature_parent2parent_chatObj = map.get("feature_parent2parent_chat");
+		if(feature_parent2parent_chatObj != null)
+			feature_parent2parent_chat = feature_parent2parent_chatObj.toString();
+
+		Object feature_homeworkObj = map.get("feature_homework");
+		if(feature_homeworkObj != null)
+			feature_homework = feature_homeworkObj.toString();
+
+		Object feature_parent2teacher_chatObj = map.get("feature_parent2teacher_chat");
+		if(feature_parent2teacher_chatObj != null)
+			feature_parent2teacher_chat = feature_parent2teacher_chatObj.toString();
+
+		Object feature_teacher2parent_chatObj = map.get("feature_teacher2parent_chat");
+		if(feature_teacher2parent_chatObj != null)
+			feature_teacher2parent_chat = feature_teacher2parent_chatObj.toString();
 
 	}
 
@@ -362,6 +444,54 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetGroup_id() {
 		this.group_id = null;
+	}
+
+	public String getFeature_parent2parent_chat() {
+		return feature_parent2parent_chat != null ? feature_parent2parent_chat : "N";
+	}
+
+	public void setFeature_parent2parent_chat(String feature_parent2parent_chat) {
+		this.feature_parent2parent_chat = feature_parent2parent_chat;
+	}
+
+	public void unSetFeature_parent2parent_chat() {
+		this.feature_parent2parent_chat = "N";
+	}
+
+	public String getFeature_homework() {
+		return feature_homework != null ? feature_homework : "N";
+	}
+
+	public void setFeature_homework(String feature_homework) {
+		this.feature_homework = feature_homework;
+	}
+
+	public void unSetFeature_homework() {
+		this.feature_homework = "N";
+	}
+
+	public String getFeature_parent2teacher_chat() {
+		return feature_parent2teacher_chat != null ? feature_parent2teacher_chat : "N";
+	}
+
+	public void setFeature_parent2teacher_chat(String feature_parent2teacher_chat) {
+		this.feature_parent2teacher_chat = feature_parent2teacher_chat;
+	}
+
+	public void unSetFeature_parent2teacher_chat() {
+		this.feature_parent2teacher_chat = "N";
+	}
+
+	public String getFeature_teacher2parent_chat() {
+		return feature_teacher2parent_chat != null ? feature_teacher2parent_chat : "N";
+	}
+
+	public void setFeature_teacher2parent_chat(String feature_teacher2parent_chat) {
+		this.feature_teacher2parent_chat = feature_teacher2parent_chat;
+	}
+
+	public void unSetFeature_teacher2parent_chat() {
+		this.feature_teacher2parent_chat = "N";
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

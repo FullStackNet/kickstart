@@ -57,6 +57,24 @@
 			{
 				'length': 128,
 				'type':'String'
+			},
+			'feature_parent2parent_chat':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_homework':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_teacher2parent_chat':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
 			}
 		}
 	}
