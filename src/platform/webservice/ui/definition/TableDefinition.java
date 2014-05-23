@@ -16,6 +16,7 @@ public class TableDefinition {
 	String addButtonURL;
 	String modifyURL;
 	String timeZone;
+	boolean modifyButton;
 	
 	boolean dailyTotal;
 	boolean monthlyTotal;
@@ -40,6 +41,7 @@ public class TableDefinition {
 		autoRefreshInterval = 5;
 		joinFields = new ArrayList<JoinField>();
 		timeZone = "IST";
+		modifyButton = true;
 	}
 
 	public void addJoinField(JoinField field) {
@@ -158,5 +160,11 @@ public class TableDefinition {
 	}
 	public void setWidth(long width) {
 		this.width = width;
+	}
+	public boolean isModifyButton() {
+		return modifyButton;
+	}
+	public void setModifyButton(boolean modifyButton) {
+		this.modifyButton = modifyButton;
 	}
 }

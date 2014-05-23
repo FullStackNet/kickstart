@@ -63,6 +63,9 @@ public abstract class BaseTableView extends BaseView {
 			th.setText(field.getLabel());
 			row.addChild(th);
 		}
+		TH th = new TH();
+		row.addChild(th);
+		
 		thead.addChild(row);
 		mTable.addChild(thead);
 	}
@@ -107,25 +110,22 @@ public abstract class BaseTableView extends BaseView {
 						value = TimeUtil.getDurationString(Long.parseLong(value));
 					} 
 
-					if (field.getName().equals(appliance.FIELD_NAME)) {
-						A a = new A();
-						a.setText(value);
-						a.addAttribute(new Attribute("href", getModifyURL(data.get(appliance.FIELD_ID).toString())));
-						td.addChild(a);
-					} else if (field.getName().equals(appliance.FIELD_ID)) {
-						A a = new A();
-						a.setText(value);
-						a.addAttribute(new Attribute("href", getModifyURL(data.get(appliance.FIELD_ID).toString())));
-						td.addChild(a);
-					} else {
-						td.setText(value);
-					}
+					td.setText(value);
 				} else {
 					td.setText("-");
 				}
 			}
 			row.addChild(td);
 		}
+		TD actiontd = new TD();
+		if (mDefinition.isModifyButton()) {
+			A _editlink = new A();
+			_editlink.setHref(getModifyURL(data.get(appliance.FIELD_ID).toString()));
+			_editlink.setText("Edit");
+			actiontd.addChild(_editlink);
+		}
+		row.addChild(actiontd);
+		
 		body.addChild(row);
 	}
 
@@ -140,6 +140,9 @@ public abstract class BaseTableView extends BaseView {
 
 	void buildUI(ArrayList<Map<String, Object>> list) {
 		mTable = new TABLE(mDefinition.getId(), mDefinition.getClassName());
+		if (mDefinition.getWidth() != 0) {
+			mTable.addAttribute(new Attribute("style", "width: "+mDefinition.getWidth()+"px"));
+		}
 		mTable.addAttribute(new Attribute("cellpadding", "0"));
 		mTable.addAttribute(new Attribute("cellspacing", "0"));
 		if (mDefinition.getTitle() != null) {
