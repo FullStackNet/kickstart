@@ -31,7 +31,7 @@ public abstract class Basealert extends BaseResource {
 	private String applinace_name = null;
 	private String applinace_id = null;
 	private String alert_id = null;
-	private String alert_data = null;
+	private Map<String, Object> alert_data = null;
 	private Long alert_time = null;
 	private String status = null;
 	private Integer state = null;
@@ -123,8 +123,8 @@ public abstract class Basealert extends BaseResource {
 		alert_idField.setLength(128);
 		metaData.addField(alert_idField);
 
-		Field alert_dataField = new Field("alert_data", "String");
-		alert_dataField.setLength(512);
+		Field alert_dataField = new Field("alert_data", "Map");
+		alert_dataField.setValueType("Object");
 		metaData.addField(alert_dataField);
 
 		Field alert_timeField = new Field("alert_time", "timestamp");
@@ -330,6 +330,7 @@ public abstract class Basealert extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		device_id = (String) map.get("device_id");
@@ -343,7 +344,7 @@ public abstract class Basealert extends BaseResource {
 		applinace_name = (String) map.get("applinace_name");
 		applinace_id = (String) map.get("applinace_id");
 		alert_id = (String) map.get("alert_id");
-		alert_data = (String) map.get("alert_data");
+		alert_data = (Map<String, Object>) map.get("alert_data");
 		alert_time = (Long) map.get("alert_time");
 		status = (String) map.get("status");
 		state = (Integer) map.get("state");
@@ -357,6 +358,7 @@ public abstract class Basealert extends BaseResource {
 		asset_id = (String) map.get("asset_id");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -406,10 +408,7 @@ public abstract class Basealert extends BaseResource {
 		if(alert_idObj != null)
 			alert_id = alert_idObj.toString();
 
-		Object alert_dataObj = map.get("alert_data");
-		if(alert_dataObj != null)
-			alert_data = alert_dataObj.toString();
-
+		alert_data = (Map<String, Object>) map.get("alert_data");
 		Object alert_timeObj = map.get("alert_time");
 		if(alert_timeObj != null)
 			alert_time = (Long) alert_timeObj;
@@ -664,16 +663,22 @@ public abstract class Basealert extends BaseResource {
 		this.alert_id = null;
 	}
 
-	public String getAlert_data() {
+	public Map<String, Object> getAlert_data() {
 		return alert_data;
 	}
 
-	public String getAlert_dataEx() {
-		return alert_data != null ? alert_data : "";
+	public Object getAlert_data(String key) {
+		return alert_data == null ? null : alert_data.get(key);
 	}
 
-	public void setAlert_data(String alert_data) {
+	public void setAlert_data(Map<String, Object> alert_data) {
 		this.alert_data = alert_data;
+	}
+
+	public void setAlert_data(String key, Object value) {
+		if(alert_data == null)
+			alert_data = new HashMap<String, Object>();
+		alert_data.put(key, value);
 	}
 
 	public void unSetAlert_data() {

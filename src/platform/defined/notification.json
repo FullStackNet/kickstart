@@ -78,9 +78,8 @@
 			},
 			'notification_data':
 			{
-				'name':'notification_data',
-				'length': 512,
-				'type':'String'
+				'type':'Map',
+				'valueType' : 'Object'
 			},
 			'notification_time':
 			{

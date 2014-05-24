@@ -94,7 +94,6 @@ public class NotificationHelper extends BaseHelper {
 		}
 	}
 
-
 	public void addNotificationFromController(String controllerId,
 			String alertId, int severity,  Map<String, Object> data, Date alertTime)  {
 		controller controller_object = (controller)ControllerHelper.getInstance().getById(controllerId);
@@ -216,12 +215,6 @@ public class NotificationHelper extends BaseHelper {
 				}
 			}
 		}
-		String dataString = "";
-		if (data != null) {
-			for (Map.Entry<String, Object> entry : data.entrySet()) {
-				dataString = dataString + entry.getKey()+"="+entry.getValue();
-			}
-		}
 		notification _notification = new notification();
 		_notification.setSite_id(site_id);
 		_notification.setCustomer_id(customer_id);
@@ -230,7 +223,7 @@ public class NotificationHelper extends BaseHelper {
 		_notification.setDevice_type(deviceType);
 		_notification.setNotification_id(notificationId);
 		_notification.setSeverity(severity);
-		_notification.setNotification_data(dataString);
+		_notification.setNotification_data(data);
 		_notification.setGateway_id(gateway_id);
 		_notification.setApplinace_id(applianceId);
 		_notification.setAsset_id(assetId);

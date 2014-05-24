@@ -165,13 +165,6 @@ public class AlertHelper extends BaseHelper {
 			String applianceId,String applianceName,String assetId, 
 			String alertId, int severity, Map<String, Object> data, Date alertTime)  {
 		
-		String dataString = "";
-		if (data != null) {
-			for (Map.Entry<String, Object> entry : data.entrySet()) {
-				dataString = dataString + entry.getKey()+"="+entry.getValue();
-			}
-		}
-		 
 		 alert _alert = new alert();
 		_alert.setSite_id(site_id);
 		_alert.setCustomer_id(customerId);
@@ -180,7 +173,7 @@ public class AlertHelper extends BaseHelper {
 		_alert.setDevice_type(deviceType);
 		_alert.setAlert_id(alertId);
 		_alert.setSeverity(severity);
-		_alert.setAlert_data(dataString);
+		_alert.setAlert_data(data);
 		_alert.setGateway_id(gatewayId);
 		_alert.setApplinace_id(applianceId);
 		_alert.setAsset_id(assetId);

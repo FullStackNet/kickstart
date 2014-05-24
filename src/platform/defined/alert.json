@@ -78,9 +78,8 @@
 			},
 			'alert_data':
 			{
-				'name':'alarm_data',
-				'length': 512,
-				'type':'String'
+				'type':'Map',
+				'valueType' : 'Object'
 			},
 			'alert_time':
 			{

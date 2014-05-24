@@ -31,7 +31,7 @@ public abstract class Basenotification extends BaseResource {
 	private String applinace_name = null;
 	private String applinace_id = null;
 	private String notification_id = null;
-	private String notification_data = null;
+	private Map<String, Object> notification_data = null;
 	private Long notification_time = null;
 	private String status = null;
 	private Integer state = null;
@@ -123,8 +123,8 @@ public abstract class Basenotification extends BaseResource {
 		notification_idField.setLength(128);
 		metaData.addField(notification_idField);
 
-		Field notification_dataField = new Field("notification_data", "String");
-		notification_dataField.setLength(512);
+		Field notification_dataField = new Field("notification_data", "Map");
+		notification_dataField.setValueType("Object");
 		metaData.addField(notification_dataField);
 
 		Field notification_timeField = new Field("notification_time", "timestamp");
@@ -330,6 +330,7 @@ public abstract class Basenotification extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		device_id = (String) map.get("device_id");
@@ -343,7 +344,7 @@ public abstract class Basenotification extends BaseResource {
 		applinace_name = (String) map.get("applinace_name");
 		applinace_id = (String) map.get("applinace_id");
 		notification_id = (String) map.get("notification_id");
-		notification_data = (String) map.get("notification_data");
+		notification_data = (Map<String, Object>) map.get("notification_data");
 		notification_time = (Long) map.get("notification_time");
 		status = (String) map.get("status");
 		state = (Integer) map.get("state");
@@ -357,6 +358,7 @@ public abstract class Basenotification extends BaseResource {
 		asset_id = (String) map.get("asset_id");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -406,10 +408,7 @@ public abstract class Basenotification extends BaseResource {
 		if(notification_idObj != null)
 			notification_id = notification_idObj.toString();
 
-		Object notification_dataObj = map.get("notification_data");
-		if(notification_dataObj != null)
-			notification_data = notification_dataObj.toString();
-
+		notification_data = (Map<String, Object>) map.get("notification_data");
 		Object notification_timeObj = map.get("notification_time");
 		if(notification_timeObj != null)
 			notification_time = (Long) notification_timeObj;
@@ -664,16 +663,22 @@ public abstract class Basenotification extends BaseResource {
 		this.notification_id = null;
 	}
 
-	public String getNotification_data() {
+	public Map<String, Object> getNotification_data() {
 		return notification_data;
 	}
 
-	public String getNotification_dataEx() {
-		return notification_data != null ? notification_data : "";
+	public Object getNotification_data(String key) {
+		return notification_data == null ? null : notification_data.get(key);
 	}
 
-	public void setNotification_data(String notification_data) {
+	public void setNotification_data(Map<String, Object> notification_data) {
 		this.notification_data = notification_data;
+	}
+
+	public void setNotification_data(String key, Object value) {
+		if(notification_data == null)
+			notification_data = new HashMap<String, Object>();
+		notification_data.put(key, value);
 	}
 
 	public void unSetNotification_data() {
