@@ -130,6 +130,7 @@ public class RouteHelper extends BaseHelper {
 	
 		double short_stopage_distance = 0;
 		route_stopage found_route_stopage = null;
+		stopage found_stopage = null;
 		
 		for(int i=0; i < route_stopages.length; i++) {
 			route_stopage _route_stopage = (route_stopage) route_stopages[i];
@@ -162,6 +163,7 @@ public class RouteHelper extends BaseHelper {
 					ApplicationLogger.info("Now short distance is this stop "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
 					short_stopage_distance = distance;
 					found_route_stopage = _route_stopage;
+					found_stopage = _stopage;
 				}
 			}
 		}
@@ -171,6 +173,7 @@ public class RouteHelper extends BaseHelper {
 			//sendNotification(_fetched_appliance, found_route_stopage);
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("ROUTE_STOPAGE_ID",found_route_stopage.getId());
+			map.put("STOPAGE_NAME",found_stopage.getName());
 			NotificationHelper.getInstance().addNotificationFromAppliance(_fetched_appliance.getId(), 
 					NotificationFactory.NOTIFICATION_STOP_REACHED, 
 					NotificationFactory.SEVERIRY_INFO, map, 
