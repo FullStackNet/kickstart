@@ -158,6 +158,8 @@ public class Connector {
 	}
 	
 	public void sendMessage(platform.message.Message message) {
+		if (message == null)
+			return;
 		String targetId = message.getTarget();
 		MessageProducer producer = peerMap.get(targetId);
 		if (producer == null) {
