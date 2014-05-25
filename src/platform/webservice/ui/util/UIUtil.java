@@ -5,8 +5,13 @@ import platform.webservice.ui.definition.IdValue;
 public class UIUtil {
 	
 	public static IdValue[] getYesNOoption() {
-		IdValue[] yesNooptions = {new IdValue("N", "No"), new IdValue("Y", "Yes")};
-		return yesNooptions;
+		IdValue[] options = {new IdValue("N", "No"), new IdValue("Y", "Yes")};
+		return options;
+	}
+	
+	public static IdValue[] getFuelTypeOption() {
+		IdValue[] options = {new IdValue("PETROL", "Petrol"), new IdValue("DIESAL", "Diesel")};
+		return options;
 	}
 	
 	public static IdValue[] getTimeZoneoption() {
