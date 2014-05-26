@@ -673,14 +673,13 @@ public class BaseServlet extends HttpServlet
 		sessionCookie.setPath("/");
 		setDomainForCookie(request, sessionCookie);
 		response.addCookie(sessionCookie);
-		/*if (request.getServerPort() == 8080) {
-			Cookie sessionCookie8080 = new Cookie(ApplicationConstants.SESSION_ID, sessionId);
-				// This cookie expiration should be same for recruiterLogin cookie in ui:LoginView:_onRecProfileSuccess()
-			sessionCookie8080.setMaxAge(60*60*24*30); // 30 days
-			sessionCookie8080.setPath("/");
-			setDomainForCookie8080(request, sessionCookie8080);
-			response.addCookie(sessionCookie8080);
-		}*/
+		
+		Cookie sessionCookie8080 = new Cookie(ApplicationConstants.SESSION_ID, sessionId);
+			// This cookie expiration should be same for recruiterLogin cookie in ui:LoginView:_onRecProfileSuccess()
+		sessionCookie8080.setMaxAge(60*60*24*30); // 30 days
+		sessionCookie8080.setPath("/");
+		setDomainForCookie8080(request, sessionCookie8080);
+		response.addCookie(sessionCookie8080);
 		
 	}
 
