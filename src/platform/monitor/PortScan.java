@@ -5,9 +5,6 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 
-import platform.log.ApplicationLogger;
-import platform.webservice.ui.html.THEAD;
-
 
 public class PortScan {
 	String server;
