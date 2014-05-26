@@ -168,9 +168,8 @@ public class BaseServlet extends HttpServlet
 				}
 			}
 			result = new SuccessResult();
-			result.setResource(p);
-			
 			postProcessing(ctx, request, response, p, action);
+			result.setResource(p);
 			
 		} catch(ApplicationException e){
 			if ((e.getErrorCode() != null) && (e.getErrorCode() == ExceptionEnum.INVALID_SESSION)) {
