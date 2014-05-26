@@ -8,6 +8,7 @@ import platform.resource.BaseResource;
 import platform.resource.login;
 import platform.resource.user;
 import platform.util.ApplicationException;
+import platform.version.VersionManager;
 import platform.webservice.BaseServlet;
 import platform.webservice.ServletContext;
 import platform.webservice.service.LoginService;
@@ -35,6 +36,8 @@ public class LoginServlet extends BaseServlet {
 		ctx.setUserName(_user.getName());
 		ctx.setUserType(_user.getType());
 		// Add cookie for this session
+		_login.setSession_id(ctx.getSessionId());
+		_login.setApi_version(VersionManager.API_VERSION);
 		addSessionCookie(request, response, ctx.getSessionId(), null);
 	}
 }

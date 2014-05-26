@@ -23,6 +23,11 @@
 				'name':'session_id',
 				'length': 128,
 				'type':'String'
+			},
+			'api_version':
+			{
+				'length': 32,
+				'type':'String'
 			}					
 		}
 	}
