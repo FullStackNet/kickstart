@@ -782,4 +782,11 @@ public class HSQLDBConnection extends DbConnection {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public List<Map<String, Object>> getAll(ResourceMetaData metaData,
+			String[] orderby) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -78,6 +78,7 @@ public abstract class DbConnection {
 	 abstract public List<Map<String, Object>> getByExpression(ResourceMetaData metaData, Expression expression, String[] orderby);
 	 public abstract void validateUniqueKey(ResourceMetaData metadata,String[] keys,Map<String,Object> data) throws Exception;
 	 abstract public List<Map<String, Object>>  getAll(ResourceMetaData metaData) ;
+	 abstract public List<Map<String, Object>>  getAll(ResourceMetaData metaData,String[] orderby) ;
 	 abstract public void log(BaseResource resource, Date logTime) throws Exception;
 	 abstract public void updateStartTime(BaseResource resource,Date date) throws Exception;
 	 abstract public void updateStopTime(BaseResource resource,Date date) throws Exception;

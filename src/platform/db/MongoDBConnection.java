@@ -122,7 +122,7 @@ public class MongoDBConnection extends DbConnection {
 	public void connect(){
 		if (conn == null) {
 			try {
-				
+
 				client = new MongoClient(new ServerAddress(server, port));
 				conn = client.getDB(database);
 				if (conn == null) {
@@ -657,29 +657,7 @@ public class MongoDBConnection extends DbConnection {
 
 	@Override
 	public List<Map<String, Object>> getAll(ResourceMetaData metaData) {
-		checkAndReviveConnection();
-		if (conn == null) {
-			ApplicationException e = new ApplicationException(ExceptionSeverity.ERROR, "Unable to connect to database"); 
-			e.printStackTrace();
-			return null;
-		}
-		List<Map<String, Object>> rows = new ArrayList<Map<String, Object>>();
-		DBCollection table = conn.getCollection(metaData.getTableName());
-		DBCursor cursor = table.find();
-		while (cursor.hasNext()) {
-			BasicDBObject dataMap = (BasicDBObject)cursor.next();
-			Map<String, Field> map = metaData.getFields();
-			Map<String, Object> row = new HashMap<String, Object>();
-			for (Map.Entry<String, Field> entry : map.entrySet()) {
-				String columnName =  (String) entry.getKey();
-				Object value =  dataMap.get(columnName);
-				if (value != null) {
-					row.put(columnName, value);
-				}
-			}
-			rows.add(row);
-		}
-		return rows; 
+		return getAll(metaData,null);
 	}
 
 	@Override
@@ -945,12 +923,12 @@ public class MongoDBConnection extends DbConnection {
 		BasicDBObject commandDoc = new BasicDBObject();
 		commandDoc.append("shardCollection", metaData.getCluster()+"."+metaData.getTableName());
 		commandDoc.append("key",indexDoc);
-			
+
 		result =  conn.getMongo().getDB("admin").command(commandDoc);
 		System.out.println("ShardCollection Result "+result.getErrorMessage());
 		return;
 	}
-	
+
 	@Override
 	public void createIndex(ResourceMetaData metaData, String[] fieldNames)
 			throws Exception {
@@ -990,5 +968,41 @@ public class MongoDBConnection extends DbConnection {
 			throw e;
 		}
 		return;
+	}
+
+	@Override
+	public List<Map<String, Object>> getAll(ResourceMetaData metaData,
+			String[] orderby) {
+		// TODO Auto-generated method stub
+		checkAndReviveConnection();
+		if (conn == null) {
+			ApplicationException e = new ApplicationException(ExceptionSeverity.ERROR, "Unable to connect to database"); 
+			e.printStackTrace();
+			return null;
+		}
+		List<Map<String, Object>> rows = new ArrayList<Map<String, Object>>();
+		DBCollection table = conn.getCollection(metaData.getTableName());
+		DBCursor cursor;
+		if (orderby != null) {
+			BasicDBObject sortFields = getSortField(orderby);
+			cursor = table.find().sort(sortFields);
+		} else {
+			cursor = table.find();
+		}
+		while (cursor.hasNext()) {
+			BasicDBObject dataMap = (BasicDBObject)cursor.next();
+			Map<String, Field> map = metaData.getFields();
+			Map<String, Object> row = new HashMap<String, Object>();
+			for (Map.Entry<String, Field> entry : map.entrySet()) {
+				String columnName =  (String) entry.getKey();
+				Object value =  dataMap.get(columnName);
+				if (value != null) {
+					row.put(columnName, value);
+				}
+			}
+			rows.add(row);
+		}
+		return rows; 
+
 	}
 }

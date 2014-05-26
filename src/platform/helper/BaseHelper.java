@@ -388,7 +388,7 @@ public class BaseHelper {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		try {
 			connection = DbManager.getInstance().getConnection(this.getResource());
-			list = (ArrayList<Map<String, Object>>) connection.getAll(resource.getMetaData());
+			list = (ArrayList<Map<String, Object>>) connection.getAll(resource.getMetaData(),new String[]{"name"});
 		} catch(Exception e) {	
 			e.printStackTrace();
 		} finally {
@@ -397,6 +397,22 @@ public class BaseHelper {
 		}
 		return list;
 	}
+	
+	public ArrayList<Map<String, Object>> getAllListMap(String[] orderby) {
+		DbConnection connection = null;
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			list = (ArrayList<Map<String, Object>>) connection.getAll(resource.getMetaData(),orderby);
+		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return list;
+	}
+	
 	public Map<String,Map<String, Object>>  getMapMapById(String[] ids, String[] orderBy) {
 		return getMapMapById(ids, orderBy, null);
 	}
@@ -424,7 +440,11 @@ public class BaseHelper {
 		BaseHelper masterHelper = HelperFactory.getInstance().getHelper(resource.getMetaData().getName());
 		if (masterHelper == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, resource.getMetaData().getName() + " not registered with the helper factory ...");
-		resourceList = masterHelper.getListMapById(e, orderBy);
+		if (e != null) {
+			resourceList = masterHelper.getListMapById(e, orderBy);
+		} else {
+			resourceList = masterHelper.getAllListMap(orderBy);
+		}
 		Map<String, Map<String, Object>> map = new HashMap<String, Map<String, Object>>();
 		if (joinFields != null) {
 			for(Map<String, Object> resource : resourceList) {

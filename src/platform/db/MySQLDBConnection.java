@@ -854,5 +854,12 @@ public class MySQLDBConnection extends DbConnection {
 		
 	}
 
+	@Override
+	public List<Map<String, Object>> getAll(ResourceMetaData metaData,
+			String[] orderby) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }
