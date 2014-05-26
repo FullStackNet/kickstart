@@ -286,6 +286,20 @@ public class TimeUtil {
 		return ago(startTime.getTime());
 	}
 	
+	public static long getDayTime(String timeZone,long timeinMs) {
+		Date time = new Date(timeinMs);
+		long dayTime = 0;
+		if (timeZone == null)
+			timeZone = "IST";
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		cal.setTime(time);
+		long hr = cal.get(Calendar.HOUR_OF_DAY);
+		long mm = cal.get(Calendar.MINUTE);
+		long ss = cal.get(Calendar.SECOND);
+		dayTime = ss+(mm*60L)+(hr*60L*60L);
+		return dayTime;
+	}
+	
 	public static long getDayTime(String timeZone,Date time) {
 		long dayTime = 0;
 		if (timeZone == null)
