@@ -1,7 +1,10 @@
 package platform.webservice.service;
 
+import java.util.ArrayList;
 import java.util.Map;
 
+import application.c4t.vehicle.helper.RouteHelper;
+import application.c4t.vehicle.resource.route;
 import platform.appliances.ApplianceConstants;
 import platform.db.Expression;
 import platform.db.REL_OP;
@@ -16,6 +19,7 @@ import platform.message.DeviceConfiguration;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
 import platform.resource.controller;
+import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.webservice.BaseService;
@@ -181,7 +185,8 @@ public class ApplianceService extends BaseService{
 		QUERY_ALERT,
 		QUERY_NOTIFICATION,
 		QUERY_BUS_SIMULATOR,
-		QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN
+		QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN,
+		QUERY_GET_BY_ROUTE_ID,
 	};
 
 	public BaseResource get(ServletContext ctx, String uid) {
@@ -235,7 +240,17 @@ public class ApplianceService extends BaseService{
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Permission denied");
 			}
 			return Appliance_mapHelper.getInstance().getNotificationArray(map.get("id").toString());
-		} 							
+		} else if (QueryTypes.QUERY_GET_BY_ROUTE_ID.toString().equals(queryId)) {
+			String route_id = (String)map.get("route_id");
+			route _route = (route)RouteHelper.getInstance().getById(route_id);
+			if ((_route != null) && (_route.getAppliance_id() != null)) {
+				ArrayList<BaseResource> list = new ArrayList<BaseResource>();
+				appliance _resource = (appliance) getHelper().getById(_route.getAppliance_id());
+				list.add(_resource);
+				return list.toArray(new appliance[list.size()]);
+			}
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid stopage/route");
+		}
 		
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_QUERY);
 	}
