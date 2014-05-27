@@ -85,6 +85,8 @@ public abstract class BaseTableView extends BaseView {
 	}
 
 	protected String getModifyURL(String id) {
+		if (getDefinition().getModifyURL() == null)
+			return null;
 		if (getDefinition().getModifyURL().contains("?")) {
 			return getDefinition().getModifyURL()+"&id="+id+"&op=modify";
 		}
@@ -120,7 +122,7 @@ public abstract class BaseTableView extends BaseView {
 		TD actiontd = new TD();
 		if (mDefinition.isModifyButton()) {
 			A _editlink = new A();
-			_editlink.setHref(getModifyURL(data.get(appliance.FIELD_ID).toString()));
+			_editlink.setHref(getModifyURL(data.get("id").toString()));
 			_editlink.setText("Edit");
 			actiontd.addChild(_editlink);
 		}
