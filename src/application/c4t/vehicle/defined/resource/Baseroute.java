@@ -35,6 +35,13 @@ public abstract class Baseroute extends BaseResource {
 	private String start_time = null;
 	private String end_time = null;
 	private String active = null;
+	private String schedule_day_monday = null;
+	private String schedule_day_tuesday = null;
+	private String schedule_day_wednesday = null;
+	private String schedule_day_thursday = null;
+	private String schedule_day_fridayday = null;
+	private String schedule_day_saturday = null;
+	private String schedule_day_sunday = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -52,6 +59,13 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_START_TIME = "start_time";
 	public static String FIELD_END_TIME = "end_time";
 	public static String FIELD_ACTIVE = "active";
+	public static String FIELD_SCHEDULE_DAY_MONDAY = "schedule_day_monday";
+	public static String FIELD_SCHEDULE_DAY_TUESDAY = "schedule_day_tuesday";
+	public static String FIELD_SCHEDULE_DAY_WEDNESDAY = "schedule_day_wednesday";
+	public static String FIELD_SCHEDULE_DAY_THURSDAY = "schedule_day_thursday";
+	public static String FIELD_SCHEDULE_DAY_FRIDAYDAY = "schedule_day_fridayday";
+	public static String FIELD_SCHEDULE_DAY_SATURDAY = "schedule_day_saturday";
+	public static String FIELD_SCHEDULE_DAY_SUNDAY = "schedule_day_sunday";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route");
@@ -127,6 +141,41 @@ public abstract class Baseroute extends BaseResource {
 		activeField.setLength(1);
 		metaData.addField(activeField);
 
+		Field schedule_day_mondayField = new Field("schedule_day_monday", "String");
+		schedule_day_mondayField.setDefaultValue("Y");
+		schedule_day_mondayField.setLength(1);
+		metaData.addField(schedule_day_mondayField);
+
+		Field schedule_day_tuesdayField = new Field("schedule_day_tuesday", "String");
+		schedule_day_tuesdayField.setDefaultValue("Y");
+		schedule_day_tuesdayField.setLength(1);
+		metaData.addField(schedule_day_tuesdayField);
+
+		Field schedule_day_wednesdayField = new Field("schedule_day_wednesday", "String");
+		schedule_day_wednesdayField.setDefaultValue("Y");
+		schedule_day_wednesdayField.setLength(1);
+		metaData.addField(schedule_day_wednesdayField);
+
+		Field schedule_day_thursdayField = new Field("schedule_day_thursday", "String");
+		schedule_day_thursdayField.setDefaultValue("Y");
+		schedule_day_thursdayField.setLength(1);
+		metaData.addField(schedule_day_thursdayField);
+
+		Field schedule_day_fridaydayField = new Field("schedule_day_fridayday", "String");
+		schedule_day_fridaydayField.setDefaultValue("Y");
+		schedule_day_fridaydayField.setLength(1);
+		metaData.addField(schedule_day_fridaydayField);
+
+		Field schedule_day_saturdayField = new Field("schedule_day_saturday", "String");
+		schedule_day_saturdayField.setDefaultValue("Y");
+		schedule_day_saturdayField.setLength(1);
+		metaData.addField(schedule_day_saturdayField);
+
+		Field schedule_day_sundayField = new Field("schedule_day_sunday", "String");
+		schedule_day_sundayField.setDefaultValue("Y");
+		schedule_day_sundayField.setLength(1);
+		metaData.addField(schedule_day_sundayField);
+
 
 		metaData.setTableName("route");
 
@@ -152,10 +201,34 @@ public abstract class Baseroute extends BaseResource {
 		this.start_time = obj.start_time;
 		this.end_time = obj.end_time;
 		this.active = obj.active;
+		this.schedule_day_monday = obj.schedule_day_monday;
+		this.schedule_day_tuesday = obj.schedule_day_tuesday;
+		this.schedule_day_wednesday = obj.schedule_day_wednesday;
+		this.schedule_day_thursday = obj.schedule_day_thursday;
+		this.schedule_day_fridayday = obj.schedule_day_fridayday;
+		this.schedule_day_saturday = obj.schedule_day_saturday;
+		this.schedule_day_sunday = obj.schedule_day_sunday;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(schedule_day_monday == null)
+			schedule_day_monday = "Y";
+		if(schedule_day_tuesday == null)
+			schedule_day_tuesday = "Y";
+		if(schedule_day_wednesday == null)
+			schedule_day_wednesday = "Y";
+		if(schedule_day_thursday == null)
+			schedule_day_thursday = "Y";
+		if(schedule_day_fridayday == null)
+			schedule_day_fridayday = "Y";
+		if(schedule_day_saturday == null)
+			schedule_day_saturday = "Y";
+		if(schedule_day_sunday == null)
+			schedule_day_sunday = "Y";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -192,10 +265,27 @@ public abstract class Baseroute extends BaseResource {
 			map.put("end_time", end_time);
 		if(active != null)
 			map.put("active", active);
+		if(schedule_day_monday != null)
+			map.put("schedule_day_monday", schedule_day_monday);
+		if(schedule_day_tuesday != null)
+			map.put("schedule_day_tuesday", schedule_day_tuesday);
+		if(schedule_day_wednesday != null)
+			map.put("schedule_day_wednesday", schedule_day_wednesday);
+		if(schedule_day_thursday != null)
+			map.put("schedule_day_thursday", schedule_day_thursday);
+		if(schedule_day_fridayday != null)
+			map.put("schedule_day_fridayday", schedule_day_fridayday);
+		if(schedule_day_saturday != null)
+			map.put("schedule_day_saturday", schedule_day_saturday);
+		if(schedule_day_sunday != null)
+			map.put("schedule_day_sunday", schedule_day_sunday);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -229,6 +319,20 @@ public abstract class Baseroute extends BaseResource {
 			map.put("end_time", end_time);
 		if(active != null)
 			map.put("active", active);
+		if(schedule_day_monday != null)
+			map.put("schedule_day_monday", schedule_day_monday);
+		if(schedule_day_tuesday != null)
+			map.put("schedule_day_tuesday", schedule_day_tuesday);
+		if(schedule_day_wednesday != null)
+			map.put("schedule_day_wednesday", schedule_day_wednesday);
+		if(schedule_day_thursday != null)
+			map.put("schedule_day_thursday", schedule_day_thursday);
+		if(schedule_day_fridayday != null)
+			map.put("schedule_day_fridayday", schedule_day_fridayday);
+		if(schedule_day_saturday != null)
+			map.put("schedule_day_saturday", schedule_day_saturday);
+		if(schedule_day_sunday != null)
+			map.put("schedule_day_sunday", schedule_day_sunday);
 		return map;
 	}
 
@@ -254,6 +358,13 @@ public abstract class Baseroute extends BaseResource {
 		start_time = (String) map.get("start_time");
 		end_time = (String) map.get("end_time");
 		active = (String) map.get("active");
+		schedule_day_monday = (String) map.get("schedule_day_monday");
+		schedule_day_tuesday = (String) map.get("schedule_day_tuesday");
+		schedule_day_wednesday = (String) map.get("schedule_day_wednesday");
+		schedule_day_thursday = (String) map.get("schedule_day_thursday");
+		schedule_day_fridayday = (String) map.get("schedule_day_fridayday");
+		schedule_day_saturday = (String) map.get("schedule_day_saturday");
+		schedule_day_sunday = (String) map.get("schedule_day_sunday");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -320,6 +431,34 @@ public abstract class Baseroute extends BaseResource {
 		Object activeObj = map.get("active");
 		if(activeObj != null)
 			active = activeObj.toString();
+
+		Object schedule_day_mondayObj = map.get("schedule_day_monday");
+		if(schedule_day_mondayObj != null)
+			schedule_day_monday = schedule_day_mondayObj.toString();
+
+		Object schedule_day_tuesdayObj = map.get("schedule_day_tuesday");
+		if(schedule_day_tuesdayObj != null)
+			schedule_day_tuesday = schedule_day_tuesdayObj.toString();
+
+		Object schedule_day_wednesdayObj = map.get("schedule_day_wednesday");
+		if(schedule_day_wednesdayObj != null)
+			schedule_day_wednesday = schedule_day_wednesdayObj.toString();
+
+		Object schedule_day_thursdayObj = map.get("schedule_day_thursday");
+		if(schedule_day_thursdayObj != null)
+			schedule_day_thursday = schedule_day_thursdayObj.toString();
+
+		Object schedule_day_fridaydayObj = map.get("schedule_day_fridayday");
+		if(schedule_day_fridaydayObj != null)
+			schedule_day_fridayday = schedule_day_fridaydayObj.toString();
+
+		Object schedule_day_saturdayObj = map.get("schedule_day_saturday");
+		if(schedule_day_saturdayObj != null)
+			schedule_day_saturday = schedule_day_saturdayObj.toString();
+
+		Object schedule_day_sundayObj = map.get("schedule_day_sunday");
+		if(schedule_day_sundayObj != null)
+			schedule_day_sunday = schedule_day_sundayObj.toString();
 
 	}
 
@@ -601,6 +740,90 @@ public abstract class Baseroute extends BaseResource {
 
 	public void unSetActive() {
 		this.active = null;
+	}
+
+	public String getSchedule_day_monday() {
+		return schedule_day_monday != null ? schedule_day_monday : "Y";
+	}
+
+	public void setSchedule_day_monday(String schedule_day_monday) {
+		this.schedule_day_monday = schedule_day_monday;
+	}
+
+	public void unSetSchedule_day_monday() {
+		this.schedule_day_monday = "Y";
+	}
+
+	public String getSchedule_day_tuesday() {
+		return schedule_day_tuesday != null ? schedule_day_tuesday : "Y";
+	}
+
+	public void setSchedule_day_tuesday(String schedule_day_tuesday) {
+		this.schedule_day_tuesday = schedule_day_tuesday;
+	}
+
+	public void unSetSchedule_day_tuesday() {
+		this.schedule_day_tuesday = "Y";
+	}
+
+	public String getSchedule_day_wednesday() {
+		return schedule_day_wednesday != null ? schedule_day_wednesday : "Y";
+	}
+
+	public void setSchedule_day_wednesday(String schedule_day_wednesday) {
+		this.schedule_day_wednesday = schedule_day_wednesday;
+	}
+
+	public void unSetSchedule_day_wednesday() {
+		this.schedule_day_wednesday = "Y";
+	}
+
+	public String getSchedule_day_thursday() {
+		return schedule_day_thursday != null ? schedule_day_thursday : "Y";
+	}
+
+	public void setSchedule_day_thursday(String schedule_day_thursday) {
+		this.schedule_day_thursday = schedule_day_thursday;
+	}
+
+	public void unSetSchedule_day_thursday() {
+		this.schedule_day_thursday = "Y";
+	}
+
+	public String getSchedule_day_fridayday() {
+		return schedule_day_fridayday != null ? schedule_day_fridayday : "Y";
+	}
+
+	public void setSchedule_day_fridayday(String schedule_day_fridayday) {
+		this.schedule_day_fridayday = schedule_day_fridayday;
+	}
+
+	public void unSetSchedule_day_fridayday() {
+		this.schedule_day_fridayday = "Y";
+	}
+
+	public String getSchedule_day_saturday() {
+		return schedule_day_saturday != null ? schedule_day_saturday : "Y";
+	}
+
+	public void setSchedule_day_saturday(String schedule_day_saturday) {
+		this.schedule_day_saturday = schedule_day_saturday;
+	}
+
+	public void unSetSchedule_day_saturday() {
+		this.schedule_day_saturday = "Y";
+	}
+
+	public String getSchedule_day_sunday() {
+		return schedule_day_sunday != null ? schedule_day_sunday : "Y";
+	}
+
+	public void setSchedule_day_sunday(String schedule_day_sunday) {
+		this.schedule_day_sunday = schedule_day_sunday;
+	}
+
+	public void unSetSchedule_day_sunday() {
+		this.schedule_day_sunday = "Y";
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

@@ -87,6 +87,48 @@
 			{
 				'length': 1,
 				'type':'String'
+			},
+			'schedule_day_monday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_tuesday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_wednesday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_thursday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_fridayday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_saturday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_sunday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
 			}
 		},
 		"information" : 
