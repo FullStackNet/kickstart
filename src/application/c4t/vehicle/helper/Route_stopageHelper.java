@@ -1,6 +1,7 @@
 package application.c4t.vehicle.helper;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
@@ -112,6 +113,44 @@ public class Route_stopageHelper extends BaseHelper {
 	}
 	
 	boolean isValidRoute(route _route, Date logTime , String timeZone) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(logTime);
+		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		if (dayOfWeek == 1) {
+			if (!"Y".equals(_route.getSchedule_day_sunday())) {
+				return false;
+			}
+		}
+		if (dayOfWeek == 2) {
+			if (!"Y".equals(_route.getSchedule_day_monday())) {
+				return false;
+			}
+		}
+		if (dayOfWeek == 3) {
+			if (!"Y".equals(_route.getSchedule_day_tuesday())) {
+				return false;
+			}
+		}
+		if (dayOfWeek == 4) {
+			if (!"Y".equals(_route.getSchedule_day_wednesday())) {
+				return false;
+			}
+		}
+		if (dayOfWeek == 5) {
+			if (!"Y".equals(_route.getSchedule_day_thursday())) {
+				return false;
+			}
+		}
+		if (dayOfWeek == 6) {
+			if (!"Y".equals(_route.getSchedule_day_fridayday())) {
+				return false;
+			}
+		}
+		if (dayOfWeek == 7) {
+			if (!"Y".equals(_route.getSchedule_day_saturday())) {
+				return false;
+			}
+		}
 		long logDaytime = TimeUtil.getDayTime(timeZone,logTime);
 		long routeStartDayTime = TimeUtil.getDayTime(_route.getStart_time());
 		long routeEndDayTime = TimeUtil.getDayTime(_route.getEnd_time());
