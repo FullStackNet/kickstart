@@ -103,7 +103,7 @@ public abstract class BaseForm extends BaseView {
 			String fieldstr = "";
 			mContext.getPageBuilder().addJS(new JS("form_handler.js", "/ui/js"));
 			String onSubmit = "return FormHandler.call(";
-			if (mDefinition.getSuccessURL() == null) {
+			if (mDefinition.getSubmitURL() == null) {
 				onSubmit += "null";
 			} else {
 				onSubmit += "'"+mDefinition.getSubmitURL()+"'";

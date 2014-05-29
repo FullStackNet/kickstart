@@ -23,6 +23,7 @@ public class FormDefinition {
 	String submitURL;
 	String units;
 	String timeZone;
+	
 	public int getHeight() {
 		return height;
 	}

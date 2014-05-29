@@ -3,7 +3,6 @@ package platform.webservice.ui.component;
 import java.util.ArrayList;
 import java.util.Map;
 
-import platform.resource.appliance;
 import platform.util.TimeUtil;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.definition.Field;
@@ -92,7 +91,11 @@ public abstract class BaseTableView extends BaseView {
 		}
 		return getDefinition().getModifyURL()+"?id="+id+"&op=modify";
 	}
-
+	
+	protected String getURL(Map<String,Object> row) {
+		return null;
+	}
+	
 	protected void renderRow(TBODY body , Map<String, Object> data) {
 		TR row = new TR();
 		for (int i = 0; i < mDefinition.getFields().size(); i++) {
@@ -120,9 +123,13 @@ public abstract class BaseTableView extends BaseView {
 			row.addChild(td);
 		}
 		TD actiontd = new TD();
-		if (mDefinition.isModifyButton()) {
+		String url = getURL(data);
+		if (url == null) {
+			url = getModifyURL(data.get("id").toString());
+		}
+		if (mDefinition.isModifyButton() && (url != null)) {
 			A _editlink = new A();
-			_editlink.setHref(getModifyURL(data.get("id").toString()));
+			_editlink.setHref(url);
 			_editlink.setText("Edit");
 			actiontd.addChild(_editlink);
 		}
