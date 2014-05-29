@@ -1,0 +1,48 @@
+{
+	"homework_master" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'teacher_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'subject_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'title':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'description':{
+				'length': 4096,
+				'type': 'String'
+			}
+		}
+	}
+}
