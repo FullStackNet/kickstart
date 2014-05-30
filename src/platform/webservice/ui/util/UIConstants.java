@@ -46,5 +46,22 @@ public class UIConstants {
 		ApplicationConstants.APPLICATION_NAME_MONGODB_DATA_SERVER,
 		ApplicationConstants.APPLICATION_NAME_MONGODB_ROUTE_SERVER,
 		ApplicationConstants.APPLICATION_NAME_MESSAGE_BUS
-};
+	};
+	public final static String[] CLASSES_ENUM = new String[] {
+			"NURSERY",
+			"LKG",
+			"UKG",
+			"I",
+			"II",
+			"III",
+			"IV",
+			"V",
+			"VI",
+			"VII",
+			"VIII",
+			"IX",
+			"X",
+			"XI",
+			"XII",
+		};
 }
