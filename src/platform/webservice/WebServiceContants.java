@@ -3,8 +3,8 @@ package platform.webservice;
 public class WebServiceContants {
 	public final static String OPERATION_RESEND_INVITE = "RESEND_INVITE";
 	public final static String OPERATION_CONFIRM = "CONFIRM";
+	public final static String OPERATION_ACTIVATE = "ACTIVATE";
 	public final static String OPERATION_CONFIRM_AFTER_LOGIN = "CONFIRM_AFTER_LOGIN";
-	
 	public final static String OPERATION_ADD = "ADD";
 	public final static String OPERATION_MODIFY = "MODIFY";
 	public final static String OPERATION_DELETE = "DELETE";

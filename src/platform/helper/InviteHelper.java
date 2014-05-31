@@ -41,6 +41,19 @@ public class InviteHelper extends BaseHelper {
 		return null;
 	}
 
+	public invite validateActivtion(String mobileoremail,String key) {
+		Expression e1 = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileoremail);
+		Expression e2 = new Expression(user.FIELD_EMAIL_ID, REL_OP.EQ, mobileoremail);
+		Expression e3 = new Expression(e1, LOG_OP.OR, e2);
+		Expression e4 = new Expression(invite.FIELD_KEY, REL_OP.EQ, key);
+		Expression e = new Expression(e3, LOG_OP.AND, e4);
+		BaseResource[] resources = getByExpression(e);
+		if (!Util.isEmpty(resources)) {
+			return (invite)resources[0];
+		}
+		return null;
+	}
+
 	public invite getInvite(String mobileno,String emailId,String referenceId) {
 		if (mobileno == null) {
 			mobileno = "dummy";

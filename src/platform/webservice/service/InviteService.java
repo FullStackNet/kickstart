@@ -149,6 +149,16 @@ public class InviteService extends BaseService{
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Password and confirm password not matching");
 			}
 			InviteHelper.getInstance().acceptInvite(_resource);
+		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_ACTIVATE)) {
+			invite _resource = (invite) resource;
+			if ((_resource.getKey() == null) || (_resource.getKey().isEmpty())) {
+				throw new ApplicationException(ExceptionSeverity.ERROR, "Empty token not allowed");
+			}
+			invite _invite = InviteHelper.getInstance().validateActivtion(_resource.getEmail_id(),_resource.getKey());
+			if (_invite == null) {
+				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid activation request");
+			}
+			resource.setId(_invite.getId());
 		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_CONFIRM_AFTER_LOGIN)) {
 			invite _resource = (invite) resource;
 			InviteHelper.getInstance().acceptInvite(_resource);
