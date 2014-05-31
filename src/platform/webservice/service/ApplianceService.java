@@ -3,8 +3,6 @@ package platform.webservice.service;
 import java.util.ArrayList;
 import java.util.Map;
 
-import application.c4t.vehicle.helper.RouteHelper;
-import application.c4t.vehicle.resource.route;
 import platform.appliances.ApplianceConstants;
 import platform.db.Expression;
 import platform.db.REL_OP;
@@ -19,12 +17,13 @@ import platform.message.DeviceConfiguration;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
 import platform.resource.controller;
-import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 import platform.webservice.WebServiceContants;
+import application.c4t.vehicle.helper.RouteHelper;
+import application.c4t.vehicle.resource.route;
 
 public class ApplianceService extends BaseService{
 	public ApplianceService() {
