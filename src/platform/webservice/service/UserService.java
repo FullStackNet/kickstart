@@ -83,7 +83,18 @@ public class UserService extends BaseService{
 		if (action.equalsIgnoreCase(WebServiceContants.OPERATION_MODIFY)) {
 			update(ctx, resource);
 			return;
+		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_FORGOT_PASSSWORD_TOKEN_CONFIRM)) {
+			user _resource = (user) resource;
+			user _user = (user)UserHelper.getInstance().getById(_resource.getId());
+			if (_user == null) {
+				throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_USER);
+			}
+			if (!_user.getKeyEx().equals(_resource.getKey())) {
+				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Token");
+			}
+			return;
 		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_FORGOT_PASSWORD)) {
+		
 			user _resource = (user) resource;
 			user _user = UserHelper.getInstance().getByEmailId(_resource.getEmail_id());
 			if (_user == null) {
@@ -98,6 +109,7 @@ public class UserService extends BaseService{
 			UserHelper.getInstance().update(_update_user);
 			_user.setKey(_update_user.getKey());
 			notifyForgotPassword(_user);
+			resource.setId(_user.getId());
 			return;
 		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_CHANGE_PASSWORD)) {
 			String userId = ctx.getUserId();
