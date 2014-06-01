@@ -22,7 +22,10 @@ public abstract class Baseresult extends BaseResource {
 	private Integer errCode = null;
 	private String message = null;
 	private String sessionId = null;
-
+	private int recentNotifications = 0;
+	private int recentAlerts = 0;
+	
+	
 	public static String FIELD_ERRCODE = "errCode";
 	public static String FIELD_MESSAGE = "message";
 	public static String FIELD_SESSIONID = "sessionId";
@@ -170,5 +173,21 @@ public abstract class Baseresult extends BaseResource {
 	}
 	public String getClusterType() {
 		return "REPLICATED";
+	}
+
+	public int getRecentNotifications() {
+		return recentNotifications;
+	}
+
+	public void setRecentNotifications(int recentNotifications) {
+		this.recentNotifications = recentNotifications;
+	}
+
+	public int getRecentAlerts() {
+		return recentAlerts;
+	}
+
+	public void setRecentAlerts(int recentAlerts) {
+		this.recentAlerts = recentAlerts;
 	}
 }

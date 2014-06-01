@@ -28,6 +28,7 @@ import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.db.ResourceOrder;
 import platform.exception.ExceptionEnum;
+import platform.helper.User_mapHelper;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
 import platform.resource.CountResult;
@@ -170,7 +171,8 @@ public class BaseServlet extends HttpServlet
 			result = new SuccessResult();
 			postProcessing(ctx, request, response, p, action);
 			result.setResource(p);
-			
+			result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
+			result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 		} catch(ApplicationException e){
 			if ((e.getErrorCode() != null) && (e.getErrorCode() == ExceptionEnum.INVALID_SESSION)) {
 				expireSessionCookie(request, response);
@@ -248,6 +250,8 @@ public class BaseServlet extends HttpServlet
 				BaseResource p = Json.stringToResource(resourceText, resource.getClass());
 				svc.update(ctx, p);
 				result.setErrCode(0);
+				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
+				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 				result.setMessage("Success");
 				
 		} catch (ApplicationException e){
@@ -301,6 +305,8 @@ public class BaseServlet extends HttpServlet
 				result.setErrCode(0);
 				result.setMessage("Success");
 				postDelete(request, response);
+				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
+				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 			}
 		} catch (ApplicationException e){
 			if ((e.getErrorCode() != null) && (e.getErrorCode() == ExceptionEnum.INVALID_SESSION)) {
@@ -425,6 +431,8 @@ public class BaseServlet extends HttpServlet
 					result.setResource(resources);
 				}
 				result.setErrCode(0);
+				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
+				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 				result.setMessage("success");
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
@@ -458,6 +466,8 @@ public class BaseServlet extends HttpServlet
 				result.setErrCode(0);
 				result.setMessage("success");
 				result.setResource(resources);
+				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
+				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
 					responseStr = HTML.resulttoString(result,fieldName,rendertype);
@@ -482,6 +492,8 @@ public class BaseServlet extends HttpServlet
 				result.setErrCode(0);
 				result.setMessage("success");
 				result.setResource(resources);
+				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
+				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
 					responseStr = HTML.resulttoString(result,fieldName,rendertype);
@@ -519,6 +531,8 @@ public class BaseServlet extends HttpServlet
 				result.setErrCode(0);
 				result.setMessage("success");
 				result.setResource(resources);
+				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
+				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
 					responseStr = HTML.resulttoString(result,fieldName,rendertype);

@@ -25,6 +25,8 @@ public abstract class Baseuser_map extends BaseResource {
 	private ArrayList<Object> devices = null;
 	private ArrayList<Object> alerts = null;
 	private ArrayList<Object> notifications = null;
+	private ArrayList<Object> recent_notifications = null;
+	private ArrayList<Object> recent_alerts = null;
 	private ArrayList<Object> invites = null;
 
 	public static String FIELD_ID = "id";
@@ -33,6 +35,8 @@ public abstract class Baseuser_map extends BaseResource {
 	public static String FIELD_DEVICES = "devices";
 	public static String FIELD_ALERTS = "alerts";
 	public static String FIELD_NOTIFICATIONS = "notifications";
+	public static String FIELD_RECENT_NOTIFICATIONS = "recent_notifications";
+	public static String FIELD_RECENT_ALERTS = "recent_alerts";
 	public static String FIELD_INVITES = "invites";
 
 	private static final long serialVersionUID = 1L;
@@ -62,6 +66,12 @@ public abstract class Baseuser_map extends BaseResource {
 		Field notificationsField = new Field("notifications", "Array");
 		metaData.addField(notificationsField);
 
+		Field recent_notificationsField = new Field("recent_notifications", "Array");
+		metaData.addField(recent_notificationsField);
+
+		Field recent_alertsField = new Field("recent_alerts", "Array");
+		metaData.addField(recent_alertsField);
+
 		Field invitesField = new Field("invites", "Array");
 		metaData.addField(invitesField);
 
@@ -80,6 +90,8 @@ public abstract class Baseuser_map extends BaseResource {
 		this.devices = obj.devices;
 		this.alerts = obj.alerts;
 		this.notifications = obj.notifications;
+		this.recent_notifications = obj.recent_notifications;
+		this.recent_alerts = obj.recent_alerts;
 		this.invites = obj.invites;
 	}
 
@@ -101,6 +113,10 @@ public abstract class Baseuser_map extends BaseResource {
 			map.put("alerts", alerts);
 		if(notifications != null)
 			map.put("notifications", notifications);
+		if(recent_notifications != null)
+			map.put("recent_notifications", recent_notifications);
+		if(recent_alerts != null)
+			map.put("recent_alerts", recent_alerts);
 		if(invites != null)
 			map.put("invites", invites);
 		return map;
@@ -120,6 +136,10 @@ public abstract class Baseuser_map extends BaseResource {
 			map.put("alerts", alerts);
 		if(notifications != null)
 			map.put("notifications", notifications);
+		if(recent_notifications != null)
+			map.put("recent_notifications", recent_notifications);
+		if(recent_alerts != null)
+			map.put("recent_alerts", recent_alerts);
 		if(invites != null)
 			map.put("invites", invites);
 		return map;
@@ -138,6 +158,8 @@ public abstract class Baseuser_map extends BaseResource {
 		devices = (ArrayList<Object>) map.get("devices");
 		alerts = (ArrayList<Object>) map.get("alerts");
 		notifications = (ArrayList<Object>) map.get("notifications");
+		recent_notifications = (ArrayList<Object>) map.get("recent_notifications");
+		recent_alerts = (ArrayList<Object>) map.get("recent_alerts");
 		invites = (ArrayList<Object>) map.get("invites");
 	}
 
@@ -152,6 +174,8 @@ public abstract class Baseuser_map extends BaseResource {
 		devices = (ArrayList<Object>) map.get("devices");
 		alerts = (ArrayList<Object>) map.get("alerts");
 		notifications = (ArrayList<Object>) map.get("notifications");
+		recent_notifications = (ArrayList<Object>) map.get("recent_notifications");
+		recent_alerts = (ArrayList<Object>) map.get("recent_alerts");
 		invites = (ArrayList<Object>) map.get("invites");
 	}
 
@@ -279,6 +303,44 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void unSetNotifications() {
 		this.notifications = null;
+	}
+
+	public ArrayList<Object> getRecent_notifications() {
+		return recent_notifications;
+	}
+
+
+	public void setRecent_notifications(ArrayList<Object> recent_notifications) {
+		this.recent_notifications = recent_notifications;
+	}
+
+	public void addRecent_notifications(Object value) {
+		if(recent_notifications == null)
+			recent_notifications = new ArrayList<Object>();
+		recent_notifications.add(value);
+	}
+
+	public void unSetRecent_notifications() {
+		this.recent_notifications = null;
+	}
+
+	public ArrayList<Object> getRecent_alerts() {
+		return recent_alerts;
+	}
+
+
+	public void setRecent_alerts(ArrayList<Object> recent_alerts) {
+		this.recent_alerts = recent_alerts;
+	}
+
+	public void addRecent_alerts(Object value) {
+		if(recent_alerts == null)
+			recent_alerts = new ArrayList<Object>();
+		recent_alerts.add(value);
+	}
+
+	public void unSetRecent_alerts() {
+		this.recent_alerts = null;
 	}
 
 	public ArrayList<Object> getInvites() {

@@ -74,6 +74,20 @@ public class User_mapHelper extends BaseHelper {
 		return ApplianceHelper.getInstance().getListById(_user_map.getAppliances().toArray(new String[_user_map.getAppliances().size()]),null);
 	}
 
+	public int  getRecentNotificationCount(String userId) {
+		user_map _user_map = (user_map)getSelectedFieldsById(userId, user_map.FIELD_RECENT_NOTIFICATIONS);
+		if ((_user_map == null)  ||  (_user_map.getRecent_notifications() == null))
+			return 0;
+		return _user_map.getRecent_notifications().size();
+	}
+	
+	public int  getRecentAlertCount(String userId) {
+		user_map _user_map = (user_map)getSelectedFieldsById(userId, user_map.FIELD_RECENT_ALERTS);
+		if ((_user_map == null)  ||  (_user_map.getRecent_alerts() == null))
+			return 0;
+		return _user_map.getRecent_alerts().size();
+	}
+	
 	public BaseResource[] getApplinacesArray(String userId) {
 		BaseResource[] appliances = null;
 		user_map _user_map = (user_map)getSelectedFieldsById(userId, user_map.FIELD_APPLIANCES);

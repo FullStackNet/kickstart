@@ -15,4 +15,6 @@ public class NotificationFactory {
 	public static String NOTIFICATION_STOPPED = "STOPPED";
 	public static String NOTIFICATION_FUEL_ADDED = "FUEL_ADDED";
 	public static String NOTIFICATION_STOP_REACHED = "STOP REACHED";
+	public static String NOTIFICATION_HOMEWORK = "HOMEWORK";
+	
 }

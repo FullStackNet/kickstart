@@ -201,6 +201,22 @@ public class NotificationHelper extends BaseHelper {
 		}
 	}
 	
+	public void addNotificationNonAppliance(String notificationId,
+			int severity, Map<String, Object> data, Date alertTime)  {
+		String site_id = "";
+		String deviceType = "";
+		String deviceName = "";
+		String customer_id = "";
+		String gateway_Id = "";
+		String applianceId= "";
+		String applianceName= "";
+		String assetId= "";
+		
+		addNotification(customer_id, site_id, gateway_Id, applianceId, deviceType, deviceName, 
+				applianceId, applianceName, assetId, 
+				notificationId, severity, data, alertTime);
+	}
+
 	void addNotification(String customer_id,String site_id, 
 			String gateway_id, String deviceId,String deviceType,String deviceName, 
 			String applianceId,String applianceName,String assetId, 

@@ -40,6 +40,16 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
+			'recent_notifications':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'recent_alerts':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
 			'invites':
 			{
 				'name':'invites',
