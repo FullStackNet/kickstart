@@ -42,6 +42,7 @@ public class User_mapHelper extends BaseHelper {
 		user_map _user_map = new user_map();
 		_user_map.setId(userId);
 		_user_map.addAlerts(alertId);
+		_user_map.addRecent_alerts(alertId);
 		AddOrUpdate(_user_map);
 	}
 	
@@ -49,7 +50,28 @@ public class User_mapHelper extends BaseHelper {
 		user_map _user_map = new user_map();
 		_user_map.setId(userId);
 		_user_map.addNotifications(notificationId);
+		_user_map.addRecent_notifications(notificationId);
 		AddOrUpdate(_user_map);
+	}
+	
+	public void resetRecentNotification(String userId) throws ApplicationException {
+		user_map _user_map = (user_map)getSelectedFieldsById(userId, user_map.FIELD_RECENT_NOTIFICATIONS);
+		if ((_user_map == null)  ||  (_user_map.getRecent_notifications() == null))
+			return;
+		user_map __user_map = new user_map();
+		__user_map.setId(userId);
+		_user_map.addRecent_notifications(_user_map.getRecent_notifications());
+		unset(__user_map);
+	}
+	
+	public void resetRecentAlerts(String userId) throws ApplicationException {
+		user_map _user_map = (user_map)getSelectedFieldsById(userId, user_map.FIELD_RECENT_ALERTS);
+		if ((_user_map == null)  ||  (_user_map.getRecent_alerts() == null))
+			return;
+		user_map __user_map = new user_map();
+		__user_map.setId(userId);
+		_user_map.addRecent_alerts(_user_map.getRecent_alerts());
+		unset(__user_map);
 	}
 	
 	public void addInvite(String userId,String inviteId) throws ApplicationException {
@@ -87,6 +109,7 @@ public class User_mapHelper extends BaseHelper {
 			return 0;
 		return _user_map.getRecent_alerts().size();
 	}
+	
 	
 	public BaseResource[] getApplinacesArray(String userId) {
 		BaseResource[] appliances = null;
