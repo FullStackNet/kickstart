@@ -69,4 +69,12 @@ public class School_user_mapHelper extends BaseHelper {
 		
 		return _teacher.getId();
 	}
+	
+
+	public teacher getTeacherFromUserId(String userId) {
+		school_user_map _map = (school_user_map)getById(userId);
+		if ((_map == null) || (_map.getTeachers() == null) || (Util.isEmpty(_map.getTeachers())))
+			return null;
+		return (teacher)TeacherHelper.getInstance().getById((String)_map.getTeachers().get(0));
+	}
 }
