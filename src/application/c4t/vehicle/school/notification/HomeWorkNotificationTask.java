@@ -141,6 +141,7 @@ public class HomeWorkNotificationTask extends NotificationTask {
 	public void process(notification _notification) {
 		// TODO Auto-generated method stub
 		try {
+			System.out.println("Processing the Notification " + _notification.getId() + "::"+_notification.getNotification_id() + "::" +_notification.getNotification_data());
 			Map<String, Object> data = _notification.getNotification_data();
 			if (data == null)
 				return;
