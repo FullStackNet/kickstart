@@ -58,7 +58,7 @@ public class ClientMessageQueue {
 	public synchronized void addMessage(String sender, String target, Message message) {
 		message.setSender(sender);
 		message.setTarget(target);
-		ApplicationLogger.info("For SDP : Message " +message.getName() + " added in to queue", this.getClass());
+		ApplicationLogger.info("For "+target+" : Message " +message.getName() + " added in to queue", this.getClass());
 		synchronized (lockObject) {
 			while (messageTable.size() > max_size) {
 				Message msg = messageTable.remove(0);
@@ -78,7 +78,7 @@ public class ClientMessageQueue {
 		message.setSender(sender);
 		message.setTarget(target);
 		message.setForwardTo(forwardTo);
-		ApplicationLogger.info("For SDP : Message " +message.getName() + " added in to queue", this.getClass());
+		ApplicationLogger.info("For "+target+" : Message " +message.getName() + " added in to queue", this.getClass());
 		synchronized (lockObject) {
 			while (messageTable.size() > max_size) {
 				Message msg = messageTable.remove(0);
@@ -98,7 +98,7 @@ public class ClientMessageQueue {
 		addMessageAtTop(message);
 	}
 	public synchronized void addMessageAtTop(Message message) {
-		ApplicationLogger.info("For SDP : Message " +message.getName() + " added at to queue", this.getClass());
+		ApplicationLogger.info("For "+message.getTarget()+" : Message " +message.getName() + " added in to queue", this.getClass());
 		synchronized (lockObject) {
 			while (messageTable.size() > max_size) {
 				Message msg = messageTable.remove(0);
