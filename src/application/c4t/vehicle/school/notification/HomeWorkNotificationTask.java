@@ -17,7 +17,6 @@ import platform.resource.user;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
-import application.c4t.vehicle.school.helper.SchoolHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.student;
