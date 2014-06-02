@@ -16,6 +16,8 @@ public class ApplicationManager {
 		MessageManager manager = new MessageManager();
 		connector = new Connector(connectURL, ApplicationConstants.APPLICATION_NAME_APPLICATION_SERVER, "", "", manager);
 		connector.start();
+		connector.addPeer(ApplicationConstants.APPLICATION_NAME_MANAGER);
+		connector.addPeer(ApplicationConstants.APPLICATION_NAME_ALERT_MANAGER);
 	}
 	
 	public void sendMessage(String target,Message message) {

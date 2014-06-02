@@ -87,6 +87,7 @@ public class Connector {
 			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 			Queue queue = session.createQueue("MessageQueue."+name);
 			MessageConsumer consumer = session.createConsumer(queue);
+			ApplicationLogger.info("Creating Queue " + "MessageQueue."+name, this.getClass());
 			consumer.setMessageListener(new MessageListener() {
 				@Override
 				public void onMessage(javax.jms.Message message) {
