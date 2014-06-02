@@ -79,6 +79,7 @@ public class Connector {
 				@Override
 				public void onException(JMSException exception) {
 					// TODO Auto-generated method stub
+					exception.printStackTrace();
 					ApplicationLogger.error(exception.getMessage(), this.getClass());
 				}
 			});
