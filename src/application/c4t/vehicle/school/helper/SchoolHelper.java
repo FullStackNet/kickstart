@@ -22,10 +22,5 @@ public class SchoolHelper extends BaseHelper {
 			instance = new SchoolHelper();
 		return instance;
 	}
-	public BaseResource[] getSectionStudent(String school_id, String class_section_name) {
-		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
-		Expression e2 = new Expression(student.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
-		Expression e = new Expression(e1, LOG_OP.AND, e2);
-		return getByExpression(e);
-	}
+	
 }

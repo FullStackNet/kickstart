@@ -18,6 +18,7 @@ import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
 import application.c4t.vehicle.school.helper.SchoolHelper;
+import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.student;
 
@@ -98,7 +99,7 @@ public class HomeWorkNotificationTask extends NotificationTask {
 			String class_section_name,
 			String title,
 			String description) {
-		BaseResource[] students = SchoolHelper.getInstance().getSectionStudent(school_id,class_section_name);
+		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
 		if ((students == null) || (students.length == 0)) 
 			return;
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
