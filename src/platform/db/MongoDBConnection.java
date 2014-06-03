@@ -31,6 +31,7 @@ import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.ServerAddress;
 import com.mongodb.WriteConcern;
+import com.mongodb.WriteResult;
 
 
 public class MongoDBConnection extends DbConnection {
@@ -622,6 +623,7 @@ public class MongoDBConnection extends DbConnection {
 						doc.put(columnName, list.get(i));
 						BasicDBObject updateObject = new BasicDBObject();
 						updateObject.append("$pull", doc);
+						System.out.println("unset :" + updateObject);
 						table.update(searchDoc, updateObject);
 					}
 				}
