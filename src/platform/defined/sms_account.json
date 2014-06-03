@@ -1,0 +1,63 @@
+{
+	"sms_account" :
+	{
+		"cluster": "DB_CONFIG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'url':
+			{
+				'name':'url',
+				'length': 128,
+				'type':'String'
+			},
+			'aid_fieldname':
+			{
+				'name':'aid',
+				'length': 128,
+				'type':'String'
+			},
+			'aid':
+			{
+				'name':'aid',
+				'length': 128,
+				'type':'String'
+			},
+			'pin_fieldname':
+			{
+				'name':'aid',
+				'length': 128,
+				'type':'String'
+			},
+			'pin':
+			{
+				'name':'password',
+				'length': 128,
+				'type':'String'
+			},
+			'mobile_fieldname':
+			{
+				'name':'password',
+				'length': 128,
+				'type':'String'
+			},
+			'message_fieldname':
+			{
+				'name':'password',
+				'length': 128,
+				'type':'String'
+			},
+			'send_on_email':
+			{
+				'length': 1,
+				'type':'String'
+			}
+		}
+	}
+}
