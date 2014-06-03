@@ -185,11 +185,13 @@ public class UserService extends BaseService{
 			}
 			return User_mapHelper.getInstance().getAlertArray(userId);
 		} else if(QueryTypes.QUERY_NOTIFICATION.toString().equals(queryId)) {
+			
 			System.out.println("Received Query "+queryId);
 			String userId = ctx.getUserId();
 			if (userId == null) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Session is expired or not authenticated.");
 			}
+			User_mapHelper.getInstance().resetRecentNotification(userId);
 			return User_mapHelper.getInstance().getNotificationArray(userId);
 		}  else if(QueryTypes.QUERY_USER_ID_BY_EMAIL_OR_MOBILE.toString().equals(queryId)) {
 			System.out.println("Received Query "+queryId);
