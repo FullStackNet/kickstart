@@ -58,10 +58,12 @@ public class User_mapHelper extends BaseHelper {
 		user_map _user_map = (user_map)getSelectedFieldsById(userId, user_map.FIELD_RECENT_NOTIFICATIONS);
 		if ((_user_map == null)  ||  (_user_map.getRecent_notifications() == null))
 			return;
-		user_map __user_map = new user_map();
-		__user_map.setId(userId);
-		__user_map.addRecent_notifications(_user_map.getRecent_notifications());
-		unset(__user_map);
+		for(int i =0 ; i < _user_map.getRecent_notifications().size(); i++) {
+			user_map __user_map = new user_map();
+			__user_map.setId(userId);
+			__user_map.addRecent_notifications(_user_map.getRecent_notifications().get(i));
+			unset(__user_map);
+		}
 	}
 	
 	public void resetRecentAlerts(String userId) throws ApplicationException {
