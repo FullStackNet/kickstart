@@ -54,6 +54,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("result", "platform.resource.result"),
 		new ResourceMap("sensor", "platform.resource.sensor"),
 		new ResourceMap("session", "platform.resource.session"),
+		new ResourceMap("sms_account", "platform.resource.sms_account"),
 		new ResourceMap("user", "platform.resource.user"),
 		new ResourceMap("user_map", "platform.resource.user_map"),
 		new ResourceMap("invite", "platform.resource.invite"),

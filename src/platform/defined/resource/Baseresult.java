@@ -22,13 +22,14 @@ public abstract class Baseresult extends BaseResource {
 	private Integer errCode = null;
 	private String message = null;
 	private String sessionId = null;
-	private int recentNotifications = 0;
-	private int recentAlerts = 0;
-	
-	
+	private Long RecentNotifications = null;
+	private Long recentAlerts = null;
+
 	public static String FIELD_ERRCODE = "errCode";
 	public static String FIELD_MESSAGE = "message";
 	public static String FIELD_SESSIONID = "sessionId";
+	public static String FIELD_RECENTNOTIFICATIONS = "RecentNotifications";
+	public static String FIELD_RECENTALERTS = "recentAlerts";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("result");
@@ -45,6 +46,12 @@ public abstract class Baseresult extends BaseResource {
 		Field sessionIdField = new Field("sessionId", "String");
 		metaData.addField(sessionIdField);
 
+		Field RecentNotificationsField = new Field("RecentNotifications", "long");
+		metaData.addField(RecentNotificationsField);
+
+		Field recentAlertsField = new Field("recentAlerts", "long");
+		metaData.addField(recentAlertsField);
+
 
 		metaData.setTableName("result");
 
@@ -57,6 +64,8 @@ public abstract class Baseresult extends BaseResource {
 		this.errCode = obj.errCode;
 		this.message = obj.message;
 		this.sessionId = obj.sessionId;
+		this.RecentNotifications = obj.RecentNotifications;
+		this.recentAlerts = obj.recentAlerts;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -71,6 +80,10 @@ public abstract class Baseresult extends BaseResource {
 			map.put("message", message);
 		if(sessionId != null)
 			map.put("sessionId", sessionId);
+		if(RecentNotifications != null)
+			map.put("RecentNotifications", RecentNotifications);
+		if(recentAlerts != null)
+			map.put("recentAlerts", recentAlerts);
 		return map;
 	}
 
@@ -82,6 +95,10 @@ public abstract class Baseresult extends BaseResource {
 			map.put("message", message);
 		if(sessionId != null)
 			map.put("sessionId", sessionId);
+		if(RecentNotifications != null)
+			map.put("RecentNotifications", RecentNotifications);
+		if(recentAlerts != null)
+			map.put("recentAlerts", recentAlerts);
 		return map;
 	}
 
@@ -94,6 +111,8 @@ public abstract class Baseresult extends BaseResource {
 		errCode = (Integer) map.get("errCode");
 		message = (String) map.get("message");
 		sessionId = (String) map.get("sessionId");
+		RecentNotifications = (Long) map.get("RecentNotifications");
+		recentAlerts = (Long) map.get("recentAlerts");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -108,6 +127,14 @@ public abstract class Baseresult extends BaseResource {
 		Object sessionIdObj = map.get("sessionId");
 		if(sessionIdObj != null)
 			sessionId = sessionIdObj.toString();
+
+		Object RecentNotificationsObj = map.get("RecentNotifications");
+		if(RecentNotificationsObj != null)
+			RecentNotifications = new Long(RecentNotificationsObj.toString());
+
+		Object recentAlertsObj = map.get("recentAlerts");
+		if(recentAlertsObj != null)
+			recentAlerts = new Long(recentAlertsObj.toString());
 
 	}
 
@@ -168,26 +195,50 @@ public abstract class Baseresult extends BaseResource {
 	public void unSetSessionId() {
 		this.sessionId = null;
 	}
+
+	public Long getRecentNotifications() {
+		return RecentNotifications;
+	}
+
+	public long getRecentNotificationsEx() {
+		return RecentNotifications != null ? RecentNotifications : 0L;
+	}
+
+	public void setRecentNotifications(long RecentNotifications) {
+		this.RecentNotifications = RecentNotifications;
+	}
+
+	public void setRecentNotifications(Long RecentNotifications) {
+		this.RecentNotifications = RecentNotifications;
+	}
+
+	public void unSetRecentNotifications() {
+		this.RecentNotifications = null;
+	}
+
+	public Long getRecentAlerts() {
+		return recentAlerts;
+	}
+
+	public long getRecentAlertsEx() {
+		return recentAlerts != null ? recentAlerts : 0L;
+	}
+
+	public void setRecentAlerts(long recentAlerts) {
+		this.recentAlerts = recentAlerts;
+	}
+
+	public void setRecentAlerts(Long recentAlerts) {
+		this.recentAlerts = recentAlerts;
+	}
+
+	public void unSetRecentAlerts() {
+		this.recentAlerts = null;
+	}
 	public String getCluster() {
 		return "DB_CONFIG";
 	}
 	public String getClusterType() {
 		return "REPLICATED";
-	}
-
-	public int getRecentNotifications() {
-		return recentNotifications;
-	}
-
-	public void setRecentNotifications(int recentNotifications) {
-		this.recentNotifications = recentNotifications;
-	}
-
-	public int getRecentAlerts() {
-		return recentAlerts;
-	}
-
-	public void setRecentAlerts(int recentAlerts) {
-		this.recentAlerts = recentAlerts;
 	}
 }

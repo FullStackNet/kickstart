@@ -14,6 +14,14 @@
 			"sessionId":
 			{
 				"type": "String"
+			},
+			"RecentNotifications":
+			{
+				"type": "long"
+			},
+			"recentAlerts":
+			{
+				"type": "long"
 			}
 		},
 		"comment": "Result"
