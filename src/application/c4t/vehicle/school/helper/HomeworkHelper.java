@@ -27,6 +27,6 @@ public class HomeworkHelper extends BaseHelper {
 		Expression e2 = new Expression(homework.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		
-		return getByExpression(e,new String[]{homework.FIELD_SUBMIT_TIMESTAMP});
+		return getByExpression(e,new String[]{homework.FIELD_SUBMIT_TIMESTAMP + " DESC"});
 	}
 }
