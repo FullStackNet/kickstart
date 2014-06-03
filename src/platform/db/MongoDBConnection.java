@@ -622,7 +622,7 @@ public class MongoDBConnection extends DbConnection {
 						doc = new BasicDBObject();
 						doc.put(columnName, list.get(i));
 						BasicDBObject updateObject = new BasicDBObject();
-						updateObject.append("$pull", doc);
+						updateObject.append("$pullAll", doc);
 						System.out.println("unset :" + updateObject);
 						table.update(searchDoc, updateObject);
 					}
