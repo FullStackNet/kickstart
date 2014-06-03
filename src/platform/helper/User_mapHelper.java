@@ -60,7 +60,7 @@ public class User_mapHelper extends BaseHelper {
 			return;
 		user_map __user_map = new user_map();
 		__user_map.setId(userId);
-		_user_map.addRecent_notifications(_user_map.getRecent_notifications());
+		__user_map.addRecent_notifications(_user_map.getRecent_notifications());
 		unset(__user_map);
 	}
 	
@@ -70,7 +70,7 @@ public class User_mapHelper extends BaseHelper {
 			return;
 		user_map __user_map = new user_map();
 		__user_map.setId(userId);
-		_user_map.addRecent_alerts(_user_map.getRecent_alerts());
+		__user_map.addRecent_alerts(_user_map.getRecent_alerts());
 		unset(__user_map);
 	}
 	
