@@ -109,6 +109,7 @@ public class Util {
 		}
 	}
 
+	
 	public static void updateBytes(byte[] packet, int index, byte[] data) {
 		int i = 0;
 		int dataLength = data.length;
@@ -1269,5 +1270,18 @@ public class Util {
 			class_section_name = class_section_name+" "+section_name;
 		}
 		return class_name+" "+section_name;
+	}
+	
+	public static boolean isNumeric(String str)  
+	{  
+	  try  
+	  {  
+	    double d = Double.parseDouble(str);  
+	  }  
+	  catch(NumberFormatException nfe)  
+	  {  
+	    return false;  
+	  }  
+	  return true;  
 	}
 }

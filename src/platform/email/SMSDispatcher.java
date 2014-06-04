@@ -86,13 +86,31 @@ public class SMSDispatcher {
 		}
 	}
 	
+	public boolean isValidMobileforSMS(String mobileno) {
+		if (mobileno.length() != 10)
+			return false;
+		if (!Util.isNumeric(mobileno)) {
+			return false;
+		}
+		return true;
+	}
 	public void sendSMS(String mobile_no,String templete,Map<String, String> params) throws ApplicationException 
 	{
+		if (mobile_no.startsWith("91")) {
+			mobile_no = mobile_no.substring(2, mobile_no.length());
+		}
+		if (mobile_no.startsWith("+91")) {
+			mobile_no = mobile_no.substring(3, mobile_no.length());
+		}
 		String message;
 		try {
-			message = URLEncoder.encode(Util.readSMSFileFromLocal(templete.toLowerCase(), params),"UTF-8");
-			String url = "http://luna.a2wi.co.in:7501/failsafe/HttpLink?aid=516180&pin=cfy@1&mnumber=91"+mobile_no+"&message="+message;
-			sendHTTPMessage(url);
+			if (isValidMobileforSMS(mobile_no)) {
+				EmailDispatcher.getInstance().sendSMSMail("SMS to "+mobile_no, templete, params);
+			} else {
+				message = URLEncoder.encode(Util.readSMSFileFromLocal(templete.toLowerCase(), params),"UTF-8");
+				String url = "http://luna.a2wi.co.in:7501/failsafe/HttpLink?aid=516180&pin=cfy@1&mnumber=91"+mobile_no+"&message="+message;
+				sendHTTPMessage(url);
+			}
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

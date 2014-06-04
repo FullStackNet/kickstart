@@ -10,5 +10,15 @@ public class TestDateString {
 		System.out.println(str);
 		str = TimeUtil.getDateString(null, new Date().getTime()+2*24*60*60*1000L);
 		System.out.println(str);
+		String mobile_no = "919880158155";
+		if (mobile_no.startsWith("91")) {
+			mobile_no = mobile_no.substring(2, mobile_no.length());
+			System.out.println(mobile_no);
+		}
+		 mobile_no = "+919880158155";
+		if (mobile_no.startsWith("+91")) {
+			mobile_no = mobile_no.substring(3, mobile_no.length());
+			System.out.println(mobile_no);
+		}
 	}
 }	
