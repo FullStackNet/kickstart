@@ -105,11 +105,11 @@ public class SMSDispatcher {
 		String message;
 		try {
 			if (isValidMobileforSMS(mobile_no)) {
-				EmailDispatcher.getInstance().sendSMSMail("SMS to "+mobile_no, templete, params);
-			} else {
 				message = URLEncoder.encode(Util.readSMSFileFromLocal(templete.toLowerCase(), params),"UTF-8");
 				String url = "http://luna.a2wi.co.in:7501/failsafe/HttpLink?aid=516180&pin=cfy@1&mnumber=91"+mobile_no+"&message="+message;
 				sendHTTPMessage(url);
+			} else {
+				EmailDispatcher.getInstance().sendSMSMail("SMS to "+mobile_no, templete, params);
 			}
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
