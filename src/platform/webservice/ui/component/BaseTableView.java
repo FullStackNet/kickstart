@@ -12,6 +12,7 @@ import platform.webservice.ui.html.H3;
 import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.JS;
 import platform.webservice.ui.html.P;
+import platform.webservice.ui.html.SPAN;
 import platform.webservice.ui.html.TABLE;
 import platform.webservice.ui.html.TBODY;
 import platform.webservice.ui.html.TD;
@@ -92,7 +93,20 @@ public abstract class BaseTableView extends BaseView {
 		return getDefinition().getModifyURL()+"?id="+id+"&op=modify";
 	}
 	
+	protected String getDeleteURL(String id) {
+		if (getDefinition().getDeleteURL() == null)
+			return null;
+		if (getDefinition().getDeleteURL().contains("?")) {
+			return getDefinition().getDeleteURL()+"&id="+id+"&op=modify";
+		}
+		return getDefinition().getDeleteURL()+"?id="+id+"&op=delete";
+	}
+	
 	protected String getURL(Map<String,Object> row) {
+		return null;
+	}
+	
+	protected String getDeleteURL(Map<String,Object> row) {
 		return null;
 	}
 	
@@ -127,11 +141,28 @@ public abstract class BaseTableView extends BaseView {
 		if (url == null) {
 			url = getModifyURL(data.get("id").toString());
 		}
+		boolean requiredSeperator = false;
 		if (mDefinition.isModifyButton() && (url != null)) {
 			A _editlink = new A();
 			_editlink.setHref(url);
 			_editlink.setText("Edit");
 			actiontd.addChild(_editlink);
+			requiredSeperator = true;
+		}
+		String deleteUrl = getDeleteURL(data);
+		if (deleteUrl == null) {
+			deleteUrl = getDeleteURL(data.get("id").toString());
+		}
+		if (mDefinition.isDeleteButton() && (deleteUrl != null)) {
+			if (requiredSeperator) {
+				SPAN span = new SPAN();
+				span.setText("&nbsp;&nbsp;");
+				actiontd.addChild(span);
+			}
+			A _link = new A();
+			_link.setHref(deleteUrl);
+			_link.setText("Delete");
+			actiontd.addChild(_link);
 		}
 		row.addChild(actiontd);
 		

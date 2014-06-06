@@ -76,4 +76,11 @@ public class Customer_mapHelper extends BaseHelper {
 		_customer_map.addControllers(controllerId);
 		AddOrUpdate(_customer_map);
 	}
+	
+	public void removeController(String customerId,String controllerId) throws ApplicationException {
+		customer_map _customer_map = new customer_map();
+		_customer_map.setId(customerId);
+		_customer_map.addControllers(controllerId);
+		unset(_customer_map);
+	}
 }

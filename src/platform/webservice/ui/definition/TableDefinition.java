@@ -18,6 +18,9 @@ public class TableDefinition {
 	String timeZone;
 	boolean modifyButton;
 	
+	boolean deleteButton;
+	String deleteURL;
+	
 	boolean dailyTotal;
 	boolean monthlyTotal;
 	long width;
@@ -42,6 +45,7 @@ public class TableDefinition {
 		joinFields = new ArrayList<JoinField>();
 		timeZone = "IST";
 		modifyButton = true;
+		deleteButton = false;
 	}
 
 	public void addJoinField(JoinField field) {
@@ -166,5 +170,17 @@ public class TableDefinition {
 	}
 	public void setModifyButton(boolean modifyButton) {
 		this.modifyButton = modifyButton;
+	}
+	public boolean isDeleteButton() {
+		return deleteButton;
+	}
+	public void setDeleteButton(boolean deleteButton) {
+		this.deleteButton = deleteButton;
+	}
+	public String getDeleteURL() {
+		return deleteURL;
+	}
+	public void setDeleteURL(String deleteURL) {
+		this.deleteURL = deleteURL;
 	}
 }
