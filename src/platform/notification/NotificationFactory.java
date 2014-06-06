@@ -16,5 +16,6 @@ public class NotificationFactory {
 	public static String NOTIFICATION_FUEL_ADDED = "FUEL_ADDED";
 	public static String NOTIFICATION_STOP_REACHED = "STOP REACHED";
 	public static String NOTIFICATION_HOMEWORK = "HOMEWORK";
+	public static String NOTIFICATION_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE TO JOINT PARENT CONNECT";
 	
 }

@@ -109,16 +109,20 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_FORGOT_PASSWORD = "FORGOT_PASSWORD";
 	public static String MAIL_TYPE_STOPAGE_REACHED = "STOPAGE_REACHED";
 	public static String MAIL_TYPE_HOMEWORK = "HOMEWORK";
+	public static String MAIL_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE TO JOIN PARENT CONNECT";
+	
 	public static String MAIL_TYPE_INVITE_CUSTOMER_ADMIN = "INVITE_CUSTOMER_ADMIN";
 
 	public static String MAIL_SUBJECT_INVITE_PARENT = "Activate student stpoage alert service";
 	public static String MAIL_SUBJECT_HOMEWORK = "Homework notification";
+	public static String MAIL_SUBJECT_INVITE_TO_JOIN_PARENT_CONNECT = "Invite to join the parent connect";
 	public static String MAIL_SUBJECT_INVITE_TEACHER = "Activate teacher account";
 	public static String MAIL_SUBJECT_STOPAGE_REACHED = "Alert for Stopage Reached";
 	public static String MAIL_SUBJECT_FORGOT_PASSWORD = "Forgot password";
 	public static String MAIL_SUBJECT_INVITE_CUSTOMER_ADMIN = "Activate your customer admin account";
 	
 	public static String SMS_TYPE_INVITE_PARENT = "INVITE_PARENT";
+	public static String SMS_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";
 	public static String SMS_TYPE_INVITE_TEACHER = "INVITE_TEACHER";
 	public static String SMS_TYPE_SEND_STOPAGE_REACHED = "STOPAGE_REACHED";
 	public static String SMS_TYPE_SEND_HOMEWORK = "HOMEWORK";
@@ -126,4 +130,5 @@ public class ApplicationConstants {
 	
 	public static String NOTIFICATION_TYPE_STOPAGE_REACHED = "STOPAGE_REACHED";
 	public static String NOTIFICATION_TYPE_HOMEWORK = "HOMEWORK";
+	public static String NOTIFICATION_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";
 }

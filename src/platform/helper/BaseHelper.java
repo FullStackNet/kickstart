@@ -13,6 +13,9 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
+import platform.resource.appliance_map;
+import platform.resource.notification;
+import platform.resource.user_map;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
@@ -867,4 +870,25 @@ public class BaseHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	public boolean isExistInArray(String id,String fieldName, String value) {
+		BaseResource _resource = getSelectedFieldsById(id,fieldName);
+		if ((_resource == null))
+			return false;
+		Map<String, Object> map =_resource.convertResourceToMap();
+		if (map.get(fieldName) == null)
+			return false;
+		@SuppressWarnings("unchecked")
+		ArrayList<String> list = (ArrayList<String>)map.get(fieldName);
+		for(int i =0; i < list.size() ; i++) {
+			String _value = list.get(i);
+			if (_value == null)
+				continue;
+			if (_value.equals(value)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
