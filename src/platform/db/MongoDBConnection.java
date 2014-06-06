@@ -31,7 +31,6 @@ import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.ServerAddress;
 import com.mongodb.WriteConcern;
-import com.mongodb.WriteResult;
 
 
 public class MongoDBConnection extends DbConnection {

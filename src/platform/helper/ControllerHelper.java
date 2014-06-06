@@ -8,6 +8,7 @@ import platform.resource.BaseResource;
 import platform.resource.controller;
 import platform.resource.gateway;
 import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
 
 
 public class ControllerHelper extends BaseHelper {
@@ -24,6 +25,14 @@ public class ControllerHelper extends BaseHelper {
 		return instance;
 	}
 	
+	public void delete(String userId,String customerId,String controllerId) throws ApplicationException {
+		controller _controller = (controller)ControllerHelper.getInstance().getById(controllerId);
+		if (_controller == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Controller");
+		Customer_mapHelper.getInstance().removeController(customerId, controllerId);
+		DeviceHelper.getInstance().updateState(controllerId,"REMOVED");
+		ControllerHelper.getInstance().deleteById(controllerId);
+	}
 	
 	public void updateManager(String controllerId, String manager) {
 		if (controllerId ==null) return;

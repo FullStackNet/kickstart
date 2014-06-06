@@ -94,12 +94,7 @@ public abstract class BaseTableView extends BaseView {
 	}
 	
 	protected String getDeleteURL(String id) {
-		if (getDefinition().getDeleteURL() == null)
-			return null;
-		if (getDefinition().getDeleteURL().contains("?")) {
-			return getDefinition().getDeleteURL()+"&id="+id+"&op=modify";
-		}
-		return getDefinition().getDeleteURL()+"?id="+id+"&op=delete";
+		return getDefinition().getDeleteURL();
 	}
 	
 	protected String getURL(Map<String,Object> row) {
@@ -151,7 +146,7 @@ public abstract class BaseTableView extends BaseView {
 		}
 		String deleteUrl = getDeleteURL(data);
 		if (deleteUrl == null) {
-			deleteUrl = getDeleteURL(data.get("id").toString());
+			deleteUrl = getDeleteURL((String)data.get("id"));
 		}
 		if (mDefinition.isDeleteButton() && (deleteUrl != null)) {
 			if (requiredSeperator) {
@@ -159,8 +154,10 @@ public abstract class BaseTableView extends BaseView {
 				span.setText("&nbsp;&nbsp;");
 				actiontd.addChild(span);
 			}
+			String id = (String)data.get("id");
 			A _link = new A();
-			_link.setHref(deleteUrl);
+			_link.setHref("#");
+			_link.addAttribute("onClick","ActionHandler.callDelete('"+deleteUrl+"','"+id+"')");
 			_link.setText("Delete");
 			actiontd.addChild(_link);
 		}

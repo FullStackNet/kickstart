@@ -71,12 +71,7 @@ public class ControllerService extends BaseService{
 			update(ctx, resource);
 		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_DELETE)) {
 			controller _resource = (controller) resource;
-			controller _controller = (controller)ControllerHelper.getInstance().getById(resource.getId());
-			if (_controller == null)
-				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Controller");
-			Customer_mapHelper.getInstance().removeController(ctx.getCustomerId(), _resource.getId());
-			DeviceHelper.getInstance().updateState(_resource.getId(),"REMOVED");
-			ControllerHelper.getInstance().deleteById(_resource.getId());
+			ControllerHelper.getInstance().delete(ctx.getCustomerId(),ctx.getUserId(),_resource.getId());
 		}
 	}
 	

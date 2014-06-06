@@ -21,6 +21,7 @@ public abstract class TwoColumnDBApplicationServlet extends BaseUIServlet {
 
 	public abstract BaseHTMLComponent getAddView(UIServletContext context);
 	public abstract BaseHTMLComponent getModifyView(UIServletContext context);
+	public abstract BaseHTMLComponent getDeleteView(UIServletContext context);
 	public abstract BaseHTMLComponent getListView(UIServletContext context);
 	
 
@@ -31,8 +32,10 @@ public abstract class TwoColumnDBApplicationServlet extends BaseUIServlet {
 				return getAddView(context);
 			} else if(WebServiceContants.OPERATION_MODIFY.equalsIgnoreCase(op)) {
 				return getModifyView(context);
-			} else if(op.equalsIgnoreCase("delete")) {
-				
+			} else if(WebServiceContants.OPERATION_MODIFY.equalsIgnoreCase(op)) {
+				return getModifyView(context);
+			} else if(WebServiceContants.OPERATION_DELETE.equalsIgnoreCase(op)) {
+				return getDeleteView(context);
 			}
 		}
 		return getListView(context);
