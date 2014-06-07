@@ -22,13 +22,13 @@ public abstract class Baseresult extends BaseResource {
 	private Integer errCode = null;
 	private String message = null;
 	private String sessionId = null;
-	private Long RecentNotifications = null;
+	private Long recentNotifications = null;
 	private Long recentAlerts = null;
 
 	public static String FIELD_ERRCODE = "errCode";
 	public static String FIELD_MESSAGE = "message";
 	public static String FIELD_SESSIONID = "sessionId";
-	public static String FIELD_RECENTNOTIFICATIONS = "RecentNotifications";
+	public static String FIELD_RECENTNOTIFICATIONS = "recentNotifications";
 	public static String FIELD_RECENTALERTS = "recentAlerts";
 
 	private static final long serialVersionUID = 1L;
@@ -46,8 +46,8 @@ public abstract class Baseresult extends BaseResource {
 		Field sessionIdField = new Field("sessionId", "String");
 		metaData.addField(sessionIdField);
 
-		Field RecentNotificationsField = new Field("RecentNotifications", "long");
-		metaData.addField(RecentNotificationsField);
+		Field recentNotificationsField = new Field("recentNotifications", "long");
+		metaData.addField(recentNotificationsField);
 
 		Field recentAlertsField = new Field("recentAlerts", "long");
 		metaData.addField(recentAlertsField);
@@ -64,7 +64,7 @@ public abstract class Baseresult extends BaseResource {
 		this.errCode = obj.errCode;
 		this.message = obj.message;
 		this.sessionId = obj.sessionId;
-		this.RecentNotifications = obj.RecentNotifications;
+		this.recentNotifications = obj.recentNotifications;
 		this.recentAlerts = obj.recentAlerts;
 	}
 
@@ -80,8 +80,8 @@ public abstract class Baseresult extends BaseResource {
 			map.put("message", message);
 		if(sessionId != null)
 			map.put("sessionId", sessionId);
-		if(RecentNotifications != null)
-			map.put("RecentNotifications", RecentNotifications);
+		if(recentNotifications != null)
+			map.put("recentNotifications", recentNotifications);
 		if(recentAlerts != null)
 			map.put("recentAlerts", recentAlerts);
 		return map;
@@ -95,8 +95,8 @@ public abstract class Baseresult extends BaseResource {
 			map.put("message", message);
 		if(sessionId != null)
 			map.put("sessionId", sessionId);
-		if(RecentNotifications != null)
-			map.put("RecentNotifications", RecentNotifications);
+		if(recentNotifications != null)
+			map.put("recentNotifications", recentNotifications);
 		if(recentAlerts != null)
 			map.put("recentAlerts", recentAlerts);
 		return map;
@@ -111,7 +111,7 @@ public abstract class Baseresult extends BaseResource {
 		errCode = (Integer) map.get("errCode");
 		message = (String) map.get("message");
 		sessionId = (String) map.get("sessionId");
-		RecentNotifications = (Long) map.get("RecentNotifications");
+		recentNotifications = (Long) map.get("recentNotifications");
 		recentAlerts = (Long) map.get("recentAlerts");
 	}
 
@@ -128,9 +128,9 @@ public abstract class Baseresult extends BaseResource {
 		if(sessionIdObj != null)
 			sessionId = sessionIdObj.toString();
 
-		Object RecentNotificationsObj = map.get("RecentNotifications");
-		if(RecentNotificationsObj != null)
-			RecentNotifications = new Long(RecentNotificationsObj.toString());
+		Object recentNotificationsObj = map.get("recentNotifications");
+		if(recentNotificationsObj != null)
+			recentNotifications = new Long(recentNotificationsObj.toString());
 
 		Object recentAlertsObj = map.get("recentAlerts");
 		if(recentAlertsObj != null)
@@ -197,23 +197,23 @@ public abstract class Baseresult extends BaseResource {
 	}
 
 	public Long getRecentNotifications() {
-		return RecentNotifications;
+		return recentNotifications;
 	}
 
 	public long getRecentNotificationsEx() {
-		return RecentNotifications != null ? RecentNotifications : 0L;
+		return recentNotifications != null ? recentNotifications : 0L;
 	}
 
-	public void setRecentNotifications(long RecentNotifications) {
-		this.RecentNotifications = RecentNotifications;
+	public void setRecentNotifications(long recentNotifications) {
+		this.recentNotifications = recentNotifications;
 	}
 
-	public void setRecentNotifications(Long RecentNotifications) {
-		this.RecentNotifications = RecentNotifications;
+	public void setRecentNotifications(Long recentNotifications) {
+		this.recentNotifications = recentNotifications;
 	}
 
 	public void unSetRecentNotifications() {
-		this.RecentNotifications = null;
+		this.recentNotifications = null;
 	}
 
 	public Long getRecentAlerts() {
