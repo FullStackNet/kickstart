@@ -13,9 +13,6 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
-import platform.resource.appliance_map;
-import platform.resource.notification;
-import platform.resource.user_map;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
@@ -280,6 +277,28 @@ public class BaseHelper {
 		return resources;
 	}
 
+	public BaseResource[] getAll(String[] orderby) {
+		BaseResource[] resources = null;
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			List<Map<String, Object>> rows = connection.getAll(resource.getMetaData(),orderby);
+			resources = new BaseResource[rows.size()];
+			int i = 0;
+			for(Map<String, Object> row : rows) {
+				BaseResource clonedResource = (BaseResource) this.resource.clone();
+				clonedResource.convertMapToResource(row);
+				resources[i++] = clonedResource;
+			}
+
+		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return resources;
+	}
 	public List<Map<String, Object>> getAllMap() {
 		DbConnection connection = null;
 		List<Map<String, Object>> rows = null;
