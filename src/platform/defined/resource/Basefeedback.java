@@ -26,6 +26,7 @@ public abstract class Basefeedback extends BaseResource {
 	private String title = null;
 	private String description = null;
 	private String user_id = null;
+	private String user_name = null;
 	private String school_id = null;
 	private String feedback_type = null;
 
@@ -36,6 +37,7 @@ public abstract class Basefeedback extends BaseResource {
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_FEEDBACK_TYPE = "feedback_type";
 
@@ -77,6 +79,10 @@ public abstract class Basefeedback extends BaseResource {
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
 
+		Field user_nameField = new Field("user_name", "String");
+		user_nameField.setLength(128);
+		metaData.addField(user_nameField);
+
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
@@ -101,6 +107,7 @@ public abstract class Basefeedback extends BaseResource {
 		this.title = obj.title;
 		this.description = obj.description;
 		this.user_id = obj.user_id;
+		this.user_name = obj.user_name;
 		this.school_id = obj.school_id;
 		this.feedback_type = obj.feedback_type;
 	}
@@ -128,6 +135,8 @@ public abstract class Basefeedback extends BaseResource {
 			map.put("description", description);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(feedback_type != null)
@@ -154,6 +163,8 @@ public abstract class Basefeedback extends BaseResource {
 			map.put("description", description);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(feedback_type != null)
@@ -174,6 +185,7 @@ public abstract class Basefeedback extends BaseResource {
 		title = (String) map.get("title");
 		description = (String) map.get("description");
 		user_id = (String) map.get("user_id");
+		user_name = (String) map.get("user_name");
 		school_id = (String) map.get("school_id");
 		feedback_type = (String) map.get("feedback_type");
 	}
@@ -206,6 +218,10 @@ public abstract class Basefeedback extends BaseResource {
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
+
+		Object user_nameObj = map.get("user_name");
+		if(user_nameObj != null)
+			user_name = user_nameObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -350,6 +366,22 @@ public abstract class Basefeedback extends BaseResource {
 
 	public void unSetUser_id() {
 		this.user_id = null;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public String getUser_nameEx() {
+		return user_name != null ? user_name : "";
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public void unSetUser_name() {
+		this.user_name = null;
 	}
 
 	public String getSchool_id() {

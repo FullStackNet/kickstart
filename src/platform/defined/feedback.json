@@ -44,6 +44,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'user_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'school_id':
 			{
 				'length': 128,
