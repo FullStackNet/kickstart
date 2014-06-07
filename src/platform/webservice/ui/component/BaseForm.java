@@ -19,6 +19,7 @@ import platform.webservice.ui.html.SPAN;
 import platform.webservice.ui.html.TABLE;
 import platform.webservice.ui.html.TD;
 import platform.webservice.ui.html.TEXT;
+import platform.webservice.ui.html.TEXTAREA;
 import platform.webservice.ui.html.TEXTEDIT;
 import platform.webservice.ui.html.TR;
 import platform.webservice.ui.renderer.BaseRenderer;
@@ -219,6 +220,12 @@ public abstract class BaseForm extends BaseView {
 						textEdit.setValue(value.toString());
 					}
 					column.addChild(textEdit);
+				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTAREA) {
+					TEXTAREA textArea = new TEXTAREA(field.getName(),null);
+					if (value != null) {
+						textArea.setText(value.toString());
+					}
+					column.addChild(textArea);
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PASSWORD) {
 					column.addChild(new PASSWORD(field.getName(),null));
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_COMBO) {

@@ -15,6 +15,7 @@ public class UIConstants {
 	public final static String DATA_TYPE_DATE = "DATE";
 	public final static String COMPONENT_TYPE_HEADING = "HEADING";
 	public final static String COMPONENT_TYPE_TEXTINPUT = "TEXTINPUT";
+	public final static String COMPONENT_TYPE_TEXTAREA = "TEXTAREA";
 	public final static String COMPONENT_TYPE_BUTTON = "BUTTON";
 	public final static String COMPONENT_TYPE_HIDDEN = "HIDDEN";
 	public final static String COMPONENT_TYPE_PASSWORD = "PASSWORD";

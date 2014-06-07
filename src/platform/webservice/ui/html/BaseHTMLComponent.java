@@ -67,8 +67,12 @@ public abstract class BaseHTMLComponent {
 		}
 		if ((getTag() != null))
 			buffer.append(">\n");
+	
 		if (getText() != null) {
-			buffer.append(space+"\t"+getText()+"\n");
+			if ("textarea".equals(getTag())) {
+				buffer.append(getText());
+			} else
+				buffer.append(space+"\t"+getText()+"\n");
 		}
 		for(int i=0; i < childList.size(); i++) {
 			if (childList.get(i) == null) continue;
