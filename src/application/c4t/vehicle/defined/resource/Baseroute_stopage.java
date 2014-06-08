@@ -27,6 +27,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private String stopage_id = null;
 	private String stopage_name = null;
 	private String reached = null;
+	private Long speed = null;
 	private Integer stopage_order = null;
 	private Double distance_from_previous_stop = null;
 	private Integer time_from_previous_stop = null;
@@ -45,6 +46,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	public static String FIELD_STOPAGE_ID = "stopage_id";
 	public static String FIELD_STOPAGE_NAME = "stopage_name";
 	public static String FIELD_REACHED = "reached";
+	public static String FIELD_SPEED = "speed";
 	public static String FIELD_STOPAGE_ORDER = "stopage_order";
 	public static String FIELD_DISTANCE_FROM_PREVIOUS_STOP = "distance_from_previous_stop";
 	public static String FIELD_TIME_FROM_PREVIOUS_STOP = "time_from_previous_stop";
@@ -137,6 +139,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		this.stopage_id = obj.stopage_id;
 		this.stopage_name = obj.stopage_name;
 		this.reached = obj.reached;
+		this.speed = obj.speed;
 		this.stopage_order = obj.stopage_order;
 		this.distance_from_previous_stop = obj.distance_from_previous_stop;
 		this.time_from_previous_stop = obj.time_from_previous_stop;
@@ -177,6 +180,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("stopage_name", stopage_name);
 		if(reached != null)
 			map.put("reached", reached);
+		if(speed != null)
+			map.put("speed", speed);
 		if(stopage_order != null)
 			map.put("stopage_order", stopage_order);
 		if(distance_from_previous_stop != null)
@@ -219,6 +224,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("stopage_name", stopage_name);
 		if(reached != null)
 			map.put("reached", reached);
+		if(speed != null)
+			map.put("speed", speed);
 		if(stopage_order != null)
 			map.put("stopage_order", stopage_order);
 		if(distance_from_previous_stop != null)
@@ -478,6 +485,26 @@ public abstract class Baseroute_stopage extends BaseResource {
 
 	public void unSetReached() {
 		this.reached = "N";
+	}
+
+	public Long getSpeed() {
+		return speed;
+	}
+
+	public long getSpeedEx() {
+		return speed != null ? speed : 0L;
+	}
+
+	public void setSpeed(long speed) {
+		this.speed = speed;
+	}
+
+	public void setSpeed(Long speed) {
+		this.speed = speed;
+	}
+
+	public void unSetSpeed() {
+		this.speed = null;
 	}
 
 	public Integer getStopage_order() {

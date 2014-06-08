@@ -20,6 +20,7 @@ import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
 import application.c4t.vehicle.resource.route;
+import application.c4t.vehicle.resource.route_cordinate;
 import application.c4t.vehicle.resource.route_stopage;
 import application.c4t.vehicle.resource.stopage;
 import application.c4t.vehicle.school.helper.StudentHelper;
@@ -274,12 +275,37 @@ public class Route_stopageHelper extends BaseHelper {
 								_route_stopage.setReached("Y");
 								_route_stopage.setReached_duration((int)(current_time - lastReachTime));
 							} else {
-								lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
-								if (current_time > lastReachTime) {
-									lastReachTime = current_time;
+								String latitude = _appliance.getLatitude();
+								String longitude = _appliance.getLangitude();
+								String route_id = _route_stopage.getRoute_id();
+								String stopage_id = _route_stopage.getId();
+								String id = route_cordinate.id(route_id, stopage_id, longitude, latitude);
+								route_cordinate _route_cordinate = (route_cordinate)Route_cordinateHelper.getInstance().getById(id);
+								if (_route_cordinate != null) {
+									ArrayList<Object> durations = _route_cordinate.getDurations();
+									System.out.println("Got the cordinates for  " + longitude + "-"+latitude + "in database data->"+durations.toString());
+									long average = Util.getAverage(durations);
+									if (average == 0) {
+										lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
+										if (current_time > lastReachTime) {
+											lastReachTime = current_time;
+										}
+									} else {
+										System.out.println("Average time  " + average);
+										lastReachTime = lastReachTime + average/1000;
+										if (current_time > lastReachTime) {
+											lastReachTime = current_time;
+										}
+									}
+								} else {
+									lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
+									if (current_time > lastReachTime) {
+										lastReachTime = current_time;
+									}
 								}
 								_route_stopage.setReached_time(lastReachTime);
 								_route_stopage.setReached_duration(getDuration(_appliance.getTimeZone(),lastReachTime));
+							
 							}
 						}
 					} else {

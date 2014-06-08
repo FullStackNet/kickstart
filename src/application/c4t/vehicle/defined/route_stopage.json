@@ -53,6 +53,11 @@
 				'default' : "N",
 				'transient' : true
 			},
+			'speed':
+			{
+				'type':'long',
+				'transient' : true
+			},
 			'stopage_order':
 			{
 				'type':'int'

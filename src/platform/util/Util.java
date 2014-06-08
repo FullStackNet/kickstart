@@ -1284,4 +1284,18 @@ public class Util {
 	  }  
 	  return true;  
 	}
+	
+	public static long getAverage(ArrayList<Object> list) {
+		if (list == null)
+			return 0;
+		if (list.size() == 0)
+			return 0;
+		long sum = 0;
+		long count = 0;
+		for(int i=0; i < list.size(); i++) {
+			sum = sum + (Long)list.get(i);
+			count++;
+		}
+		return (long) (sum/count);
+	}
 }
