@@ -17,6 +17,8 @@ public class LoginService extends BaseService{
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		login _login = (login) resource;
+		if (_login.getEmail_id() != null) 
+			_login.setEmail_id(_login.getEmail_id().toLowerCase());
 		user _user = UserHelper.getInstance().getByEmailId(_login.getEmail_id());
 		if (_user == null)
 			_user = UserHelper.getInstance().getByMobileId(_login.getEmail_id());

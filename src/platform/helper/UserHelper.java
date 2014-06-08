@@ -5,7 +5,6 @@ import java.util.Map;
 
 import platform.db.Expression;
 import platform.db.JoinField;
-import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.user;
@@ -46,6 +45,12 @@ public class UserHelper extends BaseHelper {
 	}
 
 	public user getByMobileId(String mobileno) {
+		if ((mobileno != null) && mobileno.startsWith("91")) {
+			mobileno = mobileno.substring(2, mobileno.length());
+		}
+		if ((mobileno != null) &&  mobileno.startsWith("+91")) {
+			mobileno = mobileno.substring(3, mobileno.length());
+		}
 		Expression e = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
 		BaseResource[] resources = UserHelper.getInstance().getByExpression(e);
 		if (!Util.isEmpty(resources)) {
@@ -56,7 +61,14 @@ public class UserHelper extends BaseHelper {
 	
 	public user getByMobileOrEmailId(String mobileno,String emailId) {
 		Expression e = null;
+		
 		if (mobileno != null) {
+			if ((mobileno != null) && mobileno.startsWith("91")) {
+				mobileno = mobileno.substring(2, mobileno.length());
+			}
+			if ((mobileno != null) &&  mobileno.startsWith("+91")) {
+				mobileno = mobileno.substring(3, mobileno.length());
+			}
 			e = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
 			BaseResource[] resources = getByExpression(e);
 			if (!Util.isEmpty(resources)) {
