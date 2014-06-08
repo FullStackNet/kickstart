@@ -21,9 +21,11 @@ import java.util.*;
 public abstract class Baseroute_map extends BaseResource {
 	private String id = null;
 	private ArrayList<Object> users = null;
+	private Map<String, Object> start_points = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_USERS = "users";
+	public static String FIELD_START_POINTS = "start_points";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route_map");
@@ -39,6 +41,10 @@ public abstract class Baseroute_map extends BaseResource {
 		Field usersField = new Field("users", "Array");
 		metaData.addField(usersField);
 
+		Field start_pointsField = new Field("start_points", "Map");
+		start_pointsField.setValueType("Object");
+		metaData.addField(start_pointsField);
+
 
 		metaData.setTableName("route_map");
 
@@ -50,6 +56,7 @@ public abstract class Baseroute_map extends BaseResource {
 	public Baseroute_map(Baseroute_map obj) {
 		this.id = obj.id;
 		this.users = obj.users;
+		this.start_points = obj.start_points;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -62,6 +69,8 @@ public abstract class Baseroute_map extends BaseResource {
 			map.put("id", id);
 		if(users != null)
 			map.put("users", users);
+		if(start_points != null)
+			map.put("start_points", start_points);
 		return map;
 	}
 
@@ -71,6 +80,8 @@ public abstract class Baseroute_map extends BaseResource {
 			map.put("id", id);
 		if(users != null)
 			map.put("users", users);
+		if(start_points != null)
+			map.put("start_points", start_points);
 		return map;
 	}
 
@@ -79,17 +90,21 @@ public abstract class Baseroute_map extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		users = (ArrayList<Object>) map.get("users");
+		start_points = (Map<String, Object>) map.get("start_points");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
 
 		users = (ArrayList<Object>) map.get("users");
+		start_points = (Map<String, Object>) map.get("start_points");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -137,6 +152,28 @@ public abstract class Baseroute_map extends BaseResource {
 
 	public void unSetUsers() {
 		this.users = null;
+	}
+
+	public Map<String, Object> getStart_points() {
+		return start_points;
+	}
+
+	public Object getStart_points(String key) {
+		return start_points == null ? null : start_points.get(key);
+	}
+
+	public void setStart_points(Map<String, Object> start_points) {
+		this.start_points = start_points;
+	}
+
+	public void setStart_points(String key, Object value) {
+		if(start_points == null)
+			start_points = new HashMap<String, Object>();
+		start_points.put(key, value);
+	}
+
+	public void unSetStart_points() {
+		this.start_points = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";
