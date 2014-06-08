@@ -3,6 +3,7 @@ package application.c4t.vehicle.school.notification;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.helper.UserHelper;
 import platform.helper.User_mapHelper;
 import platform.manager.ApplicationManager;
 import platform.message.SendEmail;
@@ -13,6 +14,7 @@ import platform.notification.NotificationTask;
 import platform.resource.BaseResource;
 import platform.resource.notification;
 import platform.resource.user;
+import platform.resource.user_map;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
@@ -97,6 +99,17 @@ public class ParentInviteNotificationTask extends NotificationTask {
 		if ("Y".equals(_student.getStopage_alert_mobile_app())) {
 			appAlert = "Y";
 		}
+		user _user = UserHelper.getInstance().getByMobileOrEmailId(_student.getFather_mobile_no(),
+				_student.getFather_email_id());
+		if (_user != null) {
+			userMap.put(_user.getId(), _user);
+		}
+		_user = UserHelper.getInstance().getByMobileOrEmailId(_student.getMother_mobile_no(),
+				_student.getMother_email_id());
+		if (_user != null) {
+			userMap.put(_user.getId(), _user);
+		}
+	
 		sendNotification2Users(_notification, userMap, appAlert,smsAlert,emailAlert,
 				student_id,student_name);
 	}
@@ -108,8 +121,8 @@ public class ParentInviteNotificationTask extends NotificationTask {
 			Map<String, Object> data = _notification.getNotification_data();
 			if (data == null)
 				return;
-			String student_id = (String)data.get("STDEUNT_ID");
-			String student_name = (String)data.get("STDEUNT_NAME");
+			String student_id = (String)data.get("STUDENT_ID");
+			String student_name = (String)data.get("STUDENT_NAME");
 			sendNotification(_notification,student_id,student_name);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

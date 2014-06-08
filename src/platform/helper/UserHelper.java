@@ -55,27 +55,20 @@ public class UserHelper extends BaseHelper {
 	}
 	
 	public user getByMobileOrEmailId(String mobileno,String emailId) {
-		Expression e1 = null, e2 = null, e = null;
+		Expression e = null;
 		if (mobileno != null) {
-			e1 = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
-		}
-		if (emailId != null) {
-			e2 = new Expression(user.FIELD_EMAIL_ID, REL_OP.EQ, emailId);
-		}
-		
-		if ((e1 != null) && (e2 != null)) {
-			e = new Expression(e1, LOG_OP.OR, e2);
-		} else {
-			if (e1 != null) {
-				e = e1;
-			} else {
-				e = e2;
+			e = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
+			BaseResource[] resources = getByExpression(e);
+			if (!Util.isEmpty(resources)) {
+				return (user)resources[0];
 			}
 		}
-		
-		BaseResource[] resources = getByExpression(e);
-		if (!Util.isEmpty(resources)) {
-			return (user)resources[0];
+		if (emailId != null) {
+			e = new Expression(user.FIELD_EMAIL_ID, REL_OP.EQ, emailId);
+			BaseResource[] resources = getByExpression(e);
+			if (!Util.isEmpty(resources)) {
+				return (user)resources[0];
+			}
 		}
 		return null;
 	}
