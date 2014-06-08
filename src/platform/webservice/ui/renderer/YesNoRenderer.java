@@ -5,6 +5,7 @@ import java.util.Map;
 import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.IMG;
+import platform.webservice.ui.html.SPAN;
 
 public class YesNoRenderer extends BaseRenderer {
 
@@ -19,9 +20,13 @@ public class YesNoRenderer extends BaseRenderer {
 		if ("Y".equals(value)) {
 			image.setSRC("/ui/images/green-dot.png");
 			image.addAttribute("title","Yes");
-		} else {
+		} else if ("N".equals(value)) {
 			image.setSRC("/ui/images/red-dot.png");
 			image.addAttribute("title","No");
+		} else if ("N".equals(value)) {
+			SPAN span = new SPAN();
+			span.setText("-");
+			return span;
 		}
 		return image;
 	}
