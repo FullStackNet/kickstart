@@ -20,6 +20,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'scheduled_start_time':
 			{
 				'type':'timestamp'
@@ -36,32 +41,7 @@
 			{
 				'type':'timestamp'
 			},
-			'from_city':
-			{
-				'length': 128,
-				'type':'String'
-			},
-			'to_city':
-			{
-				'length': 128,
-				'type':'String'
-			},
 			'driver_id':
-			{
-				'length': 128,
-				'type':'String'
-			},
-			'alternate_driver_id':
-			{
-				'length': 128,
-				'type':'String'
-			},
-			'conductor_id':
-			{
-				'length': 128,
-				'type':'String'
-			},
-			'alternate_conductor_id':
 			{
 				'length': 128,
 				'type':'String'
@@ -75,7 +55,11 @@
 			{
 				'length': 128,
 				'type':'String'
-			}
+			},
+			'delayed':
+			{
+				'type':'long'
+			}			
 		}
 	}
 }
