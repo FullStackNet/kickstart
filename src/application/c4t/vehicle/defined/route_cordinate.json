@@ -1,7 +1,7 @@
 {
 	"route_cordinate" :
 	{
-		"cluster": "DB_CONFIG",
+		"cluster": "DB_ANALYSIS",
 		"fields":
 		{
 			'id':
