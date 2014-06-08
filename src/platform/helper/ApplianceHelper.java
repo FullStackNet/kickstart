@@ -71,16 +71,17 @@ public class ApplianceHelper extends BaseHelper {
 					}
 				}
 			}
-			String connected = "Y";
+			String connected = "U";
 			BaseResource[] _controllers = ControllerHelper.getInstance().getByApplianceId(_appliance.getId());
 			if (!Util.isEmpty(_controllers)) {
+				connected = "Y";
 				controller _controller = (controller)_controllers[0];
 				_appliance.setController_id(_controller.getId());
 				if (_appliance.getLast_update_time() == null) {
-					connected = "N";
+					connected = "U";
 				} else {
 					long diff = System.currentTimeMillis()-_appliance.getLast_update_time();
-					if (diff > _controller.getData_read_interval()*3*1000L) {
+					if (diff > (_controller.getData_read_interval()*3*1000L)) {
 						connected = "N";
 					}
 				}
