@@ -240,8 +240,10 @@ public class Route_stopageHelper extends BaseHelper {
 		if (!Util.isEmpty(resources)) {
 			for(BaseResource resource : resources) {
 				route_stopage _route_stopage = (route_stopage) resource;
+				
 				if (_route_stopage == null)
 					continue;
+				_route_stopage.setSpeed(_appliance.getSpeed());
 				_route_stopage.setController_connected(connected);
 				_route_stopage.setController_last_update_time(_appliance.getLast_update_time());
 				
