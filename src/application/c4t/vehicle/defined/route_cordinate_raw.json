@@ -1,0 +1,38 @@
+{
+	"route_cordinate_raw" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'length': 512,
+				'required': true,
+				'type':'String'
+			},
+			'route_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'langitude':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String',
+				index : true
+			},
+			'latitude':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String'
+			},
+			'update_time':
+			{
+				'type':'timestamp'
+			}
+		}
+	}
+}
