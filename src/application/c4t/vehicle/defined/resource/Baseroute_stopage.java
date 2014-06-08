@@ -34,6 +34,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private Integer reached_duration = null;
 	private Double stopage_radius = null;
 	private String controller_connected = null;
+	private String expected_reachtime = null;
 	private Long controller_last_update_time = null;
 
 	public static String FIELD_ID = "id";
@@ -51,6 +52,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	public static String FIELD_REACHED_DURATION = "reached_duration";
 	public static String FIELD_STOPAGE_RADIUS = "stopage_radius";
 	public static String FIELD_CONTROLLER_CONNECTED = "controller_connected";
+	public static String FIELD_EXPECTED_REACHTIME = "expected_reachtime";
 	public static String FIELD_CONTROLLER_LAST_UPDATE_TIME = "controller_last_update_time";
 
 	private static final long serialVersionUID = 1L;
@@ -112,6 +114,9 @@ public abstract class Baseroute_stopage extends BaseResource {
 		controller_connectedField.setLength(1);
 		metaData.addField(controller_connectedField);
 
+		Field expected_reachtimeField = new Field("expected_reachtime", "String");
+		metaData.addField(expected_reachtimeField);
+
 		Field controller_last_update_timeField = new Field("controller_last_update_time", "long");
 		metaData.addField(controller_last_update_timeField);
 
@@ -139,6 +144,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		this.reached_duration = obj.reached_duration;
 		this.stopage_radius = obj.stopage_radius;
 		this.controller_connected = obj.controller_connected;
+		this.expected_reachtime = obj.expected_reachtime;
 		this.controller_last_update_time = obj.controller_last_update_time;
 	}
 
@@ -185,6 +191,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("stopage_radius", stopage_radius);
 		if(controller_connected != null)
 			map.put("controller_connected", controller_connected);
+		if(expected_reachtime != null)
+			map.put("expected_reachtime", expected_reachtime);
 		if(controller_last_update_time != null)
 			map.put("controller_last_update_time", controller_last_update_time);
 		return map;
@@ -225,6 +233,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("stopage_radius", stopage_radius);
 		if(controller_connected != null)
 			map.put("controller_connected", controller_connected);
+		if(expected_reachtime != null)
+			map.put("expected_reachtime", expected_reachtime);
 		if(controller_last_update_time != null)
 			map.put("controller_last_update_time", controller_last_update_time);
 		return map;
@@ -249,6 +259,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		reached_duration = (Integer) map.get("reached_duration");
 		stopage_radius = (Double) map.get("stopage_radius");
 		controller_connected = (String) map.get("controller_connected");
+		expected_reachtime = (String) map.get("expected_reachtime");
 		controller_last_update_time = (Long) map.get("controller_last_update_time");
 	}
 
@@ -304,6 +315,10 @@ public abstract class Baseroute_stopage extends BaseResource {
 		Object controller_connectedObj = map.get("controller_connected");
 		if(controller_connectedObj != null)
 			controller_connected = controller_connectedObj.toString();
+
+		Object expected_reachtimeObj = map.get("expected_reachtime");
+		if(expected_reachtimeObj != null)
+			expected_reachtime = expected_reachtimeObj.toString();
 
 		Object controller_last_update_timeObj = map.get("controller_last_update_time");
 		if(controller_last_update_timeObj != null)
@@ -595,6 +610,22 @@ public abstract class Baseroute_stopage extends BaseResource {
 
 	public void unSetController_connected() {
 		this.controller_connected = null;
+	}
+
+	public String getExpected_reachtime() {
+		return expected_reachtime;
+	}
+
+	public String getExpected_reachtimeEx() {
+		return expected_reachtime != null ? expected_reachtime : "";
+	}
+
+	public void setExpected_reachtime(String expected_reachtime) {
+		this.expected_reachtime = expected_reachtime;
+	}
+
+	public void unSetExpected_reachtime() {
+		this.expected_reachtime = null;
 	}
 
 	public Long getController_last_update_time() {
