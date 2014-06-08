@@ -2,6 +2,10 @@ package platform.util.location;
 
 public class LocationUtil {
 	
+	public static double getDistance(String lat1, String lon1, String lat2, String lon2) {
+		return getDistance(Double.parseDouble(lat1),Double.parseDouble(lon1),Double.parseDouble(lat2),Double.parseDouble(lon2),'K');
+	}
+	
 	public static double getDistance(double lat1, double lon1, double lat2, double lon2) {
 		return getDistance(lat1,lon1,lat2,lon2,'K');
 	}

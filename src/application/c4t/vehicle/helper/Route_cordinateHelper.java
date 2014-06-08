@@ -1,8 +1,15 @@
 package application.c4t.vehicle.helper;
 
+import platform.db.Expression;
+import platform.db.REL_OP;
 import platform.helper.BaseHelper;
+import platform.resource.BaseResource;
+import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
+import platform.util.location.LocationUtil;
+import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.resource.route_cordinate;
+import application.c4t.vehicle.resource.route_stopage;
 
 
 public class Route_cordinateHelper extends BaseHelper {
@@ -31,4 +38,34 @@ public class Route_cordinateHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
+	public BaseResource[] get4RouteStopageCordinates(String route_stopage_id) {
+		Expression e = new Expression(route_cordinate.FIELD_STOPAGE_ID, REL_OP.EQ, route_stopage_id);
+		return getByExpression(e);
+	}
+
+	public route_cordinate getNearestCordinate(String id,route _route, route_stopage _route_stopage,
+			String latitude,String longitude) {
+		route_cordinate _cordinate = (route_cordinate)getById(id);
+		if (_cordinate != null)
+			return _cordinate;
+		BaseResource[] cordinates = get4RouteStopageCordinates(_route_stopage.getId());
+		for(int i=0; i < cordinates.length; i++) {
+			_cordinate = (route_cordinate)cordinates[i];
+			double distance = LocationUtil.getDistance(latitude, longitude,
+					_cordinate.getLatitude(), 
+					_cordinate.getLangitude());
+			if (distance < 0) {
+				distance = distance*(-1);
+			}
+			double cordinate_radius = 0.050;
+			if (_route.getIn_route_accuracy() != null) {
+				cordinate_radius = _route.getIn_route_accuracy()/1000;
+			}
+			if (distance < cordinate_radius) {
+				return _cordinate;
+			}
+		}
+		return _cordinate;
+	}
+	
 }

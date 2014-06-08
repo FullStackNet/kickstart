@@ -42,6 +42,7 @@ public abstract class Baseroute extends BaseResource {
 	private String schedule_day_fridayday = null;
 	private String schedule_day_saturday = null;
 	private String schedule_day_sunday = null;
+	private Long in_route_accuracy = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -66,6 +67,7 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_SCHEDULE_DAY_FRIDAYDAY = "schedule_day_fridayday";
 	public static String FIELD_SCHEDULE_DAY_SATURDAY = "schedule_day_saturday";
 	public static String FIELD_SCHEDULE_DAY_SUNDAY = "schedule_day_sunday";
+	public static String FIELD_IN_ROUTE_ACCURACY = "in_route_accuracy";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route");
@@ -176,6 +178,10 @@ public abstract class Baseroute extends BaseResource {
 		schedule_day_sundayField.setLength(1);
 		metaData.addField(schedule_day_sundayField);
 
+		Field in_route_accuracyField = new Field("in_route_accuracy", "long");
+		in_route_accuracyField.setDefaultValue(50L);
+		metaData.addField(in_route_accuracyField);
+
 
 		metaData.setTableName("route");
 
@@ -208,6 +214,7 @@ public abstract class Baseroute extends BaseResource {
 		this.schedule_day_fridayday = obj.schedule_day_fridayday;
 		this.schedule_day_saturday = obj.schedule_day_saturday;
 		this.schedule_day_sunday = obj.schedule_day_sunday;
+		this.in_route_accuracy = obj.in_route_accuracy;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -229,6 +236,8 @@ public abstract class Baseroute extends BaseResource {
 			schedule_day_saturday = "Y";
 		if(schedule_day_sunday == null)
 			schedule_day_sunday = "Y";
+		if(in_route_accuracy == null)
+			in_route_accuracy = 50L;
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -279,6 +288,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("schedule_day_saturday", schedule_day_saturday);
 		if(schedule_day_sunday != null)
 			map.put("schedule_day_sunday", schedule_day_sunday);
+		if(in_route_accuracy != null)
+			map.put("in_route_accuracy", in_route_accuracy);
 		return map;
 	}
 
@@ -333,6 +344,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("schedule_day_saturday", schedule_day_saturday);
 		if(schedule_day_sunday != null)
 			map.put("schedule_day_sunday", schedule_day_sunday);
+		if(in_route_accuracy != null)
+			map.put("in_route_accuracy", in_route_accuracy);
 		return map;
 	}
 
@@ -365,6 +378,7 @@ public abstract class Baseroute extends BaseResource {
 		schedule_day_fridayday = (String) map.get("schedule_day_fridayday");
 		schedule_day_saturday = (String) map.get("schedule_day_saturday");
 		schedule_day_sunday = (String) map.get("schedule_day_sunday");
+		in_route_accuracy = (Long) map.get("in_route_accuracy");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -459,6 +473,10 @@ public abstract class Baseroute extends BaseResource {
 		Object schedule_day_sundayObj = map.get("schedule_day_sunday");
 		if(schedule_day_sundayObj != null)
 			schedule_day_sunday = schedule_day_sundayObj.toString();
+
+		Object in_route_accuracyObj = map.get("in_route_accuracy");
+		if(in_route_accuracyObj != null)
+			in_route_accuracy = new Long(in_route_accuracyObj.toString());
 
 	}
 
@@ -824,6 +842,22 @@ public abstract class Baseroute extends BaseResource {
 
 	public void unSetSchedule_day_sunday() {
 		this.schedule_day_sunday = "Y";
+	}
+
+	public Long getIn_route_accuracy() {
+		return in_route_accuracy != null ? in_route_accuracy : 50L;
+	}
+
+	public void setIn_route_accuracy(long in_route_accuracy) {
+		this.in_route_accuracy = in_route_accuracy;
+	}
+
+	public void setIn_route_accuracy(Long in_route_accuracy) {
+		this.in_route_accuracy = in_route_accuracy;
+	}
+
+	public void unSetIn_route_accuracy() {
+		this.in_route_accuracy = 50L;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

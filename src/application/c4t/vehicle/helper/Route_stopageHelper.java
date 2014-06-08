@@ -237,6 +237,7 @@ public class Route_stopageHelper extends BaseHelper {
 		long lastReachTime = TimeUtil.getDayTime(_route.getStart_time());
 		Expression expression = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.EQ, routeId);
 		resources = getByExpression(expression,new String[]{route_stopage.FIELD_STOPAGE_ORDER});
+		boolean reference = true;
 		if (!Util.isEmpty(resources)) {
 			for(BaseResource resource : resources) {
 				route_stopage _route_stopage = (route_stopage) resource;
@@ -275,6 +276,7 @@ public class Route_stopageHelper extends BaseHelper {
 							if (routeStartDayTime < reachedTime) {
 								_route_stopage.setReached_time(lastReachTime);
 								_route_stopage.setReached("Y");
+								reference = true;
 								_route_stopage.setReached_duration((int)(current_time - lastReachTime));
 							} else {
 								String latitude = _appliance.getLatitude();
@@ -282,8 +284,14 @@ public class Route_stopageHelper extends BaseHelper {
 								String route_id = _route_stopage.getRoute_id();
 								String stopage_id = _route_stopage.getId();
 								String id = route_cordinate.id(route_id, stopage_id, longitude, latitude);
-								route_cordinate _route_cordinate = (route_cordinate)Route_cordinateHelper.getInstance().getById(id);
-								if (_route_cordinate != null) {
+								route_cordinate _route_cordinate = null;
+								if (reference) {
+									_route_cordinate = (route_cordinate)Route_cordinateHelper.getInstance().getNearestCordinate(
+										id, _route,
+										_route_stopage, 
+										latitude, longitude);
+								}
+								if ((_route_cordinate != null) ) {
 									ArrayList<Object> durations = _route_cordinate.getDurations();
 									System.out.println("Got the cordinates for  " + longitude + "-"+latitude + "in database data->"+durations.toString());
 									long average = Util.getAverage(durations);
@@ -294,7 +302,7 @@ public class Route_stopageHelper extends BaseHelper {
 										}
 									} else {
 										System.out.println("Average time  " + average);
-										lastReachTime = lastReachTime + average/1000;
+										lastReachTime = lastReachTime + (average/1000);
 										if (current_time > lastReachTime) {
 											lastReachTime = current_time;
 										}
@@ -307,7 +315,7 @@ public class Route_stopageHelper extends BaseHelper {
 								}
 								_route_stopage.setReached_time(lastReachTime);
 								_route_stopage.setReached_duration(getDuration(_appliance.getTimeZone(),lastReachTime));
-							
+								reference =false;
 							}
 						}
 					} else {
