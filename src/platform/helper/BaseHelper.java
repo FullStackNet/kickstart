@@ -820,6 +820,18 @@ public class BaseHelper {
 		return list;
 	}
 
+	public ArrayList<Map<String, Object>> getListMapByApplianceId(String applianceId,ArrayList<JoinField> joinFields) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		Expression e = new Expression("appliance_id", REL_OP.EQ, applianceId);
+		try {
+			list =  getByJoining(e,joinFields,new String[]{"name"});
+		} catch (ApplicationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return list;
+	}
+	
 	public BaseResource[] getByCustomerIdForType(String customerId,String type) {
 		Expression e1 = new Expression("customer_id", REL_OP.EQ, customerId);
 		Expression e2 = new Expression("type", REL_OP.EQ, type);
