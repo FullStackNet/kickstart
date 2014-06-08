@@ -23,7 +23,7 @@ public class YesNoRenderer extends BaseRenderer {
 		} else if ("N".equals(value)) {
 			image.setSRC("/ui/images/red-dot.png");
 			image.addAttribute("title","No");
-		} else if ("N".equals(value)) {
+		} else {
 			SPAN span = new SPAN();
 			span.setText("-");
 			return span;
