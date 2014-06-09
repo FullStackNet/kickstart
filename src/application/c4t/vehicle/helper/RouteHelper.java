@@ -154,16 +154,18 @@ public class RouteHelper extends BaseHelper {
 		ApplianceHelper.getInstance().updateCurrentRoute(_fetched_appliance.getId(),
 				current_route.getId());
 		
-		route_cordinate_raw _cordinate_raw = new route_cordinate_raw();
-		_cordinate_raw.setRoute_id(current_route.getId());
-		_cordinate_raw.setLangitude(longitude);
-		_cordinate_raw.setLatitude(latitude);
-		_cordinate_raw.setUpdate_time(logTime.getTime());
-		try {
-			Route_cordinate_rawHelper.getInstance().add(_cordinate_raw);
-		} catch (ApplicationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if ("Y".equals(current_route.getActive())) {
+			route_cordinate_raw _cordinate_raw = new route_cordinate_raw();
+			_cordinate_raw.setRoute_id(current_route.getId());
+			_cordinate_raw.setLangitude(longitude);
+			_cordinate_raw.setLatitude(latitude);
+			_cordinate_raw.setUpdate_time(logTime.getTime());
+			try {
+				Route_cordinate_rawHelper.getInstance().add(_cordinate_raw);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(current_route.getId());
 		if (Util.isEmpty(route_stopages))
