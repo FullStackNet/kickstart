@@ -22,6 +22,7 @@ public abstract class Baseroute_cordinate extends BaseResource {
 	private String id = null;
 	private String route_id = null;
 	private String stopage_id = null;
+	private Double duration = null;
 	private String langitude = null;
 	private String latitude = null;
 	private ArrayList<Object> durations = null;
@@ -29,6 +30,7 @@ public abstract class Baseroute_cordinate extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_ROUTE_ID = "route_id";
 	public static String FIELD_STOPAGE_ID = "stopage_id";
+	public static String FIELD_DURATION = "duration";
 	public static String FIELD_LANGITUDE = "langitude";
 	public static String FIELD_LATITUDE = "latitude";
 	public static String FIELD_DURATIONS = "durations";
@@ -53,6 +55,9 @@ public abstract class Baseroute_cordinate extends BaseResource {
 		stopage_idField.setRequired(true);
 		stopage_idField.setLength(128);
 		metaData.addField(stopage_idField);
+
+		Field durationField = new Field("duration", "double");
+		metaData.addField(durationField);
 
 		Field langitudeField = new Field("langitude", "String");
 		langitudeField.setIndexed(true);
@@ -80,6 +85,7 @@ public abstract class Baseroute_cordinate extends BaseResource {
 		this.id = obj.id;
 		this.route_id = obj.route_id;
 		this.stopage_id = obj.stopage_id;
+		this.duration = obj.duration;
 		this.langitude = obj.langitude;
 		this.latitude = obj.latitude;
 		this.durations = obj.durations;
@@ -97,6 +103,8 @@ public abstract class Baseroute_cordinate extends BaseResource {
 			map.put("route_id", route_id);
 		if(stopage_id != null)
 			map.put("stopage_id", stopage_id);
+		if(duration != null)
+			map.put("duration", duration);
 		if(langitude != null)
 			map.put("langitude", langitude);
 		if(latitude != null)
@@ -114,6 +122,8 @@ public abstract class Baseroute_cordinate extends BaseResource {
 			map.put("route_id", route_id);
 		if(validateStopage_id(add))
 			map.put("stopage_id", stopage_id);
+		if(duration != null)
+			map.put("duration", duration);
 		if(validateLangitude(add))
 			map.put("langitude", langitude);
 		if(validateLatitude(add))
@@ -132,6 +142,7 @@ public abstract class Baseroute_cordinate extends BaseResource {
 		id = (String) map.get("id");
 		route_id = (String) map.get("route_id");
 		stopage_id = (String) map.get("stopage_id");
+		duration = (Double) map.get("duration");
 		langitude = (String) map.get("langitude");
 		latitude = (String) map.get("latitude");
 		durations = (ArrayList<Object>) map.get("durations");
@@ -149,6 +160,10 @@ public abstract class Baseroute_cordinate extends BaseResource {
 		Object stopage_idObj = map.get("stopage_id");
 		if(stopage_idObj != null)
 			stopage_id = stopage_idObj.toString();
+
+		Object durationObj = map.get("duration");
+		if(durationObj != null)
+			duration = new Double(durationObj.toString());
 
 		Object langitudeObj = map.get("langitude");
 		if(langitudeObj != null)
@@ -231,6 +246,26 @@ public abstract class Baseroute_cordinate extends BaseResource {
 		if(add && stopage_id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[stopage_id]");
 		return stopage_id != null;
+	}
+
+	public Double getDuration() {
+		return duration;
+	}
+
+	public double getDurationEx() {
+		return duration != null ? duration : 0;
+	}
+
+	public void setDuration(double duration) {
+		this.duration = duration;
+	}
+
+	public void setDuration(Double duration) {
+		this.duration = duration;
+	}
+
+	public void unSetDuration() {
+		this.duration = null;
 	}
 
 	public String getLangitude() {
