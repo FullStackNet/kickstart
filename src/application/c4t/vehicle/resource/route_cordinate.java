@@ -20,7 +20,7 @@ public class route_cordinate extends Baseroute_cordinate {
 	}	
 	
 	public static String id(String route_id,String stopage_id,String longitude,String latitude) {
-		return route_id+ApplicationConstants.ID_SEPERATOR+stopage_id+ApplicationConstants.ID_SEPERATOR+longitude+ApplicationConstants.ID_SEPERATOR+latitude;
+		return ""+route_id+ApplicationConstants.ID_SEPERATOR+stopage_id+ApplicationConstants.ID_SEPERATOR+longitude+ApplicationConstants.ID_SEPERATOR+latitude;
 	}
 	@Override
 	public Class<?> getResultClass() {

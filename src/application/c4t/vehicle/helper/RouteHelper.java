@@ -129,7 +129,9 @@ public class RouteHelper extends BaseHelper {
 			} 
 			Route_cordinateHelper.getInstance().addDuration(id, duration);	
 		}
+		Route_cordinate_rawHelper.getInstance().deleteRouteCordinates(_route_stopage.getRoute_id());
 	}
+	
 	public void checkStopageAndSendNotification(appliance _fetched_appliance,String latitude, 
 			String longitude,Date logTime) {
 		if (latitude == null) return;

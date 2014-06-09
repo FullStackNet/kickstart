@@ -25,4 +25,9 @@ public class Route_cordinate_rawHelper extends BaseHelper {
 		Expression e = new Expression(route_cordinate_raw.FIELD_ROUTE_ID, REL_OP.EQ, route_id);
 		return getByExpression(e);
 	}
+	
+	public void deleteRouteCordinates(String route_id) {
+		Expression e = new Expression(route_cordinate_raw.FIELD_ROUTE_ID, REL_OP.EQ, route_id);
+		deleteByExpression(e);
+	}
 }
