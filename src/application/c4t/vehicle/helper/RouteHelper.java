@@ -103,10 +103,11 @@ public class RouteHelper extends BaseHelper {
 		checkStopageAndSendNotification(_appliance, latitude, longitude, logTime);
 	}
 
-	public void processCordinates(route_stopage _route_stopage, Date logTime) {
+	public void processCordinates(stopage _stopage, route_stopage _route_stopage, Date logTime) {
 		BaseResource[] cordinates = Route_cordinate_rawHelper.getInstance().getRouteCordinates(_route_stopage.getRoute_id());
 		if (Util.isEmpty(cordinates))
 			return;
+		
 		for(int i=0; i < cordinates.length ; i++) {
 			route_cordinate_raw raw = (route_cordinate_raw)cordinates[i];
 			long duration = logTime.getTime() - raw.getUpdate_time();
@@ -121,6 +122,12 @@ public class RouteHelper extends BaseHelper {
 				cordinate.setLangitude(raw.getLangitude());
 				cordinate.setLatitude(raw.getLatitude());
 				cordinate.setRoute_id(raw.getRoute_id());
+				double distance = LocationUtil.getDistance(raw.getLatitude(),raw.getLangitude(), 
+						_stopage.getLatitude(), _stopage.getLongitude());
+				if (distance < 0) {
+					distance = distance*(-1);
+				}
+				cordinate.setDistance(distance);
 				cordinate.setStopage_id(_route_stopage.getId());
 				try {
 					Route_cordinateHelper.getInstance().add(cordinate);
@@ -228,7 +235,7 @@ public class RouteHelper extends BaseHelper {
 			ApplianceHelper.getInstance().updateLastStopage(_fetched_appliance.getId(), 
 					found_route_stopage.getId());
 			Route_stopageHelper.getInstance().updateReachedTime(found_route_stopage.getId());
-			processCordinates(found_route_stopage,logTime);
+			processCordinates(found_stopage,found_route_stopage,logTime);
 		}
 	}
 }

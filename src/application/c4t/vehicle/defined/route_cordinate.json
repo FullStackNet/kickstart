@@ -22,7 +22,7 @@
 				'required': true,
 				'type':'String'
 			},
-			'duration':
+			'distance':
 			{
 				'type':'double'
 			},
