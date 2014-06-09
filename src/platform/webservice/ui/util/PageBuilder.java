@@ -84,7 +84,11 @@ public class PageBuilder {
 			mHead.addChild(meta);
 		}
 		for(int i=0; i<jsFileList.size();i++) {
-			mHead.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()+"/"+jsFileList.get(i).getName()));
+			if (jsFileList.get(i).getName() == null) {
+				mHead.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()));
+			} else {
+				mHead.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()+"/"+jsFileList.get(i).getName()));
+			}
 		}
 		for(int i=0; i< cssFileList.size();i++) {
 			LINK link = new LINK(cssFileList.get(i).getHref(), "stylesheet", "text/css");
