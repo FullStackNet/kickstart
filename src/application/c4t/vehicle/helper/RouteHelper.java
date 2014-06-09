@@ -113,9 +113,11 @@ public class RouteHelper extends BaseHelper {
 			if (duration <= 0) 
 				continue;
 			String id = route_cordinate.id(raw.getRoute_id(), _route_stopage.getId(), raw.getLangitude(), raw.getLatitude());
+			System.out.println("Cordinate id  : " +id);
 			route_cordinate cordinate = (route_cordinate)Route_cordinateHelper.getInstance().getById(id);
 			if (cordinate == null) {
-				cordinate = new route_cordinate(id);
+				cordinate = new route_cordinate();
+				cordinate.setId(id);
 				cordinate.setLangitude(raw.getLangitude());
 				cordinate.setLatitude(raw.getLatitude());
 				cordinate.setRoute_id(raw.getRoute_id());
