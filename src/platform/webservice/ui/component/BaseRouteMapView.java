@@ -51,7 +51,7 @@ public abstract class BaseRouteMapView extends BaseView {
 		buffer.append("window.onload = function () {\n" +
 				"var mapOptions = { "+
 				"    center: new google.maps.LatLng(markers[0].lat, markers[0].lng), \n" +
-				"    zoom: 10, \n" +
+				"    zoom: 15, \n" +
 				"    mapTypeId: google.maps.MapTypeId.ROADMAP \n"+
 				"}; \n" +
 				"var map = new google.maps.Map(document.getElementById(\""+mDefinition.getId()+"\"), mapOptions);\n"+
@@ -77,7 +77,7 @@ public abstract class BaseRouteMapView extends BaseView {
 				" } \n" +
 				" map.setCenter(latlngbounds.getCenter()); \n"+
 				" map.fitBounds(latlngbounds); \n" +
-				" var path = new google.maps.MVCArray(); \n" +
+			/*	" var path = new google.maps.MVCArray(); \n" +
 				" var service = new google.maps.DirectionsService(); \n"+
 				"var poly = new google.maps.Polyline({ map: map, strokeColor: '#4986E7' }); \n" +
 				//Loop and Draw Path Route between the Points on MAP
@@ -100,6 +100,7 @@ public abstract class BaseRouteMapView extends BaseView {
 				"        }); \n"+
 				"    } \n"+
 				"} \n"+
+			*/
 				"}; \n");
 		buffer.append("</script>");
 		TEXT text = new TEXT(buffer.toString());
