@@ -1,8 +1,13 @@
 package platform.util.location;
 
+import platform.util.Util;
+
 public class LocationUtil {
 	
 	public static double getDistance(String lat1, String lon1, String lat2, String lon2) {
+		if (Util.isEmpty(lat1) || Util.isEmpty(lon1) || Util.isEmpty(lat2) || Util.isEmpty(lon2)) {
+			return 0;
+		}
 		return getDistance(Double.parseDouble(lat1),Double.parseDouble(lon1),Double.parseDouble(lat2),Double.parseDouble(lon2),'K');
 	}
 	

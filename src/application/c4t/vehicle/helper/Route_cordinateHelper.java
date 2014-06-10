@@ -6,6 +6,7 @@ import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
+import platform.util.Util;
 import platform.util.location.LocationUtil;
 import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.resource.route_cordinate;
@@ -51,6 +52,8 @@ public class Route_cordinateHelper extends BaseHelper {
 		BaseResource[] cordinates = get4RouteStopageCordinates(_route_stopage.getId());
 		for(int i=0; i < cordinates.length; i++) {
 			_cordinate = (route_cordinate)cordinates[i];
+			if (Util.isEmpty(latitude) || Util.isEmpty(longitude) || Util.isEmpty(_cordinate.getLatitude()) ||  Util.isEmpty(_cordinate.getLangitude())) 
+				continue;
 			double distance = LocationUtil.getDistance(latitude, longitude,
 					_cordinate.getLatitude(), 
 					_cordinate.getLangitude());

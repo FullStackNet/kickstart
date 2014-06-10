@@ -254,14 +254,18 @@ public class Route_stopageHelper extends BaseHelper {
 					
 				if (valid_route) {
 					 _route_stopage.setSpeed(_appliance.getSpeed());
-					 double distance = LocationUtil.getDistance(
-							 _appliance.getLatitude(),_appliance.getLangitude(), 
-								_stopage.getLatitude(), _stopage.getLongitude());
-						if (distance < 0) {
-							distance = distance*(-1);
-						}
-					  distance = 	(double)Math.round(distance * 1000) / 1000;
-					 _route_stopage.setDistance_from_current_location(distance);
+					 if (!Util.isEmpty(_appliance.getLatitude()) && !Util.isEmpty(_appliance.getLangitude()) 
+							 && !Util.isEmpty(_stopage.getLatitude()) && !Util.isEmpty( _stopage.getLongitude())) 
+						 {	 
+							 double distance = LocationUtil.getDistance(
+									 _appliance.getLatitude(),_appliance.getLangitude(), 
+										_stopage.getLatitude(), _stopage.getLongitude());
+								if (distance < 0) {
+									distance = distance*(-1);
+								}
+							  distance = 	(double)Math.round(distance * 1000) / 1000;
+							 _route_stopage.setDistance_from_current_location(distance);
+						 }
 				 }
 				_route_stopage.setController_connected(connected);
 				_route_stopage.setController_last_update_time(_appliance.getLast_update_time());
