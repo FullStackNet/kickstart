@@ -111,6 +111,13 @@ public class RouteHelper extends BaseHelper {
 		for(int i=0; i < cordinates.length ; i++) {
 			route_cordinate_raw raw = (route_cordinate_raw)cordinates[i];
 			long duration = logTime.getTime() - raw.getUpdate_time();
+			Date updateDate = new Date(raw.getUpdate_time());
+			if (logTime.getDay() != updateDate.getDay()) {
+				continue;
+			}
+			if (duration > 30*60*1000L) {
+				continue;
+			}
 			if (duration <= 0) 
 				continue;
 			String id = route_cordinate.id(raw.getRoute_id(), _route_stopage.getId(), raw.getLangitude(), raw.getLatitude());
