@@ -214,7 +214,7 @@ public class Route_stopageHelper extends BaseHelper {
 		}
 	}
 	public BaseResource[] getRouteStopageDetail(String routeId) {
-		String connected = "Y";
+		String connected = "N";
 		BaseResource[] resources = null;
 		route _route = (route)RouteHelper.getInstance().getById(routeId);
 		if (_route == null)
@@ -225,12 +225,10 @@ public class Route_stopageHelper extends BaseHelper {
 		BaseResource[] _controllers = ControllerHelper.getInstance().getByApplianceId(_appliance.getId());
 		if (!Util.isEmpty(_controllers)) {
 			controller _controller = (controller)_controllers[0];
-			if (_appliance.getLast_update_time() == null) {
-				connected = "N";
-			} else {
+			if (_appliance.getLast_update_time() != null) {
 				long diff = System.currentTimeMillis()-_appliance.getLast_update_time();
-				if (diff > _controller.getData_read_interval()*3*1000L) {
-					connected = "N";
+				if (diff < _controller.getData_read_interval()*3*1000L) {
+					connected = "Y";
 				}
 			}
 		}
