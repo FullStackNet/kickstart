@@ -260,6 +260,7 @@ public class Route_stopageHelper extends BaseHelper {
 						if (distance < 0) {
 							distance = distance*(-1);
 						}
+					  distance = 	(double)Math.round(distance * 1000) / 1000;
 					 _route_stopage.setDistance_from_current_location(distance);
 				 }
 				_route_stopage.setController_connected(connected);
