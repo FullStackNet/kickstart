@@ -19,6 +19,7 @@ import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
+import platform.util.location.LocationUtil;
 import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.resource.route_cordinate;
 import application.c4t.vehicle.resource.route_stopage;
@@ -244,14 +245,25 @@ public class Route_stopageHelper extends BaseHelper {
 				
 				if (_route_stopage == null)
 					continue;
-				_route_stopage.setSpeed(_appliance.getSpeed());
+				stopage _stopage = (stopage) StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
+				if (_stopage == null)
+					continue;
+				if (_stopage != null) {
+						_route_stopage.setStopage_name(_stopage.getName());
+				}
+					
+				if (valid_route) {
+					 _route_stopage.setSpeed(_appliance.getSpeed());
+					 double distance = LocationUtil.getDistance(
+							 _appliance.getLatitude(),_appliance.getLangitude(), 
+								_stopage.getLatitude(), _stopage.getLongitude());
+						if (distance < 0) {
+							distance = distance*(-1);
+						}
+					 _route_stopage.setDistance_from_current_location(distance);
+				 }
 				_route_stopage.setController_connected(connected);
 				_route_stopage.setController_last_update_time(_appliance.getLast_update_time());
-				
-				stopage _stopage = (stopage) StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
-				if (_stopage != null) {
-					_route_stopage.setStopage_name(_stopage.getName());
-				}
 				_route_stopage.setReached("N");
 				long routeStartDayTime = TimeUtil.getDayTime(_route.getStart_time());
 				long routeEndDayTime = TimeUtil.getDayTime(_route.getEnd_time());
