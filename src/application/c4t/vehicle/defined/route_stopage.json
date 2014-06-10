@@ -58,6 +58,11 @@
 				'type':'long',
 				'transient' : true
 			},
+			'distance_from_current_location':
+			{
+				'type':'double',
+				'transient' : true
+			},
 			'stopage_order':
 			{
 				'type':'int'

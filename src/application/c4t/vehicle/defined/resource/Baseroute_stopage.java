@@ -28,6 +28,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private String stopage_name = null;
 	private String reached = null;
 	private Long speed = null;
+	private Double distance_from_current_location = null;
 	private Integer stopage_order = null;
 	private Double distance_from_previous_stop = null;
 	private Integer time_from_previous_stop = null;
@@ -47,6 +48,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	public static String FIELD_STOPAGE_NAME = "stopage_name";
 	public static String FIELD_REACHED = "reached";
 	public static String FIELD_SPEED = "speed";
+	public static String FIELD_DISTANCE_FROM_CURRENT_LOCATION = "distance_from_current_location";
 	public static String FIELD_STOPAGE_ORDER = "stopage_order";
 	public static String FIELD_DISTANCE_FROM_PREVIOUS_STOP = "distance_from_previous_stop";
 	public static String FIELD_TIME_FROM_PREVIOUS_STOP = "time_from_previous_stop";
@@ -140,6 +142,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		this.stopage_name = obj.stopage_name;
 		this.reached = obj.reached;
 		this.speed = obj.speed;
+		this.distance_from_current_location = obj.distance_from_current_location;
 		this.stopage_order = obj.stopage_order;
 		this.distance_from_previous_stop = obj.distance_from_previous_stop;
 		this.time_from_previous_stop = obj.time_from_previous_stop;
@@ -182,6 +185,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("reached", reached);
 		if(speed != null)
 			map.put("speed", speed);
+		if(distance_from_current_location != null)
+			map.put("distance_from_current_location", distance_from_current_location);
 		if(stopage_order != null)
 			map.put("stopage_order", stopage_order);
 		if(distance_from_previous_stop != null)
@@ -226,6 +231,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("reached", reached);
 		if(speed != null)
 			map.put("speed", speed);
+		if(distance_from_current_location != null)
+			map.put("distance_from_current_location", distance_from_current_location);
 		if(stopage_order != null)
 			map.put("stopage_order", stopage_order);
 		if(distance_from_previous_stop != null)
@@ -505,6 +512,26 @@ public abstract class Baseroute_stopage extends BaseResource {
 
 	public void unSetSpeed() {
 		this.speed = null;
+	}
+
+	public Double getDistance_from_current_location() {
+		return distance_from_current_location;
+	}
+
+	public double getDistance_from_current_locationEx() {
+		return distance_from_current_location != null ? distance_from_current_location : 0;
+	}
+
+	public void setDistance_from_current_location(double distance_from_current_location) {
+		this.distance_from_current_location = distance_from_current_location;
+	}
+
+	public void setDistance_from_current_location(Double distance_from_current_location) {
+		this.distance_from_current_location = distance_from_current_location;
+	}
+
+	public void unSetDistance_from_current_location() {
+		this.distance_from_current_location = null;
 	}
 
 	public Integer getStopage_order() {
