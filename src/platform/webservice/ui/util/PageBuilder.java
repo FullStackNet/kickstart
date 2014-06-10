@@ -36,6 +36,10 @@ public class PageBuilder {
 
 	public void addJS(JS js) {
 		for(int i=0; i< jsFileList.size();i++) {
+			if (jsFileList.get(i).getName() == null)
+				continue;
+			if (js.getName() == null)
+				continue;
 			if (jsFileList.get(i).getName().equals(js.getName()) &&
 					jsFileList.get(i).getName().equals(js.getName())) {
 				return;
