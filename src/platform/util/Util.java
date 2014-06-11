@@ -1298,4 +1298,18 @@ public class Util {
 		}
 		return (long) (sum/count);
 	}
+	
+	public static String[] getDayTimeArray() {
+		ArrayList<String> list  = new ArrayList<String>();
+		int hrs = 0; 
+		while(hrs < 23) {
+			int min = 0;
+			while (min < 60) {
+				list.add(String.format("%02d:%02d", hrs,min));
+				min ++;
+			}
+			hrs++;
+		}
+		return list.toArray(new String[list.size()]);
+	}
 }

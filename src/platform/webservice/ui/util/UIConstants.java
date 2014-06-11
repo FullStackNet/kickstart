@@ -64,5 +64,5 @@ public class UIConstants {
 			"X",
 			"XI",
 			"XII",
-		};
+	};
 }
