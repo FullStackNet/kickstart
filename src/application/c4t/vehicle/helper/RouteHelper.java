@@ -205,6 +205,10 @@ public class RouteHelper extends BaseHelper {
 			if (_route_stopage.getId().equals(_fetched_appliance.getLastStopageId())) {
 				continue;
 			}
+			if (_stopage.getLatitude() == null) 
+				continue;
+			if (_stopage.getLongitude() == null)
+				continue;
 			double dLatitude = Double.parseDouble(latitude);
 			double dLongitude = Double.parseDouble(longitude);
 			double stopageLatitude = Double.parseDouble(_stopage.getLatitude());
