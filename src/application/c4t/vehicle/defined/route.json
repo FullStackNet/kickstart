@@ -135,6 +135,10 @@
 				type : "long",
 				default : 50,
 				"remark" : "Meters"
+			},
+			'next_connecting_route_id' :
+			{
+				type : "String"
 			}
 		},
 		"information" : 
