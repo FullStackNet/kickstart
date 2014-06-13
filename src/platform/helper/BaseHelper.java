@@ -101,6 +101,21 @@ public class BaseHelper {
 		}
 	}
 
+	public void unset(BaseResource _resource,String[] fieldnames) throws ApplicationException {
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			connection.unset(_resource,fieldnames);
+		} catch(Exception e) {	
+			e.printStackTrace();
+			if (connection != null)
+				connection.release();
+			throw new ApplicationException(ExceptionSeverity.ERROR,e.getMessage());
+		} finally {
+			if (connection != null)
+				connection.release();	
+		}
+	}
 	public void updateCurrentTime(BaseResource _resource, String fieldName) throws ApplicationException {
 		DbConnection connection = null;
 		try {

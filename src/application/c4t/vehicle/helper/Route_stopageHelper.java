@@ -24,6 +24,7 @@ import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.resource.route_cordinate;
 import application.c4t.vehicle.resource.route_stopage;
 import application.c4t.vehicle.resource.stopage;
+import application.c4t.vehicle.school.helper.School_route_stopage_mapHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.student;
@@ -53,6 +54,12 @@ public class Route_stopageHelper extends BaseHelper {
 		return getByExpression(expression);
 	}
 
+	public void delete(String userId,String customerId,String routeStopageId) throws ApplicationException {
+		deleteById(routeStopageId);
+		StudentHelper.getInstance().deleteRouteStopage(routeStopageId);
+		School_route_stopage_mapHelper.getInstance().deleteById(routeStopageId);
+	}
+	
 	public BaseResource[] getUserByStopageId(String route_stopageId) {
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		BaseResource[] students = StudentHelper.getInstance().getStudentByRouteStopageId(route_stopageId);

@@ -632,6 +632,27 @@ public class MongoDBConnection extends DbConnection {
 		return 0;
 	}
 
+	public int unset(BaseResource resource,String[] fieldnames) throws Exception {
+		// TODO Auto-generated method stub
+		checkAndReviveConnection();
+		if (conn == null) {
+			ApplicationException e = new ApplicationException(ExceptionSeverity.ERROR, "Unable to connect to database"); 
+			throw e;
+		}
+		ResourceMetaData metaData = resource.getMetaData();
+		DBCollection table = conn.getCollection(metaData.getTableName());
+		BasicDBObject doc = new BasicDBObject();
+		BasicDBObject searchDoc = new BasicDBObject();
+		searchDoc.put("_id", resource.getId());
+		for (String fieldname : fieldnames) {
+			doc = new BasicDBObject();
+			doc.put(fieldname,"");
+			BasicDBObject updateObject = new BasicDBObject();
+			updateObject.append("$unset", doc);
+			table.update(searchDoc, updateObject);
+		}
+		return 0;
+	}
 	@Override
 	public synchronized int updateCurrentTime(BaseResource resource, String fieldName)
 			throws Exception {

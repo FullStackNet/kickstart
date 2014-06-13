@@ -8,6 +8,7 @@ import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.resource.user;
+import platform.util.ApplicationException;
 import platform.util.Util;
 import application.c4t.vehicle.school.resource.student;
 
@@ -24,6 +25,43 @@ public class StudentHelper extends BaseHelper {
 		if (instance == null)
 			instance = new StudentHelper();
 		return instance;
+	}
+	
+	public void deleteRouteStopage(String routeStopageId) {
+		Expression e = new Expression(student.FIELD_PICKUP_ROUTE_STOPAGE_ID, REL_OP.EQ, routeStopageId);
+		BaseResource[] resources = getByExpression(e);
+		if (!Util.isEmpty(resources)) {
+			for(int i=0 ; i <resources.length; i++) {
+				student _student = (student)resources[i];
+				student __student = new student();
+				__student.setId(_student.getId());
+				try {
+					unset(__student,new String[]{student.FIELD_PICKUP_ROUTE_STOPAGE_ID});
+					unset(__student,new String[]{student.FIELD_PICKUP_ROUTE_ID});
+					unset(__student,new String[]{student.FIELD_PICKUP_STOPAGE_ID});
+				} catch (ApplicationException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		}
+		e = new Expression(student.FIELD_DROPPED_ROUTE_STOPAGE_ID, REL_OP.EQ, routeStopageId);
+		resources = getByExpression(e);
+		if (!Util.isEmpty(resources)) {
+			for(int i=0 ; i <resources.length; i++) {
+				student _student = (student)resources[i];
+				student __student = new student();
+				__student.setId(_student.getId());
+				try {
+					unset(__student,new String[]{student.FIELD_DROPPED_ROUTE_STOPAGE_ID});
+					unset(__student,new String[]{student.FIELD_DROPPED_ROUTE_ID});
+					unset(__student,new String[]{student.FIELD_DROPPED_STOPAGE_ID});
+				} catch (ApplicationException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		}
 	}
 	
 	public BaseResource[] getSectionStudent(String school_id, String class_section_name) {

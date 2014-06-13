@@ -789,4 +789,11 @@ public class HSQLDBConnection extends DbConnection {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int unset(BaseResource resource, String[] fieldnames)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
