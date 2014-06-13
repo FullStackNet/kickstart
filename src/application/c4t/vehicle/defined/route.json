@@ -139,6 +139,11 @@
 			'next_connecting_route_id' :
 			{
 				type : "String"
+			},
+			'record_trip':
+			{
+				'type':'String',
+				default : "N"
 			}
 		},
 		"information" : 

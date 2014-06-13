@@ -44,6 +44,7 @@ public abstract class Baseroute extends BaseResource {
 	private String schedule_day_sunday = null;
 	private Long in_route_accuracy = null;
 	private String next_connecting_route_id = null;
+	private String record_trip = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -70,6 +71,7 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_SCHEDULE_DAY_SUNDAY = "schedule_day_sunday";
 	public static String FIELD_IN_ROUTE_ACCURACY = "in_route_accuracy";
 	public static String FIELD_NEXT_CONNECTING_ROUTE_ID = "next_connecting_route_id";
+	public static String FIELD_RECORD_TRIP = "record_trip";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route");
@@ -187,6 +189,10 @@ public abstract class Baseroute extends BaseResource {
 		Field next_connecting_route_idField = new Field("next_connecting_route_id", "String");
 		metaData.addField(next_connecting_route_idField);
 
+		Field record_tripField = new Field("record_trip", "String");
+		record_tripField.setDefaultValue("N");
+		metaData.addField(record_tripField);
+
 
 		metaData.setTableName("route");
 
@@ -221,6 +227,7 @@ public abstract class Baseroute extends BaseResource {
 		this.schedule_day_sunday = obj.schedule_day_sunday;
 		this.in_route_accuracy = obj.in_route_accuracy;
 		this.next_connecting_route_id = obj.next_connecting_route_id;
+		this.record_trip = obj.record_trip;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -244,6 +251,8 @@ public abstract class Baseroute extends BaseResource {
 			schedule_day_sunday = "Y";
 		if(in_route_accuracy == null)
 			in_route_accuracy = 50L;
+		if(record_trip == null)
+			record_trip = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -298,6 +307,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("in_route_accuracy", in_route_accuracy);
 		if(next_connecting_route_id != null)
 			map.put("next_connecting_route_id", next_connecting_route_id);
+		if(record_trip != null)
+			map.put("record_trip", record_trip);
 		return map;
 	}
 
@@ -356,6 +367,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("in_route_accuracy", in_route_accuracy);
 		if(next_connecting_route_id != null)
 			map.put("next_connecting_route_id", next_connecting_route_id);
+		if(record_trip != null)
+			map.put("record_trip", record_trip);
 		return map;
 	}
 
@@ -390,6 +403,7 @@ public abstract class Baseroute extends BaseResource {
 		schedule_day_sunday = (String) map.get("schedule_day_sunday");
 		in_route_accuracy = (Long) map.get("in_route_accuracy");
 		next_connecting_route_id = (String) map.get("next_connecting_route_id");
+		record_trip = (String) map.get("record_trip");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -492,6 +506,10 @@ public abstract class Baseroute extends BaseResource {
 		Object next_connecting_route_idObj = map.get("next_connecting_route_id");
 		if(next_connecting_route_idObj != null)
 			next_connecting_route_id = next_connecting_route_idObj.toString();
+
+		Object record_tripObj = map.get("record_trip");
+		if(record_tripObj != null)
+			record_trip = record_tripObj.toString();
 
 	}
 
@@ -889,6 +907,18 @@ public abstract class Baseroute extends BaseResource {
 
 	public void unSetNext_connecting_route_id() {
 		this.next_connecting_route_id = null;
+	}
+
+	public String getRecord_trip() {
+		return record_trip != null ? record_trip : "N";
+	}
+
+	public void setRecord_trip(String record_trip) {
+		this.record_trip = record_trip;
+	}
+
+	public void unSetRecord_trip() {
+		this.record_trip = "N";
 	}
 	public String getCluster() {
 		return "DB_CONFIG";
