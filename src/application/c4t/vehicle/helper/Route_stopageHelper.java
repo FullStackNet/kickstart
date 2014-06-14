@@ -353,7 +353,7 @@ public class Route_stopageHelper extends BaseHelper {
 					}
 				} else {
 					long current_day = currentTime.getDate();
-					long reach_time_day = new Date(_route_stopage.getReached_time()).getDate();
+					long reach_time_day = new Date(_route_stopage.getReached_timeEx()).getDate();
 					if ((current_day == reach_time_day) && (currentDayTime > routeEndDayTime)) {
 						System.out.println("Invalid Route - Today Done route");
 						long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
