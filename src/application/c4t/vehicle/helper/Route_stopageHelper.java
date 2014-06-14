@@ -278,6 +278,7 @@ public class Route_stopageHelper extends BaseHelper {
 				long routeStartDayTime = TimeUtil.getDayTime(_route.getStart_time());
 				long routeEndDayTime = TimeUtil.getDayTime(_route.getEnd_time());
 				Date currentTime = new Date();
+				long currentDayTime = TimeUtil.getDayTime(_appliance.getTimeZone(),currentTime);
 				long timediff = currentTime.getTime() -_route_stopage.getReached_timeEx();
 				long duration = (routeEndDayTime -routeStartDayTime)*1000 + (5*60*1000L);
 				long reachedTime = TimeUtil.getDayTime(_appliance.getTimeZone(),_route_stopage.getReached_timeEx());
@@ -351,15 +352,17 @@ public class Route_stopageHelper extends BaseHelper {
 						_route_stopage.setReached_duration(getDuration(_appliance.getTimeZone(),lastReachTime));
 					}
 				} else {
-					System.out.println("Invalid Route");
 					long current_day = currentTime.getDate();
 					long reach_time_day = new Date(_route_stopage.getReached_time()).getDate();
-					if (current_day != reach_time_day) {
-						lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
-						_route_stopage.setReached_time(lastReachTime);
+					if ((current_day == reach_time_day) && (currentDayTime > routeEndDayTime)) {
+						System.out.println("Invalid Route - Today Done route");
+						_route_stopage.setReached("Y");
+						lastReachTime = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date(_route_stopage.getReached_time()));
 						_route_stopage.setReached_duration(getDuration(_appliance.getTimeZone(),lastReachTime));
 					} else {
-						lastReachTime = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date(_route_stopage.getReached_time()));
+						System.out.println("Invalid Route - Next Day route");
+						lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
+						_route_stopage.setReached_time(lastReachTime);
 						_route_stopage.setReached_duration(getDuration(_appliance.getTimeZone(),lastReachTime));
 					}
 				}
