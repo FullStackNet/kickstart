@@ -313,6 +313,16 @@ public class TimeUtil {
 		return dayTime;
 	}
 	
+	public static String getDayTimeString(String timeZone,Date time) {
+		if (timeZone == null)
+			timeZone = "IST";
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		cal.setTime(time);
+		long hr = cal.get(Calendar.HOUR_OF_DAY);
+		long mm = cal.get(Calendar.MINUTE);
+		long ss = cal.get(Calendar.SECOND);
+		return String.format("%02d:%02d:%02d",hr,mm,ss);
+	}
 	public static long getDayTime(String time) {
 		long dayTime = 0;
 		time = time.trim();

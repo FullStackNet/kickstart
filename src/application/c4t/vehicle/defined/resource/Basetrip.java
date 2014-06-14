@@ -21,29 +21,37 @@ import java.util.*;
 public abstract class Basetrip extends BaseResource {
 	private String id = null;
 	private String appliance_id = null;
+	private String appliance_name = null;
 	private String route_id = null;
+	private String route_name = null;
 	private String school_id = null;
 	private String scheduled_start_time = null;
 	private String scheduled_reached_time = null;
 	private String start_time = null;
 	private String reached_time = null;
 	private String driver_id = null;
+	private String driver_name = null;
 	private String helper_id = null;
 	private String alternate_helper_id = null;
 	private Long delayed = null;
+	private Long creation_time = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_APPLIANCE_ID = "appliance_id";
+	public static String FIELD_APPLIANCE_NAME = "appliance_name";
 	public static String FIELD_ROUTE_ID = "route_id";
+	public static String FIELD_ROUTE_NAME = "route_name";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_SCHEDULED_START_TIME = "scheduled_start_time";
 	public static String FIELD_SCHEDULED_REACHED_TIME = "scheduled_reached_time";
 	public static String FIELD_START_TIME = "start_time";
 	public static String FIELD_REACHED_TIME = "reached_time";
 	public static String FIELD_DRIVER_ID = "driver_id";
+	public static String FIELD_DRIVER_NAME = "driver_name";
 	public static String FIELD_HELPER_ID = "helper_id";
 	public static String FIELD_ALTERNATE_HELPER_ID = "alternate_helper_id";
 	public static String FIELD_DELAYED = "delayed";
+	public static String FIELD_CREATION_TIME = "creation_time";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("trip");
@@ -60,9 +68,17 @@ public abstract class Basetrip extends BaseResource {
 		appliance_idField.setLength(128);
 		metaData.addField(appliance_idField);
 
+		Field appliance_nameField = new Field("appliance_name", "String");
+		appliance_nameField.setLength(128);
+		metaData.addField(appliance_nameField);
+
 		Field route_idField = new Field("route_id", "String");
 		route_idField.setLength(128);
 		metaData.addField(route_idField);
+
+		Field route_nameField = new Field("route_name", "String");
+		route_nameField.setLength(128);
+		metaData.addField(route_nameField);
 
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(128);
@@ -84,6 +100,10 @@ public abstract class Basetrip extends BaseResource {
 		driver_idField.setLength(128);
 		metaData.addField(driver_idField);
 
+		Field driver_nameField = new Field("driver_name", "String");
+		driver_nameField.setLength(128);
+		metaData.addField(driver_nameField);
+
 		Field helper_idField = new Field("helper_id", "String");
 		helper_idField.setLength(128);
 		metaData.addField(helper_idField);
@@ -94,6 +114,9 @@ public abstract class Basetrip extends BaseResource {
 
 		Field delayedField = new Field("delayed", "long");
 		metaData.addField(delayedField);
+
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
 
 
 		metaData.setTableName("trip");
@@ -106,16 +129,20 @@ public abstract class Basetrip extends BaseResource {
 	public Basetrip(Basetrip obj) {
 		this.id = obj.id;
 		this.appliance_id = obj.appliance_id;
+		this.appliance_name = obj.appliance_name;
 		this.route_id = obj.route_id;
+		this.route_name = obj.route_name;
 		this.school_id = obj.school_id;
 		this.scheduled_start_time = obj.scheduled_start_time;
 		this.scheduled_reached_time = obj.scheduled_reached_time;
 		this.start_time = obj.start_time;
 		this.reached_time = obj.reached_time;
 		this.driver_id = obj.driver_id;
+		this.driver_name = obj.driver_name;
 		this.helper_id = obj.helper_id;
 		this.alternate_helper_id = obj.alternate_helper_id;
 		this.delayed = obj.delayed;
+		this.creation_time = obj.creation_time;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -128,8 +155,12 @@ public abstract class Basetrip extends BaseResource {
 			map.put("id", id);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
+		if(appliance_name != null)
+			map.put("appliance_name", appliance_name);
 		if(route_id != null)
 			map.put("route_id", route_id);
+		if(route_name != null)
+			map.put("route_name", route_name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(scheduled_start_time != null)
@@ -142,12 +173,16 @@ public abstract class Basetrip extends BaseResource {
 			map.put("reached_time", reached_time);
 		if(driver_id != null)
 			map.put("driver_id", driver_id);
+		if(driver_name != null)
+			map.put("driver_name", driver_name);
 		if(helper_id != null)
 			map.put("helper_id", helper_id);
 		if(alternate_helper_id != null)
 			map.put("alternate_helper_id", alternate_helper_id);
 		if(delayed != null)
 			map.put("delayed", delayed);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		return map;
 	}
 
@@ -157,8 +192,12 @@ public abstract class Basetrip extends BaseResource {
 			map.put("id", id);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
+		if(appliance_name != null)
+			map.put("appliance_name", appliance_name);
 		if(route_id != null)
 			map.put("route_id", route_id);
+		if(route_name != null)
+			map.put("route_name", route_name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(scheduled_start_time != null)
@@ -171,12 +210,16 @@ public abstract class Basetrip extends BaseResource {
 			map.put("reached_time", reached_time);
 		if(driver_id != null)
 			map.put("driver_id", driver_id);
+		if(driver_name != null)
+			map.put("driver_name", driver_name);
 		if(helper_id != null)
 			map.put("helper_id", helper_id);
 		if(alternate_helper_id != null)
 			map.put("alternate_helper_id", alternate_helper_id);
 		if(delayed != null)
 			map.put("delayed", delayed);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		return map;
 	}
 
@@ -188,16 +231,20 @@ public abstract class Basetrip extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		appliance_id = (String) map.get("appliance_id");
+		appliance_name = (String) map.get("appliance_name");
 		route_id = (String) map.get("route_id");
+		route_name = (String) map.get("route_name");
 		school_id = (String) map.get("school_id");
 		scheduled_start_time = (String) map.get("scheduled_start_time");
 		scheduled_reached_time = (String) map.get("scheduled_reached_time");
 		start_time = (String) map.get("start_time");
 		reached_time = (String) map.get("reached_time");
 		driver_id = (String) map.get("driver_id");
+		driver_name = (String) map.get("driver_name");
 		helper_id = (String) map.get("helper_id");
 		alternate_helper_id = (String) map.get("alternate_helper_id");
 		delayed = (Long) map.get("delayed");
+		creation_time = (Long) map.get("creation_time");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -209,9 +256,17 @@ public abstract class Basetrip extends BaseResource {
 		if(appliance_idObj != null)
 			appliance_id = appliance_idObj.toString();
 
+		Object appliance_nameObj = map.get("appliance_name");
+		if(appliance_nameObj != null)
+			appliance_name = appliance_nameObj.toString();
+
 		Object route_idObj = map.get("route_id");
 		if(route_idObj != null)
 			route_id = route_idObj.toString();
+
+		Object route_nameObj = map.get("route_name");
+		if(route_nameObj != null)
+			route_name = route_nameObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -237,6 +292,10 @@ public abstract class Basetrip extends BaseResource {
 		if(driver_idObj != null)
 			driver_id = driver_idObj.toString();
 
+		Object driver_nameObj = map.get("driver_name");
+		if(driver_nameObj != null)
+			driver_name = driver_nameObj.toString();
+
 		Object helper_idObj = map.get("helper_id");
 		if(helper_idObj != null)
 			helper_id = helper_idObj.toString();
@@ -248,6 +307,10 @@ public abstract class Basetrip extends BaseResource {
 		Object delayedObj = map.get("delayed");
 		if(delayedObj != null)
 			delayed = new Long(delayedObj.toString());
+
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 	}
 
@@ -295,6 +358,22 @@ public abstract class Basetrip extends BaseResource {
 		this.appliance_id = null;
 	}
 
+	public String getAppliance_name() {
+		return appliance_name;
+	}
+
+	public String getAppliance_nameEx() {
+		return appliance_name != null ? appliance_name : "";
+	}
+
+	public void setAppliance_name(String appliance_name) {
+		this.appliance_name = appliance_name;
+	}
+
+	public void unSetAppliance_name() {
+		this.appliance_name = null;
+	}
+
 	public String getRoute_id() {
 		return route_id;
 	}
@@ -309,6 +388,22 @@ public abstract class Basetrip extends BaseResource {
 
 	public void unSetRoute_id() {
 		this.route_id = null;
+	}
+
+	public String getRoute_name() {
+		return route_name;
+	}
+
+	public String getRoute_nameEx() {
+		return route_name != null ? route_name : "";
+	}
+
+	public void setRoute_name(String route_name) {
+		this.route_name = route_name;
+	}
+
+	public void unSetRoute_name() {
+		this.route_name = null;
 	}
 
 	public String getSchool_id() {
@@ -407,6 +502,22 @@ public abstract class Basetrip extends BaseResource {
 		this.driver_id = null;
 	}
 
+	public String getDriver_name() {
+		return driver_name;
+	}
+
+	public String getDriver_nameEx() {
+		return driver_name != null ? driver_name : "";
+	}
+
+	public void setDriver_name(String driver_name) {
+		this.driver_name = driver_name;
+	}
+
+	public void unSetDriver_name() {
+		this.driver_name = null;
+	}
+
 	public String getHelper_id() {
 		return helper_id;
 	}
@@ -458,6 +569,15 @@ public abstract class Basetrip extends BaseResource {
 	public void unSetDelayed() {
 		this.delayed = null;
 	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
 	public String getCluster() {
 		return "DB_LOG";
 	}

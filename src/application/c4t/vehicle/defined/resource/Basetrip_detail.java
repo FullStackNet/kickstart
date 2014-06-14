@@ -22,6 +22,8 @@ public abstract class Basetrip_detail extends BaseResource {
 	private String id = null;
 	private String trip_id = null;
 	private String stopage_id = null;
+	private String route_stopage_id = null;
+	private String stopage_name = null;
 	private String schedule_reach_time = null;
 	private String reach_time = null;
 	private Long delay_time = null;
@@ -29,6 +31,8 @@ public abstract class Basetrip_detail extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_TRIP_ID = "trip_id";
 	public static String FIELD_STOPAGE_ID = "stopage_id";
+	public static String FIELD_ROUTE_STOPAGE_ID = "route_stopage_id";
+	public static String FIELD_STOPAGE_NAME = "stopage_name";
 	public static String FIELD_SCHEDULE_REACH_TIME = "schedule_reach_time";
 	public static String FIELD_REACH_TIME = "reach_time";
 	public static String FIELD_DELAY_TIME = "delay_time";
@@ -52,6 +56,14 @@ public abstract class Basetrip_detail extends BaseResource {
 		stopage_idField.setLength(128);
 		metaData.addField(stopage_idField);
 
+		Field route_stopage_idField = new Field("route_stopage_id", "String");
+		route_stopage_idField.setLength(128);
+		metaData.addField(route_stopage_idField);
+
+		Field stopage_nameField = new Field("stopage_name", "String");
+		stopage_nameField.setLength(128);
+		metaData.addField(stopage_nameField);
+
 		Field schedule_reach_timeField = new Field("schedule_reach_time", "String");
 		metaData.addField(schedule_reach_timeField);
 
@@ -73,6 +85,8 @@ public abstract class Basetrip_detail extends BaseResource {
 		this.id = obj.id;
 		this.trip_id = obj.trip_id;
 		this.stopage_id = obj.stopage_id;
+		this.route_stopage_id = obj.route_stopage_id;
+		this.stopage_name = obj.stopage_name;
 		this.schedule_reach_time = obj.schedule_reach_time;
 		this.reach_time = obj.reach_time;
 		this.delay_time = obj.delay_time;
@@ -90,6 +104,10 @@ public abstract class Basetrip_detail extends BaseResource {
 			map.put("trip_id", trip_id);
 		if(stopage_id != null)
 			map.put("stopage_id", stopage_id);
+		if(route_stopage_id != null)
+			map.put("route_stopage_id", route_stopage_id);
+		if(stopage_name != null)
+			map.put("stopage_name", stopage_name);
 		if(schedule_reach_time != null)
 			map.put("schedule_reach_time", schedule_reach_time);
 		if(reach_time != null)
@@ -107,6 +125,10 @@ public abstract class Basetrip_detail extends BaseResource {
 			map.put("trip_id", trip_id);
 		if(stopage_id != null)
 			map.put("stopage_id", stopage_id);
+		if(route_stopage_id != null)
+			map.put("route_stopage_id", route_stopage_id);
+		if(stopage_name != null)
+			map.put("stopage_name", stopage_name);
 		if(schedule_reach_time != null)
 			map.put("schedule_reach_time", schedule_reach_time);
 		if(reach_time != null)
@@ -125,6 +147,8 @@ public abstract class Basetrip_detail extends BaseResource {
 		id = (String) map.get("id");
 		trip_id = (String) map.get("trip_id");
 		stopage_id = (String) map.get("stopage_id");
+		route_stopage_id = (String) map.get("route_stopage_id");
+		stopage_name = (String) map.get("stopage_name");
 		schedule_reach_time = (String) map.get("schedule_reach_time");
 		reach_time = (String) map.get("reach_time");
 		delay_time = (Long) map.get("delay_time");
@@ -142,6 +166,14 @@ public abstract class Basetrip_detail extends BaseResource {
 		Object stopage_idObj = map.get("stopage_id");
 		if(stopage_idObj != null)
 			stopage_id = stopage_idObj.toString();
+
+		Object route_stopage_idObj = map.get("route_stopage_id");
+		if(route_stopage_idObj != null)
+			route_stopage_id = route_stopage_idObj.toString();
+
+		Object stopage_nameObj = map.get("stopage_name");
+		if(stopage_nameObj != null)
+			stopage_name = stopage_nameObj.toString();
 
 		Object schedule_reach_timeObj = map.get("schedule_reach_time");
 		if(schedule_reach_timeObj != null)
@@ -215,6 +247,38 @@ public abstract class Basetrip_detail extends BaseResource {
 
 	public void unSetStopage_id() {
 		this.stopage_id = null;
+	}
+
+	public String getRoute_stopage_id() {
+		return route_stopage_id;
+	}
+
+	public String getRoute_stopage_idEx() {
+		return route_stopage_id != null ? route_stopage_id : "";
+	}
+
+	public void setRoute_stopage_id(String route_stopage_id) {
+		this.route_stopage_id = route_stopage_id;
+	}
+
+	public void unSetRoute_stopage_id() {
+		this.route_stopage_id = null;
+	}
+
+	public String getStopage_name() {
+		return stopage_name;
+	}
+
+	public String getStopage_nameEx() {
+		return stopage_name != null ? stopage_name : "";
+	}
+
+	public void setStopage_name(String stopage_name) {
+		this.stopage_name = stopage_name;
+	}
+
+	public void unSetStopage_name() {
+		this.stopage_name = null;
 	}
 
 	public String getSchedule_reach_time() {

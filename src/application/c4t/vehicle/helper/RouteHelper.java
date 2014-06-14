@@ -19,12 +19,14 @@ import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
 import platform.util.location.LocationUtil;
+import application.c4t.vehicle.resource.driver;
 import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.resource.route_cordinate;
 import application.c4t.vehicle.resource.route_cordinate_raw;
 import application.c4t.vehicle.resource.route_stopage;
 import application.c4t.vehicle.resource.stopage;
 import application.c4t.vehicle.resource.trip;
+import application.c4t.vehicle.resource.trip_detail;
 
 
 public class RouteHelper extends BaseHelper {
@@ -47,21 +49,21 @@ public class RouteHelper extends BaseHelper {
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getDropRoutesForCustomer(String customerId) {
 		Expression e1 = new platform.db.Expression(route.FIELD_CUSTOMER_ID, REL_OP.EQ, customerId);
 		Expression e2= new platform.db.Expression(route.FIELD_TYPE, REL_OP.EQ, route.ROUTE_TYPE_DROP);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e);
 	}
-	
-	
-	
+
+
+
 	public boolean isValidRoute(route _route, String timeZone) {
 		return isValidRoute(_route, new Date(), timeZone);
 	}
 
-	
+
 	public boolean isValidRoute(route _route, Date logTime , String timeZone) {
 		if (!"Y".equals(_route.getActive()))
 			return false;
@@ -79,7 +81,7 @@ public class RouteHelper extends BaseHelper {
 		Expression e = new Expression(route.FIELD_APPLIANCE_ID, REL_OP.EQ, applianceId);
 		return getByExpression(e);
 	}
-	
+
 	public route getValidRoute(appliance _fetched_appliance, Date logTime) {
 		BaseResource[] routes = getRoutebyApplianceId(_fetched_appliance.getId());
 		if (Util.isEmpty(routes))
@@ -97,7 +99,7 @@ public class RouteHelper extends BaseHelper {
 		Date logTime = new Date();
 		return getValidRoute(_fetched_appliance,logTime);
 	}
-	
+
 	public void checkStopageAndSendNotification(String applianceId,String latitude, 
 			String longitude,Date logTime) {
 		appliance _appliance = ApplianceHelper.getInstance().getById(applianceId);
@@ -108,7 +110,7 @@ public class RouteHelper extends BaseHelper {
 		BaseResource[] cordinates = Route_cordinate_rawHelper.getInstance().getRouteCordinates(_route_stopage.getRoute_id());
 		if (Util.isEmpty(cordinates))
 			return;
-		
+
 		for(int i=0; i < cordinates.length ; i++) {
 			route_cordinate_raw raw = (route_cordinate_raw)cordinates[i];
 			long duration = logTime.getTime() - raw.getUpdate_time();
@@ -148,7 +150,7 @@ public class RouteHelper extends BaseHelper {
 		}
 		Route_cordinate_rawHelper.getInstance().deleteRouteCordinates(_route_stopage.getRoute_id());
 	}
-	
+
 	public void checkStopageAndSendNotification(appliance _fetched_appliance,String latitude, 
 			String longitude,Date logTime) {
 		if (latitude == null) return;
@@ -172,7 +174,7 @@ public class RouteHelper extends BaseHelper {
 
 		ApplianceHelper.getInstance().updateCurrentRoute(_fetched_appliance.getId(),
 				current_route.getId());
-		
+
 		if ("Y".equals(current_route.getActive())) {
 			route_cordinate_raw _cordinate_raw = new route_cordinate_raw();
 			_cordinate_raw.setRoute_id(current_route.getId());
@@ -189,11 +191,11 @@ public class RouteHelper extends BaseHelper {
 		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(current_route.getId());
 		if (Util.isEmpty(route_stopages))
 			return;
-	
+
 		double short_stopage_distance = 0;
 		route_stopage found_route_stopage = null;
 		stopage found_stopage = null;
-		
+
 		for(int i=0; i < route_stopages.length; i++) {
 			route_stopage _route_stopage = (route_stopage) route_stopages[i];
 			stopage _stopage = (stopage)StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
@@ -233,9 +235,9 @@ public class RouteHelper extends BaseHelper {
 				}
 			}
 		}
-		
+
 		if (found_route_stopage != null) {
-			
+
 			ApplicationLogger.info("Finally decided on this stop based on shortest distance "+ found_route_stopage.getNameEx() +" for "+ short_stopage_distance, this.getClass());
 			//sendNotification(_fetched_appliance, found_route_stopage);
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -250,16 +252,47 @@ public class RouteHelper extends BaseHelper {
 			Route_stopageHelper.getInstance().updateReachedTime(found_route_stopage.getId());
 			processCordinates(found_stopage,found_route_stopage,logTime);
 			String tripId = trip.id(current_route.getId(),_fetched_appliance.getTimeZone(), logTime, current_route.getStart_timeEx());
-			trip _trip = (trip)TripHelper.getInstance().getById(tripId);
-			if (_trip == null) {
-				_trip = new trip(tripId);
-				_trip.setAppliance_id(_fetched_appliance.getId());
-				_trip.setScheduled_start_time(current_route.getStart_time());
-				_trip.setScheduled_reached_time(current_route.getEnd_time());
-				_trip.setRoute_id(tripId);
-				_trip.setDriver_id(current_route.getDriver_id());
-			}  
-
+			if ("Y".equals(current_route.getRecord_trip())) {
+				trip _trip = (trip)TripHelper.getInstance().getById(tripId);
+				if (_trip == null) {
+					_trip = new trip(tripId);
+					_trip.setAppliance_id(_fetched_appliance.getId());
+					_trip.setAppliance_name(_fetched_appliance.getName());
+					_trip.setScheduled_start_time(current_route.getStart_time());
+					_trip.setScheduled_reached_time(current_route.getEnd_time());
+					_trip.setRoute_id(current_route.getId());
+					_trip.setRoute_name(current_route.getName());
+					_trip.setDriver_id(current_route.getDriver_id());
+					driver _driver = (driver)DriverHelper.getInstance().getById(current_route.getDriver_id());
+					if (_driver != null)
+						_trip.setDriver_name(_driver.getName());
+					try {
+						TripHelper.getInstance().add(_trip);
+					} catch (ApplicationException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}  
+				trip_detail _detail = new trip_detail();
+				_detail.setTrip_id(_trip.getId());
+				_detail.setStopage_name(found_stopage.getName());
+				_detail.setStopage_id(found_stopage.getId());
+				_detail.setRoute_stopage_id(found_route_stopage.getExpected_reachtime());
+				_detail.setReach_time(TimeUtil.getDayTimeString(_fetched_appliance.getTimeZone(),logTime));
+				long expected_reach_time = TimeUtil.getDayTime(found_route_stopage.getExpected_reachtime());
+				long reach_time = TimeUtil.getDayTime(_fetched_appliance.getTimeZone(),logTime.getTime());
+				if (reach_time > expected_reach_time) {
+					_detail.setDelay_time(reach_time-expected_reach_time);
+				} else {
+					_detail.setDelay_time(0);
+				}
+				try {
+					Trip_detailHelper.getInstance().add(_detail);
+				} catch (ApplicationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 }

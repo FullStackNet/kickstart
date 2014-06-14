@@ -15,7 +15,17 @@
 				'length': 128,
 				'type':'String'
 			},
+			'appliance_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'route_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'route_name':
 			{
 				'length': 128,
 				'type':'String'
@@ -46,6 +56,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'driver_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'helper_id':
 			{
 				'length': 128,
@@ -59,7 +74,11 @@
 			'delayed':
 			{
 				'type':'long'
-			}			
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			}		
 		}
 	}
 }

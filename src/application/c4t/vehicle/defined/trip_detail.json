@@ -20,6 +20,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'schedule_reach_time':
 			{
 				'type':'String'
