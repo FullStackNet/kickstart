@@ -352,9 +352,16 @@ public class Route_stopageHelper extends BaseHelper {
 					}
 				} else {
 					System.out.println("Invalid Route");
-					lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
-					_route_stopage.setReached_time(lastReachTime);
-					_route_stopage.setReached_duration(getDuration(_appliance.getTimeZone(),lastReachTime));
+					long current_day = currentTime.getDay();
+					long reach_time = _route_stopage.getReached_time();
+					if (current_day != reach_time) {
+						lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
+						_route_stopage.setReached_time(lastReachTime);
+						_route_stopage.setReached_duration(getDuration(_appliance.getTimeZone(),lastReachTime));
+					} else {
+						lastReachTime = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date(_route_stopage.getReached_time()));
+						_route_stopage.setReached_duration(getDuration(_appliance.getTimeZone(),lastReachTime));
+					}
 				}
 			}
 		}
