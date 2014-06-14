@@ -352,9 +352,9 @@ public class Route_stopageHelper extends BaseHelper {
 					}
 				} else {
 					System.out.println("Invalid Route");
-					long current_day = currentTime.getDay();
-					long reach_time = _route_stopage.getReached_time();
-					if (current_day != reach_time) {
+					long current_day = currentTime.getDate();
+					long reach_time_day = new Date(_route_stopage.getReached_time()).getDate();
+					if (current_day != reach_time_day) {
 						lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
 						_route_stopage.setReached_time(lastReachTime);
 						_route_stopage.setReached_duration(getDuration(_appliance.getTimeZone(),lastReachTime));
