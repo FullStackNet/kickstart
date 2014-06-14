@@ -356,9 +356,13 @@ public class Route_stopageHelper extends BaseHelper {
 					long reach_time_day = new Date(_route_stopage.getReached_time()).getDate();
 					if ((current_day == reach_time_day) && (currentDayTime > routeEndDayTime)) {
 						System.out.println("Invalid Route - Today Done route");
+						long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
 						_route_stopage.setReached("Y");
 						lastReachTime = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date(_route_stopage.getReached_time()));
-						_route_stopage.setReached_duration(getDuration(_appliance.getTimeZone(),lastReachTime));
+						_route_stopage.setReached_time(lastReachTime);
+						_route_stopage.setReached("Y");
+						reference = true;
+						_route_stopage.setReached_duration((int)(current_time - lastReachTime));
 					} else {
 						System.out.println("Invalid Route - Next Day route");
 						lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
