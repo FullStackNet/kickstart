@@ -360,8 +360,7 @@ public class Route_stopageHelper extends BaseHelper {
 						_route_stopage.setReached("Y");
 						lastReachTime = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date(_route_stopage.getReached_time()));
 						_route_stopage.setReached_time(lastReachTime);
-						_route_stopage.setReached("Y");
-						reference = true;
+						 reference = true;
 						_route_stopage.setReached_duration((int)(current_time - lastReachTime));
 					} else {
 						System.out.println("Invalid Route - Next Day route");

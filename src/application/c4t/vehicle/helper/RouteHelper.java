@@ -279,12 +279,14 @@ public class RouteHelper extends BaseHelper {
 				_detail.setStopage_id(found_stopage.getId());
 				_detail.setRoute_stopage_id(found_route_stopage.getExpected_reachtime());
 				_detail.setReach_time(TimeUtil.getDayTimeString(_fetched_appliance.getTimeZone(),logTime));
-				long expected_reach_time = TimeUtil.getDayTime(found_route_stopage.getExpected_reachtime());
-				long reach_time = TimeUtil.getDayTime(_fetched_appliance.getTimeZone(),logTime.getTime());
-				if (reach_time > expected_reach_time) {
-					_detail.setDelay_time(reach_time-expected_reach_time);
-				} else {
-					_detail.setDelay_time(0);
+				if (found_route_stopage.getExpected_reachtime() != null) {
+					long expected_reach_time = TimeUtil.getDayTime(found_route_stopage.getExpected_reachtime());
+					long reach_time = TimeUtil.getDayTime(_fetched_appliance.getTimeZone(),logTime.getTime());
+					if (reach_time > expected_reach_time) {
+						_detail.setDelay_time(reach_time-expected_reach_time);
+					} else {
+						_detail.setDelay_time(0);
+					}
 				}
 				try {
 					Trip_detailHelper.getInstance().add(_detail);
