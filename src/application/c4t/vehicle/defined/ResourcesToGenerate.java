@@ -33,5 +33,6 @@ public class ResourcesToGenerate {
 		new ResourceMap("route_cordinate", "application.c4t.vehicle.resource.route_cordinate"),
 		new ResourceMap("route_cordinate_raw", "application.c4t.vehicle.resource.route_cordinate_raw"),
 		new ResourceMap("vehicle_map", "application.c4t.vehicle.resource.vehicle_map"),
+		new ResourceMap("trip_detail", "application.c4t.vehicle.resource.trip_detail"),
 	};
 }

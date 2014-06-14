@@ -27,19 +27,19 @@
 			},
 			'scheduled_start_time':
 			{
-				'type':'timestamp'
+				'type':'String'
 			},
 			'scheduled_reached_time':
 			{
-				'type':'timestamp'
+				'type':'String'
 			},
 			'start_time':
 			{
-				'type':'timestamp'
+				'type':'String'
 			},
 			'reached_time':
 			{
-				'type':'timestamp'
+				'type':'String'
 			},
 			'driver_id':
 			{

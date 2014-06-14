@@ -1,0 +1,37 @@
+{
+	"trip_detail" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'trip_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'schedule_reach_time':
+			{
+				'type':'String'
+			},
+			'reach_time':
+			{
+				'type':'String'
+			},
+			'delay_time':
+			{
+				'type':'long'
+			}
+		}
+	}
+}

@@ -24,6 +24,7 @@ import application.c4t.vehicle.resource.route_cordinate;
 import application.c4t.vehicle.resource.route_cordinate_raw;
 import application.c4t.vehicle.resource.route_stopage;
 import application.c4t.vehicle.resource.stopage;
+import application.c4t.vehicle.resource.trip;
 
 
 public class RouteHelper extends BaseHelper {
@@ -234,6 +235,7 @@ public class RouteHelper extends BaseHelper {
 		}
 		
 		if (found_route_stopage != null) {
+			
 			ApplicationLogger.info("Finally decided on this stop based on shortest distance "+ found_route_stopage.getNameEx() +" for "+ short_stopage_distance, this.getClass());
 			//sendNotification(_fetched_appliance, found_route_stopage);
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -247,6 +249,17 @@ public class RouteHelper extends BaseHelper {
 					found_route_stopage.getId());
 			Route_stopageHelper.getInstance().updateReachedTime(found_route_stopage.getId());
 			processCordinates(found_stopage,found_route_stopage,logTime);
+			String tripId = trip.id(current_route.getId(),_fetched_appliance.getTimeZone(), logTime, current_route.getStart_timeEx());
+			trip _trip = (trip)TripHelper.getInstance().getById(tripId);
+			if (_trip == null) {
+				_trip = new trip(tripId);
+				_trip.setAppliance_id(_fetched_appliance.getId());
+				_trip.setScheduled_start_time(current_route.getStart_time());
+				_trip.setScheduled_reached_time(current_route.getEnd_time());
+				_trip.setRoute_id(tripId);
+				_trip.setDriver_id(current_route.getDriver_id());
+			}  
+
 		}
 	}
 }

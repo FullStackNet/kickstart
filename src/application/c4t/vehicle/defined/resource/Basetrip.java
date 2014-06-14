@@ -23,10 +23,10 @@ public abstract class Basetrip extends BaseResource {
 	private String appliance_id = null;
 	private String route_id = null;
 	private String school_id = null;
-	private Long scheduled_start_time = null;
-	private Long scheduled_reached_time = null;
-	private Long start_time = null;
-	private Long reached_time = null;
+	private String scheduled_start_time = null;
+	private String scheduled_reached_time = null;
+	private String start_time = null;
+	private String reached_time = null;
 	private String driver_id = null;
 	private String helper_id = null;
 	private String alternate_helper_id = null;
@@ -68,16 +68,16 @@ public abstract class Basetrip extends BaseResource {
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
 
-		Field scheduled_start_timeField = new Field("scheduled_start_time", "timestamp");
+		Field scheduled_start_timeField = new Field("scheduled_start_time", "String");
 		metaData.addField(scheduled_start_timeField);
 
-		Field scheduled_reached_timeField = new Field("scheduled_reached_time", "timestamp");
+		Field scheduled_reached_timeField = new Field("scheduled_reached_time", "String");
 		metaData.addField(scheduled_reached_timeField);
 
-		Field start_timeField = new Field("start_time", "timestamp");
+		Field start_timeField = new Field("start_time", "String");
 		metaData.addField(start_timeField);
 
-		Field reached_timeField = new Field("reached_time", "timestamp");
+		Field reached_timeField = new Field("reached_time", "String");
 		metaData.addField(reached_timeField);
 
 		Field driver_idField = new Field("driver_id", "String");
@@ -190,10 +190,10 @@ public abstract class Basetrip extends BaseResource {
 		appliance_id = (String) map.get("appliance_id");
 		route_id = (String) map.get("route_id");
 		school_id = (String) map.get("school_id");
-		scheduled_start_time = (Long) map.get("scheduled_start_time");
-		scheduled_reached_time = (Long) map.get("scheduled_reached_time");
-		start_time = (Long) map.get("start_time");
-		reached_time = (Long) map.get("reached_time");
+		scheduled_start_time = (String) map.get("scheduled_start_time");
+		scheduled_reached_time = (String) map.get("scheduled_reached_time");
+		start_time = (String) map.get("start_time");
+		reached_time = (String) map.get("reached_time");
 		driver_id = (String) map.get("driver_id");
 		helper_id = (String) map.get("helper_id");
 		alternate_helper_id = (String) map.get("alternate_helper_id");
@@ -219,19 +219,19 @@ public abstract class Basetrip extends BaseResource {
 
 		Object scheduled_start_timeObj = map.get("scheduled_start_time");
 		if(scheduled_start_timeObj != null)
-			scheduled_start_time = (Long) scheduled_start_timeObj;
+			scheduled_start_time = scheduled_start_timeObj.toString();
 
 		Object scheduled_reached_timeObj = map.get("scheduled_reached_time");
 		if(scheduled_reached_timeObj != null)
-			scheduled_reached_time = (Long) scheduled_reached_timeObj;
+			scheduled_reached_time = scheduled_reached_timeObj.toString();
 
 		Object start_timeObj = map.get("start_time");
 		if(start_timeObj != null)
-			start_time = (Long) start_timeObj;
+			start_time = start_timeObj.toString();
 
 		Object reached_timeObj = map.get("reached_time");
 		if(reached_timeObj != null)
-			reached_time = (Long) reached_timeObj;
+			reached_time = reached_timeObj.toString();
 
 		Object driver_idObj = map.get("driver_id");
 		if(driver_idObj != null)
@@ -327,41 +327,69 @@ public abstract class Basetrip extends BaseResource {
 		this.school_id = null;
 	}
 
-	public Long getScheduled_start_time() {
+	public String getScheduled_start_time() {
 		return scheduled_start_time;
 	}
 
-	public void setScheduled_start_time(Long scheduled_start_time) {
+	public String getScheduled_start_timeEx() {
+		return scheduled_start_time != null ? scheduled_start_time : "";
+	}
+
+	public void setScheduled_start_time(String scheduled_start_time) {
 		this.scheduled_start_time = scheduled_start_time;
 	}
 
+	public void unSetScheduled_start_time() {
+		this.scheduled_start_time = null;
+	}
 
-	public Long getScheduled_reached_time() {
+	public String getScheduled_reached_time() {
 		return scheduled_reached_time;
 	}
 
-	public void setScheduled_reached_time(Long scheduled_reached_time) {
+	public String getScheduled_reached_timeEx() {
+		return scheduled_reached_time != null ? scheduled_reached_time : "";
+	}
+
+	public void setScheduled_reached_time(String scheduled_reached_time) {
 		this.scheduled_reached_time = scheduled_reached_time;
 	}
 
+	public void unSetScheduled_reached_time() {
+		this.scheduled_reached_time = null;
+	}
 
-	public Long getStart_time() {
+	public String getStart_time() {
 		return start_time;
 	}
 
-	public void setStart_time(Long start_time) {
+	public String getStart_timeEx() {
+		return start_time != null ? start_time : "";
+	}
+
+	public void setStart_time(String start_time) {
 		this.start_time = start_time;
 	}
 
+	public void unSetStart_time() {
+		this.start_time = null;
+	}
 
-	public Long getReached_time() {
+	public String getReached_time() {
 		return reached_time;
 	}
 
-	public void setReached_time(Long reached_time) {
+	public String getReached_timeEx() {
+		return reached_time != null ? reached_time : "";
+	}
+
+	public void setReached_time(String reached_time) {
 		this.reached_time = reached_time;
 	}
 
+	public void unSetReached_time() {
+		this.reached_time = null;
+	}
 
 	public String getDriver_id() {
 		return driver_id;
