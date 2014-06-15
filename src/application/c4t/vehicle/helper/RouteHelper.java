@@ -256,6 +256,7 @@ public class RouteHelper extends BaseHelper {
 				trip _trip = (trip)TripHelper.getInstance().getById(tripId);
 				if (_trip == null) {
 					_trip = new trip(tripId);
+					_trip.setCustomer_id(current_route.getCustomer_id());
 					_trip.setAppliance_id(_fetched_appliance.getId());
 					_trip.setAppliance_name(_fetched_appliance.getName());
 					_trip.setScheduled_start_time(current_route.getStart_time());

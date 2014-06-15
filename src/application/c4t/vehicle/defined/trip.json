@@ -10,11 +10,17 @@
 				'required': true,
 				'type':'String'
 			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'appliance_id':
 			{
 				'length': 128,
 				'type':'String'
 			},
+			
 			'appliance_name':
 			{
 				'length': 128,

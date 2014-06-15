@@ -20,6 +20,7 @@ import java.util.*;
  */
 public abstract class Basetrip extends BaseResource {
 	private String id = null;
+	private String customer_id = null;
 	private String appliance_id = null;
 	private String appliance_name = null;
 	private String route_id = null;
@@ -37,6 +38,7 @@ public abstract class Basetrip extends BaseResource {
 	private Long creation_time = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_APPLIANCE_ID = "appliance_id";
 	public static String FIELD_APPLIANCE_NAME = "appliance_name";
 	public static String FIELD_ROUTE_ID = "route_id";
@@ -63,6 +65,10 @@ public abstract class Basetrip extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
 
 		Field appliance_idField = new Field("appliance_id", "String");
 		appliance_idField.setLength(128);
@@ -128,6 +134,7 @@ public abstract class Basetrip extends BaseResource {
 
 	public Basetrip(Basetrip obj) {
 		this.id = obj.id;
+		this.customer_id = obj.customer_id;
 		this.appliance_id = obj.appliance_id;
 		this.appliance_name = obj.appliance_name;
 		this.route_id = obj.route_id;
@@ -153,6 +160,8 @@ public abstract class Basetrip extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
 		if(appliance_name != null)
@@ -190,6 +199,8 @@ public abstract class Basetrip extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
 		if(appliance_name != null)
@@ -230,6 +241,7 @@ public abstract class Basetrip extends BaseResource {
 
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		customer_id = (String) map.get("customer_id");
 		appliance_id = (String) map.get("appliance_id");
 		appliance_name = (String) map.get("appliance_name");
 		route_id = (String) map.get("route_id");
@@ -251,6 +263,10 @@ public abstract class Basetrip extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		Object appliance_idObj = map.get("appliance_id");
 		if(appliance_idObj != null)
@@ -340,6 +356,22 @@ public abstract class Basetrip extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
 	public String getAppliance_id() {
