@@ -23,6 +23,7 @@ import platform.webservice.ui.html.TH;
 import platform.webservice.ui.html.THEAD;
 import platform.webservice.ui.html.TR;
 import platform.webservice.ui.html.UL;
+import platform.webservice.ui.renderer.BaseRenderer;
 import platform.webservice.ui.util.UIConstants;
 
 
@@ -75,17 +76,22 @@ public abstract class BaseReportTableView extends BaseView {
 		for (int i = 0; i < mDefinition.getFields().size(); i++) {
 			Field field = mDefinition.getFields().get(i);
 			TD td = new TD();
-			if (data.get(field.getName()) != null) {
-				String value = data.get(field.getName()).toString();
-				if (field.getType() == UIConstants.DATA_TYPE_TIMESTAMP) {
-					value = TimeUtil.getStringFromTime(mDefinition.getTimeZone(),Long.parseLong(value));
-				}
-				if (field.getType() == UIConstants.DATA_TYPE_DURATION) {
-					value = TimeUtil.getDurationString(Long.parseLong(value));
-				}
-				td.setText(value);
+			if (field.getRenderer() != null) {
+				BaseRenderer renderer = field.getRenderer();
+				td.addChild(renderer.render(field, data));
 			} else {
-				td.setText("-");
+				if (data.get(field.getName()) != null) {
+					String value = data.get(field.getName()).toString();
+					if (field.getType() == UIConstants.DATA_TYPE_TIMESTAMP) {
+						value = TimeUtil.getStringFromTime(mDefinition.getTimeZone(),Long.parseLong(value));
+					}
+					if (field.getType() == UIConstants.DATA_TYPE_DURATION) {
+						value = TimeUtil.getDurationString(Long.parseLong(value));
+					}
+					td.setText(value);
+				} else {
+					td.setText("-");
+				}
 			}
 			row.addChild(td);
 		}
