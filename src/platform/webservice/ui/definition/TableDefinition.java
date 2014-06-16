@@ -17,7 +17,8 @@ public class TableDefinition {
 	String modifyURL;
 	String timeZone;
 	boolean modifyButton;
-	
+	String detailURL;
+	boolean detailButton;	
 	boolean deleteButton;
 	String deleteURL;
 	
@@ -182,5 +183,17 @@ public class TableDefinition {
 	}
 	public void setDeleteURL(String deleteURL) {
 		this.deleteURL = deleteURL;
+	}
+	public String getDetailURL() {
+		return detailURL;
+	}
+	public void setDetailURL(String detailURL) {
+		this.detailURL = detailURL;
+	}
+	public boolean isDetailButton() {
+		return detailButton;
+	}
+	public void setDetailButton(boolean detailButton) {
+		this.detailButton = detailButton;
 	}
 }
