@@ -15,13 +15,13 @@ public enum DBNameEnum {
 			return "DB_DEVICE";
 		}
 	},
-	
+
 	DB_ANALYSIS {
 		public String toString() {
 			return "DB_ANALYSIS";
 		}
 	},
-	
+
 	DB_CONFIG {
 		public String toString() {
 			return "DB_CONFIG";
@@ -56,5 +56,15 @@ public enum DBNameEnum {
 		public String toString() {
 			return "DB_PACKET";
 		}
-	}
+	},
+	DB_CHAT {
+		public String toString() {
+			return "DB_CHAT";
+		}
+	},
+	DB_SCHOOL {
+		public String toString() {
+			return "DB_SCHOOL";
+		}
+	},
 }
