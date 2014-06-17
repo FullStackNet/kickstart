@@ -258,7 +258,7 @@ public class DbManager {
 		for(Map.Entry<String, BaseHelper> entry : helperMap.entrySet()) {
 			BaseHelper helper = entry.getValue();
 			try {
-				System.out.println("Creating Index for ... " + helper.getResource().getName());
+				System.out.println("Creating Index for ... " + helper.getResource().getMetaData().getName());
 				helper.createIndexes();
 			} catch (ApplicationException e) {
 				// TODO Auto-generated catch block
