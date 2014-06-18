@@ -43,7 +43,7 @@ public class InviteService extends BaseService{
 			map.put("STUDENT_NAME", _invite.getReference_name());
 			map.put("ACTIVATION_TOKEN", _invite.getKey());
 			map.put("SCHOOL_NAME", school_name);
-			map.put("ACTIVATE_URL", "http://my.cloud4things.com/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -81,7 +81,7 @@ public class InviteService extends BaseService{
 			map.put("TEACHER_NAME", _invite.getReference_name());
 			map.put("ACTIVATION_TOKEN", _invite.getKey());
 			map.put("SCHOOL_NAME", school_name);
-			map.put("ACTIVATE_URL", "http://my.cloud4things.com/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -117,7 +117,7 @@ public class InviteService extends BaseService{
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("NAME", _invite.getName());
 			map.put("ACTIVATION_TOKEN", _invite.getKey());
-			map.put("ACTIVATE_URL", "http://my.cloud4things.com/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 

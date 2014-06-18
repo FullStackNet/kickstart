@@ -116,9 +116,9 @@ public class EmailDispatcher {
 		if(doNotMail || Util.isEmpty(toEmailIds))
 			return;
 		// Replace all M16 tokens with empty string
+		message = message.replaceAll("!!!DOMAIN!!!", domainName);
 		subject = subject.replaceAll("!!!.*!!!", "");
 		message = message.replaceAll("!!!.*!!!", "");
-		
 		// Don't send any mail to WT enterprise admin (as that email doesn't exist). Ex: whistletalk@myntra.com
 		for (int i = 0; i < toEmailIds.length; i++) {
 			if (Util.isEmpty(toEmailIds[i]))
