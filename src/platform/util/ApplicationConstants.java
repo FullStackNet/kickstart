@@ -8,6 +8,7 @@ public class ApplicationConstants {
 	public static String V3_CONFIGURATION_FILE = "v3";
 	public static String V3TRACKER_CONFIGURATION_FILE = "v3tracker";
 	public static String CISTRACKER_CONFIGURATION_FILE = "cistracker";
+	public static String NETVOX_CONFIGURATION_FILE = "netvox";
 	public static String ACPTRACKER_CONFIGURATION_FILE = "acptracker";
 	public static int PROCESS_WAIT_TIME_BEFORE_EXIT = 10000;
 	
@@ -20,7 +21,16 @@ public class ApplicationConstants {
 	public static String PROPERTY_SELF_IP_ADDRESS = "self_ip_address";
 	public static String PROPERTY_DB_ENABLED = "db_enabled";
 	public static String PROPERTY_PROCESS_STAT_ENABLED = "process_stat_enabled";
+	public static String PROPERTY_CONTROLLER_TYPE = "controller_type";
+	public static String PROPERTY_CONTROLLER_USB_PORT = "controller_port";
+	public static String PROPERTY_CONTROLER_BUADRATE = "controller_buadrate";
+	public static String PROPERTY_CONTROLLER_IP = "controller_ip";
+	public static String PROPERTY_CONTROLLER_PORT = "controller_port";
 
+	
+	
+	
+	
 	
 	public static String PROPERTY_LOCATION = "location";
 	public static String PROPERTY_NAME = "name";
