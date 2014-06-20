@@ -186,6 +186,7 @@ public class ApplianceService extends BaseService{
 		QUERY_BUS_SIMULATOR,
 		QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN,
 		QUERY_GET_BY_ROUTE_ID,
+		QUERY_APPLIANCE_HOME_AUTOMATION
 	};
 
 	public BaseResource get(ServletContext ctx, String uid) {
@@ -196,6 +197,9 @@ public class ApplianceService extends BaseService{
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
 		if(QueryTypes.QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN.toString().equals(queryId)) {
 			return ApplianceHelper.getInstance().getSchoolBusAdminDetail(ctx.getCustomerId());
+		}
+		if(QueryTypes.QUERY_APPLIANCE_HOME_AUTOMATION.toString().equals(queryId)) {
+			return ApplianceHelper.getInstance().getByCustomerId(ctx.getCustomerId());
 		}
 		if(QueryTypes.QUERY_USER_APPLIANCES_SUMMARY.toString().equals(queryId)) {
 			System.out.println("Received Query "+queryId);
