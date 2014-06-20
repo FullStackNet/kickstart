@@ -31,7 +31,7 @@ public class Field {
 	boolean email;
 	String timeZone;
 	Link link;
-	
+	int width;
 	public DataSource getDatasource() {
 		return datasource;
 	}
@@ -242,5 +242,13 @@ public class Field {
 
 	public void setLink(Link link) {
 		this.link = link;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
 	}
 }

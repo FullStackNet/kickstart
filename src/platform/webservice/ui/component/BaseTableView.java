@@ -60,6 +60,9 @@ public abstract class BaseTableView extends BaseView {
 		for (int i = 0; i < mDefinition.getFields().size(); i++) {
 			Field field = mDefinition.getFields().get(i);
 			TH th = new TH();
+			if (field.getWidth() > 0) {
+				th.addAttribute("width",""+field.getWidth());
+			}
 			th.setText(field.getLabel());
 			row.addChild(th);
 		}
@@ -110,6 +113,9 @@ public abstract class BaseTableView extends BaseView {
 		for (int i = 0; i < mDefinition.getFields().size(); i++) {
 			Field field = mDefinition.getFields().get(i);
 			TD td = new TD();
+			if (field.getWidth() > 0) {
+				td.addAttribute("width",""+field.getWidth());
+			}
 			if (field.getRenderer() != null) {
 				BaseRenderer renderer = field.getRenderer();
 				td.addChild(renderer.render(field, data));
