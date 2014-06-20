@@ -24,4 +24,8 @@ public class TEXTAREA extends INPUT {
 		// TODO Auto-generated method stub
 		return "textarea";
 	}
+	
+	public boolean selfClosing() {
+		return false;
+	}
 }

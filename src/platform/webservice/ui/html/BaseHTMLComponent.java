@@ -46,7 +46,6 @@ public abstract class BaseHTMLComponent {
 	
 	public String getContent(int index) {
 		String space = "";
-		boolean selfclosing = true;
 		if (index >0) {
 			for(int i =0; i< index;i++) {
 				space = space + "  ";
@@ -62,14 +61,11 @@ public abstract class BaseHTMLComponent {
 					buffer.append(" "+attrList.get(i).getName()+"=\""+attrList.get(i).getValue()+"\"");
 			}
 		}
-		if ("textarea".equals(getTag())) {
-			selfclosing = false;
-		}
-		if (selfclosing && (getTag() != null) && selfClosing() && (getText() == null) && (childList.size() == 0)) {
+		if ((getTag() != null) && selfClosing() && (getText() == null) && (childList.size() == 0)) {
 			buffer.append(" /> \n");
 			return buffer.toString();
 		}
-		if (!selfclosing && (getTag() != null))
+		if ((getTag() != null))
 			buffer.append(">\n");
 	
 		if (getText() != null) {
@@ -82,7 +78,7 @@ public abstract class BaseHTMLComponent {
 			if (childList.get(i) == null) continue;
 			buffer.append(childList.get(i).getContent(index+1));
 		}
-		if (!selfclosing && getTag() != null) {
+		if (getTag() != null) {
 			buffer.append(space+"</"+getTag());
 			buffer.append("> \n");
 		}
