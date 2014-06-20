@@ -124,6 +124,12 @@
 				'type':'String',
 				'default' : "N"
 			},
+			'homeAutomationService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'schoolAdminService':
 			{
 				'length': 1,

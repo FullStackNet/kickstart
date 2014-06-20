@@ -23,6 +23,13 @@ public class customer extends Basecustomer {
 		return null;
 	}
 
+	public boolean isHomeAutomationEnabled() {
+		if ("Y".equalsIgnoreCase(getHomeAutomationService())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isFleetServiceEnable() {
 		if ("Y".equalsIgnoreCase(getFleetService())) {
 			return true;

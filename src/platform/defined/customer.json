@@ -75,6 +75,12 @@
 				'length': 1,
 				'type':'String'
 			},
+			'homeAutomationService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'selfOwned':
 			{
 				'length': 1,

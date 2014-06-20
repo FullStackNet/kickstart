@@ -38,6 +38,7 @@ public abstract class Baseuser extends BaseResource {
 	private String dgService = null;
 	private String key = null;
 	private String routeSettingService = null;
+	private String homeAutomationService = null;
 	private String schoolAdminService = null;
 
 	public static String FIELD_ID = "id";
@@ -59,6 +60,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_KEY = "key";
 	public static String FIELD_ROUTESETTINGSERVICE = "routeSettingService";
+	public static String FIELD_HOMEAUTOMATIONSERVICE = "homeAutomationService";
 	public static String FIELD_SCHOOLADMINSERVICE = "schoolAdminService";
 
 	private static final long serialVersionUID = 1L;
@@ -154,6 +156,11 @@ public abstract class Baseuser extends BaseResource {
 		routeSettingServiceField.setLength(1);
 		metaData.addField(routeSettingServiceField);
 
+		Field homeAutomationServiceField = new Field("homeAutomationService", "String");
+		homeAutomationServiceField.setDefaultValue("N");
+		homeAutomationServiceField.setLength(1);
+		metaData.addField(homeAutomationServiceField);
+
 		Field schoolAdminServiceField = new Field("schoolAdminService", "String");
 		schoolAdminServiceField.setDefaultValue("N");
 		schoolAdminServiceField.setLength(1);
@@ -187,6 +194,7 @@ public abstract class Baseuser extends BaseResource {
 		this.dgService = obj.dgService;
 		this.key = obj.key;
 		this.routeSettingService = obj.routeSettingService;
+		this.homeAutomationService = obj.homeAutomationService;
 		this.schoolAdminService = obj.schoolAdminService;
 	}
 
@@ -207,6 +215,8 @@ public abstract class Baseuser extends BaseResource {
 			dgService = "N";
 		if(routeSettingService == null)
 			routeSettingService = "N";
+		if(homeAutomationService == null)
+			homeAutomationService = "N";
 		if(schoolAdminService == null)
 			schoolAdminService = "N";
 	}
@@ -251,6 +261,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("key", key);
 		if(routeSettingService != null)
 			map.put("routeSettingService", routeSettingService);
+		if(homeAutomationService != null)
+			map.put("homeAutomationService", homeAutomationService);
 		if(schoolAdminService != null)
 			map.put("schoolAdminService", schoolAdminService);
 		return map;
@@ -299,6 +311,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("key", key);
 		if(routeSettingService != null)
 			map.put("routeSettingService", routeSettingService);
+		if(homeAutomationService != null)
+			map.put("homeAutomationService", homeAutomationService);
 		if(schoolAdminService != null)
 			map.put("schoolAdminService", schoolAdminService);
 		return map;
@@ -329,6 +343,7 @@ public abstract class Baseuser extends BaseResource {
 		dgService = (String) map.get("dgService");
 		key = (String) map.get("key");
 		routeSettingService = (String) map.get("routeSettingService");
+		homeAutomationService = (String) map.get("homeAutomationService");
 		schoolAdminService = (String) map.get("schoolAdminService");
 	}
 
@@ -408,6 +423,10 @@ public abstract class Baseuser extends BaseResource {
 		Object routeSettingServiceObj = map.get("routeSettingService");
 		if(routeSettingServiceObj != null)
 			routeSettingService = routeSettingServiceObj.toString();
+
+		Object homeAutomationServiceObj = map.get("homeAutomationService");
+		if(homeAutomationServiceObj != null)
+			homeAutomationService = homeAutomationServiceObj.toString();
 
 		Object schoolAdminServiceObj = map.get("schoolAdminService");
 		if(schoolAdminServiceObj != null)
@@ -717,6 +736,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetRouteSettingService() {
 		this.routeSettingService = "N";
+	}
+
+	public String getHomeAutomationService() {
+		return homeAutomationService != null ? homeAutomationService : "N";
+	}
+
+	public void setHomeAutomationService(String homeAutomationService) {
+		this.homeAutomationService = homeAutomationService;
+	}
+
+	public void unSetHomeAutomationService() {
+		this.homeAutomationService = "N";
 	}
 
 	public String getSchoolAdminService() {

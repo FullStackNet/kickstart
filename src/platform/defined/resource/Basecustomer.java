@@ -33,6 +33,7 @@ public abstract class Basecustomer extends BaseResource {
 	private String fleetService = null;
 	private String schoolTrackerService = null;
 	private String dgService = null;
+	private String homeAutomationService = null;
 	private String selfOwned = null;
 	private String leasedOut = null;
 	private String leasedIn = null;
@@ -51,6 +52,7 @@ public abstract class Basecustomer extends BaseResource {
 	public static String FIELD_FLEETSERVICE = "fleetService";
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
+	public static String FIELD_HOMEAUTOMATIONSERVICE = "homeAutomationService";
 	public static String FIELD_SELFOWNED = "selfOwned";
 	public static String FIELD_LEASEDOUT = "leasedOut";
 	public static String FIELD_LEASEDIN = "leasedIn";
@@ -118,6 +120,11 @@ public abstract class Basecustomer extends BaseResource {
 		dgServiceField.setLength(1);
 		metaData.addField(dgServiceField);
 
+		Field homeAutomationServiceField = new Field("homeAutomationService", "String");
+		homeAutomationServiceField.setDefaultValue("N");
+		homeAutomationServiceField.setLength(1);
+		metaData.addField(homeAutomationServiceField);
+
 		Field selfOwnedField = new Field("selfOwned", "String");
 		selfOwnedField.setLength(1);
 		metaData.addField(selfOwnedField);
@@ -153,6 +160,7 @@ public abstract class Basecustomer extends BaseResource {
 		this.fleetService = obj.fleetService;
 		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
+		this.homeAutomationService = obj.homeAutomationService;
 		this.selfOwned = obj.selfOwned;
 		this.leasedOut = obj.leasedOut;
 		this.leasedIn = obj.leasedIn;
@@ -160,6 +168,11 @@ public abstract class Basecustomer extends BaseResource {
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(homeAutomationService == null)
+			homeAutomationService = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -192,6 +205,8 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
 			map.put("dgService", dgService);
+		if(homeAutomationService != null)
+			map.put("homeAutomationService", homeAutomationService);
 		if(selfOwned != null)
 			map.put("selfOwned", selfOwned);
 		if(leasedOut != null)
@@ -202,6 +217,9 @@ public abstract class Basecustomer extends BaseResource {
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -231,6 +249,8 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
 			map.put("dgService", dgService);
+		if(homeAutomationService != null)
+			map.put("homeAutomationService", homeAutomationService);
 		if(selfOwned != null)
 			map.put("selfOwned", selfOwned);
 		if(leasedOut != null)
@@ -260,6 +280,7 @@ public abstract class Basecustomer extends BaseResource {
 		fleetService = (String) map.get("fleetService");
 		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
+		homeAutomationService = (String) map.get("homeAutomationService");
 		selfOwned = (String) map.get("selfOwned");
 		leasedOut = (String) map.get("leasedOut");
 		leasedIn = (String) map.get("leasedIn");
@@ -321,6 +342,10 @@ public abstract class Basecustomer extends BaseResource {
 		Object dgServiceObj = map.get("dgService");
 		if(dgServiceObj != null)
 			dgService = dgServiceObj.toString();
+
+		Object homeAutomationServiceObj = map.get("homeAutomationService");
+		if(homeAutomationServiceObj != null)
+			homeAutomationService = homeAutomationServiceObj.toString();
 
 		Object selfOwnedObj = map.get("selfOwned");
 		if(selfOwnedObj != null)
@@ -570,6 +595,18 @@ public abstract class Basecustomer extends BaseResource {
 
 	public void unSetDgService() {
 		this.dgService = null;
+	}
+
+	public String getHomeAutomationService() {
+		return homeAutomationService != null ? homeAutomationService : "N";
+	}
+
+	public void setHomeAutomationService(String homeAutomationService) {
+		this.homeAutomationService = homeAutomationService;
+	}
+
+	public void unSetHomeAutomationService() {
+		this.homeAutomationService = "N";
 	}
 
 	public String getSelfOwned() {
