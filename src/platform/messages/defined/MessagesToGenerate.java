@@ -40,6 +40,11 @@ public class MessagesToGenerate {
 		new MessageMap("Notification"), // 20/12/1
 		new MessageMap("ControllerPacketCapture"), // 20/13/1
 		new MessageMap("DeviceState"), // 20/14/1
+		new MessageMap("DeviceCurrent"), // 20/15/1
+		new MessageMap("DeviceVoltage"), // 20/16/1
+		new MessageMap("DevicePower"), // 20/17/1
+		new MessageMap("DeviceEnergy"), // 20/18/1
+		
 		
 		new MessageMap("MORegister"), // 6/1/1
 		new MessageMap("MOHeartbeat"), // 6/2/1
