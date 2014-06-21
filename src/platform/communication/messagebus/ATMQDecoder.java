@@ -33,7 +33,10 @@ public class ATMQDecoder {
 				} else if (field.getType().equals("float")) {
 					if (message.getObjectProperty(field.getName()) != null)
 						map.put(field.getName(), message.getFloatProperty(field.getName()));
-				}else if (field.getType().equals("String")) {
+				} else if (field.getType().equals("double")) {
+					if (message.getObjectProperty(field.getName()) != null)
+						map.put(field.getName(), message.getDoubleProperty(field.getName()));
+				} else if (field.getType().equals("String")) {
 					if (message.getObjectProperty(field.getName()) != null)
 						map.put(field.getName(), message.getStringProperty(field.getName()));
 				} else if (field.getType().equals("byte[]")) {

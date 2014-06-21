@@ -29,7 +29,9 @@ public class ATMQEncoder {
 					message.setLongProperty(field.getName(), (Long)map.get(field.getName()));
 				} else if (field.getType().equals("float")) {
 					message.setFloatProperty(field.getName(), (Float)map.get(field.getName()));
-				}else if (field.getType().equals("String")) {
+				} else if (field.getType().equals("double")) {
+					message.setDoubleProperty(field.getName(), (Double)map.get(field.getName()));
+				} else if (field.getType().equals("String")) {
 					message.setStringProperty(field.getName(), (String)map.get(field.getName()));
 				} else if (field.getType().equals("byte[]")) {
 					
