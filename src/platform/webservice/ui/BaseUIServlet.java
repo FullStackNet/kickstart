@@ -126,6 +126,7 @@ public abstract class BaseUIServlet extends HttpServlet
 		setResponseParameters(response);
 		try {
 			UIServletContext ctx = new UIServletContext(getSessionIdFromCookie(request));
+			ctx.setResponse(response);
 			ctx.setDomainName(request.getServerName());
 			String userAgent = request.getHeader("User-Agent");
 			String httpAccept = request.getHeader("Accept");
@@ -159,7 +160,8 @@ public abstract class BaseUIServlet extends HttpServlet
 			} else {
 				buffer = getWebPage(ctx);
 			}
-			out.write(buffer.getBytes());
+			if (buffer != null)
+				out.write(buffer.getBytes());
 		} catch(ApplicationException e) {
 			e.printStackTrace();
 		}

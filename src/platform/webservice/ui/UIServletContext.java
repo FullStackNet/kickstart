@@ -3,6 +3,8 @@ package platform.webservice.ui;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import platform.helper.SessionHelper;
 import platform.resource.session;
 import platform.util.ApplicationException;
@@ -19,6 +21,8 @@ public class UIServletContext {
 	UAgentInfo uagentInfo;
 	String mobile;
 	Map<String , String> params;
+	HttpServletResponse response;
+	
 	public void setMobileRequest(String mobile) {
 		this.mobile = mobile;
 	}
@@ -153,5 +157,13 @@ public class UIServletContext {
 
 	public void setDomainName(String domainName) {
 		this.domainName = domainName;
+	}
+
+	public HttpServletResponse getResponse() {
+		return response;
+	}
+
+	public void setResponse(HttpServletResponse response) {
+		this.response = response;
 	}
 }
