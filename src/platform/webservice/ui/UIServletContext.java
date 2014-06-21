@@ -12,6 +12,7 @@ import platform.webservice.ui.util.PageBuilder;
 
 
 public class UIServletContext {
+	String domainName;
 	private session _session;
 	String sessionId;
 	PageBuilder mPageBuilder;
@@ -144,5 +145,13 @@ public class UIServletContext {
 
 	public void setUagentInfo(UAgentInfo uagentInfo) {
 		this.uagentInfo = uagentInfo;
+	}
+
+	public String getDomainName() {
+		return domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
 	}
 }

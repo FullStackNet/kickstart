@@ -23,12 +23,20 @@ public class HeaderView extends BaseView {
 	}
 	
 	public void buildUI() {
-		Div logoImageDiv = new Div(null, "logo");
-        IMG logoImg = new IMG();
-        logoImg.setSRC(ImageUtils.HEADER_LOGO);
-        logoImageDiv.addChild(logoImg);
-        headerDiv.addChild(logoImageDiv);
-
+		if (mContext.getDomainName().equals("connect2parent.com")) {
+			Div logoImageDiv = new Div(null, "logo");
+			IMG logoImg = new IMG();
+	        logoImg.setSRC(ImageUtils.C2P_HEADER_LOGO);
+	        logoImageDiv.addChild(logoImg);
+	        headerDiv.addChild(logoImageDiv);
+		} else {
+			Div logoImageDiv = new Div(null, "logo");
+	        IMG logoImg = new IMG();
+	        logoImg.setSRC(ImageUtils.HEADER_LOGO);
+	        logoImageDiv.addChild(logoImg);
+	        headerDiv.addChild(logoImageDiv);
+		}
+        
         Div headerMenuDiv = new Div(null, "menu");
         UL menuContainer = new UL();
         MenuItem item = new MenuItem(" ", "/ui/myarea", ImageUtils.TAB_MONITOR);
