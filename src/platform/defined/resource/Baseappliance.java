@@ -89,6 +89,7 @@ public abstract class Baseappliance extends BaseResource {
 	private Integer voltage = null;
 	private Integer current = null;
 	private Number power = null;
+	private Number energy = null;
 	private Number temperature = null;
 	private Number humidity = null;
 	private String mode = null;
@@ -258,6 +259,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_VOLTAGE = "voltage";
 	public static String FIELD_CURRENT = "current";
 	public static String FIELD_POWER = "power";
+	public static String FIELD_ENERGY = "energy";
 	public static String FIELD_TEMPERATURE = "temperature";
 	public static String FIELD_HUMIDITY = "humidity";
 	public static String FIELD_MODE = "mode";
@@ -688,6 +690,12 @@ public abstract class Baseappliance extends BaseResource {
 		powerField.setLength(16);
 		powerField.setPrecision(4);
 		metaData.addField(powerField);
+
+		Field energyField = new Field("energy", "Number");
+		energyField.setDefaultValue(0.0000);
+		energyField.setLength(16);
+		energyField.setPrecision(4);
+		metaData.addField(energyField);
 
 		Field temperatureField = new Field("temperature", "Number");
 		temperatureField.setDefaultValue(0.00);
@@ -1220,6 +1228,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.voltage = obj.voltage;
 		this.current = obj.current;
 		this.power = obj.power;
+		this.energy = obj.energy;
 		this.temperature = obj.temperature;
 		this.humidity = obj.humidity;
 		this.mode = obj.mode;
@@ -1395,6 +1404,8 @@ public abstract class Baseappliance extends BaseResource {
 			current = 0;
 		if(power == null)
 			power = 0.0000;
+		if(energy == null)
+			energy = 0.0000;
 		if(temperature == null)
 			temperature = 0.00;
 		if(humidity == null)
@@ -1675,6 +1686,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("current", current);
 		if(power != null)
 			map.put("power", power);
+		if(energy != null)
+			map.put("energy", energy);
 		if(temperature != null)
 			map.put("temperature", temperature);
 		if(humidity != null)
@@ -2019,6 +2032,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("current", current);
 		if(power != null)
 			map.put("power", power);
+		if(energy != null)
+			map.put("energy", energy);
 		if(temperature != null)
 			map.put("temperature", temperature);
 		if(humidity != null)
@@ -2291,6 +2306,7 @@ public abstract class Baseappliance extends BaseResource {
 		voltage = (Integer) map.get("voltage");
 		current = (Integer) map.get("current");
 		power = (Number) map.get("power");
+		energy = (Number) map.get("energy");
 		temperature = (Number) map.get("temperature");
 		humidity = (Number) map.get("humidity");
 		mode = (String) map.get("mode");
@@ -2655,6 +2671,10 @@ public abstract class Baseappliance extends BaseResource {
 		Object powerObj = map.get("power");
 		if(powerObj != null)
 			power = new Double(powerObj.toString());
+
+		Object energyObj = map.get("energy");
+		if(energyObj != null)
+			energy = new Double(energyObj.toString());
 
 		Object temperatureObj = map.get("temperature");
 		if(temperatureObj != null)
@@ -4055,6 +4075,18 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetPower() {
 		this.power = 0.0000;
+	}
+
+	public Number getEnergy() {
+		return energy != null ? energy : 0.0000;
+	}
+
+	public void setEnergy(Number energy) {
+		this.energy = energy;
+	}
+
+	public void unSetEnergy() {
+		this.energy = 0.0000;
 	}
 
 	public Number getTemperature() {

@@ -481,6 +481,14 @@
 				'precision': 4,
 				'type':'Number'
 			},
+			'energy':
+			{
+				'name':'energy',
+				'default':'0.0000',
+				'length': 16,
+				'precision': 4,
+				'type':'Number'
+			},
 			'temperature':
 			{
 				'name':'temperature',
