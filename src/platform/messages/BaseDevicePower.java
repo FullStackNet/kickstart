@@ -17,7 +17,7 @@ import platform.communication.*;
 public abstract class BaseDevicePower extends Message {
 	private static final long serialVersionUID = 1L;
 	private String deviceId = null;
-	private Byte state = null;
+	private Double value = null;
 
 
 	public BaseDevicePower() {
@@ -31,17 +31,17 @@ public abstract class BaseDevicePower extends Message {
  		if (fields != null) return ;
 		fields = new Field[2];
 		fields[0] =  new Field("deviceId","String",128);
-		fields[1] = new Field("state","byte");
+		fields[1] = new Field("value","double");
 	}
 
 	public void dump() {
 		System.out.println("deviceId	:	 "+deviceId);
-		System.out.println("state	:	 "+ (state == null ? 0 : state&0xFF));
+		System.out.println("value	:	 "+value);
 	}
 	public String getDump() {
 		String str="";
 		str = str +",deviceId:"+deviceId;
-		str = str +", state:"+ (state == null ? 0 : state&0xFF);
+		str = str +",value:"+value;
 		return str;
 	}
 
@@ -49,17 +49,17 @@ public abstract class BaseDevicePower extends Message {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(deviceId != null)
 			map.put("deviceId", deviceId);
-		if(state != null)
-			map.put("state", state);
+		if(value != null)
+			map.put("value", value);
 		return map;
 	}
 
 	public void convertMapToMessage(Map<String, Object> map) {
 		deviceId = (String) map.get("deviceId");
-		state = (Byte) map.get("state");
+		value = (Double) map.get("value");
 	}
 
- 	public int getMessageSize() {return 129;}
+ 	public int getMessageSize() {return 136;}
 
  	public String getName() {return "DevicePower";}
 
@@ -81,23 +81,23 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.deviceId = null;
 	}
 
-	public Byte getState() {
-		return state;
+	public Double getValue() {
+		return value;
 	}
 
-	public byte getStateEx() {
-		return state != null ? state : (byte) 0;
+	public double getValueEx() {
+		return value != null ? value : 0;
 	}
 
-	public void setState(byte state) {
-		this.state = state;
+	public void setValue(double value) {
+		this.value = value;
 	}
 
-	public void setState(Byte state) {
-		this.state = state;
+	public void setValue(Double value) {
+		this.value = value;
 	}
 
-	public void unSetState() {
-		this.state = null;
+	public void unSetValue() {
+		this.value = null;
 	}
 }

@@ -12,10 +12,10 @@
 				'type':'String',
 				'length' : 128
 			},
-			'state':
+			'value':
 			{
-				'name':'state',
-				'type':'byte'
+				'name':'value',
+				'type':'int'
 			}
 		}
 	}
