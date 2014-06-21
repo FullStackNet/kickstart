@@ -129,7 +129,8 @@ public abstract class BaseTableView extends BaseView {
 					if (field.getType() == UIConstants.DATA_TYPE_DURATION) {
 						value = TimeUtil.getDurationString(Long.parseLong(value));
 					} 
-
+					if (field.getUnit() != null)
+						value = value + " "+field.getUnit();
 					td.setText(value);
 				} else {
 					td.setText("-");
