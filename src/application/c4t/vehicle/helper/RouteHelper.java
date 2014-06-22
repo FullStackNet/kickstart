@@ -182,7 +182,15 @@ public class RouteHelper extends BaseHelper {
 						NotificationFactory.SEVERIRY_CRITICAL, data, 
 						logTime);
 				String tripId = trip.id(_route.getId(),_fetched_appliance.getTimeZone(), logTime, _route.getStart_timeEx());
-				
+				trip _trip = (trip)TripHelper.getInstance().getById(tripId);
+				if (_trip != null) {
+					try {
+						TripHelper.getInstance().incrementCounter(tripId, trip.FIELD_OVERSPEED_COUNT, 1);
+					} catch (ApplicationException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 			}
 		} else {
 			if ("Y".equals(_fetched_appliance.getOverSpeedState())) {
