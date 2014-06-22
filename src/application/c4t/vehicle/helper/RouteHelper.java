@@ -101,9 +101,9 @@ public class RouteHelper extends BaseHelper {
 	}
 
 	public void checkStopageAndSendNotification(String applianceId,String latitude, 
-			String longitude,Date logTime) {
+			String longitude,Integer speed, Date logTime) {
 		appliance _appliance = ApplianceHelper.getInstance().getById(applianceId);
-		checkStopageAndSendNotification(_appliance, latitude, longitude, logTime);
+		checkStopageAndSendNotification(_appliance, latitude, longitude, speed, logTime);
 	}
 
 	public void processCordinates(stopage _stopage, route_stopage _route_stopage, Date logTime) {
@@ -151,8 +151,48 @@ public class RouteHelper extends BaseHelper {
 		Route_cordinate_rawHelper.getInstance().deleteRouteCordinates(_route_stopage.getRoute_id());
 	}
 
+	public void checkOverSpeed(appliance _fetched_appliance, 
+			route _route,
+			String latitude, String longitude , Integer speed, Date logTime) {
+		
+		if (speed == null)
+			return;
+		if (_fetched_appliance.getThreshold_over_speed() == null)
+			return;
+		if (_fetched_appliance.getThreshold_over_speed() == 0)
+			return;
+		boolean overspeed = false;
+		if (speed >= 0) {
+			if ((_fetched_appliance.getThreshold_over_speed() != null)  && (_fetched_appliance.getThreshold_over_speed() >= 0)){
+				if (speed > _fetched_appliance.getThreshold_over_speed()) {
+					overspeed = true;
+				}
+			}
+		}
+		
+		if (overspeed) {
+			if (!"Y".equals(_fetched_appliance.getOverSpeedState())) {
+				ApplianceHelper.getInstance().updateOverSpeedState(_fetched_appliance.getId(), "Y");
+				Map<String, Object> data = new HashMap<String, Object>();
+				data.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LATITUDE, latitude);
+				data.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOGITUDE, longitude);
+				data.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ROUTE_NAME, _route.getName());
+				NotificationHelper.getInstance().addNotificationFromAppliance(_fetched_appliance.getId(), 
+						NotificationFactory.NOTIFICATION_OVER_SPEED, 
+						NotificationFactory.SEVERIRY_CRITICAL, data, 
+						logTime);
+				String tripId = trip.id(_route.getId(),_fetched_appliance.getTimeZone(), logTime, _route.getStart_timeEx());
+				
+			}
+		} else {
+			if ("Y".equals(_fetched_appliance.getOverSpeedState())) {
+				ApplianceHelper.getInstance().updateOverSpeedState(_fetched_appliance.getId(), "N");
+			}
+		}
+	}
+	
 	public void checkStopageAndSendNotification(appliance _fetched_appliance,String latitude, 
-			String longitude,Date logTime) {
+			String longitude,Integer speed, Date logTime) {
 		if (latitude == null) return;
 		if (longitude ==null) return;
 
@@ -188,6 +228,8 @@ public class RouteHelper extends BaseHelper {
 				e.printStackTrace();
 			}
 		}
+		checkOverSpeed(_fetched_appliance,current_route,latitude,longitude,speed,logTime);
+		
 		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(current_route.getId());
 		if (Util.isEmpty(route_stopages))
 			return;

@@ -160,6 +160,18 @@ public class ApplianceHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	public void updateOverSpeedState(String applianceId,String state) {
+		appliance _appliance = new appliance(applianceId);
+		_appliance.setOverSpeedState(state);
+		try {
+			ApplianceHelper.getInstance().update(_appliance);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void updateCurrentRoute(String applianceId,String currentRouteId) {
 		appliance _appliance = new appliance(applianceId);
 		_appliance.setCurrentRouteId(currentRouteId);

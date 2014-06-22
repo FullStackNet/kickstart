@@ -35,6 +35,7 @@ public abstract class Basetrip extends BaseResource {
 	private String helper_id = null;
 	private String alternate_helper_id = null;
 	private Long delayed = null;
+	private Long overspeed_count = null;
 	private Long creation_time = null;
 
 	public static String FIELD_ID = "id";
@@ -53,6 +54,7 @@ public abstract class Basetrip extends BaseResource {
 	public static String FIELD_HELPER_ID = "helper_id";
 	public static String FIELD_ALTERNATE_HELPER_ID = "alternate_helper_id";
 	public static String FIELD_DELAYED = "delayed";
+	public static String FIELD_OVERSPEED_COUNT = "overspeed_count";
 	public static String FIELD_CREATION_TIME = "creation_time";
 
 	private static final long serialVersionUID = 1L;
@@ -121,6 +123,9 @@ public abstract class Basetrip extends BaseResource {
 		Field delayedField = new Field("delayed", "long");
 		metaData.addField(delayedField);
 
+		Field overspeed_countField = new Field("overspeed_count", "long");
+		metaData.addField(overspeed_countField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -149,6 +154,7 @@ public abstract class Basetrip extends BaseResource {
 		this.helper_id = obj.helper_id;
 		this.alternate_helper_id = obj.alternate_helper_id;
 		this.delayed = obj.delayed;
+		this.overspeed_count = obj.overspeed_count;
 		this.creation_time = obj.creation_time;
 	}
 
@@ -190,6 +196,8 @@ public abstract class Basetrip extends BaseResource {
 			map.put("alternate_helper_id", alternate_helper_id);
 		if(delayed != null)
 			map.put("delayed", delayed);
+		if(overspeed_count != null)
+			map.put("overspeed_count", overspeed_count);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		return map;
@@ -229,6 +237,8 @@ public abstract class Basetrip extends BaseResource {
 			map.put("alternate_helper_id", alternate_helper_id);
 		if(delayed != null)
 			map.put("delayed", delayed);
+		if(overspeed_count != null)
+			map.put("overspeed_count", overspeed_count);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		return map;
@@ -256,6 +266,7 @@ public abstract class Basetrip extends BaseResource {
 		helper_id = (String) map.get("helper_id");
 		alternate_helper_id = (String) map.get("alternate_helper_id");
 		delayed = (Long) map.get("delayed");
+		overspeed_count = (Long) map.get("overspeed_count");
 		creation_time = (Long) map.get("creation_time");
 	}
 
@@ -323,6 +334,10 @@ public abstract class Basetrip extends BaseResource {
 		Object delayedObj = map.get("delayed");
 		if(delayedObj != null)
 			delayed = new Long(delayedObj.toString());
+
+		Object overspeed_countObj = map.get("overspeed_count");
+		if(overspeed_countObj != null)
+			overspeed_count = new Long(overspeed_countObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -600,6 +615,26 @@ public abstract class Basetrip extends BaseResource {
 
 	public void unSetDelayed() {
 		this.delayed = null;
+	}
+
+	public Long getOverspeed_count() {
+		return overspeed_count;
+	}
+
+	public long getOverspeed_countEx() {
+		return overspeed_count != null ? overspeed_count : 0L;
+	}
+
+	public void setOverspeed_count(long overspeed_count) {
+		this.overspeed_count = overspeed_count;
+	}
+
+	public void setOverspeed_count(Long overspeed_count) {
+		this.overspeed_count = overspeed_count;
+	}
+
+	public void unSetOverspeed_count() {
+		this.overspeed_count = null;
 	}
 
 	public Long getCreation_time() {

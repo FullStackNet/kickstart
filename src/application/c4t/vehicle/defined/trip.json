@@ -81,6 +81,10 @@
 			{
 				'type':'long'
 			},
+			'overspeed_count':
+			{
+				'type':'long'
+			},
 			'creation_time':
 			{
 				'type':'timestamp'
