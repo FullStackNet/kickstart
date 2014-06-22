@@ -249,6 +249,24 @@
 				'length': 1,
 				'type':'String',
 				'default' :"N"
+			},
+			'overspeed_alert_sms':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'overspeed_alert_mobile_app':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"Y"
+			},
+			'overspeed_alert_email':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
 			}
 		}
 	}

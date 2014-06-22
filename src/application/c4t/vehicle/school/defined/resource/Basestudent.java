@@ -62,6 +62,9 @@ public abstract class Basestudent extends BaseResource {
 	private String stopage_alert_sms = null;
 	private String stopage_alert_mobile_app = null;
 	private String stopage_alert_email = null;
+	private String overspeed_alert_sms = null;
+	private String overspeed_alert_mobile_app = null;
+	private String overspeed_alert_email = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_SCHOOL_ID = "school_id";
@@ -106,6 +109,9 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_STOPAGE_ALERT_SMS = "stopage_alert_sms";
 	public static String FIELD_STOPAGE_ALERT_MOBILE_APP = "stopage_alert_mobile_app";
 	public static String FIELD_STOPAGE_ALERT_EMAIL = "stopage_alert_email";
+	public static String FIELD_OVERSPEED_ALERT_SMS = "overspeed_alert_sms";
+	public static String FIELD_OVERSPEED_ALERT_MOBILE_APP = "overspeed_alert_mobile_app";
+	public static String FIELD_OVERSPEED_ALERT_EMAIL = "overspeed_alert_email";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("student");
@@ -303,6 +309,21 @@ public abstract class Basestudent extends BaseResource {
 		stopage_alert_emailField.setLength(1);
 		metaData.addField(stopage_alert_emailField);
 
+		Field overspeed_alert_smsField = new Field("overspeed_alert_sms", "String");
+		overspeed_alert_smsField.setDefaultValue("N");
+		overspeed_alert_smsField.setLength(1);
+		metaData.addField(overspeed_alert_smsField);
+
+		Field overspeed_alert_mobile_appField = new Field("overspeed_alert_mobile_app", "String");
+		overspeed_alert_mobile_appField.setDefaultValue("Y");
+		overspeed_alert_mobile_appField.setLength(1);
+		metaData.addField(overspeed_alert_mobile_appField);
+
+		Field overspeed_alert_emailField = new Field("overspeed_alert_email", "String");
+		overspeed_alert_emailField.setDefaultValue("N");
+		overspeed_alert_emailField.setLength(1);
+		metaData.addField(overspeed_alert_emailField);
+
 
 		metaData.setTableName("student");
 
@@ -355,6 +376,9 @@ public abstract class Basestudent extends BaseResource {
 		this.stopage_alert_sms = obj.stopage_alert_sms;
 		this.stopage_alert_mobile_app = obj.stopage_alert_mobile_app;
 		this.stopage_alert_email = obj.stopage_alert_email;
+		this.overspeed_alert_sms = obj.overspeed_alert_sms;
+		this.overspeed_alert_mobile_app = obj.overspeed_alert_mobile_app;
+		this.overspeed_alert_email = obj.overspeed_alert_email;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -368,6 +392,12 @@ public abstract class Basestudent extends BaseResource {
 			stopage_alert_mobile_app = "Y";
 		if(stopage_alert_email == null)
 			stopage_alert_email = "N";
+		if(overspeed_alert_sms == null)
+			overspeed_alert_sms = "N";
+		if(overspeed_alert_mobile_app == null)
+			overspeed_alert_mobile_app = "Y";
+		if(overspeed_alert_email == null)
+			overspeed_alert_email = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -458,6 +488,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
 		if(stopage_alert_email != null)
 			map.put("stopage_alert_email", stopage_alert_email);
+		if(overspeed_alert_sms != null)
+			map.put("overspeed_alert_sms", overspeed_alert_sms);
+		if(overspeed_alert_mobile_app != null)
+			map.put("overspeed_alert_mobile_app", overspeed_alert_mobile_app);
+		if(overspeed_alert_email != null)
+			map.put("overspeed_alert_email", overspeed_alert_email);
 		return map;
 	}
 
@@ -552,6 +588,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
 		if(stopage_alert_email != null)
 			map.put("stopage_alert_email", stopage_alert_email);
+		if(overspeed_alert_sms != null)
+			map.put("overspeed_alert_sms", overspeed_alert_sms);
+		if(overspeed_alert_mobile_app != null)
+			map.put("overspeed_alert_mobile_app", overspeed_alert_mobile_app);
+		if(overspeed_alert_email != null)
+			map.put("overspeed_alert_email", overspeed_alert_email);
 		return map;
 	}
 
@@ -604,6 +646,9 @@ public abstract class Basestudent extends BaseResource {
 		stopage_alert_sms = (String) map.get("stopage_alert_sms");
 		stopage_alert_mobile_app = (String) map.get("stopage_alert_mobile_app");
 		stopage_alert_email = (String) map.get("stopage_alert_email");
+		overspeed_alert_sms = (String) map.get("overspeed_alert_sms");
+		overspeed_alert_mobile_app = (String) map.get("overspeed_alert_mobile_app");
+		overspeed_alert_email = (String) map.get("overspeed_alert_email");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -778,6 +823,18 @@ public abstract class Basestudent extends BaseResource {
 		Object stopage_alert_emailObj = map.get("stopage_alert_email");
 		if(stopage_alert_emailObj != null)
 			stopage_alert_email = stopage_alert_emailObj.toString();
+
+		Object overspeed_alert_smsObj = map.get("overspeed_alert_sms");
+		if(overspeed_alert_smsObj != null)
+			overspeed_alert_sms = overspeed_alert_smsObj.toString();
+
+		Object overspeed_alert_mobile_appObj = map.get("overspeed_alert_mobile_app");
+		if(overspeed_alert_mobile_appObj != null)
+			overspeed_alert_mobile_app = overspeed_alert_mobile_appObj.toString();
+
+		Object overspeed_alert_emailObj = map.get("overspeed_alert_email");
+		if(overspeed_alert_emailObj != null)
+			overspeed_alert_email = overspeed_alert_emailObj.toString();
 
 	}
 
@@ -1479,6 +1536,42 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetStopage_alert_email() {
 		this.stopage_alert_email = "N";
+	}
+
+	public String getOverspeed_alert_sms() {
+		return overspeed_alert_sms != null ? overspeed_alert_sms : "N";
+	}
+
+	public void setOverspeed_alert_sms(String overspeed_alert_sms) {
+		this.overspeed_alert_sms = overspeed_alert_sms;
+	}
+
+	public void unSetOverspeed_alert_sms() {
+		this.overspeed_alert_sms = "N";
+	}
+
+	public String getOverspeed_alert_mobile_app() {
+		return overspeed_alert_mobile_app != null ? overspeed_alert_mobile_app : "Y";
+	}
+
+	public void setOverspeed_alert_mobile_app(String overspeed_alert_mobile_app) {
+		this.overspeed_alert_mobile_app = overspeed_alert_mobile_app;
+	}
+
+	public void unSetOverspeed_alert_mobile_app() {
+		this.overspeed_alert_mobile_app = "Y";
+	}
+
+	public String getOverspeed_alert_email() {
+		return overspeed_alert_email != null ? overspeed_alert_email : "N";
+	}
+
+	public void setOverspeed_alert_email(String overspeed_alert_email) {
+		this.overspeed_alert_email = overspeed_alert_email;
+	}
+
+	public void unSetOverspeed_alert_email() {
+		this.overspeed_alert_email = "N";
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

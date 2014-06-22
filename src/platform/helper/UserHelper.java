@@ -5,6 +5,7 @@ import java.util.Map;
 
 import platform.db.Expression;
 import platform.db.JoinField;
+import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.user;
@@ -110,6 +111,13 @@ public class UserHelper extends BaseHelper {
 		return UserHelper.getInstance().getListMapById(ids,null);
 	}
 	
+	public BaseResource[]  getCustomerAdmin(String customerId) {
+		Expression e1= new Expression(user.FIELD_TYPE, REL_OP.EQ, user.USER_TYPE_CUSTOMER_ADMIN);
+		Expression e2= new Expression(user.FIELD_CUSTOMER_ID, REL_OP.EQ, customerId);
+		Expression e= new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
+
 	public ArrayList<Map<String, Object>> getCustomerAdmin(ArrayList<JoinField> joinFields) {
 		ArrayList<Map<String, Object>>  users = new ArrayList<Map<String, Object>>();
 		Expression expression = new Expression(user.FIELD_TYPE, REL_OP.EQ, user.USER_TYPE_CUSTOMER_ADMIN);

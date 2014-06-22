@@ -71,6 +71,13 @@ public class StudentHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 	
+	public BaseResource[] getStudentByRouteId(String route_id) {
+		Expression e1 = new Expression(student.FIELD_PICKUP_ROUTE_ID, REL_OP.EQ,route_id);
+		Expression e2 = new Expression(student.FIELD_DROPPED_ROUTE_ID, REL_OP.EQ,route_id);
+		Expression e = new Expression(e1, LOG_OP.OR,e2);
+		return getByExpression(e);
+	}
+	
 	public BaseResource[] getStudentByRouteStopageId(String route_stopage_id) {
 		Expression e1 = new Expression(student.FIELD_PICKUP_ROUTE_STOPAGE_ID, REL_OP.EQ,route_stopage_id);
 		Expression e2 = new Expression(student.FIELD_DROPPED_ROUTE_STOPAGE_ID, REL_OP.EQ,route_stopage_id);
