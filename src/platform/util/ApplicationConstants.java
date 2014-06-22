@@ -22,6 +22,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_DB_ENABLED = "db_enabled";
 	public static String PROPERTY_PROCESS_STAT_ENABLED = "process_stat_enabled";
 	public static String PROPERTY_CONTROLLER_TYPE = "controller_type";
+	public static String PROPERTY_LOAD_MODULE = "load_module";
 	public static String PROPERTY_CONTROLLER_USB_PORT = "controller_port";
 	public static String PROPERTY_CONTROLER_BUADRATE = "controller_buadrate";
 	public static String PROPERTY_CONTROLLER_IP = "controller_ip";

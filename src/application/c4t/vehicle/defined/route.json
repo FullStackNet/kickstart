@@ -154,7 +154,9 @@
 				type : "int"
 			},
 			alert_parent_over_speed : {
-				type : "int"
+				type : "String",
+				'default' : "N",
+				length : 1
 			}
 		},
 		"information" : 

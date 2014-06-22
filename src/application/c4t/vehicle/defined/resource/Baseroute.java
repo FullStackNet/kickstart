@@ -47,7 +47,7 @@ public abstract class Baseroute extends BaseResource {
 	private String record_trip = null;
 	private String overSpeedState = null;
 	private Integer threshold_over_speed = null;
-	private Integer alert_parent_over_speed = null;
+	private String alert_parent_over_speed = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -207,7 +207,9 @@ public abstract class Baseroute extends BaseResource {
 		Field threshold_over_speedField = new Field("threshold_over_speed", "int");
 		metaData.addField(threshold_over_speedField);
 
-		Field alert_parent_over_speedField = new Field("alert_parent_over_speed", "int");
+		Field alert_parent_over_speedField = new Field("alert_parent_over_speed", "String");
+		alert_parent_over_speedField.setDefaultValue("N");
+		alert_parent_over_speedField.setLength(1);
 		metaData.addField(alert_parent_over_speedField);
 
 
@@ -275,6 +277,8 @@ public abstract class Baseroute extends BaseResource {
 			record_trip = "N";
 		if(overSpeedState == null)
 			overSpeedState = "N";
+		if(alert_parent_over_speed == null)
+			alert_parent_over_speed = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -440,7 +444,7 @@ public abstract class Baseroute extends BaseResource {
 		record_trip = (String) map.get("record_trip");
 		overSpeedState = (String) map.get("overSpeedState");
 		threshold_over_speed = (Integer) map.get("threshold_over_speed");
-		alert_parent_over_speed = (Integer) map.get("alert_parent_over_speed");
+		alert_parent_over_speed = (String) map.get("alert_parent_over_speed");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -558,7 +562,7 @@ public abstract class Baseroute extends BaseResource {
 
 		Object alert_parent_over_speedObj = map.get("alert_parent_over_speed");
 		if(alert_parent_over_speedObj != null)
-			alert_parent_over_speed = new Integer(alert_parent_over_speedObj.toString());
+			alert_parent_over_speed = alert_parent_over_speedObj.toString();
 
 	}
 
@@ -1002,24 +1006,16 @@ public abstract class Baseroute extends BaseResource {
 		this.threshold_over_speed = null;
 	}
 
-	public Integer getAlert_parent_over_speed() {
-		return alert_parent_over_speed;
+	public String getAlert_parent_over_speed() {
+		return alert_parent_over_speed != null ? alert_parent_over_speed : "N";
 	}
 
-	public int getAlert_parent_over_speedEx() {
-		return alert_parent_over_speed != null ? alert_parent_over_speed : 0;
-	}
-
-	public void setAlert_parent_over_speed(int alert_parent_over_speed) {
-		this.alert_parent_over_speed = alert_parent_over_speed;
-	}
-
-	public void setAlert_parent_over_speed(Integer alert_parent_over_speed) {
+	public void setAlert_parent_over_speed(String alert_parent_over_speed) {
 		this.alert_parent_over_speed = alert_parent_over_speed;
 	}
 
 	public void unSetAlert_parent_over_speed() {
-		this.alert_parent_over_speed = null;
+		this.alert_parent_over_speed = "N";
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

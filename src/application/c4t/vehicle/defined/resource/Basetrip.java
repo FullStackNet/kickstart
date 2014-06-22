@@ -35,7 +35,7 @@ public abstract class Basetrip extends BaseResource {
 	private String helper_id = null;
 	private String alternate_helper_id = null;
 	private Long delayed = null;
-	private Long overspeed_count = null;
+	private Integer overspeed_count = null;
 	private Long creation_time = null;
 
 	public static String FIELD_ID = "id";
@@ -123,7 +123,7 @@ public abstract class Basetrip extends BaseResource {
 		Field delayedField = new Field("delayed", "long");
 		metaData.addField(delayedField);
 
-		Field overspeed_countField = new Field("overspeed_count", "long");
+		Field overspeed_countField = new Field("overspeed_count", "int");
 		metaData.addField(overspeed_countField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
@@ -266,7 +266,7 @@ public abstract class Basetrip extends BaseResource {
 		helper_id = (String) map.get("helper_id");
 		alternate_helper_id = (String) map.get("alternate_helper_id");
 		delayed = (Long) map.get("delayed");
-		overspeed_count = (Long) map.get("overspeed_count");
+		overspeed_count = (Integer) map.get("overspeed_count");
 		creation_time = (Long) map.get("creation_time");
 	}
 
@@ -337,7 +337,7 @@ public abstract class Basetrip extends BaseResource {
 
 		Object overspeed_countObj = map.get("overspeed_count");
 		if(overspeed_countObj != null)
-			overspeed_count = new Long(overspeed_countObj.toString());
+			overspeed_count = new Integer(overspeed_countObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -617,19 +617,19 @@ public abstract class Basetrip extends BaseResource {
 		this.delayed = null;
 	}
 
-	public Long getOverspeed_count() {
+	public Integer getOverspeed_count() {
 		return overspeed_count;
 	}
 
-	public long getOverspeed_countEx() {
-		return overspeed_count != null ? overspeed_count : 0L;
+	public int getOverspeed_countEx() {
+		return overspeed_count != null ? overspeed_count : 0;
 	}
 
-	public void setOverspeed_count(long overspeed_count) {
+	public void setOverspeed_count(int overspeed_count) {
 		this.overspeed_count = overspeed_count;
 	}
 
-	public void setOverspeed_count(Long overspeed_count) {
+	public void setOverspeed_count(Integer overspeed_count) {
 		this.overspeed_count = overspeed_count;
 	}
 

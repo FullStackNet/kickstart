@@ -83,7 +83,7 @@
 			},
 			'overspeed_count':
 			{
-				'type':'long'
+				'type':'int'
 			},
 			'creation_time':
 			{
