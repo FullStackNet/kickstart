@@ -27,6 +27,7 @@ import application.c4t.vehicle.resource.route_stopage;
 import application.c4t.vehicle.resource.stopage;
 import application.c4t.vehicle.resource.trip;
 import application.c4t.vehicle.resource.trip_detail;
+import application.c4t.vehicle.resource.trip_overspeed_detail;
 
 
 public class RouteHelper extends BaseHelper {
@@ -106,6 +107,7 @@ public class RouteHelper extends BaseHelper {
 		checkStopageAndSendNotification(_appliance, latitude, longitude, speed, logTime);
 	}
 
+	@SuppressWarnings("deprecation")
 	public void processCordinates(stopage _stopage, route_stopage _route_stopage, Date logTime) {
 		BaseResource[] cordinates = Route_cordinate_rawHelper.getInstance().getRouteCordinates(_route_stopage.getRoute_id());
 		if (Util.isEmpty(cordinates))
@@ -115,7 +117,7 @@ public class RouteHelper extends BaseHelper {
 			route_cordinate_raw raw = (route_cordinate_raw)cordinates[i];
 			long duration = logTime.getTime() - raw.getUpdate_time();
 			Date updateDate = new Date(raw.getUpdate_time());
-			if (logTime.getDay() != updateDate.getDay()) {
+			if (logTime.getDate() != updateDate.getDate()) {
 				continue;
 			}
 			if (duration > 30*60*1000L) {
@@ -153,6 +155,7 @@ public class RouteHelper extends BaseHelper {
 
 	public void checkOverSpeed(appliance _fetched_appliance, 
 			route _route,
+			route_stopage _route_stopge,
 			String latitude, String longitude , Integer speed, Date logTime) {
 		
 		if (speed == null)
@@ -187,6 +190,18 @@ public class RouteHelper extends BaseHelper {
 				if (_trip != null) {
 					try {
 						TripHelper.getInstance().incrementCounter(tripId, trip.FIELD_OVERSPEED_COUNT, 1);
+					} catch (ApplicationException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					trip_overspeed_detail _detail = new trip_overspeed_detail();
+					_detail.setTrip_id(tripId);
+					_detail.setLongitude(longitude);
+					_detail.setLatitude(latitude);
+					_detail.setSpeed(speed);
+					_detail.setLast_stopage(_route_stopge.getNameEx());
+					try {
+						Trip_overspeed_detailHelper.getInstance().add(_detail);
 					} catch (ApplicationException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -248,7 +263,7 @@ public class RouteHelper extends BaseHelper {
 				e.printStackTrace();
 			}
 		}
-		checkOverSpeed(_fetched_appliance,current_route,latitude,longitude,speed,logTime);
+		checkOverSpeed(_fetched_appliance,current_route,_last_stopage,latitude,longitude,speed,logTime);
 		
 		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(current_route.getId());
 		if (Util.isEmpty(route_stopages))

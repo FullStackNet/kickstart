@@ -19,7 +19,7 @@
 			{
 				'type':'timestamp'
 			},
-			'langitude':
+			'latitude':
 			{
 				'type':'String'
 			},
@@ -30,6 +30,11 @@
 			'speed':
 			{
 				'type':'int'
+			},
+			'last_stopage':
+			{
+				'length': 128,
+				'type':'String'
 			}
 		}
 	}

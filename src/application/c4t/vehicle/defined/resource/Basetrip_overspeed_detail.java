@@ -22,16 +22,18 @@ public abstract class Basetrip_overspeed_detail extends BaseResource {
 	private String id = null;
 	private String trip_id = null;
 	private Long creation_time = null;
-	private String langitude = null;
+	private String latitude = null;
 	private String longitude = null;
 	private Integer speed = null;
+	private String last_stopage = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TRIP_ID = "trip_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
-	public static String FIELD_LANGITUDE = "langitude";
+	public static String FIELD_LATITUDE = "latitude";
 	public static String FIELD_LONGITUDE = "longitude";
 	public static String FIELD_SPEED = "speed";
+	public static String FIELD_LAST_STOPAGE = "last_stopage";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("trip_overspeed_detail");
@@ -51,14 +53,18 @@ public abstract class Basetrip_overspeed_detail extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
-		Field langitudeField = new Field("langitude", "String");
-		metaData.addField(langitudeField);
+		Field latitudeField = new Field("latitude", "String");
+		metaData.addField(latitudeField);
 
 		Field longitudeField = new Field("longitude", "String");
 		metaData.addField(longitudeField);
 
 		Field speedField = new Field("speed", "int");
 		metaData.addField(speedField);
+
+		Field last_stopageField = new Field("last_stopage", "String");
+		last_stopageField.setLength(128);
+		metaData.addField(last_stopageField);
 
 
 		metaData.setTableName("trip_overspeed_detail");
@@ -72,9 +78,10 @@ public abstract class Basetrip_overspeed_detail extends BaseResource {
 		this.id = obj.id;
 		this.trip_id = obj.trip_id;
 		this.creation_time = obj.creation_time;
-		this.langitude = obj.langitude;
+		this.latitude = obj.latitude;
 		this.longitude = obj.longitude;
 		this.speed = obj.speed;
+		this.last_stopage = obj.last_stopage;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -89,12 +96,14 @@ public abstract class Basetrip_overspeed_detail extends BaseResource {
 			map.put("trip_id", trip_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if(langitude != null)
-			map.put("langitude", langitude);
+		if(latitude != null)
+			map.put("latitude", latitude);
 		if(longitude != null)
 			map.put("longitude", longitude);
 		if(speed != null)
 			map.put("speed", speed);
+		if(last_stopage != null)
+			map.put("last_stopage", last_stopage);
 		return map;
 	}
 
@@ -106,12 +115,14 @@ public abstract class Basetrip_overspeed_detail extends BaseResource {
 			map.put("trip_id", trip_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if(langitude != null)
-			map.put("langitude", langitude);
+		if(latitude != null)
+			map.put("latitude", latitude);
 		if(longitude != null)
 			map.put("longitude", longitude);
 		if(speed != null)
 			map.put("speed", speed);
+		if(last_stopage != null)
+			map.put("last_stopage", last_stopage);
 		return map;
 	}
 
@@ -124,9 +135,10 @@ public abstract class Basetrip_overspeed_detail extends BaseResource {
 		id = (String) map.get("id");
 		trip_id = (String) map.get("trip_id");
 		creation_time = (Long) map.get("creation_time");
-		langitude = (String) map.get("langitude");
+		latitude = (String) map.get("latitude");
 		longitude = (String) map.get("longitude");
 		speed = (Integer) map.get("speed");
+		last_stopage = (String) map.get("last_stopage");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -142,9 +154,9 @@ public abstract class Basetrip_overspeed_detail extends BaseResource {
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
 
-		Object langitudeObj = map.get("langitude");
-		if(langitudeObj != null)
-			langitude = langitudeObj.toString();
+		Object latitudeObj = map.get("latitude");
+		if(latitudeObj != null)
+			latitude = latitudeObj.toString();
 
 		Object longitudeObj = map.get("longitude");
 		if(longitudeObj != null)
@@ -153,6 +165,10 @@ public abstract class Basetrip_overspeed_detail extends BaseResource {
 		Object speedObj = map.get("speed");
 		if(speedObj != null)
 			speed = new Integer(speedObj.toString());
+
+		Object last_stopageObj = map.get("last_stopage");
+		if(last_stopageObj != null)
+			last_stopage = last_stopageObj.toString();
 
 	}
 
@@ -209,20 +225,20 @@ public abstract class Basetrip_overspeed_detail extends BaseResource {
 	}
 
 
-	public String getLangitude() {
-		return langitude;
+	public String getLatitude() {
+		return latitude;
 	}
 
-	public String getLangitudeEx() {
-		return langitude != null ? langitude : "";
+	public String getLatitudeEx() {
+		return latitude != null ? latitude : "";
 	}
 
-	public void setLangitude(String langitude) {
-		this.langitude = langitude;
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
 	}
 
-	public void unSetLangitude() {
-		this.langitude = null;
+	public void unSetLatitude() {
+		this.latitude = null;
 	}
 
 	public String getLongitude() {
@@ -259,6 +275,22 @@ public abstract class Basetrip_overspeed_detail extends BaseResource {
 
 	public void unSetSpeed() {
 		this.speed = null;
+	}
+
+	public String getLast_stopage() {
+		return last_stopage;
+	}
+
+	public String getLast_stopageEx() {
+		return last_stopage != null ? last_stopage : "";
+	}
+
+	public void setLast_stopage(String last_stopage) {
+		this.last_stopage = last_stopage;
+	}
+
+	public void unSetLast_stopage() {
+		this.last_stopage = null;
 	}
 	public String getCluster() {
 		return "DB_LOG";
