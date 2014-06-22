@@ -50,6 +50,7 @@ public abstract class Baseappliance extends BaseResource {
 	private String manufecturing_date = null;
 	private String next_servicing_date = null;
 	private Number threshold_fuel_level = null;
+	private Integer threshold_over_speed = null;
 	private Number capacity = null;
 	private Integer maintainace_run_hour = null;
 	private Integer today_run_time = null;
@@ -220,6 +221,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_MANUFECTURING_DATE = "manufecturing_date";
 	public static String FIELD_NEXT_SERVICING_DATE = "next_servicing_date";
 	public static String FIELD_THRESHOLD_FUEL_LEVEL = "threshold_fuel_level";
+	public static String FIELD_THRESHOLD_OVER_SPEED = "threshold_over_speed";
 	public static String FIELD_CAPACITY = "capacity";
 	public static String FIELD_MAINTAINACE_RUN_HOUR = "maintainace_run_hour";
 	public static String FIELD_TODAY_RUN_TIME = "today_run_time";
@@ -494,6 +496,9 @@ public abstract class Baseappliance extends BaseResource {
 		threshold_fuel_levelField.setLength(10);
 		threshold_fuel_levelField.setPrecision(2);
 		metaData.addField(threshold_fuel_levelField);
+
+		Field threshold_over_speedField = new Field("threshold_over_speed", "int");
+		metaData.addField(threshold_over_speedField);
 
 		Field capacityField = new Field("capacity", "Number");
 		capacityField.setDefaultValue(0.0);
@@ -1189,6 +1194,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.manufecturing_date = obj.manufecturing_date;
 		this.next_servicing_date = obj.next_servicing_date;
 		this.threshold_fuel_level = obj.threshold_fuel_level;
+		this.threshold_over_speed = obj.threshold_over_speed;
 		this.capacity = obj.capacity;
 		this.maintainace_run_hour = obj.maintainace_run_hour;
 		this.today_run_time = obj.today_run_time;
@@ -1608,6 +1614,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("next_servicing_date", next_servicing_date);
 		if(threshold_fuel_level != null)
 			map.put("threshold_fuel_level", threshold_fuel_level);
+		if(threshold_over_speed != null)
+			map.put("threshold_over_speed", threshold_over_speed);
 		if(capacity != null)
 			map.put("capacity", capacity);
 		if(maintainace_run_hour != null)
@@ -1954,6 +1962,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("next_servicing_date", next_servicing_date);
 		if(threshold_fuel_level != null)
 			map.put("threshold_fuel_level", threshold_fuel_level);
+		if(threshold_over_speed != null)
+			map.put("threshold_over_speed", threshold_over_speed);
 		if(capacity != null)
 			map.put("capacity", capacity);
 		if(maintainace_run_hour != null)
@@ -2267,6 +2277,7 @@ public abstract class Baseappliance extends BaseResource {
 		manufecturing_date = (String) map.get("manufecturing_date");
 		next_servicing_date = (String) map.get("next_servicing_date");
 		threshold_fuel_level = (Number) map.get("threshold_fuel_level");
+		threshold_over_speed = (Integer) map.get("threshold_over_speed");
 		capacity = (Number) map.get("capacity");
 		maintainace_run_hour = (Integer) map.get("maintainace_run_hour");
 		today_run_time = (Integer) map.get("today_run_time");
@@ -2515,6 +2526,10 @@ public abstract class Baseappliance extends BaseResource {
 		Object threshold_fuel_levelObj = map.get("threshold_fuel_level");
 		if(threshold_fuel_levelObj != null)
 			threshold_fuel_level = new Double(threshold_fuel_levelObj.toString());
+
+		Object threshold_over_speedObj = map.get("threshold_over_speed");
+		if(threshold_over_speedObj != null)
+			threshold_over_speed = new Integer(threshold_over_speedObj.toString());
 
 		Object capacityObj = map.get("capacity");
 		if(capacityObj != null)
@@ -3528,6 +3543,26 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetThreshold_fuel_level() {
 		this.threshold_fuel_level = 0.0;
+	}
+
+	public Integer getThreshold_over_speed() {
+		return threshold_over_speed;
+	}
+
+	public int getThreshold_over_speedEx() {
+		return threshold_over_speed != null ? threshold_over_speed : 0;
+	}
+
+	public void setThreshold_over_speed(int threshold_over_speed) {
+		this.threshold_over_speed = threshold_over_speed;
+	}
+
+	public void setThreshold_over_speed(Integer threshold_over_speed) {
+		this.threshold_over_speed = threshold_over_speed;
+	}
+
+	public void unSetThreshold_over_speed() {
+		this.threshold_over_speed = null;
 	}
 
 	public Number getCapacity() {
