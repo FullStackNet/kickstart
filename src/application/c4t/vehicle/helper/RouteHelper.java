@@ -157,26 +157,27 @@ public class RouteHelper extends BaseHelper {
 		
 		if (speed == null)
 			return;
-		if (_fetched_appliance.getThreshold_over_speed() == null)
+		if (_route.getThreshold_over_speed() == null)
 			return;
-		if (_fetched_appliance.getThreshold_over_speed() == 0)
+		if (_route.getThreshold_over_speed() == 0)
 			return;
 		boolean overspeed = false;
 		if (speed >= 0) {
-			if ((_fetched_appliance.getThreshold_over_speed() != null)  && (_fetched_appliance.getThreshold_over_speed() >= 0)){
-				if (speed > _fetched_appliance.getThreshold_over_speed()) {
+			if ((_route.getThreshold_over_speed() != null)  && (_route.getThreshold_over_speed() >= 0)){
+				if (speed > _route.getThreshold_over_speed()) {
 					overspeed = true;
 				}
 			}
 		}
 		
 		if (overspeed) {
-			if (!"Y".equals(_fetched_appliance.getOverSpeedState())) {
-				ApplianceHelper.getInstance().updateOverSpeedState(_fetched_appliance.getId(), "Y");
+			if (!"Y".equals(_route.getOverSpeedState())) {
+				updateOverSpeedState(_route.getId(), "Y");
 				Map<String, Object> data = new HashMap<String, Object>();
 				data.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LATITUDE, latitude);
 				data.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOGITUDE, longitude);
 				data.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ROUTE_NAME, _route.getName());
+				data.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ROUTE_ID, _route.getId());
 				NotificationHelper.getInstance().addNotificationFromAppliance(_fetched_appliance.getId(), 
 						NotificationFactory.NOTIFICATION_OVER_SPEED, 
 						NotificationFactory.SEVERIRY_CRITICAL, data, 
@@ -193,9 +194,20 @@ public class RouteHelper extends BaseHelper {
 				}
 			}
 		} else {
-			if ("Y".equals(_fetched_appliance.getOverSpeedState())) {
-				ApplianceHelper.getInstance().updateOverSpeedState(_fetched_appliance.getId(), "N");
+			if ("Y".equals(_route.getOverSpeedState())) {
+				RouteHelper.getInstance().updateOverSpeedState(_route.getId(), "N");
 			}
+		}
+	}
+	
+	public void updateOverSpeedState(String routeId,String state) {
+		route _route = new route(routeId);
+		_route.setOverSpeedState(state);
+		try {
+			RouteHelper.getInstance().update(_route);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

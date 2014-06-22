@@ -24,5 +24,6 @@ public class NotificationFactory {
 	public static String NOTIFICATION_DATA_PARAMETER_SPEED= "SPEED";
 	public static String NOTIFICATION_DATA_PARAMETER_ROUTE_NAME= "ROUTE_NAME";
 	public static String NOTIFICATION_DATA_PARAMETER_VEHICLE_NAME= "VEHICLE_NAME";
+	public static String NOTIFICATION_DATA_PARAMETER_ROUTE_ID= "ROUTE_ID";
 	
 }
