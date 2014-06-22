@@ -105,7 +105,7 @@ public abstract class Basehomework extends BaseResource {
 
 		metaData.setTableName("homework");
 
-		metaData.setCluster("DB_LOG");
+		metaData.setCluster("DB_SCHOOL");
 	}
 
 	public Basehomework() {}
@@ -454,7 +454,7 @@ public abstract class Basehomework extends BaseResource {
 	}
 
 	public String getCluster() {
-		return "DB_LOG";
+		return "DB_SCHOOL";
 	}
 	public String getClusterType() {
 		return "REPLICATED";

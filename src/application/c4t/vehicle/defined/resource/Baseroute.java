@@ -45,6 +45,9 @@ public abstract class Baseroute extends BaseResource {
 	private Long in_route_accuracy = null;
 	private String next_connecting_route_id = null;
 	private String record_trip = null;
+	private String overSpeedState = null;
+	private Integer threshold_over_speed = null;
+	private Integer alert_parent_over_speed = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -72,6 +75,9 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_IN_ROUTE_ACCURACY = "in_route_accuracy";
 	public static String FIELD_NEXT_CONNECTING_ROUTE_ID = "next_connecting_route_id";
 	public static String FIELD_RECORD_TRIP = "record_trip";
+	public static String FIELD_OVERSPEEDSTATE = "overSpeedState";
+	public static String FIELD_THRESHOLD_OVER_SPEED = "threshold_over_speed";
+	public static String FIELD_ALERT_PARENT_OVER_SPEED = "alert_parent_over_speed";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route");
@@ -193,6 +199,17 @@ public abstract class Baseroute extends BaseResource {
 		record_tripField.setDefaultValue("N");
 		metaData.addField(record_tripField);
 
+		Field overSpeedStateField = new Field("overSpeedState", "String");
+		overSpeedStateField.setDefaultValue("N");
+		overSpeedStateField.setLength(1);
+		metaData.addField(overSpeedStateField);
+
+		Field threshold_over_speedField = new Field("threshold_over_speed", "int");
+		metaData.addField(threshold_over_speedField);
+
+		Field alert_parent_over_speedField = new Field("alert_parent_over_speed", "int");
+		metaData.addField(alert_parent_over_speedField);
+
 
 		metaData.setTableName("route");
 
@@ -228,6 +245,9 @@ public abstract class Baseroute extends BaseResource {
 		this.in_route_accuracy = obj.in_route_accuracy;
 		this.next_connecting_route_id = obj.next_connecting_route_id;
 		this.record_trip = obj.record_trip;
+		this.overSpeedState = obj.overSpeedState;
+		this.threshold_over_speed = obj.threshold_over_speed;
+		this.alert_parent_over_speed = obj.alert_parent_over_speed;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -253,6 +273,8 @@ public abstract class Baseroute extends BaseResource {
 			in_route_accuracy = 50L;
 		if(record_trip == null)
 			record_trip = "N";
+		if(overSpeedState == null)
+			overSpeedState = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -309,6 +331,12 @@ public abstract class Baseroute extends BaseResource {
 			map.put("next_connecting_route_id", next_connecting_route_id);
 		if(record_trip != null)
 			map.put("record_trip", record_trip);
+		if(overSpeedState != null)
+			map.put("overSpeedState", overSpeedState);
+		if(threshold_over_speed != null)
+			map.put("threshold_over_speed", threshold_over_speed);
+		if(alert_parent_over_speed != null)
+			map.put("alert_parent_over_speed", alert_parent_over_speed);
 		return map;
 	}
 
@@ -369,6 +397,12 @@ public abstract class Baseroute extends BaseResource {
 			map.put("next_connecting_route_id", next_connecting_route_id);
 		if(record_trip != null)
 			map.put("record_trip", record_trip);
+		if(overSpeedState != null)
+			map.put("overSpeedState", overSpeedState);
+		if(threshold_over_speed != null)
+			map.put("threshold_over_speed", threshold_over_speed);
+		if(alert_parent_over_speed != null)
+			map.put("alert_parent_over_speed", alert_parent_over_speed);
 		return map;
 	}
 
@@ -404,6 +438,9 @@ public abstract class Baseroute extends BaseResource {
 		in_route_accuracy = (Long) map.get("in_route_accuracy");
 		next_connecting_route_id = (String) map.get("next_connecting_route_id");
 		record_trip = (String) map.get("record_trip");
+		overSpeedState = (String) map.get("overSpeedState");
+		threshold_over_speed = (Integer) map.get("threshold_over_speed");
+		alert_parent_over_speed = (Integer) map.get("alert_parent_over_speed");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -510,6 +547,18 @@ public abstract class Baseroute extends BaseResource {
 		Object record_tripObj = map.get("record_trip");
 		if(record_tripObj != null)
 			record_trip = record_tripObj.toString();
+
+		Object overSpeedStateObj = map.get("overSpeedState");
+		if(overSpeedStateObj != null)
+			overSpeedState = overSpeedStateObj.toString();
+
+		Object threshold_over_speedObj = map.get("threshold_over_speed");
+		if(threshold_over_speedObj != null)
+			threshold_over_speed = new Integer(threshold_over_speedObj.toString());
+
+		Object alert_parent_over_speedObj = map.get("alert_parent_over_speed");
+		if(alert_parent_over_speedObj != null)
+			alert_parent_over_speed = new Integer(alert_parent_over_speedObj.toString());
 
 	}
 
@@ -919,6 +968,58 @@ public abstract class Baseroute extends BaseResource {
 
 	public void unSetRecord_trip() {
 		this.record_trip = "N";
+	}
+
+	public String getOverSpeedState() {
+		return overSpeedState != null ? overSpeedState : "N";
+	}
+
+	public void setOverSpeedState(String overSpeedState) {
+		this.overSpeedState = overSpeedState;
+	}
+
+	public void unSetOverSpeedState() {
+		this.overSpeedState = "N";
+	}
+
+	public Integer getThreshold_over_speed() {
+		return threshold_over_speed;
+	}
+
+	public int getThreshold_over_speedEx() {
+		return threshold_over_speed != null ? threshold_over_speed : 0;
+	}
+
+	public void setThreshold_over_speed(int threshold_over_speed) {
+		this.threshold_over_speed = threshold_over_speed;
+	}
+
+	public void setThreshold_over_speed(Integer threshold_over_speed) {
+		this.threshold_over_speed = threshold_over_speed;
+	}
+
+	public void unSetThreshold_over_speed() {
+		this.threshold_over_speed = null;
+	}
+
+	public Integer getAlert_parent_over_speed() {
+		return alert_parent_over_speed;
+	}
+
+	public int getAlert_parent_over_speedEx() {
+		return alert_parent_over_speed != null ? alert_parent_over_speed : 0;
+	}
+
+	public void setAlert_parent_over_speed(int alert_parent_over_speed) {
+		this.alert_parent_over_speed = alert_parent_over_speed;
+	}
+
+	public void setAlert_parent_over_speed(Integer alert_parent_over_speed) {
+		this.alert_parent_over_speed = alert_parent_over_speed;
+	}
+
+	public void unSetAlert_parent_over_speed() {
+		this.alert_parent_over_speed = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

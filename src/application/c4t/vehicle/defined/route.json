@@ -144,6 +144,17 @@
 			{
 				'type':'String',
 				default : "N"
+			},
+			'overSpeedState' : {
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			threshold_over_speed : {
+				type : "int"
+			},
+			alert_parent_over_speed : {
+				type : "int"
 			}
 		},
 		"information" : 
