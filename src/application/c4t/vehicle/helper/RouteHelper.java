@@ -318,8 +318,11 @@ public class RouteHelper extends BaseHelper {
 			ApplicationLogger.info("Finally decided on this stop based on shortest distance "+ found_route_stopage.getNameEx() +" for "+ short_stopage_distance, this.getClass());
 			//sendNotification(_fetched_appliance, found_route_stopage);
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("ROUTE_STOPAGE_ID",found_route_stopage.getId());
-			map.put("STOPAGE_NAME",found_stopage.getName());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ROUTE_STOPAGE_ID,found_route_stopage.getId());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STOPAGE_NAME,found_stopage.getName());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_VEHICLE_NAME,_fetched_appliance.getName());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REACHED_TIME,TimeUtil.getDayTime(_fetched_appliance.getTimeZone(), logTime));
+					
 			NotificationHelper.getInstance().addNotificationFromAppliance(_fetched_appliance.getId(), 
 					NotificationFactory.NOTIFICATION_STOP_REACHED, 
 					NotificationFactory.SEVERIRY_INFO, map, 

@@ -138,6 +138,7 @@ public class ApplicationConstants {
 	public static String SMS_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";
 	public static String SMS_TYPE_INVITE_TEACHER = "INVITE_TEACHER";
 	public static String SMS_TYPE_SEND_STOPAGE_REACHED = "STOPAGE_REACHED";
+	public static String SMS_TYPE_SEND_ALERT_STOPAGE_REACHED = "ALERT_STOPAGE_REACHED";
 	public static String SMS_TYPE_SEND_OVERSPEED = "OVER SPEED";
 	public static String SMS_TYPE_SEND_HOMEWORK = "HOMEWORK";
 	public static String SMS_TYPE_FORGOT_PASSWORD = "FORGOT_PASSWORD";
