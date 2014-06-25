@@ -36,6 +36,9 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private Integer reached_duration = null;
 	private Double stopage_radius = null;
 	private String controller_connected = null;
+	private String time_bound_stop = null;
+	private Integer time_buffer_before = null;
+	private Integer time_buffer_after = null;
 	private String expected_reachtime = null;
 	private Long controller_last_update_time = null;
 
@@ -56,6 +59,9 @@ public abstract class Baseroute_stopage extends BaseResource {
 	public static String FIELD_REACHED_DURATION = "reached_duration";
 	public static String FIELD_STOPAGE_RADIUS = "stopage_radius";
 	public static String FIELD_CONTROLLER_CONNECTED = "controller_connected";
+	public static String FIELD_TIME_BOUND_STOP = "time_bound_stop";
+	public static String FIELD_TIME_BUFFER_BEFORE = "time_buffer_before";
+	public static String FIELD_TIME_BUFFER_AFTER = "time_buffer_after";
 	public static String FIELD_EXPECTED_REACHTIME = "expected_reachtime";
 	public static String FIELD_CONTROLLER_LAST_UPDATE_TIME = "controller_last_update_time";
 
@@ -118,6 +124,21 @@ public abstract class Baseroute_stopage extends BaseResource {
 		controller_connectedField.setLength(1);
 		metaData.addField(controller_connectedField);
 
+		Field time_bound_stopField = new Field("time_bound_stop", "String");
+		time_bound_stopField.setDefaultValue("N");
+		time_bound_stopField.setLength(1);
+		metaData.addField(time_bound_stopField);
+
+		Field time_buffer_beforeField = new Field("time_buffer_before", "int");
+		time_buffer_beforeField.setDefaultValue(0);
+		time_buffer_beforeField.setLength(1);
+		metaData.addField(time_buffer_beforeField);
+
+		Field time_buffer_afterField = new Field("time_buffer_after", "int");
+		time_buffer_afterField.setDefaultValue(0);
+		time_buffer_afterField.setLength(1);
+		metaData.addField(time_buffer_afterField);
+
 		Field expected_reachtimeField = new Field("expected_reachtime", "String");
 		metaData.addField(expected_reachtimeField);
 
@@ -150,6 +171,9 @@ public abstract class Baseroute_stopage extends BaseResource {
 		this.reached_duration = obj.reached_duration;
 		this.stopage_radius = obj.stopage_radius;
 		this.controller_connected = obj.controller_connected;
+		this.time_bound_stop = obj.time_bound_stop;
+		this.time_buffer_before = obj.time_buffer_before;
+		this.time_buffer_after = obj.time_buffer_after;
 		this.expected_reachtime = obj.expected_reachtime;
 		this.controller_last_update_time = obj.controller_last_update_time;
 	}
@@ -163,6 +187,12 @@ public abstract class Baseroute_stopage extends BaseResource {
 			reached = "N";
 		if(stopage_radius == null)
 			stopage_radius = 50.0;
+		if(time_bound_stop == null)
+			time_bound_stop = "N";
+		if(time_buffer_before == null)
+			time_buffer_before = 0;
+		if(time_buffer_after == null)
+			time_buffer_after = 0;
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -201,6 +231,12 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("stopage_radius", stopage_radius);
 		if(controller_connected != null)
 			map.put("controller_connected", controller_connected);
+		if(time_bound_stop != null)
+			map.put("time_bound_stop", time_bound_stop);
+		if(time_buffer_before != null)
+			map.put("time_buffer_before", time_buffer_before);
+		if(time_buffer_after != null)
+			map.put("time_buffer_after", time_buffer_after);
 		if(expected_reachtime != null)
 			map.put("expected_reachtime", expected_reachtime);
 		if(controller_last_update_time != null)
@@ -247,6 +283,12 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("stopage_radius", stopage_radius);
 		if(controller_connected != null)
 			map.put("controller_connected", controller_connected);
+		if(time_bound_stop != null)
+			map.put("time_bound_stop", time_bound_stop);
+		if(time_buffer_before != null)
+			map.put("time_buffer_before", time_buffer_before);
+		if(time_buffer_after != null)
+			map.put("time_buffer_after", time_buffer_after);
 		if(expected_reachtime != null)
 			map.put("expected_reachtime", expected_reachtime);
 		if(controller_last_update_time != null)
@@ -273,6 +315,9 @@ public abstract class Baseroute_stopage extends BaseResource {
 		reached_duration = (Integer) map.get("reached_duration");
 		stopage_radius = (Double) map.get("stopage_radius");
 		controller_connected = (String) map.get("controller_connected");
+		time_bound_stop = (String) map.get("time_bound_stop");
+		time_buffer_before = (Integer) map.get("time_buffer_before");
+		time_buffer_after = (Integer) map.get("time_buffer_after");
 		expected_reachtime = (String) map.get("expected_reachtime");
 		controller_last_update_time = (Long) map.get("controller_last_update_time");
 	}
@@ -329,6 +374,18 @@ public abstract class Baseroute_stopage extends BaseResource {
 		Object controller_connectedObj = map.get("controller_connected");
 		if(controller_connectedObj != null)
 			controller_connected = controller_connectedObj.toString();
+
+		Object time_bound_stopObj = map.get("time_bound_stop");
+		if(time_bound_stopObj != null)
+			time_bound_stop = time_bound_stopObj.toString();
+
+		Object time_buffer_beforeObj = map.get("time_buffer_before");
+		if(time_buffer_beforeObj != null)
+			time_buffer_before = new Integer(time_buffer_beforeObj.toString());
+
+		Object time_buffer_afterObj = map.get("time_buffer_after");
+		if(time_buffer_afterObj != null)
+			time_buffer_after = new Integer(time_buffer_afterObj.toString());
 
 		Object expected_reachtimeObj = map.get("expected_reachtime");
 		if(expected_reachtimeObj != null)
@@ -664,6 +721,50 @@ public abstract class Baseroute_stopage extends BaseResource {
 
 	public void unSetController_connected() {
 		this.controller_connected = null;
+	}
+
+	public String getTime_bound_stop() {
+		return time_bound_stop != null ? time_bound_stop : "N";
+	}
+
+	public void setTime_bound_stop(String time_bound_stop) {
+		this.time_bound_stop = time_bound_stop;
+	}
+
+	public void unSetTime_bound_stop() {
+		this.time_bound_stop = "N";
+	}
+
+	public Integer getTime_buffer_before() {
+		return time_buffer_before != null ? time_buffer_before : 0;
+	}
+
+	public void setTime_buffer_before(int time_buffer_before) {
+		this.time_buffer_before = time_buffer_before;
+	}
+
+	public void setTime_buffer_before(Integer time_buffer_before) {
+		this.time_buffer_before = time_buffer_before;
+	}
+
+	public void unSetTime_buffer_before() {
+		this.time_buffer_before = 0;
+	}
+
+	public Integer getTime_buffer_after() {
+		return time_buffer_after != null ? time_buffer_after : 0;
+	}
+
+	public void setTime_buffer_after(int time_buffer_after) {
+		this.time_buffer_after = time_buffer_after;
+	}
+
+	public void setTime_buffer_after(Integer time_buffer_after) {
+		this.time_buffer_after = time_buffer_after;
+	}
+
+	public void unSetTime_buffer_after() {
+		this.time_buffer_after = 0;
 	}
 
 	public String getExpected_reachtime() {

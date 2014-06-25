@@ -94,6 +94,24 @@
 				'length': 1,
 				'trancient' : true
 			},
+			'time_bound_stop':
+			{
+				'type':'String',
+				'length': 1,
+				default : "N"
+			},
+			'time_buffer_before':
+			{
+				'type':'int',
+				'length': 1,
+				default : 0
+			},
+			'time_buffer_after':
+			{
+				'type':'int',
+				'length': 1,
+				default : 0
+			},
 			'expected_reachtime':
 			{
 				'type':'String'
