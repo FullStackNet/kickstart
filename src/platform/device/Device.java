@@ -14,10 +14,6 @@ public class Device {
 	public static String DEVICE_MODEL_V3_TRACKER_SNG_01 = "V3-TRACKER-SNG-01";
 	public static String DEVICE_MODEL_ACPTRACKER_1500 = "ACP-1500";
 	
-	
-	
-	
-	
 	public static String DEVICE_MANAGER_C4T = "C4T";
 	public static String DEVICE_MANAGER_V3TRACKER = "V3TRACKER";
 	public static String DEVICE_MANAGER_CISTRACKER = "CISTRACKER";

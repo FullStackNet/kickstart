@@ -267,6 +267,51 @@
 				'length': 1,
 				'type':'String',
 				'default' :"N"
+			},
+			'card_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'card_swipe_pickup_pick':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'card_swipe_pickup_pick_time':
+			{
+				'type':'timestamp'
+			},
+			'card_swipe_pickup_drop':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'card_swipe_pickup_drop_time':
+			{
+				'type':'timestamp'
+			},
+			'card_swipe_drop_pick':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'card_swipe_drop_pick_time':
+			{
+				'type':'timestamp'
+			},
+			'card_swipe_drop_drop':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'card_swipe_drop_drop_time':
+			{
+				'type':'timestamp'
 			}
 		}
 	}

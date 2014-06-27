@@ -65,6 +65,15 @@ public abstract class Basestudent extends BaseResource {
 	private String overspeed_alert_sms = null;
 	private String overspeed_alert_mobile_app = null;
 	private String overspeed_alert_email = null;
+	private String card_no = null;
+	private String card_swipe_pickup_pick = null;
+	private Long card_swipe_pickup_pick_time = null;
+	private String card_swipe_pickup_drop = null;
+	private Long card_swipe_pickup_drop_time = null;
+	private String card_swipe_drop_pick = null;
+	private Long card_swipe_drop_pick_time = null;
+	private String card_swipe_drop_drop = null;
+	private Long card_swipe_drop_drop_time = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_SCHOOL_ID = "school_id";
@@ -112,6 +121,15 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_OVERSPEED_ALERT_SMS = "overspeed_alert_sms";
 	public static String FIELD_OVERSPEED_ALERT_MOBILE_APP = "overspeed_alert_mobile_app";
 	public static String FIELD_OVERSPEED_ALERT_EMAIL = "overspeed_alert_email";
+	public static String FIELD_CARD_NO = "card_no";
+	public static String FIELD_CARD_SWIPE_PICKUP_PICK = "card_swipe_pickup_pick";
+	public static String FIELD_CARD_SWIPE_PICKUP_PICK_TIME = "card_swipe_pickup_pick_time";
+	public static String FIELD_CARD_SWIPE_PICKUP_DROP = "card_swipe_pickup_drop";
+	public static String FIELD_CARD_SWIPE_PICKUP_DROP_TIME = "card_swipe_pickup_drop_time";
+	public static String FIELD_CARD_SWIPE_DROP_PICK = "card_swipe_drop_pick";
+	public static String FIELD_CARD_SWIPE_DROP_PICK_TIME = "card_swipe_drop_pick_time";
+	public static String FIELD_CARD_SWIPE_DROP_DROP = "card_swipe_drop_drop";
+	public static String FIELD_CARD_SWIPE_DROP_DROP_TIME = "card_swipe_drop_drop_time";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("student");
@@ -324,6 +342,42 @@ public abstract class Basestudent extends BaseResource {
 		overspeed_alert_emailField.setLength(1);
 		metaData.addField(overspeed_alert_emailField);
 
+		Field card_noField = new Field("card_no", "String");
+		card_noField.setLength(128);
+		metaData.addField(card_noField);
+
+		Field card_swipe_pickup_pickField = new Field("card_swipe_pickup_pick", "String");
+		card_swipe_pickup_pickField.setDefaultValue("N");
+		card_swipe_pickup_pickField.setLength(1);
+		metaData.addField(card_swipe_pickup_pickField);
+
+		Field card_swipe_pickup_pick_timeField = new Field("card_swipe_pickup_pick_time", "timestamp");
+		metaData.addField(card_swipe_pickup_pick_timeField);
+
+		Field card_swipe_pickup_dropField = new Field("card_swipe_pickup_drop", "String");
+		card_swipe_pickup_dropField.setDefaultValue("N");
+		card_swipe_pickup_dropField.setLength(1);
+		metaData.addField(card_swipe_pickup_dropField);
+
+		Field card_swipe_pickup_drop_timeField = new Field("card_swipe_pickup_drop_time", "timestamp");
+		metaData.addField(card_swipe_pickup_drop_timeField);
+
+		Field card_swipe_drop_pickField = new Field("card_swipe_drop_pick", "String");
+		card_swipe_drop_pickField.setDefaultValue("N");
+		card_swipe_drop_pickField.setLength(1);
+		metaData.addField(card_swipe_drop_pickField);
+
+		Field card_swipe_drop_pick_timeField = new Field("card_swipe_drop_pick_time", "timestamp");
+		metaData.addField(card_swipe_drop_pick_timeField);
+
+		Field card_swipe_drop_dropField = new Field("card_swipe_drop_drop", "String");
+		card_swipe_drop_dropField.setDefaultValue("N");
+		card_swipe_drop_dropField.setLength(1);
+		metaData.addField(card_swipe_drop_dropField);
+
+		Field card_swipe_drop_drop_timeField = new Field("card_swipe_drop_drop_time", "timestamp");
+		metaData.addField(card_swipe_drop_drop_timeField);
+
 
 		metaData.setTableName("student");
 
@@ -379,6 +433,15 @@ public abstract class Basestudent extends BaseResource {
 		this.overspeed_alert_sms = obj.overspeed_alert_sms;
 		this.overspeed_alert_mobile_app = obj.overspeed_alert_mobile_app;
 		this.overspeed_alert_email = obj.overspeed_alert_email;
+		this.card_no = obj.card_no;
+		this.card_swipe_pickup_pick = obj.card_swipe_pickup_pick;
+		this.card_swipe_pickup_pick_time = obj.card_swipe_pickup_pick_time;
+		this.card_swipe_pickup_drop = obj.card_swipe_pickup_drop;
+		this.card_swipe_pickup_drop_time = obj.card_swipe_pickup_drop_time;
+		this.card_swipe_drop_pick = obj.card_swipe_drop_pick;
+		this.card_swipe_drop_pick_time = obj.card_swipe_drop_pick_time;
+		this.card_swipe_drop_drop = obj.card_swipe_drop_drop;
+		this.card_swipe_drop_drop_time = obj.card_swipe_drop_drop_time;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -398,6 +461,14 @@ public abstract class Basestudent extends BaseResource {
 			overspeed_alert_mobile_app = "Y";
 		if(overspeed_alert_email == null)
 			overspeed_alert_email = "N";
+		if(card_swipe_pickup_pick == null)
+			card_swipe_pickup_pick = "N";
+		if(card_swipe_pickup_drop == null)
+			card_swipe_pickup_drop = "N";
+		if(card_swipe_drop_pick == null)
+			card_swipe_drop_pick = "N";
+		if(card_swipe_drop_drop == null)
+			card_swipe_drop_drop = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -494,6 +565,24 @@ public abstract class Basestudent extends BaseResource {
 			map.put("overspeed_alert_mobile_app", overspeed_alert_mobile_app);
 		if(overspeed_alert_email != null)
 			map.put("overspeed_alert_email", overspeed_alert_email);
+		if(card_no != null)
+			map.put("card_no", card_no);
+		if(card_swipe_pickup_pick != null)
+			map.put("card_swipe_pickup_pick", card_swipe_pickup_pick);
+		if(card_swipe_pickup_pick_time != null)
+			map.put("card_swipe_pickup_pick_time", card_swipe_pickup_pick_time);
+		if(card_swipe_pickup_drop != null)
+			map.put("card_swipe_pickup_drop", card_swipe_pickup_drop);
+		if(card_swipe_pickup_drop_time != null)
+			map.put("card_swipe_pickup_drop_time", card_swipe_pickup_drop_time);
+		if(card_swipe_drop_pick != null)
+			map.put("card_swipe_drop_pick", card_swipe_drop_pick);
+		if(card_swipe_drop_pick_time != null)
+			map.put("card_swipe_drop_pick_time", card_swipe_drop_pick_time);
+		if(card_swipe_drop_drop != null)
+			map.put("card_swipe_drop_drop", card_swipe_drop_drop);
+		if(card_swipe_drop_drop_time != null)
+			map.put("card_swipe_drop_drop_time", card_swipe_drop_drop_time);
 		return map;
 	}
 
@@ -594,6 +683,24 @@ public abstract class Basestudent extends BaseResource {
 			map.put("overspeed_alert_mobile_app", overspeed_alert_mobile_app);
 		if(overspeed_alert_email != null)
 			map.put("overspeed_alert_email", overspeed_alert_email);
+		if(card_no != null)
+			map.put("card_no", card_no);
+		if(card_swipe_pickup_pick != null)
+			map.put("card_swipe_pickup_pick", card_swipe_pickup_pick);
+		if(card_swipe_pickup_pick_time != null)
+			map.put("card_swipe_pickup_pick_time", card_swipe_pickup_pick_time);
+		if(card_swipe_pickup_drop != null)
+			map.put("card_swipe_pickup_drop", card_swipe_pickup_drop);
+		if(card_swipe_pickup_drop_time != null)
+			map.put("card_swipe_pickup_drop_time", card_swipe_pickup_drop_time);
+		if(card_swipe_drop_pick != null)
+			map.put("card_swipe_drop_pick", card_swipe_drop_pick);
+		if(card_swipe_drop_pick_time != null)
+			map.put("card_swipe_drop_pick_time", card_swipe_drop_pick_time);
+		if(card_swipe_drop_drop != null)
+			map.put("card_swipe_drop_drop", card_swipe_drop_drop);
+		if(card_swipe_drop_drop_time != null)
+			map.put("card_swipe_drop_drop_time", card_swipe_drop_drop_time);
 		return map;
 	}
 
@@ -649,6 +756,15 @@ public abstract class Basestudent extends BaseResource {
 		overspeed_alert_sms = (String) map.get("overspeed_alert_sms");
 		overspeed_alert_mobile_app = (String) map.get("overspeed_alert_mobile_app");
 		overspeed_alert_email = (String) map.get("overspeed_alert_email");
+		card_no = (String) map.get("card_no");
+		card_swipe_pickup_pick = (String) map.get("card_swipe_pickup_pick");
+		card_swipe_pickup_pick_time = (Long) map.get("card_swipe_pickup_pick_time");
+		card_swipe_pickup_drop = (String) map.get("card_swipe_pickup_drop");
+		card_swipe_pickup_drop_time = (Long) map.get("card_swipe_pickup_drop_time");
+		card_swipe_drop_pick = (String) map.get("card_swipe_drop_pick");
+		card_swipe_drop_pick_time = (Long) map.get("card_swipe_drop_pick_time");
+		card_swipe_drop_drop = (String) map.get("card_swipe_drop_drop");
+		card_swipe_drop_drop_time = (Long) map.get("card_swipe_drop_drop_time");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -835,6 +951,42 @@ public abstract class Basestudent extends BaseResource {
 		Object overspeed_alert_emailObj = map.get("overspeed_alert_email");
 		if(overspeed_alert_emailObj != null)
 			overspeed_alert_email = overspeed_alert_emailObj.toString();
+
+		Object card_noObj = map.get("card_no");
+		if(card_noObj != null)
+			card_no = card_noObj.toString();
+
+		Object card_swipe_pickup_pickObj = map.get("card_swipe_pickup_pick");
+		if(card_swipe_pickup_pickObj != null)
+			card_swipe_pickup_pick = card_swipe_pickup_pickObj.toString();
+
+		Object card_swipe_pickup_pick_timeObj = map.get("card_swipe_pickup_pick_time");
+		if(card_swipe_pickup_pick_timeObj != null)
+			card_swipe_pickup_pick_time = (Long) card_swipe_pickup_pick_timeObj;
+
+		Object card_swipe_pickup_dropObj = map.get("card_swipe_pickup_drop");
+		if(card_swipe_pickup_dropObj != null)
+			card_swipe_pickup_drop = card_swipe_pickup_dropObj.toString();
+
+		Object card_swipe_pickup_drop_timeObj = map.get("card_swipe_pickup_drop_time");
+		if(card_swipe_pickup_drop_timeObj != null)
+			card_swipe_pickup_drop_time = (Long) card_swipe_pickup_drop_timeObj;
+
+		Object card_swipe_drop_pickObj = map.get("card_swipe_drop_pick");
+		if(card_swipe_drop_pickObj != null)
+			card_swipe_drop_pick = card_swipe_drop_pickObj.toString();
+
+		Object card_swipe_drop_pick_timeObj = map.get("card_swipe_drop_pick_time");
+		if(card_swipe_drop_pick_timeObj != null)
+			card_swipe_drop_pick_time = (Long) card_swipe_drop_pick_timeObj;
+
+		Object card_swipe_drop_dropObj = map.get("card_swipe_drop_drop");
+		if(card_swipe_drop_dropObj != null)
+			card_swipe_drop_drop = card_swipe_drop_dropObj.toString();
+
+		Object card_swipe_drop_drop_timeObj = map.get("card_swipe_drop_drop_time");
+		if(card_swipe_drop_drop_timeObj != null)
+			card_swipe_drop_drop_time = (Long) card_swipe_drop_drop_timeObj;
 
 	}
 
@@ -1573,6 +1725,106 @@ public abstract class Basestudent extends BaseResource {
 	public void unSetOverspeed_alert_email() {
 		this.overspeed_alert_email = "N";
 	}
+
+	public String getCard_no() {
+		return card_no;
+	}
+
+	public String getCard_noEx() {
+		return card_no != null ? card_no : "";
+	}
+
+	public void setCard_no(String card_no) {
+		this.card_no = card_no;
+	}
+
+	public void unSetCard_no() {
+		this.card_no = null;
+	}
+
+	public String getCard_swipe_pickup_pick() {
+		return card_swipe_pickup_pick != null ? card_swipe_pickup_pick : "N";
+	}
+
+	public void setCard_swipe_pickup_pick(String card_swipe_pickup_pick) {
+		this.card_swipe_pickup_pick = card_swipe_pickup_pick;
+	}
+
+	public void unSetCard_swipe_pickup_pick() {
+		this.card_swipe_pickup_pick = "N";
+	}
+
+	public Long getCard_swipe_pickup_pick_time() {
+		return card_swipe_pickup_pick_time;
+	}
+
+	public void setCard_swipe_pickup_pick_time(Long card_swipe_pickup_pick_time) {
+		this.card_swipe_pickup_pick_time = card_swipe_pickup_pick_time;
+	}
+
+
+	public String getCard_swipe_pickup_drop() {
+		return card_swipe_pickup_drop != null ? card_swipe_pickup_drop : "N";
+	}
+
+	public void setCard_swipe_pickup_drop(String card_swipe_pickup_drop) {
+		this.card_swipe_pickup_drop = card_swipe_pickup_drop;
+	}
+
+	public void unSetCard_swipe_pickup_drop() {
+		this.card_swipe_pickup_drop = "N";
+	}
+
+	public Long getCard_swipe_pickup_drop_time() {
+		return card_swipe_pickup_drop_time;
+	}
+
+	public void setCard_swipe_pickup_drop_time(Long card_swipe_pickup_drop_time) {
+		this.card_swipe_pickup_drop_time = card_swipe_pickup_drop_time;
+	}
+
+
+	public String getCard_swipe_drop_pick() {
+		return card_swipe_drop_pick != null ? card_swipe_drop_pick : "N";
+	}
+
+	public void setCard_swipe_drop_pick(String card_swipe_drop_pick) {
+		this.card_swipe_drop_pick = card_swipe_drop_pick;
+	}
+
+	public void unSetCard_swipe_drop_pick() {
+		this.card_swipe_drop_pick = "N";
+	}
+
+	public Long getCard_swipe_drop_pick_time() {
+		return card_swipe_drop_pick_time;
+	}
+
+	public void setCard_swipe_drop_pick_time(Long card_swipe_drop_pick_time) {
+		this.card_swipe_drop_pick_time = card_swipe_drop_pick_time;
+	}
+
+
+	public String getCard_swipe_drop_drop() {
+		return card_swipe_drop_drop != null ? card_swipe_drop_drop : "N";
+	}
+
+	public void setCard_swipe_drop_drop(String card_swipe_drop_drop) {
+		this.card_swipe_drop_drop = card_swipe_drop_drop;
+	}
+
+	public void unSetCard_swipe_drop_drop() {
+		this.card_swipe_drop_drop = "N";
+	}
+
+	public Long getCard_swipe_drop_drop_time() {
+		return card_swipe_drop_drop_time;
+	}
+
+	public void setCard_swipe_drop_drop_time(Long card_swipe_drop_drop_time) {
+		this.card_swipe_drop_drop_time = card_swipe_drop_drop_time;
+	}
+
 	public String getCluster() {
 		return "DB_PROFILE";
 	}
