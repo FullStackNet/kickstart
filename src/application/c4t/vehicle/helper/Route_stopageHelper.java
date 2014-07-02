@@ -318,14 +318,17 @@ public class Route_stopageHelper extends BaseHelper {
 									ArrayList<Object> durations = _route_cordinate.getDurations();
 									System.out.println("Got the cordinates for  " + longitude + "-"+latitude + "in database data->"+durations.toString());
 									long average = Util.getAverage(durations);
-									if (average == 0) {
-										lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
-										if (current_time > lastReachTime) {
-											lastReachTime = current_time;
-										}
-									} else {
+									lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
+									if (current_time > lastReachTime) {
+										lastReachTime = current_time;
+									}
+									if (average != 0) {
+										long rightduration = _route_stopage.getTime_from_previous_stop();
 										System.out.println("Average time  " + average);
-										lastReachTime = lastReachTime + (average/1000);
+										if (average < rightduration) {
+											long lastReachTime2 = lastReachTime + (average/1000);
+											lastReachTime = lastReachTime2;
+										}
 										if (current_time > lastReachTime) {
 											lastReachTime = current_time;
 										}
