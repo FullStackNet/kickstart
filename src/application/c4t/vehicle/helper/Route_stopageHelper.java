@@ -322,11 +322,12 @@ public class Route_stopageHelper extends BaseHelper {
 									if (current_time > lastReachTime) {
 										lastReachTime = current_time;
 									}
+							
 									if (average != 0) {
 										long rightduration = _route_stopage.getTime_from_previous_stop();
 										System.out.println("Average time  " + average);
+										long lastReachTime2 = lastReachTime + (average/1000);
 										if (average < rightduration) {
-											long lastReachTime2 = lastReachTime + (average/1000);
 											lastReachTime = lastReachTime2;
 										}
 										if (current_time > lastReachTime) {
