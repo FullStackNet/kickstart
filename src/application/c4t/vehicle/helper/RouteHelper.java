@@ -381,6 +381,7 @@ public class RouteHelper extends BaseHelper {
 				_detail.setRoute_stopage_id(found_route_stopage.getExpected_reachtime());
 				_detail.setReach_time(TimeUtil.getDayTimeString(_fetched_appliance.getTimeZone(),logTime));
 				if (found_route_stopage.getExpected_reachtime() != null) {
+					_detail.setSchedule_reach_time(found_route_stopage.getExpected_reachtime());
 					long expected_reach_time = TimeUtil.getDayTime(found_route_stopage.getExpected_reachtime());
 					long reach_time = TimeUtil.getDayTime(_fetched_appliance.getTimeZone(),logTime.getTime());
 					if (reach_time > expected_reach_time) {
