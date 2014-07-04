@@ -1,6 +1,7 @@
 package application.c4t.vehicle.helper;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import platform.db.Expression;
 import platform.db.REL_OP;
@@ -48,9 +49,13 @@ public class Trip_detailHelper extends BaseHelper {
 		if (Util.isEmpty(route_stopages))
 			return null;
 		BaseResource[] time_seriesData = Appliance_time_seriesHelper.getInstance().getTimeSeries(_trip.getAppliance_id(), "location", _trip.getCreation_time());
+		if (Util.isEmpty(time_seriesData))
+			return null;
+		System.out.println("Total Time series data :: "+time_seriesData.length);
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		for(int i=0; i < time_seriesData.length; i++) {
 			appliance_time_series data = (appliance_time_series) time_seriesData[0];
+			System.out.println("Time series data :: "+new Date(data.getCreation_time())+"->"+time_seriesData.length);
 			if (data.getValue() == null)
 				continue;
 			String[] location = data.getValue().split(",");
