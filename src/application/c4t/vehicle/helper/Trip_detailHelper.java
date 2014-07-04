@@ -5,11 +5,14 @@ import java.util.Date;
 
 import platform.db.Expression;
 import platform.db.REL_OP;
+import platform.helper.ApplianceHelper;
 import platform.helper.Appliance_time_seriesHelper;
 import platform.helper.BaseHelper;
 import platform.helper.HelperUtils;
 import platform.resource.BaseResource;
+import platform.resource.appliance;
 import platform.resource.appliance_time_series;
+import platform.util.TimeUtil;
 import platform.util.Util;
 import platform.util.location.LocationUtil;
 import application.c4t.vehicle.resource.route_stopage;
@@ -48,7 +51,12 @@ public class Trip_detailHelper extends BaseHelper {
 		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(_trip.getRoute_id());
 		if (Util.isEmpty(route_stopages))
 			return null;
-		BaseResource[] time_seriesData = Appliance_time_seriesHelper.getInstance().getTimeSeries(_trip.getAppliance_id(), "location", _trip.getCreation_time());
+		
+		appliance _appliance = ApplianceHelper.getInstance().getById(_trip.getAppliance_id());
+		if (_appliance == null)
+			return null;
+		String date = TimeUtil.getDateString(_appliance.getTimeZone(), _trip.getCreation_time());
+		BaseResource[] time_seriesData = Appliance_time_seriesHelper.getInstance().getTimeSeries(_trip.getAppliance_id(), "location",date);
 		if (Util.isEmpty(time_seriesData))
 			return null;
 		System.out.println("Total Time series data :: "+time_seriesData.length);
