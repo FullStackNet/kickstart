@@ -2,6 +2,10 @@ package application.c4t.vehicle.helper;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.mongodb.util.Hash;
 
 import platform.db.Expression;
 import platform.db.REL_OP;
@@ -35,8 +39,21 @@ public class Trip_detailHelper extends BaseHelper {
 		return instance;
 	}
 
-	public route_stopage getNearestStopage(BaseResource[] route_stopages) {
-		return null;
+	public route_stopage getNearestStopage(Map<String, stopage> stopageMap,BaseResource[] route_stopages,String latitude, String longitude) {
+		route_stopage _nearest_route_stopage = null;
+		double short_distance = 0.0;
+		for(int i =0 ; i < route_stopages.length; i ++) {
+			route_stopage _route_stopage = (route_stopage) route_stopages[i];
+			stopage _stopage = stopageMap.get(_route_stopage.getStopage_id());
+			if (_stopage == null)
+				continue;
+			
+			double distance = LocationUtil.getDistance(latitude,longitude, _stopage.getLatitude(), _stopage.getLongitude());
+			if (short_distance == 0.0 || distance < short_distance) {
+				_nearest_route_stopage = _route_stopage;
+			}
+		}
+		return _nearest_route_stopage;
 	}
 	
 	public BaseResource[] getTripDetail(String tripId) {
@@ -45,6 +62,7 @@ public class Trip_detailHelper extends BaseHelper {
 	}
 	
 	public BaseResource[] getTripLocationDetail(String tripId) {
+		Map<String, stopage> stopageMap = new HashMap<String, stopage>();
 		trip _trip = (trip)TripHelper.getInstance().getById(tripId);
 		if (_trip == null)
 			return null;
@@ -52,6 +70,12 @@ public class Trip_detailHelper extends BaseHelper {
 		if (Util.isEmpty(route_stopages))
 			return null;
 		
+		for(int i =0 ; i < route_stopages.length; i ++) {
+			stopage _stopage = (stopage) StopageHelper.getInstance().getById(route_stopages[i].getId());
+			if (_stopage == null)
+				continue;
+			stopageMap.put(_stopage.getId(), _stopage);
+		}
 		appliance _appliance = ApplianceHelper.getInstance().getById(_trip.getAppliance_id());
 		if (_appliance == null)
 			return null;
@@ -74,10 +98,10 @@ public class Trip_detailHelper extends BaseHelper {
 				continue;
 			_detail.setCreation_time(data.getCreation_time());
 			_detail.setLocation_latitude_longitude(data.getValue());
-			route_stopage _route_stopage = getNearestStopage(route_stopages);
+			route_stopage _route_stopage = getNearestStopage(stopageMap,route_stopages,location[1],location[0]);
 			if (_route_stopage == null)
 				continue;
-			stopage _stopage = (stopage)StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
+			stopage _stopage = (stopage)stopageMap.get(_route_stopage.getStopage_id());
 			if (_stopage == null)
 				continue;
 			_detail.setStopage_name(_stopage.getName());
