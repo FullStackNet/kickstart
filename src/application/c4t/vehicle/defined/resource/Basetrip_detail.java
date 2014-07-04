@@ -27,6 +27,10 @@ public abstract class Basetrip_detail extends BaseResource {
 	private String schedule_reach_time = null;
 	private String reach_time = null;
 	private Long delay_time = null;
+	private String location_latitude_longitude = null;
+	private Long creation_time = null;
+	private String nearest_stopage_name = null;
+	private Double nearest_distance = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TRIP_ID = "trip_id";
@@ -36,6 +40,10 @@ public abstract class Basetrip_detail extends BaseResource {
 	public static String FIELD_SCHEDULE_REACH_TIME = "schedule_reach_time";
 	public static String FIELD_REACH_TIME = "reach_time";
 	public static String FIELD_DELAY_TIME = "delay_time";
+	public static String FIELD_LOCATION_LATITUDE_LONGITUDE = "location_latitude_longitude";
+	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_NEAREST_STOPAGE_NAME = "nearest_stopage_name";
+	public static String FIELD_NEAREST_DISTANCE = "nearest_distance";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("trip_detail");
@@ -73,6 +81,18 @@ public abstract class Basetrip_detail extends BaseResource {
 		Field delay_timeField = new Field("delay_time", "long");
 		metaData.addField(delay_timeField);
 
+		Field location_latitude_longitudeField = new Field("location_latitude_longitude", "String");
+		metaData.addField(location_latitude_longitudeField);
+
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
+
+		Field nearest_stopage_nameField = new Field("nearest_stopage_name", "String");
+		metaData.addField(nearest_stopage_nameField);
+
+		Field nearest_distanceField = new Field("nearest_distance", "double");
+		metaData.addField(nearest_distanceField);
+
 
 		metaData.setTableName("trip_detail");
 
@@ -90,6 +110,10 @@ public abstract class Basetrip_detail extends BaseResource {
 		this.schedule_reach_time = obj.schedule_reach_time;
 		this.reach_time = obj.reach_time;
 		this.delay_time = obj.delay_time;
+		this.location_latitude_longitude = obj.location_latitude_longitude;
+		this.creation_time = obj.creation_time;
+		this.nearest_stopage_name = obj.nearest_stopage_name;
+		this.nearest_distance = obj.nearest_distance;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -114,6 +138,14 @@ public abstract class Basetrip_detail extends BaseResource {
 			map.put("reach_time", reach_time);
 		if(delay_time != null)
 			map.put("delay_time", delay_time);
+		if(location_latitude_longitude != null)
+			map.put("location_latitude_longitude", location_latitude_longitude);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
+		if(nearest_stopage_name != null)
+			map.put("nearest_stopage_name", nearest_stopage_name);
+		if(nearest_distance != null)
+			map.put("nearest_distance", nearest_distance);
 		return map;
 	}
 
@@ -135,6 +167,14 @@ public abstract class Basetrip_detail extends BaseResource {
 			map.put("reach_time", reach_time);
 		if(delay_time != null)
 			map.put("delay_time", delay_time);
+		if(location_latitude_longitude != null)
+			map.put("location_latitude_longitude", location_latitude_longitude);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
+		if(nearest_stopage_name != null)
+			map.put("nearest_stopage_name", nearest_stopage_name);
+		if(nearest_distance != null)
+			map.put("nearest_distance", nearest_distance);
 		return map;
 	}
 
@@ -152,6 +192,10 @@ public abstract class Basetrip_detail extends BaseResource {
 		schedule_reach_time = (String) map.get("schedule_reach_time");
 		reach_time = (String) map.get("reach_time");
 		delay_time = (Long) map.get("delay_time");
+		location_latitude_longitude = (String) map.get("location_latitude_longitude");
+		creation_time = (Long) map.get("creation_time");
+		nearest_stopage_name = (String) map.get("nearest_stopage_name");
+		nearest_distance = (Double) map.get("nearest_distance");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -186,6 +230,22 @@ public abstract class Basetrip_detail extends BaseResource {
 		Object delay_timeObj = map.get("delay_time");
 		if(delay_timeObj != null)
 			delay_time = new Long(delay_timeObj.toString());
+
+		Object location_latitude_longitudeObj = map.get("location_latitude_longitude");
+		if(location_latitude_longitudeObj != null)
+			location_latitude_longitude = location_latitude_longitudeObj.toString();
+
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
+
+		Object nearest_stopage_nameObj = map.get("nearest_stopage_name");
+		if(nearest_stopage_nameObj != null)
+			nearest_stopage_name = nearest_stopage_nameObj.toString();
+
+		Object nearest_distanceObj = map.get("nearest_distance");
+		if(nearest_distanceObj != null)
+			nearest_distance = new Double(nearest_distanceObj.toString());
 
 	}
 
@@ -331,6 +391,67 @@ public abstract class Basetrip_detail extends BaseResource {
 
 	public void unSetDelay_time() {
 		this.delay_time = null;
+	}
+
+	public String getLocation_latitude_longitude() {
+		return location_latitude_longitude;
+	}
+
+	public String getLocation_latitude_longitudeEx() {
+		return location_latitude_longitude != null ? location_latitude_longitude : "";
+	}
+
+	public void setLocation_latitude_longitude(String location_latitude_longitude) {
+		this.location_latitude_longitude = location_latitude_longitude;
+	}
+
+	public void unSetLocation_latitude_longitude() {
+		this.location_latitude_longitude = null;
+	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
+
+	public String getNearest_stopage_name() {
+		return nearest_stopage_name;
+	}
+
+	public String getNearest_stopage_nameEx() {
+		return nearest_stopage_name != null ? nearest_stopage_name : "";
+	}
+
+	public void setNearest_stopage_name(String nearest_stopage_name) {
+		this.nearest_stopage_name = nearest_stopage_name;
+	}
+
+	public void unSetNearest_stopage_name() {
+		this.nearest_stopage_name = null;
+	}
+
+	public Double getNearest_distance() {
+		return nearest_distance;
+	}
+
+	public double getNearest_distanceEx() {
+		return nearest_distance != null ? nearest_distance : 0;
+	}
+
+	public void setNearest_distance(double nearest_distance) {
+		this.nearest_distance = nearest_distance;
+	}
+
+	public void setNearest_distance(Double nearest_distance) {
+		this.nearest_distance = nearest_distance;
+	}
+
+	public void unSetNearest_distance() {
+		this.nearest_distance = null;
 	}
 	public String getCluster() {
 		return "DB_LOG";

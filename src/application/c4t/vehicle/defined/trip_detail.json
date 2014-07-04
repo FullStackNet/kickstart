@@ -41,6 +41,22 @@
 			'delay_time':
 			{
 				'type':'long'
+			},
+			'location_latitude_longitude':
+			{
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			},
+			'nearest_stopage_name':
+			{
+				'type':'String'
+			},
+			'nearest_distance':
+			{
+				'type':'double'
 			}
 		}
 	}
