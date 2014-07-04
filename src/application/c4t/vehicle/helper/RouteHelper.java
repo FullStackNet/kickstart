@@ -228,8 +228,8 @@ public class RouteHelper extends BaseHelper {
 
 	public void checkStopageAndSendNotification(appliance _fetched_appliance,String latitude, 
 			String longitude,Integer speed, Date logTime) {
-		if (latitude == null) return;
-		if (longitude ==null) return;
+		if (Util.isEmpty(latitude)) return;
+		if (Util.isEmpty(longitude)) return;
 
 		route current_route = (route)RouteHelper.getInstance().getById(_fetched_appliance.getCurrentRouteId());
 		if (current_route != null) {
@@ -291,6 +291,7 @@ public class RouteHelper extends BaseHelper {
 				continue;
 			if (Util.isEmpty(_stopage.getLongitude()))
 				continue;
+			
 			double dLatitude = Double.parseDouble(latitude);
 			double dLongitude = Double.parseDouble(longitude);
 			double stopageLatitude = Double.parseDouble(_stopage.getLatitude());
