@@ -42,7 +42,7 @@ public class Trip_detailHelper extends BaseHelper {
 	}
 	
 	public BaseResource[] getTripLocationDetail(String tripId) {
-		trip _trip = (trip)getById(tripId);
+		trip _trip = (trip)TripHelper.getInstance().getById(tripId);
 		if (_trip == null)
 			return null;
 		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(_trip.getRoute_id());
