@@ -62,8 +62,8 @@ public class Trip_detailHelper extends BaseHelper {
 		System.out.println("Total Time series data :: "+time_seriesData.length);
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		for(int i=0; i < time_seriesData.length; i++) {
-			appliance_time_series data = (appliance_time_series) time_seriesData[0];
-			System.out.println("Time series data :: "+new Date(data.getCreation_time())+"->"+time_seriesData.length);
+			appliance_time_series data = (appliance_time_series) time_seriesData[i];
+			System.out.println("Time series data :: "+new Date(data.getCreation_time())+"->"+data.getValue());
 			if (data.getValue() == null)
 				continue;
 			String[] location = data.getValue().split(",");
