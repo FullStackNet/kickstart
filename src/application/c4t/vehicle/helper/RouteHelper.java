@@ -157,7 +157,7 @@ public class RouteHelper extends BaseHelper {
 			route _route,
 			route_stopage _route_stopge,
 			String latitude, String longitude , Integer speed, Date logTime) {
-		
+
 		if (speed == null)
 			return;
 		if (_route.getThreshold_over_speed() == null)
@@ -172,7 +172,7 @@ public class RouteHelper extends BaseHelper {
 				}
 			}
 		}
-		
+
 		if (overspeed) {
 			if (!"Y".equals(_route.getOverSpeedState())) {
 				updateOverSpeedState(_route.getId(), "Y");
@@ -214,7 +214,7 @@ public class RouteHelper extends BaseHelper {
 			}
 		}
 	}
-	
+
 	public void updateOverSpeedState(String routeId,String state) {
 		route _route = new route(routeId);
 		_route.setOverSpeedState(state);
@@ -225,7 +225,7 @@ public class RouteHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void checkStopageAndSendNotification(appliance _fetched_appliance,String latitude, 
 			String longitude,Integer speed, Date logTime) {
 		if (latitude == null) return;
@@ -264,7 +264,7 @@ public class RouteHelper extends BaseHelper {
 			}
 		}
 		checkOverSpeed(_fetched_appliance,current_route,_last_stopage,latitude,longitude,speed,logTime);
-		
+
 		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(current_route.getId());
 		if (Util.isEmpty(route_stopages))
 			return;
@@ -272,6 +272,8 @@ public class RouteHelper extends BaseHelper {
 		double short_stopage_distance = 0;
 		route_stopage found_route_stopage = null;
 		stopage found_stopage = null;
+		double short_distance = 0.0;
+		route_stopage _short_route_stopage = null;
 
 		for(int i=0; i < route_stopages.length; i++) {
 			route_stopage _route_stopage = (route_stopage) route_stopages[i];
@@ -294,34 +296,42 @@ public class RouteHelper extends BaseHelper {
 			double stopageLatitude = Double.parseDouble(_stopage.getLatitude());
 			double stopageLongitude = Double.parseDouble(_stopage.getLongitude());
 			double distance = LocationUtil.getDistance(dLatitude, dLongitude, stopageLatitude, stopageLongitude);
+
+
 			if (distance < 0) {
 				distance = distance*(-1);
+			}
+			if (distance < short_distance || short_distance == 0.0) {
+				short_distance = distance;
+				_short_route_stopage = _route_stopage;
 			}
 			double stopage_radius = ApplicationConstants.STOPAGE_RADIUS_KM;
 			if (_route_stopage.getStopage_radius() != null)
 				stopage_radius = _route_stopage.getStopage_radius()/1000;
 
-			ApplicationLogger.info("Distance from stopage "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance + " , Radius : " +stopage_radius, this.getClass());
+			ApplicationLogger.info("Distance ("+distance+") from stopage "+_stopage.getName()+stopageLatitude+":"+stopageLongitude +" for "+ latitude + ":"+longitude + " , Radius : " +stopage_radius, this.getClass());
 			if (distance  < stopage_radius) {
 				ApplicationLogger.info("Found the stop "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
 				if ((short_stopage_distance == 0.0) || (distance < short_stopage_distance)) {
 					// check for time bound stopage
 					if ("Y".equalsIgnoreCase(_route_stopage.getTime_bound_stop())) {
-						long current_day_time = TimeUtil.getDayTime(_fetched_appliance.getTimeZone(),logTime);
-						long stopage_day_time = TimeUtil.getDayTime(_route_stopage.getExpected_reachtime());
-						if (current_day_time < stopage_day_time) {
-							long diff = stopage_day_time - current_day_time;
-							if ((_route_stopage.getTime_buffer_before() > 0) && 
-									diff > _route_stopage.getTime_buffer_before()) {
-								ApplicationLogger.info("Skiping the stop due identified before time  , stopage time " +stopage_day_time+ " buffer = "+_route_stopage.getTime_buffer_before()+",current time="+current_day_time+","+_stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
-								continue;
-							}
-						} else {
-							long diff = current_day_time - stopage_day_time;
-							if ((_route_stopage.getTime_buffer_after() > 0) && 
-									diff > _route_stopage.getTime_buffer_after()) {
-								ApplicationLogger.info("Skiping the stop due identified after time  , stopage time " +stopage_day_time+ " buffer = "+_route_stopage.getTime_buffer_after()+",current time="+current_day_time+","+_stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
-								continue;
+						if (_route_stopage.getExpected_reachtime() != null) {
+							long current_day_time = TimeUtil.getDayTime(_fetched_appliance.getTimeZone(),logTime);
+							long stopage_day_time = TimeUtil.getDayTime(_route_stopage.getExpected_reachtime());
+							if (current_day_time < stopage_day_time) {
+								long diff = stopage_day_time - current_day_time;
+								if ((_route_stopage.getTime_buffer_before() > 0) && 
+										diff > _route_stopage.getTime_buffer_before()) {
+									ApplicationLogger.info("Skiping the stop due identified before time  , stopage time " +stopage_day_time+ " buffer = "+_route_stopage.getTime_buffer_before()+",current time="+current_day_time+","+_stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
+									continue;
+								}
+							} else {
+								long diff = current_day_time - stopage_day_time;
+								if ((_route_stopage.getTime_buffer_after() > 0) && 
+										diff > _route_stopage.getTime_buffer_after()) {
+									ApplicationLogger.info("Skiping the stop due identified after time  , stopage time " +stopage_day_time+ " buffer = "+_route_stopage.getTime_buffer_after()+",current time="+current_day_time+","+_stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
+									continue;
+								}
 							}
 						}
 					}
@@ -332,7 +342,9 @@ public class RouteHelper extends BaseHelper {
 				}
 			}
 		}
-
+		if (_short_route_stopage != null) {
+			ApplicationLogger.info("Short distance Stop  is "+ _short_route_stopage.getName() + short_distance, this.getClass());
+		}
 		if (found_route_stopage != null) {
 
 			ApplicationLogger.info("Finally decided on this stop based on shortest distance "+ found_route_stopage.getNameEx() +" for "+ short_stopage_distance, this.getClass());
@@ -342,7 +354,7 @@ public class RouteHelper extends BaseHelper {
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STOPAGE_NAME,found_stopage.getName());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_VEHICLE_NAME,_fetched_appliance.getName());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REACHED_TIME,TimeUtil.getDayTime(_fetched_appliance.getTimeZone(), logTime));
-					
+
 			NotificationHelper.getInstance().addNotificationFromAppliance(_fetched_appliance.getId(), 
 					NotificationFactory.NOTIFICATION_STOP_REACHED, 
 					NotificationFactory.SEVERIRY_INFO, map, 
