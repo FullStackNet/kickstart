@@ -47,7 +47,7 @@ public class Trip_detailHelper extends BaseHelper {
 			stopage _stopage = stopageMap.get(_route_stopage.getStopage_id());
 			if (_stopage == null)
 				continue;
-			
+
 			double distance = LocationUtil.getDistance(latitude,longitude, _stopage.getLatitude(), _stopage.getLongitude());
 			if (short_distance == 0.0 || distance < short_distance) {
 				_nearest_route_stopage = _route_stopage;
@@ -55,12 +55,12 @@ public class Trip_detailHelper extends BaseHelper {
 		}
 		return _nearest_route_stopage;
 	}
-	
+
 	public BaseResource[] getTripDetail(String tripId) {
 		Expression e = new Expression(trip_detail.FIELD_TRIP_ID, REL_OP.EQ, tripId);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getTripLocationDetail(String tripId) {
 		Map<String, stopage> stopageMap = new HashMap<String, stopage>();
 		trip _trip = (trip)TripHelper.getInstance().getById(tripId);
@@ -69,8 +69,8 @@ public class Trip_detailHelper extends BaseHelper {
 		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(_trip.getRoute_id());
 		if (Util.isEmpty(route_stopages))
 			return null;
-		
-		for(int i =0 ; i < route_stopages.length; i ++) {
+
+		for(int i =0 ; i < route_stopages.length; i++) {
 			stopage _stopage = (stopage) StopageHelper.getInstance().getById(route_stopages[i].getId());
 			if (_stopage == null)
 				continue;
@@ -99,22 +99,18 @@ public class Trip_detailHelper extends BaseHelper {
 			_detail.setCreation_time(data.getCreation_time());
 			_detail.setLocation_latitude_longitude(data.getValue());
 			route_stopage _route_stopage = getNearestStopage(stopageMap,route_stopages,location[1],location[0]);
-			if (_route_stopage == null)
-				continue;
-			stopage _stopage = (stopage)stopageMap.get(_route_stopage.getStopage_id());
-			if (_stopage == null)
-				continue;
-			_detail.setStopage_name(_stopage.getName());
-			if (_stopage.getLatitude() == null)
-				continue;
-			
-			if (_stopage.getLongitude() == null)
-				continue;
-			
-			double distance = LocationUtil.getDistance(location[1], location[0], _stopage.getLatitude(), _stopage.getLongitude());
-			_detail.setNearest_distance(distance);		
+			if (_route_stopage != null) {
+				stopage _stopage = (stopage)stopageMap.get(_route_stopage.getStopage_id());
+				if (_stopage != null) { 
+					_detail.setStopage_name(_stopage.getName());
+					if (Util.isEmpty(_stopage.getLatitude())  && 
+							Util.isEmpty(_stopage.getLongitude())) {
+						double distance = LocationUtil.getDistance(location[1], location[0], _stopage.getLatitude(), _stopage.getLongitude());
+						_detail.setNearest_distance(distance);		
+					}
+				}
+			}
 			list.add(_detail);
-
 		}
 		return HelperUtils.convertList2Array(list);
 	}
