@@ -87,6 +87,7 @@ public class Trip_detailHelper extends BaseHelper {
 			return null;
 		System.out.println("Total Time series data :: "+time_seriesData.length);
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
+		long last_time = 0;
 		for(int i=0; i < time_seriesData.length; i++) {
 			appliance_time_series data = (appliance_time_series) time_seriesData[i];
 			System.out.println("Time series data :: "+new Date(data.getCreation_time())+"->"+data.getValue());
@@ -100,6 +101,10 @@ public class Trip_detailHelper extends BaseHelper {
 				continue;
 			_detail.setCreation_time(data.getCreation_time());
 			_detail.setLocation_latitude_longitude(data.getValue());
+			if (last_time != 0) {
+				_detail.setData_get_duration(data.getCreation_time()-last_time);
+			}
+			last_time = data.getCreation_time();
 			route_stopage _route_stopage = getNearestStopage(stopageMap,route_stopages,location[1],location[0]);
 			if (_route_stopage != null) {
 				System.out.println("Route Stopage found :: "+"->"+_route_stopage.getName());
@@ -114,6 +119,7 @@ public class Trip_detailHelper extends BaseHelper {
 					}
 				}
 			}
+			
 			list.add(_detail);
 		}
 		return HelperUtils.convertList2Array(list);

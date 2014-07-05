@@ -57,6 +57,10 @@
 			'nearest_distance':
 			{
 				'type':'double'
+			},
+			'data_get_duration':
+			{
+				'type':'long'
 			}
 		}
 	}

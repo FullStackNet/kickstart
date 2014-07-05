@@ -31,6 +31,7 @@ public abstract class Basetrip_detail extends BaseResource {
 	private Long creation_time = null;
 	private String nearest_stopage_name = null;
 	private Double nearest_distance = null;
+	private Long data_get_duration = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TRIP_ID = "trip_id";
@@ -44,6 +45,7 @@ public abstract class Basetrip_detail extends BaseResource {
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_NEAREST_STOPAGE_NAME = "nearest_stopage_name";
 	public static String FIELD_NEAREST_DISTANCE = "nearest_distance";
+	public static String FIELD_DATA_GET_DURATION = "data_get_duration";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("trip_detail");
@@ -93,6 +95,9 @@ public abstract class Basetrip_detail extends BaseResource {
 		Field nearest_distanceField = new Field("nearest_distance", "double");
 		metaData.addField(nearest_distanceField);
 
+		Field data_get_durationField = new Field("data_get_duration", "long");
+		metaData.addField(data_get_durationField);
+
 
 		metaData.setTableName("trip_detail");
 
@@ -114,6 +119,7 @@ public abstract class Basetrip_detail extends BaseResource {
 		this.creation_time = obj.creation_time;
 		this.nearest_stopage_name = obj.nearest_stopage_name;
 		this.nearest_distance = obj.nearest_distance;
+		this.data_get_duration = obj.data_get_duration;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -146,6 +152,8 @@ public abstract class Basetrip_detail extends BaseResource {
 			map.put("nearest_stopage_name", nearest_stopage_name);
 		if(nearest_distance != null)
 			map.put("nearest_distance", nearest_distance);
+		if(data_get_duration != null)
+			map.put("data_get_duration", data_get_duration);
 		return map;
 	}
 
@@ -175,6 +183,8 @@ public abstract class Basetrip_detail extends BaseResource {
 			map.put("nearest_stopage_name", nearest_stopage_name);
 		if(nearest_distance != null)
 			map.put("nearest_distance", nearest_distance);
+		if(data_get_duration != null)
+			map.put("data_get_duration", data_get_duration);
 		return map;
 	}
 
@@ -196,6 +206,7 @@ public abstract class Basetrip_detail extends BaseResource {
 		creation_time = (Long) map.get("creation_time");
 		nearest_stopage_name = (String) map.get("nearest_stopage_name");
 		nearest_distance = (Double) map.get("nearest_distance");
+		data_get_duration = (Long) map.get("data_get_duration");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -246,6 +257,10 @@ public abstract class Basetrip_detail extends BaseResource {
 		Object nearest_distanceObj = map.get("nearest_distance");
 		if(nearest_distanceObj != null)
 			nearest_distance = new Double(nearest_distanceObj.toString());
+
+		Object data_get_durationObj = map.get("data_get_duration");
+		if(data_get_durationObj != null)
+			data_get_duration = new Long(data_get_durationObj.toString());
 
 	}
 
@@ -452,6 +467,26 @@ public abstract class Basetrip_detail extends BaseResource {
 
 	public void unSetNearest_distance() {
 		this.nearest_distance = null;
+	}
+
+	public Long getData_get_duration() {
+		return data_get_duration;
+	}
+
+	public long getData_get_durationEx() {
+		return data_get_duration != null ? data_get_duration : 0L;
+	}
+
+	public void setData_get_duration(long data_get_duration) {
+		this.data_get_duration = data_get_duration;
+	}
+
+	public void setData_get_duration(Long data_get_duration) {
+		this.data_get_duration = data_get_duration;
+	}
+
+	public void unSetData_get_duration() {
+		this.data_get_duration = null;
 	}
 	public String getCluster() {
 		return "DB_LOG";
