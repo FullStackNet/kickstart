@@ -105,7 +105,7 @@ public class Trip_detailHelper extends BaseHelper {
 				stopage _stopage = (stopage)stopageMap.get(_route_stopage.getStopage_id());
 				if (_stopage != null) { 
 					System.out.println("Stopage found :: "+"->"+_stopage.getName());
-					_detail.setStopage_name(_stopage.getName());
+					_detail.setNearest_stopage_name(_stopage.getName());
 					if (!Util.isEmpty(_stopage.getLatitude())  && 
 							!Util.isEmpty(_stopage.getLongitude())) {
 						double distance = LocationUtil.getDistance(location[1], location[0], _stopage.getLatitude(), _stopage.getLongitude());
