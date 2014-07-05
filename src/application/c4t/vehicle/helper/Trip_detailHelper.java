@@ -71,7 +71,8 @@ public class Trip_detailHelper extends BaseHelper {
 			return null;
 
 		for(int i =0 ; i < route_stopages.length; i++) {
-			stopage _stopage = (stopage) StopageHelper.getInstance().getById(route_stopages[i].getId());
+			route_stopage _route_stopage = (route_stopage)route_stopages[i];
+			stopage _stopage = (stopage) StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
 			if (_stopage == null)
 				continue;
 			stopageMap.put(_stopage.getId(), _stopage);
