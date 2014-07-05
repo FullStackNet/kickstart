@@ -51,6 +51,7 @@ public class Trip_detailHelper extends BaseHelper {
 			double distance = LocationUtil.getDistance(latitude,longitude, _stopage.getLatitude(), _stopage.getLongitude());
 			if (short_distance == 0.0 || distance < short_distance) {
 				_nearest_route_stopage = _route_stopage;
+				short_distance = distance;
 			}
 		}
 		return _nearest_route_stopage;
