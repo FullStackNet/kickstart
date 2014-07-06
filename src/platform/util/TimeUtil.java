@@ -286,6 +286,15 @@ public class TimeUtil {
 		return ago(startTime.getTime());
 	}
 	
+	public static String getDayTimeString(long dayTime) {
+		long   time = dayTime;
+		long hr = time/(60*60);
+		time = time-(hr*60*60);
+		long mn = time/60;
+		long ss = time-(mn*60);
+		return String.format("%02d:%02d:%02d",hr,mn,ss);
+	}
+	
 	public static long getDayTime(String timeZone,long timeinMs) {
 		Date time = new Date(timeinMs);
 		long dayTime = 0;

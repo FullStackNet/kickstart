@@ -51,7 +51,7 @@ public class Route_stopageHelper extends BaseHelper {
 
 	public BaseResource[] getRouteStopageByRouteId(String routeId) {
 		Expression expression = new Expression(route_stopage.FIELD_ROUTE_ID, REL_OP.EQ, routeId);
-		return getByExpression(expression);
+		return getByExpression(expression,new String[]{route_stopage.FIELD_STOPAGE_ORDER});
 	}
 
 	public void delete(String userId,String customerId,String routeStopageId) throws ApplicationException {
