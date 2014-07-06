@@ -37,6 +37,27 @@ public class Route_stopageHelper extends BaseHelper {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void update_stopage_time(String routeId) {
+		route _route = (route) RouteHelper.getInstance().getById(routeId);
+		if (_route == null)
+			return;
+		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(routeId);
+		if (Util.isEmpty(route_stopages)) 
+			return;
+		long dayTime = TimeUtil.getDayTime(_route.getStart_time());
+		for(int i=0; i < route_stopages.length;i++) {
+			route_stopage _route_stopage = (route_stopage) route_stopages[i];
+			dayTime = dayTime +_route_stopage.getTime_from_previous_stop();
+			_route_stopage.setExpected_reachtime(TimeUtil.getDayTimeString(dayTime));
+			try {
+				Route_stopageHelper.getInstance().update(_route_stopage);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		
+		}
+	}
+	
 	public Route_stopageHelper() {
 		super(new route_stopage());
 		// TODO Auto-generated constructor stub
