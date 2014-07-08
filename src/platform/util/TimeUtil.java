@@ -333,6 +333,8 @@ public class TimeUtil {
 		return String.format("%02d:%02d:%02d",hr,mm,ss);
 	}
 	public static long getDayTime(String time) {
+		if (time == null)
+			return 0;
 		long dayTime = 0;
 		time = time.trim();
 		String[] times = time.split(":");
@@ -347,6 +349,8 @@ public class TimeUtil {
 		}
 		return dayTime;
 	}
+	
+
 	
 	public static String ago(long startTime) {
 		Date endTime= new Date();

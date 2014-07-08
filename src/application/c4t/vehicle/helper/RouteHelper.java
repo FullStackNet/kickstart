@@ -336,6 +336,7 @@ public class RouteHelper extends BaseHelper {
 							}
 						}
 					}
+					
 					ApplicationLogger.info("Now short distance is this stop "+stopageLatitude+":"+stopageLongitude + _stopage.getName() +" for "+ latitude + ":"+longitude + "-> " + distance, this.getClass());
 					short_stopage_distance = distance;
 					found_route_stopage = _route_stopage;
@@ -343,11 +344,36 @@ public class RouteHelper extends BaseHelper {
 				}
 			}
 		}
+		
 		if (_short_route_stopage != null) {
 			ApplicationLogger.info("Short distance Stop  is "+ _short_route_stopage.getName() + short_distance, this.getClass());
 		}
+		
 		if (found_route_stopage != null) {
-
+				if (TimeUtil.isSameDate(_fetched_appliance.getTimeZone(),
+						logTime.getTime(), 
+						found_route_stopage.getReached_timeEx())) {
+					
+					long last_reach_time = TimeUtil.getDayTime(_fetched_appliance.getTimeZone(),found_route_stopage.getReached_time());
+					long exptected_reach_day_time = TimeUtil.getDayTime(found_route_stopage.getExpected_reachtime());
+					long current_day_time = TimeUtil.getDayTime(_fetched_appliance.getTimeZone(),logTime);
+					int previous_duration = (int)(last_reach_time -  exptected_reach_day_time);
+					if (previous_duration < 0)
+						previous_duration = previous_duration*(-1);
+					
+					int current_duration = (int)(current_day_time -  exptected_reach_day_time);
+					if (current_duration < 0)
+						current_duration = current_duration*(-1);
+					if (previous_duration < current_duration) {
+						ApplicationLogger.info("Ignoring the stop "+found_stopage.getName()+" at "+TimeUtil.getDayTimeString(current_day_time)+" as already marked reached at "+TimeUtil.getDayTimeString(last_reach_time)+"... ", this.getClass());
+						return;
+					}
+			}
+			int time = (int) (logTime.getTime() - found_route_stopage.getReached_time());
+			if (time < 0)
+				time = (-1)*time;
+			
+			
 			ApplicationLogger.info("Finally decided on this stop based on shortest distance "+ found_route_stopage.getNameEx() +" for "+ short_stopage_distance, this.getClass());
 			//sendNotification(_fetched_appliance, found_route_stopage);
 			Map<String, Object> map = new HashMap<String, Object>();
