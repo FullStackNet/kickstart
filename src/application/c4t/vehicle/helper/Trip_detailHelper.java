@@ -16,6 +16,7 @@ import platform.helper.HelperUtils;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
 import platform.resource.appliance_time_series;
+import platform.util.ApplicationConstants;
 import platform.util.TimeUtil;
 import platform.util.Util;
 import platform.util.location.LocationUtil;
@@ -115,6 +116,12 @@ public class Trip_detailHelper extends BaseHelper {
 					if (!Util.isEmpty(_stopage.getLatitude())  && 
 							!Util.isEmpty(_stopage.getLongitude())) {
 						double distance = LocationUtil.getDistance(location[1], location[0], _stopage.getLatitude(), _stopage.getLongitude());
+						double stopage_radius = ApplicationConstants.STOPAGE_RADIUS_KM;
+						if (_route_stopage.getStopage_radius() != null)
+							stopage_radius = _route_stopage.getStopage_radius()/1000;
+						if (distance <= stopage_radius) {
+							_detail.setStopage_identified("Y");
+						}
 						_detail.setNearest_distance(distance);		
 					}
 				}

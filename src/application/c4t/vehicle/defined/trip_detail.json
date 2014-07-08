@@ -61,6 +61,11 @@
 			'data_get_duration':
 			{
 				'type':'long'
+			},
+			'stopage_identified':
+			{
+				'type':'String',
+				length : 1
 			}
 		}
 	}
