@@ -29,6 +29,7 @@ public abstract class Basedaily_activity extends BaseResource {
 	private String description = null;
 	private Long creation_timestamp = null;
 	private Long activity_date = null;
+	private String sent = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_CLASS_NAME = "class_name";
@@ -40,6 +41,7 @@ public abstract class Basedaily_activity extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
 	public static String FIELD_ACTIVITY_DATE = "activity_date";
+	public static String FIELD_SENT = "sent";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("daily_activity");
@@ -88,6 +90,11 @@ public abstract class Basedaily_activity extends BaseResource {
 		Field activity_dateField = new Field("activity_date", "timestamp");
 		metaData.addField(activity_dateField);
 
+		Field sentField = new Field("sent", "String");
+		sentField.setDefaultValue("N");
+		sentField.setLength(1);
+		metaData.addField(sentField);
+
 
 		metaData.setTableName("daily_activity");
 
@@ -107,10 +114,16 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.description = obj.description;
 		this.creation_timestamp = obj.creation_timestamp;
 		this.activity_date = obj.activity_date;
+		this.sent = obj.sent;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(sent == null)
+			sent = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -135,10 +148,15 @@ public abstract class Basedaily_activity extends BaseResource {
 			map.put("creation_timestamp", creation_timestamp);
 		if(activity_date != null)
 			map.put("activity_date", activity_date);
+		if(sent != null)
+			map.put("sent", sent);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -160,6 +178,8 @@ public abstract class Basedaily_activity extends BaseResource {
 			map.put("creation_timestamp", creation_timestamp);
 		if(activity_date != null)
 			map.put("activity_date", activity_date);
+		if(sent != null)
+			map.put("sent", sent);
 		return map;
 	}
 
@@ -179,6 +199,7 @@ public abstract class Basedaily_activity extends BaseResource {
 		description = (String) map.get("description");
 		creation_timestamp = (Long) map.get("creation_timestamp");
 		activity_date = (Long) map.get("activity_date");
+		sent = (String) map.get("sent");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -221,6 +242,10 @@ public abstract class Basedaily_activity extends BaseResource {
 		Object activity_dateObj = map.get("activity_date");
 		if(activity_dateObj != null)
 			activity_date = (Long) activity_dateObj;
+
+		Object sentObj = map.get("sent");
+		if(sentObj != null)
+			sent = sentObj.toString();
 
 	}
 
@@ -381,6 +406,18 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.activity_date = activity_date;
 	}
 
+
+	public String getSent() {
+		return sent != null ? sent : "N";
+	}
+
+	public void setSent(String sent) {
+		this.sent = sent;
+	}
+
+	public void unSetSent() {
+		this.sent = "N";
+	}
 	public String getCluster() {
 		return "DB_SCHOOL";
 	}
