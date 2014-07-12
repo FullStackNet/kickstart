@@ -822,6 +822,10 @@ public class BaseHelper {
 		return getByExpression(e, new String[]{"name"});
 	}
 
+	public BaseResource[] getByCustomerId(String customerId,String[] orderby) {
+		Expression e = new Expression("customer_id", REL_OP.EQ, customerId);
+		return getByExpression(e, orderby);
+	}
 	
 	public ArrayList<Map<String, Object>> getListMapByCustomerId(String customerId,ArrayList<JoinField> joinFields) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
