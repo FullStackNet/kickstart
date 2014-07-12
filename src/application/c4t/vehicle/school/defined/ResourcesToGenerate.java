@@ -28,7 +28,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("school_user_map", "application.c4t.vehicle.school.resource.school_user_map"),
 		new ResourceMap("school_customer_map", "application.c4t.vehicle.school.resource.school_customer_map"),
 		new ResourceMap("student_parent", "application.c4t.vehicle.school.resource.student_parent"),
-		new ResourceMap("student_detail", "application.c4t.vehicle.school.resource.student_detail"),
+		new ResourceMap("student_detail", "application.c4t.vehicle.school.resource .student_detail"),
 		new ResourceMap("school", "application.c4t.vehicle.school.resource.school"),
 		new ResourceMap("school_group", "application.c4t.vehicle.school.resource.school_group"),
 		new ResourceMap("school_customer", "application.c4t.vehicle.school.resource.school_customer"),
