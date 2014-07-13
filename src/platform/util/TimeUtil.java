@@ -58,6 +58,19 @@ public class TimeUtil {
 			return dateFormat.format(date);
 		}
 	   
+	    public static String getDisplayDateString(String timeZone,long time) {
+			if (timeZone == null)
+				timeZone = "IST";
+			if (time == 0) {
+				time = new Date().getTime();
+			}
+			Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+			cal.setTime(new Date(time));
+	
+			return String.format("%02d-%02d-%04d",cal.get(Calendar.DAY_OF_MONTH),
+					cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR));
+		}
+	    
 	    public static String getDateString(String timeZone,long time) {
 			if (timeZone == null)
 				timeZone = "GMT";

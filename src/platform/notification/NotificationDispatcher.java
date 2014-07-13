@@ -19,7 +19,7 @@ public class NotificationDispatcher {
 	private static NotificationDispatcher instance;
 	private String username = "ajay.nema@gmail.com";
 	private String password = "9880158155";
-	private String api_key= "uHzBjHDBcS5gfpSTMA5vrcBAurHXiRoY";
+	private String api_key= "2Ykb8C7MApQ6M6u7x7Y6mQCQNCOMzyzs";
 	private String sessionId;
 	private String URL_ACS = "https://api.cloud.appcelerator.com/v1/";
 	Date lastSessionUpdated = null;

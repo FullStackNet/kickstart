@@ -76,7 +76,9 @@ public class PageBuilder {
 			jsFileList.add(new JS("json.js", "/ui/js"));
 		} else {
 			cssFileList.add(new CSS("base.css", "/ui/css"));
-			jsFileList.add(new JS("jquery-1.10.2.min.js", "/ui/js"));
+			cssFileList.add(new CSS("jquery-ui.css", "http://code.jquery.com/ui/1.11.0/themes/smoothness"));
+			jsFileList.add(new JS("jquery-1.10.2.js", "http://code.jquery.com"));
+			jsFileList.add(new JS("jquery-ui.js", "http://code.jquery.com/ui/1.11.0"));
 			jsFileList.add(new JS("function.js", "/ui/js"));
 			jsFileList.add(new JS("DataHandler.js", "/ui/js"));
 			jsFileList.add(new JS("json.js", "/ui/js"));

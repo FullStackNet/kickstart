@@ -10,6 +10,7 @@ import platform.webservice.ui.definition.FormDefinition;
 import platform.webservice.ui.html.BUTTON;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.COMBO;
+import platform.webservice.ui.html.CSS;
 import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.FORM;
 import platform.webservice.ui.html.HIDDEN;
@@ -220,6 +221,19 @@ public abstract class BaseForm extends BaseView {
 						textEdit.setValue(value.toString());
 					}
 					column.addChild(textEdit);
+				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_DATEPICKER) {
+					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
+					if (value != null) {
+						textEdit.setValue(value.toString());
+					}
+					column.addChild(textEdit);
+					String dateJS  = "<script>\n" +
+							"$(function() {\n" +
+							"$(\"#"+field.getName()+"\").datepicker();\n" +
+						 	"$(\"#"+field.getName()+"\").datepicker(\"option\", \"dateFormat\", \"dd-mm-yy\");\n" +
+					  	"});\n"+
+					  "</script>\n";
+					column.addChild(new TEXT(dateJS));
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTAREA) {
 					TEXTAREA textArea = new TEXTAREA(field.getName(),null);
 					if (value != null) {
