@@ -53,6 +53,10 @@
 			'activity_date': {
 				'type': 'timestamp'
 			},
+			'activity_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
 			'sent': {
 				'type': 'String',
 				'length' : 1,
