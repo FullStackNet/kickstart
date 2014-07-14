@@ -10,7 +10,6 @@ import platform.webservice.ui.definition.FormDefinition;
 import platform.webservice.ui.html.BUTTON;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.COMBO;
-import platform.webservice.ui.html.CSS;
 import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.FORM;
 import platform.webservice.ui.html.HIDDEN;
