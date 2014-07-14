@@ -53,11 +53,6 @@
 			'activity_date': {
 				'type': 'timestamp'
 			},
-			'activity_date_str': {
-				'type': 'String',
-				'length' : 32,
-				'transient' : true
-			},
 			'sent': {
 				'type': 'String',
 				'length' : 1,
