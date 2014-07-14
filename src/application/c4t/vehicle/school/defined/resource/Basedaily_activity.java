@@ -29,6 +29,7 @@ public abstract class Basedaily_activity extends BaseResource {
 	private String description = null;
 	private Long creation_timestamp = null;
 	private Long activity_date = null;
+	private String activity_date_str = null;
 	private String sent = null;
 
 	public static String FIELD_ID = "id";
@@ -41,6 +42,7 @@ public abstract class Basedaily_activity extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
 	public static String FIELD_ACTIVITY_DATE = "activity_date";
+	public static String FIELD_ACTIVITY_DATE_STR = "activity_date_str";
 	public static String FIELD_SENT = "sent";
 
 	private static final long serialVersionUID = 1L;
@@ -114,6 +116,7 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.description = obj.description;
 		this.creation_timestamp = obj.creation_timestamp;
 		this.activity_date = obj.activity_date;
+		this.activity_date_str = obj.activity_date_str;
 		this.sent = obj.sent;
 	}
 
@@ -148,6 +151,8 @@ public abstract class Basedaily_activity extends BaseResource {
 			map.put("creation_timestamp", creation_timestamp);
 		if(activity_date != null)
 			map.put("activity_date", activity_date);
+		if(activity_date_str != null)
+			map.put("activity_date_str", activity_date_str);
 		if(sent != null)
 			map.put("sent", sent);
 		return map;
@@ -178,6 +183,8 @@ public abstract class Basedaily_activity extends BaseResource {
 			map.put("creation_timestamp", creation_timestamp);
 		if(activity_date != null)
 			map.put("activity_date", activity_date);
+		if(activity_date_str != null)
+			map.put("activity_date_str", activity_date_str);
 		if(sent != null)
 			map.put("sent", sent);
 		return map;
@@ -406,6 +413,22 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.activity_date = activity_date;
 	}
 
+
+	public String getActivity_date_str() {
+		return activity_date_str;
+	}
+
+	public String getActivity_date_strEx() {
+		return activity_date_str != null ? activity_date_str : "";
+	}
+
+	public void setActivity_date_str(String activity_date_str) {
+		this.activity_date_str = activity_date_str;
+	}
+
+	public void unSetActivity_date_str() {
+		this.activity_date_str = null;
+	}
 
 	public String getSent() {
 		return sent != null ? sent : "N";
