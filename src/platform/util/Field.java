@@ -41,7 +41,6 @@ public class Field {
 	private boolean isCounter;
 	
 	
-
 	public static final String FILE_TYPE_FIELD_SUFFIX = "ContentType";
 	public static final String TIME_STAMP_FIELD_SUFFIX = "TimeStamp";
 	public static final String[] DOC_CONTENT_TYPES = new String[] {
@@ -286,4 +285,6 @@ public class Field {
 	public void setDefaultValue(Object defaultValue) {
 		this.defaultValue = defaultValue;
 	}
+
+
 }

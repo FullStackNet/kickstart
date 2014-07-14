@@ -322,6 +322,33 @@ public class TimeUtil {
 		return dayTime;
 	}
 	
+	public static Long getTimeFromDateString(String timeZone,String date) {
+		if (Util.isEmpty(date)) {
+			return null;
+		}
+		if (timeZone == null)
+			timeZone = "IST";
+		
+		String[] tokens = date.split("-");
+		if (date.indexOf('/') > 0) {
+			tokens = date.split("/");
+		}
+		int year = Integer.parseInt(tokens[2]);
+		int  month = Integer.parseInt(tokens[1]);
+		int  day = Integer.parseInt(tokens[0]);
+		  
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month);
+		cal.set(Calendar.DAY_OF_MONTH, day);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
+	}
+	
 	public static long getDayTime(String timeZone,Date time) {
 		long dayTime = 0;
 		if (timeZone == null)

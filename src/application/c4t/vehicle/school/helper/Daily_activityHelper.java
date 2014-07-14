@@ -5,6 +5,7 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
+import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.daily_activity;
 
 
@@ -20,6 +21,12 @@ public class Daily_activityHelper extends BaseHelper {
 		if (instance == null)
 			instance = new Daily_activityHelper();
 		return instance;
+	}
+	
+	public void updateSend(String id) throws ApplicationException {
+		daily_activity _daily_activity = new daily_activity(id);
+		_daily_activity.setSent("Y");
+		Daily_activityHelper.getInstance().update(_daily_activity);
 	}
 	
 	public BaseResource[] getDaily_activiyForClass(String customerId, String class_section_name) {

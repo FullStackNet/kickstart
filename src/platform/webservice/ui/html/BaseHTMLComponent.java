@@ -1,17 +1,21 @@
 package platform.webservice.ui.html;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import platform.webservice.ui.util.Attribute;
 
 public abstract class BaseHTMLComponent {
 	ArrayList<Attribute> attrList;
 	ArrayList<BaseHTMLComponent> childList;
+	Map<String,String> styleMap;
 	String text;
 	
 	public BaseHTMLComponent() {
 		childList = new ArrayList<BaseHTMLComponent>();
 		attrList = new ArrayList<Attribute>();
+		styleMap = new HashMap<String,String>();
 	}
 	
 	public void removeAllChild() {
@@ -34,6 +38,10 @@ public abstract class BaseHTMLComponent {
 		attrList.add(new Attribute(name, value));
 	}
 	
+	public void addStyle(String name,String value) {
+		styleMap.put(name, value);
+	}
+	
 	public void addAttribute(Attribute attribute) {
 		attrList.add(attribute);
 	}
@@ -54,7 +62,15 @@ public abstract class BaseHTMLComponent {
 		StringBuffer buffer = new StringBuffer();
 		if (getTag() != null) {
 		buffer.append(space+"<"+getTag());
-			for(int i=0; i < attrList.size(); i++) {
+		if (styleMap.size() > 0) {
+			String style = "";
+			for (Map.Entry<String, String> entry : styleMap.entrySet()) {
+				style = style + entry.getKey() + ":" + entry.getValue() + ";";
+			}
+			addAttribute("style", style);
+		}
+		for(int i=0; i < attrList.size(); i++) {
+				
 				if (attrList.get(i).getValue() == "NO_VALUE") {
 					buffer.append(" "+attrList.get(i).getName());
 				} else

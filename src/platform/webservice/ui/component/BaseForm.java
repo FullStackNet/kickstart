@@ -1,5 +1,6 @@
 package platform.webservice.ui.component;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import platform.util.TimeUtil;
@@ -7,6 +8,7 @@ import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.definition.Block;
 import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.definition.FormDefinition;
+import platform.webservice.ui.definition.IdValue;
 import platform.webservice.ui.html.BUTTON;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.COMBO;
@@ -216,6 +218,9 @@ public abstract class BaseForm extends BaseView {
 				column = new TD();
 				if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTINPUT) {
 					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
+					if (field.isUpperCase()) {
+						textEdit.addStyle("text-transform", "uppercase");
+					}
 					if (value != null) {
 						textEdit.setValue(value.toString());
 					}
@@ -242,8 +247,17 @@ public abstract class BaseForm extends BaseView {
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PASSWORD) {
 					column.addChild(new PASSWORD(field.getName(),null));
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_COMBO) {
-					COMBO combo = new COMBO(field.getName(), null,field.getDatasource().getData(),value);
-					column.addChild(combo.getView());
+					ArrayList<IdValue> list = field.getDatasource().getData();
+					if (list != null && field.isHideOnSingleEntry() && list.size() == 1) {
+						IdValue idvalue = (IdValue)list.get(0);
+						HIDDEN hidden = new HIDDEN(field.getName(),idvalue.getId());
+						mForm.addChild(hidden);
+						continue;
+					} else {
+						COMBO combo = new COMBO(field.getName(), null,field.getDatasource().getData(),value);
+						column.addChild(combo.getView());
+					}
+					
 				}  else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_LABEL) {
 					if ((data != null) && 
 							(dataMap.get(field.getName()) != null)) {

@@ -22,10 +22,12 @@ public abstract class Baseschool_user_map extends BaseResource {
 	private String id = null; //user ids
 	private ArrayList<Object> students = null;
 	private ArrayList<Object> teachers = null;
+	private ArrayList<Object> schools = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_TEACHERS = "teachers";
+	public static String FIELD_SCHOOLS = "schools";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("school_user_map");
@@ -44,6 +46,9 @@ public abstract class Baseschool_user_map extends BaseResource {
 		Field teachersField = new Field("teachers", "Array");
 		metaData.addField(teachersField);
 
+		Field schoolsField = new Field("schools", "Array");
+		metaData.addField(schoolsField);
+
 
 		metaData.setTableName("school_user_map");
 
@@ -56,6 +61,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 		this.id = obj.id;
 		this.students = obj.students;
 		this.teachers = obj.teachers;
+		this.schools = obj.schools;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -70,6 +76,8 @@ public abstract class Baseschool_user_map extends BaseResource {
 			map.put("students", students);
 		if(teachers != null)
 			map.put("teachers", teachers);
+		if(schools != null)
+			map.put("schools", schools);
 		return map;
 	}
 
@@ -81,6 +89,8 @@ public abstract class Baseschool_user_map extends BaseResource {
 			map.put("students", students);
 		if(teachers != null)
 			map.put("teachers", teachers);
+		if(schools != null)
+			map.put("schools", schools);
 		return map;
 	}
 
@@ -93,6 +103,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 		id = (String) map.get("id");
 		students = (ArrayList<Object>) map.get("students");
 		teachers = (ArrayList<Object>) map.get("teachers");
+		schools = (ArrayList<Object>) map.get("schools");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -102,6 +113,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 
 		students = (ArrayList<Object>) map.get("students");
 		teachers = (ArrayList<Object>) map.get("teachers");
+		schools = (ArrayList<Object>) map.get("schools");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -168,6 +180,25 @@ public abstract class Baseschool_user_map extends BaseResource {
 
 	public void unSetTeachers() {
 		this.teachers = null;
+	}
+
+	public ArrayList<Object> getSchools() {
+		return schools;
+	}
+
+
+	public void setSchools(ArrayList<Object> schools) {
+		this.schools = schools;
+	}
+
+	public void addSchools(Object value) {
+		if(schools == null)
+			schools = new ArrayList<Object>();
+		schools.add(value);
+	}
+
+	public void unSetSchools() {
+		this.schools = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

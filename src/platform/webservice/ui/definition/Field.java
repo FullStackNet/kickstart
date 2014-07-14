@@ -32,6 +32,10 @@ public class Field {
 	String timeZone;
 	Link link;
 	int width;
+	boolean hideOnSingleEntry;
+	
+	private boolean isUpperCase;
+	
 	public DataSource getDatasource() {
 		return datasource;
 	}
@@ -250,5 +254,21 @@ public class Field {
 
 	public void setWidth(int width) {
 		this.width = width;
+	}
+
+	public boolean isHideOnSingleEntry() {
+		return hideOnSingleEntry;
+	}
+
+	public void setHideOnSingleEntry(boolean hideOnSingleEntry) {
+		this.hideOnSingleEntry = hideOnSingleEntry;
+	}
+
+	public boolean isUpperCase() {
+		return isUpperCase;
+	}
+
+	public void setUpperCase(boolean isUpperCase) {
+		this.isUpperCase = isUpperCase;
 	}
 }

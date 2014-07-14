@@ -21,6 +21,11 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'schools':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}
