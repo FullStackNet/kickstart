@@ -37,7 +37,7 @@ public abstract class BaseForm extends BaseView {
 	public abstract Map<String, Object> getData(String id);
 	public abstract void populateDefinition();
 	String operation;
-	
+
 	public BaseForm(UIServletContext ctx) {
 		super();
 		mContext = ctx;
@@ -227,16 +227,18 @@ public abstract class BaseForm extends BaseView {
 					column.addChild(textEdit);
 				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_DATEPICKER) {
 					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
-					if (value != null) {
-						textEdit.setValue(value.toString());
-					}
 					column.addChild(textEdit);
 					String dateJS  = "<script>\n" +
 							"$(function() {\n" +
 							"$(\"#"+field.getName()+"\").datepicker();\n" +
-						 	"$(\"#"+field.getName()+"\").datepicker(\"option\", \"dateFormat\", \"dd-mm-yy\");\n" +
-					  	"});\n"+
-					  "</script>\n";
+							"$(\"#"+field.getName()+"\").datepicker(\"option\", \"dateFormat\", \"dd-mm-yy\");\n";
+					if (value != null) {
+						dateJS = dateJS +	"var queryDate = '"+value.toString()+"';\n"+
+								"var parsedDate = $.datepicker.parseDate('dd-mm-yy', queryDate);\n"+
+								"$('#"+field.getName()+"').datepicker('setDate', parsedDate);\n";
+					}
+					dateJS = dateJS + "});\n"+
+							"</script>\n";
 					column.addChild(new TEXT(dateJS));
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTAREA) {
 					TEXTAREA textArea = new TEXTAREA(field.getName(),null);
@@ -257,7 +259,7 @@ public abstract class BaseForm extends BaseView {
 						COMBO combo = new COMBO(field.getName(), null,field.getDatasource().getData(),value);
 						column.addChild(combo.getView());
 					}
-					
+
 				}  else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_LABEL) {
 					if ((data != null) && 
 							(dataMap.get(field.getName()) != null)) {

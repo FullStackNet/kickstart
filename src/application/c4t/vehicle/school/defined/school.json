@@ -70,7 +70,19 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_daily_activity':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_teacher2parent_chat':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_admin2parent_chat':
 			{
 				'length': 1,
 				'default' : "N",
