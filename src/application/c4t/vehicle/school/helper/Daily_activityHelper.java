@@ -30,9 +30,9 @@ public class Daily_activityHelper extends BaseHelper {
 	}
 	
 	public BaseResource[] getDaily_activiyForClass(String customerId, String class_section_name) {
-		Expression e1 = new Expression(daily_activity.FIELD_CUSTOMER_ID, REL_OP.EQ, customerId);
+		Expression e1 = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.EQ, customerId);
 		Expression e2 = new Expression(daily_activity.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e3 = new Expression(e1, LOG_OP.AND, e2);
-		return getByExpression(e3, new String[]{daily_activity.FIELD_ACTIVITY_DATE});
+		return getByExpression(e3, new String[]{daily_activity.FIELD_ACTIVITY_DATE + " desc"});
 	}
 }
