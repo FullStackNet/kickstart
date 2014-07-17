@@ -60,6 +60,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String stopage_alert_email = null;
 	private String feature_parent2parent_chat = null;
 	private String feature_homework = null;
+	private String feature_daily_activity = null;
 	private String feature_parent2teacher_chat = null;
 	private String feature_teacher2parent_chat = null;
 
@@ -104,6 +105,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_STOPAGE_ALERT_EMAIL = "stopage_alert_email";
 	public static String FIELD_FEATURE_PARENT2PARENT_CHAT = "feature_parent2parent_chat";
 	public static String FIELD_FEATURE_HOMEWORK = "feature_homework";
+	public static String FIELD_FEATURE_DAILY_ACTIVITY = "feature_daily_activity";
 	public static String FIELD_FEATURE_PARENT2TEACHER_CHAT = "feature_parent2teacher_chat";
 	public static String FIELD_FEATURE_TEACHER2PARENT_CHAT = "feature_teacher2parent_chat";
 
@@ -281,6 +283,11 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_homeworkField.setLength(1);
 		metaData.addField(feature_homeworkField);
 
+		Field feature_daily_activityField = new Field("feature_daily_activity", "String");
+		feature_daily_activityField.setDefaultValue("N");
+		feature_daily_activityField.setLength(1);
+		metaData.addField(feature_daily_activityField);
+
 		Field feature_parent2teacher_chatField = new Field("feature_parent2teacher_chat", "String");
 		feature_parent2teacher_chatField.setDefaultValue("N");
 		feature_parent2teacher_chatField.setLength(1);
@@ -341,6 +348,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.stopage_alert_email = obj.stopage_alert_email;
 		this.feature_parent2parent_chat = obj.feature_parent2parent_chat;
 		this.feature_homework = obj.feature_homework;
+		this.feature_daily_activity = obj.feature_daily_activity;
 		this.feature_parent2teacher_chat = obj.feature_parent2teacher_chat;
 		this.feature_teacher2parent_chat = obj.feature_teacher2parent_chat;
 	}
@@ -360,6 +368,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			feature_parent2parent_chat = "N";
 		if(feature_homework == null)
 			feature_homework = "N";
+		if(feature_daily_activity == null)
+			feature_daily_activity = "N";
 		if(feature_parent2teacher_chat == null)
 			feature_parent2teacher_chat = "N";
 		if(feature_teacher2parent_chat == null)
@@ -450,6 +460,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_parent2parent_chat", feature_parent2parent_chat);
 		if(feature_homework != null)
 			map.put("feature_homework", feature_homework);
+		if(feature_daily_activity != null)
+			map.put("feature_daily_activity", feature_daily_activity);
 		if(feature_parent2teacher_chat != null)
 			map.put("feature_parent2teacher_chat", feature_parent2teacher_chat);
 		if(feature_teacher2parent_chat != null)
@@ -544,6 +556,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_parent2parent_chat", feature_parent2parent_chat);
 		if(feature_homework != null)
 			map.put("feature_homework", feature_homework);
+		if(feature_daily_activity != null)
+			map.put("feature_daily_activity", feature_daily_activity);
 		if(feature_parent2teacher_chat != null)
 			map.put("feature_parent2teacher_chat", feature_parent2teacher_chat);
 		if(feature_teacher2parent_chat != null)
@@ -598,6 +612,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		stopage_alert_email = (String) map.get("stopage_alert_email");
 		feature_parent2parent_chat = (String) map.get("feature_parent2parent_chat");
 		feature_homework = (String) map.get("feature_homework");
+		feature_daily_activity = (String) map.get("feature_daily_activity");
 		feature_parent2teacher_chat = (String) map.get("feature_parent2teacher_chat");
 		feature_teacher2parent_chat = (String) map.get("feature_teacher2parent_chat");
 	}
@@ -766,6 +781,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object feature_homeworkObj = map.get("feature_homework");
 		if(feature_homeworkObj != null)
 			feature_homework = feature_homeworkObj.toString();
+
+		Object feature_daily_activityObj = map.get("feature_daily_activity");
+		if(feature_daily_activityObj != null)
+			feature_daily_activity = feature_daily_activityObj.toString();
 
 		Object feature_parent2teacher_chatObj = map.get("feature_parent2teacher_chat");
 		if(feature_parent2teacher_chatObj != null)
@@ -1431,6 +1450,18 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetFeature_homework() {
 		this.feature_homework = "N";
+	}
+
+	public String getFeature_daily_activity() {
+		return feature_daily_activity != null ? feature_daily_activity : "N";
+	}
+
+	public void setFeature_daily_activity(String feature_daily_activity) {
+		this.feature_daily_activity = feature_daily_activity;
+	}
+
+	public void unSetFeature_daily_activity() {
+		this.feature_daily_activity = "N";
 	}
 
 	public String getFeature_parent2teacher_chat() {
