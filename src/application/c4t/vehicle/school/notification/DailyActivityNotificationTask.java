@@ -31,19 +31,17 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			Map<String, String> studentMap,
 			String appAlert,String smsAlert,String emailAlert,
 			String school_id,
-			String subject_id,
 			String class_section_name,
 			String title,
-			String description) {
+			String description,String activity_date) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			String students = studentMap.get(entry.getKey());
 			if ("Y".equals(smsAlert) && (_user.getMobile_no() != null)) {
 				SendSMS smsMessage = new SendSMS();
 				smsMessage.setMobile_no(_user.getMobile_no());
-				smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_HOMEWORK);
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_DAILY_ACTIVITY);
 				Map<String, String> smsMap = new HashMap<String, String>();
-				smsMap.put("SUBJECT", subject_id);
 				smsMap.put("TITLE", title);
 				smsMap.put("DESCRIPTION", description);
 				smsMap.put("STUDENTS", students);
@@ -54,11 +52,10 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			}
 			if ("Y".equals(emailAlert) && (_user.getEmail_id() != null)) {
 				SendEmail resendMail = new SendEmail();
-				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_HOMEWORK);
+				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_DAILY_ACTIVITY);
 				resendMail.setTo(_user.getEmail_id());
-				resendMail.setType(ApplicationConstants.MAIL_TYPE_HOMEWORK);
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_DAILY_ACTIVITY);
 				Map<String, String> map = new HashMap<String, String>();
-				map.put("SUBJECT", subject_id);
 				map.put("TITLE", title);
 				map.put("DESCRIPTION", description);
 				map.put("STUDENTS", students);
@@ -71,10 +68,9 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			if ("Y".equals(appAlert) && (_user.getMobile_no() != null)) {
 				SendNotification notificationMessage = new SendNotification();
 				notificationMessage.setNotify_id(_user.getId());
-				notificationMessage.setTitle("HOMEWORK");
-				notificationMessage.setType(ApplicationConstants.NOTIFICATION_TYPE_HOMEWORK);
+				notificationMessage.setTitle("DAILY ACTIVITY");
+				notificationMessage.setType(ApplicationConstants.NOTIFICATION_TYPE_DAILY_ACTIVITY);
 				Map<String, String> map = new HashMap<String, String>();
-				map.put("SUBJECT", subject_id);
 				map.put("TITLE", title);
 				map.put("DESCRIPTION", description);
 				map.put("STUDENTS", students);
@@ -94,10 +90,10 @@ public class DailyActivityNotificationTask extends NotificationTask {
 
 	void sendNotification(notification _notification, 
 			String school_id,
-			String subject_id,
 			String class_section_name,
 			String title,
-			String description) {
+			String description,
+			String activity_date) {
 		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
 		if ((students == null) || (students.length == 0)) 
 			return;
@@ -132,10 +128,10 @@ public class DailyActivityNotificationTask extends NotificationTask {
 		}
 		sendNotification2Users(_notification, userMap, studentMap,appAlert,smsAlert,emailAlert,
 				school_id,
-				subject_id,
 				class_section_name,
 				title,
-				description);
+				description,
+				activity_date);
 	}
 	@Override
 	public void process(notification _notification) {
@@ -147,13 +143,12 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				return;
 			String school_id = (String)data.get("SCHOOL_ID");
 			String class_section_name = (String)data.get("CLASS_SECTION_NAME");
-			String subject_id = (String)data.get("SUBJECT_ID");
 			String title = (String)data.get("TITLE");
 			String description = (String)data.get("DESCRIPTION");
+			String activity_date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID);
 			
 			sendNotification(_notification,school_id,
-					subject_id,
-					class_section_name, title,description);
+					class_section_name, title,description,activity_date);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
