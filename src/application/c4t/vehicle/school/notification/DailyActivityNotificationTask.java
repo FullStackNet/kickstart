@@ -41,11 +41,12 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				SendSMS smsMessage = new SendSMS();
 				smsMessage.setMobile_no(_user.getMobile_no());
 				smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_DAILY_ACTIVITY);
-				Map<String, String> smsMap = new HashMap<String, String>();
-				smsMap.put("TITLE", title);
-				smsMap.put("DESCRIPTION", description);
-				smsMap.put("STUDENTS", students);
-				String params = Json.maptoString(smsMap);
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("TITLE", title);
+				map.put("DESCRIPTION", description);
+				map.put("STUDENTS", students);
+				map.put("ACTIVITY_DATE", activity_date);
+				String params = Json.maptoString(map);
 				smsMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
 						smsMessage);
@@ -59,6 +60,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				map.put("TITLE", title);
 				map.put("DESCRIPTION", description);
 				map.put("STUDENTS", students);
+				map.put("ACTIVITY_DATE", activity_date);
 				String params = Json.maptoString(map);
 				resendMail.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -74,6 +76,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				map.put("TITLE", title);
 				map.put("DESCRIPTION", description);
 				map.put("STUDENTS", students);
+				map.put("ACTIVITY_DATE", activity_date);
 				String params = Json.maptoString(map);
 				notificationMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_NOTIFICATION_MANAGER, 
