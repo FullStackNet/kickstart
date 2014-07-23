@@ -30,6 +30,7 @@ public abstract class Baselocation extends BaseResource {
 	private String state = null;
 	private String country = null;
 	private String pinCode = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -42,6 +43,7 @@ public abstract class Baselocation extends BaseResource {
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_PINCODE = "pinCode";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("location");
@@ -94,6 +96,10 @@ public abstract class Baselocation extends BaseResource {
 		pinCodeField.setLength(16);
 		metaData.addField(pinCodeField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("location");
 
@@ -114,6 +120,7 @@ public abstract class Baselocation extends BaseResource {
 		this.state = obj.state;
 		this.country = obj.country;
 		this.pinCode = obj.pinCode;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -144,6 +151,8 @@ public abstract class Baselocation extends BaseResource {
 			map.put("country", country);
 		if(pinCode != null)
 			map.put("pinCode", pinCode);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -171,6 +180,8 @@ public abstract class Baselocation extends BaseResource {
 			map.put("country", country);
 		if(pinCode != null)
 			map.put("pinCode", pinCode);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -179,6 +190,7 @@ public abstract class Baselocation extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -191,8 +203,10 @@ public abstract class Baselocation extends BaseResource {
 		state = (String) map.get("state");
 		country = (String) map.get("country");
 		pinCode = (String) map.get("pinCode");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -238,6 +252,7 @@ public abstract class Baselocation extends BaseResource {
 		if(pinCodeObj != null)
 			pinCode = pinCodeObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -426,6 +441,28 @@ public abstract class Baselocation extends BaseResource {
 
 	public void unSetPinCode() {
 		this.pinCode = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

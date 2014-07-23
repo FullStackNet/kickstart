@@ -24,12 +24,14 @@ public abstract class Basesession extends BaseResource {
 	private String customer_id = null;
 	private String user_type = null;
 	private String user_name = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_TYPE = "user_type";
 	public static String FIELD_USER_NAME = "user_name";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("session");
@@ -58,6 +60,10 @@ public abstract class Basesession extends BaseResource {
 		user_nameField.setLength(128);
 		metaData.addField(user_nameField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("session");
 
@@ -72,6 +78,7 @@ public abstract class Basesession extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.user_type = obj.user_type;
 		this.user_name = obj.user_name;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -90,6 +97,8 @@ public abstract class Basesession extends BaseResource {
 			map.put("user_type", user_type);
 		if(user_name != null)
 			map.put("user_name", user_name);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -105,6 +114,8 @@ public abstract class Basesession extends BaseResource {
 			map.put("user_type", user_type);
 		if(user_name != null)
 			map.put("user_name", user_name);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -113,14 +124,17 @@ public abstract class Basesession extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		user_id = (String) map.get("user_id");
 		customer_id = (String) map.get("customer_id");
 		user_type = (String) map.get("user_type");
 		user_name = (String) map.get("user_name");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -142,6 +156,7 @@ public abstract class Basesession extends BaseResource {
 		if(user_nameObj != null)
 			user_name = user_nameObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -234,6 +249,28 @@ public abstract class Basesession extends BaseResource {
 
 	public void unSetUser_name() {
 		this.user_name = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_SESSION";

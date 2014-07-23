@@ -154,6 +154,7 @@ public abstract class Basesensor extends BaseResource {
 	private Long lastEngineStarted = null;
 	private Long lastEngineStopped = null;
 	private Integer heartbeat_interval = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -290,6 +291,7 @@ public abstract class Basesensor extends BaseResource {
 	public static String FIELD_LASTENGINESTARTED = "lastEngineStarted";
 	public static String FIELD_LASTENGINESTOPPED = "lastEngineStopped";
 	public static String FIELD_HEARTBEAT_INTERVAL = "heartbeat_interval";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("sensor");
@@ -937,6 +939,10 @@ public abstract class Basesensor extends BaseResource {
 		Field heartbeat_intervalField = new Field("heartbeat_interval", "int");
 		metaData.addField(heartbeat_intervalField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("sensor");
 
@@ -1081,6 +1087,7 @@ public abstract class Basesensor extends BaseResource {
 		this.lastEngineStarted = obj.lastEngineStarted;
 		this.lastEngineStopped = obj.lastEngineStopped;
 		this.heartbeat_interval = obj.heartbeat_interval;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -1522,6 +1529,8 @@ public abstract class Basesensor extends BaseResource {
 			map.put("lastEngineStopped", lastEngineStopped);
 		if(heartbeat_interval != null)
 			map.put("heartbeat_interval", heartbeat_interval);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -1800,6 +1809,8 @@ public abstract class Basesensor extends BaseResource {
 			map.put("lastEngineStopped", lastEngineStopped);
 		if(heartbeat_interval != null)
 			map.put("heartbeat_interval", heartbeat_interval);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -1808,6 +1819,7 @@ public abstract class Basesensor extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -1944,8 +1956,10 @@ public abstract class Basesensor extends BaseResource {
 		lastEngineStarted = (Long) map.get("lastEngineStarted");
 		lastEngineStopped = (Long) map.get("lastEngineStopped");
 		heartbeat_interval = (Integer) map.get("heartbeat_interval");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -2487,6 +2501,7 @@ public abstract class Basesensor extends BaseResource {
 		if(heartbeat_intervalObj != null)
 			heartbeat_interval = new Integer(heartbeat_intervalObj.toString());
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -4306,6 +4321,28 @@ public abstract class Basesensor extends BaseResource {
 
 	public void unSetHeartbeat_interval() {
 		this.heartbeat_interval = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

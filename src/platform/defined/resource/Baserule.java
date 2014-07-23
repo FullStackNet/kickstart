@@ -27,6 +27,7 @@ public abstract class Baserule extends BaseResource {
 	private String actionId = null;
 	private String enabled = null;
 	private Integer priority = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_REFERANCE_TYPE = "referance_type";
@@ -36,6 +37,7 @@ public abstract class Baserule extends BaseResource {
 	public static String FIELD_ACTIONID = "actionId";
 	public static String FIELD_ENABLED = "enabled";
 	public static String FIELD_PRIORITY = "priority";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("rule");
@@ -80,6 +82,10 @@ public abstract class Baserule extends BaseResource {
 		priorityField.setLength(5);
 		metaData.addField(priorityField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("rule");
 
@@ -97,6 +103,7 @@ public abstract class Baserule extends BaseResource {
 		this.actionId = obj.actionId;
 		this.enabled = obj.enabled;
 		this.priority = obj.priority;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -130,6 +137,8 @@ public abstract class Baserule extends BaseResource {
 			map.put("enabled", enabled);
 		if(priority != null)
 			map.put("priority", priority);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -154,6 +163,8 @@ public abstract class Baserule extends BaseResource {
 			map.put("enabled", enabled);
 		if(priority != null)
 			map.put("priority", priority);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -162,6 +173,7 @@ public abstract class Baserule extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		referance_type = (String) map.get("referance_type");
@@ -171,8 +183,10 @@ public abstract class Baserule extends BaseResource {
 		actionId = (String) map.get("actionId");
 		enabled = (String) map.get("enabled");
 		priority = (Integer) map.get("priority");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -206,6 +220,7 @@ public abstract class Baserule extends BaseResource {
 		if(priorityObj != null)
 			priority = new Integer(priorityObj.toString());
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -344,6 +359,28 @@ public abstract class Baserule extends BaseResource {
 
 	public void unSetPriority() {
 		this.priority = 1;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

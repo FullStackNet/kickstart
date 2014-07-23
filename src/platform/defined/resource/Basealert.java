@@ -43,6 +43,7 @@ public abstract class Basealert extends BaseResource {
 	private String customer_id = null;
 	private String tanent_id = null;
 	private String asset_id = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_DEVICE_ID = "device_id";
@@ -68,6 +69,7 @@ public abstract class Basealert extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_TANENT_ID = "tanent_id";
 	public static String FIELD_ASSET_ID = "asset_id";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("alert");
@@ -172,6 +174,10 @@ public abstract class Basealert extends BaseResource {
 		asset_idField.setLength(128);
 		metaData.addField(asset_idField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("alert");
 
@@ -205,6 +211,7 @@ public abstract class Basealert extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.tanent_id = obj.tanent_id;
 		this.asset_id = obj.asset_id;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -266,6 +273,8 @@ public abstract class Basealert extends BaseResource {
 			map.put("tanent_id", tanent_id);
 		if(asset_id != null)
 			map.put("asset_id", asset_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -322,6 +331,8 @@ public abstract class Basealert extends BaseResource {
 			map.put("tanent_id", tanent_id);
 		if(asset_id != null)
 			map.put("asset_id", asset_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -356,6 +367,7 @@ public abstract class Basealert extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		tanent_id = (String) map.get("tanent_id");
 		asset_id = (String) map.get("asset_id");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -453,6 +465,7 @@ public abstract class Basealert extends BaseResource {
 		if(asset_idObj != null)
 			asset_id = asset_idObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -855,6 +868,28 @@ public abstract class Basealert extends BaseResource {
 
 	public void unSetAsset_id() {
 		this.asset_id = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_ALERT";

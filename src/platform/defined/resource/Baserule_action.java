@@ -27,6 +27,7 @@ public abstract class Baserule_action extends BaseResource {
 	private String entity_id = null;
 	private String entity_name = null;
 	private String action_type = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_REFERANCE_TYPE = "referance_type";
@@ -36,6 +37,7 @@ public abstract class Baserule_action extends BaseResource {
 	public static String FIELD_ENTITY_ID = "entity_id";
 	public static String FIELD_ENTITY_NAME = "entity_name";
 	public static String FIELD_ACTION_TYPE = "action_type";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("rule_action");
@@ -78,6 +80,10 @@ public abstract class Baserule_action extends BaseResource {
 		action_typeField.setLength(128);
 		metaData.addField(action_typeField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("rule_action");
 
@@ -95,6 +101,7 @@ public abstract class Baserule_action extends BaseResource {
 		this.entity_id = obj.entity_id;
 		this.entity_name = obj.entity_name;
 		this.action_type = obj.action_type;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -124,6 +131,8 @@ public abstract class Baserule_action extends BaseResource {
 			map.put("entity_name", entity_name);
 		if(action_type != null)
 			map.put("action_type", action_type);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -148,6 +157,8 @@ public abstract class Baserule_action extends BaseResource {
 			map.put("entity_name", entity_name);
 		if(action_type != null)
 			map.put("action_type", action_type);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -156,6 +167,7 @@ public abstract class Baserule_action extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		referance_type = (String) map.get("referance_type");
@@ -165,8 +177,10 @@ public abstract class Baserule_action extends BaseResource {
 		entity_id = (String) map.get("entity_id");
 		entity_name = (String) map.get("entity_name");
 		action_type = (String) map.get("action_type");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -200,6 +214,7 @@ public abstract class Baserule_action extends BaseResource {
 		if(action_typeObj != null)
 			action_type = action_typeObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -342,6 +357,28 @@ public abstract class Baserule_action extends BaseResource {
 
 	public void unSetAction_type() {
 		this.action_type = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

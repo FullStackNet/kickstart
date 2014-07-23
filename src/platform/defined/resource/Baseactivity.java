@@ -26,6 +26,7 @@ public abstract class Baseactivity extends BaseResource {
 	private String status = null;
 	private String data = null;
 	private String reference_id = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_PROFILE_ID = "profile_id";
@@ -34,6 +35,7 @@ public abstract class Baseactivity extends BaseResource {
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_DATA = "data";
 	public static String FIELD_REFERENCE_ID = "reference_id";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("activity");
@@ -72,6 +74,10 @@ public abstract class Baseactivity extends BaseResource {
 		reference_idField.setLength(128);
 		metaData.addField(reference_idField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("activity");
 
@@ -88,6 +94,7 @@ public abstract class Baseactivity extends BaseResource {
 		this.status = obj.status;
 		this.data = obj.data;
 		this.reference_id = obj.reference_id;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -115,6 +122,8 @@ public abstract class Baseactivity extends BaseResource {
 			map.put("data", data);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -137,6 +146,8 @@ public abstract class Baseactivity extends BaseResource {
 			map.put("data", data);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -145,6 +156,7 @@ public abstract class Baseactivity extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		profile_id = (String) map.get("profile_id");
@@ -153,8 +165,10 @@ public abstract class Baseactivity extends BaseResource {
 		status = (String) map.get("status");
 		data = (String) map.get("data");
 		reference_id = (String) map.get("reference_id");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -184,6 +198,7 @@ public abstract class Baseactivity extends BaseResource {
 		if(reference_idObj != null)
 			reference_id = reference_idObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -303,6 +318,28 @@ public abstract class Baseactivity extends BaseResource {
 
 	public void unSetReference_id() {
 		this.reference_id = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_LOG";

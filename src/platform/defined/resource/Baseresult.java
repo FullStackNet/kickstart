@@ -24,12 +24,14 @@ public abstract class Baseresult extends BaseResource {
 	private String sessionId = null;
 	private Long recentNotifications = null;
 	private Long recentAlerts = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ERRCODE = "errCode";
 	public static String FIELD_MESSAGE = "message";
 	public static String FIELD_SESSIONID = "sessionId";
 	public static String FIELD_RECENTNOTIFICATIONS = "recentNotifications";
 	public static String FIELD_RECENTALERTS = "recentAlerts";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("result");
@@ -52,6 +54,10 @@ public abstract class Baseresult extends BaseResource {
 		Field recentAlertsField = new Field("recentAlerts", "long");
 		metaData.addField(recentAlertsField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("result");
 
@@ -66,6 +72,7 @@ public abstract class Baseresult extends BaseResource {
 		this.sessionId = obj.sessionId;
 		this.recentNotifications = obj.recentNotifications;
 		this.recentAlerts = obj.recentAlerts;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -84,6 +91,8 @@ public abstract class Baseresult extends BaseResource {
 			map.put("recentNotifications", recentNotifications);
 		if(recentAlerts != null)
 			map.put("recentAlerts", recentAlerts);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -99,6 +108,8 @@ public abstract class Baseresult extends BaseResource {
 			map.put("recentNotifications", recentNotifications);
 		if(recentAlerts != null)
 			map.put("recentAlerts", recentAlerts);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -107,14 +118,17 @@ public abstract class Baseresult extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		errCode = (Integer) map.get("errCode");
 		message = (String) map.get("message");
 		sessionId = (String) map.get("sessionId");
 		recentNotifications = (Long) map.get("recentNotifications");
 		recentAlerts = (Long) map.get("recentAlerts");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object errCodeObj = map.get("errCode");
 		if(errCodeObj != null)
@@ -136,6 +150,7 @@ public abstract class Baseresult extends BaseResource {
 		if(recentAlertsObj != null)
 			recentAlerts = new Long(recentAlertsObj.toString());
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -234,6 +249,28 @@ public abstract class Baseresult extends BaseResource {
 
 	public void unSetRecentAlerts() {
 		this.recentAlerts = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

@@ -1113,12 +1113,7 @@
 				 transient : true,
 				'length': 128,
 				'type': 'String'
-			},
-			'extra_data':
-			{
-				'type':'Map',
-				'valueType' : 'Object'
-			}					
+			}				
 		}
 	}
 }

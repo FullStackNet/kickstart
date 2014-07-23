@@ -28,6 +28,7 @@ public abstract class Baseuser_map extends BaseResource {
 	private ArrayList<Object> recent_notifications = null;
 	private ArrayList<Object> recent_alerts = null;
 	private ArrayList<Object> invites = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_APPLICATIONS = "applications";
@@ -38,6 +39,7 @@ public abstract class Baseuser_map extends BaseResource {
 	public static String FIELD_RECENT_NOTIFICATIONS = "recent_notifications";
 	public static String FIELD_RECENT_ALERTS = "recent_alerts";
 	public static String FIELD_INVITES = "invites";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("user_map");
@@ -75,6 +77,10 @@ public abstract class Baseuser_map extends BaseResource {
 		Field invitesField = new Field("invites", "Array");
 		metaData.addField(invitesField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("user_map");
 
@@ -93,6 +99,7 @@ public abstract class Baseuser_map extends BaseResource {
 		this.recent_notifications = obj.recent_notifications;
 		this.recent_alerts = obj.recent_alerts;
 		this.invites = obj.invites;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -119,6 +126,8 @@ public abstract class Baseuser_map extends BaseResource {
 			map.put("recent_alerts", recent_alerts);
 		if(invites != null)
 			map.put("invites", invites);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -142,6 +151,8 @@ public abstract class Baseuser_map extends BaseResource {
 			map.put("recent_alerts", recent_alerts);
 		if(invites != null)
 			map.put("invites", invites);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -161,6 +172,7 @@ public abstract class Baseuser_map extends BaseResource {
 		recent_notifications = (ArrayList<Object>) map.get("recent_notifications");
 		recent_alerts = (ArrayList<Object>) map.get("recent_alerts");
 		invites = (ArrayList<Object>) map.get("invites");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -177,6 +189,7 @@ public abstract class Baseuser_map extends BaseResource {
 		recent_notifications = (ArrayList<Object>) map.get("recent_notifications");
 		recent_alerts = (ArrayList<Object>) map.get("recent_alerts");
 		invites = (ArrayList<Object>) map.get("invites");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -360,6 +373,28 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void unSetInvites() {
 		this.invites = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

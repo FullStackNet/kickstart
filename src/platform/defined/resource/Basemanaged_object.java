@@ -44,6 +44,7 @@ public abstract class Basemanaged_object extends BaseResource {
 	private Long usage_disk = null;
 	private Long number_of_connections = null;
 	private Long number_of_controllers = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -70,6 +71,7 @@ public abstract class Basemanaged_object extends BaseResource {
 	public static String FIELD_USAGE_DISK = "usage_disk";
 	public static String FIELD_NUMBER_OF_CONNECTIONS = "number_of_connections";
 	public static String FIELD_NUMBER_OF_CONTROLLERS = "number_of_controllers";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("managed_object");
@@ -166,6 +168,10 @@ public abstract class Basemanaged_object extends BaseResource {
 		Field number_of_controllersField = new Field("number_of_controllers", "long");
 		metaData.addField(number_of_controllersField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("managed_object");
 
@@ -200,6 +206,7 @@ public abstract class Basemanaged_object extends BaseResource {
 		this.usage_disk = obj.usage_disk;
 		this.number_of_connections = obj.number_of_connections;
 		this.number_of_controllers = obj.number_of_controllers;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -263,6 +270,8 @@ public abstract class Basemanaged_object extends BaseResource {
 			map.put("number_of_connections", number_of_connections);
 		if(number_of_controllers != null)
 			map.put("number_of_controllers", number_of_controllers);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -321,6 +330,8 @@ public abstract class Basemanaged_object extends BaseResource {
 			map.put("number_of_connections", number_of_connections);
 		if(number_of_controllers != null)
 			map.put("number_of_controllers", number_of_controllers);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -329,6 +340,7 @@ public abstract class Basemanaged_object extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -355,8 +367,10 @@ public abstract class Basemanaged_object extends BaseResource {
 		usage_disk = (Long) map.get("usage_disk");
 		number_of_connections = (Long) map.get("number_of_connections");
 		number_of_controllers = (Long) map.get("number_of_controllers");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -458,6 +472,7 @@ public abstract class Basemanaged_object extends BaseResource {
 		if(number_of_controllersObj != null)
 			number_of_controllers = new Long(number_of_controllersObj.toString());
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -917,6 +932,28 @@ public abstract class Basemanaged_object extends BaseResource {
 
 	public void unSetNumber_of_controllers() {
 		this.number_of_controllers = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

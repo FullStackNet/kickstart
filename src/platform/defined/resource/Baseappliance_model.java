@@ -22,10 +22,12 @@ public abstract class Baseappliance_model extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String make_id = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MAKE_ID = "make_id";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("appliance_model");
@@ -46,6 +48,10 @@ public abstract class Baseappliance_model extends BaseResource {
 		make_idField.setLength(128);
 		metaData.addField(make_idField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("appliance_model");
 
@@ -58,6 +64,7 @@ public abstract class Baseappliance_model extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.make_id = obj.make_id;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -72,6 +79,8 @@ public abstract class Baseappliance_model extends BaseResource {
 			map.put("name", name);
 		if(make_id != null)
 			map.put("make_id", make_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -83,6 +92,8 @@ public abstract class Baseappliance_model extends BaseResource {
 			map.put("name", name);
 		if(make_id != null)
 			map.put("make_id", make_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -91,12 +102,15 @@ public abstract class Baseappliance_model extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		make_id = (String) map.get("make_id");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -110,6 +124,7 @@ public abstract class Baseappliance_model extends BaseResource {
 		if(make_idObj != null)
 			make_id = make_idObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -170,6 +185,28 @@ public abstract class Baseappliance_model extends BaseResource {
 
 	public void unSetMake_id() {
 		this.make_id = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

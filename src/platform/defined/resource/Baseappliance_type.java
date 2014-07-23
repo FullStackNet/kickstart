@@ -38,6 +38,7 @@ public abstract class Baseappliance_type extends BaseResource {
 	private Number threshold_deep_discharge_battery = null;
 	private Number threshold_charging_battery = null;
 	private Number threshold_over_charged = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -58,6 +59,7 @@ public abstract class Baseappliance_type extends BaseResource {
 	public static String FIELD_THRESHOLD_DEEP_DISCHARGE_BATTERY = "threshold_deep_discharge_battery";
 	public static String FIELD_THRESHOLD_CHARGING_BATTERY = "threshold_charging_battery";
 	public static String FIELD_THRESHOLD_OVER_CHARGED = "threshold_over_charged";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("appliance_type");
@@ -151,6 +153,10 @@ public abstract class Baseappliance_type extends BaseResource {
 		threshold_over_chargedField.setPrecision(2);
 		metaData.addField(threshold_over_chargedField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("appliance_type");
 
@@ -179,6 +185,7 @@ public abstract class Baseappliance_type extends BaseResource {
 		this.threshold_deep_discharge_battery = obj.threshold_deep_discharge_battery;
 		this.threshold_charging_battery = obj.threshold_charging_battery;
 		this.threshold_over_charged = obj.threshold_over_charged;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -225,6 +232,8 @@ public abstract class Baseappliance_type extends BaseResource {
 			map.put("threshold_charging_battery", threshold_charging_battery);
 		if(threshold_over_charged != null)
 			map.put("threshold_over_charged", threshold_over_charged);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -268,6 +277,8 @@ public abstract class Baseappliance_type extends BaseResource {
 			map.put("threshold_charging_battery", threshold_charging_battery);
 		if(threshold_over_charged != null)
 			map.put("threshold_over_charged", threshold_over_charged);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -276,6 +287,7 @@ public abstract class Baseappliance_type extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -296,8 +308,10 @@ public abstract class Baseappliance_type extends BaseResource {
 		threshold_deep_discharge_battery = (Number) map.get("threshold_deep_discharge_battery");
 		threshold_charging_battery = (Number) map.get("threshold_charging_battery");
 		threshold_over_charged = (Number) map.get("threshold_over_charged");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -375,6 +389,7 @@ public abstract class Baseappliance_type extends BaseResource {
 		if(threshold_over_chargedObj != null)
 			threshold_over_charged = new Double(threshold_over_chargedObj.toString());
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -659,6 +674,28 @@ public abstract class Baseappliance_type extends BaseResource {
 
 	public void unSetThreshold_over_charged() {
 		this.threshold_over_charged = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

@@ -25,6 +25,7 @@ public abstract class Baseconversation extends BaseResource {
 	private String message_text = null;
 	private String direction = null;
 	private ArrayList<Object> messages = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TO_USER_ID = "to_user_id";
@@ -32,6 +33,7 @@ public abstract class Baseconversation extends BaseResource {
 	public static String FIELD_MESSAGE_TEXT = "message_text";
 	public static String FIELD_DIRECTION = "direction";
 	public static String FIELD_MESSAGES = "messages";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("conversation");
@@ -46,6 +48,10 @@ public abstract class Baseconversation extends BaseResource {
 
 		Field messagesField = new Field("messages", "Array");
 		metaData.addField(messagesField);
+
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
 
 
 		metaData.setTableName("conversation");
@@ -62,6 +68,7 @@ public abstract class Baseconversation extends BaseResource {
 		this.message_text = obj.message_text;
 		this.direction = obj.direction;
 		this.messages = obj.messages;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -82,6 +89,8 @@ public abstract class Baseconversation extends BaseResource {
 			map.put("direction", direction);
 		if(messages != null)
 			map.put("messages", messages);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -99,6 +108,8 @@ public abstract class Baseconversation extends BaseResource {
 			map.put("direction", direction);
 		if(messages != null)
 			map.put("messages", messages);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -107,17 +118,21 @@ public abstract class Baseconversation extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		messages = (ArrayList<Object>) map.get("messages");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
 
 		messages = (ArrayList<Object>) map.get("messages");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -233,6 +248,28 @@ public abstract class Baseconversation extends BaseResource {
 
 	public void unSetMessages() {
 		this.messages = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_LOG";

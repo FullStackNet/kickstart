@@ -26,6 +26,7 @@ public abstract class Baseconversation_summary extends BaseResource {
 	private Long message_time = null;
 	private Long last_open_time = null;
 	private String message_text = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_USER_ID = "user_id";
@@ -34,6 +35,7 @@ public abstract class Baseconversation_summary extends BaseResource {
 	public static String FIELD_MESSAGE_TIME = "message_time";
 	public static String FIELD_LAST_OPEN_TIME = "last_open_time";
 	public static String FIELD_MESSAGE_TEXT = "message_text";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("conversation_summary");
@@ -71,6 +73,10 @@ public abstract class Baseconversation_summary extends BaseResource {
 		Field message_textField = new Field("message_text", "String");
 		metaData.addField(message_textField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("conversation_summary");
 
@@ -87,6 +93,7 @@ public abstract class Baseconversation_summary extends BaseResource {
 		this.message_time = obj.message_time;
 		this.last_open_time = obj.last_open_time;
 		this.message_text = obj.message_text;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -109,6 +116,8 @@ public abstract class Baseconversation_summary extends BaseResource {
 			map.put("last_open_time", last_open_time);
 		if(message_text != null)
 			map.put("message_text", message_text);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -128,6 +137,8 @@ public abstract class Baseconversation_summary extends BaseResource {
 			map.put("last_open_time", last_open_time);
 		if(message_text != null)
 			map.put("message_text", message_text);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -136,6 +147,7 @@ public abstract class Baseconversation_summary extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		user_id = (String) map.get("user_id");
@@ -144,8 +156,10 @@ public abstract class Baseconversation_summary extends BaseResource {
 		message_time = (Long) map.get("message_time");
 		last_open_time = (Long) map.get("last_open_time");
 		message_text = (String) map.get("message_text");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -175,6 +189,7 @@ public abstract class Baseconversation_summary extends BaseResource {
 		if(message_textObj != null)
 			message_text = message_textObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -325,6 +340,28 @@ public abstract class Baseconversation_summary extends BaseResource {
 
 	public void unSetMessage_text() {
 		this.message_text = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_LOG";

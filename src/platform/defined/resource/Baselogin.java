@@ -23,11 +23,13 @@ public abstract class Baselogin extends BaseResource {
 	private String password = null;
 	private String session_id = null;
 	private String api_version = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_SESSION_ID = "session_id";
 	public static String FIELD_API_VERSION = "api_version";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("login");
@@ -53,6 +55,10 @@ public abstract class Baselogin extends BaseResource {
 		api_versionField.setLength(32);
 		metaData.addField(api_versionField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("login");
 
@@ -66,6 +72,7 @@ public abstract class Baselogin extends BaseResource {
 		this.password = obj.password;
 		this.session_id = obj.session_id;
 		this.api_version = obj.api_version;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -82,6 +89,8 @@ public abstract class Baselogin extends BaseResource {
 			map.put("session_id", session_id);
 		if(api_version != null)
 			map.put("api_version", api_version);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -95,6 +104,8 @@ public abstract class Baselogin extends BaseResource {
 			map.put("session_id", session_id);
 		if(api_version != null)
 			map.put("api_version", api_version);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -103,13 +114,16 @@ public abstract class Baselogin extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		email_id = (String) map.get("email_id");
 		password = (String) map.get("password");
 		session_id = (String) map.get("session_id");
 		api_version = (String) map.get("api_version");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object email_idObj = map.get("email_id");
 		if(email_idObj != null)
@@ -127,6 +141,7 @@ public abstract class Baselogin extends BaseResource {
 		if(api_versionObj != null)
 			api_version = api_versionObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -209,6 +224,28 @@ public abstract class Baselogin extends BaseResource {
 
 	public void unSetApi_version() {
 		this.api_version = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

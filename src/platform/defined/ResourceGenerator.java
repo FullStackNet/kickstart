@@ -173,6 +173,10 @@ public class ResourceGenerator {
 		} else {
 			generate(String.format(CLASS_OPEN, resourceName));
 		}
+		Field field = new Field("extra_data");
+		field.setType("Map");
+		field.setValueType("Object");
+		resourceFields.put("extra_data", field);
 		boolean isMapFieldAvailable = false;
 		for(Entry<String, Field> entry : resourceFields.entrySet()) {
 			Field resourceField = entry.getValue();

@@ -23,11 +23,13 @@ public abstract class Baseprofile extends BaseResource {
 	private String name = null;
 	private String type = null;
 	private String status = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_STATUS = "status";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("profile");
@@ -52,6 +54,10 @@ public abstract class Baseprofile extends BaseResource {
 		statusField.setLength(128);
 		metaData.addField(statusField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("profile");
 
@@ -65,6 +71,7 @@ public abstract class Baseprofile extends BaseResource {
 		this.name = obj.name;
 		this.type = obj.type;
 		this.status = obj.status;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -81,6 +88,8 @@ public abstract class Baseprofile extends BaseResource {
 			map.put("type", type);
 		if(status != null)
 			map.put("status", status);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -94,6 +103,8 @@ public abstract class Baseprofile extends BaseResource {
 			map.put("type", type);
 		if(status != null)
 			map.put("status", status);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -102,13 +113,16 @@ public abstract class Baseprofile extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		type = (String) map.get("type");
 		status = (String) map.get("status");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -126,6 +140,7 @@ public abstract class Baseprofile extends BaseResource {
 		if(statusObj != null)
 			status = statusObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -202,6 +217,28 @@ public abstract class Baseprofile extends BaseResource {
 
 	public void unSetStatus() {
 		this.status = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

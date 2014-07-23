@@ -28,6 +28,7 @@ public abstract class Basesim extends BaseResource {
 	private String active = null;
 	private String Status = null;
 	private String conttroller_id = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -38,6 +39,7 @@ public abstract class Basesim extends BaseResource {
 	public static String FIELD_ACTIVE = "active";
 	public static String FIELD_STATUS = "Status";
 	public static String FIELD_CONTTROLLER_ID = "conttroller_id";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("sim");
@@ -82,6 +84,10 @@ public abstract class Basesim extends BaseResource {
 		conttroller_idField.setLength(128);
 		metaData.addField(conttroller_idField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("sim");
 
@@ -100,6 +106,7 @@ public abstract class Basesim extends BaseResource {
 		this.active = obj.active;
 		this.Status = obj.Status;
 		this.conttroller_id = obj.conttroller_id;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -133,6 +140,8 @@ public abstract class Basesim extends BaseResource {
 			map.put("Status", Status);
 		if(conttroller_id != null)
 			map.put("conttroller_id", conttroller_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -159,6 +168,8 @@ public abstract class Basesim extends BaseResource {
 			map.put("Status", Status);
 		if(conttroller_id != null)
 			map.put("conttroller_id", conttroller_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -167,6 +178,7 @@ public abstract class Basesim extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -177,8 +189,10 @@ public abstract class Basesim extends BaseResource {
 		active = (String) map.get("active");
 		Status = (String) map.get("Status");
 		conttroller_id = (String) map.get("conttroller_id");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -216,6 +230,7 @@ public abstract class Basesim extends BaseResource {
 		if(conttroller_idObj != null)
 			conttroller_id = conttroller_idObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -372,6 +387,28 @@ public abstract class Basesim extends BaseResource {
 
 	public void unSetConttroller_id() {
 		this.conttroller_id = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

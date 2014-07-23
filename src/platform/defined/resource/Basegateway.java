@@ -85,6 +85,7 @@ public abstract class Basegateway extends BaseResource {
 	private Number total_disk_space = null;
 	private String admin_status = null;
 	private ArrayList<Object> controllers = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -152,6 +153,7 @@ public abstract class Basegateway extends BaseResource {
 	public static String FIELD_TOTAL_DISK_SPACE = "total_disk_space";
 	public static String FIELD_ADMIN_STATUS = "admin_status";
 	public static String FIELD_CONTROLLERS = "controllers";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("gateway");
@@ -449,6 +451,10 @@ public abstract class Basegateway extends BaseResource {
 		Field controllersField = new Field("controllers", "Array");
 		metaData.addField(controllersField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("gateway");
 
@@ -524,6 +530,7 @@ public abstract class Basegateway extends BaseResource {
 		this.total_disk_space = obj.total_disk_space;
 		this.admin_status = obj.admin_status;
 		this.controllers = obj.controllers;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -715,6 +722,8 @@ public abstract class Basegateway extends BaseResource {
 			map.put("admin_status", admin_status);
 		if(controllers != null)
 			map.put("controllers", controllers);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -855,6 +864,8 @@ public abstract class Basegateway extends BaseResource {
 			map.put("admin_status", admin_status);
 		if(controllers != null)
 			map.put("controllers", controllers);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -863,6 +874,7 @@ public abstract class Basegateway extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -930,8 +942,10 @@ public abstract class Basegateway extends BaseResource {
 		total_disk_space = (Number) map.get("total_disk_space");
 		admin_status = (String) map.get("admin_status");
 		controllers = (ArrayList<Object>) map.get("controllers");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -1194,6 +1208,7 @@ public abstract class Basegateway extends BaseResource {
 			admin_status = admin_statusObj.toString();
 
 		controllers = (ArrayList<Object>) map.get("controllers");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -2201,6 +2216,28 @@ public abstract class Basegateway extends BaseResource {
 
 	public void unSetControllers() {
 		this.controllers = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

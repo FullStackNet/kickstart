@@ -32,6 +32,7 @@ public abstract class Basecluster extends BaseResource {
 	private String state = null;
 	private Integer dbType = null;
 	private String configName = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -46,6 +47,7 @@ public abstract class Basecluster extends BaseResource {
 	public static String FIELD_STATE = "state";
 	public static String FIELD_DBTYPE = "dbType";
 	public static String FIELD_CONFIGNAME = "configName";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("cluster");
@@ -113,6 +115,10 @@ public abstract class Basecluster extends BaseResource {
 		configNameField.setLength(32);
 		metaData.addField(configNameField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("cluster");
 
@@ -135,6 +141,7 @@ public abstract class Basecluster extends BaseResource {
 		this.state = obj.state;
 		this.dbType = obj.dbType;
 		this.configName = obj.configName;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -178,6 +185,8 @@ public abstract class Basecluster extends BaseResource {
 			map.put("dbType", dbType);
 		if(configName != null)
 			map.put("configName", configName);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -212,6 +221,8 @@ public abstract class Basecluster extends BaseResource {
 			map.put("dbType", dbType);
 		if(configName != null)
 			map.put("configName", configName);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -220,6 +231,7 @@ public abstract class Basecluster extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -234,8 +246,10 @@ public abstract class Basecluster extends BaseResource {
 		state = (String) map.get("state");
 		dbType = (Integer) map.get("dbType");
 		configName = (String) map.get("configName");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -289,6 +303,7 @@ public abstract class Basecluster extends BaseResource {
 		if(configNameObj != null)
 			configName = configNameObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -541,6 +556,28 @@ public abstract class Basecluster extends BaseResource {
 
 	public void unSetConfigName() {
 		this.configName = "local";
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

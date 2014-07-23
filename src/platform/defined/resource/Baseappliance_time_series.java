@@ -28,6 +28,7 @@ public abstract class Baseappliance_time_series extends BaseResource {
 	private Integer valueType = null; //1- int, 2-long, 3-double, 4-String
 	private String value = null;
 	private Map<String, Object> values = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_APPLIANCE_ID = "appliance_id";
@@ -38,6 +39,7 @@ public abstract class Baseappliance_time_series extends BaseResource {
 	public static String FIELD_VALUETYPE = "valueType";
 	public static String FIELD_VALUE = "value";
 	public static String FIELD_VALUES = "values";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("appliance_time_series");
@@ -72,6 +74,10 @@ public abstract class Baseappliance_time_series extends BaseResource {
 		valuesField.setValueType("Object");
 		metaData.addField(valuesField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("appliance_time_series");
 
@@ -90,6 +96,7 @@ public abstract class Baseappliance_time_series extends BaseResource {
 		this.valueType = obj.valueType;
 		this.value = obj.value;
 		this.values = obj.values;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -116,6 +123,8 @@ public abstract class Baseappliance_time_series extends BaseResource {
 			map.put("value", value);
 		if(values != null)
 			map.put("values", values);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -139,6 +148,8 @@ public abstract class Baseappliance_time_series extends BaseResource {
 			map.put("value", value);
 		if(values != null)
 			map.put("values", values);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -155,6 +166,7 @@ public abstract class Baseappliance_time_series extends BaseResource {
 		timezone = (String) map.get("timezone");
 		counter = (String) map.get("counter");
 		values = (Map<String, Object>) map.get("values");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -180,6 +192,7 @@ public abstract class Baseappliance_time_series extends BaseResource {
 			counter = counterObj.toString();
 
 		values = (Map<String, Object>) map.get("values");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -350,6 +363,28 @@ public abstract class Baseappliance_time_series extends BaseResource {
 
 	public void unSetValues() {
 		this.values = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_ANALYSIS";

@@ -25,6 +25,7 @@ public abstract class Basepacket extends BaseResource {
 	private String message_type = null;
 	private Long message_time = null;
 	private String data = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_CONTROLLER_ID = "controller_id";
@@ -32,6 +33,7 @@ public abstract class Basepacket extends BaseResource {
 	public static String FIELD_MESSAGE_TYPE = "message_type";
 	public static String FIELD_MESSAGE_TIME = "message_time";
 	public static String FIELD_DATA = "data";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("packet");
@@ -63,6 +65,10 @@ public abstract class Basepacket extends BaseResource {
 		dataField.setLength(4000);
 		metaData.addField(dataField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("packet");
 
@@ -78,6 +84,7 @@ public abstract class Basepacket extends BaseResource {
 		this.message_type = obj.message_type;
 		this.message_time = obj.message_time;
 		this.data = obj.data;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -98,6 +105,8 @@ public abstract class Basepacket extends BaseResource {
 			map.put("message_time", message_time);
 		if(data != null)
 			map.put("data", data);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -115,6 +124,8 @@ public abstract class Basepacket extends BaseResource {
 			map.put("message_time", message_time);
 		if(data != null)
 			map.put("data", data);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -123,6 +134,7 @@ public abstract class Basepacket extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		controller_id = (String) map.get("controller_id");
@@ -130,8 +142,10 @@ public abstract class Basepacket extends BaseResource {
 		message_type = (String) map.get("message_type");
 		message_time = (Long) map.get("message_time");
 		data = (String) map.get("data");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -157,6 +171,7 @@ public abstract class Basepacket extends BaseResource {
 		if(dataObj != null)
 			data = dataObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -269,6 +284,28 @@ public abstract class Basepacket extends BaseResource {
 
 	public void unSetData() {
 		this.data = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_PACKET";

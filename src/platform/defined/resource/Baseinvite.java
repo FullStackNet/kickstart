@@ -35,6 +35,7 @@ public abstract class Baseinvite extends BaseResource {
 	private String status = null;
 	private String password = null;
 	private String confirm_password = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TYPE = "type";
@@ -52,6 +53,7 @@ public abstract class Baseinvite extends BaseResource {
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_CONFIRM_PASSWORD = "confirm_password";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("invite");
@@ -120,6 +122,10 @@ public abstract class Baseinvite extends BaseResource {
 		statusField.setLength(128);
 		metaData.addField(statusField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("invite");
 
@@ -145,6 +151,7 @@ public abstract class Baseinvite extends BaseResource {
 		this.status = obj.status;
 		this.password = obj.password;
 		this.confirm_password = obj.confirm_password;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -185,6 +192,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("password", password);
 		if(confirm_password != null)
 			map.put("confirm_password", confirm_password);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -222,6 +231,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("password", password);
 		if(confirm_password != null)
 			map.put("confirm_password", confirm_password);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -230,6 +241,7 @@ public abstract class Baseinvite extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		type = (String) map.get("type");
@@ -245,8 +257,10 @@ public abstract class Baseinvite extends BaseResource {
 		dgService = (String) map.get("dgService");
 		key = (String) map.get("key");
 		status = (String) map.get("status");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -304,6 +318,7 @@ public abstract class Baseinvite extends BaseResource {
 		if(statusObj != null)
 			status = statusObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -578,6 +593,28 @@ public abstract class Baseinvite extends BaseResource {
 
 	public void unSetConfirm_password() {
 		this.confirm_password = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

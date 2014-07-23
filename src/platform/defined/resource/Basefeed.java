@@ -29,6 +29,7 @@ public abstract class Basefeed extends BaseResource {
 	private String feed_type = null;
 	private String reference_id = null;
 	private String reference_name = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -40,6 +41,7 @@ public abstract class Basefeed extends BaseResource {
 	public static String FIELD_FEED_TYPE = "feed_type";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_REFERENCE_NAME = "reference_name";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("feed");
@@ -89,6 +91,10 @@ public abstract class Basefeed extends BaseResource {
 		reference_nameField.setLength(128);
 		metaData.addField(reference_nameField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("feed");
 
@@ -108,6 +114,7 @@ public abstract class Basefeed extends BaseResource {
 		this.feed_type = obj.feed_type;
 		this.reference_id = obj.reference_id;
 		this.reference_name = obj.reference_name;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -139,6 +146,8 @@ public abstract class Basefeed extends BaseResource {
 			map.put("reference_id", reference_id);
 		if(reference_name != null)
 			map.put("reference_name", reference_name);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -167,6 +176,8 @@ public abstract class Basefeed extends BaseResource {
 			map.put("reference_id", reference_id);
 		if(reference_name != null)
 			map.put("reference_name", reference_name);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -175,6 +186,7 @@ public abstract class Basefeed extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		creation_time = (Long) map.get("creation_time");
@@ -186,8 +198,10 @@ public abstract class Basefeed extends BaseResource {
 		feed_type = (String) map.get("feed_type");
 		reference_id = (String) map.get("reference_id");
 		reference_name = (String) map.get("reference_name");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -229,6 +243,7 @@ public abstract class Basefeed extends BaseResource {
 		if(reference_nameObj != null)
 			reference_name = reference_nameObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -400,6 +415,28 @@ public abstract class Basefeed extends BaseResource {
 
 	public void unSetReference_name() {
 		this.reference_name = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_LOG";
