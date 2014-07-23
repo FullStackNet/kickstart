@@ -189,6 +189,7 @@ public abstract class Baseappliance extends BaseResource {
 	private String current_route_schedule = null;
 	private String last_stopage_name = null;
 	private Long last_stopage_reached_time = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -360,6 +361,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_CURRENT_ROUTE_SCHEDULE = "current_route_schedule";
 	public static String FIELD_LAST_STOPAGE_NAME = "last_stopage_name";
 	public static String FIELD_LAST_STOPAGE_REACHED_TIME = "last_stopage_reached_time";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("appliance");
@@ -1154,6 +1156,10 @@ public abstract class Baseappliance extends BaseResource {
 		lastServiceField.setLength(28);
 		metaData.addField(lastServiceField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("appliance");
 
@@ -1333,6 +1339,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.current_route_schedule = obj.current_route_schedule;
 		this.last_stopage_name = obj.last_stopage_name;
 		this.last_stopage_reached_time = obj.last_stopage_reached_time;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -1892,6 +1899,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("last_stopage_name", last_stopage_name);
 		if(last_stopage_reached_time != null)
 			map.put("last_stopage_reached_time", last_stopage_reached_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -2240,6 +2249,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("last_stopage_name", last_stopage_name);
 		if(last_stopage_reached_time != null)
 			map.put("last_stopage_reached_time", last_stopage_reached_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -2248,6 +2259,7 @@ public abstract class Baseappliance extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -2412,8 +2424,10 @@ public abstract class Baseappliance extends BaseResource {
 		pollutionCertificateExpiry = (String) map.get("pollutionCertificateExpiry");
 		vehicleFitnessExpiry = (String) map.get("vehicleFitnessExpiry");
 		lastService = (String) map.get("lastService");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -3067,6 +3081,7 @@ public abstract class Baseappliance extends BaseResource {
 		if(lastServiceObj != null)
 			lastService = lastServiceObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -5400,6 +5415,28 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetLast_stopage_reached_time() {
 		this.last_stopage_reached_time = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

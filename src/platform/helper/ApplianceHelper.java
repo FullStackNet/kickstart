@@ -86,6 +86,11 @@ public class ApplianceHelper extends BaseHelper {
 					}
 				}
 			}
+			_appliance.getExtra_data().put("teacher_present", "N");
+			_appliance.getExtra_data().put("notify_teacher_present", _route.getNotifiy_teacher_present());
+			if ( "Y".equalsIgnoreCase(_route.getNotifiy_teacher_present()) && TimeUtil.isSameDate(null,_route.getTeacher_present_time(),new Date().getTime())) {
+				_appliance.getExtra_data().put("teacher_present", "Y");
+			}
 			_appliance.setConnected(connected);
 		}
 		return appliances;
