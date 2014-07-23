@@ -86,18 +86,20 @@ public class ApplianceHelper extends BaseHelper {
 					}
 				}
 			}
-			Map<String,Object> extrMap = new HashMap<String,Object>();
-			extrMap.put("teacher_present", "N");
-			extrMap.put("notify_teacher_present", _route.getNotifiy_teacher_present());
-			if ( "Y".equalsIgnoreCase(_route.getNotifiy_teacher_present()) && TimeUtil.isSameDate(null,_route.getTeacher_present_time(),new Date().getTime())) {
-				extrMap.put("teacher_present", "Y");
+			if (_route != null) {
+				Map<String,Object> extrMap = new HashMap<String,Object>();
+				extrMap.put("teacher_present", "N");
+				extrMap.put("notify_teacher_present", _route.getNotifiy_teacher_present());
+				if ( "Y".equalsIgnoreCase(_route.getNotifiy_teacher_present()) && TimeUtil.isSameDate(null,_route.getTeacher_present_time(),new Date().getTime())) {
+					extrMap.put("teacher_present", "Y");
+				}
+				_appliance.setExtra_data(extrMap);
 			}
-			_appliance.setExtra_data(extrMap);
 			_appliance.setConnected(connected);
 		}
 		return appliances;
 	}
-	
+
 	public void cleanData(String userId,BaseResource resource) {
 		appliance _fetchedAppliance = getById(resource.getId());
 		if (_fetchedAppliance == null) return;
@@ -167,7 +169,7 @@ public class ApplianceHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateOverSpeedState(String applianceId,String state) {
 		appliance _appliance = new appliance(applianceId);
 		_appliance.setOverSpeedState(state);
@@ -178,7 +180,7 @@ public class ApplianceHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateCurrentRoute(String applianceId,String currentRouteId) {
 		appliance _appliance = new appliance(applianceId);
 		_appliance.setCurrentRouteId(currentRouteId);
