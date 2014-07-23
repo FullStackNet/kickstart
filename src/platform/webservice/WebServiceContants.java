@@ -8,6 +8,7 @@ public class WebServiceContants {
 	public final static String OPERATION_CONFIRM_AFTER_LOGIN = "CONFIRM_AFTER_LOGIN";
 	public final static String OPERATION_ADD = "ADD";
 	public final static String OPERATION_MODIFY = "MODIFY";
+	public final static String OPERATION_IN_SIDE_BUS = "IN_SIDE_BUS";
 	public final static String OPERATION_DELETE = "DELETE";
 	public final static String OPERATION_PUSH_CONFIG = "PUSH_CONFIG";
 	public final static String OPERATION_REBOOT = "REBOOT";
