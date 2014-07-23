@@ -48,6 +48,9 @@ public abstract class Baseroute extends BaseResource {
 	private String overSpeedState = null;
 	private Integer threshold_over_speed = null;
 	private String alert_parent_over_speed = null;
+	private String notifiy_teacher_present = null;
+	private String teacher_present = null;
+	private Long teacher_present_time = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -78,6 +81,9 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_OVERSPEEDSTATE = "overSpeedState";
 	public static String FIELD_THRESHOLD_OVER_SPEED = "threshold_over_speed";
 	public static String FIELD_ALERT_PARENT_OVER_SPEED = "alert_parent_over_speed";
+	public static String FIELD_NOTIFIY_TEACHER_PRESENT = "notifiy_teacher_present";
+	public static String FIELD_TEACHER_PRESENT = "teacher_present";
+	public static String FIELD_TEACHER_PRESENT_TIME = "teacher_present_time";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route");
@@ -212,6 +218,19 @@ public abstract class Baseroute extends BaseResource {
 		alert_parent_over_speedField.setLength(1);
 		metaData.addField(alert_parent_over_speedField);
 
+		Field notifiy_teacher_presentField = new Field("notifiy_teacher_present", "String");
+		notifiy_teacher_presentField.setDefaultValue("N");
+		notifiy_teacher_presentField.setLength(1);
+		metaData.addField(notifiy_teacher_presentField);
+
+		Field teacher_presentField = new Field("teacher_present", "String");
+		teacher_presentField.setDefaultValue("N");
+		teacher_presentField.setLength(1);
+		metaData.addField(teacher_presentField);
+
+		Field teacher_present_timeField = new Field("teacher_present_time", "timestamp");
+		metaData.addField(teacher_present_timeField);
+
 
 		metaData.setTableName("route");
 
@@ -250,6 +269,9 @@ public abstract class Baseroute extends BaseResource {
 		this.overSpeedState = obj.overSpeedState;
 		this.threshold_over_speed = obj.threshold_over_speed;
 		this.alert_parent_over_speed = obj.alert_parent_over_speed;
+		this.notifiy_teacher_present = obj.notifiy_teacher_present;
+		this.teacher_present = obj.teacher_present;
+		this.teacher_present_time = obj.teacher_present_time;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -279,6 +301,10 @@ public abstract class Baseroute extends BaseResource {
 			overSpeedState = "N";
 		if(alert_parent_over_speed == null)
 			alert_parent_over_speed = "N";
+		if(notifiy_teacher_present == null)
+			notifiy_teacher_present = "N";
+		if(teacher_present == null)
+			teacher_present = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -341,6 +367,12 @@ public abstract class Baseroute extends BaseResource {
 			map.put("threshold_over_speed", threshold_over_speed);
 		if(alert_parent_over_speed != null)
 			map.put("alert_parent_over_speed", alert_parent_over_speed);
+		if(notifiy_teacher_present != null)
+			map.put("notifiy_teacher_present", notifiy_teacher_present);
+		if(teacher_present != null)
+			map.put("teacher_present", teacher_present);
+		if(teacher_present_time != null)
+			map.put("teacher_present_time", teacher_present_time);
 		return map;
 	}
 
@@ -407,6 +439,12 @@ public abstract class Baseroute extends BaseResource {
 			map.put("threshold_over_speed", threshold_over_speed);
 		if(alert_parent_over_speed != null)
 			map.put("alert_parent_over_speed", alert_parent_over_speed);
+		if(notifiy_teacher_present != null)
+			map.put("notifiy_teacher_present", notifiy_teacher_present);
+		if(teacher_present != null)
+			map.put("teacher_present", teacher_present);
+		if(teacher_present_time != null)
+			map.put("teacher_present_time", teacher_present_time);
 		return map;
 	}
 
@@ -445,6 +483,9 @@ public abstract class Baseroute extends BaseResource {
 		overSpeedState = (String) map.get("overSpeedState");
 		threshold_over_speed = (Integer) map.get("threshold_over_speed");
 		alert_parent_over_speed = (String) map.get("alert_parent_over_speed");
+		notifiy_teacher_present = (String) map.get("notifiy_teacher_present");
+		teacher_present = (String) map.get("teacher_present");
+		teacher_present_time = (Long) map.get("teacher_present_time");
 	}
 
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
@@ -563,6 +604,18 @@ public abstract class Baseroute extends BaseResource {
 		Object alert_parent_over_speedObj = map.get("alert_parent_over_speed");
 		if(alert_parent_over_speedObj != null)
 			alert_parent_over_speed = alert_parent_over_speedObj.toString();
+
+		Object notifiy_teacher_presentObj = map.get("notifiy_teacher_present");
+		if(notifiy_teacher_presentObj != null)
+			notifiy_teacher_present = notifiy_teacher_presentObj.toString();
+
+		Object teacher_presentObj = map.get("teacher_present");
+		if(teacher_presentObj != null)
+			teacher_present = teacher_presentObj.toString();
+
+		Object teacher_present_timeObj = map.get("teacher_present_time");
+		if(teacher_present_timeObj != null)
+			teacher_present_time = (Long) teacher_present_timeObj;
 
 	}
 
@@ -1017,6 +1070,39 @@ public abstract class Baseroute extends BaseResource {
 	public void unSetAlert_parent_over_speed() {
 		this.alert_parent_over_speed = "N";
 	}
+
+	public String getNotifiy_teacher_present() {
+		return notifiy_teacher_present != null ? notifiy_teacher_present : "N";
+	}
+
+	public void setNotifiy_teacher_present(String notifiy_teacher_present) {
+		this.notifiy_teacher_present = notifiy_teacher_present;
+	}
+
+	public void unSetNotifiy_teacher_present() {
+		this.notifiy_teacher_present = "N";
+	}
+
+	public String getTeacher_present() {
+		return teacher_present != null ? teacher_present : "N";
+	}
+
+	public void setTeacher_present(String teacher_present) {
+		this.teacher_present = teacher_present;
+	}
+
+	public void unSetTeacher_present() {
+		this.teacher_present = "N";
+	}
+
+	public Long getTeacher_present_time() {
+		return teacher_present_time;
+	}
+
+	public void setTeacher_present_time(Long teacher_present_time) {
+		this.teacher_present_time = teacher_present_time;
+	}
+
 	public String getCluster() {
 		return "DB_CONFIG";
 	}

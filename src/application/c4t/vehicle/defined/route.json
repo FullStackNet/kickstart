@@ -157,6 +157,19 @@
 				type : "String",
 				'default' : "N",
 				length : 1
+			},
+			notifiy_teacher_present : {
+				type : "String",
+				'default' : "N",
+				length : 1
+			},
+			teacher_present : {
+				type : "String",
+				'default' : "N",
+				length : 1
+			},
+			teacher_present_time : {
+				type : "timestamp"
 			}
 		},
 		"information" : 
