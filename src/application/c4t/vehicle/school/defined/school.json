@@ -76,6 +76,18 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_home_practice':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_notice':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_teacher2parent_chat':
 			{
 				'length': 1,
