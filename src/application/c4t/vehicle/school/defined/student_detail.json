@@ -222,6 +222,18 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_notice':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_home_practice':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_parent2teacher_chat':
 			{
 				'length': 1,
