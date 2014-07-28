@@ -31,6 +31,7 @@ public abstract class Basehomework extends BaseResource {
 	private String description = null;
 	private Long creation_timestamp = null;
 	private Long submit_timestamp = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TEACHER_ID = "teacher_id";
@@ -44,6 +45,7 @@ public abstract class Basehomework extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
 	public static String FIELD_SUBMIT_TIMESTAMP = "submit_timestamp";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("homework");
@@ -102,6 +104,10 @@ public abstract class Basehomework extends BaseResource {
 		Field submit_timestampField = new Field("submit_timestamp", "timestamp");
 		metaData.addField(submit_timestampField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("homework");
 
@@ -123,6 +129,7 @@ public abstract class Basehomework extends BaseResource {
 		this.description = obj.description;
 		this.creation_timestamp = obj.creation_timestamp;
 		this.submit_timestamp = obj.submit_timestamp;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -155,6 +162,8 @@ public abstract class Basehomework extends BaseResource {
 			map.put("creation_timestamp", creation_timestamp);
 		if(submit_timestamp != null)
 			map.put("submit_timestamp", submit_timestamp);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -184,6 +193,8 @@ public abstract class Basehomework extends BaseResource {
 			map.put("creation_timestamp", creation_timestamp);
 		if(submit_timestamp != null)
 			map.put("submit_timestamp", submit_timestamp);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -192,6 +203,7 @@ public abstract class Basehomework extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		teacher_id = (String) map.get("teacher_id");
@@ -205,8 +217,10 @@ public abstract class Basehomework extends BaseResource {
 		description = (String) map.get("description");
 		creation_timestamp = (Long) map.get("creation_timestamp");
 		submit_timestamp = (Long) map.get("submit_timestamp");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -256,6 +270,7 @@ public abstract class Basehomework extends BaseResource {
 		if(submit_timestampObj != null)
 			submit_timestamp = (Long) submit_timestampObj;
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -453,6 +468,28 @@ public abstract class Basehomework extends BaseResource {
 		this.submit_timestamp = submit_timestamp;
 	}
 
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
+	}
 	public String getCluster() {
 		return "DB_SCHOOL";
 	}

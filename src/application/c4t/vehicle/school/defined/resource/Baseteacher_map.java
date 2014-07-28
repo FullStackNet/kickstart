@@ -22,10 +22,12 @@ public abstract class Baseteacher_map extends BaseResource {
 	private String id = null; //teacher id
 	private ArrayList<Object> users = null;
 	private ArrayList<Object> class_sections = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_USERS = "users";
 	public static String FIELD_CLASS_SECTIONS = "class_sections";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("teacher_map");
@@ -44,6 +46,10 @@ public abstract class Baseteacher_map extends BaseResource {
 		Field class_sectionsField = new Field("class_sections", "Array");
 		metaData.addField(class_sectionsField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("teacher_map");
 
@@ -56,6 +62,7 @@ public abstract class Baseteacher_map extends BaseResource {
 		this.id = obj.id;
 		this.users = obj.users;
 		this.class_sections = obj.class_sections;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -70,6 +77,8 @@ public abstract class Baseteacher_map extends BaseResource {
 			map.put("users", users);
 		if(class_sections != null)
 			map.put("class_sections", class_sections);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -81,6 +90,8 @@ public abstract class Baseteacher_map extends BaseResource {
 			map.put("users", users);
 		if(class_sections != null)
 			map.put("class_sections", class_sections);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -89,12 +100,15 @@ public abstract class Baseteacher_map extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		users = (ArrayList<Object>) map.get("users");
 		class_sections = (ArrayList<Object>) map.get("class_sections");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -102,6 +116,7 @@ public abstract class Baseteacher_map extends BaseResource {
 
 		users = (ArrayList<Object>) map.get("users");
 		class_sections = (ArrayList<Object>) map.get("class_sections");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -168,6 +183,28 @@ public abstract class Baseteacher_map extends BaseResource {
 
 	public void unSetClass_sections() {
 		this.class_sections = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

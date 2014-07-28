@@ -40,6 +40,7 @@ public abstract class Baseteacher extends BaseResource {
 	private String stopage_alert_sms = null;
 	private String stopage_alert_mobile_app = null;
 	private String stopage_alert_email = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -62,6 +63,7 @@ public abstract class Baseteacher extends BaseResource {
 	public static String FIELD_STOPAGE_ALERT_SMS = "stopage_alert_sms";
 	public static String FIELD_STOPAGE_ALERT_MOBILE_APP = "stopage_alert_mobile_app";
 	public static String FIELD_STOPAGE_ALERT_EMAIL = "stopage_alert_email";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("teacher");
@@ -161,6 +163,10 @@ public abstract class Baseteacher extends BaseResource {
 		stopage_alert_emailField.setLength(1);
 		metaData.addField(stopage_alert_emailField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("teacher");
 
@@ -191,6 +197,7 @@ public abstract class Baseteacher extends BaseResource {
 		this.stopage_alert_sms = obj.stopage_alert_sms;
 		this.stopage_alert_mobile_app = obj.stopage_alert_mobile_app;
 		this.stopage_alert_email = obj.stopage_alert_email;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -250,6 +257,8 @@ public abstract class Baseteacher extends BaseResource {
 			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
 		if(stopage_alert_email != null)
 			map.put("stopage_alert_email", stopage_alert_email);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -300,6 +309,8 @@ public abstract class Baseteacher extends BaseResource {
 			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
 		if(stopage_alert_email != null)
 			map.put("stopage_alert_email", stopage_alert_email);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -308,6 +319,7 @@ public abstract class Baseteacher extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -330,8 +342,10 @@ public abstract class Baseteacher extends BaseResource {
 		stopage_alert_sms = (String) map.get("stopage_alert_sms");
 		stopage_alert_mobile_app = (String) map.get("stopage_alert_mobile_app");
 		stopage_alert_email = (String) map.get("stopage_alert_email");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -417,6 +431,7 @@ public abstract class Baseteacher extends BaseResource {
 		if(stopage_alert_emailObj != null)
 			stopage_alert_email = stopage_alert_emailObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -765,6 +780,28 @@ public abstract class Baseteacher extends BaseResource {
 
 	public void unSetStopage_alert_email() {
 		this.stopage_alert_email = "N";
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

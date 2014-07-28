@@ -26,6 +26,7 @@ public abstract class Basehomework_master extends BaseResource {
 	private String subject_id = null;
 	private String title = null;
 	private String description = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TEACHER_ID = "teacher_id";
@@ -34,6 +35,7 @@ public abstract class Basehomework_master extends BaseResource {
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("homework_master");
@@ -73,6 +75,10 @@ public abstract class Basehomework_master extends BaseResource {
 		descriptionField.setLength(4096);
 		metaData.addField(descriptionField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("homework_master");
 
@@ -89,6 +95,7 @@ public abstract class Basehomework_master extends BaseResource {
 		this.subject_id = obj.subject_id;
 		this.title = obj.title;
 		this.description = obj.description;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -111,6 +118,8 @@ public abstract class Basehomework_master extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -130,6 +139,8 @@ public abstract class Basehomework_master extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -138,6 +149,7 @@ public abstract class Basehomework_master extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		teacher_id = (String) map.get("teacher_id");
@@ -146,8 +158,10 @@ public abstract class Basehomework_master extends BaseResource {
 		subject_id = (String) map.get("subject_id");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -177,6 +191,7 @@ public abstract class Basehomework_master extends BaseResource {
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -307,6 +322,28 @@ public abstract class Basehomework_master extends BaseResource {
 
 	public void unSetDescription() {
 		this.description = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_LOG";

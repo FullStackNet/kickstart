@@ -18,7 +18,7 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Basedaily_activity extends BaseResource {
+public abstract class Basehome_practice extends BaseResource {
 	private String id = null;
 	private String class_name = null;
 	private String section_name = null;
@@ -28,9 +28,6 @@ public abstract class Basedaily_activity extends BaseResource {
 	private String title = null;
 	private String description = null;
 	private Long creation_timestamp = null;
-	private Long activity_date = null;
-	private String activity_date_str = null;
-	private String sent = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -42,13 +39,10 @@ public abstract class Basedaily_activity extends BaseResource {
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
-	public static String FIELD_ACTIVITY_DATE = "activity_date";
-	public static String FIELD_ACTIVITY_DATE_STR = "activity_date_str";
-	public static String FIELD_SENT = "sent";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("daily_activity");
+	private final static ResourceMetaData metaData = new ResourceMetaData("home_practice");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -91,31 +85,19 @@ public abstract class Basedaily_activity extends BaseResource {
 		Field creation_timestampField = new Field("creation_timestamp", "timestamp");
 		metaData.addField(creation_timestampField);
 
-		Field activity_dateField = new Field("activity_date", "timestamp");
-		metaData.addField(activity_dateField);
-
-		Field activity_date_strField = new Field("activity_date_str", "String");
-		activity_date_strField.setLength(32);
-		metaData.addField(activity_date_strField);
-
-		Field sentField = new Field("sent", "String");
-		sentField.setDefaultValue("N");
-		sentField.setLength(1);
-		metaData.addField(sentField);
-
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
 
 
-		metaData.setTableName("daily_activity");
+		metaData.setTableName("home_practice");
 
 		metaData.setCluster("DB_SCHOOL");
 	}
 
-	public Basedaily_activity() {}
+	public Basehome_practice() {}
 
-	public Basedaily_activity(Basedaily_activity obj) {
+	public Basehome_practice(Basehome_practice obj) {
 		this.id = obj.id;
 		this.class_name = obj.class_name;
 		this.section_name = obj.section_name;
@@ -125,19 +107,11 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.title = obj.title;
 		this.description = obj.description;
 		this.creation_timestamp = obj.creation_timestamp;
-		this.activity_date = obj.activity_date;
-		this.activity_date_str = obj.activity_date_str;
-		this.sent = obj.sent;
 		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
-	}
-
-	private void setDefaultValues() {
-		if(sent == null)
-			sent = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -160,21 +134,12 @@ public abstract class Basedaily_activity extends BaseResource {
 			map.put("description", description);
 		if(creation_timestamp != null)
 			map.put("creation_timestamp", creation_timestamp);
-		if(activity_date != null)
-			map.put("activity_date", activity_date);
-		if(activity_date_str != null)
-			map.put("activity_date_str", activity_date_str);
-		if(sent != null)
-			map.put("sent", sent);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
-		if(add)
-			setDefaultValues();
-
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -194,12 +159,6 @@ public abstract class Basedaily_activity extends BaseResource {
 			map.put("description", description);
 		if(creation_timestamp != null)
 			map.put("creation_timestamp", creation_timestamp);
-		if(activity_date != null)
-			map.put("activity_date", activity_date);
-		if(activity_date_str != null)
-			map.put("activity_date_str", activity_date_str);
-		if(sent != null)
-			map.put("sent", sent);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -221,9 +180,6 @@ public abstract class Basedaily_activity extends BaseResource {
 		title = (String) map.get("title");
 		description = (String) map.get("description");
 		creation_timestamp = (Long) map.get("creation_timestamp");
-		activity_date = (Long) map.get("activity_date");
-		activity_date_str = (String) map.get("activity_date_str");
-		sent = (String) map.get("sent");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -264,18 +220,6 @@ public abstract class Basedaily_activity extends BaseResource {
 		Object creation_timestampObj = map.get("creation_timestamp");
 		if(creation_timestampObj != null)
 			creation_timestamp = (Long) creation_timestampObj;
-
-		Object activity_dateObj = map.get("activity_date");
-		if(activity_dateObj != null)
-			activity_date = (Long) activity_dateObj;
-
-		Object activity_date_strObj = map.get("activity_date_str");
-		if(activity_date_strObj != null)
-			activity_date_str = activity_date_strObj.toString();
-
-		Object sentObj = map.get("sent");
-		if(sentObj != null)
-			sent = sentObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -428,43 +372,6 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.creation_timestamp = creation_timestamp;
 	}
 
-
-	public Long getActivity_date() {
-		return activity_date;
-	}
-
-	public void setActivity_date(Long activity_date) {
-		this.activity_date = activity_date;
-	}
-
-
-	public String getActivity_date_str() {
-		return activity_date_str;
-	}
-
-	public String getActivity_date_strEx() {
-		return activity_date_str != null ? activity_date_str : "";
-	}
-
-	public void setActivity_date_str(String activity_date_str) {
-		this.activity_date_str = activity_date_str;
-	}
-
-	public void unSetActivity_date_str() {
-		this.activity_date_str = null;
-	}
-
-	public String getSent() {
-		return sent != null ? sent : "N";
-	}
-
-	public void setSent(String sent) {
-		this.sent = sent;
-	}
-
-	public void unSetSent() {
-		this.sent = "N";
-	}
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

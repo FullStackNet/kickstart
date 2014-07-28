@@ -24,12 +24,14 @@ public abstract class Basestudent_map extends BaseResource {
 	private ArrayList<Object> parents = null;
 	private ArrayList<Object> pickup_alert_stopages = null;
 	private ArrayList<Object> drop_alert_stopages = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_USERS = "users";
 	public static String FIELD_PARENTS = "parents";
 	public static String FIELD_PICKUP_ALERT_STOPAGES = "pickup_alert_stopages";
 	public static String FIELD_DROP_ALERT_STOPAGES = "drop_alert_stopages";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("student_map");
@@ -54,6 +56,10 @@ public abstract class Basestudent_map extends BaseResource {
 		Field drop_alert_stopagesField = new Field("drop_alert_stopages", "Array");
 		metaData.addField(drop_alert_stopagesField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("student_map");
 
@@ -68,6 +74,7 @@ public abstract class Basestudent_map extends BaseResource {
 		this.parents = obj.parents;
 		this.pickup_alert_stopages = obj.pickup_alert_stopages;
 		this.drop_alert_stopages = obj.drop_alert_stopages;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -86,6 +93,8 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("pickup_alert_stopages", pickup_alert_stopages);
 		if(drop_alert_stopages != null)
 			map.put("drop_alert_stopages", drop_alert_stopages);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -101,6 +110,8 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("pickup_alert_stopages", pickup_alert_stopages);
 		if(drop_alert_stopages != null)
 			map.put("drop_alert_stopages", drop_alert_stopages);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -109,14 +120,17 @@ public abstract class Basestudent_map extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		users = (ArrayList<Object>) map.get("users");
 		parents = (ArrayList<Object>) map.get("parents");
 		pickup_alert_stopages = (ArrayList<Object>) map.get("pickup_alert_stopages");
 		drop_alert_stopages = (ArrayList<Object>) map.get("drop_alert_stopages");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -126,6 +140,7 @@ public abstract class Basestudent_map extends BaseResource {
 		parents = (ArrayList<Object>) map.get("parents");
 		pickup_alert_stopages = (ArrayList<Object>) map.get("pickup_alert_stopages");
 		drop_alert_stopages = (ArrayList<Object>) map.get("drop_alert_stopages");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -230,6 +245,28 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void unSetDrop_alert_stopages() {
 		this.drop_alert_stopages = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

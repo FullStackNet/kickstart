@@ -1,5 +1,5 @@
 {
-	"notice" :
+	"home_practice" :
 	{
 		"cluster": "DB_SCHOOL",
 		"fields":
@@ -9,6 +9,21 @@
 				'name':'id',
 				'length': 128,
 				'required': true,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'class_section_name':
+			{
+				'length': 65,
 				'type':'String'
 			},
 			'school_id':
@@ -22,21 +37,6 @@
 				'length': 128,
 				'type':'String',
 				'index' : true
-			},
-			'type':
-			{
-				'length': 512,
-				'type': 'String'
-			},
-			'class_name':
-			{
-				'length': 512,
-				'type': 'String'
-			},
-			'section_name':
-			{
-				'length': 512,
-				'type': 'String'
 			},
 			'title':
 			{

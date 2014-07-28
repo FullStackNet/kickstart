@@ -74,6 +74,7 @@ public abstract class Basestudent extends BaseResource {
 	private Long card_swipe_drop_pick_time = null;
 	private String card_swipe_drop_drop = null;
 	private Long card_swipe_drop_drop_time = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_SCHOOL_ID = "school_id";
@@ -130,6 +131,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_CARD_SWIPE_DROP_PICK_TIME = "card_swipe_drop_pick_time";
 	public static String FIELD_CARD_SWIPE_DROP_DROP = "card_swipe_drop_drop";
 	public static String FIELD_CARD_SWIPE_DROP_DROP_TIME = "card_swipe_drop_drop_time";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("student");
@@ -378,6 +380,10 @@ public abstract class Basestudent extends BaseResource {
 		Field card_swipe_drop_drop_timeField = new Field("card_swipe_drop_drop_time", "timestamp");
 		metaData.addField(card_swipe_drop_drop_timeField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("student");
 
@@ -442,6 +448,7 @@ public abstract class Basestudent extends BaseResource {
 		this.card_swipe_drop_pick_time = obj.card_swipe_drop_pick_time;
 		this.card_swipe_drop_drop = obj.card_swipe_drop_drop;
 		this.card_swipe_drop_drop_time = obj.card_swipe_drop_drop_time;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -583,6 +590,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("card_swipe_drop_drop", card_swipe_drop_drop);
 		if(card_swipe_drop_drop_time != null)
 			map.put("card_swipe_drop_drop_time", card_swipe_drop_drop_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -701,6 +710,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("card_swipe_drop_drop", card_swipe_drop_drop);
 		if(card_swipe_drop_drop_time != null)
 			map.put("card_swipe_drop_drop_time", card_swipe_drop_drop_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -709,6 +720,7 @@ public abstract class Basestudent extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		school_id = (String) map.get("school_id");
@@ -765,8 +777,10 @@ public abstract class Basestudent extends BaseResource {
 		card_swipe_drop_pick_time = (Long) map.get("card_swipe_drop_pick_time");
 		card_swipe_drop_drop = (String) map.get("card_swipe_drop_drop");
 		card_swipe_drop_drop_time = (Long) map.get("card_swipe_drop_drop_time");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -988,6 +1002,7 @@ public abstract class Basestudent extends BaseResource {
 		if(card_swipe_drop_drop_timeObj != null)
 			card_swipe_drop_drop_time = (Long) card_swipe_drop_drop_timeObj;
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -1825,6 +1840,28 @@ public abstract class Basestudent extends BaseResource {
 		this.card_swipe_drop_drop_time = card_swipe_drop_drop_time;
 	}
 
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
+	}
 	public String getCluster() {
 		return "DB_PROFILE";
 	}

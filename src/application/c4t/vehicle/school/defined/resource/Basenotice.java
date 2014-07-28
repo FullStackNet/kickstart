@@ -18,37 +18,31 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Basedaily_activity extends BaseResource {
+public abstract class Basenotice extends BaseResource {
 	private String id = null;
-	private String class_name = null;
-	private String section_name = null;
-	private String class_section_name = null;
 	private String school_id = null;
 	private String customer_id = null;
+	private String type = null;
+	private String class_name = null;
+	private String section_name = null;
 	private String title = null;
 	private String description = null;
 	private Long creation_timestamp = null;
-	private Long activity_date = null;
-	private String activity_date_str = null;
-	private String sent = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_CLASS_NAME = "class_name";
-	public static String FIELD_SECTION_NAME = "section_name";
-	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_TYPE = "type";
+	public static String FIELD_CLASS_NAME = "class_name";
+	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
-	public static String FIELD_ACTIVITY_DATE = "activity_date";
-	public static String FIELD_ACTIVITY_DATE_STR = "activity_date_str";
-	public static String FIELD_SENT = "sent";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("daily_activity");
+	private final static ResourceMetaData metaData = new ResourceMetaData("notice");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -57,18 +51,6 @@ public abstract class Basedaily_activity extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
-
-		Field class_nameField = new Field("class_name", "String");
-		class_nameField.setLength(32);
-		metaData.addField(class_nameField);
-
-		Field section_nameField = new Field("section_name", "String");
-		section_nameField.setLength(32);
-		metaData.addField(section_nameField);
-
-		Field class_section_nameField = new Field("class_section_name", "String");
-		class_section_nameField.setLength(65);
-		metaData.addField(class_section_nameField);
 
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setIndexed(true);
@@ -79,6 +61,18 @@ public abstract class Basedaily_activity extends BaseResource {
 		customer_idField.setIndexed(true);
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
+
+		Field typeField = new Field("type", "String");
+		typeField.setLength(512);
+		metaData.addField(typeField);
+
+		Field class_nameField = new Field("class_name", "String");
+		class_nameField.setLength(512);
+		metaData.addField(class_nameField);
+
+		Field section_nameField = new Field("section_name", "String");
+		section_nameField.setLength(512);
+		metaData.addField(section_nameField);
 
 		Field titleField = new Field("title", "String");
 		titleField.setLength(512);
@@ -91,43 +85,28 @@ public abstract class Basedaily_activity extends BaseResource {
 		Field creation_timestampField = new Field("creation_timestamp", "timestamp");
 		metaData.addField(creation_timestampField);
 
-		Field activity_dateField = new Field("activity_date", "timestamp");
-		metaData.addField(activity_dateField);
-
-		Field activity_date_strField = new Field("activity_date_str", "String");
-		activity_date_strField.setLength(32);
-		metaData.addField(activity_date_strField);
-
-		Field sentField = new Field("sent", "String");
-		sentField.setDefaultValue("N");
-		sentField.setLength(1);
-		metaData.addField(sentField);
-
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
 
 
-		metaData.setTableName("daily_activity");
+		metaData.setTableName("notice");
 
 		metaData.setCluster("DB_SCHOOL");
 	}
 
-	public Basedaily_activity() {}
+	public Basenotice() {}
 
-	public Basedaily_activity(Basedaily_activity obj) {
+	public Basenotice(Basenotice obj) {
 		this.id = obj.id;
-		this.class_name = obj.class_name;
-		this.section_name = obj.section_name;
-		this.class_section_name = obj.class_section_name;
 		this.school_id = obj.school_id;
 		this.customer_id = obj.customer_id;
+		this.type = obj.type;
+		this.class_name = obj.class_name;
+		this.section_name = obj.section_name;
 		this.title = obj.title;
 		this.description = obj.description;
 		this.creation_timestamp = obj.creation_timestamp;
-		this.activity_date = obj.activity_date;
-		this.activity_date_str = obj.activity_date_str;
-		this.sent = obj.sent;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -135,71 +114,51 @@ public abstract class Basedaily_activity extends BaseResource {
 		return metaData;
 	}
 
-	private void setDefaultValues() {
-		if(sent == null)
-			sent = "N";
-	}
-
 	public Map<String, Object> convertResourceToMap() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(class_name != null)
-			map.put("class_name", class_name);
-		if(section_name != null)
-			map.put("section_name", section_name);
-		if(class_section_name != null)
-			map.put("class_section_name", class_section_name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(type != null)
+			map.put("type", type);
+		if(class_name != null)
+			map.put("class_name", class_name);
+		if(section_name != null)
+			map.put("section_name", section_name);
 		if(title != null)
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
 		if(creation_timestamp != null)
 			map.put("creation_timestamp", creation_timestamp);
-		if(activity_date != null)
-			map.put("activity_date", activity_date);
-		if(activity_date_str != null)
-			map.put("activity_date_str", activity_date_str);
-		if(sent != null)
-			map.put("sent", sent);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
-		if(add)
-			setDefaultValues();
-
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(class_name != null)
-			map.put("class_name", class_name);
-		if(section_name != null)
-			map.put("section_name", section_name);
-		if(class_section_name != null)
-			map.put("class_section_name", class_section_name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(type != null)
+			map.put("type", type);
+		if(class_name != null)
+			map.put("class_name", class_name);
+		if(section_name != null)
+			map.put("section_name", section_name);
 		if(title != null)
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
 		if(creation_timestamp != null)
 			map.put("creation_timestamp", creation_timestamp);
-		if(activity_date != null)
-			map.put("activity_date", activity_date);
-		if(activity_date_str != null)
-			map.put("activity_date_str", activity_date_str);
-		if(sent != null)
-			map.put("sent", sent);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -213,17 +172,14 @@ public abstract class Basedaily_activity extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		class_name = (String) map.get("class_name");
-		section_name = (String) map.get("section_name");
-		class_section_name = (String) map.get("class_section_name");
 		school_id = (String) map.get("school_id");
 		customer_id = (String) map.get("customer_id");
+		type = (String) map.get("type");
+		class_name = (String) map.get("class_name");
+		section_name = (String) map.get("section_name");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
 		creation_timestamp = (Long) map.get("creation_timestamp");
-		activity_date = (Long) map.get("activity_date");
-		activity_date_str = (String) map.get("activity_date_str");
-		sent = (String) map.get("sent");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -233,18 +189,6 @@ public abstract class Basedaily_activity extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		Object class_nameObj = map.get("class_name");
-		if(class_nameObj != null)
-			class_name = class_nameObj.toString();
-
-		Object section_nameObj = map.get("section_name");
-		if(section_nameObj != null)
-			section_name = section_nameObj.toString();
-
-		Object class_section_nameObj = map.get("class_section_name");
-		if(class_section_nameObj != null)
-			class_section_name = class_section_nameObj.toString();
-
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
@@ -252,6 +196,18 @@ public abstract class Basedaily_activity extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object typeObj = map.get("type");
+		if(typeObj != null)
+			type = typeObj.toString();
+
+		Object class_nameObj = map.get("class_name");
+		if(class_nameObj != null)
+			class_name = class_nameObj.toString();
+
+		Object section_nameObj = map.get("section_name");
+		if(section_nameObj != null)
+			section_name = section_nameObj.toString();
 
 		Object titleObj = map.get("title");
 		if(titleObj != null)
@@ -264,18 +220,6 @@ public abstract class Basedaily_activity extends BaseResource {
 		Object creation_timestampObj = map.get("creation_timestamp");
 		if(creation_timestampObj != null)
 			creation_timestamp = (Long) creation_timestampObj;
-
-		Object activity_dateObj = map.get("activity_date");
-		if(activity_dateObj != null)
-			activity_date = (Long) activity_dateObj;
-
-		Object activity_date_strObj = map.get("activity_date_str");
-		if(activity_date_strObj != null)
-			activity_date_str = activity_date_strObj.toString();
-
-		Object sentObj = map.get("sent");
-		if(sentObj != null)
-			sent = sentObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -308,54 +252,6 @@ public abstract class Basedaily_activity extends BaseResource {
 		return id != null;
 	}
 
-	public String getClass_name() {
-		return class_name;
-	}
-
-	public String getClass_nameEx() {
-		return class_name != null ? class_name : "";
-	}
-
-	public void setClass_name(String class_name) {
-		this.class_name = class_name;
-	}
-
-	public void unSetClass_name() {
-		this.class_name = null;
-	}
-
-	public String getSection_name() {
-		return section_name;
-	}
-
-	public String getSection_nameEx() {
-		return section_name != null ? section_name : "";
-	}
-
-	public void setSection_name(String section_name) {
-		this.section_name = section_name;
-	}
-
-	public void unSetSection_name() {
-		this.section_name = null;
-	}
-
-	public String getClass_section_name() {
-		return class_section_name;
-	}
-
-	public String getClass_section_nameEx() {
-		return class_section_name != null ? class_section_name : "";
-	}
-
-	public void setClass_section_name(String class_section_name) {
-		this.class_section_name = class_section_name;
-	}
-
-	public void unSetClass_section_name() {
-		this.class_section_name = null;
-	}
-
 	public String getSchool_id() {
 		return school_id;
 	}
@@ -386,6 +282,54 @@ public abstract class Basedaily_activity extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public String getTypeEx() {
+		return type != null ? type : "";
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void unSetType() {
+		this.type = null;
+	}
+
+	public String getClass_name() {
+		return class_name;
+	}
+
+	public String getClass_nameEx() {
+		return class_name != null ? class_name : "";
+	}
+
+	public void setClass_name(String class_name) {
+		this.class_name = class_name;
+	}
+
+	public void unSetClass_name() {
+		this.class_name = null;
+	}
+
+	public String getSection_name() {
+		return section_name;
+	}
+
+	public String getSection_nameEx() {
+		return section_name != null ? section_name : "";
+	}
+
+	public void setSection_name(String section_name) {
+		this.section_name = section_name;
+	}
+
+	public void unSetSection_name() {
+		this.section_name = null;
 	}
 
 	public String getTitle() {
@@ -428,43 +372,6 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.creation_timestamp = creation_timestamp;
 	}
 
-
-	public Long getActivity_date() {
-		return activity_date;
-	}
-
-	public void setActivity_date(Long activity_date) {
-		this.activity_date = activity_date;
-	}
-
-
-	public String getActivity_date_str() {
-		return activity_date_str;
-	}
-
-	public String getActivity_date_strEx() {
-		return activity_date_str != null ? activity_date_str : "";
-	}
-
-	public void setActivity_date_str(String activity_date_str) {
-		this.activity_date_str = activity_date_str;
-	}
-
-	public void unSetActivity_date_str() {
-		this.activity_date_str = null;
-	}
-
-	public String getSent() {
-		return sent != null ? sent : "N";
-	}
-
-	public void setSent(String sent) {
-		this.sent = sent;
-	}
-
-	public void unSetSent() {
-		this.sent = "N";
-	}
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

@@ -27,6 +27,7 @@ public abstract class Baseteacher_subject extends BaseResource {
 	private String school_id = null;
 	private String customer_id = null;
 	private String subject_id = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TEACHER_ID = "teacher_id";
@@ -36,6 +37,7 @@ public abstract class Baseteacher_subject extends BaseResource {
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_SUBJECT_ID = "subject_id";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("teacher_subject");
@@ -80,6 +82,10 @@ public abstract class Baseteacher_subject extends BaseResource {
 		subject_idField.setLength(128);
 		metaData.addField(subject_idField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("teacher_subject");
 
@@ -97,6 +103,7 @@ public abstract class Baseteacher_subject extends BaseResource {
 		this.school_id = obj.school_id;
 		this.customer_id = obj.customer_id;
 		this.subject_id = obj.subject_id;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -121,6 +128,8 @@ public abstract class Baseteacher_subject extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(subject_id != null)
 			map.put("subject_id", subject_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -142,6 +151,8 @@ public abstract class Baseteacher_subject extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(subject_id != null)
 			map.put("subject_id", subject_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -150,6 +161,7 @@ public abstract class Baseteacher_subject extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		teacher_id = (String) map.get("teacher_id");
@@ -159,8 +171,10 @@ public abstract class Baseteacher_subject extends BaseResource {
 		school_id = (String) map.get("school_id");
 		customer_id = (String) map.get("customer_id");
 		subject_id = (String) map.get("subject_id");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -194,6 +208,7 @@ public abstract class Baseteacher_subject extends BaseResource {
 		if(subject_idObj != null)
 			subject_id = subject_idObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -340,6 +355,28 @@ public abstract class Baseteacher_subject extends BaseResource {
 
 	public void unSetSubject_id() {
 		this.subject_id = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

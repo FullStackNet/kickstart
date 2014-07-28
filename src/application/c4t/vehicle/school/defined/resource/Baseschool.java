@@ -33,6 +33,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_daily_activity = null;
 	private String feature_teacher2parent_chat = null;
 	private String feature_admin2parent_chat = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -48,6 +49,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_DAILY_ACTIVITY = "feature_daily_activity";
 	public static String FIELD_FEATURE_TEACHER2PARENT_CHAT = "feature_teacher2parent_chat";
 	public static String FIELD_FEATURE_ADMIN2PARENT_CHAT = "feature_admin2parent_chat";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("school");
@@ -117,6 +119,10 @@ public abstract class Baseschool extends BaseResource {
 		feature_admin2parent_chatField.setLength(1);
 		metaData.addField(feature_admin2parent_chatField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("school");
 
@@ -140,6 +146,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_daily_activity = obj.feature_daily_activity;
 		this.feature_teacher2parent_chat = obj.feature_teacher2parent_chat;
 		this.feature_admin2parent_chat = obj.feature_admin2parent_chat;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -189,6 +196,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		if(feature_admin2parent_chat != null)
 			map.put("feature_admin2parent_chat", feature_admin2parent_chat);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -225,6 +234,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		if(feature_admin2parent_chat != null)
 			map.put("feature_admin2parent_chat", feature_admin2parent_chat);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -233,6 +244,7 @@ public abstract class Baseschool extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -248,8 +260,10 @@ public abstract class Baseschool extends BaseResource {
 		feature_daily_activity = (String) map.get("feature_daily_activity");
 		feature_teacher2parent_chat = (String) map.get("feature_teacher2parent_chat");
 		feature_admin2parent_chat = (String) map.get("feature_admin2parent_chat");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -307,6 +321,7 @@ public abstract class Baseschool extends BaseResource {
 		if(feature_admin2parent_chatObj != null)
 			feature_admin2parent_chat = feature_admin2parent_chatObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -523,6 +538,28 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_admin2parent_chat() {
 		this.feature_admin2parent_chat = "N";
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";
