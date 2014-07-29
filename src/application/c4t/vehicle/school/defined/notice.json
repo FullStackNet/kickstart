@@ -47,6 +47,13 @@
 				'length': 4096,
 				'type': 'String'
 			},
+			'notice_date': {
+				'type': 'timestamp'
+			},
+			'notice_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
 			'creation_timestamp': {
 				'type': 'timestamp'
 			}

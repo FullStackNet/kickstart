@@ -27,6 +27,8 @@ public abstract class Basenotice extends BaseResource {
 	private String section_name = null;
 	private String title = null;
 	private String description = null;
+	private Long notice_date = null;
+	private String notice_date_str = null;
 	private Long creation_timestamp = null;
 	private Map<String, Object> extra_data = null;
 
@@ -38,6 +40,8 @@ public abstract class Basenotice extends BaseResource {
 	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
+	public static String FIELD_NOTICE_DATE = "notice_date";
+	public static String FIELD_NOTICE_DATE_STR = "notice_date_str";
 	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -82,6 +86,13 @@ public abstract class Basenotice extends BaseResource {
 		descriptionField.setLength(4096);
 		metaData.addField(descriptionField);
 
+		Field notice_dateField = new Field("notice_date", "timestamp");
+		metaData.addField(notice_dateField);
+
+		Field notice_date_strField = new Field("notice_date_str", "String");
+		notice_date_strField.setLength(32);
+		metaData.addField(notice_date_strField);
+
 		Field creation_timestampField = new Field("creation_timestamp", "timestamp");
 		metaData.addField(creation_timestampField);
 
@@ -106,6 +117,8 @@ public abstract class Basenotice extends BaseResource {
 		this.section_name = obj.section_name;
 		this.title = obj.title;
 		this.description = obj.description;
+		this.notice_date = obj.notice_date;
+		this.notice_date_str = obj.notice_date_str;
 		this.creation_timestamp = obj.creation_timestamp;
 		this.extra_data = obj.extra_data;
 	}
@@ -132,6 +145,10 @@ public abstract class Basenotice extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(notice_date != null)
+			map.put("notice_date", notice_date);
+		if(notice_date_str != null)
+			map.put("notice_date_str", notice_date_str);
 		if(creation_timestamp != null)
 			map.put("creation_timestamp", creation_timestamp);
 		if(extra_data != null)
@@ -157,6 +174,10 @@ public abstract class Basenotice extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(notice_date != null)
+			map.put("notice_date", notice_date);
+		if(notice_date_str != null)
+			map.put("notice_date_str", notice_date_str);
 		if(creation_timestamp != null)
 			map.put("creation_timestamp", creation_timestamp);
 		if(extra_data != null)
@@ -179,6 +200,8 @@ public abstract class Basenotice extends BaseResource {
 		section_name = (String) map.get("section_name");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
+		notice_date = (Long) map.get("notice_date");
+		notice_date_str = (String) map.get("notice_date_str");
 		creation_timestamp = (Long) map.get("creation_timestamp");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -216,6 +239,14 @@ public abstract class Basenotice extends BaseResource {
 		Object descriptionObj = map.get("description");
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
+
+		Object notice_dateObj = map.get("notice_date");
+		if(notice_dateObj != null)
+			notice_date = (Long) notice_dateObj;
+
+		Object notice_date_strObj = map.get("notice_date_str");
+		if(notice_date_strObj != null)
+			notice_date_str = notice_date_strObj.toString();
 
 		Object creation_timestampObj = map.get("creation_timestamp");
 		if(creation_timestampObj != null)
@@ -362,6 +393,31 @@ public abstract class Basenotice extends BaseResource {
 
 	public void unSetDescription() {
 		this.description = null;
+	}
+
+	public Long getNotice_date() {
+		return notice_date;
+	}
+
+	public void setNotice_date(Long notice_date) {
+		this.notice_date = notice_date;
+	}
+
+
+	public String getNotice_date_str() {
+		return notice_date_str;
+	}
+
+	public String getNotice_date_strEx() {
+		return notice_date_str != null ? notice_date_str : "";
+	}
+
+	public void setNotice_date_str(String notice_date_str) {
+		this.notice_date_str = notice_date_str;
+	}
+
+	public void unSetNotice_date_str() {
+		this.notice_date_str = null;
 	}
 
 	public Long getCreation_timestamp() {
