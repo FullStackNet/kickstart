@@ -121,6 +121,9 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_STOPAGE_REACHED = "STOPAGE_REACHED";
 	public static String MAIL_TYPE_OVERSPEED = "OVER SPEED";
 	public static String MAIL_TYPE_HOMEWORK = "HOMEWORK";
+	public static String MAIL_TYPE_HOME_PRACTICE= "HOME PRACTICE";
+	public static String MAIL_TYPE_NOTICE = "NOTICE";
+	
 	public static String MAIL_TYPE_DAILY_ACTIVITY= "DAILY ACTIVITY";
 	
 	public static String MAIL_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE TO JOIN PARENT CONNECT";
@@ -129,6 +132,8 @@ public class ApplicationConstants {
 
 	public static String MAIL_SUBJECT_INVITE_PARENT = "Activate student stpoage alert service";
 	public static String MAIL_SUBJECT_HOMEWORK = "Homework notification";
+	public static String MAIL_SUBJECT_HOME_PRACTICE = "Home practice notification";
+	public static String MAIL_SUBJECT_NOTICE = "Notice";
 	public static String MAIL_SUBJECT_DAILY_ACTIVITY = "Daily Activity notification";
 	public static String MAIL_SUBJECT_INVITE_TO_JOIN_PARENT_CONNECT = "Invite to join the parent connect";
 	public static String MAIL_SUBJECT_INVITE_TEACHER = "Activate teacher account";
@@ -145,11 +150,16 @@ public class ApplicationConstants {
 	public static String SMS_TYPE_SEND_OVERSPEED = "OVER SPEED";
 	public static String SMS_TYPE_SEND_HOMEWORK = "HOMEWORK";
 	public static String SMS_TYPE_SEND_DAILY_ACTIVITY = "DAILY_ACTIVITY";
+	public static String SMS_TYPE_SEND_HOME_PRACTICE = "HOME_PRACTICE";
+	public static String SMS_TYPE_SEND_NOTICE = "NOTICE";
+
 	public static String SMS_TYPE_FORGOT_PASSWORD = "FORGOT_PASSWORD";
 	
 	public static String NOTIFICATION_TYPE_STOPAGE_REACHED = "STOPAGE_REACHED";
 	public static String NOTIFICATION_TYPE_HOMEWORK = "HOMEWORK";
 	public static String NOTIFICATION_TYPE_DAILY_ACTIVITY = "DAILY_ACTIVITY";
+	public static String NOTIFICATION_TYPE_HOME_PRACTICE = "HOME_PRACTICE";
+	public static String NOTIFICATION_TYPE_NOTICE = "NOTICE";
 	
 	public static String NOTIFICATION_TYPE_OVERSPEED = "OVERSPEED";
 	public static String NOTIFICATION_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";

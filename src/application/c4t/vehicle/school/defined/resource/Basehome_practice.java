@@ -28,6 +28,7 @@ public abstract class Basehome_practice extends BaseResource {
 	private String title = null;
 	private String description = null;
 	private Long creation_timestamp = null;
+	private String sent = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -39,6 +40,7 @@ public abstract class Basehome_practice extends BaseResource {
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
+	public static String FIELD_SENT = "sent";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -85,6 +87,11 @@ public abstract class Basehome_practice extends BaseResource {
 		Field creation_timestampField = new Field("creation_timestamp", "timestamp");
 		metaData.addField(creation_timestampField);
 
+		Field sentField = new Field("sent", "String");
+		sentField.setDefaultValue("N");
+		sentField.setLength(1);
+		metaData.addField(sentField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -107,11 +114,17 @@ public abstract class Basehome_practice extends BaseResource {
 		this.title = obj.title;
 		this.description = obj.description;
 		this.creation_timestamp = obj.creation_timestamp;
+		this.sent = obj.sent;
 		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(sent == null)
+			sent = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -134,12 +147,17 @@ public abstract class Basehome_practice extends BaseResource {
 			map.put("description", description);
 		if(creation_timestamp != null)
 			map.put("creation_timestamp", creation_timestamp);
+		if(sent != null)
+			map.put("sent", sent);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -159,6 +177,8 @@ public abstract class Basehome_practice extends BaseResource {
 			map.put("description", description);
 		if(creation_timestamp != null)
 			map.put("creation_timestamp", creation_timestamp);
+		if(sent != null)
+			map.put("sent", sent);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -180,6 +200,7 @@ public abstract class Basehome_practice extends BaseResource {
 		title = (String) map.get("title");
 		description = (String) map.get("description");
 		creation_timestamp = (Long) map.get("creation_timestamp");
+		sent = (String) map.get("sent");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -220,6 +241,10 @@ public abstract class Basehome_practice extends BaseResource {
 		Object creation_timestampObj = map.get("creation_timestamp");
 		if(creation_timestampObj != null)
 			creation_timestamp = (Long) creation_timestampObj;
+
+		Object sentObj = map.get("sent");
+		if(sentObj != null)
+			sent = sentObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -372,6 +397,18 @@ public abstract class Basehome_practice extends BaseResource {
 		this.creation_timestamp = creation_timestamp;
 	}
 
+
+	public String getSent() {
+		return sent != null ? sent : "N";
+	}
+
+	public void setSent(String sent) {
+		this.sent = sent;
+	}
+
+	public void unSetSent() {
+		this.sent = "N";
+	}
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

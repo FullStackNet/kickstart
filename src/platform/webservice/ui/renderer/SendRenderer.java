@@ -8,8 +8,11 @@ import platform.webservice.ui.html.A;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.SPAN;
 
-public class SendDailyActivityRenderer extends BaseRenderer {
-
+public class SendRenderer extends BaseRenderer {
+	String resourceName;
+	public SendRenderer(String resourceName) {
+		this.resourceName = resourceName;
+	}
 	@Override
 	public BaseHTMLComponent render(Field field, String value,String refreshKey) {
 		// TODO Auto-generated method stub
@@ -23,7 +26,7 @@ public class SendDailyActivityRenderer extends BaseRenderer {
 	public BaseHTMLComponent render(Field field, Map<String, Object> data) {
 		// TODO Auto-generated method stub
 		A a = new A(field.getName(),field.getClassName());
-		a.addAttribute("onclick","ActionHandler.call('/c4t/daily_activity','"+data.get("id")+"','SEND_DAILY_ACTIVITY')");
+		a.addAttribute("onclick","ActionHandler.call('/c4t/"+resourceName+"','"+data.get("id")+"','SEND')");
 		a.setHref("javascript:void(0)");
 		String sendValue = (String)data.get("sent");
 		if ("Y".equals(sendValue)) {

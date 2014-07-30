@@ -56,6 +56,11 @@
 			},
 			'creation_timestamp': {
 				'type': 'timestamp'
+			},
+			'sent': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
 			}
 		}
 	}
