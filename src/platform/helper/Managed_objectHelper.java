@@ -96,4 +96,7 @@ public class Managed_objectHelper extends BaseHelper {
 		return map;
 	}
 	
+	public void delete(String userId,String customerId,String id) throws ApplicationException {
+		deleteById(id);
+	}
 }

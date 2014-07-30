@@ -195,7 +195,11 @@ public class ManagedObjectService extends BaseService{
 			message.setProcess_name(_managed_object.getType());
 			ApplicationManager.getInstance().sendMessage(
 					resources[0].getId(), message);
-		} else {
+		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_DELETE)) {
+			managed_object _resource = (managed_object) resource;
+			Managed_objectHelper.getInstance().delete(ctx.getCustomerId(),ctx.getUserId(),_resource.getId());
+
+		}else {
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid operation ...");
 		}
 
