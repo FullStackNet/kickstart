@@ -17,6 +17,12 @@
 				'length': 128,
 				'type':'String'
 			},
+			'short_name':
+			{
+				'name':'short_name',
+				'length': 32,
+				'type':'String'
+			},
 			'address1':
 			{
 				'name':'address1',
