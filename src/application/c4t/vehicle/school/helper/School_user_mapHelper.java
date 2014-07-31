@@ -74,6 +74,17 @@ public class School_user_mapHelper extends BaseHelper {
 				new String[]{user.FIELD_NAME});
 	}
 	
+	public String[] getSchoolIds(String userId) {
+		school_user_map _map = (school_user_map)getById(userId);
+		if ((_map == null) || (_map.getSchools() == null))
+			return null;
+		String[] ids = new String[_map.getSchools().size()];
+		for(int i =0; i < _map.getSchools().size(); i++) {
+				ids[i] = _map.getSchools().get(i).toString();
+		}
+		return ids;
+	}
+	
 	public String getTeacherIdFromUserId(String userId) {
 		school_user_map _map = (school_user_map)getById(userId);
 		if ((_map == null) || (_map.getTeachers() == null) || (Util.isEmpty(_map.getTeachers())))

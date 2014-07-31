@@ -38,4 +38,9 @@ public class Daily_activityHelper extends BaseHelper {
 		
 		return getByExpression(e5, new String[]{daily_activity.FIELD_ACTIVITY_DATE + " desc"});
 	}
+	
+	public BaseResource[] getForSchools(String[] schools) {
+		Expression e = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+		return getByExpression(e, new String[]{daily_activity.FIELD_ACTIVITY_DATE + " desc"});
+	}
 }
