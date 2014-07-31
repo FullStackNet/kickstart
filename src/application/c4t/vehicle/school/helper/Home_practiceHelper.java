@@ -39,4 +39,8 @@ public class Home_practiceHelper extends BaseHelper {
 		Home_practiceHelper.getInstance().update(_resource);
 	}
 	
+	public BaseResource[] getForSchools(String[] schools) {
+		Expression e = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+		return getByExpression(e, new String[]{home_practice.FIELD_CREATION_TIMESTAMP + " desc"});
+	}
 }
