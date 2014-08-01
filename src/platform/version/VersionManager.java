@@ -1,6 +1,6 @@
 package platform.version;
 
 public class VersionManager {
-	public static String VERSION = "1.0.305";
+	public static String VERSION = "1.0.306";
 	public static String API_VERSION = "1.0";
 }
