@@ -312,6 +312,10 @@
 			'card_swipe_drop_drop_time':
 			{
 				'type':'timestamp'
+			},
+			'total_absent':
+			{
+				'type':'int'
 			}
 		}
 	}

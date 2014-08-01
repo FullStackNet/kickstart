@@ -74,6 +74,7 @@ public abstract class Basestudent extends BaseResource {
 	private Long card_swipe_drop_pick_time = null;
 	private String card_swipe_drop_drop = null;
 	private Long card_swipe_drop_drop_time = null;
+	private Integer total_absent = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -131,6 +132,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_CARD_SWIPE_DROP_PICK_TIME = "card_swipe_drop_pick_time";
 	public static String FIELD_CARD_SWIPE_DROP_DROP = "card_swipe_drop_drop";
 	public static String FIELD_CARD_SWIPE_DROP_DROP_TIME = "card_swipe_drop_drop_time";
+	public static String FIELD_TOTAL_ABSENT = "total_absent";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -380,6 +382,9 @@ public abstract class Basestudent extends BaseResource {
 		Field card_swipe_drop_drop_timeField = new Field("card_swipe_drop_drop_time", "timestamp");
 		metaData.addField(card_swipe_drop_drop_timeField);
 
+		Field total_absentField = new Field("total_absent", "int");
+		metaData.addField(total_absentField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -448,6 +453,7 @@ public abstract class Basestudent extends BaseResource {
 		this.card_swipe_drop_pick_time = obj.card_swipe_drop_pick_time;
 		this.card_swipe_drop_drop = obj.card_swipe_drop_drop;
 		this.card_swipe_drop_drop_time = obj.card_swipe_drop_drop_time;
+		this.total_absent = obj.total_absent;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -590,6 +596,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("card_swipe_drop_drop", card_swipe_drop_drop);
 		if(card_swipe_drop_drop_time != null)
 			map.put("card_swipe_drop_drop_time", card_swipe_drop_drop_time);
+		if(total_absent != null)
+			map.put("total_absent", total_absent);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -710,6 +718,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("card_swipe_drop_drop", card_swipe_drop_drop);
 		if(card_swipe_drop_drop_time != null)
 			map.put("card_swipe_drop_drop_time", card_swipe_drop_drop_time);
+		if(total_absent != null)
+			map.put("total_absent", total_absent);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -777,6 +787,7 @@ public abstract class Basestudent extends BaseResource {
 		card_swipe_drop_pick_time = (Long) map.get("card_swipe_drop_pick_time");
 		card_swipe_drop_drop = (String) map.get("card_swipe_drop_drop");
 		card_swipe_drop_drop_time = (Long) map.get("card_swipe_drop_drop_time");
+		total_absent = (Integer) map.get("total_absent");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1001,6 +1012,10 @@ public abstract class Basestudent extends BaseResource {
 		Object card_swipe_drop_drop_timeObj = map.get("card_swipe_drop_drop_time");
 		if(card_swipe_drop_drop_timeObj != null)
 			card_swipe_drop_drop_time = (Long) card_swipe_drop_drop_timeObj;
+
+		Object total_absentObj = map.get("total_absent");
+		if(total_absentObj != null)
+			total_absent = new Integer(total_absentObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1840,6 +1855,26 @@ public abstract class Basestudent extends BaseResource {
 		this.card_swipe_drop_drop_time = card_swipe_drop_drop_time;
 	}
 
+
+	public Integer getTotal_absent() {
+		return total_absent;
+	}
+
+	public int getTotal_absentEx() {
+		return total_absent != null ? total_absent : 0;
+	}
+
+	public void setTotal_absent(int total_absent) {
+		this.total_absent = total_absent;
+	}
+
+	public void setTotal_absent(Integer total_absent) {
+		this.total_absent = total_absent;
+	}
+
+	public void unSetTotal_absent() {
+		this.total_absent = null;
+	}
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;
