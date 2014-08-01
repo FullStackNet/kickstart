@@ -26,14 +26,13 @@ public class NoticeNotificationTask extends NotificationTask {
 		super(NotificationFactory.NOTIFICATION_NOTICE);
 		// TODO Auto-generated constructor stub
 	}
-
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
 			String appAlert,String smsAlert,String emailAlert,
 			String school_id,
 			String class_section_name,
 			String title,
-			String description,String activity_date) {
+			String description,String date) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			String students = studentMap.get(entry.getKey());
@@ -45,7 +44,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ACTIVITY_DATE, activity_date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
 				String params = Json.maptoString(map);
 				smsMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
@@ -55,12 +54,12 @@ public class NoticeNotificationTask extends NotificationTask {
 				SendEmail resendMail = new SendEmail();
 				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_NOTICE);
 				resendMail.setTo(_user.getEmail_id());
-				resendMail.setType(ApplicationConstants.MAIL_TYPE_DAILY_ACTIVITY);
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_NOTICE);
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ACTIVITY_DATE, activity_date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
 				String params = Json.maptoString(map);
 				resendMail.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -70,13 +69,13 @@ public class NoticeNotificationTask extends NotificationTask {
 			if ("Y".equals(appAlert) && (_user.getMobile_no() != null)) {
 				SendNotification notificationMessage = new SendNotification();
 				notificationMessage.setNotify_id(_user.getId());
-				notificationMessage.setTitle("DAILY ACTIVITY");
-				notificationMessage.setType(ApplicationConstants.NOTIFICATION_TYPE_DAILY_ACTIVITY);
+				notificationMessage.setTitle("NOTICE");
+				notificationMessage.setType(ApplicationConstants.NOTIFICATION_TYPE_NOTICE);
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ACTIVITY_DATE, activity_date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
 				String params = Json.maptoString(map);
 				notificationMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_NOTIFICATION_MANAGER, 
