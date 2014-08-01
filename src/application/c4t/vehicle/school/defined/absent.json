@@ -46,6 +46,12 @@
 			{
 				'type':'int'
 			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'sent':
 			{
 				'type':'String',

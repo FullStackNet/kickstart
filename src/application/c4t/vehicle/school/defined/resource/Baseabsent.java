@@ -27,6 +27,7 @@ public abstract class Baseabsent extends BaseResource {
 	private Long date = null;
 	private String date_str = null;
 	private Integer total_absent = null;
+	private String customer_id = null;
 	private String sent = null;
 	private Map<String, Object> extra_data = null;
 
@@ -38,6 +39,7 @@ public abstract class Baseabsent extends BaseResource {
 	public static String FIELD_DATE = "date";
 	public static String FIELD_DATE_STR = "date_str";
 	public static String FIELD_TOTAL_ABSENT = "total_absent";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_SENT = "sent";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -80,6 +82,11 @@ public abstract class Baseabsent extends BaseResource {
 		Field total_absentField = new Field("total_absent", "int");
 		metaData.addField(total_absentField);
 
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setIndexed(true);
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
+
 		Field sentField = new Field("sent", "String");
 		sentField.setDefaultValue("N");
 		sentField.setLength(1);
@@ -106,6 +113,7 @@ public abstract class Baseabsent extends BaseResource {
 		this.date = obj.date;
 		this.date_str = obj.date_str;
 		this.total_absent = obj.total_absent;
+		this.customer_id = obj.customer_id;
 		this.sent = obj.sent;
 		this.extra_data = obj.extra_data;
 	}
@@ -137,6 +145,8 @@ public abstract class Baseabsent extends BaseResource {
 			map.put("date_str", date_str);
 		if(total_absent != null)
 			map.put("total_absent", total_absent);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(sent != null)
 			map.put("sent", sent);
 		if(extra_data != null)
@@ -165,6 +175,8 @@ public abstract class Baseabsent extends BaseResource {
 			map.put("date_str", date_str);
 		if(total_absent != null)
 			map.put("total_absent", total_absent);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(sent != null)
 			map.put("sent", sent);
 		if(extra_data != null)
@@ -187,6 +199,7 @@ public abstract class Baseabsent extends BaseResource {
 		date = (Long) map.get("date");
 		date_str = (String) map.get("date_str");
 		total_absent = (Integer) map.get("total_absent");
+		customer_id = (String) map.get("customer_id");
 		sent = (String) map.get("sent");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -224,6 +237,10 @@ public abstract class Baseabsent extends BaseResource {
 		Object total_absentObj = map.get("total_absent");
 		if(total_absentObj != null)
 			total_absent = new Integer(total_absentObj.toString());
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		Object sentObj = map.get("sent");
 		if(sentObj != null)
@@ -367,6 +384,22 @@ public abstract class Baseabsent extends BaseResource {
 
 	public void unSetTotal_absent() {
 		this.total_absent = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
 	public String getSent() {
