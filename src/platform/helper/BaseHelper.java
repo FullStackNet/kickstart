@@ -131,6 +131,7 @@ public class BaseHelper {
 				connection.release();
 		}
 	}
+	
 	public void add(BaseResource _resource) throws ApplicationException {
 		DbConnection connection = null;
 		try {

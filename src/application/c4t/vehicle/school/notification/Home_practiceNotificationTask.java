@@ -33,7 +33,7 @@ public class Home_practiceNotificationTask extends NotificationTask {
 			String school_id,
 			String class_section_name,
 			String title,
-			String description) {
+			String description,String customerId) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			String students = studentMap.get(entry.getKey());
@@ -45,6 +45,8 @@ public class Home_practiceNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customerId);
+
 				String params = Json.maptoString(map);
 				smsMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
@@ -59,6 +61,7 @@ public class Home_practiceNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customerId);
 				String params = Json.maptoString(map);
 				resendMail.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -74,6 +77,7 @@ public class Home_practiceNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customerId);
 				String params = Json.maptoString(map);
 				notificationMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_NOTIFICATION_MANAGER, 
@@ -92,7 +96,7 @@ public class Home_practiceNotificationTask extends NotificationTask {
 			String school_id,
 			String class_section_name,
 			String title,
-			String description) {
+			String description,String customerId) {
 		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
 		if ((students == null) || (students.length == 0)) 
 			return;
@@ -129,7 +133,7 @@ public class Home_practiceNotificationTask extends NotificationTask {
 				school_id,
 				class_section_name,
 				title,
-				description);
+				description,customerId);
 	}
 	@Override
 	public void process(notification _notification) {
@@ -143,8 +147,10 @@ public class Home_practiceNotificationTask extends NotificationTask {
 			String class_section_name = (String)data.get("CLASS_SECTION_NAME");
 			String title = (String)data.get("TITLE");
 			String description = (String)data.get("DESCRIPTION");
+			String customerId = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID);
+			
 			sendNotification(_notification,school_id,
-					class_section_name, title,description);
+					class_section_name, title,description,customerId);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

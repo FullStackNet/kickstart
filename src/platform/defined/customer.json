@@ -95,6 +95,16 @@
 			{
 				'length': 1,
 				'type':'String'
+			},
+			'email_account':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'sms_account':
+			{
+				'length': 128,
+				'type':'String'
 			}
 		}
 	}

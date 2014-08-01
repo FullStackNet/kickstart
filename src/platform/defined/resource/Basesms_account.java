@@ -20,25 +20,25 @@ import java.util.*;
  */
 public abstract class Basesms_account extends BaseResource {
 	private String id = null;
+	private String name = null;
 	private String url = null;
-	private String aid_fieldname = null;
-	private String aid = null;
-	private String pin_fieldname = null;
-	private String pin = null;
+	private String username_fieldname = null;
+	private String username = null;
+	private String password_fieldname = null;
+	private String password = null;
 	private String mobile_fieldname = null;
 	private String message_fieldname = null;
-	private String send_on_email = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_NAME = "name";
 	public static String FIELD_URL = "url";
-	public static String FIELD_AID_FIELDNAME = "aid_fieldname";
-	public static String FIELD_AID = "aid";
-	public static String FIELD_PIN_FIELDNAME = "pin_fieldname";
-	public static String FIELD_PIN = "pin";
+	public static String FIELD_USERNAME_FIELDNAME = "username_fieldname";
+	public static String FIELD_USERNAME = "username";
+	public static String FIELD_PASSWORD_FIELDNAME = "password_fieldname";
+	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_MOBILE_FIELDNAME = "mobile_fieldname";
 	public static String FIELD_MESSAGE_FIELDNAME = "message_fieldname";
-	public static String FIELD_SEND_ON_EMAIL = "send_on_email";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -52,25 +52,29 @@ public abstract class Basesms_account extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
+		Field nameField = new Field("name", "String");
+		nameField.setLength(128);
+		metaData.addField(nameField);
+
 		Field urlField = new Field("url", "String");
 		urlField.setLength(128);
 		metaData.addField(urlField);
 
-		Field aid_fieldnameField = new Field("aid_fieldname", "String");
-		aid_fieldnameField.setLength(128);
-		metaData.addField(aid_fieldnameField);
+		Field username_fieldnameField = new Field("username_fieldname", "String");
+		username_fieldnameField.setLength(128);
+		metaData.addField(username_fieldnameField);
 
-		Field aidField = new Field("aid", "String");
-		aidField.setLength(128);
-		metaData.addField(aidField);
+		Field usernameField = new Field("username", "String");
+		usernameField.setLength(128);
+		metaData.addField(usernameField);
 
-		Field pin_fieldnameField = new Field("pin_fieldname", "String");
-		pin_fieldnameField.setLength(128);
-		metaData.addField(pin_fieldnameField);
+		Field password_fieldnameField = new Field("password_fieldname", "String");
+		password_fieldnameField.setLength(128);
+		metaData.addField(password_fieldnameField);
 
-		Field pinField = new Field("pin", "String");
-		pinField.setLength(128);
-		metaData.addField(pinField);
+		Field passwordField = new Field("password", "String");
+		passwordField.setLength(128);
+		metaData.addField(passwordField);
 
 		Field mobile_fieldnameField = new Field("mobile_fieldname", "String");
 		mobile_fieldnameField.setLength(128);
@@ -79,10 +83,6 @@ public abstract class Basesms_account extends BaseResource {
 		Field message_fieldnameField = new Field("message_fieldname", "String");
 		message_fieldnameField.setLength(128);
 		metaData.addField(message_fieldnameField);
-
-		Field send_on_emailField = new Field("send_on_email", "String");
-		send_on_emailField.setLength(1);
-		metaData.addField(send_on_emailField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -98,14 +98,14 @@ public abstract class Basesms_account extends BaseResource {
 
 	public Basesms_account(Basesms_account obj) {
 		this.id = obj.id;
+		this.name = obj.name;
 		this.url = obj.url;
-		this.aid_fieldname = obj.aid_fieldname;
-		this.aid = obj.aid;
-		this.pin_fieldname = obj.pin_fieldname;
-		this.pin = obj.pin;
+		this.username_fieldname = obj.username_fieldname;
+		this.username = obj.username;
+		this.password_fieldname = obj.password_fieldname;
+		this.password = obj.password;
 		this.mobile_fieldname = obj.mobile_fieldname;
 		this.message_fieldname = obj.message_fieldname;
-		this.send_on_email = obj.send_on_email;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -117,22 +117,22 @@ public abstract class Basesms_account extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(name != null)
+			map.put("name", name);
 		if(url != null)
 			map.put("url", url);
-		if(aid_fieldname != null)
-			map.put("aid_fieldname", aid_fieldname);
-		if(aid != null)
-			map.put("aid", aid);
-		if(pin_fieldname != null)
-			map.put("pin_fieldname", pin_fieldname);
-		if(pin != null)
-			map.put("pin", pin);
+		if(username_fieldname != null)
+			map.put("username_fieldname", username_fieldname);
+		if(username != null)
+			map.put("username", username);
+		if(password_fieldname != null)
+			map.put("password_fieldname", password_fieldname);
+		if(password != null)
+			map.put("password", password);
 		if(mobile_fieldname != null)
 			map.put("mobile_fieldname", mobile_fieldname);
 		if(message_fieldname != null)
 			map.put("message_fieldname", message_fieldname);
-		if(send_on_email != null)
-			map.put("send_on_email", send_on_email);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -142,22 +142,22 @@ public abstract class Basesms_account extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(name != null)
+			map.put("name", name);
 		if(url != null)
 			map.put("url", url);
-		if(aid_fieldname != null)
-			map.put("aid_fieldname", aid_fieldname);
-		if(aid != null)
-			map.put("aid", aid);
-		if(pin_fieldname != null)
-			map.put("pin_fieldname", pin_fieldname);
-		if(pin != null)
-			map.put("pin", pin);
+		if(username_fieldname != null)
+			map.put("username_fieldname", username_fieldname);
+		if(username != null)
+			map.put("username", username);
+		if(password_fieldname != null)
+			map.put("password_fieldname", password_fieldname);
+		if(password != null)
+			map.put("password", password);
 		if(mobile_fieldname != null)
 			map.put("mobile_fieldname", mobile_fieldname);
 		if(message_fieldname != null)
 			map.put("message_fieldname", message_fieldname);
-		if(send_on_email != null)
-			map.put("send_on_email", send_on_email);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -171,14 +171,14 @@ public abstract class Basesms_account extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		name = (String) map.get("name");
 		url = (String) map.get("url");
-		aid_fieldname = (String) map.get("aid_fieldname");
-		aid = (String) map.get("aid");
-		pin_fieldname = (String) map.get("pin_fieldname");
-		pin = (String) map.get("pin");
+		username_fieldname = (String) map.get("username_fieldname");
+		username = (String) map.get("username");
+		password_fieldname = (String) map.get("password_fieldname");
+		password = (String) map.get("password");
 		mobile_fieldname = (String) map.get("mobile_fieldname");
 		message_fieldname = (String) map.get("message_fieldname");
-		send_on_email = (String) map.get("send_on_email");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -188,25 +188,29 @@ public abstract class Basesms_account extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
+		Object nameObj = map.get("name");
+		if(nameObj != null)
+			name = nameObj.toString();
+
 		Object urlObj = map.get("url");
 		if(urlObj != null)
 			url = urlObj.toString();
 
-		Object aid_fieldnameObj = map.get("aid_fieldname");
-		if(aid_fieldnameObj != null)
-			aid_fieldname = aid_fieldnameObj.toString();
+		Object username_fieldnameObj = map.get("username_fieldname");
+		if(username_fieldnameObj != null)
+			username_fieldname = username_fieldnameObj.toString();
 
-		Object aidObj = map.get("aid");
-		if(aidObj != null)
-			aid = aidObj.toString();
+		Object usernameObj = map.get("username");
+		if(usernameObj != null)
+			username = usernameObj.toString();
 
-		Object pin_fieldnameObj = map.get("pin_fieldname");
-		if(pin_fieldnameObj != null)
-			pin_fieldname = pin_fieldnameObj.toString();
+		Object password_fieldnameObj = map.get("password_fieldname");
+		if(password_fieldnameObj != null)
+			password_fieldname = password_fieldnameObj.toString();
 
-		Object pinObj = map.get("pin");
-		if(pinObj != null)
-			pin = pinObj.toString();
+		Object passwordObj = map.get("password");
+		if(passwordObj != null)
+			password = passwordObj.toString();
 
 		Object mobile_fieldnameObj = map.get("mobile_fieldname");
 		if(mobile_fieldnameObj != null)
@@ -215,10 +219,6 @@ public abstract class Basesms_account extends BaseResource {
 		Object message_fieldnameObj = map.get("message_fieldname");
 		if(message_fieldnameObj != null)
 			message_fieldname = message_fieldnameObj.toString();
-
-		Object send_on_emailObj = map.get("send_on_email");
-		if(send_on_emailObj != null)
-			send_on_email = send_on_emailObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -251,6 +251,22 @@ public abstract class Basesms_account extends BaseResource {
 		return id != null;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public String getNameEx() {
+		return name != null ? name : "";
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void unSetName() {
+		this.name = null;
+	}
+
 	public String getUrl() {
 		return url;
 	}
@@ -267,68 +283,68 @@ public abstract class Basesms_account extends BaseResource {
 		this.url = null;
 	}
 
-	public String getAid_fieldname() {
-		return aid_fieldname;
+	public String getUsername_fieldname() {
+		return username_fieldname;
 	}
 
-	public String getAid_fieldnameEx() {
-		return aid_fieldname != null ? aid_fieldname : "";
+	public String getUsername_fieldnameEx() {
+		return username_fieldname != null ? username_fieldname : "";
 	}
 
-	public void setAid_fieldname(String aid_fieldname) {
-		this.aid_fieldname = aid_fieldname;
+	public void setUsername_fieldname(String username_fieldname) {
+		this.username_fieldname = username_fieldname;
 	}
 
-	public void unSetAid_fieldname() {
-		this.aid_fieldname = null;
+	public void unSetUsername_fieldname() {
+		this.username_fieldname = null;
 	}
 
-	public String getAid() {
-		return aid;
+	public String getUsername() {
+		return username;
 	}
 
-	public String getAidEx() {
-		return aid != null ? aid : "";
+	public String getUsernameEx() {
+		return username != null ? username : "";
 	}
 
-	public void setAid(String aid) {
-		this.aid = aid;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public void unSetAid() {
-		this.aid = null;
+	public void unSetUsername() {
+		this.username = null;
 	}
 
-	public String getPin_fieldname() {
-		return pin_fieldname;
+	public String getPassword_fieldname() {
+		return password_fieldname;
 	}
 
-	public String getPin_fieldnameEx() {
-		return pin_fieldname != null ? pin_fieldname : "";
+	public String getPassword_fieldnameEx() {
+		return password_fieldname != null ? password_fieldname : "";
 	}
 
-	public void setPin_fieldname(String pin_fieldname) {
-		this.pin_fieldname = pin_fieldname;
+	public void setPassword_fieldname(String password_fieldname) {
+		this.password_fieldname = password_fieldname;
 	}
 
-	public void unSetPin_fieldname() {
-		this.pin_fieldname = null;
+	public void unSetPassword_fieldname() {
+		this.password_fieldname = null;
 	}
 
-	public String getPin() {
-		return pin;
+	public String getPassword() {
+		return password;
 	}
 
-	public String getPinEx() {
-		return pin != null ? pin : "";
+	public String getPasswordEx() {
+		return password != null ? password : "";
 	}
 
-	public void setPin(String pin) {
-		this.pin = pin;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public void unSetPin() {
-		this.pin = null;
+	public void unSetPassword() {
+		this.password = null;
 	}
 
 	public String getMobile_fieldname() {
@@ -361,22 +377,6 @@ public abstract class Basesms_account extends BaseResource {
 
 	public void unSetMessage_fieldname() {
 		this.message_fieldname = null;
-	}
-
-	public String getSend_on_email() {
-		return send_on_email;
-	}
-
-	public String getSend_on_emailEx() {
-		return send_on_email != null ? send_on_email : "";
-	}
-
-	public void setSend_on_email(String send_on_email) {
-		this.send_on_email = send_on_email;
-	}
-
-	public void unSetSend_on_email() {
-		this.send_on_email = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

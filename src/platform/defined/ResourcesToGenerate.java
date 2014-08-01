@@ -36,6 +36,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("conductor", "platform.resource.conductor"),
 		new ResourceMap("device", "platform.resource.device"),
 		new ResourceMap("email", "platform.resource.email"),
+		new ResourceMap("email_account", "platform.resource.email_account"),
 		new ResourceMap("email_map", "platform.resource.email_map"),
 		new ResourceMap("feed", "platform.resource.feed"),
 		new ResourceMap("gateway", "platform.resource.gateway"),

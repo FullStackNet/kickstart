@@ -37,6 +37,8 @@ public abstract class Basecustomer extends BaseResource {
 	private String selfOwned = null;
 	private String leasedOut = null;
 	private String leasedIn = null;
+	private String email_account = null;
+	private String sms_account = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -57,6 +59,8 @@ public abstract class Basecustomer extends BaseResource {
 	public static String FIELD_SELFOWNED = "selfOwned";
 	public static String FIELD_LEASEDOUT = "leasedOut";
 	public static String FIELD_LEASEDIN = "leasedIn";
+	public static String FIELD_EMAIL_ACCOUNT = "email_account";
+	public static String FIELD_SMS_ACCOUNT = "sms_account";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -139,6 +143,14 @@ public abstract class Basecustomer extends BaseResource {
 		leasedInField.setLength(1);
 		metaData.addField(leasedInField);
 
+		Field email_accountField = new Field("email_account", "String");
+		email_accountField.setLength(128);
+		metaData.addField(email_accountField);
+
+		Field sms_accountField = new Field("sms_account", "String");
+		sms_accountField.setLength(128);
+		metaData.addField(sms_accountField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -170,6 +182,8 @@ public abstract class Basecustomer extends BaseResource {
 		this.selfOwned = obj.selfOwned;
 		this.leasedOut = obj.leasedOut;
 		this.leasedIn = obj.leasedIn;
+		this.email_account = obj.email_account;
+		this.sms_account = obj.sms_account;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -220,6 +234,10 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("leasedOut", leasedOut);
 		if(leasedIn != null)
 			map.put("leasedIn", leasedIn);
+		if(email_account != null)
+			map.put("email_account", email_account);
+		if(sms_account != null)
+			map.put("sms_account", sms_account);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -266,6 +284,10 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("leasedOut", leasedOut);
 		if(leasedIn != null)
 			map.put("leasedIn", leasedIn);
+		if(email_account != null)
+			map.put("email_account", email_account);
+		if(sms_account != null)
+			map.put("sms_account", sms_account);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -296,6 +318,8 @@ public abstract class Basecustomer extends BaseResource {
 		selfOwned = (String) map.get("selfOwned");
 		leasedOut = (String) map.get("leasedOut");
 		leasedIn = (String) map.get("leasedIn");
+		email_account = (String) map.get("email_account");
+		sms_account = (String) map.get("sms_account");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -372,6 +396,14 @@ public abstract class Basecustomer extends BaseResource {
 		Object leasedInObj = map.get("leasedIn");
 		if(leasedInObj != null)
 			leasedIn = leasedInObj.toString();
+
+		Object email_accountObj = map.get("email_account");
+		if(email_accountObj != null)
+			email_account = email_accountObj.toString();
+
+		Object sms_accountObj = map.get("sms_account");
+		if(sms_accountObj != null)
+			sms_account = sms_accountObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -670,6 +702,38 @@ public abstract class Basecustomer extends BaseResource {
 
 	public void unSetLeasedIn() {
 		this.leasedIn = null;
+	}
+
+	public String getEmail_account() {
+		return email_account;
+	}
+
+	public String getEmail_accountEx() {
+		return email_account != null ? email_account : "";
+	}
+
+	public void setEmail_account(String email_account) {
+		this.email_account = email_account;
+	}
+
+	public void unSetEmail_account() {
+		this.email_account = null;
+	}
+
+	public String getSms_account() {
+		return sms_account;
+	}
+
+	public String getSms_accountEx() {
+		return sms_account != null ? sms_account : "";
+	}
+
+	public void setSms_account(String sms_account) {
+		this.sms_account = sms_account;
+	}
+
+	public void unSetSms_account() {
+		this.sms_account = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

@@ -247,7 +247,11 @@ public abstract class BaseForm extends BaseView {
 					}
 					column.addChild(textArea);
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PASSWORD) {
-					column.addChild(new PASSWORD(field.getName(),null));
+					PASSWORD password = new PASSWORD(field.getName(),null);
+					if (value != null) {
+						password.addAttribute("value",value.toString());
+					}
+					column.addChild(password);
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_COMBO) {
 					ArrayList<IdValue> list = field.getDatasource().getData();
 					if (list != null && field.isHideOnSingleEntry() && list.size() == 1) {

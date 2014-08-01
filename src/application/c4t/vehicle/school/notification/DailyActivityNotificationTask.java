@@ -33,7 +33,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			String school_id,
 			String class_section_name,
 			String title,
-			String description,String activity_date) {
+			String description,String activity_date, String customerId) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			String students = studentMap.get(entry.getKey());
@@ -46,6 +46,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ACTIVITY_DATE, activity_date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customerId);
 				String params = Json.maptoString(map);
 				smsMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
@@ -61,6 +62,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ACTIVITY_DATE, activity_date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customerId);
 				String params = Json.maptoString(map);
 				resendMail.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -77,6 +79,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ACTIVITY_DATE, activity_date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customerId);
 				String params = Json.maptoString(map);
 				notificationMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_NOTIFICATION_MANAGER, 
@@ -96,7 +99,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			String class_section_name,
 			String title,
 			String description,
-			String activity_date) {
+			String activity_date, String customerId) {
 		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
 		if ((students == null) || (students.length == 0)) 
 			return;
@@ -134,7 +137,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				class_section_name,
 				title,
 				description,
-				activity_date);
+				activity_date,customerId);
 	}
 	@Override
 	public void process(notification _notification) {
@@ -144,14 +147,14 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			Map<String, Object> data = _notification.getNotification_data();
 			if (data == null)
 				return;
-			String school_id = (String)data.get("SCHOOL_ID");
-			String class_section_name = (String)data.get("CLASS_SECTION_NAME");
-			String title = (String)data.get("TITLE");
-			String description = (String)data.get("DESCRIPTION");
+			String school_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID);
+			String class_section_name = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME);
+			String title = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE);
+			String description = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION);
+			String customerId = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID);
 			String activity_date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID);
-			
 			sendNotification(_notification,school_id,
-					class_section_name, title,description,activity_date);
+					class_section_name, title,description,activity_date,customerId);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

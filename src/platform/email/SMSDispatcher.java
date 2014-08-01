@@ -8,16 +8,22 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.InflaterInputStream;
 
+import platform.helper.CustomerHelper;
+import platform.helper.SMS_accountHelper;
+import platform.resource.customer;
+import platform.resource.sms_account;
 import platform.util.ApplicationException;
 import platform.util.Util;
 
 
 public class SMSDispatcher {
 	private static SMSDispatcher instance;
+	Map<String, sms_account> accountMap;
 	
 	public static SMSDispatcher getInstance() {
 		if (instance == null)
@@ -26,13 +32,16 @@ public class SMSDispatcher {
 	}
 	
 	SMSDispatcher() {
+		accountMap = new HashMap<String, sms_account>();
 	}
 	
 	public  boolean isReachable() {
 		//return Util.isReachableByPing(smtpServerProps.getSmtpServer());
 		return true;
 	}
-	
+	public void cleanCache() {
+		accountMap.clear();
+	}
 	public boolean isInternetNotAccessible(ApplicationException e) {
 		return !Util.isEmpty(e.getMessage()) && (e.getMessage().contains("Unknown SMTP host") ||
 				e.getMessage().contains("Could not connect to SMTP host"));
@@ -94,8 +103,19 @@ public class SMSDispatcher {
 		}
 		return true;
 	}
+	
+	String getURLFromAccount(sms_account _account,String mobile_no,String message) {
+		String url = _account.getUrl()+"?"+_account.getUsername_fieldname()+"="+_account.getUsername();
+		url = url + "&"+_account.getPassword_fieldname()+"="+_account.getPassword();
+		url = url + "&"+_account.getMobile_fieldname()+"=91"+mobile_no;
+		url = url + "&"+_account.getMessage_fieldname()+"="+message;
+		return url;
+	}
+	
+	
 	public void sendSMS(String mobile_no,String templete,Map<String, String> params) throws ApplicationException 
 	{
+		sms_account _account = null;
 		if (mobile_no.startsWith("91")) {
 			mobile_no = mobile_no.substring(2, mobile_no.length());
 		}
@@ -103,14 +123,29 @@ public class SMSDispatcher {
 			mobile_no = mobile_no.substring(3, mobile_no.length());
 		}
 		String message;
+		String customerId = params.get("CUSTOMER_ID");
+		_account = accountMap.get(customerId);
+		if (_account == null) {
+			customer _customer = (customer)CustomerHelper.getInstance().getById(customerId);
+			if ((_customer != null) && (_customer.getSms_account() != null)) {
+				_account = (sms_account)SMS_accountHelper.getInstance().getById(_customer.getSms_account());
+				if (_account != null) {
+					accountMap.put(customerId, _account);
+				}
+			}
+		}
 		try {
 			if (isValidMobileforSMS(mobile_no)) {
 				message = URLEncoder.encode(Util.readSMSFileFromLocal(templete.toLowerCase(), params),"UTF-8");
-				String url = "http://luna.a2wi.co.in:7501/failsafe/HttpLink?aid=516180&pin=cfy@1&mnumber=91"+mobile_no+"&message="+message;
-				sendHTTPMessage(url);
-			} else {
-				EmailDispatcher.getInstance().sendSMSMail("SMS to "+mobile_no, templete, params);
+				if (_account != null) {
+					String url = getURLFromAccount(_account,mobile_no,message);
+					sendHTTPMessage(url);
+				} else {
+					String url = "http://luna.a2wi.co.in:7501/failsafe/HttpLink?aid=516180&pin=cfy@1&mnumber=91"+mobile_no+"&message="+message;
+					sendHTTPMessage(url);
+				}
 			}
+			EmailDispatcher.getInstance().sendSMSMail("SMS to "+mobile_no, templete, params);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
