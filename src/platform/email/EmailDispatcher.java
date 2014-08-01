@@ -1,9 +1,16 @@
 package platform.email;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 import platform.config.Reader;
+import platform.helper.CustomerHelper;
+import platform.helper.Email_accountHelper;
+import platform.helper.SMS_accountHelper;
+import platform.resource.customer;
+import platform.resource.email_account;
+import platform.resource.sms_account;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Util;
@@ -22,6 +29,7 @@ public class EmailDispatcher {
 	private boolean sendMailUniqueId;
 	private boolean sendMailToRightId;
 	private boolean sendMailToBoth;
+	private Map<String, email_account> accountMap;
 	
 	public static EmailDispatcher getInstance() {
 		if (instance == null)
@@ -30,6 +38,7 @@ public class EmailDispatcher {
 	}
 	
 	EmailDispatcher() {
+		accountMap = new HashMap<String, email_account>();
 		reader = new Reader(ApplicationConstants.CONFIGURATION_FILE); 
 		smtpServerProps = new SMTPServerProps();
 		smtpServerProps.setSmtpServer(reader.getString("smtp_server","localhost"));
@@ -45,6 +54,10 @@ public class EmailDispatcher {
 		sendMailToRightId  = reader.getBoolean("send_mail_to_right_id",false);
 		sendMailToBoth  = reader.getBoolean("send_mail_to_both",false);
 		domainName = reader.getString("domain",null);
+	}
+	
+	public void cleanCache() {
+		accountMap.clear();
 	}
 	
 	public  String getDomainName() {
@@ -74,12 +87,12 @@ public class EmailDispatcher {
 	}
 	
 	//Use this to send mail to end users (like registration) - SendMail.send("toEmailId", "subject", "message")
-	public  void sendToUser(String toEmailId, String subject, String message) throws ApplicationException {
+	void sendToUser(String toEmailId, String subject, String message) throws ApplicationException {
 		sendToUser(toEmailId, null, subject, message);
 	}
 	
 	// Use this to send mail to end users (like message share) with reply-to pointing to another email id
-	public void sendToUser(String toEmailId, IMailReply iMailReply, String subject, String message) throws ApplicationException {
+	void sendToUser(String toEmailId, IMailReply iMailReply, String subject, String message) throws ApplicationException {
 		if(Util.isEmpty(toEmailId))
 			return;
 		
@@ -95,8 +108,24 @@ public class EmailDispatcher {
 	public void sendMail(String[] toEmailIds, IMailReply iMailReply, String subject, String templete,
 			Map<String, String> params) throws ApplicationException 
 	{
+		email_account _account = null;
 		String message = Util.readFileFromLocal(templete.toLowerCase(), params);
-		sendToUser(toEmailIds,iMailReply,subject,message);
+		String customerId = params.get("CUSTOMER_ID");
+		_account = accountMap.get(customerId);
+		if (_account == null) {
+			customer _customer = (customer)CustomerHelper.getInstance().getById(customerId);
+			if ((_customer != null) && (_customer.getSms_account() != null)) {
+				_account = (email_account)Email_accountHelper.getInstance().getById(_customer.getEmail_account());
+				if (_account != null) {
+					accountMap.put(customerId, _account);
+				}
+			}
+		}
+		if (_account != null) {
+			sendToUser(_account,toEmailIds,iMailReply,subject,message);
+		} else {
+			sendToUser(toEmailIds,iMailReply,subject,message);
+		}
 	}
 	
 	public void sendSMSMail(String subject, String templete,Map<String, String> params) throws ApplicationException 
@@ -112,7 +141,57 @@ public class EmailDispatcher {
 	}
 	
 	//Use this to send mail to end users (like registration) - SendMail.send("toEmailIds", "subject", "message")
-	public void sendToUser(String[] toEmailIds, IMailReply iMailReply, String subject, String message) throws ApplicationException {
+	public void sendToUser(email_account _account,
+			String[] toEmailIds, IMailReply iMailReply,
+			String subject, 
+			String message) throws ApplicationException {
+		if("Y".equals(_account.getDo_not_mail()) || Util.isEmpty(toEmailIds))
+			return;
+		// Replace all M16 tokens with empty string
+		message = message.replaceAll("!!!DOMAIN!!!", _account.getDomainEx());
+		subject = subject.replaceAll("!!!.*!!!", "");
+		message = message.replaceAll("!!!.*!!!", "");
+		// Don't send any mail to WT enterprise admin (as that email doesn't exist). Ex: whistletalk@myntra.com
+		for (int i = 0; i < toEmailIds.length; i++) {
+			if (Util.isEmpty(toEmailIds[i]))
+				continue;
+			
+			if (toEmailIds[i].toLowerCase().startsWith("c4tinfo@"))
+				toEmailIds[i] = _account.getUnique_idEx();
+		}
+		String[] bcc  = null;
+		if("Y".equals(_account.getSend_to_both_id())) // SoftLayer
+			bcc = new String[] {_account.getUnique_idEx()};
+		else if("Y".equals(_account.getSend_to_unique_id())) { // Demo & Dev
+			subject = subject + " " + Arrays.toString(toEmailIds);
+			toEmailIds = new String[] {_account.getUnique_idEx()};
+		} else if("Y".equals(_account.getSend_to_right_id()))
+			bcc = new String[] {_account.getBcc_id()};
+		
+		String replyToEmailId = iMailReply != null ? iMailReply.getReplyToEmailId() : null;
+		String replyToName = iMailReply != null ? iMailReply.getReplyToName() : null;
+		String from = _account.getAdmin_mail();
+		String replyTo = replyToEmailId;
+		if (!Util.isEmpty(replyToName)) {
+			replyToName = replyToName.replaceAll("[^a-zA-Z ]", "");
+			from = replyToName + " via " + _account.getAdmin_mail();
+			if (!Util.isEmpty(replyToEmailId))
+				replyTo = replyToName + "<" + replyToEmailId + ">";
+		}
+		SMTPMail smtpMail = new SMTPMail(_account.getSmtp_server(), from, replyTo,
+				toEmailIds, null, bcc, subject, null, _account.getSmtp_username(),
+				_account.getSmtp_password(), true);
+		try {
+			smtpMail.sendMessage(message);
+		} catch(ApplicationException e) {
+			e.printStackTrace();
+			//		if (isInternetNotAccessible(e))
+	//			HelperFactory.getUnsentEmailHelper().createEntry(toEmailIds, replyToEmailId, replyToName, subject, message);
+			throw e;
+		}
+	}
+	
+	void sendToUser(String[] toEmailIds, IMailReply iMailReply, String subject, String message) throws ApplicationException {
 		if(doNotMail || Util.isEmpty(toEmailIds))
 			return;
 		// Replace all M16 tokens with empty string

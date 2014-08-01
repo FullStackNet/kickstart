@@ -44,6 +44,7 @@ public class InviteService extends BaseService{
 			map.put("ACTIVATION_TOKEN", _invite.getKey());
 			map.put("SCHOOL_NAME", school_name);
 			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			map.put("CUSTOMER_ID",_invite.getCustomer_id());
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -57,6 +58,7 @@ public class InviteService extends BaseService{
 			smsMap.put("STUDENT_NAME", _invite.getReference_name());
 			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
 			smsMap.put("SCHOOL_NAME", school_name);
+			smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
 			String params = Json.maptoString(smsMap);
 			smsMessage.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
@@ -82,6 +84,7 @@ public class InviteService extends BaseService{
 			map.put("ACTIVATION_TOKEN", _invite.getKey());
 			map.put("SCHOOL_NAME", school_name);
 			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			map.put("CUSTOMER_ID",_invite.getCustomer_id());
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -95,6 +98,7 @@ public class InviteService extends BaseService{
 			smsMap.put("TEACHER_NAME", _invite.getReference_name());
 			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
 			smsMap.put("SCHOOL_NAME", school_name);
+			smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
 			String params = Json.maptoString(smsMap);
 			smsMessage.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
@@ -118,6 +122,7 @@ public class InviteService extends BaseService{
 			map.put("NAME", _invite.getName());
 			map.put("ACTIVATION_TOKEN", _invite.getKey());
 			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			map.put("CUSTOMER_ID",_invite.getCustomer_id());
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -131,6 +136,7 @@ public class InviteService extends BaseService{
 			smsMap.put("TEACHER_NAME", _invite.getReference_name());
 			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
 			smsMap.put("SCHOOL_NAME", school_name);
+			smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
 			String params = Json.maptoString(smsMap);
 			smsMessage.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
