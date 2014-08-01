@@ -93,13 +93,23 @@ public class NoticeNotificationTask extends NotificationTask {
 
 	void sendNotification(notification _notification, 
 			String school_id,
+			String notice_id,
 			String type,
 			String class_name,
 			String class_section_name,
 			String title,
 			String description,
 			String date) {
-		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
+		
+		BaseResource[] students = null;
+		if ("SCHOOL".equals(type)) {
+			students = StudentHelper.getInstance().getStudentBySchool(school_id);
+		} else if ("CLASS".equals(type)) {
+			students = StudentHelper.getInstance().getClassStudent(school_id,class_name);
+		} else if ("SECTION".equals(type)) {
+			students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
+		}
+		
 		if ((students == null) || (students.length == 0)) 
 			return;
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
@@ -110,6 +120,12 @@ public class NoticeNotificationTask extends NotificationTask {
 
 		for(int i=0; i< students.length; i++) {
 			student _student = (student)students[i];
+			try {
+				Student_mapHelper.getInstance().addNotice(_student.getId(), notice_id);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if ("Y".equals(_student.getStopage_alert_sms())) {
 				smsAlert = "Y";
 			}
@@ -153,7 +169,9 @@ public class NoticeNotificationTask extends NotificationTask {
 			String title = (String)data.get("TITLE");
 			String description = (String)data.get("DESCRIPTION");
 			String date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE);
-			sendNotification(_notification,school_id,type,class_name,
+			String notice_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID);
+			
+			sendNotification(_notification,school_id,notice_id,type,class_name,
 					class_section_name, title,description,date);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

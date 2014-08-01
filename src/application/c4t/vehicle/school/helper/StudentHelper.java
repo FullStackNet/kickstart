@@ -63,6 +63,12 @@ public class StudentHelper extends BaseHelper {
 			}
 		}
 	}
+	public BaseResource[] getClassStudent(String school_id, String class_name) {
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
+		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
 	
 	public BaseResource[] getSectionStudent(String school_id, String class_section_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
@@ -89,6 +95,12 @@ public class StudentHelper extends BaseHelper {
 		Expression e = new Expression(student.FIELD_CARD_NO, REL_OP.EQ, card_no);
 		return getByExpression(e);
 	}
+	
+	public BaseResource[] getStudentBySchool(String school_id) {
+		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ,school_id);
+		return getByExpression(e);
+	}
+	
 	
 	public BaseResource[] getStudentByClassName(String school_id,String class_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ,school_id);
