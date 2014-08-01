@@ -40,7 +40,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			if ("Y".equals(smsAlert) && (_user.getMobile_no() != null)) {
 				SendSMS smsMessage = new SendSMS();
 				smsMessage.setMobile_no(_user.getMobile_no());
-				smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_DAILY_ACTIVITY);
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_NOTICE);
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
@@ -53,7 +53,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			}
 			if ("Y".equals(emailAlert) && (_user.getEmail_id() != null)) {
 				SendEmail resendMail = new SendEmail();
-				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_DAILY_ACTIVITY);
+				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_NOTICE);
 				resendMail.setTo(_user.getEmail_id());
 				resendMail.setType(ApplicationConstants.MAIL_TYPE_DAILY_ACTIVITY);
 				Map<String, String> map = new HashMap<String, String>();
@@ -93,10 +93,12 @@ public class NoticeNotificationTask extends NotificationTask {
 
 	void sendNotification(notification _notification, 
 			String school_id,
+			String type,
+			String class_name,
 			String class_section_name,
 			String title,
 			String description,
-			String activity_date) {
+			String date) {
 		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
 		if ((students == null) || (students.length == 0)) 
 			return;
@@ -134,7 +136,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				class_section_name,
 				title,
 				description,
-				activity_date);
+				date);
 	}
 	@Override
 	public void process(notification _notification) {
@@ -145,13 +147,14 @@ public class NoticeNotificationTask extends NotificationTask {
 			if (data == null)
 				return;
 			String school_id = (String)data.get("SCHOOL_ID");
+			String type = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TYPE);
+			String class_name = (String)data.get("CLASS_NAME");
 			String class_section_name = (String)data.get("CLASS_SECTION_NAME");
 			String title = (String)data.get("TITLE");
 			String description = (String)data.get("DESCRIPTION");
-			String activity_date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID);
-			
-			sendNotification(_notification,school_id,
-					class_section_name, title,description,activity_date);
+			String date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE);
+			sendNotification(_notification,school_id,type,class_name,
+					class_section_name, title,description,date);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
