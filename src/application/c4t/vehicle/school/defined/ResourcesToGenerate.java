@@ -44,5 +44,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("homework_master", "application.c4t.vehicle.school.resource.homework_master"),
 		new ResourceMap("daily_activity", "application.c4t.vehicle.school.resource.daily_activity"),
 		new ResourceMap("notice", "application.c4t.vehicle.school.resource.notice"),
+		new ResourceMap("absent", "application.c4t.vehicle.school.resource.absent"),
+		new ResourceMap("absent_detail", "application.c4t.vehicle.school.resource.absent_detail"),
+
 	};
 }

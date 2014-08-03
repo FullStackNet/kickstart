@@ -31,6 +31,11 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'notices':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}

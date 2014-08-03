@@ -26,7 +26,8 @@
 			'type':
 			{
 				'length': 512,
-				'type': 'String'
+				'type': 'String',
+				'remark' : "SCHOOL,CLASS,SECTION,VAN"
 			},
 			'class_name':
 			{

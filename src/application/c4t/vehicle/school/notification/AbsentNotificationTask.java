@@ -17,32 +17,27 @@ import platform.resource.user;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
-import application.c4t.vehicle.school.helper.StudentHelper;
+import application.c4t.vehicle.school.helper.Absent_detailHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.student;
 
-public class NoticeNotificationTask extends NotificationTask {
-	public NoticeNotificationTask() {
-		super(NotificationFactory.NOTIFICATION_NOTICE);
+public class AbsentNotificationTask extends NotificationTask {
+	public AbsentNotificationTask() {
+		super(NotificationFactory.NOTIFICATION_ABSENT);
 		// TODO Auto-generated constructor stub
 	}
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
 			String appAlert,String smsAlert,String emailAlert,
-			String school_id,
-			String class_section_name,
-			String title,
-			String description,String date) {
+			String absent_parent_id,String date) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			String students = studentMap.get(entry.getKey());
 			if ("Y".equals(smsAlert) && (_user.getMobile_no() != null)) {
 				SendSMS smsMessage = new SendSMS();
 				smsMessage.setMobile_no(_user.getMobile_no());
-				smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_NOTICE);
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_ABSENT);
 				Map<String, String> map = new HashMap<String, String>();
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
 				String params = Json.maptoString(map);
@@ -52,12 +47,10 @@ public class NoticeNotificationTask extends NotificationTask {
 			}
 			if ("Y".equals(emailAlert) && (_user.getEmail_id() != null)) {
 				SendEmail resendMail = new SendEmail();
-				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_NOTICE);
+				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_ABSENT);
 				resendMail.setTo(_user.getEmail_id());
-				resendMail.setType(ApplicationConstants.MAIL_TYPE_NOTICE);
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_ABSENT);
 				Map<String, String> map = new HashMap<String, String>();
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
 				String params = Json.maptoString(map);
@@ -69,11 +62,9 @@ public class NoticeNotificationTask extends NotificationTask {
 			if ("Y".equals(appAlert) && (_user.getMobile_no() != null)) {
 				SendNotification notificationMessage = new SendNotification();
 				notificationMessage.setNotify_id(_user.getId());
-				notificationMessage.setTitle("NOTICE");
-				notificationMessage.setType(ApplicationConstants.NOTIFICATION_TYPE_NOTICE);
+				notificationMessage.setTitle("ABSENT");
+				notificationMessage.setType(ApplicationConstants.NOTIFICATION_TYPE_ABSENT);
 				Map<String, String> map = new HashMap<String, String>();
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
 				String params = Json.maptoString(map);
@@ -91,24 +82,10 @@ public class NoticeNotificationTask extends NotificationTask {
 	}
 
 	void sendNotification(notification _notification, 
-			String school_id,
-			String notice_id,
-			String type,
-			String class_name,
-			String class_section_name,
-			String title,
-			String description,
+			String absent_parent_id,
 			String date) {
 		
-		BaseResource[] students = null;
-		if ("SCHOOL".equals(type)) {
-			students = StudentHelper.getInstance().getStudentBySchool(school_id);
-		} else if ("CLASS".equals(type)) {
-			students = StudentHelper.getInstance().getClassStudent(school_id,class_name);
-		} else if ("SECTION".equals(type)) {
-			students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
-		}
-		
+		BaseResource[] students = Absent_detailHelper.getInstance().getStudent(absent_parent_id);
 		if ((students == null) || (students.length == 0)) 
 			return;
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
@@ -119,12 +96,6 @@ public class NoticeNotificationTask extends NotificationTask {
 
 		for(int i=0; i< students.length; i++) {
 			student _student = (student)students[i];
-			try {
-				Student_mapHelper.getInstance().addNotice(_student.getId(), notice_id);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			if ("Y".equals(_student.getStopage_alert_sms())) {
 				smsAlert = "Y";
 			}
@@ -147,10 +118,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			}
 		}
 		sendNotification2Users(_notification, userMap, studentMap,appAlert,smsAlert,emailAlert,
-				school_id,
-				class_section_name,
-				title,
-				description,
+				absent_parent_id,
 				date);
 	}
 	@Override
@@ -161,17 +129,10 @@ public class NoticeNotificationTask extends NotificationTask {
 			Map<String, Object> data = _notification.getNotification_data();
 			if (data == null)
 				return;
-			String school_id = (String)data.get("SCHOOL_ID");
-			String type = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TYPE);
-			String class_name = (String)data.get("CLASS_NAME");
-			String class_section_name = (String)data.get("CLASS_SECTION_NAME");
-			String title = (String)data.get("TITLE");
-			String description = (String)data.get("DESCRIPTION");
+			String absent_parent_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID);
 			String date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE);
-			String notice_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID);
 			
-			sendNotification(_notification,school_id,notice_id,type,class_name,
-					class_section_name, title,description,date);
+			sendNotification(_notification,absent_parent_id,date);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
