@@ -18,4 +18,6 @@ public class NoticeHelper extends BaseHelper {
 		return instance;
 	}
 	
+	
+	
 }
