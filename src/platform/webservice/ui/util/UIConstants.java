@@ -73,4 +73,14 @@ public class UIConstants {
 		new IdValue("SECTION", "Particluler Section"),
 		new IdValue("VAN", "All Van users"),
 	};
+	
+	public static Object getValue(IdValue[] list, Object value) {
+		for (int i = 0; i < list.length; i++) {
+			IdValue idvalue = list[i];
+			if (idvalue.getId().equals(value)) {
+				return list[i].getValue();
+			}
+		}
+		return null;
+	}
 }
