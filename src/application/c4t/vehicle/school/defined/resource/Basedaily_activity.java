@@ -27,7 +27,7 @@ public abstract class Basedaily_activity extends BaseResource {
 	private String customer_id = null;
 	private String title = null;
 	private String description = null;
-	private Long creation_timestamp = null;
+	private Long creation_time = null;
 	private Long activity_date = null;
 	private String activity_date_str = null;
 	private String sent = null;
@@ -41,7 +41,7 @@ public abstract class Basedaily_activity extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
-	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_ACTIVITY_DATE = "activity_date";
 	public static String FIELD_ACTIVITY_DATE_STR = "activity_date_str";
 	public static String FIELD_SENT = "sent";
@@ -88,8 +88,8 @@ public abstract class Basedaily_activity extends BaseResource {
 		descriptionField.setLength(4096);
 		metaData.addField(descriptionField);
 
-		Field creation_timestampField = new Field("creation_timestamp", "timestamp");
-		metaData.addField(creation_timestampField);
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
 
 		Field activity_dateField = new Field("activity_date", "timestamp");
 		metaData.addField(activity_dateField);
@@ -124,7 +124,7 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.title = obj.title;
 		this.description = obj.description;
-		this.creation_timestamp = obj.creation_timestamp;
+		this.creation_time = obj.creation_time;
 		this.activity_date = obj.activity_date;
 		this.activity_date_str = obj.activity_date_str;
 		this.sent = obj.sent;
@@ -158,8 +158,8 @@ public abstract class Basedaily_activity extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
-		if(creation_timestamp != null)
-			map.put("creation_timestamp", creation_timestamp);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(activity_date != null)
 			map.put("activity_date", activity_date);
 		if(activity_date_str != null)
@@ -192,8 +192,8 @@ public abstract class Basedaily_activity extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
-		if(creation_timestamp != null)
-			map.put("creation_timestamp", creation_timestamp);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(activity_date != null)
 			map.put("activity_date", activity_date);
 		if(activity_date_str != null)
@@ -220,7 +220,7 @@ public abstract class Basedaily_activity extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
-		creation_timestamp = (Long) map.get("creation_timestamp");
+		creation_time = (Long) map.get("creation_time");
 		activity_date = (Long) map.get("activity_date");
 		activity_date_str = (String) map.get("activity_date_str");
 		sent = (String) map.get("sent");
@@ -261,9 +261,9 @@ public abstract class Basedaily_activity extends BaseResource {
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
 
-		Object creation_timestampObj = map.get("creation_timestamp");
-		if(creation_timestampObj != null)
-			creation_timestamp = (Long) creation_timestampObj;
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 		Object activity_dateObj = map.get("activity_date");
 		if(activity_dateObj != null)
@@ -420,12 +420,12 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.description = null;
 	}
 
-	public Long getCreation_timestamp() {
-		return creation_timestamp;
+	public Long getCreation_time() {
+		return creation_time;
 	}
 
-	public void setCreation_timestamp(Long creation_timestamp) {
-		this.creation_timestamp = creation_timestamp;
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
 	}
 
 

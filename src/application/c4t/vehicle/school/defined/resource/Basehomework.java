@@ -29,7 +29,7 @@ public abstract class Basehomework extends BaseResource {
 	private String subject_id = null;
 	private String title = null;
 	private String description = null;
-	private Long creation_timestamp = null;
+	private Long creation_time = null;
 	private Long submit_timestamp = null;
 	private Map<String, Object> extra_data = null;
 
@@ -43,7 +43,7 @@ public abstract class Basehomework extends BaseResource {
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
-	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SUBMIT_TIMESTAMP = "submit_timestamp";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -98,8 +98,8 @@ public abstract class Basehomework extends BaseResource {
 		descriptionField.setLength(4096);
 		metaData.addField(descriptionField);
 
-		Field creation_timestampField = new Field("creation_timestamp", "timestamp");
-		metaData.addField(creation_timestampField);
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
 
 		Field submit_timestampField = new Field("submit_timestamp", "timestamp");
 		metaData.addField(submit_timestampField);
@@ -127,7 +127,7 @@ public abstract class Basehomework extends BaseResource {
 		this.subject_id = obj.subject_id;
 		this.title = obj.title;
 		this.description = obj.description;
-		this.creation_timestamp = obj.creation_timestamp;
+		this.creation_time = obj.creation_time;
 		this.submit_timestamp = obj.submit_timestamp;
 		this.extra_data = obj.extra_data;
 	}
@@ -158,8 +158,8 @@ public abstract class Basehomework extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
-		if(creation_timestamp != null)
-			map.put("creation_timestamp", creation_timestamp);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(submit_timestamp != null)
 			map.put("submit_timestamp", submit_timestamp);
 		if(extra_data != null)
@@ -189,8 +189,8 @@ public abstract class Basehomework extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
-		if(creation_timestamp != null)
-			map.put("creation_timestamp", creation_timestamp);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(submit_timestamp != null)
 			map.put("submit_timestamp", submit_timestamp);
 		if(extra_data != null)
@@ -215,7 +215,7 @@ public abstract class Basehomework extends BaseResource {
 		subject_id = (String) map.get("subject_id");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
-		creation_timestamp = (Long) map.get("creation_timestamp");
+		creation_time = (Long) map.get("creation_time");
 		submit_timestamp = (Long) map.get("submit_timestamp");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -262,9 +262,9 @@ public abstract class Basehomework extends BaseResource {
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
 
-		Object creation_timestampObj = map.get("creation_timestamp");
-		if(creation_timestampObj != null)
-			creation_timestamp = (Long) creation_timestampObj;
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 		Object submit_timestampObj = map.get("submit_timestamp");
 		if(submit_timestampObj != null)
@@ -451,12 +451,12 @@ public abstract class Basehomework extends BaseResource {
 		this.description = null;
 	}
 
-	public Long getCreation_timestamp() {
-		return creation_timestamp;
+	public Long getCreation_time() {
+		return creation_time;
 	}
 
-	public void setCreation_timestamp(Long creation_timestamp) {
-		this.creation_timestamp = creation_timestamp;
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
 	}
 
 

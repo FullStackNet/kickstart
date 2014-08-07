@@ -29,7 +29,7 @@ public abstract class Basenotice extends BaseResource {
 	private String description = null;
 	private Long notice_date = null;
 	private String notice_date_str = null;
-	private Long creation_timestamp = null;
+	private Long creation_time = null;
 	private String sent = null;
 	private Map<String, Object> extra_data = null;
 
@@ -43,7 +43,7 @@ public abstract class Basenotice extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_NOTICE_DATE = "notice_date";
 	public static String FIELD_NOTICE_DATE_STR = "notice_date_str";
-	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SENT = "sent";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -95,8 +95,8 @@ public abstract class Basenotice extends BaseResource {
 		notice_date_strField.setLength(32);
 		metaData.addField(notice_date_strField);
 
-		Field creation_timestampField = new Field("creation_timestamp", "timestamp");
-		metaData.addField(creation_timestampField);
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
 
 		Field sentField = new Field("sent", "String");
 		sentField.setDefaultValue("N");
@@ -126,7 +126,7 @@ public abstract class Basenotice extends BaseResource {
 		this.description = obj.description;
 		this.notice_date = obj.notice_date;
 		this.notice_date_str = obj.notice_date_str;
-		this.creation_timestamp = obj.creation_timestamp;
+		this.creation_time = obj.creation_time;
 		this.sent = obj.sent;
 		this.extra_data = obj.extra_data;
 	}
@@ -162,8 +162,8 @@ public abstract class Basenotice extends BaseResource {
 			map.put("notice_date", notice_date);
 		if(notice_date_str != null)
 			map.put("notice_date_str", notice_date_str);
-		if(creation_timestamp != null)
-			map.put("creation_timestamp", creation_timestamp);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(sent != null)
 			map.put("sent", sent);
 		if(extra_data != null)
@@ -196,8 +196,8 @@ public abstract class Basenotice extends BaseResource {
 			map.put("notice_date", notice_date);
 		if(notice_date_str != null)
 			map.put("notice_date_str", notice_date_str);
-		if(creation_timestamp != null)
-			map.put("creation_timestamp", creation_timestamp);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(sent != null)
 			map.put("sent", sent);
 		if(extra_data != null)
@@ -222,7 +222,7 @@ public abstract class Basenotice extends BaseResource {
 		description = (String) map.get("description");
 		notice_date = (Long) map.get("notice_date");
 		notice_date_str = (String) map.get("notice_date_str");
-		creation_timestamp = (Long) map.get("creation_timestamp");
+		creation_time = (Long) map.get("creation_time");
 		sent = (String) map.get("sent");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -269,9 +269,9 @@ public abstract class Basenotice extends BaseResource {
 		if(notice_date_strObj != null)
 			notice_date_str = notice_date_strObj.toString();
 
-		Object creation_timestampObj = map.get("creation_timestamp");
-		if(creation_timestampObj != null)
-			creation_timestamp = (Long) creation_timestampObj;
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 		Object sentObj = map.get("sent");
 		if(sentObj != null)
@@ -445,12 +445,12 @@ public abstract class Basenotice extends BaseResource {
 		this.notice_date_str = null;
 	}
 
-	public Long getCreation_timestamp() {
-		return creation_timestamp;
+	public Long getCreation_time() {
+		return creation_time;
 	}
 
-	public void setCreation_timestamp(Long creation_timestamp) {
-		this.creation_timestamp = creation_timestamp;
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
 	}
 
 

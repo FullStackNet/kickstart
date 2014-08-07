@@ -27,7 +27,7 @@ public abstract class Basehome_practice extends BaseResource {
 	private String customer_id = null;
 	private String title = null;
 	private String description = null;
-	private Long creation_timestamp = null;
+	private Long creation_time = null;
 	private String sent = null;
 	private Map<String, Object> extra_data = null;
 
@@ -39,7 +39,7 @@ public abstract class Basehome_practice extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
-	public static String FIELD_CREATION_TIMESTAMP = "creation_timestamp";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SENT = "sent";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -84,8 +84,8 @@ public abstract class Basehome_practice extends BaseResource {
 		descriptionField.setLength(4096);
 		metaData.addField(descriptionField);
 
-		Field creation_timestampField = new Field("creation_timestamp", "timestamp");
-		metaData.addField(creation_timestampField);
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
 
 		Field sentField = new Field("sent", "String");
 		sentField.setDefaultValue("N");
@@ -113,7 +113,7 @@ public abstract class Basehome_practice extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.title = obj.title;
 		this.description = obj.description;
-		this.creation_timestamp = obj.creation_timestamp;
+		this.creation_time = obj.creation_time;
 		this.sent = obj.sent;
 		this.extra_data = obj.extra_data;
 	}
@@ -145,8 +145,8 @@ public abstract class Basehome_practice extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
-		if(creation_timestamp != null)
-			map.put("creation_timestamp", creation_timestamp);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(sent != null)
 			map.put("sent", sent);
 		if(extra_data != null)
@@ -175,8 +175,8 @@ public abstract class Basehome_practice extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
-		if(creation_timestamp != null)
-			map.put("creation_timestamp", creation_timestamp);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(sent != null)
 			map.put("sent", sent);
 		if(extra_data != null)
@@ -199,7 +199,7 @@ public abstract class Basehome_practice extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
-		creation_timestamp = (Long) map.get("creation_timestamp");
+		creation_time = (Long) map.get("creation_time");
 		sent = (String) map.get("sent");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -238,9 +238,9 @@ public abstract class Basehome_practice extends BaseResource {
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
 
-		Object creation_timestampObj = map.get("creation_timestamp");
-		if(creation_timestampObj != null)
-			creation_timestamp = (Long) creation_timestampObj;
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 		Object sentObj = map.get("sent");
 		if(sentObj != null)
@@ -389,12 +389,12 @@ public abstract class Basehome_practice extends BaseResource {
 		this.description = null;
 	}
 
-	public Long getCreation_timestamp() {
-		return creation_timestamp;
+	public Long getCreation_time() {
+		return creation_time;
 	}
 
-	public void setCreation_timestamp(Long creation_timestamp) {
-		this.creation_timestamp = creation_timestamp;
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
 	}
 
 

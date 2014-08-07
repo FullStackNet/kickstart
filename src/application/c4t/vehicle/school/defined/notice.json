@@ -55,7 +55,7 @@
 				'type': 'String',
 				'length' : 32
 			},
-			'creation_timestamp': {
+			'creation_time': {
 				'type': 'timestamp'
 			},
 			'sent': {

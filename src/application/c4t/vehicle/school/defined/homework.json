@@ -59,7 +59,7 @@
 				'length': 4096,
 				'type': 'String'
 			},
-			'creation_timestamp': {
+			'creation_time': {
 				'type': 'timestamp'
 			},
 			'submit_timestamp': {

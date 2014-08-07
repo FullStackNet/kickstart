@@ -30,7 +30,7 @@ public class Home_practiceHelper extends BaseHelper {
 		Expression e4 = new Expression(home_practice.FIELD_SENT, REL_OP.EQ, "Y");
 		Expression e5 = new Expression(e3, LOG_OP.AND, e4);
 		
-		return getByExpression(e5, new String[]{home_practice.FIELD_CREATION_TIMESTAMP + " desc"});
+		return getByExpression(e5, new String[]{home_practice.FIELD_CREATION_TIME + " desc"});
 	}
 	
 	public void updateSend(String id) throws ApplicationException {
@@ -41,6 +41,6 @@ public class Home_practiceHelper extends BaseHelper {
 	
 	public BaseResource[] getForSchools(String[] schools) {
 		Expression e = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.IN, schools);
-		return getByExpression(e, new String[]{home_practice.FIELD_CREATION_TIMESTAMP + " desc"});
+		return getByExpression(e, new String[]{home_practice.FIELD_CREATION_TIME + " desc"});
 	}
 }
