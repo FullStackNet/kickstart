@@ -7,6 +7,7 @@ import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.home_practice;
+import application.c4t.vehicle.school.resource.student;
 
 
 public class Home_practiceHelper extends BaseHelper {
@@ -23,8 +24,8 @@ public class Home_practiceHelper extends BaseHelper {
 		return instance;
 	}
 	
-	public BaseResource[] getHome_practiceForClass(String customerId, String class_section_name) {
-		Expression e1 = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.EQ, customerId);
+	public BaseResource[] getHome_practiceForClass(String school_id, String class_section_name) {
+		Expression e1 = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
 		Expression e2 = new Expression(home_practice.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e3 = new Expression(e1, LOG_OP.AND, e2);
 		Expression e4 = new Expression(home_practice.FIELD_SENT, REL_OP.EQ, "Y");
@@ -33,10 +34,21 @@ public class Home_practiceHelper extends BaseHelper {
 		return getByExpression(e5, new String[]{home_practice.FIELD_CREATION_TIME + " desc"});
 	}
 	
+	public BaseResource[] getHome_practiceForStudent(String  student_id) {
+		String school_id;
+		String class_section_name;
+		student _student = (student)StudentHelper.getInstance().getById(student_id);
+		if (_student == null)
+			return null;
+		school_id = _student.getSchool_id();
+		class_section_name = _student.getClass_section_name();
+		return getHome_practiceForClass(school_id,class_section_name);
+	}
+	
 	public void updateSend(String id) throws ApplicationException {
 		home_practice _resource = new home_practice(id);
 		_resource.setSent("Y");
-		Home_practiceHelper.getInstance().update(_resource);
+		update(_resource);
 	}
 	
 	public BaseResource[] getForSchools(String[] schools) {
