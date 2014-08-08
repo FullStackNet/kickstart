@@ -6,6 +6,7 @@ import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import application.c4t.vehicle.school.resource.homework;
+import application.c4t.vehicle.school.resource.student;
 
 
 public class HomeworkHelper extends BaseHelper {
@@ -28,5 +29,16 @@ public class HomeworkHelper extends BaseHelper {
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		
 		return getByExpression(e,new String[]{homework.FIELD_SUBMIT_TIMESTAMP + " DESC"});
+	}
+	
+	public BaseResource[] getByStudent(String studentId) {
+		String school_id;
+		String class_section_name;
+		student _student = (student)StudentHelper.getInstance().getById(studentId);
+		if (_student == null)
+			return null;
+		school_id = _student.getSchool_id();
+		class_section_name = _student.getClass_section_name();
+		return getByClassSectionName(school_id,class_section_name);
 	}
 }

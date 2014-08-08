@@ -7,6 +7,7 @@ import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.daily_activity;
+import application.c4t.vehicle.school.resource.student;
 
 
 public class Daily_activityHelper extends BaseHelper {
@@ -29,14 +30,25 @@ public class Daily_activityHelper extends BaseHelper {
 		Daily_activityHelper.getInstance().update(_daily_activity);
 	}
 	
-	public BaseResource[] getDaily_activiyForClass(String customerId, String class_section_name) {
-		Expression e1 = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.EQ, customerId);
+	public BaseResource[] getDaily_activiyForClass(String schoolId, String class_section_name) {
+		Expression e1 = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.EQ, schoolId);
 		Expression e2 = new Expression(daily_activity.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e3 = new Expression(e1, LOG_OP.AND, e2);
 		Expression e4 = new Expression(daily_activity.FIELD_SENT, REL_OP.EQ, "Y");
 		Expression e5 = new Expression(e3, LOG_OP.AND, e4);
 		
 		return getByExpression(e5, new String[]{daily_activity.FIELD_ACTIVITY_DATE + " desc"});
+	}
+	
+	public BaseResource[] getDaily_activiyForStudent(String studentId) {
+		String school_id;
+		String class_section_name;
+		student _student = (student)StudentHelper.getInstance().getById(studentId);
+		if (_student == null)
+			return null;
+		school_id = _student.getSchool_id();
+		class_section_name = _student.getClass_section_name();
+		return getDaily_activiyForClass(school_id,class_section_name);
 	}
 	
 	public BaseResource[] getForSchools(String[] schools) {
