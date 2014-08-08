@@ -36,6 +36,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_notice = null;
 	private String feature_teacher2parent_chat = null;
 	private String feature_admin2parent_chat = null;
+	private String feature_absent_report = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -55,6 +56,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_NOTICE = "feature_notice";
 	public static String FIELD_FEATURE_TEACHER2PARENT_CHAT = "feature_teacher2parent_chat";
 	public static String FIELD_FEATURE_ADMIN2PARENT_CHAT = "feature_admin2parent_chat";
+	public static String FIELD_FEATURE_ABSENT_REPORT = "feature_absent_report";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -139,6 +141,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_admin2parent_chatField.setLength(1);
 		metaData.addField(feature_admin2parent_chatField);
 
+		Field feature_absent_reportField = new Field("feature_absent_report", "String");
+		feature_absent_reportField.setDefaultValue("N");
+		feature_absent_reportField.setLength(1);
+		metaData.addField(feature_absent_reportField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -169,6 +176,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_notice = obj.feature_notice;
 		this.feature_teacher2parent_chat = obj.feature_teacher2parent_chat;
 		this.feature_admin2parent_chat = obj.feature_admin2parent_chat;
+		this.feature_absent_report = obj.feature_absent_report;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -191,6 +199,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_teacher2parent_chat = "N";
 		if(feature_admin2parent_chat == null)
 			feature_admin2parent_chat = "N";
+		if(feature_absent_report == null)
+			feature_absent_report = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -229,6 +239,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		if(feature_admin2parent_chat != null)
 			map.put("feature_admin2parent_chat", feature_admin2parent_chat);
+		if(feature_absent_report != null)
+			map.put("feature_absent_report", feature_absent_report);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -273,6 +285,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		if(feature_admin2parent_chat != null)
 			map.put("feature_admin2parent_chat", feature_admin2parent_chat);
+		if(feature_absent_report != null)
+			map.put("feature_absent_report", feature_absent_report);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -302,6 +316,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_notice = (String) map.get("feature_notice");
 		feature_teacher2parent_chat = (String) map.get("feature_teacher2parent_chat");
 		feature_admin2parent_chat = (String) map.get("feature_admin2parent_chat");
+		feature_absent_report = (String) map.get("feature_absent_report");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -374,6 +389,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_admin2parent_chatObj = map.get("feature_admin2parent_chat");
 		if(feature_admin2parent_chatObj != null)
 			feature_admin2parent_chat = feature_admin2parent_chatObj.toString();
+
+		Object feature_absent_reportObj = map.get("feature_absent_report");
+		if(feature_absent_reportObj != null)
+			feature_absent_report = feature_absent_reportObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -632,6 +651,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_admin2parent_chat() {
 		this.feature_admin2parent_chat = "N";
+	}
+
+	public String getFeature_absent_report() {
+		return feature_absent_report != null ? feature_absent_report : "N";
+	}
+
+	public void setFeature_absent_report(String feature_absent_report) {
+		this.feature_absent_report = feature_absent_report;
+	}
+
+	public void unSetFeature_absent_report() {
+		this.feature_absent_report = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

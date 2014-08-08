@@ -245,6 +245,12 @@
 				'length': 1,
 				'default' : "N",
 				'type':'String'
+			},
+			'feature_absent_report':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
 			}
 		}
 	}
