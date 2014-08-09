@@ -140,7 +140,7 @@ public class ApplicationConstants {
 	public static String MAIL_SUBJECT_HOMEWORK = "Homework notification";
 	public static String MAIL_SUBJECT_HOME_PRACTICE = "Home practice notification";
 	public static String MAIL_SUBJECT_NOTICE = "Notice";
-	public static String MAIL_SUBJECT_ABSENT = "Absent";
+	public static String MAIL_SUBJECT_ABSENT = "Absent Report";
 	
 	public static String MAIL_SUBJECT_DAILY_ACTIVITY = "Daily Activity notification";
 	public static String MAIL_SUBJECT_INVITE_TO_JOIN_PARENT_CONNECT = "Invite to join the parent connect";
