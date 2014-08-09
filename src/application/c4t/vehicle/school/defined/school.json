@@ -111,6 +111,12 @@
 				'length': 1,
 				'default' : "N",
 				'type':'String'
+			},
+			'feature_pick_drop':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
 			}
 		}
 	}
