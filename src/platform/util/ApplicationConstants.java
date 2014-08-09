@@ -6,6 +6,7 @@ public class ApplicationConstants {
 	public static String DC_CONFIGURATION_FILE = "dc";
 	public static String OBD_CONFIGURATION_FILE = "obd";
 	public static String V3_CONFIGURATION_FILE = "v3";
+	public static String C4T_CONFIGURATION_FILE = "c4t";
 	public static String V3TRACKER_CONFIGURATION_FILE = "v3tracker";
 	public static String CISTRACKER_CONFIGURATION_FILE = "cistracker";
 	public static String NETVOX_CONFIGURATION_FILE = "netvox";
@@ -52,6 +53,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_OBD_SERVER_PORT = "obd_server_port";
 	public static String PROPERTY_DC_SERVER_PORT = "dc_server_port";
 	public static String PROPERTY_V3_SERVER_PORT = "v3_server_port";
+	public static String PROPERTY_C4T_SERVER_PORT = "c4t_server_port";
 	public static String PROPERTY_V3TRACKER_SERVER_PORT = "v3tracker_server_port";
 	public static String PROPERTY_CISTRACKER_SERVER_PORT = "cistracker_server_port";
 	public static String PROPERTY_ACPTRACKER_SERVER_PORT = "acptracker_server_port";
@@ -93,6 +95,8 @@ public class ApplicationConstants {
 	public static int	V3TRACKER_DEFAULT_PORT = 5387;
 	public static int	CISTRACKER_DEFAULT_PORT = 5389;
 	public static int	ACPTRACKER_DEFAULT_PORT = 5391;
+	public static int	C4T_DEFAULT_PORT = 5393;
+
 	public static String DEFAULT_DB_SERVER = "localhost";
 	public static String DEFAULT_DB_USERNAME = "root";
 	public static String SESSION_ID = "session_id";
