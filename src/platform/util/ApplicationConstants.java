@@ -127,6 +127,7 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_HOMEWORK = "HOMEWORK";
 	public static String MAIL_TYPE_HOME_PRACTICE= "HOME PRACTICE";
 	public static String MAIL_TYPE_NOTICE = "NOTICE";
+	public static String MAIL_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String MAIL_TYPE_ABSENT = "ABSENT";
 	
 	
@@ -160,6 +161,7 @@ public class ApplicationConstants {
 	public static String SMS_TYPE_SEND_DAILY_ACTIVITY = "DAILY_ACTIVITY";
 	public static String SMS_TYPE_SEND_HOME_PRACTICE = "HOME_PRACTICE";
 	public static String SMS_TYPE_SEND_NOTICE = "NOTICE";
+	public static String SMS_TYPE_SEND_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String SMS_TYPE_SEND_ABSENT = "ABSENT";
 	
 	
@@ -171,6 +173,7 @@ public class ApplicationConstants {
 	public static String NOTIFICATION_TYPE_DAILY_ACTIVITY = "DAILY_ACTIVITY";
 	public static String NOTIFICATION_TYPE_HOME_PRACTICE = "HOME_PRACTICE";
 	public static String NOTIFICATION_TYPE_NOTICE = "NOTICE";
+	public static String NOTIFICATION_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String NOTIFICATION_TYPE_ABSENT = "ABSENT";
 	
 	
