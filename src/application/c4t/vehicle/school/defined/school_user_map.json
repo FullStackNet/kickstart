@@ -26,6 +26,21 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'messageaFromSchool':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'messageaFromTeacher':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'messageaFromSchool':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}

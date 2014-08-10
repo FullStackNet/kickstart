@@ -23,12 +23,16 @@ public abstract class Baseschool_user_map extends BaseResource {
 	private ArrayList<Object> students = null;
 	private ArrayList<Object> teachers = null;
 	private ArrayList<Object> schools = null;
+	private ArrayList<Object> messageaFromSchool = null;
+	private ArrayList<Object> messageaFromTeacher = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_TEACHERS = "teachers";
 	public static String FIELD_SCHOOLS = "schools";
+	public static String FIELD_MESSAGEAFROMSCHOOL = "messageaFromSchool";
+	public static String FIELD_MESSAGEAFROMTEACHER = "messageaFromTeacher";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -51,6 +55,12 @@ public abstract class Baseschool_user_map extends BaseResource {
 		Field schoolsField = new Field("schools", "Array");
 		metaData.addField(schoolsField);
 
+		Field messageaFromSchoolField = new Field("messageaFromSchool", "Array");
+		metaData.addField(messageaFromSchoolField);
+
+		Field messageaFromTeacherField = new Field("messageaFromTeacher", "Array");
+		metaData.addField(messageaFromTeacherField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -68,6 +78,8 @@ public abstract class Baseschool_user_map extends BaseResource {
 		this.students = obj.students;
 		this.teachers = obj.teachers;
 		this.schools = obj.schools;
+		this.messageaFromSchool = obj.messageaFromSchool;
+		this.messageaFromTeacher = obj.messageaFromTeacher;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -85,6 +97,10 @@ public abstract class Baseschool_user_map extends BaseResource {
 			map.put("teachers", teachers);
 		if(schools != null)
 			map.put("schools", schools);
+		if(messageaFromSchool != null)
+			map.put("messageaFromSchool", messageaFromSchool);
+		if(messageaFromTeacher != null)
+			map.put("messageaFromTeacher", messageaFromTeacher);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -100,6 +116,10 @@ public abstract class Baseschool_user_map extends BaseResource {
 			map.put("teachers", teachers);
 		if(schools != null)
 			map.put("schools", schools);
+		if(messageaFromSchool != null)
+			map.put("messageaFromSchool", messageaFromSchool);
+		if(messageaFromTeacher != null)
+			map.put("messageaFromTeacher", messageaFromTeacher);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -116,6 +136,8 @@ public abstract class Baseschool_user_map extends BaseResource {
 		students = (ArrayList<Object>) map.get("students");
 		teachers = (ArrayList<Object>) map.get("teachers");
 		schools = (ArrayList<Object>) map.get("schools");
+		messageaFromSchool = (ArrayList<Object>) map.get("messageaFromSchool");
+		messageaFromTeacher = (ArrayList<Object>) map.get("messageaFromTeacher");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -128,6 +150,8 @@ public abstract class Baseschool_user_map extends BaseResource {
 		students = (ArrayList<Object>) map.get("students");
 		teachers = (ArrayList<Object>) map.get("teachers");
 		schools = (ArrayList<Object>) map.get("schools");
+		messageaFromSchool = (ArrayList<Object>) map.get("messageaFromSchool");
+		messageaFromTeacher = (ArrayList<Object>) map.get("messageaFromTeacher");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -214,6 +238,44 @@ public abstract class Baseschool_user_map extends BaseResource {
 
 	public void unSetSchools() {
 		this.schools = null;
+	}
+
+	public ArrayList<Object> getMessageaFromSchool() {
+		return messageaFromSchool;
+	}
+
+
+	public void setMessageaFromSchool(ArrayList<Object> messageaFromSchool) {
+		this.messageaFromSchool = messageaFromSchool;
+	}
+
+	public void addMessageaFromSchool(Object value) {
+		if(messageaFromSchool == null)
+			messageaFromSchool = new ArrayList<Object>();
+		messageaFromSchool.add(value);
+	}
+
+	public void unSetMessageaFromSchool() {
+		this.messageaFromSchool = null;
+	}
+
+	public ArrayList<Object> getMessageaFromTeacher() {
+		return messageaFromTeacher;
+	}
+
+
+	public void setMessageaFromTeacher(ArrayList<Object> messageaFromTeacher) {
+		this.messageaFromTeacher = messageaFromTeacher;
+	}
+
+	public void addMessageaFromTeacher(Object value) {
+		if(messageaFromTeacher == null)
+			messageaFromTeacher = new ArrayList<Object>();
+		messageaFromTeacher.add(value);
+	}
+
+	public void unSetMessageaFromTeacher() {
+		this.messageaFromTeacher = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
