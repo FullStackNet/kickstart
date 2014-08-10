@@ -26,6 +26,11 @@ public class Message2parentHelper extends BaseHelper {
 		return getByExpression(e, new String[]{message2parent.FIELD_LAST_UPDATED +" desc"});
 	}
 	
+	public BaseResource[] getByStudent(String studentId) {
+		Expression e = new Expression(message2parent.FIELD_STUDENT_ID,REL_OP.EQ, studentId);
+		return getByExpression(e, new String[]{message2parent.FIELD_LAST_UPDATED +" desc"});
+	}
+	
 	public BaseResource[] getByUser(String userId) {
 		String[] schoolIds = School_user_mapHelper.getInstance().getSchoolIds(userId);
 		return getBySchool(schoolIds);

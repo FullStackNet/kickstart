@@ -28,6 +28,16 @@
 				'type':'String',
 				'length':  128
 			},
+			'user_id': {
+				'type':'String',
+				'length':  128,
+				index : true		
+			},
+			'user_name': {
+				'type':'String',
+				'length':  128,
+				index : true		
+			},
 			'student_id': {
 				'type':'String',
 				'length':  128,

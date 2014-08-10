@@ -24,6 +24,8 @@ public abstract class Basemessage2parent extends BaseResource {
 	private String message_text = null;
 	private String school_id = null;
 	private String school_name = null;
+	private String user_id = null;
+	private String user_name = null;
 	private String student_id = null;
 	private String teacher_id = null;
 	private String student_name = null;
@@ -38,6 +40,8 @@ public abstract class Basemessage2parent extends BaseResource {
 	public static String FIELD_MESSAGE_TEXT = "message_text";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_SCHOOL_NAME = "school_name";
+	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_TEACHER_ID = "teacher_id";
 	public static String FIELD_STUDENT_NAME = "student_name";
@@ -73,6 +77,16 @@ public abstract class Basemessage2parent extends BaseResource {
 		Field school_nameField = new Field("school_name", "String");
 		school_nameField.setLength(128);
 		metaData.addField(school_nameField);
+
+		Field user_idField = new Field("user_id", "String");
+		user_idField.setIndexed(true);
+		user_idField.setLength(128);
+		metaData.addField(user_idField);
+
+		Field user_nameField = new Field("user_name", "String");
+		user_nameField.setIndexed(true);
+		user_nameField.setLength(128);
+		metaData.addField(user_nameField);
 
 		Field student_idField = new Field("student_id", "String");
 		student_idField.setIndexed(true);
@@ -121,6 +135,8 @@ public abstract class Basemessage2parent extends BaseResource {
 		this.message_text = obj.message_text;
 		this.school_id = obj.school_id;
 		this.school_name = obj.school_name;
+		this.user_id = obj.user_id;
+		this.user_name = obj.user_name;
 		this.student_id = obj.student_id;
 		this.teacher_id = obj.teacher_id;
 		this.student_name = obj.student_name;
@@ -147,6 +163,10 @@ public abstract class Basemessage2parent extends BaseResource {
 			map.put("school_id", school_id);
 		if(school_name != null)
 			map.put("school_name", school_name);
+		if(user_id != null)
+			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
 		if(student_id != null)
 			map.put("student_id", student_id);
 		if(teacher_id != null)
@@ -178,6 +198,10 @@ public abstract class Basemessage2parent extends BaseResource {
 			map.put("school_id", school_id);
 		if(school_name != null)
 			map.put("school_name", school_name);
+		if(user_id != null)
+			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
 		if(student_id != null)
 			map.put("student_id", student_id);
 		if(teacher_id != null)
@@ -209,6 +233,8 @@ public abstract class Basemessage2parent extends BaseResource {
 		message_text = (String) map.get("message_text");
 		school_id = (String) map.get("school_id");
 		school_name = (String) map.get("school_name");
+		user_id = (String) map.get("user_id");
+		user_name = (String) map.get("user_name");
 		student_id = (String) map.get("student_id");
 		teacher_id = (String) map.get("teacher_id");
 		student_name = (String) map.get("student_name");
@@ -240,6 +266,14 @@ public abstract class Basemessage2parent extends BaseResource {
 		Object school_nameObj = map.get("school_name");
 		if(school_nameObj != null)
 			school_name = school_nameObj.toString();
+
+		Object user_idObj = map.get("user_id");
+		if(user_idObj != null)
+			user_id = user_idObj.toString();
+
+		Object user_nameObj = map.get("user_name");
+		if(user_nameObj != null)
+			user_name = user_nameObj.toString();
 
 		Object student_idObj = map.get("student_id");
 		if(student_idObj != null)
@@ -355,6 +389,38 @@ public abstract class Basemessage2parent extends BaseResource {
 
 	public void unSetSchool_name() {
 		this.school_name = null;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public String getUser_idEx() {
+		return user_id != null ? user_id : "";
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public void unSetUser_id() {
+		this.user_id = null;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public String getUser_nameEx() {
+		return user_name != null ? user_name : "";
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public void unSetUser_name() {
+		this.user_name = null;
 	}
 
 	public String getStudent_id() {
