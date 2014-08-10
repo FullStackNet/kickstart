@@ -9,6 +9,7 @@ import platform.resource.BaseResource;
 import platform.resource.user;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.school_customer_map;
+import application.c4t.vehicle.school.resource.student;
 
 
 public class School_customer_mapHelper extends BaseHelper {
@@ -64,7 +65,7 @@ public class School_customer_mapHelper extends BaseHelper {
 		if ((_map == null) || (_map.getStudents() == null))
 			return null;
 		return StudentHelper.getInstance().getByJoining(_map.getStudents().toArray(new String[_map.getStudents().size()]),
-				joinFields,new String[]{user.FIELD_NAME});
+				joinFields,new String[]{student.FIELD_NAME});
 	}
 	
 }
