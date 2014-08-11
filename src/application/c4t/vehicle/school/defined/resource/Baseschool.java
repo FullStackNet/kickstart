@@ -38,6 +38,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_admin2parent_chat = null;
 	private String feature_absent_report = null;
 	private String feature_pick_drop = null;
+	private String feature_message2parent = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -59,6 +60,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_ADMIN2PARENT_CHAT = "feature_admin2parent_chat";
 	public static String FIELD_FEATURE_ABSENT_REPORT = "feature_absent_report";
 	public static String FIELD_FEATURE_PICK_DROP = "feature_pick_drop";
+	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -153,6 +155,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_pick_dropField.setLength(1);
 		metaData.addField(feature_pick_dropField);
 
+		Field feature_message2parentField = new Field("feature_message2parent", "String");
+		feature_message2parentField.setDefaultValue("N");
+		feature_message2parentField.setLength(1);
+		metaData.addField(feature_message2parentField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -185,6 +192,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_admin2parent_chat = obj.feature_admin2parent_chat;
 		this.feature_absent_report = obj.feature_absent_report;
 		this.feature_pick_drop = obj.feature_pick_drop;
+		this.feature_message2parent = obj.feature_message2parent;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -211,6 +219,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_absent_report = "N";
 		if(feature_pick_drop == null)
 			feature_pick_drop = "N";
+		if(feature_message2parent == null)
+			feature_message2parent = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -253,6 +263,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_absent_report", feature_absent_report);
 		if(feature_pick_drop != null)
 			map.put("feature_pick_drop", feature_pick_drop);
+		if(feature_message2parent != null)
+			map.put("feature_message2parent", feature_message2parent);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -301,6 +313,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_absent_report", feature_absent_report);
 		if(feature_pick_drop != null)
 			map.put("feature_pick_drop", feature_pick_drop);
+		if(feature_message2parent != null)
+			map.put("feature_message2parent", feature_message2parent);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -332,6 +346,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_admin2parent_chat = (String) map.get("feature_admin2parent_chat");
 		feature_absent_report = (String) map.get("feature_absent_report");
 		feature_pick_drop = (String) map.get("feature_pick_drop");
+		feature_message2parent = (String) map.get("feature_message2parent");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -412,6 +427,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_pick_dropObj = map.get("feature_pick_drop");
 		if(feature_pick_dropObj != null)
 			feature_pick_drop = feature_pick_dropObj.toString();
+
+		Object feature_message2parentObj = map.get("feature_message2parent");
+		if(feature_message2parentObj != null)
+			feature_message2parent = feature_message2parentObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -694,6 +713,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_pick_drop() {
 		this.feature_pick_drop = "N";
+	}
+
+	public String getFeature_message2parent() {
+		return feature_message2parent != null ? feature_message2parent : "N";
+	}
+
+	public void setFeature_message2parent(String feature_message2parent) {
+		this.feature_message2parent = feature_message2parent;
+	}
+
+	public void unSetFeature_message2parent() {
+		this.feature_message2parent = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

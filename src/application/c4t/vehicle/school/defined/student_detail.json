@@ -257,6 +257,12 @@
 				'length': 1,
 				'default' : "N",
 				'type':'String'
+			},
+			'feature_message2parent':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
 			}
 		}
 	}
