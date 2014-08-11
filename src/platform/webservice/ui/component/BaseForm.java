@@ -212,10 +212,14 @@ public abstract class BaseForm extends BaseView {
 				}
 				TR row = new TR();
 				TD column = new TD();
-				column.addAttribute("width","150px");
-				column.setText(field.getLabel());
-				row.addChild(column);
-				column = new TD();
+				if (field.isFullWidth() && UIConstants.COMPONENT_TYPE_TEXTAREA.equals(field.getCompomentType())) {
+					column.addAttribute("colspan","2");
+				} else {
+					column.addAttribute("width","150px");
+					column.setText(field.getLabel());
+					row.addChild(column);
+					column = new TD();
+				}
 				if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTINPUT) {
 					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
 					if (field.isUpperCase()) {
@@ -241,7 +245,7 @@ public abstract class BaseForm extends BaseView {
 							"</script>\n";
 					column.addChild(new TEXT(dateJS));
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTAREA) {
-					TEXTAREA textArea = new TEXTAREA(field.getName(),null);
+					TEXTAREA textArea = new TEXTAREA(field.getName(),null,field.isFullWidth());
 					if (value != null) {
 						textArea.setText(value.toString());
 					}

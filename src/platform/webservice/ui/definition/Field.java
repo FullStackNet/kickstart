@@ -33,7 +33,7 @@ public class Field {
 	Link link;
 	int width;
 	boolean hideOnSingleEntry;
-	
+	boolean fullWidth;
 	private boolean isUpperCase;
 	
 	public DataSource getDatasource() {
@@ -270,5 +270,13 @@ public class Field {
 
 	public void setUpperCase(boolean isUpperCase) {
 		this.isUpperCase = isUpperCase;
+	}
+
+	public boolean isFullWidth() {
+		return fullWidth;
+	}
+
+	public void setFullWidth(boolean fullWidth) {
+		this.fullWidth = fullWidth;
 	}
 }
