@@ -11,6 +11,7 @@ import platform.webservice.ui.html.JS;
 import platform.webservice.ui.html.LINK;
 import platform.webservice.ui.html.META;
 import platform.webservice.ui.html.SCRIPT;
+import platform.webservice.ui.html.TEXT;
 import platform.webservice.ui.layout.BaseLayout;
 
 public class PageBuilder {
@@ -21,6 +22,7 @@ public class PageBuilder {
 	BODY mBody ;
 	HEAD mHead;
 	UIServletContext mContext;
+	boolean mEditor;
 	
 	public PageBuilder(UIServletContext context) {
 		mContext = context;
@@ -82,6 +84,9 @@ public class PageBuilder {
 			jsFileList.add(new JS("function.js", "/ui/js"));
 			jsFileList.add(new JS("DataHandler.js", "/ui/js"));
 			jsFileList.add(new JS("json.js", "/ui/js"));
+			if (isEditor()) {
+				jsFileList.add(new JS("nicEdit-latest.js", "http://js.nicedit.com"));
+			}
 		}
 		if (mContext.isMobileRequest()) {
 			META meta = new META();
@@ -96,16 +101,26 @@ public class PageBuilder {
 				mHead.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()+"/"+jsFileList.get(i).getName()));
 			}
 		}
+		
+		
 		for(int i=0; i< cssFileList.size();i++) {
 			LINK link = new LINK(cssFileList.get(i).getHref(), "stylesheet", "text/css");
 			mHead.addChild(link);
 		}
-
+		mHead.addChild(new TEXT("<script type=\"text/javascript\">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>"));
 		mBody.addChild(layout.getLayout());
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
 		buffer.append(mHtml.getContent(0));
 
 		return buffer.toString();
+	}
+
+	public boolean isEditor() {
+		return mEditor;
+	}
+
+	public void setEditor(boolean mEditor) {
+		this.mEditor = mEditor;
 	}
 }
