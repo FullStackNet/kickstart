@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Basestudent_detail extends BaseResource {
 	private String id = null;
 	private String school_id = null;
+	private String school_brand_name = null;
 	private String name = null;
 	private String pickup_route_stopage_id = null;
 	private String pickup_route_id = null;
@@ -73,6 +74,7 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_SCHOOL_BRAND_NAME = "school_brand_name";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_PICKUP_ROUTE_STOPAGE_ID = "pickup_route_stopage_id";
 	public static String FIELD_PICKUP_ROUTE_ID = "pickup_route_id";
@@ -137,6 +139,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
+
+		Field school_brand_nameField = new Field("school_brand_name", "String");
+		school_brand_nameField.setLength(128);
+		metaData.addField(school_brand_nameField);
 
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
@@ -357,6 +363,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public Basestudent_detail(Basestudent_detail obj) {
 		this.id = obj.id;
 		this.school_id = obj.school_id;
+		this.school_brand_name = obj.school_brand_name;
 		this.name = obj.name;
 		this.pickup_route_stopage_id = obj.pickup_route_stopage_id;
 		this.pickup_route_id = obj.pickup_route_id;
@@ -449,6 +456,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("id", id);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(school_brand_name != null)
+			map.put("school_brand_name", school_brand_name);
 		if(name != null)
 			map.put("name", name);
 		if(pickup_route_stopage_id != null)
@@ -559,6 +568,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("id", id);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(school_brand_name != null)
+			map.put("school_brand_name", school_brand_name);
 		if(name != null)
 			map.put("name", name);
 		if(pickup_route_stopage_id != null)
@@ -669,6 +680,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		school_id = (String) map.get("school_id");
+		school_brand_name = (String) map.get("school_brand_name");
 		name = (String) map.get("name");
 		pickup_route_stopage_id = (String) map.get("pickup_route_stopage_id");
 		pickup_route_id = (String) map.get("pickup_route_id");
@@ -729,6 +741,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
+
+		Object school_brand_nameObj = map.get("school_brand_name");
+		if(school_brand_nameObj != null)
+			school_brand_name = school_brand_nameObj.toString();
 
 		Object nameObj = map.get("name");
 		if(nameObj != null)
@@ -967,6 +983,22 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetSchool_id() {
 		this.school_id = null;
+	}
+
+	public String getSchool_brand_name() {
+		return school_brand_name;
+	}
+
+	public String getSchool_brand_nameEx() {
+		return school_brand_name != null ? school_brand_name : "";
+	}
+
+	public void setSchool_brand_name(String school_brand_name) {
+		this.school_brand_name = school_brand_name;
+	}
+
+	public void unSetSchool_brand_name() {
+		this.school_brand_name = null;
 	}
 
 	public String getName() {

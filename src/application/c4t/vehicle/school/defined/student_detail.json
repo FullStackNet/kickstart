@@ -17,6 +17,12 @@
 				'length': 128,
 				'type':'String'
 			},
+			'school_brand_name':
+			{
+				'name':'school_id',
+				'length': 128,
+				'type':'String'
+			},
 			'name':
 			{
 				'name':'name',
