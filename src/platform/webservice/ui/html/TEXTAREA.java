@@ -17,7 +17,7 @@ public class TEXTAREA extends INPUT {
 		super(id,name,className);
 		addAttribute(new Attribute("rows", "8"));
 		if (fullWidth) {
-			addAttribute(new Attribute("cols", "74"));
+			addAttribute(new Attribute("cols", "70"));
 		} else {
 			addAttribute(new Attribute("cols", "40"));
 		}
