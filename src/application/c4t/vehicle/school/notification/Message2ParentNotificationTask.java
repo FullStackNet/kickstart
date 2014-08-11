@@ -50,6 +50,7 @@ public class Message2ParentNotificationTask extends NotificationTask {
 				resendMail.setType(ApplicationConstants.MAIL_TYPE_MESSAGE2PARENT);
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_MESSAGE, message);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, student_name);
 				String params = Json.maptoString(map);
 				resendMail.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -63,6 +64,7 @@ public class Message2ParentNotificationTask extends NotificationTask {
 				notificationMessage.setType(ApplicationConstants.NOTIFICATION_TYPE_MESSAGE2PARENT);
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_MESSAGE, message);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, student_name);
 				String params = Json.maptoString(map);
 				notificationMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_NOTIFICATION_MANAGER, 
