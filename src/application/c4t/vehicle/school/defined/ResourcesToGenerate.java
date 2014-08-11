@@ -48,5 +48,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("absent_detail", "application.c4t.vehicle.school.resource.absent_detail"),
 		new ResourceMap("message2parent", "application.c4t.vehicle.school.resource.message2parent"),
 		new ResourceMap("message2parent_conversation", "application.c4t.vehicle.school.resource.message2parent_conversation"),
+		new ResourceMap("message2school", "application.c4t.vehicle.school.resource.message2parent"),
+		new ResourceMap("message2school_conversation", "application.c4t.vehicle.school.resource.message2parent_conversation"),
+
 	};
 }
