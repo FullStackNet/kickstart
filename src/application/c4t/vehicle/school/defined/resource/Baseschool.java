@@ -39,6 +39,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_absent_report = null;
 	private String feature_pick_drop = null;
 	private String feature_message2parent = null;
+	private String feature_message2school = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -61,6 +62,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_ABSENT_REPORT = "feature_absent_report";
 	public static String FIELD_FEATURE_PICK_DROP = "feature_pick_drop";
 	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
+	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -160,6 +162,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_message2parentField.setLength(1);
 		metaData.addField(feature_message2parentField);
 
+		Field feature_message2schoolField = new Field("feature_message2school", "String");
+		feature_message2schoolField.setDefaultValue("N");
+		feature_message2schoolField.setLength(1);
+		metaData.addField(feature_message2schoolField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -193,6 +200,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_absent_report = obj.feature_absent_report;
 		this.feature_pick_drop = obj.feature_pick_drop;
 		this.feature_message2parent = obj.feature_message2parent;
+		this.feature_message2school = obj.feature_message2school;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -221,6 +229,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_pick_drop = "N";
 		if(feature_message2parent == null)
 			feature_message2parent = "N";
+		if(feature_message2school == null)
+			feature_message2school = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -265,6 +275,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_pick_drop", feature_pick_drop);
 		if(feature_message2parent != null)
 			map.put("feature_message2parent", feature_message2parent);
+		if(feature_message2school != null)
+			map.put("feature_message2school", feature_message2school);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -315,6 +327,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_pick_drop", feature_pick_drop);
 		if(feature_message2parent != null)
 			map.put("feature_message2parent", feature_message2parent);
+		if(feature_message2school != null)
+			map.put("feature_message2school", feature_message2school);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -347,6 +361,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_absent_report = (String) map.get("feature_absent_report");
 		feature_pick_drop = (String) map.get("feature_pick_drop");
 		feature_message2parent = (String) map.get("feature_message2parent");
+		feature_message2school = (String) map.get("feature_message2school");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -431,6 +446,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_message2parentObj = map.get("feature_message2parent");
 		if(feature_message2parentObj != null)
 			feature_message2parent = feature_message2parentObj.toString();
+
+		Object feature_message2schoolObj = map.get("feature_message2school");
+		if(feature_message2schoolObj != null)
+			feature_message2school = feature_message2schoolObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -725,6 +744,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_message2parent() {
 		this.feature_message2parent = "N";
+	}
+
+	public String getFeature_message2school() {
+		return feature_message2school != null ? feature_message2school : "N";
+	}
+
+	public void setFeature_message2school(String feature_message2school) {
+		this.feature_message2school = feature_message2school;
+	}
+
+	public void unSetFeature_message2school() {
+		this.feature_message2school = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

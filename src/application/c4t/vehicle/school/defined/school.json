@@ -123,6 +123,12 @@
 				'length': 1,
 				'default' : "N",
 				'type':'String'
+			},
+			'feature_message2school':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
 			}
 		}
 	}
