@@ -1,7 +1,6 @@
 package application.c4t.vehicle.school.resource;
 
 import platform.util.Util;
-import application.c4t.vehicle.school.defined.resource.Basemessage2parent;
 import application.c4t.vehicle.school.defined.resource.Basemessage2school;
 
 public class message2school extends Basemessage2school {

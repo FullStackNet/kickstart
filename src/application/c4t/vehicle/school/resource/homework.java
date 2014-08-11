@@ -2,7 +2,6 @@ package application.c4t.vehicle.school.resource;
 
 import platform.util.Util;
 import application.c4t.vehicle.school.defined.resource.Basehomework;
-import application.c4t.vehicle.school.defined.resource.Basesubject;
 
 public class homework extends Basehomework {
 
