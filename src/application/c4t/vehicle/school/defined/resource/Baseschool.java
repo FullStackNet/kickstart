@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Baseschool extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String brand_name = null;
 	private String short_name = null;
 	private String address1 = null;
 	private String address2 = null;
@@ -44,6 +45,7 @@ public abstract class Baseschool extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_SHORT_NAME = "short_name";
 	public static String FIELD_ADDRESS1 = "address1";
 	public static String FIELD_ADDRESS2 = "address2";
@@ -79,6 +81,10 @@ public abstract class Baseschool extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field brand_nameField = new Field("brand_name", "String");
+		brand_nameField.setLength(128);
+		metaData.addField(brand_nameField);
 
 		Field short_nameField = new Field("short_name", "String");
 		short_nameField.setLength(32);
@@ -182,6 +188,7 @@ public abstract class Baseschool extends BaseResource {
 	public Baseschool(Baseschool obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.brand_name = obj.brand_name;
 		this.short_name = obj.short_name;
 		this.address1 = obj.address1;
 		this.address2 = obj.address2;
@@ -239,6 +246,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(brand_name != null)
+			map.put("brand_name", brand_name);
 		if(short_name != null)
 			map.put("short_name", short_name);
 		if(address1 != null)
@@ -291,6 +300,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(brand_name != null)
+			map.put("brand_name", brand_name);
 		if(short_name != null)
 			map.put("short_name", short_name);
 		if(address1 != null)
@@ -343,6 +354,7 @@ public abstract class Baseschool extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		brand_name = (String) map.get("brand_name");
 		short_name = (String) map.get("short_name");
 		address1 = (String) map.get("address1");
 		address2 = (String) map.get("address2");
@@ -374,6 +386,10 @@ public abstract class Baseschool extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object brand_nameObj = map.get("brand_name");
+		if(brand_nameObj != null)
+			brand_name = brand_nameObj.toString();
 
 		Object short_nameObj = map.get("short_name");
 		if(short_nameObj != null)
@@ -496,6 +512,22 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getBrand_name() {
+		return brand_name;
+	}
+
+	public String getBrand_nameEx() {
+		return brand_name != null ? brand_name : "";
+	}
+
+	public void setBrand_name(String brand_name) {
+		this.brand_name = brand_name;
+	}
+
+	public void unSetBrand_name() {
+		this.brand_name = null;
 	}
 
 	public String getShort_name() {
