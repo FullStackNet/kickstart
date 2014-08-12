@@ -132,7 +132,10 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				studentMap.put(_users.get(j).getId(), str);
 			}
 		}
-		sendNotification2Users(_notification, userMap, studentMap,appAlert,smsAlert,emailAlert,
+		sendNotification2Users(_notification, userMap, 
+				studentMap,appAlert,
+				smsAlert,
+				emailAlert,
 				school_id,
 				class_section_name,
 				title,
@@ -152,7 +155,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			String title = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE);
 			String description = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION);
 			String customerId = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID);
-			String activity_date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID);
+			String activity_date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ACTIVITY_DATE);
 			sendNotification(_notification,school_id,
 					class_section_name, title,description,activity_date,customerId);
 		} catch (Exception e) {
