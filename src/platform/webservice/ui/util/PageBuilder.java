@@ -84,6 +84,7 @@ public class PageBuilder {
 			jsFileList.add(new JS("function.js", "/ui/js"));
 			jsFileList.add(new JS("DataHandler.js", "/ui/js"));
 			jsFileList.add(new JS("json.js", "/ui/js"));
+			jsFileList.add(new JS("base64.js", "/ui/js"));
 			if (isEditor()) {
 				jsFileList.add(new JS("nicEdit-latest.js", "http://js.nicedit.com"));
 			}
@@ -107,7 +108,9 @@ public class PageBuilder {
 			LINK link = new LINK(cssFileList.get(i).getHref(), "stylesheet", "text/css");
 			mHead.addChild(link);
 		}
-		mHead.addChild(new TEXT("<script type=\"text/javascript\">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>"));
+		if (isEditor()) {
+			mHead.addChild(new TEXT("<script type=\"text/javascript\">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>"));
+		}
 		mBody.addChild(layout.getLayout());
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");

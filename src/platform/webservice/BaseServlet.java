@@ -115,13 +115,13 @@ public class BaseServlet extends HttpServlet
 			if (request.getParameterValues(ApplicationConstants.REQ_RESOURCES) != null) {
 				resourceText = request.getParameterValues(ApplicationConstants.REQ_RESOURCES)[0];
 				resourceText = unescapePOSTBody(resourceText);
-				resourceText = aesDecrypt(request, resourceText);
+				resourceText = SecurityUtil.decodeBase64(resourceText);
 				multiResource = true;
 			} else {
 				if (request.getParameterValues(ApplicationConstants.REQ_RESOURCE) != null) {
 					resourceText = request.getParameterValues(ApplicationConstants.REQ_RESOURCE)[0];
 					resourceText = unescapePOSTBody(resourceText);
-					resourceText = aesDecrypt(request, resourceText);
+					resourceText = SecurityUtil.decodeBase64(resourceText);
 				} else { 
 					if (request.getParameterValues(ApplicationConstants.FORM) != null) {
 						String m16form = request.getParameterValues(ApplicationConstants.FORM)[0];
