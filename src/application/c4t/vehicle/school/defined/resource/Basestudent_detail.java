@@ -70,6 +70,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String feature_pick_drop = null;
 	private String feature_message2parent = null;
 	private String feature_message2school = null;
+	private String only_tracking = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -123,6 +124,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_FEATURE_PICK_DROP = "feature_pick_drop";
 	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
 	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
+	public static String FIELD_ONLY_TRACKING = "only_tracking";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -348,6 +350,11 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_message2schoolField.setLength(1);
 		metaData.addField(feature_message2schoolField);
 
+		Field only_trackingField = new Field("only_tracking", "String");
+		only_trackingField.setDefaultValue("N");
+		only_trackingField.setLength(1);
+		metaData.addField(only_trackingField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -412,6 +419,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.feature_pick_drop = obj.feature_pick_drop;
 		this.feature_message2parent = obj.feature_message2parent;
 		this.feature_message2school = obj.feature_message2school;
+		this.only_tracking = obj.only_tracking;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -448,6 +456,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			feature_message2parent = "N";
 		if(feature_message2school == null)
 			feature_message2school = "N";
+		if(only_tracking == null)
+			only_tracking = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -554,6 +564,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_message2parent", feature_message2parent);
 		if(feature_message2school != null)
 			map.put("feature_message2school", feature_message2school);
+		if(only_tracking != null)
+			map.put("only_tracking", only_tracking);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -666,6 +678,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_message2parent", feature_message2parent);
 		if(feature_message2school != null)
 			map.put("feature_message2school", feature_message2school);
+		if(only_tracking != null)
+			map.put("only_tracking", only_tracking);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -729,6 +743,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_pick_drop = (String) map.get("feature_pick_drop");
 		feature_message2parent = (String) map.get("feature_message2parent");
 		feature_message2school = (String) map.get("feature_message2school");
+		only_tracking = (String) map.get("only_tracking");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -937,6 +952,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object feature_message2schoolObj = map.get("feature_message2school");
 		if(feature_message2schoolObj != null)
 			feature_message2school = feature_message2schoolObj.toString();
+
+		Object only_trackingObj = map.get("only_tracking");
+		if(only_trackingObj != null)
+			only_tracking = only_trackingObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1719,6 +1738,18 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetFeature_message2school() {
 		this.feature_message2school = "N";
+	}
+
+	public String getOnly_tracking() {
+		return only_tracking != null ? only_tracking : "N";
+	}
+
+	public void setOnly_tracking(String only_tracking) {
+		this.only_tracking = only_tracking;
+	}
+
+	public void unSetOnly_tracking() {
+		this.only_tracking = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {
