@@ -263,8 +263,33 @@ public class RouteHelper extends BaseHelper {
 				e.printStackTrace();
 			}
 		}
+		String tripId = trip.id(current_route.getId(),_fetched_appliance.getTimeZone(), logTime, current_route.getStart_timeEx());
+		if ("Y".equals(current_route.getRecord_trip())) {
+			trip _trip = (trip)TripHelper.getInstance().getById(tripId);
+			if (_trip == null) {
+				_trip = new trip(tripId);
+				_trip.setCustomer_id(current_route.getCustomer_id());
+				_trip.setAppliance_id(_fetched_appliance.getId());
+				_trip.setAppliance_name(_fetched_appliance.getName());
+				_trip.setScheduled_start_time(current_route.getStart_time());
+				_trip.setScheduled_reached_time(current_route.getEnd_time());
+				_trip.setRoute_id(current_route.getId());
+				_trip.setRoute_name(current_route.getName());
+				_trip.setDriver_id(current_route.getDriver_id());
+				driver _driver = (driver)DriverHelper.getInstance().getById(current_route.getDriver_id());
+				if (_driver != null)
+					_trip.setDriver_name(_driver.getName());
+				try {
+					TripHelper.getInstance().add(_trip);
+				} catch (ApplicationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}  
 		checkOverSpeed(_fetched_appliance,current_route,_last_stopage,latitude,longitude,speed,logTime);
-
+		if ("Y".equals(current_route.getOnlyTracking()))  {
+			return;
+		}
 		BaseResource[] route_stopages = Route_stopageHelper.getInstance().getRouteStopageByRouteId(current_route.getId());
 		if (Util.isEmpty(route_stopages))
 			return;
@@ -274,7 +299,7 @@ public class RouteHelper extends BaseHelper {
 		stopage found_stopage = null;
 		double short_distance = 0.0;
 		route_stopage _short_route_stopage = null;
-
+		
 		for(int i=0; i < route_stopages.length; i++) {
 			route_stopage _route_stopage = (route_stopage) route_stopages[i];
 			stopage _stopage = (stopage)StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
@@ -390,29 +415,6 @@ public class RouteHelper extends BaseHelper {
 					found_route_stopage.getId());
 			Route_stopageHelper.getInstance().updateReachedTime(found_route_stopage.getId());
 			processCordinates(found_stopage,found_route_stopage,logTime);
-			String tripId = trip.id(current_route.getId(),_fetched_appliance.getTimeZone(), logTime, current_route.getStart_timeEx());
-			if ("Y".equals(current_route.getRecord_trip())) {
-				trip _trip = (trip)TripHelper.getInstance().getById(tripId);
-				if (_trip == null) {
-					_trip = new trip(tripId);
-					_trip.setCustomer_id(current_route.getCustomer_id());
-					_trip.setAppliance_id(_fetched_appliance.getId());
-					_trip.setAppliance_name(_fetched_appliance.getName());
-					_trip.setScheduled_start_time(current_route.getStart_time());
-					_trip.setScheduled_reached_time(current_route.getEnd_time());
-					_trip.setRoute_id(current_route.getId());
-					_trip.setRoute_name(current_route.getName());
-					_trip.setDriver_id(current_route.getDriver_id());
-					driver _driver = (driver)DriverHelper.getInstance().getById(current_route.getDriver_id());
-					if (_driver != null)
-						_trip.setDriver_name(_driver.getName());
-					try {
-						TripHelper.getInstance().add(_trip);
-					} catch (ApplicationException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}  
 				trip_detail _detail = new trip_detail();
 				_detail.setTrip_id(_trip.getId());
 				_detail.setStopage_name(found_stopage.getName());
