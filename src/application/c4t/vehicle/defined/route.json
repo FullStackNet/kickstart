@@ -150,6 +150,11 @@
 				'length': 1,
 				'type':'String'
 			},
+			'onlyTracking' : {
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
 			threshold_over_speed : {
 				type : "int"
 			},

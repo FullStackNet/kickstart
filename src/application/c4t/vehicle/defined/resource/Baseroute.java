@@ -46,11 +46,13 @@ public abstract class Baseroute extends BaseResource {
 	private String next_connecting_route_id = null;
 	private String record_trip = null;
 	private String overSpeedState = null;
+	private String onlyTracking = null;
 	private Integer threshold_over_speed = null;
 	private String alert_parent_over_speed = null;
 	private String notifiy_teacher_present = null;
 	private String teacher_present = null;
 	private Long teacher_present_time = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -79,11 +81,13 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_NEXT_CONNECTING_ROUTE_ID = "next_connecting_route_id";
 	public static String FIELD_RECORD_TRIP = "record_trip";
 	public static String FIELD_OVERSPEEDSTATE = "overSpeedState";
+	public static String FIELD_ONLYTRACKING = "onlyTracking";
 	public static String FIELD_THRESHOLD_OVER_SPEED = "threshold_over_speed";
 	public static String FIELD_ALERT_PARENT_OVER_SPEED = "alert_parent_over_speed";
 	public static String FIELD_NOTIFIY_TEACHER_PRESENT = "notifiy_teacher_present";
 	public static String FIELD_TEACHER_PRESENT = "teacher_present";
 	public static String FIELD_TEACHER_PRESENT_TIME = "teacher_present_time";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route");
@@ -210,6 +214,11 @@ public abstract class Baseroute extends BaseResource {
 		overSpeedStateField.setLength(1);
 		metaData.addField(overSpeedStateField);
 
+		Field onlyTrackingField = new Field("onlyTracking", "String");
+		onlyTrackingField.setDefaultValue("N");
+		onlyTrackingField.setLength(1);
+		metaData.addField(onlyTrackingField);
+
 		Field threshold_over_speedField = new Field("threshold_over_speed", "int");
 		metaData.addField(threshold_over_speedField);
 
@@ -230,6 +239,10 @@ public abstract class Baseroute extends BaseResource {
 
 		Field teacher_present_timeField = new Field("teacher_present_time", "timestamp");
 		metaData.addField(teacher_present_timeField);
+
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
 
 
 		metaData.setTableName("route");
@@ -267,11 +280,13 @@ public abstract class Baseroute extends BaseResource {
 		this.next_connecting_route_id = obj.next_connecting_route_id;
 		this.record_trip = obj.record_trip;
 		this.overSpeedState = obj.overSpeedState;
+		this.onlyTracking = obj.onlyTracking;
 		this.threshold_over_speed = obj.threshold_over_speed;
 		this.alert_parent_over_speed = obj.alert_parent_over_speed;
 		this.notifiy_teacher_present = obj.notifiy_teacher_present;
 		this.teacher_present = obj.teacher_present;
 		this.teacher_present_time = obj.teacher_present_time;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -299,6 +314,8 @@ public abstract class Baseroute extends BaseResource {
 			record_trip = "N";
 		if(overSpeedState == null)
 			overSpeedState = "N";
+		if(onlyTracking == null)
+			onlyTracking = "N";
 		if(alert_parent_over_speed == null)
 			alert_parent_over_speed = "N";
 		if(notifiy_teacher_present == null)
@@ -363,6 +380,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("record_trip", record_trip);
 		if(overSpeedState != null)
 			map.put("overSpeedState", overSpeedState);
+		if(onlyTracking != null)
+			map.put("onlyTracking", onlyTracking);
 		if(threshold_over_speed != null)
 			map.put("threshold_over_speed", threshold_over_speed);
 		if(alert_parent_over_speed != null)
@@ -373,6 +392,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("teacher_present", teacher_present);
 		if(teacher_present_time != null)
 			map.put("teacher_present_time", teacher_present_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -435,6 +456,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("record_trip", record_trip);
 		if(overSpeedState != null)
 			map.put("overSpeedState", overSpeedState);
+		if(onlyTracking != null)
+			map.put("onlyTracking", onlyTracking);
 		if(threshold_over_speed != null)
 			map.put("threshold_over_speed", threshold_over_speed);
 		if(alert_parent_over_speed != null)
@@ -445,6 +468,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("teacher_present", teacher_present);
 		if(teacher_present_time != null)
 			map.put("teacher_present_time", teacher_present_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -453,6 +478,7 @@ public abstract class Baseroute extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -481,13 +507,16 @@ public abstract class Baseroute extends BaseResource {
 		next_connecting_route_id = (String) map.get("next_connecting_route_id");
 		record_trip = (String) map.get("record_trip");
 		overSpeedState = (String) map.get("overSpeedState");
+		onlyTracking = (String) map.get("onlyTracking");
 		threshold_over_speed = (Integer) map.get("threshold_over_speed");
 		alert_parent_over_speed = (String) map.get("alert_parent_over_speed");
 		notifiy_teacher_present = (String) map.get("notifiy_teacher_present");
 		teacher_present = (String) map.get("teacher_present");
 		teacher_present_time = (Long) map.get("teacher_present_time");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -597,6 +626,10 @@ public abstract class Baseroute extends BaseResource {
 		if(overSpeedStateObj != null)
 			overSpeedState = overSpeedStateObj.toString();
 
+		Object onlyTrackingObj = map.get("onlyTracking");
+		if(onlyTrackingObj != null)
+			onlyTracking = onlyTrackingObj.toString();
+
 		Object threshold_over_speedObj = map.get("threshold_over_speed");
 		if(threshold_over_speedObj != null)
 			threshold_over_speed = new Integer(threshold_over_speedObj.toString());
@@ -617,6 +650,7 @@ public abstract class Baseroute extends BaseResource {
 		if(teacher_present_timeObj != null)
 			teacher_present_time = (Long) teacher_present_timeObj;
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -1039,6 +1073,18 @@ public abstract class Baseroute extends BaseResource {
 		this.overSpeedState = "N";
 	}
 
+	public String getOnlyTracking() {
+		return onlyTracking != null ? onlyTracking : "N";
+	}
+
+	public void setOnlyTracking(String onlyTracking) {
+		this.onlyTracking = onlyTracking;
+	}
+
+	public void unSetOnlyTracking() {
+		this.onlyTracking = "N";
+	}
+
 	public Integer getThreshold_over_speed() {
 		return threshold_over_speed;
 	}
@@ -1103,6 +1149,28 @@ public abstract class Baseroute extends BaseResource {
 		this.teacher_present_time = teacher_present_time;
 	}
 
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
+	}
 	public String getCluster() {
 		return "DB_CONFIG";
 	}

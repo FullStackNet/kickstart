@@ -40,6 +40,7 @@ public abstract class Basedriver extends BaseResource {
 	private String qualification = null;
 	private String referenceName = null;
 	private String referenceMobile_no = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -62,6 +63,7 @@ public abstract class Basedriver extends BaseResource {
 	public static String FIELD_QUALIFICATION = "qualification";
 	public static String FIELD_REFERENCENAME = "referenceName";
 	public static String FIELD_REFERENCEMOBILE_NO = "referenceMobile_no";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("driver");
@@ -157,6 +159,10 @@ public abstract class Basedriver extends BaseResource {
 		referenceMobile_noField.setLength(128);
 		metaData.addField(referenceMobile_noField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("driver");
 
@@ -187,6 +193,7 @@ public abstract class Basedriver extends BaseResource {
 		this.qualification = obj.qualification;
 		this.referenceName = obj.referenceName;
 		this.referenceMobile_no = obj.referenceMobile_no;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -237,6 +244,8 @@ public abstract class Basedriver extends BaseResource {
 			map.put("referenceName", referenceName);
 		if(referenceMobile_no != null)
 			map.put("referenceMobile_no", referenceMobile_no);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -284,6 +293,8 @@ public abstract class Basedriver extends BaseResource {
 			map.put("referenceName", referenceName);
 		if(referenceMobile_no != null)
 			map.put("referenceMobile_no", referenceMobile_no);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -292,6 +303,7 @@ public abstract class Basedriver extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -314,8 +326,10 @@ public abstract class Basedriver extends BaseResource {
 		qualification = (String) map.get("qualification");
 		referenceName = (String) map.get("referenceName");
 		referenceMobile_no = (String) map.get("referenceMobile_no");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -401,6 +415,7 @@ public abstract class Basedriver extends BaseResource {
 		if(referenceMobile_noObj != null)
 			referenceMobile_no = referenceMobile_noObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -761,6 +776,28 @@ public abstract class Basedriver extends BaseResource {
 
 	public void unSetReferenceMobile_no() {
 		this.referenceMobile_no = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_PROFILE";

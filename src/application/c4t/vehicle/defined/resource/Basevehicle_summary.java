@@ -35,6 +35,7 @@ public abstract class Basevehicle_summary extends BaseResource {
 	private Integer number_of_start_failed = null;
 	private Integer number_of_not_performed = null;
 	private Integer number_of_not_performed_well = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_GROUP_NAME = "group_name";
 	public static String FIELD_APPLIANCE_TYPE = "appliance_type";
@@ -52,6 +53,7 @@ public abstract class Basevehicle_summary extends BaseResource {
 	public static String FIELD_NUMBER_OF_START_FAILED = "number_of_start_failed";
 	public static String FIELD_NUMBER_OF_NOT_PERFORMED = "number_of_not_performed";
 	public static String FIELD_NUMBER_OF_NOT_PERFORMED_WELL = "number_of_not_performed_well";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("vehicle_summary");
@@ -144,6 +146,10 @@ public abstract class Basevehicle_summary extends BaseResource {
 		number_of_not_performed_wellField.setLength(10);
 		metaData.addField(number_of_not_performed_wellField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("vehicle_summary");
 
@@ -169,6 +175,7 @@ public abstract class Basevehicle_summary extends BaseResource {
 		this.number_of_start_failed = obj.number_of_start_failed;
 		this.number_of_not_performed = obj.number_of_not_performed;
 		this.number_of_not_performed_well = obj.number_of_not_performed_well;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -244,6 +251,8 @@ public abstract class Basevehicle_summary extends BaseResource {
 			map.put("number_of_not_performed", number_of_not_performed);
 		if(number_of_not_performed_well != null)
 			map.put("number_of_not_performed_well", number_of_not_performed_well);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -284,6 +293,8 @@ public abstract class Basevehicle_summary extends BaseResource {
 			map.put("number_of_not_performed", number_of_not_performed);
 		if(number_of_not_performed_well != null)
 			map.put("number_of_not_performed_well", number_of_not_performed_well);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -292,6 +303,7 @@ public abstract class Basevehicle_summary extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		group_name = (Number) map.get("group_name");
 		appliance_type = (Number) map.get("appliance_type");
@@ -309,8 +321,10 @@ public abstract class Basevehicle_summary extends BaseResource {
 		number_of_start_failed = (Integer) map.get("number_of_start_failed");
 		number_of_not_performed = (Integer) map.get("number_of_not_performed");
 		number_of_not_performed_well = (Integer) map.get("number_of_not_performed_well");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object group_nameObj = map.get("group_name");
 		if(group_nameObj != null)
@@ -376,6 +390,7 @@ public abstract class Basevehicle_summary extends BaseResource {
 		if(number_of_not_performed_wellObj != null)
 			number_of_not_performed_well = new Integer(number_of_not_performed_wellObj.toString());
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -618,6 +633,28 @@ public abstract class Basevehicle_summary extends BaseResource {
 
 	public void unSetNumber_of_not_performed_well() {
 		this.number_of_not_performed_well = 0;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

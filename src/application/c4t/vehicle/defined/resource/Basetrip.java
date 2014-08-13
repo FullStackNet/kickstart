@@ -37,6 +37,7 @@ public abstract class Basetrip extends BaseResource {
 	private Long delayed = null;
 	private Integer overspeed_count = null;
 	private Long creation_time = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
@@ -56,6 +57,7 @@ public abstract class Basetrip extends BaseResource {
 	public static String FIELD_DELAYED = "delayed";
 	public static String FIELD_OVERSPEED_COUNT = "overspeed_count";
 	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("trip");
@@ -129,6 +131,10 @@ public abstract class Basetrip extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("trip");
 
@@ -156,6 +162,7 @@ public abstract class Basetrip extends BaseResource {
 		this.delayed = obj.delayed;
 		this.overspeed_count = obj.overspeed_count;
 		this.creation_time = obj.creation_time;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -200,6 +207,8 @@ public abstract class Basetrip extends BaseResource {
 			map.put("overspeed_count", overspeed_count);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -241,6 +250,8 @@ public abstract class Basetrip extends BaseResource {
 			map.put("overspeed_count", overspeed_count);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -249,6 +260,7 @@ public abstract class Basetrip extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		customer_id = (String) map.get("customer_id");
@@ -268,8 +280,10 @@ public abstract class Basetrip extends BaseResource {
 		delayed = (Long) map.get("delayed");
 		overspeed_count = (Integer) map.get("overspeed_count");
 		creation_time = (Long) map.get("creation_time");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -343,6 +357,7 @@ public abstract class Basetrip extends BaseResource {
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -645,6 +660,28 @@ public abstract class Basetrip extends BaseResource {
 		this.creation_time = creation_time;
 	}
 
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
+	}
 	public String getCluster() {
 		return "DB_LOG";
 	}

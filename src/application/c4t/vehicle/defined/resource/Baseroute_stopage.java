@@ -41,6 +41,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private Integer time_buffer_after = null;
 	private String expected_reachtime = null;
 	private Long controller_last_update_time = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -64,6 +65,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 	public static String FIELD_TIME_BUFFER_AFTER = "time_buffer_after";
 	public static String FIELD_EXPECTED_REACHTIME = "expected_reachtime";
 	public static String FIELD_CONTROLLER_LAST_UPDATE_TIME = "controller_last_update_time";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route_stopage");
@@ -145,6 +147,10 @@ public abstract class Baseroute_stopage extends BaseResource {
 		Field controller_last_update_timeField = new Field("controller_last_update_time", "long");
 		metaData.addField(controller_last_update_timeField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("route_stopage");
 
@@ -176,6 +182,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		this.time_buffer_after = obj.time_buffer_after;
 		this.expected_reachtime = obj.expected_reachtime;
 		this.controller_last_update_time = obj.controller_last_update_time;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -241,6 +248,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("expected_reachtime", expected_reachtime);
 		if(controller_last_update_time != null)
 			map.put("controller_last_update_time", controller_last_update_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -293,6 +302,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("expected_reachtime", expected_reachtime);
 		if(controller_last_update_time != null)
 			map.put("controller_last_update_time", controller_last_update_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -301,6 +312,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -320,8 +332,10 @@ public abstract class Baseroute_stopage extends BaseResource {
 		time_buffer_after = (Integer) map.get("time_buffer_after");
 		expected_reachtime = (String) map.get("expected_reachtime");
 		controller_last_update_time = (Long) map.get("controller_last_update_time");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -395,6 +409,7 @@ public abstract class Baseroute_stopage extends BaseResource {
 		if(controller_last_update_timeObj != null)
 			controller_last_update_time = new Long(controller_last_update_timeObj.toString());
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -801,6 +816,28 @@ public abstract class Baseroute_stopage extends BaseResource {
 
 	public void unSetController_last_update_time() {
 		this.controller_last_update_time = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

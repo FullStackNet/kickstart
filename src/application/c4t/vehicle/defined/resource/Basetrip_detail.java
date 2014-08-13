@@ -33,6 +33,7 @@ public abstract class Basetrip_detail extends BaseResource {
 	private Double nearest_distance = null;
 	private Long data_get_duration = null;
 	private String stopage_identified = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TRIP_ID = "trip_id";
@@ -48,6 +49,7 @@ public abstract class Basetrip_detail extends BaseResource {
 	public static String FIELD_NEAREST_DISTANCE = "nearest_distance";
 	public static String FIELD_DATA_GET_DURATION = "data_get_duration";
 	public static String FIELD_STOPAGE_IDENTIFIED = "stopage_identified";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("trip_detail");
@@ -104,6 +106,10 @@ public abstract class Basetrip_detail extends BaseResource {
 		stopage_identifiedField.setLength(1);
 		metaData.addField(stopage_identifiedField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("trip_detail");
 
@@ -127,6 +133,7 @@ public abstract class Basetrip_detail extends BaseResource {
 		this.nearest_distance = obj.nearest_distance;
 		this.data_get_duration = obj.data_get_duration;
 		this.stopage_identified = obj.stopage_identified;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -163,6 +170,8 @@ public abstract class Basetrip_detail extends BaseResource {
 			map.put("data_get_duration", data_get_duration);
 		if(stopage_identified != null)
 			map.put("stopage_identified", stopage_identified);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -196,6 +205,8 @@ public abstract class Basetrip_detail extends BaseResource {
 			map.put("data_get_duration", data_get_duration);
 		if(stopage_identified != null)
 			map.put("stopage_identified", stopage_identified);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -204,6 +215,7 @@ public abstract class Basetrip_detail extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		trip_id = (String) map.get("trip_id");
@@ -219,8 +231,10 @@ public abstract class Basetrip_detail extends BaseResource {
 		nearest_distance = (Double) map.get("nearest_distance");
 		data_get_duration = (Long) map.get("data_get_duration");
 		stopage_identified = (String) map.get("stopage_identified");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -278,6 +292,7 @@ public abstract class Basetrip_detail extends BaseResource {
 		if(stopage_identifiedObj != null)
 			stopage_identified = stopage_identifiedObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -519,6 +534,28 @@ public abstract class Basetrip_detail extends BaseResource {
 
 	public void unSetStopage_identified() {
 		this.stopage_identified = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_LOG";

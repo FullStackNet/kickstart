@@ -25,6 +25,7 @@ public abstract class Basestopage extends BaseResource {
 	private String latitude = null;
 	private String customer_id = null;
 	private String user_id = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
@@ -32,6 +33,7 @@ public abstract class Basestopage extends BaseResource {
 	public static String FIELD_LATITUDE = "latitude";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("stopage");
@@ -67,6 +69,10 @@ public abstract class Basestopage extends BaseResource {
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("stopage");
 
@@ -82,6 +88,7 @@ public abstract class Basestopage extends BaseResource {
 		this.latitude = obj.latitude;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -102,6 +109,8 @@ public abstract class Basestopage extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -119,6 +128,8 @@ public abstract class Basestopage extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(validateUser_id(add))
 			map.put("user_id", user_id);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -127,6 +138,7 @@ public abstract class Basestopage extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
@@ -134,8 +146,10 @@ public abstract class Basestopage extends BaseResource {
 		latitude = (String) map.get("latitude");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -161,6 +175,7 @@ public abstract class Basestopage extends BaseResource {
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -281,6 +296,28 @@ public abstract class Basestopage extends BaseResource {
 		if(add && user_id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[user_id]");
 		return user_id != null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_CONFIG";

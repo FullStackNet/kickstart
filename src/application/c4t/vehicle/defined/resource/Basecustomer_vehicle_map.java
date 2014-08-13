@@ -22,10 +22,12 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 	private String id = null;
 	private ArrayList<Object> fleetManagers = null;
 	private ArrayList<Object> fleetOwners = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_FLEETMANAGERS = "fleetManagers";
 	public static String FIELD_FLEETOWNERS = "fleetOwners";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("customer_vehicle_map");
@@ -44,6 +46,10 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		Field fleetOwnersField = new Field("fleetOwners", "Array");
 		metaData.addField(fleetOwnersField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("customer_vehicle_map");
 
@@ -56,6 +62,7 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		this.id = obj.id;
 		this.fleetManagers = obj.fleetManagers;
 		this.fleetOwners = obj.fleetOwners;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -70,6 +77,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 			map.put("fleetManagers", fleetManagers);
 		if(fleetOwners != null)
 			map.put("fleetOwners", fleetOwners);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -81,6 +90,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 			map.put("fleetManagers", fleetManagers);
 		if(fleetOwners != null)
 			map.put("fleetOwners", fleetOwners);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -89,12 +100,15 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
 		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -102,6 +116,7 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
 		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -168,6 +183,28 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 
 	public void unSetFleetOwners() {
 		this.fleetOwners = null;
+	}
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
 	}
 	public String getCluster() {
 		return "DB_DEVICE";

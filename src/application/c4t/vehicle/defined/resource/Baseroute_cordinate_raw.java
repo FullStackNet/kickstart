@@ -24,12 +24,14 @@ public abstract class Baseroute_cordinate_raw extends BaseResource {
 	private String langitude = null;
 	private String latitude = null;
 	private Long update_time = null;
+	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_ROUTE_ID = "route_id";
 	public static String FIELD_LANGITUDE = "langitude";
 	public static String FIELD_LATITUDE = "latitude";
 	public static String FIELD_UPDATE_TIME = "update_time";
+	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
 	private final static ResourceMetaData metaData = new ResourceMetaData("route_cordinate_raw");
@@ -61,6 +63,10 @@ public abstract class Baseroute_cordinate_raw extends BaseResource {
 		Field update_timeField = new Field("update_time", "timestamp");
 		metaData.addField(update_timeField);
 
+		Field extra_dataField = new Field("extra_data", "Map");
+		extra_dataField.setValueType("Object");
+		metaData.addField(extra_dataField);
+
 
 		metaData.setTableName("route_cordinate_raw");
 
@@ -75,6 +81,7 @@ public abstract class Baseroute_cordinate_raw extends BaseResource {
 		this.langitude = obj.langitude;
 		this.latitude = obj.latitude;
 		this.update_time = obj.update_time;
+		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
@@ -93,6 +100,8 @@ public abstract class Baseroute_cordinate_raw extends BaseResource {
 			map.put("latitude", latitude);
 		if(update_time != null)
 			map.put("update_time", update_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -108,6 +117,8 @@ public abstract class Baseroute_cordinate_raw extends BaseResource {
 			map.put("latitude", latitude);
 		if(update_time != null)
 			map.put("update_time", update_time);
+		if(extra_data != null)
+			map.put("extra_data", extra_data);
 		return map;
 	}
 
@@ -116,14 +127,17 @@ public abstract class Baseroute_cordinate_raw extends BaseResource {
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		route_id = (String) map.get("route_id");
 		langitude = (String) map.get("langitude");
 		latitude = (String) map.get("latitude");
 		update_time = (Long) map.get("update_time");
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
 		if(idObj != null)
@@ -145,6 +159,7 @@ public abstract class Baseroute_cordinate_raw extends BaseResource {
 		if(update_timeObj != null)
 			update_time = (Long) update_timeObj;
 
+		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
 	public void convertPrimaryMapToResource(Map<String, Object> map) {
@@ -249,6 +264,28 @@ public abstract class Baseroute_cordinate_raw extends BaseResource {
 		this.update_time = update_time;
 	}
 
+
+	public Map<String, Object> getExtra_data() {
+		return extra_data;
+	}
+
+	public Object getExtra_data(String key) {
+		return extra_data == null ? null : extra_data.get(key);
+	}
+
+	public void setExtra_data(Map<String, Object> extra_data) {
+		this.extra_data = extra_data;
+	}
+
+	public void setExtra_data(String key, Object value) {
+		if(extra_data == null)
+			extra_data = new HashMap<String, Object>();
+		extra_data.put(key, value);
+	}
+
+	public void unSetExtra_data() {
+		this.extra_data = null;
+	}
 	public String getCluster() {
 		return "DB_LOG";
 	}
