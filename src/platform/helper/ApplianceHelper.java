@@ -90,7 +90,8 @@ public class ApplianceHelper extends BaseHelper {
 				Map<String,Object> extrMap = new HashMap<String,Object>();
 				extrMap.put("teacher_present", "N");
 				extrMap.put("notify_teacher_present", _route.getNotifiy_teacher_present());
-				if ( "Y".equalsIgnoreCase(_route.getNotifiy_teacher_present()) && TimeUtil.isSameDate(null,_route.getTeacher_present_time(),new Date().getTime())) {
+				if ( "Y".equalsIgnoreCase(_route.getNotifiy_teacher_present()) && (_route.getTeacher_present_time() != null) && 
+						TimeUtil.isSameDate(null,_route.getTeacher_present_time(),new Date().getTime())) {
 					extrMap.put("teacher_present", "Y");
 				}
 				_appliance.setExtra_data(extrMap);
