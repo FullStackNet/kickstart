@@ -41,7 +41,7 @@ public class HeaderView extends BaseView {
         UL menuContainer = new UL();
         MenuItem item = new MenuItem(" ", "/ui/myarea", ImageUtils.TAB_MONITOR);
         menuContainer.addChild(item.getItem());
-        item = new MenuItem(" ", "/ui/activity", ImageUtils.TAB_CONFIG);
+        item = new MenuItem(" ", "/ui/activity", ImageUtils.TAB_ACTIVITY);
         menuContainer.addChild(item.getItem());
         item = new MenuItem(" ", "/ui/report", ImageUtils.TAB_REPORTS);
         menuContainer.addChild(item.getItem());
