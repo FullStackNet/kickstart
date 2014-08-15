@@ -77,6 +77,8 @@
 			 ${thirdparty}/servlet-api-2.5-20081211.jar:
     		 ${thirdparty}/mail.jar:
     		 ${thirdparty}/c4t-db.jar:
+    		 ${thirdparty}/commons-fileupload-1.2.2.jar:
+    		 ${thirdparty}/guava-13.0.1.jar:
     		 ${thirdparty}/sigar.jar:
     		 ${thirdparty}/uuid-3.2.jar"
  	/>
