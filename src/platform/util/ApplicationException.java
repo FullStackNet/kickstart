@@ -30,6 +30,13 @@ public class ApplicationException extends Exception {
 		errorCode = code;
 	}
 	
+	public ApplicationException(int severity, ExceptionEnum code) {
+		super(code.toString());
+		this.severity = severity;
+		formatedMessage = String.format(code.toString());
+		errorCode = code;
+	}
+	
 	public String getMessage() {
 		if (formatedMessage == null)
 			return super.getMessage();

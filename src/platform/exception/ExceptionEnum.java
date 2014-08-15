@@ -131,4 +131,20 @@ public enum ExceptionEnum {
 			 return "Invalid User";
 		}
 	},
+	/*Invalid Request
+	 */
+	INVALID_REQUEST
+	{
+		 public String toString() {
+			 return "Invalid Request";
+		}
+	},
+	/*Invalid File Type
+	 */
+	INVALID_FILE_TYPE
+	{
+		 public String toString() {
+			 return "Invalid File Type";
+		}
+	},
 }

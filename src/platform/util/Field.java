@@ -40,16 +40,21 @@ public class Field {
 	private boolean encrypt;
 	private boolean isCounter;
 	
-	
 	public static final String FILE_TYPE_FIELD_SUFFIX = "ContentType";
 	public static final String TIME_STAMP_FIELD_SUFFIX = "TimeStamp";
+	public static final String FILE_EXTENSION_FIELD_SUFFIX = "Extension";
+	public static final String[] IMAGE_CONTENT_TYPES = new String[] {"image/jpeg", "image/gif", "image/png","image/x-png","image/pjpeg"};
+	public static final String[] DOC_EXTENSIONS = new String[] {"txt", "html", "htm", "doc", "docx", "rtf", "pdf", "odt"};
+	public static final String[] IMAGE_EXTENSIONS = new String[] {"jpeg", "jpg", "gif", "png", "pjpeg"};
+	public static final String DEFAULT_PROFILE_IMAGE_CONTENT_TYPE = "image/gif";
+	public static final String DEFAULT_PROFILE_IMAGE_PATH = "conf/images/noone.gif";
+	public static final String DEFAULT_ENTERPRISE_ACCOUNT_LOGO_CONTENT_TYPE = "image/jpeg";
+	public static final String DEFAULT_ENTERPRISE_ACCOUNT_LOGO_PATH = "conf/images/Company-logo-placeholder.jpg";
+	
 	public static final String[] DOC_CONTENT_TYPES = new String[] {
 			"text/plain", "text/html", "application/msword", "application/rtf",
 			"application/pdf",
 			"application/vnd.openxmlformats-officedocument.wordprocessingml.document" };
-	public static final String[] IMAGE_CONTENT_TYPES = new String[] {
-			"image/jpeg", "image/gif", "image/png", "image/x-png",
-			"image/pjpeg" };
 	public static final String DEFAULT_IMAGE_CONTENT_TYPE = "image/gif";
 	public static final String DEFAULT_IMAGE_PATH = "conf/images/noone.gif";
 	// Images will be converted to this default size (width) before storing in

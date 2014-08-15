@@ -92,7 +92,18 @@
 				"severity" : "ERROR",
 				"message": "Invalid User",
 				"description": "Invalid User"				 
+			},
+			{
+				"code" : "INVALID_REQUEST",
+				"severity" : "ERROR",
+				"message": "Invalid Request",
+				"description": "Invalid Request"			 
+			},
+			{
+				"code" : "INVALID_FILE_TYPE",
+				"severity" : "ERROR",
+				"message": "Invalid File Type",
+				"description": "Invalid File Type"			 
 			}
-			
 		]
 }
