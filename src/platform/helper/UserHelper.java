@@ -128,7 +128,7 @@ public class UserHelper extends BaseHelper {
 		for(int i=0; i < userResources.length; i++) {
 			ids[i] = userResources[i].getId();
 		}
-		return UserHelper.getInstance().getByJoining(ids, joinFields,null);
+		return UserHelper.getInstance().getByJoining(ids, joinFields,new String[]{user.FIELD_NAME});
 	}
 	
 }

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import platform.resource.BaseResource;
 import platform.resource.customer;
+import platform.resource.user;
 import platform.util.Util;
 
 
@@ -27,7 +28,7 @@ public class CustomerHelper extends BaseHelper {
 	
 	public ArrayList<Map<String, Object>> getCustomerListMap() {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		BaseResource[] resources = getAll();
+		BaseResource[] resources = getAll(new String[]{user.FIELD_NAME});
 		if (Util.isEmpty(resources))
 			return list;
 		for (BaseResource resource : resources) {
