@@ -41,6 +41,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_pick_drop = null;
 	private String feature_message2parent = null;
 	private String feature_message2school = null;
+	private String logo_file_name = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -65,6 +66,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_PICK_DROP = "feature_pick_drop";
 	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
 	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
+	public static String FIELD_LOGO_FILE_NAME = "logo_file_name";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -173,6 +175,10 @@ public abstract class Baseschool extends BaseResource {
 		feature_message2schoolField.setLength(1);
 		metaData.addField(feature_message2schoolField);
 
+		Field logo_file_nameField = new Field("logo_file_name", "String");
+		logo_file_nameField.setLength(128);
+		metaData.addField(logo_file_nameField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -208,6 +214,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_pick_drop = obj.feature_pick_drop;
 		this.feature_message2parent = obj.feature_message2parent;
 		this.feature_message2school = obj.feature_message2school;
+		this.logo_file_name = obj.logo_file_name;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -286,6 +293,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_message2parent", feature_message2parent);
 		if(feature_message2school != null)
 			map.put("feature_message2school", feature_message2school);
+		if(logo_file_name != null)
+			map.put("logo_file_name", logo_file_name);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -340,6 +349,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_message2parent", feature_message2parent);
 		if(feature_message2school != null)
 			map.put("feature_message2school", feature_message2school);
+		if(logo_file_name != null)
+			map.put("logo_file_name", logo_file_name);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -374,6 +385,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_pick_drop = (String) map.get("feature_pick_drop");
 		feature_message2parent = (String) map.get("feature_message2parent");
 		feature_message2school = (String) map.get("feature_message2school");
+		logo_file_name = (String) map.get("logo_file_name");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -466,6 +478,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_message2schoolObj = map.get("feature_message2school");
 		if(feature_message2schoolObj != null)
 			feature_message2school = feature_message2schoolObj.toString();
+
+		Object logo_file_nameObj = map.get("logo_file_name");
+		if(logo_file_nameObj != null)
+			logo_file_name = logo_file_nameObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -788,6 +804,22 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_message2school() {
 		this.feature_message2school = "N";
+	}
+
+	public String getLogo_file_name() {
+		return logo_file_name;
+	}
+
+	public String getLogo_file_nameEx() {
+		return logo_file_name != null ? logo_file_name : "";
+	}
+
+	public void setLogo_file_name(String logo_file_name) {
+		this.logo_file_name = logo_file_name;
+	}
+
+	public void unSetLogo_file_name() {
+		this.logo_file_name = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
