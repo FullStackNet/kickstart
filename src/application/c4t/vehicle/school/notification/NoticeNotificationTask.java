@@ -163,8 +163,9 @@ public class NoticeNotificationTask extends NotificationTask {
 				return;
 			String school_id = (String)data.get("SCHOOL_ID");
 			String type = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TYPE);
-			String class_name = (String)data.get("CLASS_NAME");
-			String class_section_name = (String)data.get("CLASS_SECTION_NAME");
+			String class_name = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_NAME);
+			String section_name = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SECTION_NAME);
+			String class_section_name = class_name+" "+section_name;
 			String title = (String)data.get("TITLE");
 			String description = (String)data.get("DESCRIPTION");
 			String date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE);
