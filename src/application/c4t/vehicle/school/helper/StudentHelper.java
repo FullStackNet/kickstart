@@ -1,8 +1,10 @@
 package application.c4t.vehicle.school.helper;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import platform.db.Expression;
+import platform.db.JoinField;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
@@ -63,12 +65,73 @@ public class StudentHelper extends BaseHelper {
 			}
 		}
 	}
+	
+	public ArrayList<Map<String,Object>> getClassStudentListMap(String[] school_ids, String class_name, ArrayList<JoinField> joinFields)  {
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
+		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		ArrayList<Map<String, Object>> list;
+		try {
+			list = getByJoining(e, joinFields, new String[]{student.FIELD_NAME});
+			return list;
+		} catch (ApplicationException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public ArrayList<Map<String,Object>> getSectionStudentListMap(String[] school_ids, String class_section_name, ArrayList<JoinField> joinFields)  {
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
+		Expression e2 = new Expression(student.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		ArrayList<Map<String, Object>> list;
+		try {
+			list = getByJoining(e, joinFields, new String[]{student.FIELD_NAME});
+			return list;
+		} catch (ApplicationException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public ArrayList<Map<String,Object>> getSchoolStudentListMap(String school_ids, ArrayList<JoinField> joinFields)  {
+		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_ids);
+		ArrayList<Map<String, Object>> list;
+		try {
+			list = getByJoining(e, joinFields, new String[]{student.FIELD_NAME});
+			return list;
+		} catch (ApplicationException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
+		return null;
+	}
+	public BaseResource[] getClassStudent(String[] school_ids, String class_name) {
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
+		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
+	
+	
 	public BaseResource[] getClassStudent(String school_id, String class_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
 		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e);
 	}
+	
+	public BaseResource[] getSectionStudent(String[] school_ids, String class_section_name) {
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
+		Expression e2 = new Expression(student.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
+	
 	
 	public BaseResource[] getSectionStudent(String school_id, String class_section_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
