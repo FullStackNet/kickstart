@@ -20,6 +20,7 @@ import java.util.*;
  */
 public abstract class Basestudent extends BaseResource {
 	private String id = null;
+	private String admission_no = null;
 	private String school_id = null;
 	private String name = null;
 	private String address1 = null;
@@ -55,6 +56,8 @@ public abstract class Basestudent extends BaseResource {
 	private String other_email_id = null;
 	private String class_name = null;
 	private String section_name = null;
+	private String dob = null;
+	private String transport = null;
 	private String class_section_name = null;
 	private String customer_id = null;
 	private String user_id = null;
@@ -78,6 +81,7 @@ public abstract class Basestudent extends BaseResource {
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_ADMISSION_NO = "admission_no";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_ADDRESS1 = "address1";
@@ -113,6 +117,8 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_OTHER_EMAIL_ID = "other_email_id";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_SECTION_NAME = "section_name";
+	public static String FIELD_DOB = "dob";
+	public static String FIELD_TRANSPORT = "transport";
 	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
@@ -145,6 +151,11 @@ public abstract class Basestudent extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field admission_noField = new Field("admission_no", "String");
+		admission_noField.setIndexed(true);
+		admission_noField.setLength(128);
+		metaData.addField(admission_noField);
 
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setIndexed(true);
@@ -296,6 +307,15 @@ public abstract class Basestudent extends BaseResource {
 		section_nameField.setLength(16);
 		metaData.addField(section_nameField);
 
+		Field dobField = new Field("dob", "String");
+		dobField.setLength(16);
+		metaData.addField(dobField);
+
+		Field transportField = new Field("transport", "String");
+		transportField.setDefaultValue("N");
+		transportField.setLength(1);
+		metaData.addField(transportField);
+
 		Field class_section_nameField = new Field("class_section_name", "String");
 		class_section_nameField.setIndexed(true);
 		class_section_nameField.setLength(32);
@@ -399,6 +419,7 @@ public abstract class Basestudent extends BaseResource {
 
 	public Basestudent(Basestudent obj) {
 		this.id = obj.id;
+		this.admission_no = obj.admission_no;
 		this.school_id = obj.school_id;
 		this.name = obj.name;
 		this.address1 = obj.address1;
@@ -434,6 +455,8 @@ public abstract class Basestudent extends BaseResource {
 		this.other_email_id = obj.other_email_id;
 		this.class_name = obj.class_name;
 		this.section_name = obj.section_name;
+		this.dob = obj.dob;
+		this.transport = obj.transport;
 		this.class_section_name = obj.class_section_name;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
@@ -462,6 +485,8 @@ public abstract class Basestudent extends BaseResource {
 	}
 
 	private void setDefaultValues() {
+		if(transport == null)
+			transport = "N";
 		if(stopage_alert_sms == null)
 			stopage_alert_sms = "N";
 		if(stopage_alert_mobile_app == null)
@@ -488,6 +513,8 @@ public abstract class Basestudent extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(admission_no != null)
+			map.put("admission_no", admission_no);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(name != null)
@@ -558,6 +585,10 @@ public abstract class Basestudent extends BaseResource {
 			map.put("class_name", class_name);
 		if(section_name != null)
 			map.put("section_name", section_name);
+		if(dob != null)
+			map.put("dob", dob);
+		if(transport != null)
+			map.put("transport", transport);
 		if(class_section_name != null)
 			map.put("class_section_name", class_section_name);
 		if(customer_id != null)
@@ -610,6 +641,8 @@ public abstract class Basestudent extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(admission_no != null)
+			map.put("admission_no", admission_no);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(name != null)
@@ -680,6 +713,10 @@ public abstract class Basestudent extends BaseResource {
 			map.put("class_name", class_name);
 		if(section_name != null)
 			map.put("section_name", section_name);
+		if(dob != null)
+			map.put("dob", dob);
+		if(transport != null)
+			map.put("transport", transport);
 		if(class_section_name != null)
 			map.put("class_section_name", class_section_name);
 		if(validateCustomer_id(add))
@@ -733,6 +770,7 @@ public abstract class Basestudent extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		admission_no = (String) map.get("admission_no");
 		school_id = (String) map.get("school_id");
 		name = (String) map.get("name");
 		address1 = (String) map.get("address1");
@@ -768,6 +806,8 @@ public abstract class Basestudent extends BaseResource {
 		other_email_id = (String) map.get("other_email_id");
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
+		dob = (String) map.get("dob");
+		transport = (String) map.get("transport");
 		class_section_name = (String) map.get("class_section_name");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
@@ -796,6 +836,10 @@ public abstract class Basestudent extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object admission_noObj = map.get("admission_no");
+		if(admission_noObj != null)
+			admission_no = admission_noObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -937,6 +981,14 @@ public abstract class Basestudent extends BaseResource {
 		if(section_nameObj != null)
 			section_name = section_nameObj.toString();
 
+		Object dobObj = map.get("dob");
+		if(dobObj != null)
+			dob = dobObj.toString();
+
+		Object transportObj = map.get("transport");
+		if(transportObj != null)
+			transport = transportObj.toString();
+
 		Object class_section_nameObj = map.get("class_section_name");
 		if(class_section_nameObj != null)
 			class_section_name = class_section_nameObj.toString();
@@ -1046,6 +1098,22 @@ public abstract class Basestudent extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getAdmission_no() {
+		return admission_no;
+	}
+
+	public String getAdmission_noEx() {
+		return admission_no != null ? admission_no : "";
+	}
+
+	public void setAdmission_no(String admission_no) {
+		this.admission_no = admission_no;
+	}
+
+	public void unSetAdmission_no() {
+		this.admission_no = null;
 	}
 
 	public String getSchool_id() {
@@ -1606,6 +1674,34 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetSection_name() {
 		this.section_name = null;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public String getDobEx() {
+		return dob != null ? dob : "";
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	public void unSetDob() {
+		this.dob = null;
+	}
+
+	public String getTransport() {
+		return transport != null ? transport : "N";
+	}
+
+	public void setTransport(String transport) {
+		this.transport = transport;
+	}
+
+	public void unSetTransport() {
+		this.transport = "N";
 	}
 
 	public String getClass_section_name() {

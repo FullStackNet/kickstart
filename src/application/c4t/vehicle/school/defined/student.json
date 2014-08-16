@@ -11,6 +11,12 @@
 				'required': true,
 				'type':'String'
 			},
+			'admission_no':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'school_id':
 			{
 				'name':'school_id',
@@ -203,6 +209,17 @@
 			'section_name':
 			{
 				'length': 16,
+				'type':'String'
+			},
+			'dob':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'transport':
+			{
+				'length': 1,
+				'default' :"N",
 				'type':'String'
 			},
 			'class_section_name':

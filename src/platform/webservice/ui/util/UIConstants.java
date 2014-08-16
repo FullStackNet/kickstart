@@ -50,6 +50,7 @@ public class UIConstants {
 		ApplicationConstants.APPLICATION_NAME_MESSAGE_BUS
 	};
 	public final static String[] CLASSES_ENUM = new String[] {
+			"PLAY SCHOOL",
 			"NURSERY",
 			"LKG",
 			"UKG",
@@ -66,7 +67,36 @@ public class UIConstants {
 			"XI",
 			"XII",
 	};
-	
+
+	public final static String[] SECTION_ENUM = new String[] {
+		"A",
+		"B",
+		"C",
+		"D",
+		"E",
+		"F",
+		"G",
+		"H",
+		"I",
+		"J",
+		"K",
+		"L",
+		"M",
+		"N",
+		"O",
+		"P",
+		"Q",
+		"R",
+		"S",
+		"T",
+		"U",
+		"V",
+		"W",
+		"X",
+		"Y",
+		"Z",		
+};
+
 	public final static IdValue[] NOTICE_TYPE_ENUM = new IdValue[] {
 		new IdValue("SCHOOL", "Whole School"),
 		new IdValue("CLASS", "Whole class"),
