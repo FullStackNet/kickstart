@@ -18,6 +18,7 @@ import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
 import application.c4t.vehicle.school.helper.Absent_detailHelper;
+import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.student;
 
@@ -115,6 +116,12 @@ public class AbsentNotificationTask extends NotificationTask {
 					str = str +","+_student.getNameEx();
 				}
 				studentMap.put(_users.get(j).getId(), str);
+			}
+			try {
+				StudentHelper.getInstance().incrementCounter(_student.getId(), student.FIELD_ABSENT_REPORT_COUNT, 1);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		sendNotification2Users(_notification, userMap, studentMap,appAlert,smsAlert,emailAlert,
