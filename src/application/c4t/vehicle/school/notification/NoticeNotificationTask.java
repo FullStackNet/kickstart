@@ -145,6 +145,12 @@ public class NoticeNotificationTask extends NotificationTask {
 				}
 				studentMap.put(_users.get(j).getId(), str);
 			}
+			try {
+				StudentHelper.getInstance().incrementCounter(_student.getId(), student.FIELD_NOTICE_COUNT, 1);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		sendNotification2Users(_notification, userMap, studentMap,appAlert,smsAlert,emailAlert,
 				school_id,
