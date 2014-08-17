@@ -312,12 +312,12 @@
 				'type':'int',
 				default : 0
 			},
-			'absent_report':
+			'absent_report_count':
 			{
 				'type':'int',
 				default : 0
 			},
-			'message2school_report':
+			'message2school_count':
 			{
 				'type':'int',
 				default : 0

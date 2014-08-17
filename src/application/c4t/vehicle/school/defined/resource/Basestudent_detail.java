@@ -77,8 +77,8 @@ public abstract class Basestudent_detail extends BaseResource {
 	private Integer homework_count = null;
 	private Integer notice_count = null;
 	private Integer transport_count = null;
-	private Integer absent_report = null;
-	private Integer message2school_report = null;
+	private Integer absent_report_count = null;
+	private Integer message2school_count = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -139,8 +139,8 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_HOMEWORK_COUNT = "homework_count";
 	public static String FIELD_NOTICE_COUNT = "notice_count";
 	public static String FIELD_TRANSPORT_COUNT = "transport_count";
-	public static String FIELD_ABSENT_REPORT = "absent_report";
-	public static String FIELD_MESSAGE2SCHOOL_REPORT = "message2school_report";
+	public static String FIELD_ABSENT_REPORT_COUNT = "absent_report_count";
+	public static String FIELD_MESSAGE2SCHOOL_COUNT = "message2school_count";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -395,13 +395,13 @@ public abstract class Basestudent_detail extends BaseResource {
 		transport_countField.setDefaultValue(0);
 		metaData.addField(transport_countField);
 
-		Field absent_reportField = new Field("absent_report", "int");
-		absent_reportField.setDefaultValue(0);
-		metaData.addField(absent_reportField);
+		Field absent_report_countField = new Field("absent_report_count", "int");
+		absent_report_countField.setDefaultValue(0);
+		metaData.addField(absent_report_countField);
 
-		Field message2school_reportField = new Field("message2school_report", "int");
-		message2school_reportField.setDefaultValue(0);
-		metaData.addField(message2school_reportField);
+		Field message2school_countField = new Field("message2school_count", "int");
+		message2school_countField.setDefaultValue(0);
+		metaData.addField(message2school_countField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -474,8 +474,8 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.homework_count = obj.homework_count;
 		this.notice_count = obj.notice_count;
 		this.transport_count = obj.transport_count;
-		this.absent_report = obj.absent_report;
-		this.message2school_report = obj.message2school_report;
+		this.absent_report_count = obj.absent_report_count;
+		this.message2school_count = obj.message2school_count;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -524,10 +524,10 @@ public abstract class Basestudent_detail extends BaseResource {
 			notice_count = 0;
 		if(transport_count == null)
 			transport_count = 0;
-		if(absent_report == null)
-			absent_report = 0;
-		if(message2school_report == null)
-			message2school_report = 0;
+		if(absent_report_count == null)
+			absent_report_count = 0;
+		if(message2school_count == null)
+			message2school_count = 0;
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -648,10 +648,10 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("notice_count", notice_count);
 		if(transport_count != null)
 			map.put("transport_count", transport_count);
-		if(absent_report != null)
-			map.put("absent_report", absent_report);
-		if(message2school_report != null)
-			map.put("message2school_report", message2school_report);
+		if(absent_report_count != null)
+			map.put("absent_report_count", absent_report_count);
+		if(message2school_count != null)
+			map.put("message2school_count", message2school_count);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -778,10 +778,10 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("notice_count", notice_count);
 		if(transport_count != null)
 			map.put("transport_count", transport_count);
-		if(absent_report != null)
-			map.put("absent_report", absent_report);
-		if(message2school_report != null)
-			map.put("message2school_report", message2school_report);
+		if(absent_report_count != null)
+			map.put("absent_report_count", absent_report_count);
+		if(message2school_count != null)
+			map.put("message2school_count", message2school_count);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -852,8 +852,8 @@ public abstract class Basestudent_detail extends BaseResource {
 		homework_count = (Integer) map.get("homework_count");
 		notice_count = (Integer) map.get("notice_count");
 		transport_count = (Integer) map.get("transport_count");
-		absent_report = (Integer) map.get("absent_report");
-		message2school_report = (Integer) map.get("message2school_report");
+		absent_report_count = (Integer) map.get("absent_report_count");
+		message2school_count = (Integer) map.get("message2school_count");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1091,13 +1091,13 @@ public abstract class Basestudent_detail extends BaseResource {
 		if(transport_countObj != null)
 			transport_count = new Integer(transport_countObj.toString());
 
-		Object absent_reportObj = map.get("absent_report");
-		if(absent_reportObj != null)
-			absent_report = new Integer(absent_reportObj.toString());
+		Object absent_report_countObj = map.get("absent_report_count");
+		if(absent_report_countObj != null)
+			absent_report_count = new Integer(absent_report_countObj.toString());
 
-		Object message2school_reportObj = map.get("message2school_report");
-		if(message2school_reportObj != null)
-			message2school_report = new Integer(message2school_reportObj.toString());
+		Object message2school_countObj = map.get("message2school_count");
+		if(message2school_countObj != null)
+			message2school_count = new Integer(message2school_countObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1990,36 +1990,36 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.transport_count = 0;
 	}
 
-	public Integer getAbsent_report() {
-		return absent_report != null ? absent_report : 0;
+	public Integer getAbsent_report_count() {
+		return absent_report_count != null ? absent_report_count : 0;
 	}
 
-	public void setAbsent_report(int absent_report) {
-		this.absent_report = absent_report;
+	public void setAbsent_report_count(int absent_report_count) {
+		this.absent_report_count = absent_report_count;
 	}
 
-	public void setAbsent_report(Integer absent_report) {
-		this.absent_report = absent_report;
+	public void setAbsent_report_count(Integer absent_report_count) {
+		this.absent_report_count = absent_report_count;
 	}
 
-	public void unSetAbsent_report() {
-		this.absent_report = 0;
+	public void unSetAbsent_report_count() {
+		this.absent_report_count = 0;
 	}
 
-	public Integer getMessage2school_report() {
-		return message2school_report != null ? message2school_report : 0;
+	public Integer getMessage2school_count() {
+		return message2school_count != null ? message2school_count : 0;
 	}
 
-	public void setMessage2school_report(int message2school_report) {
-		this.message2school_report = message2school_report;
+	public void setMessage2school_count(int message2school_count) {
+		this.message2school_count = message2school_count;
 	}
 
-	public void setMessage2school_report(Integer message2school_report) {
-		this.message2school_report = message2school_report;
+	public void setMessage2school_count(Integer message2school_count) {
+		this.message2school_count = message2school_count;
 	}
 
-	public void unSetMessage2school_report() {
-		this.message2school_report = 0;
+	public void unSetMessage2school_count() {
+		this.message2school_count = 0;
 	}
 
 	public Map<String, Object> getExtra_data() {
