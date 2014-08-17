@@ -286,6 +286,41 @@
 			{
 				'length': 128,
 				'type':'String'
+			},
+					'daily_activity_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'home_practice_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'homework_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'notice_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'transport_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'absent_report':
+			{
+				'type':'int',
+				default : 0
+			},
+			'message2school_report':
+			{
+				'type':'int',
+				default : 0
 			}
 		}
 	}

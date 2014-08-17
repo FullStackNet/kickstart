@@ -72,6 +72,13 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String feature_message2school = null;
 	private String only_tracking = null;
 	private String logo_file_name = null;
+	private Integer daily_activity_count = null;
+	private Integer home_practice_count = null;
+	private Integer homework_count = null;
+	private Integer notice_count = null;
+	private Integer transport_count = null;
+	private Integer absent_report = null;
+	private Integer message2school_report = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -127,6 +134,13 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
 	public static String FIELD_ONLY_TRACKING = "only_tracking";
 	public static String FIELD_LOGO_FILE_NAME = "logo_file_name";
+	public static String FIELD_DAILY_ACTIVITY_COUNT = "daily_activity_count";
+	public static String FIELD_HOME_PRACTICE_COUNT = "home_practice_count";
+	public static String FIELD_HOMEWORK_COUNT = "homework_count";
+	public static String FIELD_NOTICE_COUNT = "notice_count";
+	public static String FIELD_TRANSPORT_COUNT = "transport_count";
+	public static String FIELD_ABSENT_REPORT = "absent_report";
+	public static String FIELD_MESSAGE2SCHOOL_REPORT = "message2school_report";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -361,6 +375,34 @@ public abstract class Basestudent_detail extends BaseResource {
 		logo_file_nameField.setLength(128);
 		metaData.addField(logo_file_nameField);
 
+		Field daily_activity_countField = new Field("daily_activity_count", "int");
+		daily_activity_countField.setDefaultValue(0);
+		metaData.addField(daily_activity_countField);
+
+		Field home_practice_countField = new Field("home_practice_count", "int");
+		home_practice_countField.setDefaultValue(0);
+		metaData.addField(home_practice_countField);
+
+		Field homework_countField = new Field("homework_count", "int");
+		homework_countField.setDefaultValue(0);
+		metaData.addField(homework_countField);
+
+		Field notice_countField = new Field("notice_count", "int");
+		notice_countField.setDefaultValue(0);
+		metaData.addField(notice_countField);
+
+		Field transport_countField = new Field("transport_count", "int");
+		transport_countField.setDefaultValue(0);
+		metaData.addField(transport_countField);
+
+		Field absent_reportField = new Field("absent_report", "int");
+		absent_reportField.setDefaultValue(0);
+		metaData.addField(absent_reportField);
+
+		Field message2school_reportField = new Field("message2school_report", "int");
+		message2school_reportField.setDefaultValue(0);
+		metaData.addField(message2school_reportField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -427,6 +469,13 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.feature_message2school = obj.feature_message2school;
 		this.only_tracking = obj.only_tracking;
 		this.logo_file_name = obj.logo_file_name;
+		this.daily_activity_count = obj.daily_activity_count;
+		this.home_practice_count = obj.home_practice_count;
+		this.homework_count = obj.homework_count;
+		this.notice_count = obj.notice_count;
+		this.transport_count = obj.transport_count;
+		this.absent_report = obj.absent_report;
+		this.message2school_report = obj.message2school_report;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -465,6 +514,20 @@ public abstract class Basestudent_detail extends BaseResource {
 			feature_message2school = "N";
 		if(only_tracking == null)
 			only_tracking = "N";
+		if(daily_activity_count == null)
+			daily_activity_count = 0;
+		if(home_practice_count == null)
+			home_practice_count = 0;
+		if(homework_count == null)
+			homework_count = 0;
+		if(notice_count == null)
+			notice_count = 0;
+		if(transport_count == null)
+			transport_count = 0;
+		if(absent_report == null)
+			absent_report = 0;
+		if(message2school_report == null)
+			message2school_report = 0;
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -575,6 +638,20 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("only_tracking", only_tracking);
 		if(logo_file_name != null)
 			map.put("logo_file_name", logo_file_name);
+		if(daily_activity_count != null)
+			map.put("daily_activity_count", daily_activity_count);
+		if(home_practice_count != null)
+			map.put("home_practice_count", home_practice_count);
+		if(homework_count != null)
+			map.put("homework_count", homework_count);
+		if(notice_count != null)
+			map.put("notice_count", notice_count);
+		if(transport_count != null)
+			map.put("transport_count", transport_count);
+		if(absent_report != null)
+			map.put("absent_report", absent_report);
+		if(message2school_report != null)
+			map.put("message2school_report", message2school_report);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -691,6 +768,20 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("only_tracking", only_tracking);
 		if(logo_file_name != null)
 			map.put("logo_file_name", logo_file_name);
+		if(daily_activity_count != null)
+			map.put("daily_activity_count", daily_activity_count);
+		if(home_practice_count != null)
+			map.put("home_practice_count", home_practice_count);
+		if(homework_count != null)
+			map.put("homework_count", homework_count);
+		if(notice_count != null)
+			map.put("notice_count", notice_count);
+		if(transport_count != null)
+			map.put("transport_count", transport_count);
+		if(absent_report != null)
+			map.put("absent_report", absent_report);
+		if(message2school_report != null)
+			map.put("message2school_report", message2school_report);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -756,6 +847,13 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_message2school = (String) map.get("feature_message2school");
 		only_tracking = (String) map.get("only_tracking");
 		logo_file_name = (String) map.get("logo_file_name");
+		daily_activity_count = (Integer) map.get("daily_activity_count");
+		home_practice_count = (Integer) map.get("home_practice_count");
+		homework_count = (Integer) map.get("homework_count");
+		notice_count = (Integer) map.get("notice_count");
+		transport_count = (Integer) map.get("transport_count");
+		absent_report = (Integer) map.get("absent_report");
+		message2school_report = (Integer) map.get("message2school_report");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -972,6 +1070,34 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object logo_file_nameObj = map.get("logo_file_name");
 		if(logo_file_nameObj != null)
 			logo_file_name = logo_file_nameObj.toString();
+
+		Object daily_activity_countObj = map.get("daily_activity_count");
+		if(daily_activity_countObj != null)
+			daily_activity_count = new Integer(daily_activity_countObj.toString());
+
+		Object home_practice_countObj = map.get("home_practice_count");
+		if(home_practice_countObj != null)
+			home_practice_count = new Integer(home_practice_countObj.toString());
+
+		Object homework_countObj = map.get("homework_count");
+		if(homework_countObj != null)
+			homework_count = new Integer(homework_countObj.toString());
+
+		Object notice_countObj = map.get("notice_count");
+		if(notice_countObj != null)
+			notice_count = new Integer(notice_countObj.toString());
+
+		Object transport_countObj = map.get("transport_count");
+		if(transport_countObj != null)
+			transport_count = new Integer(transport_countObj.toString());
+
+		Object absent_reportObj = map.get("absent_report");
+		if(absent_reportObj != null)
+			absent_report = new Integer(absent_reportObj.toString());
+
+		Object message2school_reportObj = map.get("message2school_report");
+		if(message2school_reportObj != null)
+			message2school_report = new Integer(message2school_reportObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1782,6 +1908,118 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetLogo_file_name() {
 		this.logo_file_name = null;
+	}
+
+	public Integer getDaily_activity_count() {
+		return daily_activity_count != null ? daily_activity_count : 0;
+	}
+
+	public void setDaily_activity_count(int daily_activity_count) {
+		this.daily_activity_count = daily_activity_count;
+	}
+
+	public void setDaily_activity_count(Integer daily_activity_count) {
+		this.daily_activity_count = daily_activity_count;
+	}
+
+	public void unSetDaily_activity_count() {
+		this.daily_activity_count = 0;
+	}
+
+	public Integer getHome_practice_count() {
+		return home_practice_count != null ? home_practice_count : 0;
+	}
+
+	public void setHome_practice_count(int home_practice_count) {
+		this.home_practice_count = home_practice_count;
+	}
+
+	public void setHome_practice_count(Integer home_practice_count) {
+		this.home_practice_count = home_practice_count;
+	}
+
+	public void unSetHome_practice_count() {
+		this.home_practice_count = 0;
+	}
+
+	public Integer getHomework_count() {
+		return homework_count != null ? homework_count : 0;
+	}
+
+	public void setHomework_count(int homework_count) {
+		this.homework_count = homework_count;
+	}
+
+	public void setHomework_count(Integer homework_count) {
+		this.homework_count = homework_count;
+	}
+
+	public void unSetHomework_count() {
+		this.homework_count = 0;
+	}
+
+	public Integer getNotice_count() {
+		return notice_count != null ? notice_count : 0;
+	}
+
+	public void setNotice_count(int notice_count) {
+		this.notice_count = notice_count;
+	}
+
+	public void setNotice_count(Integer notice_count) {
+		this.notice_count = notice_count;
+	}
+
+	public void unSetNotice_count() {
+		this.notice_count = 0;
+	}
+
+	public Integer getTransport_count() {
+		return transport_count != null ? transport_count : 0;
+	}
+
+	public void setTransport_count(int transport_count) {
+		this.transport_count = transport_count;
+	}
+
+	public void setTransport_count(Integer transport_count) {
+		this.transport_count = transport_count;
+	}
+
+	public void unSetTransport_count() {
+		this.transport_count = 0;
+	}
+
+	public Integer getAbsent_report() {
+		return absent_report != null ? absent_report : 0;
+	}
+
+	public void setAbsent_report(int absent_report) {
+		this.absent_report = absent_report;
+	}
+
+	public void setAbsent_report(Integer absent_report) {
+		this.absent_report = absent_report;
+	}
+
+	public void unSetAbsent_report() {
+		this.absent_report = 0;
+	}
+
+	public Integer getMessage2school_report() {
+		return message2school_report != null ? message2school_report : 0;
+	}
+
+	public void setMessage2school_report(int message2school_report) {
+		this.message2school_report = message2school_report;
+	}
+
+	public void setMessage2school_report(Integer message2school_report) {
+		this.message2school_report = message2school_report;
+	}
+
+	public void unSetMessage2school_report() {
+		this.message2school_report = 0;
 	}
 
 	public Map<String, Object> getExtra_data() {
