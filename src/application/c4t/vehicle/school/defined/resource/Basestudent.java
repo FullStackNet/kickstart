@@ -78,6 +78,13 @@ public abstract class Basestudent extends BaseResource {
 	private String card_swipe_drop_drop = null;
 	private Long card_swipe_drop_drop_time = null;
 	private Integer total_absent = null;
+	private Integer daily_activity_count = null;
+	private Integer home_practice_count = null;
+	private Integer homework_count = null;
+	private Integer notice_count = null;
+	private Integer transport_count = null;
+	private Integer absent_report = null;
+	private Integer message2school_report = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -139,6 +146,13 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_CARD_SWIPE_DROP_DROP = "card_swipe_drop_drop";
 	public static String FIELD_CARD_SWIPE_DROP_DROP_TIME = "card_swipe_drop_drop_time";
 	public static String FIELD_TOTAL_ABSENT = "total_absent";
+	public static String FIELD_DAILY_ACTIVITY_COUNT = "daily_activity_count";
+	public static String FIELD_HOME_PRACTICE_COUNT = "home_practice_count";
+	public static String FIELD_HOMEWORK_COUNT = "homework_count";
+	public static String FIELD_NOTICE_COUNT = "notice_count";
+	public static String FIELD_TRANSPORT_COUNT = "transport_count";
+	public static String FIELD_ABSENT_REPORT = "absent_report";
+	public static String FIELD_MESSAGE2SCHOOL_REPORT = "message2school_report";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -405,6 +419,27 @@ public abstract class Basestudent extends BaseResource {
 		Field total_absentField = new Field("total_absent", "int");
 		metaData.addField(total_absentField);
 
+		Field daily_activity_countField = new Field("daily_activity_count", "int");
+		metaData.addField(daily_activity_countField);
+
+		Field home_practice_countField = new Field("home_practice_count", "int");
+		metaData.addField(home_practice_countField);
+
+		Field homework_countField = new Field("homework_count", "int");
+		metaData.addField(homework_countField);
+
+		Field notice_countField = new Field("notice_count", "int");
+		metaData.addField(notice_countField);
+
+		Field transport_countField = new Field("transport_count", "int");
+		metaData.addField(transport_countField);
+
+		Field absent_reportField = new Field("absent_report", "int");
+		metaData.addField(absent_reportField);
+
+		Field message2school_reportField = new Field("message2school_report", "int");
+		metaData.addField(message2school_reportField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -477,6 +512,13 @@ public abstract class Basestudent extends BaseResource {
 		this.card_swipe_drop_drop = obj.card_swipe_drop_drop;
 		this.card_swipe_drop_drop_time = obj.card_swipe_drop_drop_time;
 		this.total_absent = obj.total_absent;
+		this.daily_activity_count = obj.daily_activity_count;
+		this.home_practice_count = obj.home_practice_count;
+		this.homework_count = obj.homework_count;
+		this.notice_count = obj.notice_count;
+		this.transport_count = obj.transport_count;
+		this.absent_report = obj.absent_report;
+		this.message2school_report = obj.message2school_report;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -629,6 +671,20 @@ public abstract class Basestudent extends BaseResource {
 			map.put("card_swipe_drop_drop_time", card_swipe_drop_drop_time);
 		if(total_absent != null)
 			map.put("total_absent", total_absent);
+		if(daily_activity_count != null)
+			map.put("daily_activity_count", daily_activity_count);
+		if(home_practice_count != null)
+			map.put("home_practice_count", home_practice_count);
+		if(homework_count != null)
+			map.put("homework_count", homework_count);
+		if(notice_count != null)
+			map.put("notice_count", notice_count);
+		if(transport_count != null)
+			map.put("transport_count", transport_count);
+		if(absent_report != null)
+			map.put("absent_report", absent_report);
+		if(message2school_report != null)
+			map.put("message2school_report", message2school_report);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -757,6 +813,20 @@ public abstract class Basestudent extends BaseResource {
 			map.put("card_swipe_drop_drop_time", card_swipe_drop_drop_time);
 		if(total_absent != null)
 			map.put("total_absent", total_absent);
+		if(daily_activity_count != null)
+			map.put("daily_activity_count", daily_activity_count);
+		if(home_practice_count != null)
+			map.put("home_practice_count", home_practice_count);
+		if(homework_count != null)
+			map.put("homework_count", homework_count);
+		if(notice_count != null)
+			map.put("notice_count", notice_count);
+		if(transport_count != null)
+			map.put("transport_count", transport_count);
+		if(absent_report != null)
+			map.put("absent_report", absent_report);
+		if(message2school_report != null)
+			map.put("message2school_report", message2school_report);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -828,6 +898,13 @@ public abstract class Basestudent extends BaseResource {
 		card_swipe_drop_drop = (String) map.get("card_swipe_drop_drop");
 		card_swipe_drop_drop_time = (Long) map.get("card_swipe_drop_drop_time");
 		total_absent = (Integer) map.get("total_absent");
+		daily_activity_count = (Integer) map.get("daily_activity_count");
+		home_practice_count = (Integer) map.get("home_practice_count");
+		homework_count = (Integer) map.get("homework_count");
+		notice_count = (Integer) map.get("notice_count");
+		transport_count = (Integer) map.get("transport_count");
+		absent_report = (Integer) map.get("absent_report");
+		message2school_report = (Integer) map.get("message2school_report");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1068,6 +1145,34 @@ public abstract class Basestudent extends BaseResource {
 		Object total_absentObj = map.get("total_absent");
 		if(total_absentObj != null)
 			total_absent = new Integer(total_absentObj.toString());
+
+		Object daily_activity_countObj = map.get("daily_activity_count");
+		if(daily_activity_countObj != null)
+			daily_activity_count = new Integer(daily_activity_countObj.toString());
+
+		Object home_practice_countObj = map.get("home_practice_count");
+		if(home_practice_countObj != null)
+			home_practice_count = new Integer(home_practice_countObj.toString());
+
+		Object homework_countObj = map.get("homework_count");
+		if(homework_countObj != null)
+			homework_count = new Integer(homework_countObj.toString());
+
+		Object notice_countObj = map.get("notice_count");
+		if(notice_countObj != null)
+			notice_count = new Integer(notice_countObj.toString());
+
+		Object transport_countObj = map.get("transport_count");
+		if(transport_countObj != null)
+			transport_count = new Integer(transport_countObj.toString());
+
+		Object absent_reportObj = map.get("absent_report");
+		if(absent_reportObj != null)
+			absent_report = new Integer(absent_reportObj.toString());
+
+		Object message2school_reportObj = map.get("message2school_report");
+		if(message2school_reportObj != null)
+			message2school_report = new Integer(message2school_reportObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1970,6 +2075,146 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetTotal_absent() {
 		this.total_absent = null;
+	}
+
+	public Integer getDaily_activity_count() {
+		return daily_activity_count;
+	}
+
+	public int getDaily_activity_countEx() {
+		return daily_activity_count != null ? daily_activity_count : 0;
+	}
+
+	public void setDaily_activity_count(int daily_activity_count) {
+		this.daily_activity_count = daily_activity_count;
+	}
+
+	public void setDaily_activity_count(Integer daily_activity_count) {
+		this.daily_activity_count = daily_activity_count;
+	}
+
+	public void unSetDaily_activity_count() {
+		this.daily_activity_count = null;
+	}
+
+	public Integer getHome_practice_count() {
+		return home_practice_count;
+	}
+
+	public int getHome_practice_countEx() {
+		return home_practice_count != null ? home_practice_count : 0;
+	}
+
+	public void setHome_practice_count(int home_practice_count) {
+		this.home_practice_count = home_practice_count;
+	}
+
+	public void setHome_practice_count(Integer home_practice_count) {
+		this.home_practice_count = home_practice_count;
+	}
+
+	public void unSetHome_practice_count() {
+		this.home_practice_count = null;
+	}
+
+	public Integer getHomework_count() {
+		return homework_count;
+	}
+
+	public int getHomework_countEx() {
+		return homework_count != null ? homework_count : 0;
+	}
+
+	public void setHomework_count(int homework_count) {
+		this.homework_count = homework_count;
+	}
+
+	public void setHomework_count(Integer homework_count) {
+		this.homework_count = homework_count;
+	}
+
+	public void unSetHomework_count() {
+		this.homework_count = null;
+	}
+
+	public Integer getNotice_count() {
+		return notice_count;
+	}
+
+	public int getNotice_countEx() {
+		return notice_count != null ? notice_count : 0;
+	}
+
+	public void setNotice_count(int notice_count) {
+		this.notice_count = notice_count;
+	}
+
+	public void setNotice_count(Integer notice_count) {
+		this.notice_count = notice_count;
+	}
+
+	public void unSetNotice_count() {
+		this.notice_count = null;
+	}
+
+	public Integer getTransport_count() {
+		return transport_count;
+	}
+
+	public int getTransport_countEx() {
+		return transport_count != null ? transport_count : 0;
+	}
+
+	public void setTransport_count(int transport_count) {
+		this.transport_count = transport_count;
+	}
+
+	public void setTransport_count(Integer transport_count) {
+		this.transport_count = transport_count;
+	}
+
+	public void unSetTransport_count() {
+		this.transport_count = null;
+	}
+
+	public Integer getAbsent_report() {
+		return absent_report;
+	}
+
+	public int getAbsent_reportEx() {
+		return absent_report != null ? absent_report : 0;
+	}
+
+	public void setAbsent_report(int absent_report) {
+		this.absent_report = absent_report;
+	}
+
+	public void setAbsent_report(Integer absent_report) {
+		this.absent_report = absent_report;
+	}
+
+	public void unSetAbsent_report() {
+		this.absent_report = null;
+	}
+
+	public Integer getMessage2school_report() {
+		return message2school_report;
+	}
+
+	public int getMessage2school_reportEx() {
+		return message2school_report != null ? message2school_report : 0;
+	}
+
+	public void setMessage2school_report(int message2school_report) {
+		this.message2school_report = message2school_report;
+	}
+
+	public void setMessage2school_report(Integer message2school_report) {
+		this.message2school_report = message2school_report;
+	}
+
+	public void unSetMessage2school_report() {
+		this.message2school_report = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

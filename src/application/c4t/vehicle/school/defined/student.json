@@ -333,6 +333,34 @@
 			'total_absent':
 			{
 				'type':'int'
+			},
+			'daily_activity_count':
+			{
+				'type':'int'
+			},
+			'home_practice_count':
+			{
+				'type':'int'
+			},
+			'homework_count':
+			{
+				'type':'int'
+			},
+			'notice_count':
+			{
+				'type':'int'
+			},
+			'transport_count':
+			{
+				'type':'int'
+			},
+			'absent_report':
+			{
+				'type':'int'
+			},
+			'message2school_report':
+			{
+				'type':'int'
 			}
 		}
 	}
