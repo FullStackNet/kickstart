@@ -1332,12 +1332,10 @@ public class Util {
 				.asBufferedImage();
 	}
 
-	public static ByteArrayOutputStream minifyImageWidth(InputStream inputStream, Integer width, Integer height) throws IOException {
+	public static ByteArrayOutputStream minifyImageWidth(BufferedImage image, Integer width, Integer height) throws IOException {
 		ByteArrayOutputStream outputStreams = null;
 		outputStreams = new ByteArrayOutputStream();
-		BufferedImage image = ImageIO.read(inputStream);
 		int originalWidth = image.getWidth();
-
 		boolean fitExact = height == null ? false : true;
 		BufferedImage newImage;
 		newImage = image;

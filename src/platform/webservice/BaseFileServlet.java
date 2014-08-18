@@ -49,7 +49,7 @@ public class BaseFileServlet extends HttpServlet {
 		response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
 	}
 	
-	protected void saveFile(String id,InputStream inputFileStream,String extention) {
+	protected void saveFile(String id,Map<String, Object> map,String extention) {
 		return;
 	}
 	
@@ -59,10 +59,7 @@ public class BaseFileServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		String contentType = null;
 		String extension = null;
-		ByteArrayOutputStream byteArrayOutputStream = null;
 		InputStream inputStream = null;
-		InputStream inputFileStream = null;
-		
 		String id = null;
 		try {
 			if(!ServletFileUpload.isMultipartContent(request))
@@ -78,7 +75,6 @@ public class BaseFileServlet extends HttpServlet {
 			    	if (fieldName.equals("id")) {
 			    		id = fieldValue;
 			    	}
-			    	inputStream.close();
 			    } else if(inputStream != null) {
 			    	contentType = fileItemStream.getContentType();
 			    	extension = null;
@@ -86,15 +82,16 @@ public class BaseFileServlet extends HttpServlet {
 			    		extension = Files.getFileExtension(fileItemStream.getName());
 			    	if(!ResourceUtil.inArray(contentType, Field.IMAGE_CONTENT_TYPES) || 
 			    			!this.minifyImage(map, inputStream, fieldName, extension)) {
-			    		inputFileStream = inputStream;
+			    		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+						Streams.copy(inputStream, byteArrayOutputStream, true);
+						map.put("original", byteArrayOutputStream);
 			    	}
 			    }
+			    inputStream.close();
 			}
-			if ((id != null) && (inputFileStream != null)) {
-				saveFile(id, inputFileStream,extension);
+			if ((id != null)) {
+				saveFile(id, map,extension);
 			}
-			 if (inputFileStream != null)
-				 inputFileStream.close();
 			result = new SuccessResult();
 		} catch(Exception e) {
 			e.printStackTrace();
