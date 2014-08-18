@@ -49,7 +49,7 @@ public class BaseFileServlet extends HttpServlet {
 		response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
 	}
 	
-	protected void saveFile(String id,ByteArrayOutputStream byteArrayOutputStream, InputStream inputFileStream,String extention) {
+	protected void saveFile(String id,InputStream inputFileStream,String extention) {
 		return;
 	}
 	
@@ -85,14 +85,12 @@ public class BaseFileServlet extends HttpServlet {
 			    		extension = Files.getFileExtension(fileItemStream.getName());
 			    	if(!ResourceUtil.inArray(contentType, Field.IMAGE_CONTENT_TYPES) || 
 			    			!this.minifyImage(map, inputStream, fieldName, extension)) {
-			    		byteArrayOutputStream = new ByteArrayOutputStream();
-			    		Streams.copy(inputStream, byteArrayOutputStream, true);
 			    		inputFileStream = inputStream;
 			    	}
 			    }
 			}
 			if ((id != null) && (byteArrayOutputStream != null)) {
-				saveFile(id, byteArrayOutputStream,inputFileStream,extension);
+				saveFile(id, inputFileStream,extension);
 			}
 			 if (inputStream != null)
 			    	inputStream.close();
