@@ -16,6 +16,7 @@ import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.FILEINPUT;
 import platform.webservice.ui.html.FORM;
 import platform.webservice.ui.html.HIDDEN;
+import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.JS;
 import platform.webservice.ui.html.PASSWORD;
 import platform.webservice.ui.html.SPAN;
@@ -78,7 +79,9 @@ public abstract class BaseForm extends BaseView {
 		} 
 		return value;
 	}
-
+	protected String getImageSource(Field field, Map<String, Object> data) {
+		return "#";
+	}
 	void buildUI(String operation, Map<String, Object> data) {
 		this.dataMap = data;
 		// TODO Auto-generated method stub
@@ -222,7 +225,13 @@ public abstract class BaseForm extends BaseView {
 				TD column = new TD();
 				if (field.isFullWidth() && UIConstants.COMPONENT_TYPE_TEXTAREA.equals(field.getCompomentType())) {
 					column.addAttribute("colspan","2");
-				} else {
+				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PHOTOUPLOAD) { 
+					IMG img = new IMG();
+					img.setSRC(getImageSource(field,dataMap));
+					column.addChild(img);
+					row.addChild(column);
+					column = new TD();
+				}else {
 					column.addAttribute("width","150px");
 					column.setText(field.getLabel());
 					row.addChild(column);
@@ -241,6 +250,10 @@ public abstract class BaseForm extends BaseView {
 						FILEINPUT fileInput = new FILEINPUT(field.getName(),null);
 						fileInput.addAttribute("name", field.getName());
 						column.addChild(fileInput);
+				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PHOTOUPLOAD) {
+					FILEINPUT fileInput = new FILEINPUT(field.getName(),null);
+					fileInput.addAttribute("name", field.getName());
+					column.addChild(fileInput);
 				}	else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_DATEPICKER) {
 				
 					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
