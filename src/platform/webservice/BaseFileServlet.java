@@ -89,7 +89,7 @@ public class BaseFileServlet extends HttpServlet {
 			    	}
 			    }
 			}
-			if ((id != null) && (byteArrayOutputStream != null)) {
+			if ((id != null) && (inputFileStream != null)) {
 				saveFile(id, inputFileStream,extension);
 			}
 			 if (inputStream != null)
