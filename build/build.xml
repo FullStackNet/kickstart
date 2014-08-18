@@ -80,6 +80,8 @@
     		 ${thirdparty}/commons-fileupload-1.2.2.jar:
     		 ${thirdparty}/guava-13.0.1.jar:
     		 ${thirdparty}/sigar.jar:
+    		 ${thirdparty}/imgscalr-lib-4.1.jar:
+    		 ${thirdparty}/thumbnailator-0.4.6.jar:
     		 ${thirdparty}/uuid-3.2.jar"
  	/>
 	<!-- initilization process-->

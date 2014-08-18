@@ -1,9 +1,13 @@
 package platform.util;
 
+import java.awt.Color;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -29,6 +33,14 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
+
+import net.coobird.thumbnailator.Thumbnails;
+import net.coobird.thumbnailator.filters.Canvas;
+import net.coobird.thumbnailator.geometry.Positions;
+
+import org.imgscalr.Scalr;
+
 import platform.log.ApplicationLogger;
 
 import com.eaio.uuid.UUID;
@@ -46,20 +58,20 @@ public class Util {
 		packet[index] = (byte) (data & 0xff);
 		packet[index + 1] = (byte) ((data >> 8) & 0xff);
 	}
-	
+
 	public static void updateByteHex(byte[] packet, int index, short data) {
 		String str = ""+data;
 		data = Byte.parseByte(str, 16);
 		packet[index] = (byte) ((data) & 0xff);
 	}
-	
+
 	public static void updateShortHex(byte[] packet, int index, short data) {
 		String str = ""+data;
 		data = Short.parseShort(str, 16);
 		packet[index + 1] = (byte) (data & 0xff);
 		packet[index] = (byte) ((data >> 8) & 0xff);
 	}
-	
+
 	public static void updateInt(byte[] packet, int index, int data) {
 		packet[index] = (byte) (data & 0xff);
 		packet[index + 1] = (byte) ((data >> 8) & 0xff);
@@ -75,14 +87,14 @@ public class Util {
 		packet[index + 1] = (byte) ((data >> 16) & 0xff);
 		packet[index] = (byte) ((data >> 24) & 0xff);
 	}
-	
+
 	public static void updateLong(byte[] packet, int index, long data) {
 		packet[index] = (byte) (data & 0xff);
 		packet[index + 1] = (byte) ((data >> 8) & 0xff);
 		packet[index + 2] = (byte) ((data >> 16) & 0xff);
 		packet[index + 3] = (byte) ((data >> 24) & 0xff);
 	}
-	
+
 	public static void updateLongHex(byte[] packet, int index, long data) {
 		String str = ""+data;
 		data = Long.parseLong(str, 16);
@@ -109,7 +121,7 @@ public class Util {
 		}
 	}
 
-	
+
 	public static void updateBytes(byte[] packet, int index, byte[] data) {
 		int i = 0;
 		int dataLength = data.length;
@@ -131,13 +143,13 @@ public class Util {
 		String str = HexUtils.hexString(packet[index]) + HexUtils.hexString(packet[index+1]);
 		return Short.parseShort(str);
 	}
-	
+
 	public static byte getByteHex(byte[] packet, int index) {
 		String str = HexUtils.hexString(packet[index]);
 		return Byte.parseByte(str);
 	}
-	
-	
+
+
 	public static float getShortFloatHex(byte[] packet, int index) {
 		Double value = 0.0;
 		Byte decimalValue =  Byte.parseByte(HexUtils.hexString(packet[index]));
@@ -145,7 +157,7 @@ public class Util {
 		value = decimalValue + fractionValue/100.0;
 		return value.floatValue();
 	}
-	
+
 	public static int getInt(byte[] packet, int index) {
 		int data;
 		int temp;
@@ -168,7 +180,7 @@ public class Util {
 
 		return data;
 	}
-	
+
 	public static double getIntDoubleHex(byte[] packet, int index) {
 		double value = 0.0;
 		short decimalValue =  Short.parseShort(HexUtils.hexString(packet[index])+ HexUtils.hexString(packet[index+1]));
@@ -176,13 +188,13 @@ public class Util {
 		value = decimalValue + (fractionValue/10000.0);
 		return value;
 	}
-	
-	
+
+
 	public static int getIntHex(byte[] packet, int index) {
 		String str = HexUtils.hexString(packet[index]) + HexUtils.hexString(packet[index+1]) +  HexUtils.hexString(packet[index+2]) +  HexUtils.hexString(packet[index+3]);
 		return Integer.parseInt(str);
 	}
-	
+
 	public static long getLong(byte[] packet, int index) {
 		long data;
 		long temp;
@@ -205,11 +217,11 @@ public class Util {
 
 		return data;
 	}
-	
+
 	public static long getLongHex(byte[] packet, int index) {
 		String str = HexUtils.hexString(packet[index]) + HexUtils.hexString(packet[index+1]) +  HexUtils.hexString(packet[index+2]) +  HexUtils.hexString(packet[index+3]);
 		return Long.parseLong(str);
-	
+
 	}
 
 
@@ -385,7 +397,7 @@ public class Util {
 		}
 		return str;
 	}
-	
+
 	public static String getData(byte[] data) {
 		String str = "";
 		int i = 0;
@@ -567,7 +579,7 @@ public class Util {
 		}
 		return messageWithTokens;
 	}
-	
+
 	public static String readNotificationFileFromLocal(String template,
 			Map<String, String> params) {
 		String messageWithTokens = "";
@@ -685,13 +697,13 @@ public class Util {
 		return System.currentTimeMillis();
 	}
 
-	
+
 	public static long getTimeElapsed(Date startTime) {
 		Date endTime= new Date();
 		return endTime.getTime()-startTime.getTime();
 	}
 
-	
+
 	public static String formatTime(long msec) {
 		long second = msec/1000L;
 		long min = 0;
@@ -710,11 +722,11 @@ public class Util {
 			day = hrs/24L;
 			hrs = hrs % 24;
 		}
-		
+
 		if (day > 0) {
 			str = str+day+" days ";
 		}
-		
+
 		if (hrs > 0) {
 			str = str+hrs+" hrs ";
 		}
@@ -726,20 +738,20 @@ public class Util {
 		}
 		return str;
 	}
-	
+
 	public static byte[] getBroadCastDICId() {
 		byte[] dicId = {9,9,9,9,9,9,9,9,9,9};
 		return dicId;
 	}
-	
+
 	public static boolean isBroadCastDICId(String dicId) {
 		String broadcardDICId = convertByteToHexString(getBroadCastDICId());
 		if (broadcardDICId.equals(dicId))
 			return true;
 		return false;
 	}
-	
-	
+
+
 	public static String getFirstLetterUpperCase(String str) {
 		char[] stringArray = str.toCharArray();
 		stringArray[0] = Character.toUpperCase(stringArray[0]);
@@ -1060,38 +1072,38 @@ public class Util {
 		long timediff = (System.currentTimeMillis() - lastUpdate) / 1000;
 		return timediff * mf;
 	}
-	
-	
-	
+
+
+
 	public static double round(double value) {
-	    long factor = (long) Math.pow(10, 2);
-	    double value2 = value * factor;
-	    long tmp = Math.round(value2);
-	    return (double) tmp / factor;
+		long factor = (long) Math.pow(10, 2);
+		double value2 = value * factor;
+		long tmp = Math.round(value2);
+		return (double) tmp / factor;
 	}
-	
-	
+
+
 	public static boolean isDefined(Integer value) {
 		if (value == null) return false;
 		if (value  == 0) return false;
 		return true;
 	}
-	
+
 	public static boolean isDefined99(Integer value) {
 		if (value == null) return false;
 		if (value  == 99) return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	public static String getDBString(String name, String str) {
 		return getDBString(name, str, "=");
 	}
-	
+
 	public static String getDBString(String name, String str, String opr) {
 		return " "+name+" "+opr+"'"+str+"'" +" ";
 	}
@@ -1103,89 +1115,89 @@ public class Util {
 	public static long getMsecForMinutes(long min) {
 		return min*60L*1000L;
 	}
-	
+
 	public static long getMsecForHours(long hrs) {
 		return hrs*60*60L*1000L;
 	}
 	public static boolean isEmpty(String s) {
 		return s == null || s.isEmpty();
 	}
-	
+
 	public static boolean isEmpty(int[] array) {
 		return array == null || array.length == 0;
 	}
-	
+
 	public static <T> boolean isEmpty(T[] array) {
 		return array == null || array.length == 0;
 	}
-	
+
 	public static <T> boolean isEmpty(Collection<T> collection) {
 		return collection == null || collection.size() == 0;
 	}
-	
+
 	public static byte[] strToBytes(String str) throws ApplicationException {
-    	if (isEmpty(str))
-    		return new byte[0];
-    	
+		if (isEmpty(str))
+			return new byte[0];
+
 		try {
 			return str.getBytes("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			throw new ApplicationException(ExceptionSeverity.ERROR, e.toString());
 		}
-    }
-    
-    public static String bytesToStr(byte[] bytes) throws ApplicationException {
-    	if (bytes == null || bytes.length == 0)
-    		return "";
-    	
-    	try {
+	}
+
+	public static String bytesToStr(byte[] bytes) throws ApplicationException {
+		if (bytes == null || bytes.length == 0)
+			return "";
+
+		try {
 			return new String(bytes, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			throw new ApplicationException(ExceptionSeverity.ERROR, e.toString());
 		}
-    }
-	
-    
+	}
+
+
 	public static boolean isEmpty(Map<?, ?> map) {
 		return map == null || map.size() == 0;
 	}
-	
-	
+
+
 	public static boolean hasValue(Double val) {
 		if ((val != null) && (val > 0)) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	public static boolean hasValue(Number val) {
 		if ((val != null) && (val.doubleValue() > 0)) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	public static boolean hasValue(Integer val) {
 		if ((val != null) && (val > 0)) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	public static boolean hasValue(Long val) {
 		if ((val != null) && (val > 0)) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	public static boolean hasValue(Short val) {
 		if ((val != null) && (val > 0)) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	public static boolean hasValue(Byte val) {
 		if ((val != null) && (val > 0)) {
 			return true;
@@ -1198,10 +1210,10 @@ public class Util {
 		if (precesion == 3) {
 			f = new DecimalFormat("#################.000");
 		}
-	    String valString = f.format(val);
-	    return Double.parseDouble(valString);
+		String valString = f.format(val);
+		return Double.parseDouble(valString);
 	}
-	
+
 	public static String byteString(long value) {
 		if (value > 1024L*1024L*1024L*1024L) {
 			return ""+Util.round((value*1.0)/(1024L*1024L*1024L*1024), 2)+" TB";
@@ -1217,7 +1229,7 @@ public class Util {
 		}
 		return ""+value+" B";
 	}
-	
+
 	public static double convertLongitudeToDouble(String str) {
 		int multipler = 1;
 		str = str.replace("E", "");
@@ -1253,38 +1265,38 @@ public class Util {
 		System.out.println(str1+"-"+str2);
 		return (multipler)*value;
 	}
-	
+
 	public static String getRandonToken() {
-		
+
 		long number = 100000 + generator.nextInt(900000);
-	    return "" +number;  
+		return "" +number;  
 	}
-	
+
 	public static String getClassSectionName(String class_name, String section_name) {
 		String class_section_name = "";
 		if (class_name != null) {
 			class_section_name = class_name;
 		}
-		
+
 		if (section_name != null) {
 			class_section_name = class_section_name+" "+section_name;
 		}
 		return class_name+" "+section_name;
 	}
-	
+
 	public static boolean isNumeric(String str)  
 	{  
-	  try  
-	  {  
-	    double d = Double.parseDouble(str);  
-	  }  
-	  catch(NumberFormatException nfe)  
-	  {  
-	    return false;  
-	  }  
-	  return true;  
+		try  
+		{  
+			Double.parseDouble(str); 
+		}  
+		catch(NumberFormatException nfe)  
+		{  
+			return false;  
+		}  
+		return true;  
 	}
-	
+
 	public static long getAverage(ArrayList<Object> list) {
 		if (list == null)
 			return 0;
@@ -1298,7 +1310,7 @@ public class Util {
 		}
 		return (long) (sum/count);
 	}
-	
+
 	public static String[] getDayTimeArray() {
 		ArrayList<String> list  = new ArrayList<String>();
 		int hrs = 0; 
@@ -1312,4 +1324,55 @@ public class Util {
 		}
 		return list.toArray(new String[list.size()]);
 	}
+
+	private static BufferedImage resizeImage(BufferedImage image, int width, int height) throws IOException {
+		return Thumbnails.of(image)
+				.size(width, height)
+				.addFilter(new Canvas(width, height, Positions.CENTER, Color.white))
+				.asBufferedImage();
+	}
+
+	public static ByteArrayOutputStream minifyImageWidth(InputStream inputStream, Integer width, Integer height) throws IOException {
+		ByteArrayOutputStream outputStreams = null;
+		outputStreams = new ByteArrayOutputStream();
+		BufferedImage image = ImageIO.read(inputStream);
+		int originalWidth = image.getWidth();
+
+		boolean fitExact = height == null ? false : true;
+		BufferedImage newImage;
+		newImage = image;
+		outputStreams = new ByteArrayOutputStream();
+		if (fitExact && height != null && height > 0) {
+			newImage = resizeImage(image, width, height);
+		} else if (originalWidth > width) {
+			newImage = Scalr.resize(image, Scalr.Mode.FIT_TO_WIDTH, width);
+		}
+		ImageIO.write(newImage, Field.MINIFIED_IMAGE_FILE_TYPE, outputStreams);
+		return outputStreams;
+	}
+	public static void savetoFile(String filename, ByteArrayOutputStream byteArrayOutputStream) {
+		OutputStream outputStream = null;
+		try {
+			outputStream = new FileOutputStream(filename);
+			try {
+				byteArrayOutputStream.writeTo(outputStream);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (outputStream != null) {
+				try {
+					outputStream.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
 }

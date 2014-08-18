@@ -49,7 +49,7 @@ public class BaseFileServlet extends HttpServlet {
 		response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
 	}
 	
-	protected void saveFile(String id,ByteArrayOutputStream byteArrayOutputStream,String extension) {
+	protected void saveFile(String id,ByteArrayOutputStream byteArrayOutputStream, InputStream inputFileStream,String extention) {
 		return;
 	}
 	
@@ -61,6 +61,8 @@ public class BaseFileServlet extends HttpServlet {
 		String extension = null;
 		ByteArrayOutputStream byteArrayOutputStream = null;
 		InputStream inputStream = null;
+		InputStream inputFileStream = null;
+		
 		String id = null;
 		try {
 			if(!ServletFileUpload.isMultipartContent(request))
@@ -85,11 +87,12 @@ public class BaseFileServlet extends HttpServlet {
 			    			!this.minifyImage(map, inputStream, fieldName, extension)) {
 			    		byteArrayOutputStream = new ByteArrayOutputStream();
 			    		Streams.copy(inputStream, byteArrayOutputStream, true);
+			    		inputFileStream = inputStream;
 			    	}
 			    }
 			}
 			if ((id != null) && (byteArrayOutputStream != null)) {
-				saveFile(id, byteArrayOutputStream,extension);
+				saveFile(id, byteArrayOutputStream,inputFileStream,extension);
 			}
 			 if (inputStream != null)
 			    	inputStream.close();
