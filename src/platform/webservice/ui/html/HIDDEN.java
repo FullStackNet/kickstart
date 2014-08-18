@@ -6,7 +6,7 @@ import platform.webservice.ui.util.Attribute;
 public class HIDDEN extends INPUT {
 	
 	public HIDDEN(String id,Object value) {
-		super(id,null);
+		super(id,id,null);
 		addAttribute(new Attribute("type", "hidden"));
 		if (value != null)
 			addAttribute(new Attribute("value", value.toString()));

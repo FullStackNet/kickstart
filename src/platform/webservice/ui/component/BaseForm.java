@@ -13,6 +13,7 @@ import platform.webservice.ui.html.BUTTON;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.COMBO;
 import platform.webservice.ui.html.Div;
+import platform.webservice.ui.html.FILEINPUT;
 import platform.webservice.ui.html.FORM;
 import platform.webservice.ui.html.HIDDEN;
 import platform.webservice.ui.html.JS;
@@ -85,7 +86,14 @@ public abstract class BaseForm extends BaseView {
 		populateDefinition();
 		mForm = new FORM(mDefinition.getId(), mDefinition.getClassName());
 		mForm.setMethod("POST");
-		mForm.setAction("#");
+		if (mDefinition.getFormSubmitURL() != null) {
+			mForm.setAction(mDefinition.getFormSubmitURL());
+		} else {
+			mForm.setAction("#");
+		}
+		if (mDefinition.isUploadFileForm()) {
+			mForm.addAttribute("enctype", "multipart/form-data");
+		}
 		String refreshKey = "";
 		if (mDefinition.isAutoRefresh() && dataMap != null) {
 			refreshKey = data.get("id").toString();
@@ -229,7 +237,12 @@ public abstract class BaseForm extends BaseView {
 						textEdit.setValue(value.toString());
 					}
 					column.addChild(textEdit);
-				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_DATEPICKER) {
+				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_FILEUPLOAD) {
+						FILEINPUT fileInput = new FILEINPUT(field.getName(),null);
+						fileInput.addAttribute("name", field.getName());
+						column.addChild(fileInput);
+				}	else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_DATEPICKER) {
+				
 					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
 					column.addChild(textEdit);
 					String dateJS  = "<script>\n" +

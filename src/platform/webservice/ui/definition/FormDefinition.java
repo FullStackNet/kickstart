@@ -23,7 +23,28 @@ public class FormDefinition {
 	String submitURL;
 	String units;
 	String timeZone;
+	String formSubmitURL;
+	boolean uploadFileForm;
 	
+	
+	public FormDefinition() {
+		blocks = new ArrayList<Block>();
+		rules = new ArrayList<ValidationRule>();
+		buttonList = new ArrayList<Button>();
+		width = 600;
+		timeZone = "IST";
+		uploadFileForm = false;
+	}
+	public FormDefinition(String id, String name,String className) {
+		this();
+		// TODO Auto-generated constructor stub
+		mId = id;
+		mName = name;
+		mClassName = className;
+		uploadFileForm = false;
+
+	}
+
 	public int getHeight() {
 		return height;
 	}
@@ -38,22 +59,6 @@ public class FormDefinition {
 
 	public void setWidth(int width) {
 		this.width = width;
-	}
-
-	public FormDefinition() {
-		blocks = new ArrayList<Block>();
-		rules = new ArrayList<ValidationRule>();
-		buttonList = new ArrayList<Button>();
-		width = 600;
-		timeZone = "IST";
-	}
-	public FormDefinition(String id, String name,String className) {
-		this();
-		// TODO Auto-generated constructor stub
-		mId = id;
-		mName = name;
-		mClassName = className;
-
 	}
 
 	public void addButton(Button button) {
@@ -212,5 +217,21 @@ public class FormDefinition {
 
 	public void setTimeZone(String timeZone) {
 		this.timeZone = timeZone;
+	}
+
+	public String getFormSubmitURL() {
+		return formSubmitURL;
+	}
+
+	public void setFormSubmitURL(String formSubmitURL) {
+		this.formSubmitURL = formSubmitURL;
+	}
+
+	public boolean isUploadFileForm() {
+		return uploadFileForm;
+	}
+
+	public void setUploadFileForm(boolean uploadFileForm) {
+		this.uploadFileForm = uploadFileForm;
 	}
 }
