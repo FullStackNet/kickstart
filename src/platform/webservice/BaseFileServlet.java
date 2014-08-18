@@ -78,6 +78,7 @@ public class BaseFileServlet extends HttpServlet {
 			    	if (fieldName.equals("id")) {
 			    		id = fieldValue;
 			    	}
+			    	inputStream.close();
 			    } else if(inputStream != null) {
 			    	contentType = fileItemStream.getContentType();
 			    	extension = null;
@@ -92,8 +93,8 @@ public class BaseFileServlet extends HttpServlet {
 			if ((id != null) && (inputFileStream != null)) {
 				saveFile(id, inputFileStream,extension);
 			}
-			 if (inputStream != null)
-			    	inputStream.close();
+			 if (inputFileStream != null)
+				 inputFileStream.close();
 			result = new SuccessResult();
 		} catch(Exception e) {
 			e.printStackTrace();
