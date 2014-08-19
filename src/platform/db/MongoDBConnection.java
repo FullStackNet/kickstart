@@ -21,6 +21,7 @@ import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
 import platform.util.Util;
+import sun.misc.Regexp;
 
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
@@ -274,6 +275,9 @@ public class MongoDBConnection extends DbConnection {
 		case IN:
 			object.put(variable, new BasicDBObject("$in", expressionValueObj));
 			break;
+		case REGEX:
+			object.put(variable, java.util.regex.Pattern.compile("^.*"+expressionValueObj+"$"));
+			break;	
 		default:
 			break;
 		}

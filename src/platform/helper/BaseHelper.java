@@ -390,7 +390,7 @@ public class BaseHelper {
 		return getListMapById(ids, orderBy, null);
 	}
 
-
+	
 	public ArrayList<Map<String, Object>> getListMapById(Expression expression,String[] orderBy) {
 		DbConnection connection = null;
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
@@ -597,7 +597,60 @@ public class BaseHelper {
 		return resourceList;
 	}
 
+	public ArrayList<Map<String, Object>> getByJoining(String[] ids,ArrayList<JoinField> joinFields, String[] orderBy,String query) {
+		ArrayList<Map<String, Object>> resourceList = new ArrayList<Map<String, Object>>();
+		if (ids == null) return resourceList;
+		BaseHelper masterHelper = HelperFactory.getInstance().getHelper(resource.getMetaData().getName());
+		Expression e1 = new Expression("id", REL_OP.IN, ids);
+		Expression e2 = new Expression("name", REL_OP.REGEX, query);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		BaseResource[] masterResources = getByExpression(e);
+		resourceList = HelperUtils.convertArray2ListMap(masterResources);
+		
+		Map<String, Map<String, Object>> map = new HashMap<String, Map<String, Object>>();
+		for(Map<String, Object> resource : resourceList) {
+			for(JoinField joinField : joinFields) {
+				Map<String, Object> idList = null;
+				idList = map.get(joinField.getJoiningId());
+				if (idList == null) {
+					idList = new HashMap<String, Object>();
+				}
+				if (resource.get(joinField.getJoiningId()) != null) {
+					String value = resource.get(joinField.getJoiningId()).toString();
+					idList.put(value,1);
+				}
+				map.put(joinField.getJoiningId(), idList);
+			}
+		}
 
+		Map<String, Map<String,Map<String, Object>>> resourceMap = new HashMap<String, Map<String,Map<String, Object>>>();
+
+		for(JoinField joinField : joinFields) {
+			Map<String, Object> list = map.get(joinField.getJoiningId());
+			if (Util.isEmpty(list)) 
+				continue;
+			BaseHelper childHelper = HelperFactory.getInstance().getHelper(joinField.getResource());
+			Map<String, Map<String, Object>>  foriegnMap = null;
+			foriegnMap = childHelper.getMapMapById(HelperUtils.convertMap2IdArray(list),orderBy);
+			resourceMap.put(joinField.getJoiningId(), foriegnMap);
+		}
+
+		for(Map<String, Object> resource : resourceList) {
+			for(JoinField joinField : joinFields) {
+				Map<String, Map<String, Object>>  mapForiegnKey = resourceMap.get(joinField.getJoiningId());
+				if (mapForiegnKey == null) continue;
+				String joinId = (String)resource.get(joinField.getJoiningId());
+				Map<String, Object> childMap = mapForiegnKey.get(joinId);
+				if (childMap == null) 
+					continue;
+				Map<String,String> fieldMap = joinField.getFieldMap();
+				for (Map.Entry<String, String> entry : fieldMap.entrySet()) {
+					resource.put(entry.getKey(), childMap.get(entry.getValue()));
+				}
+			}
+		}
+		return resourceList;
+	}
 
 	public Map<String, BaseResource> getMapById(String[] ids) {
 		return getMapById(ids, null,null);

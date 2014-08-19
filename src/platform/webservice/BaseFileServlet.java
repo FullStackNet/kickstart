@@ -53,6 +53,10 @@ public class BaseFileServlet extends HttpServlet {
 		return;
 	}
 	
+	protected String redirect(String id) {
+		return null;
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		result result = null;
 		setResponseParameters(response);
@@ -91,6 +95,10 @@ public class BaseFileServlet extends HttpServlet {
 			}
 			if ((id != null)) {
 				saveFile(id, map,extension);
+			}
+			String redirectURL = redirect(id);
+			if (redirectURL != null) {
+				response.sendRedirect(redirectURL);
 			}
 			result = new SuccessResult();
 		} catch(Exception e) {

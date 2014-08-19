@@ -60,6 +60,14 @@ public class School_customer_mapHelper extends BaseHelper {
 				new String[]{user.FIELD_NAME});
 	}
 	
+	public ArrayList<Map<String, Object>> getQueryStudentsListMap(String customerId,ArrayList<JoinField> joinFields, String query) {
+		school_customer_map _map = (school_customer_map)getById(customerId);
+		if ((_map == null) || (_map.getStudents() == null))
+			return null;
+		return StudentHelper.getInstance().getByJoining(_map.getStudents().toArray(new String[_map.getStudents().size()]),
+				joinFields,new String[]{student.FIELD_NAME},query);
+	}
+	
 	public ArrayList<Map<String, Object>> getStudentsListMap(String customerId,ArrayList<JoinField> joinFields) {
 		school_customer_map _map = (school_customer_map)getById(customerId);
 		if ((_map == null) || (_map.getStudents() == null))
