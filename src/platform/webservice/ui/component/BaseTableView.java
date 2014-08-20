@@ -53,7 +53,6 @@ public abstract class BaseTableView extends BaseView {
 		return mDefinition;
 
 	}
-
 	protected void renderHeading() {
 		THEAD thead = new THEAD();
 		TR row = new TR();
@@ -86,7 +85,27 @@ public abstract class BaseTableView extends BaseView {
 		thead.addChild(row);
 		mTable.addChild(thead);
 	}
-
+	public String getSearchURL() {
+		return null;
+	}
+	protected void renderSerach() {
+		if (getSearchURL() == null)
+			return;
+		THEAD thead = new THEAD();
+		TR row = new TR();
+		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");
+		TD td = new TD();
+		td.addAttribute("colspan", ""+mDefinition.getFields().size());
+		td.addAttribute("align", "center");
+		td.addAttribute("style","text-align:center;padding:0;");
+		SearchView view = new SearchView(getContext());
+		view.setSubmitUrl(getSearchURL());
+		td.addChild(view.getView());
+		row.addChild(td);
+		thead.addChild(row);
+		mTable.addChild(thead);
+	}
+	
 	protected String getModifyURL(String id) {
 		if (getDefinition().getModifyURL() == null)
 			return null;
@@ -192,6 +211,7 @@ public abstract class BaseTableView extends BaseView {
 		if (mDefinition.getTitle() != null) {
 			renderTitle();
 		}
+		renderSerach();
 		THEAD thead = new THEAD();
 		TR row = new TR();
 		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");

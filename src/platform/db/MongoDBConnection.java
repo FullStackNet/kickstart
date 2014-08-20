@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
+import java.util.regex.Pattern;
 
 import platform.config.Reader;
 import platform.defined.DBNameEnum;
@@ -21,7 +22,6 @@ import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
 import platform.util.Util;
-import sun.misc.Regexp;
 
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
@@ -276,7 +276,7 @@ public class MongoDBConnection extends DbConnection {
 			object.put(variable, new BasicDBObject("$in", expressionValueObj));
 			break;
 		case REGEX:
-			object.put(variable, java.util.regex.Pattern.compile("^.*"+expressionValueObj+".*$"));
+			object.put(variable, java.util.regex.Pattern.compile("^.*"+expressionValueObj+".*$",Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE));
 			break;	
 		default:
 			break;
