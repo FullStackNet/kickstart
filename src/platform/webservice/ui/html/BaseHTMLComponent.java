@@ -11,7 +11,21 @@ public abstract class BaseHTMLComponent {
 	ArrayList<BaseHTMLComponent> childList;
 	Map<String,String> styleMap;
 	String text;
+	boolean readonly;
+	public boolean isReadonly() {
+		return readonly;
+	}
+
+	public void setReadonly(boolean readonly) {
+		this.readonly = readonly;
+	}
 	
+	public String getReadOnlyString() {
+		if (readonly) {
+			return "readonly";
+		} 
+		return "";
+	}
 	public BaseHTMLComponent() {
 		childList = new ArrayList<BaseHTMLComponent>();
 		attrList = new ArrayList<Attribute>();
@@ -62,6 +76,9 @@ public abstract class BaseHTMLComponent {
 		StringBuffer buffer = new StringBuffer();
 		if (getTag() != null) {
 		buffer.append(space+"<"+getTag());
+		if (isReadonly()) {
+			buffer.append(" readonly ");
+		}
 		if (styleMap.size() > 0) {
 			String style = "";
 			for (Map.Entry<String, String> entry : styleMap.entrySet()) {

@@ -53,6 +53,7 @@ public class UIConstants {
 		ApplicationConstants.APPLICATION_NAME_MESSAGE_BUS
 	};
 	public final static String[] CLASSES_ENUM = new String[] {
+			"TODDLER",
 			"PLAY SCHOOL",
 			"NURSERY",
 			"LKG",

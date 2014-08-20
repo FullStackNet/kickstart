@@ -276,7 +276,7 @@ public class MongoDBConnection extends DbConnection {
 			object.put(variable, new BasicDBObject("$in", expressionValueObj));
 			break;
 		case REGEX:
-			object.put(variable, java.util.regex.Pattern.compile("^.*"+expressionValueObj+"$"));
+			object.put(variable, java.util.regex.Pattern.compile("^.*"+expressionValueObj+".*$"));
 			break;	
 		default:
 			break;

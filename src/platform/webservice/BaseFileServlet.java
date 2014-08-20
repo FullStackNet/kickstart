@@ -119,8 +119,6 @@ public class BaseFileServlet extends HttpServlet {
 	protected void postProcessing(BaseResource resource) {
 	}
 	
-	
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 	

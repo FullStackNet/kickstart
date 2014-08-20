@@ -5,7 +5,7 @@ import platform.webservice.ui.util.Attribute;
 
 
 public class INPUT extends BaseHTMLComponent{
-
+	
 	public void setValue(String value) {
 		addAttribute(new Attribute("value", value));
 	}
@@ -25,4 +25,5 @@ public class INPUT extends BaseHTMLComponent{
 		// TODO Auto-generated method stub
 		return "input";
 	}
+	
 }
