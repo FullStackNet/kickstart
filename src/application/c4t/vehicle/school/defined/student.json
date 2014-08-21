@@ -151,6 +151,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'father_phone_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'mother_name':
 			{
 				'length': 128,
@@ -186,6 +191,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'mother_phone_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'other_name':
 			{
 				'length': 128,
@@ -197,6 +207,11 @@
 				'type':'String'
 			},
 			'other_email_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'other_phone_type':
 			{
 				'length': 128,
 				'type':'String'
@@ -369,6 +384,11 @@
 			{
 				'type':'int',
 				default : 0
+			},
+			'primary_contact':
+			{
+				'type':'String',
+				default : "MOTHER"
 			}
 		}
 	}

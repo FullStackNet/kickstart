@@ -108,6 +108,19 @@ public class UIConstants {
 		//new IdValue("VAN", "All Van users"),
 	};
 	
+	public final static IdValue[] PRIMARY_CONTACT_ENUM = new IdValue[] {
+		new IdValue("MOTHER", "MOTHER"),
+		new IdValue("FATHER", "FATHER"),
+		new IdValue("BOTH", "BOTH"),
+		new IdValue("OTHER", "OTHER"),
+		//new IdValue("VAN", "All Van users"),
+	};
+	
+	public final static IdValue[] PHONE_TYPE_ENUM = new IdValue[] {
+		new IdValue("SMARTPHONE", "SMARTPHONE"),
+		new IdValue("NORMAL", "NORMAL")
+	};
+	
 	public static Object getValue(IdValue[] list, Object value) {
 		for (int i = 0; i < list.length; i++) {
 			IdValue idvalue = list[i];

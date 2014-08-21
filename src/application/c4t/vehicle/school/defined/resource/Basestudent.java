@@ -44,6 +44,7 @@ public abstract class Basestudent extends BaseResource {
 	private String father_occupation = null;
 	private String father_role = null;
 	private String father_company_name = null;
+	private String father_phone_type = null;
 	private String mother_name = null;
 	private String mother_dob = null;
 	private String mother_mobile_no = null;
@@ -51,9 +52,11 @@ public abstract class Basestudent extends BaseResource {
 	private String mother_role = null;
 	private String mother_company_name = null;
 	private String mother_email_id = null;
+	private String mother_phone_type = null;
 	private String other_name = null;
 	private String other_mobile_no = null;
 	private String other_email_id = null;
+	private String other_phone_type = null;
 	private String class_name = null;
 	private String section_name = null;
 	private String dob = null;
@@ -85,6 +88,7 @@ public abstract class Basestudent extends BaseResource {
 	private Integer transport_count = null;
 	private Integer absent_report_count = null;
 	private Integer message2school_count = null;
+	private String primary_contact = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -112,6 +116,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_FATHER_OCCUPATION = "father_occupation";
 	public static String FIELD_FATHER_ROLE = "father_role";
 	public static String FIELD_FATHER_COMPANY_NAME = "father_company_name";
+	public static String FIELD_FATHER_PHONE_TYPE = "father_phone_type";
 	public static String FIELD_MOTHER_NAME = "mother_name";
 	public static String FIELD_MOTHER_DOB = "mother_dob";
 	public static String FIELD_MOTHER_MOBILE_NO = "mother_mobile_no";
@@ -119,9 +124,11 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_MOTHER_ROLE = "mother_role";
 	public static String FIELD_MOTHER_COMPANY_NAME = "mother_company_name";
 	public static String FIELD_MOTHER_EMAIL_ID = "mother_email_id";
+	public static String FIELD_MOTHER_PHONE_TYPE = "mother_phone_type";
 	public static String FIELD_OTHER_NAME = "other_name";
 	public static String FIELD_OTHER_MOBILE_NO = "other_mobile_no";
 	public static String FIELD_OTHER_EMAIL_ID = "other_email_id";
+	public static String FIELD_OTHER_PHONE_TYPE = "other_phone_type";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_DOB = "dob";
@@ -153,6 +160,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_TRANSPORT_COUNT = "transport_count";
 	public static String FIELD_ABSENT_REPORT_COUNT = "absent_report_count";
 	public static String FIELD_MESSAGE2SCHOOL_COUNT = "message2school_count";
+	public static String FIELD_PRIMARY_CONTACT = "primary_contact";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -273,6 +281,10 @@ public abstract class Basestudent extends BaseResource {
 		father_company_nameField.setLength(128);
 		metaData.addField(father_company_nameField);
 
+		Field father_phone_typeField = new Field("father_phone_type", "String");
+		father_phone_typeField.setLength(128);
+		metaData.addField(father_phone_typeField);
+
 		Field mother_nameField = new Field("mother_name", "String");
 		mother_nameField.setLength(128);
 		metaData.addField(mother_nameField);
@@ -301,6 +313,10 @@ public abstract class Basestudent extends BaseResource {
 		mother_email_idField.setLength(128);
 		metaData.addField(mother_email_idField);
 
+		Field mother_phone_typeField = new Field("mother_phone_type", "String");
+		mother_phone_typeField.setLength(128);
+		metaData.addField(mother_phone_typeField);
+
 		Field other_nameField = new Field("other_name", "String");
 		other_nameField.setLength(128);
 		metaData.addField(other_nameField);
@@ -312,6 +328,10 @@ public abstract class Basestudent extends BaseResource {
 		Field other_email_idField = new Field("other_email_id", "String");
 		other_email_idField.setLength(128);
 		metaData.addField(other_email_idField);
+
+		Field other_phone_typeField = new Field("other_phone_type", "String");
+		other_phone_typeField.setLength(128);
+		metaData.addField(other_phone_typeField);
 
 		Field class_nameField = new Field("class_name", "String");
 		class_nameField.setLength(16);
@@ -448,6 +468,10 @@ public abstract class Basestudent extends BaseResource {
 		message2school_countField.setDefaultValue(0);
 		metaData.addField(message2school_countField);
 
+		Field primary_contactField = new Field("primary_contact", "String");
+		primary_contactField.setDefaultValue("MOTHER");
+		metaData.addField(primary_contactField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -486,6 +510,7 @@ public abstract class Basestudent extends BaseResource {
 		this.father_occupation = obj.father_occupation;
 		this.father_role = obj.father_role;
 		this.father_company_name = obj.father_company_name;
+		this.father_phone_type = obj.father_phone_type;
 		this.mother_name = obj.mother_name;
 		this.mother_dob = obj.mother_dob;
 		this.mother_mobile_no = obj.mother_mobile_no;
@@ -493,9 +518,11 @@ public abstract class Basestudent extends BaseResource {
 		this.mother_role = obj.mother_role;
 		this.mother_company_name = obj.mother_company_name;
 		this.mother_email_id = obj.mother_email_id;
+		this.mother_phone_type = obj.mother_phone_type;
 		this.other_name = obj.other_name;
 		this.other_mobile_no = obj.other_mobile_no;
 		this.other_email_id = obj.other_email_id;
+		this.other_phone_type = obj.other_phone_type;
 		this.class_name = obj.class_name;
 		this.section_name = obj.section_name;
 		this.dob = obj.dob;
@@ -527,6 +554,7 @@ public abstract class Basestudent extends BaseResource {
 		this.transport_count = obj.transport_count;
 		this.absent_report_count = obj.absent_report_count;
 		this.message2school_count = obj.message2school_count;
+		this.primary_contact = obj.primary_contact;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -573,6 +601,8 @@ public abstract class Basestudent extends BaseResource {
 			absent_report_count = 0;
 		if(message2school_count == null)
 			message2school_count = 0;
+		if(primary_contact == null)
+			primary_contact = "MOTHER";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -627,6 +657,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("father_role", father_role);
 		if(father_company_name != null)
 			map.put("father_company_name", father_company_name);
+		if(father_phone_type != null)
+			map.put("father_phone_type", father_phone_type);
 		if(mother_name != null)
 			map.put("mother_name", mother_name);
 		if(mother_dob != null)
@@ -641,12 +673,16 @@ public abstract class Basestudent extends BaseResource {
 			map.put("mother_company_name", mother_company_name);
 		if(mother_email_id != null)
 			map.put("mother_email_id", mother_email_id);
+		if(mother_phone_type != null)
+			map.put("mother_phone_type", mother_phone_type);
 		if(other_name != null)
 			map.put("other_name", other_name);
 		if(other_mobile_no != null)
 			map.put("other_mobile_no", other_mobile_no);
 		if(other_email_id != null)
 			map.put("other_email_id", other_email_id);
+		if(other_phone_type != null)
+			map.put("other_phone_type", other_phone_type);
 		if(class_name != null)
 			map.put("class_name", class_name);
 		if(section_name != null)
@@ -709,6 +745,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("absent_report_count", absent_report_count);
 		if(message2school_count != null)
 			map.put("message2school_count", message2school_count);
+		if(primary_contact != null)
+			map.put("primary_contact", primary_contact);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -769,6 +807,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("father_role", father_role);
 		if(father_company_name != null)
 			map.put("father_company_name", father_company_name);
+		if(father_phone_type != null)
+			map.put("father_phone_type", father_phone_type);
 		if(mother_name != null)
 			map.put("mother_name", mother_name);
 		if(mother_dob != null)
@@ -783,12 +823,16 @@ public abstract class Basestudent extends BaseResource {
 			map.put("mother_company_name", mother_company_name);
 		if(mother_email_id != null)
 			map.put("mother_email_id", mother_email_id);
+		if(mother_phone_type != null)
+			map.put("mother_phone_type", mother_phone_type);
 		if(other_name != null)
 			map.put("other_name", other_name);
 		if(other_mobile_no != null)
 			map.put("other_mobile_no", other_mobile_no);
 		if(other_email_id != null)
 			map.put("other_email_id", other_email_id);
+		if(other_phone_type != null)
+			map.put("other_phone_type", other_phone_type);
 		if(class_name != null)
 			map.put("class_name", class_name);
 		if(section_name != null)
@@ -851,6 +895,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("absent_report_count", absent_report_count);
 		if(message2school_count != null)
 			map.put("message2school_count", message2school_count);
+		if(primary_contact != null)
+			map.put("primary_contact", primary_contact);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -888,6 +934,7 @@ public abstract class Basestudent extends BaseResource {
 		father_occupation = (String) map.get("father_occupation");
 		father_role = (String) map.get("father_role");
 		father_company_name = (String) map.get("father_company_name");
+		father_phone_type = (String) map.get("father_phone_type");
 		mother_name = (String) map.get("mother_name");
 		mother_dob = (String) map.get("mother_dob");
 		mother_mobile_no = (String) map.get("mother_mobile_no");
@@ -895,9 +942,11 @@ public abstract class Basestudent extends BaseResource {
 		mother_role = (String) map.get("mother_role");
 		mother_company_name = (String) map.get("mother_company_name");
 		mother_email_id = (String) map.get("mother_email_id");
+		mother_phone_type = (String) map.get("mother_phone_type");
 		other_name = (String) map.get("other_name");
 		other_mobile_no = (String) map.get("other_mobile_no");
 		other_email_id = (String) map.get("other_email_id");
+		other_phone_type = (String) map.get("other_phone_type");
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
 		dob = (String) map.get("dob");
@@ -929,6 +978,7 @@ public abstract class Basestudent extends BaseResource {
 		transport_count = (Integer) map.get("transport_count");
 		absent_report_count = (Integer) map.get("absent_report_count");
 		message2school_count = (Integer) map.get("message2school_count");
+		primary_contact = (String) map.get("primary_contact");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1034,6 +1084,10 @@ public abstract class Basestudent extends BaseResource {
 		if(father_company_nameObj != null)
 			father_company_name = father_company_nameObj.toString();
 
+		Object father_phone_typeObj = map.get("father_phone_type");
+		if(father_phone_typeObj != null)
+			father_phone_type = father_phone_typeObj.toString();
+
 		Object mother_nameObj = map.get("mother_name");
 		if(mother_nameObj != null)
 			mother_name = mother_nameObj.toString();
@@ -1062,6 +1116,10 @@ public abstract class Basestudent extends BaseResource {
 		if(mother_email_idObj != null)
 			mother_email_id = mother_email_idObj.toString();
 
+		Object mother_phone_typeObj = map.get("mother_phone_type");
+		if(mother_phone_typeObj != null)
+			mother_phone_type = mother_phone_typeObj.toString();
+
 		Object other_nameObj = map.get("other_name");
 		if(other_nameObj != null)
 			other_name = other_nameObj.toString();
@@ -1073,6 +1131,10 @@ public abstract class Basestudent extends BaseResource {
 		Object other_email_idObj = map.get("other_email_id");
 		if(other_email_idObj != null)
 			other_email_id = other_email_idObj.toString();
+
+		Object other_phone_typeObj = map.get("other_phone_type");
+		if(other_phone_typeObj != null)
+			other_phone_type = other_phone_typeObj.toString();
 
 		Object class_nameObj = map.get("class_name");
 		if(class_nameObj != null)
@@ -1197,6 +1259,10 @@ public abstract class Basestudent extends BaseResource {
 		Object message2school_countObj = map.get("message2school_count");
 		if(message2school_countObj != null)
 			message2school_count = new Integer(message2school_countObj.toString());
+
+		Object primary_contactObj = map.get("primary_contact");
+		if(primary_contactObj != null)
+			primary_contact = primary_contactObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1613,6 +1679,22 @@ public abstract class Basestudent extends BaseResource {
 		this.father_company_name = null;
 	}
 
+	public String getFather_phone_type() {
+		return father_phone_type;
+	}
+
+	public String getFather_phone_typeEx() {
+		return father_phone_type != null ? father_phone_type : "";
+	}
+
+	public void setFather_phone_type(String father_phone_type) {
+		this.father_phone_type = father_phone_type;
+	}
+
+	public void unSetFather_phone_type() {
+		this.father_phone_type = null;
+	}
+
 	public String getMother_name() {
 		return mother_name;
 	}
@@ -1725,6 +1807,22 @@ public abstract class Basestudent extends BaseResource {
 		this.mother_email_id = null;
 	}
 
+	public String getMother_phone_type() {
+		return mother_phone_type;
+	}
+
+	public String getMother_phone_typeEx() {
+		return mother_phone_type != null ? mother_phone_type : "";
+	}
+
+	public void setMother_phone_type(String mother_phone_type) {
+		this.mother_phone_type = mother_phone_type;
+	}
+
+	public void unSetMother_phone_type() {
+		this.mother_phone_type = null;
+	}
+
 	public String getOther_name() {
 		return other_name;
 	}
@@ -1771,6 +1869,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetOther_email_id() {
 		this.other_email_id = null;
+	}
+
+	public String getOther_phone_type() {
+		return other_phone_type;
+	}
+
+	public String getOther_phone_typeEx() {
+		return other_phone_type != null ? other_phone_type : "";
+	}
+
+	public void setOther_phone_type(String other_phone_type) {
+		this.other_phone_type = other_phone_type;
+	}
+
+	public void unSetOther_phone_type() {
+		this.other_phone_type = null;
 	}
 
 	public String getClass_name() {
@@ -2207,6 +2321,18 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetMessage2school_count() {
 		this.message2school_count = 0;
+	}
+
+	public String getPrimary_contact() {
+		return primary_contact != null ? primary_contact : "MOTHER";
+	}
+
+	public void setPrimary_contact(String primary_contact) {
+		this.primary_contact = primary_contact;
+	}
+
+	public void unSetPrimary_contact() {
+		this.primary_contact = "MOTHER";
 	}
 
 	public Map<String, Object> getExtra_data() {
