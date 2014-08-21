@@ -63,7 +63,7 @@ public class UserHelper extends BaseHelper {
 	public user getByMobileOrEmailId(String mobileno,String emailId) {
 		Expression e = null;
 		
-		if (mobileno != null) {
+		if (!Util.isEmpty(mobileno)) {
 			if ((mobileno != null) && mobileno.startsWith("91")) {
 				mobileno = mobileno.substring(2, mobileno.length());
 			}
@@ -76,7 +76,7 @@ public class UserHelper extends BaseHelper {
 				return (user)resources[0];
 			}
 		}
-		if (emailId != null) {
+		if (!Util.isEmpty(emailId)) {
 			e = new Expression(user.FIELD_EMAIL_ID, REL_OP.EQ, emailId);
 			BaseResource[] resources = getByExpression(e);
 			if (!Util.isEmpty(resources)) {
