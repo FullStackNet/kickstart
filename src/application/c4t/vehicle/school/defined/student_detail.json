@@ -307,6 +307,12 @@
 				'type':'int',
 				default : 0
 			},
+			'transport':
+			{
+				'length': 1,
+				'default' :"N",
+				'type':'String'
+			},
 			'transport_count':
 			{
 				'type':'int',

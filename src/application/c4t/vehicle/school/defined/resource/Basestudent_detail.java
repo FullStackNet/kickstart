@@ -76,6 +76,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private Integer home_practice_count = null;
 	private Integer homework_count = null;
 	private Integer notice_count = null;
+	private String transport = null;
 	private Integer transport_count = null;
 	private Integer absent_report_count = null;
 	private Integer message2school_count = null;
@@ -138,6 +139,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_HOME_PRACTICE_COUNT = "home_practice_count";
 	public static String FIELD_HOMEWORK_COUNT = "homework_count";
 	public static String FIELD_NOTICE_COUNT = "notice_count";
+	public static String FIELD_TRANSPORT = "transport";
 	public static String FIELD_TRANSPORT_COUNT = "transport_count";
 	public static String FIELD_ABSENT_REPORT_COUNT = "absent_report_count";
 	public static String FIELD_MESSAGE2SCHOOL_COUNT = "message2school_count";
@@ -391,6 +393,11 @@ public abstract class Basestudent_detail extends BaseResource {
 		notice_countField.setDefaultValue(0);
 		metaData.addField(notice_countField);
 
+		Field transportField = new Field("transport", "String");
+		transportField.setDefaultValue("N");
+		transportField.setLength(1);
+		metaData.addField(transportField);
+
 		Field transport_countField = new Field("transport_count", "int");
 		transport_countField.setDefaultValue(0);
 		metaData.addField(transport_countField);
@@ -473,6 +480,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.home_practice_count = obj.home_practice_count;
 		this.homework_count = obj.homework_count;
 		this.notice_count = obj.notice_count;
+		this.transport = obj.transport;
 		this.transport_count = obj.transport_count;
 		this.absent_report_count = obj.absent_report_count;
 		this.message2school_count = obj.message2school_count;
@@ -522,6 +530,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			homework_count = 0;
 		if(notice_count == null)
 			notice_count = 0;
+		if(transport == null)
+			transport = "N";
 		if(transport_count == null)
 			transport_count = 0;
 		if(absent_report_count == null)
@@ -646,6 +656,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("homework_count", homework_count);
 		if(notice_count != null)
 			map.put("notice_count", notice_count);
+		if(transport != null)
+			map.put("transport", transport);
 		if(transport_count != null)
 			map.put("transport_count", transport_count);
 		if(absent_report_count != null)
@@ -776,6 +788,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("homework_count", homework_count);
 		if(notice_count != null)
 			map.put("notice_count", notice_count);
+		if(transport != null)
+			map.put("transport", transport);
 		if(transport_count != null)
 			map.put("transport_count", transport_count);
 		if(absent_report_count != null)
@@ -851,6 +865,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		home_practice_count = (Integer) map.get("home_practice_count");
 		homework_count = (Integer) map.get("homework_count");
 		notice_count = (Integer) map.get("notice_count");
+		transport = (String) map.get("transport");
 		transport_count = (Integer) map.get("transport_count");
 		absent_report_count = (Integer) map.get("absent_report_count");
 		message2school_count = (Integer) map.get("message2school_count");
@@ -1086,6 +1101,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object notice_countObj = map.get("notice_count");
 		if(notice_countObj != null)
 			notice_count = new Integer(notice_countObj.toString());
+
+		Object transportObj = map.get("transport");
+		if(transportObj != null)
+			transport = transportObj.toString();
 
 		Object transport_countObj = map.get("transport_count");
 		if(transport_countObj != null)
@@ -1972,6 +1991,18 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetNotice_count() {
 		this.notice_count = 0;
+	}
+
+	public String getTransport() {
+		return transport != null ? transport : "N";
+	}
+
+	public void setTransport(String transport) {
+		this.transport = transport;
+	}
+
+	public void unSetTransport() {
+		this.transport = "N";
 	}
 
 	public Integer getTransport_count() {

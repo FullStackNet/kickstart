@@ -105,7 +105,7 @@ public class UIConstants {
 		new IdValue("SCHOOL", "Whole School"),
 		new IdValue("CLASS", "Whole class"),
 		new IdValue("SECTION", "Particluler Section"),
-		new IdValue("VAN", "All Van users"),
+		//new IdValue("VAN", "All Van users"),
 	};
 	
 	public static Object getValue(IdValue[] list, Object value) {
