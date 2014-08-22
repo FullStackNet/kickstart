@@ -21,12 +21,14 @@ import java.util.*;
 public abstract class Baseproficiency_master extends BaseResource {
 	private String id = null;
 	private String title = null;
+	private String description = null;
 	private String class_name = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TITLE = "title";
+	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -45,6 +47,10 @@ public abstract class Baseproficiency_master extends BaseResource {
 		Field titleField = new Field("title", "String");
 		titleField.setLength(128);
 		metaData.addField(titleField);
+
+		Field descriptionField = new Field("description", "String");
+		descriptionField.setLength(128);
+		metaData.addField(descriptionField);
 
 		Field class_nameField = new Field("class_name", "String");
 		class_nameField.setLength(128);
@@ -69,6 +75,7 @@ public abstract class Baseproficiency_master extends BaseResource {
 	public Baseproficiency_master(Baseproficiency_master obj) {
 		this.id = obj.id;
 		this.title = obj.title;
+		this.description = obj.description;
 		this.class_name = obj.class_name;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
@@ -84,6 +91,8 @@ public abstract class Baseproficiency_master extends BaseResource {
 			map.put("id", id);
 		if(title != null)
 			map.put("title", title);
+		if(description != null)
+			map.put("description", description);
 		if(class_name != null)
 			map.put("class_name", class_name);
 		if(customer_id != null)
@@ -99,6 +108,8 @@ public abstract class Baseproficiency_master extends BaseResource {
 			map.put("id", id);
 		if(title != null)
 			map.put("title", title);
+		if(description != null)
+			map.put("description", description);
 		if(class_name != null)
 			map.put("class_name", class_name);
 		if(customer_id != null)
@@ -117,6 +128,7 @@ public abstract class Baseproficiency_master extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		title = (String) map.get("title");
+		description = (String) map.get("description");
 		class_name = (String) map.get("class_name");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -131,6 +143,10 @@ public abstract class Baseproficiency_master extends BaseResource {
 		Object titleObj = map.get("title");
 		if(titleObj != null)
 			title = titleObj.toString();
+
+		Object descriptionObj = map.get("description");
+		if(descriptionObj != null)
+			description = descriptionObj.toString();
 
 		Object class_nameObj = map.get("class_name");
 		if(class_nameObj != null)
@@ -185,6 +201,22 @@ public abstract class Baseproficiency_master extends BaseResource {
 
 	public void unSetTitle() {
 		this.title = null;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getDescriptionEx() {
+		return description != null ? description : "";
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void unSetDescription() {
+		this.description = null;
 	}
 
 	public String getClass_name() {
