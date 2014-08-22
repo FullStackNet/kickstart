@@ -21,6 +21,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'proficiency':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'remark':
+			{
+				'length': 1024,
+				'type':'String'
+			},
 			'class_name':
 			{
 				'length': 128,

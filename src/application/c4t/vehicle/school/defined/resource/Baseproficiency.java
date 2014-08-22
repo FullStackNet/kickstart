@@ -22,7 +22,10 @@ public abstract class Baseproficiency extends BaseResource {
 	private String id = null;
 	private String title = null;
 	private String description = null;
+	private String proficiency = null;
+	private String remark = null;
 	private String class_name = null;
+	private String class_section_name = null;
 	private String customer_id = null;
 	private String student_id = null;
 	private Long last_updated = null;
@@ -31,7 +34,10 @@ public abstract class Baseproficiency extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
+	public static String FIELD_PROFICIENCY = "proficiency";
+	public static String FIELD_REMARK = "remark";
 	public static String FIELD_CLASS_NAME = "class_name";
+	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_LAST_UPDATED = "last_updated";
@@ -56,9 +62,21 @@ public abstract class Baseproficiency extends BaseResource {
 		descriptionField.setLength(128);
 		metaData.addField(descriptionField);
 
+		Field proficiencyField = new Field("proficiency", "String");
+		proficiencyField.setLength(128);
+		metaData.addField(proficiencyField);
+
+		Field remarkField = new Field("remark", "String");
+		remarkField.setLength(1024);
+		metaData.addField(remarkField);
+
 		Field class_nameField = new Field("class_name", "String");
 		class_nameField.setLength(128);
 		metaData.addField(class_nameField);
+
+		Field class_section_nameField = new Field("class_section_name", "String");
+		class_section_nameField.setLength(128);
+		metaData.addField(class_section_nameField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
@@ -87,7 +105,10 @@ public abstract class Baseproficiency extends BaseResource {
 		this.id = obj.id;
 		this.title = obj.title;
 		this.description = obj.description;
+		this.proficiency = obj.proficiency;
+		this.remark = obj.remark;
 		this.class_name = obj.class_name;
+		this.class_section_name = obj.class_section_name;
 		this.customer_id = obj.customer_id;
 		this.student_id = obj.student_id;
 		this.last_updated = obj.last_updated;
@@ -106,8 +127,14 @@ public abstract class Baseproficiency extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(proficiency != null)
+			map.put("proficiency", proficiency);
+		if(remark != null)
+			map.put("remark", remark);
 		if(class_name != null)
 			map.put("class_name", class_name);
+		if(class_section_name != null)
+			map.put("class_section_name", class_section_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(student_id != null)
@@ -127,8 +154,14 @@ public abstract class Baseproficiency extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(proficiency != null)
+			map.put("proficiency", proficiency);
+		if(remark != null)
+			map.put("remark", remark);
 		if(class_name != null)
 			map.put("class_name", class_name);
+		if(class_section_name != null)
+			map.put("class_section_name", class_section_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(student_id != null)
@@ -150,7 +183,10 @@ public abstract class Baseproficiency extends BaseResource {
 		id = (String) map.get("id");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
+		proficiency = (String) map.get("proficiency");
+		remark = (String) map.get("remark");
 		class_name = (String) map.get("class_name");
+		class_section_name = (String) map.get("class_section_name");
 		customer_id = (String) map.get("customer_id");
 		student_id = (String) map.get("student_id");
 		last_updated = (Long) map.get("last_updated");
@@ -171,9 +207,21 @@ public abstract class Baseproficiency extends BaseResource {
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
 
+		Object proficiencyObj = map.get("proficiency");
+		if(proficiencyObj != null)
+			proficiency = proficiencyObj.toString();
+
+		Object remarkObj = map.get("remark");
+		if(remarkObj != null)
+			remark = remarkObj.toString();
+
 		Object class_nameObj = map.get("class_name");
 		if(class_nameObj != null)
 			class_name = class_nameObj.toString();
+
+		Object class_section_nameObj = map.get("class_section_name");
+		if(class_section_nameObj != null)
+			class_section_name = class_section_nameObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -250,6 +298,38 @@ public abstract class Baseproficiency extends BaseResource {
 		this.description = null;
 	}
 
+	public String getProficiency() {
+		return proficiency;
+	}
+
+	public String getProficiencyEx() {
+		return proficiency != null ? proficiency : "";
+	}
+
+	public void setProficiency(String proficiency) {
+		this.proficiency = proficiency;
+	}
+
+	public void unSetProficiency() {
+		this.proficiency = null;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public String getRemarkEx() {
+		return remark != null ? remark : "";
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public void unSetRemark() {
+		this.remark = null;
+	}
+
 	public String getClass_name() {
 		return class_name;
 	}
@@ -264,6 +344,22 @@ public abstract class Baseproficiency extends BaseResource {
 
 	public void unSetClass_name() {
 		this.class_name = null;
+	}
+
+	public String getClass_section_name() {
+		return class_section_name;
+	}
+
+	public String getClass_section_nameEx() {
+		return class_section_name != null ? class_section_name : "";
+	}
+
+	public void setClass_section_name(String class_section_name) {
+		this.class_section_name = class_section_name;
+	}
+
+	public void unSetClass_section_name() {
+		this.class_section_name = null;
 	}
 
 	public String getCustomer_id() {
