@@ -73,6 +73,8 @@ public class UIConstants {
 	};
 
 	public final static String[] SECTION_ENUM = new String[] {
+		"MORNING SESSION",
+		"AFTERNOON SESSION",
 		"A",
 		"B",
 		"C",
