@@ -50,6 +50,6 @@ public class ResourcesToGenerate {
 		new ResourceMap("message2parent_conversation", "application.c4t.vehicle.school.resource.message2parent_conversation"),
 		new ResourceMap("message2school", "application.c4t.vehicle.school.resource.message2parent"),
 		new ResourceMap("message2school_conversation", "application.c4t.vehicle.school.resource.message2parent_conversation"),
-
+		new ResourceMap("proficiency_master", "application.c4t.vehicle.school.resource.proficiency_master"),
 	};
 }
