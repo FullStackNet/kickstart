@@ -24,7 +24,7 @@ public class Proficiency_masterHelper extends BaseHelper {
 		return instance;
 	}	
 	
-	public BaseResource[] getForClass(String customerId, String subject, String class_name) {
+	public BaseResource[] getForClass(String customerId, String class_name) {
 		Expression e1 = new Expression(proficiency_master.FIELD_CUSTOMER_ID, REL_OP.EQ, customerId);
 		Expression e2 = new Expression(proficiency_master.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
 		Expression e4 = new Expression(e1, LOG_OP.AND, e2);
