@@ -17,6 +17,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'admission_date_str':
+			{
+				'length': 32,
+				'type':'String'
+			},
 			'school_id':
 			{
 				'name':'school_id',

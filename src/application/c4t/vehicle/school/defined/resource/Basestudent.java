@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Basestudent extends BaseResource {
 	private String id = null;
 	private String admission_no = null;
+	private String admission_date_str = null;
 	private String school_id = null;
 	private String name = null;
 	private String address1 = null;
@@ -93,6 +94,7 @@ public abstract class Basestudent extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_ADMISSION_NO = "admission_no";
+	public static String FIELD_ADMISSION_DATE_STR = "admission_date_str";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_ADDRESS1 = "address1";
@@ -178,6 +180,10 @@ public abstract class Basestudent extends BaseResource {
 		admission_noField.setIndexed(true);
 		admission_noField.setLength(128);
 		metaData.addField(admission_noField);
+
+		Field admission_date_strField = new Field("admission_date_str", "String");
+		admission_date_strField.setLength(32);
+		metaData.addField(admission_date_strField);
 
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setIndexed(true);
@@ -487,6 +493,7 @@ public abstract class Basestudent extends BaseResource {
 	public Basestudent(Basestudent obj) {
 		this.id = obj.id;
 		this.admission_no = obj.admission_no;
+		this.admission_date_str = obj.admission_date_str;
 		this.school_id = obj.school_id;
 		this.name = obj.name;
 		this.address1 = obj.address1;
@@ -611,6 +618,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("id", id);
 		if(admission_no != null)
 			map.put("admission_no", admission_no);
+		if(admission_date_str != null)
+			map.put("admission_date_str", admission_date_str);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(name != null)
@@ -761,6 +770,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("id", id);
 		if(admission_no != null)
 			map.put("admission_no", admission_no);
+		if(admission_date_str != null)
+			map.put("admission_date_str", admission_date_str);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(name != null)
@@ -911,6 +922,7 @@ public abstract class Basestudent extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		admission_no = (String) map.get("admission_no");
+		admission_date_str = (String) map.get("admission_date_str");
 		school_id = (String) map.get("school_id");
 		name = (String) map.get("name");
 		address1 = (String) map.get("address1");
@@ -991,6 +1003,10 @@ public abstract class Basestudent extends BaseResource {
 		Object admission_noObj = map.get("admission_no");
 		if(admission_noObj != null)
 			admission_no = admission_noObj.toString();
+
+		Object admission_date_strObj = map.get("admission_date_str");
+		if(admission_date_strObj != null)
+			admission_date_str = admission_date_strObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -1309,6 +1325,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetAdmission_no() {
 		this.admission_no = null;
+	}
+
+	public String getAdmission_date_str() {
+		return admission_date_str;
+	}
+
+	public String getAdmission_date_strEx() {
+		return admission_date_str != null ? admission_date_str : "";
+	}
+
+	public void setAdmission_date_str(String admission_date_str) {
+		this.admission_date_str = admission_date_str;
+	}
+
+	public void unSetAdmission_date_str() {
+		this.admission_date_str = null;
 	}
 
 	public String getSchool_id() {
