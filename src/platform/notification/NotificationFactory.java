@@ -18,6 +18,7 @@ public class NotificationFactory {
 	public static String NOTIFICATION_OVER_SPEED = "OVER SPEED";
 	public static String NOTIFICATION_HOMEWORK = "HOMEWORK";
 	public static String NOTIFICATION_HOME_PRACTICE = "HOME_PRACTICE";
+	public static String NOTIFICATION_PROFICIENCY_STATE_CHANGED = "PROFICIENCY_STATE_CHANGE";
 	public static String NOTIFICATION_NOTICE = "NOTICE";
 	public static String NOTIFICATION_DAILY_ACTIVITY = "DAILY_ACTIVITY";
 	public static String NOTIFICATION_ABSENT = "ABSENT";

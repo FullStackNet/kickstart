@@ -28,6 +28,7 @@ public abstract class Baseproficiency extends BaseResource {
 	private String class_section_name = null;
 	private String customer_id = null;
 	private String student_id = null;
+	private String school_id = null;
 	private Long last_updated = null;
 	private Map<String, Object> extra_data = null;
 
@@ -40,6 +41,7 @@ public abstract class Baseproficiency extends BaseResource {
 	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_STUDENT_ID = "student_id";
+	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_LAST_UPDATED = "last_updated";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -86,6 +88,10 @@ public abstract class Baseproficiency extends BaseResource {
 		student_idField.setLength(128);
 		metaData.addField(student_idField);
 
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
+
 		Field last_updatedField = new Field("last_updated", "timestamp");
 		metaData.addField(last_updatedField);
 
@@ -111,6 +117,7 @@ public abstract class Baseproficiency extends BaseResource {
 		this.class_section_name = obj.class_section_name;
 		this.customer_id = obj.customer_id;
 		this.student_id = obj.student_id;
+		this.school_id = obj.school_id;
 		this.last_updated = obj.last_updated;
 		this.extra_data = obj.extra_data;
 	}
@@ -139,6 +146,8 @@ public abstract class Baseproficiency extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(last_updated != null)
 			map.put("last_updated", last_updated);
 		if(extra_data != null)
@@ -166,6 +175,8 @@ public abstract class Baseproficiency extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(last_updated != null)
 			map.put("last_updated", last_updated);
 		if(extra_data != null)
@@ -189,6 +200,7 @@ public abstract class Baseproficiency extends BaseResource {
 		class_section_name = (String) map.get("class_section_name");
 		customer_id = (String) map.get("customer_id");
 		student_id = (String) map.get("student_id");
+		school_id = (String) map.get("school_id");
 		last_updated = (Long) map.get("last_updated");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -230,6 +242,10 @@ public abstract class Baseproficiency extends BaseResource {
 		Object student_idObj = map.get("student_id");
 		if(student_idObj != null)
 			student_id = student_idObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
 
 		Object last_updatedObj = map.get("last_updated");
 		if(last_updatedObj != null)
@@ -392,6 +408,22 @@ public abstract class Baseproficiency extends BaseResource {
 
 	public void unSetStudent_id() {
 		this.student_id = null;
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
 	}
 
 	public Long getLast_updated() {
