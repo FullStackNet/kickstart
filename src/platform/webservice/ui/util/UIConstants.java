@@ -73,10 +73,10 @@ public class UIConstants {
 	};
 
 	public final static String[] COLOR_ENUM = new String[] {
-		"red",
-		"green",
-		"white",
-		"Yelloe",
+		"Red",
+		"Green",
+		"White",
+		"Yellow",
 		"Orange"	
 };
 	public final static String[] SECTION_ENUM = new String[] {
