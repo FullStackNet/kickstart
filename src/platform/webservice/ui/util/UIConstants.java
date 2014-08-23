@@ -72,6 +72,13 @@ public class UIConstants {
 			"XII",
 	};
 
+	public final static String[] COLOR_ENUM = new String[] {
+		"red",
+		"green",
+		"white",
+		"Yelloe",
+		"Orange"	
+};
 	public final static String[] SECTION_ENUM = new String[] {
 		"MORNING SESSION",
 		"AFTERNOON SESSION",

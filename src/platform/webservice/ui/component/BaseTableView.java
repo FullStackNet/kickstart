@@ -56,18 +56,19 @@ public abstract class BaseTableView extends BaseView {
 	protected void renderHeading() {
 		THEAD thead = new THEAD();
 		TR row = new TR();
+		TH th = new TH();
+		row.addChild(th);
 		for (int i = 0; i < mDefinition.getFields().size(); i++) {
 			Field field = mDefinition.getFields().get(i);
-			TH th = new TH();
+			th = new TH();
 			if (field.getWidth() > 0) {
 				th.addAttribute("width",""+field.getWidth());
 			}
 			th.setText(field.getLabel());
 			row.addChild(th);
 		}
-		TH th = new TH();
+		th = new TH();
 		row.addChild(th);
-		
 		thead.addChild(row);
 		mTable.addChild(thead);
 	}
@@ -77,7 +78,7 @@ public abstract class BaseTableView extends BaseView {
 		TR row = new TR();
 		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");
 		TD td = new TD();
-		td.addAttribute("colspan", "10");
+		td.addAttribute("colspan",""+(mDefinition.getFields().size()+1));
 		td.addAttribute("align", "center");
 		td.addAttribute("style","text-align:center;padding:0;");
 		td.addChild(new H3(mDefinition.getTitle()));
@@ -95,7 +96,7 @@ public abstract class BaseTableView extends BaseView {
 		TR row = new TR();
 		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");
 		TD td = new TD();
-		td.addAttribute("colspan", ""+mDefinition.getFields().size());
+		td.addAttribute("colspan", ""+(mDefinition.getFields().size()+1));
 		td.addAttribute("align", "center");
 		td.addAttribute("style","text-align:center;padding:0;");
 		SearchView view = new SearchView(getContext());
@@ -127,11 +128,14 @@ public abstract class BaseTableView extends BaseView {
 		return null;
 	}
 	
-	protected void renderRow(TBODY body , Map<String, Object> data) {
+	protected void renderRow(TBODY body , Map<String, Object> data, int rowNumber) {
 		TR row = new TR();
+		TD td = new TD();
+		row.addChild(td);
+		td.setText(""+rowNumber+".");
 		for (int i = 0; i < mDefinition.getFields().size(); i++) {
 			Field field = mDefinition.getFields().get(i);
-			TD td = new TD();
+			td = new TD();
 			if (field.getWidth() > 0) {
 				td.addAttribute("width",""+field.getWidth());
 			}
@@ -216,7 +220,7 @@ public abstract class BaseTableView extends BaseView {
 		TR row = new TR();
 		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");
 		TD td = new TD();
-		td.addAttribute("colspan", "10");
+		td.addAttribute("colspan", "2");
 		td.addAttribute("align", "center");
 		td.addAttribute("style","padding:0;");
 		row.addChild(td);
@@ -235,6 +239,13 @@ public abstract class BaseTableView extends BaseView {
 			p.addChild(a);
 			td.addChild(p);
 		}
+		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");
+		td = new TD();
+		td.addAttribute("colspan", "10");
+		td.addAttribute("style","padding:10px;text-align : right");
+		td.setText(" Total Records : " + list.size());
+		row.addChild(td);
+		
 		thead.addChild(row);
 		mTable.addChild(thead);
 		renderHeading();
@@ -243,11 +254,10 @@ public abstract class BaseTableView extends BaseView {
 		mTable.addChild(tbody);
 		if (list != null) {
 			for(int i =0 ; i < list.size(); i++) {
-				renderRow(tbody, list.get(i));
+				renderRow(tbody, list.get(i),i+1);
 				renderDataRow(tbody, list.get(i));
 			}
 		}
-		
 		getView().addChild(mTable);
 	}
 

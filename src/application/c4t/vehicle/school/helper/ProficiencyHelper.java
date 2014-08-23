@@ -7,7 +7,6 @@ import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import application.c4t.vehicle.school.resource.proficiency;
-import application.c4t.vehicle.school.resource.proficiency_master;
 
 
 public class ProficiencyHelper extends BaseHelper {
@@ -24,8 +23,10 @@ public class ProficiencyHelper extends BaseHelper {
 		return instance;
 	}	
 	
-	public BaseResource[] getForStudent(String studentId) {
+	public BaseResource[] getByStudent(String studentId) {
 		Expression e = new Expression(proficiency.FIELD_STUDENT_ID, REL_OP.EQ, studentId);
-		return getByExpression(e, new String[]{proficiency_master.FIELD_TITLE});
+		return getByExpression(e, new String[]{proficiency.FIELD_LAST_UPDATED + " desc "});
 	}
+	
+	
 }

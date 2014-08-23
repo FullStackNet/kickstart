@@ -8,9 +8,9 @@ import platform.webservice.ui.html.A;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.SPAN;
 
-public class Message2ParentRenderer extends BaseRenderer {
+public class ProficiencyRenderer extends BaseRenderer {
 	String resourceName;
-	public Message2ParentRenderer(String resourceName) {
+	public ProficiencyRenderer(String resourceName) {
 		this.resourceName = resourceName;
 	}
 	@Override
@@ -26,9 +26,8 @@ public class Message2ParentRenderer extends BaseRenderer {
 	public BaseHTMLComponent render(Field field, Map<String, Object> data) {
 		// TODO Auto-generated method stub
 		A a = new A(field.getName(),field.getClassName());
-		a.setHref("/ui/message2parent?op=add&student_id="+data.get("id"));
-		a.setText("Message To Parent");
+		a.setHref("/ui/activity_proficiency"+"?student_id="+data.get("id"));
+		a.setText("Update Proficiency");
 		return a;
 	}
-	
 }

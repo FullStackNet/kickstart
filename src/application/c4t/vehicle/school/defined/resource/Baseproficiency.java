@@ -20,6 +20,7 @@ import java.util.*;
  */
 public abstract class Baseproficiency extends BaseResource {
 	private String id = null;
+	private String title_id = null;
 	private String title = null;
 	private String description = null;
 	private String proficiency = null;
@@ -33,6 +34,7 @@ public abstract class Baseproficiency extends BaseResource {
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_TITLE_ID = "title_id";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_PROFICIENCY = "proficiency";
@@ -55,6 +57,10 @@ public abstract class Baseproficiency extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field title_idField = new Field("title_id", "String");
+		title_idField.setLength(128);
+		metaData.addField(title_idField);
 
 		Field titleField = new Field("title", "String");
 		titleField.setLength(128);
@@ -109,6 +115,7 @@ public abstract class Baseproficiency extends BaseResource {
 
 	public Baseproficiency(Baseproficiency obj) {
 		this.id = obj.id;
+		this.title_id = obj.title_id;
 		this.title = obj.title;
 		this.description = obj.description;
 		this.proficiency = obj.proficiency;
@@ -130,6 +137,8 @@ public abstract class Baseproficiency extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(title_id != null)
+			map.put("title_id", title_id);
 		if(title != null)
 			map.put("title", title);
 		if(description != null)
@@ -159,6 +168,8 @@ public abstract class Baseproficiency extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(title_id != null)
+			map.put("title_id", title_id);
 		if(title != null)
 			map.put("title", title);
 		if(description != null)
@@ -192,6 +203,7 @@ public abstract class Baseproficiency extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		title_id = (String) map.get("title_id");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
 		proficiency = (String) map.get("proficiency");
@@ -210,6 +222,10 @@ public abstract class Baseproficiency extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object title_idObj = map.get("title_id");
+		if(title_idObj != null)
+			title_id = title_idObj.toString();
 
 		Object titleObj = map.get("title");
 		if(titleObj != null)
@@ -280,6 +296,22 @@ public abstract class Baseproficiency extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getTitle_id() {
+		return title_id;
+	}
+
+	public String getTitle_idEx() {
+		return title_id != null ? title_id : "";
+	}
+
+	public void setTitle_id(String title_id) {
+		this.title_id = title_id;
+	}
+
+	public void unSetTitle_id() {
+		this.title_id = null;
 	}
 
 	public String getTitle() {
