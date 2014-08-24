@@ -23,6 +23,11 @@ public class Student_parentHelper extends BaseHelper {
 		return instance;
 	}
 	
+	public BaseResource[] getByMobileNo(String[] mobileno,String[] orderby) {
+		Expression e = new Expression(student_parent.FIELD_MOBILE_NO, REL_OP.IN, mobileno);
+		return getByExpression(e, orderby);
+	}
+	
 	public student_parent getByMobileOrEmailId(String mobileno,String emailId) {
 		Expression e = null;
 		
