@@ -243,7 +243,9 @@ public abstract class BaseTableView extends BaseView {
 		td = new TD();
 		td.addAttribute("colspan", "10");
 		td.addAttribute("style","padding:10px;text-align : right");
-		td.setText(" Total Records : " + list.size());
+		if (list != null) {
+			td.setText(" Total Records : " + list.size());
+		}
 		row.addChild(td);
 		
 		thead.addChild(row);
