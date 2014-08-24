@@ -12,6 +12,8 @@ import platform.version.VersionManager;
 import platform.webservice.BaseServlet;
 import platform.webservice.ServletContext;
 import platform.webservice.service.LoginService;
+import application.c4t.vehicle.school.helper.Student_parentHelper;
+import application.c4t.vehicle.school.resource.student_parent;
 
 public class LoginServlet extends BaseServlet {
 	/**
@@ -39,5 +41,18 @@ public class LoginServlet extends BaseServlet {
 		_login.setSession_id(ctx.getSessionId());
 		_login.setApi_version(VersionManager.API_VERSION);
 		addSessionCookie(request, response, ctx.getSessionId(), null);
+		if (_user != null) {
+			user new_user = new user(_user.getId());
+			new_user.setLast_login(new java.util.Date().getTime());
+			UserHelper.getInstance().update(new_user);
+			student_parent fetched_student_parent = Student_parentHelper.getInstance().getByMobileOrEmailId(_user.getMobile_no(), _user.getEmail_id());
+			if (fetched_student_parent != null) {
+				student_parent _student_parent = new student_parent(fetched_student_parent.getId());
+				_student_parent.setLast_login(new java.util.Date().getTime());
+				_student_parent.setInstalled_app("Y");
+				Student_parentHelper.getInstance().update(_student_parent);
+			}
+		}
+		
 	}
 }

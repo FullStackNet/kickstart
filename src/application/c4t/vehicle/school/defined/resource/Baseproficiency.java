@@ -31,6 +31,7 @@ public abstract class Baseproficiency extends BaseResource {
 	private String student_id = null;
 	private String school_id = null;
 	private Long last_updated = null;
+	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -45,6 +46,7 @@ public abstract class Baseproficiency extends BaseResource {
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_LAST_UPDATED = "last_updated";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -101,6 +103,9 @@ public abstract class Baseproficiency extends BaseResource {
 		Field last_updatedField = new Field("last_updated", "timestamp");
 		metaData.addField(last_updatedField);
 
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -126,6 +131,7 @@ public abstract class Baseproficiency extends BaseResource {
 		this.student_id = obj.student_id;
 		this.school_id = obj.school_id;
 		this.last_updated = obj.last_updated;
+		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -159,6 +165,8 @@ public abstract class Baseproficiency extends BaseResource {
 			map.put("school_id", school_id);
 		if(last_updated != null)
 			map.put("last_updated", last_updated);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -190,6 +198,8 @@ public abstract class Baseproficiency extends BaseResource {
 			map.put("school_id", school_id);
 		if(last_updated != null)
 			map.put("last_updated", last_updated);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -214,6 +224,7 @@ public abstract class Baseproficiency extends BaseResource {
 		student_id = (String) map.get("student_id");
 		school_id = (String) map.get("school_id");
 		last_updated = (Long) map.get("last_updated");
+		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -266,6 +277,10 @@ public abstract class Baseproficiency extends BaseResource {
 		Object last_updatedObj = map.get("last_updated");
 		if(last_updatedObj != null)
 			last_updated = (Long) last_updatedObj;
+
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -464,6 +479,15 @@ public abstract class Baseproficiency extends BaseResource {
 
 	public void setLast_updated(Long last_updated) {
 		this.last_updated = last_updated;
+	}
+
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
 	}
 
 

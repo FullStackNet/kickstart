@@ -40,6 +40,7 @@ public abstract class Baseuser extends BaseResource {
 	private String routeSettingService = null;
 	private String homeAutomationService = null;
 	private String schoolAdminService = null;
+	private Long last_login = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -63,6 +64,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_ROUTESETTINGSERVICE = "routeSettingService";
 	public static String FIELD_HOMEAUTOMATIONSERVICE = "homeAutomationService";
 	public static String FIELD_SCHOOLADMINSERVICE = "schoolAdminService";
+	public static String FIELD_LAST_LOGIN = "last_login";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -168,6 +170,9 @@ public abstract class Baseuser extends BaseResource {
 		schoolAdminServiceField.setLength(1);
 		metaData.addField(schoolAdminServiceField);
 
+		Field last_loginField = new Field("last_login", "timestamp");
+		metaData.addField(last_loginField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -202,6 +207,7 @@ public abstract class Baseuser extends BaseResource {
 		this.routeSettingService = obj.routeSettingService;
 		this.homeAutomationService = obj.homeAutomationService;
 		this.schoolAdminService = obj.schoolAdminService;
+		this.last_login = obj.last_login;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -272,6 +278,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("homeAutomationService", homeAutomationService);
 		if(schoolAdminService != null)
 			map.put("schoolAdminService", schoolAdminService);
+		if(last_login != null)
+			map.put("last_login", last_login);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -324,6 +332,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("homeAutomationService", homeAutomationService);
 		if(schoolAdminService != null)
 			map.put("schoolAdminService", schoolAdminService);
+		if(last_login != null)
+			map.put("last_login", last_login);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -357,6 +367,7 @@ public abstract class Baseuser extends BaseResource {
 		routeSettingService = (String) map.get("routeSettingService");
 		homeAutomationService = (String) map.get("homeAutomationService");
 		schoolAdminService = (String) map.get("schoolAdminService");
+		last_login = (Long) map.get("last_login");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -445,6 +456,10 @@ public abstract class Baseuser extends BaseResource {
 		Object schoolAdminServiceObj = map.get("schoolAdminService");
 		if(schoolAdminServiceObj != null)
 			schoolAdminService = schoolAdminServiceObj.toString();
+
+		Object last_loginObj = map.get("last_login");
+		if(last_loginObj != null)
+			last_login = (Long) last_loginObj;
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -776,6 +791,15 @@ public abstract class Baseuser extends BaseResource {
 	public void unSetSchoolAdminService() {
 		this.schoolAdminService = "N";
 	}
+
+	public Long getLast_login() {
+		return last_login;
+	}
+
+	public void setLast_login(Long last_login) {
+		this.last_login = last_login;
+	}
+
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

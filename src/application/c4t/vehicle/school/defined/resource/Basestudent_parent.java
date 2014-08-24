@@ -30,6 +30,8 @@ public abstract class Basestudent_parent extends BaseResource {
 	private String mobile_no = null;
 	private String email_id = null;
 	private String relation = null;
+	private Long last_login = null;
+	private String installed_app = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -43,6 +45,8 @@ public abstract class Basestudent_parent extends BaseResource {
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_RELATION = "relation";
+	public static String FIELD_LAST_LOGIN = "last_login";
+	public static String FIELD_INSTALLED_APP = "installed_app";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -96,6 +100,14 @@ public abstract class Basestudent_parent extends BaseResource {
 		relationField.setLength(128);
 		metaData.addField(relationField);
 
+		Field last_loginField = new Field("last_login", "timestamp");
+		metaData.addField(last_loginField);
+
+		Field installed_appField = new Field("installed_app", "String");
+		installed_appField.setDefaultValue("N");
+		installed_appField.setLength(1);
+		metaData.addField(installed_appField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -120,11 +132,18 @@ public abstract class Basestudent_parent extends BaseResource {
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
 		this.relation = obj.relation;
+		this.last_login = obj.last_login;
+		this.installed_app = obj.installed_app;
 		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(installed_app == null)
+			installed_app = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -151,12 +170,19 @@ public abstract class Basestudent_parent extends BaseResource {
 			map.put("email_id", email_id);
 		if(relation != null)
 			map.put("relation", relation);
+		if(last_login != null)
+			map.put("last_login", last_login);
+		if(installed_app != null)
+			map.put("installed_app", installed_app);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -180,6 +206,10 @@ public abstract class Basestudent_parent extends BaseResource {
 			map.put("email_id", email_id);
 		if(relation != null)
 			map.put("relation", relation);
+		if(last_login != null)
+			map.put("last_login", last_login);
+		if(installed_app != null)
+			map.put("installed_app", installed_app);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -203,6 +233,8 @@ public abstract class Basestudent_parent extends BaseResource {
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
 		relation = (String) map.get("relation");
+		last_login = (Long) map.get("last_login");
+		installed_app = (String) map.get("installed_app");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -251,6 +283,14 @@ public abstract class Basestudent_parent extends BaseResource {
 		Object relationObj = map.get("relation");
 		if(relationObj != null)
 			relation = relationObj.toString();
+
+		Object last_loginObj = map.get("last_login");
+		if(last_loginObj != null)
+			last_login = (Long) last_loginObj;
+
+		Object installed_appObj = map.get("installed_app");
+		if(installed_appObj != null)
+			installed_app = installed_appObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -441,6 +481,27 @@ public abstract class Basestudent_parent extends BaseResource {
 
 	public void unSetRelation() {
 		this.relation = null;
+	}
+
+	public Long getLast_login() {
+		return last_login;
+	}
+
+	public void setLast_login(Long last_login) {
+		this.last_login = last_login;
+	}
+
+
+	public String getInstalled_app() {
+		return installed_app != null ? installed_app : "N";
+	}
+
+	public void setInstalled_app(String installed_app) {
+		this.installed_app = installed_app;
+	}
+
+	public void unSetInstalled_app() {
+		this.installed_app = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

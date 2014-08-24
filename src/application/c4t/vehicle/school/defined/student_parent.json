@@ -67,6 +67,16 @@
 			{
 				'length': 128,
 				'type':'String'
+			},
+			'last_login':
+			{
+				'type':'timestamp'
+			},
+			'installed_app':
+			{
+				'length': 1,
+				'type':'String',
+				default : "N"
 			}
 		}
 	}

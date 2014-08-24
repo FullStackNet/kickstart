@@ -135,6 +135,10 @@
 				'length': 1,
 				'type':'String',
 				'default' : "N"
+			},	
+			'last_login':
+			{
+				'type':'timestamp'
 			}					
 		}
 	}
