@@ -110,6 +110,20 @@ public class StudentHelper extends BaseHelper {
 		}
 		return null;
 	}
+	
+	public ArrayList<Map<String,Object>> getSchoolStudentListMap(String[] school_ids, ArrayList<JoinField> joinFields)  {
+		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
+		ArrayList<Map<String, Object>> list;
+		try {
+			list = getByJoining(e, joinFields, new String[]{student.FIELD_NAME});
+			return list;
+		} catch (ApplicationException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
+		return null;
+	}
+	
 	public BaseResource[] getClassStudent(String[] school_ids, String class_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
