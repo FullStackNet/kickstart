@@ -26,7 +26,7 @@ public class Message2ParentRenderer extends BaseRenderer {
 	public BaseHTMLComponent render(Field field, Map<String, Object> data) {
 		// TODO Auto-generated method stub
 		A a = new A(field.getName(),field.getClassName());
-		a.setHref("/ui/activity_message2parent"+"?student_id="+data.get("id"));
+		a.setHref("/ui/message2parent"+"?op=add&student_id="+data.get("id"));
 		a.setText("Message 2 Parent");
 		return a;
 	}
