@@ -3,10 +3,13 @@ package platform.notification;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Map;
 
 import platform.log.ApplicationLogger;
@@ -29,7 +32,10 @@ public class NotificationDispatcher {
 		HttpURLConnection conn = null;
 		BufferedReader rd  = null;
 		try {
-			url = new URL(URL_ACS+"users/login.json?key="+URLEncoder.encode(api_key,"UTF-8")+"&login="+URLEncoder.encode(username,"UTF-8")+"&password="+URLEncoder.encode(password,"UTF-8"));
+			String urlString = URL_ACS+"users/login.json?key="+URLEncoder.encode(api_key,"UTF-8")+"&login="+URLEncoder.encode(username,"UTF-8")+"&password="+URLEncoder.encode(password,"UTF-8");
+			System.out.println(urlString);
+			url = new URL(urlString);
+			System.out.println();
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("POST");
 			if (conn.getResponseCode() != 200) {
@@ -50,11 +56,21 @@ public class NotificationDispatcher {
 			String respuesta=sb.toString();
 
 			if(respuesta.contains("ok") && respuesta.contains("200") ){
-				int number=sb.indexOf("session_id");
-				String meta=sb.substring(number+14, number+60);
-				int fin=meta.indexOf("\"");
-				sessionId=meta.substring(0, fin);
-				System.out.println("Got the Session Id :"+sessionId);
+				 Map m = conn.getHeaderFields();
+	            if (m.containsKey("Set-Cookie")) {
+	            	Collection c = (Collection) m.get("Set-Cookie");
+	                for (Iterator i = c.iterator(); i.hasNext();) {
+	                    String cookie = (String)i.next();
+	                    String[] tokens = cookie.split(";");
+	                    if (tokens != null) {
+		                    String[] sessionTokens = tokens[0].split("=");
+		                    if ((sessionTokens != null) && "_session_id".equals(sessionTokens[0])) {
+		                    	sessionId = sessionTokens[1];
+		                    }
+	                    }
+	                }
+	            }      
+	           System.out.println("Got the Session Id :"+sessionId);
 			}else{
 				ApplicationLogger.error("Error in login ", this.getClass());
 			}
@@ -95,8 +111,11 @@ public class NotificationDispatcher {
 		populateSessionId();
 		sendMessage(channel,title,message);
 	}
-	
 	void sendMessage(String channel, String title, String message) throws Exception{
+		if (sessionId == null) {
+			throw new Exception("Session Id is NULL ... Cannot send message");
+
+		}
 		URL url = null;
 		HttpURLConnection conn = null;
 		BufferedReader rd  = null;
@@ -106,13 +125,20 @@ public class NotificationDispatcher {
 			cred.addProperty("title",title);
 			cred.addProperty("vibrate",true);
 			cred.addProperty("sound","default");
-			String ruta=URL_ACS+"push_notification/notify.json?key="+URLEncoder.encode(api_key,"UTF-8")+"&to_ids=everyone&channel="+URLEncoder.encode(channel,"UTF-8");
-			ruta = ruta+"&session_id="+URLEncoder.encode(sessionId,"UTF-8")+"&_session_id="+URLEncoder.encode(sessionId,"UTF-8")+"&payload="+URLEncoder.encode(cred.toString(),"UTF-8");
+			JsonObject push = new JsonObject();
+			
+			push.addProperty("to_ids","everyone");
+			push.addProperty("channel",channel);
+			push.addProperty("payload",cred.toString());
+			
+			String ruta=URL_ACS+"push_notification/notify.json?key="+api_key;
+			ruta = ruta+"&to_ids=everyone&channel="+channel+"&payload="+URLEncoder.encode(cred.toString(),"UTF-8");
 			System.out.println("URL : " +ruta);
 			ApplicationLogger.info("URL " +ruta, this.getClass());
 			url = new URL(ruta);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("POST");
+			conn.setRequestProperty("Cookie","_session_id="+sessionId);
 			if (conn.getResponseCode() != 200) {
 				System.out.println("Response code " +conn.getResponseCode());
 				throw new Exception(conn.getResponseMessage());
