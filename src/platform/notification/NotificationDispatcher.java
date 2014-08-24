@@ -48,7 +48,7 @@ public class NotificationDispatcher {
 			System.out.println(sb.toString());
 			String respuesta=sb.toString();
 
-			if(respuesta.contains("status\": \"ok") && respuesta.contains("code\": 200") ){
+			if(respuesta.contains("ok") && respuesta.contains("200") ){
 				int number=sb.indexOf("session_id");
 				String meta=sb.substring(number+14, number+60);
 				int fin=meta.indexOf("\"");
@@ -134,6 +134,7 @@ public class NotificationDispatcher {
 				ApplicationLogger.error("Error in sending message " + channel + "::"+title+"::"+ message+" Response :: "+respuesta, this.getClass());
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			if (rd != null) {
 				rd.close();
 			}
