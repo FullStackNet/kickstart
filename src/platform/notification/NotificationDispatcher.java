@@ -20,7 +20,7 @@ public class NotificationDispatcher {
 	private String username = "ajay.nema@gmail.com";
 	private String password = "9880158155";
 	private String api_key= "2Ykb8C7MApQ6M6u7x7Y6mQCQNCOMzyzs";
-	private String sessionId;
+	private String sessionId =null;
 	private String URL_ACS = "https://api.cloud.appcelerator.com/v1/";
 	Date lastSessionUpdated = null;
 	long count = 0;
@@ -43,6 +43,7 @@ public class NotificationDispatcher {
 			while ((line = rd.readLine()) != null) {
 				sb.append(line);
 			}
+			is.close();
 			rd.close();
 			conn.disconnect();
 			System.out.println(sb.toString());
@@ -86,12 +87,12 @@ public class NotificationDispatcher {
 	//Use this to send mail to end users (like registration) - SendMail.send("toEmailIds", "subject", "message")
 	public void sendNotification(String channel, String title, String message) throws Exception {
 		Date currentTime = new Date();
-		if ((currentTime.getTime() - lastSessionUpdated.getTime() > (30*60*1000L))) {
-			sessionId = null;
-		}
-		if (sessionId == null) {
-			populateSessionId();
-		}
+	//	if ((currentTime.getTime() - lastSessionUpdated.getTime() > (30*60*1000L))) {
+	//		sessionId = null;
+	//	}
+	//	if (sessionId == null) {
+	//	}
+		populateSessionId();
 		sendMessage(channel,title,message);
 	}
 	
@@ -124,15 +125,17 @@ public class NotificationDispatcher {
 			while ((line = rd.readLine()) != null) {
 				sb.append(line);
 			}
+			is.close();
 			rd.close();
 			conn.disconnect();
 			String respuesta=sb.toString();
-			if(respuesta.contains("status\": \"ok") && respuesta.contains("code\": 200") ){
+			if(respuesta.contains("ok") && respuesta.contains("200") ){
 				ApplicationLogger.info("Send successfully Message " + channel + "::"+title+"::"+ message, this.getClass());
 				System.out.println("Successfully Send message " + title +"::" +message + "to channel "+channel);
 			}else{
 				ApplicationLogger.error("Error in sending message " + channel + "::"+title+"::"+ message+" Response :: "+respuesta, this.getClass());
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (rd != null) {
