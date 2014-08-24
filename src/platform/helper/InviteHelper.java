@@ -168,5 +168,6 @@ public class InviteHelper extends BaseHelper {
 			teacherInviteAccepted(_fetched_resource, _user.getId());
 		}
 		UserHelper.getInstance().AddOrUpdate(_user);
+		updateStatus(_invite.getId(), invite.INVITE_STATUS_JOINED);
 	}
 }
