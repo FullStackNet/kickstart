@@ -30,6 +30,7 @@ public abstract class Basestudent_parent extends BaseResource {
 	private String mobile_no = null;
 	private String email_id = null;
 	private String relation = null;
+	private ArrayList<Object> students = null;
 	private Long last_login = null;
 	private String installed_app = null;
 	private Map<String, Object> extra_data = null;
@@ -45,6 +46,7 @@ public abstract class Basestudent_parent extends BaseResource {
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_RELATION = "relation";
+	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_LAST_LOGIN = "last_login";
 	public static String FIELD_INSTALLED_APP = "installed_app";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -100,6 +102,9 @@ public abstract class Basestudent_parent extends BaseResource {
 		relationField.setLength(128);
 		metaData.addField(relationField);
 
+		Field studentsField = new Field("students", "Array");
+		metaData.addField(studentsField);
+
 		Field last_loginField = new Field("last_login", "timestamp");
 		metaData.addField(last_loginField);
 
@@ -132,6 +137,7 @@ public abstract class Basestudent_parent extends BaseResource {
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
 		this.relation = obj.relation;
+		this.students = obj.students;
 		this.last_login = obj.last_login;
 		this.installed_app = obj.installed_app;
 		this.extra_data = obj.extra_data;
@@ -170,6 +176,8 @@ public abstract class Basestudent_parent extends BaseResource {
 			map.put("email_id", email_id);
 		if(relation != null)
 			map.put("relation", relation);
+		if(students != null)
+			map.put("students", students);
 		if(last_login != null)
 			map.put("last_login", last_login);
 		if(installed_app != null)
@@ -206,6 +214,8 @@ public abstract class Basestudent_parent extends BaseResource {
 			map.put("email_id", email_id);
 		if(relation != null)
 			map.put("relation", relation);
+		if(students != null)
+			map.put("students", students);
 		if(last_login != null)
 			map.put("last_login", last_login);
 		if(installed_app != null)
@@ -233,6 +243,7 @@ public abstract class Basestudent_parent extends BaseResource {
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
 		relation = (String) map.get("relation");
+		students = (ArrayList<Object>) map.get("students");
 		last_login = (Long) map.get("last_login");
 		installed_app = (String) map.get("installed_app");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -284,6 +295,7 @@ public abstract class Basestudent_parent extends BaseResource {
 		if(relationObj != null)
 			relation = relationObj.toString();
 
+		students = (ArrayList<Object>) map.get("students");
 		Object last_loginObj = map.get("last_login");
 		if(last_loginObj != null)
 			last_login = (Long) last_loginObj;
@@ -481,6 +493,25 @@ public abstract class Basestudent_parent extends BaseResource {
 
 	public void unSetRelation() {
 		this.relation = null;
+	}
+
+	public ArrayList<Object> getStudents() {
+		return students;
+	}
+
+
+	public void setStudents(ArrayList<Object> students) {
+		this.students = students;
+	}
+
+	public void addStudents(Object value) {
+		if(students == null)
+			students = new ArrayList<Object>();
+		students.add(value);
+	}
+
+	public void unSetStudents() {
+		this.students = null;
 	}
 
 	public Long getLast_login() {
