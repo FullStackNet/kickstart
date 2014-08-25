@@ -42,6 +42,8 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_message2parent = null;
 	private String feature_message2school = null;
 	private String logo_file_name = null;
+	private String admission_no_prefix = null;
+	private Integer admission_last_no = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -67,6 +69,8 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
 	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
 	public static String FIELD_LOGO_FILE_NAME = "logo_file_name";
+	public static String FIELD_ADMISSION_NO_PREFIX = "admission_no_prefix";
+	public static String FIELD_ADMISSION_LAST_NO = "admission_last_no";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -179,6 +183,13 @@ public abstract class Baseschool extends BaseResource {
 		logo_file_nameField.setLength(128);
 		metaData.addField(logo_file_nameField);
 
+		Field admission_no_prefixField = new Field("admission_no_prefix", "String");
+		admission_no_prefixField.setLength(20);
+		metaData.addField(admission_no_prefixField);
+
+		Field admission_last_noField = new Field("admission_last_no", "int");
+		metaData.addField(admission_last_noField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -215,6 +226,8 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_message2parent = obj.feature_message2parent;
 		this.feature_message2school = obj.feature_message2school;
 		this.logo_file_name = obj.logo_file_name;
+		this.admission_no_prefix = obj.admission_no_prefix;
+		this.admission_last_no = obj.admission_last_no;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -295,6 +308,10 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_message2school", feature_message2school);
 		if(logo_file_name != null)
 			map.put("logo_file_name", logo_file_name);
+		if(admission_no_prefix != null)
+			map.put("admission_no_prefix", admission_no_prefix);
+		if(admission_last_no != null)
+			map.put("admission_last_no", admission_last_no);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -351,6 +368,10 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_message2school", feature_message2school);
 		if(logo_file_name != null)
 			map.put("logo_file_name", logo_file_name);
+		if(admission_no_prefix != null)
+			map.put("admission_no_prefix", admission_no_prefix);
+		if(admission_last_no != null)
+			map.put("admission_last_no", admission_last_no);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -386,6 +407,8 @@ public abstract class Baseschool extends BaseResource {
 		feature_message2parent = (String) map.get("feature_message2parent");
 		feature_message2school = (String) map.get("feature_message2school");
 		logo_file_name = (String) map.get("logo_file_name");
+		admission_no_prefix = (String) map.get("admission_no_prefix");
+		admission_last_no = (Integer) map.get("admission_last_no");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -482,6 +505,14 @@ public abstract class Baseschool extends BaseResource {
 		Object logo_file_nameObj = map.get("logo_file_name");
 		if(logo_file_nameObj != null)
 			logo_file_name = logo_file_nameObj.toString();
+
+		Object admission_no_prefixObj = map.get("admission_no_prefix");
+		if(admission_no_prefixObj != null)
+			admission_no_prefix = admission_no_prefixObj.toString();
+
+		Object admission_last_noObj = map.get("admission_last_no");
+		if(admission_last_noObj != null)
+			admission_last_no = new Integer(admission_last_noObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -820,6 +851,42 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetLogo_file_name() {
 		this.logo_file_name = null;
+	}
+
+	public String getAdmission_no_prefix() {
+		return admission_no_prefix;
+	}
+
+	public String getAdmission_no_prefixEx() {
+		return admission_no_prefix != null ? admission_no_prefix : "";
+	}
+
+	public void setAdmission_no_prefix(String admission_no_prefix) {
+		this.admission_no_prefix = admission_no_prefix;
+	}
+
+	public void unSetAdmission_no_prefix() {
+		this.admission_no_prefix = null;
+	}
+
+	public Integer getAdmission_last_no() {
+		return admission_last_no;
+	}
+
+	public int getAdmission_last_noEx() {
+		return admission_last_no != null ? admission_last_no : 0;
+	}
+
+	public void setAdmission_last_no(int admission_last_no) {
+		this.admission_last_no = admission_last_no;
+	}
+
+	public void setAdmission_last_no(Integer admission_last_no) {
+		this.admission_last_no = admission_last_no;
+	}
+
+	public void unSetAdmission_last_no() {
+		this.admission_last_no = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
