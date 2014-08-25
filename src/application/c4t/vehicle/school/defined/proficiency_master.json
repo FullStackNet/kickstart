@@ -30,6 +30,10 @@
 			{
 				'length': 128,
 				'type':'String'
+			},
+			'order':
+			{
+				'type':'double'
 			}
 		}
 	}

@@ -893,6 +893,11 @@ public class BaseHelper {
 		return list;
 	}
 
+	public ArrayList<Map<String, Object>> getListMap(ArrayList<JoinField> joinFields) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		return getListMap(joinFields);
+	}
+	
 	public ArrayList<Map<String, Object>> getListMapByApplianceId(String applianceId,ArrayList<JoinField> joinFields) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		Expression e = new Expression("appliance_id", REL_OP.EQ, applianceId);
@@ -926,6 +931,18 @@ public class BaseHelper {
 		return list;
 	}
 
+	public ArrayList<Map<String, Object>> getListMapByType(String type,ArrayList<JoinField> joinFields) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		Expression e = new Expression("type", REL_OP.EQ, type);
+		try {
+			list =  getByJoining(e,joinFields,new String[]{"name"});
+		} catch (ApplicationException exp) {
+			// TODO Auto-generated catch block
+			exp.printStackTrace();
+		}
+		return list;
+	}
+	
 	public void reset(BaseResource _fetchedResource,String id,String fieldName) {
 		BaseResource _resource = null;
 		try {

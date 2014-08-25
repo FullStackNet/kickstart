@@ -27,7 +27,7 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
-			'vehicles':
+			'appliances':
 			{
 				'type':'Array',
 				'valueType' : 'Object' 

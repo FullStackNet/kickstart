@@ -22,11 +22,13 @@ public abstract class Baseschool_customer_admin extends BaseResource {
 	private String id = null;
 	private String user_id = null;
 	private String school_id = null;
+	private String appliance_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_APPLIANCE_ID = "appliance_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -48,6 +50,10 @@ public abstract class Baseschool_customer_admin extends BaseResource {
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
 
+		Field appliance_idField = new Field("appliance_id", "String");
+		appliance_idField.setLength(128);
+		metaData.addField(appliance_idField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -64,6 +70,7 @@ public abstract class Baseschool_customer_admin extends BaseResource {
 		this.id = obj.id;
 		this.user_id = obj.user_id;
 		this.school_id = obj.school_id;
+		this.appliance_id = obj.appliance_id;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -79,6 +86,8 @@ public abstract class Baseschool_customer_admin extends BaseResource {
 			map.put("user_id", user_id);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(appliance_id != null)
+			map.put("appliance_id", appliance_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -92,6 +101,8 @@ public abstract class Baseschool_customer_admin extends BaseResource {
 			map.put("user_id", user_id);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(appliance_id != null)
+			map.put("appliance_id", appliance_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -107,6 +118,7 @@ public abstract class Baseschool_customer_admin extends BaseResource {
 		id = (String) map.get("id");
 		user_id = (String) map.get("user_id");
 		school_id = (String) map.get("school_id");
+		appliance_id = (String) map.get("appliance_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -123,6 +135,10 @@ public abstract class Baseschool_customer_admin extends BaseResource {
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
+
+		Object appliance_idObj = map.get("appliance_id");
+		if(appliance_idObj != null)
+			appliance_id = appliance_idObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -185,6 +201,22 @@ public abstract class Baseschool_customer_admin extends BaseResource {
 
 	public void unSetSchool_id() {
 		this.school_id = null;
+	}
+
+	public String getAppliance_id() {
+		return appliance_id;
+	}
+
+	public String getAppliance_idEx() {
+		return appliance_id != null ? appliance_id : "";
+	}
+
+	public void setAppliance_id(String appliance_id) {
+		this.appliance_id = appliance_id;
+	}
+
+	public void unSetAppliance_id() {
+		this.appliance_id = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

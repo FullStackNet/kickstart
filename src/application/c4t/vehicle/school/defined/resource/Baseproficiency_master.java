@@ -24,6 +24,7 @@ public abstract class Baseproficiency_master extends BaseResource {
 	private String description = null;
 	private String class_name = null;
 	private String customer_id = null;
+	private Double order = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -31,6 +32,7 @@ public abstract class Baseproficiency_master extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_ORDER = "order";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -60,6 +62,9 @@ public abstract class Baseproficiency_master extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
+		Field orderField = new Field("order", "double");
+		metaData.addField(orderField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -78,6 +83,7 @@ public abstract class Baseproficiency_master extends BaseResource {
 		this.description = obj.description;
 		this.class_name = obj.class_name;
 		this.customer_id = obj.customer_id;
+		this.order = obj.order;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -97,6 +103,8 @@ public abstract class Baseproficiency_master extends BaseResource {
 			map.put("class_name", class_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(order != null)
+			map.put("order", order);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -114,6 +122,8 @@ public abstract class Baseproficiency_master extends BaseResource {
 			map.put("class_name", class_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(order != null)
+			map.put("order", order);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -131,6 +141,7 @@ public abstract class Baseproficiency_master extends BaseResource {
 		description = (String) map.get("description");
 		class_name = (String) map.get("class_name");
 		customer_id = (String) map.get("customer_id");
+		order = (Double) map.get("order");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -155,6 +166,10 @@ public abstract class Baseproficiency_master extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object orderObj = map.get("order");
+		if(orderObj != null)
+			order = new Double(orderObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -249,6 +264,26 @@ public abstract class Baseproficiency_master extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public Double getOrder() {
+		return order;
+	}
+
+	public double getOrderEx() {
+		return order != null ? order : 0;
+	}
+
+	public void setOrder(double order) {
+		this.order = order;
+	}
+
+	public void setOrder(Double order) {
+		this.order = order;
+	}
+
+	public void unSetOrder() {
+		this.order = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

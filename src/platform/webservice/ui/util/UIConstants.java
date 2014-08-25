@@ -72,6 +72,10 @@ public class UIConstants {
 			"XII",
 	};
 
+	public final static String[] GENDER_ENUM = new String[] {
+		"Male",
+		"Female"
+	};
 	public final static String[] COLOR_ENUM = new String[] {
 		"Red",
 		"Green",
