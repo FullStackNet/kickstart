@@ -895,7 +895,7 @@ public class BaseHelper {
 
 	public ArrayList<Map<String, Object>> getListMap(ArrayList<JoinField> joinFields) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		return getListMap(joinFields);
+		return getByJoining(null,joinFields);
 	}
 	
 	public ArrayList<Map<String, Object>> getListMapByApplianceId(String applianceId,ArrayList<JoinField> joinFields) {
