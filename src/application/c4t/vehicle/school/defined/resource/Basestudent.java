@@ -90,6 +90,7 @@ public abstract class Basestudent extends BaseResource {
 	private Integer absent_report_count = null;
 	private Integer message2school_count = null;
 	private String primary_contact = null;
+	private String gender = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -163,6 +164,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_ABSENT_REPORT_COUNT = "absent_report_count";
 	public static String FIELD_MESSAGE2SCHOOL_COUNT = "message2school_count";
 	public static String FIELD_PRIMARY_CONTACT = "primary_contact";
+	public static String FIELD_GENDER = "gender";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -478,6 +480,10 @@ public abstract class Basestudent extends BaseResource {
 		primary_contactField.setDefaultValue("MOTHER");
 		metaData.addField(primary_contactField);
 
+		Field genderField = new Field("gender", "String");
+		genderField.setLength(10);
+		metaData.addField(genderField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -562,6 +568,7 @@ public abstract class Basestudent extends BaseResource {
 		this.absent_report_count = obj.absent_report_count;
 		this.message2school_count = obj.message2school_count;
 		this.primary_contact = obj.primary_contact;
+		this.gender = obj.gender;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -756,6 +763,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("message2school_count", message2school_count);
 		if(primary_contact != null)
 			map.put("primary_contact", primary_contact);
+		if(gender != null)
+			map.put("gender", gender);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -908,6 +917,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("message2school_count", message2school_count);
 		if(primary_contact != null)
 			map.put("primary_contact", primary_contact);
+		if(gender != null)
+			map.put("gender", gender);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -991,6 +1002,7 @@ public abstract class Basestudent extends BaseResource {
 		absent_report_count = (Integer) map.get("absent_report_count");
 		message2school_count = (Integer) map.get("message2school_count");
 		primary_contact = (String) map.get("primary_contact");
+		gender = (String) map.get("gender");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1279,6 +1291,10 @@ public abstract class Basestudent extends BaseResource {
 		Object primary_contactObj = map.get("primary_contact");
 		if(primary_contactObj != null)
 			primary_contact = primary_contactObj.toString();
+
+		Object genderObj = map.get("gender");
+		if(genderObj != null)
+			gender = genderObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2365,6 +2381,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetPrimary_contact() {
 		this.primary_contact = "MOTHER";
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public String getGenderEx() {
+		return gender != null ? gender : "";
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public void unSetGender() {
+		this.gender = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

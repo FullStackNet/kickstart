@@ -23,6 +23,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 	private ArrayList<Object> students = null;
 	private ArrayList<Object> teachers = null;
 	private ArrayList<Object> schools = null;
+	private ArrayList<Object> vehicles = null;
 	private ArrayList<Object> messageaFromSchool = null;
 	private ArrayList<Object> messageaFromTeacher = null;
 	private Map<String, Object> extra_data = null;
@@ -31,6 +32,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_TEACHERS = "teachers";
 	public static String FIELD_SCHOOLS = "schools";
+	public static String FIELD_VEHICLES = "vehicles";
 	public static String FIELD_MESSAGEAFROMSCHOOL = "messageaFromSchool";
 	public static String FIELD_MESSAGEAFROMTEACHER = "messageaFromTeacher";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -55,6 +57,9 @@ public abstract class Baseschool_user_map extends BaseResource {
 		Field schoolsField = new Field("schools", "Array");
 		metaData.addField(schoolsField);
 
+		Field vehiclesField = new Field("vehicles", "Array");
+		metaData.addField(vehiclesField);
+
 		Field messageaFromSchoolField = new Field("messageaFromSchool", "Array");
 		metaData.addField(messageaFromSchoolField);
 
@@ -78,6 +83,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 		this.students = obj.students;
 		this.teachers = obj.teachers;
 		this.schools = obj.schools;
+		this.vehicles = obj.vehicles;
 		this.messageaFromSchool = obj.messageaFromSchool;
 		this.messageaFromTeacher = obj.messageaFromTeacher;
 		this.extra_data = obj.extra_data;
@@ -97,6 +103,8 @@ public abstract class Baseschool_user_map extends BaseResource {
 			map.put("teachers", teachers);
 		if(schools != null)
 			map.put("schools", schools);
+		if(vehicles != null)
+			map.put("vehicles", vehicles);
 		if(messageaFromSchool != null)
 			map.put("messageaFromSchool", messageaFromSchool);
 		if(messageaFromTeacher != null)
@@ -116,6 +124,8 @@ public abstract class Baseschool_user_map extends BaseResource {
 			map.put("teachers", teachers);
 		if(schools != null)
 			map.put("schools", schools);
+		if(vehicles != null)
+			map.put("vehicles", vehicles);
 		if(messageaFromSchool != null)
 			map.put("messageaFromSchool", messageaFromSchool);
 		if(messageaFromTeacher != null)
@@ -136,6 +146,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 		students = (ArrayList<Object>) map.get("students");
 		teachers = (ArrayList<Object>) map.get("teachers");
 		schools = (ArrayList<Object>) map.get("schools");
+		vehicles = (ArrayList<Object>) map.get("vehicles");
 		messageaFromSchool = (ArrayList<Object>) map.get("messageaFromSchool");
 		messageaFromTeacher = (ArrayList<Object>) map.get("messageaFromTeacher");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -150,6 +161,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 		students = (ArrayList<Object>) map.get("students");
 		teachers = (ArrayList<Object>) map.get("teachers");
 		schools = (ArrayList<Object>) map.get("schools");
+		vehicles = (ArrayList<Object>) map.get("vehicles");
 		messageaFromSchool = (ArrayList<Object>) map.get("messageaFromSchool");
 		messageaFromTeacher = (ArrayList<Object>) map.get("messageaFromTeacher");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -238,6 +250,25 @@ public abstract class Baseschool_user_map extends BaseResource {
 
 	public void unSetSchools() {
 		this.schools = null;
+	}
+
+	public ArrayList<Object> getVehicles() {
+		return vehicles;
+	}
+
+
+	public void setVehicles(ArrayList<Object> vehicles) {
+		this.vehicles = vehicles;
+	}
+
+	public void addVehicles(Object value) {
+		if(vehicles == null)
+			vehicles = new ArrayList<Object>();
+		vehicles.add(value);
+	}
+
+	public void unSetVehicles() {
+		this.vehicles = null;
 	}
 
 	public ArrayList<Object> getMessageaFromSchool() {

@@ -44,6 +44,7 @@ public abstract class Baseschool extends BaseResource {
 	private String logo_file_name = null;
 	private String admission_no_prefix = null;
 	private Integer admission_last_no = null;
+	private Integer admission_number_of_digit = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -71,6 +72,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_LOGO_FILE_NAME = "logo_file_name";
 	public static String FIELD_ADMISSION_NO_PREFIX = "admission_no_prefix";
 	public static String FIELD_ADMISSION_LAST_NO = "admission_last_no";
+	public static String FIELD_ADMISSION_NUMBER_OF_DIGIT = "admission_number_of_digit";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -190,6 +192,9 @@ public abstract class Baseschool extends BaseResource {
 		Field admission_last_noField = new Field("admission_last_no", "int");
 		metaData.addField(admission_last_noField);
 
+		Field admission_number_of_digitField = new Field("admission_number_of_digit", "int");
+		metaData.addField(admission_number_of_digitField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -228,6 +233,7 @@ public abstract class Baseschool extends BaseResource {
 		this.logo_file_name = obj.logo_file_name;
 		this.admission_no_prefix = obj.admission_no_prefix;
 		this.admission_last_no = obj.admission_last_no;
+		this.admission_number_of_digit = obj.admission_number_of_digit;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -312,6 +318,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("admission_no_prefix", admission_no_prefix);
 		if(admission_last_no != null)
 			map.put("admission_last_no", admission_last_no);
+		if(admission_number_of_digit != null)
+			map.put("admission_number_of_digit", admission_number_of_digit);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -372,6 +380,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("admission_no_prefix", admission_no_prefix);
 		if(admission_last_no != null)
 			map.put("admission_last_no", admission_last_no);
+		if(admission_number_of_digit != null)
+			map.put("admission_number_of_digit", admission_number_of_digit);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -409,6 +419,7 @@ public abstract class Baseschool extends BaseResource {
 		logo_file_name = (String) map.get("logo_file_name");
 		admission_no_prefix = (String) map.get("admission_no_prefix");
 		admission_last_no = (Integer) map.get("admission_last_no");
+		admission_number_of_digit = (Integer) map.get("admission_number_of_digit");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -513,6 +524,10 @@ public abstract class Baseschool extends BaseResource {
 		Object admission_last_noObj = map.get("admission_last_no");
 		if(admission_last_noObj != null)
 			admission_last_no = new Integer(admission_last_noObj.toString());
+
+		Object admission_number_of_digitObj = map.get("admission_number_of_digit");
+		if(admission_number_of_digitObj != null)
+			admission_number_of_digit = new Integer(admission_number_of_digitObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -887,6 +902,26 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetAdmission_last_no() {
 		this.admission_last_no = null;
+	}
+
+	public Integer getAdmission_number_of_digit() {
+		return admission_number_of_digit;
+	}
+
+	public int getAdmission_number_of_digitEx() {
+		return admission_number_of_digit != null ? admission_number_of_digit : 0;
+	}
+
+	public void setAdmission_number_of_digit(int admission_number_of_digit) {
+		this.admission_number_of_digit = admission_number_of_digit;
+	}
+
+	public void setAdmission_number_of_digit(Integer admission_number_of_digit) {
+		this.admission_number_of_digit = admission_number_of_digit;
+	}
+
+	public void unSetAdmission_number_of_digit() {
+		this.admission_number_of_digit = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

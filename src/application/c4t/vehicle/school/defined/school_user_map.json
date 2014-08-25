@@ -27,6 +27,11 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
+			'vehicles':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
 			'messageaFromSchool':
 			{
 				'type':'Array',

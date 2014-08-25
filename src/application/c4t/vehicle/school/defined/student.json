@@ -394,6 +394,11 @@
 			{
 				'type':'String',
 				default : "MOTHER"
+			},
+			'gender':
+			{
+				'type':'String',
+				length : 10
 			}
 		}
 	}

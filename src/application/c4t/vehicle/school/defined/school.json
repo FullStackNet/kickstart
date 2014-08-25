@@ -148,6 +148,10 @@
 			'admission_last_no':
 			{
 				'type':'int'
+			},
+			'admission_number_of_digit':
+			{
+				'type':'int'
 			}
 		}
 	}
