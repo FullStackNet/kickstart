@@ -276,6 +276,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_proficiency':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'only_tracking':
 			{
 				'length': 1,
@@ -307,6 +313,7 @@
 				'type':'int',
 				default : 0
 			},
+			
 			'transport':
 			{
 				'length': 1,

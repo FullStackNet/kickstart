@@ -135,6 +135,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_proficiency':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'logo_file_name':
 			{
 				'length': 128,

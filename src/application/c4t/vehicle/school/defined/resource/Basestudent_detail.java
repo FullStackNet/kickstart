@@ -70,6 +70,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String feature_pick_drop = null;
 	private String feature_message2parent = null;
 	private String feature_message2school = null;
+	private String feature_proficiency = null;
 	private String only_tracking = null;
 	private String logo_file_name = null;
 	private Integer daily_activity_count = null;
@@ -133,6 +134,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_FEATURE_PICK_DROP = "feature_pick_drop";
 	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
 	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
+	public static String FIELD_FEATURE_PROFICIENCY = "feature_proficiency";
 	public static String FIELD_ONLY_TRACKING = "only_tracking";
 	public static String FIELD_LOGO_FILE_NAME = "logo_file_name";
 	public static String FIELD_DAILY_ACTIVITY_COUNT = "daily_activity_count";
@@ -368,6 +370,11 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_message2schoolField.setLength(1);
 		metaData.addField(feature_message2schoolField);
 
+		Field feature_proficiencyField = new Field("feature_proficiency", "String");
+		feature_proficiencyField.setDefaultValue("N");
+		feature_proficiencyField.setLength(1);
+		metaData.addField(feature_proficiencyField);
+
 		Field only_trackingField = new Field("only_tracking", "String");
 		only_trackingField.setDefaultValue("N");
 		only_trackingField.setLength(1);
@@ -474,6 +481,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.feature_pick_drop = obj.feature_pick_drop;
 		this.feature_message2parent = obj.feature_message2parent;
 		this.feature_message2school = obj.feature_message2school;
+		this.feature_proficiency = obj.feature_proficiency;
 		this.only_tracking = obj.only_tracking;
 		this.logo_file_name = obj.logo_file_name;
 		this.daily_activity_count = obj.daily_activity_count;
@@ -520,6 +528,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			feature_message2parent = "N";
 		if(feature_message2school == null)
 			feature_message2school = "N";
+		if(feature_proficiency == null)
+			feature_proficiency = "N";
 		if(only_tracking == null)
 			only_tracking = "N";
 		if(daily_activity_count == null)
@@ -644,6 +654,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_message2parent", feature_message2parent);
 		if(feature_message2school != null)
 			map.put("feature_message2school", feature_message2school);
+		if(feature_proficiency != null)
+			map.put("feature_proficiency", feature_proficiency);
 		if(only_tracking != null)
 			map.put("only_tracking", only_tracking);
 		if(logo_file_name != null)
@@ -776,6 +788,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_message2parent", feature_message2parent);
 		if(feature_message2school != null)
 			map.put("feature_message2school", feature_message2school);
+		if(feature_proficiency != null)
+			map.put("feature_proficiency", feature_proficiency);
 		if(only_tracking != null)
 			map.put("only_tracking", only_tracking);
 		if(logo_file_name != null)
@@ -859,6 +873,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_pick_drop = (String) map.get("feature_pick_drop");
 		feature_message2parent = (String) map.get("feature_message2parent");
 		feature_message2school = (String) map.get("feature_message2school");
+		feature_proficiency = (String) map.get("feature_proficiency");
 		only_tracking = (String) map.get("only_tracking");
 		logo_file_name = (String) map.get("logo_file_name");
 		daily_activity_count = (Integer) map.get("daily_activity_count");
@@ -1077,6 +1092,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object feature_message2schoolObj = map.get("feature_message2school");
 		if(feature_message2schoolObj != null)
 			feature_message2school = feature_message2schoolObj.toString();
+
+		Object feature_proficiencyObj = map.get("feature_proficiency");
+		if(feature_proficiencyObj != null)
+			feature_proficiency = feature_proficiencyObj.toString();
 
 		Object only_trackingObj = map.get("only_tracking");
 		if(only_trackingObj != null)
@@ -1899,6 +1918,18 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetFeature_message2school() {
 		this.feature_message2school = "N";
+	}
+
+	public String getFeature_proficiency() {
+		return feature_proficiency != null ? feature_proficiency : "N";
+	}
+
+	public void setFeature_proficiency(String feature_proficiency) {
+		this.feature_proficiency = feature_proficiency;
+	}
+
+	public void unSetFeature_proficiency() {
+		this.feature_proficiency = "N";
 	}
 
 	public String getOnly_tracking() {
