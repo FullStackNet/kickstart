@@ -9,6 +9,11 @@ public class UIUtil {
 		return options;
 	}
 	
+	public static IdValue[] getYesNODisableoption() {
+		IdValue[] options = {new IdValue("N", "No"), new IdValue("Y", "Yes"),new IdValue("D", "Disable")};
+		return options;
+	}
+	
 	public static IdValue[] getFuelTypeOption() {
 		IdValue[] options = {new IdValue("PETROL", "Petrol"), new IdValue("DIESAL", "Diesel")};
 		return options;
