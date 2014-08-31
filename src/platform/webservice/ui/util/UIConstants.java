@@ -84,6 +84,10 @@ public class UIConstants {
 		"Orange",
 		"Blue",
 };
+	public final static String[] REPORT_CARD_TEMPLETE_ENUM = new String[] {
+		"BRIGHT-KID-NURSERY",
+	};
+	
 	public final static String[] SECTION_ENUM = new String[] {
 		"MORNING SESSION",
 		"AFTERNOON SESSION",

@@ -35,7 +35,8 @@ public class Field {
 	boolean hideOnSingleEntry;
 	boolean fullWidth;
 	private boolean isUpperCase;
-	
+	boolean addOnly;
+	boolean modifyOnly;
 	public DataSource getDatasource() {
 		return datasource;
 	}
@@ -278,5 +279,21 @@ public class Field {
 
 	public void setFullWidth(boolean fullWidth) {
 		this.fullWidth = fullWidth;
+	}
+
+	public boolean isAddOnly() {
+		return addOnly;
+	}
+
+	public void setAddOnly(boolean addOnly) {
+		this.addOnly = addOnly;
+	}
+
+	public boolean isModifyOnly() {
+		return modifyOnly;
+	}
+
+	public void setModifyOnly(boolean modifyOnly) {
+		this.modifyOnly = modifyOnly;
 	}
 }

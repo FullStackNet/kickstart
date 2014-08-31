@@ -141,6 +141,16 @@ public abstract class BaseForm extends BaseView {
 			Block block = mDefinition.getBlocks().get(i);
 			for(int j=0; j < block.getFields().size(); j++) {
 				Field field = block.getFields().get(j);
+				if (field.isAddOnly()) {
+					if (!"add".equalsIgnoreCase(getContext().getParamValue("op"))) {
+						continue;
+					}
+				}
+				if (field.isModifyOnly()) {
+					if (!"modify".equalsIgnoreCase(getContext().getParamValue("op"))) {
+						continue;
+					}
+				}
 				if (field.isRequired()) {
 					str = str + "reason += validateEmpty(\""+field.getName()+"\",\""+field.getLabel()+"\");\n";
 				}
@@ -192,6 +202,16 @@ public abstract class BaseForm extends BaseView {
 
 			for(int j=0; j < block.getFields().size(); j++) {
 				Field field = block.getFields().get(j);
+				if (field.isAddOnly()) {
+					if (!"add".equalsIgnoreCase(getContext().getParamValue("op"))) {
+						continue;
+					}
+				}
+				if (field.isModifyOnly()) {
+					if (!"modify".equalsIgnoreCase(getContext().getParamValue("op"))) {
+						continue;
+					}
+				}
 				Object value = null;
 				if (dataMap != null) {
 					value = dataMap.get(field.getName());

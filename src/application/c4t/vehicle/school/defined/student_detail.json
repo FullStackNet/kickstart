@@ -282,6 +282,30 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_wof':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_photo':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_video':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_fees':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'only_tracking':
 			{
 				'length': 1,
@@ -293,7 +317,7 @@
 				'length': 128,
 				'type':'String'
 			},
-					'daily_activity_count':
+			'daily_activity_count':
 			{
 				'type':'int',
 				default : 0
@@ -331,6 +355,26 @@
 				default : 0
 			},
 			'message2school_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'photo_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'video_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'fees_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'proficiency_count':
 			{
 				'type':'int',
 				default : 0
