@@ -71,6 +71,10 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String feature_message2parent = null;
 	private String feature_message2school = null;
 	private String feature_proficiency = null;
+	private String feature_wof = null;
+	private String feature_photo = null;
+	private String feature_video = null;
+	private String feature_fees = null;
 	private String only_tracking = null;
 	private String logo_file_name = null;
 	private Integer daily_activity_count = null;
@@ -81,6 +85,10 @@ public abstract class Basestudent_detail extends BaseResource {
 	private Integer transport_count = null;
 	private Integer absent_report_count = null;
 	private Integer message2school_count = null;
+	private Integer photo_count = null;
+	private Integer video_count = null;
+	private Integer fees_count = null;
+	private Integer proficiency_count = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -135,6 +143,10 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
 	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
 	public static String FIELD_FEATURE_PROFICIENCY = "feature_proficiency";
+	public static String FIELD_FEATURE_WOF = "feature_wof";
+	public static String FIELD_FEATURE_PHOTO = "feature_photo";
+	public static String FIELD_FEATURE_VIDEO = "feature_video";
+	public static String FIELD_FEATURE_FEES = "feature_fees";
 	public static String FIELD_ONLY_TRACKING = "only_tracking";
 	public static String FIELD_LOGO_FILE_NAME = "logo_file_name";
 	public static String FIELD_DAILY_ACTIVITY_COUNT = "daily_activity_count";
@@ -145,6 +157,10 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_TRANSPORT_COUNT = "transport_count";
 	public static String FIELD_ABSENT_REPORT_COUNT = "absent_report_count";
 	public static String FIELD_MESSAGE2SCHOOL_COUNT = "message2school_count";
+	public static String FIELD_PHOTO_COUNT = "photo_count";
+	public static String FIELD_VIDEO_COUNT = "video_count";
+	public static String FIELD_FEES_COUNT = "fees_count";
+	public static String FIELD_PROFICIENCY_COUNT = "proficiency_count";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -375,6 +391,26 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_proficiencyField.setLength(1);
 		metaData.addField(feature_proficiencyField);
 
+		Field feature_wofField = new Field("feature_wof", "String");
+		feature_wofField.setDefaultValue("N");
+		feature_wofField.setLength(1);
+		metaData.addField(feature_wofField);
+
+		Field feature_photoField = new Field("feature_photo", "String");
+		feature_photoField.setDefaultValue("N");
+		feature_photoField.setLength(1);
+		metaData.addField(feature_photoField);
+
+		Field feature_videoField = new Field("feature_video", "String");
+		feature_videoField.setDefaultValue("N");
+		feature_videoField.setLength(1);
+		metaData.addField(feature_videoField);
+
+		Field feature_feesField = new Field("feature_fees", "String");
+		feature_feesField.setDefaultValue("N");
+		feature_feesField.setLength(1);
+		metaData.addField(feature_feesField);
+
 		Field only_trackingField = new Field("only_tracking", "String");
 		only_trackingField.setDefaultValue("N");
 		only_trackingField.setLength(1);
@@ -416,6 +452,22 @@ public abstract class Basestudent_detail extends BaseResource {
 		Field message2school_countField = new Field("message2school_count", "int");
 		message2school_countField.setDefaultValue(0);
 		metaData.addField(message2school_countField);
+
+		Field photo_countField = new Field("photo_count", "int");
+		photo_countField.setDefaultValue(0);
+		metaData.addField(photo_countField);
+
+		Field video_countField = new Field("video_count", "int");
+		video_countField.setDefaultValue(0);
+		metaData.addField(video_countField);
+
+		Field fees_countField = new Field("fees_count", "int");
+		fees_countField.setDefaultValue(0);
+		metaData.addField(fees_countField);
+
+		Field proficiency_countField = new Field("proficiency_count", "int");
+		proficiency_countField.setDefaultValue(0);
+		metaData.addField(proficiency_countField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -482,6 +534,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.feature_message2parent = obj.feature_message2parent;
 		this.feature_message2school = obj.feature_message2school;
 		this.feature_proficiency = obj.feature_proficiency;
+		this.feature_wof = obj.feature_wof;
+		this.feature_photo = obj.feature_photo;
+		this.feature_video = obj.feature_video;
+		this.feature_fees = obj.feature_fees;
 		this.only_tracking = obj.only_tracking;
 		this.logo_file_name = obj.logo_file_name;
 		this.daily_activity_count = obj.daily_activity_count;
@@ -492,6 +548,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.transport_count = obj.transport_count;
 		this.absent_report_count = obj.absent_report_count;
 		this.message2school_count = obj.message2school_count;
+		this.photo_count = obj.photo_count;
+		this.video_count = obj.video_count;
+		this.fees_count = obj.fees_count;
+		this.proficiency_count = obj.proficiency_count;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -530,6 +590,14 @@ public abstract class Basestudent_detail extends BaseResource {
 			feature_message2school = "N";
 		if(feature_proficiency == null)
 			feature_proficiency = "N";
+		if(feature_wof == null)
+			feature_wof = "N";
+		if(feature_photo == null)
+			feature_photo = "N";
+		if(feature_video == null)
+			feature_video = "N";
+		if(feature_fees == null)
+			feature_fees = "N";
 		if(only_tracking == null)
 			only_tracking = "N";
 		if(daily_activity_count == null)
@@ -548,6 +616,14 @@ public abstract class Basestudent_detail extends BaseResource {
 			absent_report_count = 0;
 		if(message2school_count == null)
 			message2school_count = 0;
+		if(photo_count == null)
+			photo_count = 0;
+		if(video_count == null)
+			video_count = 0;
+		if(fees_count == null)
+			fees_count = 0;
+		if(proficiency_count == null)
+			proficiency_count = 0;
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -656,6 +732,14 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_message2school", feature_message2school);
 		if(feature_proficiency != null)
 			map.put("feature_proficiency", feature_proficiency);
+		if(feature_wof != null)
+			map.put("feature_wof", feature_wof);
+		if(feature_photo != null)
+			map.put("feature_photo", feature_photo);
+		if(feature_video != null)
+			map.put("feature_video", feature_video);
+		if(feature_fees != null)
+			map.put("feature_fees", feature_fees);
 		if(only_tracking != null)
 			map.put("only_tracking", only_tracking);
 		if(logo_file_name != null)
@@ -676,6 +760,14 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("absent_report_count", absent_report_count);
 		if(message2school_count != null)
 			map.put("message2school_count", message2school_count);
+		if(photo_count != null)
+			map.put("photo_count", photo_count);
+		if(video_count != null)
+			map.put("video_count", video_count);
+		if(fees_count != null)
+			map.put("fees_count", fees_count);
+		if(proficiency_count != null)
+			map.put("proficiency_count", proficiency_count);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -790,6 +882,14 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_message2school", feature_message2school);
 		if(feature_proficiency != null)
 			map.put("feature_proficiency", feature_proficiency);
+		if(feature_wof != null)
+			map.put("feature_wof", feature_wof);
+		if(feature_photo != null)
+			map.put("feature_photo", feature_photo);
+		if(feature_video != null)
+			map.put("feature_video", feature_video);
+		if(feature_fees != null)
+			map.put("feature_fees", feature_fees);
 		if(only_tracking != null)
 			map.put("only_tracking", only_tracking);
 		if(logo_file_name != null)
@@ -810,6 +910,14 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("absent_report_count", absent_report_count);
 		if(message2school_count != null)
 			map.put("message2school_count", message2school_count);
+		if(photo_count != null)
+			map.put("photo_count", photo_count);
+		if(video_count != null)
+			map.put("video_count", video_count);
+		if(fees_count != null)
+			map.put("fees_count", fees_count);
+		if(proficiency_count != null)
+			map.put("proficiency_count", proficiency_count);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -874,6 +982,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_message2parent = (String) map.get("feature_message2parent");
 		feature_message2school = (String) map.get("feature_message2school");
 		feature_proficiency = (String) map.get("feature_proficiency");
+		feature_wof = (String) map.get("feature_wof");
+		feature_photo = (String) map.get("feature_photo");
+		feature_video = (String) map.get("feature_video");
+		feature_fees = (String) map.get("feature_fees");
 		only_tracking = (String) map.get("only_tracking");
 		logo_file_name = (String) map.get("logo_file_name");
 		daily_activity_count = (Integer) map.get("daily_activity_count");
@@ -884,6 +996,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		transport_count = (Integer) map.get("transport_count");
 		absent_report_count = (Integer) map.get("absent_report_count");
 		message2school_count = (Integer) map.get("message2school_count");
+		photo_count = (Integer) map.get("photo_count");
+		video_count = (Integer) map.get("video_count");
+		fees_count = (Integer) map.get("fees_count");
+		proficiency_count = (Integer) map.get("proficiency_count");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1097,6 +1213,22 @@ public abstract class Basestudent_detail extends BaseResource {
 		if(feature_proficiencyObj != null)
 			feature_proficiency = feature_proficiencyObj.toString();
 
+		Object feature_wofObj = map.get("feature_wof");
+		if(feature_wofObj != null)
+			feature_wof = feature_wofObj.toString();
+
+		Object feature_photoObj = map.get("feature_photo");
+		if(feature_photoObj != null)
+			feature_photo = feature_photoObj.toString();
+
+		Object feature_videoObj = map.get("feature_video");
+		if(feature_videoObj != null)
+			feature_video = feature_videoObj.toString();
+
+		Object feature_feesObj = map.get("feature_fees");
+		if(feature_feesObj != null)
+			feature_fees = feature_feesObj.toString();
+
 		Object only_trackingObj = map.get("only_tracking");
 		if(only_trackingObj != null)
 			only_tracking = only_trackingObj.toString();
@@ -1136,6 +1268,22 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object message2school_countObj = map.get("message2school_count");
 		if(message2school_countObj != null)
 			message2school_count = new Integer(message2school_countObj.toString());
+
+		Object photo_countObj = map.get("photo_count");
+		if(photo_countObj != null)
+			photo_count = new Integer(photo_countObj.toString());
+
+		Object video_countObj = map.get("video_count");
+		if(video_countObj != null)
+			video_count = new Integer(video_countObj.toString());
+
+		Object fees_countObj = map.get("fees_count");
+		if(fees_countObj != null)
+			fees_count = new Integer(fees_countObj.toString());
+
+		Object proficiency_countObj = map.get("proficiency_count");
+		if(proficiency_countObj != null)
+			proficiency_count = new Integer(proficiency_countObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1932,6 +2080,54 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.feature_proficiency = "N";
 	}
 
+	public String getFeature_wof() {
+		return feature_wof != null ? feature_wof : "N";
+	}
+
+	public void setFeature_wof(String feature_wof) {
+		this.feature_wof = feature_wof;
+	}
+
+	public void unSetFeature_wof() {
+		this.feature_wof = "N";
+	}
+
+	public String getFeature_photo() {
+		return feature_photo != null ? feature_photo : "N";
+	}
+
+	public void setFeature_photo(String feature_photo) {
+		this.feature_photo = feature_photo;
+	}
+
+	public void unSetFeature_photo() {
+		this.feature_photo = "N";
+	}
+
+	public String getFeature_video() {
+		return feature_video != null ? feature_video : "N";
+	}
+
+	public void setFeature_video(String feature_video) {
+		this.feature_video = feature_video;
+	}
+
+	public void unSetFeature_video() {
+		this.feature_video = "N";
+	}
+
+	public String getFeature_fees() {
+		return feature_fees != null ? feature_fees : "N";
+	}
+
+	public void setFeature_fees(String feature_fees) {
+		this.feature_fees = feature_fees;
+	}
+
+	public void unSetFeature_fees() {
+		this.feature_fees = "N";
+	}
+
 	public String getOnly_tracking() {
 		return only_tracking != null ? only_tracking : "N";
 	}
@@ -2082,6 +2278,70 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetMessage2school_count() {
 		this.message2school_count = 0;
+	}
+
+	public Integer getPhoto_count() {
+		return photo_count != null ? photo_count : 0;
+	}
+
+	public void setPhoto_count(int photo_count) {
+		this.photo_count = photo_count;
+	}
+
+	public void setPhoto_count(Integer photo_count) {
+		this.photo_count = photo_count;
+	}
+
+	public void unSetPhoto_count() {
+		this.photo_count = 0;
+	}
+
+	public Integer getVideo_count() {
+		return video_count != null ? video_count : 0;
+	}
+
+	public void setVideo_count(int video_count) {
+		this.video_count = video_count;
+	}
+
+	public void setVideo_count(Integer video_count) {
+		this.video_count = video_count;
+	}
+
+	public void unSetVideo_count() {
+		this.video_count = 0;
+	}
+
+	public Integer getFees_count() {
+		return fees_count != null ? fees_count : 0;
+	}
+
+	public void setFees_count(int fees_count) {
+		this.fees_count = fees_count;
+	}
+
+	public void setFees_count(Integer fees_count) {
+		this.fees_count = fees_count;
+	}
+
+	public void unSetFees_count() {
+		this.fees_count = 0;
+	}
+
+	public Integer getProficiency_count() {
+		return proficiency_count != null ? proficiency_count : 0;
+	}
+
+	public void setProficiency_count(int proficiency_count) {
+		this.proficiency_count = proficiency_count;
+	}
+
+	public void setProficiency_count(Integer proficiency_count) {
+		this.proficiency_count = proficiency_count;
+	}
+
+	public void unSetProficiency_count() {
+		this.proficiency_count = 0;
 	}
 
 	public Map<String, Object> getExtra_data() {
