@@ -62,7 +62,7 @@ public class MongoDBConnection extends DbConnection {
 		server = reader.getString(ApplicationConstants.PROPERTY_SERVER,ApplicationConstants.DEFAULT_DB_SERVER);
 		username = reader.getString(ApplicationConstants.PROPERTY_USERNAME,ApplicationConstants.DEFAULT_DB_USERNAME);
 		database = reader.getString(ApplicationConstants.PROPERTY_DATABASE,DBNameEnum.DB_CONFIG.toString());
-		port = reader.getInt(ApplicationConstants.PROPERTY_PORT,27017);
+		port = reader.getInt(ApplicationConstants.PROPERTY_PORT,23017);
 		password = reader.getString("password",null);
 		System.out.println(server+"::"+username+"::"+port+"::"+database+"::"+password);
 		if ( password != null) {

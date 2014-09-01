@@ -11,32 +11,16 @@
 				'required': true,
 				'type':'String'
 			},
-			'class_name':
-			{
-				'length': 32,
-				'type':'String'
+			'name':{
+				'length': 512,
+				'type': 'String'
 			},
-			'subject_id':
-			{
-				'length': 128,
-				'type':'String'
-			},
-			'customer_id':
-			{
-				'length': 128,
-				'type':'String',
-				'index' : true
+			'topic_no':{
+				'length': 10,
+				'type': 'String'
 			},
 			'chapter_id':{
-				'length': 512,
-				'type': 'String'
-			},
-			'chapter':{
-				'length': 512,
-				'type': 'String'
-			},
-			'topic':{
-				'length': 512,
+				'length': 128,
 				'type': 'String'
 			},
 			'creation_time': {
