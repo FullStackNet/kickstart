@@ -1,0 +1,56 @@
+{
+	"work_sheet" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'subject_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'sheet_no':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'chapter_id':{
+				'length': 512,
+				'type': 'String'
+			},
+			'chapter':{
+				'length': 512,
+				'type': 'String'
+			},
+			'topic_id':{
+				'length': 512,
+				'type': 'String'
+			},
+			'topic':{
+				'length': 512,
+				'type': 'String'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}			
+		}
+	}
+}
