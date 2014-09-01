@@ -394,7 +394,7 @@ public class RouteHelper extends BaseHelper {
 						return;
 					}
 			}
-			int time = (int) (logTime.getTime() - found_route_stopage.getReached_time());
+			int time = (int) (logTime.getTime() - found_route_stopage.getReached_timeEx());
 			if (time < 0)
 				time = (-1)*time;
 			
