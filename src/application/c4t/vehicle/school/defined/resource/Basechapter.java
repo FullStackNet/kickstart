@@ -24,7 +24,7 @@ public abstract class Basechapter extends BaseResource {
 	private String subject_id = null;
 	private String customer_id = null;
 	private String chapter_no = null;
-	private String title = null;
+	private String name = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -33,7 +33,7 @@ public abstract class Basechapter extends BaseResource {
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CHAPTER_NO = "chapter_no";
-	public static String FIELD_TITLE = "title";
+	public static String FIELD_NAME = "name";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -65,9 +65,9 @@ public abstract class Basechapter extends BaseResource {
 		chapter_noField.setLength(16);
 		metaData.addField(chapter_noField);
 
-		Field titleField = new Field("title", "String");
-		titleField.setLength(512);
-		metaData.addField(titleField);
+		Field nameField = new Field("name", "String");
+		nameField.setLength(512);
+		metaData.addField(nameField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -90,7 +90,7 @@ public abstract class Basechapter extends BaseResource {
 		this.subject_id = obj.subject_id;
 		this.customer_id = obj.customer_id;
 		this.chapter_no = obj.chapter_no;
-		this.title = obj.title;
+		this.name = obj.name;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -111,8 +111,8 @@ public abstract class Basechapter extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(chapter_no != null)
 			map.put("chapter_no", chapter_no);
-		if(title != null)
-			map.put("title", title);
+		if(name != null)
+			map.put("name", name);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -132,8 +132,8 @@ public abstract class Basechapter extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(chapter_no != null)
 			map.put("chapter_no", chapter_no);
-		if(title != null)
-			map.put("title", title);
+		if(name != null)
+			map.put("name", name);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -153,7 +153,7 @@ public abstract class Basechapter extends BaseResource {
 		subject_id = (String) map.get("subject_id");
 		customer_id = (String) map.get("customer_id");
 		chapter_no = (String) map.get("chapter_no");
-		title = (String) map.get("title");
+		name = (String) map.get("name");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -180,9 +180,9 @@ public abstract class Basechapter extends BaseResource {
 		if(chapter_noObj != null)
 			chapter_no = chapter_noObj.toString();
 
-		Object titleObj = map.get("title");
-		if(titleObj != null)
-			title = titleObj.toString();
+		Object nameObj = map.get("name");
+		if(nameObj != null)
+			name = nameObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -283,20 +283,20 @@ public abstract class Basechapter extends BaseResource {
 		this.chapter_no = null;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
-	public String getTitleEx() {
-		return title != null ? title : "";
+	public String getNameEx() {
+		return name != null ? name : "";
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void unSetTitle() {
-		this.title = null;
+	public void unSetName() {
+		this.name = null;
 	}
 
 	public Long getCreation_time() {

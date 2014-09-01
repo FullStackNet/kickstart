@@ -31,7 +31,7 @@
 				'length': 16,
 				'type': 'String'
 			},
-			'title':{
+			'name':{
 				'length': 512,
 				'type': 'String'
 			},
