@@ -23,6 +23,8 @@ public abstract class Basework_sheet extends BaseResource {
 	private String topic_id = null;
 	private String sheet_no = null;
 	private String name = null;
+	private String question_filename = null;
+	private String answer_filename = null;
 	private Integer total_marks = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -31,6 +33,8 @@ public abstract class Basework_sheet extends BaseResource {
 	public static String FIELD_TOPIC_ID = "topic_id";
 	public static String FIELD_SHEET_NO = "sheet_no";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_QUESTION_FILENAME = "question_filename";
+	public static String FIELD_ANSWER_FILENAME = "answer_filename";
 	public static String FIELD_TOTAL_MARKS = "total_marks";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -58,6 +62,14 @@ public abstract class Basework_sheet extends BaseResource {
 		nameField.setLength(128);
 		metaData.addField(nameField);
 
+		Field question_filenameField = new Field("question_filename", "String");
+		question_filenameField.setLength(128);
+		metaData.addField(question_filenameField);
+
+		Field answer_filenameField = new Field("answer_filename", "String");
+		answer_filenameField.setLength(128);
+		metaData.addField(answer_filenameField);
+
 		Field total_marksField = new Field("total_marks", "int");
 		metaData.addField(total_marksField);
 
@@ -81,6 +93,8 @@ public abstract class Basework_sheet extends BaseResource {
 		this.topic_id = obj.topic_id;
 		this.sheet_no = obj.sheet_no;
 		this.name = obj.name;
+		this.question_filename = obj.question_filename;
+		this.answer_filename = obj.answer_filename;
 		this.total_marks = obj.total_marks;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -100,6 +114,10 @@ public abstract class Basework_sheet extends BaseResource {
 			map.put("sheet_no", sheet_no);
 		if(name != null)
 			map.put("name", name);
+		if(question_filename != null)
+			map.put("question_filename", question_filename);
+		if(answer_filename != null)
+			map.put("answer_filename", answer_filename);
 		if(total_marks != null)
 			map.put("total_marks", total_marks);
 		if(creation_time != null)
@@ -119,6 +137,10 @@ public abstract class Basework_sheet extends BaseResource {
 			map.put("sheet_no", sheet_no);
 		if(name != null)
 			map.put("name", name);
+		if(question_filename != null)
+			map.put("question_filename", question_filename);
+		if(answer_filename != null)
+			map.put("answer_filename", answer_filename);
 		if(total_marks != null)
 			map.put("total_marks", total_marks);
 		if(creation_time != null)
@@ -139,6 +161,8 @@ public abstract class Basework_sheet extends BaseResource {
 		topic_id = (String) map.get("topic_id");
 		sheet_no = (String) map.get("sheet_no");
 		name = (String) map.get("name");
+		question_filename = (String) map.get("question_filename");
+		answer_filename = (String) map.get("answer_filename");
 		total_marks = (Integer) map.get("total_marks");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -161,6 +185,14 @@ public abstract class Basework_sheet extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object question_filenameObj = map.get("question_filename");
+		if(question_filenameObj != null)
+			question_filename = question_filenameObj.toString();
+
+		Object answer_filenameObj = map.get("answer_filename");
+		if(answer_filenameObj != null)
+			answer_filename = answer_filenameObj.toString();
 
 		Object total_marksObj = map.get("total_marks");
 		if(total_marksObj != null)
@@ -247,6 +279,38 @@ public abstract class Basework_sheet extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getQuestion_filename() {
+		return question_filename;
+	}
+
+	public String getQuestion_filenameEx() {
+		return question_filename != null ? question_filename : "";
+	}
+
+	public void setQuestion_filename(String question_filename) {
+		this.question_filename = question_filename;
+	}
+
+	public void unSetQuestion_filename() {
+		this.question_filename = null;
+	}
+
+	public String getAnswer_filename() {
+		return answer_filename;
+	}
+
+	public String getAnswer_filenameEx() {
+		return answer_filename != null ? answer_filename : "";
+	}
+
+	public void setAnswer_filename(String answer_filename) {
+		this.answer_filename = answer_filename;
+	}
+
+	public void unSetAnswer_filename() {
+		this.answer_filename = null;
 	}
 
 	public Integer getTotal_marks() {

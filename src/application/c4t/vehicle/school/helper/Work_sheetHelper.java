@@ -25,4 +25,16 @@ public class Work_sheetHelper extends BaseHelper {
 		Expression e = new Expression(work_sheet.FIELD_TOPIC_ID, REL_OP.EQ, topicId);
 		return getByExpression(e, new String[]{work_sheet.FIELD_SHEET_NO});
 	}
+	
+	public void updateAnswerFileName(String id,String filename) {
+		work_sheet sheet = new work_sheet();
+		sheet.setId(id);
+		sheet.setAnswer_filename(filename);
+	}
+	
+	public void updateQuestionFileName(String id,String filename) {
+		work_sheet sheet = new work_sheet();
+		sheet.setId(id);
+		sheet.setQuestion_filename(filename);
+	}
 }

@@ -26,6 +26,16 @@
 				'length': 128,
 				'type': 'String'
 			},
+			'question_filename':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'answer_filename':
+			{
+				'length': 128,
+				'type': 'String'
+			},
 			'total_marks': {
 				'type': 'int'
 			},
