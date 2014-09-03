@@ -20,26 +20,18 @@ import java.util.*;
  */
 public abstract class Basework_sheet extends BaseResource {
 	private String id = null;
-	private String class_name = null;
-	private String subject_id = null;
-	private String customer_id = null;
-	private String sheet_no = null;
-	private String chapter_id = null;
-	private String chapter = null;
 	private String topic_id = null;
-	private String topic = null;
+	private String sheet_no = null;
+	private String name = null;
+	private Integer total_marks = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_CLASS_NAME = "class_name";
-	public static String FIELD_SUBJECT_ID = "subject_id";
-	public static String FIELD_CUSTOMER_ID = "customer_id";
-	public static String FIELD_SHEET_NO = "sheet_no";
-	public static String FIELD_CHAPTER_ID = "chapter_id";
-	public static String FIELD_CHAPTER = "chapter";
 	public static String FIELD_TOPIC_ID = "topic_id";
-	public static String FIELD_TOPIC = "topic";
+	public static String FIELD_SHEET_NO = "sheet_no";
+	public static String FIELD_NAME = "name";
+	public static String FIELD_TOTAL_MARKS = "total_marks";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -54,38 +46,20 @@ public abstract class Basework_sheet extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
-		Field class_nameField = new Field("class_name", "String");
-		class_nameField.setLength(32);
-		metaData.addField(class_nameField);
-
-		Field subject_idField = new Field("subject_id", "String");
-		subject_idField.setLength(128);
-		metaData.addField(subject_idField);
-
-		Field customer_idField = new Field("customer_id", "String");
-		customer_idField.setIndexed(true);
-		customer_idField.setLength(128);
-		metaData.addField(customer_idField);
+		Field topic_idField = new Field("topic_id", "String");
+		topic_idField.setLength(32);
+		metaData.addField(topic_idField);
 
 		Field sheet_noField = new Field("sheet_no", "String");
 		sheet_noField.setLength(128);
 		metaData.addField(sheet_noField);
 
-		Field chapter_idField = new Field("chapter_id", "String");
-		chapter_idField.setLength(512);
-		metaData.addField(chapter_idField);
+		Field nameField = new Field("name", "String");
+		nameField.setLength(128);
+		metaData.addField(nameField);
 
-		Field chapterField = new Field("chapter", "String");
-		chapterField.setLength(512);
-		metaData.addField(chapterField);
-
-		Field topic_idField = new Field("topic_id", "String");
-		topic_idField.setLength(512);
-		metaData.addField(topic_idField);
-
-		Field topicField = new Field("topic", "String");
-		topicField.setLength(512);
-		metaData.addField(topicField);
+		Field total_marksField = new Field("total_marks", "int");
+		metaData.addField(total_marksField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -104,14 +78,10 @@ public abstract class Basework_sheet extends BaseResource {
 
 	public Basework_sheet(Basework_sheet obj) {
 		this.id = obj.id;
-		this.class_name = obj.class_name;
-		this.subject_id = obj.subject_id;
-		this.customer_id = obj.customer_id;
-		this.sheet_no = obj.sheet_no;
-		this.chapter_id = obj.chapter_id;
-		this.chapter = obj.chapter;
 		this.topic_id = obj.topic_id;
-		this.topic = obj.topic;
+		this.sheet_no = obj.sheet_no;
+		this.name = obj.name;
+		this.total_marks = obj.total_marks;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -124,22 +94,14 @@ public abstract class Basework_sheet extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(class_name != null)
-			map.put("class_name", class_name);
-		if(subject_id != null)
-			map.put("subject_id", subject_id);
-		if(customer_id != null)
-			map.put("customer_id", customer_id);
-		if(sheet_no != null)
-			map.put("sheet_no", sheet_no);
-		if(chapter_id != null)
-			map.put("chapter_id", chapter_id);
-		if(chapter != null)
-			map.put("chapter", chapter);
 		if(topic_id != null)
 			map.put("topic_id", topic_id);
-		if(topic != null)
-			map.put("topic", topic);
+		if(sheet_no != null)
+			map.put("sheet_no", sheet_no);
+		if(name != null)
+			map.put("name", name);
+		if(total_marks != null)
+			map.put("total_marks", total_marks);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -151,22 +113,14 @@ public abstract class Basework_sheet extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(class_name != null)
-			map.put("class_name", class_name);
-		if(subject_id != null)
-			map.put("subject_id", subject_id);
-		if(customer_id != null)
-			map.put("customer_id", customer_id);
-		if(sheet_no != null)
-			map.put("sheet_no", sheet_no);
-		if(chapter_id != null)
-			map.put("chapter_id", chapter_id);
-		if(chapter != null)
-			map.put("chapter", chapter);
 		if(topic_id != null)
 			map.put("topic_id", topic_id);
-		if(topic != null)
-			map.put("topic", topic);
+		if(sheet_no != null)
+			map.put("sheet_no", sheet_no);
+		if(name != null)
+			map.put("name", name);
+		if(total_marks != null)
+			map.put("total_marks", total_marks);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -182,14 +136,10 @@ public abstract class Basework_sheet extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		class_name = (String) map.get("class_name");
-		subject_id = (String) map.get("subject_id");
-		customer_id = (String) map.get("customer_id");
-		sheet_no = (String) map.get("sheet_no");
-		chapter_id = (String) map.get("chapter_id");
-		chapter = (String) map.get("chapter");
 		topic_id = (String) map.get("topic_id");
-		topic = (String) map.get("topic");
+		sheet_no = (String) map.get("sheet_no");
+		name = (String) map.get("name");
+		total_marks = (Integer) map.get("total_marks");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -200,37 +150,21 @@ public abstract class Basework_sheet extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		Object class_nameObj = map.get("class_name");
-		if(class_nameObj != null)
-			class_name = class_nameObj.toString();
-
-		Object subject_idObj = map.get("subject_id");
-		if(subject_idObj != null)
-			subject_id = subject_idObj.toString();
-
-		Object customer_idObj = map.get("customer_id");
-		if(customer_idObj != null)
-			customer_id = customer_idObj.toString();
+		Object topic_idObj = map.get("topic_id");
+		if(topic_idObj != null)
+			topic_id = topic_idObj.toString();
 
 		Object sheet_noObj = map.get("sheet_no");
 		if(sheet_noObj != null)
 			sheet_no = sheet_noObj.toString();
 
-		Object chapter_idObj = map.get("chapter_id");
-		if(chapter_idObj != null)
-			chapter_id = chapter_idObj.toString();
+		Object nameObj = map.get("name");
+		if(nameObj != null)
+			name = nameObj.toString();
 
-		Object chapterObj = map.get("chapter");
-		if(chapterObj != null)
-			chapter = chapterObj.toString();
-
-		Object topic_idObj = map.get("topic_id");
-		if(topic_idObj != null)
-			topic_id = topic_idObj.toString();
-
-		Object topicObj = map.get("topic");
-		if(topicObj != null)
-			topic = topicObj.toString();
+		Object total_marksObj = map.get("total_marks");
+		if(total_marksObj != null)
+			total_marks = new Integer(total_marksObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -267,52 +201,20 @@ public abstract class Basework_sheet extends BaseResource {
 		return id != null;
 	}
 
-	public String getClass_name() {
-		return class_name;
+	public String getTopic_id() {
+		return topic_id;
 	}
 
-	public String getClass_nameEx() {
-		return class_name != null ? class_name : "";
+	public String getTopic_idEx() {
+		return topic_id != null ? topic_id : "";
 	}
 
-	public void setClass_name(String class_name) {
-		this.class_name = class_name;
+	public void setTopic_id(String topic_id) {
+		this.topic_id = topic_id;
 	}
 
-	public void unSetClass_name() {
-		this.class_name = null;
-	}
-
-	public String getSubject_id() {
-		return subject_id;
-	}
-
-	public String getSubject_idEx() {
-		return subject_id != null ? subject_id : "";
-	}
-
-	public void setSubject_id(String subject_id) {
-		this.subject_id = subject_id;
-	}
-
-	public void unSetSubject_id() {
-		this.subject_id = null;
-	}
-
-	public String getCustomer_id() {
-		return customer_id;
-	}
-
-	public String getCustomer_idEx() {
-		return customer_id != null ? customer_id : "";
-	}
-
-	public void setCustomer_id(String customer_id) {
-		this.customer_id = customer_id;
-	}
-
-	public void unSetCustomer_id() {
-		this.customer_id = null;
+	public void unSetTopic_id() {
+		this.topic_id = null;
 	}
 
 	public String getSheet_no() {
@@ -331,68 +233,40 @@ public abstract class Basework_sheet extends BaseResource {
 		this.sheet_no = null;
 	}
 
-	public String getChapter_id() {
-		return chapter_id;
+	public String getName() {
+		return name;
 	}
 
-	public String getChapter_idEx() {
-		return chapter_id != null ? chapter_id : "";
+	public String getNameEx() {
+		return name != null ? name : "";
 	}
 
-	public void setChapter_id(String chapter_id) {
-		this.chapter_id = chapter_id;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void unSetChapter_id() {
-		this.chapter_id = null;
+	public void unSetName() {
+		this.name = null;
 	}
 
-	public String getChapter() {
-		return chapter;
+	public Integer getTotal_marks() {
+		return total_marks;
 	}
 
-	public String getChapterEx() {
-		return chapter != null ? chapter : "";
+	public int getTotal_marksEx() {
+		return total_marks != null ? total_marks : 0;
 	}
 
-	public void setChapter(String chapter) {
-		this.chapter = chapter;
+	public void setTotal_marks(int total_marks) {
+		this.total_marks = total_marks;
 	}
 
-	public void unSetChapter() {
-		this.chapter = null;
+	public void setTotal_marks(Integer total_marks) {
+		this.total_marks = total_marks;
 	}
 
-	public String getTopic_id() {
-		return topic_id;
-	}
-
-	public String getTopic_idEx() {
-		return topic_id != null ? topic_id : "";
-	}
-
-	public void setTopic_id(String topic_id) {
-		this.topic_id = topic_id;
-	}
-
-	public void unSetTopic_id() {
-		this.topic_id = null;
-	}
-
-	public String getTopic() {
-		return topic;
-	}
-
-	public String getTopicEx() {
-		return topic != null ? topic : "";
-	}
-
-	public void setTopic(String topic) {
-		this.topic = topic;
-	}
-
-	public void unSetTopic() {
-		this.topic = null;
+	public void unSetTotal_marks() {
+		this.total_marks = null;
 	}
 
 	public Long getCreation_time() {

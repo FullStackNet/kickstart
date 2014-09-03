@@ -11,42 +11,23 @@
 				'required': true,
 				'type':'String'
 			},
-			'class_name':
+			'topic_id':
 			{
 				'length': 32,
 				'type':'String'
-			},
-			'subject_id':
-			{
-				'length': 128,
-				'type':'String'
-			},
-			'customer_id':
-			{
-				'length': 128,
-				'type':'String',
-				'index' : true
 			},
 			'sheet_no':
 			{
 				'length': 128,
 				'type': 'String'
 			},
-			'chapter_id':{
-				'length': 512,
+			'name':
+			{
+				'length': 128,
 				'type': 'String'
 			},
-			'chapter':{
-				'length': 512,
-				'type': 'String'
-			},
-			'topic_id':{
-				'length': 512,
-				'type': 'String'
-			},
-			'topic':{
-				'length': 512,
-				'type': 'String'
+			'total_marks': {
+				'type': 'int'
 			},
 			'creation_time': {
 				'type': 'timestamp'
