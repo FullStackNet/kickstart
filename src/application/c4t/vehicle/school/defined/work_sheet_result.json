@@ -1,5 +1,5 @@
 {
-	"work_sheet" :
+	"work_sheet_result" :
 	{
 		"cluster": "DB_SCHOOL",
 		"fields":
@@ -11,22 +11,21 @@
 				'required': true,
 				'type':'String'
 			},
-			'name':
+			'student_id':
 			{
-				'length': 128,
-				'type': 'String'
+				'length': 32,
+				'type':'String'
 			},
 			'class_name':
 			{
 				'length': 32,
 				'type':'String'
 			},
-			'customer_id':
+			'class_section_name':
 			{
 				'length': 32,
 				'type':'String'
 			},
-			
 			'subject_id':
 			{
 				'length': 32,
@@ -47,6 +46,7 @@
 				'length': 32,
 				'type':'String'
 			},
+			
 			'topic_id':
 			{
 				'length': 32,
@@ -62,25 +62,39 @@
 				'length': 32,
 				'type':'String'
 			},
-			
+			'sheet_id':
+			{
+				'length': 128,
+				'type': 'String'
+			},
 			'sheet_no':
 			{
 				'length': 128,
 				'type': 'String'
 			},
-			
-			'question_filename':
-			{
-				'length': 128,
-				'type': 'String'
-			},
-			'answer_filename':
+			'name':
 			{
 				'length': 128,
 				'type': 'String'
 			},
 			'total_marks': {
 				'type': 'int'
+			},
+			'marks': {
+				'type': 'int'
+			},
+			'grading': {
+				'type': 'String',
+				length : 32
+			},
+			
+			'attempts': {
+				'type': 'String',
+				'length' : 16
+			},
+			
+			'last_updated': {
+				'type': 'timestamp'
 			},
 			'creation_time': {
 				'type': 'timestamp'

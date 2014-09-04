@@ -197,8 +197,8 @@ public abstract class BaseForm extends BaseView {
 			VerticleSpacer spacer = new VerticleSpacer(20);
 			blockdiv.addChild(spacer.getView());
 			TABLE table = new TABLE(block.getId(), "form_table");
-			table.addAttribute(new Attribute("cellspacing", "2"));
-			table.addAttribute(new Attribute("cellpadding", "2"));
+			table.addAttribute(new Attribute("cellspacing", "4"));
+			table.addAttribute(new Attribute("cellpadding", "4"));
 
 			for(int j=0; j < block.getFields().size(); j++) {
 				Field field = block.getFields().get(j);

@@ -1,6 +1,7 @@
 package platform.helper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import platform.resource.BaseResource;
@@ -48,6 +49,18 @@ public class HelperUtils {
 		return ids;
 	}
 	
+	public static Map<Object, BaseResource>  convertArray2Map(BaseResource[] resources,String key) {
+		Map<Object, BaseResource> map = new HashMap<Object, BaseResource>();
+		if (resources == null) return map;
+		if (resources.length == 0) return map;
+		for(BaseResource resource : resources) {
+			Map<String, Object>   resourceMap = resource.convertResourceToMap();
+			Object keyValue = resourceMap.get(key);
+			if (keyValue == null) continue;
+			map.put(keyValue, resource);
+		}
+		return map;
+	}
 	public static String[] convertResource2IdArray(BaseResource[] resources) {
 		String[] ids = new String[resources.length];
 		int count = 0;

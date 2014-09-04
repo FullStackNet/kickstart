@@ -58,6 +58,9 @@ public class BaseDocumentServlet extends HttpServlet {
 	protected String redirect(String id) {
 		return null;
 	}
+	protected String redirect(String id,Map<String, Object> map) {
+		return null;
+	}
 	public String getSessionIdFromCookie(HttpServletRequest request) {
 		return getCookie(request, ApplicationConstants.SESSION_ID);
 	}
@@ -95,6 +98,7 @@ public class BaseDocumentServlet extends HttpServlet {
 			if(!ServletFileUpload.isMultipartContent(request))
 				throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_REQUEST);
 			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> params = new HashMap<String, Object>();
 			FileItemIterator fileItemIterator = new ServletFileUpload().getItemIterator(request);
 			while(fileItemIterator.hasNext()) {
 			    FileItemStream fileItemStream = fileItemIterator.next();
@@ -105,6 +109,7 @@ public class BaseDocumentServlet extends HttpServlet {
 			    	if (fieldName.equals("id")) {
 			    		id = fieldValue;
 			    	}
+			    	params.put(fieldName, fieldValue);
 			    } else if(inputStream != null) {
 			    	contentType = fileItemStream.getContentType();
 			    	extension = null;
@@ -125,6 +130,11 @@ public class BaseDocumentServlet extends HttpServlet {
 			String redirectURL = redirect(id);
 			if (redirectURL != null) {
 				response.sendRedirect(redirectURL);
+			} else {
+				 redirectURL = redirect(id, params);
+				 if (redirectURL != null) {
+						response.sendRedirect(redirectURL);
+				 }
 			}
 			result = new SuccessResult();
 		} catch(Exception e) {
