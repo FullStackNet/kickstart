@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.mongodb.util.Hash;
-
 import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.helper.ApplianceHelper;
@@ -48,7 +46,11 @@ public class Trip_detailHelper extends BaseHelper {
 			stopage _stopage = stopageMap.get(_route_stopage.getStopage_id());
 			if (_stopage == null)
 				continue;
-
+			if (Util.isEmpty(_stopage.getLatitude()))
+				continue;
+			if (Util.isEmpty(_stopage.getLongitude()))
+				continue;
+			
 			double distance = LocationUtil.getDistance(latitude,longitude, _stopage.getLatitude(), _stopage.getLongitude());
 			if (short_distance == 0.0 || distance < short_distance) {
 				_nearest_route_stopage = _route_stopage;
