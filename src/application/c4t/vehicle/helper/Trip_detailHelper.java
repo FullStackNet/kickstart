@@ -85,6 +85,8 @@ public class Trip_detailHelper extends BaseHelper {
 		if (_appliance == null)
 			return null;
 		String date = TimeUtil.getDateString(_appliance.getTimeZone(), _trip.getCreation_time());
+		BaseResource[] time_seriesSpeedData = Appliance_time_seriesHelper.getInstance().getTimeSeries(_trip.getAppliance_id(), "speed",date);
+		Map<Object, BaseResource> speedMap = HelperUtils.convertArray2Map(time_seriesSpeedData, "creation_time");
 		BaseResource[] time_seriesData = Appliance_time_seriesHelper.getInstance().getTimeSeries(_trip.getAppliance_id(), "location",date);
 		if (Util.isEmpty(time_seriesData))
 			return null;
@@ -92,7 +94,13 @@ public class Trip_detailHelper extends BaseHelper {
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		long last_time = 0;
 		for(int i=0; i < time_seriesData.length; i++) {
+			String speed = "-"; 
 			appliance_time_series data = (appliance_time_series) time_seriesData[i];
+			appliance_time_series speedData = (appliance_time_series)speedMap.get(data.getCreation_time());
+			if (speedData != null) {
+				speed = speedData.getValue();
+			}
+			
 			System.out.println("Time series data :: "+new Date(data.getCreation_time())+"->"+data.getValue());
 			if (data.getValue() == null)
 				continue;
@@ -104,6 +112,7 @@ public class Trip_detailHelper extends BaseHelper {
 				continue;
 			_detail.setCreation_time(data.getCreation_time());
 			_detail.setLocation_latitude_longitude(data.getValue());
+			_detail.setSpeed(speed);
 			if (last_time != 0) {
 				_detail.setData_get_duration(data.getCreation_time()-last_time);
 			}

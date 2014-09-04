@@ -62,6 +62,10 @@
 			{
 				'type':'long'
 			},
+			'speed':
+			{
+				'type':'String'
+			},
 			'stopage_identified':
 			{
 				'type':'String',
