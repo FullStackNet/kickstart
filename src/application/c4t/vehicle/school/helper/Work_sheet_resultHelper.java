@@ -60,8 +60,9 @@ public class Work_sheet_resultHelper extends BaseHelper {
 		if (Util.isEmpty(resources)) return null;
 		work_sheet_result[] resultSheets = new work_sheet_result[resources.length];
 		for(int i=0; i < resources.length;i++) {
-			resultSheets[i] = new work_sheet_result();
 			work_sheet worksheet = (work_sheet)resources[i];
+			String id = work_sheet_result.id(_student.getId(), worksheet.getId());
+			resultSheets[i] = new work_sheet_result(id);
 			work_sheet_result studentSheet = (work_sheet_result)map.get(worksheet.getId());
 			populateWorkSheet(_student, resultSheets[i], worksheet);
 			if (studentSheet != null) {

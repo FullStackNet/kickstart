@@ -26,7 +26,7 @@ public class Work_sheetRenderer extends BaseRenderer {
 	public BaseHTMLComponent render(Field field, Map<String, Object> data) {
 		// TODO Auto-generated method stub
 		A a = new A(field.getName(),field.getClassName());
-		a.setHref("/ui/activity_work_sheet"+"?student_id="+data.get("id"));
+		a.setHref("/ui/activity_work_sheet_result"+"?student_id="+data.get("id"));
 		a.setText("Update work sheet");
 		return a;
 	}
