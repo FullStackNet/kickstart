@@ -64,6 +64,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'pin':
+			{
+				'length': 16,
+				'type':'String'
+			},
 			'group_id':
 			{
 				'length': 128,

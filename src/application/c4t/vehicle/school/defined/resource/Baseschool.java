@@ -29,6 +29,7 @@ public abstract class Baseschool extends BaseResource {
 	private String city = null;
 	private String state = null;
 	private String country = null;
+	private String pin = null;
 	private String group_id = null;
 	private String feature_parent2parent_chat = null;
 	private String feature_homework = null;
@@ -62,6 +63,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
+	public static String FIELD_PIN = "pin";
 	public static String FIELD_GROUP_ID = "group_id";
 	public static String FIELD_FEATURE_PARENT2PARENT_CHAT = "feature_parent2parent_chat";
 	public static String FIELD_FEATURE_HOMEWORK = "feature_homework";
@@ -131,6 +133,10 @@ public abstract class Baseschool extends BaseResource {
 		Field countryField = new Field("country", "String");
 		countryField.setLength(128);
 		metaData.addField(countryField);
+
+		Field pinField = new Field("pin", "String");
+		pinField.setLength(16);
+		metaData.addField(pinField);
 
 		Field group_idField = new Field("group_id", "String");
 		group_idField.setLength(128);
@@ -253,6 +259,7 @@ public abstract class Baseschool extends BaseResource {
 		this.city = obj.city;
 		this.state = obj.state;
 		this.country = obj.country;
+		this.pin = obj.pin;
 		this.group_id = obj.group_id;
 		this.feature_parent2parent_chat = obj.feature_parent2parent_chat;
 		this.feature_homework = obj.feature_homework;
@@ -338,6 +345,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
+		if(pin != null)
+			map.put("pin", pin);
 		if(group_id != null)
 			map.put("group_id", group_id);
 		if(feature_parent2parent_chat != null)
@@ -410,6 +419,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
+		if(pin != null)
+			map.put("pin", pin);
 		if(group_id != null)
 			map.put("group_id", group_id);
 		if(feature_parent2parent_chat != null)
@@ -474,6 +485,7 @@ public abstract class Baseschool extends BaseResource {
 		city = (String) map.get("city");
 		state = (String) map.get("state");
 		country = (String) map.get("country");
+		pin = (String) map.get("pin");
 		group_id = (String) map.get("group_id");
 		feature_parent2parent_chat = (String) map.get("feature_parent2parent_chat");
 		feature_homework = (String) map.get("feature_homework");
@@ -539,6 +551,10 @@ public abstract class Baseschool extends BaseResource {
 		Object countryObj = map.get("country");
 		if(countryObj != null)
 			country = countryObj.toString();
+
+		Object pinObj = map.get("pin");
+		if(pinObj != null)
+			pin = pinObj.toString();
 
 		Object group_idObj = map.get("group_id");
 		if(group_idObj != null)
@@ -797,6 +813,22 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetCountry() {
 		this.country = null;
+	}
+
+	public String getPin() {
+		return pin;
+	}
+
+	public String getPinEx() {
+		return pin != null ? pin : "";
+	}
+
+	public void setPin(String pin) {
+		this.pin = pin;
+	}
+
+	public void unSetPin() {
+		this.pin = null;
 	}
 
 	public String getGroup_id() {
