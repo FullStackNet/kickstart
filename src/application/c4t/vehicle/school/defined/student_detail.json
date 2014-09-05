@@ -306,6 +306,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_work_sheet':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'only_tracking':
 			{
 				'length': 1,

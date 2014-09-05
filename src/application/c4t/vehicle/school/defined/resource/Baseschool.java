@@ -47,6 +47,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_photo = null;
 	private String feature_video = null;
 	private String feature_fees = null;
+	private String feature_work_sheet = null;
 	private String logo_file_name = null;
 	private String admission_no_prefix = null;
 	private Integer admission_last_no = null;
@@ -81,6 +82,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_PHOTO = "feature_photo";
 	public static String FIELD_FEATURE_VIDEO = "feature_video";
 	public static String FIELD_FEATURE_FEES = "feature_fees";
+	public static String FIELD_FEATURE_WORK_SHEET = "feature_work_sheet";
 	public static String FIELD_LOGO_FILE_NAME = "logo_file_name";
 	public static String FIELD_ADMISSION_NO_PREFIX = "admission_no_prefix";
 	public static String FIELD_ADMISSION_LAST_NO = "admission_last_no";
@@ -222,6 +224,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_feesField.setLength(1);
 		metaData.addField(feature_feesField);
 
+		Field feature_work_sheetField = new Field("feature_work_sheet", "String");
+		feature_work_sheetField.setDefaultValue("N");
+		feature_work_sheetField.setLength(1);
+		metaData.addField(feature_work_sheetField);
+
 		Field logo_file_nameField = new Field("logo_file_name", "String");
 		logo_file_nameField.setLength(128);
 		metaData.addField(logo_file_nameField);
@@ -277,6 +284,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_photo = obj.feature_photo;
 		this.feature_video = obj.feature_video;
 		this.feature_fees = obj.feature_fees;
+		this.feature_work_sheet = obj.feature_work_sheet;
 		this.logo_file_name = obj.logo_file_name;
 		this.admission_no_prefix = obj.admission_no_prefix;
 		this.admission_last_no = obj.admission_last_no;
@@ -321,6 +329,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_video = "N";
 		if(feature_fees == null)
 			feature_fees = "N";
+		if(feature_work_sheet == null)
+			feature_work_sheet = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -381,6 +391,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_video", feature_video);
 		if(feature_fees != null)
 			map.put("feature_fees", feature_fees);
+		if(feature_work_sheet != null)
+			map.put("feature_work_sheet", feature_work_sheet);
 		if(logo_file_name != null)
 			map.put("logo_file_name", logo_file_name);
 		if(admission_no_prefix != null)
@@ -455,6 +467,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_video", feature_video);
 		if(feature_fees != null)
 			map.put("feature_fees", feature_fees);
+		if(feature_work_sheet != null)
+			map.put("feature_work_sheet", feature_work_sheet);
 		if(logo_file_name != null)
 			map.put("logo_file_name", logo_file_name);
 		if(admission_no_prefix != null)
@@ -503,6 +517,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_photo = (String) map.get("feature_photo");
 		feature_video = (String) map.get("feature_video");
 		feature_fees = (String) map.get("feature_fees");
+		feature_work_sheet = (String) map.get("feature_work_sheet");
 		logo_file_name = (String) map.get("logo_file_name");
 		admission_no_prefix = (String) map.get("admission_no_prefix");
 		admission_last_no = (Integer) map.get("admission_last_no");
@@ -623,6 +638,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_feesObj = map.get("feature_fees");
 		if(feature_feesObj != null)
 			feature_fees = feature_feesObj.toString();
+
+		Object feature_work_sheetObj = map.get("feature_work_sheet");
+		if(feature_work_sheetObj != null)
+			feature_work_sheet = feature_work_sheetObj.toString();
 
 		Object logo_file_nameObj = map.get("logo_file_name");
 		if(logo_file_nameObj != null)
@@ -1037,6 +1056,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_fees() {
 		this.feature_fees = "N";
+	}
+
+	public String getFeature_work_sheet() {
+		return feature_work_sheet != null ? feature_work_sheet : "N";
+	}
+
+	public void setFeature_work_sheet(String feature_work_sheet) {
+		this.feature_work_sheet = feature_work_sheet;
+	}
+
+	public void unSetFeature_work_sheet() {
+		this.feature_work_sheet = "N";
 	}
 
 	public String getLogo_file_name() {
