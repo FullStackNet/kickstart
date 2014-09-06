@@ -40,6 +40,10 @@ public abstract class Baseuser extends BaseResource {
 	private String routeSettingService = null;
 	private String homeAutomationService = null;
 	private String schoolAdminService = null;
+	private String operation_student_delete = null;
+	private String operation_student_edit = null;
+	private String configuration_edit = null;
+	private String configuration_delete = null;
 	private Long last_login = null;
 	private Map<String, Object> extra_data = null;
 
@@ -64,6 +68,10 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_ROUTESETTINGSERVICE = "routeSettingService";
 	public static String FIELD_HOMEAUTOMATIONSERVICE = "homeAutomationService";
 	public static String FIELD_SCHOOLADMINSERVICE = "schoolAdminService";
+	public static String FIELD_OPERATION_STUDENT_DELETE = "operation_student_delete";
+	public static String FIELD_OPERATION_STUDENT_EDIT = "operation_student_edit";
+	public static String FIELD_CONFIGURATION_EDIT = "configuration_edit";
+	public static String FIELD_CONFIGURATION_DELETE = "configuration_delete";
 	public static String FIELD_LAST_LOGIN = "last_login";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -170,6 +178,26 @@ public abstract class Baseuser extends BaseResource {
 		schoolAdminServiceField.setLength(1);
 		metaData.addField(schoolAdminServiceField);
 
+		Field operation_student_deleteField = new Field("operation_student_delete", "String");
+		operation_student_deleteField.setDefaultValue("N");
+		operation_student_deleteField.setLength(1);
+		metaData.addField(operation_student_deleteField);
+
+		Field operation_student_editField = new Field("operation_student_edit", "String");
+		operation_student_editField.setDefaultValue("N");
+		operation_student_editField.setLength(1);
+		metaData.addField(operation_student_editField);
+
+		Field configuration_editField = new Field("configuration_edit", "String");
+		configuration_editField.setDefaultValue("N");
+		configuration_editField.setLength(1);
+		metaData.addField(configuration_editField);
+
+		Field configuration_deleteField = new Field("configuration_delete", "String");
+		configuration_deleteField.setDefaultValue("N");
+		configuration_deleteField.setLength(1);
+		metaData.addField(configuration_deleteField);
+
 		Field last_loginField = new Field("last_login", "timestamp");
 		metaData.addField(last_loginField);
 
@@ -207,6 +235,10 @@ public abstract class Baseuser extends BaseResource {
 		this.routeSettingService = obj.routeSettingService;
 		this.homeAutomationService = obj.homeAutomationService;
 		this.schoolAdminService = obj.schoolAdminService;
+		this.operation_student_delete = obj.operation_student_delete;
+		this.operation_student_edit = obj.operation_student_edit;
+		this.configuration_edit = obj.configuration_edit;
+		this.configuration_delete = obj.configuration_delete;
 		this.last_login = obj.last_login;
 		this.extra_data = obj.extra_data;
 	}
@@ -232,6 +264,14 @@ public abstract class Baseuser extends BaseResource {
 			homeAutomationService = "N";
 		if(schoolAdminService == null)
 			schoolAdminService = "N";
+		if(operation_student_delete == null)
+			operation_student_delete = "N";
+		if(operation_student_edit == null)
+			operation_student_edit = "N";
+		if(configuration_edit == null)
+			configuration_edit = "N";
+		if(configuration_delete == null)
+			configuration_delete = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -278,6 +318,14 @@ public abstract class Baseuser extends BaseResource {
 			map.put("homeAutomationService", homeAutomationService);
 		if(schoolAdminService != null)
 			map.put("schoolAdminService", schoolAdminService);
+		if(operation_student_delete != null)
+			map.put("operation_student_delete", operation_student_delete);
+		if(operation_student_edit != null)
+			map.put("operation_student_edit", operation_student_edit);
+		if(configuration_edit != null)
+			map.put("configuration_edit", configuration_edit);
+		if(configuration_delete != null)
+			map.put("configuration_delete", configuration_delete);
 		if(last_login != null)
 			map.put("last_login", last_login);
 		if(extra_data != null)
@@ -332,6 +380,14 @@ public abstract class Baseuser extends BaseResource {
 			map.put("homeAutomationService", homeAutomationService);
 		if(schoolAdminService != null)
 			map.put("schoolAdminService", schoolAdminService);
+		if(operation_student_delete != null)
+			map.put("operation_student_delete", operation_student_delete);
+		if(operation_student_edit != null)
+			map.put("operation_student_edit", operation_student_edit);
+		if(configuration_edit != null)
+			map.put("configuration_edit", configuration_edit);
+		if(configuration_delete != null)
+			map.put("configuration_delete", configuration_delete);
 		if(last_login != null)
 			map.put("last_login", last_login);
 		if(extra_data != null)
@@ -367,6 +423,10 @@ public abstract class Baseuser extends BaseResource {
 		routeSettingService = (String) map.get("routeSettingService");
 		homeAutomationService = (String) map.get("homeAutomationService");
 		schoolAdminService = (String) map.get("schoolAdminService");
+		operation_student_delete = (String) map.get("operation_student_delete");
+		operation_student_edit = (String) map.get("operation_student_edit");
+		configuration_edit = (String) map.get("configuration_edit");
+		configuration_delete = (String) map.get("configuration_delete");
 		last_login = (Long) map.get("last_login");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -456,6 +516,22 @@ public abstract class Baseuser extends BaseResource {
 		Object schoolAdminServiceObj = map.get("schoolAdminService");
 		if(schoolAdminServiceObj != null)
 			schoolAdminService = schoolAdminServiceObj.toString();
+
+		Object operation_student_deleteObj = map.get("operation_student_delete");
+		if(operation_student_deleteObj != null)
+			operation_student_delete = operation_student_deleteObj.toString();
+
+		Object operation_student_editObj = map.get("operation_student_edit");
+		if(operation_student_editObj != null)
+			operation_student_edit = operation_student_editObj.toString();
+
+		Object configuration_editObj = map.get("configuration_edit");
+		if(configuration_editObj != null)
+			configuration_edit = configuration_editObj.toString();
+
+		Object configuration_deleteObj = map.get("configuration_delete");
+		if(configuration_deleteObj != null)
+			configuration_delete = configuration_deleteObj.toString();
 
 		Object last_loginObj = map.get("last_login");
 		if(last_loginObj != null)
@@ -790,6 +866,54 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetSchoolAdminService() {
 		this.schoolAdminService = "N";
+	}
+
+	public String getOperation_student_delete() {
+		return operation_student_delete != null ? operation_student_delete : "N";
+	}
+
+	public void setOperation_student_delete(String operation_student_delete) {
+		this.operation_student_delete = operation_student_delete;
+	}
+
+	public void unSetOperation_student_delete() {
+		this.operation_student_delete = "N";
+	}
+
+	public String getOperation_student_edit() {
+		return operation_student_edit != null ? operation_student_edit : "N";
+	}
+
+	public void setOperation_student_edit(String operation_student_edit) {
+		this.operation_student_edit = operation_student_edit;
+	}
+
+	public void unSetOperation_student_edit() {
+		this.operation_student_edit = "N";
+	}
+
+	public String getConfiguration_edit() {
+		return configuration_edit != null ? configuration_edit : "N";
+	}
+
+	public void setConfiguration_edit(String configuration_edit) {
+		this.configuration_edit = configuration_edit;
+	}
+
+	public void unSetConfiguration_edit() {
+		this.configuration_edit = "N";
+	}
+
+	public String getConfiguration_delete() {
+		return configuration_delete != null ? configuration_delete : "N";
+	}
+
+	public void setConfiguration_delete(String configuration_delete) {
+		this.configuration_delete = configuration_delete;
+	}
+
+	public void unSetConfiguration_delete() {
+		this.configuration_delete = "N";
 	}
 
 	public Long getLast_login() {

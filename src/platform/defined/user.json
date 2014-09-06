@@ -136,6 +136,31 @@
 				'type':'String',
 				'default' : "N"
 			},	
+			
+			'operation_student_delete':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},	
+			'operation_student_edit':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},	
+			'configuration_edit':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'configuration_delete':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},	
 			'last_login':
 			{
 				'type':'timestamp'
