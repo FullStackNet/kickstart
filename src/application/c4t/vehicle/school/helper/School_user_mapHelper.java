@@ -103,6 +103,13 @@ public class School_user_mapHelper extends BaseHelper {
 		return ids;
 	}
 	
+	public void removeStudent(String userId,String studentId) throws ApplicationException {
+		school_user_map _map = new school_user_map();
+		_map.setId(userId);
+		_map.addStudents(studentId);
+		unset(_map);
+	}
+	
 	public String getTeacherIdFromUserId(String userId) {
 		school_user_map _map = (school_user_map)getById(userId);
 		if ((_map == null) || (_map.getTeachers() == null) || (Util.isEmpty(_map.getTeachers())))
