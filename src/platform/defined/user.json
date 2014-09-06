@@ -160,6 +160,12 @@
 				'length': 1,
 				'type':'String',
 				'default' : "N"
+			},
+			'super_user':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
 			},	
 			'last_login':
 			{

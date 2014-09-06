@@ -44,6 +44,7 @@ public abstract class Baseuser extends BaseResource {
 	private String operation_student_edit = null;
 	private String configuration_edit = null;
 	private String configuration_delete = null;
+	private String super_user = null;
 	private Long last_login = null;
 	private Map<String, Object> extra_data = null;
 
@@ -72,6 +73,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_OPERATION_STUDENT_EDIT = "operation_student_edit";
 	public static String FIELD_CONFIGURATION_EDIT = "configuration_edit";
 	public static String FIELD_CONFIGURATION_DELETE = "configuration_delete";
+	public static String FIELD_SUPER_USER = "super_user";
 	public static String FIELD_LAST_LOGIN = "last_login";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -198,6 +200,11 @@ public abstract class Baseuser extends BaseResource {
 		configuration_deleteField.setLength(1);
 		metaData.addField(configuration_deleteField);
 
+		Field super_userField = new Field("super_user", "String");
+		super_userField.setDefaultValue("N");
+		super_userField.setLength(1);
+		metaData.addField(super_userField);
+
 		Field last_loginField = new Field("last_login", "timestamp");
 		metaData.addField(last_loginField);
 
@@ -239,6 +246,7 @@ public abstract class Baseuser extends BaseResource {
 		this.operation_student_edit = obj.operation_student_edit;
 		this.configuration_edit = obj.configuration_edit;
 		this.configuration_delete = obj.configuration_delete;
+		this.super_user = obj.super_user;
 		this.last_login = obj.last_login;
 		this.extra_data = obj.extra_data;
 	}
@@ -272,6 +280,8 @@ public abstract class Baseuser extends BaseResource {
 			configuration_edit = "N";
 		if(configuration_delete == null)
 			configuration_delete = "N";
+		if(super_user == null)
+			super_user = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -326,6 +336,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("configuration_edit", configuration_edit);
 		if(configuration_delete != null)
 			map.put("configuration_delete", configuration_delete);
+		if(super_user != null)
+			map.put("super_user", super_user);
 		if(last_login != null)
 			map.put("last_login", last_login);
 		if(extra_data != null)
@@ -388,6 +400,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("configuration_edit", configuration_edit);
 		if(configuration_delete != null)
 			map.put("configuration_delete", configuration_delete);
+		if(super_user != null)
+			map.put("super_user", super_user);
 		if(last_login != null)
 			map.put("last_login", last_login);
 		if(extra_data != null)
@@ -427,6 +441,7 @@ public abstract class Baseuser extends BaseResource {
 		operation_student_edit = (String) map.get("operation_student_edit");
 		configuration_edit = (String) map.get("configuration_edit");
 		configuration_delete = (String) map.get("configuration_delete");
+		super_user = (String) map.get("super_user");
 		last_login = (Long) map.get("last_login");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -532,6 +547,10 @@ public abstract class Baseuser extends BaseResource {
 		Object configuration_deleteObj = map.get("configuration_delete");
 		if(configuration_deleteObj != null)
 			configuration_delete = configuration_deleteObj.toString();
+
+		Object super_userObj = map.get("super_user");
+		if(super_userObj != null)
+			super_user = super_userObj.toString();
 
 		Object last_loginObj = map.get("last_login");
 		if(last_loginObj != null)
@@ -914,6 +933,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetConfiguration_delete() {
 		this.configuration_delete = "N";
+	}
+
+	public String getSuper_user() {
+		return super_user != null ? super_user : "N";
+	}
+
+	public void setSuper_user(String super_user) {
+		this.super_user = super_user;
+	}
+
+	public void unSetSuper_user() {
+		this.super_user = "N";
 	}
 
 	public Long getLast_login() {
