@@ -54,7 +54,6 @@ public class UIConstants {
 	};
 	public final static String[] CLASSES_ENUM = new String[] {
 			"TODDLER",
-			"PLAY SCHOOL",
 			"NURSERY",
 			"LKG",
 			"UKG",
