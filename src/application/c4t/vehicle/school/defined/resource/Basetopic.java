@@ -23,6 +23,7 @@ public abstract class Basetopic extends BaseResource {
 	private String name = null;
 	private String topic_no = null;
 	private String chapter_id = null;
+	private String file_name = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -30,6 +31,7 @@ public abstract class Basetopic extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_TOPIC_NO = "topic_no";
 	public static String FIELD_CHAPTER_ID = "chapter_id";
+	public static String FIELD_FILE_NAME = "file_name";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -56,6 +58,10 @@ public abstract class Basetopic extends BaseResource {
 		chapter_idField.setLength(128);
 		metaData.addField(chapter_idField);
 
+		Field file_nameField = new Field("file_name", "String");
+		file_nameField.setLength(128);
+		metaData.addField(file_nameField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -76,6 +82,7 @@ public abstract class Basetopic extends BaseResource {
 		this.name = obj.name;
 		this.topic_no = obj.topic_no;
 		this.chapter_id = obj.chapter_id;
+		this.file_name = obj.file_name;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -94,6 +101,8 @@ public abstract class Basetopic extends BaseResource {
 			map.put("topic_no", topic_no);
 		if(chapter_id != null)
 			map.put("chapter_id", chapter_id);
+		if(file_name != null)
+			map.put("file_name", file_name);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -111,6 +120,8 @@ public abstract class Basetopic extends BaseResource {
 			map.put("topic_no", topic_no);
 		if(chapter_id != null)
 			map.put("chapter_id", chapter_id);
+		if(file_name != null)
+			map.put("file_name", file_name);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -129,6 +140,7 @@ public abstract class Basetopic extends BaseResource {
 		name = (String) map.get("name");
 		topic_no = (String) map.get("topic_no");
 		chapter_id = (String) map.get("chapter_id");
+		file_name = (String) map.get("file_name");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -150,6 +162,10 @@ public abstract class Basetopic extends BaseResource {
 		Object chapter_idObj = map.get("chapter_id");
 		if(chapter_idObj != null)
 			chapter_id = chapter_idObj.toString();
+
+		Object file_nameObj = map.get("file_name");
+		if(file_nameObj != null)
+			file_name = file_nameObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -232,6 +248,22 @@ public abstract class Basetopic extends BaseResource {
 
 	public void unSetChapter_id() {
 		this.chapter_id = null;
+	}
+
+	public String getFile_name() {
+		return file_name;
+	}
+
+	public String getFile_nameEx() {
+		return file_name != null ? file_name : "";
+	}
+
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
+	}
+
+	public void unSetFile_name() {
+		this.file_name = null;
 	}
 
 	public Long getCreation_time() {
