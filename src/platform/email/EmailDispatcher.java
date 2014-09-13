@@ -111,12 +111,16 @@ public class EmailDispatcher {
 		String customerId = params.get("CUSTOMER_ID");
 		_account = accountMap.get(customerId);
 		if (_account == null) {
+			try {
 			customer _customer = (customer)CustomerHelper.getInstance().getById(customerId);
 			if ((_customer != null) && (_customer.getSms_account() != null)) {
 				_account = (email_account)Email_accountHelper.getInstance().getById(_customer.getEmail_account());
 				if (_account != null) {
 					accountMap.put(customerId, _account);
 				}
+			}
+			} catch(Exception e) {
+				e.printStackTrace();
 			}
 		}
 		if (_account != null) {
@@ -163,8 +167,7 @@ public class EmailDispatcher {
 		else if("Y".equals(_account.getSend_to_unique_id())) { // Demo & Dev
 			subject = subject + " " + Arrays.toString(toEmailIds);
 			toEmailIds = new String[] {_account.getUnique_idEx()};
-		} else if("Y".equals(_account.getSend_to_right_id()))
-			bcc = new String[] {_account.getBcc_id()};
+		} 
 		
 		String replyToEmailId = iMailReply != null ? iMailReply.getReplyToEmailId() : null;
 		String replyToName = iMailReply != null ? iMailReply.getReplyToName() : null;
