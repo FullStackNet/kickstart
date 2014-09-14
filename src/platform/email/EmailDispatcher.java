@@ -7,8 +7,11 @@ import java.util.Map;
 import platform.config.Reader;
 import platform.helper.CustomerHelper;
 import platform.helper.Email_accountHelper;
+import platform.helper.Unsubscribe_emailHelper;
+import platform.log.ApplicationLogger;
 import platform.resource.customer;
 import platform.resource.email_account;
+import platform.resource.unsubscribe_email;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Util;
@@ -93,13 +96,17 @@ public class EmailDispatcher {
 	void sendToUser(String toEmailId, IMailReply iMailReply, String subject, String message) throws ApplicationException {
 		if(Util.isEmpty(toEmailId))
 			return;
-		
 		sendToUser(new String[] {toEmailId}, iMailReply, subject, message);
 	}
 	
 	public void sendMail(String toEmailIds, IMailReply iMailReply, String subject, String templete,
 			Map<String, String> params) throws ApplicationException 
 	{
+		unsubscribe_email _unsubscribe_email = (unsubscribe_email)Unsubscribe_emailHelper.getInstance().getById(toEmailIds);
+		if (_unsubscribe_email !=null) {
+			ApplicationLogger.error(toEmailIds+" Mail exists in unsubscribe email. Ignoring sending mail to him ", this.getClass());
+			return;
+		}
 		sendMail(new String[]{toEmailIds}, iMailReply, subject, templete, params);
 	}
 	
@@ -151,6 +158,7 @@ public class EmailDispatcher {
 			return;
 		// Replace all M16 tokens with empty string
 		message = message.replaceAll("!!!DOMAIN!!!", _account.getDomainEx());
+		message = message.replaceAll("!!!UNSUBSCRIBE_LINK!!!", "http://"+domainName+"/ui/unsubscribe_email");
 		subject = subject.replaceAll("!!!.*!!!", "");
 		message = message.replaceAll("!!!.*!!!", "");
 		// Don't send any mail to WT enterprise admin (as that email doesn't exist). Ex: whistletalk@myntra.com
@@ -197,6 +205,7 @@ public class EmailDispatcher {
 			return;
 		// Replace all M16 tokens with empty string
 		message = message.replaceAll("!!!DOMAIN!!!", domainName);
+		message = message.replaceAll("!!!UNSUBSCRIBE_LINK!!!", "http://"+domainName+"/ui/unsubscribe_email");
 		subject = subject.replaceAll("!!!.*!!!", "");
 		message = message.replaceAll("!!!.*!!!", "");
 		// Don't send any mail to WT enterprise admin (as that email doesn't exist). Ex: whistletalk@myntra.com

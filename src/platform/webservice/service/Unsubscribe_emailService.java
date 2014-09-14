@@ -25,6 +25,9 @@ public class Unsubscribe_emailService extends BaseService{
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
 		if (action.equalsIgnoreCase(WebServiceContants.OPERATION_DELETE)) {
 			Unsubscribe_emailHelper.getInstance().deleteById(resource.getId());
+		} else {
+			unsubscribe_email _resource = (unsubscribe_email) resource;
+			getHelper().add(_resource);
 		}
 	}
 	
