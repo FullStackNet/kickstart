@@ -7,8 +7,11 @@ import java.util.Map;
 import platform.config.Reader;
 import platform.helper.CustomerHelper;
 import platform.helper.Email_accountHelper;
+import platform.helper.Unsubscribe_emailHelper;
+import platform.log.ApplicationLogger;
 import platform.resource.customer;
 import platform.resource.email_account;
+import platform.resource.unsubscribe_email;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Util;
@@ -93,13 +96,17 @@ public class EmailDispatcher {
 	void sendToUser(String toEmailId, IMailReply iMailReply, String subject, String message) throws ApplicationException {
 		if(Util.isEmpty(toEmailId))
 			return;
-		
 		sendToUser(new String[] {toEmailId}, iMailReply, subject, message);
 	}
 	
 	public void sendMail(String toEmailIds, IMailReply iMailReply, String subject, String templete,
 			Map<String, String> params) throws ApplicationException 
 	{
+		unsubscribe_email _unsubscribe_email = (unsubscribe_email)Unsubscribe_emailHelper.getInstance().getById(toEmailIds);
+		if (_unsubscribe_email !=null) {
+			ApplicationLogger.error(toEmailIds+" Mail exists in unsubscribe email. Ignoring sending mail to him ", this.getClass());
+			return;
+		}
 		sendMail(new String[]{toEmailIds}, iMailReply, subject, templete, params);
 	}
 	
@@ -111,12 +118,16 @@ public class EmailDispatcher {
 		String customerId = params.get("CUSTOMER_ID");
 		_account = accountMap.get(customerId);
 		if (_account == null) {
+			try {
 			customer _customer = (customer)CustomerHelper.getInstance().getById(customerId);
 			if ((_customer != null) && (_customer.getSms_account() != null)) {
 				_account = (email_account)Email_accountHelper.getInstance().getById(_customer.getEmail_account());
 				if (_account != null) {
 					accountMap.put(customerId, _account);
 				}
+			}
+			} catch(Exception e) {
+				e.printStackTrace();
 			}
 		}
 		if (_account != null) {
@@ -147,6 +158,7 @@ public class EmailDispatcher {
 			return;
 		// Replace all M16 tokens with empty string
 		message = message.replaceAll("!!!DOMAIN!!!", _account.getDomainEx());
+		message = message.replaceAll("!!!UNSUBSCRIBE_LINK!!!", "http://"+domainName+"/ui/unsubscribe_email");
 		subject = subject.replaceAll("!!!.*!!!", "");
 		message = message.replaceAll("!!!.*!!!", "");
 		// Don't send any mail to WT enterprise admin (as that email doesn't exist). Ex: whistletalk@myntra.com
@@ -163,8 +175,7 @@ public class EmailDispatcher {
 		else if("Y".equals(_account.getSend_to_unique_id())) { // Demo & Dev
 			subject = subject + " " + Arrays.toString(toEmailIds);
 			toEmailIds = new String[] {_account.getUnique_idEx()};
-		} else if("Y".equals(_account.getSend_to_right_id()))
-			bcc = new String[] {_account.getBcc_id()};
+		} 
 		
 		String replyToEmailId = iMailReply != null ? iMailReply.getReplyToEmailId() : null;
 		String replyToName = iMailReply != null ? iMailReply.getReplyToName() : null;
@@ -194,6 +205,7 @@ public class EmailDispatcher {
 			return;
 		// Replace all M16 tokens with empty string
 		message = message.replaceAll("!!!DOMAIN!!!", domainName);
+		message = message.replaceAll("!!!UNSUBSCRIBE_LINK!!!", "http://"+domainName+"/ui/unsubscribe_email");
 		subject = subject.replaceAll("!!!.*!!!", "");
 		message = message.replaceAll("!!!.*!!!", "");
 		// Don't send any mail to WT enterprise admin (as that email doesn't exist). Ex: whistletalk@myntra.com
