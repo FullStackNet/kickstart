@@ -1,0 +1,19 @@
+{
+	"unsubscribe_email" :
+	{
+		"cluster": "DB_CONFIG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			creation_time : {
+				type : "timestamp"
+			}
+		}
+	}
+}
