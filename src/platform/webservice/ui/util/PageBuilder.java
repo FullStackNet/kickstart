@@ -95,6 +95,11 @@ public class PageBuilder {
 			meta.addAttribute(new Attribute("content","width=device-width, initial-scale=1.0"));
 			mHead.addChild(meta);
 		}
+		for(int i=0; i< cssFileList.size();i++) {
+			LINK link = new LINK(cssFileList.get(i).getHref(), "stylesheet", "text/css");
+			mHead.addChild(link);
+		}
+	
 		for(int i=0; i<jsFileList.size();i++) {
 			if (jsFileList.get(i).getName() == null) {
 				mHead.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()));
@@ -104,10 +109,6 @@ public class PageBuilder {
 		}
 		
 		
-		for(int i=0; i< cssFileList.size();i++) {
-			LINK link = new LINK(cssFileList.get(i).getHref(), "stylesheet", "text/css");
-			mHead.addChild(link);
-		}
 		if (isEditor()) {
 			mHead.addChild(new TEXT("<script type=\"text/javascript\">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>"));
 		}
