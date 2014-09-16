@@ -20,5 +20,9 @@ public class i extends BaseHTMLComponent{
 		// TODO Auto-generated method stub
 		return "i";
 	}
+	
+	public boolean selfClosing() {
+		return false;
+	}
 		
 }
