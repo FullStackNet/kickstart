@@ -23,6 +23,7 @@ public abstract class Basereport_card extends BaseResource {
 	private String admission_date_str = null;
 	private String school_name = null;
 	private String school_id = null;
+	private String student_id = null;
 	private String student_name = null;
 	private String father_name = null;
 	private String mother_name = null;
@@ -68,6 +69,7 @@ public abstract class Basereport_card extends BaseResource {
 	public static String FIELD_ADMISSION_DATE_STR = "admission_date_str";
 	public static String FIELD_SCHOOL_NAME = "school_name";
 	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_FATHER_NAME = "father_name";
 	public static String FIELD_MOTHER_NAME = "mother_name";
@@ -133,6 +135,11 @@ public abstract class Basereport_card extends BaseResource {
 		school_idField.setIndexed(true);
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
+
+		Field student_idField = new Field("student_id", "String");
+		student_idField.setIndexed(true);
+		student_idField.setLength(128);
+		metaData.addField(student_idField);
 
 		Field student_nameField = new Field("student_name", "String");
 		student_nameField.setIndexed(true);
@@ -309,6 +316,7 @@ public abstract class Basereport_card extends BaseResource {
 		this.admission_date_str = obj.admission_date_str;
 		this.school_name = obj.school_name;
 		this.school_id = obj.school_id;
+		this.student_id = obj.student_id;
 		this.student_name = obj.student_name;
 		this.father_name = obj.father_name;
 		this.mother_name = obj.mother_name;
@@ -365,6 +373,8 @@ public abstract class Basereport_card extends BaseResource {
 			map.put("school_name", school_name);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(student_id != null)
+			map.put("student_id", student_id);
 		if(student_name != null)
 			map.put("student_name", student_name);
 		if(father_name != null)
@@ -458,6 +468,8 @@ public abstract class Basereport_card extends BaseResource {
 			map.put("school_name", school_name);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(student_id != null)
+			map.put("student_id", student_id);
 		if(student_name != null)
 			map.put("student_name", student_name);
 		if(father_name != null)
@@ -552,6 +564,7 @@ public abstract class Basereport_card extends BaseResource {
 		admission_date_str = (String) map.get("admission_date_str");
 		school_name = (String) map.get("school_name");
 		school_id = (String) map.get("school_id");
+		student_id = (String) map.get("student_id");
 		student_name = (String) map.get("student_name");
 		father_name = (String) map.get("father_name");
 		mother_name = (String) map.get("mother_name");
@@ -611,6 +624,10 @@ public abstract class Basereport_card extends BaseResource {
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
+
+		Object student_idObj = map.get("student_id");
+		if(student_idObj != null)
+			student_id = student_idObj.toString();
 
 		Object student_nameObj = map.get("student_name");
 		if(student_nameObj != null)
@@ -845,6 +862,22 @@ public abstract class Basereport_card extends BaseResource {
 
 	public void unSetSchool_id() {
 		this.school_id = null;
+	}
+
+	public String getStudent_id() {
+		return student_id;
+	}
+
+	public String getStudent_idEx() {
+		return student_id != null ? student_id : "";
+	}
+
+	public void setStudent_id(String student_id) {
+		this.student_id = student_id;
+	}
+
+	public void unSetStudent_id() {
+		this.student_id = null;
 	}
 
 	public String getStudent_name() {

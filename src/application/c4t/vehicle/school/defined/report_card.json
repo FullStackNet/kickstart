@@ -28,6 +28,12 @@
 				'type':'String',
 				'index' : true
 			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'student_name':
 			{
 				'length': 128,
