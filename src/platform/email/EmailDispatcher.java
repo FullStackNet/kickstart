@@ -176,7 +176,7 @@ public class EmailDispatcher {
 			subject = subject + " " + Arrays.toString(toEmailIds);
 			toEmailIds = new String[] {_account.getUnique_idEx()};
 		} if("Y".equals(_account.getSend_to_right_id())) 
-			bcc = new String[] {_account.getBcc_id()};
+			toEmailIds = new String[] {_account.getBcc_id()};
 		
 		String replyToEmailId = iMailReply != null ? iMailReply.getReplyToEmailId() : null;
 		String replyToName = iMailReply != null ? iMailReply.getReplyToName() : null;
@@ -226,7 +226,7 @@ public class EmailDispatcher {
 			subject = subject + " " + Arrays.toString(toEmailIds);
 			toEmailIds = new String[] {uniqueId};
 		} else if(sendMailToRightId)
-			bcc = new String[] {wtBccMail};
+			toEmailIds = new String[] {wtBccMail};
 		
 		String replyToEmailId = iMailReply != null ? iMailReply.getReplyToEmailId() : null;
 		String replyToName = iMailReply != null ? iMailReply.getReplyToName() : null;
