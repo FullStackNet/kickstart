@@ -188,13 +188,13 @@ public class EmailDispatcher {
 			if (!Util.isEmpty(replyToEmailId))
 				replyTo = replyToName + "<" + replyToEmailId + ">";
 		}
-		ApplicationLogger.info("Trying sending mail to bcc::" + bcc+",To :"+toEmailIds.toString()+ ", Subject :" + subject, this.getClass());
+		ApplicationLogger.info("Trying sending mail to bcc::" +Arrays.toString(bcc)+",To :"+Arrays.toString(toEmailIds)+ ", Subject :" + subject, this.getClass());
 		SMTPMail smtpMail = new SMTPMail(_account.getSmtp_server(), from, replyTo,
 				toEmailIds, null, bcc, subject, null, _account.getSmtp_username(),
 				_account.getSmtp_password(), true);
 		try {
 			smtpMail.sendMessage(message);
-			ApplicationLogger.info("Sent successfully mail to bcc::" + bcc+",To :"+toEmailIds.toString()+ ", Subject :" + subject, this.getClass());
+			ApplicationLogger.info("Sent successfully mail to bcc::" + Arrays.toString(bcc)+",To :"+Arrays.toString(toEmailIds)+ ", Subject :" + subject, this.getClass());
 		} catch(ApplicationException e) {
 			e.printStackTrace();
 			//		if (isInternetNotAccessible(e))
@@ -238,13 +238,13 @@ public class EmailDispatcher {
 			if (!Util.isEmpty(replyToEmailId))
 				replyTo = replyToName + "<" + replyToEmailId + ">";
 		}
-		ApplicationLogger.info("Trying sending mail to bcc::" + bcc+",To :"+toEmailIds.toString()+ ", Subject :" + subject, this.getClass());
+		ApplicationLogger.info("Trying sending mail to bcc::" + Arrays.toString(bcc)+",To :"+Arrays.toString(toEmailIds)+ ", Subject :" + subject, this.getClass());
 		SMTPMail smtpMail = new SMTPMail(smtpServerProps.getSmtpServer(), from, replyTo,
 				toEmailIds, null, bcc, subject, null, smtpServerProps .getSmtpUserName(),
 				smtpServerProps.getSmtpPassword(), true);
 		try {
 			smtpMail.sendMessage(message);
-			ApplicationLogger.info("Sent mail successfully to bcc::" + bcc+",To :"+toEmailIds.toString()+ ", Subject :" + subject, this.getClass());
+			ApplicationLogger.info("Sent mail successfully to bcc::" + Arrays.toString(bcc)+",To :"+Arrays.toString(toEmailIds)+ ", Subject :" + subject, this.getClass());
 			
 		} catch(ApplicationException e) {
 			e.printStackTrace();
