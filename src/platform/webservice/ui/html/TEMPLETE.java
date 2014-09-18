@@ -11,7 +11,7 @@ public class TEMPLETE {
 	public TEMPLETE(String fileName,Map<String, String> map) {
 		super();
 		this.fileName = fileName;
-		this.params = params;
+		this.params = map;
 	}
 
 	public BaseHTMLComponent getContent() {
