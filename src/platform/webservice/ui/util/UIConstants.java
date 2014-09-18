@@ -86,7 +86,14 @@ public class UIConstants {
 	public final static String[] REPORT_CARD_TEMPLETE_ENUM = new String[] {
 		"BRIGHT-KID-NURSERY",
 	};
-	
+	public final static String[] RATING_ENUM = new String[] {
+		"Excellent",
+		"Very Good",
+		"Good",
+		"Poor",
+		"Very poor",
+		"N/A"
+	};
 	public final static String[] SECTION_ENUM = new String[] {
 		"MORNING SESSION",
 		"AFTERNOON SESSION",
