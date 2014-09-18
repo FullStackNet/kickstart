@@ -580,6 +580,33 @@ public class Util {
 		return messageWithTokens;
 	}
 
+	public static String readTempleteFileFromLocal(String template,
+			Map<String, String> params) {
+		String text = "";
+		String directory = "context/root/templete/";
+		try {
+			String file = directory+template + ".html";
+			FileInputStream fstream = new FileInputStream(file);
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			String strLine;
+			while ((strLine = br.readLine()) != null) {
+				text = text + strLine;
+			}
+			br.close();
+		} catch (Exception e) {// Catch exception if any
+			System.err.println("Error: " + e.getMessage());
+		}
+		if (params != null) {
+			for (Map.Entry<String, String> param : params.entrySet()) {
+				String value = param.getValue();
+				String key = "!!!"+param.getKey()+"!!!";
+				text = text.replaceAll(key, value);
+			}
+		}
+		return text;
+	}
+
 	public static String readNotificationFileFromLocal(String template,
 			Map<String, String> params) {
 		String messageWithTokens = "";
