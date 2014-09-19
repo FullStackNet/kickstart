@@ -11,6 +11,7 @@ public class ApplicationConstants {
 	public static String CISTRACKER_CONFIGURATION_FILE = "cistracker";
 	public static String NETVOX_CONFIGURATION_FILE = "netvox";
 	public static String ACPTRACKER_CONFIGURATION_FILE = "acptracker";
+	public static String ACPREADER_CONFIGURATION_FILE = "acpreader";
 	public static int PROCESS_WAIT_TIME_BEFORE_EXIT = 10000;
 	
 	public static String DB_FILE = "db";
@@ -57,6 +58,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_V3TRACKER_SERVER_PORT = "v3tracker_server_port";
 	public static String PROPERTY_CISTRACKER_SERVER_PORT = "cistracker_server_port";
 	public static String PROPERTY_ACPTRACKER_SERVER_PORT = "acptracker_server_port";
+	public static String PROPERTY_ACPREADER_SERVER_PORT = "acpreader_server_port";
 	public static String PROPERTY_MAX_CONNECTIONS = "max_connections";
 	public static String PROPERTY_SIMULATORS = "simulators";
 	public static String PROPERTY_REGISTERED_OBD = "registered_obd";
@@ -95,6 +97,7 @@ public class ApplicationConstants {
 	public static int	V3TRACKER_DEFAULT_PORT = 5387;
 	public static int	CISTRACKER_DEFAULT_PORT = 5389;
 	public static int	ACPTRACKER_DEFAULT_PORT = 5391;
+	public static int	ACPREADER_DEFAULT_PORT = 5392;
 	public static int	C4T_DEFAULT_PORT = 5393;
 
 	public static String DEFAULT_DB_SERVER = "localhost";

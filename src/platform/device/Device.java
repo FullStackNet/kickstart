@@ -13,6 +13,7 @@ public class Device {
 	public static String DEVICE_MODEL_NETVOX_SWITCH_01 = "DEVICE_MODEL_NETVOX_SWITCH_01";
 	public static String DEVICE_MODEL_V3_TRACKER_SNG_01 = "V3-TRACKER-SNG-01";
 	public static String DEVICE_MODEL_ACPTRACKER_1500 = "ACP-1500";
+	public static String DEVICE_MANAGER_ACPREADER_1500 = "ACP-READER-1500";
 	public static String DEVICE_MODEL_C4T_DG_SNG_01 = "C4T-DG-SNG-01";
 	
 	public static String DEVICE_MANAGER_V3 = "V3";
@@ -20,6 +21,8 @@ public class Device {
 	public static String DEVICE_MANAGER_V3TRACKER = "V3TRACKER";
 	public static String DEVICE_MANAGER_CISTRACKER = "CISTRACKER";
 	public static String DEVICE_MANAGER_ACPTRACKER = "ACPTRACKER";
+	public static String DEVICE_MANAGER_ACPREADER = "ACPREADER";
+	
 	public static String DEVICE_MANAGER_DIC = "DIC";
 	public static String DEVICE_MANAGER_NETVOX = "NETVOX";
 	public static String DEVICE_MANAGER_MOBD = "MOBD";
@@ -47,7 +50,8 @@ public class Device {
 				DEVICE_MANAGER_NETVOX,
 				DEVICE_MANAGER_OBD,
 				DEVICE_MANAGER_V3TRACKER,
-				DEVICE_MANAGER_V3
+				DEVICE_MANAGER_V3,
+				DEVICE_MANAGER_ACPREADER
 		};
 		return list;
 	}
@@ -59,7 +63,8 @@ public class Device {
 				DEVICE_MODEL_V3_DG_SNG_01,
 				DEVICE_MODEL_C4T_BLUETOOTH_OBD_01,
 				DEVICE_MODEL_NETVOX_SWITCH_01,
-				DEVICE_MODEL_C4T_DG_SNG_01
+				DEVICE_MODEL_C4T_DG_SNG_01,
+				DEVICE_MANAGER_ACPREADER_1500
 		};
 		return list;
 	}
