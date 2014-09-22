@@ -591,7 +591,7 @@ public class Util {
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine;
 			while ((strLine = br.readLine()) != null) {
-				text = text + strLine;
+				text = text + strLine+"\n";
 			}
 			br.close();
 		} catch (Exception e) {// Catch exception if any
