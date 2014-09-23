@@ -234,4 +234,12 @@ public class MOBDReader extends Reader {
 			}
 		}
 	}
+
+	@Override
+	public Message readWrite(Session session, Object handle,
+			Object writeHandle, MessageManager messageManager)
+			throws ApplicationException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

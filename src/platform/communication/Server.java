@@ -218,7 +218,12 @@ class ClientReadHandler extends Communication implements Runnable {
 			}
 			try {
 				executeCommandFromMessageQueue();
-				Message msg  = getProtocolProvider().getReader().read(session, getReaderHandle(), protocolProvider.getMessageManager());
+				
+				Message msg = null;
+				msg = getProtocolProvider().getReader().read(session, getReaderHandle(), protocolProvider.getMessageManager());
+				if (msg == null) {
+					msg = getProtocolProvider().getReader().readWrite(session, getReaderHandle(), getWriterHandle(),protocolProvider.getMessageManager());
+				}
 				if (msg != null) 
 					session.setLastUpdateTime(System.currentTimeMillis());
 				if ((msg != null ) && msg.isAuthenticationRequired()) {

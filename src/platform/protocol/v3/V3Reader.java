@@ -203,4 +203,12 @@ public class V3Reader extends Reader {
 	public void setMessage(Message message) {
 		this.message = message;
 	}
+
+	@Override
+	public Message readWrite(Session session, Object handle,
+			Object writeHandle, MessageManager messageManager)
+			throws ApplicationException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
