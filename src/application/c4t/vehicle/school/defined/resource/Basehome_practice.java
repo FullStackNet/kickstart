@@ -29,6 +29,8 @@ public abstract class Basehome_practice extends BaseResource {
 	private String description = null;
 	private Long creation_time = null;
 	private String sent = null;
+	private String send_sms = null;
+	private String send_email = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -41,6 +43,8 @@ public abstract class Basehome_practice extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SENT = "sent";
+	public static String FIELD_SEND_SMS = "send_sms";
+	public static String FIELD_SEND_EMAIL = "send_email";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -92,6 +96,16 @@ public abstract class Basehome_practice extends BaseResource {
 		sentField.setLength(1);
 		metaData.addField(sentField);
 
+		Field send_smsField = new Field("send_sms", "String");
+		send_smsField.setDefaultValue("N");
+		send_smsField.setLength(1);
+		metaData.addField(send_smsField);
+
+		Field send_emailField = new Field("send_email", "String");
+		send_emailField.setDefaultValue("N");
+		send_emailField.setLength(1);
+		metaData.addField(send_emailField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -115,6 +129,8 @@ public abstract class Basehome_practice extends BaseResource {
 		this.description = obj.description;
 		this.creation_time = obj.creation_time;
 		this.sent = obj.sent;
+		this.send_sms = obj.send_sms;
+		this.send_email = obj.send_email;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -125,6 +141,10 @@ public abstract class Basehome_practice extends BaseResource {
 	private void setDefaultValues() {
 		if(sent == null)
 			sent = "N";
+		if(send_sms == null)
+			send_sms = "N";
+		if(send_email == null)
+			send_email = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -149,6 +169,10 @@ public abstract class Basehome_practice extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(sent != null)
 			map.put("sent", sent);
+		if(send_sms != null)
+			map.put("send_sms", send_sms);
+		if(send_email != null)
+			map.put("send_email", send_email);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -179,6 +203,10 @@ public abstract class Basehome_practice extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(sent != null)
 			map.put("sent", sent);
+		if(send_sms != null)
+			map.put("send_sms", send_sms);
+		if(send_email != null)
+			map.put("send_email", send_email);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -201,6 +229,8 @@ public abstract class Basehome_practice extends BaseResource {
 		description = (String) map.get("description");
 		creation_time = (Long) map.get("creation_time");
 		sent = (String) map.get("sent");
+		send_sms = (String) map.get("send_sms");
+		send_email = (String) map.get("send_email");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -245,6 +275,14 @@ public abstract class Basehome_practice extends BaseResource {
 		Object sentObj = map.get("sent");
 		if(sentObj != null)
 			sent = sentObj.toString();
+
+		Object send_smsObj = map.get("send_sms");
+		if(send_smsObj != null)
+			send_sms = send_smsObj.toString();
+
+		Object send_emailObj = map.get("send_email");
+		if(send_emailObj != null)
+			send_email = send_emailObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -408,6 +446,30 @@ public abstract class Basehome_practice extends BaseResource {
 
 	public void unSetSent() {
 		this.sent = "N";
+	}
+
+	public String getSend_sms() {
+		return send_sms != null ? send_sms : "N";
+	}
+
+	public void setSend_sms(String send_sms) {
+		this.send_sms = send_sms;
+	}
+
+	public void unSetSend_sms() {
+		this.send_sms = "N";
+	}
+
+	public String getSend_email() {
+		return send_email != null ? send_email : "N";
+	}
+
+	public void setSend_email(String send_email) {
+		this.send_email = send_email;
+	}
+
+	public void unSetSend_email() {
+		this.send_email = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

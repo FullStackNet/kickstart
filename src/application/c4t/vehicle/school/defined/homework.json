@@ -64,6 +64,16 @@
 			},
 			'submit_timestamp': {
 				'type': 'timestamp'
+			},
+			'send_sms': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
+			},
+			'send_email': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
 			}
 		}
 	}

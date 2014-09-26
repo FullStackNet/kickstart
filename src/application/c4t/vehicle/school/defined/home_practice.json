@@ -54,6 +54,16 @@
 				'type': 'String',
 				'length' : 1,
 				'default' : "N"
+			},
+			'send_sms': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
+			},
+			'send_email': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
 			}
 		}
 	}
