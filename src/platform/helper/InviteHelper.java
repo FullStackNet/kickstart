@@ -1,12 +1,5 @@
 package platform.helper;
 
-import application.c4t.vehicle.school.helper.School_user_mapHelper;
-import application.c4t.vehicle.school.helper.StudentHelper;
-import application.c4t.vehicle.school.helper.Student_mapHelper;
-import application.c4t.vehicle.school.helper.TeacherHelper;
-import application.c4t.vehicle.school.helper.Teacher_mapHelper;
-import application.c4t.vehicle.school.resource.student;
-import application.c4t.vehicle.school.resource.teacher;
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
@@ -16,6 +9,13 @@ import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Util;
+import application.c4t.vehicle.school.helper.School_user_mapHelper;
+import application.c4t.vehicle.school.helper.StudentHelper;
+import application.c4t.vehicle.school.helper.Student_mapHelper;
+import application.c4t.vehicle.school.helper.TeacherHelper;
+import application.c4t.vehicle.school.helper.Teacher_mapHelper;
+import application.c4t.vehicle.school.resource.student;
+import application.c4t.vehicle.school.resource.teacher;
 
 
 public class InviteHelper extends BaseHelper {

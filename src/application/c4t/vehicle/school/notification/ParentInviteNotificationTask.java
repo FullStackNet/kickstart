@@ -14,7 +14,6 @@ import platform.notification.NotificationTask;
 import platform.resource.BaseResource;
 import platform.resource.notification;
 import platform.resource.user;
-import platform.resource.user_map;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;

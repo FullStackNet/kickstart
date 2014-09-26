@@ -1,8 +1,8 @@
 package platform.webservice.ui.component;
 
 import platform.webservice.ui.UIServletContext;
-import platform.webservice.ui.definition.RouteMapDefinition;
 import platform.webservice.ui.definition.MapPoint;
+import platform.webservice.ui.definition.RouteMapDefinition;
 import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.JS;
 import platform.webservice.ui.html.TEXT;

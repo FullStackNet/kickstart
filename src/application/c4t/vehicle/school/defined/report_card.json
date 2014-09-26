@@ -10,6 +10,11 @@
 				'required': true,
 				'type':'String'
 			},
+			'accessment_for':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'admission_date_str':
 			{
 				'length': 32,

@@ -4,14 +4,10 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import platform.db.Expression;
-import platform.db.JoinField;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import application.c4t.vehicle.resource.route_stopage;
-import application.c4t.vehicle.school.resource.subject;
 import application.c4t.vehicle.school.resource.teacher_subject;
 
 

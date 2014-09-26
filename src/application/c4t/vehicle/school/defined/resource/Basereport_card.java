@@ -20,6 +20,7 @@ import java.util.*;
  */
 public abstract class Basereport_card extends BaseResource {
 	private String id = null;
+	private String accessment_for = null;
 	private String admission_date_str = null;
 	private String school_name = null;
 	private String school_id = null;
@@ -66,6 +67,7 @@ public abstract class Basereport_card extends BaseResource {
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_ACCESSMENT_FOR = "accessment_for";
 	public static String FIELD_ADMISSION_DATE_STR = "admission_date_str";
 	public static String FIELD_SCHOOL_NAME = "school_name";
 	public static String FIELD_SCHOOL_ID = "school_id";
@@ -121,6 +123,10 @@ public abstract class Basereport_card extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field accessment_forField = new Field("accessment_for", "String");
+		accessment_forField.setLength(128);
+		metaData.addField(accessment_forField);
 
 		Field admission_date_strField = new Field("admission_date_str", "String");
 		admission_date_strField.setLength(32);
@@ -313,6 +319,7 @@ public abstract class Basereport_card extends BaseResource {
 
 	public Basereport_card(Basereport_card obj) {
 		this.id = obj.id;
+		this.accessment_for = obj.accessment_for;
 		this.admission_date_str = obj.admission_date_str;
 		this.school_name = obj.school_name;
 		this.school_id = obj.school_id;
@@ -367,6 +374,8 @@ public abstract class Basereport_card extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(accessment_for != null)
+			map.put("accessment_for", accessment_for);
 		if(admission_date_str != null)
 			map.put("admission_date_str", admission_date_str);
 		if(school_name != null)
@@ -462,6 +471,8 @@ public abstract class Basereport_card extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(accessment_for != null)
+			map.put("accessment_for", accessment_for);
 		if(admission_date_str != null)
 			map.put("admission_date_str", admission_date_str);
 		if(school_name != null)
@@ -561,6 +572,7 @@ public abstract class Basereport_card extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		accessment_for = (String) map.get("accessment_for");
 		admission_date_str = (String) map.get("admission_date_str");
 		school_name = (String) map.get("school_name");
 		school_id = (String) map.get("school_id");
@@ -612,6 +624,10 @@ public abstract class Basereport_card extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object accessment_forObj = map.get("accessment_for");
+		if(accessment_forObj != null)
+			accessment_for = accessment_forObj.toString();
 
 		Object admission_date_strObj = map.get("admission_date_str");
 		if(admission_date_strObj != null)
@@ -814,6 +830,22 @@ public abstract class Basereport_card extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getAccessment_for() {
+		return accessment_for;
+	}
+
+	public String getAccessment_forEx() {
+		return accessment_for != null ? accessment_for : "";
+	}
+
+	public void setAccessment_for(String accessment_for) {
+		this.accessment_for = accessment_for;
+	}
+
+	public void unSetAccessment_for() {
+		this.accessment_for = null;
 	}
 
 	public String getAdmission_date_str() {

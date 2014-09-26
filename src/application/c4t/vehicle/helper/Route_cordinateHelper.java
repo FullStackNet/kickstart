@@ -4,7 +4,6 @@ import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
-import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Util;
 import platform.util.location.LocationUtil;
