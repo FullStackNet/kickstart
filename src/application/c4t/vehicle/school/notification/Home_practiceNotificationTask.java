@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import platform.helper.User_mapHelper;
+import platform.log.ApplicationLogger;
 import platform.manager.ApplicationManager;
 import platform.message.SendEmail;
 import platform.message.SendNotification;
@@ -17,8 +18,10 @@ import platform.resource.user;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
+import application.c4t.vehicle.school.helper.Home_practiceHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
+import application.c4t.vehicle.school.resource.home_practice;
 import application.c4t.vehicle.school.resource.student;
 
 public class Home_practiceNotificationTask extends NotificationTask {
@@ -29,7 +32,9 @@ public class Home_practiceNotificationTask extends NotificationTask {
 
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
-			String appAlert,String smsAlert,String emailAlert,
+			Map<String, String> smsAlertMap,
+			Map<String, String> emailAlertMap,
+			Map<String, String> appAlertMap,
 			String school_id,
 			String class_section_name,
 			String title,
@@ -37,6 +42,10 @@ public class Home_practiceNotificationTask extends NotificationTask {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			String students = studentMap.get(entry.getKey());
+			String smsAlert = smsAlertMap.get(_user.getId());
+			String appAlert = appAlertMap.get(_user.getId());
+			String emailAlert = emailAlertMap.get(_user.getId());
+		
 			if ("Y".equals(smsAlert) && (_user.getMobile_no() != null)) {
 				SendSMS smsMessage = new SendSMS();
 				smsMessage.setMobile_no(_user.getMobile_no());
@@ -96,12 +105,17 @@ public class Home_practiceNotificationTask extends NotificationTask {
 			String school_id,
 			String class_section_name,
 			String title,
-			String description,String customerId) {
+			String description,String customerId,
+			home_practice activity) {
 		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
 		if ((students == null) || (students.length == 0)) 
 			return;
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
 		Map<String, String> studentMap = new HashMap<String, String>();
+		Map<String, String> smsAlertMap = new HashMap<String, String>();
+		Map<String, String> emailAlertMap = new HashMap<String, String>();;
+		Map<String, String> appAlertMap = new HashMap<String, String>();;
+	
 		String smsAlert = "N";
 		String emailAlert = "N";
 		String appAlert = "N";
@@ -117,9 +131,18 @@ public class Home_practiceNotificationTask extends NotificationTask {
 			if ("Y".equals(_student.getStopage_alert_mobile_app())) {
 				appAlert = "Y";
 			}
+			if (!"Y".equals(activity.getSend_sms())) {
+				smsAlert = "N";
+			}
+			if (!"Y".equals(activity.getSend_email())) {
+				emailAlert = "N";
+			}
 			ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());
 			for(int j=0; j < _users.size(); j++) {
 				userMap.put(_users.get(j).getId(), _users.get(j));
+				smsAlertMap.put(_users.get(j).getId(), smsAlert);
+				emailAlertMap.put(_users.get(j).getId(), emailAlert);
+				appAlertMap.put(_users.get(j).getId(), appAlert);
 				String str = studentMap.get(_users.get(j).getId());
 				if (str == null) {
 					str = _student.getNameEx(); 
@@ -135,7 +158,10 @@ public class Home_practiceNotificationTask extends NotificationTask {
 				e.printStackTrace();
 			}
 		}
-		sendNotification2Users(_notification, userMap, studentMap,appAlert,smsAlert,emailAlert,
+		sendNotification2Users(_notification, userMap, studentMap,
+				smsAlertMap,
+				emailAlertMap,
+				appAlertMap,
 				school_id,
 				class_section_name,
 				title,
@@ -154,9 +180,16 @@ public class Home_practiceNotificationTask extends NotificationTask {
 			String title = (String)data.get("TITLE");
 			String description = (String)data.get("DESCRIPTION");
 			String customerId = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID);
+			String activity_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID);
 			
+			home_practice activity = (home_practice)Home_practiceHelper.getInstance().getById(activity_id);
+			if (activity == null) {
+				ApplicationLogger.error("Unable to process Notice, because it doesn't exists " +activity_id, this.getClass());
+				return;
+			}
+		
 			sendNotification(_notification,school_id,
-					class_section_name, title,description,customerId);
+					class_section_name, title,description,customerId,activity);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
