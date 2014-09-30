@@ -89,6 +89,7 @@ public class PageBuilder {
 				jsFileList.add(new JS("nicEdit-latest.js", "http://js.nicedit.com"));
 			}
 		}
+		jsFileList.add(new JS("jquery.blockUI.js", "/ui/js"));
 		if (mContext.isMobileRequest()) {
 			META meta = new META();
 			meta.addAttribute(new Attribute("name","viewport"));
