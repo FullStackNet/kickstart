@@ -242,6 +242,21 @@
 			{
 				'type':'String',
 				length : 128
+			},
+			'teacher_signature_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'centre_head_signature_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'acedemic_counselor_signature_id':
+			{
+				'type':'String',
+				length : 128
 			}
 		}
 	}
