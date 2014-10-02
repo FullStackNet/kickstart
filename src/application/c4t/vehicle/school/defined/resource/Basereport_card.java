@@ -64,6 +64,9 @@ public abstract class Basereport_card extends BaseResource {
 	private Integer attendance_present_days = null;
 	private String general_remark = null;
 	private String templete_type = null;
+	private String teacher_signature_id = null;
+	private String centre_head_signature_id = null;
+	private String acedemic_counselor_signature_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -111,6 +114,9 @@ public abstract class Basereport_card extends BaseResource {
 	public static String FIELD_ATTENDANCE_PRESENT_DAYS = "attendance_present_days";
 	public static String FIELD_GENERAL_REMARK = "general_remark";
 	public static String FIELD_TEMPLETE_TYPE = "templete_type";
+	public static String FIELD_TEACHER_SIGNATURE_ID = "teacher_signature_id";
+	public static String FIELD_CENTRE_HEAD_SIGNATURE_ID = "centre_head_signature_id";
+	public static String FIELD_ACEDEMIC_COUNSELOR_SIGNATURE_ID = "acedemic_counselor_signature_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -305,6 +311,18 @@ public abstract class Basereport_card extends BaseResource {
 		templete_typeField.setLength(128);
 		metaData.addField(templete_typeField);
 
+		Field teacher_signature_idField = new Field("teacher_signature_id", "String");
+		teacher_signature_idField.setLength(128);
+		metaData.addField(teacher_signature_idField);
+
+		Field centre_head_signature_idField = new Field("centre_head_signature_id", "String");
+		centre_head_signature_idField.setLength(128);
+		metaData.addField(centre_head_signature_idField);
+
+		Field acedemic_counselor_signature_idField = new Field("acedemic_counselor_signature_id", "String");
+		acedemic_counselor_signature_idField.setLength(128);
+		metaData.addField(acedemic_counselor_signature_idField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -363,6 +381,9 @@ public abstract class Basereport_card extends BaseResource {
 		this.attendance_present_days = obj.attendance_present_days;
 		this.general_remark = obj.general_remark;
 		this.templete_type = obj.templete_type;
+		this.teacher_signature_id = obj.teacher_signature_id;
+		this.centre_head_signature_id = obj.centre_head_signature_id;
+		this.acedemic_counselor_signature_id = obj.acedemic_counselor_signature_id;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -462,6 +483,12 @@ public abstract class Basereport_card extends BaseResource {
 			map.put("general_remark", general_remark);
 		if(templete_type != null)
 			map.put("templete_type", templete_type);
+		if(teacher_signature_id != null)
+			map.put("teacher_signature_id", teacher_signature_id);
+		if(centre_head_signature_id != null)
+			map.put("centre_head_signature_id", centre_head_signature_id);
+		if(acedemic_counselor_signature_id != null)
+			map.put("acedemic_counselor_signature_id", acedemic_counselor_signature_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -559,6 +586,12 @@ public abstract class Basereport_card extends BaseResource {
 			map.put("general_remark", general_remark);
 		if(templete_type != null)
 			map.put("templete_type", templete_type);
+		if(teacher_signature_id != null)
+			map.put("teacher_signature_id", teacher_signature_id);
+		if(centre_head_signature_id != null)
+			map.put("centre_head_signature_id", centre_head_signature_id);
+		if(acedemic_counselor_signature_id != null)
+			map.put("acedemic_counselor_signature_id", acedemic_counselor_signature_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -616,6 +649,9 @@ public abstract class Basereport_card extends BaseResource {
 		attendance_present_days = (Integer) map.get("attendance_present_days");
 		general_remark = (String) map.get("general_remark");
 		templete_type = (String) map.get("templete_type");
+		teacher_signature_id = (String) map.get("teacher_signature_id");
+		centre_head_signature_id = (String) map.get("centre_head_signature_id");
+		acedemic_counselor_signature_id = (String) map.get("acedemic_counselor_signature_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -800,6 +836,18 @@ public abstract class Basereport_card extends BaseResource {
 		Object templete_typeObj = map.get("templete_type");
 		if(templete_typeObj != null)
 			templete_type = templete_typeObj.toString();
+
+		Object teacher_signature_idObj = map.get("teacher_signature_id");
+		if(teacher_signature_idObj != null)
+			teacher_signature_id = teacher_signature_idObj.toString();
+
+		Object centre_head_signature_idObj = map.get("centre_head_signature_id");
+		if(centre_head_signature_idObj != null)
+			centre_head_signature_id = centre_head_signature_idObj.toString();
+
+		Object acedemic_counselor_signature_idObj = map.get("acedemic_counselor_signature_id");
+		if(acedemic_counselor_signature_idObj != null)
+			acedemic_counselor_signature_id = acedemic_counselor_signature_idObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1548,6 +1596,54 @@ public abstract class Basereport_card extends BaseResource {
 
 	public void unSetTemplete_type() {
 		this.templete_type = null;
+	}
+
+	public String getTeacher_signature_id() {
+		return teacher_signature_id;
+	}
+
+	public String getTeacher_signature_idEx() {
+		return teacher_signature_id != null ? teacher_signature_id : "";
+	}
+
+	public void setTeacher_signature_id(String teacher_signature_id) {
+		this.teacher_signature_id = teacher_signature_id;
+	}
+
+	public void unSetTeacher_signature_id() {
+		this.teacher_signature_id = null;
+	}
+
+	public String getCentre_head_signature_id() {
+		return centre_head_signature_id;
+	}
+
+	public String getCentre_head_signature_idEx() {
+		return centre_head_signature_id != null ? centre_head_signature_id : "";
+	}
+
+	public void setCentre_head_signature_id(String centre_head_signature_id) {
+		this.centre_head_signature_id = centre_head_signature_id;
+	}
+
+	public void unSetCentre_head_signature_id() {
+		this.centre_head_signature_id = null;
+	}
+
+	public String getAcedemic_counselor_signature_id() {
+		return acedemic_counselor_signature_id;
+	}
+
+	public String getAcedemic_counselor_signature_idEx() {
+		return acedemic_counselor_signature_id != null ? acedemic_counselor_signature_id : "";
+	}
+
+	public void setAcedemic_counselor_signature_id(String acedemic_counselor_signature_id) {
+		this.acedemic_counselor_signature_id = acedemic_counselor_signature_id;
+	}
+
+	public void unSetAcedemic_counselor_signature_id() {
+		this.acedemic_counselor_signature_id = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

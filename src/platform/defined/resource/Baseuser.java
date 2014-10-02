@@ -9,14 +9,10 @@
 
 package platform.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -31,6 +27,7 @@ public abstract class Baseuser extends BaseResource {
 	private String email_id = null;
 	private String customer_id = null;
 	private String dob = null;
+	private String superuser = null;
 	private String occupation = null;
 	private String role = null;
 	private String company_name = null;
@@ -60,6 +57,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_DOB = "dob";
+	public static String FIELD_SUPERUSER = "superuser";
 	public static String FIELD_OCCUPATION = "occupation";
 	public static String FIELD_ROLE = "role";
 	public static String FIELD_COMPANY_NAME = "company_name";
@@ -123,6 +121,11 @@ public abstract class Baseuser extends BaseResource {
 		Field dobField = new Field("dob", "String");
 		dobField.setLength(128);
 		metaData.addField(dobField);
+
+		Field superuserField = new Field("superuser", "String");
+		superuserField.setDefaultValue("N");
+		superuserField.setLength(1);
+		metaData.addField(superuserField);
 
 		Field occupationField = new Field("occupation", "String");
 		occupationField.setLength(128);
@@ -233,6 +236,7 @@ public abstract class Baseuser extends BaseResource {
 		this.email_id = obj.email_id;
 		this.customer_id = obj.customer_id;
 		this.dob = obj.dob;
+		this.superuser = obj.superuser;
 		this.occupation = obj.occupation;
 		this.role = obj.role;
 		this.company_name = obj.company_name;
@@ -260,6 +264,8 @@ public abstract class Baseuser extends BaseResource {
 	}
 
 	private void setDefaultValues() {
+		if(superuser == null)
+			superuser = "N";
 		if(parentService == null)
 			parentService = "N";
 		if(teacherService == null)
@@ -306,6 +312,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(dob != null)
 			map.put("dob", dob);
+		if(superuser != null)
+			map.put("superuser", superuser);
 		if(occupation != null)
 			map.put("occupation", occupation);
 		if(role != null)
@@ -370,6 +378,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(dob != null)
 			map.put("dob", dob);
+		if(superuser != null)
+			map.put("superuser", superuser);
 		if(occupation != null)
 			map.put("occupation", occupation);
 		if(role != null)
@@ -428,6 +438,7 @@ public abstract class Baseuser extends BaseResource {
 		email_id = (String) map.get("email_id");
 		customer_id = (String) map.get("customer_id");
 		dob = (String) map.get("dob");
+		superuser = (String) map.get("superuser");
 		occupation = (String) map.get("occupation");
 		role = (String) map.get("role");
 		company_name = (String) map.get("company_name");
@@ -483,6 +494,10 @@ public abstract class Baseuser extends BaseResource {
 		Object dobObj = map.get("dob");
 		if(dobObj != null)
 			dob = dobObj.toString();
+
+		Object superuserObj = map.get("superuser");
+		if(superuserObj != null)
+			superuser = superuserObj.toString();
 
 		Object occupationObj = map.get("occupation");
 		if(occupationObj != null)
@@ -713,6 +728,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetDob() {
 		this.dob = null;
+	}
+
+	public String getSuperuser() {
+		return superuser != null ? superuser : "N";
+	}
+
+	public void setSuperuser(String superuser) {
+		this.superuser = superuser;
+	}
+
+	public void unSetSuperuser() {
+		this.superuser = "N";
 	}
 
 	public String getOccupation() {
