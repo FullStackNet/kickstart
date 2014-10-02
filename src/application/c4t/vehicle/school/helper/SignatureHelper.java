@@ -27,6 +27,11 @@ public class SignatureHelper extends BaseHelper {
 		return getByExpression(e, new String[]{signature.FIELD_NAME});
 	}
 	
+	public BaseResource[] getForAdmin(String userId) {
+		String[] schoolIds = School_user_mapHelper.getInstance().getSchoolIds(userId);
+		return  SignatureHelper.getInstance().getForSchools(schoolIds);
+	}
+	
 	public void updateFileName(String id,String filename) {
 		signature _record = new signature();
 		_record.setId(id);
