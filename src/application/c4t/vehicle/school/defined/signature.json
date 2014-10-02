@@ -27,6 +27,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'filename':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}			

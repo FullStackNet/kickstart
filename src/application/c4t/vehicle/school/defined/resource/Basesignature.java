@@ -23,6 +23,7 @@ public abstract class Basesignature extends BaseResource {
 	private String name = null;
 	private String customer_id = null;
 	private String school_id = null;
+	private String filename = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -30,6 +31,7 @@ public abstract class Basesignature extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_FILENAME = "filename";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -57,6 +59,10 @@ public abstract class Basesignature extends BaseResource {
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
 
+		Field filenameField = new Field("filename", "String");
+		filenameField.setLength(128);
+		metaData.addField(filenameField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -77,6 +83,7 @@ public abstract class Basesignature extends BaseResource {
 		this.name = obj.name;
 		this.customer_id = obj.customer_id;
 		this.school_id = obj.school_id;
+		this.filename = obj.filename;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -95,6 +102,8 @@ public abstract class Basesignature extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(filename != null)
+			map.put("filename", filename);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -112,6 +121,8 @@ public abstract class Basesignature extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(filename != null)
+			map.put("filename", filename);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -130,6 +141,7 @@ public abstract class Basesignature extends BaseResource {
 		name = (String) map.get("name");
 		customer_id = (String) map.get("customer_id");
 		school_id = (String) map.get("school_id");
+		filename = (String) map.get("filename");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -151,6 +163,10 @@ public abstract class Basesignature extends BaseResource {
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
+
+		Object filenameObj = map.get("filename");
+		if(filenameObj != null)
+			filename = filenameObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -233,6 +249,22 @@ public abstract class Basesignature extends BaseResource {
 
 	public void unSetSchool_id() {
 		this.school_id = null;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public String getFilenameEx() {
+		return filename != null ? filename : "";
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	public void unSetFilename() {
+		this.filename = null;
 	}
 
 	public Long getCreation_time() {
