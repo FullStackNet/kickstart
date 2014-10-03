@@ -86,6 +86,10 @@ public class UIConstants {
 	public final static String[] REPORT_CARD_TEMPLETE_ENUM = new String[] {
 		"BRIGHT-KID-NURSERY",
 	};
+	public final static String[] ASSESSMENT_TYPE_ENUM = new String[] {
+		"Half Yearly",
+		"Annually",
+	};
 	public final static String[] RATING_ENUM = new String[] {
 		"Excellent",
 		"Very Good",
