@@ -32,7 +32,6 @@ public class Server  {
 
 	public void setContext(ServerContext context) {
 		this.context = context;
-		executorService = Executors.newFixedThreadPool(NUM_THREADS);
 	}
 
 	private ServerSocket listener;
@@ -52,6 +51,7 @@ public class Server  {
 		this.context = context;
 		stop = false;
 		listener = null;
+		executorService = Executors.newFixedThreadPool(NUM_THREADS);
 	}
 
 	public void stop() {
