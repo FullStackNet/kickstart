@@ -11,6 +11,7 @@ public class ServerContext {
 	boolean ssl;
 	private long maxConnection;
 	private long maxMessageQueueSizePerClient;
+	private long maxClients;
 	
 
 	public ServerContext(String name, ProtocolProvider protocolProvider,int port ) {
@@ -19,6 +20,7 @@ public class ServerContext {
 		this.name = name;
 		maxConnection = 15000;
 		maxMessageQueueSizePerClient = 256;
+		maxClients = 500;
 	}
 	
 	public long getMaxMessageQueueSizePerClient() {
@@ -80,6 +82,14 @@ public class ServerContext {
 
 	public void setMaxConnection(long maxConnection) {
 		this.maxConnection = maxConnection;
+	}
+
+	public long getMaxClients() {
+		return maxClients;
+	}
+
+	public void setMaxClients(long maxClients) {
+		this.maxClients = maxClients;
 	}
 	
 }

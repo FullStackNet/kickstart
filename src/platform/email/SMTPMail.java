@@ -162,6 +162,11 @@ public class SMTPMail {
 			if (!Util.isEmpty(replyToAddresses))
 				msg.setReplyTo(replyToAddresses);
 			msg.setFrom(new InternetAddress(fromAddr));
+			if (Util.isEmpty(toAddr)) {
+				if (!Util.isEmpty(bccAddr)) {
+					toAddr = bccAddr;
+				}
+			}
 			InternetAddress address[] = new InternetAddress[toAddr.length];
 			InternetAddress address1[] = null;
 			InternetAddress address2[] = null;
