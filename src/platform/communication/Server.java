@@ -78,6 +78,7 @@ public class Server  {
 				@Override
 				public void eventTriggered(Object sender, Event event) {
 					// TODO Auto-generated method stub
+					executorService.shutdownNow();
 					stop();
 				}
 			}; 
