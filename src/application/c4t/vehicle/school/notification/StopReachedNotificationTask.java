@@ -70,7 +70,7 @@ public class StopReachedNotificationTask extends NotificationTask {
 			}
 			if ("Y".equals(emailAlert) && (_user.getEmail_id() != null)) {
 				SendEmail resendMail = new SendEmail();
-				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_PARENT);
+				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_STOPAGE_REACHED);
 				resendMail.setTo(_user.getEmail_id());
 				resendMail.setType(ApplicationConstants.MAIL_TYPE_STOPAGE_REACHED);
 				Map<String, String> map = new HashMap<String, String>();
