@@ -58,6 +58,9 @@ public class InviteHelper extends BaseHelper {
 		if (mobileno == null) {
 			mobileno = "dummy";
 		}
+		if (emailId == null) {
+			emailId = "dummy";
+		}
 		Expression e1 = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
 		Expression e2 = new Expression(user.FIELD_EMAIL_ID, REL_OP.EQ, emailId);
 		Expression e3 = new Expression(e1, LOG_OP.OR, e2);

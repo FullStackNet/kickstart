@@ -18,6 +18,7 @@ import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
 import application.c4t.vehicle.school.helper.StudentHelper;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
 public class ParentInviteNotificationTask extends NotificationTask {
@@ -29,6 +30,15 @@ public class ParentInviteNotificationTask extends NotificationTask {
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			String appAlert,String smsAlert,String emailAlert,
 			String student_id,String student_name) {
+		
+		String school_name = "school";
+		school _school = new school();
+		student _student = (student)StudentHelper.getInstance().getById(student_id);
+		if (_student != null) {
+			_school = (school) StudentHelper.getInstance().getById(_student.getSchool_id());
+			if (_school != null)
+				school_name = _school.getName();
+		}
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			if ("Y".equals(smsAlert) && (_user.getMobile_no() != null)) {
@@ -38,6 +48,12 @@ public class ParentInviteNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put("STDEUNT_NAME", student_name);
 				map.put("STDEUNT_ID", student_id);
+				map.put("SCHOOL_NAME", school_name);
+				if ((_school != null) && (_school.getBrand_name() != null)) {
+					map.put("BRAND_NAME", _school.getBrand_name());
+				} else {
+					map.put("BRAND_NAME", "School");
+				}
 				String params = Json.maptoString(map);
 				smsMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
@@ -51,6 +67,12 @@ public class ParentInviteNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put("STDEUNT_NAME", student_name);
 				map.put("STDEUNT_ID", student_id);
+				map.put("SCHOOL_NAME", school_name);
+				if ((_school != null) && (_school.getBrand_name() != null)) {
+					map.put("BRAND_NAME", _school.getBrand_name());
+				} else {
+					map.put("BRAND_NAME", "School");
+				}
 				String params = Json.maptoString(map);
 				resendMail.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
