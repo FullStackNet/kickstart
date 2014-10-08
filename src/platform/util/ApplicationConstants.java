@@ -137,7 +137,7 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String MAIL_TYPE_ABSENT = "ABSENT";
 	public static String MAIL_TYPE_DAILY_ACTIVITY= "DAILY_ACTIVITY";
-	public static String MAIL_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE TO JOIN PARENT CONNECT";
+	public static String MAIL_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";
 	public static String MAIL_TYPE_INVITE_CUSTOMER_ADMIN = "INVITE_CUSTOMER_ADMIN";
 
 	public static String MAIL_SUBJECT_INVITE_PARENT = "Activate connect2parent account";
