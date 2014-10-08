@@ -252,5 +252,6 @@ public class EmailDispatcher {
 	//			HelperFactory.getUnsentEmailHelper().createEntry(toEmailIds, replyToEmailId, replyToName, subject, message);
 			throw e;
 		}
+		
 	}
 }
