@@ -48,7 +48,7 @@ public class Absent_detailHelper extends BaseHelper {
 
 	public BaseResource[] getByStudent(String studentId) {
 		Expression e = new Expression(absent_detail.FIELD_STUDENT_ID, REL_OP.EQ, studentId);
-		return getByExpression(e);
+		return getByExpression(e,new String[]{absent_detail.FIELD_DATE +" desc"});
 	}
 
 	public ArrayList<Map<String, Object>> getDetailListMap(String absent_parent_id,ArrayList<JoinField> joinFields) {
