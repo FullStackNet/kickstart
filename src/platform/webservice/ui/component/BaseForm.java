@@ -252,6 +252,12 @@ public abstract class BaseForm extends BaseView {
 					column.addChild(img);
 					row.addChild(column);
 					column = new TD();
+				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PHOTO) { 
+					IMG img = new IMG();
+					img.setSRC(getImageSource(field,dataMap));
+					column.addChild(img);
+					row.addChild(column);
+					column = new TD();
 				}else {
 					column.addAttribute("width","150px");
 					column.setText(field.getLabel());
@@ -265,6 +271,9 @@ public abstract class BaseForm extends BaseView {
 					}
 					if (value != null) {
 						textEdit.setValue(value.toString());
+					}
+					if (field.isReadOnly()) {
+						textEdit.addAttribute("readonly", "true");
 					}
 					column.addChild(textEdit);
 				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_FILEUPLOAD) {

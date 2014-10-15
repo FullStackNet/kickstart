@@ -21,6 +21,7 @@ public class UIConstants {
 	public final static String COMPONENT_TYPE_HIDDEN = "HIDDEN";
 	public final static String COMPONENT_TYPE_FILEUPLOAD = "FILEUPLOAD";
 	public final static String COMPONENT_TYPE_PHOTOUPLOAD = "PHOTOUPLOAD";
+	public final static String COMPONENT_TYPE_PHOTO = "PHOTO";
 	
 	public final static String COMPONENT_TYPE_PASSWORD = "PASSWORD";
 	public final static String COMPONENT_TYPE_LINK = "LINK";

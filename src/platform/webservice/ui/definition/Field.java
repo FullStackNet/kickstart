@@ -37,6 +37,8 @@ public class Field {
 	private boolean isUpperCase;
 	boolean addOnly;
 	boolean modifyOnly;
+	boolean readOnly;
+	
 	public DataSource getDatasource() {
 		return datasource;
 	}
@@ -295,5 +297,13 @@ public class Field {
 
 	public void setModifyOnly(boolean modifyOnly) {
 		this.modifyOnly = modifyOnly;
+	}
+
+	public boolean isReadOnly() {
+		return readOnly;
+	}
+
+	public void setReadOnly(boolean readOnly) {
+		this.readOnly = readOnly;
 	}
 }
