@@ -23,7 +23,7 @@ public abstract class TwoColumnDBApplicationServlet extends BaseUIServlet {
 	public abstract BaseHTMLComponent getModifyView(UIServletContext context);
 	public abstract BaseHTMLComponent getDeleteView(UIServletContext context);
 	public abstract BaseHTMLComponent getListView(UIServletContext context);
-	
+	public abstract BaseHTMLComponent getView(UIServletContext context);
 
 	public BaseHTMLComponent getWebContentView(UIServletContext context) {
 		String op = context.getParamValue("op");
@@ -36,6 +36,8 @@ public abstract class TwoColumnDBApplicationServlet extends BaseUIServlet {
 				return getModifyView(context);
 			} else if(WebServiceContants.OPERATION_DELETE.equalsIgnoreCase(op)) {
 				return getDeleteView(context);
+			} else if(WebServiceContants.OPERATION_VIEW.equalsIgnoreCase(op)) {
+				return getView(context);
 			}
 		}
 		return getListView(context);

@@ -15,6 +15,7 @@ import platform.webservice.ui.html.COMBO;
 import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.FILEINPUT;
 import platform.webservice.ui.html.FORM;
+import platform.webservice.ui.html.H2;
 import platform.webservice.ui.html.HIDDEN;
 import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.JS;
@@ -354,6 +355,14 @@ public abstract class BaseForm extends BaseView {
 			spacer = new VerticleSpacer(20);
 			blockdiv.addChild(spacer.getView());
 		}
+		if (mDefinition.getTitle() != null) {
+			Div formHeaderDiv = new Div(null,"form_header"); 
+			formHeaderDiv.addAttribute("style", ""+"width:"+mDefinition.getWidth()+"px");
+			formHeaderDiv.addAttribute("align","center");
+			formHeaderDiv.addChild(new H2(mDefinition.getTitle()));
+			getView().addChild(formHeaderDiv);
+		}
+		
 		if (mDefinition.getButtonList().size() > 0) {
 			Div formFooterDiv = new Div(null,"form_footer"); 
 			formFooterDiv.addAttribute("style", ""+"width:"+mDefinition.getWidth()+"px");
@@ -373,6 +382,7 @@ public abstract class BaseForm extends BaseView {
 			}
 			mForm.addChild(formFooterDiv);
 		}
+		
 		getView().addChild(mForm);
 	}
 	public Map<String, Object> getDataMap() {

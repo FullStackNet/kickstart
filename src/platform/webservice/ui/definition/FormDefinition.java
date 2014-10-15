@@ -25,7 +25,7 @@ public class FormDefinition {
 	String timeZone;
 	String formSubmitURL;
 	boolean uploadFileForm;
-	
+	String title;
 	
 	public FormDefinition() {
 		blocks = new ArrayList<Block>();
@@ -233,5 +233,11 @@ public class FormDefinition {
 
 	public void setUploadFileForm(boolean uploadFileForm) {
 		this.uploadFileForm = uploadFileForm;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }
