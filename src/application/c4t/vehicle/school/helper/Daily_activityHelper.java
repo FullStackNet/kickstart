@@ -1,9 +1,14 @@
 package application.c4t.vehicle.school.helper;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import platform.db.Expression;
+import platform.db.JoinField;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
+import platform.helper.HelperFactory;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.daily_activity;
@@ -51,8 +56,13 @@ public class Daily_activityHelper extends BaseHelper {
 		return getDaily_activiyForClass(school_id,class_section_name);
 	}
 	
-	public BaseResource[] getForSchools(String[] schools) {
+	public ArrayList<Map<String, Object>> getForSchools(String[] schools) throws ApplicationException  {
+		HelperFactory.getInstance().register(SchoolHelper.getInstance());
+		HelperFactory.getInstance().register(Daily_activityHelper.getInstance());
+		ArrayList<JoinField> list = new ArrayList<JoinField>();
+		JoinField field = new JoinField("school", "school_id", "school_name");
+		list.add(field);
 		Expression e = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.IN, schools);
-		return getByExpression(e, new String[]{daily_activity.FIELD_ACTIVITY_DATE + " desc"});
+		return getByJoining(e,list, new String[]{daily_activity.FIELD_ACTIVITY_DATE + " desc"});
 	}
 }

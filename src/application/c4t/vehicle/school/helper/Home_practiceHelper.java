@@ -1,9 +1,14 @@
 package application.c4t.vehicle.school.helper;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import platform.db.Expression;
+import platform.db.JoinField;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
+import platform.helper.HelperFactory;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.home_practice;
@@ -51,8 +56,13 @@ public class Home_practiceHelper extends BaseHelper {
 		update(_resource);
 	}
 	
-	public BaseResource[] getForSchools(String[] schools) {
+	public  ArrayList<Map<String, Object>>  getForSchools(String[] schools) throws ApplicationException {
+		HelperFactory.getInstance().register(SchoolHelper.getInstance());
+		HelperFactory.getInstance().register(Home_practiceHelper.getInstance());
+		ArrayList<JoinField> list = new ArrayList<JoinField>();
+		JoinField field = new JoinField("school", "school_id", "school_name");
+		list.add(field);
 		Expression e = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.IN, schools);
-		return getByExpression(e, new String[]{home_practice.FIELD_CREATION_TIME + " desc"});
+		return getByJoining(e,list, new String[]{home_practice.FIELD_CREATION_TIME + " desc"});
 	}
 }
