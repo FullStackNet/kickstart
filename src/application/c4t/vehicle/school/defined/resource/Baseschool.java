@@ -59,6 +59,13 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_absent_report_sms = null;
 	private String feature_pick_drop_sms = null;
 	private String feature_message2parent_sms = null;
+	private String feature_homework_email = null;
+	private String feature_daily_activity_email = null;
+	private String feature_home_practice_email = null;
+	private String feature_notice_email = null;
+	private String feature_absent_report_email = null;
+	private String feature_pick_drop_email = null;
+	private String feature_message2parent_email = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -101,6 +108,13 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_ABSENT_REPORT_SMS = "feature_absent_report_sms";
 	public static String FIELD_FEATURE_PICK_DROP_SMS = "feature_pick_drop_sms";
 	public static String FIELD_FEATURE_MESSAGE2PARENT_SMS = "feature_message2parent_sms";
+	public static String FIELD_FEATURE_HOMEWORK_EMAIL = "feature_homework_email";
+	public static String FIELD_FEATURE_DAILY_ACTIVITY_EMAIL = "feature_daily_activity_email";
+	public static String FIELD_FEATURE_HOME_PRACTICE_EMAIL = "feature_home_practice_email";
+	public static String FIELD_FEATURE_NOTICE_EMAIL = "feature_notice_email";
+	public static String FIELD_FEATURE_ABSENT_REPORT_EMAIL = "feature_absent_report_email";
+	public static String FIELD_FEATURE_PICK_DROP_EMAIL = "feature_pick_drop_email";
+	public static String FIELD_FEATURE_MESSAGE2PARENT_EMAIL = "feature_message2parent_email";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -292,6 +306,41 @@ public abstract class Baseschool extends BaseResource {
 		feature_message2parent_smsField.setLength(1);
 		metaData.addField(feature_message2parent_smsField);
 
+		Field feature_homework_emailField = new Field("feature_homework_email", "String");
+		feature_homework_emailField.setDefaultValue("N");
+		feature_homework_emailField.setLength(1);
+		metaData.addField(feature_homework_emailField);
+
+		Field feature_daily_activity_emailField = new Field("feature_daily_activity_email", "String");
+		feature_daily_activity_emailField.setDefaultValue("N");
+		feature_daily_activity_emailField.setLength(1);
+		metaData.addField(feature_daily_activity_emailField);
+
+		Field feature_home_practice_emailField = new Field("feature_home_practice_email", "String");
+		feature_home_practice_emailField.setDefaultValue("N");
+		feature_home_practice_emailField.setLength(1);
+		metaData.addField(feature_home_practice_emailField);
+
+		Field feature_notice_emailField = new Field("feature_notice_email", "String");
+		feature_notice_emailField.setDefaultValue("Y");
+		feature_notice_emailField.setLength(1);
+		metaData.addField(feature_notice_emailField);
+
+		Field feature_absent_report_emailField = new Field("feature_absent_report_email", "String");
+		feature_absent_report_emailField.setDefaultValue("N");
+		feature_absent_report_emailField.setLength(1);
+		metaData.addField(feature_absent_report_emailField);
+
+		Field feature_pick_drop_emailField = new Field("feature_pick_drop_email", "String");
+		feature_pick_drop_emailField.setDefaultValue("Y");
+		feature_pick_drop_emailField.setLength(1);
+		metaData.addField(feature_pick_drop_emailField);
+
+		Field feature_message2parent_emailField = new Field("feature_message2parent_email", "String");
+		feature_message2parent_emailField.setDefaultValue("Y");
+		feature_message2parent_emailField.setLength(1);
+		metaData.addField(feature_message2parent_emailField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -345,6 +394,13 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_absent_report_sms = obj.feature_absent_report_sms;
 		this.feature_pick_drop_sms = obj.feature_pick_drop_sms;
 		this.feature_message2parent_sms = obj.feature_message2parent_sms;
+		this.feature_homework_email = obj.feature_homework_email;
+		this.feature_daily_activity_email = obj.feature_daily_activity_email;
+		this.feature_home_practice_email = obj.feature_home_practice_email;
+		this.feature_notice_email = obj.feature_notice_email;
+		this.feature_absent_report_email = obj.feature_absent_report_email;
+		this.feature_pick_drop_email = obj.feature_pick_drop_email;
+		this.feature_message2parent_email = obj.feature_message2parent_email;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -401,6 +457,20 @@ public abstract class Baseschool extends BaseResource {
 			feature_pick_drop_sms = "Y";
 		if(feature_message2parent_sms == null)
 			feature_message2parent_sms = "Y";
+		if(feature_homework_email == null)
+			feature_homework_email = "N";
+		if(feature_daily_activity_email == null)
+			feature_daily_activity_email = "N";
+		if(feature_home_practice_email == null)
+			feature_home_practice_email = "N";
+		if(feature_notice_email == null)
+			feature_notice_email = "Y";
+		if(feature_absent_report_email == null)
+			feature_absent_report_email = "N";
+		if(feature_pick_drop_email == null)
+			feature_pick_drop_email = "Y";
+		if(feature_message2parent_email == null)
+			feature_message2parent_email = "Y";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -485,6 +555,20 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_pick_drop_sms", feature_pick_drop_sms);
 		if(feature_message2parent_sms != null)
 			map.put("feature_message2parent_sms", feature_message2parent_sms);
+		if(feature_homework_email != null)
+			map.put("feature_homework_email", feature_homework_email);
+		if(feature_daily_activity_email != null)
+			map.put("feature_daily_activity_email", feature_daily_activity_email);
+		if(feature_home_practice_email != null)
+			map.put("feature_home_practice_email", feature_home_practice_email);
+		if(feature_notice_email != null)
+			map.put("feature_notice_email", feature_notice_email);
+		if(feature_absent_report_email != null)
+			map.put("feature_absent_report_email", feature_absent_report_email);
+		if(feature_pick_drop_email != null)
+			map.put("feature_pick_drop_email", feature_pick_drop_email);
+		if(feature_message2parent_email != null)
+			map.put("feature_message2parent_email", feature_message2parent_email);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -575,6 +659,20 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_pick_drop_sms", feature_pick_drop_sms);
 		if(feature_message2parent_sms != null)
 			map.put("feature_message2parent_sms", feature_message2parent_sms);
+		if(feature_homework_email != null)
+			map.put("feature_homework_email", feature_homework_email);
+		if(feature_daily_activity_email != null)
+			map.put("feature_daily_activity_email", feature_daily_activity_email);
+		if(feature_home_practice_email != null)
+			map.put("feature_home_practice_email", feature_home_practice_email);
+		if(feature_notice_email != null)
+			map.put("feature_notice_email", feature_notice_email);
+		if(feature_absent_report_email != null)
+			map.put("feature_absent_report_email", feature_absent_report_email);
+		if(feature_pick_drop_email != null)
+			map.put("feature_pick_drop_email", feature_pick_drop_email);
+		if(feature_message2parent_email != null)
+			map.put("feature_message2parent_email", feature_message2parent_email);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -627,6 +725,13 @@ public abstract class Baseschool extends BaseResource {
 		feature_absent_report_sms = (String) map.get("feature_absent_report_sms");
 		feature_pick_drop_sms = (String) map.get("feature_pick_drop_sms");
 		feature_message2parent_sms = (String) map.get("feature_message2parent_sms");
+		feature_homework_email = (String) map.get("feature_homework_email");
+		feature_daily_activity_email = (String) map.get("feature_daily_activity_email");
+		feature_home_practice_email = (String) map.get("feature_home_practice_email");
+		feature_notice_email = (String) map.get("feature_notice_email");
+		feature_absent_report_email = (String) map.get("feature_absent_report_email");
+		feature_pick_drop_email = (String) map.get("feature_pick_drop_email");
+		feature_message2parent_email = (String) map.get("feature_message2parent_email");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -791,6 +896,34 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_message2parent_smsObj = map.get("feature_message2parent_sms");
 		if(feature_message2parent_smsObj != null)
 			feature_message2parent_sms = feature_message2parent_smsObj.toString();
+
+		Object feature_homework_emailObj = map.get("feature_homework_email");
+		if(feature_homework_emailObj != null)
+			feature_homework_email = feature_homework_emailObj.toString();
+
+		Object feature_daily_activity_emailObj = map.get("feature_daily_activity_email");
+		if(feature_daily_activity_emailObj != null)
+			feature_daily_activity_email = feature_daily_activity_emailObj.toString();
+
+		Object feature_home_practice_emailObj = map.get("feature_home_practice_email");
+		if(feature_home_practice_emailObj != null)
+			feature_home_practice_email = feature_home_practice_emailObj.toString();
+
+		Object feature_notice_emailObj = map.get("feature_notice_email");
+		if(feature_notice_emailObj != null)
+			feature_notice_email = feature_notice_emailObj.toString();
+
+		Object feature_absent_report_emailObj = map.get("feature_absent_report_email");
+		if(feature_absent_report_emailObj != null)
+			feature_absent_report_email = feature_absent_report_emailObj.toString();
+
+		Object feature_pick_drop_emailObj = map.get("feature_pick_drop_email");
+		if(feature_pick_drop_emailObj != null)
+			feature_pick_drop_email = feature_pick_drop_emailObj.toString();
+
+		Object feature_message2parent_emailObj = map.get("feature_message2parent_email");
+		if(feature_message2parent_emailObj != null)
+			feature_message2parent_email = feature_message2parent_emailObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1357,6 +1490,90 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_message2parent_sms() {
 		this.feature_message2parent_sms = "Y";
+	}
+
+	public String getFeature_homework_email() {
+		return feature_homework_email != null ? feature_homework_email : "N";
+	}
+
+	public void setFeature_homework_email(String feature_homework_email) {
+		this.feature_homework_email = feature_homework_email;
+	}
+
+	public void unSetFeature_homework_email() {
+		this.feature_homework_email = "N";
+	}
+
+	public String getFeature_daily_activity_email() {
+		return feature_daily_activity_email != null ? feature_daily_activity_email : "N";
+	}
+
+	public void setFeature_daily_activity_email(String feature_daily_activity_email) {
+		this.feature_daily_activity_email = feature_daily_activity_email;
+	}
+
+	public void unSetFeature_daily_activity_email() {
+		this.feature_daily_activity_email = "N";
+	}
+
+	public String getFeature_home_practice_email() {
+		return feature_home_practice_email != null ? feature_home_practice_email : "N";
+	}
+
+	public void setFeature_home_practice_email(String feature_home_practice_email) {
+		this.feature_home_practice_email = feature_home_practice_email;
+	}
+
+	public void unSetFeature_home_practice_email() {
+		this.feature_home_practice_email = "N";
+	}
+
+	public String getFeature_notice_email() {
+		return feature_notice_email != null ? feature_notice_email : "Y";
+	}
+
+	public void setFeature_notice_email(String feature_notice_email) {
+		this.feature_notice_email = feature_notice_email;
+	}
+
+	public void unSetFeature_notice_email() {
+		this.feature_notice_email = "Y";
+	}
+
+	public String getFeature_absent_report_email() {
+		return feature_absent_report_email != null ? feature_absent_report_email : "N";
+	}
+
+	public void setFeature_absent_report_email(String feature_absent_report_email) {
+		this.feature_absent_report_email = feature_absent_report_email;
+	}
+
+	public void unSetFeature_absent_report_email() {
+		this.feature_absent_report_email = "N";
+	}
+
+	public String getFeature_pick_drop_email() {
+		return feature_pick_drop_email != null ? feature_pick_drop_email : "Y";
+	}
+
+	public void setFeature_pick_drop_email(String feature_pick_drop_email) {
+		this.feature_pick_drop_email = feature_pick_drop_email;
+	}
+
+	public void unSetFeature_pick_drop_email() {
+		this.feature_pick_drop_email = "Y";
+	}
+
+	public String getFeature_message2parent_email() {
+		return feature_message2parent_email != null ? feature_message2parent_email : "Y";
+	}
+
+	public void setFeature_message2parent_email(String feature_message2parent_email) {
+		this.feature_message2parent_email = feature_message2parent_email;
+	}
+
+	public void unSetFeature_message2parent_email() {
+		this.feature_message2parent_email = "Y";
 	}
 
 	public Map<String, Object> getExtra_data() {

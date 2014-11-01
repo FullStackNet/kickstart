@@ -236,6 +236,48 @@
 				'length': 1,
 				'default' : "Y",
 				'type':'String'
+			},
+			'feature_homework_email':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_daily_activity_email':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_home_practice_email':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_notice_email':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_absent_report_email':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_pick_drop_email':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_message2parent_email':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
 			}
 		}
 	}
