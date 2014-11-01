@@ -176,6 +176,7 @@
 				'default' : "N",
 				'type':'String'
 			},
+			
 			'logo_file_name':
 			{
 				'length': 128,
@@ -193,6 +194,48 @@
 			'admission_number_of_digit':
 			{
 				'type':'int'
+			},
+			'feature_homework_sms':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_daily_activity_sms':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_home_practice_sms':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_notice_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_absent_report_sms':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_pick_drop_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_message2parent_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
 			}
 		}
 	}
