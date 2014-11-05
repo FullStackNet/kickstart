@@ -53,6 +53,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("proficiency_master", "application.c4t.vehicle.school.resource.proficiency_master"),
 		new ResourceMap("proficiency", "application.c4t.vehicle.school.resource.proficiency"),
 		new ResourceMap("report_card", "application.c4t.vehicle.school.resource.report_card"),
+		new ResourceMap("report_card_generation_request", "application.c4t.vehicle.school.resource.report_card_geneartion_request"),
 		new ResourceMap("school_class_section", "application.c4t.vehicle.school.resource.school_class_section"),
 		new ResourceMap("topic", "application.c4t.vehicle.school.resource.topic"),
 		new ResourceMap("chapter", "application.c4t.vehicle.school.resource.chapter"),
