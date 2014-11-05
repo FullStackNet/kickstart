@@ -68,6 +68,11 @@
 				'type':'String',
 				'length' : 32
 			}
+			'generated_by':
+			{
+				'type':'String',
+				'length' : 128
+			}
 		}
 	}
 }

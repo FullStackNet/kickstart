@@ -24,6 +24,7 @@ public abstract class Basesession extends BaseResource {
 	private String customer_id = null;
 	private String user_type = null;
 	private String user_name = null;
+	private String super_user = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -31,6 +32,7 @@ public abstract class Basesession extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_TYPE = "user_type";
 	public static String FIELD_USER_NAME = "user_name";
+	public static String FIELD_SUPER_USER = "super_user";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -60,6 +62,11 @@ public abstract class Basesession extends BaseResource {
 		user_nameField.setLength(128);
 		metaData.addField(user_nameField);
 
+		Field super_userField = new Field("super_user", "String");
+		super_userField.setDefaultValue("N");
+		super_userField.setLength(1);
+		metaData.addField(super_userField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -78,11 +85,17 @@ public abstract class Basesession extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.user_type = obj.user_type;
 		this.user_name = obj.user_name;
+		this.super_user = obj.super_user;
 		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(super_user == null)
+			super_user = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -97,12 +110,17 @@ public abstract class Basesession extends BaseResource {
 			map.put("user_type", user_type);
 		if(user_name != null)
 			map.put("user_name", user_name);
+		if(super_user != null)
+			map.put("super_user", super_user);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -114,6 +132,8 @@ public abstract class Basesession extends BaseResource {
 			map.put("user_type", user_type);
 		if(user_name != null)
 			map.put("user_name", user_name);
+		if(super_user != null)
+			map.put("super_user", super_user);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -131,6 +151,7 @@ public abstract class Basesession extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		user_type = (String) map.get("user_type");
 		user_name = (String) map.get("user_name");
+		super_user = (String) map.get("super_user");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -155,6 +176,10 @@ public abstract class Basesession extends BaseResource {
 		Object user_nameObj = map.get("user_name");
 		if(user_nameObj != null)
 			user_name = user_nameObj.toString();
+
+		Object super_userObj = map.get("super_user");
+		if(super_userObj != null)
+			super_user = super_userObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -249,6 +274,18 @@ public abstract class Basesession extends BaseResource {
 
 	public void unSetUser_name() {
 		this.user_name = null;
+	}
+
+	public String getSuper_user() {
+		return super_user != null ? super_user : "N";
+	}
+
+	public void setSuper_user(String super_user) {
+		this.super_user = super_user;
+	}
+
+	public void unSetSuper_user() {
+		this.super_user = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

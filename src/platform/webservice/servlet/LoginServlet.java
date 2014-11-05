@@ -10,8 +10,8 @@ import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.version.VersionManager;
 import platform.webservice.BaseServlet;
-import platform.webservice.ServletContext;
 import platform.webservice.service.LoginService;
+import platform.webservice.ui.UIServletContext;
 import application.c4t.vehicle.school.helper.Student_parentHelper;
 import application.c4t.vehicle.school.resource.student_parent;
 
@@ -25,7 +25,7 @@ public class LoginServlet extends BaseServlet {
 		super(new login(), new LoginService());
 	}
 
-	protected void postProcessing(ServletContext ctx, HttpServletRequest request, HttpServletResponse response, BaseResource resource, String action) throws ApplicationException {
+	protected void postProcessing(UIServletContext ctx, HttpServletRequest request, HttpServletResponse response, BaseResource resource, String action) throws ApplicationException {
 		if (resource == null)
 			return;
 
@@ -37,6 +37,8 @@ public class LoginServlet extends BaseServlet {
 		ctx.setUserId(_user.getId());
 		ctx.setUserName(_user.getName());
 		ctx.setUserType(_user.getType());
+		ctx.setSuperUser(_user.getSuper_user());
+		
 		// Add cookie for this session
 		_login.setSession_id(ctx.getSessionId());
 		_login.setApi_version(VersionManager.API_VERSION);

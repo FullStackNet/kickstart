@@ -41,6 +41,9 @@ public class ServletContext {
 		return _session.getUser_name();
 	}
 	
+	public String getSuperUser() {
+		return _session.getSuper_user();
+	}
 	
 	public void setUserId(String userId) {
 		session __session = new session(sessionId);

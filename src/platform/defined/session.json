@@ -34,6 +34,12 @@
 				'name':'user_name',
 				'length': 128,
 				'type':'String'
+			},
+			'super_user':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
 			}
 		}
 	}
