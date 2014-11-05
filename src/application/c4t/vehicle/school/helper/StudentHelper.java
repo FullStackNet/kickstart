@@ -192,12 +192,8 @@ public class StudentHelper extends BaseHelper {
 	}
 	
 	public BaseResource[] getStudentBySectionName(String school_id,String class_name, String section_name) {
-		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
-		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
-		Expression e3 = new Expression(student.FIELD_SECTION_NAME, REL_OP.EQ, section_name);
-		Expression e4 = new Expression(e1, LOG_OP.AND,e2);
-		Expression e = new Expression(e4, LOG_OP.AND,e3);
-		return getByExpression(e);
+		String class_section_name = Util.getClassSectionName(class_name, section_name);
+		return getStudentByClassSectionName(school_id,class_section_name);
 	}
 	
 	public BaseResource[]  getStudentByClassSectionName(String school_id, String class_section_name) {
