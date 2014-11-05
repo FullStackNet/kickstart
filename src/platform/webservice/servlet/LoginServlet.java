@@ -1,5 +1,6 @@
 package platform.webservice.servlet;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,7 +26,7 @@ public class LoginServlet extends BaseServlet {
 		super(new login(), new LoginService());
 	}
 
-	protected void postProcessing(UIServletContext ctx, HttpServletRequest request, HttpServletResponse response, BaseResource resource, String action) throws ApplicationException {
+	protected void postProcessing(platform.webservice.ServletContext ctx, HttpServletRequest request, HttpServletResponse response, BaseResource resource, String action) throws ApplicationException {
 		if (resource == null)
 			return;
 

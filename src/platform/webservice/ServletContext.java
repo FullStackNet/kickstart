@@ -45,6 +45,7 @@ public class ServletContext {
 		return _session.getSuper_user();
 	}
 	
+	
 	public void setUserId(String userId) {
 		session __session = new session(sessionId);
 		__session.setUser_id(userId);
@@ -55,6 +56,18 @@ public class ServletContext {
 			e.printStackTrace();
 		}
 		_session.setUser_id(userId);
+	}
+	
+	public void setSuperUser(String superUser) {
+		session __session = new session(sessionId);
+		__session.setSuper_user(superUser);
+		try {
+			SessionHelper.getInstance().update(__session);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		_session.setSuper_user(superUser);
 	}
 	
 
