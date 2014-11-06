@@ -65,5 +65,6 @@ public class MessagesToGenerate {
 		new MessageMap("MOConfigureSMSManager"), // 6/17/1
 		new MessageMap("MOConfigureNotificationManager"), // 6/18/1
 		new MessageMap("SendNotification"), // 6/19/1
+		new MessageMap("ExecuteReport"), // 6/20/1
 	};
 }
