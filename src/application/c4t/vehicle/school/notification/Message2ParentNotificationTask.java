@@ -45,7 +45,7 @@ public class Message2ParentNotificationTask extends NotificationTask {
 			}
 			if ("Y".equals(emailAlert) && (_user.getEmail_id() != null)) {
 				SendEmail resendMail = new SendEmail();
-				resendMail.setSubject("Message from " + student_name + " school");
+				resendMail.setSubject("Message from " + student_name + "'s school");
 				resendMail.setTo(_user.getEmail_id());
 				resendMail.setType(ApplicationConstants.MAIL_TYPE_MESSAGE2PARENT);
 				Map<String, String> map = new HashMap<String, String>();
