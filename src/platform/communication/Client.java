@@ -202,11 +202,7 @@ public class Client extends Communication {
 				if (msg != null) {
 					processMessage(msg);
 				} 
-				if (context.getClientId() != null) {
-					if (!context.getClientId().equals(Thread.currentThread().getName())) {
-						Thread.currentThread().setName(context.getClientId());
-					}
-				}
+				
 				if (context.getDisconnectDetectInterval() != null) {
 					long currentTime = System.currentTimeMillis();
 					if ((currentTime - session.getLastUpdateTime()) > (context.getDisconnectDetectInterval()*1000L)) {

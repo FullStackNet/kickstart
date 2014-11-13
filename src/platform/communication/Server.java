@@ -207,6 +207,11 @@ class ClientReadHandler extends Communication implements Runnable {
 
 	public void run () {
 		while(true) {
+			if (session.getClientId() != null) {
+				if (!session.getClientId().equals(Thread.currentThread().getName())) {
+					Thread.currentThread().setName(""+session.getClientId());
+				}
+			}
 			if (!isValidSession()) {
 				ApplicationLogger.info("Invalid session terminating it ...."+session.getClientId() +" for "+server.getContext().getName()+"("+server.getContext().getPort()+")", this.getClass());
 				break;
