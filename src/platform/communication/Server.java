@@ -99,7 +99,9 @@ public class Server  {
 					ClientReadHandler  clientHandler= new ClientReadHandler(this,context.getProtocolProvider(), client);
 					Thread thread = new Thread(clientHandler);
 					thread.setName("CLIENT_HANDLING_THREAD");
+					clientHandler.setThread(thread);
 					thread.start();
+					
 				} catch(Exception e) {
 					e.printStackTrace();
 					ApplicationLogger.error("Error in client handling", this.getClass());
@@ -169,6 +171,10 @@ public class Server  {
 
 class ClientReadHandler extends Communication implements Runnable {
 	Server server;
+	Thread thread;
+	public void setThread(Thread thread) {
+		this.thread = thread;
+	}
 	public ClientReadHandler(Server server,ProtocolProvider protocolProvider, Socket handle) throws SocketException {
 		super(protocolProvider, handle);
 		this.server = server;
@@ -210,8 +216,8 @@ class ClientReadHandler extends Communication implements Runnable {
 	public void run () {
 		while(true) {
 			if (session.getClientId() != null) {
-				if (!session.getClientId().equals(Thread.currentThread().getName())) {
-					Thread.currentThread().setName(""+session.getClientId());
+				if (!("CLIENT_HANDLING_THREAD_"+session.getClientId()).equals(Thread.currentThread().getName())) {
+					thread.setName("CLIENT_HANDLING_THREAD_"+session.getClientId());
 				}
 			}
 			if (!isValidSession()) {
