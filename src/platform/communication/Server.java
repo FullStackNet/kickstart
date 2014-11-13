@@ -5,8 +5,6 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.net.ServerSocketFactory;
 import javax.net.ssl.SSLServerSocketFactory;
@@ -25,7 +23,7 @@ public class Server  {
 	public static final int NUM_THREADS = 10000;
 	private ServerContext context;
 	private boolean stop ;
-	private ExecutorService executorService;
+	//private ExecutorService executorService;
 	public ServerContext getContext() {
 		return context;
 	}
@@ -51,7 +49,7 @@ public class Server  {
 		this.context = context;
 		stop = false;
 		listener = null;
-		executorService = Executors.newFixedThreadPool(NUM_THREADS);
+		//executorService = Executors.newFixedThreadPool(NUM_THREADS);
 	}
 
 	public void stop() {
@@ -78,7 +76,7 @@ public class Server  {
 				@Override
 				public void eventTriggered(Object sender, Event event) {
 					// TODO Auto-generated method stub
-					executorService.shutdownNow();
+					//executorService.shutdownNow();
 					stop();
 				}
 			}; 
@@ -99,7 +97,7 @@ public class Server  {
 						continue;
 					}
 					ClientReadHandler  clientHandler= new ClientReadHandler(this,context.getProtocolProvider(), client);
-					executorService.execute(clientHandler);
+					new Thread(clientHandler).start();
 				} catch(Exception e) {
 					e.printStackTrace();
 					ApplicationLogger.error("Error in client handling", this.getClass());
