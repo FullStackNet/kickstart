@@ -97,7 +97,9 @@ public class Server  {
 						continue;
 					}
 					ClientReadHandler  clientHandler= new ClientReadHandler(this,context.getProtocolProvider(), client);
-					new Thread(clientHandler).start();
+					Thread thread = new Thread(clientHandler);
+					thread.setName("CLIENT_HANDLING_THREAD");
+					thread.start();
 				} catch(Exception e) {
 					e.printStackTrace();
 					ApplicationLogger.error("Error in client handling", this.getClass());
