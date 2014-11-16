@@ -30,7 +30,7 @@ public class AbsentNotificationTask extends NotificationTask {
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
 			String appAlert,String smsAlert,String emailAlert,
-			String absent_parent_id,String date) {
+			String absent_parent_id,String date,String brand_name) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			String students = studentMap.get(entry.getKey());
@@ -41,6 +41,7 @@ public class AbsentNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
+				map.put("BRAND_NAME", brand_name);
 				String params = Json.maptoString(map);
 				smsMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
@@ -84,7 +85,8 @@ public class AbsentNotificationTask extends NotificationTask {
 
 	void sendNotification(notification _notification, 
 			String absent_parent_id,
-			String date) {
+			String date,
+			String brand_name) {
 		
 		BaseResource[] students = Absent_detailHelper.getInstance().getStudent(absent_parent_id);
 		if ((students == null) || (students.length == 0)) 
@@ -126,7 +128,7 @@ public class AbsentNotificationTask extends NotificationTask {
 		}
 		sendNotification2Users(_notification, userMap, studentMap,appAlert,smsAlert,emailAlert,
 				absent_parent_id,
-				date);
+				date,brand_name);
 	}
 	@Override
 	public void process(notification _notification) {
@@ -138,8 +140,8 @@ public class AbsentNotificationTask extends NotificationTask {
 				return;
 			String absent_parent_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID);
 			String date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE);
-			
-			sendNotification(_notification,absent_parent_id,date);
+			String brand_name = (String)data.get("BRAND_NAME");
+			sendNotification(_notification,absent_parent_id,date,brand_name);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
