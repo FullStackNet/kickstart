@@ -31,6 +31,7 @@ public abstract class Basereport_card_generation_request extends BaseResource {
 	private Integer total = null;
 	private Integer generated = null;
 	private String status = null;
+	private String generated_by = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -45,6 +46,7 @@ public abstract class Basereport_card_generation_request extends BaseResource {
 	public static String FIELD_TOTAL = "total";
 	public static String FIELD_GENERATED = "generated";
 	public static String FIELD_STATUS = "status";
+	public static String FIELD_GENERATED_BY = "generated_by";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -103,6 +105,10 @@ public abstract class Basereport_card_generation_request extends BaseResource {
 		statusField.setLength(32);
 		metaData.addField(statusField);
 
+		Field generated_byField = new Field("generated_by", "String");
+		generated_byField.setLength(128);
+		metaData.addField(generated_byField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -128,6 +134,7 @@ public abstract class Basereport_card_generation_request extends BaseResource {
 		this.total = obj.total;
 		this.generated = obj.generated;
 		this.status = obj.status;
+		this.generated_by = obj.generated_by;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -161,6 +168,8 @@ public abstract class Basereport_card_generation_request extends BaseResource {
 			map.put("generated", generated);
 		if(status != null)
 			map.put("status", status);
+		if(generated_by != null)
+			map.put("generated_by", generated_by);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -192,6 +201,8 @@ public abstract class Basereport_card_generation_request extends BaseResource {
 			map.put("generated", generated);
 		if(status != null)
 			map.put("status", status);
+		if(generated_by != null)
+			map.put("generated_by", generated_by);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -216,6 +227,7 @@ public abstract class Basereport_card_generation_request extends BaseResource {
 		total = (Integer) map.get("total");
 		generated = (Integer) map.get("generated");
 		status = (String) map.get("status");
+		generated_by = (String) map.get("generated_by");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -268,6 +280,10 @@ public abstract class Basereport_card_generation_request extends BaseResource {
 		Object statusObj = map.get("status");
 		if(statusObj != null)
 			status = statusObj.toString();
+
+		Object generated_byObj = map.get("generated_by");
+		if(generated_byObj != null)
+			generated_by = generated_byObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -481,6 +497,22 @@ public abstract class Basereport_card_generation_request extends BaseResource {
 
 	public void unSetStatus() {
 		this.status = null;
+	}
+
+	public String getGenerated_by() {
+		return generated_by;
+	}
+
+	public String getGenerated_byEx() {
+		return generated_by != null ? generated_by : "";
+	}
+
+	public void setGenerated_by(String generated_by) {
+		this.generated_by = generated_by;
+	}
+
+	public void unSetGenerated_by() {
+		this.generated_by = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

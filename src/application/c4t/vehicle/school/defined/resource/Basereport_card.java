@@ -68,6 +68,9 @@ public abstract class Basereport_card extends BaseResource {
 	private String teacher_signature_id = null;
 	private String centre_head_signature_id = null;
 	private String acedemic_counselor_signature_id = null;
+	private String generated = null;
+	private String generation_status = null;
+	private String locked = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -119,6 +122,9 @@ public abstract class Basereport_card extends BaseResource {
 	public static String FIELD_TEACHER_SIGNATURE_ID = "teacher_signature_id";
 	public static String FIELD_CENTRE_HEAD_SIGNATURE_ID = "centre_head_signature_id";
 	public static String FIELD_ACEDEMIC_COUNSELOR_SIGNATURE_ID = "acedemic_counselor_signature_id";
+	public static String FIELD_GENERATED = "generated";
+	public static String FIELD_GENERATION_STATUS = "generation_status";
+	public static String FIELD_LOCKED = "locked";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -329,6 +335,18 @@ public abstract class Basereport_card extends BaseResource {
 		acedemic_counselor_signature_idField.setLength(128);
 		metaData.addField(acedemic_counselor_signature_idField);
 
+		Field generatedField = new Field("generated", "String");
+		generatedField.setLength(1);
+		metaData.addField(generatedField);
+
+		Field generation_statusField = new Field("generation_status", "String");
+		generation_statusField.setLength(32);
+		metaData.addField(generation_statusField);
+
+		Field lockedField = new Field("locked", "String");
+		lockedField.setLength(1);
+		metaData.addField(lockedField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -391,6 +409,9 @@ public abstract class Basereport_card extends BaseResource {
 		this.teacher_signature_id = obj.teacher_signature_id;
 		this.centre_head_signature_id = obj.centre_head_signature_id;
 		this.acedemic_counselor_signature_id = obj.acedemic_counselor_signature_id;
+		this.generated = obj.generated;
+		this.generation_status = obj.generation_status;
+		this.locked = obj.locked;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -498,6 +519,12 @@ public abstract class Basereport_card extends BaseResource {
 			map.put("centre_head_signature_id", centre_head_signature_id);
 		if(acedemic_counselor_signature_id != null)
 			map.put("acedemic_counselor_signature_id", acedemic_counselor_signature_id);
+		if(generated != null)
+			map.put("generated", generated);
+		if(generation_status != null)
+			map.put("generation_status", generation_status);
+		if(locked != null)
+			map.put("locked", locked);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -603,6 +630,12 @@ public abstract class Basereport_card extends BaseResource {
 			map.put("centre_head_signature_id", centre_head_signature_id);
 		if(acedemic_counselor_signature_id != null)
 			map.put("acedemic_counselor_signature_id", acedemic_counselor_signature_id);
+		if(generated != null)
+			map.put("generated", generated);
+		if(generation_status != null)
+			map.put("generation_status", generation_status);
+		if(locked != null)
+			map.put("locked", locked);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -664,6 +697,9 @@ public abstract class Basereport_card extends BaseResource {
 		teacher_signature_id = (String) map.get("teacher_signature_id");
 		centre_head_signature_id = (String) map.get("centre_head_signature_id");
 		acedemic_counselor_signature_id = (String) map.get("acedemic_counselor_signature_id");
+		generated = (String) map.get("generated");
+		generation_status = (String) map.get("generation_status");
+		locked = (String) map.get("locked");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -864,6 +900,18 @@ public abstract class Basereport_card extends BaseResource {
 		Object acedemic_counselor_signature_idObj = map.get("acedemic_counselor_signature_id");
 		if(acedemic_counselor_signature_idObj != null)
 			acedemic_counselor_signature_id = acedemic_counselor_signature_idObj.toString();
+
+		Object generatedObj = map.get("generated");
+		if(generatedObj != null)
+			generated = generatedObj.toString();
+
+		Object generation_statusObj = map.get("generation_status");
+		if(generation_statusObj != null)
+			generation_status = generation_statusObj.toString();
+
+		Object lockedObj = map.get("locked");
+		if(lockedObj != null)
+			locked = lockedObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1676,6 +1724,54 @@ public abstract class Basereport_card extends BaseResource {
 
 	public void unSetAcedemic_counselor_signature_id() {
 		this.acedemic_counselor_signature_id = null;
+	}
+
+	public String getGenerated() {
+		return generated;
+	}
+
+	public String getGeneratedEx() {
+		return generated != null ? generated : "";
+	}
+
+	public void setGenerated(String generated) {
+		this.generated = generated;
+	}
+
+	public void unSetGenerated() {
+		this.generated = null;
+	}
+
+	public String getGeneration_status() {
+		return generation_status;
+	}
+
+	public String getGeneration_statusEx() {
+		return generation_status != null ? generation_status : "";
+	}
+
+	public void setGeneration_status(String generation_status) {
+		this.generation_status = generation_status;
+	}
+
+	public void unSetGeneration_status() {
+		this.generation_status = null;
+	}
+
+	public String getLocked() {
+		return locked;
+	}
+
+	public String getLockedEx() {
+		return locked != null ? locked : "";
+	}
+
+	public void setLocked(String locked) {
+		this.locked = locked;
+	}
+
+	public void unSetLocked() {
+		this.locked = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

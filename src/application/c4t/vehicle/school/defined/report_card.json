@@ -262,6 +262,21 @@
 			{
 				'type':'String',
 				length : 128
+			},
+			'generated':
+			{
+				'type':'String',
+				length : 1
+			},
+			'generation_status':
+			{
+				'type':'String',
+				length : 32
+			},
+			'locked':
+			{
+				'type':'String',
+				length : 1
 			}
 		}
 	}
