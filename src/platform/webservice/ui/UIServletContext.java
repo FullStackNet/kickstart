@@ -22,6 +22,16 @@ public class UIServletContext {
 	String mobile;
 	Map<String , String> params;
 	HttpServletResponse response;
+	String path;
+	
+	public void setServletPath(String path) {
+		this.path= path;
+	}
+	
+	public String getServletPath() {
+		return path;
+	}
+	
 	
 	public void setMobileRequest(String mobile) {
 		this.mobile = mobile;

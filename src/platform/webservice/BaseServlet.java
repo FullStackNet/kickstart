@@ -104,6 +104,7 @@ public class BaseServlet extends HttpServlet
 			if (Util.isEmpty(sessionId))
 				sessionId = Util.getUniqueId();
 			ServletContext ctx = new ServletContext(sessionId);
+			ctx.setServletPath(getServletContext().getRealPath("/"));
 			action = request.getParameter(QUERYPARAM_ACTION);
 			if (WebServiceContants.OPERATION_ADD.equalsIgnoreCase(action)) {
 				action = null;

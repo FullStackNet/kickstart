@@ -9,7 +9,8 @@ import platform.util.ApplicationException;
 public class ServletContext {
 	private session _session;
 	String sessionId;
-	
+	String path;
+
 	public ServletContext(String sessionId) throws ApplicationException {
 		//Don't start a new session or add it to DB if no session id is coming
 		//Ex: API calls made without logging in
@@ -94,6 +95,13 @@ public class ServletContext {
 	}
 	
 	
+	public void setServletPath(String path) {
+		this.path= path;
+	}
+	
+	public String getServletPath() {
+		return path;
+	}
 	
 	public void setCustomerId(String customerId) {
 		session __session = new session(sessionId);

@@ -130,6 +130,7 @@ public abstract class BaseUIServlet extends HttpServlet
 			ctx.setDomainName(request.getServerName());
 			String userAgent = request.getHeader("User-Agent");
 			String httpAccept = request.getHeader("Accept");
+			ctx.setServletPath(getServletContext().getRealPath("/"));
 			ctx.setUagentInfo(new UAgentInfo(userAgent, httpAccept));
 			String buffer = "";
 			String mobile = getMobileEnableFromCookie(request);
