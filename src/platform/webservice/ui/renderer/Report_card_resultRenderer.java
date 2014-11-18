@@ -7,11 +7,11 @@ import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.html.A;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.SPAN;
-import application.c4t.vehicle.school.resource.report_card;
+import application.c4t.vehicle.school.resource.report_card_generation_request;
 
-public class Report_card_downloadRenderer extends BaseRenderer {
+public class Report_card_resultRenderer extends BaseRenderer {
 	String resourceName;
-	public Report_card_downloadRenderer(String resourceName) {
+	public Report_card_resultRenderer(String resourceName) {
 		this.resourceName = resourceName;
 	}
 	@Override
@@ -27,15 +27,12 @@ public class Report_card_downloadRenderer extends BaseRenderer {
 	public BaseHTMLComponent render(Field field, Map<String, Object> data) {
 		// TODO Auto-generated method stub
 		A a = new A(field.getName(),field.getClassName());
-		String school_id = (String)data.get(report_card.FIELD_SCHOOL_ID);
-		String accessment = (String)data.get(report_card.FIELD_ACCESSMENT_FOR);
-		String accessment_type = (String)data.get(report_card.FIELD_ACCESSMENT_TYPE);
-		String id = (String)data.get(report_card.FIELD_ID);
-		String file = "/reports_card/"+school_id+"/"+accessment+"/"+accessment_type+"/report_card_"+id+".pdf";
+		String id = (String)data.get(report_card_generation_request.FIELD_ID);
+		String file = "/activity_report_card_generation_request?id="+id;
 		a.setHref(file);
 		a.addAttribute("target","_blank");
-		a.addAttribute("title","Download the generated report");
-		a.setText("Download");
+		a.addAttribute("title","See status of report cards generation");
+		a.setText("Generation Status");
 		return a;
 	}
 }
