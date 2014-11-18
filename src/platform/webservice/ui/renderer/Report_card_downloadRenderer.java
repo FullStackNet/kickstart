@@ -31,8 +31,8 @@ public class Report_card_downloadRenderer extends BaseRenderer {
 		String school_id = (String)data.get(report_card.FIELD_SCHOOL_ID);
 		String accessment = (String)data.get(report_card.FIELD_ACCESSMENT_FOR);
 		String accessment_type = (String)data.get(report_card.FIELD_ACCESSMENT_TYPE);
-		
-		String file = "/reports_card/"+school_id+"/"+accessment+"/"+accessment_type;
+		String id = (String)data.get(report_card.FIELD_ID);
+		String file = "/reports_card/"+school_id+"/"+accessment+"/"+accessment_type+"/report_card_"+id+".pdf";
 		a.setHref(file);
 		a.addAttribute("target","_blank");
 		a.addAttribute("title","Download the generated report");
