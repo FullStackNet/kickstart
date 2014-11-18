@@ -28,7 +28,7 @@ public class Report_card_pdfRenderer extends BaseRenderer {
 		A a = new A(field.getName(),field.getClassName());
 		a.addAttribute("target","_blank");
 		a.setHref("/ui/activity_report_card_pdf"+"?id="+data.get("id"));
-		a.setText("Download PDF");
+		a.setText("Live Report");
 		return a;
 	}
 }

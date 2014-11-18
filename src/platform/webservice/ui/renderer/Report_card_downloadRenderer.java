@@ -1,16 +1,18 @@
 package platform.webservice.ui.renderer;
 
+import java.io.File;
 import java.util.Map;
 
+import application.c4t.vehicle.school.resource.report_card;
 import platform.util.TimeUtil;
 import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.html.A;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.SPAN;
 
-public class Report_card_previewRenderer extends BaseRenderer {
+public class Report_card_downloadRenderer extends BaseRenderer {
 	String resourceName;
-	public Report_card_previewRenderer(String resourceName) {
+	public Report_card_downloadRenderer(String resourceName) {
 		this.resourceName = resourceName;
 	}
 	@Override
@@ -26,8 +28,15 @@ public class Report_card_previewRenderer extends BaseRenderer {
 	public BaseHTMLComponent render(Field field, Map<String, Object> data) {
 		// TODO Auto-generated method stub
 		A a = new A(field.getName(),field.getClassName());
-		a.setHref("/ui/activity_report_card"+"?id="+data.get("id")+"&op=view");
-		a.setText("Preview Data");
+		String school_id = (String)data.get(report_card.FIELD_SCHOOL_ID);
+		String accessment = (String)data.get(report_card.FIELD_ACCESSMENT_FOR);
+		String accessment_type = (String)data.get(report_card.FIELD_ACCESSMENT_TYPE);
+		
+		String file = "/reports_card/"+school_id+"/"+accessment+"/"+accessment_type;
+		a.setHref(file);
+		a.addAttribute("target","_blank");
+		a.addAttribute("title","Download the generated report");
+		a.setText("Download");
 		return a;
 	}
 }
