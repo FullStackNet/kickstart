@@ -28,7 +28,7 @@ public class Report_card_resultRenderer extends BaseRenderer {
 		// TODO Auto-generated method stub
 		A a = new A(field.getName(),field.getClassName());
 		String id = (String)data.get(report_card_generation_request.FIELD_ID);
-		String file = "/activity_report_card_generation_request?id="+id;
+		String file = "/ui/activity_report_card_generation_request?id="+id;
 		a.setHref(file);
 		a.addAttribute("target","_blank");
 		a.addAttribute("title","See status of report cards generation");
