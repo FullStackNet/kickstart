@@ -1,20 +1,20 @@
 package platform.resource;
 
-import platform.defined.resource.Basecustomer;
 import platform.util.Util;
+import application.c4t.vehicle.defined.resource.Baseschedule;
 
-public class customer extends Basecustomer {
+public class schedule extends Baseschedule {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public customer() {
+	public schedule() {
 		this.setId(Util.getUniqueId());
 	}
 	
-	public customer(String id) {
+	public schedule(String id) {
 		this.setId(id);
 	}	
 	@Override

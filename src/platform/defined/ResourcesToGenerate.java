@@ -65,5 +65,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("conversation_summary", "platform.resource.conversation_summary"),
 		new ResourceMap("feedback", "platform.resource.feedback"),
 		new ResourceMap("unsubscribe_email", "platform.resource.unsubscribe_email"),
+		new ResourceMap("schedule", "platform.resource.schedule"),
+		
 	};
 }

@@ -1,0 +1,54 @@
+{
+	"schedule" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'type':'String',
+				'length': 512
+			},
+			'type':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'schedule_time':
+			{
+				'type':'timestamp'
+			},
+			'schedule_type':
+			{
+				'type':'String',
+				'length': 32,
+				'comment' : "Yearly,Monthly,Daily,Hourly,OneTime"
+			},
+			'school_id':
+			{
+				'type':'String',
+				'length': 32
+			},
+			'customer_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			},
+			'params':
+			{
+				'type':'Map'
+			}
+		}
+	}
+}
