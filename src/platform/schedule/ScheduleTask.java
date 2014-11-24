@@ -1,15 +1,15 @@
 package platform.schedule;
 
-import platform.message.Schedule;
+import platform.resource.schedule;
 
-public abstract class SchduleTask {
+public abstract class ScheduleTask {
 	private String type;
 	
-	public SchduleTask(String type) {
+	public ScheduleTask(String type) {
 		this.type = type;		
 	}
 
-	public abstract void process(Schedule schedule);
+	public abstract void process(schedule schedule);
 
 	public String getType() {
 		return type;

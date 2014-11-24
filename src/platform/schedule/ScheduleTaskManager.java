@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class ScheduleTaskManager {
 	private static ScheduleTaskManager  instance;
-	Map<String, SchduleTask> taskTable;
+	Map<String, ScheduleTask> taskTable;
 	public static ScheduleTaskManager getInstance() {
 		if (instance == null) {
 			instance = new ScheduleTaskManager();
@@ -17,14 +17,14 @@ public class ScheduleTaskManager {
 	
 	ScheduleTaskManager() {
 		// TODO Auto-generated constructor stub
-		taskTable = new HashMap<String, SchduleTask>();
+		taskTable = new HashMap<String, ScheduleTask>();
 	}
-	public void registerTask(SchduleTask task) {
-		System.out.println("Registering the alert task for "+task.getType().toString());
+	public void registerTask(ScheduleTask task) {
+		System.out.println("Registering the Schedule task for "+task.getType().toString());
 		taskTable.put(task.getType().toString(), task);
 	}
 	
-	public SchduleTask getTask(String type) {
+	public ScheduleTask getTask(String type) {
 		return taskTable.get(type);
 	}
 }

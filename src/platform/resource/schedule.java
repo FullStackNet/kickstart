@@ -1,9 +1,8 @@
 package platform.resource;
 
 import platform.util.Util;
-import application.c4t.vehicle.defined.resource.Baseschedule;
 
-public class schedule extends Baseschedule {
+public class schedule extends platform.defined.resource.Baseschedule {
 	
 	/**
 	 * 
