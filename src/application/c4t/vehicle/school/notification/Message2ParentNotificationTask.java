@@ -28,7 +28,7 @@ public class Message2ParentNotificationTask extends NotificationTask {
 	}
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			String appAlert,String smsAlert,String emailAlert,
-			String student_name,String message) {
+			String student_name,String message,String customerId) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			if ("Y".equals(smsAlert) && (_user.getMobile_no() != null)) {
@@ -38,6 +38,7 @@ public class Message2ParentNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, student_name);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_MESSAGE, message);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customerId);
 				String params = Json.maptoString(map);
 				smsMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
@@ -51,6 +52,8 @@ public class Message2ParentNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_MESSAGE, message);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, student_name);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customerId);
+				
 				String params = Json.maptoString(map);
 				resendMail.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -65,6 +68,8 @@ public class Message2ParentNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_MESSAGE, message);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, student_name);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customerId);
+				
 				String params = Json.maptoString(map);
 				notificationMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_NOTIFICATION_MANAGER, 
@@ -81,7 +86,7 @@ public class Message2ParentNotificationTask extends NotificationTask {
 
 	void sendNotification(notification _notification, 
 			String student_id,
-			String message) {
+			String message,String customerId) {
 		
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
 		String smsAlert = "N";
@@ -110,7 +115,7 @@ public class Message2ParentNotificationTask extends NotificationTask {
 		}
 		sendNotification2Users(_notification, userMap,appAlert,smsAlert,emailAlert,
 				_student.getName(),
-				message);
+				message,customerId);
 	}
 	@Override
 	public void process(notification _notification) {
@@ -122,8 +127,9 @@ public class Message2ParentNotificationTask extends NotificationTask {
 				return;
 			String student_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_ID);
 			String message = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_MESSAGE);
-			
-			sendNotification(_notification,student_id,message);
+			String customerId = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID);
+				
+			sendNotification(_notification,student_id,message,customerId);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
