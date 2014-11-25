@@ -430,5 +430,74 @@ public class TimeUtil {
 		return str;
 	}
 
+	public static long addYear(Date time,int year) {
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(time); 
+		c.add(Calendar.YEAR, year);
+		return c.getTime().getTime();
+	}
+	
+	public static long addYear(long time,int year) {
+		return addYear(new Date(time),year);
+	}
+	
+	public static long addMonth(Date time,int month) {
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(time); 
+		c.add(Calendar.MONTH, month);
+		return c.getTime().getTime();
+	}
+	
+	public static long addMonth(long time,int month) {
+		return addMonth(new Date(time),month);
+	}
+	
+	public static long addDay(Date time,int day) {
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(time); 
+		c.add(Calendar.DATE, day);
+		return c.getTime().getTime();
+	}
+	
+	public static long addDay(long time,int day) {
+		return addDay(new Date(time),day);
+	}
+	
+	public static long getCurrentDay(String timezone) {
+		if (timezone == null)
+			timezone = "IST";
+		Calendar toCal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		toCal.setTime(new Date());
+		return toCal.get(Calendar.DAY_OF_MONTH);
+	}
 
+	public static long getCurrentMonth(String timezone) {
+		if (timezone == null)
+			timezone = "IST";
+		Calendar toCal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		toCal.setTime(new Date());
+		return toCal.get(Calendar.MONTH);
+	}
+
+	public static long getCurrentYear(String timezone) {
+		if (timezone == null)
+			timezone = "IST";
+		Calendar toCal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		toCal.setTime(new Date());
+		return toCal.get(Calendar.YEAR);
+	}
+	
+	public static long getTime(String timezone,int year,int month, int day,
+			int hrs, int min, int second) {
+		if (timezone == null)
+			timezone = "IST";
+		Calendar toCal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		toCal.set(Calendar.YEAR, year);
+		toCal.set(Calendar.MONTH, month-1);
+		toCal.set(Calendar.DAY_OF_MONTH, day);
+		toCal.set(Calendar.HOUR_OF_DAY, hrs);
+		toCal.set(Calendar.MINUTE, min);
+		toCal.set(Calendar.SECOND, second);
+		return toCal.getTime().getTime();
+	}
 }

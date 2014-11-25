@@ -37,7 +37,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			String school_id,
 			String class_section_name,
 			String title,
-			String description,String date) {
+			String description,String date,String customer_id) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			String students = studentMap.get(entry.getKey());
@@ -54,6 +54,8 @@ public class NoticeNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
+				
 				String params = Json.maptoString(map);
 				smsMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
@@ -69,6 +71,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 				String params = Json.maptoString(map);
 				resendMail.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -85,6 +88,8 @@ public class NoticeNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
+				
 				String params = Json.maptoString(map);
 				notificationMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_NOTIFICATION_MANAGER, 
@@ -108,7 +113,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			String title,
 			String description,
 			String date,
-			notice activity) {
+			notice activity,String customer_id) {
 		
 		BaseResource[] students = null;
 		if ("SCHOOL".equals(type)) {
@@ -182,7 +187,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				class_section_name,
 				title,
 				description,
-				date);
+				date,customer_id);
 	}
 	@Override
 	public void process(notification _notification) {
@@ -201,13 +206,15 @@ public class NoticeNotificationTask extends NotificationTask {
 			String description = (String)data.get("DESCRIPTION");
 			String date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE);
 			String notice_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID);
+			String customer_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID);
+			
 			notice activity = (notice)NoticeHelper.getInstance().getById(notice_id);
 			if (activity == null) {
 				ApplicationLogger.error("Unable to process Notice, because it doesn't exists " +notice_id, this.getClass());
 				return;
 			}
 			sendNotification(_notification,school_id,notice_id,type,class_name,
-					class_section_name, title,description,date,activity);
+					class_section_name, title,description,date,activity,customer_id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

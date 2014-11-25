@@ -23,7 +23,8 @@ public abstract class Baseschedule extends BaseResource {
 	private String name = null;
 	private String type = null;
 	private Long schedule_time = null;
-	private String schedule_type = null; //Yearly,Monthly,Daily,Hourly,OneTime
+	private String frequency = null; //Yearly,Monthly,Daily,Hourly,OneTime
+	private String schedule_status = null; //N-Not Scheduled, P-Processing, D-Done
 	private String school_id = null;
 	private String customer_id = null;
 	private Long creation_time = null;
@@ -34,7 +35,8 @@ public abstract class Baseschedule extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_SCHEDULE_TIME = "schedule_time";
-	public static String FIELD_SCHEDULE_TYPE = "schedule_type";
+	public static String FIELD_FREQUENCY = "frequency";
+	public static String FIELD_SCHEDULE_STATUS = "schedule_status";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -63,9 +65,14 @@ public abstract class Baseschedule extends BaseResource {
 		Field schedule_timeField = new Field("schedule_time", "timestamp");
 		metaData.addField(schedule_timeField);
 
-		Field schedule_typeField = new Field("schedule_type", "String");
-		schedule_typeField.setLength(32);
-		metaData.addField(schedule_typeField);
+		Field frequencyField = new Field("frequency", "String");
+		frequencyField.setLength(32);
+		metaData.addField(frequencyField);
+
+		Field schedule_statusField = new Field("schedule_status", "String");
+		schedule_statusField.setDefaultValue("N");
+		schedule_statusField.setLength(1);
+		metaData.addField(schedule_statusField);
 
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(32);
@@ -99,7 +106,8 @@ public abstract class Baseschedule extends BaseResource {
 		this.name = obj.name;
 		this.type = obj.type;
 		this.schedule_time = obj.schedule_time;
-		this.schedule_type = obj.schedule_type;
+		this.frequency = obj.frequency;
+		this.schedule_status = obj.schedule_status;
 		this.school_id = obj.school_id;
 		this.customer_id = obj.customer_id;
 		this.creation_time = obj.creation_time;
@@ -109,6 +117,11 @@ public abstract class Baseschedule extends BaseResource {
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(schedule_status == null)
+			schedule_status = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -121,8 +134,10 @@ public abstract class Baseschedule extends BaseResource {
 			map.put("type", type);
 		if(schedule_time != null)
 			map.put("schedule_time", schedule_time);
-		if(schedule_type != null)
-			map.put("schedule_type", schedule_type);
+		if(frequency != null)
+			map.put("frequency", frequency);
+		if(schedule_status != null)
+			map.put("schedule_status", schedule_status);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(customer_id != null)
@@ -137,6 +152,9 @@ public abstract class Baseschedule extends BaseResource {
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -146,8 +164,10 @@ public abstract class Baseschedule extends BaseResource {
 			map.put("type", type);
 		if(schedule_time != null)
 			map.put("schedule_time", schedule_time);
-		if(schedule_type != null)
-			map.put("schedule_type", schedule_type);
+		if(frequency != null)
+			map.put("frequency", frequency);
+		if(schedule_status != null)
+			map.put("schedule_status", schedule_status);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(customer_id != null)
@@ -172,7 +192,8 @@ public abstract class Baseschedule extends BaseResource {
 		name = (String) map.get("name");
 		type = (String) map.get("type");
 		schedule_time = (Long) map.get("schedule_time");
-		schedule_type = (String) map.get("schedule_type");
+		frequency = (String) map.get("frequency");
+		schedule_status = (String) map.get("schedule_status");
 		school_id = (String) map.get("school_id");
 		customer_id = (String) map.get("customer_id");
 		creation_time = (Long) map.get("creation_time");
@@ -198,9 +219,13 @@ public abstract class Baseschedule extends BaseResource {
 		if(schedule_timeObj != null)
 			schedule_time = (Long) schedule_timeObj;
 
-		Object schedule_typeObj = map.get("schedule_type");
-		if(schedule_typeObj != null)
-			schedule_type = schedule_typeObj.toString();
+		Object frequencyObj = map.get("frequency");
+		if(frequencyObj != null)
+			frequency = frequencyObj.toString();
+
+		Object schedule_statusObj = map.get("schedule_status");
+		if(schedule_statusObj != null)
+			schedule_status = schedule_statusObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -287,20 +312,32 @@ public abstract class Baseschedule extends BaseResource {
 	}
 
 
-	public String getSchedule_type() {
-		return schedule_type;
+	public String getFrequency() {
+		return frequency;
 	}
 
-	public String getSchedule_typeEx() {
-		return schedule_type != null ? schedule_type : "";
+	public String getFrequencyEx() {
+		return frequency != null ? frequency : "";
 	}
 
-	public void setSchedule_type(String schedule_type) {
-		this.schedule_type = schedule_type;
+	public void setFrequency(String frequency) {
+		this.frequency = frequency;
 	}
 
-	public void unSetSchedule_type() {
-		this.schedule_type = null;
+	public void unSetFrequency() {
+		this.frequency = null;
+	}
+
+	public String getSchedule_status() {
+		return schedule_status != null ? schedule_status : "N";
+	}
+
+	public void setSchedule_status(String schedule_status) {
+		this.schedule_status = schedule_status;
+	}
+
+	public void unSetSchedule_status() {
+		this.schedule_status = "N";
 	}
 
 	public String getSchool_id() {

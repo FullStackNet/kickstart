@@ -25,11 +25,18 @@
 			{
 				'type':'timestamp'
 			},
-			'schedule_type':
+			'frequency':
 			{
 				'type':'String',
 				'length': 32,
 				'comment' : "Yearly,Monthly,Daily,Hourly,OneTime"
+			},
+			'schedule_status':
+			{
+				'type':'String',
+				'length': 1,
+				'default' : "N",
+				'comment' : "N-Not Scheduled, P-Processing, D-Done"
 			},
 			'school_id':
 			{
