@@ -43,6 +43,11 @@
 				'length':  128,
 				index : true		
 			},
+			'customer_id': {
+				'type':'String',
+				'length':  128,
+				index : true		
+			},
 			'teacher_id': {
 				'type':'String',
 				'length':  128,

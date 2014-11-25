@@ -27,6 +27,7 @@ public abstract class Basemessage2parent extends BaseResource {
 	private String user_id = null;
 	private String user_name = null;
 	private String student_id = null;
+	private String customer_id = null;
 	private String teacher_id = null;
 	private String student_name = null;
 	private Long last_updated = null;
@@ -43,6 +44,7 @@ public abstract class Basemessage2parent extends BaseResource {
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_STUDENT_ID = "student_id";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_TEACHER_ID = "teacher_id";
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_LAST_UPDATED = "last_updated";
@@ -93,6 +95,11 @@ public abstract class Basemessage2parent extends BaseResource {
 		student_idField.setLength(128);
 		metaData.addField(student_idField);
 
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setIndexed(true);
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
+
 		Field teacher_idField = new Field("teacher_id", "String");
 		teacher_idField.setIndexed(true);
 		teacher_idField.setLength(128);
@@ -138,6 +145,7 @@ public abstract class Basemessage2parent extends BaseResource {
 		this.user_id = obj.user_id;
 		this.user_name = obj.user_name;
 		this.student_id = obj.student_id;
+		this.customer_id = obj.customer_id;
 		this.teacher_id = obj.teacher_id;
 		this.student_name = obj.student_name;
 		this.last_updated = obj.last_updated;
@@ -169,6 +177,8 @@ public abstract class Basemessage2parent extends BaseResource {
 			map.put("user_name", user_name);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(teacher_id != null)
 			map.put("teacher_id", teacher_id);
 		if(student_name != null)
@@ -204,6 +214,8 @@ public abstract class Basemessage2parent extends BaseResource {
 			map.put("user_name", user_name);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(teacher_id != null)
 			map.put("teacher_id", teacher_id);
 		if(student_name != null)
@@ -236,6 +248,7 @@ public abstract class Basemessage2parent extends BaseResource {
 		user_id = (String) map.get("user_id");
 		user_name = (String) map.get("user_name");
 		student_id = (String) map.get("student_id");
+		customer_id = (String) map.get("customer_id");
 		teacher_id = (String) map.get("teacher_id");
 		student_name = (String) map.get("student_name");
 		last_updated = (Long) map.get("last_updated");
@@ -278,6 +291,10 @@ public abstract class Basemessage2parent extends BaseResource {
 		Object student_idObj = map.get("student_id");
 		if(student_idObj != null)
 			student_id = student_idObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		Object teacher_idObj = map.get("teacher_id");
 		if(teacher_idObj != null)
@@ -437,6 +454,22 @@ public abstract class Basemessage2parent extends BaseResource {
 
 	public void unSetStudent_id() {
 		this.student_id = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
 	public String getTeacher_id() {
