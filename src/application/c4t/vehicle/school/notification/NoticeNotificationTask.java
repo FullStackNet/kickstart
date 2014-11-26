@@ -174,7 +174,6 @@ public class NoticeNotificationTask extends NotificationTask {
 				studentMap.put(_users.get(j).getId(), str);
 			}
 			
-			ApplicationLogger.info("Sending notice by SMS : "+ smsAlertMap.size() + "Email :"+ emailAlertMap.size() +" Notification " + appAlertMap.size()+ " Users and Total " + userMap.size() , this.getClass());
 			try {
 				StudentHelper.getInstance().incrementCounter(_student.getId(), student.FIELD_NOTICE_COUNT, 1);
 			} catch (ApplicationException e) {
@@ -182,6 +181,9 @@ public class NoticeNotificationTask extends NotificationTask {
 				e.printStackTrace();
 			}
 		}
+		ApplicationLogger.info("Sending notice by SMS : "+ smsAlertMap.size() + "Email :"+ emailAlertMap.size() +" Notification " + appAlertMap.size()+ " Users and Total " + userMap.size() , this.getClass());
+		NoticeHelper.getInstance().updateSentCounter(notice_id, 
+				students.length, userMap.size(), smsAlertMap.size(), emailAlertMap.size(), appAlertMap.size());
 		sendNotification2Users(_notification, userMap, studentMap,
 				smsAlertMap,
 				emailAlertMap,
