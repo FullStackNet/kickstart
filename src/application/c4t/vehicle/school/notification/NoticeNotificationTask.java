@@ -173,6 +173,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				}
 				studentMap.put(_users.get(j).getId(), str);
 			}
+			
 			ApplicationLogger.info("Sending notice by SMS : "+ smsAlertMap.size() + "Email :"+ emailAlertMap.size() +" Notification " + appAlertMap.size()+ " Users and Total " + userMap.size() , this.getClass());
 			try {
 				StudentHelper.getInstance().incrementCounter(_student.getId(), student.FIELD_NOTICE_COUNT, 1);

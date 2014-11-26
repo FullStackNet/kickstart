@@ -32,6 +32,11 @@ public abstract class Basenotice extends BaseResource {
 	private Long creation_time = null;
 	private String sent = null;
 	private String send_sms = null;
+	private Integer total_student_sent = null;
+	private Integer total_user_sent = null;
+	private Integer total_sms_sent = null;
+	private Integer total_email_sent = null;
+	private Integer total_app_notification_sent = null;
 	private String send_email = null;
 	private Map<String, Object> extra_data = null;
 
@@ -48,6 +53,11 @@ public abstract class Basenotice extends BaseResource {
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SENT = "sent";
 	public static String FIELD_SEND_SMS = "send_sms";
+	public static String FIELD_TOTAL_STUDENT_SENT = "total_student_sent";
+	public static String FIELD_TOTAL_USER_SENT = "total_user_sent";
+	public static String FIELD_TOTAL_SMS_SENT = "total_sms_sent";
+	public static String FIELD_TOTAL_EMAIL_SENT = "total_email_sent";
+	public static String FIELD_TOTAL_APP_NOTIFICATION_SENT = "total_app_notification_sent";
 	public static String FIELD_SEND_EMAIL = "send_email";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -112,6 +122,21 @@ public abstract class Basenotice extends BaseResource {
 		send_smsField.setLength(1);
 		metaData.addField(send_smsField);
 
+		Field total_student_sentField = new Field("total_student_sent", "int");
+		metaData.addField(total_student_sentField);
+
+		Field total_user_sentField = new Field("total_user_sent", "int");
+		metaData.addField(total_user_sentField);
+
+		Field total_sms_sentField = new Field("total_sms_sent", "int");
+		metaData.addField(total_sms_sentField);
+
+		Field total_email_sentField = new Field("total_email_sent", "int");
+		metaData.addField(total_email_sentField);
+
+		Field total_app_notification_sentField = new Field("total_app_notification_sent", "int");
+		metaData.addField(total_app_notification_sentField);
+
 		Field send_emailField = new Field("send_email", "String");
 		send_emailField.setDefaultValue("N");
 		send_emailField.setLength(1);
@@ -143,6 +168,11 @@ public abstract class Basenotice extends BaseResource {
 		this.creation_time = obj.creation_time;
 		this.sent = obj.sent;
 		this.send_sms = obj.send_sms;
+		this.total_student_sent = obj.total_student_sent;
+		this.total_user_sent = obj.total_user_sent;
+		this.total_sms_sent = obj.total_sms_sent;
+		this.total_email_sent = obj.total_email_sent;
+		this.total_app_notification_sent = obj.total_app_notification_sent;
 		this.send_email = obj.send_email;
 		this.extra_data = obj.extra_data;
 	}
@@ -188,6 +218,16 @@ public abstract class Basenotice extends BaseResource {
 			map.put("sent", sent);
 		if(send_sms != null)
 			map.put("send_sms", send_sms);
+		if(total_student_sent != null)
+			map.put("total_student_sent", total_student_sent);
+		if(total_user_sent != null)
+			map.put("total_user_sent", total_user_sent);
+		if(total_sms_sent != null)
+			map.put("total_sms_sent", total_sms_sent);
+		if(total_email_sent != null)
+			map.put("total_email_sent", total_email_sent);
+		if(total_app_notification_sent != null)
+			map.put("total_app_notification_sent", total_app_notification_sent);
 		if(send_email != null)
 			map.put("send_email", send_email);
 		if(extra_data != null)
@@ -226,6 +266,16 @@ public abstract class Basenotice extends BaseResource {
 			map.put("sent", sent);
 		if(send_sms != null)
 			map.put("send_sms", send_sms);
+		if(total_student_sent != null)
+			map.put("total_student_sent", total_student_sent);
+		if(total_user_sent != null)
+			map.put("total_user_sent", total_user_sent);
+		if(total_sms_sent != null)
+			map.put("total_sms_sent", total_sms_sent);
+		if(total_email_sent != null)
+			map.put("total_email_sent", total_email_sent);
+		if(total_app_notification_sent != null)
+			map.put("total_app_notification_sent", total_app_notification_sent);
 		if(send_email != null)
 			map.put("send_email", send_email);
 		if(extra_data != null)
@@ -253,6 +303,11 @@ public abstract class Basenotice extends BaseResource {
 		creation_time = (Long) map.get("creation_time");
 		sent = (String) map.get("sent");
 		send_sms = (String) map.get("send_sms");
+		total_student_sent = (Integer) map.get("total_student_sent");
+		total_user_sent = (Integer) map.get("total_user_sent");
+		total_sms_sent = (Integer) map.get("total_sms_sent");
+		total_email_sent = (Integer) map.get("total_email_sent");
+		total_app_notification_sent = (Integer) map.get("total_app_notification_sent");
 		send_email = (String) map.get("send_email");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -310,6 +365,26 @@ public abstract class Basenotice extends BaseResource {
 		Object send_smsObj = map.get("send_sms");
 		if(send_smsObj != null)
 			send_sms = send_smsObj.toString();
+
+		Object total_student_sentObj = map.get("total_student_sent");
+		if(total_student_sentObj != null)
+			total_student_sent = new Integer(total_student_sentObj.toString());
+
+		Object total_user_sentObj = map.get("total_user_sent");
+		if(total_user_sentObj != null)
+			total_user_sent = new Integer(total_user_sentObj.toString());
+
+		Object total_sms_sentObj = map.get("total_sms_sent");
+		if(total_sms_sentObj != null)
+			total_sms_sent = new Integer(total_sms_sentObj.toString());
+
+		Object total_email_sentObj = map.get("total_email_sent");
+		if(total_email_sentObj != null)
+			total_email_sent = new Integer(total_email_sentObj.toString());
+
+		Object total_app_notification_sentObj = map.get("total_app_notification_sent");
+		if(total_app_notification_sentObj != null)
+			total_app_notification_sent = new Integer(total_app_notification_sentObj.toString());
 
 		Object send_emailObj = map.get("send_email");
 		if(send_emailObj != null)
@@ -514,6 +589,106 @@ public abstract class Basenotice extends BaseResource {
 
 	public void unSetSend_sms() {
 		this.send_sms = "N";
+	}
+
+	public Integer getTotal_student_sent() {
+		return total_student_sent;
+	}
+
+	public int getTotal_student_sentEx() {
+		return total_student_sent != null ? total_student_sent : 0;
+	}
+
+	public void setTotal_student_sent(int total_student_sent) {
+		this.total_student_sent = total_student_sent;
+	}
+
+	public void setTotal_student_sent(Integer total_student_sent) {
+		this.total_student_sent = total_student_sent;
+	}
+
+	public void unSetTotal_student_sent() {
+		this.total_student_sent = null;
+	}
+
+	public Integer getTotal_user_sent() {
+		return total_user_sent;
+	}
+
+	public int getTotal_user_sentEx() {
+		return total_user_sent != null ? total_user_sent : 0;
+	}
+
+	public void setTotal_user_sent(int total_user_sent) {
+		this.total_user_sent = total_user_sent;
+	}
+
+	public void setTotal_user_sent(Integer total_user_sent) {
+		this.total_user_sent = total_user_sent;
+	}
+
+	public void unSetTotal_user_sent() {
+		this.total_user_sent = null;
+	}
+
+	public Integer getTotal_sms_sent() {
+		return total_sms_sent;
+	}
+
+	public int getTotal_sms_sentEx() {
+		return total_sms_sent != null ? total_sms_sent : 0;
+	}
+
+	public void setTotal_sms_sent(int total_sms_sent) {
+		this.total_sms_sent = total_sms_sent;
+	}
+
+	public void setTotal_sms_sent(Integer total_sms_sent) {
+		this.total_sms_sent = total_sms_sent;
+	}
+
+	public void unSetTotal_sms_sent() {
+		this.total_sms_sent = null;
+	}
+
+	public Integer getTotal_email_sent() {
+		return total_email_sent;
+	}
+
+	public int getTotal_email_sentEx() {
+		return total_email_sent != null ? total_email_sent : 0;
+	}
+
+	public void setTotal_email_sent(int total_email_sent) {
+		this.total_email_sent = total_email_sent;
+	}
+
+	public void setTotal_email_sent(Integer total_email_sent) {
+		this.total_email_sent = total_email_sent;
+	}
+
+	public void unSetTotal_email_sent() {
+		this.total_email_sent = null;
+	}
+
+	public Integer getTotal_app_notification_sent() {
+		return total_app_notification_sent;
+	}
+
+	public int getTotal_app_notification_sentEx() {
+		return total_app_notification_sent != null ? total_app_notification_sent : 0;
+	}
+
+	public void setTotal_app_notification_sent(int total_app_notification_sent) {
+		this.total_app_notification_sent = total_app_notification_sent;
+	}
+
+	public void setTotal_app_notification_sent(Integer total_app_notification_sent) {
+		this.total_app_notification_sent = total_app_notification_sent;
+	}
+
+	public void unSetTotal_app_notification_sent() {
+		this.total_app_notification_sent = null;
 	}
 
 	public String getSend_email() {

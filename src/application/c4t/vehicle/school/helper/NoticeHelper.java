@@ -32,6 +32,23 @@ public class NoticeHelper extends BaseHelper {
 		update(_notice);
 	}
 	
+	public void updateSentCounter(String id,int total_students_sent, 
+			int total_users_sent, int total_sms_sent, int total_email_sent, 
+			int total_app_notification_sent)  {
+		notice _notice = new notice(id);
+		_notice.setTotal_student_sent(total_students_sent);
+		_notice.setTotal_user_sent(total_users_sent);
+		_notice.setTotal_sms_sent(total_sms_sent);
+		_notice.setTotal_email_sent(total_email_sent);
+		_notice.setTotal_app_notification_sent(total_app_notification_sent);
+		try {
+			update(_notice);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools) throws ApplicationException  {
 		HelperFactory.getInstance().register(SchoolHelper.getInstance());
 		HelperFactory.getInstance().register(NoticeHelper.getInstance());

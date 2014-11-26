@@ -68,6 +68,21 @@
 				'length' : 1,
 				'default' : "N"
 			},
+			'total_student_sent' : {
+				'type': 'int'
+			},
+			'total_user_sent' : {
+				'type': 'int'
+			},
+			'total_sms_sent' : {
+				'type': 'int'
+			},
+			'total_email_sent' : {
+				'type': 'int'
+			},
+			'total_app_notification_sent' : {
+				'type': 'int'
+			},
 			'send_email': {
 				'type': 'String',
 				'length' : 1,
