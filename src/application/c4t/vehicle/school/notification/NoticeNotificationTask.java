@@ -29,10 +29,58 @@ public class NoticeNotificationTask extends NotificationTask {
 		super(NotificationFactory.NOTIFICATION_NOTICE);
 		// TODO Auto-generated constructor stub
 	}
+
+	void sendSMS2Users(notification _notification, 
+			Map<String, String> smsAlertMap,
+			String school_id,
+			String class_section_name,
+			String title,
+			String description,String date,String customer_id) {
+
+		for(Map.Entry<String, String> entry : smsAlertMap.entrySet()) {
+			SendSMS smsMessage = new SendSMS();
+			smsMessage.setMobile_no(entry.getKey());
+			smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_NOTICE);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, entry.getValue());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
+			String params = Json.maptoString(map);
+			smsMessage.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
+					smsMessage);
+		}
+	}
+
+	void sendEmail2Users(notification _notification, 
+			Map<String, String> emailAlertMap,
+			String school_id,
+			String class_section_name,
+			String title,
+			String description,String date,String customer_id) {
+
+		for(Map.Entry<String, String> entry : emailAlertMap.entrySet()) {
+			SendEmail resendMail = new SendEmail();
+			resendMail.setSubject(title);
+			resendMail.setTo(entry.getKey());
+			resendMail.setType(ApplicationConstants.MAIL_TYPE_NOTICE);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, entry.getValue());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
+			String params = Json.maptoString(map);
+			resendMail.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+					resendMail);
+	
+		}
+	}
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
-			Map<String, String> smsAlertMap,
-			Map<String, String> emailAlertMap,
 			Map<String, String> appAlertMap,
 			String school_id,
 			String class_section_name,
@@ -41,43 +89,8 @@ public class NoticeNotificationTask extends NotificationTask {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			String students = studentMap.get(entry.getKey());
-			String smsAlert = smsAlertMap.get(_user.getId());
 			String appAlert = appAlertMap.get(_user.getId());
-			String emailAlert = emailAlertMap.get(_user.getId());
-		
-			if ("Y".equals(smsAlert) && (_user.getMobile_no() != null)) {
-				SendSMS smsMessage = new SendSMS();
-				smsMessage.setMobile_no(_user.getMobile_no());
-				smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_NOTICE);
-				Map<String, String> map = new HashMap<String, String>();
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
-				
-				String params = Json.maptoString(map);
-				smsMessage.setParams(params);
-				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
-						smsMessage);
-			}
-			if ("Y".equals(emailAlert) && (_user.getEmail_id() != null)) {
-				SendEmail resendMail = new SendEmail();
-				resendMail.setSubject(title);
-				resendMail.setTo(_user.getEmail_id());
-				resendMail.setType(ApplicationConstants.MAIL_TYPE_NOTICE);
-				Map<String, String> map = new HashMap<String, String>();
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
-				String params = Json.maptoString(map);
-				resendMail.setParams(params);
-				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
-						resendMail);
-			}
-			
+					
 			if ("Y".equals(appAlert) && (_user.getMobile_no() != null)) {
 				SendNotification notificationMessage = new SendNotification();
 				notificationMessage.setNotify_id(_user.getId());
@@ -89,7 +102,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
-				
+
 				String params = Json.maptoString(map);
 				notificationMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_NOTIFICATION_MANAGER, 
@@ -114,7 +127,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			String description,
 			String date,
 			notice activity,String customer_id) {
-		
+
 		BaseResource[] students = null;
 		if ("SCHOOL".equals(type)) {
 			students = StudentHelper.getInstance().getStudentBySchool(school_id);
@@ -123,7 +136,7 @@ public class NoticeNotificationTask extends NotificationTask {
 		} else if ("SECTION".equals(type)) {
 			students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
 		}
-		
+
 		if ((students == null) || (students.length == 0)) 
 			return;
 		ApplicationLogger.info("Sending notice to "+ students.length + " Students", this.getClass());
@@ -135,7 +148,7 @@ public class NoticeNotificationTask extends NotificationTask {
 		Map<String, String> smsAlertMap = new HashMap<String, String>();
 		Map<String, String> emailAlertMap = new HashMap<String, String>();;
 		Map<String, String> appAlertMap = new HashMap<String, String>();;
-	
+
 		for(int i=0; i< students.length; i++) {
 			student _student = (student)students[i];
 			try {
@@ -162,8 +175,6 @@ public class NoticeNotificationTask extends NotificationTask {
 			ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());
 			for(int j=0; j < _users.size(); j++) {
 				userMap.put(_users.get(j).getId(), _users.get(j));
-				smsAlertMap.put(_users.get(j).getId(), smsAlert);
-				emailAlertMap.put(_users.get(j).getId(), emailAlert);
 				appAlertMap.put(_users.get(j).getId(), appAlert);
 				String str = studentMap.get(_users.get(j).getId());
 				if (str == null) {
@@ -173,7 +184,36 @@ public class NoticeNotificationTask extends NotificationTask {
 				}
 				studentMap.put(_users.get(j).getId(), str);
 			}
-			
+
+			if ("Y".equals(smsAlert)) {
+				if ((_student.getFather_mobile_no() != null) && 
+						("FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
+					smsAlertMap.put(_student.getFather_mobile_no(),  _student.getNameEx());
+				}
+				if ((_student.getMother_mobile_no() != null) && 
+						("MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
+					smsAlertMap.put(_student.getMother_mobile_no(), _student.getNameEx());
+				}
+				if ((_student.getOther_mobile_no() != null) && 
+						("OTHER".equals(_student.getPrimary_contact()) || "OTHER".equals(_student.getPrimary_contact()))) {
+					smsAlertMap.put(_student.getOther_mobile_no(), _student.getNameEx());
+				}
+			}
+
+			if ("Y".equals(emailAlert)) {
+				if ((_student.getFather_email_id() != null) && 
+						("FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
+					emailAlertMap.put(_student.getFather_email_id(), _student.getNameEx());
+				}
+				if ((_student.getMother_email_id() != null) && 
+						("MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
+					emailAlertMap.put(_student.getMother_email_id(), _student.getNameEx());
+				}
+				if ((_student.getOther_email_id() != null) && 
+						("OTHER".equals(_student.getPrimary_contact()) || "OTHER".equals(_student.getPrimary_contact()))) {
+					emailAlertMap.put(_student.getOther_email_id(), _student.getNameEx());
+				}
+			}
 			try {
 				StudentHelper.getInstance().incrementCounter(_student.getId(), student.FIELD_NOTICE_COUNT, 1);
 			} catch (ApplicationException e) {
@@ -184,16 +224,32 @@ public class NoticeNotificationTask extends NotificationTask {
 		ApplicationLogger.info("Sending notice by SMS : "+ smsAlertMap.size() + "Email :"+ emailAlertMap.size() +" Notification " + appAlertMap.size()+ " Users and Total " + userMap.size() , this.getClass());
 		NoticeHelper.getInstance().updateSentCounter(notice_id, 
 				students.length, userMap.size(), smsAlertMap.size(), emailAlertMap.size(), appAlertMap.size());
+		
 		sendNotification2Users(_notification, userMap, studentMap,
-				smsAlertMap,
-				emailAlertMap,
 				appAlertMap,
 				school_id,
 				class_section_name,
 				title,
 				description,
 				date,customer_id);
+		
+		sendSMS2Users(_notification, 
+				smsAlertMap,
+				school_id,
+				class_section_name,
+				title,
+				description,
+				date,customer_id);
+		
+		sendEmail2Users(_notification, 
+				emailAlertMap,
+				school_id,
+				class_section_name,
+				title,
+				description,
+				date,customer_id);
 	}
+	
 	@Override
 	public void process(notification _notification) {
 		// TODO Auto-generated method stub
@@ -212,7 +268,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			String date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE);
 			String notice_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID);
 			String customer_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID);
-			
+
 			notice activity = (notice)NoticeHelper.getInstance().getById(notice_id);
 			if (activity == null) {
 				ApplicationLogger.error("Unable to process Notice, because it doesn't exists " +notice_id, this.getClass());
