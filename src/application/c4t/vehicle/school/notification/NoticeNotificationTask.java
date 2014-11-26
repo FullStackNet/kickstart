@@ -126,6 +126,7 @@ public class NoticeNotificationTask extends NotificationTask {
 		
 		if ((students == null) || (students.length == 0)) 
 			return;
+		ApplicationLogger.info("Sending notice to "+ students.length + " Students", this.getClass());
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
 		Map<String, String> studentMap = new HashMap<String, String>();
 		String smsAlert = "N";
@@ -172,6 +173,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				}
 				studentMap.put(_users.get(j).getId(), str);
 			}
+			ApplicationLogger.info("Sending notice by SMS : "+ smsAlertMap.size() + "Email :"+ emailAlertMap.size() +" Notification " + appAlertMap.size()+ " Users and Total " + userMap.size() , this.getClass());
 			try {
 				StudentHelper.getInstance().incrementCounter(_student.getId(), student.FIELD_NOTICE_COUNT, 1);
 			} catch (ApplicationException e) {
