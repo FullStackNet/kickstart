@@ -38,6 +38,7 @@ public abstract class Basenotice extends BaseResource {
 	private Integer total_email_sent = null;
 	private Integer total_app_notification_sent = null;
 	private String send_email = null;
+	private String send_father_mother = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -59,6 +60,7 @@ public abstract class Basenotice extends BaseResource {
 	public static String FIELD_TOTAL_EMAIL_SENT = "total_email_sent";
 	public static String FIELD_TOTAL_APP_NOTIFICATION_SENT = "total_app_notification_sent";
 	public static String FIELD_SEND_EMAIL = "send_email";
+	public static String FIELD_SEND_FATHER_MOTHER = "send_father_mother";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -142,6 +144,11 @@ public abstract class Basenotice extends BaseResource {
 		send_emailField.setLength(1);
 		metaData.addField(send_emailField);
 
+		Field send_father_motherField = new Field("send_father_mother", "String");
+		send_father_motherField.setDefaultValue("N");
+		send_father_motherField.setLength(1);
+		metaData.addField(send_father_motherField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -174,6 +181,7 @@ public abstract class Basenotice extends BaseResource {
 		this.total_email_sent = obj.total_email_sent;
 		this.total_app_notification_sent = obj.total_app_notification_sent;
 		this.send_email = obj.send_email;
+		this.send_father_mother = obj.send_father_mother;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -188,6 +196,8 @@ public abstract class Basenotice extends BaseResource {
 			send_sms = "N";
 		if(send_email == null)
 			send_email = "N";
+		if(send_father_mother == null)
+			send_father_mother = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -230,6 +240,8 @@ public abstract class Basenotice extends BaseResource {
 			map.put("total_app_notification_sent", total_app_notification_sent);
 		if(send_email != null)
 			map.put("send_email", send_email);
+		if(send_father_mother != null)
+			map.put("send_father_mother", send_father_mother);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -278,6 +290,8 @@ public abstract class Basenotice extends BaseResource {
 			map.put("total_app_notification_sent", total_app_notification_sent);
 		if(send_email != null)
 			map.put("send_email", send_email);
+		if(send_father_mother != null)
+			map.put("send_father_mother", send_father_mother);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -309,6 +323,7 @@ public abstract class Basenotice extends BaseResource {
 		total_email_sent = (Integer) map.get("total_email_sent");
 		total_app_notification_sent = (Integer) map.get("total_app_notification_sent");
 		send_email = (String) map.get("send_email");
+		send_father_mother = (String) map.get("send_father_mother");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -389,6 +404,10 @@ public abstract class Basenotice extends BaseResource {
 		Object send_emailObj = map.get("send_email");
 		if(send_emailObj != null)
 			send_email = send_emailObj.toString();
+
+		Object send_father_motherObj = map.get("send_father_mother");
+		if(send_father_motherObj != null)
+			send_father_mother = send_father_motherObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -701,6 +720,18 @@ public abstract class Basenotice extends BaseResource {
 
 	public void unSetSend_email() {
 		this.send_email = "N";
+	}
+
+	public String getSend_father_mother() {
+		return send_father_mother != null ? send_father_mother : "N";
+	}
+
+	public void setSend_father_mother(String send_father_mother) {
+		this.send_father_mother = send_father_mother;
+	}
+
+	public void unSetSend_father_mother() {
+		this.send_father_mother = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

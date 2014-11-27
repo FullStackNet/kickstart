@@ -87,6 +87,11 @@
 				'type': 'String',
 				'length' : 1,
 				'default' : "N"
+			},
+			'send_father_mother': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
 			}
 		}
 	}

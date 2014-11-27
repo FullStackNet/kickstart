@@ -188,11 +188,11 @@ public class NoticeNotificationTask extends NotificationTask {
 
 			if ("Y".equals(smsAlert)) {
 				if ((!Util.isEmpty(_student.getFather_mobile_no())) && 
-						("FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
+						("Y".equals(activity.getSend_father_mother()) || "FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
 					smsAlertMap.put(_student.getFather_mobile_no(),  _student.getNameEx());
 				}
 				if ((!Util.isEmpty(_student.getMother_mobile_no())) && 
-						("MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
+						("Y".equals(activity.getSend_father_mother()) || "MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
 					smsAlertMap.put(_student.getMother_mobile_no(), _student.getNameEx());
 				}
 				if ((!Util.isEmpty(_student.getOther_mobile_no())) && 
