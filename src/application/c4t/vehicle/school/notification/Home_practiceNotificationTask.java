@@ -159,8 +159,6 @@ public class Home_practiceNotificationTask extends NotificationTask {
 			ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());
 			for(int j=0; j < _users.size(); j++) {
 				userMap.put(_users.get(j).getId(), _users.get(j));
-				smsAlertMap.put(_users.get(j).getId(), smsAlert);
-				emailAlertMap.put(_users.get(j).getId(), emailAlert);
 				appAlertMap.put(_users.get(j).getId(), appAlert);
 				String str = studentMap.get(_users.get(j).getId());
 				if (str == null) {
