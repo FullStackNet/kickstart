@@ -134,7 +134,7 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_STOPAGE_REACHED = "STOPAGE_REACHED";
 	public static String MAIL_TYPE_OVERSPEED = "OVER SPEED";
 	public static String MAIL_TYPE_HOMEWORK = "HOMEWORK";
-	public static String MAIL_TYPE_HOME_PRACTICE= "HOME PRACTICE";
+	public static String MAIL_TYPE_HOME_PRACTICE= "HOME_PRACTICE";
 	public static String MAIL_TYPE_NOTICE = "NOTICE";
 	public static String MAIL_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String MAIL_TYPE_ABSENT = "ABSENT";
