@@ -46,6 +46,10 @@
 				'length': 4096,
 				'type':'String',
 				'index' : true
+			},
+			'categories':
+			{
+				'type':'Array'
 			}
 		}
 	}

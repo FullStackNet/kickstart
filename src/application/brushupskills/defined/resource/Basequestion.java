@@ -26,6 +26,7 @@ public abstract class Basequestion extends BaseResource {
 	private String answer2 = null;
 	private String answer3 = null;
 	private String answer4 = null;
+	private ArrayList<String> categories = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -35,6 +36,7 @@ public abstract class Basequestion extends BaseResource {
 	public static String FIELD_ANSWER2 = "answer2";
 	public static String FIELD_ANSWER3 = "answer3";
 	public static String FIELD_ANSWER4 = "answer4";
+	public static String FIELD_CATEGORIES = "categories";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -78,6 +80,9 @@ public abstract class Basequestion extends BaseResource {
 		answer4Field.setLength(4096);
 		metaData.addField(answer4Field);
 
+		Field categoriesField = new Field("categories", "Array");
+		metaData.addField(categoriesField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -98,6 +103,7 @@ public abstract class Basequestion extends BaseResource {
 		this.answer2 = obj.answer2;
 		this.answer3 = obj.answer3;
 		this.answer4 = obj.answer4;
+		this.categories = obj.categories;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -121,6 +127,8 @@ public abstract class Basequestion extends BaseResource {
 			map.put("answer3", answer3);
 		if(answer4 != null)
 			map.put("answer4", answer4);
+		if(categories != null)
+			map.put("categories", categories);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -142,6 +150,8 @@ public abstract class Basequestion extends BaseResource {
 			map.put("answer3", answer3);
 		if(answer4 != null)
 			map.put("answer4", answer4);
+		if(categories != null)
+			map.put("categories", categories);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -161,6 +171,7 @@ public abstract class Basequestion extends BaseResource {
 		answer2 = (String) map.get("answer2");
 		answer3 = (String) map.get("answer3");
 		answer4 = (String) map.get("answer4");
+		categories = (ArrayList<String>) map.get("categories");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -194,6 +205,7 @@ public abstract class Basequestion extends BaseResource {
 		if(answer4Obj != null)
 			answer4 = answer4Obj.toString();
 
+		categories = (ArrayList<String>) map.get("categories");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -319,6 +331,25 @@ public abstract class Basequestion extends BaseResource {
 
 	public void unSetAnswer4() {
 		this.answer4 = null;
+	}
+
+	public ArrayList<String> getCategories() {
+		return categories;
+	}
+
+
+	public void setCategories(ArrayList<String> categories) {
+		this.categories = categories;
+	}
+
+	public void addCategories(String value) {
+		if(categories == null)
+			categories = new ArrayList<String>();
+		categories.add(value);
+	}
+
+	public void unSetCategories() {
+		this.categories = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
