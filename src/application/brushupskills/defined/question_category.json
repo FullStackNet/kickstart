@@ -1,0 +1,32 @@
+{
+	"question_category" :
+	{
+		"cluster": "DB_QUESTION",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'parent_category_id':
+			{
+				'length': 512,
+				'type':'String',
+				'index' : true
+			},
+			'questions':
+			{
+				'type':'Array'
+			}
+		}
+	}
+}
