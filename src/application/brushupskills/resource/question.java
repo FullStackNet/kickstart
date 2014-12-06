@@ -1,20 +1,20 @@
 package application.brushupskills.resource;
 
 import platform.util.Util;
-import application.brushupskills.defined.resource.Basecandidate;
+import application.brushupskills.defined.resource.Basequestion;
 
-public class candidate extends Basecandidate{
+public class question extends Basequestion{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public candidate() {
+	public question() {
 		this.setId(Util.getUniqueId());
 	}
 	
-	public candidate(String id) {
+	public question(String id) {
 		this.setId(id);
 	}	
 	
