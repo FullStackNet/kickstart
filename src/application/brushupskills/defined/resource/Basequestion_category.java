@@ -23,6 +23,7 @@ public abstract class Basequestion_category extends BaseResource {
 	private String name = null;
 	private String parent_category_id = null;
 	private String parent_category_name = null;
+	private Long order = null;
 	private Long total_question = null;
 	private Map<String, Object> questions = null;
 	private String visible = null;
@@ -32,6 +33,7 @@ public abstract class Basequestion_category extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_PARENT_CATEGORY_ID = "parent_category_id";
 	public static String FIELD_PARENT_CATEGORY_NAME = "parent_category_name";
+	public static String FIELD_ORDER = "order";
 	public static String FIELD_TOTAL_QUESTION = "total_question";
 	public static String FIELD_QUESTIONS = "questions";
 	public static String FIELD_VISIBLE = "visible";
@@ -62,6 +64,9 @@ public abstract class Basequestion_category extends BaseResource {
 		parent_category_nameField.setLength(512);
 		metaData.addField(parent_category_nameField);
 
+		Field orderField = new Field("order", "long");
+		metaData.addField(orderField);
+
 		Field total_questionField = new Field("total_question", "long");
 		metaData.addField(total_questionField);
 
@@ -91,6 +96,7 @@ public abstract class Basequestion_category extends BaseResource {
 		this.name = obj.name;
 		this.parent_category_id = obj.parent_category_id;
 		this.parent_category_name = obj.parent_category_name;
+		this.order = obj.order;
 		this.total_question = obj.total_question;
 		this.questions = obj.questions;
 		this.visible = obj.visible;
@@ -116,6 +122,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("parent_category_id", parent_category_id);
 		if(parent_category_name != null)
 			map.put("parent_category_name", parent_category_name);
+		if(order != null)
+			map.put("order", order);
 		if(total_question != null)
 			map.put("total_question", total_question);
 		if(questions != null)
@@ -140,6 +148,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("parent_category_id", parent_category_id);
 		if(parent_category_name != null)
 			map.put("parent_category_name", parent_category_name);
+		if(order != null)
+			map.put("order", order);
 		if(total_question != null)
 			map.put("total_question", total_question);
 		if(questions != null)
@@ -162,6 +172,7 @@ public abstract class Basequestion_category extends BaseResource {
 		name = (String) map.get("name");
 		parent_category_id = (String) map.get("parent_category_id");
 		parent_category_name = (String) map.get("parent_category_name");
+		order = (Long) map.get("order");
 		total_question = (Long) map.get("total_question");
 		questions = (Map<String, Object>) map.get("questions");
 		visible = (String) map.get("visible");
@@ -185,6 +196,10 @@ public abstract class Basequestion_category extends BaseResource {
 		Object parent_category_nameObj = map.get("parent_category_name");
 		if(parent_category_nameObj != null)
 			parent_category_name = parent_category_nameObj.toString();
+
+		Object orderObj = map.get("order");
+		if(orderObj != null)
+			order = new Long(orderObj.toString());
 
 		Object total_questionObj = map.get("total_question");
 		if(total_questionObj != null)
@@ -272,6 +287,26 @@ public abstract class Basequestion_category extends BaseResource {
 
 	public void unSetParent_category_name() {
 		this.parent_category_name = null;
+	}
+
+	public Long getOrder() {
+		return order;
+	}
+
+	public long getOrderEx() {
+		return order != null ? order : 0L;
+	}
+
+	public void setOrder(long order) {
+		this.order = order;
+	}
+
+	public void setOrder(Long order) {
+		this.order = order;
+	}
+
+	public void unSetOrder() {
+		this.order = null;
 	}
 
 	public Long getTotal_question() {

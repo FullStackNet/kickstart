@@ -28,6 +28,10 @@
 				'length': 512,
 				'type':'String'
 			},
+			'order':
+			{
+				'type':'long'
+			},
 			'total_question':
 			{
 				'type':'long'
