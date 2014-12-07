@@ -30,7 +30,13 @@
 			},
 			'questions':
 			{
-				'type':'Array'
+				'type':'Map'
+			},
+			'visible':
+			{
+				'type':'String',
+				'length' : 1,
+				'default' : "N"	
 			}
 		}
 	}

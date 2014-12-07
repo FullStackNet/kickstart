@@ -108,6 +108,12 @@
 				'type':'String',
 				'default' : "N"
 			},
+			'brushUpSkillService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'key':
 			{
 				'length': 128,

@@ -36,6 +36,7 @@ public abstract class Baseuser extends BaseResource {
 	private String fleetService = null;
 	private String schoolTrackerService = null;
 	private String dgService = null;
+	private String brushUpSkillService = null;
 	private String key = null;
 	private String routeSettingService = null;
 	private String homeAutomationService = null;
@@ -67,6 +68,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_FLEETSERVICE = "fleetService";
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
+	public static String FIELD_BRUSHUPSKILLSERVICE = "brushUpSkillService";
 	public static String FIELD_KEY = "key";
 	public static String FIELD_ROUTESETTINGSERVICE = "routeSettingService";
 	public static String FIELD_HOMEAUTOMATIONSERVICE = "homeAutomationService";
@@ -165,6 +167,11 @@ public abstract class Baseuser extends BaseResource {
 		dgServiceField.setLength(1);
 		metaData.addField(dgServiceField);
 
+		Field brushUpSkillServiceField = new Field("brushUpSkillService", "String");
+		brushUpSkillServiceField.setDefaultValue("N");
+		brushUpSkillServiceField.setLength(1);
+		metaData.addField(brushUpSkillServiceField);
+
 		Field keyField = new Field("key", "String");
 		keyField.setLength(128);
 		metaData.addField(keyField);
@@ -252,6 +259,7 @@ public abstract class Baseuser extends BaseResource {
 		this.fleetService = obj.fleetService;
 		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
+		this.brushUpSkillService = obj.brushUpSkillService;
 		this.key = obj.key;
 		this.routeSettingService = obj.routeSettingService;
 		this.homeAutomationService = obj.homeAutomationService;
@@ -282,6 +290,8 @@ public abstract class Baseuser extends BaseResource {
 			schoolTrackerService = "N";
 		if(dgService == null)
 			dgService = "N";
+		if(brushUpSkillService == null)
+			brushUpSkillService = "N";
 		if(routeSettingService == null)
 			routeSettingService = "N";
 		if(homeAutomationService == null)
@@ -340,6 +350,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
 			map.put("dgService", dgService);
+		if(brushUpSkillService != null)
+			map.put("brushUpSkillService", brushUpSkillService);
 		if(key != null)
 			map.put("key", key);
 		if(routeSettingService != null)
@@ -408,6 +420,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
 			map.put("dgService", dgService);
+		if(brushUpSkillService != null)
+			map.put("brushUpSkillService", brushUpSkillService);
 		if(key != null)
 			map.put("key", key);
 		if(routeSettingService != null)
@@ -461,6 +475,7 @@ public abstract class Baseuser extends BaseResource {
 		fleetService = (String) map.get("fleetService");
 		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
+		brushUpSkillService = (String) map.get("brushUpSkillService");
 		key = (String) map.get("key");
 		routeSettingService = (String) map.get("routeSettingService");
 		homeAutomationService = (String) map.get("homeAutomationService");
@@ -545,6 +560,10 @@ public abstract class Baseuser extends BaseResource {
 		Object dgServiceObj = map.get("dgService");
 		if(dgServiceObj != null)
 			dgService = dgServiceObj.toString();
+
+		Object brushUpSkillServiceObj = map.get("brushUpSkillService");
+		if(brushUpSkillServiceObj != null)
+			brushUpSkillService = brushUpSkillServiceObj.toString();
 
 		Object keyObj = map.get("key");
 		if(keyObj != null)
@@ -871,6 +890,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetDgService() {
 		this.dgService = "N";
+	}
+
+	public String getBrushUpSkillService() {
+		return brushUpSkillService != null ? brushUpSkillService : "N";
+	}
+
+	public void setBrushUpSkillService(String brushUpSkillService) {
+		this.brushUpSkillService = brushUpSkillService;
+	}
+
+	public void unSetBrushUpSkillService() {
+		this.brushUpSkillService = "N";
 	}
 
 	public String getKey() {

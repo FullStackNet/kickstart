@@ -23,7 +23,8 @@ public abstract class Basequestion_category extends BaseResource {
 	private String name = null;
 	private String parent_category_id = null;
 	private String parent_category_name = null;
-	private ArrayList<String> questions = null;
+	private Map<String, String> questions = null;
+	private String visible = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -31,6 +32,7 @@ public abstract class Basequestion_category extends BaseResource {
 	public static String FIELD_PARENT_CATEGORY_ID = "parent_category_id";
 	public static String FIELD_PARENT_CATEGORY_NAME = "parent_category_name";
 	public static String FIELD_QUESTIONS = "questions";
+	public static String FIELD_VISIBLE = "visible";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -58,8 +60,14 @@ public abstract class Basequestion_category extends BaseResource {
 		parent_category_nameField.setLength(512);
 		metaData.addField(parent_category_nameField);
 
-		Field questionsField = new Field("questions", "Array");
+		Field questionsField = new Field("questions", "Map");
+		questionsField.setValueType("String");
 		metaData.addField(questionsField);
+
+		Field visibleField = new Field("visible", "String");
+		visibleField.setDefaultValue("N");
+		visibleField.setLength(1);
+		metaData.addField(visibleField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -79,11 +87,17 @@ public abstract class Basequestion_category extends BaseResource {
 		this.parent_category_id = obj.parent_category_id;
 		this.parent_category_name = obj.parent_category_name;
 		this.questions = obj.questions;
+		this.visible = obj.visible;
 		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(visible == null)
+			visible = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -98,12 +112,17 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("parent_category_name", parent_category_name);
 		if(questions != null)
 			map.put("questions", questions);
+		if(visible != null)
+			map.put("visible", visible);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -115,6 +134,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("parent_category_name", parent_category_name);
 		if(questions != null)
 			map.put("questions", questions);
+		if(visible != null)
+			map.put("visible", visible);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -131,7 +152,8 @@ public abstract class Basequestion_category extends BaseResource {
 		name = (String) map.get("name");
 		parent_category_id = (String) map.get("parent_category_id");
 		parent_category_name = (String) map.get("parent_category_name");
-		questions = (ArrayList<String>) map.get("questions");
+		questions = (Map<String, String>) map.get("questions");
+		visible = (String) map.get("visible");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -153,7 +175,11 @@ public abstract class Basequestion_category extends BaseResource {
 		if(parent_category_nameObj != null)
 			parent_category_name = parent_category_nameObj.toString();
 
-		questions = (ArrayList<String>) map.get("questions");
+		questions = (Map<String, String>) map.get("questions");
+		Object visibleObj = map.get("visible");
+		if(visibleObj != null)
+			visible = visibleObj.toString();
+
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -233,23 +259,38 @@ public abstract class Basequestion_category extends BaseResource {
 		this.parent_category_name = null;
 	}
 
-	public ArrayList<String> getQuestions() {
+	public Map<String, String> getQuestions() {
 		return questions;
 	}
 
+	public String getQuestions(String key) {
+		return questions == null ? null : questions.get(key);
+	}
 
-	public void setQuestions(ArrayList<String> questions) {
+	public void setQuestions(Map<String, String> questions) {
 		this.questions = questions;
 	}
 
-	public void addQuestions(String value) {
+	public void setQuestions(String key, String value) {
 		if(questions == null)
-			questions = new ArrayList<String>();
-		questions.add(value);
+			questions = new HashMap<String, String>();
+		questions.put(key, value);
 	}
 
 	public void unSetQuestions() {
 		this.questions = null;
+	}
+
+	public String getVisible() {
+		return visible != null ? visible : "N";
+	}
+
+	public void setVisible(String visible) {
+		this.visible = visible;
+	}
+
+	public void unSetVisible() {
+		this.visible = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

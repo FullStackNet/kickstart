@@ -75,6 +75,11 @@
 				'length': 1,
 				'type':'String'
 			},
+			'brushUpSkillService':
+			{
+				'length': 1,
+				'type':'String'
+			},
 			'homeAutomationService':
 			{
 				'length': 1,
