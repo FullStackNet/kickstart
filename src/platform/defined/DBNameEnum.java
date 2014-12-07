@@ -67,4 +67,9 @@ public enum DBNameEnum {
 			return "DB_SCHOOL";
 		}
 	},
+	DB_QUESTION {
+		public String toString() {
+			return "DB_QUESTION";
+		}
+	},
 }
