@@ -35,6 +35,19 @@ public class Question_categoryHelper extends BaseHelper {
 		return str+name;
 	}
 	
+	public void updateTotalQuestions(String id) {
+		question_category _question_category = (question_category)Question_categoryHelper.getInstance().getById(id);
+		if (_question_category == null || _question_category.getQuestions() == null)
+			return;
+		question_category _category = new question_category(_question_category.getId());
+		_category.setTotal_question(_question_category.getQuestions().size());
+		try {
+			Question_categoryHelper.getInstance().update(_category);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void addQuestion(String id,String questionId, long order) {
 		question_category _question_category = new question_category(id);
 		Map<String, Object> map = new HashMap<>();
@@ -46,6 +59,7 @@ public class Question_categoryHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		updateTotalQuestions(id);
 	}
 	void addChilds(Map<String, ArrayList<question_category>> parentMap,ArrayList<IdValue> list,ArrayList<question_category> child_list, int level) {
 		if (Util.isEmpty(child_list))
