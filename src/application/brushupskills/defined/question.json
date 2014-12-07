@@ -17,6 +17,16 @@
 				'type':'String',
 				'index' : true
 			},
+			'question_category_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'question_order':
+			{
+				'type':'long'
+			},
 			'question_description':
 			{
 				'length': 512,

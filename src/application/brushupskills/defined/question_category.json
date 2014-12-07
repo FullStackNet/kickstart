@@ -34,7 +34,8 @@
 			},
 			'questions':
 			{
-				'type':'Map'
+				'type':'Map',
+				'valueType' : "Object"
 			},
 			'visible':
 			{

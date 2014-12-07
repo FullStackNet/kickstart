@@ -24,7 +24,7 @@ public abstract class Basequestion_category extends BaseResource {
 	private String parent_category_id = null;
 	private String parent_category_name = null;
 	private Long total_question = null;
-	private Map<String, String> questions = null;
+	private Map<String, Object> questions = null;
 	private String visible = null;
 	private Map<String, Object> extra_data = null;
 
@@ -66,7 +66,7 @@ public abstract class Basequestion_category extends BaseResource {
 		metaData.addField(total_questionField);
 
 		Field questionsField = new Field("questions", "Map");
-		questionsField.setValueType("String");
+		questionsField.setValueType("Object");
 		metaData.addField(questionsField);
 
 		Field visibleField = new Field("visible", "String");
@@ -163,7 +163,7 @@ public abstract class Basequestion_category extends BaseResource {
 		parent_category_id = (String) map.get("parent_category_id");
 		parent_category_name = (String) map.get("parent_category_name");
 		total_question = (Long) map.get("total_question");
-		questions = (Map<String, String>) map.get("questions");
+		questions = (Map<String, Object>) map.get("questions");
 		visible = (String) map.get("visible");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -190,7 +190,7 @@ public abstract class Basequestion_category extends BaseResource {
 		if(total_questionObj != null)
 			total_question = new Long(total_questionObj.toString());
 
-		questions = (Map<String, String>) map.get("questions");
+		questions = (Map<String, Object>) map.get("questions");
 		Object visibleObj = map.get("visible");
 		if(visibleObj != null)
 			visible = visibleObj.toString();
@@ -294,21 +294,21 @@ public abstract class Basequestion_category extends BaseResource {
 		this.total_question = null;
 	}
 
-	public Map<String, String> getQuestions() {
+	public Map<String, Object> getQuestions() {
 		return questions;
 	}
 
-	public String getQuestions(String key) {
+	public Object getQuestions(String key) {
 		return questions == null ? null : questions.get(key);
 	}
 
-	public void setQuestions(Map<String, String> questions) {
+	public void setQuestions(Map<String, Object> questions) {
 		this.questions = questions;
 	}
 
-	public void setQuestions(String key, String value) {
+	public void setQuestions(String key, Object value) {
 		if(questions == null)
-			questions = new HashMap<String, String>();
+			questions = new HashMap<String, Object>();
 		questions.put(key, value);
 	}
 

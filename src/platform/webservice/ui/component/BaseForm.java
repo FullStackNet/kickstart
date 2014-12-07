@@ -301,6 +301,9 @@ public abstract class BaseForm extends BaseView {
 							"</script>\n";
 					column.addChild(new TEXT(dateJS));
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTAREA) {
+					if (field.isFullWidth()) {
+						column.addChild(new TEXT(field.getLabel()+":"));
+					}
 					TEXTAREA textArea = new TEXTAREA(field.getName(),null,field.isFullWidth());
 					if (value != null) {
 						textArea.setText(value.toString());

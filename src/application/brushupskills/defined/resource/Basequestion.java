@@ -21,6 +21,8 @@ import java.util.*;
 public abstract class Basequestion extends BaseResource {
 	private String id = null;
 	private String question = null;
+	private String question_category_id = null;
+	private Long question_order = null;
 	private String question_description = null;
 	private String answer1 = null;
 	private String answer2 = null;
@@ -31,6 +33,8 @@ public abstract class Basequestion extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_QUESTION = "question";
+	public static String FIELD_QUESTION_CATEGORY_ID = "question_category_id";
+	public static String FIELD_QUESTION_ORDER = "question_order";
 	public static String FIELD_QUESTION_DESCRIPTION = "question_description";
 	public static String FIELD_ANSWER1 = "answer1";
 	public static String FIELD_ANSWER2 = "answer2";
@@ -54,6 +58,14 @@ public abstract class Basequestion extends BaseResource {
 		questionField.setIndexed(true);
 		questionField.setLength(128);
 		metaData.addField(questionField);
+
+		Field question_category_idField = new Field("question_category_id", "String");
+		question_category_idField.setIndexed(true);
+		question_category_idField.setLength(128);
+		metaData.addField(question_category_idField);
+
+		Field question_orderField = new Field("question_order", "long");
+		metaData.addField(question_orderField);
 
 		Field question_descriptionField = new Field("question_description", "String");
 		question_descriptionField.setIndexed(true);
@@ -98,6 +110,8 @@ public abstract class Basequestion extends BaseResource {
 	public Basequestion(Basequestion obj) {
 		this.id = obj.id;
 		this.question = obj.question;
+		this.question_category_id = obj.question_category_id;
+		this.question_order = obj.question_order;
 		this.question_description = obj.question_description;
 		this.answer1 = obj.answer1;
 		this.answer2 = obj.answer2;
@@ -117,6 +131,10 @@ public abstract class Basequestion extends BaseResource {
 			map.put("id", id);
 		if(question != null)
 			map.put("question", question);
+		if(question_category_id != null)
+			map.put("question_category_id", question_category_id);
+		if(question_order != null)
+			map.put("question_order", question_order);
 		if(question_description != null)
 			map.put("question_description", question_description);
 		if(answer1 != null)
@@ -140,6 +158,10 @@ public abstract class Basequestion extends BaseResource {
 			map.put("id", id);
 		if(question != null)
 			map.put("question", question);
+		if(question_category_id != null)
+			map.put("question_category_id", question_category_id);
+		if(question_order != null)
+			map.put("question_order", question_order);
 		if(question_description != null)
 			map.put("question_description", question_description);
 		if(answer1 != null)
@@ -166,6 +188,8 @@ public abstract class Basequestion extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		question = (String) map.get("question");
+		question_category_id = (String) map.get("question_category_id");
+		question_order = (Long) map.get("question_order");
 		question_description = (String) map.get("question_description");
 		answer1 = (String) map.get("answer1");
 		answer2 = (String) map.get("answer2");
@@ -184,6 +208,14 @@ public abstract class Basequestion extends BaseResource {
 		Object questionObj = map.get("question");
 		if(questionObj != null)
 			question = questionObj.toString();
+
+		Object question_category_idObj = map.get("question_category_id");
+		if(question_category_idObj != null)
+			question_category_id = question_category_idObj.toString();
+
+		Object question_orderObj = map.get("question_order");
+		if(question_orderObj != null)
+			question_order = new Long(question_orderObj.toString());
 
 		Object question_descriptionObj = map.get("question_description");
 		if(question_descriptionObj != null)
@@ -251,6 +283,42 @@ public abstract class Basequestion extends BaseResource {
 
 	public void unSetQuestion() {
 		this.question = null;
+	}
+
+	public String getQuestion_category_id() {
+		return question_category_id;
+	}
+
+	public String getQuestion_category_idEx() {
+		return question_category_id != null ? question_category_id : "";
+	}
+
+	public void setQuestion_category_id(String question_category_id) {
+		this.question_category_id = question_category_id;
+	}
+
+	public void unSetQuestion_category_id() {
+		this.question_category_id = null;
+	}
+
+	public Long getQuestion_order() {
+		return question_order;
+	}
+
+	public long getQuestion_orderEx() {
+		return question_order != null ? question_order : 0L;
+	}
+
+	public void setQuestion_order(long question_order) {
+		this.question_order = question_order;
+	}
+
+	public void setQuestion_order(Long question_order) {
+		this.question_order = question_order;
+	}
+
+	public void unSetQuestion_order() {
+		this.question_order = null;
 	}
 
 	public String getQuestion_description() {
