@@ -30,6 +30,12 @@ public class customer extends Basecustomer {
 		return false;
 	}
 	
+	public boolean isBrushupSkillEnabled() {
+		if ("Y".equalsIgnoreCase(getBrushUpSkillService())) {
+			return true;
+		}
+		return false;
+	}
 	public boolean isFleetServiceEnable() {
 		if ("Y".equalsIgnoreCase(getFleetService())) {
 			return true;
