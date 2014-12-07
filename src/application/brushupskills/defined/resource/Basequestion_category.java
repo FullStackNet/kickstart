@@ -23,6 +23,7 @@ public abstract class Basequestion_category extends BaseResource {
 	private String name = null;
 	private String parent_category_id = null;
 	private String parent_category_name = null;
+	private Long total_question = null;
 	private Map<String, String> questions = null;
 	private String visible = null;
 	private Map<String, Object> extra_data = null;
@@ -31,6 +32,7 @@ public abstract class Basequestion_category extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_PARENT_CATEGORY_ID = "parent_category_id";
 	public static String FIELD_PARENT_CATEGORY_NAME = "parent_category_name";
+	public static String FIELD_TOTAL_QUESTION = "total_question";
 	public static String FIELD_QUESTIONS = "questions";
 	public static String FIELD_VISIBLE = "visible";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -60,6 +62,9 @@ public abstract class Basequestion_category extends BaseResource {
 		parent_category_nameField.setLength(512);
 		metaData.addField(parent_category_nameField);
 
+		Field total_questionField = new Field("total_question", "long");
+		metaData.addField(total_questionField);
+
 		Field questionsField = new Field("questions", "Map");
 		questionsField.setValueType("String");
 		metaData.addField(questionsField);
@@ -86,6 +91,7 @@ public abstract class Basequestion_category extends BaseResource {
 		this.name = obj.name;
 		this.parent_category_id = obj.parent_category_id;
 		this.parent_category_name = obj.parent_category_name;
+		this.total_question = obj.total_question;
 		this.questions = obj.questions;
 		this.visible = obj.visible;
 		this.extra_data = obj.extra_data;
@@ -110,6 +116,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("parent_category_id", parent_category_id);
 		if(parent_category_name != null)
 			map.put("parent_category_name", parent_category_name);
+		if(total_question != null)
+			map.put("total_question", total_question);
 		if(questions != null)
 			map.put("questions", questions);
 		if(visible != null)
@@ -132,6 +140,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("parent_category_id", parent_category_id);
 		if(parent_category_name != null)
 			map.put("parent_category_name", parent_category_name);
+		if(total_question != null)
+			map.put("total_question", total_question);
 		if(questions != null)
 			map.put("questions", questions);
 		if(visible != null)
@@ -152,6 +162,7 @@ public abstract class Basequestion_category extends BaseResource {
 		name = (String) map.get("name");
 		parent_category_id = (String) map.get("parent_category_id");
 		parent_category_name = (String) map.get("parent_category_name");
+		total_question = (Long) map.get("total_question");
 		questions = (Map<String, String>) map.get("questions");
 		visible = (String) map.get("visible");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -174,6 +185,10 @@ public abstract class Basequestion_category extends BaseResource {
 		Object parent_category_nameObj = map.get("parent_category_name");
 		if(parent_category_nameObj != null)
 			parent_category_name = parent_category_nameObj.toString();
+
+		Object total_questionObj = map.get("total_question");
+		if(total_questionObj != null)
+			total_question = new Long(total_questionObj.toString());
 
 		questions = (Map<String, String>) map.get("questions");
 		Object visibleObj = map.get("visible");
@@ -257,6 +272,26 @@ public abstract class Basequestion_category extends BaseResource {
 
 	public void unSetParent_category_name() {
 		this.parent_category_name = null;
+	}
+
+	public Long getTotal_question() {
+		return total_question;
+	}
+
+	public long getTotal_questionEx() {
+		return total_question != null ? total_question : 0L;
+	}
+
+	public void setTotal_question(long total_question) {
+		this.total_question = total_question;
+	}
+
+	public void setTotal_question(Long total_question) {
+		this.total_question = total_question;
+	}
+
+	public void unSetTotal_question() {
+		this.total_question = null;
 	}
 
 	public Map<String, String> getQuestions() {

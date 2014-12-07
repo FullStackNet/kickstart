@@ -104,6 +104,8 @@ public class DataSource {
 			}
 		} else if(type.equals(HELPER)) {
 			List<Map<String, Object>> list = helper.getAllMap();
+			if (list == null) 
+				list = new ArrayList<Map<String, Object>>();
 			for(int i=0 ;i < list.size() ; i++) {
 				String keyValue = (String) list.get(i).get(keyField);
 				Object object = list.get(i).get(valueField);

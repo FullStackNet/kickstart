@@ -28,6 +28,10 @@
 				'length': 512,
 				'type':'String'
 			},
+			'total_question':
+			{
+				'type':'long'
+			},
 			'questions':
 			{
 				'type':'Map'
