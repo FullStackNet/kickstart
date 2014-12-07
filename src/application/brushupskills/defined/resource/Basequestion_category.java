@@ -22,12 +22,14 @@ public abstract class Basequestion_category extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String parent_category_id = null;
+	private String parent_category_name = null;
 	private ArrayList<String> questions = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_PARENT_CATEGORY_ID = "parent_category_id";
+	public static String FIELD_PARENT_CATEGORY_NAME = "parent_category_name";
 	public static String FIELD_QUESTIONS = "questions";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -52,6 +54,10 @@ public abstract class Basequestion_category extends BaseResource {
 		parent_category_idField.setLength(512);
 		metaData.addField(parent_category_idField);
 
+		Field parent_category_nameField = new Field("parent_category_name", "String");
+		parent_category_nameField.setLength(512);
+		metaData.addField(parent_category_nameField);
+
 		Field questionsField = new Field("questions", "Array");
 		metaData.addField(questionsField);
 
@@ -71,6 +77,7 @@ public abstract class Basequestion_category extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.parent_category_id = obj.parent_category_id;
+		this.parent_category_name = obj.parent_category_name;
 		this.questions = obj.questions;
 		this.extra_data = obj.extra_data;
 	}
@@ -87,6 +94,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("name", name);
 		if(parent_category_id != null)
 			map.put("parent_category_id", parent_category_id);
+		if(parent_category_name != null)
+			map.put("parent_category_name", parent_category_name);
 		if(questions != null)
 			map.put("questions", questions);
 		if(extra_data != null)
@@ -102,6 +111,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("name", name);
 		if(parent_category_id != null)
 			map.put("parent_category_id", parent_category_id);
+		if(parent_category_name != null)
+			map.put("parent_category_name", parent_category_name);
 		if(questions != null)
 			map.put("questions", questions);
 		if(extra_data != null)
@@ -119,6 +130,7 @@ public abstract class Basequestion_category extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		parent_category_id = (String) map.get("parent_category_id");
+		parent_category_name = (String) map.get("parent_category_name");
 		questions = (ArrayList<String>) map.get("questions");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -136,6 +148,10 @@ public abstract class Basequestion_category extends BaseResource {
 		Object parent_category_idObj = map.get("parent_category_id");
 		if(parent_category_idObj != null)
 			parent_category_id = parent_category_idObj.toString();
+
+		Object parent_category_nameObj = map.get("parent_category_name");
+		if(parent_category_nameObj != null)
+			parent_category_name = parent_category_nameObj.toString();
 
 		questions = (ArrayList<String>) map.get("questions");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -199,6 +215,22 @@ public abstract class Basequestion_category extends BaseResource {
 
 	public void unSetParent_category_id() {
 		this.parent_category_id = null;
+	}
+
+	public String getParent_category_name() {
+		return parent_category_name;
+	}
+
+	public String getParent_category_nameEx() {
+		return parent_category_name != null ? parent_category_name : "";
+	}
+
+	public void setParent_category_name(String parent_category_name) {
+		this.parent_category_name = parent_category_name;
+	}
+
+	public void unSetParent_category_name() {
+		this.parent_category_name = null;
 	}
 
 	public ArrayList<String> getQuestions() {

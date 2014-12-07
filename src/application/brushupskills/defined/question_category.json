@@ -23,6 +23,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'parent_category_name':
+			{
+				'length': 512,
+				'type':'String'
+			},
 			'questions':
 			{
 				'type':'Array'
