@@ -35,7 +35,7 @@ public class Question_categoryHelper extends BaseHelper {
 		return str+name;
 	}
 	
-	public void addCategory(String id,String questionId, long order) {
+	public void addQuestion(String id,String questionId, long order) {
 		question_category _question_category = new question_category(id);
 		Map<String, Object> map = new HashMap<>();
 		map.put(questionId, order);
