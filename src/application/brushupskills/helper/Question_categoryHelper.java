@@ -48,7 +48,65 @@ public class Question_categoryHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	public void updateParentTotalQuestions(String id,long total,long selfCount) {
+		question_category _category = new question_category(id);
+		_category.setTotal_question(total+selfCount);
+		try {
+			Question_categoryHelper.getInstance().update(_category);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void updateParentCategories(Map<String, question_category> categoryMap,
+			Map<String, ArrayList<question_category>> parentMap,String id) {
+		if (parentMap == null) {
+			BaseResource[] resources = Question_categoryHelper.getInstance().getAll(new String[]{question_category.FIELD_ORDER});
+			parentMap = new HashMap<String, ArrayList<question_category>>();
+			categoryMap = new HashMap<String, question_category>();
+			for(BaseResource resource : resources) {
+				String parent = "root";
+				question_category _catgory = (question_category)resource;
+				categoryMap.put(_catgory.getId(), _catgory);
+				if (!Util.isEmpty(_catgory.getParent_category_id())) {
+					parent = _catgory.getParent_category_id();
+				}
+				ArrayList<question_category> child_list = parentMap.get(parent);
+				if (Util.isEmpty(child_list)) {
+					child_list = new ArrayList<question_category>();
+				}
+				child_list.add(_catgory);
+				parentMap.put(parent,child_list);
+			}
+		}
+		
+		ArrayList<question_category> child_list = parentMap.get(id); 
+		question_category _category = categoryMap.get(id);
+		if (_category  == null) return;
+		if (Util.isEmpty(child_list)) return;
+		long selfCount = 0;
+		if (!Util.isEmpty(_category.getQuestions())) {
+			selfCount = _category.getQuestions().size();
+		}
+		long total_count = 0;
+		for(int i=0; i < child_list.size() ; i++) {
+			question_category category = child_list.get(i); 
+			if (category.getTotal_question() != null) {
+				total_count = total_count + category.getTotal_questionEx();
+			}
+		}
+		updateParentTotalQuestions(id,total_count,selfCount);
+		_category.setTotal_question(total_count+selfCount);
+		if (!Util.isEmpty(_category.getParent_category_id())) {
+			updateParentCategories(categoryMap, parentMap, _category.getParent_category_id());
+		}
+	}
+	
 	public void addQuestion(String id,String questionId, long order) {
+		if (id == null) return;
+		if (questionId == null) return;
+		
 		question_category _question_category = new question_category(id);
 		Map<String, Object> map = new HashMap<>();
 		map.put(questionId, order);
@@ -60,6 +118,12 @@ public class Question_categoryHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 		updateTotalQuestions(id);
+		question_category _category = (question_category)Question_categoryHelper.getInstance().getById(id);
+		if (_category == null)
+			return;
+		if (!Util.isEmpty(_category.getParent_category_id())) {
+			updateParentCategories(null,null,_category.getParent_category_id());
+		}
 	}
 	void addChilds(Map<String, ArrayList<question_category>> parentMap,ArrayList<IdValue> list,ArrayList<question_category> child_list, int level) {
 		if (Util.isEmpty(child_list))
