@@ -46,7 +46,7 @@ import platform.util.ExceptionSeverity;
 public class DbManager {
 	public static final int MAX_MYSQL_CONNECTIONS = 10;
 	public static final int MAX_HSQLDB_CONNECTIONS = 50;
-	public static final int MAX_MONGO_DB_CONNECTIONS = 10;
+	public static final int MAX_MONGO_DB_CONNECTIONS = 20;
 	
 	static DbManager instance;
 	ConcurrentHashMap<String, ArrayList<DbConnection>>  connectionMap;
@@ -186,8 +186,12 @@ public class DbManager {
 						throw new ApplicationException(-1," Cluster not found -> "+clusterName+"::"+resourceName+"::"+keyValue);
 					for(BaseResource resource : resources) {
 						cluster cluster = (cluster)resource;
-						MongoDBConnection connection = new MongoDBConnection(cluster.getId(),cluster.getCluster_name(),cluster.getServer(),cluster.getPort(),cluster.getUser_name(),cluster.getPassword(),cluster.getDb_name());
-						connectionList.add(connection);
+						i = 0;
+						while (i < MAX_MONGO_DB_CONNECTIONS) { 
+							MongoDBConnection connection = new MongoDBConnection(cluster.getId(),cluster.getCluster_name(),cluster.getServer(),cluster.getPort(),cluster.getUser_name(),cluster.getPassword(),cluster.getDb_name());
+							connectionList.add(connection);
+							i++;
+						}
 					}
 					connectionMap.put(DBNameEnum.DB_CONFIG.toString(),connectionList);
 					if ((!mainConnectionDone) && ((resources == null)  || resources.length == 0)) {
