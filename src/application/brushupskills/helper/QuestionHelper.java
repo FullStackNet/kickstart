@@ -29,4 +29,15 @@ public class QuestionHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	public void addAnswer(String id,String answerId) {
+		question _question = new question(id);
+		_question.addAnswers(answerId);
+		try {
+			QuestionHelper.getInstance().update(_question);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
