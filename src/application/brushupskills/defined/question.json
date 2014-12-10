@@ -33,29 +33,9 @@
 				'type':'String',
 				'index' : true
 			},
-			'answer1':
+			'answers':
 			{
-				'length': 4096,
-				'type':'String',
-				'index' : true
-			},
-			'answer2':
-			{
-				'length': 4096,
-				'type':'String',
-				'index' : true
-			},
-			'answer3':
-			{
-				'length': 4096,
-				'type':'String',
-				'index' : true
-			},
-			'answer4':
-			{
-				'length': 4096,
-				'type':'String',
-				'index' : true
+				'type':'Array'
 			},
 			'categories':
 			{

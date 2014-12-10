@@ -24,10 +24,7 @@ public abstract class Basequestion extends BaseResource {
 	private String question_category_id = null;
 	private Long question_order = null;
 	private String question_description = null;
-	private String answer1 = null;
-	private String answer2 = null;
-	private String answer3 = null;
-	private String answer4 = null;
+	private ArrayList<String> answers = null;
 	private ArrayList<String> categories = null;
 	private Map<String, Object> extra_data = null;
 
@@ -36,10 +33,7 @@ public abstract class Basequestion extends BaseResource {
 	public static String FIELD_QUESTION_CATEGORY_ID = "question_category_id";
 	public static String FIELD_QUESTION_ORDER = "question_order";
 	public static String FIELD_QUESTION_DESCRIPTION = "question_description";
-	public static String FIELD_ANSWER1 = "answer1";
-	public static String FIELD_ANSWER2 = "answer2";
-	public static String FIELD_ANSWER3 = "answer3";
-	public static String FIELD_ANSWER4 = "answer4";
+	public static String FIELD_ANSWERS = "answers";
 	public static String FIELD_CATEGORIES = "categories";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -72,25 +66,8 @@ public abstract class Basequestion extends BaseResource {
 		question_descriptionField.setLength(512);
 		metaData.addField(question_descriptionField);
 
-		Field answer1Field = new Field("answer1", "String");
-		answer1Field.setIndexed(true);
-		answer1Field.setLength(4096);
-		metaData.addField(answer1Field);
-
-		Field answer2Field = new Field("answer2", "String");
-		answer2Field.setIndexed(true);
-		answer2Field.setLength(4096);
-		metaData.addField(answer2Field);
-
-		Field answer3Field = new Field("answer3", "String");
-		answer3Field.setIndexed(true);
-		answer3Field.setLength(4096);
-		metaData.addField(answer3Field);
-
-		Field answer4Field = new Field("answer4", "String");
-		answer4Field.setIndexed(true);
-		answer4Field.setLength(4096);
-		metaData.addField(answer4Field);
+		Field answersField = new Field("answers", "Array");
+		metaData.addField(answersField);
 
 		Field categoriesField = new Field("categories", "Array");
 		metaData.addField(categoriesField);
@@ -113,10 +90,7 @@ public abstract class Basequestion extends BaseResource {
 		this.question_category_id = obj.question_category_id;
 		this.question_order = obj.question_order;
 		this.question_description = obj.question_description;
-		this.answer1 = obj.answer1;
-		this.answer2 = obj.answer2;
-		this.answer3 = obj.answer3;
-		this.answer4 = obj.answer4;
+		this.answers = obj.answers;
 		this.categories = obj.categories;
 		this.extra_data = obj.extra_data;
 	}
@@ -137,14 +111,8 @@ public abstract class Basequestion extends BaseResource {
 			map.put("question_order", question_order);
 		if(question_description != null)
 			map.put("question_description", question_description);
-		if(answer1 != null)
-			map.put("answer1", answer1);
-		if(answer2 != null)
-			map.put("answer2", answer2);
-		if(answer3 != null)
-			map.put("answer3", answer3);
-		if(answer4 != null)
-			map.put("answer4", answer4);
+		if(answers != null)
+			map.put("answers", answers);
 		if(categories != null)
 			map.put("categories", categories);
 		if(extra_data != null)
@@ -164,14 +132,8 @@ public abstract class Basequestion extends BaseResource {
 			map.put("question_order", question_order);
 		if(question_description != null)
 			map.put("question_description", question_description);
-		if(answer1 != null)
-			map.put("answer1", answer1);
-		if(answer2 != null)
-			map.put("answer2", answer2);
-		if(answer3 != null)
-			map.put("answer3", answer3);
-		if(answer4 != null)
-			map.put("answer4", answer4);
+		if(answers != null)
+			map.put("answers", answers);
 		if(categories != null)
 			map.put("categories", categories);
 		if(extra_data != null)
@@ -191,10 +153,7 @@ public abstract class Basequestion extends BaseResource {
 		question_category_id = (String) map.get("question_category_id");
 		question_order = (Long) map.get("question_order");
 		question_description = (String) map.get("question_description");
-		answer1 = (String) map.get("answer1");
-		answer2 = (String) map.get("answer2");
-		answer3 = (String) map.get("answer3");
-		answer4 = (String) map.get("answer4");
+		answers = (ArrayList<String>) map.get("answers");
 		categories = (ArrayList<String>) map.get("categories");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -221,22 +180,7 @@ public abstract class Basequestion extends BaseResource {
 		if(question_descriptionObj != null)
 			question_description = question_descriptionObj.toString();
 
-		Object answer1Obj = map.get("answer1");
-		if(answer1Obj != null)
-			answer1 = answer1Obj.toString();
-
-		Object answer2Obj = map.get("answer2");
-		if(answer2Obj != null)
-			answer2 = answer2Obj.toString();
-
-		Object answer3Obj = map.get("answer3");
-		if(answer3Obj != null)
-			answer3 = answer3Obj.toString();
-
-		Object answer4Obj = map.get("answer4");
-		if(answer4Obj != null)
-			answer4 = answer4Obj.toString();
-
+		answers = (ArrayList<String>) map.get("answers");
 		categories = (ArrayList<String>) map.get("categories");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -337,68 +281,23 @@ public abstract class Basequestion extends BaseResource {
 		this.question_description = null;
 	}
 
-	public String getAnswer1() {
-		return answer1;
+	public ArrayList<String> getAnswers() {
+		return answers;
 	}
 
-	public String getAnswer1Ex() {
-		return answer1 != null ? answer1 : "";
+
+	public void setAnswers(ArrayList<String> answers) {
+		this.answers = answers;
 	}
 
-	public void setAnswer1(String answer1) {
-		this.answer1 = answer1;
+	public void addAnswers(String value) {
+		if(answers == null)
+			answers = new ArrayList<String>();
+		answers.add(value);
 	}
 
-	public void unSetAnswer1() {
-		this.answer1 = null;
-	}
-
-	public String getAnswer2() {
-		return answer2;
-	}
-
-	public String getAnswer2Ex() {
-		return answer2 != null ? answer2 : "";
-	}
-
-	public void setAnswer2(String answer2) {
-		this.answer2 = answer2;
-	}
-
-	public void unSetAnswer2() {
-		this.answer2 = null;
-	}
-
-	public String getAnswer3() {
-		return answer3;
-	}
-
-	public String getAnswer3Ex() {
-		return answer3 != null ? answer3 : "";
-	}
-
-	public void setAnswer3(String answer3) {
-		this.answer3 = answer3;
-	}
-
-	public void unSetAnswer3() {
-		this.answer3 = null;
-	}
-
-	public String getAnswer4() {
-		return answer4;
-	}
-
-	public String getAnswer4Ex() {
-		return answer4 != null ? answer4 : "";
-	}
-
-	public void setAnswer4(String answer4) {
-		this.answer4 = answer4;
-	}
-
-	public void unSetAnswer4() {
-		this.answer4 = null;
+	public void unSetAnswers() {
+		this.answers = null;
 	}
 
 	public ArrayList<String> getCategories() {
