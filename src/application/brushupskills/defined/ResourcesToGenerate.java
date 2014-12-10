@@ -23,6 +23,7 @@ public class ResourcesToGenerate {
 	public static ResourceMap[] resourceMaps =  {
 		new ResourceMap("candidate", "application.brushupskills.resource.candidate"),
 		new ResourceMap("question", "application.brushupskills.resource.question"),
+		new ResourceMap("answer", "application.brushupskills.resource.answer"),
 		new ResourceMap("question_category", "application.brushupskills.resource.question_category"),		
 	};
 }
