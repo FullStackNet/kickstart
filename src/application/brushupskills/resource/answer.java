@@ -1,9 +1,10 @@
 package application.brushupskills.resource;
 
 import platform.util.Util;
+import application.brushupskills.defined.resource.Baseanswer;
 import application.brushupskills.defined.resource.Basequestion;
 
-public class answer extends Basequestion{
+public class answer extends Baseanswer{
 
 	/**
 	 * 

@@ -50,7 +50,14 @@
 			{
 				'length': 4096,
 				'type':'String'
+			},
+			'visible':
+			{
+				'length': 1,
+				'default' : "N",	
+				'type':'String'
 			}
+			
 		}
 	}
 }

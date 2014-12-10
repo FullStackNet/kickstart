@@ -28,6 +28,7 @@ public abstract class Baseanswer extends BaseResource {
 	private String algorithm = null;
 	private String complexity = null;
 	private String hints = null;
+	private String visible = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -39,6 +40,7 @@ public abstract class Baseanswer extends BaseResource {
 	public static String FIELD_ALGORITHM = "algorithm";
 	public static String FIELD_COMPLEXITY = "complexity";
 	public static String FIELD_HINTS = "hints";
+	public static String FIELD_VISIBLE = "visible";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -84,6 +86,11 @@ public abstract class Baseanswer extends BaseResource {
 		hintsField.setLength(4096);
 		metaData.addField(hintsField);
 
+		Field visibleField = new Field("visible", "String");
+		visibleField.setDefaultValue("N");
+		visibleField.setLength(1);
+		metaData.addField(visibleField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -106,11 +113,17 @@ public abstract class Baseanswer extends BaseResource {
 		this.algorithm = obj.algorithm;
 		this.complexity = obj.complexity;
 		this.hints = obj.hints;
+		this.visible = obj.visible;
 		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(visible == null)
+			visible = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -133,12 +146,17 @@ public abstract class Baseanswer extends BaseResource {
 			map.put("complexity", complexity);
 		if(hints != null)
 			map.put("hints", hints);
+		if(visible != null)
+			map.put("visible", visible);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -158,6 +176,8 @@ public abstract class Baseanswer extends BaseResource {
 			map.put("complexity", complexity);
 		if(hints != null)
 			map.put("hints", hints);
+		if(visible != null)
+			map.put("visible", visible);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -179,6 +199,7 @@ public abstract class Baseanswer extends BaseResource {
 		algorithm = (String) map.get("algorithm");
 		complexity = (String) map.get("complexity");
 		hints = (String) map.get("hints");
+		visible = (String) map.get("visible");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -219,6 +240,10 @@ public abstract class Baseanswer extends BaseResource {
 		Object hintsObj = map.get("hints");
 		if(hintsObj != null)
 			hints = hintsObj.toString();
+
+		Object visibleObj = map.get("visible");
+		if(visibleObj != null)
+			visible = visibleObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -381,6 +406,18 @@ public abstract class Baseanswer extends BaseResource {
 
 	public void unSetHints() {
 		this.hints = null;
+	}
+
+	public String getVisible() {
+		return visible != null ? visible : "N";
+	}
+
+	public void setVisible(String visible) {
+		this.visible = visible;
+	}
+
+	public void unSetVisible() {
+		this.visible = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {
