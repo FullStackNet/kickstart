@@ -3,6 +3,7 @@ package platform.util;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.File;
@@ -10,6 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -1375,6 +1377,19 @@ public class Util {
 		ImageIO.write(newImage, Field.MINIFIED_IMAGE_FILE_TYPE, outputStreams);
 		return outputStreams;
 	}
+	public static void saveDataInFile(String filename, String data) {
+		FileWriter fileWritter;
+		try {
+			fileWritter = new FileWriter(filename,true);
+			BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+		    bufferWritter.write(data);
+		    bufferWritter.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 	}
+	
 	public static void savetoFile(String filename, ByteArrayOutputStream byteArrayOutputStream) {
 		OutputStream outputStream = null;
 		try {
