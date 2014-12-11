@@ -8,7 +8,12 @@ public class LocationUtil {
 		if (Util.isEmpty(lat1) || Util.isEmpty(lon1) || Util.isEmpty(lat2) || Util.isEmpty(lon2)) {
 			return 0;
 		}
+		try {
 		return getDistance(Double.parseDouble(lat1),Double.parseDouble(lon1),Double.parseDouble(lat2),Double.parseDouble(lon2),'K');
+		} catch(Exception e) {
+			
+		}
+		return 0.0;
 	}
 	
 	public static double getDistance(double lat1, double lon1, double lat2, double lon2) {
