@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.db.Expression;
+import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
@@ -171,6 +173,23 @@ public class Question_categoryHelper extends BaseHelper {
 				addLevelResource(parentMap,list,child_child_list,level+1);
 			}
 		}
+	}
+	
+	public BaseResource[] getRootCategories() {
+		BaseResource[] resources = Question_categoryHelper.getInstance().getAll(new String[]{question_category.FIELD_ORDER});
+		ArrayList<question_category> list = new ArrayList<question_category>();
+		for(BaseResource resource : resources) {
+			question_category _catgory = (question_category)resource;
+			if (Util.isEmpty(_catgory.getParent_category_id())) {
+				list.add(_catgory);
+			}
+		}
+		return list.toArray(new question_category[list.size()]);
+	}
+	
+	public BaseResource[] getBySubCategories(String categoryId) {
+		Expression e = new Expression(question_category.FIELD_PARENT_CATEGORY_ID, REL_OP.EQ, categoryId);
+		return  Question_categoryHelper.getInstance().getByExpression(e, new String[]{question_category.FIELD_ORDER});
 	}
 	
 	public BaseResource[] getLeveledResources() {
