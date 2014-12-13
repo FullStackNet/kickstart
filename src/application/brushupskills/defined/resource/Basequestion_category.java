@@ -72,6 +72,10 @@ public abstract class Basequestion_category extends BaseResource {
 		Field total_questionField = new Field("total_question", "long");
 		metaData.addField(total_questionField);
 
+		Field typeField = new Field("type", "String");
+		typeField.setLength(32);
+		metaData.addField(typeField);
+
 		Field questionsField = new Field("questions", "Map");
 		questionsField.setValueType("Object");
 		metaData.addField(questionsField);
@@ -181,6 +185,7 @@ public abstract class Basequestion_category extends BaseResource {
 		parent_category_name = (String) map.get("parent_category_name");
 		order = (Long) map.get("order");
 		total_question = (Long) map.get("total_question");
+		type = (String) map.get("type");
 		questions = (Map<String, Object>) map.get("questions");
 		visible = (String) map.get("visible");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -211,6 +216,10 @@ public abstract class Basequestion_category extends BaseResource {
 		Object total_questionObj = map.get("total_question");
 		if(total_questionObj != null)
 			total_question = new Long(total_questionObj.toString());
+
+		Object typeObj = map.get("type");
+		if(typeObj != null)
+			type = typeObj.toString();
 
 		questions = (Map<String, Object>) map.get("questions");
 		Object visibleObj = map.get("visible");
