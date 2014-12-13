@@ -36,6 +36,13 @@
 			{
 				'type':'long'
 			},
+			'type':
+			{
+				'type':'String',
+				length : 32,
+				transient : true,
+				"comment" : "Q-Question,C-Category"
+			},
 			'questions':
 			{
 				'type':'Map',

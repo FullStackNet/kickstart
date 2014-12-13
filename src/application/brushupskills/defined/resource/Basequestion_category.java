@@ -25,6 +25,7 @@ public abstract class Basequestion_category extends BaseResource {
 	private String parent_category_name = null;
 	private Long order = null;
 	private Long total_question = null;
+	private String type = null; //Q-Question,C-Category
 	private Map<String, Object> questions = null;
 	private String visible = null;
 	private Map<String, Object> extra_data = null;
@@ -35,6 +36,7 @@ public abstract class Basequestion_category extends BaseResource {
 	public static String FIELD_PARENT_CATEGORY_NAME = "parent_category_name";
 	public static String FIELD_ORDER = "order";
 	public static String FIELD_TOTAL_QUESTION = "total_question";
+	public static String FIELD_TYPE = "type";
 	public static String FIELD_QUESTIONS = "questions";
 	public static String FIELD_VISIBLE = "visible";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -98,6 +100,7 @@ public abstract class Basequestion_category extends BaseResource {
 		this.parent_category_name = obj.parent_category_name;
 		this.order = obj.order;
 		this.total_question = obj.total_question;
+		this.type = obj.type;
 		this.questions = obj.questions;
 		this.visible = obj.visible;
 		this.extra_data = obj.extra_data;
@@ -126,6 +129,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("order", order);
 		if(total_question != null)
 			map.put("total_question", total_question);
+		if(type != null)
+			map.put("type", type);
 		if(questions != null)
 			map.put("questions", questions);
 		if(visible != null)
@@ -152,6 +157,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("order", order);
 		if(total_question != null)
 			map.put("total_question", total_question);
+		if(type != null)
+			map.put("type", type);
 		if(questions != null)
 			map.put("questions", questions);
 		if(visible != null)
@@ -327,6 +334,22 @@ public abstract class Basequestion_category extends BaseResource {
 
 	public void unSetTotal_question() {
 		this.total_question = null;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public String getTypeEx() {
+		return type != null ? type : "";
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void unSetType() {
+		this.type = null;
 	}
 
 	public Map<String, Object> getQuestions() {
