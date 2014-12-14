@@ -36,7 +36,36 @@ public class Question_categoryHelper extends BaseHelper {
 		}
 		return str+name;
 	}
-	
+	public question_category orderExist(BaseResource[] catgories,String categoryId, Long order) {
+		for(int i =0; i < catgories.length; i++) {
+			question_category _catgory = (question_category)catgories[i];
+			if (order == _catgory.getOrder()) {
+				if (!_catgory.getId().equals(categoryId))
+					return _catgory;
+			}
+		}
+		return null;
+	}	
+	public void changeOrder(String parentId,String categoryId, Long order) {
+		if (order == null)
+			return;
+		BaseResource[] subcatgories = getBySubCategories(parentId);
+		if (Util.isEmpty(subcatgories))
+			return;
+		question_category _catgory = orderExist(subcatgories,categoryId,order);
+		if (_catgory == null)
+			return;
+		for(int i =0; i < subcatgories.length; i++) {
+			_catgory = (question_category)subcatgories[i];
+			if (!_catgory.getId().equals(categoryId))
+				continue;
+			if (order >=  _catgory.getOrder()) {
+				question_category _pcat = new question_category(_catgory.getId());	
+				_pcat.setOrder(_catgory.getOrder()+10);
+			}
+		}
+		
+	}
 	public void updateTotalQuestions(String id) {
 		question_category _question_category = (question_category)Question_categoryHelper.getInstance().getById(id);
 		if (_question_category == null || _question_category.getQuestions() == null)
