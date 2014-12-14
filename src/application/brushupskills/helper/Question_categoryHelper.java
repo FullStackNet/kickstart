@@ -61,15 +61,16 @@ public class Question_categoryHelper extends BaseHelper {
 			if (_catgory.getId().equals(categoryId))
 				continue;
 			if (order <=  _catgory.getOrder()) {
-				if (newOrder >= _catgory.getOrder())
+				if (newOrder >= _catgory.getOrder()) {
 					newOrder = _catgory.getOrder()+10;
-				question_category _pcat = new question_category(_catgory.getId());	
-				_pcat.setOrder(newOrder);
-				try {
-					Question_categoryHelper.getInstance().update(_pcat);
-				} catch (ApplicationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					question_category _pcat = new question_category(_catgory.getId());	
+					_pcat.setOrder(newOrder);
+					try {
+						Question_categoryHelper.getInstance().update(_pcat);
+					} catch (ApplicationException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		}
