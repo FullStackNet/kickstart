@@ -315,12 +315,12 @@ public class BaseHelper {
 		}
 		return resources;
 	}
-	public List<Map<String, Object>> getAllMap() {
+	public List<Map<String, Object>> getAllMap(String[] order) {
 		DbConnection connection = null;
 		List<Map<String, Object>> rows = null;
 		try {
 			connection = DbManager.getInstance().getConnection(this.getResource());
-			rows = connection.getAll(resource.getMetaData());
+			rows = connection.getAll(resource.getMetaData(),order);
 		} catch(Exception e) {	
 			e.printStackTrace();
 		} finally {
@@ -330,6 +330,10 @@ public class BaseHelper {
 		return rows;
 	}
 
+	public List<Map<String, Object>> getAllMap() {
+		return getAllMap(null);	
+	}
+	
 	public void AddOrUpdate(BaseResource rsc) throws ApplicationException {
 		String id = rsc.getId();
 		BaseResource getResoucre = getById(id);
