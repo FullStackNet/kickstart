@@ -59,9 +59,15 @@ public class Question_categoryHelper extends BaseHelper {
 			_catgory = (question_category)subcatgories[i];
 			if (_catgory.getId().equals(categoryId))
 				continue;
-			if (order >=  _catgory.getOrder()) {
+			if (order <=  _catgory.getOrder()) {
 				question_category _pcat = new question_category(_catgory.getId());	
 				_pcat.setOrder(_catgory.getOrder()+10);
+				try {
+					Question_categoryHelper.getInstance().update(_pcat);
+				} catch (ApplicationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 		
