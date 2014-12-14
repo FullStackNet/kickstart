@@ -22,12 +22,12 @@ public class Question_categoryHelper extends BaseHelper {
 			instance = new Question_categoryHelper();
 		return instance;
 	}
-	
+
 	public Question_categoryHelper() {
 		super(new question_category());
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	String getLevelName(String name, int level) {
 		if (level == 0) return name;
 		String str = "";
@@ -55,13 +55,16 @@ public class Question_categoryHelper extends BaseHelper {
 		question_category _catgory = orderExist(subcatgories,categoryId,order);
 		if (_catgory == null)
 			return;
+		long newOrder = order;
 		for(int i =0; i < subcatgories.length; i++) {
 			_catgory = (question_category)subcatgories[i];
 			if (_catgory.getId().equals(categoryId))
 				continue;
 			if (order <=  _catgory.getOrder()) {
+				if (newOrder >= _catgory.getOrder())
+					newOrder = _catgory.getOrder()+10;
 				question_category _pcat = new question_category(_catgory.getId());	
-				_pcat.setOrder(_catgory.getOrder()+10);
+				_pcat.setOrder(newOrder);
 				try {
 					Question_categoryHelper.getInstance().update(_pcat);
 				} catch (ApplicationException e) {
@@ -70,8 +73,8 @@ public class Question_categoryHelper extends BaseHelper {
 				}
 			}
 		}
-		
 	}
+
 	public void updateTotalQuestions(String id) {
 		question_category _question_category = (question_category)Question_categoryHelper.getInstance().getById(id);
 		if (_question_category == null || _question_category.getQuestions() == null)
@@ -85,7 +88,7 @@ public class Question_categoryHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateParentTotalQuestions(String id,long total,long selfCount) {
 		question_category _category = new question_category(id);
 		_category.setTotal_question(total+selfCount);
@@ -117,7 +120,7 @@ public class Question_categoryHelper extends BaseHelper {
 				parentMap.put(parent,child_list);
 			}
 		}
-		
+
 		ArrayList<question_category> child_list = parentMap.get(id); 
 		question_category _category = categoryMap.get(id);
 		if (_category  == null) return;
@@ -139,11 +142,11 @@ public class Question_categoryHelper extends BaseHelper {
 			updateParentCategories(categoryMap, parentMap, _category.getParent_category_id());
 		}
 	}
-	
+
 	public void addQuestion(String id,String questionId, long order) {
 		if (id == null) return;
 		if (questionId == null) return;
-		
+
 		question_category _question_category = new question_category(id);
 		Map<String, Object> map = new HashMap<>();
 		map.put(questionId, order);
@@ -195,7 +198,7 @@ public class Question_categoryHelper extends BaseHelper {
 		addChilds(parentMap,list,child_list,level);
 		return list.toArray(new IdValue[list.size()]);
 	}
-	
+
 	void addLevelResource(Map<String, ArrayList<question_category>> parentMap,ArrayList<BaseResource> list,ArrayList<question_category> child_list, int level) {
 		if (Util.isEmpty(child_list))
 			return;
@@ -209,7 +212,7 @@ public class Question_categoryHelper extends BaseHelper {
 			}
 		}
 	}
-	
+
 	public BaseResource[] getRootCategories() {
 		BaseResource[] resources = Question_categoryHelper.getInstance().getAll(new String[]{question_category.FIELD_ORDER});
 		ArrayList<question_category> list = new ArrayList<question_category>();
@@ -221,12 +224,12 @@ public class Question_categoryHelper extends BaseHelper {
 		}
 		return list.toArray(new question_category[list.size()]);
 	}
-	
+
 	public BaseResource[] getBySubCategories(String categoryId) {
 		Expression e = new Expression(question_category.FIELD_PARENT_CATEGORY_ID, REL_OP.EQ, categoryId);
 		return  Question_categoryHelper.getInstance().getByExpression(e, new String[]{question_category.FIELD_ORDER});
 	}
-	
+
 	public BaseResource[] getLeveledResources() {
 		int level = 0;
 		ArrayList<BaseResource> list = new ArrayList<>();
@@ -249,5 +252,5 @@ public class Question_categoryHelper extends BaseHelper {
 		addLevelResource(parentMap,list,child_list,level);
 		return list.toArray(new question_category[list.size()]);
 	}
-	
+
 }
