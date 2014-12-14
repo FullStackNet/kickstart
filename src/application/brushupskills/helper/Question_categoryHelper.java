@@ -57,7 +57,7 @@ public class Question_categoryHelper extends BaseHelper {
 			return;
 		for(int i =0; i < subcatgories.length; i++) {
 			_catgory = (question_category)subcatgories[i];
-			if (!_catgory.getId().equals(categoryId))
+			if (_catgory.getId().equals(categoryId))
 				continue;
 			if (order >=  _catgory.getOrder()) {
 				question_category _pcat = new question_category(_catgory.getId());	
