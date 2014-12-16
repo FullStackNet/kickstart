@@ -11,6 +11,7 @@ import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.Util;
 import platform.webservice.ui.definition.IdValue;
+import application.brushupskills.resource.question;
 import application.brushupskills.resource.question_category;
 
 public class Question_categoryHelper extends BaseHelper {
@@ -165,7 +166,9 @@ public class Question_categoryHelper extends BaseHelper {
 		if (!Util.isEmpty(_category.getParent_category_id())) {
 			updateParentCategories(null,null,_category.getParent_category_id());
 		}
+		QuestionHelper.getInstance().changeOrder(id, questionId, order);
 	}
+	
 	void addChilds(Map<String, ArrayList<question_category>> parentMap,ArrayList<IdValue> list,ArrayList<question_category> child_list, int level) {
 		if (Util.isEmpty(child_list))
 			return;
