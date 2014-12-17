@@ -32,7 +32,15 @@
 			{
 				'type':'long'
 			},
+			'total_type':
+			{
+				'type':'long'
+			},
 			'total_question':
+			{
+				'type':'long'
+			},
+			'total_sub_categories':
 			{
 				'type':'long'
 			},
@@ -52,6 +60,10 @@
 				'type':'String',
 				'length' : 1,
 				'default' : "N"	
+			},
+			'sub_categories':
+			{
+				'type':'Array'
 			}
 		}
 	}
