@@ -46,6 +46,9 @@
 			'categories':
 			{
 				'type':'Array'
+			},
+			'creation_time' : {
+				type : "timestamp"
 			}
 		}
 	}
