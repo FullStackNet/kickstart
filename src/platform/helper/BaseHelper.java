@@ -256,6 +256,33 @@ public class BaseHelper {
 		return resources;
 	}
 
+	public BaseResource[] getLatest(int number) {
+		return getLatest(null, number);
+	}
+	
+	public BaseResource[] getLatest(Expression exp, int number) {
+		BaseResource[] resources = null;
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			List<Map<String, Object>> rows = connection.getPage(resource.getMetaData(),exp,new String[]{"creation_time"},0,number);
+			resources = new BaseResource[rows.size()];
+			int i = 0;
+			for(Map<String, Object> row : rows) {
+				BaseResource clonedResource = (BaseResource) this.resource.clone();
+				clonedResource.convertMapToResource(row);
+				resources[i++] = clonedResource;
+			}
+
+		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return resources;
+	}
+	
 	public List<Map<String, Object>> getMapByExpression(Expression expression) {
 		DbConnection connection = null;
 		try {

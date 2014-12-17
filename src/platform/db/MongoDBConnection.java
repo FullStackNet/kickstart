@@ -1032,4 +1032,12 @@ public class MongoDBConnection extends DbConnection {
 		return rows; 
 
 	}
+
+	@Override
+	public List<Map<String, Object>> getPage(ResourceMetaData metaData,
+			Expression expression, String[] order, int page, int number) {
+		// TODO Auto-generated method stub
+		
+		return getByExpression(metaData, expression,order, page, number);
+	}
 }

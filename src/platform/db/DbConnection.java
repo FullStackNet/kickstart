@@ -76,6 +76,7 @@ public abstract class DbConnection {
 	 abstract  public Map<String, Object> get(ResourceMetaData metaData, String Id);
 	 abstract  public Map<String, Object> get(ResourceMetaData metaData, String Id,String[] fieldNames);
 	 abstract public List<Map<String, Object>> getByExpression(ResourceMetaData metaData, Expression expression, String[] orderby);
+	 abstract public List<Map<String, Object>> getPage(ResourceMetaData metaData, Expression expression, String[] order, int page, int number); 
 	 public abstract void validateUniqueKey(ResourceMetaData metadata,String[] keys,Map<String,Object> data) throws Exception;
 	 abstract public List<Map<String, Object>>  getAll(ResourceMetaData metaData) ;
 	 abstract public List<Map<String, Object>>  getAll(ResourceMetaData metaData,String[] orderby) ;

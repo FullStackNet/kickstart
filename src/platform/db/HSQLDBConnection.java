@@ -796,4 +796,11 @@ public class HSQLDBConnection extends DbConnection {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public List<Map<String, Object>> getPage(ResourceMetaData metaData,
+			Expression expression, String[] order, int page, int number) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
