@@ -80,7 +80,7 @@ public class QuestionHelper extends BaseHelper {
 				continue;
 			if (order <=  _question.getQuestion_order()) {
 				if (newOrder >= _question.getQuestion_order()) {
-					newOrder = _question.getQuestion_order()+10;
+					newOrder = _question.getQuestion_order()+1;
 					question_category _pcat = new question_category(categoryId);
 					Map<String, Object> map = new HashMap<>();
 					map.put(_question.getId(), newOrder);

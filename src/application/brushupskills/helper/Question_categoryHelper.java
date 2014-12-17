@@ -63,7 +63,7 @@ public class Question_categoryHelper extends BaseHelper {
 				continue;
 			if (order <=  _catgory.getOrder()) {
 				if (newOrder >= _catgory.getOrder()) {
-					newOrder = _catgory.getOrder()+10;
+					newOrder = _catgory.getOrder()+1;
 					question_category _pcat = new question_category(_catgory.getId());	
 					_pcat.setOrder(newOrder);
 					try {

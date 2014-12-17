@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Basequestion_category extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String description = null;
 	private String parent_category_id = null;
 	private String parent_category_name = null;
 	private Long order = null;
@@ -35,6 +36,7 @@ public abstract class Basequestion_category extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_PARENT_CATEGORY_ID = "parent_category_id";
 	public static String FIELD_PARENT_CATEGORY_NAME = "parent_category_name";
 	public static String FIELD_ORDER = "order";
@@ -62,6 +64,11 @@ public abstract class Basequestion_category extends BaseResource {
 		nameField.setIndexed(true);
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field descriptionField = new Field("description", "String");
+		descriptionField.setIndexed(true);
+		descriptionField.setLength(128);
+		metaData.addField(descriptionField);
 
 		Field parent_category_idField = new Field("parent_category_id", "String");
 		parent_category_idField.setIndexed(true);
@@ -115,6 +122,7 @@ public abstract class Basequestion_category extends BaseResource {
 	public Basequestion_category(Basequestion_category obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.description = obj.description;
 		this.parent_category_id = obj.parent_category_id;
 		this.parent_category_name = obj.parent_category_name;
 		this.order = obj.order;
@@ -143,6 +151,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(description != null)
+			map.put("description", description);
 		if(parent_category_id != null)
 			map.put("parent_category_id", parent_category_id);
 		if(parent_category_name != null)
@@ -177,6 +187,8 @@ public abstract class Basequestion_category extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(description != null)
+			map.put("description", description);
 		if(parent_category_id != null)
 			map.put("parent_category_id", parent_category_id);
 		if(parent_category_name != null)
@@ -211,6 +223,7 @@ public abstract class Basequestion_category extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		description = (String) map.get("description");
 		parent_category_id = (String) map.get("parent_category_id");
 		parent_category_name = (String) map.get("parent_category_name");
 		order = (Long) map.get("order");
@@ -233,6 +246,10 @@ public abstract class Basequestion_category extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object descriptionObj = map.get("description");
+		if(descriptionObj != null)
+			description = descriptionObj.toString();
 
 		Object parent_category_idObj = map.get("parent_category_id");
 		if(parent_category_idObj != null)
@@ -313,6 +330,22 @@ public abstract class Basequestion_category extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getDescriptionEx() {
+		return description != null ? description : "";
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void unSetDescription() {
+		this.description = null;
 	}
 
 	public String getParent_category_id() {

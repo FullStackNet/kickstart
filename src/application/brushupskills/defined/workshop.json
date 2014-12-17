@@ -1,0 +1,77 @@
+{
+	"workshop" :
+	{
+		"cluster": "DB_QUESTION",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'title':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'description':{
+				'length': 4096,
+				'type': 'String'
+			},
+			total_seat : {
+				'type': 'int'
+			},
+			registered : {
+				'type': 'int'
+			},
+			'from_time': {
+				'length': 128,
+				'type': 'String'
+			},
+			'to_time': {
+				'length': 128,
+				'type': 'String'
+			},
+			'attachment': {
+				'length': 128,
+				'type': 'String'
+			},
+			'workshop_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			},
+			'send_sms': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
+			},
+			'total_sent' : {
+				'type': 'int'
+			},
+			'total_sms_sent' : {
+				'type': 'int'
+			},
+			'total_email_sent' : {
+				'type': 'int'
+			},
+			'total_app_notification_sent' : {
+				'type': 'int'
+			},
+			'send_email': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
+			},
+			'sent': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
+			}
+		}
+	}
+}
