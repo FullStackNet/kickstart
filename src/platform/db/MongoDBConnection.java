@@ -232,6 +232,8 @@ public class MongoDBConnection extends DbConnection {
 	}
 
 	public BasicDBObject getCondition(ResourceMetaData metaData,Expression expression) {
+		if (expression == null)
+			return null;
 		BasicDBObject object = new BasicDBObject();
 		if (!expression.isSimple()) {
 			BasicDBObject leftObject = getCondition(metaData,expression.getLeftExpression());
