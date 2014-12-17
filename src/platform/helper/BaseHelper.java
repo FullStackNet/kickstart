@@ -265,7 +265,7 @@ public class BaseHelper {
 		DbConnection connection = null;
 		try {
 			connection = DbManager.getInstance().getConnection(this.getResource());
-			List<Map<String, Object>> rows = connection.getPage(resource.getMetaData(),exp,new String[]{"creation_time"},0,number);
+			List<Map<String, Object>> rows = connection.getPage(resource.getMetaData(),exp,new String[]{"creation_time desc"},0,number);
 			resources = new BaseResource[rows.size()];
 			int i = 0;
 			for(Map<String, Object> row : rows) {
