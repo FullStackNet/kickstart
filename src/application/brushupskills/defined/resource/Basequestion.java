@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Basequestion extends BaseResource {
 	private String id = null;
 	private String question = null;
+	private String content_type = null;
 	private String question_category_id = null;
 	private Long question_order = null;
 	private String question_description = null;
@@ -30,6 +31,7 @@ public abstract class Basequestion extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_QUESTION = "question";
+	public static String FIELD_CONTENT_TYPE = "content_type";
 	public static String FIELD_QUESTION_CATEGORY_ID = "question_category_id";
 	public static String FIELD_QUESTION_ORDER = "question_order";
 	public static String FIELD_QUESTION_DESCRIPTION = "question_description";
@@ -52,6 +54,11 @@ public abstract class Basequestion extends BaseResource {
 		questionField.setIndexed(true);
 		questionField.setLength(128);
 		metaData.addField(questionField);
+
+		Field content_typeField = new Field("content_type", "String");
+		content_typeField.setDefaultValue("Q");
+		content_typeField.setLength(1);
+		metaData.addField(content_typeField);
 
 		Field question_category_idField = new Field("question_category_id", "String");
 		question_category_idField.setIndexed(true);
@@ -87,6 +94,7 @@ public abstract class Basequestion extends BaseResource {
 	public Basequestion(Basequestion obj) {
 		this.id = obj.id;
 		this.question = obj.question;
+		this.content_type = obj.content_type;
 		this.question_category_id = obj.question_category_id;
 		this.question_order = obj.question_order;
 		this.question_description = obj.question_description;
@@ -99,12 +107,19 @@ public abstract class Basequestion extends BaseResource {
 		return metaData;
 	}
 
+	private void setDefaultValues() {
+		if(content_type == null)
+			content_type = "Q";
+	}
+
 	public Map<String, Object> convertResourceToMap() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
 		if(question != null)
 			map.put("question", question);
+		if(content_type != null)
+			map.put("content_type", content_type);
 		if(question_category_id != null)
 			map.put("question_category_id", question_category_id);
 		if(question_order != null)
@@ -121,11 +136,16 @@ public abstract class Basequestion extends BaseResource {
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
 		if(question != null)
 			map.put("question", question);
+		if(content_type != null)
+			map.put("content_type", content_type);
 		if(question_category_id != null)
 			map.put("question_category_id", question_category_id);
 		if(question_order != null)
@@ -150,6 +170,7 @@ public abstract class Basequestion extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		question = (String) map.get("question");
+		content_type = (String) map.get("content_type");
 		question_category_id = (String) map.get("question_category_id");
 		question_order = (Long) map.get("question_order");
 		question_description = (String) map.get("question_description");
@@ -167,6 +188,10 @@ public abstract class Basequestion extends BaseResource {
 		Object questionObj = map.get("question");
 		if(questionObj != null)
 			question = questionObj.toString();
+
+		Object content_typeObj = map.get("content_type");
+		if(content_typeObj != null)
+			content_type = content_typeObj.toString();
 
 		Object question_category_idObj = map.get("question_category_id");
 		if(question_category_idObj != null)
@@ -227,6 +252,18 @@ public abstract class Basequestion extends BaseResource {
 
 	public void unSetQuestion() {
 		this.question = null;
+	}
+
+	public String getContent_type() {
+		return content_type != null ? content_type : "Q";
+	}
+
+	public void setContent_type(String content_type) {
+		this.content_type = content_type;
+	}
+
+	public void unSetContent_type() {
+		this.content_type = "Q";
 	}
 
 	public String getQuestion_category_id() {

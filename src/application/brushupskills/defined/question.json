@@ -17,6 +17,12 @@
 				'type':'String',
 				'index' : true
 			},
+			'content_type' : {
+				'length': 1,
+				'type':'String',
+				'default' : "Q",
+				'comments' : 'Q-Question,N-Note'
+			},
 			'question_category_id':
 			{
 				'length': 128,

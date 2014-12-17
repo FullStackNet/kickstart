@@ -25,7 +25,6 @@ public abstract class Basecandidate extends BaseResource {
 	private String email_id = null;
 	private String current_company = null;
 	private String next_company = null;
-	private String subcategories = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -34,7 +33,6 @@ public abstract class Basecandidate extends BaseResource {
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_CURRENT_COMPANY = "current_company";
 	public static String FIELD_NEXT_COMPANY = "next_company";
-	public static String FIELD_SUBCATEGORIES = "subcategories";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -73,9 +71,6 @@ public abstract class Basecandidate extends BaseResource {
 		next_companyField.setLength(128);
 		metaData.addField(next_companyField);
 
-		Field subcategoriesField = new Field("subcategories", "String");
-		metaData.addField(subcategoriesField);
-
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -95,7 +90,6 @@ public abstract class Basecandidate extends BaseResource {
 		this.email_id = obj.email_id;
 		this.current_company = obj.current_company;
 		this.next_company = obj.next_company;
-		this.subcategories = obj.subcategories;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -117,8 +111,6 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("current_company", current_company);
 		if(next_company != null)
 			map.put("next_company", next_company);
-		if(subcategories != null)
-			map.put("subcategories", subcategories);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -138,8 +130,6 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("current_company", current_company);
 		if(next_company != null)
 			map.put("next_company", next_company);
-		if(subcategories != null)
-			map.put("subcategories", subcategories);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -158,7 +148,6 @@ public abstract class Basecandidate extends BaseResource {
 		email_id = (String) map.get("email_id");
 		current_company = (String) map.get("current_company");
 		next_company = (String) map.get("next_company");
-		subcategories = (String) map.get("subcategories");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -187,10 +176,6 @@ public abstract class Basecandidate extends BaseResource {
 		Object next_companyObj = map.get("next_company");
 		if(next_companyObj != null)
 			next_company = next_companyObj.toString();
-
-		Object subcategoriesObj = map.get("subcategories");
-		if(subcategoriesObj != null)
-			subcategories = subcategoriesObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -301,22 +286,6 @@ public abstract class Basecandidate extends BaseResource {
 
 	public void unSetNext_company() {
 		this.next_company = null;
-	}
-
-	public String getSubcategories() {
-		return subcategories;
-	}
-
-	public String getSubcategoriesEx() {
-		return subcategories != null ? subcategories : "";
-	}
-
-	public void setSubcategories(String subcategories) {
-		this.subcategories = subcategories;
-	}
-
-	public void unSetSubcategories() {
-		this.subcategories = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
