@@ -1,0 +1,33 @@
+{
+	"ask_question" :
+	{
+		"cluster": "DB_QUESTION",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'question':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'question_order':
+			{
+				'type':'long'
+			},
+			'question_description':
+			{
+				'length': 512,
+				'type':'String',
+				'index' : true
+			},
+			
+		}
+	}
+}
