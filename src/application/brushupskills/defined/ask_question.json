@@ -24,10 +24,32 @@
 			'question_description':
 			{
 				'length': 512,
-				'type':'String',
-				'index' : true
+				'type':'String'
 			},
-			
+			'reference_question_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'status':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			"creation_time" :
+			{
+				type: "timestamp"	
+			},
+			"candidate_id" :
+			{
+				'length': 128,
+				'type':'String'	
+			},
+			"candidate_name" :
+			{
+				'length': 128,
+				'type':'String'	
+			}
 		}
 	}
 }

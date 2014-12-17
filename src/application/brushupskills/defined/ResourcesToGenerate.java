@@ -25,5 +25,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("question", "application.brushupskills.resource.question"),
 		new ResourceMap("answer", "application.brushupskills.resource.answer"),
 		new ResourceMap("question_category", "application.brushupskills.resource.question_category"),		
+		new ResourceMap("ask_question", "application.brushupskills.resource.ask_question"),		
+
 	};
 }
