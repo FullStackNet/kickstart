@@ -17,6 +17,12 @@
 				'type':'String',
 				'index' : true
 			},
+			'description':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'parent_category_id':
 			{
 				'length': 512,
