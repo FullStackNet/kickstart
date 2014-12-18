@@ -28,6 +28,8 @@ public abstract class Basequestion extends BaseResource {
 	private ArrayList<String> answers = null;
 	private ArrayList<String> categories = null;
 	private Long creation_time = null;
+	private Long answer_points = null;
+	private Long remember_points = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -39,6 +41,8 @@ public abstract class Basequestion extends BaseResource {
 	public static String FIELD_ANSWERS = "answers";
 	public static String FIELD_CATEGORIES = "categories";
 	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_ANSWER_POINTS = "answer_points";
+	public static String FIELD_REMEMBER_POINTS = "remember_points";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -84,6 +88,12 @@ public abstract class Basequestion extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
+		Field answer_pointsField = new Field("answer_points", "long");
+		metaData.addField(answer_pointsField);
+
+		Field remember_pointsField = new Field("remember_points", "long");
+		metaData.addField(remember_pointsField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -106,6 +116,8 @@ public abstract class Basequestion extends BaseResource {
 		this.answers = obj.answers;
 		this.categories = obj.categories;
 		this.creation_time = obj.creation_time;
+		this.answer_points = obj.answer_points;
+		this.remember_points = obj.remember_points;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -138,6 +150,10 @@ public abstract class Basequestion extends BaseResource {
 			map.put("categories", categories);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(answer_points != null)
+			map.put("answer_points", answer_points);
+		if(remember_points != null)
+			map.put("remember_points", remember_points);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -166,6 +182,10 @@ public abstract class Basequestion extends BaseResource {
 			map.put("categories", categories);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(answer_points != null)
+			map.put("answer_points", answer_points);
+		if(remember_points != null)
+			map.put("remember_points", remember_points);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -187,6 +207,8 @@ public abstract class Basequestion extends BaseResource {
 		answers = (ArrayList<String>) map.get("answers");
 		categories = (ArrayList<String>) map.get("categories");
 		creation_time = (Long) map.get("creation_time");
+		answer_points = (Long) map.get("answer_points");
+		remember_points = (Long) map.get("remember_points");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -221,6 +243,14 @@ public abstract class Basequestion extends BaseResource {
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
+
+		Object answer_pointsObj = map.get("answer_points");
+		if(answer_pointsObj != null)
+			answer_points = new Long(answer_pointsObj.toString());
+
+		Object remember_pointsObj = map.get("remember_points");
+		if(remember_pointsObj != null)
+			remember_points = new Long(remember_pointsObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -379,6 +409,46 @@ public abstract class Basequestion extends BaseResource {
 		this.creation_time = creation_time;
 	}
 
+
+	public Long getAnswer_points() {
+		return answer_points;
+	}
+
+	public long getAnswer_pointsEx() {
+		return answer_points != null ? answer_points : 0L;
+	}
+
+	public void setAnswer_points(long answer_points) {
+		this.answer_points = answer_points;
+	}
+
+	public void setAnswer_points(Long answer_points) {
+		this.answer_points = answer_points;
+	}
+
+	public void unSetAnswer_points() {
+		this.answer_points = null;
+	}
+
+	public Long getRemember_points() {
+		return remember_points;
+	}
+
+	public long getRemember_pointsEx() {
+		return remember_points != null ? remember_points : 0L;
+	}
+
+	public void setRemember_points(long remember_points) {
+		this.remember_points = remember_points;
+	}
+
+	public void setRemember_points(Long remember_points) {
+		this.remember_points = remember_points;
+	}
+
+	public void unSetRemember_points() {
+		this.remember_points = null;
+	}
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

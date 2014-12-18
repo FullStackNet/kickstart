@@ -49,6 +49,14 @@
 			},
 			'creation_time' : {
 				type : "timestamp"
+			},
+			'answer_points':
+			{
+				'type':'long'
+			},
+			'remember_points':
+			{
+				'type':'long'
 			}
 		}
 	}
