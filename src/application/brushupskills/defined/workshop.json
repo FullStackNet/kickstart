@@ -39,7 +39,7 @@
 				'type': 'String'
 			},
 			'workshop_date': {
-				'type': 'long'
+				'type': 'timestamp'
 			},
 			'workshop_date_str': {
 				'type': 'String',
