@@ -38,6 +38,9 @@
 				'length': 128,
 				'type': 'String'
 			},
+			'workshop_date': {
+				'type': 'long'
+			},
 			'workshop_date_str': {
 				'type': 'String',
 				'length' : 32
