@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import application.brushupskills.helper.CandidateHelper;
 import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.db.ResourceOrder;
@@ -495,6 +496,7 @@ public class BaseServlet extends HttpServlet
 				result.setResource(resources);
 				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
+				result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
 					responseStr = HTML.resulttoString(result,fieldName,rendertype);

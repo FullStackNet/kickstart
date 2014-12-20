@@ -29,4 +29,10 @@ public class CandidateHelper extends BaseHelper {
 			return null;
 		return (candidate) resources[0];
 	}
+	public long getPendingCoins(String candidateId) {
+		candidate  resource = (candidate)getById(candidateId);
+		if (resource != null) 
+			return resource.getTotal_coins();
+		return 0;
+	}
 }
