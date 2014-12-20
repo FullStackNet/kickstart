@@ -24,6 +24,10 @@ public abstract class Basecandidate extends BaseResource {
 	private String mobile_no = null;
 	private String email_id = null;
 	private String current_company = null;
+	private Long total_experience_enter_date = null;
+	private Long total_experience = null;
+	private String current_role = null;
+	private String location = null;
 	private String next_company = null;
 	private String password = null;
 	private Long creation_time = null;
@@ -35,6 +39,10 @@ public abstract class Basecandidate extends BaseResource {
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_CURRENT_COMPANY = "current_company";
+	public static String FIELD_TOTAL_EXPERIENCE_ENTER_DATE = "total_experience_enter_date";
+	public static String FIELD_TOTAL_EXPERIENCE = "total_experience";
+	public static String FIELD_CURRENT_ROLE = "current_role";
+	public static String FIELD_LOCATION = "location";
 	public static String FIELD_NEXT_COMPANY = "next_company";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -70,6 +78,20 @@ public abstract class Basecandidate extends BaseResource {
 		current_companyField.setLength(128);
 		metaData.addField(current_companyField);
 
+		Field total_experience_enter_dateField = new Field("total_experience_enter_date", "long");
+		metaData.addField(total_experience_enter_dateField);
+
+		Field total_experienceField = new Field("total_experience", "long");
+		metaData.addField(total_experienceField);
+
+		Field current_roleField = new Field("current_role", "String");
+		current_roleField.setLength(128);
+		metaData.addField(current_roleField);
+
+		Field locationField = new Field("location", "String");
+		locationField.setLength(128);
+		metaData.addField(locationField);
+
 		Field next_companyField = new Field("next_company", "String");
 		next_companyField.setLength(128);
 		metaData.addField(next_companyField);
@@ -102,6 +124,10 @@ public abstract class Basecandidate extends BaseResource {
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
 		this.current_company = obj.current_company;
+		this.total_experience_enter_date = obj.total_experience_enter_date;
+		this.total_experience = obj.total_experience;
+		this.current_role = obj.current_role;
+		this.location = obj.location;
 		this.next_company = obj.next_company;
 		this.password = obj.password;
 		this.creation_time = obj.creation_time;
@@ -125,6 +151,14 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("email_id", email_id);
 		if(current_company != null)
 			map.put("current_company", current_company);
+		if(total_experience_enter_date != null)
+			map.put("total_experience_enter_date", total_experience_enter_date);
+		if(total_experience != null)
+			map.put("total_experience", total_experience);
+		if(current_role != null)
+			map.put("current_role", current_role);
+		if(location != null)
+			map.put("location", location);
 		if(next_company != null)
 			map.put("next_company", next_company);
 		if(password != null)
@@ -150,6 +184,14 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("email_id", email_id);
 		if(current_company != null)
 			map.put("current_company", current_company);
+		if(total_experience_enter_date != null)
+			map.put("total_experience_enter_date", total_experience_enter_date);
+		if(total_experience != null)
+			map.put("total_experience", total_experience);
+		if(current_role != null)
+			map.put("current_role", current_role);
+		if(location != null)
+			map.put("location", location);
 		if(next_company != null)
 			map.put("next_company", next_company);
 		if(password != null)
@@ -175,6 +217,10 @@ public abstract class Basecandidate extends BaseResource {
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
 		current_company = (String) map.get("current_company");
+		total_experience_enter_date = (Long) map.get("total_experience_enter_date");
+		total_experience = (Long) map.get("total_experience");
+		current_role = (String) map.get("current_role");
+		location = (String) map.get("location");
 		next_company = (String) map.get("next_company");
 		password = (String) map.get("password");
 		creation_time = (Long) map.get("creation_time");
@@ -203,6 +249,22 @@ public abstract class Basecandidate extends BaseResource {
 		Object current_companyObj = map.get("current_company");
 		if(current_companyObj != null)
 			current_company = current_companyObj.toString();
+
+		Object total_experience_enter_dateObj = map.get("total_experience_enter_date");
+		if(total_experience_enter_dateObj != null)
+			total_experience_enter_date = new Long(total_experience_enter_dateObj.toString());
+
+		Object total_experienceObj = map.get("total_experience");
+		if(total_experienceObj != null)
+			total_experience = new Long(total_experienceObj.toString());
+
+		Object current_roleObj = map.get("current_role");
+		if(current_roleObj != null)
+			current_role = current_roleObj.toString();
+
+		Object locationObj = map.get("location");
+		if(locationObj != null)
+			location = locationObj.toString();
 
 		Object next_companyObj = map.get("next_company");
 		if(next_companyObj != null)
@@ -313,6 +375,78 @@ public abstract class Basecandidate extends BaseResource {
 
 	public void unSetCurrent_company() {
 		this.current_company = null;
+	}
+
+	public Long getTotal_experience_enter_date() {
+		return total_experience_enter_date;
+	}
+
+	public long getTotal_experience_enter_dateEx() {
+		return total_experience_enter_date != null ? total_experience_enter_date : 0L;
+	}
+
+	public void setTotal_experience_enter_date(long total_experience_enter_date) {
+		this.total_experience_enter_date = total_experience_enter_date;
+	}
+
+	public void setTotal_experience_enter_date(Long total_experience_enter_date) {
+		this.total_experience_enter_date = total_experience_enter_date;
+	}
+
+	public void unSetTotal_experience_enter_date() {
+		this.total_experience_enter_date = null;
+	}
+
+	public Long getTotal_experience() {
+		return total_experience;
+	}
+
+	public long getTotal_experienceEx() {
+		return total_experience != null ? total_experience : 0L;
+	}
+
+	public void setTotal_experience(long total_experience) {
+		this.total_experience = total_experience;
+	}
+
+	public void setTotal_experience(Long total_experience) {
+		this.total_experience = total_experience;
+	}
+
+	public void unSetTotal_experience() {
+		this.total_experience = null;
+	}
+
+	public String getCurrent_role() {
+		return current_role;
+	}
+
+	public String getCurrent_roleEx() {
+		return current_role != null ? current_role : "";
+	}
+
+	public void setCurrent_role(String current_role) {
+		this.current_role = current_role;
+	}
+
+	public void unSetCurrent_role() {
+		this.current_role = null;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public String getLocationEx() {
+		return location != null ? location : "";
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public void unSetLocation() {
+		this.location = null;
 	}
 
 	public String getNext_company() {

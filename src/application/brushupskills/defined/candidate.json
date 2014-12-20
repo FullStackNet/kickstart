@@ -33,6 +33,24 @@
 				'length': 128,
 				'type':'String'
 			},
+			'total_experience_enter_date':
+			{
+				'type':'long'
+			},
+			'total_experience':
+			{
+				'type':'long'
+			},
+			'current_role':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'location':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'next_company':
 			{
 				'length': 128,
