@@ -175,6 +175,8 @@ public class BaseServlet extends HttpServlet
 			result.setResource(p);
 			result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 			result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
+			result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
+			
 		} catch(ApplicationException e){
 			if ((e.getErrorCode() != null) && (e.getErrorCode() == ExceptionEnum.INVALID_SESSION)) {
 				expireSessionCookie(request, response);
@@ -254,6 +256,8 @@ public class BaseServlet extends HttpServlet
 				result.setErrCode(0);
 				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
+				result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
+				
 				result.setMessage("Success");
 				
 		} catch (ApplicationException e){
@@ -309,6 +313,8 @@ public class BaseServlet extends HttpServlet
 				postDelete(request, response);
 				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
+				result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
+				
 			}
 		} catch (ApplicationException e){
 			if ((e.getErrorCode() != null) && (e.getErrorCode() == ExceptionEnum.INVALID_SESSION)) {
@@ -435,6 +441,8 @@ public class BaseServlet extends HttpServlet
 				result.setErrCode(0);
 				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
+				result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
+				
 				result.setMessage("success");
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
@@ -470,6 +478,8 @@ public class BaseServlet extends HttpServlet
 				result.setResource(resources);
 				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
+				result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
+				
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
 					responseStr = HTML.resulttoString(result,fieldName,rendertype);
@@ -536,6 +546,8 @@ public class BaseServlet extends HttpServlet
 				result.setResource(resources);
 				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
+				result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
+				
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
 					responseStr = HTML.resulttoString(result,fieldName,rendertype);
