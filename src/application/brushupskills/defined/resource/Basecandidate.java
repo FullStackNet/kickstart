@@ -27,6 +27,7 @@ public abstract class Basecandidate extends BaseResource {
 	private String next_company = null;
 	private String password = null;
 	private Long creation_time = null;
+	private Long total_coins = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -37,6 +38,7 @@ public abstract class Basecandidate extends BaseResource {
 	public static String FIELD_NEXT_COMPANY = "next_company";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_TOTAL_COINS = "total_coins";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -79,6 +81,9 @@ public abstract class Basecandidate extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
+		Field total_coinsField = new Field("total_coins", "long");
+		metaData.addField(total_coinsField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -100,6 +105,7 @@ public abstract class Basecandidate extends BaseResource {
 		this.next_company = obj.next_company;
 		this.password = obj.password;
 		this.creation_time = obj.creation_time;
+		this.total_coins = obj.total_coins;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -125,6 +131,8 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("password", password);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(total_coins != null)
+			map.put("total_coins", total_coins);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -148,6 +156,8 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("password", password);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(total_coins != null)
+			map.put("total_coins", total_coins);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -168,6 +178,7 @@ public abstract class Basecandidate extends BaseResource {
 		next_company = (String) map.get("next_company");
 		password = (String) map.get("password");
 		creation_time = (Long) map.get("creation_time");
+		total_coins = (Long) map.get("total_coins");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -204,6 +215,10 @@ public abstract class Basecandidate extends BaseResource {
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
+
+		Object total_coinsObj = map.get("total_coins");
+		if(total_coinsObj != null)
+			total_coins = new Long(total_coinsObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -340,6 +355,26 @@ public abstract class Basecandidate extends BaseResource {
 		this.creation_time = creation_time;
 	}
 
+
+	public Long getTotal_coins() {
+		return total_coins;
+	}
+
+	public long getTotal_coinsEx() {
+		return total_coins != null ? total_coins : 0L;
+	}
+
+	public void setTotal_coins(long total_coins) {
+		this.total_coins = total_coins;
+	}
+
+	public void setTotal_coins(Long total_coins) {
+		this.total_coins = total_coins;
+	}
+
+	public void unSetTotal_coins() {
+		this.total_coins = null;
+	}
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

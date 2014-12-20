@@ -45,6 +45,9 @@
 			},
 			'creation_time' : {
 				type : "timestamp"
+			},
+			'total_coins' : {
+				'type' : 'long'
 			}
 		}
 	}
