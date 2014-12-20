@@ -38,10 +38,10 @@
 				'length': 128,
 				'type': 'String'
 			},
-			'workshop_date': {
+			'online_session_date': {
 				'type': 'timestamp'
 			},
-			'workshop_date_str': {
+			'online_session_date_str': {
 				'type': 'String',
 				'length' : 32
 			},

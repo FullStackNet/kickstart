@@ -27,8 +27,8 @@ public abstract class Baseonline_session extends BaseResource {
 	private String from_time = null;
 	private String to_time = null;
 	private String attachment = null;
-	private Long workshop_date = null;
-	private String workshop_date_str = null;
+	private Long online_session_date = null;
+	private String online_session_date_str = null;
 	private Long creation_time = null;
 	private String send_sms = null;
 	private Integer total_sent = null;
@@ -47,8 +47,8 @@ public abstract class Baseonline_session extends BaseResource {
 	public static String FIELD_FROM_TIME = "from_time";
 	public static String FIELD_TO_TIME = "to_time";
 	public static String FIELD_ATTACHMENT = "attachment";
-	public static String FIELD_WORKSHOP_DATE = "workshop_date";
-	public static String FIELD_WORKSHOP_DATE_STR = "workshop_date_str";
+	public static String FIELD_ONLINE_SESSION_DATE = "online_session_date";
+	public static String FIELD_ONLINE_SESSION_DATE_STR = "online_session_date_str";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SEND_SMS = "send_sms";
 	public static String FIELD_TOTAL_SENT = "total_sent";
@@ -96,12 +96,12 @@ public abstract class Baseonline_session extends BaseResource {
 		attachmentField.setLength(128);
 		metaData.addField(attachmentField);
 
-		Field workshop_dateField = new Field("workshop_date", "timestamp");
-		metaData.addField(workshop_dateField);
+		Field online_session_dateField = new Field("online_session_date", "timestamp");
+		metaData.addField(online_session_dateField);
 
-		Field workshop_date_strField = new Field("workshop_date_str", "String");
-		workshop_date_strField.setLength(32);
-		metaData.addField(workshop_date_strField);
+		Field online_session_date_strField = new Field("online_session_date_str", "String");
+		online_session_date_strField.setLength(32);
+		metaData.addField(online_session_date_strField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -154,8 +154,8 @@ public abstract class Baseonline_session extends BaseResource {
 		this.from_time = obj.from_time;
 		this.to_time = obj.to_time;
 		this.attachment = obj.attachment;
-		this.workshop_date = obj.workshop_date;
-		this.workshop_date_str = obj.workshop_date_str;
+		this.online_session_date = obj.online_session_date;
+		this.online_session_date_str = obj.online_session_date_str;
 		this.creation_time = obj.creation_time;
 		this.send_sms = obj.send_sms;
 		this.total_sent = obj.total_sent;
@@ -198,10 +198,10 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("to_time", to_time);
 		if(attachment != null)
 			map.put("attachment", attachment);
-		if(workshop_date != null)
-			map.put("workshop_date", workshop_date);
-		if(workshop_date_str != null)
-			map.put("workshop_date_str", workshop_date_str);
+		if(online_session_date != null)
+			map.put("online_session_date", online_session_date);
+		if(online_session_date_str != null)
+			map.put("online_session_date_str", online_session_date_str);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(send_sms != null)
@@ -244,10 +244,10 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("to_time", to_time);
 		if(attachment != null)
 			map.put("attachment", attachment);
-		if(workshop_date != null)
-			map.put("workshop_date", workshop_date);
-		if(workshop_date_str != null)
-			map.put("workshop_date_str", workshop_date_str);
+		if(online_session_date != null)
+			map.put("online_session_date", online_session_date);
+		if(online_session_date_str != null)
+			map.put("online_session_date_str", online_session_date_str);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(send_sms != null)
@@ -284,8 +284,8 @@ public abstract class Baseonline_session extends BaseResource {
 		from_time = (String) map.get("from_time");
 		to_time = (String) map.get("to_time");
 		attachment = (String) map.get("attachment");
-		workshop_date = (Long) map.get("workshop_date");
-		workshop_date_str = (String) map.get("workshop_date_str");
+		online_session_date = (Long) map.get("online_session_date");
+		online_session_date_str = (String) map.get("online_session_date_str");
 		creation_time = (Long) map.get("creation_time");
 		send_sms = (String) map.get("send_sms");
 		total_sent = (Integer) map.get("total_sent");
@@ -331,13 +331,13 @@ public abstract class Baseonline_session extends BaseResource {
 		if(attachmentObj != null)
 			attachment = attachmentObj.toString();
 
-		Object workshop_dateObj = map.get("workshop_date");
-		if(workshop_dateObj != null)
-			workshop_date = (Long) workshop_dateObj;
+		Object online_session_dateObj = map.get("online_session_date");
+		if(online_session_dateObj != null)
+			online_session_date = (Long) online_session_dateObj;
 
-		Object workshop_date_strObj = map.get("workshop_date_str");
-		if(workshop_date_strObj != null)
-			workshop_date_str = workshop_date_strObj.toString();
+		Object online_session_date_strObj = map.get("online_session_date_str");
+		if(online_session_date_strObj != null)
+			online_session_date_str = online_session_date_strObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -522,29 +522,29 @@ public abstract class Baseonline_session extends BaseResource {
 		this.attachment = null;
 	}
 
-	public Long getWorkshop_date() {
-		return workshop_date;
+	public Long getOnline_session_date() {
+		return online_session_date;
 	}
 
-	public void setWorkshop_date(Long workshop_date) {
-		this.workshop_date = workshop_date;
+	public void setOnline_session_date(Long online_session_date) {
+		this.online_session_date = online_session_date;
 	}
 
 
-	public String getWorkshop_date_str() {
-		return workshop_date_str;
+	public String getOnline_session_date_str() {
+		return online_session_date_str;
 	}
 
-	public String getWorkshop_date_strEx() {
-		return workshop_date_str != null ? workshop_date_str : "";
+	public String getOnline_session_date_strEx() {
+		return online_session_date_str != null ? online_session_date_str : "";
 	}
 
-	public void setWorkshop_date_str(String workshop_date_str) {
-		this.workshop_date_str = workshop_date_str;
+	public void setOnline_session_date_str(String online_session_date_str) {
+		this.online_session_date_str = online_session_date_str;
 	}
 
-	public void unSetWorkshop_date_str() {
-		this.workshop_date_str = null;
+	public void unSetOnline_session_date_str() {
+		this.online_session_date_str = null;
 	}
 
 	public Long getCreation_time() {
