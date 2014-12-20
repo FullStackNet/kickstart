@@ -28,6 +28,7 @@ public abstract class Baseask_question extends BaseResource {
 	private Long creation_time = null;
 	private String candidate_id = null;
 	private String candidate_name = null;
+	private String mobile_no = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -39,6 +40,7 @@ public abstract class Baseask_question extends BaseResource {
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_CANDIDATE_ID = "candidate_id";
 	public static String FIELD_CANDIDATE_NAME = "candidate_name";
+	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -83,6 +85,10 @@ public abstract class Baseask_question extends BaseResource {
 		candidate_nameField.setLength(128);
 		metaData.addField(candidate_nameField);
 
+		Field mobile_noField = new Field("mobile_no", "String");
+		mobile_noField.setLength(128);
+		metaData.addField(mobile_noField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -105,6 +111,7 @@ public abstract class Baseask_question extends BaseResource {
 		this.creation_time = obj.creation_time;
 		this.candidate_id = obj.candidate_id;
 		this.candidate_name = obj.candidate_name;
+		this.mobile_no = obj.mobile_no;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -132,6 +139,8 @@ public abstract class Baseask_question extends BaseResource {
 			map.put("candidate_id", candidate_id);
 		if(candidate_name != null)
 			map.put("candidate_name", candidate_name);
+		if(mobile_no != null)
+			map.put("mobile_no", mobile_no);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -157,6 +166,8 @@ public abstract class Baseask_question extends BaseResource {
 			map.put("candidate_id", candidate_id);
 		if(candidate_name != null)
 			map.put("candidate_name", candidate_name);
+		if(mobile_no != null)
+			map.put("mobile_no", mobile_no);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -178,6 +189,7 @@ public abstract class Baseask_question extends BaseResource {
 		creation_time = (Long) map.get("creation_time");
 		candidate_id = (String) map.get("candidate_id");
 		candidate_name = (String) map.get("candidate_name");
+		mobile_no = (String) map.get("mobile_no");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -218,6 +230,10 @@ public abstract class Baseask_question extends BaseResource {
 		Object candidate_nameObj = map.get("candidate_name");
 		if(candidate_nameObj != null)
 			candidate_name = candidate_nameObj.toString();
+
+		Object mobile_noObj = map.get("mobile_no");
+		if(mobile_noObj != null)
+			mobile_no = mobile_noObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -373,6 +389,22 @@ public abstract class Baseask_question extends BaseResource {
 
 	public void unSetCandidate_name() {
 		this.candidate_name = null;
+	}
+
+	public String getMobile_no() {
+		return mobile_no;
+	}
+
+	public String getMobile_noEx() {
+		return mobile_no != null ? mobile_no : "";
+	}
+
+	public void setMobile_no(String mobile_no) {
+		this.mobile_no = mobile_no;
+	}
+
+	public void unSetMobile_no() {
+		this.mobile_no = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
