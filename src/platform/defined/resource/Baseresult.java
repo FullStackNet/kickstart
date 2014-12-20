@@ -24,6 +24,7 @@ public abstract class Baseresult extends BaseResource {
 	private String sessionId = null;
 	private Long recentNotifications = null;
 	private Long recentAlerts = null;
+	private Long pendingCoins = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ERRCODE = "errCode";
@@ -31,6 +32,7 @@ public abstract class Baseresult extends BaseResource {
 	public static String FIELD_SESSIONID = "sessionId";
 	public static String FIELD_RECENTNOTIFICATIONS = "recentNotifications";
 	public static String FIELD_RECENTALERTS = "recentAlerts";
+	public static String FIELD_PENDINGCOINS = "pendingCoins";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -54,6 +56,9 @@ public abstract class Baseresult extends BaseResource {
 		Field recentAlertsField = new Field("recentAlerts", "long");
 		metaData.addField(recentAlertsField);
 
+		Field pendingCoinsField = new Field("pendingCoins", "long");
+		metaData.addField(pendingCoinsField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -72,6 +77,7 @@ public abstract class Baseresult extends BaseResource {
 		this.sessionId = obj.sessionId;
 		this.recentNotifications = obj.recentNotifications;
 		this.recentAlerts = obj.recentAlerts;
+		this.pendingCoins = obj.pendingCoins;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -91,6 +97,8 @@ public abstract class Baseresult extends BaseResource {
 			map.put("recentNotifications", recentNotifications);
 		if(recentAlerts != null)
 			map.put("recentAlerts", recentAlerts);
+		if(pendingCoins != null)
+			map.put("pendingCoins", pendingCoins);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -108,6 +116,8 @@ public abstract class Baseresult extends BaseResource {
 			map.put("recentNotifications", recentNotifications);
 		if(recentAlerts != null)
 			map.put("recentAlerts", recentAlerts);
+		if(pendingCoins != null)
+			map.put("pendingCoins", pendingCoins);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -125,6 +135,7 @@ public abstract class Baseresult extends BaseResource {
 		sessionId = (String) map.get("sessionId");
 		recentNotifications = (Long) map.get("recentNotifications");
 		recentAlerts = (Long) map.get("recentAlerts");
+		pendingCoins = (Long) map.get("pendingCoins");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -149,6 +160,10 @@ public abstract class Baseresult extends BaseResource {
 		Object recentAlertsObj = map.get("recentAlerts");
 		if(recentAlertsObj != null)
 			recentAlerts = new Long(recentAlertsObj.toString());
+
+		Object pendingCoinsObj = map.get("pendingCoins");
+		if(pendingCoinsObj != null)
+			pendingCoins = new Long(pendingCoinsObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -249,6 +264,26 @@ public abstract class Baseresult extends BaseResource {
 
 	public void unSetRecentAlerts() {
 		this.recentAlerts = null;
+	}
+
+	public Long getPendingCoins() {
+		return pendingCoins;
+	}
+
+	public long getPendingCoinsEx() {
+		return pendingCoins != null ? pendingCoins : 0L;
+	}
+
+	public void setPendingCoins(long pendingCoins) {
+		this.pendingCoins = pendingCoins;
+	}
+
+	public void setPendingCoins(Long pendingCoins) {
+		this.pendingCoins = pendingCoins;
+	}
+
+	public void unSetPendingCoins() {
+		this.pendingCoins = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

@@ -22,6 +22,10 @@
 			"recentAlerts":
 			{
 				"type": "long"
+			},
+			"pendingCoins":
+			{
+				"type": "long"
 			}
 		},
 		"comment": "Result"
