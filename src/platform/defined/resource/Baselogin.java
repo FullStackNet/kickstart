@@ -19,12 +19,14 @@ import java.util.*;
  * 
  */
 public abstract class Baselogin extends BaseResource {
+	private String id = null;
 	private String email_id = null;
 	private String password = null;
 	private String session_id = null;
 	private String api_version = null;
 	private Map<String, Object> extra_data = null;
 
+	public static String FIELD_ID = "id";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_SESSION_ID = "session_id";
@@ -37,6 +39,11 @@ public abstract class Baselogin extends BaseResource {
 	static {
 		metaData.setCheckBeforeAdd(false);
 		metaData.setCheckBeforeUpdate(false);
+		Field idField = new Field("id", "String");
+		idField.setRequired(true);
+		idField.setLength(128);
+		metaData.addField(idField);
+
 		Field email_idField = new Field("email_id", "String");
 		email_idField.setRequired(true);
 		email_idField.setLength(128);
@@ -68,6 +75,7 @@ public abstract class Baselogin extends BaseResource {
 	public Baselogin() {}
 
 	public Baselogin(Baselogin obj) {
+		this.id = obj.id;
 		this.email_id = obj.email_id;
 		this.password = obj.password;
 		this.session_id = obj.session_id;
@@ -81,6 +89,8 @@ public abstract class Baselogin extends BaseResource {
 
 	public Map<String, Object> convertResourceToMap() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		if(id != null)
+			map.put("id", id);
 		if(email_id != null)
 			map.put("email_id", email_id);
 		if(password != null)
@@ -96,6 +106,8 @@ public abstract class Baselogin extends BaseResource {
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		if(validateId(add))
+			map.put("id", id);
 		if(validateEmail_id(add))
 			map.put("email_id", email_id);
 		if(validatePassword(add))
@@ -116,6 +128,7 @@ public abstract class Baselogin extends BaseResource {
 
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
+		id = (String) map.get("id");
 		email_id = (String) map.get("email_id");
 		password = (String) map.get("password");
 		session_id = (String) map.get("session_id");
@@ -125,6 +138,10 @@ public abstract class Baselogin extends BaseResource {
 
 	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
+		Object idObj = map.get("id");
+		if(idObj != null)
+			id = idObj.toString();
+
 		Object email_idObj = map.get("email_id");
 		if(email_idObj != null)
 			email_id = email_idObj.toString();
@@ -148,6 +165,28 @@ public abstract class Baselogin extends BaseResource {
 	}
 
 	public void convertTypeUnsafePrimaryMapToResource(Map<String, Object> map) {
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getIdEx() {
+		return id != null ? id : "";
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void unSetId() {
+		this.id = null;
+	}
+
+	public boolean validateId(boolean add) throws ApplicationException {
+		if(add && id == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
+		return id != null;
 	}
 
 	public String getEmail_id() {

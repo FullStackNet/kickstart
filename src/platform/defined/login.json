@@ -4,6 +4,12 @@
 		"transient" : true,
 		"fields":
 		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
 			'email_id':
 			{
 				'name':'make_id',
