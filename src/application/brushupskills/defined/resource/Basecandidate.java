@@ -23,6 +23,8 @@ public abstract class Basecandidate extends BaseResource {
 	private String name = null;
 	private String mobile_no = null;
 	private String email_id = null;
+	private String last_institute = null;
+	private String last_institute_location = null;
 	private String current_company = null;
 	private Long total_experience_enter_date = null;
 	private Long total_experience = null;
@@ -38,6 +40,8 @@ public abstract class Basecandidate extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
+	public static String FIELD_LAST_INSTITUTE = "last_institute";
+	public static String FIELD_LAST_INSTITUTE_LOCATION = "last_institute_location";
 	public static String FIELD_CURRENT_COMPANY = "current_company";
 	public static String FIELD_TOTAL_EXPERIENCE_ENTER_DATE = "total_experience_enter_date";
 	public static String FIELD_TOTAL_EXPERIENCE = "total_experience";
@@ -73,6 +77,14 @@ public abstract class Basecandidate extends BaseResource {
 		Field email_idField = new Field("email_id", "String");
 		email_idField.setLength(20);
 		metaData.addField(email_idField);
+
+		Field last_instituteField = new Field("last_institute", "String");
+		last_instituteField.setLength(128);
+		metaData.addField(last_instituteField);
+
+		Field last_institute_locationField = new Field("last_institute_location", "String");
+		last_institute_locationField.setLength(128);
+		metaData.addField(last_institute_locationField);
 
 		Field current_companyField = new Field("current_company", "String");
 		current_companyField.setLength(128);
@@ -123,6 +135,8 @@ public abstract class Basecandidate extends BaseResource {
 		this.name = obj.name;
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
+		this.last_institute = obj.last_institute;
+		this.last_institute_location = obj.last_institute_location;
 		this.current_company = obj.current_company;
 		this.total_experience_enter_date = obj.total_experience_enter_date;
 		this.total_experience = obj.total_experience;
@@ -149,6 +163,10 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(email_id != null)
 			map.put("email_id", email_id);
+		if(last_institute != null)
+			map.put("last_institute", last_institute);
+		if(last_institute_location != null)
+			map.put("last_institute_location", last_institute_location);
 		if(current_company != null)
 			map.put("current_company", current_company);
 		if(total_experience_enter_date != null)
@@ -182,6 +200,10 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(email_id != null)
 			map.put("email_id", email_id);
+		if(last_institute != null)
+			map.put("last_institute", last_institute);
+		if(last_institute_location != null)
+			map.put("last_institute_location", last_institute_location);
 		if(current_company != null)
 			map.put("current_company", current_company);
 		if(total_experience_enter_date != null)
@@ -216,6 +238,8 @@ public abstract class Basecandidate extends BaseResource {
 		name = (String) map.get("name");
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
+		last_institute = (String) map.get("last_institute");
+		last_institute_location = (String) map.get("last_institute_location");
 		current_company = (String) map.get("current_company");
 		total_experience_enter_date = (Long) map.get("total_experience_enter_date");
 		total_experience = (Long) map.get("total_experience");
@@ -245,6 +269,14 @@ public abstract class Basecandidate extends BaseResource {
 		Object email_idObj = map.get("email_id");
 		if(email_idObj != null)
 			email_id = email_idObj.toString();
+
+		Object last_instituteObj = map.get("last_institute");
+		if(last_instituteObj != null)
+			last_institute = last_instituteObj.toString();
+
+		Object last_institute_locationObj = map.get("last_institute_location");
+		if(last_institute_locationObj != null)
+			last_institute_location = last_institute_locationObj.toString();
 
 		Object current_companyObj = map.get("current_company");
 		if(current_companyObj != null)
@@ -359,6 +391,38 @@ public abstract class Basecandidate extends BaseResource {
 
 	public void unSetEmail_id() {
 		this.email_id = null;
+	}
+
+	public String getLast_institute() {
+		return last_institute;
+	}
+
+	public String getLast_instituteEx() {
+		return last_institute != null ? last_institute : "";
+	}
+
+	public void setLast_institute(String last_institute) {
+		this.last_institute = last_institute;
+	}
+
+	public void unSetLast_institute() {
+		this.last_institute = null;
+	}
+
+	public String getLast_institute_location() {
+		return last_institute_location;
+	}
+
+	public String getLast_institute_locationEx() {
+		return last_institute_location != null ? last_institute_location : "";
+	}
+
+	public void setLast_institute_location(String last_institute_location) {
+		this.last_institute_location = last_institute_location;
+	}
+
+	public void unSetLast_institute_location() {
+		this.last_institute_location = null;
 	}
 
 	public String getCurrent_company() {

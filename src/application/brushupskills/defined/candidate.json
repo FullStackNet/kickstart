@@ -28,6 +28,16 @@
 				'length': 20,
 				'type':'String'
 			},
+			'last_institute':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'last_institute_location':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'current_company':
 			{
 				'length': 128,
