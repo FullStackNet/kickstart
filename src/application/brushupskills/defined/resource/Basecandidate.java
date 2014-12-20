@@ -23,6 +23,7 @@ public abstract class Basecandidate extends BaseResource {
 	private String name = null;
 	private String mobile_no = null;
 	private String email_id = null;
+	private String degree = null;
 	private String last_institute = null;
 	private String last_institute_location = null;
 	private String current_company = null;
@@ -40,6 +41,7 @@ public abstract class Basecandidate extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
+	public static String FIELD_DEGREE = "degree";
 	public static String FIELD_LAST_INSTITUTE = "last_institute";
 	public static String FIELD_LAST_INSTITUTE_LOCATION = "last_institute_location";
 	public static String FIELD_CURRENT_COMPANY = "current_company";
@@ -77,6 +79,10 @@ public abstract class Basecandidate extends BaseResource {
 		Field email_idField = new Field("email_id", "String");
 		email_idField.setLength(20);
 		metaData.addField(email_idField);
+
+		Field degreeField = new Field("degree", "String");
+		degreeField.setLength(128);
+		metaData.addField(degreeField);
 
 		Field last_instituteField = new Field("last_institute", "String");
 		last_instituteField.setLength(128);
@@ -135,6 +141,7 @@ public abstract class Basecandidate extends BaseResource {
 		this.name = obj.name;
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
+		this.degree = obj.degree;
 		this.last_institute = obj.last_institute;
 		this.last_institute_location = obj.last_institute_location;
 		this.current_company = obj.current_company;
@@ -163,6 +170,8 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(email_id != null)
 			map.put("email_id", email_id);
+		if(degree != null)
+			map.put("degree", degree);
 		if(last_institute != null)
 			map.put("last_institute", last_institute);
 		if(last_institute_location != null)
@@ -200,6 +209,8 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(email_id != null)
 			map.put("email_id", email_id);
+		if(degree != null)
+			map.put("degree", degree);
 		if(last_institute != null)
 			map.put("last_institute", last_institute);
 		if(last_institute_location != null)
@@ -238,6 +249,7 @@ public abstract class Basecandidate extends BaseResource {
 		name = (String) map.get("name");
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
+		degree = (String) map.get("degree");
 		last_institute = (String) map.get("last_institute");
 		last_institute_location = (String) map.get("last_institute_location");
 		current_company = (String) map.get("current_company");
@@ -269,6 +281,10 @@ public abstract class Basecandidate extends BaseResource {
 		Object email_idObj = map.get("email_id");
 		if(email_idObj != null)
 			email_id = email_idObj.toString();
+
+		Object degreeObj = map.get("degree");
+		if(degreeObj != null)
+			degree = degreeObj.toString();
 
 		Object last_instituteObj = map.get("last_institute");
 		if(last_instituteObj != null)
@@ -391,6 +407,22 @@ public abstract class Basecandidate extends BaseResource {
 
 	public void unSetEmail_id() {
 		this.email_id = null;
+	}
+
+	public String getDegree() {
+		return degree;
+	}
+
+	public String getDegreeEx() {
+		return degree != null ? degree : "";
+	}
+
+	public void setDegree(String degree) {
+		this.degree = degree;
+	}
+
+	public void unSetDegree() {
+		this.degree = null;
 	}
 
 	public String getLast_institute() {

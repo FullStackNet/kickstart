@@ -28,6 +28,11 @@
 				'length': 20,
 				'type':'String'
 			},
+			'degree':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'last_institute':
 			{
 				'length': 128,
