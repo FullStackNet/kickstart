@@ -25,6 +25,7 @@ public abstract class Basecandidate extends BaseResource {
 	private String email_id = null;
 	private String current_company = null;
 	private String next_company = null;
+	private String password = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -34,6 +35,7 @@ public abstract class Basecandidate extends BaseResource {
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_CURRENT_COMPANY = "current_company";
 	public static String FIELD_NEXT_COMPANY = "next_company";
+	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -59,19 +61,20 @@ public abstract class Basecandidate extends BaseResource {
 		metaData.addField(mobile_noField);
 
 		Field email_idField = new Field("email_id", "String");
-		email_idField.setIndexed(true);
 		email_idField.setLength(20);
 		metaData.addField(email_idField);
 
 		Field current_companyField = new Field("current_company", "String");
-		current_companyField.setIndexed(true);
 		current_companyField.setLength(128);
 		metaData.addField(current_companyField);
 
 		Field next_companyField = new Field("next_company", "String");
-		next_companyField.setIndexed(true);
 		next_companyField.setLength(128);
 		metaData.addField(next_companyField);
+
+		Field passwordField = new Field("password", "String");
+		passwordField.setLength(128);
+		metaData.addField(passwordField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -95,6 +98,7 @@ public abstract class Basecandidate extends BaseResource {
 		this.email_id = obj.email_id;
 		this.current_company = obj.current_company;
 		this.next_company = obj.next_company;
+		this.password = obj.password;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -117,6 +121,8 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("current_company", current_company);
 		if(next_company != null)
 			map.put("next_company", next_company);
+		if(password != null)
+			map.put("password", password);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -138,6 +144,8 @@ public abstract class Basecandidate extends BaseResource {
 			map.put("current_company", current_company);
 		if(next_company != null)
 			map.put("next_company", next_company);
+		if(password != null)
+			map.put("password", password);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -158,6 +166,7 @@ public abstract class Basecandidate extends BaseResource {
 		email_id = (String) map.get("email_id");
 		current_company = (String) map.get("current_company");
 		next_company = (String) map.get("next_company");
+		password = (String) map.get("password");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -187,6 +196,10 @@ public abstract class Basecandidate extends BaseResource {
 		Object next_companyObj = map.get("next_company");
 		if(next_companyObj != null)
 			next_company = next_companyObj.toString();
+
+		Object passwordObj = map.get("password");
+		if(passwordObj != null)
+			password = passwordObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -301,6 +314,22 @@ public abstract class Basecandidate extends BaseResource {
 
 	public void unSetNext_company() {
 		this.next_company = null;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public String getPasswordEx() {
+		return password != null ? password : "";
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void unSetPassword() {
+		this.password = null;
 	}
 
 	public Long getCreation_time() {

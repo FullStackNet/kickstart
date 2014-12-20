@@ -26,20 +26,22 @@
 			'email_id':
 			{
 				'length': 20,
-				'type':'String',
-				'index' : true
+				'type':'String'
 			},
 			'current_company':
 			{
 				'length': 128,
-				'type':'String',
-				'index' : true
+				'type':'String'
 			},
 			'next_company':
 			{
 				'length': 128,
-				'type':'String',
-				'index' : true
+				'type':'String'
+			},
+			'password':
+			{
+				'length': 128,
+				'type':'String'
 			},
 			'creation_time' : {
 				type : "timestamp"
