@@ -62,6 +62,9 @@
 			'total_email_sent' : {
 				'type': 'int'
 			},
+			'registration_point' : {
+				'type': 'int'
+			},
 			'total_app_notification_sent' : {
 				'type': 'int'
 			},

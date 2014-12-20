@@ -34,6 +34,7 @@ public abstract class Baseworkshop extends BaseResource {
 	private Integer total_sent = null;
 	private Integer total_sms_sent = null;
 	private Integer total_email_sent = null;
+	private Integer registration_point = null;
 	private Integer total_app_notification_sent = null;
 	private String send_email = null;
 	private String sent = null;
@@ -54,6 +55,7 @@ public abstract class Baseworkshop extends BaseResource {
 	public static String FIELD_TOTAL_SENT = "total_sent";
 	public static String FIELD_TOTAL_SMS_SENT = "total_sms_sent";
 	public static String FIELD_TOTAL_EMAIL_SENT = "total_email_sent";
+	public static String FIELD_REGISTRATION_POINT = "registration_point";
 	public static String FIELD_TOTAL_APP_NOTIFICATION_SENT = "total_app_notification_sent";
 	public static String FIELD_SEND_EMAIL = "send_email";
 	public static String FIELD_SENT = "sent";
@@ -120,6 +122,9 @@ public abstract class Baseworkshop extends BaseResource {
 		Field total_email_sentField = new Field("total_email_sent", "int");
 		metaData.addField(total_email_sentField);
 
+		Field registration_pointField = new Field("registration_point", "int");
+		metaData.addField(registration_pointField);
+
 		Field total_app_notification_sentField = new Field("total_app_notification_sent", "int");
 		metaData.addField(total_app_notification_sentField);
 
@@ -161,6 +166,7 @@ public abstract class Baseworkshop extends BaseResource {
 		this.total_sent = obj.total_sent;
 		this.total_sms_sent = obj.total_sms_sent;
 		this.total_email_sent = obj.total_email_sent;
+		this.registration_point = obj.registration_point;
 		this.total_app_notification_sent = obj.total_app_notification_sent;
 		this.send_email = obj.send_email;
 		this.sent = obj.sent;
@@ -212,6 +218,8 @@ public abstract class Baseworkshop extends BaseResource {
 			map.put("total_sms_sent", total_sms_sent);
 		if(total_email_sent != null)
 			map.put("total_email_sent", total_email_sent);
+		if(registration_point != null)
+			map.put("registration_point", registration_point);
 		if(total_app_notification_sent != null)
 			map.put("total_app_notification_sent", total_app_notification_sent);
 		if(send_email != null)
@@ -258,6 +266,8 @@ public abstract class Baseworkshop extends BaseResource {
 			map.put("total_sms_sent", total_sms_sent);
 		if(total_email_sent != null)
 			map.put("total_email_sent", total_email_sent);
+		if(registration_point != null)
+			map.put("registration_point", registration_point);
 		if(total_app_notification_sent != null)
 			map.put("total_app_notification_sent", total_app_notification_sent);
 		if(send_email != null)
@@ -291,6 +301,7 @@ public abstract class Baseworkshop extends BaseResource {
 		total_sent = (Integer) map.get("total_sent");
 		total_sms_sent = (Integer) map.get("total_sms_sent");
 		total_email_sent = (Integer) map.get("total_email_sent");
+		registration_point = (Integer) map.get("registration_point");
 		total_app_notification_sent = (Integer) map.get("total_app_notification_sent");
 		send_email = (String) map.get("send_email");
 		sent = (String) map.get("sent");
@@ -358,6 +369,10 @@ public abstract class Baseworkshop extends BaseResource {
 		Object total_email_sentObj = map.get("total_email_sent");
 		if(total_email_sentObj != null)
 			total_email_sent = new Integer(total_email_sentObj.toString());
+
+		Object registration_pointObj = map.get("registration_point");
+		if(registration_pointObj != null)
+			registration_point = new Integer(registration_pointObj.toString());
 
 		Object total_app_notification_sentObj = map.get("total_app_notification_sent");
 		if(total_app_notification_sentObj != null)
@@ -626,6 +641,26 @@ public abstract class Baseworkshop extends BaseResource {
 
 	public void unSetTotal_email_sent() {
 		this.total_email_sent = null;
+	}
+
+	public Integer getRegistration_point() {
+		return registration_point;
+	}
+
+	public int getRegistration_pointEx() {
+		return registration_point != null ? registration_point : 0;
+	}
+
+	public void setRegistration_point(int registration_point) {
+		this.registration_point = registration_point;
+	}
+
+	public void setRegistration_point(Integer registration_point) {
+		this.registration_point = registration_point;
+	}
+
+	public void unSetRegistration_point() {
+		this.registration_point = null;
 	}
 
 	public Integer getTotal_app_notification_sent() {
