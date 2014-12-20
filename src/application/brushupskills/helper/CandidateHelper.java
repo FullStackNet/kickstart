@@ -31,8 +31,8 @@ public class CandidateHelper extends BaseHelper {
 	}
 	public long getPendingCoins(String candidateId) {
 		candidate  resource = (candidate)getById(candidateId);
-		if (resource != null) 
-			return resource.getTotal_coins();
+		if ((resource != null) &&  (resource.getTotal_coins() != null ))
+			return resource.getTotal_coinsEx();
 		return 0;
 	}
 }
