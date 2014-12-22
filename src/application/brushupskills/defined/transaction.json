@@ -17,6 +17,18 @@
 				'type':'String',
 				'index' : true
 			},
+			'candidate_name':
+			{
+				'length': 20,
+				'type':'String',
+				'index' : true
+			},
+			'candidate_mobile_no':
+			{
+				'length': 20,
+				'type':'String',
+				'index' : true
+			},
 			'transaction_number':
 			{
 				'length': 20,
@@ -29,7 +41,8 @@
 			},
 			'points':
 			{
-				'type':'long'
+				'type':'int',
+				'default' : 0
 			},
 			'creation_time' : {
 				'type':'timestamp'

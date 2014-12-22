@@ -21,9 +21,11 @@ import java.util.*;
 public abstract class Basetransaction extends BaseResource {
 	private String id = null;
 	private String candidate_id = null;
+	private String candidate_name = null;
+	private String candidate_mobile_no = null;
 	private String transaction_number = null;
 	private String amount = null;
-	private Long points = null;
+	private Integer points = null;
 	private Long creation_time = null;
 	private Long expiry_time = null;
 	private String status = null;
@@ -31,6 +33,8 @@ public abstract class Basetransaction extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_CANDIDATE_ID = "candidate_id";
+	public static String FIELD_CANDIDATE_NAME = "candidate_name";
+	public static String FIELD_CANDIDATE_MOBILE_NO = "candidate_mobile_no";
 	public static String FIELD_TRANSACTION_NUMBER = "transaction_number";
 	public static String FIELD_AMOUNT = "amount";
 	public static String FIELD_POINTS = "points";
@@ -55,6 +59,16 @@ public abstract class Basetransaction extends BaseResource {
 		candidate_idField.setLength(20);
 		metaData.addField(candidate_idField);
 
+		Field candidate_nameField = new Field("candidate_name", "String");
+		candidate_nameField.setIndexed(true);
+		candidate_nameField.setLength(20);
+		metaData.addField(candidate_nameField);
+
+		Field candidate_mobile_noField = new Field("candidate_mobile_no", "String");
+		candidate_mobile_noField.setIndexed(true);
+		candidate_mobile_noField.setLength(20);
+		metaData.addField(candidate_mobile_noField);
+
 		Field transaction_numberField = new Field("transaction_number", "String");
 		transaction_numberField.setLength(20);
 		metaData.addField(transaction_numberField);
@@ -63,7 +77,8 @@ public abstract class Basetransaction extends BaseResource {
 		amountField.setLength(128);
 		metaData.addField(amountField);
 
-		Field pointsField = new Field("points", "long");
+		Field pointsField = new Field("points", "int");
+		pointsField.setDefaultValue(0);
 		metaData.addField(pointsField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
@@ -92,6 +107,8 @@ public abstract class Basetransaction extends BaseResource {
 	public Basetransaction(Basetransaction obj) {
 		this.id = obj.id;
 		this.candidate_id = obj.candidate_id;
+		this.candidate_name = obj.candidate_name;
+		this.candidate_mobile_no = obj.candidate_mobile_no;
 		this.transaction_number = obj.transaction_number;
 		this.amount = obj.amount;
 		this.points = obj.points;
@@ -106,6 +123,8 @@ public abstract class Basetransaction extends BaseResource {
 	}
 
 	private void setDefaultValues() {
+		if(points == null)
+			points = 0;
 		if(status == null)
 			status = "NEW";
 	}
@@ -116,6 +135,10 @@ public abstract class Basetransaction extends BaseResource {
 			map.put("id", id);
 		if(candidate_id != null)
 			map.put("candidate_id", candidate_id);
+		if(candidate_name != null)
+			map.put("candidate_name", candidate_name);
+		if(candidate_mobile_no != null)
+			map.put("candidate_mobile_no", candidate_mobile_no);
 		if(transaction_number != null)
 			map.put("transaction_number", transaction_number);
 		if(amount != null)
@@ -142,6 +165,10 @@ public abstract class Basetransaction extends BaseResource {
 			map.put("id", id);
 		if(candidate_id != null)
 			map.put("candidate_id", candidate_id);
+		if(candidate_name != null)
+			map.put("candidate_name", candidate_name);
+		if(candidate_mobile_no != null)
+			map.put("candidate_mobile_no", candidate_mobile_no);
 		if(transaction_number != null)
 			map.put("transaction_number", transaction_number);
 		if(amount != null)
@@ -168,9 +195,11 @@ public abstract class Basetransaction extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		candidate_id = (String) map.get("candidate_id");
+		candidate_name = (String) map.get("candidate_name");
+		candidate_mobile_no = (String) map.get("candidate_mobile_no");
 		transaction_number = (String) map.get("transaction_number");
 		amount = (String) map.get("amount");
-		points = (Long) map.get("points");
+		points = (Integer) map.get("points");
 		creation_time = (Long) map.get("creation_time");
 		expiry_time = (Long) map.get("expiry_time");
 		status = (String) map.get("status");
@@ -187,6 +216,14 @@ public abstract class Basetransaction extends BaseResource {
 		if(candidate_idObj != null)
 			candidate_id = candidate_idObj.toString();
 
+		Object candidate_nameObj = map.get("candidate_name");
+		if(candidate_nameObj != null)
+			candidate_name = candidate_nameObj.toString();
+
+		Object candidate_mobile_noObj = map.get("candidate_mobile_no");
+		if(candidate_mobile_noObj != null)
+			candidate_mobile_no = candidate_mobile_noObj.toString();
+
 		Object transaction_numberObj = map.get("transaction_number");
 		if(transaction_numberObj != null)
 			transaction_number = transaction_numberObj.toString();
@@ -197,7 +234,7 @@ public abstract class Basetransaction extends BaseResource {
 
 		Object pointsObj = map.get("points");
 		if(pointsObj != null)
-			points = new Long(pointsObj.toString());
+			points = new Integer(pointsObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -258,6 +295,38 @@ public abstract class Basetransaction extends BaseResource {
 		this.candidate_id = null;
 	}
 
+	public String getCandidate_name() {
+		return candidate_name;
+	}
+
+	public String getCandidate_nameEx() {
+		return candidate_name != null ? candidate_name : "";
+	}
+
+	public void setCandidate_name(String candidate_name) {
+		this.candidate_name = candidate_name;
+	}
+
+	public void unSetCandidate_name() {
+		this.candidate_name = null;
+	}
+
+	public String getCandidate_mobile_no() {
+		return candidate_mobile_no;
+	}
+
+	public String getCandidate_mobile_noEx() {
+		return candidate_mobile_no != null ? candidate_mobile_no : "";
+	}
+
+	public void setCandidate_mobile_no(String candidate_mobile_no) {
+		this.candidate_mobile_no = candidate_mobile_no;
+	}
+
+	public void unSetCandidate_mobile_no() {
+		this.candidate_mobile_no = null;
+	}
+
 	public String getTransaction_number() {
 		return transaction_number;
 	}
@@ -290,24 +359,20 @@ public abstract class Basetransaction extends BaseResource {
 		this.amount = null;
 	}
 
-	public Long getPoints() {
-		return points;
+	public Integer getPoints() {
+		return points != null ? points : 0;
 	}
 
-	public long getPointsEx() {
-		return points != null ? points : 0L;
-	}
-
-	public void setPoints(long points) {
+	public void setPoints(int points) {
 		this.points = points;
 	}
 
-	public void setPoints(Long points) {
+	public void setPoints(Integer points) {
 		this.points = points;
 	}
 
 	public void unSetPoints() {
-		this.points = null;
+		this.points = 0;
 	}
 
 	public Long getCreation_time() {
