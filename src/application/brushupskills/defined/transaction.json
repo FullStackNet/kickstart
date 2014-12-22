@@ -1,0 +1,48 @@
+{
+	"transaction" :
+	{
+		"cluster": "DB_QUESTION",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'candidate_id':
+			{
+				'length': 20,
+				'type':'String',
+				'index' : true
+			},
+			'transaction_number':
+			{
+				'length': 20,
+				'type':'String'
+			},
+			'amount':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'points':
+			{
+				'type':'long'
+			},
+			'creation_time' : {
+				'type':'timestamp'
+			},
+			'expiry_time' : {
+				'type':'timestamp'
+			},
+			'status':
+			{
+				'type':'String',
+				'length' : 32,
+				'default' : "NEW"
+			}
+		}
+	}
+}
