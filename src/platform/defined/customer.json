@@ -86,6 +86,18 @@
 				'type':'String',
 				'default' : "N"
 			},
+			'customerService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'merchantService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'selfOwned':
 			{
 				'length': 1,

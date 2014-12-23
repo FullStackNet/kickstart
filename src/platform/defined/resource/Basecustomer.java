@@ -35,6 +35,8 @@ public abstract class Basecustomer extends BaseResource {
 	private String dgService = null;
 	private String brushUpSkillService = null;
 	private String homeAutomationService = null;
+	private String customerService = null;
+	private String merchantService = null;
 	private String selfOwned = null;
 	private String leasedOut = null;
 	private String leasedIn = null;
@@ -58,6 +60,8 @@ public abstract class Basecustomer extends BaseResource {
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_BRUSHUPSKILLSERVICE = "brushUpSkillService";
 	public static String FIELD_HOMEAUTOMATIONSERVICE = "homeAutomationService";
+	public static String FIELD_CUSTOMERSERVICE = "customerService";
+	public static String FIELD_MERCHANTSERVICE = "merchantService";
 	public static String FIELD_SELFOWNED = "selfOwned";
 	public static String FIELD_LEASEDOUT = "leasedOut";
 	public static String FIELD_LEASEDIN = "leasedIn";
@@ -137,6 +141,16 @@ public abstract class Basecustomer extends BaseResource {
 		homeAutomationServiceField.setLength(1);
 		metaData.addField(homeAutomationServiceField);
 
+		Field customerServiceField = new Field("customerService", "String");
+		customerServiceField.setDefaultValue("N");
+		customerServiceField.setLength(1);
+		metaData.addField(customerServiceField);
+
+		Field merchantServiceField = new Field("merchantService", "String");
+		merchantServiceField.setDefaultValue("N");
+		merchantServiceField.setLength(1);
+		metaData.addField(merchantServiceField);
+
 		Field selfOwnedField = new Field("selfOwned", "String");
 		selfOwnedField.setLength(1);
 		metaData.addField(selfOwnedField);
@@ -186,6 +200,8 @@ public abstract class Basecustomer extends BaseResource {
 		this.dgService = obj.dgService;
 		this.brushUpSkillService = obj.brushUpSkillService;
 		this.homeAutomationService = obj.homeAutomationService;
+		this.customerService = obj.customerService;
+		this.merchantService = obj.merchantService;
 		this.selfOwned = obj.selfOwned;
 		this.leasedOut = obj.leasedOut;
 		this.leasedIn = obj.leasedIn;
@@ -201,6 +217,10 @@ public abstract class Basecustomer extends BaseResource {
 	private void setDefaultValues() {
 		if(homeAutomationService == null)
 			homeAutomationService = "N";
+		if(customerService == null)
+			customerService = "N";
+		if(merchantService == null)
+			merchantService = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -237,6 +257,10 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("brushUpSkillService", brushUpSkillService);
 		if(homeAutomationService != null)
 			map.put("homeAutomationService", homeAutomationService);
+		if(customerService != null)
+			map.put("customerService", customerService);
+		if(merchantService != null)
+			map.put("merchantService", merchantService);
 		if(selfOwned != null)
 			map.put("selfOwned", selfOwned);
 		if(leasedOut != null)
@@ -289,6 +313,10 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("brushUpSkillService", brushUpSkillService);
 		if(homeAutomationService != null)
 			map.put("homeAutomationService", homeAutomationService);
+		if(customerService != null)
+			map.put("customerService", customerService);
+		if(merchantService != null)
+			map.put("merchantService", merchantService);
 		if(selfOwned != null)
 			map.put("selfOwned", selfOwned);
 		if(leasedOut != null)
@@ -327,6 +355,8 @@ public abstract class Basecustomer extends BaseResource {
 		dgService = (String) map.get("dgService");
 		brushUpSkillService = (String) map.get("brushUpSkillService");
 		homeAutomationService = (String) map.get("homeAutomationService");
+		customerService = (String) map.get("customerService");
+		merchantService = (String) map.get("merchantService");
 		selfOwned = (String) map.get("selfOwned");
 		leasedOut = (String) map.get("leasedOut");
 		leasedIn = (String) map.get("leasedIn");
@@ -400,6 +430,14 @@ public abstract class Basecustomer extends BaseResource {
 		Object homeAutomationServiceObj = map.get("homeAutomationService");
 		if(homeAutomationServiceObj != null)
 			homeAutomationService = homeAutomationServiceObj.toString();
+
+		Object customerServiceObj = map.get("customerService");
+		if(customerServiceObj != null)
+			customerService = customerServiceObj.toString();
+
+		Object merchantServiceObj = map.get("merchantService");
+		if(merchantServiceObj != null)
+			merchantService = merchantServiceObj.toString();
 
 		Object selfOwnedObj = map.get("selfOwned");
 		if(selfOwnedObj != null)
@@ -686,6 +724,30 @@ public abstract class Basecustomer extends BaseResource {
 
 	public void unSetHomeAutomationService() {
 		this.homeAutomationService = "N";
+	}
+
+	public String getCustomerService() {
+		return customerService != null ? customerService : "N";
+	}
+
+	public void setCustomerService(String customerService) {
+		this.customerService = customerService;
+	}
+
+	public void unSetCustomerService() {
+		this.customerService = "N";
+	}
+
+	public String getMerchantService() {
+		return merchantService != null ? merchantService : "N";
+	}
+
+	public void setMerchantService(String merchantService) {
+		this.merchantService = merchantService;
+	}
+
+	public void unSetMerchantService() {
+		this.merchantService = "N";
 	}
 
 	public String getSelfOwned() {
