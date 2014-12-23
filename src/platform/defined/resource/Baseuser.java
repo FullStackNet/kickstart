@@ -41,6 +41,8 @@ public abstract class Baseuser extends BaseResource {
 	private String routeSettingService = null;
 	private String homeAutomationService = null;
 	private String schoolAdminService = null;
+	private String customerService = null;
+	private String merchantService = null;
 	private String operation_student_delete = null;
 	private String operation_student_edit = null;
 	private String configuration_edit = null;
@@ -73,6 +75,8 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_ROUTESETTINGSERVICE = "routeSettingService";
 	public static String FIELD_HOMEAUTOMATIONSERVICE = "homeAutomationService";
 	public static String FIELD_SCHOOLADMINSERVICE = "schoolAdminService";
+	public static String FIELD_CUSTOMERSERVICE = "customerService";
+	public static String FIELD_MERCHANTSERVICE = "merchantService";
 	public static String FIELD_OPERATION_STUDENT_DELETE = "operation_student_delete";
 	public static String FIELD_OPERATION_STUDENT_EDIT = "operation_student_edit";
 	public static String FIELD_CONFIGURATION_EDIT = "configuration_edit";
@@ -191,6 +195,16 @@ public abstract class Baseuser extends BaseResource {
 		schoolAdminServiceField.setLength(1);
 		metaData.addField(schoolAdminServiceField);
 
+		Field customerServiceField = new Field("customerService", "String");
+		customerServiceField.setDefaultValue("N");
+		customerServiceField.setLength(1);
+		metaData.addField(customerServiceField);
+
+		Field merchantServiceField = new Field("merchantService", "String");
+		merchantServiceField.setDefaultValue("N");
+		merchantServiceField.setLength(1);
+		metaData.addField(merchantServiceField);
+
 		Field operation_student_deleteField = new Field("operation_student_delete", "String");
 		operation_student_deleteField.setDefaultValue("N");
 		operation_student_deleteField.setLength(1);
@@ -264,6 +278,8 @@ public abstract class Baseuser extends BaseResource {
 		this.routeSettingService = obj.routeSettingService;
 		this.homeAutomationService = obj.homeAutomationService;
 		this.schoolAdminService = obj.schoolAdminService;
+		this.customerService = obj.customerService;
+		this.merchantService = obj.merchantService;
 		this.operation_student_delete = obj.operation_student_delete;
 		this.operation_student_edit = obj.operation_student_edit;
 		this.configuration_edit = obj.configuration_edit;
@@ -298,6 +314,10 @@ public abstract class Baseuser extends BaseResource {
 			homeAutomationService = "N";
 		if(schoolAdminService == null)
 			schoolAdminService = "N";
+		if(customerService == null)
+			customerService = "N";
+		if(merchantService == null)
+			merchantService = "N";
 		if(operation_student_delete == null)
 			operation_student_delete = "N";
 		if(operation_student_edit == null)
@@ -360,6 +380,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("homeAutomationService", homeAutomationService);
 		if(schoolAdminService != null)
 			map.put("schoolAdminService", schoolAdminService);
+		if(customerService != null)
+			map.put("customerService", customerService);
+		if(merchantService != null)
+			map.put("merchantService", merchantService);
 		if(operation_student_delete != null)
 			map.put("operation_student_delete", operation_student_delete);
 		if(operation_student_edit != null)
@@ -430,6 +454,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("homeAutomationService", homeAutomationService);
 		if(schoolAdminService != null)
 			map.put("schoolAdminService", schoolAdminService);
+		if(customerService != null)
+			map.put("customerService", customerService);
+		if(merchantService != null)
+			map.put("merchantService", merchantService);
 		if(operation_student_delete != null)
 			map.put("operation_student_delete", operation_student_delete);
 		if(operation_student_edit != null)
@@ -480,6 +508,8 @@ public abstract class Baseuser extends BaseResource {
 		routeSettingService = (String) map.get("routeSettingService");
 		homeAutomationService = (String) map.get("homeAutomationService");
 		schoolAdminService = (String) map.get("schoolAdminService");
+		customerService = (String) map.get("customerService");
+		merchantService = (String) map.get("merchantService");
 		operation_student_delete = (String) map.get("operation_student_delete");
 		operation_student_edit = (String) map.get("operation_student_edit");
 		configuration_edit = (String) map.get("configuration_edit");
@@ -580,6 +610,14 @@ public abstract class Baseuser extends BaseResource {
 		Object schoolAdminServiceObj = map.get("schoolAdminService");
 		if(schoolAdminServiceObj != null)
 			schoolAdminService = schoolAdminServiceObj.toString();
+
+		Object customerServiceObj = map.get("customerService");
+		if(customerServiceObj != null)
+			customerService = customerServiceObj.toString();
+
+		Object merchantServiceObj = map.get("merchantService");
+		if(merchantServiceObj != null)
+			merchantService = merchantServiceObj.toString();
 
 		Object operation_student_deleteObj = map.get("operation_student_delete");
 		if(operation_student_deleteObj != null)
@@ -954,6 +992,30 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetSchoolAdminService() {
 		this.schoolAdminService = "N";
+	}
+
+	public String getCustomerService() {
+		return customerService != null ? customerService : "N";
+	}
+
+	public void setCustomerService(String customerService) {
+		this.customerService = customerService;
+	}
+
+	public void unSetCustomerService() {
+		this.customerService = "N";
+	}
+
+	public String getMerchantService() {
+		return merchantService != null ? merchantService : "N";
+	}
+
+	public void setMerchantService(String merchantService) {
+		this.merchantService = merchantService;
+	}
+
+	public void unSetMerchantService() {
+		this.merchantService = "N";
 	}
 
 	public String getOperation_student_delete() {

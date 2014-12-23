@@ -143,7 +143,18 @@
 				'type':'String',
 				'default' : "N"
 			},	
-			
+			'customerService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'merchantService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'operation_student_delete':
 			{
 				'length': 1,
