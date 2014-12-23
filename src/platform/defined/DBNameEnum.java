@@ -72,4 +72,9 @@ public enum DBNameEnum {
 			return "DB_QUESTION";
 		}
 	},
+	DB_ACCOUNT {
+		public String toString() {
+			return "DB_ACCOUNT";
+		}
+	},
 }
