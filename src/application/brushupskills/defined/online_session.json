@@ -23,6 +23,9 @@
 			total_seat : {
 				'type': 'int'
 			},
+			points : {
+				'type': 'int'
+			},
 			registered : {
 				'type': 'int'
 			},

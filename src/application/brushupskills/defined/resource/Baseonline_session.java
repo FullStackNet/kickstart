@@ -23,6 +23,7 @@ public abstract class Baseonline_session extends BaseResource {
 	private String title = null;
 	private String description = null;
 	private Integer total_seat = null;
+	private Integer points = null;
 	private Integer registered = null;
 	private String from_time = null;
 	private String to_time = null;
@@ -43,6 +44,7 @@ public abstract class Baseonline_session extends BaseResource {
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_TOTAL_SEAT = "total_seat";
+	public static String FIELD_POINTS = "points";
 	public static String FIELD_REGISTERED = "registered";
 	public static String FIELD_FROM_TIME = "from_time";
 	public static String FIELD_TO_TIME = "to_time";
@@ -80,6 +82,9 @@ public abstract class Baseonline_session extends BaseResource {
 
 		Field total_seatField = new Field("total_seat", "int");
 		metaData.addField(total_seatField);
+
+		Field pointsField = new Field("points", "int");
+		metaData.addField(pointsField);
 
 		Field registeredField = new Field("registered", "int");
 		metaData.addField(registeredField);
@@ -150,6 +155,7 @@ public abstract class Baseonline_session extends BaseResource {
 		this.title = obj.title;
 		this.description = obj.description;
 		this.total_seat = obj.total_seat;
+		this.points = obj.points;
 		this.registered = obj.registered;
 		this.from_time = obj.from_time;
 		this.to_time = obj.to_time;
@@ -190,6 +196,8 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("description", description);
 		if(total_seat != null)
 			map.put("total_seat", total_seat);
+		if(points != null)
+			map.put("points", points);
 		if(registered != null)
 			map.put("registered", registered);
 		if(from_time != null)
@@ -236,6 +244,8 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("description", description);
 		if(total_seat != null)
 			map.put("total_seat", total_seat);
+		if(points != null)
+			map.put("points", points);
 		if(registered != null)
 			map.put("registered", registered);
 		if(from_time != null)
@@ -280,6 +290,7 @@ public abstract class Baseonline_session extends BaseResource {
 		title = (String) map.get("title");
 		description = (String) map.get("description");
 		total_seat = (Integer) map.get("total_seat");
+		points = (Integer) map.get("points");
 		registered = (Integer) map.get("registered");
 		from_time = (String) map.get("from_time");
 		to_time = (String) map.get("to_time");
@@ -314,6 +325,10 @@ public abstract class Baseonline_session extends BaseResource {
 		Object total_seatObj = map.get("total_seat");
 		if(total_seatObj != null)
 			total_seat = new Integer(total_seatObj.toString());
+
+		Object pointsObj = map.get("points");
+		if(pointsObj != null)
+			points = new Integer(pointsObj.toString());
 
 		Object registeredObj = map.get("registered");
 		if(registeredObj != null)
@@ -452,6 +467,26 @@ public abstract class Baseonline_session extends BaseResource {
 
 	public void unSetTotal_seat() {
 		this.total_seat = null;
+	}
+
+	public Integer getPoints() {
+		return points;
+	}
+
+	public int getPointsEx() {
+		return points != null ? points : 0;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
+
+	public void setPoints(Integer points) {
+		this.points = points;
+	}
+
+	public void unSetPoints() {
+		this.points = null;
 	}
 
 	public Integer getRegistered() {
