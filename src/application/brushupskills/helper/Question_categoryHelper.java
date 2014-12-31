@@ -238,6 +238,8 @@ public class Question_categoryHelper extends BaseHelper {
 		int level = 0;
 		ArrayList<BaseResource> list = new ArrayList<>();
 		BaseResource[] resources = Question_categoryHelper.getInstance().getAll(new String[]{question_category.FIELD_ORDER});
+		if (Util.isEmpty(resources)) 
+			return null;
 		Map<String, ArrayList<question_category>> parentMap = new HashMap<String, ArrayList<question_category>>();
 		for(BaseResource resource : resources) {
 			String parent = "root";
