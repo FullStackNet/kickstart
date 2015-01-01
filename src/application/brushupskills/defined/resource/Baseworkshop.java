@@ -22,13 +22,20 @@ public abstract class Baseworkshop extends BaseResource {
 	private String id = null;
 	private String title = null;
 	private String description = null;
+	private Integer points = null;
 	private Integer total_seat = null;
 	private Integer registered = null;
 	private String from_time = null;
+	private ArrayList<String> registered_candidates = null;
 	private String to_time = null;
 	private String attachment = null;
+	private String venue = null;
 	private Long workshop_date = null;
 	private String workshop_date_str = null;
+	private String speaker_name = null;
+	private String speaker_designation = null;
+	private String speaker_company = null;
+	private String speaker_linkedin_url = null;
 	private Long creation_time = null;
 	private String send_sms = null;
 	private Integer total_sent = null;
@@ -43,13 +50,20 @@ public abstract class Baseworkshop extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
+	public static String FIELD_POINTS = "points";
 	public static String FIELD_TOTAL_SEAT = "total_seat";
 	public static String FIELD_REGISTERED = "registered";
 	public static String FIELD_FROM_TIME = "from_time";
+	public static String FIELD_REGISTERED_CANDIDATES = "registered_candidates";
 	public static String FIELD_TO_TIME = "to_time";
 	public static String FIELD_ATTACHMENT = "attachment";
+	public static String FIELD_VENUE = "venue";
 	public static String FIELD_WORKSHOP_DATE = "workshop_date";
 	public static String FIELD_WORKSHOP_DATE_STR = "workshop_date_str";
+	public static String FIELD_SPEAKER_NAME = "speaker_name";
+	public static String FIELD_SPEAKER_DESIGNATION = "speaker_designation";
+	public static String FIELD_SPEAKER_COMPANY = "speaker_company";
+	public static String FIELD_SPEAKER_LINKEDIN_URL = "speaker_linkedin_url";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SEND_SMS = "send_sms";
 	public static String FIELD_TOTAL_SENT = "total_sent";
@@ -80,6 +94,9 @@ public abstract class Baseworkshop extends BaseResource {
 		descriptionField.setLength(4096);
 		metaData.addField(descriptionField);
 
+		Field pointsField = new Field("points", "int");
+		metaData.addField(pointsField);
+
 		Field total_seatField = new Field("total_seat", "int");
 		metaData.addField(total_seatField);
 
@@ -90,6 +107,9 @@ public abstract class Baseworkshop extends BaseResource {
 		from_timeField.setLength(128);
 		metaData.addField(from_timeField);
 
+		Field registered_candidatesField = new Field("registered_candidates", "Array");
+		metaData.addField(registered_candidatesField);
+
 		Field to_timeField = new Field("to_time", "String");
 		to_timeField.setLength(128);
 		metaData.addField(to_timeField);
@@ -98,12 +118,32 @@ public abstract class Baseworkshop extends BaseResource {
 		attachmentField.setLength(128);
 		metaData.addField(attachmentField);
 
+		Field venueField = new Field("venue", "String");
+		venueField.setLength(4096);
+		metaData.addField(venueField);
+
 		Field workshop_dateField = new Field("workshop_date", "timestamp");
 		metaData.addField(workshop_dateField);
 
 		Field workshop_date_strField = new Field("workshop_date_str", "String");
 		workshop_date_strField.setLength(32);
 		metaData.addField(workshop_date_strField);
+
+		Field speaker_nameField = new Field("speaker_name", "String");
+		speaker_nameField.setLength(256);
+		metaData.addField(speaker_nameField);
+
+		Field speaker_designationField = new Field("speaker_designation", "String");
+		speaker_designationField.setLength(256);
+		metaData.addField(speaker_designationField);
+
+		Field speaker_companyField = new Field("speaker_company", "String");
+		speaker_companyField.setLength(256);
+		metaData.addField(speaker_companyField);
+
+		Field speaker_linkedin_urlField = new Field("speaker_linkedin_url", "String");
+		speaker_linkedin_urlField.setLength(256);
+		metaData.addField(speaker_linkedin_urlField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -154,13 +194,20 @@ public abstract class Baseworkshop extends BaseResource {
 		this.id = obj.id;
 		this.title = obj.title;
 		this.description = obj.description;
+		this.points = obj.points;
 		this.total_seat = obj.total_seat;
 		this.registered = obj.registered;
 		this.from_time = obj.from_time;
+		this.registered_candidates = obj.registered_candidates;
 		this.to_time = obj.to_time;
 		this.attachment = obj.attachment;
+		this.venue = obj.venue;
 		this.workshop_date = obj.workshop_date;
 		this.workshop_date_str = obj.workshop_date_str;
+		this.speaker_name = obj.speaker_name;
+		this.speaker_designation = obj.speaker_designation;
+		this.speaker_company = obj.speaker_company;
+		this.speaker_linkedin_url = obj.speaker_linkedin_url;
 		this.creation_time = obj.creation_time;
 		this.send_sms = obj.send_sms;
 		this.total_sent = obj.total_sent;
@@ -194,20 +241,34 @@ public abstract class Baseworkshop extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(points != null)
+			map.put("points", points);
 		if(total_seat != null)
 			map.put("total_seat", total_seat);
 		if(registered != null)
 			map.put("registered", registered);
 		if(from_time != null)
 			map.put("from_time", from_time);
+		if(registered_candidates != null)
+			map.put("registered_candidates", registered_candidates);
 		if(to_time != null)
 			map.put("to_time", to_time);
 		if(attachment != null)
 			map.put("attachment", attachment);
+		if(venue != null)
+			map.put("venue", venue);
 		if(workshop_date != null)
 			map.put("workshop_date", workshop_date);
 		if(workshop_date_str != null)
 			map.put("workshop_date_str", workshop_date_str);
+		if(speaker_name != null)
+			map.put("speaker_name", speaker_name);
+		if(speaker_designation != null)
+			map.put("speaker_designation", speaker_designation);
+		if(speaker_company != null)
+			map.put("speaker_company", speaker_company);
+		if(speaker_linkedin_url != null)
+			map.put("speaker_linkedin_url", speaker_linkedin_url);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(send_sms != null)
@@ -242,20 +303,34 @@ public abstract class Baseworkshop extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(points != null)
+			map.put("points", points);
 		if(total_seat != null)
 			map.put("total_seat", total_seat);
 		if(registered != null)
 			map.put("registered", registered);
 		if(from_time != null)
 			map.put("from_time", from_time);
+		if(registered_candidates != null)
+			map.put("registered_candidates", registered_candidates);
 		if(to_time != null)
 			map.put("to_time", to_time);
 		if(attachment != null)
 			map.put("attachment", attachment);
+		if(venue != null)
+			map.put("venue", venue);
 		if(workshop_date != null)
 			map.put("workshop_date", workshop_date);
 		if(workshop_date_str != null)
 			map.put("workshop_date_str", workshop_date_str);
+		if(speaker_name != null)
+			map.put("speaker_name", speaker_name);
+		if(speaker_designation != null)
+			map.put("speaker_designation", speaker_designation);
+		if(speaker_company != null)
+			map.put("speaker_company", speaker_company);
+		if(speaker_linkedin_url != null)
+			map.put("speaker_linkedin_url", speaker_linkedin_url);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(send_sms != null)
@@ -289,13 +364,20 @@ public abstract class Baseworkshop extends BaseResource {
 		id = (String) map.get("id");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
+		points = (Integer) map.get("points");
 		total_seat = (Integer) map.get("total_seat");
 		registered = (Integer) map.get("registered");
 		from_time = (String) map.get("from_time");
+		registered_candidates = (ArrayList<String>) map.get("registered_candidates");
 		to_time = (String) map.get("to_time");
 		attachment = (String) map.get("attachment");
+		venue = (String) map.get("venue");
 		workshop_date = (Long) map.get("workshop_date");
 		workshop_date_str = (String) map.get("workshop_date_str");
+		speaker_name = (String) map.get("speaker_name");
+		speaker_designation = (String) map.get("speaker_designation");
+		speaker_company = (String) map.get("speaker_company");
+		speaker_linkedin_url = (String) map.get("speaker_linkedin_url");
 		creation_time = (Long) map.get("creation_time");
 		send_sms = (String) map.get("send_sms");
 		total_sent = (Integer) map.get("total_sent");
@@ -322,6 +404,10 @@ public abstract class Baseworkshop extends BaseResource {
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
 
+		Object pointsObj = map.get("points");
+		if(pointsObj != null)
+			points = new Integer(pointsObj.toString());
+
 		Object total_seatObj = map.get("total_seat");
 		if(total_seatObj != null)
 			total_seat = new Integer(total_seatObj.toString());
@@ -334,6 +420,7 @@ public abstract class Baseworkshop extends BaseResource {
 		if(from_timeObj != null)
 			from_time = from_timeObj.toString();
 
+		registered_candidates = (ArrayList<String>) map.get("registered_candidates");
 		Object to_timeObj = map.get("to_time");
 		if(to_timeObj != null)
 			to_time = to_timeObj.toString();
@@ -342,6 +429,10 @@ public abstract class Baseworkshop extends BaseResource {
 		if(attachmentObj != null)
 			attachment = attachmentObj.toString();
 
+		Object venueObj = map.get("venue");
+		if(venueObj != null)
+			venue = venueObj.toString();
+
 		Object workshop_dateObj = map.get("workshop_date");
 		if(workshop_dateObj != null)
 			workshop_date = (Long) workshop_dateObj;
@@ -349,6 +440,22 @@ public abstract class Baseworkshop extends BaseResource {
 		Object workshop_date_strObj = map.get("workshop_date_str");
 		if(workshop_date_strObj != null)
 			workshop_date_str = workshop_date_strObj.toString();
+
+		Object speaker_nameObj = map.get("speaker_name");
+		if(speaker_nameObj != null)
+			speaker_name = speaker_nameObj.toString();
+
+		Object speaker_designationObj = map.get("speaker_designation");
+		if(speaker_designationObj != null)
+			speaker_designation = speaker_designationObj.toString();
+
+		Object speaker_companyObj = map.get("speaker_company");
+		if(speaker_companyObj != null)
+			speaker_company = speaker_companyObj.toString();
+
+		Object speaker_linkedin_urlObj = map.get("speaker_linkedin_url");
+		if(speaker_linkedin_urlObj != null)
+			speaker_linkedin_url = speaker_linkedin_urlObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -449,6 +556,26 @@ public abstract class Baseworkshop extends BaseResource {
 		this.description = null;
 	}
 
+	public Integer getPoints() {
+		return points;
+	}
+
+	public int getPointsEx() {
+		return points != null ? points : 0;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
+
+	public void setPoints(Integer points) {
+		this.points = points;
+	}
+
+	public void unSetPoints() {
+		this.points = null;
+	}
+
 	public Integer getTotal_seat() {
 		return total_seat;
 	}
@@ -505,6 +632,25 @@ public abstract class Baseworkshop extends BaseResource {
 		this.from_time = null;
 	}
 
+	public ArrayList<String> getRegistered_candidates() {
+		return registered_candidates;
+	}
+
+
+	public void setRegistered_candidates(ArrayList<String> registered_candidates) {
+		this.registered_candidates = registered_candidates;
+	}
+
+	public void addRegistered_candidates(String value) {
+		if(registered_candidates == null)
+			registered_candidates = new ArrayList<String>();
+		registered_candidates.add(value);
+	}
+
+	public void unSetRegistered_candidates() {
+		this.registered_candidates = null;
+	}
+
 	public String getTo_time() {
 		return to_time;
 	}
@@ -537,6 +683,22 @@ public abstract class Baseworkshop extends BaseResource {
 		this.attachment = null;
 	}
 
+	public String getVenue() {
+		return venue;
+	}
+
+	public String getVenueEx() {
+		return venue != null ? venue : "";
+	}
+
+	public void setVenue(String venue) {
+		this.venue = venue;
+	}
+
+	public void unSetVenue() {
+		this.venue = null;
+	}
+
 	public Long getWorkshop_date() {
 		return workshop_date;
 	}
@@ -560,6 +722,70 @@ public abstract class Baseworkshop extends BaseResource {
 
 	public void unSetWorkshop_date_str() {
 		this.workshop_date_str = null;
+	}
+
+	public String getSpeaker_name() {
+		return speaker_name;
+	}
+
+	public String getSpeaker_nameEx() {
+		return speaker_name != null ? speaker_name : "";
+	}
+
+	public void setSpeaker_name(String speaker_name) {
+		this.speaker_name = speaker_name;
+	}
+
+	public void unSetSpeaker_name() {
+		this.speaker_name = null;
+	}
+
+	public String getSpeaker_designation() {
+		return speaker_designation;
+	}
+
+	public String getSpeaker_designationEx() {
+		return speaker_designation != null ? speaker_designation : "";
+	}
+
+	public void setSpeaker_designation(String speaker_designation) {
+		this.speaker_designation = speaker_designation;
+	}
+
+	public void unSetSpeaker_designation() {
+		this.speaker_designation = null;
+	}
+
+	public String getSpeaker_company() {
+		return speaker_company;
+	}
+
+	public String getSpeaker_companyEx() {
+		return speaker_company != null ? speaker_company : "";
+	}
+
+	public void setSpeaker_company(String speaker_company) {
+		this.speaker_company = speaker_company;
+	}
+
+	public void unSetSpeaker_company() {
+		this.speaker_company = null;
+	}
+
+	public String getSpeaker_linkedin_url() {
+		return speaker_linkedin_url;
+	}
+
+	public String getSpeaker_linkedin_urlEx() {
+		return speaker_linkedin_url != null ? speaker_linkedin_url : "";
+	}
+
+	public void setSpeaker_linkedin_url(String speaker_linkedin_url) {
+		this.speaker_linkedin_url = speaker_linkedin_url;
+	}
+
+	public void unSetSpeaker_linkedin_url() {
+		this.speaker_linkedin_url = null;
 	}
 
 	public Long getCreation_time() {

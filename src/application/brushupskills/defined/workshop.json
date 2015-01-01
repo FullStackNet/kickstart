@@ -20,6 +20,9 @@
 				'length': 4096,
 				'type': 'String'
 			},
+			points : {
+				'type': 'int'
+			},
 			total_seat : {
 				'type': 'int'
 			},
@@ -30,6 +33,10 @@
 				'length': 128,
 				'type': 'String'
 			},
+			'registered_candidates': {
+				'type': 'Array',
+				'valueType' : "String"
+			},
 			'to_time': {
 				'length': 128,
 				'type': 'String'
@@ -38,12 +45,36 @@
 				'length': 128,
 				'type': 'String'
 			},
+			'venue': {
+				'length': 4096,
+				'type': 'String'
+			},
 			'workshop_date': {
 				'type': 'timestamp'
 			},
 			'workshop_date_str': {
 				'type': 'String',
 				'length' : 32
+			},
+					'speaker_name':
+			{
+				'length': 256,
+				'type': 'String'
+			},
+			'speaker_designation':
+			{
+				'length': 256,
+				'type': 'String'
+			},
+			'speaker_company':
+			{
+				'length': 256,
+				'type': 'String'
+			},
+			'speaker_linkedin_url':
+			{
+				'length': 256,
+				'type': 'String'
 			},
 			'creation_time': {
 				'type': 'timestamp'

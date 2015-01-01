@@ -22,6 +22,10 @@ public abstract class Baseonline_session extends BaseResource {
 	private String id = null;
 	private String title = null;
 	private String description = null;
+	private String speaker_name = null;
+	private String speaker_designation = null;
+	private String speaker_company = null;
+	private String speaker_linkedin_url = null;
 	private Integer total_seat = null;
 	private Integer points = null;
 	private Integer registered = null;
@@ -29,6 +33,7 @@ public abstract class Baseonline_session extends BaseResource {
 	private String to_time = null;
 	private String attachment = null;
 	private Long online_session_date = null;
+	private ArrayList<String> registered_candidates = null;
 	private String online_session_date_str = null;
 	private Long creation_time = null;
 	private String send_sms = null;
@@ -43,6 +48,10 @@ public abstract class Baseonline_session extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
+	public static String FIELD_SPEAKER_NAME = "speaker_name";
+	public static String FIELD_SPEAKER_DESIGNATION = "speaker_designation";
+	public static String FIELD_SPEAKER_COMPANY = "speaker_company";
+	public static String FIELD_SPEAKER_LINKEDIN_URL = "speaker_linkedin_url";
 	public static String FIELD_TOTAL_SEAT = "total_seat";
 	public static String FIELD_POINTS = "points";
 	public static String FIELD_REGISTERED = "registered";
@@ -50,6 +59,7 @@ public abstract class Baseonline_session extends BaseResource {
 	public static String FIELD_TO_TIME = "to_time";
 	public static String FIELD_ATTACHMENT = "attachment";
 	public static String FIELD_ONLINE_SESSION_DATE = "online_session_date";
+	public static String FIELD_REGISTERED_CANDIDATES = "registered_candidates";
 	public static String FIELD_ONLINE_SESSION_DATE_STR = "online_session_date_str";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SEND_SMS = "send_sms";
@@ -80,6 +90,22 @@ public abstract class Baseonline_session extends BaseResource {
 		descriptionField.setLength(4096);
 		metaData.addField(descriptionField);
 
+		Field speaker_nameField = new Field("speaker_name", "String");
+		speaker_nameField.setLength(256);
+		metaData.addField(speaker_nameField);
+
+		Field speaker_designationField = new Field("speaker_designation", "String");
+		speaker_designationField.setLength(256);
+		metaData.addField(speaker_designationField);
+
+		Field speaker_companyField = new Field("speaker_company", "String");
+		speaker_companyField.setLength(256);
+		metaData.addField(speaker_companyField);
+
+		Field speaker_linkedin_urlField = new Field("speaker_linkedin_url", "String");
+		speaker_linkedin_urlField.setLength(256);
+		metaData.addField(speaker_linkedin_urlField);
+
 		Field total_seatField = new Field("total_seat", "int");
 		metaData.addField(total_seatField);
 
@@ -103,6 +129,9 @@ public abstract class Baseonline_session extends BaseResource {
 
 		Field online_session_dateField = new Field("online_session_date", "timestamp");
 		metaData.addField(online_session_dateField);
+
+		Field registered_candidatesField = new Field("registered_candidates", "Array");
+		metaData.addField(registered_candidatesField);
 
 		Field online_session_date_strField = new Field("online_session_date_str", "String");
 		online_session_date_strField.setLength(32);
@@ -154,6 +183,10 @@ public abstract class Baseonline_session extends BaseResource {
 		this.id = obj.id;
 		this.title = obj.title;
 		this.description = obj.description;
+		this.speaker_name = obj.speaker_name;
+		this.speaker_designation = obj.speaker_designation;
+		this.speaker_company = obj.speaker_company;
+		this.speaker_linkedin_url = obj.speaker_linkedin_url;
 		this.total_seat = obj.total_seat;
 		this.points = obj.points;
 		this.registered = obj.registered;
@@ -161,6 +194,7 @@ public abstract class Baseonline_session extends BaseResource {
 		this.to_time = obj.to_time;
 		this.attachment = obj.attachment;
 		this.online_session_date = obj.online_session_date;
+		this.registered_candidates = obj.registered_candidates;
 		this.online_session_date_str = obj.online_session_date_str;
 		this.creation_time = obj.creation_time;
 		this.send_sms = obj.send_sms;
@@ -194,6 +228,14 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(speaker_name != null)
+			map.put("speaker_name", speaker_name);
+		if(speaker_designation != null)
+			map.put("speaker_designation", speaker_designation);
+		if(speaker_company != null)
+			map.put("speaker_company", speaker_company);
+		if(speaker_linkedin_url != null)
+			map.put("speaker_linkedin_url", speaker_linkedin_url);
 		if(total_seat != null)
 			map.put("total_seat", total_seat);
 		if(points != null)
@@ -208,6 +250,8 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("attachment", attachment);
 		if(online_session_date != null)
 			map.put("online_session_date", online_session_date);
+		if(registered_candidates != null)
+			map.put("registered_candidates", registered_candidates);
 		if(online_session_date_str != null)
 			map.put("online_session_date_str", online_session_date_str);
 		if(creation_time != null)
@@ -242,6 +286,14 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(speaker_name != null)
+			map.put("speaker_name", speaker_name);
+		if(speaker_designation != null)
+			map.put("speaker_designation", speaker_designation);
+		if(speaker_company != null)
+			map.put("speaker_company", speaker_company);
+		if(speaker_linkedin_url != null)
+			map.put("speaker_linkedin_url", speaker_linkedin_url);
 		if(total_seat != null)
 			map.put("total_seat", total_seat);
 		if(points != null)
@@ -256,6 +308,8 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("attachment", attachment);
 		if(online_session_date != null)
 			map.put("online_session_date", online_session_date);
+		if(registered_candidates != null)
+			map.put("registered_candidates", registered_candidates);
 		if(online_session_date_str != null)
 			map.put("online_session_date_str", online_session_date_str);
 		if(creation_time != null)
@@ -289,6 +343,10 @@ public abstract class Baseonline_session extends BaseResource {
 		id = (String) map.get("id");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
+		speaker_name = (String) map.get("speaker_name");
+		speaker_designation = (String) map.get("speaker_designation");
+		speaker_company = (String) map.get("speaker_company");
+		speaker_linkedin_url = (String) map.get("speaker_linkedin_url");
 		total_seat = (Integer) map.get("total_seat");
 		points = (Integer) map.get("points");
 		registered = (Integer) map.get("registered");
@@ -296,6 +354,7 @@ public abstract class Baseonline_session extends BaseResource {
 		to_time = (String) map.get("to_time");
 		attachment = (String) map.get("attachment");
 		online_session_date = (Long) map.get("online_session_date");
+		registered_candidates = (ArrayList<String>) map.get("registered_candidates");
 		online_session_date_str = (String) map.get("online_session_date_str");
 		creation_time = (Long) map.get("creation_time");
 		send_sms = (String) map.get("send_sms");
@@ -321,6 +380,22 @@ public abstract class Baseonline_session extends BaseResource {
 		Object descriptionObj = map.get("description");
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
+
+		Object speaker_nameObj = map.get("speaker_name");
+		if(speaker_nameObj != null)
+			speaker_name = speaker_nameObj.toString();
+
+		Object speaker_designationObj = map.get("speaker_designation");
+		if(speaker_designationObj != null)
+			speaker_designation = speaker_designationObj.toString();
+
+		Object speaker_companyObj = map.get("speaker_company");
+		if(speaker_companyObj != null)
+			speaker_company = speaker_companyObj.toString();
+
+		Object speaker_linkedin_urlObj = map.get("speaker_linkedin_url");
+		if(speaker_linkedin_urlObj != null)
+			speaker_linkedin_url = speaker_linkedin_urlObj.toString();
 
 		Object total_seatObj = map.get("total_seat");
 		if(total_seatObj != null)
@@ -350,6 +425,7 @@ public abstract class Baseonline_session extends BaseResource {
 		if(online_session_dateObj != null)
 			online_session_date = (Long) online_session_dateObj;
 
+		registered_candidates = (ArrayList<String>) map.get("registered_candidates");
 		Object online_session_date_strObj = map.get("online_session_date_str");
 		if(online_session_date_strObj != null)
 			online_session_date_str = online_session_date_strObj.toString();
@@ -447,6 +523,70 @@ public abstract class Baseonline_session extends BaseResource {
 
 	public void unSetDescription() {
 		this.description = null;
+	}
+
+	public String getSpeaker_name() {
+		return speaker_name;
+	}
+
+	public String getSpeaker_nameEx() {
+		return speaker_name != null ? speaker_name : "";
+	}
+
+	public void setSpeaker_name(String speaker_name) {
+		this.speaker_name = speaker_name;
+	}
+
+	public void unSetSpeaker_name() {
+		this.speaker_name = null;
+	}
+
+	public String getSpeaker_designation() {
+		return speaker_designation;
+	}
+
+	public String getSpeaker_designationEx() {
+		return speaker_designation != null ? speaker_designation : "";
+	}
+
+	public void setSpeaker_designation(String speaker_designation) {
+		this.speaker_designation = speaker_designation;
+	}
+
+	public void unSetSpeaker_designation() {
+		this.speaker_designation = null;
+	}
+
+	public String getSpeaker_company() {
+		return speaker_company;
+	}
+
+	public String getSpeaker_companyEx() {
+		return speaker_company != null ? speaker_company : "";
+	}
+
+	public void setSpeaker_company(String speaker_company) {
+		this.speaker_company = speaker_company;
+	}
+
+	public void unSetSpeaker_company() {
+		this.speaker_company = null;
+	}
+
+	public String getSpeaker_linkedin_url() {
+		return speaker_linkedin_url;
+	}
+
+	public String getSpeaker_linkedin_urlEx() {
+		return speaker_linkedin_url != null ? speaker_linkedin_url : "";
+	}
+
+	public void setSpeaker_linkedin_url(String speaker_linkedin_url) {
+		this.speaker_linkedin_url = speaker_linkedin_url;
+	}
+
+	public void unSetSpeaker_linkedin_url() {
+		this.speaker_linkedin_url = null;
 	}
 
 	public Integer getTotal_seat() {
@@ -565,6 +705,25 @@ public abstract class Baseonline_session extends BaseResource {
 		this.online_session_date = online_session_date;
 	}
 
+
+	public ArrayList<String> getRegistered_candidates() {
+		return registered_candidates;
+	}
+
+
+	public void setRegistered_candidates(ArrayList<String> registered_candidates) {
+		this.registered_candidates = registered_candidates;
+	}
+
+	public void addRegistered_candidates(String value) {
+		if(registered_candidates == null)
+			registered_candidates = new ArrayList<String>();
+		registered_candidates.add(value);
+	}
+
+	public void unSetRegistered_candidates() {
+		this.registered_candidates = null;
+	}
 
 	public String getOnline_session_date_str() {
 		return online_session_date_str;

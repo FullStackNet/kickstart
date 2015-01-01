@@ -20,6 +20,26 @@
 				'length': 4096,
 				'type': 'String'
 			},
+			'speaker_name':
+			{
+				'length': 256,
+				'type': 'String'
+			},
+			'speaker_designation':
+			{
+				'length': 256,
+				'type': 'String'
+			},
+			'speaker_company':
+			{
+				'length': 256,
+				'type': 'String'
+			},
+			'speaker_linkedin_url':
+			{
+				'length': 256,
+				'type': 'String'
+			},
 			total_seat : {
 				'type': 'int'
 			},
@@ -43,6 +63,10 @@
 			},
 			'online_session_date': {
 				'type': 'timestamp'
+			},
+			'registered_candidates': {
+				'type': 'Array',
+				'valueType' : "String"
 			},
 			'online_session_date_str': {
 				'type': 'String',

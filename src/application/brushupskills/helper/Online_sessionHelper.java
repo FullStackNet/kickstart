@@ -4,6 +4,7 @@ import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
+import platform.util.ApplicationException;
 import application.brushupskills.resource.online_session;
 
 public class Online_sessionHelper extends BaseHelper {
@@ -24,5 +25,15 @@ public class Online_sessionHelper extends BaseHelper {
 	public BaseResource[] getNextOnlineSession(long time) {
 		Expression e = new Expression(online_session.FIELD_ONLINE_SESSION_DATE, REL_OP.GT, time);
 		return getByExpression(e,new String[]{});	
+	}
+	
+	public void addCandidate(String id, String candidateId) {
+		online_session _online_session = new online_session(id);
+		_online_session.addRegistered_candidates(candidateId);
+		try {
+			Online_sessionHelper.getInstance().update(_online_session);
+		} catch (ApplicationException e) {
+			e.printStackTrace();
+		}
 	}
 }
