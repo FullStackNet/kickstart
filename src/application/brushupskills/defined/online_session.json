@@ -76,6 +76,12 @@
 				'type': 'String',
 				'length' : 128
 			},
+			'attending': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N",
+				"transient" : true
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			},

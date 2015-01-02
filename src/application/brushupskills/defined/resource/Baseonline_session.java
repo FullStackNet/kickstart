@@ -36,6 +36,7 @@ public abstract class Baseonline_session extends BaseResource {
 	private ArrayList<String> registered_candidates = null;
 	private String online_session_date_str = null;
 	private String attending_detail = null;
+	private String attending = null;
 	private Long creation_time = null;
 	private String send_sms = null;
 	private Integer total_sent = null;
@@ -63,6 +64,7 @@ public abstract class Baseonline_session extends BaseResource {
 	public static String FIELD_REGISTERED_CANDIDATES = "registered_candidates";
 	public static String FIELD_ONLINE_SESSION_DATE_STR = "online_session_date_str";
 	public static String FIELD_ATTENDING_DETAIL = "attending_detail";
+	public static String FIELD_ATTENDING = "attending";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SEND_SMS = "send_sms";
 	public static String FIELD_TOTAL_SENT = "total_sent";
@@ -203,6 +205,7 @@ public abstract class Baseonline_session extends BaseResource {
 		this.registered_candidates = obj.registered_candidates;
 		this.online_session_date_str = obj.online_session_date_str;
 		this.attending_detail = obj.attending_detail;
+		this.attending = obj.attending;
 		this.creation_time = obj.creation_time;
 		this.send_sms = obj.send_sms;
 		this.total_sent = obj.total_sent;
@@ -219,6 +222,8 @@ public abstract class Baseonline_session extends BaseResource {
 	}
 
 	private void setDefaultValues() {
+		if(attending == null)
+			attending = "N";
 		if(send_sms == null)
 			send_sms = "N";
 		if(send_email == null)
@@ -263,6 +268,8 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("online_session_date_str", online_session_date_str);
 		if(attending_detail != null)
 			map.put("attending_detail", attending_detail);
+		if(attending != null)
+			map.put("attending", attending);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(send_sms != null)
@@ -323,6 +330,8 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("online_session_date_str", online_session_date_str);
 		if(attending_detail != null)
 			map.put("attending_detail", attending_detail);
+		if(attending != null)
+			map.put("attending", attending);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(send_sms != null)
@@ -771,6 +780,18 @@ public abstract class Baseonline_session extends BaseResource {
 
 	public void unSetAttending_detail() {
 		this.attending_detail = null;
+	}
+
+	public String getAttending() {
+		return attending != null ? attending : "N";
+	}
+
+	public void setAttending(String attending) {
+		this.attending = attending;
+	}
+
+	public void unSetAttending() {
+		this.attending = "N";
 	}
 
 	public Long getCreation_time() {
