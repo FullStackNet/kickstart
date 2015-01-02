@@ -35,6 +35,7 @@ public abstract class Baseonline_session extends BaseResource {
 	private Long online_session_date = null;
 	private ArrayList<String> registered_candidates = null;
 	private String online_session_date_str = null;
+	private String attending_detail = null;
 	private Long creation_time = null;
 	private String send_sms = null;
 	private Integer total_sent = null;
@@ -61,6 +62,7 @@ public abstract class Baseonline_session extends BaseResource {
 	public static String FIELD_ONLINE_SESSION_DATE = "online_session_date";
 	public static String FIELD_REGISTERED_CANDIDATES = "registered_candidates";
 	public static String FIELD_ONLINE_SESSION_DATE_STR = "online_session_date_str";
+	public static String FIELD_ATTENDING_DETAIL = "attending_detail";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SEND_SMS = "send_sms";
 	public static String FIELD_TOTAL_SENT = "total_sent";
@@ -137,6 +139,10 @@ public abstract class Baseonline_session extends BaseResource {
 		online_session_date_strField.setLength(32);
 		metaData.addField(online_session_date_strField);
 
+		Field attending_detailField = new Field("attending_detail", "String");
+		attending_detailField.setLength(128);
+		metaData.addField(attending_detailField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -196,6 +202,7 @@ public abstract class Baseonline_session extends BaseResource {
 		this.online_session_date = obj.online_session_date;
 		this.registered_candidates = obj.registered_candidates;
 		this.online_session_date_str = obj.online_session_date_str;
+		this.attending_detail = obj.attending_detail;
 		this.creation_time = obj.creation_time;
 		this.send_sms = obj.send_sms;
 		this.total_sent = obj.total_sent;
@@ -254,6 +261,8 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("registered_candidates", registered_candidates);
 		if(online_session_date_str != null)
 			map.put("online_session_date_str", online_session_date_str);
+		if(attending_detail != null)
+			map.put("attending_detail", attending_detail);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(send_sms != null)
@@ -312,6 +321,8 @@ public abstract class Baseonline_session extends BaseResource {
 			map.put("registered_candidates", registered_candidates);
 		if(online_session_date_str != null)
 			map.put("online_session_date_str", online_session_date_str);
+		if(attending_detail != null)
+			map.put("attending_detail", attending_detail);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(send_sms != null)
@@ -356,6 +367,7 @@ public abstract class Baseonline_session extends BaseResource {
 		online_session_date = (Long) map.get("online_session_date");
 		registered_candidates = (ArrayList<String>) map.get("registered_candidates");
 		online_session_date_str = (String) map.get("online_session_date_str");
+		attending_detail = (String) map.get("attending_detail");
 		creation_time = (Long) map.get("creation_time");
 		send_sms = (String) map.get("send_sms");
 		total_sent = (Integer) map.get("total_sent");
@@ -429,6 +441,10 @@ public abstract class Baseonline_session extends BaseResource {
 		Object online_session_date_strObj = map.get("online_session_date_str");
 		if(online_session_date_strObj != null)
 			online_session_date_str = online_session_date_strObj.toString();
+
+		Object attending_detailObj = map.get("attending_detail");
+		if(attending_detailObj != null)
+			attending_detail = attending_detailObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -739,6 +755,22 @@ public abstract class Baseonline_session extends BaseResource {
 
 	public void unSetOnline_session_date_str() {
 		this.online_session_date_str = null;
+	}
+
+	public String getAttending_detail() {
+		return attending_detail;
+	}
+
+	public String getAttending_detailEx() {
+		return attending_detail != null ? attending_detail : "";
+	}
+
+	public void setAttending_detail(String attending_detail) {
+		this.attending_detail = attending_detail;
+	}
+
+	public void unSetAttending_detail() {
+		this.attending_detail = null;
 	}
 
 	public Long getCreation_time() {
