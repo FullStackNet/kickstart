@@ -28,6 +28,8 @@ public abstract class Baseanswer extends BaseResource {
 	private String algorithm = null;
 	private String complexity = null;
 	private String hints = null;
+	private String audio_file = null;
+	private String video_file = null;
 	private String visible = null;
 	private Map<String, Object> extra_data = null;
 
@@ -40,6 +42,8 @@ public abstract class Baseanswer extends BaseResource {
 	public static String FIELD_ALGORITHM = "algorithm";
 	public static String FIELD_COMPLEXITY = "complexity";
 	public static String FIELD_HINTS = "hints";
+	public static String FIELD_AUDIO_FILE = "audio_file";
+	public static String FIELD_VIDEO_FILE = "video_file";
 	public static String FIELD_VISIBLE = "visible";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -86,6 +90,14 @@ public abstract class Baseanswer extends BaseResource {
 		hintsField.setLength(4096);
 		metaData.addField(hintsField);
 
+		Field audio_fileField = new Field("audio_file", "String");
+		audio_fileField.setLength(256);
+		metaData.addField(audio_fileField);
+
+		Field video_fileField = new Field("video_file", "String");
+		video_fileField.setLength(256);
+		metaData.addField(video_fileField);
+
 		Field visibleField = new Field("visible", "String");
 		visibleField.setDefaultValue("N");
 		visibleField.setLength(1);
@@ -113,6 +125,8 @@ public abstract class Baseanswer extends BaseResource {
 		this.algorithm = obj.algorithm;
 		this.complexity = obj.complexity;
 		this.hints = obj.hints;
+		this.audio_file = obj.audio_file;
+		this.video_file = obj.video_file;
 		this.visible = obj.visible;
 		this.extra_data = obj.extra_data;
 	}
@@ -146,6 +160,10 @@ public abstract class Baseanswer extends BaseResource {
 			map.put("complexity", complexity);
 		if(hints != null)
 			map.put("hints", hints);
+		if(audio_file != null)
+			map.put("audio_file", audio_file);
+		if(video_file != null)
+			map.put("video_file", video_file);
 		if(visible != null)
 			map.put("visible", visible);
 		if(extra_data != null)
@@ -176,6 +194,10 @@ public abstract class Baseanswer extends BaseResource {
 			map.put("complexity", complexity);
 		if(hints != null)
 			map.put("hints", hints);
+		if(audio_file != null)
+			map.put("audio_file", audio_file);
+		if(video_file != null)
+			map.put("video_file", video_file);
 		if(visible != null)
 			map.put("visible", visible);
 		if(extra_data != null)
@@ -199,6 +221,8 @@ public abstract class Baseanswer extends BaseResource {
 		algorithm = (String) map.get("algorithm");
 		complexity = (String) map.get("complexity");
 		hints = (String) map.get("hints");
+		audio_file = (String) map.get("audio_file");
+		video_file = (String) map.get("video_file");
 		visible = (String) map.get("visible");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -240,6 +264,14 @@ public abstract class Baseanswer extends BaseResource {
 		Object hintsObj = map.get("hints");
 		if(hintsObj != null)
 			hints = hintsObj.toString();
+
+		Object audio_fileObj = map.get("audio_file");
+		if(audio_fileObj != null)
+			audio_file = audio_fileObj.toString();
+
+		Object video_fileObj = map.get("video_file");
+		if(video_fileObj != null)
+			video_file = video_fileObj.toString();
 
 		Object visibleObj = map.get("visible");
 		if(visibleObj != null)
@@ -406,6 +438,38 @@ public abstract class Baseanswer extends BaseResource {
 
 	public void unSetHints() {
 		this.hints = null;
+	}
+
+	public String getAudio_file() {
+		return audio_file;
+	}
+
+	public String getAudio_fileEx() {
+		return audio_file != null ? audio_file : "";
+	}
+
+	public void setAudio_file(String audio_file) {
+		this.audio_file = audio_file;
+	}
+
+	public void unSetAudio_file() {
+		this.audio_file = null;
+	}
+
+	public String getVideo_file() {
+		return video_file;
+	}
+
+	public String getVideo_fileEx() {
+		return video_file != null ? video_file : "";
+	}
+
+	public void setVideo_file(String video_file) {
+		this.video_file = video_file;
+	}
+
+	public void unSetVideo_file() {
+		this.video_file = null;
 	}
 
 	public String getVisible() {
