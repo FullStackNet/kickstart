@@ -51,6 +51,18 @@
 				'length': 4096,
 				'type':'String'
 			},
+			'audio':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'video':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'audio_file':
 			{
 				'length': 256,

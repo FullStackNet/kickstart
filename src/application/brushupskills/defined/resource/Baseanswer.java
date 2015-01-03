@@ -28,6 +28,8 @@ public abstract class Baseanswer extends BaseResource {
 	private String algorithm = null;
 	private String complexity = null;
 	private String hints = null;
+	private String audio = null;
+	private String video = null;
 	private String audio_file = null;
 	private String video_file = null;
 	private String visible = null;
@@ -42,6 +44,8 @@ public abstract class Baseanswer extends BaseResource {
 	public static String FIELD_ALGORITHM = "algorithm";
 	public static String FIELD_COMPLEXITY = "complexity";
 	public static String FIELD_HINTS = "hints";
+	public static String FIELD_AUDIO = "audio";
+	public static String FIELD_VIDEO = "video";
 	public static String FIELD_AUDIO_FILE = "audio_file";
 	public static String FIELD_VIDEO_FILE = "video_file";
 	public static String FIELD_VISIBLE = "visible";
@@ -90,6 +94,16 @@ public abstract class Baseanswer extends BaseResource {
 		hintsField.setLength(4096);
 		metaData.addField(hintsField);
 
+		Field audioField = new Field("audio", "String");
+		audioField.setDefaultValue("N");
+		audioField.setLength(1);
+		metaData.addField(audioField);
+
+		Field videoField = new Field("video", "String");
+		videoField.setDefaultValue("N");
+		videoField.setLength(1);
+		metaData.addField(videoField);
+
 		Field audio_fileField = new Field("audio_file", "String");
 		audio_fileField.setLength(256);
 		metaData.addField(audio_fileField);
@@ -125,6 +139,8 @@ public abstract class Baseanswer extends BaseResource {
 		this.algorithm = obj.algorithm;
 		this.complexity = obj.complexity;
 		this.hints = obj.hints;
+		this.audio = obj.audio;
+		this.video = obj.video;
 		this.audio_file = obj.audio_file;
 		this.video_file = obj.video_file;
 		this.visible = obj.visible;
@@ -136,6 +152,10 @@ public abstract class Baseanswer extends BaseResource {
 	}
 
 	private void setDefaultValues() {
+		if(audio == null)
+			audio = "N";
+		if(video == null)
+			video = "N";
 		if(visible == null)
 			visible = "N";
 	}
@@ -160,6 +180,10 @@ public abstract class Baseanswer extends BaseResource {
 			map.put("complexity", complexity);
 		if(hints != null)
 			map.put("hints", hints);
+		if(audio != null)
+			map.put("audio", audio);
+		if(video != null)
+			map.put("video", video);
 		if(audio_file != null)
 			map.put("audio_file", audio_file);
 		if(video_file != null)
@@ -194,6 +218,10 @@ public abstract class Baseanswer extends BaseResource {
 			map.put("complexity", complexity);
 		if(hints != null)
 			map.put("hints", hints);
+		if(audio != null)
+			map.put("audio", audio);
+		if(video != null)
+			map.put("video", video);
 		if(audio_file != null)
 			map.put("audio_file", audio_file);
 		if(video_file != null)
@@ -221,6 +249,8 @@ public abstract class Baseanswer extends BaseResource {
 		algorithm = (String) map.get("algorithm");
 		complexity = (String) map.get("complexity");
 		hints = (String) map.get("hints");
+		audio = (String) map.get("audio");
+		video = (String) map.get("video");
 		audio_file = (String) map.get("audio_file");
 		video_file = (String) map.get("video_file");
 		visible = (String) map.get("visible");
@@ -264,6 +294,14 @@ public abstract class Baseanswer extends BaseResource {
 		Object hintsObj = map.get("hints");
 		if(hintsObj != null)
 			hints = hintsObj.toString();
+
+		Object audioObj = map.get("audio");
+		if(audioObj != null)
+			audio = audioObj.toString();
+
+		Object videoObj = map.get("video");
+		if(videoObj != null)
+			video = videoObj.toString();
 
 		Object audio_fileObj = map.get("audio_file");
 		if(audio_fileObj != null)
@@ -438,6 +476,30 @@ public abstract class Baseanswer extends BaseResource {
 
 	public void unSetHints() {
 		this.hints = null;
+	}
+
+	public String getAudio() {
+		return audio != null ? audio : "N";
+	}
+
+	public void setAudio(String audio) {
+		this.audio = audio;
+	}
+
+	public void unSetAudio() {
+		this.audio = "N";
+	}
+
+	public String getVideo() {
+		return video != null ? video : "N";
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
+	public void unSetVideo() {
+		this.video = "N";
 	}
 
 	public String getAudio_file() {
