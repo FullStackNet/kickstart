@@ -59,6 +59,26 @@
 				'length': 128,
 				'type':'String',
 				"remark" : "School/App"
+			},
+			'app_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'candidate_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'candidate_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'candidate_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
 			}
 		}
 	}

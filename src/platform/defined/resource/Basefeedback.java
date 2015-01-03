@@ -29,6 +29,10 @@ public abstract class Basefeedback extends BaseResource {
 	private String user_name = null;
 	private String school_id = null;
 	private String feedback_type = null;
+	private String app_name = null;
+	private String candidate_id = null;
+	private String candidate_name = null;
+	private String candidate_mobile_no = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -41,6 +45,10 @@ public abstract class Basefeedback extends BaseResource {
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_FEEDBACK_TYPE = "feedback_type";
+	public static String FIELD_APP_NAME = "app_name";
+	public static String FIELD_CANDIDATE_ID = "candidate_id";
+	public static String FIELD_CANDIDATE_NAME = "candidate_name";
+	public static String FIELD_CANDIDATE_MOBILE_NO = "candidate_mobile_no";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -93,6 +101,22 @@ public abstract class Basefeedback extends BaseResource {
 		feedback_typeField.setLength(128);
 		metaData.addField(feedback_typeField);
 
+		Field app_nameField = new Field("app_name", "String");
+		app_nameField.setLength(128);
+		metaData.addField(app_nameField);
+
+		Field candidate_idField = new Field("candidate_id", "String");
+		candidate_idField.setLength(128);
+		metaData.addField(candidate_idField);
+
+		Field candidate_nameField = new Field("candidate_name", "String");
+		candidate_nameField.setLength(128);
+		metaData.addField(candidate_nameField);
+
+		Field candidate_mobile_noField = new Field("candidate_mobile_no", "String");
+		candidate_mobile_noField.setLength(128);
+		metaData.addField(candidate_mobile_noField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -116,6 +140,10 @@ public abstract class Basefeedback extends BaseResource {
 		this.user_name = obj.user_name;
 		this.school_id = obj.school_id;
 		this.feedback_type = obj.feedback_type;
+		this.app_name = obj.app_name;
+		this.candidate_id = obj.candidate_id;
+		this.candidate_name = obj.candidate_name;
+		this.candidate_mobile_no = obj.candidate_mobile_no;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -148,6 +176,14 @@ public abstract class Basefeedback extends BaseResource {
 			map.put("school_id", school_id);
 		if(feedback_type != null)
 			map.put("feedback_type", feedback_type);
+		if(app_name != null)
+			map.put("app_name", app_name);
+		if(candidate_id != null)
+			map.put("candidate_id", candidate_id);
+		if(candidate_name != null)
+			map.put("candidate_name", candidate_name);
+		if(candidate_mobile_no != null)
+			map.put("candidate_mobile_no", candidate_mobile_no);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -178,6 +214,14 @@ public abstract class Basefeedback extends BaseResource {
 			map.put("school_id", school_id);
 		if(feedback_type != null)
 			map.put("feedback_type", feedback_type);
+		if(app_name != null)
+			map.put("app_name", app_name);
+		if(candidate_id != null)
+			map.put("candidate_id", candidate_id);
+		if(candidate_name != null)
+			map.put("candidate_name", candidate_name);
+		if(candidate_mobile_no != null)
+			map.put("candidate_mobile_no", candidate_mobile_no);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -200,6 +244,10 @@ public abstract class Basefeedback extends BaseResource {
 		user_name = (String) map.get("user_name");
 		school_id = (String) map.get("school_id");
 		feedback_type = (String) map.get("feedback_type");
+		app_name = (String) map.get("app_name");
+		candidate_id = (String) map.get("candidate_id");
+		candidate_name = (String) map.get("candidate_name");
+		candidate_mobile_no = (String) map.get("candidate_mobile_no");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -244,6 +292,22 @@ public abstract class Basefeedback extends BaseResource {
 		Object feedback_typeObj = map.get("feedback_type");
 		if(feedback_typeObj != null)
 			feedback_type = feedback_typeObj.toString();
+
+		Object app_nameObj = map.get("app_name");
+		if(app_nameObj != null)
+			app_name = app_nameObj.toString();
+
+		Object candidate_idObj = map.get("candidate_id");
+		if(candidate_idObj != null)
+			candidate_id = candidate_idObj.toString();
+
+		Object candidate_nameObj = map.get("candidate_name");
+		if(candidate_nameObj != null)
+			candidate_name = candidate_nameObj.toString();
+
+		Object candidate_mobile_noObj = map.get("candidate_mobile_no");
+		if(candidate_mobile_noObj != null)
+			candidate_mobile_no = candidate_mobile_noObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -429,6 +493,70 @@ public abstract class Basefeedback extends BaseResource {
 
 	public void unSetFeedback_type() {
 		this.feedback_type = null;
+	}
+
+	public String getApp_name() {
+		return app_name;
+	}
+
+	public String getApp_nameEx() {
+		return app_name != null ? app_name : "";
+	}
+
+	public void setApp_name(String app_name) {
+		this.app_name = app_name;
+	}
+
+	public void unSetApp_name() {
+		this.app_name = null;
+	}
+
+	public String getCandidate_id() {
+		return candidate_id;
+	}
+
+	public String getCandidate_idEx() {
+		return candidate_id != null ? candidate_id : "";
+	}
+
+	public void setCandidate_id(String candidate_id) {
+		this.candidate_id = candidate_id;
+	}
+
+	public void unSetCandidate_id() {
+		this.candidate_id = null;
+	}
+
+	public String getCandidate_name() {
+		return candidate_name;
+	}
+
+	public String getCandidate_nameEx() {
+		return candidate_name != null ? candidate_name : "";
+	}
+
+	public void setCandidate_name(String candidate_name) {
+		this.candidate_name = candidate_name;
+	}
+
+	public void unSetCandidate_name() {
+		this.candidate_name = null;
+	}
+
+	public String getCandidate_mobile_no() {
+		return candidate_mobile_no;
+	}
+
+	public String getCandidate_mobile_noEx() {
+		return candidate_mobile_no != null ? candidate_mobile_no : "";
+	}
+
+	public void setCandidate_mobile_no(String candidate_mobile_no) {
+		this.candidate_mobile_no = candidate_mobile_no;
+	}
+
+	public void unSetCandidate_mobile_no() {
+		this.candidate_mobile_no = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
