@@ -62,6 +62,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("assessment_period", "application.c4t.vehicle.school.resource.assessment_period"),
 		new ResourceMap("signature", "application.c4t.vehicle.school.resource.signature"),
 		new ResourceMap("school_event", "application.c4t.vehicle.school.resource.school_event"),
+		new ResourceMap("present", "application.c4t.vehicle.school.resource.present"),
+		new ResourceMap("present_detail", "application.c4t.vehicle.school.resource.present_detail"),
 
 		
 	};
