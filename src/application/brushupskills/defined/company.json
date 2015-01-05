@@ -1,0 +1,31 @@
+{
+	"company" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'website':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'creation_time' : {
+				type : "timestamp"
+			}			
+		}
+	}
+}
