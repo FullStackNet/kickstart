@@ -30,6 +30,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("online_session", "application.brushupskills.resource.online_session"),		
 		new ResourceMap("transaction", "application.brushupskills.resource.transaction"),		
 		new ResourceMap("consumption", "application.brushupskills.resource.consumption"),		
+		new ResourceMap("company", "application.brushupskills.resource.company"),		
+		new ResourceMap("role", "application.brushupskills.resource.role"),		
 
 	};
 }
