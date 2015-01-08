@@ -38,6 +38,8 @@ public class Field {
 	boolean addOnly;
 	boolean modifyOnly;
 	boolean readOnly;
+	boolean showCount;
+	
 	
 	public DataSource getDatasource() {
 		return datasource;
@@ -110,6 +112,7 @@ public class Field {
 			this.compomentType = UIConstants.COMPONENT_TYPE_TEXTINPUT;
 			required = false;
 			timeZone = "IST";
+			showCount = false;
 	}
 	
 	
@@ -305,5 +308,13 @@ public class Field {
 
 	public void setReadOnly(boolean readOnly) {
 		this.readOnly = readOnly;
+	}
+
+	public boolean isShowCount() {
+		return showCount;
+	}
+
+	public void setShowCount(boolean showCount) {
+		this.showCount = showCount;
 	}
 }

@@ -275,7 +275,17 @@ public abstract class BaseForm extends BaseView {
 					if (field.isReadOnly()) {
 						textEdit.addAttribute("readonly", "true");
 					}
+					if ((field.getMaxLength() != null) && field.getMaxLength() > 0) {
+						textEdit.addAttribute("maxlength", ""+field.getMaxLength());
+					}
 					column.addChild(textEdit);
+					if (field.isShowCount()) {
+						textEdit.addAttribute("onkeyup","showCount('input_"+field.getName()+"_div',this,"+field.getMaxLength()+");");
+						Div div = new Div();
+						div.addAttribute("id", "input_"+field.getName()+"_div");
+						column.addChild(div);
+						
+					}
 				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_FILEUPLOAD) {
 						FILEINPUT fileInput = new FILEINPUT(field.getName(),null);
 						fileInput.addAttribute("name", field.getName());
