@@ -19,6 +19,7 @@ public abstract class BaseAccountUpdate extends Message {
 	private String customer_id = null;
 	private String account_id = null;
 	private String account_name = null;
+	private String parent_name = null;
 	private Double balance = null;
 
 
@@ -31,17 +32,19 @@ public abstract class BaseAccountUpdate extends Message {
 
 	public void populate_field() {
  		if (fields != null) return ;
-		fields = new Field[4];
+		fields = new Field[5];
 		fields[0] =  new Field("customer_id","String",128);
 		fields[1] =  new Field("account_id","String",128);
 		fields[2] =  new Field("account_name","String",128);
-		fields[3] = new Field("balance","double");
+		fields[3] =  new Field("parent_name","String",128);
+		fields[4] = new Field("balance","double");
 	}
 
 	public void dump() {
 		System.out.println("customer_id	:	 "+customer_id);
 		System.out.println("account_id	:	 "+account_id);
 		System.out.println("account_name	:	 "+account_name);
+		System.out.println("parent_name	:	 "+parent_name);
 		System.out.println("balance	:	 "+balance);
 	}
 	public String getDump() {
@@ -49,6 +52,7 @@ public abstract class BaseAccountUpdate extends Message {
 		str = str +",customer_id:"+customer_id;
 		str = str +",account_id:"+account_id;
 		str = str +",account_name:"+account_name;
+		str = str +",parent_name:"+parent_name;
 		str = str +",balance:"+balance;
 		return str;
 	}
@@ -61,6 +65,8 @@ public abstract class BaseAccountUpdate extends Message {
 			map.put("account_id", account_id);
 		if(account_name != null)
 			map.put("account_name", account_name);
+		if(parent_name != null)
+			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
 		return map;
@@ -70,10 +76,11 @@ public abstract class BaseAccountUpdate extends Message {
 		customer_id = (String) map.get("customer_id");
 		account_id = (String) map.get("account_id");
 		account_name = (String) map.get("account_name");
+		parent_name = (String) map.get("parent_name");
 		balance = (Double) map.get("balance");
 	}
 
- 	public int getMessageSize() {return 392;}
+ 	public int getMessageSize() {return 520;}
 
  	public String getName() {return "AccountUpdate";}
 
@@ -125,6 +132,22 @@ public Message process(Session session,Message parentMessage) {return null;}
 
 	public void unSetAccount_name() {
 		this.account_name = null;
+	}
+
+	public String getParent_name() {
+		return parent_name;
+	}
+
+	public String getParent_nameEx() {
+		return parent_name != null ? parent_name : "";
+	}
+
+	public void setParent_name(String parent_name) {
+		this.parent_name = parent_name;
+	}
+
+	public void unSetParent_name() {
+		this.parent_name = null;
 	}
 
 	public Double getBalance() {
