@@ -21,8 +21,10 @@ import java.util.*;
 public abstract class Baseaccount extends BaseResource {
 	private String id = null;
 	private String customer_id = null;
+	private String company_name = null;
 	private String account_customer_id = null;
 	private String name = null;
+	private String parent_name = null;
 	private Double balance = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
@@ -30,8 +32,10 @@ public abstract class Baseaccount extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_ACCOUNT_CUSTOMER_ID = "account_customer_id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_PARENT_NAME = "parent_name";
 	public static String FIELD_BALANCE = "balance";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
@@ -52,6 +56,10 @@ public abstract class Baseaccount extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
+		Field company_nameField = new Field("company_name", "String");
+		company_nameField.setLength(128);
+		metaData.addField(company_nameField);
+
 		Field account_customer_idField = new Field("account_customer_id", "String");
 		account_customer_idField.setLength(128);
 		metaData.addField(account_customer_idField);
@@ -59,6 +67,10 @@ public abstract class Baseaccount extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field parent_nameField = new Field("parent_name", "String");
+		parent_nameField.setLength(128);
+		metaData.addField(parent_nameField);
 
 		Field balanceField = new Field("balance", "double");
 		metaData.addField(balanceField);
@@ -84,8 +96,10 @@ public abstract class Baseaccount extends BaseResource {
 	public Baseaccount(Baseaccount obj) {
 		this.id = obj.id;
 		this.customer_id = obj.customer_id;
+		this.company_name = obj.company_name;
 		this.account_customer_id = obj.account_customer_id;
 		this.name = obj.name;
+		this.parent_name = obj.parent_name;
 		this.balance = obj.balance;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
@@ -102,10 +116,14 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("id", id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(company_name != null)
+			map.put("company_name", company_name);
 		if(account_customer_id != null)
 			map.put("account_customer_id", account_customer_id);
 		if(name != null)
 			map.put("name", name);
+		if(parent_name != null)
+			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
 		if(creation_time != null)
@@ -123,10 +141,14 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("id", id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(company_name != null)
+			map.put("company_name", company_name);
 		if(account_customer_id != null)
 			map.put("account_customer_id", account_customer_id);
 		if(name != null)
 			map.put("name", name);
+		if(parent_name != null)
+			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
 		if(creation_time != null)
@@ -147,8 +169,10 @@ public abstract class Baseaccount extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		customer_id = (String) map.get("customer_id");
+		company_name = (String) map.get("company_name");
 		account_customer_id = (String) map.get("account_customer_id");
 		name = (String) map.get("name");
+		parent_name = (String) map.get("parent_name");
 		balance = (Double) map.get("balance");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
@@ -165,6 +189,10 @@ public abstract class Baseaccount extends BaseResource {
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
 
+		Object company_nameObj = map.get("company_name");
+		if(company_nameObj != null)
+			company_name = company_nameObj.toString();
+
 		Object account_customer_idObj = map.get("account_customer_id");
 		if(account_customer_idObj != null)
 			account_customer_id = account_customer_idObj.toString();
@@ -172,6 +200,10 @@ public abstract class Baseaccount extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object parent_nameObj = map.get("parent_name");
+		if(parent_nameObj != null)
+			parent_name = parent_nameObj.toString();
 
 		Object balanceObj = map.get("balance");
 		if(balanceObj != null)
@@ -232,6 +264,22 @@ public abstract class Baseaccount extends BaseResource {
 		this.customer_id = null;
 	}
 
+	public String getCompany_name() {
+		return company_name;
+	}
+
+	public String getCompany_nameEx() {
+		return company_name != null ? company_name : "";
+	}
+
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
+	}
+
+	public void unSetCompany_name() {
+		this.company_name = null;
+	}
+
 	public String getAccount_customer_id() {
 		return account_customer_id;
 	}
@@ -262,6 +310,22 @@ public abstract class Baseaccount extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getParent_name() {
+		return parent_name;
+	}
+
+	public String getParent_nameEx() {
+		return parent_name != null ? parent_name : "";
+	}
+
+	public void setParent_name(String parent_name) {
+		this.parent_name = parent_name;
+	}
+
+	public void unSetParent_name() {
+		this.parent_name = null;
 	}
 
 	public Double getBalance() {
