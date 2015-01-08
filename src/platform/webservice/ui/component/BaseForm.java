@@ -283,6 +283,7 @@ public abstract class BaseForm extends BaseView {
 						textEdit.addAttribute("onkeyup","showCount('input_"+field.getName()+"_div',this,"+field.getMaxLength()+");");
 						Div div = new Div();
 						div.addAttribute("id", "input_"+field.getName()+"_div");
+						div.addAttribute("style", "margin-top:10px");
 						column.addChild(div);
 						
 					}
