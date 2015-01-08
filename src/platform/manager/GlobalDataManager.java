@@ -411,7 +411,7 @@ public class GlobalDataManager {
 			return false;
 		
 		for(int i=0; i < modules.length; i++) {
-			if (module.equals(modules[i])) {
+			if (module.equalsIgnoreCase(modules[i])) {
 				return true;
 			}
 		}
