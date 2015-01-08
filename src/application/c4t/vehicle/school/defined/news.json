@@ -82,6 +82,14 @@
 				'type': 'String',
 				'length' : 1,
 				'default' : "N"
+			},
+			'source_name': {
+				'type': 'String',
+				'length' : 128
+			},
+			'source_link': {
+				'type': 'String',
+				'length' : 128
 			}
 		}
 	}

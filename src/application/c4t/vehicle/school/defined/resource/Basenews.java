@@ -37,6 +37,8 @@ public abstract class Basenews extends BaseResource {
 	private Integer total_app_notification_sent = null;
 	private String send_email = null;
 	private String send_father_mother = null;
+	private String source_name = null;
+	private String source_link = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -57,6 +59,8 @@ public abstract class Basenews extends BaseResource {
 	public static String FIELD_TOTAL_APP_NOTIFICATION_SENT = "total_app_notification_sent";
 	public static String FIELD_SEND_EMAIL = "send_email";
 	public static String FIELD_SEND_FATHER_MOTHER = "send_father_mother";
+	public static String FIELD_SOURCE_NAME = "source_name";
+	public static String FIELD_SOURCE_LINK = "source_link";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -137,6 +141,14 @@ public abstract class Basenews extends BaseResource {
 		send_father_motherField.setLength(1);
 		metaData.addField(send_father_motherField);
 
+		Field source_nameField = new Field("source_name", "String");
+		source_nameField.setLength(128);
+		metaData.addField(source_nameField);
+
+		Field source_linkField = new Field("source_link", "String");
+		source_linkField.setLength(128);
+		metaData.addField(source_linkField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -168,6 +180,8 @@ public abstract class Basenews extends BaseResource {
 		this.total_app_notification_sent = obj.total_app_notification_sent;
 		this.send_email = obj.send_email;
 		this.send_father_mother = obj.send_father_mother;
+		this.source_name = obj.source_name;
+		this.source_link = obj.source_link;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -224,6 +238,10 @@ public abstract class Basenews extends BaseResource {
 			map.put("send_email", send_email);
 		if(send_father_mother != null)
 			map.put("send_father_mother", send_father_mother);
+		if(source_name != null)
+			map.put("source_name", source_name);
+		if(source_link != null)
+			map.put("source_link", source_link);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -270,6 +288,10 @@ public abstract class Basenews extends BaseResource {
 			map.put("send_email", send_email);
 		if(send_father_mother != null)
 			map.put("send_father_mother", send_father_mother);
+		if(source_name != null)
+			map.put("source_name", source_name);
+		if(source_link != null)
+			map.put("source_link", source_link);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -300,6 +322,8 @@ public abstract class Basenews extends BaseResource {
 		total_app_notification_sent = (Integer) map.get("total_app_notification_sent");
 		send_email = (String) map.get("send_email");
 		send_father_mother = (String) map.get("send_father_mother");
+		source_name = (String) map.get("source_name");
+		source_link = (String) map.get("source_link");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -376,6 +400,14 @@ public abstract class Basenews extends BaseResource {
 		Object send_father_motherObj = map.get("send_father_mother");
 		if(send_father_motherObj != null)
 			send_father_mother = send_father_motherObj.toString();
+
+		Object source_nameObj = map.get("source_name");
+		if(source_nameObj != null)
+			source_name = source_nameObj.toString();
+
+		Object source_linkObj = map.get("source_link");
+		if(source_linkObj != null)
+			source_link = source_linkObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -668,6 +700,38 @@ public abstract class Basenews extends BaseResource {
 
 	public void unSetSend_father_mother() {
 		this.send_father_mother = "N";
+	}
+
+	public String getSource_name() {
+		return source_name;
+	}
+
+	public String getSource_nameEx() {
+		return source_name != null ? source_name : "";
+	}
+
+	public void setSource_name(String source_name) {
+		this.source_name = source_name;
+	}
+
+	public void unSetSource_name() {
+		this.source_name = null;
+	}
+
+	public String getSource_link() {
+		return source_link;
+	}
+
+	public String getSource_linkEx() {
+		return source_link != null ? source_link : "";
+	}
+
+	public void setSource_link(String source_link) {
+		this.source_link = source_link;
+	}
+
+	public void unSetSource_link() {
+		this.source_link = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
