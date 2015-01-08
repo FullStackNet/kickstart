@@ -42,7 +42,7 @@
 				'type':'String',
 				length : 16
 			},
-			'total_absent':
+			'total_present':
 			{
 				'type':'int'
 			},
