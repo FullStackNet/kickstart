@@ -11,7 +11,6 @@ import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.Util;
 import platform.webservice.ui.definition.IdValue;
-import application.brushupskills.resource.question;
 import application.brushupskills.resource.question_category;
 
 public class Question_categoryHelper extends BaseHelper {
