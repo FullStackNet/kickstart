@@ -4,7 +4,6 @@ import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
-import application.brushupskills.resource.my_interview;
 import application.brushupskills.resource.my_interview_detail;
 
 public class My_interview_detailHelper extends BaseHelper {
