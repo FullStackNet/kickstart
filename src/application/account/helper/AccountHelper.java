@@ -22,6 +22,14 @@ public class AccountHelper extends BaseHelper{
 		super(new account());
 		// TODO Auto-generated constructor stub
 	}
+	public BaseResource[] getCustomerBalance(String customer_id) {
+		Expression e = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
+		BaseResource[] resources = getByExpression(e,new String[]{account.FIELD_NAME});
+		if (Util.isEmpty(resources))
+			return null;
+		return resources;
+
+	}
 	
 	public account getAccount(String customer_id,String accountId) {
 		Expression e1 = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
