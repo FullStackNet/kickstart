@@ -1,0 +1,65 @@
+{
+	"my_interview" :
+	{
+		"cluster": "DB_QUESTION",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'candidate_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'company_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'location':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'role':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'telephonic':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'round':
+			{
+				'length': 128,
+				'type':'int'
+			},
+			'interview_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'date':
+			{
+				'type':'timestamp'
+			},
+			'date_str':
+			{
+				'type':'String',
+				length : 16
+			}
+		}
+	}
+}

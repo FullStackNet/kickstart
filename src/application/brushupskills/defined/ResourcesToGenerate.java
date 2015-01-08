@@ -32,6 +32,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("consumption", "application.brushupskills.resource.consumption"),		
 		new ResourceMap("company", "application.brushupskills.resource.company"),		
 		new ResourceMap("role", "application.brushupskills.resource.role"),		
+		new ResourceMap("my_interview", "application.brushupskills.resource.my_interview"),		
+		new ResourceMap("my_interview_detail", "application.brushupskills.resource.my_interview_detail"),		
 
 	};
 }

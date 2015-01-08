@@ -1,0 +1,57 @@
+{
+	"my_interview_detail" :
+	{
+		"cluster": "DB_QUESTION",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'parent_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'index' : true
+		
+			},
+			'question':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'asnwer':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'date':
+			{
+				'type':'timestamp'
+			},
+			'date_str':
+			{
+				'type':'String'
+			},
+			'candidate_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'company_name':
+			{
+				'type':'String',
+				length : 128
+			},
+			'role':
+			{
+				'type':'String',
+				length : 128
+			}
+		}
+	}
+}
