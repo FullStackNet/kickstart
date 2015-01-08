@@ -67,5 +67,8 @@ public class MessagesToGenerate {
 		new MessageMap("SendNotification"), // 6/19/1
 		new MessageMap("ExecuteReport"), // 6/20/1
 		new MessageMap("Schedule"), // 6/21/1
+		
+		// Account 7
+		new MessageMap("AccountUpdate"), // 7/21/1
 	};
 }
