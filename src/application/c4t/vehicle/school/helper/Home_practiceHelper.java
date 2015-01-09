@@ -11,6 +11,7 @@ import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
+import application.c4t.vehicle.school.resource.daily_activity;
 import application.c4t.vehicle.school.resource.home_practice;
 import application.c4t.vehicle.school.resource.student;
 
@@ -27,6 +28,34 @@ public class Home_practiceHelper extends BaseHelper {
 		if (instance == null)
 			instance = new Home_practiceHelper();
 		return instance;
+	}
+	
+	
+	public void addSchool(String id,String[] schoolIds) {
+		home_practice _activity = new home_practice();
+		_activity.setId(id);
+		for(int i=0 ; i < schoolIds.length; i++) {
+			_activity.addSchools(schoolIds[i]);
+		}
+		try {
+			Home_practiceHelper.getInstance().update(_activity);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void addSchool(String id,String schoolId) {
+		home_practice _activity = new home_practice();
+		_activity.setId(id);
+		_activity.addSchools(schoolId);
+		try {
+			Home_practiceHelper.getInstance().update(_activity);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public BaseResource[] getHome_practiceForClass(String school_id, String class_section_name) {
