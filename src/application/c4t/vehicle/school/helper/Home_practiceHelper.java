@@ -11,7 +11,6 @@ import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
-import application.c4t.vehicle.school.resource.daily_activity;
 import application.c4t.vehicle.school.resource.home_practice;
 import application.c4t.vehicle.school.resource.student;
 
@@ -59,7 +58,9 @@ public class Home_practiceHelper extends BaseHelper {
 	}
 	
 	public BaseResource[] getHome_practiceForClass(String school_id, String class_section_name) {
-		Expression e1 = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
+		Expression e12 = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
+		Expression e11 = new Expression(home_practice.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_EQ, school_id);
+		Expression e1 = new Expression(e12,LOG_OP.OR, e11);
 		Expression e2 = new Expression(home_practice.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e3 = new Expression(e1, LOG_OP.AND, e2);
 		Expression e4 = new Expression(home_practice.FIELD_SENT, REL_OP.EQ, "Y");
@@ -91,7 +92,9 @@ public class Home_practiceHelper extends BaseHelper {
 		ArrayList<JoinField> list = new ArrayList<JoinField>();
 		JoinField field = new JoinField("school", "school_id", "school_name");
 		list.add(field);
-		Expression e = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+		Expression e2 = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+		Expression e1 = new Expression(home_practice.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, schools);
+		Expression e = new Expression(e1,LOG_OP.OR, e2);
 		return getByJoining(e,list, new String[]{home_practice.FIELD_CREATION_TIME + " desc"});
 	}
 }

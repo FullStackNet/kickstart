@@ -12,7 +12,6 @@ import platform.helper.HelperFactory;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.daily_activity;
-import application.c4t.vehicle.school.resource.notice;
 import application.c4t.vehicle.school.resource.student;
 
 
@@ -63,8 +62,8 @@ public class Daily_activityHelper extends BaseHelper {
 		
 	}
 	public BaseResource[] getDaily_activiyForClass(String schoolId, String class_section_name) {
-		Expression e12 = new Expression(notice.FIELD_SCHOOL_ID, REL_OP.EQ, schoolId);
-		Expression e11 = new Expression(notice.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_EQ, schoolId);
+		Expression e12 = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.EQ, schoolId);
+		Expression e11 = new Expression(daily_activity.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_EQ, schoolId);
 		Expression e1 = new Expression(e12,LOG_OP.OR, e11);
 		Expression e2 = new Expression(daily_activity.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e3 = new Expression(e1, LOG_OP.AND, e2);
@@ -91,8 +90,8 @@ public class Daily_activityHelper extends BaseHelper {
 		ArrayList<JoinField> list = new ArrayList<JoinField>();
 		JoinField field = new JoinField("school", "school_id", "school_name");
 		list.add(field);
-		Expression e2 = new Expression(notice.FIELD_SCHOOL_ID, REL_OP.IN, schools);
-		Expression e1 = new Expression(notice.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, schools);
+		Expression e2 = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+		Expression e1 = new Expression(daily_activity.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, schools);
 		Expression e = new Expression(e1,LOG_OP.OR, e2);
 		return getByJoining(e,list, new String[]{daily_activity.FIELD_ACTIVITY_DATE + " desc"});
 	}
