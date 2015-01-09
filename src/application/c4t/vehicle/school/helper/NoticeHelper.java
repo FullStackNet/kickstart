@@ -31,7 +31,43 @@ public class NoticeHelper extends BaseHelper {
 		_notice.setSent("Y");
 		update(_notice);
 	}
+	public void addSchool(String noticeId,String schoolId) {
+		notice _notice = new notice();
+		_notice.setId(noticeId);
+		_notice.addSchools(schoolId);
+		try {
+			NoticeHelper.getInstance().update(_notice);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
+	public void addSchool(String noticeId,String[] schoolIds) {
+		notice _notice = new notice();
+		_notice.setId(noticeId);
+		for(int i=0 ; i < schoolIds.length; i++) {
+			_notice.addSchools(schoolIds[i]);
+		}
+		try {
+			NoticeHelper.getInstance().update(_notice);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeSchool(String noticeId,String schoolId) {
+		notice _notice = new notice();
+		_notice.setId(noticeId);
+		_notice.addSchools(schoolId);
+		try {
+			NoticeHelper.getInstance().unset(_notice);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void updateSentCounter(String id,int total_students_sent, 
 			int total_users_sent, int total_sms_sent, int total_email_sent, 
 			int total_app_notification_sent)  {
