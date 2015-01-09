@@ -24,7 +24,9 @@ public class DataSource {
 	String valueField;
 	String[] stringArrray;
 	ArrayList<Map<String, Object>> listMap;
-	
+	ArrayList<Map<String, Object>> additionBeforeOption;
+	ArrayList<Map<String, Object>> additionAfterOption;
+
 	public DataSource(String keyField, String valueField , BaseHelper helper) {
 		super();
 		this.type = HELPER;
@@ -32,7 +34,7 @@ public class DataSource {
 		this.keyField = keyField;
 		this.valueField = valueField;
 	}
-	
+
 	public DataSource(String keyField, String valueField , BaseResource[] resources) {
 		super();
 		this.type = LISTMAP;
@@ -45,7 +47,7 @@ public class DataSource {
 		this.keyField = keyField;
 		this.valueField = valueField;
 	}
-	
+
 	public DataSource(String keyField, String valueField , ArrayList<Map<String, Object>> listMap) {
 		super();
 		this.type = LISTMAP;
@@ -53,7 +55,7 @@ public class DataSource {
 		this.keyField = keyField;
 		this.valueField = valueField;
 	}
-	
+
 	public DataSource(String keyField, String valueField , BaseHelper helper , String sql) {
 		super();
 		this.type = SQL;
@@ -62,7 +64,7 @@ public class DataSource {
 		this.valueField = valueField;
 		this.sql = sql;
 	}
-	
+
 	public DataSource(String keyField, String valueField , BaseHelper helper , platform.db.Expression expression) {
 		super();
 		this.type = EXPRESSION;
@@ -71,19 +73,26 @@ public class DataSource {
 		this.valueField = valueField;
 		this.expression = expression;
 	}
-	
+
 	public DataSource(String[] values) {
 		super();
 		this.type = STRINGARRAY;
 		this.stringArrray = values;
 	}
-	
+
 	public DataSource(IdValue[] values) {
 		super();
 		this.type = IDVALUE;
 		this.values = values;
 	}
-	
+
+	public void addAdditionalBeforeOption(Map<String,Object> option) {
+		if (additionBeforeOption == null) {
+			additionBeforeOption = new ArrayList<Map<String,Object>>();
+		}
+		additionBeforeOption.add(option);
+	}
+
 	public ArrayList<IdValue> getData() {
 		ArrayList<IdValue> data = new ArrayList<IdValue>();
 		if (type.equals(IDVALUE)) {
@@ -106,6 +115,14 @@ public class DataSource {
 			List<Map<String, Object>> list = helper.getAllMap();
 			if (list == null) 
 				list = new ArrayList<Map<String, Object>>();
+			if (additionBeforeOption != null) {
+				for(int i=0 ;i < additionBeforeOption.size() ; i++) {
+					String keyValue = (String) additionBeforeOption.get(i).get(keyField);
+					Object object = additionBeforeOption.get(i).get(valueField);
+					IdValue value = new IdValue(keyValue, object);
+					data.add(value);
+				}
+			}
 			for(int i=0 ;i < list.size() ; i++) {
 				String keyValue = (String) list.get(i).get(keyField);
 				Object object = list.get(i).get(valueField);
@@ -114,6 +131,14 @@ public class DataSource {
 			}
 		} else if(type.equals(LISTMAP)) {
 			if (listMap != null) {
+				if (additionBeforeOption != null) {
+					for(int i=0 ;i < additionBeforeOption.size() ; i++) {
+						String keyValue = (String) additionBeforeOption.get(i).get(keyField);
+						Object object = additionBeforeOption.get(i).get(valueField);
+						IdValue value = new IdValue(keyValue, object);
+						data.add(value);
+					}
+				}
 				for(int i=0 ;i < listMap.size() ; i++) {
 					Map<String, Object> map = listMap.get(i);
 					String keyValue = (String) map.get(keyField);
@@ -125,7 +150,7 @@ public class DataSource {
 		} 
 		return data;
 	}
-	
+
 	public IdValue getSelectedObject(Object id) {
 		ArrayList<IdValue> data  = getData();
 		for(int i = 0 ; i < data.size() ; i++) {

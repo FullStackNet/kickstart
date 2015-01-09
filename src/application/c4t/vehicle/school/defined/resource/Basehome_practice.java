@@ -20,6 +20,7 @@ import java.util.*;
  */
 public abstract class Basehome_practice extends BaseResource {
 	private String id = null;
+	private ArrayList<String> schools = null;
 	private String class_name = null;
 	private String section_name = null;
 	private String class_section_name = null;
@@ -34,6 +35,7 @@ public abstract class Basehome_practice extends BaseResource {
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_SCHOOLS = "schools";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
@@ -57,6 +59,9 @@ public abstract class Basehome_practice extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field schoolsField = new Field("schools", "Array");
+		metaData.addField(schoolsField);
 
 		Field class_nameField = new Field("class_name", "String");
 		class_nameField.setLength(32);
@@ -120,6 +125,7 @@ public abstract class Basehome_practice extends BaseResource {
 
 	public Basehome_practice(Basehome_practice obj) {
 		this.id = obj.id;
+		this.schools = obj.schools;
 		this.class_name = obj.class_name;
 		this.section_name = obj.section_name;
 		this.class_section_name = obj.class_section_name;
@@ -151,6 +157,8 @@ public abstract class Basehome_practice extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(schools != null)
+			map.put("schools", schools);
 		if(class_name != null)
 			map.put("class_name", class_name);
 		if(section_name != null)
@@ -185,6 +193,8 @@ public abstract class Basehome_practice extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(schools != null)
+			map.put("schools", schools);
 		if(class_name != null)
 			map.put("class_name", class_name);
 		if(section_name != null)
@@ -220,6 +230,7 @@ public abstract class Basehome_practice extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		schools = (ArrayList<String>) map.get("schools");
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
 		class_section_name = (String) map.get("class_section_name");
@@ -240,6 +251,7 @@ public abstract class Basehome_practice extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
+		schools = (ArrayList<String>) map.get("schools");
 		Object class_nameObj = map.get("class_name");
 		if(class_nameObj != null)
 			class_name = class_nameObj.toString();
@@ -313,6 +325,25 @@ public abstract class Basehome_practice extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public ArrayList<String> getSchools() {
+		return schools;
+	}
+
+
+	public void setSchools(ArrayList<String> schools) {
+		this.schools = schools;
+	}
+
+	public void addSchools(String value) {
+		if(schools == null)
+			schools = new ArrayList<String>();
+		schools.add(value);
+	}
+
+	public void unSetSchools() {
+		this.schools = null;
 	}
 
 	public String getClass_name() {

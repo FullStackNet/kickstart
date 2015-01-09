@@ -29,6 +29,7 @@ public abstract class Basedaily_activity extends BaseResource {
 	private String description = null;
 	private Long creation_time = null;
 	private Long activity_date = null;
+	private ArrayList<String> schools = null;
 	private String activity_date_str = null;
 	private String sent = null;
 	private String send_sms = null;
@@ -45,6 +46,7 @@ public abstract class Basedaily_activity extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_ACTIVITY_DATE = "activity_date";
+	public static String FIELD_SCHOOLS = "schools";
 	public static String FIELD_ACTIVITY_DATE_STR = "activity_date_str";
 	public static String FIELD_SENT = "sent";
 	public static String FIELD_SEND_SMS = "send_sms";
@@ -98,6 +100,9 @@ public abstract class Basedaily_activity extends BaseResource {
 		Field activity_dateField = new Field("activity_date", "timestamp");
 		metaData.addField(activity_dateField);
 
+		Field schoolsField = new Field("schools", "Array");
+		metaData.addField(schoolsField);
+
 		Field activity_date_strField = new Field("activity_date_str", "String");
 		activity_date_strField.setLength(32);
 		metaData.addField(activity_date_strField);
@@ -140,6 +145,7 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.description = obj.description;
 		this.creation_time = obj.creation_time;
 		this.activity_date = obj.activity_date;
+		this.schools = obj.schools;
 		this.activity_date_str = obj.activity_date_str;
 		this.sent = obj.sent;
 		this.send_sms = obj.send_sms;
@@ -182,6 +188,8 @@ public abstract class Basedaily_activity extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(activity_date != null)
 			map.put("activity_date", activity_date);
+		if(schools != null)
+			map.put("schools", schools);
 		if(activity_date_str != null)
 			map.put("activity_date_str", activity_date_str);
 		if(sent != null)
@@ -220,6 +228,8 @@ public abstract class Basedaily_activity extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(activity_date != null)
 			map.put("activity_date", activity_date);
+		if(schools != null)
+			map.put("schools", schools);
 		if(activity_date_str != null)
 			map.put("activity_date_str", activity_date_str);
 		if(sent != null)
@@ -250,6 +260,7 @@ public abstract class Basedaily_activity extends BaseResource {
 		description = (String) map.get("description");
 		creation_time = (Long) map.get("creation_time");
 		activity_date = (Long) map.get("activity_date");
+		schools = (ArrayList<String>) map.get("schools");
 		activity_date_str = (String) map.get("activity_date_str");
 		sent = (String) map.get("sent");
 		send_sms = (String) map.get("send_sms");
@@ -299,6 +310,7 @@ public abstract class Basedaily_activity extends BaseResource {
 		if(activity_dateObj != null)
 			activity_date = (Long) activity_dateObj;
 
+		schools = (ArrayList<String>) map.get("schools");
 		Object activity_date_strObj = map.get("activity_date_str");
 		if(activity_date_strObj != null)
 			activity_date_str = activity_date_strObj.toString();
@@ -475,6 +487,25 @@ public abstract class Basedaily_activity extends BaseResource {
 		this.activity_date = activity_date;
 	}
 
+
+	public ArrayList<String> getSchools() {
+		return schools;
+	}
+
+
+	public void setSchools(ArrayList<String> schools) {
+		this.schools = schools;
+	}
+
+	public void addSchools(String value) {
+		if(schools == null)
+			schools = new ArrayList<String>();
+		schools.add(value);
+	}
+
+	public void unSetSchools() {
+		this.schools = null;
+	}
 
 	public String getActivity_date_str() {
 		return activity_date_str;

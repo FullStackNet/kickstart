@@ -11,6 +11,11 @@
 				'required': true,
 				'type':'String'
 			},
+			'schools':
+			{
+				'type':'Array',
+				'valueType' : "String"
+			},
 			'class_name':
 			{
 				'length': 32,

@@ -1,5 +1,8 @@
 package platform.webservice.ui.definition;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import platform.db.JoinField;
 import platform.webservice.ui.renderer.BaseRenderer;
 import platform.webservice.ui.util.UIConstants;

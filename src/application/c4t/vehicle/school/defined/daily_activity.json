@@ -53,6 +53,11 @@
 			'activity_date': {
 				'type': 'timestamp'
 			},
+			'schools':
+			{
+				'type':'Array',
+				'valueType' : "String"
+			},
 			'activity_date_str': {
 				'type': 'String',
 				'length' : 32

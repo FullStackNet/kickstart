@@ -131,7 +131,6 @@ public class UIConstants {
 };
 
 	public final static IdValue[] NOTICE_TYPE_ENUM = new IdValue[] {
-		new IdValue("ALL_SCHOOLS", "All My Schools"),
 		new IdValue("SCHOOL", "Whole School"),
 		new IdValue("CLASS", "Whole class"),
 		new IdValue("SECTION", "Particluler Section"),

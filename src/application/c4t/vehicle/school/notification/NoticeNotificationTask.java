@@ -33,7 +33,6 @@ public class NoticeNotificationTask extends NotificationTask {
 
 	void sendSMS2Users(notification _notification, 
 			Map<String, String> smsAlertMap,
-			String school_id,
 			String class_section_name,
 			String title,
 			String description,String date,String customer_id) {
@@ -57,7 +56,6 @@ public class NoticeNotificationTask extends NotificationTask {
 
 	void sendEmail2Users(notification _notification, 
 			Map<String, String> emailAlertMap,
-			String school_id,
 			String class_section_name,
 			String title,
 			String description,String date,String customer_id) {
@@ -83,7 +81,6 @@ public class NoticeNotificationTask extends NotificationTask {
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
 			Map<String, String> appAlertMap,
-			String school_id,
 			String class_section_name,
 			String title,
 			String description,String date,String customer_id) {
@@ -119,7 +116,6 @@ public class NoticeNotificationTask extends NotificationTask {
 	}
 
 	void sendNotification(notification _notification, 
-			String school_id,
 			String notice_id,
 			String type,
 			String class_name,
@@ -131,19 +127,24 @@ public class NoticeNotificationTask extends NotificationTask {
 
 		BaseResource[] students = null;
 		if ("SCHOOL".equals(type)) {
-			students = StudentHelper.getInstance().getStudentBySchool(school_id);
-		} else if ("CLASS".equals(type)) {
-			students = StudentHelper.getInstance().getClassStudent(school_id,class_name);
-		} else if ("SECTION".equals(type)) {
-			students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
-		} else if ("ALL_SCHOOLS".equals(type)) {
 			if (Util.isEmpty(activity.getSchools())) {
 				return;
 			}
 			String[] ids = activity.getSchools().toArray(new String[activity.getSchools().size()]);
 			students = StudentHelper.getInstance().getStudentBySchools(ids);
-		}
-
+		} else if ("CLASS".equals(type)) {
+			if (Util.isEmpty(activity.getSchools())) {
+				return;
+			}
+			String[] ids = activity.getSchools().toArray(new String[activity.getSchools().size()]);
+			students = StudentHelper.getInstance().getClassStudent(ids,class_name);
+		} else if ("SECTION".equals(type)) {
+			if (Util.isEmpty(activity.getSchools())) {
+				return;
+			}
+			String[] ids = activity.getSchools().toArray(new String[activity.getSchools().size()]);
+			students = StudentHelper.getInstance().getSectionStudent(ids,class_section_name);
+		} 
 		if ((students == null) || (students.length == 0)) 
 			return;
 		ApplicationLogger.info("Sending notice to "+ students.length + " Students", this.getClass());
@@ -234,7 +235,6 @@ public class NoticeNotificationTask extends NotificationTask {
 		
 		sendNotification2Users(_notification, userMap, studentMap,
 				appAlertMap,
-				school_id,
 				class_section_name,
 				title,
 				description,
@@ -242,7 +242,6 @@ public class NoticeNotificationTask extends NotificationTask {
 		
 		sendSMS2Users(_notification, 
 				smsAlertMap,
-				school_id,
 				class_section_name,
 				title,
 				description,
@@ -250,7 +249,6 @@ public class NoticeNotificationTask extends NotificationTask {
 		
 		sendEmail2Users(_notification, 
 				emailAlertMap,
-				school_id,
 				class_section_name,
 				title,
 				description,
@@ -265,7 +263,6 @@ public class NoticeNotificationTask extends NotificationTask {
 			Map<String, Object> data = _notification.getNotification_data();
 			if (data == null)
 				return;
-			String school_id = (String)data.get("SCHOOL_ID");
 			String type = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TYPE);
 			String class_name = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_NAME);
 			String section_name = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SECTION_NAME);
@@ -281,7 +278,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				ApplicationLogger.error("Unable to process Notice, because it doesn't exists " +notice_id, this.getClass());
 				return;
 			}
-			sendNotification(_notification,school_id,notice_id,type,class_name,
+			sendNotification(_notification,notice_id,type,class_name,
 					class_section_name, title,description,date,activity,customer_id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

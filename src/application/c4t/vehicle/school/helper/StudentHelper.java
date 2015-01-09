@@ -188,6 +188,14 @@ public class StudentHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 	
+	public BaseResource[] getStudentByClassName(String school_ids[],String class_name) {
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN,school_ids);
+		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ,class_name);
+		Expression e = new Expression(e1, LOG_OP.AND,e2);
+		return getByExpression(e);
+	}
+	
+	
 	public BaseResource[] getStudentByClassName(String school_id,String class_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ,school_id);
 		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ,class_name);
@@ -195,9 +203,21 @@ public class StudentHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 	
+	public BaseResource[] getStudentBySectionName(String[] school_ids,String class_name, String section_name) {
+		String class_section_name = Util.getClassSectionName(class_name, section_name);
+		return getStudentByClassSectionName(school_ids,class_section_name);
+	}
+	
 	public BaseResource[] getStudentBySectionName(String school_id,String class_name, String section_name) {
 		String class_section_name = Util.getClassSectionName(class_name, section_name);
 		return getStudentByClassSectionName(school_id,class_section_name);
+	}
+	
+	public BaseResource[]  getStudentByClassSectionName(String[] school_ids, String class_section_name) {
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
+		Expression e2 = new Expression(student.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
+		Expression e  = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
 	}
 	
 	public BaseResource[]  getStudentByClassSectionName(String school_id, String class_section_name) {
