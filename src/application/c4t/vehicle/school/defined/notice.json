@@ -17,6 +17,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'schools':
+			{
+				'type':'Array',
+				'valueType' : "String"
+			},
 			'customer_id':
 			{
 				'length': 128,
