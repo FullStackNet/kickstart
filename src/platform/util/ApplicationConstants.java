@@ -141,6 +141,7 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_HOME_PRACTICE= "HOME_PRACTICE";
 	public static String MAIL_TYPE_NOTICE = "NOTICE";
 	public static String MAIL_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
+	public static String MAIL_TYPE_MESSAGE2SCHOOL = "MESSAGE2SCHOOL";
 	public static String MAIL_TYPE_ABSENT = "ABSENT";
 	public static String MAIL_TYPE_DAILY_ACTIVITY= "DAILY_ACTIVITY";
 	public static String MAIL_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";

@@ -18,8 +18,10 @@ import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
 import platform.util.Util;
+import application.c4t.vehicle.school.helper.School_user_mapHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
+import application.c4t.vehicle.school.resource.school_user_map;
 import application.c4t.vehicle.school.resource.student;
 
 public class Message2ParentNotificationTask extends NotificationTask {
@@ -72,6 +74,29 @@ public class Message2ParentNotificationTask extends NotificationTask {
 		}
 	}
 
+	void sendEmail2Admin(notification _notification, 
+			Map<String, String> emailAlertMap,
+			String message,
+			String customer_id) {
+
+		for(Map.Entry<String, String> entry : emailAlertMap.entrySet()) {
+			SendEmail resendMail = new SendEmail();
+			resendMail.setSubject("Message from school to " + entry.getValue() + "'s parent");
+			resendMail.setTo(entry.getKey());
+			resendMail.setType(ApplicationConstants.MAIL_TYPE_MESSAGE2PARENT);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_MESSAGE, message);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, entry.getValue());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
+			
+			String params = Json.maptoString(map);
+			resendMail.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+					resendMail);
+	
+		}
+	}
+	
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			String appAlert,
 			String student_name,String message,String customerId,student _student) {
@@ -111,8 +136,9 @@ public class Message2ParentNotificationTask extends NotificationTask {
 		String appAlert = "N";
 		Map<String, String> smsAlertMap = new HashMap<String, String>();
 		Map<String, String> emailAlertMap = new HashMap<String, String>();;
+		Map<String, String> emailAdminAlertMap = new HashMap<String, String>();;
 		
-	
+		
 		student _student = (student)StudentHelper.getInstance().getById(student_id);
 		if ("Y".equals(_student.getStopage_alert_sms())) {
 			smsAlert = "Y";
@@ -172,7 +198,16 @@ public class Message2ParentNotificationTask extends NotificationTask {
 	
 		sendEmail2Users(_notification,emailAlertMap,
 				message,customerId);
-	
+		
+		BaseResource[] users = School_user_mapHelper.getInstance().getUsersForSchool(_student.getSchool_id());
+		for (int i=0 ; i < users.length ;i ++) {
+			user _user = (user) users[i];
+			if (Util.isEmpty(_user.getEmail_id()))
+				continue;
+			emailAdminAlertMap.put(_user.getEmail_id(), _user.getEmail_id());
+		}
+		sendEmail2Admin(_notification,emailAdminAlertMap,
+				message,customerId);
 	}
 	@Override
 	public void process(notification _notification) {

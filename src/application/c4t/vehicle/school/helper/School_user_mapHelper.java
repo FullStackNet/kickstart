@@ -1,7 +1,11 @@
 package application.c4t.vehicle.school.helper;
 
+import platform.db.Expression;
+import platform.db.REL_OP;
 import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
+import platform.helper.HelperUtils;
+import platform.helper.UserHelper;
 import platform.resource.BaseResource;
 import platform.resource.user;
 import platform.util.ApplicationException;
@@ -74,6 +78,13 @@ public class School_user_mapHelper extends BaseHelper {
 			return null;
 		return TeacherHelper.getInstance().getById(_map.getTeachers().toArray(new String[_map.getTeachers().size()]),
 				new String[]{user.FIELD_NAME});
+	}
+	
+	public BaseResource[] getUsersForSchool(String schoolId) {
+		Expression e = new Expression(school_user_map.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_EQ, schoolId);
+		BaseResource[] resources =  getByExpression(e);
+		String[] userIds = HelperUtils.convertResource2IdArray(resources);
+		return UserHelper.getInstance().getById(userIds,null);
 	}
 	
 	public BaseResource[] getSchools(String userId) {
