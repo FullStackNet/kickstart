@@ -33,7 +33,6 @@ public class DailyActivityNotificationTask extends NotificationTask {
 
 	void sendSMS2Users(notification _notification, 
 			Map<String, String> smsAlertMap,
-			String school_id,
 			String class_section_name,
 			String title,
 			String description,String date,String customer_id) {
@@ -57,7 +56,6 @@ public class DailyActivityNotificationTask extends NotificationTask {
 
 	void sendEmail2Users(notification _notification, 
 			Map<String, String> emailAlertMap,
-			String school_id,
 			String class_section_name,
 			String title,
 			String description,String date,String customer_id) {
@@ -83,7 +81,6 @@ public class DailyActivityNotificationTask extends NotificationTask {
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
 			Map<String, String> appAlertMap,
-			String school_id,
 			String class_section_name,
 			String title,
 			String description,String activity_date, String customerId) {
@@ -117,13 +114,18 @@ public class DailyActivityNotificationTask extends NotificationTask {
 	}
 
 	void sendNotification(notification _notification, 
-			String school_id,
 			String class_section_name,
 			String title,
 			String description,
 			String activity_date, String customerId,
 			daily_activity activity) {
-		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(school_id,class_section_name);
+		
+		if (Util.isEmpty(activity.getSchools())) {
+			return;
+		}
+		String[] ids = activity.getSchools().toArray(new String[activity.getSchools().size()]);
+		
+		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(ids,class_section_name);
 		if ((students == null) || (students.length == 0)) 
 			return;
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
@@ -206,14 +208,12 @@ public class DailyActivityNotificationTask extends NotificationTask {
 		sendNotification2Users(_notification, userMap, 
 				studentMap,
 				appAlertMap,
-				school_id,
 				class_section_name,
 				title,
 				description,
 				activity_date,customerId);
 		sendSMS2Users(_notification, 
 				smsAlertMap,
-				school_id,
 				class_section_name,
 				title,
 				description,
@@ -221,7 +221,6 @@ public class DailyActivityNotificationTask extends NotificationTask {
 		
 		sendEmail2Users(_notification, 
 				emailAlertMap,
-				school_id,
 				class_section_name,
 				title,
 				description,
@@ -235,7 +234,6 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			Map<String, Object> data = _notification.getNotification_data();
 			if (data == null)
 				return;
-			String school_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID);
 			String class_section_name = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME);
 			String title = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE);
 			String description = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION);
@@ -247,7 +245,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				ApplicationLogger.error("Unable to process Daily Activity, because it doesn't exists", this.getClass());
 				return;
 			}
-			sendNotification(_notification,school_id,
+			sendNotification(_notification,
 					class_section_name, title,description,activity_date,customerId,activity);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

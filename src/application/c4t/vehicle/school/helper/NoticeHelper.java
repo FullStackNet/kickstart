@@ -10,7 +10,6 @@ import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
 import platform.util.ApplicationException;
-import application.c4t.vehicle.school.resource.daily_activity;
 import application.c4t.vehicle.school.resource.notice;
 
 
