@@ -5,6 +5,7 @@ import java.util.Map;
 
 import platform.db.Expression;
 import platform.db.JoinField;
+import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
@@ -91,7 +92,10 @@ public class NoticeHelper extends BaseHelper {
 		ArrayList<JoinField> list = new ArrayList<JoinField>();
 		JoinField field = new JoinField("school", "school_id", "school_name");
 		list.add(field);
-		Expression e = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+		Expression e2 = new Expression(notice.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+		Expression e1 = new Expression(notice.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, schools);
+		Expression e = new Expression(e1,LOG_OP.OR, e2);
+		
 		return getByJoining(e,list, new String[]{notice.FIELD_NOTICE_DATE + " desc"});
 	}
 }

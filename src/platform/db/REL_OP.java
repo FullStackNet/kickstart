@@ -51,6 +51,11 @@ public enum REL_OP {
 			return "=@";
 		}
 	},
+	EACH_ELEMENT_IN { //Value should be a comma separated String
+		public String toString() {
+			return "eachElementIn";
+		}
+	},
 	NIN { //Negated IN - value doesn't exist in the given values (as a comma separated String)
 		public String toString() {
 			return "!@";
