@@ -328,8 +328,12 @@ public abstract class BaseForm extends BaseView {
 					column.addChild(password);
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_COMBO) {
 					ArrayList<IdValue> list = field.getDatasource().getData();
-					if (list != null && field.isHideOnSingleEntry() && list.size() == 1) {
-						IdValue idvalue = (IdValue)list.get(0);
+					int size = field.getDatasource().getData().size();
+					int beforeSize = field.getDatasource().getAdditionalBeforeEntryCount();
+					int afterSize = field.getDatasource().getAdditionalAfterEntryCount();
+					int actualSize = size - beforeSize -afterSize;
+					if (list != null && field.isHideOnSingleEntry() && (actualSize == 1)) {
+						IdValue idvalue = (IdValue)list.get(beforeSize);
 						HIDDEN hidden = new HIDDEN(field.getName(),idvalue.getId());
 						mForm.addChild(hidden);
 						continue;

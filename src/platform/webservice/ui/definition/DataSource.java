@@ -47,6 +47,20 @@ public class DataSource {
 		this.keyField = keyField;
 		this.valueField = valueField;
 	}
+	
+	public int getAdditionalBeforeEntryCount() {
+		if (additionBeforeOption != null) {
+			return additionBeforeOption.size();
+		} 
+		return 0;
+	}
+	
+	public int getAdditionalAfterEntryCount() {
+		if (additionAfterOption != null) {
+			return additionAfterOption.size();
+		} 
+		return 0;
+	}
 
 	public DataSource(String keyField, String valueField , ArrayList<Map<String, Object>> listMap) {
 		super();
