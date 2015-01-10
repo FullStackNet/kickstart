@@ -332,7 +332,7 @@ public abstract class BaseForm extends BaseView {
 					int beforeSize = field.getDatasource().getAdditionalBeforeEntryCount();
 					int afterSize = field.getDatasource().getAdditionalAfterEntryCount();
 					int actualSize = size - beforeSize -afterSize;
-					if (list != null && field.isHideOnSingleEntry() && (actualSize == 1)) {
+					if ((list != null) && (list.size() > beforeSize)  && field.isHideOnSingleEntry() && (actualSize == 1)) {
 						IdValue idvalue = (IdValue)list.get(beforeSize);
 						HIDDEN hidden = new HIDDEN(field.getName(),idvalue.getId());
 						mForm.addChild(hidden);
