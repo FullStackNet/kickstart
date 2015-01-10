@@ -500,6 +500,8 @@ public class TimeUtil {
 			int hrs, int min, int second) {
 		if (timezone == null)
 			timezone = "IST";
+		if (year < 1000)
+			year = year + 2000;
 		Calendar toCal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
 		toCal.set(Calendar.YEAR, year);
 		toCal.set(Calendar.MONTH, month-1);
