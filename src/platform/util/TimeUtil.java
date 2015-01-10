@@ -487,6 +487,15 @@ public class TimeUtil {
 		return toCal.get(Calendar.YEAR);
 	}
 	
+	public static long getTimeDDMMYYHHMMSS(String timezone, String timeString) {
+		int day = Integer.parseInt(timeString.substring(0,2));
+		int month = Integer.parseInt(timeString.substring(2,4));
+		int year = Integer.parseInt(timeString.substring(4,6));
+		int hh = Integer.parseInt(timeString.substring(6,8));
+		int mm = Integer.parseInt(timeString.substring(8,10));
+		int ss = Integer.parseInt(timeString.substring(10,12));
+		return getTime(timezone, year, month, day, hh, mm, ss);		
+	}
 	public static long getTime(String timezone,int year,int month, int day,
 			int hrs, int min, int second) {
 		if (timezone == null)
