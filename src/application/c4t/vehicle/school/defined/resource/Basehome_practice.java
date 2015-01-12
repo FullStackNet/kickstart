@@ -29,6 +29,8 @@ public abstract class Basehome_practice extends BaseResource {
 	private String title = null;
 	private String description = null;
 	private Long creation_time = null;
+	private Long activity_date = null;
+	private String activity_date_str = null;
 	private String sent = null;
 	private String send_sms = null;
 	private String send_email = null;
@@ -44,6 +46,8 @@ public abstract class Basehome_practice extends BaseResource {
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_ACTIVITY_DATE = "activity_date";
+	public static String FIELD_ACTIVITY_DATE_STR = "activity_date_str";
 	public static String FIELD_SENT = "sent";
 	public static String FIELD_SEND_SMS = "send_sms";
 	public static String FIELD_SEND_EMAIL = "send_email";
@@ -96,6 +100,13 @@ public abstract class Basehome_practice extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
+		Field activity_dateField = new Field("activity_date", "timestamp");
+		metaData.addField(activity_dateField);
+
+		Field activity_date_strField = new Field("activity_date_str", "String");
+		activity_date_strField.setLength(32);
+		metaData.addField(activity_date_strField);
+
 		Field sentField = new Field("sent", "String");
 		sentField.setDefaultValue("N");
 		sentField.setLength(1);
@@ -134,6 +145,8 @@ public abstract class Basehome_practice extends BaseResource {
 		this.title = obj.title;
 		this.description = obj.description;
 		this.creation_time = obj.creation_time;
+		this.activity_date = obj.activity_date;
+		this.activity_date_str = obj.activity_date_str;
 		this.sent = obj.sent;
 		this.send_sms = obj.send_sms;
 		this.send_email = obj.send_email;
@@ -175,6 +188,10 @@ public abstract class Basehome_practice extends BaseResource {
 			map.put("description", description);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(activity_date != null)
+			map.put("activity_date", activity_date);
+		if(activity_date_str != null)
+			map.put("activity_date_str", activity_date_str);
 		if(sent != null)
 			map.put("sent", sent);
 		if(send_sms != null)
@@ -211,6 +228,10 @@ public abstract class Basehome_practice extends BaseResource {
 			map.put("description", description);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(activity_date != null)
+			map.put("activity_date", activity_date);
+		if(activity_date_str != null)
+			map.put("activity_date_str", activity_date_str);
 		if(sent != null)
 			map.put("sent", sent);
 		if(send_sms != null)
@@ -239,6 +260,8 @@ public abstract class Basehome_practice extends BaseResource {
 		title = (String) map.get("title");
 		description = (String) map.get("description");
 		creation_time = (Long) map.get("creation_time");
+		activity_date = (Long) map.get("activity_date");
+		activity_date_str = (String) map.get("activity_date_str");
 		sent = (String) map.get("sent");
 		send_sms = (String) map.get("send_sms");
 		send_email = (String) map.get("send_email");
@@ -283,6 +306,14 @@ public abstract class Basehome_practice extends BaseResource {
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
+
+		Object activity_dateObj = map.get("activity_date");
+		if(activity_dateObj != null)
+			activity_date = (Long) activity_dateObj;
+
+		Object activity_date_strObj = map.get("activity_date_str");
+		if(activity_date_strObj != null)
+			activity_date_str = activity_date_strObj.toString();
 
 		Object sentObj = map.get("sent");
 		if(sentObj != null)
@@ -466,6 +497,31 @@ public abstract class Basehome_practice extends BaseResource {
 		this.creation_time = creation_time;
 	}
 
+
+	public Long getActivity_date() {
+		return activity_date;
+	}
+
+	public void setActivity_date(Long activity_date) {
+		this.activity_date = activity_date;
+	}
+
+
+	public String getActivity_date_str() {
+		return activity_date_str;
+	}
+
+	public String getActivity_date_strEx() {
+		return activity_date_str != null ? activity_date_str : "";
+	}
+
+	public void setActivity_date_str(String activity_date_str) {
+		this.activity_date_str = activity_date_str;
+	}
+
+	public void unSetActivity_date_str() {
+		this.activity_date_str = null;
+	}
 
 	public String getSent() {
 		return sent != null ? sent : "N";
