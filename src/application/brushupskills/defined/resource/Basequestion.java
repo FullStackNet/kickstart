@@ -30,6 +30,7 @@ public abstract class Basequestion extends BaseResource {
 	private Long creation_time = null;
 	private Long answer_points = null;
 	private Long remember_points = null;
+	private String video_link = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -43,6 +44,7 @@ public abstract class Basequestion extends BaseResource {
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_ANSWER_POINTS = "answer_points";
 	public static String FIELD_REMEMBER_POINTS = "remember_points";
+	public static String FIELD_VIDEO_LINK = "video_link";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -94,6 +96,9 @@ public abstract class Basequestion extends BaseResource {
 		Field remember_pointsField = new Field("remember_points", "long");
 		metaData.addField(remember_pointsField);
 
+		Field video_linkField = new Field("video_link", "String");
+		metaData.addField(video_linkField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -118,6 +123,7 @@ public abstract class Basequestion extends BaseResource {
 		this.creation_time = obj.creation_time;
 		this.answer_points = obj.answer_points;
 		this.remember_points = obj.remember_points;
+		this.video_link = obj.video_link;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -154,6 +160,8 @@ public abstract class Basequestion extends BaseResource {
 			map.put("answer_points", answer_points);
 		if(remember_points != null)
 			map.put("remember_points", remember_points);
+		if(video_link != null)
+			map.put("video_link", video_link);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -186,6 +194,8 @@ public abstract class Basequestion extends BaseResource {
 			map.put("answer_points", answer_points);
 		if(remember_points != null)
 			map.put("remember_points", remember_points);
+		if(video_link != null)
+			map.put("video_link", video_link);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -209,6 +219,7 @@ public abstract class Basequestion extends BaseResource {
 		creation_time = (Long) map.get("creation_time");
 		answer_points = (Long) map.get("answer_points");
 		remember_points = (Long) map.get("remember_points");
+		video_link = (String) map.get("video_link");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -251,6 +262,10 @@ public abstract class Basequestion extends BaseResource {
 		Object remember_pointsObj = map.get("remember_points");
 		if(remember_pointsObj != null)
 			remember_points = new Long(remember_pointsObj.toString());
+
+		Object video_linkObj = map.get("video_link");
+		if(video_linkObj != null)
+			video_link = video_linkObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -448,6 +463,22 @@ public abstract class Basequestion extends BaseResource {
 
 	public void unSetRemember_points() {
 		this.remember_points = null;
+	}
+
+	public String getVideo_link() {
+		return video_link;
+	}
+
+	public String getVideo_linkEx() {
+		return video_link != null ? video_link : "";
+	}
+
+	public void setVideo_link(String video_link) {
+		this.video_link = video_link;
+	}
+
+	public void unSetVideo_link() {
+		this.video_link = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

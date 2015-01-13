@@ -57,6 +57,10 @@
 			'remember_points':
 			{
 				'type':'long'
+			},
+			'video_link':
+			{
+				'type':'String'
 			}
 		}
 	}
