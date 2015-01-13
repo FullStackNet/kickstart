@@ -21,7 +21,7 @@
 				'length': 1,
 				'type':'String',
 				'default' : "Q",
-				'comments' : 'Q-Question,N-Note'
+				'comments' : 'Q-Question,N-Note,V-Video'
 			},
 			'question_category_id':
 			{
