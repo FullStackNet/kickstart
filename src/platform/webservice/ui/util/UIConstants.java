@@ -137,6 +137,27 @@ public class UIConstants {
 		//new IdValue("VAN", "All Van users"),
 	};
 	
+	public final static IdValue[] PRESNT_TYPE_ENUM = new IdValue[] {
+		new IdValue("SCHOOL", "In School"),
+		new IdValue("BUS", "In Bus"),
+		new IdValue("OFFICE", "In Office"),
+		new IdValue("OTHER", "Other"),
+		//new IdValue("VAN", "All Van users"),
+	};
+	
+	public final static IdValue[] SUB_PRESNT_TYPE_ENUM = new IdValue[] {
+		new IdValue("NA", "N/A"),
+		new IdValue("PICKUP", "Pickup"),
+		new IdValue("DROP", "Drop"),
+		//new IdValue("VAN", "All Van users"),
+	};
+	
+	public final static IdValue[] PRESENT_RECORD_TYPE = new IdValue[] {
+		new IdValue("ENTER", "Enter"),
+		new IdValue("Exit", "Exit"),
+		//new IdValue("VAN", "All Van users"),
+	};
+	
 	public final static IdValue[] PRIMARY_CONTACT_ENUM = new IdValue[] {
 		new IdValue("MOTHER", "MOTHER"),
 		new IdValue("FATHER", "FATHER"),
