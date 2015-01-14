@@ -281,6 +281,13 @@
 				'length': 1,
 				'type':'String'
 			},
+			'deployment_type':
+			{
+				'default':'N',
+				'length': 1,
+				'type':'String',
+				'comments" : "IN Bus, In School, In Office"
+			},
 			'hardware_error':
 			{
 				'name':'hardware_error',
