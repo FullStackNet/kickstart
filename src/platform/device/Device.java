@@ -30,7 +30,20 @@ public class Device {
 	public static String DEVICE_MANAGER_NETVOX = "NETVOX";
 	public static String DEVICE_MANAGER_MOBD = "MOBD";
 	public static String DEVICE_MANAGER_OBD = "OBD";
-	
+	public static String DEVICE_TYPE_DEPLOYMENT_SCHOOL="SCHOOL";
+	public static String DEVICE_TYPE_DEPLOYMENT_BUS="BUS";
+	public static String DEVICE_TYPE_DEPLOYMENT_OFFICE="OFFICE";
+	public static String DEVICE_TYPE_DEPLOYMENT_OTHER="OTHER";
+			
+	public static String[] getDeploymentType() {
+		String[] list = {
+				DEVICE_TYPE_DEPLOYMENT_SCHOOL,
+				DEVICE_TYPE_DEPLOYMENT_BUS,
+				DEVICE_TYPE_DEPLOYMENT_OFFICE,
+				DEVICE_TYPE_DEPLOYMENT_OTHER
+		};
+		return list;
+	}
 	
 	public static String[] getList() {
 		String[] list = {
