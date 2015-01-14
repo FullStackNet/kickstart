@@ -63,6 +63,11 @@ public class PresentHelper extends BaseHelper {
 		}
 		boolean entryRecordExist = true;
 		student _student = (student)students[0];
+		if (!_route.getId().equals(_student.getPickup_route_id()) && 
+				(!_route.getId().equals(_student.getDropped_route_id()))) {
+			ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
+			return;
+		}
 		String entryKey =  _route.getId()+"^";
 		entryKey = entryKey +"^"+"BUS"+"^"+_route.getType()+"^"+"ENTRY"+today;
 		present _present = (present)PresentHelper.getInstance().getById(entryKey);
