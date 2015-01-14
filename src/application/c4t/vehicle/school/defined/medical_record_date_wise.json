@@ -28,7 +28,7 @@
 				'type': 'double'
 			},
 			'height' : {
-				'type': 'height'
+				'type': 'double'
 			},
 			'creation_time': {
 				'type': 'timestamp'
