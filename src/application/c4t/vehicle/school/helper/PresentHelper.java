@@ -178,6 +178,7 @@ public class PresentHelper extends BaseHelper {
 			_present.setPresent_record_type("ENTRY");
 			PresentHelper.getInstance().add(_present);
 		}
+		
 		String entryKeyDetail = entryKey+"^"+_student.getId();
 		present_detail _detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 		if (_detail == null) {
@@ -197,6 +198,7 @@ public class PresentHelper extends BaseHelper {
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 			return;
 		} 
+		updateTotalPresent(entryKey);
 		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
 			return;
 		}
@@ -239,7 +241,8 @@ public class PresentHelper extends BaseHelper {
 			_detail = new present_detail(exitKeyDetail);
 			_detail.setCreation_time(new Date().getTime());
 			Present_detailHelper.getInstance().update(_detail);
-		}		
+		}	
+		updateTotalPresent(exitKey);
 	}
 	
 	public void updateSend(String id) throws ApplicationException {
