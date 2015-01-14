@@ -31,6 +31,18 @@
 				'type':'String',
 				'index' : true
 			},
+			'present_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "In Bus/In School"
+			},
+			'sub_present_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "PICKUP/DROP or Enter/Exit"
+			},
 			'date':
 			{
 				'type':'timestamp'
@@ -43,6 +55,10 @@
 			{
 				'type':'String',
 				length : 128
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
 			},
 			'remark':
 			{

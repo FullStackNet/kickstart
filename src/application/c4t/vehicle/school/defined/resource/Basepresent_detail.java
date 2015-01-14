@@ -23,9 +23,12 @@ public abstract class Basepresent_detail extends BaseResource {
 	private String present_parent_id = null;
 	private String school_id = null;
 	private String class_section_name = null;
+	private String present_type = null;
+	private String sub_present_type = null;
 	private Long date = null;
 	private String date_str = null;
 	private String student_id = null;
+	private Long creation_time = null;
 	private String remark = null;
 	private Map<String, Object> extra_data = null;
 
@@ -33,9 +36,12 @@ public abstract class Basepresent_detail extends BaseResource {
 	public static String FIELD_PRESENT_PARENT_ID = "present_parent_id";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
+	public static String FIELD_PRESENT_TYPE = "present_type";
+	public static String FIELD_SUB_PRESENT_TYPE = "sub_present_type";
 	public static String FIELD_DATE = "date";
 	public static String FIELD_DATE_STR = "date_str";
 	public static String FIELD_STUDENT_ID = "student_id";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -66,6 +72,14 @@ public abstract class Basepresent_detail extends BaseResource {
 		class_section_nameField.setLength(128);
 		metaData.addField(class_section_nameField);
 
+		Field present_typeField = new Field("present_type", "String");
+		present_typeField.setLength(128);
+		metaData.addField(present_typeField);
+
+		Field sub_present_typeField = new Field("sub_present_type", "String");
+		sub_present_typeField.setLength(128);
+		metaData.addField(sub_present_typeField);
+
 		Field dateField = new Field("date", "timestamp");
 		metaData.addField(dateField);
 
@@ -75,6 +89,9 @@ public abstract class Basepresent_detail extends BaseResource {
 		Field student_idField = new Field("student_id", "String");
 		student_idField.setLength(128);
 		metaData.addField(student_idField);
+
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
 
 		Field remarkField = new Field("remark", "String");
 		remarkField.setLength(1024);
@@ -97,9 +114,12 @@ public abstract class Basepresent_detail extends BaseResource {
 		this.present_parent_id = obj.present_parent_id;
 		this.school_id = obj.school_id;
 		this.class_section_name = obj.class_section_name;
+		this.present_type = obj.present_type;
+		this.sub_present_type = obj.sub_present_type;
 		this.date = obj.date;
 		this.date_str = obj.date_str;
 		this.student_id = obj.student_id;
+		this.creation_time = obj.creation_time;
 		this.remark = obj.remark;
 		this.extra_data = obj.extra_data;
 	}
@@ -118,12 +138,18 @@ public abstract class Basepresent_detail extends BaseResource {
 			map.put("school_id", school_id);
 		if(class_section_name != null)
 			map.put("class_section_name", class_section_name);
+		if(present_type != null)
+			map.put("present_type", present_type);
+		if(sub_present_type != null)
+			map.put("sub_present_type", sub_present_type);
 		if(date != null)
 			map.put("date", date);
 		if(date_str != null)
 			map.put("date_str", date_str);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(remark != null)
 			map.put("remark", remark);
 		if(extra_data != null)
@@ -141,12 +167,18 @@ public abstract class Basepresent_detail extends BaseResource {
 			map.put("school_id", school_id);
 		if(class_section_name != null)
 			map.put("class_section_name", class_section_name);
+		if(present_type != null)
+			map.put("present_type", present_type);
+		if(sub_present_type != null)
+			map.put("sub_present_type", sub_present_type);
 		if(date != null)
 			map.put("date", date);
 		if(date_str != null)
 			map.put("date_str", date_str);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(remark != null)
 			map.put("remark", remark);
 		if(extra_data != null)
@@ -165,9 +197,12 @@ public abstract class Basepresent_detail extends BaseResource {
 		present_parent_id = (String) map.get("present_parent_id");
 		school_id = (String) map.get("school_id");
 		class_section_name = (String) map.get("class_section_name");
+		present_type = (String) map.get("present_type");
+		sub_present_type = (String) map.get("sub_present_type");
 		date = (Long) map.get("date");
 		date_str = (String) map.get("date_str");
 		student_id = (String) map.get("student_id");
+		creation_time = (Long) map.get("creation_time");
 		remark = (String) map.get("remark");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -190,6 +225,14 @@ public abstract class Basepresent_detail extends BaseResource {
 		if(class_section_nameObj != null)
 			class_section_name = class_section_nameObj.toString();
 
+		Object present_typeObj = map.get("present_type");
+		if(present_typeObj != null)
+			present_type = present_typeObj.toString();
+
+		Object sub_present_typeObj = map.get("sub_present_type");
+		if(sub_present_typeObj != null)
+			sub_present_type = sub_present_typeObj.toString();
+
 		Object dateObj = map.get("date");
 		if(dateObj != null)
 			date = (Long) dateObj;
@@ -201,6 +244,10 @@ public abstract class Basepresent_detail extends BaseResource {
 		Object student_idObj = map.get("student_id");
 		if(student_idObj != null)
 			student_id = student_idObj.toString();
+
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
@@ -291,6 +338,38 @@ public abstract class Basepresent_detail extends BaseResource {
 		this.class_section_name = null;
 	}
 
+	public String getPresent_type() {
+		return present_type;
+	}
+
+	public String getPresent_typeEx() {
+		return present_type != null ? present_type : "";
+	}
+
+	public void setPresent_type(String present_type) {
+		this.present_type = present_type;
+	}
+
+	public void unSetPresent_type() {
+		this.present_type = null;
+	}
+
+	public String getSub_present_type() {
+		return sub_present_type;
+	}
+
+	public String getSub_present_typeEx() {
+		return sub_present_type != null ? sub_present_type : "";
+	}
+
+	public void setSub_present_type(String sub_present_type) {
+		this.sub_present_type = sub_present_type;
+	}
+
+	public void unSetSub_present_type() {
+		this.sub_present_type = null;
+	}
+
 	public Long getDate() {
 		return date;
 	}
@@ -331,6 +410,15 @@ public abstract class Basepresent_detail extends BaseResource {
 	public void unSetStudent_id() {
 		this.student_id = null;
 	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
 
 	public String getRemark() {
 		return remark;

@@ -20,25 +20,31 @@ import java.util.*;
  */
 public abstract class Basepresent extends BaseResource {
 	private String id = null;
+	private String name = null;
 	private String school_id = null;
 	private String class_section_name = null;
 	private String class_name = null;
+	private String present_type = null;
+	private String sub_present_type = null;
 	private String section_name = null;
 	private Long date = null;
 	private String date_str = null;
-	private Integer total_absent = null;
+	private Integer total_present = null;
 	private String customer_id = null;
 	private String sent = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_NAME = "name";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_CLASS_NAME = "class_name";
+	public static String FIELD_PRESENT_TYPE = "present_type";
+	public static String FIELD_SUB_PRESENT_TYPE = "sub_present_type";
 	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_DATE = "date";
 	public static String FIELD_DATE_STR = "date_str";
-	public static String FIELD_TOTAL_ABSENT = "total_absent";
+	public static String FIELD_TOTAL_PRESENT = "total_present";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_SENT = "sent";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -54,6 +60,10 @@ public abstract class Basepresent extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
+		Field nameField = new Field("name", "String");
+		nameField.setLength(128);
+		metaData.addField(nameField);
+
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setIndexed(true);
 		school_idField.setLength(128);
@@ -68,6 +78,14 @@ public abstract class Basepresent extends BaseResource {
 		class_nameField.setLength(128);
 		metaData.addField(class_nameField);
 
+		Field present_typeField = new Field("present_type", "String");
+		present_typeField.setLength(128);
+		metaData.addField(present_typeField);
+
+		Field sub_present_typeField = new Field("sub_present_type", "String");
+		sub_present_typeField.setLength(128);
+		metaData.addField(sub_present_typeField);
+
 		Field section_nameField = new Field("section_name", "String");
 		section_nameField.setLength(128);
 		metaData.addField(section_nameField);
@@ -79,8 +97,8 @@ public abstract class Basepresent extends BaseResource {
 		date_strField.setLength(16);
 		metaData.addField(date_strField);
 
-		Field total_absentField = new Field("total_absent", "int");
-		metaData.addField(total_absentField);
+		Field total_presentField = new Field("total_present", "int");
+		metaData.addField(total_presentField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setIndexed(true);
@@ -106,13 +124,16 @@ public abstract class Basepresent extends BaseResource {
 
 	public Basepresent(Basepresent obj) {
 		this.id = obj.id;
+		this.name = obj.name;
 		this.school_id = obj.school_id;
 		this.class_section_name = obj.class_section_name;
 		this.class_name = obj.class_name;
+		this.present_type = obj.present_type;
+		this.sub_present_type = obj.sub_present_type;
 		this.section_name = obj.section_name;
 		this.date = obj.date;
 		this.date_str = obj.date_str;
-		this.total_absent = obj.total_absent;
+		this.total_present = obj.total_present;
 		this.customer_id = obj.customer_id;
 		this.sent = obj.sent;
 		this.extra_data = obj.extra_data;
@@ -131,20 +152,26 @@ public abstract class Basepresent extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(name != null)
+			map.put("name", name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(class_section_name != null)
 			map.put("class_section_name", class_section_name);
 		if(class_name != null)
 			map.put("class_name", class_name);
+		if(present_type != null)
+			map.put("present_type", present_type);
+		if(sub_present_type != null)
+			map.put("sub_present_type", sub_present_type);
 		if(section_name != null)
 			map.put("section_name", section_name);
 		if(date != null)
 			map.put("date", date);
 		if(date_str != null)
 			map.put("date_str", date_str);
-		if(total_absent != null)
-			map.put("total_absent", total_absent);
+		if(total_present != null)
+			map.put("total_present", total_present);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(sent != null)
@@ -161,20 +188,26 @@ public abstract class Basepresent extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(name != null)
+			map.put("name", name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(class_section_name != null)
 			map.put("class_section_name", class_section_name);
 		if(class_name != null)
 			map.put("class_name", class_name);
+		if(present_type != null)
+			map.put("present_type", present_type);
+		if(sub_present_type != null)
+			map.put("sub_present_type", sub_present_type);
 		if(section_name != null)
 			map.put("section_name", section_name);
 		if(date != null)
 			map.put("date", date);
 		if(date_str != null)
 			map.put("date_str", date_str);
-		if(total_absent != null)
-			map.put("total_absent", total_absent);
+		if(total_present != null)
+			map.put("total_present", total_present);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(sent != null)
@@ -192,13 +225,16 @@ public abstract class Basepresent extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		name = (String) map.get("name");
 		school_id = (String) map.get("school_id");
 		class_section_name = (String) map.get("class_section_name");
 		class_name = (String) map.get("class_name");
+		present_type = (String) map.get("present_type");
+		sub_present_type = (String) map.get("sub_present_type");
 		section_name = (String) map.get("section_name");
 		date = (Long) map.get("date");
 		date_str = (String) map.get("date_str");
-		total_absent = (Integer) map.get("total_absent");
+		total_present = (Integer) map.get("total_present");
 		customer_id = (String) map.get("customer_id");
 		sent = (String) map.get("sent");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -209,6 +245,10 @@ public abstract class Basepresent extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object nameObj = map.get("name");
+		if(nameObj != null)
+			name = nameObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -222,6 +262,14 @@ public abstract class Basepresent extends BaseResource {
 		if(class_nameObj != null)
 			class_name = class_nameObj.toString();
 
+		Object present_typeObj = map.get("present_type");
+		if(present_typeObj != null)
+			present_type = present_typeObj.toString();
+
+		Object sub_present_typeObj = map.get("sub_present_type");
+		if(sub_present_typeObj != null)
+			sub_present_type = sub_present_typeObj.toString();
+
 		Object section_nameObj = map.get("section_name");
 		if(section_nameObj != null)
 			section_name = section_nameObj.toString();
@@ -234,9 +282,9 @@ public abstract class Basepresent extends BaseResource {
 		if(date_strObj != null)
 			date_str = date_strObj.toString();
 
-		Object total_absentObj = map.get("total_absent");
-		if(total_absentObj != null)
-			total_absent = new Integer(total_absentObj.toString());
+		Object total_presentObj = map.get("total_present");
+		if(total_presentObj != null)
+			total_present = new Integer(total_presentObj.toString());
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -275,6 +323,22 @@ public abstract class Basepresent extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getNameEx() {
+		return name != null ? name : "";
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void unSetName() {
+		this.name = null;
 	}
 
 	public String getSchool_id() {
@@ -325,6 +389,38 @@ public abstract class Basepresent extends BaseResource {
 		this.class_name = null;
 	}
 
+	public String getPresent_type() {
+		return present_type;
+	}
+
+	public String getPresent_typeEx() {
+		return present_type != null ? present_type : "";
+	}
+
+	public void setPresent_type(String present_type) {
+		this.present_type = present_type;
+	}
+
+	public void unSetPresent_type() {
+		this.present_type = null;
+	}
+
+	public String getSub_present_type() {
+		return sub_present_type;
+	}
+
+	public String getSub_present_typeEx() {
+		return sub_present_type != null ? sub_present_type : "";
+	}
+
+	public void setSub_present_type(String sub_present_type) {
+		this.sub_present_type = sub_present_type;
+	}
+
+	public void unSetSub_present_type() {
+		this.sub_present_type = null;
+	}
+
 	public String getSection_name() {
 		return section_name;
 	}
@@ -366,24 +462,24 @@ public abstract class Basepresent extends BaseResource {
 		this.date_str = null;
 	}
 
-	public Integer getTotal_absent() {
-		return total_absent;
+	public Integer getTotal_present() {
+		return total_present;
 	}
 
-	public int getTotal_absentEx() {
-		return total_absent != null ? total_absent : 0;
+	public int getTotal_presentEx() {
+		return total_present != null ? total_present : 0;
 	}
 
-	public void setTotal_absent(int total_absent) {
-		this.total_absent = total_absent;
+	public void setTotal_present(int total_present) {
+		this.total_present = total_present;
 	}
 
-	public void setTotal_absent(Integer total_absent) {
-		this.total_absent = total_absent;
+	public void setTotal_present(Integer total_present) {
+		this.total_present = total_present;
 	}
 
-	public void unSetTotal_absent() {
-		this.total_absent = null;
+	public void unSetTotal_present() {
+		this.total_present = null;
 	}
 
 	public String getCustomer_id() {
