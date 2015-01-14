@@ -43,6 +43,12 @@
 				'type':'String',
 				'comments' : "PICKUP/DROP or Enter/Exit"
 			},
+			'present_record_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "ENTER/EXIT"
+			},
 			'date':
 			{
 				'type':'timestamp'

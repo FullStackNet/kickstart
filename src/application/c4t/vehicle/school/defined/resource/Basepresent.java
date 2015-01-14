@@ -22,10 +22,13 @@ public abstract class Basepresent extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String school_id = null;
+	private String route_id = null;
+	private String route_name = null;
 	private String class_section_name = null;
 	private String class_name = null;
 	private String present_type = null;
 	private String sub_present_type = null;
+	private String present_record_type = null;
 	private String section_name = null;
 	private Long date = null;
 	private String date_str = null;
@@ -37,10 +40,13 @@ public abstract class Basepresent extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_ROUTE_ID = "route_id";
+	public static String FIELD_ROUTE_NAME = "route_name";
 	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_PRESENT_TYPE = "present_type";
 	public static String FIELD_SUB_PRESENT_TYPE = "sub_present_type";
+	public static String FIELD_PRESENT_RECORD_TYPE = "present_record_type";
 	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_DATE = "date";
 	public static String FIELD_DATE_STR = "date_str";
@@ -69,6 +75,16 @@ public abstract class Basepresent extends BaseResource {
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
 
+		Field route_idField = new Field("route_id", "String");
+		route_idField.setIndexed(true);
+		route_idField.setLength(128);
+		metaData.addField(route_idField);
+
+		Field route_nameField = new Field("route_name", "String");
+		route_nameField.setIndexed(true);
+		route_nameField.setLength(128);
+		metaData.addField(route_nameField);
+
 		Field class_section_nameField = new Field("class_section_name", "String");
 		class_section_nameField.setIndexed(true);
 		class_section_nameField.setLength(128);
@@ -85,6 +101,10 @@ public abstract class Basepresent extends BaseResource {
 		Field sub_present_typeField = new Field("sub_present_type", "String");
 		sub_present_typeField.setLength(128);
 		metaData.addField(sub_present_typeField);
+
+		Field present_record_typeField = new Field("present_record_type", "String");
+		present_record_typeField.setLength(128);
+		metaData.addField(present_record_typeField);
 
 		Field section_nameField = new Field("section_name", "String");
 		section_nameField.setLength(128);
@@ -126,10 +146,13 @@ public abstract class Basepresent extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.school_id = obj.school_id;
+		this.route_id = obj.route_id;
+		this.route_name = obj.route_name;
 		this.class_section_name = obj.class_section_name;
 		this.class_name = obj.class_name;
 		this.present_type = obj.present_type;
 		this.sub_present_type = obj.sub_present_type;
+		this.present_record_type = obj.present_record_type;
 		this.section_name = obj.section_name;
 		this.date = obj.date;
 		this.date_str = obj.date_str;
@@ -156,6 +179,10 @@ public abstract class Basepresent extends BaseResource {
 			map.put("name", name);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(route_id != null)
+			map.put("route_id", route_id);
+		if(route_name != null)
+			map.put("route_name", route_name);
 		if(class_section_name != null)
 			map.put("class_section_name", class_section_name);
 		if(class_name != null)
@@ -164,6 +191,8 @@ public abstract class Basepresent extends BaseResource {
 			map.put("present_type", present_type);
 		if(sub_present_type != null)
 			map.put("sub_present_type", sub_present_type);
+		if(present_record_type != null)
+			map.put("present_record_type", present_record_type);
 		if(section_name != null)
 			map.put("section_name", section_name);
 		if(date != null)
@@ -192,6 +221,10 @@ public abstract class Basepresent extends BaseResource {
 			map.put("name", name);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(route_id != null)
+			map.put("route_id", route_id);
+		if(route_name != null)
+			map.put("route_name", route_name);
 		if(class_section_name != null)
 			map.put("class_section_name", class_section_name);
 		if(class_name != null)
@@ -200,6 +233,8 @@ public abstract class Basepresent extends BaseResource {
 			map.put("present_type", present_type);
 		if(sub_present_type != null)
 			map.put("sub_present_type", sub_present_type);
+		if(present_record_type != null)
+			map.put("present_record_type", present_record_type);
 		if(section_name != null)
 			map.put("section_name", section_name);
 		if(date != null)
@@ -227,10 +262,13 @@ public abstract class Basepresent extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		school_id = (String) map.get("school_id");
+		route_id = (String) map.get("route_id");
+		route_name = (String) map.get("route_name");
 		class_section_name = (String) map.get("class_section_name");
 		class_name = (String) map.get("class_name");
 		present_type = (String) map.get("present_type");
 		sub_present_type = (String) map.get("sub_present_type");
+		present_record_type = (String) map.get("present_record_type");
 		section_name = (String) map.get("section_name");
 		date = (Long) map.get("date");
 		date_str = (String) map.get("date_str");
@@ -254,6 +292,14 @@ public abstract class Basepresent extends BaseResource {
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
 
+		Object route_idObj = map.get("route_id");
+		if(route_idObj != null)
+			route_id = route_idObj.toString();
+
+		Object route_nameObj = map.get("route_name");
+		if(route_nameObj != null)
+			route_name = route_nameObj.toString();
+
 		Object class_section_nameObj = map.get("class_section_name");
 		if(class_section_nameObj != null)
 			class_section_name = class_section_nameObj.toString();
@@ -269,6 +315,10 @@ public abstract class Basepresent extends BaseResource {
 		Object sub_present_typeObj = map.get("sub_present_type");
 		if(sub_present_typeObj != null)
 			sub_present_type = sub_present_typeObj.toString();
+
+		Object present_record_typeObj = map.get("present_record_type");
+		if(present_record_typeObj != null)
+			present_record_type = present_record_typeObj.toString();
 
 		Object section_nameObj = map.get("section_name");
 		if(section_nameObj != null)
@@ -357,6 +407,38 @@ public abstract class Basepresent extends BaseResource {
 		this.school_id = null;
 	}
 
+	public String getRoute_id() {
+		return route_id;
+	}
+
+	public String getRoute_idEx() {
+		return route_id != null ? route_id : "";
+	}
+
+	public void setRoute_id(String route_id) {
+		this.route_id = route_id;
+	}
+
+	public void unSetRoute_id() {
+		this.route_id = null;
+	}
+
+	public String getRoute_name() {
+		return route_name;
+	}
+
+	public String getRoute_nameEx() {
+		return route_name != null ? route_name : "";
+	}
+
+	public void setRoute_name(String route_name) {
+		this.route_name = route_name;
+	}
+
+	public void unSetRoute_name() {
+		this.route_name = null;
+	}
+
 	public String getClass_section_name() {
 		return class_section_name;
 	}
@@ -419,6 +501,22 @@ public abstract class Basepresent extends BaseResource {
 
 	public void unSetSub_present_type() {
 		this.sub_present_type = null;
+	}
+
+	public String getPresent_record_type() {
+		return present_record_type;
+	}
+
+	public String getPresent_record_typeEx() {
+		return present_record_type != null ? present_record_type : "";
+	}
+
+	public void setPresent_record_type(String present_record_type) {
+		this.present_record_type = present_record_type;
+	}
+
+	public void unSetPresent_record_type() {
+		this.present_record_type = null;
 	}
 
 	public String getSection_name() {

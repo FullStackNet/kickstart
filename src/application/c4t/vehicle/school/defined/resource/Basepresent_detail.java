@@ -25,6 +25,7 @@ public abstract class Basepresent_detail extends BaseResource {
 	private String class_section_name = null;
 	private String present_type = null;
 	private String sub_present_type = null;
+	private String present_record_type = null;
 	private Long date = null;
 	private String date_str = null;
 	private String student_id = null;
@@ -38,6 +39,7 @@ public abstract class Basepresent_detail extends BaseResource {
 	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_PRESENT_TYPE = "present_type";
 	public static String FIELD_SUB_PRESENT_TYPE = "sub_present_type";
+	public static String FIELD_PRESENT_RECORD_TYPE = "present_record_type";
 	public static String FIELD_DATE = "date";
 	public static String FIELD_DATE_STR = "date_str";
 	public static String FIELD_STUDENT_ID = "student_id";
@@ -80,6 +82,10 @@ public abstract class Basepresent_detail extends BaseResource {
 		sub_present_typeField.setLength(128);
 		metaData.addField(sub_present_typeField);
 
+		Field present_record_typeField = new Field("present_record_type", "String");
+		present_record_typeField.setLength(128);
+		metaData.addField(present_record_typeField);
+
 		Field dateField = new Field("date", "timestamp");
 		metaData.addField(dateField);
 
@@ -116,6 +122,7 @@ public abstract class Basepresent_detail extends BaseResource {
 		this.class_section_name = obj.class_section_name;
 		this.present_type = obj.present_type;
 		this.sub_present_type = obj.sub_present_type;
+		this.present_record_type = obj.present_record_type;
 		this.date = obj.date;
 		this.date_str = obj.date_str;
 		this.student_id = obj.student_id;
@@ -142,6 +149,8 @@ public abstract class Basepresent_detail extends BaseResource {
 			map.put("present_type", present_type);
 		if(sub_present_type != null)
 			map.put("sub_present_type", sub_present_type);
+		if(present_record_type != null)
+			map.put("present_record_type", present_record_type);
 		if(date != null)
 			map.put("date", date);
 		if(date_str != null)
@@ -171,6 +180,8 @@ public abstract class Basepresent_detail extends BaseResource {
 			map.put("present_type", present_type);
 		if(sub_present_type != null)
 			map.put("sub_present_type", sub_present_type);
+		if(present_record_type != null)
+			map.put("present_record_type", present_record_type);
 		if(date != null)
 			map.put("date", date);
 		if(date_str != null)
@@ -199,6 +210,7 @@ public abstract class Basepresent_detail extends BaseResource {
 		class_section_name = (String) map.get("class_section_name");
 		present_type = (String) map.get("present_type");
 		sub_present_type = (String) map.get("sub_present_type");
+		present_record_type = (String) map.get("present_record_type");
 		date = (Long) map.get("date");
 		date_str = (String) map.get("date_str");
 		student_id = (String) map.get("student_id");
@@ -232,6 +244,10 @@ public abstract class Basepresent_detail extends BaseResource {
 		Object sub_present_typeObj = map.get("sub_present_type");
 		if(sub_present_typeObj != null)
 			sub_present_type = sub_present_typeObj.toString();
+
+		Object present_record_typeObj = map.get("present_record_type");
+		if(present_record_typeObj != null)
+			present_record_type = present_record_typeObj.toString();
 
 		Object dateObj = map.get("date");
 		if(dateObj != null)
@@ -368,6 +384,22 @@ public abstract class Basepresent_detail extends BaseResource {
 
 	public void unSetSub_present_type() {
 		this.sub_present_type = null;
+	}
+
+	public String getPresent_record_type() {
+		return present_record_type;
+	}
+
+	public String getPresent_record_typeEx() {
+		return present_record_type != null ? present_record_type : "";
+	}
+
+	public void setPresent_record_type(String present_record_type) {
+		this.present_record_type = present_record_type;
+	}
+
+	public void unSetPresent_record_type() {
+		this.present_record_type = null;
 	}
 
 	public Long getDate() {

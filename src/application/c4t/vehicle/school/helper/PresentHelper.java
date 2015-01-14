@@ -34,7 +34,19 @@ public class PresentHelper extends BaseHelper {
 			instance = new PresentHelper();
 		return instance;
 	}
-	
+	public void updateTotalPresent(String key) {
+		BaseResource[] resources = Present_detailHelper.getInstance().getDetail(key);
+		if (Util.isEmpty(resources)) {
+			present _present = new present(key);
+			_present.setTotal_present(resources.length);
+			try {
+				PresentHelper.getInstance().update(_present);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 	public void updateInBusAttendance(route _route,String cardId) throws ApplicationException {
 		long currentTime = new Date().getTime();
 		
@@ -58,13 +70,11 @@ public class PresentHelper extends BaseHelper {
 			_present.setDate_str(today);
 			_present.setDate(TimeUtil.getTimeFromDateString(null, today));
 			_present.setSchool_id(_student.getSchool_id());
-			_present.setClass_name(_student.getClass_name());
-			_present.setSection_name(_student.getSection_name());
-			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
-			_present.setClass_section_name(class_section_name);
+			_present.setRoute_id(_route.getId());
+			_present.setRoute_name(_route.getName());
 			_present.setPresent_type("BUS");
 			_present.setSub_present_type(_route.getType());
-			_present.setPresent_type("ENTRY");
+			_present.setPresent_record_type("ENTRY");
 			PresentHelper.getInstance().add(_present);
 		}
 		String entryKeyDetail = entryKey+"^"+_student.getId();
@@ -79,13 +89,14 @@ public class PresentHelper extends BaseHelper {
 			_detail.setClass_section_name(class_section_name);
 			_detail.setPresent_type("BUS");
 		    _detail.setSub_present_type(_route.getType());
-			_detail.setPresent_type("ENTRY");
 			_detail.setDate_str(today);
 			_detail.setStudent_id(_student.getId());
+			_detail.setPresent_record_type("ENTRY");
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			Present_detailHelper.getInstance().add(_detail);
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 		}
+		updateTotalPresent(entryKey);
 		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
 			return;
 		}
@@ -101,13 +112,11 @@ public class PresentHelper extends BaseHelper {
 			_present.setDate_str(today);
 			_present.setDate(TimeUtil.getTimeFromDateString(null, today));
 			_present.setSchool_id(_student.getSchool_id());
-			_present.setClass_name(_student.getClass_name());
-			_present.setSection_name(_student.getSection_name());
-			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
-			_present.setClass_section_name(class_section_name);
+			_present.setRoute_id(_route.getId());
+			_present.setRoute_name(_route.getName());
 			_present.setPresent_type("BUS");
 			_present.setSub_present_type(_route.getType());
-			_present.setPresent_type("EXIT");
+			_present.setPresent_record_type("EXIT");
 			PresentHelper.getInstance().add(_present);
 		}
 		_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
@@ -121,7 +130,7 @@ public class PresentHelper extends BaseHelper {
 			_detail.setClass_section_name(class_section_name);
 			_detail.setPresent_type("BUS");
 		    _detail.setSub_present_type(_route.getType());
-			_detail.setPresent_type("EXIT");
+			_detail.setPresent_record_type("EXIT");
 			_detail.setDate_str(today);
 			_detail.setStudent_id(_student.getId());
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
@@ -131,7 +140,8 @@ public class PresentHelper extends BaseHelper {
 			_detail = new present_detail(exitKeyDetail);
 			_detail.setCreation_time(new Date().getTime());
 			Present_detailHelper.getInstance().update(_detail);
-		}		
+		}	
+		updateTotalPresent(exitKey);
 	}
 	
 	public void updateInSchoolAttendance(String cardId) throws ApplicationException {
@@ -162,7 +172,7 @@ public class PresentHelper extends BaseHelper {
 			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
 			_present.setClass_section_name(class_section_name);
 			_present.setPresent_type("SCHOOL");
-			_present.setPresent_type("ENTRY");
+			_present.setPresent_record_type("ENTRY");
 			PresentHelper.getInstance().add(_present);
 		}
 		String entryKeyDetail = entryKey+"^"+_student.getId();
@@ -176,11 +186,12 @@ public class PresentHelper extends BaseHelper {
 			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
 			_detail.setClass_section_name(class_section_name);
 			_detail.setPresent_type("SCHOOL");
-		    _detail.setPresent_type("EXIT");
+		    _detail.setPresent_record_type("ENTRY");
 			_detail.setDate_str(today);
 			_detail.setStudent_id(_student.getId());
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			Present_detailHelper.getInstance().add(_detail);
+			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 			return;
 		} 
 		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
@@ -203,7 +214,7 @@ public class PresentHelper extends BaseHelper {
 			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
 			_present.setClass_section_name(class_section_name);
 			_present.setPresent_type("SCHOOL");
-			_present.setPresent_type("EXIT");
+			_present.setPresent_record_type("EXIT");
 			PresentHelper.getInstance().add(_present);
 		}
 		_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
@@ -216,7 +227,7 @@ public class PresentHelper extends BaseHelper {
 			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
 			_detail.setClass_section_name(class_section_name);
 			_detail.setPresent_type("SCHOOL");
-			_detail.setPresent_type("EXIT");
+			_detail.setPresent_record_type("EXIT");
 			_detail.setDate_str(today);
 			_detail.setStudent_id(_student.getId());
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));

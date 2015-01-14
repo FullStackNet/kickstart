@@ -22,6 +22,18 @@
 				'type':'String',
 				'index' : true
 			},
+			'route_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'route_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'class_section_name':
 			{
 				'length': 128,
