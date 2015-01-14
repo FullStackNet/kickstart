@@ -36,7 +36,7 @@ public class PresentHelper extends BaseHelper {
 	}
 	public void updateTotalPresent(String key) {
 		BaseResource[] resources = Present_detailHelper.getInstance().getDetail(key);
-		if (Util.isEmpty(resources)) {
+		if (!Util.isEmpty(resources)) {
 			present _present = new present(key);
 			_present.setTotal_present(resources.length);
 			try {
@@ -61,8 +61,9 @@ public class PresentHelper extends BaseHelper {
 			ApplicationLogger.error(" Multiple student detected for card " +cardId, this.getClass());
 			//need to send the alerts admin
 		}
+		boolean entryRecordExist = true;
 		student _student = (student)students[0];
-		String entryKey =  _student.getSchool_id()+_student.getClass_name()+"^"+_student.getSection_name();
+		String entryKey =  _route.getId()+"^";
 		entryKey = entryKey +"^"+"BUS"+"^"+_route.getType()+"^"+"ENTRY"+today;
 		present _present = (present)PresentHelper.getInstance().getById(entryKey);
 		if (_present == null){
@@ -95,13 +96,15 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			Present_detailHelper.getInstance().add(_detail);
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
+			entryRecordExist = false;
 		}
 		updateTotalPresent(entryKey);
 		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
 			return;
 		}
-		
-		String exitKey =  _student.getSchool_id()+_student.getClass_name()+"^"+_student.getSection_name();
+		if (!entryRecordExist)
+			return;
+		String exitKey =  _route.getId()+"^";
 		exitKey = exitKey +"^"+"BUS"+"^"+_route.getType()+"^"+"EXIT"+today;
 		// create a presnt entry record;
 		String exitKeyDetail = exitKey+"^"+_student.getId();
