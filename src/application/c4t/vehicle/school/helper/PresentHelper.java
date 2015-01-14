@@ -15,7 +15,9 @@ import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
+import application.c4t.vehicle.helper.Route_stopageHelper;
 import application.c4t.vehicle.resource.route;
+import application.c4t.vehicle.resource.route_stopage;
 import application.c4t.vehicle.school.resource.absent;
 import application.c4t.vehicle.school.resource.present;
 import application.c4t.vehicle.school.resource.present_detail;
@@ -63,8 +65,17 @@ public class PresentHelper extends BaseHelper {
 		}
 		boolean entryRecordExist = true;
 		student _student = (student)students[0];
-		if (!_route.getId().equals(_student.getPickup_route_id()) && 
-				(!_route.getId().equals(_student.getDropped_route_id()))) {
+		route_stopage pickup_route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(_student.getPickup_route_stopage_id());
+		if (pickup_route_stopage == null)
+			return;
+		
+		route_stopage dropped_route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(_student.getDropped_route_stopage_id());
+		
+		if (dropped_route_stopage == null)
+			return;
+		
+		if (!_route.getId().equals(pickup_route_stopage.getRoute_id()) && 
+				(!_route.getId().equals(dropped_route_stopage.getRoute_id()))) {
 			ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
 			return;
 		}
