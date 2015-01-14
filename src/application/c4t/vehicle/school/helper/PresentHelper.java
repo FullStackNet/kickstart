@@ -212,9 +212,10 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			Present_detailHelper.getInstance().add(_detail);
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
+			updateTotalPresent(entryKey);
 			return;
 		} 
-		updateTotalPresent(entryKey);
+		
 		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
 			return;
 		}
