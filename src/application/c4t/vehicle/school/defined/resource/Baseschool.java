@@ -48,6 +48,10 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_video = null;
 	private String feature_fees = null;
 	private String feature_work_sheet = null;
+	private String feature_present_report = null;
+	private String feature_news = null;
+	private String feature_parenting = null;
+	private String feature_event = null;
 	private String logo_file_name = null;
 	private String admission_no_prefix = null;
 	private Integer admission_last_no = null;
@@ -97,6 +101,10 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_VIDEO = "feature_video";
 	public static String FIELD_FEATURE_FEES = "feature_fees";
 	public static String FIELD_FEATURE_WORK_SHEET = "feature_work_sheet";
+	public static String FIELD_FEATURE_PRESENT_REPORT = "feature_present_report";
+	public static String FIELD_FEATURE_NEWS = "feature_news";
+	public static String FIELD_FEATURE_PARENTING = "feature_parenting";
+	public static String FIELD_FEATURE_EVENT = "feature_event";
 	public static String FIELD_LOGO_FILE_NAME = "logo_file_name";
 	public static String FIELD_ADMISSION_NO_PREFIX = "admission_no_prefix";
 	public static String FIELD_ADMISSION_LAST_NO = "admission_last_no";
@@ -257,6 +265,26 @@ public abstract class Baseschool extends BaseResource {
 		feature_work_sheetField.setLength(1);
 		metaData.addField(feature_work_sheetField);
 
+		Field feature_present_reportField = new Field("feature_present_report", "String");
+		feature_present_reportField.setDefaultValue("N");
+		feature_present_reportField.setLength(1);
+		metaData.addField(feature_present_reportField);
+
+		Field feature_newsField = new Field("feature_news", "String");
+		feature_newsField.setDefaultValue("Y");
+		feature_newsField.setLength(1);
+		metaData.addField(feature_newsField);
+
+		Field feature_parentingField = new Field("feature_parenting", "String");
+		feature_parentingField.setDefaultValue("Y");
+		feature_parentingField.setLength(1);
+		metaData.addField(feature_parentingField);
+
+		Field feature_eventField = new Field("feature_event", "String");
+		feature_eventField.setDefaultValue("Y");
+		feature_eventField.setLength(1);
+		metaData.addField(feature_eventField);
+
 		Field logo_file_nameField = new Field("logo_file_name", "String");
 		logo_file_nameField.setLength(128);
 		metaData.addField(logo_file_nameField);
@@ -383,6 +411,10 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_video = obj.feature_video;
 		this.feature_fees = obj.feature_fees;
 		this.feature_work_sheet = obj.feature_work_sheet;
+		this.feature_present_report = obj.feature_present_report;
+		this.feature_news = obj.feature_news;
+		this.feature_parenting = obj.feature_parenting;
+		this.feature_event = obj.feature_event;
 		this.logo_file_name = obj.logo_file_name;
 		this.admission_no_prefix = obj.admission_no_prefix;
 		this.admission_last_no = obj.admission_last_no;
@@ -443,6 +475,14 @@ public abstract class Baseschool extends BaseResource {
 			feature_fees = "N";
 		if(feature_work_sheet == null)
 			feature_work_sheet = "N";
+		if(feature_present_report == null)
+			feature_present_report = "N";
+		if(feature_news == null)
+			feature_news = "Y";
+		if(feature_parenting == null)
+			feature_parenting = "Y";
+		if(feature_event == null)
+			feature_event = "Y";
 		if(feature_homework_sms == null)
 			feature_homework_sms = "N";
 		if(feature_daily_activity_sms == null)
@@ -533,6 +573,14 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_fees", feature_fees);
 		if(feature_work_sheet != null)
 			map.put("feature_work_sheet", feature_work_sheet);
+		if(feature_present_report != null)
+			map.put("feature_present_report", feature_present_report);
+		if(feature_news != null)
+			map.put("feature_news", feature_news);
+		if(feature_parenting != null)
+			map.put("feature_parenting", feature_parenting);
+		if(feature_event != null)
+			map.put("feature_event", feature_event);
 		if(logo_file_name != null)
 			map.put("logo_file_name", logo_file_name);
 		if(admission_no_prefix != null)
@@ -637,6 +685,14 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_fees", feature_fees);
 		if(feature_work_sheet != null)
 			map.put("feature_work_sheet", feature_work_sheet);
+		if(feature_present_report != null)
+			map.put("feature_present_report", feature_present_report);
+		if(feature_news != null)
+			map.put("feature_news", feature_news);
+		if(feature_parenting != null)
+			map.put("feature_parenting", feature_parenting);
+		if(feature_event != null)
+			map.put("feature_event", feature_event);
 		if(logo_file_name != null)
 			map.put("logo_file_name", logo_file_name);
 		if(admission_no_prefix != null)
@@ -714,6 +770,10 @@ public abstract class Baseschool extends BaseResource {
 		feature_video = (String) map.get("feature_video");
 		feature_fees = (String) map.get("feature_fees");
 		feature_work_sheet = (String) map.get("feature_work_sheet");
+		feature_present_report = (String) map.get("feature_present_report");
+		feature_news = (String) map.get("feature_news");
+		feature_parenting = (String) map.get("feature_parenting");
+		feature_event = (String) map.get("feature_event");
 		logo_file_name = (String) map.get("logo_file_name");
 		admission_no_prefix = (String) map.get("admission_no_prefix");
 		admission_last_no = (Integer) map.get("admission_last_no");
@@ -852,6 +912,22 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_work_sheetObj = map.get("feature_work_sheet");
 		if(feature_work_sheetObj != null)
 			feature_work_sheet = feature_work_sheetObj.toString();
+
+		Object feature_present_reportObj = map.get("feature_present_report");
+		if(feature_present_reportObj != null)
+			feature_present_report = feature_present_reportObj.toString();
+
+		Object feature_newsObj = map.get("feature_news");
+		if(feature_newsObj != null)
+			feature_news = feature_newsObj.toString();
+
+		Object feature_parentingObj = map.get("feature_parenting");
+		if(feature_parentingObj != null)
+			feature_parenting = feature_parentingObj.toString();
+
+		Object feature_eventObj = map.get("feature_event");
+		if(feature_eventObj != null)
+			feature_event = feature_eventObj.toString();
 
 		Object logo_file_nameObj = map.get("logo_file_name");
 		if(logo_file_nameObj != null)
@@ -1334,6 +1410,54 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_work_sheet() {
 		this.feature_work_sheet = "N";
+	}
+
+	public String getFeature_present_report() {
+		return feature_present_report != null ? feature_present_report : "N";
+	}
+
+	public void setFeature_present_report(String feature_present_report) {
+		this.feature_present_report = feature_present_report;
+	}
+
+	public void unSetFeature_present_report() {
+		this.feature_present_report = "N";
+	}
+
+	public String getFeature_news() {
+		return feature_news != null ? feature_news : "Y";
+	}
+
+	public void setFeature_news(String feature_news) {
+		this.feature_news = feature_news;
+	}
+
+	public void unSetFeature_news() {
+		this.feature_news = "Y";
+	}
+
+	public String getFeature_parenting() {
+		return feature_parenting != null ? feature_parenting : "Y";
+	}
+
+	public void setFeature_parenting(String feature_parenting) {
+		this.feature_parenting = feature_parenting;
+	}
+
+	public void unSetFeature_parenting() {
+		this.feature_parenting = "Y";
+	}
+
+	public String getFeature_event() {
+		return feature_event != null ? feature_event : "Y";
+	}
+
+	public void setFeature_event(String feature_event) {
+		this.feature_event = feature_event;
+	}
+
+	public void unSetFeature_event() {
+		this.feature_event = "Y";
 	}
 
 	public String getLogo_file_name() {

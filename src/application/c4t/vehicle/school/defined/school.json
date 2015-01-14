@@ -176,7 +176,30 @@
 				'default' : "N",
 				'type':'String'
 			},
-			
+			'feature_present_report':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_news':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_parenting':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_event':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
 			'logo_file_name':
 			{
 				'length': 128,
