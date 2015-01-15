@@ -59,7 +59,7 @@ public class Home_practiceHelper extends BaseHelper {
 	
 	public BaseResource[] getHome_practiceForClass(String school_id, String class_section_name) {
 		Expression e12 = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
-		Expression e11 = new Expression(home_practice.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_EQ, school_id);
+		Expression e11 = new Expression(home_practice.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, new String[]{school_id});
 		Expression e1 = new Expression(e11,LOG_OP.OR, e12);
 		Expression e2 = new Expression(home_practice.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e3 = new Expression(e1, LOG_OP.AND, e2);
