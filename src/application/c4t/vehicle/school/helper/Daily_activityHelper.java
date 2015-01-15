@@ -63,7 +63,7 @@ public class Daily_activityHelper extends BaseHelper {
 	}
 	public BaseResource[] getDaily_activiyForClass(String schoolId, String class_section_name) {
 		Expression e12 = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.EQ, schoolId);
-		Expression e11 = new Expression(daily_activity.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_EQ, schoolId);
+		Expression e11 = new Expression(daily_activity.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, new String[]{schoolId});
 		Expression e1 = new Expression(e12,LOG_OP.OR, e11);
 		Expression e2 = new Expression(daily_activity.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e3 = new Expression(e1, LOG_OP.AND, e2);
