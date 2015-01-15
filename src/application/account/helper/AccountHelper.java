@@ -50,7 +50,7 @@ public class AccountHelper extends BaseHelper{
 		ArrayList<BaseResource> rootList = new ArrayList<BaseResource>();
 		for(BaseResource resource : resources) {
 			account _account = (account)resource;
-			if (_account.getName().matches("(.*)"+searchText+"(.*)")) {
+			if (_account.getName().matches("?i:.*"+searchText+".*")) {
 				rootList.add(_account);
 			}
 		}
