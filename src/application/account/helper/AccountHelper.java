@@ -42,6 +42,21 @@ public class AccountHelper extends BaseHelper{
 
 	}
 
+	public BaseResource[] getSearchAccountBalance(String customer_id,String searchText) {
+		Expression e = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
+		BaseResource[] resources = getByExpression(e,new String[]{account.FIELD_NAME});
+		if (Util.isEmpty(resources))
+			return null;
+		ArrayList<BaseResource> rootList = new ArrayList<BaseResource>();
+		for(BaseResource resource : resources) {
+			account _account = (account)resource;
+			if (_account.getName().matches("(.*)"+searchText+"(.*)")) {
+				rootList.add(_account);
+			}
+		}
+		return rootList.toArray(new account[rootList.size()]);
+
+	}
 
 	public BaseResource[] getRootGroupBalance(String customer_id) {
 		Expression e = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
