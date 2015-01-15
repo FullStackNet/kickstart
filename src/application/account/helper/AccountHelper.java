@@ -7,6 +7,7 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
+import platform.util.ApplicationException;
 import platform.util.Util;
 import application.account.resource.account;
 
@@ -19,7 +20,7 @@ public class AccountHelper extends BaseHelper{
 			instance = new AccountHelper();
 		return instance;
 	}
-	
+
 	public AccountHelper() {
 		super(new account());
 		// TODO Auto-generated constructor stub
@@ -32,16 +33,16 @@ public class AccountHelper extends BaseHelper{
 		return resources;
 
 	}
-	
+
 	public BaseResource[] getGroupAccountBalance(String customer_id,String parent) {
 		Expression e1 = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
 		Expression e2 = new Expression(account.FIELD_PARENT_NAME, REL_OP.EQ, parent);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e,new String[]{account.FIELD_NAME});
-	
+
 	}
-	
-	
+
+
 	public BaseResource[] getRootGroupBalance(String customer_id) {
 		Expression e = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
 		BaseResource[] resources = getByExpression(e,new String[]{account.FIELD_NAME});
@@ -66,9 +67,17 @@ public class AccountHelper extends BaseHelper{
 			}
 		}
 		account _account = getAccountByName(customer_id,group);
-		_account.setBalance(balance);
-		if (!Util.isEmpty(_account.getParent_name()))
-			updateGroupBalance(customer_id, _account.getParent_name());
+		if (_account != null) {
+			_account.setBalance(balance);
+			try {
+				AccountHelper.getInstance().update(_account);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (!Util.isEmpty(_account.getParent_name()))
+				updateGroupBalance(customer_id, _account.getParent_name());
+		}
 	}
 	public account getAccountByName(String customer_id,String name) {
 		Expression e1 = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
@@ -80,7 +89,7 @@ public class AccountHelper extends BaseHelper{
 		return (account)resourcs[0];
 
 	}
-	
+
 	public account getAccount(String customer_id,String accountId) {
 		Expression e1 = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
 		Expression e2 = new Expression(account.FIELD_ACCOUNT_CUSTOMER_ID, REL_OP.EQ, accountId);
