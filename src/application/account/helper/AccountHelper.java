@@ -56,6 +56,30 @@ public class AccountHelper extends BaseHelper{
 		}
 		return rootList.toArray(new account[rootList.size()]);
 	}
+	public void updateGroupBalance(String customer_id,String group) {
+		BaseResource[] resources = getGroupAccountBalance(customer_id,group);
+		double balance = 0.0;
+		if (!Util.isEmpty(resources)) {
+			for(BaseResource resource : resources) {
+				account _account = (account)resource;
+				balance += _account.getBalanceEx();
+			}
+		}
+		account _account = getAccountByName(customer_id,group);
+		_account.setBalance(balance);
+		if (!Util.isEmpty(_account.getParent_name()))
+			updateGroupBalance(customer_id, _account.getParent_name());
+	}
+	public account getAccountByName(String customer_id,String name) {
+		Expression e1 = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
+		Expression e2 = new Expression(account.FIELD_NAME, REL_OP.EQ, name);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		BaseResource[] resourcs = getByExpression(e);
+		if (Util.isEmpty(resourcs))
+			return null;
+		return (account)resourcs[0];
+
+	}
 	
 	public account getAccount(String customer_id,String accountId) {
 		Expression e1 = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
