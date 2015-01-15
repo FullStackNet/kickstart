@@ -37,7 +37,7 @@ public class UserService extends BaseService{
 			map.put("NAME", _invite.getName());
 			map.put("ACTIVATION_TOKEN", _invite.getKey());
 			map.put("CUSTOMER_NAME", "C4T Admin");
-			map.put("ACTIVATE_URL", "http://my.cloud4things.com/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			map.put("ACTIVATE_URL", "/ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
 			String params = Json.maptoString(map);
 			email.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, email);
@@ -157,7 +157,7 @@ public class UserService extends BaseService{
 			mail.setType(ApplicationConstants.MAIL_TYPE_FORGOT_PASSWORD);
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("TOKEN", _user.getKey());
-			map.put("URL", "http://my.cloud4things.com/ui/confirm_forgot_password?id="+_user.getId()+"&key="+_user.getKey());
+			map.put("URL", "/ui/confirm_forgot_password?id="+_user.getId()+"&key="+_user.getKey());
 			String params = Json.maptoString(map);
 			mail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
