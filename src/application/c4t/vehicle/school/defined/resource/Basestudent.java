@@ -88,6 +88,7 @@ public abstract class Basestudent extends BaseResource {
 	private Integer notice_count = null;
 	private Integer transport_count = null;
 	private Integer absent_report_count = null;
+	private Integer present_report_count = null;
 	private Integer message2school_count = null;
 	private String primary_contact = null;
 	private String gender = null;
@@ -162,6 +163,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_NOTICE_COUNT = "notice_count";
 	public static String FIELD_TRANSPORT_COUNT = "transport_count";
 	public static String FIELD_ABSENT_REPORT_COUNT = "absent_report_count";
+	public static String FIELD_PRESENT_REPORT_COUNT = "present_report_count";
 	public static String FIELD_MESSAGE2SCHOOL_COUNT = "message2school_count";
 	public static String FIELD_PRIMARY_CONTACT = "primary_contact";
 	public static String FIELD_GENDER = "gender";
@@ -472,6 +474,10 @@ public abstract class Basestudent extends BaseResource {
 		absent_report_countField.setDefaultValue(0);
 		metaData.addField(absent_report_countField);
 
+		Field present_report_countField = new Field("present_report_count", "int");
+		present_report_countField.setDefaultValue(0);
+		metaData.addField(present_report_countField);
+
 		Field message2school_countField = new Field("message2school_count", "int");
 		message2school_countField.setDefaultValue(0);
 		metaData.addField(message2school_countField);
@@ -566,6 +572,7 @@ public abstract class Basestudent extends BaseResource {
 		this.notice_count = obj.notice_count;
 		this.transport_count = obj.transport_count;
 		this.absent_report_count = obj.absent_report_count;
+		this.present_report_count = obj.present_report_count;
 		this.message2school_count = obj.message2school_count;
 		this.primary_contact = obj.primary_contact;
 		this.gender = obj.gender;
@@ -613,6 +620,8 @@ public abstract class Basestudent extends BaseResource {
 			transport_count = 0;
 		if(absent_report_count == null)
 			absent_report_count = 0;
+		if(present_report_count == null)
+			present_report_count = 0;
 		if(message2school_count == null)
 			message2school_count = 0;
 		if(primary_contact == null)
@@ -759,6 +768,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("transport_count", transport_count);
 		if(absent_report_count != null)
 			map.put("absent_report_count", absent_report_count);
+		if(present_report_count != null)
+			map.put("present_report_count", present_report_count);
 		if(message2school_count != null)
 			map.put("message2school_count", message2school_count);
 		if(primary_contact != null)
@@ -913,6 +924,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("transport_count", transport_count);
 		if(absent_report_count != null)
 			map.put("absent_report_count", absent_report_count);
+		if(present_report_count != null)
+			map.put("present_report_count", present_report_count);
 		if(message2school_count != null)
 			map.put("message2school_count", message2school_count);
 		if(primary_contact != null)
@@ -1000,6 +1013,7 @@ public abstract class Basestudent extends BaseResource {
 		notice_count = (Integer) map.get("notice_count");
 		transport_count = (Integer) map.get("transport_count");
 		absent_report_count = (Integer) map.get("absent_report_count");
+		present_report_count = (Integer) map.get("present_report_count");
 		message2school_count = (Integer) map.get("message2school_count");
 		primary_contact = (String) map.get("primary_contact");
 		gender = (String) map.get("gender");
@@ -1283,6 +1297,10 @@ public abstract class Basestudent extends BaseResource {
 		Object absent_report_countObj = map.get("absent_report_count");
 		if(absent_report_countObj != null)
 			absent_report_count = new Integer(absent_report_countObj.toString());
+
+		Object present_report_countObj = map.get("present_report_count");
+		if(present_report_countObj != null)
+			present_report_count = new Integer(present_report_countObj.toString());
 
 		Object message2school_countObj = map.get("message2school_count");
 		if(message2school_countObj != null)
@@ -2353,6 +2371,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetAbsent_report_count() {
 		this.absent_report_count = 0;
+	}
+
+	public Integer getPresent_report_count() {
+		return present_report_count != null ? present_report_count : 0;
+	}
+
+	public void setPresent_report_count(int present_report_count) {
+		this.present_report_count = present_report_count;
+	}
+
+	public void setPresent_report_count(Integer present_report_count) {
+		this.present_report_count = present_report_count;
+	}
+
+	public void unSetPresent_report_count() {
+		this.present_report_count = 0;
 	}
 
 	public Integer getMessage2school_count() {

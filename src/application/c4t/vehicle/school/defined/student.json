@@ -385,6 +385,11 @@
 				'type':'int',
 				default : 0
 			},
+			'present_report_count':
+			{
+				'type':'int',
+				default : 0
+			},
 			'message2school_count':
 			{
 				'type':'int',
