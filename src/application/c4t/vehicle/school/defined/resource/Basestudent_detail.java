@@ -67,6 +67,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String feature_parent2teacher_chat = null;
 	private String feature_teacher2parent_chat = null;
 	private String feature_absent_report = null;
+	private String feature_present_report = null;
 	private String feature_pick_drop = null;
 	private String feature_message2parent = null;
 	private String feature_message2school = null;
@@ -85,6 +86,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String transport = null;
 	private Integer transport_count = null;
 	private Integer absent_report_count = null;
+	private Integer present_report_count = null;
 	private Integer message2school_count = null;
 	private Integer photo_count = null;
 	private Integer video_count = null;
@@ -140,6 +142,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_FEATURE_PARENT2TEACHER_CHAT = "feature_parent2teacher_chat";
 	public static String FIELD_FEATURE_TEACHER2PARENT_CHAT = "feature_teacher2parent_chat";
 	public static String FIELD_FEATURE_ABSENT_REPORT = "feature_absent_report";
+	public static String FIELD_FEATURE_PRESENT_REPORT = "feature_present_report";
 	public static String FIELD_FEATURE_PICK_DROP = "feature_pick_drop";
 	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
 	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
@@ -158,6 +161,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_TRANSPORT = "transport";
 	public static String FIELD_TRANSPORT_COUNT = "transport_count";
 	public static String FIELD_ABSENT_REPORT_COUNT = "absent_report_count";
+	public static String FIELD_PRESENT_REPORT_COUNT = "present_report_count";
 	public static String FIELD_MESSAGE2SCHOOL_COUNT = "message2school_count";
 	public static String FIELD_PHOTO_COUNT = "photo_count";
 	public static String FIELD_VIDEO_COUNT = "video_count";
@@ -373,6 +377,11 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_absent_reportField.setLength(1);
 		metaData.addField(feature_absent_reportField);
 
+		Field feature_present_reportField = new Field("feature_present_report", "String");
+		feature_present_reportField.setDefaultValue("N");
+		feature_present_reportField.setLength(1);
+		metaData.addField(feature_present_reportField);
+
 		Field feature_pick_dropField = new Field("feature_pick_drop", "String");
 		feature_pick_dropField.setDefaultValue("N");
 		feature_pick_dropField.setLength(1);
@@ -456,6 +465,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		absent_report_countField.setDefaultValue(0);
 		metaData.addField(absent_report_countField);
 
+		Field present_report_countField = new Field("present_report_count", "int");
+		present_report_countField.setDefaultValue(0);
+		metaData.addField(present_report_countField);
+
 		Field message2school_countField = new Field("message2school_count", "int");
 		message2school_countField.setDefaultValue(0);
 		metaData.addField(message2school_countField);
@@ -537,6 +550,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.feature_parent2teacher_chat = obj.feature_parent2teacher_chat;
 		this.feature_teacher2parent_chat = obj.feature_teacher2parent_chat;
 		this.feature_absent_report = obj.feature_absent_report;
+		this.feature_present_report = obj.feature_present_report;
 		this.feature_pick_drop = obj.feature_pick_drop;
 		this.feature_message2parent = obj.feature_message2parent;
 		this.feature_message2school = obj.feature_message2school;
@@ -555,6 +569,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.transport = obj.transport;
 		this.transport_count = obj.transport_count;
 		this.absent_report_count = obj.absent_report_count;
+		this.present_report_count = obj.present_report_count;
 		this.message2school_count = obj.message2school_count;
 		this.photo_count = obj.photo_count;
 		this.video_count = obj.video_count;
@@ -590,6 +605,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			feature_teacher2parent_chat = "N";
 		if(feature_absent_report == null)
 			feature_absent_report = "N";
+		if(feature_present_report == null)
+			feature_present_report = "N";
 		if(feature_pick_drop == null)
 			feature_pick_drop = "N";
 		if(feature_message2parent == null)
@@ -624,6 +641,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			transport_count = 0;
 		if(absent_report_count == null)
 			absent_report_count = 0;
+		if(present_report_count == null)
+			present_report_count = 0;
 		if(message2school_count == null)
 			message2school_count = 0;
 		if(photo_count == null)
@@ -734,6 +753,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		if(feature_absent_report != null)
 			map.put("feature_absent_report", feature_absent_report);
+		if(feature_present_report != null)
+			map.put("feature_present_report", feature_present_report);
 		if(feature_pick_drop != null)
 			map.put("feature_pick_drop", feature_pick_drop);
 		if(feature_message2parent != null)
@@ -770,6 +791,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("transport_count", transport_count);
 		if(absent_report_count != null)
 			map.put("absent_report_count", absent_report_count);
+		if(present_report_count != null)
+			map.put("present_report_count", present_report_count);
 		if(message2school_count != null)
 			map.put("message2school_count", message2school_count);
 		if(photo_count != null)
@@ -886,6 +909,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		if(feature_absent_report != null)
 			map.put("feature_absent_report", feature_absent_report);
+		if(feature_present_report != null)
+			map.put("feature_present_report", feature_present_report);
 		if(feature_pick_drop != null)
 			map.put("feature_pick_drop", feature_pick_drop);
 		if(feature_message2parent != null)
@@ -922,6 +947,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("transport_count", transport_count);
 		if(absent_report_count != null)
 			map.put("absent_report_count", absent_report_count);
+		if(present_report_count != null)
+			map.put("present_report_count", present_report_count);
 		if(message2school_count != null)
 			map.put("message2school_count", message2school_count);
 		if(photo_count != null)
@@ -992,6 +1019,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_parent2teacher_chat = (String) map.get("feature_parent2teacher_chat");
 		feature_teacher2parent_chat = (String) map.get("feature_teacher2parent_chat");
 		feature_absent_report = (String) map.get("feature_absent_report");
+		feature_present_report = (String) map.get("feature_present_report");
 		feature_pick_drop = (String) map.get("feature_pick_drop");
 		feature_message2parent = (String) map.get("feature_message2parent");
 		feature_message2school = (String) map.get("feature_message2school");
@@ -1010,6 +1038,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		transport = (String) map.get("transport");
 		transport_count = (Integer) map.get("transport_count");
 		absent_report_count = (Integer) map.get("absent_report_count");
+		present_report_count = (Integer) map.get("present_report_count");
 		message2school_count = (Integer) map.get("message2school_count");
 		photo_count = (Integer) map.get("photo_count");
 		video_count = (Integer) map.get("video_count");
@@ -1212,6 +1241,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		if(feature_absent_reportObj != null)
 			feature_absent_report = feature_absent_reportObj.toString();
 
+		Object feature_present_reportObj = map.get("feature_present_report");
+		if(feature_present_reportObj != null)
+			feature_present_report = feature_present_reportObj.toString();
+
 		Object feature_pick_dropObj = map.get("feature_pick_drop");
 		if(feature_pick_dropObj != null)
 			feature_pick_drop = feature_pick_dropObj.toString();
@@ -1283,6 +1316,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object absent_report_countObj = map.get("absent_report_count");
 		if(absent_report_countObj != null)
 			absent_report_count = new Integer(absent_report_countObj.toString());
+
+		Object present_report_countObj = map.get("present_report_count");
+		if(present_report_countObj != null)
+			present_report_count = new Integer(present_report_countObj.toString());
 
 		Object message2school_countObj = map.get("message2school_count");
 		if(message2school_countObj != null)
@@ -2051,6 +2088,18 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.feature_absent_report = "N";
 	}
 
+	public String getFeature_present_report() {
+		return feature_present_report != null ? feature_present_report : "N";
+	}
+
+	public void setFeature_present_report(String feature_present_report) {
+		this.feature_present_report = feature_present_report;
+	}
+
+	public void unSetFeature_present_report() {
+		this.feature_present_report = "N";
+	}
+
 	public String getFeature_pick_drop() {
 		return feature_pick_drop != null ? feature_pick_drop : "N";
 	}
@@ -2293,6 +2342,22 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetAbsent_report_count() {
 		this.absent_report_count = 0;
+	}
+
+	public Integer getPresent_report_count() {
+		return present_report_count != null ? present_report_count : 0;
+	}
+
+	public void setPresent_report_count(int present_report_count) {
+		this.present_report_count = present_report_count;
+	}
+
+	public void setPresent_report_count(Integer present_report_count) {
+		this.present_report_count = present_report_count;
+	}
+
+	public void unSetPresent_report_count() {
+		this.present_report_count = 0;
 	}
 
 	public Integer getMessage2school_count() {

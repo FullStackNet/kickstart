@@ -258,6 +258,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_present_report':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_pick_drop':
 			{
 				'length': 1,
@@ -356,6 +362,11 @@
 				default : 0
 			},
 			'absent_report_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'present_report_count':
 			{
 				'type':'int',
 				default : 0
