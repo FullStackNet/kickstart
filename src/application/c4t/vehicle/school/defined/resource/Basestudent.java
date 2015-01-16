@@ -82,6 +82,7 @@ public abstract class Basestudent extends BaseResource {
 	private String card_swipe_drop_drop = null;
 	private Long card_swipe_drop_drop_time = null;
 	private Integer total_absent = null;
+	private Integer total_present = null;
 	private Integer daily_activity_count = null;
 	private Integer home_practice_count = null;
 	private Integer homework_count = null;
@@ -157,6 +158,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_CARD_SWIPE_DROP_DROP = "card_swipe_drop_drop";
 	public static String FIELD_CARD_SWIPE_DROP_DROP_TIME = "card_swipe_drop_drop_time";
 	public static String FIELD_TOTAL_ABSENT = "total_absent";
+	public static String FIELD_TOTAL_PRESENT = "total_present";
 	public static String FIELD_DAILY_ACTIVITY_COUNT = "daily_activity_count";
 	public static String FIELD_HOME_PRACTICE_COUNT = "home_practice_count";
 	public static String FIELD_HOMEWORK_COUNT = "homework_count";
@@ -450,6 +452,10 @@ public abstract class Basestudent extends BaseResource {
 		total_absentField.setDefaultValue(0);
 		metaData.addField(total_absentField);
 
+		Field total_presentField = new Field("total_present", "int");
+		total_presentField.setDefaultValue(0);
+		metaData.addField(total_presentField);
+
 		Field daily_activity_countField = new Field("daily_activity_count", "int");
 		daily_activity_countField.setDefaultValue(0);
 		metaData.addField(daily_activity_countField);
@@ -566,6 +572,7 @@ public abstract class Basestudent extends BaseResource {
 		this.card_swipe_drop_drop = obj.card_swipe_drop_drop;
 		this.card_swipe_drop_drop_time = obj.card_swipe_drop_drop_time;
 		this.total_absent = obj.total_absent;
+		this.total_present = obj.total_present;
 		this.daily_activity_count = obj.daily_activity_count;
 		this.home_practice_count = obj.home_practice_count;
 		this.homework_count = obj.homework_count;
@@ -608,6 +615,8 @@ public abstract class Basestudent extends BaseResource {
 			card_swipe_drop_drop = "N";
 		if(total_absent == null)
 			total_absent = 0;
+		if(total_present == null)
+			total_present = 0;
 		if(daily_activity_count == null)
 			daily_activity_count = 0;
 		if(home_practice_count == null)
@@ -756,6 +765,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("card_swipe_drop_drop_time", card_swipe_drop_drop_time);
 		if(total_absent != null)
 			map.put("total_absent", total_absent);
+		if(total_present != null)
+			map.put("total_present", total_present);
 		if(daily_activity_count != null)
 			map.put("daily_activity_count", daily_activity_count);
 		if(home_practice_count != null)
@@ -912,6 +923,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("card_swipe_drop_drop_time", card_swipe_drop_drop_time);
 		if(total_absent != null)
 			map.put("total_absent", total_absent);
+		if(total_present != null)
+			map.put("total_present", total_present);
 		if(daily_activity_count != null)
 			map.put("daily_activity_count", daily_activity_count);
 		if(home_practice_count != null)
@@ -1007,6 +1020,7 @@ public abstract class Basestudent extends BaseResource {
 		card_swipe_drop_drop = (String) map.get("card_swipe_drop_drop");
 		card_swipe_drop_drop_time = (Long) map.get("card_swipe_drop_drop_time");
 		total_absent = (Integer) map.get("total_absent");
+		total_present = (Integer) map.get("total_present");
 		daily_activity_count = (Integer) map.get("daily_activity_count");
 		home_practice_count = (Integer) map.get("home_practice_count");
 		homework_count = (Integer) map.get("homework_count");
@@ -1273,6 +1287,10 @@ public abstract class Basestudent extends BaseResource {
 		Object total_absentObj = map.get("total_absent");
 		if(total_absentObj != null)
 			total_absent = new Integer(total_absentObj.toString());
+
+		Object total_presentObj = map.get("total_present");
+		if(total_presentObj != null)
+			total_present = new Integer(total_presentObj.toString());
 
 		Object daily_activity_countObj = map.get("daily_activity_count");
 		if(daily_activity_countObj != null)
@@ -2275,6 +2293,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetTotal_absent() {
 		this.total_absent = 0;
+	}
+
+	public Integer getTotal_present() {
+		return total_present != null ? total_present : 0;
+	}
+
+	public void setTotal_present(int total_present) {
+		this.total_present = total_present;
+	}
+
+	public void setTotal_present(Integer total_present) {
+		this.total_present = total_present;
+	}
+
+	public void unSetTotal_present() {
+		this.total_present = 0;
 	}
 
 	public Integer getDaily_activity_count() {

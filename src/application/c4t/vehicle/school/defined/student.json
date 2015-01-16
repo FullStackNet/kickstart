@@ -355,6 +355,11 @@
 				'type':'int',
 				default : 0
 			},
+			'total_present':
+			{
+				'type':'int',
+				default : 0
+			},
 			'daily_activity_count':
 			{
 				'type':'int',

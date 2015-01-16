@@ -213,6 +213,7 @@ public class PresentHelper extends BaseHelper {
 			Present_detailHelper.getInstance().add(_detail);
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 			updateTotalPresent(entryKey);
+			StudentHelper.getInstance().incrementCounter(_student.getId(),student.FIELD_TOTAL_PRESENT, 1);
 			return;
 		} 
 		
