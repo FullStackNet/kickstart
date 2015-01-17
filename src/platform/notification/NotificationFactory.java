@@ -22,6 +22,7 @@ public class NotificationFactory {
 	public static String NOTIFICATION_NOTICE = "NOTICE";
 	public static String NOTIFICATION_DAILY_ACTIVITY = "DAILY_ACTIVITY";
 	public static String NOTIFICATION_ABSENT = "ABSENT";
+	public static String NOTIFICATION_PRESENT = "PRESENT";
 	public static String NOTIFICATION_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String NOTIFICATION_MESSAGE2SCHOOL = "MESSAGE2SCHOOL";
 	

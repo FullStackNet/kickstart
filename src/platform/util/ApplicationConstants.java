@@ -143,6 +143,7 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String MAIL_TYPE_MESSAGE2SCHOOL = "MESSAGE2SCHOOL";
 	public static String MAIL_TYPE_ABSENT = "ABSENT";
+	public static String MAIL_TYPE_PRESENT = "PRESENT";
 	public static String MAIL_TYPE_DAILY_ACTIVITY= "DAILY_ACTIVITY";
 	public static String MAIL_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";
 	public static String MAIL_TYPE_INVITE_CUSTOMER_ADMIN = "INVITE_CUSTOMER_ADMIN";
@@ -152,6 +153,7 @@ public class ApplicationConstants {
 	public static String MAIL_SUBJECT_HOME_PRACTICE = "Home practice notification";
 	public static String MAIL_SUBJECT_NOTICE = "Notice";
 	public static String MAIL_SUBJECT_ABSENT = "Absent Report";
+	public static String MAIL_SUBJECT_PRESENT = "Present Report";
 	
 	public static String MAIL_SUBJECT_DAILY_ACTIVITY = "Daily Activity notification";
 	public static String MAIL_SUBJECT_INVITE_TO_JOIN_PARENT_CONNECT = "Invite to join the parent connect";
@@ -173,6 +175,7 @@ public class ApplicationConstants {
 	public static String SMS_TYPE_SEND_NOTICE = "NOTICE";
 	public static String SMS_TYPE_SEND_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String SMS_TYPE_SEND_ABSENT = "ABSENT";
+	public static String SMS_TYPE_SEND_PRESENT = "PRESENT";
 	
 	
 
@@ -185,6 +188,7 @@ public class ApplicationConstants {
 	public static String NOTIFICATION_TYPE_NOTICE = "NOTICE";
 	public static String NOTIFICATION_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String NOTIFICATION_TYPE_ABSENT = "ABSENT";
+	public static String NOTIFICATION_TYPE_PRESENT = "PRESENT";
 	
 	
 	public static String NOTIFICATION_TYPE_OVERSPEED = "OVERSPEED";
