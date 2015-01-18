@@ -30,6 +30,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_LOAD_MODULE = "load_module";
 	public static String PROPERTY_CUSTOMER_ID = "customer_id";
 	public static String PROPERTY_DATA_READ_INTERVAL = "data_read_interval";
+	public static String PROPERTY_ODBC = "odbc";
 	
 	public static String PROPERTY_CONTROLLER_USB_PORT = "controller_port";
 	public static String PROPERTY_CONTROLER_BUADRATE = "controller_buadrate";
