@@ -34,10 +34,8 @@ public class AccountHelper extends BaseHelper{
 
 	}
 
-	public BaseResource[] getGroupAccountBalance(String customer_id,String parent) {
-		Expression e1 = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
-		Expression e2 = new Expression(account.FIELD_PARENT_NAME, REL_OP.EQ, parent);
-		Expression e = new Expression(e1, LOG_OP.AND, e2);
+	public BaseResource[] getGroupAccountBalance(String parentId) {
+		Expression e = new Expression(account.FIELD_PARENT_ID, REL_OP.EQ, parentId);
 		return getByExpression(e,new String[]{account.FIELD_NAME});
 
 	}
@@ -72,8 +70,8 @@ public class AccountHelper extends BaseHelper{
 		}
 		return rootList.toArray(new account[rootList.size()]);
 	}
-	public void updateGroupBalance(String customer_id,String group) {
-		BaseResource[] resources = getGroupAccountBalance(customer_id,group);
+	public void updateGroupBalance(String parentId) {
+		BaseResource[] resources = getGroupAccountBalance(parentId);
 		double balance = 0.0;
 		if (!Util.isEmpty(resources)) {
 			for(BaseResource resource : resources) {
@@ -81,7 +79,7 @@ public class AccountHelper extends BaseHelper{
 				balance += _account.getBalanceEx();
 			}
 		}
-		account _account = getAccountByName(customer_id,group);
+		account _account = (account)getById(parentId);
 		if (_account != null) {
 			_account.setBalance(balance);
 			try {
@@ -91,7 +89,7 @@ public class AccountHelper extends BaseHelper{
 				e.printStackTrace();
 			}
 			if (!Util.isEmpty(_account.getParent_name()))
-				updateGroupBalance(customer_id, _account.getParent_name());
+				updateGroupBalance(parentId);
 		}
 	}
 	public account getAccountByName(String customer_id,String name) {
