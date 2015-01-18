@@ -25,6 +25,7 @@ public abstract class Baseaccount extends BaseResource {
 	private String account_customer_id = null;
 	private String name = null;
 	private String type = null;
+	private String parent_id = null;
 	private String parent_name = null;
 	private Double balance = null;
 	private Long creation_time = null;
@@ -37,6 +38,7 @@ public abstract class Baseaccount extends BaseResource {
 	public static String FIELD_ACCOUNT_CUSTOMER_ID = "account_customer_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_TYPE = "type";
+	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_PARENT_NAME = "parent_name";
 	public static String FIELD_BALANCE = "balance";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -74,6 +76,10 @@ public abstract class Baseaccount extends BaseResource {
 		typeField.setLength(128);
 		metaData.addField(typeField);
 
+		Field parent_idField = new Field("parent_id", "String");
+		parent_idField.setLength(128);
+		metaData.addField(parent_idField);
+
 		Field parent_nameField = new Field("parent_name", "String");
 		parent_nameField.setLength(128);
 		metaData.addField(parent_nameField);
@@ -106,6 +112,7 @@ public abstract class Baseaccount extends BaseResource {
 		this.account_customer_id = obj.account_customer_id;
 		this.name = obj.name;
 		this.type = obj.type;
+		this.parent_id = obj.parent_id;
 		this.parent_name = obj.parent_name;
 		this.balance = obj.balance;
 		this.creation_time = obj.creation_time;
@@ -131,6 +138,8 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("name", name);
 		if(type != null)
 			map.put("type", type);
+		if(parent_id != null)
+			map.put("parent_id", parent_id);
 		if(parent_name != null)
 			map.put("parent_name", parent_name);
 		if(balance != null)
@@ -158,6 +167,8 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("name", name);
 		if(type != null)
 			map.put("type", type);
+		if(parent_id != null)
+			map.put("parent_id", parent_id);
 		if(parent_name != null)
 			map.put("parent_name", parent_name);
 		if(balance != null)
@@ -184,6 +195,7 @@ public abstract class Baseaccount extends BaseResource {
 		account_customer_id = (String) map.get("account_customer_id");
 		name = (String) map.get("name");
 		type = (String) map.get("type");
+		parent_id = (String) map.get("parent_id");
 		parent_name = (String) map.get("parent_name");
 		balance = (Double) map.get("balance");
 		creation_time = (Long) map.get("creation_time");
@@ -216,6 +228,10 @@ public abstract class Baseaccount extends BaseResource {
 		Object typeObj = map.get("type");
 		if(typeObj != null)
 			type = typeObj.toString();
+
+		Object parent_idObj = map.get("parent_id");
+		if(parent_idObj != null)
+			parent_id = parent_idObj.toString();
 
 		Object parent_nameObj = map.get("parent_name");
 		if(parent_nameObj != null)
@@ -342,6 +358,22 @@ public abstract class Baseaccount extends BaseResource {
 
 	public void unSetType() {
 		this.type = null;
+	}
+
+	public String getParent_id() {
+		return parent_id;
+	}
+
+	public String getParent_idEx() {
+		return parent_id != null ? parent_id : "";
+	}
+
+	public void setParent_id(String parent_id) {
+		this.parent_id = parent_id;
+	}
+
+	public void unSetParent_id() {
+		this.parent_id = null;
 	}
 
 	public String getParent_name() {

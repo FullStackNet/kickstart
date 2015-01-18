@@ -37,6 +37,11 @@
 				'type':'String',
 				'remark' : "A-Account, G- Group"
 			},
+			'parent_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'parent_name':
 			{
 				'length': 128,
