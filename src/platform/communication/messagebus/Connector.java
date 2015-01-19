@@ -53,7 +53,7 @@ public class Connector {
 		encoder = new ATMQEncoder();
 		messageProcessingThread = null;
 		this.messageManager = messageManager;
-		pool = new ApplicationThreadPool("CONNECTOR",10, 1000);
+		pool = new ApplicationThreadPool("CONNECTOR",10, 15);
 	}
 	
 	class Task implements Runnable {
