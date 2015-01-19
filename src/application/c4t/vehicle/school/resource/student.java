@@ -23,5 +23,11 @@ public class student extends Basestudent {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public String getShortName() {
+		if (super.getShort_name() != null)
+			return super.getShort_name();
+		return getName();
+	}
 
 }
