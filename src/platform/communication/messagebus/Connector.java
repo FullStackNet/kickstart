@@ -43,6 +43,9 @@ public class Connector {
 	MessageManager messageManager;
 	GenericEventListener processShutDownListner;
 	ApplicationThreadPool pool;
+	int numberOfmessageProcessingThread;
+	int capacityOfmessageProcessingQueue;
+	
 	public Connector(String connectURL, String name, String userName, String password, MessageManager messageManager) {
 		this.connectURL = connectURL;
 		this.userName = userName;
@@ -53,15 +56,16 @@ public class Connector {
 		encoder = new ATMQEncoder();
 		messageProcessingThread = null;
 		this.messageManager = messageManager;
-		pool = new ApplicationThreadPool("CONNECTOR",10, 15);
-		pool.start();
+		numberOfmessageProcessingThread = 10;
+		capacityOfmessageProcessingQueue = 15;
+		
 	}
 	
-	class Task implements Runnable {
+	class MessageProcessingTask implements Runnable {
 		platform.communication.Session session;
 		platform.message.Message message;
 		
-		public Task(platform.communication.Session session , platform.message.Message message) {
+		public MessageProcessingTask(platform.communication.Session session , platform.message.Message message) {
 			this.session = session;
 			this.message = message;
 		}
@@ -88,6 +92,9 @@ public class Connector {
 	
 	
 	public void start() {
+		pool = new ApplicationThreadPool("CONNECTOR",numberOfmessageProcessingThread, capacityOfmessageProcessingQueue);
+		pool.start();
+
 		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(connectURL);
 		 // Create a Connection
       try {
@@ -119,7 +126,7 @@ public class Connector {
 					ApplicationLogger.info(msg.getSender()+" Recieved Message "+msg.getName()+" from " + msg.getSender()+ "\n\t"+msg.getDump(), this.getClass());
 					cr4Session = SessionManager.getInstance().getSession(msg.getSender());
 					//process_message(cr4Session, msg);
-					pool.addTask(new Task(cr4Session, msg));
+					pool.addTask(new MessageProcessingTask(cr4Session, msg));
 				}
 			});
 			processShutDownListner = new GenericEventListener() {
@@ -228,5 +235,23 @@ public class Connector {
 	
 	public String getName() {
 		return name;
+	}
+
+	public int getNumberOfmessageProcessingThread() {
+		return numberOfmessageProcessingThread;
+	}
+
+	public void setNumberOfmessageProcessingThread(
+			int numberOfmessageProcessingThread) {
+		this.numberOfmessageProcessingThread = numberOfmessageProcessingThread;
+	}
+
+	public int getCapacityOfmessageProcessingQueue() {
+		return capacityOfmessageProcessingQueue;
+	}
+
+	public void setCapacityOfmessageProcessingQueue(
+			int capacityOfmessageProcessingQueue) {
+		this.capacityOfmessageProcessingQueue = capacityOfmessageProcessingQueue;
 	}	
 }

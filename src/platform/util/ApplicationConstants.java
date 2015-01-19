@@ -44,6 +44,9 @@ public class ApplicationConstants {
 	
 	public static String PROPERTY_LOCATION = "location";
 	public static String PROPERTY_NAME = "name";
+	public static String PROPERTY_NUMBER_OF_MESSAGE_PROCESSING_THREAD = "message_processing_thread";
+	public static String PROPERTY_MESSAGE_PROCESSING_THREAD_QUEUE_SIZE = "message_processing_thread_queue_size";
+	
 	public static String PROPERTY_SERVER = "server";
 	public static String PROPERTY_PORT = "port";
 	public static String PROPERTY_USERNAME = "username";
