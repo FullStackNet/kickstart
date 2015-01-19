@@ -278,6 +278,9 @@ public abstract class BaseForm extends BaseView {
 					if ((field.getMaxLength() != null) && field.getMaxLength() > 0) {
 						textEdit.addAttribute("maxlength", ""+field.getMaxLength());
 					}
+					if (field.getHint() != null) {
+						textEdit.addAttribute("placeholder", ""+field.getHint());
+					}
 					column.addChild(textEdit);
 					if (field.isShowCount()) {
 						textEdit.addAttribute("onkeyup","showCount('input_"+field.getName()+"_div',this,"+field.getMaxLength()+");");

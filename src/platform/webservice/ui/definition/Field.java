@@ -12,6 +12,7 @@ import platform.webservice.ui.util.UIConstants;
 
 public class Field {
 	String label;
+	String hint;	
 	String name;
 	String type;
 	String className;
@@ -319,5 +320,13 @@ public class Field {
 
 	public void setShowCount(boolean showCount) {
 		this.showCount = showCount;
+	}
+
+	public String getHint() {
+		return hint;
+	}
+
+	public void setHint(String hint) {
+		this.hint = hint;
 	}
 }
