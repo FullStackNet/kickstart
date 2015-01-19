@@ -54,6 +54,7 @@ public class Connector {
 		messageProcessingThread = null;
 		this.messageManager = messageManager;
 		pool = new ApplicationThreadPool("CONNECTOR",10, 15);
+		pool.start();
 	}
 	
 	class Task implements Runnable {
