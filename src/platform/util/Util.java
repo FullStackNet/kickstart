@@ -18,7 +18,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -1390,6 +1393,29 @@ public class Util {
 		}
  	}
 	
+	public static String getMACAddress() {
+		InetAddress ip;
+		String currentMac = "";
+		try {
+	 		ip = InetAddress.getLocalHost();
+	 		NetworkInterface network = NetworkInterface.getByInetAddress(ip);
+	 		byte[] mac = network.getHardwareAddress();
+	 		StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < mac.length; i++) {
+				sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));		
+			}
+			currentMac = sb.toString(); 
+		} catch (UnknownHostException e) {
+	 
+			e.printStackTrace();
+	 
+		} catch (SocketException e){
+	 
+			e.printStackTrace();
+	 
+		}
+		return currentMac;
+	}
 	public static void savetoFile(String filename, ByteArrayOutputStream byteArrayOutputStream) {
 		OutputStream outputStream = null;
 		try {

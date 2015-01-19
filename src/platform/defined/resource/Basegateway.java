@@ -22,6 +22,7 @@ public abstract class Basegateway extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String model = null;
+	private String machine_id = null;
 	private String serial_number = null;
 	private String login_id = null;
 	private String password = null;
@@ -90,6 +91,7 @@ public abstract class Basegateway extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MODEL = "model";
+	public static String FIELD_MACHINE_ID = "machine_id";
 	public static String FIELD_SERIAL_NUMBER = "serial_number";
 	public static String FIELD_LOGIN_ID = "login_id";
 	public static String FIELD_PASSWORD = "password";
@@ -173,6 +175,10 @@ public abstract class Basegateway extends BaseResource {
 		Field modelField = new Field("model", "String");
 		modelField.setLength(50);
 		metaData.addField(modelField);
+
+		Field machine_idField = new Field("machine_id", "String");
+		machine_idField.setLength(32);
+		metaData.addField(machine_idField);
 
 		Field serial_numberField = new Field("serial_number", "String");
 		serial_numberField.setLength(32);
@@ -467,6 +473,7 @@ public abstract class Basegateway extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.model = obj.model;
+		this.machine_id = obj.machine_id;
 		this.serial_number = obj.serial_number;
 		this.login_id = obj.login_id;
 		this.password = obj.password;
@@ -596,6 +603,8 @@ public abstract class Basegateway extends BaseResource {
 			map.put("name", name);
 		if(model != null)
 			map.put("model", model);
+		if(machine_id != null)
+			map.put("machine_id", machine_id);
 		if(serial_number != null)
 			map.put("serial_number", serial_number);
 		if(login_id != null)
@@ -738,6 +747,8 @@ public abstract class Basegateway extends BaseResource {
 			map.put("name", name);
 		if(model != null)
 			map.put("model", model);
+		if(machine_id != null)
+			map.put("machine_id", machine_id);
 		if(serial_number != null)
 			map.put("serial_number", serial_number);
 		if(login_id != null)
@@ -879,6 +890,7 @@ public abstract class Basegateway extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		model = (String) map.get("model");
+		machine_id = (String) map.get("machine_id");
 		serial_number = (String) map.get("serial_number");
 		login_id = (String) map.get("login_id");
 		password = (String) map.get("password");
@@ -958,6 +970,10 @@ public abstract class Basegateway extends BaseResource {
 		Object modelObj = map.get("model");
 		if(modelObj != null)
 			model = modelObj.toString();
+
+		Object machine_idObj = map.get("machine_id");
+		if(machine_idObj != null)
+			machine_id = machine_idObj.toString();
 
 		Object serial_numberObj = map.get("serial_number");
 		if(serial_numberObj != null)
@@ -1269,6 +1285,22 @@ public abstract class Basegateway extends BaseResource {
 
 	public void unSetModel() {
 		this.model = null;
+	}
+
+	public String getMachine_id() {
+		return machine_id;
+	}
+
+	public String getMachine_idEx() {
+		return machine_id != null ? machine_id : "";
+	}
+
+	public void setMachine_id(String machine_id) {
+		this.machine_id = machine_id;
+	}
+
+	public void unSetMachine_id() {
+		this.machine_id = null;
 	}
 
 	public String getSerial_number() {

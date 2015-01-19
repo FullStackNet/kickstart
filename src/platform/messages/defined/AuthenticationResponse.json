@@ -6,6 +6,15 @@
 		"packet_type" : "2",
 		"fields":
 		{
+			'errCode':
+			{
+				'type':'int'
+			},
+			'message':
+			{
+				'type':'String',
+				'length' : 128
+			},
 			'sessionId':
 			{
 				'name':'sessionId',

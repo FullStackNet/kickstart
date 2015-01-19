@@ -23,6 +23,11 @@
 				'length': 50,
 				'type':'String'
 			},
+			'machine_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
 			'serial_number':
 			{
 				'name':'serial_number',
