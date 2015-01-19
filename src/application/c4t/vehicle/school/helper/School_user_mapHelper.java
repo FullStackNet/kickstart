@@ -81,7 +81,7 @@ public class School_user_mapHelper extends BaseHelper {
 	}
 	
 	public BaseResource[] getUsersForSchool(String schoolId) {
-		Expression e = new Expression(school_user_map.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_EQ, schoolId);
+		Expression e = new Expression(school_user_map.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, new String[]{schoolId});
 		BaseResource[] resources =  getByExpression(e);
 		String[] userIds = HelperUtils.convertResource2IdArray(resources);
 		return UserHelper.getInstance().getById(userIds,null);

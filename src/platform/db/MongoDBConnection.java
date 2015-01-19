@@ -280,9 +280,7 @@ public class MongoDBConnection extends DbConnection {
 		case EACH_ELEMENT_IN:
 			object.put(variable, new BasicDBObject("$elemMatch", new BasicDBObject("$in", expressionValueObj)));
 			break;	
-		case EACH_ELEMENT_EQ:
-			object.put(variable, new BasicDBObject("$elemMatch", expressionValueObj));
-			break;	
+			
 		
 		case REGEX:
 			object.put(variable, java.util.regex.Pattern.compile("^.*"+expressionValueObj+".*$",Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE));
