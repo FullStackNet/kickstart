@@ -113,9 +113,9 @@ public class AbsentNotificationTask extends NotificationTask {
 				userMap.put(_users.get(j).getId(), _users.get(j));
 				String str = studentMap.get(_users.get(j).getId());
 				if (str == null) {
-					str = _student.getNameEx(); 
+					str = _student.getShort_name(); 
 				} else {
-					str = str +","+_student.getNameEx();
+					str = str +","+_student.getShort_name();
 				}
 				studentMap.put(_users.get(j).getId(), str);
 			}

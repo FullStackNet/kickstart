@@ -186,9 +186,9 @@ public class NoticeNotificationTask extends NotificationTask {
 				appAlertMap.put(_users.get(j).getId(), appAlert);
 				String str = studentMap.get(_users.get(j).getId());
 				if (str == null) {
-					str = _student.getNameEx(); 
+					str = _student.getShort_name(); 
 				} else {
-					str = str +","+_student.getNameEx();
+					str = str +","+_student.getShort_name();
 				}
 				studentMap.put(_users.get(j).getId(), str);
 			}
@@ -196,30 +196,30 @@ public class NoticeNotificationTask extends NotificationTask {
 			if ("Y".equals(smsAlert)) {
 				if ((!Util.isEmpty(_student.getFather_mobile_no())) && 
 						("Y".equals(activity.getSend_father_mother()) || "FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getFather_mobile_no(),  _student.getNameEx());
+					smsAlertMap.put(_student.getFather_mobile_no(),  _student.getShort_name());
 				}
 				if ((!Util.isEmpty(_student.getMother_mobile_no())) && 
 						("Y".equals(activity.getSend_father_mother()) || "MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getMother_mobile_no(), _student.getNameEx());
+					smsAlertMap.put(_student.getMother_mobile_no(), _student.getShort_name());
 				}
 				if ((!Util.isEmpty(_student.getOther_mobile_no())) && 
 						("OTHER".equals(_student.getPrimary_contact()) || "OTHER".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getOther_mobile_no(), _student.getNameEx());
+					smsAlertMap.put(_student.getOther_mobile_no(), _student.getShort_name());
 				}
 			}
 
 			if ("Y".equals(emailAlert)) {
 				if ((!Util.isEmpty(_student.getFather_email_id())) && 
 						("FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-					emailAlertMap.put(_student.getFather_email_id(), _student.getNameEx());
+					emailAlertMap.put(_student.getFather_email_id(), _student.getShort_name());
 				}
 				if ((!Util.isEmpty(_student.getMother_email_id())) && 
 						("MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-					emailAlertMap.put(_student.getMother_email_id(), _student.getNameEx());
+					emailAlertMap.put(_student.getMother_email_id(), _student.getShort_name());
 				}
 				if ((!Util.isEmpty(_student.getOther_email_id())) && 
 						("OTHER".equals(_student.getPrimary_contact()) || "OTHER".equals(_student.getPrimary_contact()))) {
-					emailAlertMap.put(_student.getOther_email_id(), _student.getNameEx());
+					emailAlertMap.put(_student.getOther_email_id(), _student.getShort_name());
 				}
 			}
 			try {

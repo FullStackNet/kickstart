@@ -161,9 +161,9 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				userMap.put(_users.get(j).getId(), _users.get(j));
 				String str = studentMap.get(_users.get(j).getId());
 				if (str == null) {
-					str = _student.getNameEx(); 
+					str = _student.getShort_name(); 
 				} else {
-					str = str +","+_student.getNameEx();
+					str = str +","+_student.getShort_name();
 				}
 				studentMap.put(_users.get(j).getId(), str);
 				appAlertMap.put(_users.get(j).getId(), appAlert);
@@ -172,15 +172,15 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			if ("Y".equals(smsAlert)) {
 				if ((!Util.isEmpty(_student.getFather_mobile_no())) && 
 						("FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getFather_mobile_no(),  _student.getNameEx());
+					smsAlertMap.put(_student.getFather_mobile_no(),  _student.getShort_name());
 				}
 				if ((!Util.isEmpty(_student.getMother_mobile_no())) && 
 						("MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getMother_mobile_no(), _student.getNameEx());
+					smsAlertMap.put(_student.getMother_mobile_no(), _student.getShort_name());
 				}
 				if ((!Util.isEmpty(_student.getOther_mobile_no())) && 
 						("OTHER".equals(_student.getPrimary_contact()) || "OTHER".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getOther_mobile_no(), _student.getNameEx());
+					smsAlertMap.put(_student.getOther_mobile_no(), _student.getShort_name());
 				}
 			}
 

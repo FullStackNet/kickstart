@@ -24,7 +24,7 @@ public class student extends Basestudent {
 		return null;
 	}
 	
-	public String getShortName() {
+	public String getShort_name() {
 		if (super.getShort_name() != null)
 			return super.getShort_name();
 		return getName();
