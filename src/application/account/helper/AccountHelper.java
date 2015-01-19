@@ -88,8 +88,8 @@ public class AccountHelper extends BaseHelper{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if (!Util.isEmpty(_account.getParent_name()))
-				updateGroupBalance(parentId);
+			if (!Util.isEmpty(_account.getParent_id()))
+				updateGroupBalance(_account.getParent_id());
 		}
 	}
 	public account getAccountByName(String customer_id,String name) {
