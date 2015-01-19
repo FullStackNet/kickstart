@@ -6,7 +6,8 @@ public class ApplicationWorkerThread extends Thread {
 	BlockingQueue<Runnable> queue;
 	private boolean isStop; 
 	
-	public ApplicationWorkerThread(BlockingQueue<Runnable> queue)  {
+	public ApplicationWorkerThread(String name, BlockingQueue<Runnable> queue)  {
+		setName(name);
 		this.queue = queue;
 		isStop = false;
 	}

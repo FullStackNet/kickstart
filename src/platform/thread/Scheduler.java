@@ -18,7 +18,7 @@ public class Scheduler extends ApplicationThread{
 	public Scheduler() {
 		super("SCHEDULER_THREAD", 10000L);
 		// TODO Auto-generated constructor stub
-		pool = new ApplicationThreadPool(10, 200);
+		pool = new ApplicationThreadPool("SCHEDULER",10, 200);
 	}
 
 	void reschedule(schedule _schedule) {

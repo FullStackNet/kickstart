@@ -5,10 +5,12 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class ApplicationThreadPool {
+	String name;
 	BlockingQueue<Runnable> queue;
 	ArrayList<ApplicationWorkerThread> threads;
 	int numberOfThraed = 0;
-	public ApplicationThreadPool(int numberOfThraed, int maxQueueSize) {
+	public ApplicationThreadPool(String name,int numberOfThraed, int maxQueueSize) {
+		this.name = name;
 		queue = new ArrayBlockingQueue<Runnable>(maxQueueSize);
 		threads = new ArrayList<ApplicationWorkerThread>(numberOfThraed);
 		this.numberOfThraed = numberOfThraed;
@@ -16,7 +18,7 @@ public class ApplicationThreadPool {
 	
 	public void start() {
 		for (int i = 0; i < numberOfThraed ; i++) {
-			ApplicationWorkerThread thread = new ApplicationWorkerThread(queue);
+			ApplicationWorkerThread thread = new ApplicationWorkerThread(name+"-"+i, queue);
 			thread.start();
 			threads.add(thread);
 		}
@@ -30,6 +32,9 @@ public class ApplicationThreadPool {
 	}
 	
 	public void addTask(Runnable task) {
+		System.out.println("Adding task in quque ...total pending task .."+queue.size());
 		queue.add(task);
+		System.out.println("Added task in quque ...Total Task .."+queue.size());
+		
 	}
 }
