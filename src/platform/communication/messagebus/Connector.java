@@ -26,6 +26,7 @@ import platform.events.ShutDownProcessEvent;
 import platform.log.ApplicationLogger;
 import platform.manager.GlobalDataManager;
 import platform.message.MessageManager;
+import platform.thread.ApplicationThreadPool;
 
 public class Connector {
 	String connectURL;
@@ -41,7 +42,7 @@ public class Connector {
 	Thread  messageProcessingThread;
 	MessageManager messageManager;
 	GenericEventListener processShutDownListner;
-	
+	ApplicationThreadPool pool;
 	public Connector(String connectURL, String name, String userName, String password, MessageManager messageManager) {
 		this.connectURL = connectURL;
 		this.userName = userName;
@@ -52,26 +53,42 @@ public class Connector {
 		encoder = new ATMQEncoder();
 		messageProcessingThread = null;
 		this.messageManager = messageManager;
+		pool = new ApplicationThreadPool(10, 1000);
 	}
 	
-	void process_message(platform.communication.Session session , platform.message.Message message) {
-		ApplicationLogger.info("Recieved the Message " + message.getName()+"("+message.getPacketType()+")"  + " from " + message.getSender(), this.getClass());
-		if (message.getPacketType() == platform.message.Message.PACKET_TYPE_REQUEST) {
-			platform.message.Message  response = message.request_process(session, null);
-			if (response != null) {
-				response.setSender(name);
-				response.setTarget(message.getSender());
-				response.setSequenceNumber(message.getSequenceNumber());
-				sendMessage(response);
+	class Task implements Runnable {
+		platform.communication.Session session;
+		platform.message.Message message;
+		
+		public Task(platform.communication.Session session , platform.message.Message message) {
+			this.session = session;
+			this.message = message;
+		}
+		
+		void process_message() {
+			ApplicationLogger.info("Recieved the Message " + message.getName()+"("+message.getPacketType()+")"  + " from " + message.getSender(), this.getClass());
+			if (message.getPacketType() == platform.message.Message.PACKET_TYPE_REQUEST) {
+				platform.message.Message  response = message.request_process(session, null);
+				if (response != null) {
+					response.setSender(name);
+					response.setTarget(message.getSender());
+					response.setSequenceNumber(message.getSequenceNumber());
+					sendMessage(response);
+				}
+			} else if (message.getPacketType() == platform.message.Message.PACKET_TYPE_RESPONSE) {
+				 message.request_process(session, null);
 			}
-		} else if (message.getPacketType() == platform.message.Message.PACKET_TYPE_RESPONSE) {
-			 message.request_process(session, null);
+		}
+		
+		public void run() {
+			process_message();
 		}
 	}
 	
+	
 	public void start() {
 		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(connectURL);
-         // Create a Connection
+		 // Create a Connection
       try {
     	  	connection = connectionFactory.createConnection();
     	  	connection.setExceptionListener(new ExceptionListener() {
@@ -100,8 +117,8 @@ public class Connector {
 					}
 					ApplicationLogger.info(msg.getSender()+" Recieved Message "+msg.getName()+" from " + msg.getSender()+ "\n\t"+msg.getDump(), this.getClass());
 					cr4Session = SessionManager.getInstance().getSession(msg.getSender());
-					process_message(cr4Session, msg);
-					System.out.println(getName()+" recieved message ...."+name);
+					//process_message(cr4Session, msg);
+					pool.addTask(new Task(cr4Session, msg));
 				}
 			});
 			processShutDownListner = new GenericEventListener() {
