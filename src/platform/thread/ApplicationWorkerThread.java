@@ -14,8 +14,16 @@ public class ApplicationWorkerThread extends Thread {
 
 	public void run() {
 		while (!isStop) {
-			Runnable task = (Runnable) queue.poll();
-			task.run();
+			Runnable task;
+			try {
+				task = (Runnable) queue.take();
+				if (task != null) {
+					task.run();
+				}
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	public void stopMe() {
