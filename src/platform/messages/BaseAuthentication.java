@@ -19,6 +19,7 @@ public abstract class BaseAuthentication extends Message {
 	private String loginId = null;
 	private String type = null;
 	private String password = null;
+	private String identifier = null;
 
 
 	public BaseAuthentication() {
@@ -30,22 +31,25 @@ public abstract class BaseAuthentication extends Message {
 
 	public void populate_field() {
  		if (fields != null) return ;
-		fields = new Field[3];
+		fields = new Field[4];
 		fields[0] =  new Field("loginId","String",128);
 		fields[1] =  new Field("type","String",32);
 		fields[2] =  new Field("password","String",32);
+		fields[3] =  new Field("identifier","String",32);
 	}
 
 	public void dump() {
 		System.out.println("loginId	:	 "+loginId);
 		System.out.println("type	:	 "+type);
 		System.out.println("password	:	 "+password);
+		System.out.println("identifier	:	 "+identifier);
 	}
 	public String getDump() {
 		String str="";
 		str = str +",loginId:"+loginId;
 		str = str +",type:"+type;
 		str = str +",password:"+password;
+		str = str +",identifier:"+identifier;
 		return str;
 	}
 
@@ -57,6 +61,8 @@ public abstract class BaseAuthentication extends Message {
 			map.put("type", type);
 		if(password != null)
 			map.put("password", password);
+		if(identifier != null)
+			map.put("identifier", identifier);
 		return map;
 	}
 
@@ -64,9 +70,10 @@ public abstract class BaseAuthentication extends Message {
 		loginId = (String) map.get("loginId");
 		type = (String) map.get("type");
 		password = (String) map.get("password");
+		identifier = (String) map.get("identifier");
 	}
 
- 	public int getMessageSize() {return 192;}
+ 	public int getMessageSize() {return 224;}
 
  	public String getName() {return "Authentication";}
 
@@ -118,5 +125,21 @@ public Message process(Session session,Message parentMessage) {return null;}
 
 	public void unSetPassword() {
 		this.password = null;
+	}
+
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public String getIdentifierEx() {
+		return identifier != null ? identifier : "";
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
+
+	public void unSetIdentifier() {
+		this.identifier = null;
 	}
 }
