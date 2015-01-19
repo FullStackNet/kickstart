@@ -17,7 +17,9 @@ public class ApplicationWorkerThread extends Thread {
 			Runnable task;
 			try {
 				task = (Runnable) queue.take();
+				
 				if (task != null) {
+					System.out.println(getName()+"Prcessing the request .. Pednign task in queue .."+queue.size());
 					task.run();
 				}
 			} catch (InterruptedException e) {
