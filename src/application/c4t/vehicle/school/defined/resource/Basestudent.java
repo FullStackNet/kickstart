@@ -24,6 +24,7 @@ public abstract class Basestudent extends BaseResource {
 	private String admission_date_str = null;
 	private String school_id = null;
 	private String name = null;
+	private String short_name = null;
 	private String address1 = null;
 	private String address2 = null;
 	private String address3 = null;
@@ -100,6 +101,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_ADMISSION_DATE_STR = "admission_date_str";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_SHORT_NAME = "short_name";
 	public static String FIELD_ADDRESS1 = "address1";
 	public static String FIELD_ADDRESS2 = "address2";
 	public static String FIELD_ADDRESS3 = "address3";
@@ -200,6 +202,11 @@ public abstract class Basestudent extends BaseResource {
 		nameField.setIndexed(true);
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field short_nameField = new Field("short_name", "String");
+		short_nameField.setIndexed(true);
+		short_nameField.setLength(128);
+		metaData.addField(short_nameField);
 
 		Field address1Field = new Field("address1", "String");
 		address1Field.setLength(128);
@@ -514,6 +521,7 @@ public abstract class Basestudent extends BaseResource {
 		this.admission_date_str = obj.admission_date_str;
 		this.school_id = obj.school_id;
 		this.name = obj.name;
+		this.short_name = obj.short_name;
 		this.address1 = obj.address1;
 		this.address2 = obj.address2;
 		this.address3 = obj.address3;
@@ -649,6 +657,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("school_id", school_id);
 		if(name != null)
 			map.put("name", name);
+		if(short_name != null)
+			map.put("short_name", short_name);
 		if(address1 != null)
 			map.put("address1", address1);
 		if(address2 != null)
@@ -807,6 +817,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("school_id", school_id);
 		if(name != null)
 			map.put("name", name);
+		if(short_name != null)
+			map.put("short_name", short_name);
 		if(address1 != null)
 			map.put("address1", address1);
 		if(address2 != null)
@@ -962,6 +974,7 @@ public abstract class Basestudent extends BaseResource {
 		admission_date_str = (String) map.get("admission_date_str");
 		school_id = (String) map.get("school_id");
 		name = (String) map.get("name");
+		short_name = (String) map.get("short_name");
 		address1 = (String) map.get("address1");
 		address2 = (String) map.get("address2");
 		address3 = (String) map.get("address3");
@@ -1055,6 +1068,10 @@ public abstract class Basestudent extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object short_nameObj = map.get("short_name");
+		if(short_nameObj != null)
+			short_name = short_nameObj.toString();
 
 		Object address1Obj = map.get("address1");
 		if(address1Obj != null)
@@ -1425,6 +1442,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getShort_name() {
+		return short_name;
+	}
+
+	public String getShort_nameEx() {
+		return short_name != null ? short_name : "";
+	}
+
+	public void setShort_name(String short_name) {
+		this.short_name = short_name;
+	}
+
+	public void unSetShort_name() {
+		this.short_name = null;
 	}
 
 	public String getAddress1() {
