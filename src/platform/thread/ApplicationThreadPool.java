@@ -33,7 +33,12 @@ public class ApplicationThreadPool {
 	
 	public void addTask(Runnable task) {
 		System.out.println("Adding task in quque ...total pending task .."+queue.size());
-		queue.add(task);
+		try {
+			queue.put(task);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Added task in quque ...Total Task .."+queue.size());
 		
 	}
