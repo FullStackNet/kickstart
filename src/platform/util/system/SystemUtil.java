@@ -3,6 +3,8 @@ package platform.util.system;
 import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.FileSystemUsage;
 import org.hyperic.sigar.Mem;
+import org.hyperic.sigar.NetFlags;
+import org.hyperic.sigar.NetInterfaceConfig;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarException;
 
@@ -104,4 +106,33 @@ public class SystemUtil {
 		}
 	    return 0;
 	}
+	
+	public static String getMAC() {  
+		  Sigar sigar = null;  
+		  try {  
+		   sigar = new Sigar();  
+		   String[] ifaces = sigar.getNetInterfaceList();  
+		   String hwaddr = null;  
+		   for (int i = 0; i < ifaces.length; i++) {  
+		    NetInterfaceConfig cfg = sigar.getNetInterfaceConfig(ifaces[i]);  
+		    if (NetFlags.LOOPBACK_ADDRESS.equals(cfg.getAddress())  
+		      || (cfg.getFlags() & NetFlags.IFF_LOOPBACK) != 0  
+		      || NetFlags.NULL_HWADDR.equals(cfg.getHwaddr())) {  
+		     continue;  
+		    }  
+		    /* 
+		     * ?MAC???Collection 
+		     * ?forMAC? 
+		     */  
+		    hwaddr = cfg.getHwaddr();  
+		    break;  
+		   }  
+		   return hwaddr != null ? hwaddr : null;  
+		  } catch (Exception e) {  
+		   return null;  
+		  } finally {  
+		   if (sigar != null)  
+		    sigar.close();  
+		  }  
+		 }  
 }

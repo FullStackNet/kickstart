@@ -31,6 +31,7 @@ public class ProcessUtil {
 			} 
 			return 0;
 	}
+	
 	public static void addShutDownHook() {
 		ApplicationLogger.info("Attching the Shutdown Hook", Util.class);
 		Runtime.getRuntime().addShutdownHook(new Thread() {

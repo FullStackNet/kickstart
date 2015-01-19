@@ -18,10 +18,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
-import java.net.InetAddress;
 import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -899,25 +896,6 @@ public class Util {
 		return fileContent;
 	}
 
-	public static String getMacAddress() {
-		try {
-			Enumeration<NetworkInterface> e = NetworkInterface.getNetworkInterfaces();
-			while(e.hasMoreElements()) {
-				NetworkInterface ni = (NetworkInterface) e.nextElement();
-				byte bytes[] = ni.getHardwareAddress();
-				if (bytes == null) continue;
-				for(int i=0; i < bytes.length; i++) {
-					bytes[i] = (byte)(0xFF-bytes[i]);
-				}
-				String address = convertByteToHexString(bytes);
-				return address;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "";
-	}
-
 	public static int getIntFromNumber(Number number, int multiple) {
 		if (number == null) return 0;
 		Double dValue = number.doubleValue()*multiple;
@@ -1396,6 +1374,7 @@ public class Util {
 			e.printStackTrace();
 		}
  	}
+	
 	
 	
 	public static void savetoFile(String filename, ByteArrayOutputStream byteArrayOutputStream) {
