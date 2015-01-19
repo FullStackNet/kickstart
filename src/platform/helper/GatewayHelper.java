@@ -36,7 +36,7 @@ public class GatewayHelper extends BaseHelper {
 		if (!password.equals(_gateway.getPassword())) {
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid user name and password");
 		}
-		if ((identifier != null) && (_gateway.getMachine_id() != null) && !identifier.equals(_gateway.getMachine_id())) {
+		if (!Util.isEmpty(identifier) && !Util.isEmpty(_gateway.getMachine_id()) && !identifier.equals(_gateway.getMachine_id())) {
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Gateway running on invalid Machine");
 		}
 		return _gateway;
