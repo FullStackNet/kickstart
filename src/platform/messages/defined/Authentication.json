@@ -23,6 +23,11 @@
 				'name':'password',
 				'length': 32,
 				'type':'String'
+			},
+			'identifier':
+			{
+				'length': 32,
+				'type':'String'
 			}
 		}
 	}
