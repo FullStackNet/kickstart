@@ -47,6 +47,8 @@ public class ScheduleHelper extends BaseHelper {
 		_schedule.setDate(TimeUtil.getTimeFromDateString(null, _student.getDob()));
 		_schedule.setSchedule_time(TimeUtil.getTimeFromDateString(null, _student.getDob(),"07:00:00"));
 		_schedule.setSchedule_status(schedule.STATUS_NOT_SCHEDULED);
+		_schedule.setCustomer_id(_student.getCustomer_id());
+		_schedule.setSchool_id(_student.getSchool_id());		
 		try {
 			ScheduleHelper.getInstance().add(_schedule);
 		} catch (ApplicationException e) {
