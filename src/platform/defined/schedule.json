@@ -65,6 +65,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'reference_name':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'creation_time':
 			{
 				'type':'timestamp'
