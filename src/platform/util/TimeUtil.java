@@ -226,6 +226,12 @@ public class TimeUtil {
 		}
 		return months;
 	}
+	public static int  getCurrentYear() {
+		
+		Calendar now = Calendar.getInstance();   // Gets the current date and time
+		int year = now.get(Calendar.YEAR);
+		return year;
+	}
 	
 	public static String getMonthString(int month) {
 		String monthString = "";
@@ -364,6 +370,64 @@ public class TimeUtil {
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTimeInMillis();
 	}
+	
+	public static Long getTimeFromDateStringWithCurrentYear(String timeZone,String date) {
+		if (Util.isEmpty(date)) {
+			return null;
+		}
+		if (timeZone == null)
+			timeZone = "IST";
+		
+		String[] tokens = date.split("-");
+		if (date.indexOf('/') > 0) {
+			tokens = date.split("/");
+		}
+		int  month = Integer.parseInt(tokens[1]);
+		int  day = Integer.parseInt(tokens[0]);
+		  
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		
+		cal.set(Calendar.YEAR, getCurrentYear());
+		cal.set(Calendar.MONTH, month-1);
+		cal.set(Calendar.DAY_OF_MONTH, day);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
+	}
+	
+	public static Long getTimeFromDateStringWithCurrentYear(String timeZone,String date,String timeHHMMSS) {
+		if (Util.isEmpty(date)) {
+			return null;
+		}
+		if (timeZone == null)
+			timeZone = "IST";
+		
+		String[] tokens = date.split("-");
+		if (date.indexOf('/') > 0) {
+			tokens = date.split("/");
+		}
+		int  month = Integer.parseInt(tokens[1]);
+		int  day = Integer.parseInt(tokens[0]);
+		 
+		String[] timeTokens = timeHHMMSS.split(":");
+		int hh = Integer.parseInt(timeTokens[2]);
+		int  mm = Integer.parseInt(timeTokens[1]);
+		int  ss = Integer.parseInt(timeTokens[0]);
+		
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		
+		cal.set(Calendar.YEAR, getCurrentYear());
+		cal.set(Calendar.MONTH, month-1);
+		cal.set(Calendar.DAY_OF_MONTH, day);
+		cal.set(Calendar.HOUR_OF_DAY, hh);
+		cal.set(Calendar.MINUTE, mm);
+		cal.set(Calendar.SECOND, ss);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
+	}
+	
 	public static Long getTimeFromDateString(String timeZone,String date) {
 		if (Util.isEmpty(date)) {
 			return null;

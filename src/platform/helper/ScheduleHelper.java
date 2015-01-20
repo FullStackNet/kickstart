@@ -2,6 +2,8 @@ package platform.helper;
 
 
 
+import java.util.Date;
+
 import application.c4t.vehicle.school.resource.student;
 import platform.db.Expression;
 import platform.db.LOG_OP;
@@ -44,8 +46,13 @@ public class ScheduleHelper extends BaseHelper {
 		_schedule.setFrequency(schedule.FRQUENCY_YEARLY);
 		_schedule.setDate_str(_student.getDob());
 		_schedule.setTime("07:00:00");
-		_schedule.setDate(TimeUtil.getTimeFromDateString(null, _student.getDob()));
-		_schedule.setSchedule_time(TimeUtil.getTimeFromDateString(null, _student.getDob(),"07:00:00"));
+		_schedule.setDate(TimeUtil.getTimeFromDateStringWithCurrentYear(null, _student.getDob()));
+		long time = TimeUtil.getTimeFromDateStringWithCurrentYear(null, _student.getDob(),"07:00:00");
+		long currentTime =  new Date().getTime();
+		if (time < currentTime) {
+			time = TimeUtil.addYear(time,1);
+		}
+		_schedule.setSchedule_time(time);
 		_schedule.setSchedule_status(schedule.STATUS_NOT_SCHEDULED);
 		_schedule.setCustomer_id(_student.getCustomer_id());
 		_schedule.setSchool_id(_student.getSchool_id());		
