@@ -18,9 +18,11 @@ import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
 import platform.util.Util;
+import application.c4t.vehicle.school.helper.SchoolHelper;
 import application.c4t.vehicle.school.helper.School_user_mapHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
 public class Message2SchoolNotificationTask extends NotificationTask {
@@ -32,18 +34,23 @@ public class Message2SchoolNotificationTask extends NotificationTask {
 	void sendEmail2Admin(notification _notification, 
 			Map<String, String> emailAlertMap,
 			String message,
-			String customer_id) {
+			String customer_id,student _student) {
 
+
+		school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
 		for(Map.Entry<String, String> entry : emailAlertMap.entrySet()) {
 			SendEmail resendMail = new SendEmail();
-			resendMail.setSubject("Message from school to " + entry.getValue() + "'s parent");
+			resendMail.setSubject("Message from parent ("+_student.getShort_name()+","+_student.getClass_section_name()+","+_school.getShort_name()+")");
 			resendMail.setTo(entry.getKey());
 			resendMail.setType(ApplicationConstants.MAIL_TYPE_MESSAGE2SCHOOL);
 			Map<String, String> map = new HashMap<String, String>();
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_MESSAGE, message);
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, entry.getValue());
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 			
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_MESSAGE, message);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, _student.getName());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME, _student.getClass_section_name());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_NAME, _school.getShort_name());
+	
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -66,7 +73,7 @@ public class Message2SchoolNotificationTask extends NotificationTask {
 			emailAdminAlertMap.put(_user.getEmail_id(), _user.getEmail_id());
 		}
 		sendEmail2Admin(_notification,emailAdminAlertMap,
-				message,customerId);
+				message,customerId,_student);
 	}
 	@Override
 	public void process(notification _notification) {
