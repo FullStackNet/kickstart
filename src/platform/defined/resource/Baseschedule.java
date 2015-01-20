@@ -23,6 +23,9 @@ public abstract class Baseschedule extends BaseResource {
 	private String name = null;
 	private String type = null;
 	private Long schedule_time = null;
+	private String date_str = null;
+	private Long date = null;
+	private String time = null;
 	private String frequency = null; //Yearly,Monthly,Daily,Hourly,OneTime
 	private String schedule_status = null; //N-Not Scheduled, P-Processing, D-Done
 	private String school_id = null;
@@ -35,6 +38,9 @@ public abstract class Baseschedule extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_SCHEDULE_TIME = "schedule_time";
+	public static String FIELD_DATE_STR = "date_str";
+	public static String FIELD_DATE = "date";
+	public static String FIELD_TIME = "time";
 	public static String FIELD_FREQUENCY = "frequency";
 	public static String FIELD_SCHEDULE_STATUS = "schedule_status";
 	public static String FIELD_SCHOOL_ID = "school_id";
@@ -64,6 +70,15 @@ public abstract class Baseschedule extends BaseResource {
 
 		Field schedule_timeField = new Field("schedule_time", "timestamp");
 		metaData.addField(schedule_timeField);
+
+		Field date_strField = new Field("date_str", "String");
+		metaData.addField(date_strField);
+
+		Field dateField = new Field("date", "long");
+		metaData.addField(dateField);
+
+		Field timeField = new Field("time", "String");
+		metaData.addField(timeField);
 
 		Field frequencyField = new Field("frequency", "String");
 		frequencyField.setLength(32);
@@ -106,6 +121,9 @@ public abstract class Baseschedule extends BaseResource {
 		this.name = obj.name;
 		this.type = obj.type;
 		this.schedule_time = obj.schedule_time;
+		this.date_str = obj.date_str;
+		this.date = obj.date;
+		this.time = obj.time;
 		this.frequency = obj.frequency;
 		this.schedule_status = obj.schedule_status;
 		this.school_id = obj.school_id;
@@ -134,6 +152,12 @@ public abstract class Baseschedule extends BaseResource {
 			map.put("type", type);
 		if(schedule_time != null)
 			map.put("schedule_time", schedule_time);
+		if(date_str != null)
+			map.put("date_str", date_str);
+		if(date != null)
+			map.put("date", date);
+		if(time != null)
+			map.put("time", time);
 		if(frequency != null)
 			map.put("frequency", frequency);
 		if(schedule_status != null)
@@ -164,6 +188,12 @@ public abstract class Baseschedule extends BaseResource {
 			map.put("type", type);
 		if(schedule_time != null)
 			map.put("schedule_time", schedule_time);
+		if(date_str != null)
+			map.put("date_str", date_str);
+		if(date != null)
+			map.put("date", date);
+		if(time != null)
+			map.put("time", time);
 		if(frequency != null)
 			map.put("frequency", frequency);
 		if(schedule_status != null)
@@ -192,6 +222,9 @@ public abstract class Baseschedule extends BaseResource {
 		name = (String) map.get("name");
 		type = (String) map.get("type");
 		schedule_time = (Long) map.get("schedule_time");
+		date_str = (String) map.get("date_str");
+		date = (Long) map.get("date");
+		time = (String) map.get("time");
 		frequency = (String) map.get("frequency");
 		schedule_status = (String) map.get("schedule_status");
 		school_id = (String) map.get("school_id");
@@ -218,6 +251,18 @@ public abstract class Baseschedule extends BaseResource {
 		Object schedule_timeObj = map.get("schedule_time");
 		if(schedule_timeObj != null)
 			schedule_time = (Long) schedule_timeObj;
+
+		Object date_strObj = map.get("date_str");
+		if(date_strObj != null)
+			date_str = date_strObj.toString();
+
+		Object dateObj = map.get("date");
+		if(dateObj != null)
+			date = new Long(dateObj.toString());
+
+		Object timeObj = map.get("time");
+		if(timeObj != null)
+			time = timeObj.toString();
 
 		Object frequencyObj = map.get("frequency");
 		if(frequencyObj != null)
@@ -311,6 +356,58 @@ public abstract class Baseschedule extends BaseResource {
 		this.schedule_time = schedule_time;
 	}
 
+
+	public String getDate_str() {
+		return date_str;
+	}
+
+	public String getDate_strEx() {
+		return date_str != null ? date_str : "";
+	}
+
+	public void setDate_str(String date_str) {
+		this.date_str = date_str;
+	}
+
+	public void unSetDate_str() {
+		this.date_str = null;
+	}
+
+	public Long getDate() {
+		return date;
+	}
+
+	public long getDateEx() {
+		return date != null ? date : 0L;
+	}
+
+	public void setDate(long date) {
+		this.date = date;
+	}
+
+	public void setDate(Long date) {
+		this.date = date;
+	}
+
+	public void unSetDate() {
+		this.date = null;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public String getTimeEx() {
+		return time != null ? time : "";
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public void unSetTime() {
+		this.time = null;
+	}
 
 	public String getFrequency() {
 		return frequency;

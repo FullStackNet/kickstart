@@ -25,6 +25,18 @@
 			{
 				'type':'timestamp'
 			},
+			'date_str':
+			{
+				'type':'String'
+			},
+			'date':
+			{
+				'type':'long'
+			},
+			'time':
+			{
+				'type':'String'
+			},
 			'frequency':
 			{
 				'type':'String',
