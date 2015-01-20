@@ -30,6 +30,7 @@ public abstract class Baseschedule extends BaseResource {
 	private String schedule_status = null; //N-Not Scheduled, P-Processing, D-Done
 	private String school_id = null;
 	private String customer_id = null;
+	private String reference_id = null;
 	private Long creation_time = null;
 	private Map<String, String> params = null;
 	private Map<String, Object> extra_data = null;
@@ -45,6 +46,7 @@ public abstract class Baseschedule extends BaseResource {
 	public static String FIELD_SCHEDULE_STATUS = "schedule_status";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_PARAMS = "params";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -97,6 +99,10 @@ public abstract class Baseschedule extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
+		Field reference_idField = new Field("reference_id", "String");
+		reference_idField.setLength(128);
+		metaData.addField(reference_idField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -128,6 +134,7 @@ public abstract class Baseschedule extends BaseResource {
 		this.schedule_status = obj.schedule_status;
 		this.school_id = obj.school_id;
 		this.customer_id = obj.customer_id;
+		this.reference_id = obj.reference_id;
 		this.creation_time = obj.creation_time;
 		this.params = obj.params;
 		this.extra_data = obj.extra_data;
@@ -166,6 +173,8 @@ public abstract class Baseschedule extends BaseResource {
 			map.put("school_id", school_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(params != null)
@@ -202,6 +211,8 @@ public abstract class Baseschedule extends BaseResource {
 			map.put("school_id", school_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(params != null)
@@ -229,6 +240,7 @@ public abstract class Baseschedule extends BaseResource {
 		schedule_status = (String) map.get("schedule_status");
 		school_id = (String) map.get("school_id");
 		customer_id = (String) map.get("customer_id");
+		reference_id = (String) map.get("reference_id");
 		creation_time = (Long) map.get("creation_time");
 		params = (Map<String, String>) map.get("params");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -279,6 +291,10 @@ public abstract class Baseschedule extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object reference_idObj = map.get("reference_id");
+		if(reference_idObj != null)
+			reference_id = reference_idObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -467,6 +483,22 @@ public abstract class Baseschedule extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public String getReference_id() {
+		return reference_id;
+	}
+
+	public String getReference_idEx() {
+		return reference_id != null ? reference_id : "";
+	}
+
+	public void setReference_id(String reference_id) {
+		this.reference_id = reference_id;
+	}
+
+	public void unSetReference_id() {
+		this.reference_id = null;
 	}
 
 	public Long getCreation_time() {

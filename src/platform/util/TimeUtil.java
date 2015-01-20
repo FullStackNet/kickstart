@@ -333,7 +333,37 @@ public class TimeUtil {
 		dayTime = ss+(mm*60L)+(hr*60L*60L);
 		return dayTime;
 	}
-	
+	public static Long getTimeFromDateString(String timeZone,String date,String timeHHMMSS) {
+		if (Util.isEmpty(date)) {
+			return null;
+		}
+		if (timeZone == null)
+			timeZone = "IST";
+		
+		String[] tokens = date.split("-");
+		if (date.indexOf('/') > 0) {
+			tokens = date.split("/");
+		}
+		int year = Integer.parseInt(tokens[2]);
+		int  month = Integer.parseInt(tokens[1]);
+		int  day = Integer.parseInt(tokens[0]);
+		 
+		String[] timeTokens = timeHHMMSS.split(":");
+		int hh = Integer.parseInt(timeTokens[2]);
+		int  mm = Integer.parseInt(timeTokens[1]);
+		int  ss = Integer.parseInt(timeTokens[0]);
+		
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month-1);
+		cal.set(Calendar.DAY_OF_MONTH, day);
+		cal.set(Calendar.HOUR_OF_DAY, hh);
+		cal.set(Calendar.MINUTE, mm);
+		cal.set(Calendar.SECOND, ss);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
+	}
 	public static Long getTimeFromDateString(String timeZone,String date) {
 		if (Util.isEmpty(date)) {
 			return null;

@@ -2,12 +2,16 @@ package platform.helper;
 
 
 
+import application.c4t.vehicle.school.resource.student;
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.schedule;
+import platform.schedule.ScheduleFactory;
 import platform.util.ApplicationException;
+import platform.util.TimeUtil;
+import platform.util.Util;
 
 
 public class ScheduleHelper extends BaseHelper {
@@ -22,6 +26,33 @@ public class ScheduleHelper extends BaseHelper {
 		if (instance == null)
 			instance = new ScheduleHelper();
 		return instance;
+	}
+	
+	public void deleteBirthdaySchedule(String id) {
+		Expression e1 = new Expression(schedule.FIELD_REFERENCE_ID, REL_OP.EQ, id);
+		Expression e2 = new Expression(schedule.FIELD_TYPE, REL_OP.EQ, ScheduleFactory.BIRTHDAY);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		ScheduleHelper.getInstance().deleteByExpression(e);
+	}
+	
+	public void createBirthdaySchedule(student _student) {
+		deleteBirthdaySchedule(_student.getId());
+		if (Util.isEmpty(_student.getDob())) return;
+		schedule _schedule = new schedule();
+		_schedule.setType(ScheduleFactory.BIRTHDAY);
+		_schedule.setReference_id(_student.getId());
+		_schedule.setFrequency(schedule.FRQUENCY_YEARLY);
+		_schedule.setDate_str(_student.getDob());
+		_schedule.setTime("07:00:00");
+		_schedule.setDate(TimeUtil.getTimeFromDateString(null, _student.getDob()));
+		_schedule.setSchedule_time(TimeUtil.getTimeFromDateString(null, _student.getDob(),"07:00:00"));
+		_schedule.setSchedule_status(schedule.STATUS_NOT_SCHEDULED);
+		try {
+			ScheduleHelper.getInstance().add(_schedule);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 	}
 	public BaseResource[] getExpiredSchedule(long time) {
 			Expression e1 = new Expression(schedule.FIELD_SCHEDULE_TIME ,REL_OP.LTEQ, time);

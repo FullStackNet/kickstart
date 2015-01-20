@@ -81,7 +81,7 @@ public class BirthDayScheduleTask extends ScheduleTask {
 		// TODO Auto-generated method stub
 		//try {
 			System.out.println("Need to process the birthday task " + _schedule.getId());
-			String student_id = _schedule.getParams(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID);
+			String student_id = _schedule.getReference_id();
 			student _student = (student)StudentHelper.getInstance().getById(student_id);
 			if (_student == null)
 					return;
