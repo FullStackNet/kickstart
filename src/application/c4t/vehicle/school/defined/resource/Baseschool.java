@@ -70,6 +70,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_absent_report_email = null;
 	private String feature_pick_drop_email = null;
 	private String feature_message2parent_email = null;
+	private String feature_send_birthday_sms = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -123,6 +124,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_ABSENT_REPORT_EMAIL = "feature_absent_report_email";
 	public static String FIELD_FEATURE_PICK_DROP_EMAIL = "feature_pick_drop_email";
 	public static String FIELD_FEATURE_MESSAGE2PARENT_EMAIL = "feature_message2parent_email";
+	public static String FIELD_FEATURE_SEND_BIRTHDAY_SMS = "feature_send_birthday_sms";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -369,6 +371,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_message2parent_emailField.setLength(1);
 		metaData.addField(feature_message2parent_emailField);
 
+		Field feature_send_birthday_smsField = new Field("feature_send_birthday_sms", "String");
+		feature_send_birthday_smsField.setDefaultValue("N");
+		feature_send_birthday_smsField.setLength(1);
+		metaData.addField(feature_send_birthday_smsField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -433,6 +440,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_absent_report_email = obj.feature_absent_report_email;
 		this.feature_pick_drop_email = obj.feature_pick_drop_email;
 		this.feature_message2parent_email = obj.feature_message2parent_email;
+		this.feature_send_birthday_sms = obj.feature_send_birthday_sms;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -511,6 +519,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_pick_drop_email = "Y";
 		if(feature_message2parent_email == null)
 			feature_message2parent_email = "Y";
+		if(feature_send_birthday_sms == null)
+			feature_send_birthday_sms = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -617,6 +627,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_pick_drop_email", feature_pick_drop_email);
 		if(feature_message2parent_email != null)
 			map.put("feature_message2parent_email", feature_message2parent_email);
+		if(feature_send_birthday_sms != null)
+			map.put("feature_send_birthday_sms", feature_send_birthday_sms);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -729,6 +741,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_pick_drop_email", feature_pick_drop_email);
 		if(feature_message2parent_email != null)
 			map.put("feature_message2parent_email", feature_message2parent_email);
+		if(feature_send_birthday_sms != null)
+			map.put("feature_send_birthday_sms", feature_send_birthday_sms);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -792,6 +806,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_absent_report_email = (String) map.get("feature_absent_report_email");
 		feature_pick_drop_email = (String) map.get("feature_pick_drop_email");
 		feature_message2parent_email = (String) map.get("feature_message2parent_email");
+		feature_send_birthday_sms = (String) map.get("feature_send_birthday_sms");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1000,6 +1015,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_message2parent_emailObj = map.get("feature_message2parent_email");
 		if(feature_message2parent_emailObj != null)
 			feature_message2parent_email = feature_message2parent_emailObj.toString();
+
+		Object feature_send_birthday_smsObj = map.get("feature_send_birthday_sms");
+		if(feature_send_birthday_smsObj != null)
+			feature_send_birthday_sms = feature_send_birthday_smsObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1698,6 +1717,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_message2parent_email() {
 		this.feature_message2parent_email = "Y";
+	}
+
+	public String getFeature_send_birthday_sms() {
+		return feature_send_birthday_sms != null ? feature_send_birthday_sms : "N";
+	}
+
+	public void setFeature_send_birthday_sms(String feature_send_birthday_sms) {
+		this.feature_send_birthday_sms = feature_send_birthday_sms;
+	}
+
+	public void unSetFeature_send_birthday_sms() {
+		this.feature_send_birthday_sms = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

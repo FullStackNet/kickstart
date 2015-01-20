@@ -17,8 +17,7 @@ public class Scheduler extends ApplicationThread{
 	ApplicationThreadPool pool;
 	public Scheduler() {
 		super("SCHEDULER_THREAD", 10000L);
-		// TODO Auto-generated constructor stub
-		pool = new ApplicationThreadPool("SCHEDULER",10, 200);
+		// TODO Auto-generated constructor stub	
 	}
 
 	void reschedule(schedule _schedule) {
@@ -70,6 +69,7 @@ public class Scheduler extends ApplicationThread{
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
+		pool = new ApplicationThreadPool("SCHEDULER",10, 200);
 		pool.start();
 	}
 

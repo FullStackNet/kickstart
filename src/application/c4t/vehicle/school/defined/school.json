@@ -301,6 +301,12 @@
 				'length': 1,
 				'default' : "Y",
 				'type':'String'
+			},
+			'feature_send_birthday_sms':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
 			}
 		}
 	}

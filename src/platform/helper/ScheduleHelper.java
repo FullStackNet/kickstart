@@ -3,6 +3,7 @@ package platform.helper;
 
 
 import platform.db.Expression;
+import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.schedule;
@@ -23,7 +24,9 @@ public class ScheduleHelper extends BaseHelper {
 		return instance;
 	}
 	public BaseResource[] getExpiredSchedule(long time) {
-			Expression e = new Expression(schedule.FIELD_SCHEDULE_TIME ,REL_OP.LTEQ, time);
+			Expression e1 = new Expression(schedule.FIELD_SCHEDULE_TIME ,REL_OP.LTEQ, time);
+			Expression e2 = new Expression(schedule.FIELD_SCHEDULE_STATUS ,REL_OP.EQ, schedule.STATUS_NOT_SCHEDULED);
+			Expression e = new Expression(e1, LOG_OP.AND, e2);
 			return getByExpression(e, new String[]{schedule.FIELD_SCHEDULE_TIME});
 	}
 	public void reschedule(String id, long time) {

@@ -179,6 +179,7 @@ public class ApplicationConstants {
 	public static String SMS_TYPE_SEND_HOME_PRACTICE = "HOME_PRACTICE";
 	public static String SMS_TYPE_SEND_NOTICE = "NOTICE";
 	public static String SMS_TYPE_SEND_MESSAGE2PARENT = "MESSAGE2PARENT";
+	public static String SMS_TYPE_SEND_BIRTHDAY = "BIRTHDAY";
 	public static String SMS_TYPE_SEND_ABSENT = "ABSENT";
 	public static String SMS_TYPE_SEND_PRESENT = "PRESENT";
 	
