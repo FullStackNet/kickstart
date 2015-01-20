@@ -145,6 +145,7 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_HOME_PRACTICE= "HOME_PRACTICE";
 	public static String MAIL_TYPE_NOTICE = "NOTICE";
 	public static String MAIL_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
+	public static String MAIL_TYPE_MESSAGE2PARENT_ADMIN = "MESSAGE2PARENT_ADMIN";
 	public static String MAIL_TYPE_MESSAGE2SCHOOL = "MESSAGE2SCHOOL";
 	public static String MAIL_TYPE_ABSENT = "ABSENT";
 	public static String MAIL_TYPE_PRESENT = "PRESENT";

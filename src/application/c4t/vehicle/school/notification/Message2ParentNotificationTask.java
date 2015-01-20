@@ -18,10 +18,11 @@ import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
 import platform.util.Util;
+import application.c4t.vehicle.school.helper.SchoolHelper;
 import application.c4t.vehicle.school.helper.School_user_mapHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
-import application.c4t.vehicle.school.resource.school_user_map;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
 public class Message2ParentNotificationTask extends NotificationTask {
@@ -77,18 +78,20 @@ public class Message2ParentNotificationTask extends NotificationTask {
 	void sendEmail2Admin(notification _notification, 
 			Map<String, String> emailAlertMap,
 			String message,
-			String customer_id) {
+			String customer_id,student _student) {
 
+		school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
 		for(Map.Entry<String, String> entry : emailAlertMap.entrySet()) {
 			SendEmail resendMail = new SendEmail();
-			resendMail.setSubject("Message from school to " + entry.getValue() + "'s parent");
+			resendMail.setSubject("Message from school to parent ("+_student.getShort_name()+_student.getClass_section_name()+","+_school.getShort_name()+")");
 			resendMail.setTo(entry.getKey());
-			resendMail.setType(ApplicationConstants.MAIL_TYPE_MESSAGE2PARENT);
+			resendMail.setType(ApplicationConstants.MAIL_TYPE_MESSAGE2PARENT_ADMIN);
 			Map<String, String> map = new HashMap<String, String>();
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_MESSAGE, message);
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, entry.getValue());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, _student.getName());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
-			
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME, _student.getClass_section_name());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_NAME, _school.getShort_name());
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
@@ -162,35 +165,35 @@ public class Message2ParentNotificationTask extends NotificationTask {
 		if ("Y".equals(smsAlert)) {
 			if ((!Util.isEmpty(_student.getFather_mobile_no())) && 
 					("FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-				smsAlertMap.put(_student.getFather_mobile_no(),  _student.getNameEx());
+				smsAlertMap.put(_student.getFather_mobile_no(),  _student.getShort_name());
 			}
 			if ((!Util.isEmpty(_student.getMother_mobile_no())) && 
 					("MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-				smsAlertMap.put(_student.getMother_mobile_no(), _student.getNameEx());
+				smsAlertMap.put(_student.getMother_mobile_no(), _student.getShort_name());
 			}
 			if ((!Util.isEmpty(_student.getOther_mobile_no())) && 
 					("OTHER".equals(_student.getPrimary_contact()) || "OTHER".equals(_student.getPrimary_contact()))) {
-				smsAlertMap.put(_student.getOther_mobile_no(), _student.getNameEx());
+				smsAlertMap.put(_student.getOther_mobile_no(), _student.getShort_name());
 			}
 		}
 
 		if ("Y".equals(emailAlert)) {
 			if ((!Util.isEmpty(_student.getFather_email_id())) && 
 					("FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-				emailAlertMap.put(_student.getFather_email_id(), _student.getNameEx());
+				emailAlertMap.put(_student.getFather_email_id(), _student.getShort_name());
 			}
 			if ((!Util.isEmpty(_student.getMother_email_id())) && 
 					("MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-				emailAlertMap.put(_student.getMother_email_id(), _student.getNameEx());
+				emailAlertMap.put(_student.getMother_email_id(), _student.getShort_name());
 			}
 			if ((!Util.isEmpty(_student.getOther_email_id())) && 
 					("OTHER".equals(_student.getPrimary_contact()) || "OTHER".equals(_student.getPrimary_contact()))) {
-				emailAlertMap.put(_student.getOther_email_id(), _student.getNameEx());
+				emailAlertMap.put(_student.getOther_email_id(), _student.getShort_name());
 			}
 		}
 
 		sendNotification2Users(_notification, userMap,appAlert,
-				_student.getName(),
+				_student.getShort_name(),
 				message,customerId,_student);
 		
 		sendSMS2Users(_notification,smsAlertMap,
@@ -207,7 +210,7 @@ public class Message2ParentNotificationTask extends NotificationTask {
 			emailAdminAlertMap.put(_user.getEmail_id(), _user.getEmail_id());
 		}
 		sendEmail2Admin(_notification,emailAdminAlertMap,
-				message,customerId);
+				message,customerId,_student);
 	}
 	@Override
 	public void process(notification _notification) {

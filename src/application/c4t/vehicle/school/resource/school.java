@@ -18,6 +18,13 @@ public class school extends Baseschool {
 		this.setId(id);
 	}	
 	
+	public String getShort_name() {
+		if (super.getShort_name() != null) {
+			return super.getShort_name();
+		}
+		return getName();
+	}
+	
 	@Override
 	public Class<?> getResultClass() {
 		// TODO Auto-generated method stub
