@@ -83,7 +83,7 @@ public class Message2ParentNotificationTask extends NotificationTask {
 		school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
 		for(Map.Entry<String, String> entry : emailAlertMap.entrySet()) {
 			SendEmail resendMail = new SendEmail();
-			resendMail.setSubject("Message from school to parent ("+_student.getShort_name()+_student.getClass_section_name()+","+_school.getShort_name()+")");
+			resendMail.setSubject("Message from school to parent ("+_student.getShort_name()+","+_student.getClass_section_name()+","+_school.getShort_name()+")");
 			resendMail.setTo(entry.getKey());
 			resendMail.setType(ApplicationConstants.MAIL_TYPE_MESSAGE2PARENT_ADMIN);
 			Map<String, String> map = new HashMap<String, String>();
