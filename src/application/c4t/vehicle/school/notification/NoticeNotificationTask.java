@@ -23,6 +23,7 @@ import application.c4t.vehicle.school.helper.NoticeHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.notice;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
 public class NoticeNotificationTask extends NotificationTask {
@@ -159,6 +160,7 @@ public class NoticeNotificationTask extends NotificationTask {
 
 		for(int i=0; i< students.length; i++) {
 			student _student = (student)students[i];
+			school _school = (school)StudentHelper.getInstance().getById(_student.getSchool_id());
 			try {
 				Student_mapHelper.getInstance().addNotice(_student.getId(), notice_id);
 			} catch (ApplicationException e) {
@@ -178,6 +180,14 @@ public class NoticeNotificationTask extends NotificationTask {
 				smsAlert = "N";
 			}
 			if (!"Y".equals(activity.getSend_email())) {
+				emailAlert = "N";
+			}
+			
+			if (!"Y".equals(_school.getFeature_notice_sms())) {
+				smsAlert = "N";
+			}
+			
+			if (!"Y".equals(_school.getFeature_notice_email())) {
 				emailAlert = "N";
 			}
 			ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());

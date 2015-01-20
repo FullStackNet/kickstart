@@ -23,6 +23,7 @@ import application.c4t.vehicle.school.helper.Home_practiceHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.home_practice;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
 public class Home_practiceNotificationTask extends NotificationTask {
@@ -81,8 +82,6 @@ public class Home_practiceNotificationTask extends NotificationTask {
 
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
-			Map<String, String> smsAlertMap,
-			Map<String, String> emailAlertMap,
 			Map<String, String> appAlertMap,
 			String class_section_name,
 			String title,
@@ -142,6 +141,8 @@ public class Home_practiceNotificationTask extends NotificationTask {
 
 		for(int i=0; i< students.length; i++) {
 			student _student = (student)students[i];
+			school _school = (school)StudentHelper.getInstance().getById(_student.getSchool_id());
+			
 			if ("Y".equals(_student.getStopage_alert_sms())) {
 				smsAlert = "Y";
 			}
@@ -155,6 +156,13 @@ public class Home_practiceNotificationTask extends NotificationTask {
 				smsAlert = "N";
 			}
 			if (!"Y".equals(activity.getSend_email())) {
+				emailAlert = "N";
+			}
+			if (!"Y".equals(_school.getFeature_home_practice_sms())) {
+				smsAlert = "N";
+			}
+			
+			if (!"Y".equals(_school.getFeature_home_practice_email())) {
 				emailAlert = "N";
 			}
 			ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());
@@ -207,8 +215,6 @@ public class Home_practiceNotificationTask extends NotificationTask {
 			}
 		}
 		sendNotification2Users(_notification, userMap, studentMap,
-				smsAlertMap,
-				emailAlertMap,
 				appAlertMap,
 				class_section_name,
 				title,

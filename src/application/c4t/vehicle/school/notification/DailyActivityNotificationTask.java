@@ -23,6 +23,7 @@ import application.c4t.vehicle.school.helper.Daily_activityHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.daily_activity;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
 public class DailyActivityNotificationTask extends NotificationTask {
@@ -140,6 +141,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 
 		for(int i=0; i< students.length; i++) {
 			student _student = (student)students[i];
+			school _school = (school)StudentHelper.getInstance().getById(_student.getSchool_id());
 			if ("Y".equals(_student.getStopage_alert_sms())) {
 				smsAlert = "Y";
 			}
@@ -155,7 +157,13 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			if (!"Y".equals(activity.getSend_email())) {
 				emailAlert = "N";
 			}
-				
+			if (!"Y".equals(_school.getFeature_daily_activity_sms())) {
+				smsAlert = "N";
+			}
+			
+			if (!"Y".equals(_school.getFeature_daily_activity_email())) {
+				emailAlert = "N";
+			}
 			ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());
 			for(int j=0; j < _users.size(); j++) {
 				userMap.put(_users.get(j).getId(), _users.get(j));
