@@ -4,7 +4,6 @@ package platform.helper;
 
 import java.util.Date;
 
-import application.c4t.vehicle.school.resource.student;
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
@@ -14,6 +13,7 @@ import platform.schedule.ScheduleFactory;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
+import application.c4t.vehicle.school.resource.student;
 
 
 public class ScheduleHelper extends BaseHelper {
