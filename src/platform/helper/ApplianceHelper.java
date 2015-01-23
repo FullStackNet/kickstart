@@ -46,7 +46,10 @@ public class ApplianceHelper extends BaseHelper {
 	public appliance getById(String id) {
 		return (appliance)super.getById(id);
 	}
-
+	public BaseResource[] getCustomerVehicle(String customerId) {
+		return ApplianceHelper.getInstance().getByCustomerIdForType(customerId,"VEHICLE");
+		
+	}
 	public BaseResource[] getSchoolBusAdminDetail(String customerId) {
 		BaseResource[] appliances;
 		appliances = ApplianceHelper.getInstance().getByCustomerIdForType(customerId,"VEHICLE");

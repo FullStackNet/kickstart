@@ -978,6 +978,21 @@ public class BaseHelper {
 		return list;
 	}
 	
+	public ArrayList<Map<String, Object>> getListMapByTypeForCustomer(String customerId,String type,ArrayList<JoinField> joinFields) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		Expression e1 = new Expression("type", REL_OP.EQ, type);
+		Expression e2 = new Expression("customer_id", REL_OP.EQ, customerId);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		
+		try {
+			list =  getByJoining(e,joinFields,new String[]{"name"});
+		} catch (ApplicationException exp) {
+			// TODO Auto-generated catch block
+			exp.printStackTrace();
+		}
+		return list;
+	}
+	
 	public void reset(BaseResource _fetchedResource,String id,String fieldName) {
 		BaseResource _resource = null;
 		try {
