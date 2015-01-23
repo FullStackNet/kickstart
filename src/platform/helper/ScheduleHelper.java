@@ -64,12 +64,14 @@ public class ScheduleHelper extends BaseHelper {
 			e.printStackTrace();
 		} 
 	}
+	
 	public BaseResource[] getExpiredSchedule(long time) {
 			Expression e1 = new Expression(schedule.FIELD_SCHEDULE_TIME ,REL_OP.LTEQ, time);
 			Expression e2 = new Expression(schedule.FIELD_SCHEDULE_STATUS ,REL_OP.EQ, schedule.STATUS_NOT_SCHEDULED);
 			Expression e = new Expression(e1, LOG_OP.AND, e2);
-			return getByExpression(e, new String[]{schedule.FIELD_SCHEDULE_TIME});
+			return getLatest(e, new String[]{schedule.FIELD_SCHEDULE_TIME}, 100);
 	}
+	
 	public void reschedule(String id, long time) {
 		schedule _schedule = new schedule(id);
 		_schedule.setSchedule_time(time);

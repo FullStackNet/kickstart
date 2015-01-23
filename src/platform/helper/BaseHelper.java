@@ -261,11 +261,15 @@ public class BaseHelper {
 	}
 	
 	public BaseResource[] getLatest(Expression exp, int number) {
+		return getLatest(exp,new String[]{"creation_time desc"},number);
+	}
+	
+	public BaseResource[] getLatest(Expression exp, String[] order, int number) {
 		BaseResource[] resources = null;
 		DbConnection connection = null;
 		try {
 			connection = DbManager.getInstance().getConnection(this.getResource());
-			List<Map<String, Object>> rows = connection.getPage(resource.getMetaData(),exp,new String[]{"creation_time desc"},0,number);
+			List<Map<String, Object>> rows = connection.getPage(resource.getMetaData(),exp,order,0,number);
 			resources = new BaseResource[rows.size()];
 			int i = 0;
 			for(Map<String, Object> row : rows) {
