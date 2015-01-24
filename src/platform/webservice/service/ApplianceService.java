@@ -194,10 +194,6 @@ public class ApplianceService extends BaseService{
 
 	public BaseResource get(ServletContext ctx, String uid) {
 		String userId = ctx.getUserId();
-		user _user = (user)UserHelper.getInstance().getById(userId);
-		if (_user.getType().equals(user.USER_TYPE_CUSTOMER_ADMIN)) {
-			return ApplianceHelper.getInstance().getById(uid);
-		}
 		return User_mapHelper.getInstance().getApplianace(userId, uid);
 	}
 
