@@ -50,6 +50,10 @@ public class ApplianceHelper extends BaseHelper {
 		return ApplianceHelper.getInstance().getByCustomerIdForType(customerId,"VEHICLE");
 		
 	}
+	public BaseResource[] getUserVehicle(String userId) {
+		return User_mapHelper.getInstance().getApplinaceResources(userId);
+	}
+
 	public BaseResource[] getSchoolBusAdminDetail(String customerId) {
 		BaseResource[] appliances;
 		appliances = ApplianceHelper.getInstance().getByCustomerIdForType(customerId,"VEHICLE");
