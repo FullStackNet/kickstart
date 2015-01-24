@@ -221,10 +221,6 @@ public class ApplianceService extends BaseService{
 			if (userId == null) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Session is expired or not authenticated.");
 			}
-			user _user = (user) UserHelper.getInstance().getById(userId);
-			if (_user.getType().equals(user.USER_TYPE_CUSTOMER_ADMIN)) {
-				return ApplianceHelper.getInstance().getCustomerVehicle(ctx.getCustomerId());
-			}
 			return User_mapHelper.getInstance().getApplinacesArray(userId);
 		} else if(QueryTypes.QUERY_APPLIANCE_RUNNING.toString().equals(queryId)) {
 			return User_mapHelper.getInstance().getRunningApplinacesArray(ctx.getUserId());
