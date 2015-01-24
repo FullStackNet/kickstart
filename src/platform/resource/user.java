@@ -32,5 +32,39 @@ public class user extends Baseuser {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public boolean isHomeAutomationEnabled() {
+		if ("Y".equalsIgnoreCase(getHomeAutomationService())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isBrushupSkillEnabled() {
+		if ("Y".equalsIgnoreCase(getBrushUpSkillService())) {
+			return true;
+		}
+		return false;
+	}
+	public boolean isFleetServiceEnable() {
+		if ("Y".equalsIgnoreCase(getFleetService())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isDGServiceEnable() {
+		if ("Y".equalsIgnoreCase(getDgService())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isSchoolTrackerServiceEnable() {
+		if ("Y".equalsIgnoreCase(getSchoolTrackerService())) {
+			return true;
+		}
+		return false;
+	}
 
 }
