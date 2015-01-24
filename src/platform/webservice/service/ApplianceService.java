@@ -10,6 +10,7 @@ import platform.exception.ExceptionEnum;
 import platform.helper.ApplianceHelper;
 import platform.helper.Appliance_mapHelper;
 import platform.helper.ControllerHelper;
+import platform.helper.UserHelper;
 import platform.helper.User_mapHelper;
 import platform.manager.ApplicationManager;
 import platform.message.DeviceAction;
@@ -17,6 +18,7 @@ import platform.message.DeviceConfiguration;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
 import platform.resource.controller;
+import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.webservice.BaseService;
@@ -186,7 +188,8 @@ public class ApplianceService extends BaseService{
 		QUERY_BUS_SIMULATOR,
 		QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN,
 		QUERY_GET_BY_ROUTE_ID,
-		QUERY_APPLIANCE_HOME_AUTOMATION
+		QUERY_APPLIANCE_HOME_AUTOMATION,
+		QUERY_USER_VEHICLE_SUMMARY
 	};
 
 	public BaseResource get(ServletContext ctx, String uid) {
@@ -206,6 +209,21 @@ public class ApplianceService extends BaseService{
 			String userId = ctx.getUserId();
 			if (userId == null) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Session is expired or not authenticated.");
+			}
+			user _user = (user) UserHelper.getInstance().getById(userId);
+			if (_user.getType().equals(user.USER_TYPE_CUSTOMER_ADMIN)) {
+				return ApplianceHelper.getInstance().getByCustomerId(ctx.getCustomerId());
+			}
+			return User_mapHelper.getInstance().getApplinacesArray(userId);
+		} else if(QueryTypes.QUERY_USER_VEHICLE_SUMMARY.toString().equals(queryId)) {
+			System.out.println("Received Query "+queryId);
+			String userId = ctx.getUserId();
+			if (userId == null) {
+				throw new ApplicationException(ExceptionSeverity.ERROR, "Session is expired or not authenticated.");
+			}
+			user _user = (user) UserHelper.getInstance().getById(userId);
+			if (_user.getType().equals(user.USER_TYPE_CUSTOMER_ADMIN)) {
+				return ApplianceHelper.getInstance().getCustomerVehicle(ctx.getCustomerId());
 			}
 			return User_mapHelper.getInstance().getApplinacesArray(userId);
 		} else if(QueryTypes.QUERY_APPLIANCE_RUNNING.toString().equals(queryId)) {
