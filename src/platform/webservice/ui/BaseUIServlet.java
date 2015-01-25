@@ -160,7 +160,7 @@ public abstract class BaseUIServlet extends HttpServlet
 			if (ctx.isMobileRequest()) {
 				buffer = getMobilePage(ctx);
 				if (Util.isEmpty(buffer)) {
-					buffer = getWebPage(ctx);
+					buffer = "Not supported on Mobile Browser... Work in progress. Please access from web browser from desktop.";
 				}
 			} else {
 				buffer = getWebPage(ctx);
