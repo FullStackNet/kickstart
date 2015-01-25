@@ -199,4 +199,5 @@ public class ApplicationConstants {
 	
 	public static String NOTIFICATION_TYPE_OVERSPEED = "OVERSPEED";
 	public static String NOTIFICATION_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";
+	public static String GOOGLE_MAP_KEY ="AIzaSyAuFlvtaUkN3XAF_tiKGh_5e2bW1bjldYg";
 }

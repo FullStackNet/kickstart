@@ -1,5 +1,6 @@
 package platform.webservice.ui.component;
 
+import platform.util.ApplicationConstants;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.definition.MapPoint;
 import platform.webservice.ui.definition.RouteMapDefinition;
@@ -13,7 +14,7 @@ public abstract class BaseRouteMapView extends BaseView {
 	
 	public BaseRouteMapView(UIServletContext ctx) {
 		mContext = ctx;
-		ctx.getPageBuilder().addJS(new JS(null, "http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyAuFlvtaUkN3XAF_tiKGh_5e2bW1bjldYg"));
+		ctx.getPageBuilder().addJS(new JS(null, "http://maps.googleapis.com/maps/api/js?sensor=false&key="+ApplicationConstants.GOOGLE_MAP_KEY));
 	}
 
 	public UIServletContext getContext() {
