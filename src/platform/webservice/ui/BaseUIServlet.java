@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import platform.log.ApplicationLogger;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
+import platform.util.Util;
 import platform.webservice.UAgentInfo;
 import platform.webservice.ui.component.WebUnAuthorizedAccessView;
 import platform.webservice.ui.layout.CenterSingleLayout;
@@ -158,6 +159,9 @@ public abstract class BaseUIServlet extends HttpServlet
 			}
 			if (ctx.isMobileRequest()) {
 				buffer = getMobilePage(ctx);
+				if (Util.isEmpty(buffer)) {
+					buffer = getWebPage(ctx);
+				}
 			} else {
 				buffer = getWebPage(ctx);
 			}
