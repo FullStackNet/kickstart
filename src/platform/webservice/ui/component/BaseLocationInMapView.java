@@ -1,17 +1,17 @@
 package platform.webservice.ui.component;
 
 import platform.webservice.ui.UIServletContext;
+import platform.webservice.ui.definition.MapDefinition;
 import platform.webservice.ui.definition.MapPoint;
-import platform.webservice.ui.definition.RouteMapDefinition;
 import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.JS;
 import platform.webservice.ui.html.TEXT;
 
-public abstract class BaseRouteMapView extends BaseView {
-	RouteMapDefinition mDefinition;
+public abstract class BaseLocationInMapView extends BaseView {
+	MapDefinition mDefinition;
 	UIServletContext mContext;
 	
-	public BaseRouteMapView(UIServletContext ctx) {
+	public BaseLocationInMapView(UIServletContext ctx) {
 		mContext = ctx;
 		ctx.getPageBuilder().addJS(new JS(null, "http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyAuFlvtaUkN3XAF_tiKGh_5e2bW1bjldYg"));
 	}
@@ -20,7 +20,7 @@ public abstract class BaseRouteMapView extends BaseView {
 		return mContext;
 	}
 
-	public RouteMapDefinition getDefinition() {
+	public MapDefinition getDefinition() {
 		return mDefinition;
 	}
 	public abstract void populateData();
@@ -107,7 +107,7 @@ public abstract class BaseRouteMapView extends BaseView {
 		getView().addChild(text);
 	}
 
-	public void setDefinition(RouteMapDefinition mDefinition) {
+	public void setDefinition(MapDefinition mDefinition) {
 		this.mDefinition = mDefinition;
 	}
 }
