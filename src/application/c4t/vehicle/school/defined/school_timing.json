@@ -33,6 +33,10 @@
 				'type':'String',
 				'index' : true
 			},
+			'attendance_bufferInMin':
+			{
+				'type': 'int'
+			},
 			'start_time':
 			{
 				'length': 16,
