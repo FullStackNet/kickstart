@@ -69,6 +69,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("medical_record", "application.c4t.vehicle.school.resource.medical_record"),		
 		new ResourceMap("medical_record_date_wise", "application.c4t.vehicle.school.resource.medical_record_date_wise"),		
 		new ResourceMap("school_timing", "application.c4t.vehicle.school.resource.school_timing"),		
+		new ResourceMap("trip_student_detail", "application.c4t.vehicle.school.resource.trip_student_detail"),		
 
 	};
 }

@@ -26,6 +26,7 @@ import application.c4t.vehicle.school.resource.absent;
 import application.c4t.vehicle.school.resource.present;
 import application.c4t.vehicle.school.resource.present_detail;
 import application.c4t.vehicle.school.resource.student;
+import application.c4t.vehicle.school.resource.trip_student_detail;
 
 
 public class PresentHelper extends BaseHelper {
@@ -119,6 +120,16 @@ public class PresentHelper extends BaseHelper {
 			entryRecordExist = false;
 			String tripId = trip.id(_route.getId(),_appliance.getTimeZone(), new Date(), _route.getStart_timeEx());
 			TripHelper.getInstance().addStudent(tripId, _student.getId());
+			trip_student_detail _trip_student_detail = new trip_student_detail(trip_student_detail.id(tripId, _student.getId()));
+			_trip_student_detail.setClass_name(_student.getClass_name());
+			_trip_student_detail.setSection_name(_student.getSection_name());
+			_trip_student_detail.setStudent_name(_student.getName());
+			_trip_student_detail.setStudent_id(_student.getId());
+			_trip_student_detail.setStopage_name(_appliance.getLast_stopage_name());
+			_trip_student_detail.setStopage_id(_appliance.getLastStopageId());
+			_trip_student_detail.setEntry_time(new Date().getTime());
+			_trip_student_detail.setRoute_id(_route.getId());
+			Trip_student_detailHelper.getInstance().AddOrUpdate(_trip_student_detail);			
 		}
 		updateTotalPresent(entryKey);
 		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
@@ -162,7 +173,17 @@ public class PresentHelper extends BaseHelper {
 			Present_detailHelper.getInstance().add(_detail);
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
 			String tripId = trip.id(_route.getId(),_appliance.getTimeZone(), new Date(), _route.getStart_timeEx());
-			TripHelper.getInstance().addStudent(tripId, _student.getId());		
+			TripHelper.getInstance().addStudent(tripId, _student.getId());	
+			trip_student_detail _trip_student_detail = new trip_student_detail(trip_student_detail.id(tripId, _student.getId()));
+			_trip_student_detail.setClass_name(_student.getClass_name());
+			_trip_student_detail.setSection_name(_student.getSection_name());
+			_trip_student_detail.setStudent_name(_student.getName());
+			_trip_student_detail.setStudent_id(_student.getId());
+			_trip_student_detail.setStopage_name(_appliance.getLast_stopage_name());
+			_trip_student_detail.setStopage_id(_appliance.getLastStopageId());
+			_trip_student_detail.setExit_time(new Date().getTime());
+			_trip_student_detail.setRoute_id(_route.getId());
+			Trip_student_detailHelper.getInstance().AddOrUpdate(_trip_student_detail);	
 		} else {
 			_detail = new present_detail(exitKeyDetail);
 			_detail.setCreation_time(new Date().getTime());

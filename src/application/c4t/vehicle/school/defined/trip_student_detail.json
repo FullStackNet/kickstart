@@ -1,0 +1,76 @@
+{
+	"trip_student_detail" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'trip_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'route_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'student_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'reach_time':
+			{
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			},
+			'entry_time':
+			{
+				'type':'timestamp'
+			},
+			'exit_time':
+			{
+				'type':'timestamp'
+			}
+		}
+	}
+}

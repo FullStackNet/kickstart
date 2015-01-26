@@ -7,6 +7,8 @@ import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.resource.trip;
+import application.c4t.vehicle.school.helper.StudentHelper;
+import application.c4t.vehicle.school.resource.student;
 
 
 public class TripHelper extends BaseHelper {
@@ -33,6 +35,14 @@ public class TripHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	public BaseResource[] getStudents(String id) {
+		trip _trip = (trip)TripHelper.getInstance().getById(id);
+		if (_trip == null)
+			return null;
+		return StudentHelper.getInstance().getById(_trip.getStudents(),new String[] {student.FIELD_NAME});
+	}
+	
 	
 	public BaseResource[] getTrips(String customerId, long fromTime, long toTime) {
 		Expression e1 = new Expression(trip.FIELD_CREATION_TIME,REL_OP.GT, fromTime);
