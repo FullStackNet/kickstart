@@ -24,6 +24,7 @@ public abstract class Baseschool_timing extends BaseResource {
 	private String class_name = null;
 	private String section_name = null;
 	private String customer_id = null;
+	private Integer attendance_bufferInMin = null;
 	private String start_time = null;
 	private String end_time = null;
 	private String status = null;
@@ -35,6 +36,7 @@ public abstract class Baseschool_timing extends BaseResource {
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_ATTENDANCE_BUFFERINMIN = "attendance_bufferInMin";
 	public static String FIELD_START_TIME = "start_time";
 	public static String FIELD_END_TIME = "end_time";
 	public static String FIELD_STATUS = "status";
@@ -70,6 +72,9 @@ public abstract class Baseschool_timing extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
+		Field attendance_bufferInMinField = new Field("attendance_bufferInMin", "int");
+		metaData.addField(attendance_bufferInMinField);
+
 		Field start_timeField = new Field("start_time", "String");
 		start_timeField.setLength(16);
 		metaData.addField(start_timeField);
@@ -104,6 +109,7 @@ public abstract class Baseschool_timing extends BaseResource {
 		this.class_name = obj.class_name;
 		this.section_name = obj.section_name;
 		this.customer_id = obj.customer_id;
+		this.attendance_bufferInMin = obj.attendance_bufferInMin;
 		this.start_time = obj.start_time;
 		this.end_time = obj.end_time;
 		this.status = obj.status;
@@ -132,6 +138,8 @@ public abstract class Baseschool_timing extends BaseResource {
 			map.put("section_name", section_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(attendance_bufferInMin != null)
+			map.put("attendance_bufferInMin", attendance_bufferInMin);
 		if(start_time != null)
 			map.put("start_time", start_time);
 		if(end_time != null)
@@ -160,6 +168,8 @@ public abstract class Baseschool_timing extends BaseResource {
 			map.put("section_name", section_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(attendance_bufferInMin != null)
+			map.put("attendance_bufferInMin", attendance_bufferInMin);
 		if(start_time != null)
 			map.put("start_time", start_time);
 		if(end_time != null)
@@ -185,6 +195,7 @@ public abstract class Baseschool_timing extends BaseResource {
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
 		customer_id = (String) map.get("customer_id");
+		attendance_bufferInMin = (Integer) map.get("attendance_bufferInMin");
 		start_time = (String) map.get("start_time");
 		end_time = (String) map.get("end_time");
 		status = (String) map.get("status");
@@ -213,6 +224,10 @@ public abstract class Baseschool_timing extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object attendance_bufferInMinObj = map.get("attendance_bufferInMin");
+		if(attendance_bufferInMinObj != null)
+			attendance_bufferInMin = new Integer(attendance_bufferInMinObj.toString());
 
 		Object start_timeObj = map.get("start_time");
 		if(start_timeObj != null)
@@ -329,6 +344,26 @@ public abstract class Baseschool_timing extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public Integer getAttendance_bufferInMin() {
+		return attendance_bufferInMin;
+	}
+
+	public int getAttendance_bufferInMinEx() {
+		return attendance_bufferInMin != null ? attendance_bufferInMin : 0;
+	}
+
+	public void setAttendance_bufferInMin(int attendance_bufferInMin) {
+		this.attendance_bufferInMin = attendance_bufferInMin;
+	}
+
+	public void setAttendance_bufferInMin(Integer attendance_bufferInMin) {
+		this.attendance_bufferInMin = attendance_bufferInMin;
+	}
+
+	public void unSetAttendance_bufferInMin() {
+		this.attendance_bufferInMin = null;
 	}
 
 	public String getStart_time() {
