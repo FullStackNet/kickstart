@@ -188,6 +188,18 @@ public class PresentHelper extends BaseHelper {
 			_detail = new present_detail(exitKeyDetail);
 			_detail.setCreation_time(new Date().getTime());
 			Present_detailHelper.getInstance().update(_detail);
+			String tripId = trip.id(_route.getId(),_appliance.getTimeZone(), new Date(), _route.getStart_timeEx());
+			trip_student_detail _trip_student_detail = new trip_student_detail(trip_student_detail.id(tripId, _student.getId()));
+			_trip_student_detail.setClass_name(_student.getClass_name());
+			_trip_student_detail.setSection_name(_student.getSection_name());
+			_trip_student_detail.setStudent_name(_student.getName());
+			_trip_student_detail.setStudent_id(_student.getId());
+			_trip_student_detail.setStopage_name(_appliance.getLast_stopage_name());
+			_trip_student_detail.setStopage_id(_appliance.getLastStopageId());
+			_trip_student_detail.setExit_time(new Date().getTime());
+			_trip_student_detail.setRoute_id(_route.getId());
+			Trip_student_detailHelper.getInstance().AddOrUpdate(_trip_student_detail);	
+
 		}	
 		updateTotalPresent(exitKey);
 	}
