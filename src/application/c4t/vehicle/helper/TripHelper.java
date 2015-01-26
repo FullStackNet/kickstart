@@ -5,6 +5,7 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
+import platform.util.ApplicationException;
 import application.c4t.vehicle.resource.trip;
 
 
@@ -20,6 +21,17 @@ public class TripHelper extends BaseHelper {
 		if (instance == null)
 			instance = new TripHelper();
 		return instance;
+	}
+	
+	public void addStudent(String id,String studentId) {
+		trip _trip = new trip(id);
+		_trip.addStudents(studentId);
+		try {
+			TripHelper.getInstance().update(_trip);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public BaseResource[] getTrips(String customerId, long fromTime, long toTime) {

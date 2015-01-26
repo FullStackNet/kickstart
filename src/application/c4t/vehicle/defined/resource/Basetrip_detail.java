@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -37,6 +33,7 @@ public abstract class Basetrip_detail extends BaseResource {
 	private Double nearest_distance = null;
 	private Long data_get_duration = null;
 	private String speed = null;
+	private ArrayList<String> students = null;
 	private String stopage_identified = null;
 	private Map<String, Object> extra_data = null;
 
@@ -54,6 +51,7 @@ public abstract class Basetrip_detail extends BaseResource {
 	public static String FIELD_NEAREST_DISTANCE = "nearest_distance";
 	public static String FIELD_DATA_GET_DURATION = "data_get_duration";
 	public static String FIELD_SPEED = "speed";
+	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_STOPAGE_IDENTIFIED = "stopage_identified";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -111,6 +109,9 @@ public abstract class Basetrip_detail extends BaseResource {
 		Field speedField = new Field("speed", "String");
 		metaData.addField(speedField);
 
+		Field studentsField = new Field("students", "Array");
+		metaData.addField(studentsField);
+
 		Field stopage_identifiedField = new Field("stopage_identified", "String");
 		stopage_identifiedField.setLength(1);
 		metaData.addField(stopage_identifiedField);
@@ -142,6 +143,7 @@ public abstract class Basetrip_detail extends BaseResource {
 		this.nearest_distance = obj.nearest_distance;
 		this.data_get_duration = obj.data_get_duration;
 		this.speed = obj.speed;
+		this.students = obj.students;
 		this.stopage_identified = obj.stopage_identified;
 		this.extra_data = obj.extra_data;
 	}
@@ -180,6 +182,8 @@ public abstract class Basetrip_detail extends BaseResource {
 			map.put("data_get_duration", data_get_duration);
 		if(speed != null)
 			map.put("speed", speed);
+		if(students != null)
+			map.put("students", students);
 		if(stopage_identified != null)
 			map.put("stopage_identified", stopage_identified);
 		if(extra_data != null)
@@ -217,6 +221,8 @@ public abstract class Basetrip_detail extends BaseResource {
 			map.put("data_get_duration", data_get_duration);
 		if(speed != null)
 			map.put("speed", speed);
+		if(students != null)
+			map.put("students", students);
 		if(stopage_identified != null)
 			map.put("stopage_identified", stopage_identified);
 		if(extra_data != null)
@@ -245,6 +251,7 @@ public abstract class Basetrip_detail extends BaseResource {
 		nearest_distance = (Double) map.get("nearest_distance");
 		data_get_duration = (Long) map.get("data_get_duration");
 		speed = (String) map.get("speed");
+		students = (ArrayList<String>) map.get("students");
 		stopage_identified = (String) map.get("stopage_identified");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -307,6 +314,7 @@ public abstract class Basetrip_detail extends BaseResource {
 		if(speedObj != null)
 			speed = speedObj.toString();
 
+		students = (ArrayList<String>) map.get("students");
 		Object stopage_identifiedObj = map.get("stopage_identified");
 		if(stopage_identifiedObj != null)
 			stopage_identified = stopage_identifiedObj.toString();
@@ -553,6 +561,25 @@ public abstract class Basetrip_detail extends BaseResource {
 
 	public void unSetSpeed() {
 		this.speed = null;
+	}
+
+	public ArrayList<String> getStudents() {
+		return students;
+	}
+
+
+	public void setStudents(ArrayList<String> students) {
+		this.students = students;
+	}
+
+	public void addStudents(String value) {
+		if(students == null)
+			students = new ArrayList<String>();
+		students.add(value);
+	}
+
+	public void unSetStudents() {
+		this.students = null;
 	}
 
 	public String getStopage_identified() {

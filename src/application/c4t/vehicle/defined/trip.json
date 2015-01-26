@@ -81,6 +81,10 @@
 			{
 				'type':'long'
 			},
+			students :{
+				'type' : 'Array',
+				'valueType' : 'String'
+			},
 			'overspeed_count':
 			{
 				'type':'int'

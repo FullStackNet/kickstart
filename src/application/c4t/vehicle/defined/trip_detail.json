@@ -69,7 +69,7 @@
 			students :{
 				'type' : 'Array',
 				'valueType' : 'String'
-			}
+			},
 			'stopage_identified':
 			{
 				'type':'String',

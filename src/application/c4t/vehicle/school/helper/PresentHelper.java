@@ -8,16 +8,20 @@ import platform.db.Expression;
 import platform.db.JoinField;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
+import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
+import platform.resource.appliance;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
 import application.c4t.vehicle.helper.Route_stopageHelper;
+import application.c4t.vehicle.helper.TripHelper;
 import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.resource.route_stopage;
+import application.c4t.vehicle.resource.trip;
 import application.c4t.vehicle.school.resource.absent;
 import application.c4t.vehicle.school.resource.present;
 import application.c4t.vehicle.school.resource.present_detail;
@@ -73,7 +77,7 @@ public class PresentHelper extends BaseHelper {
 		
 		if (dropped_route_stopage == null)
 			return;
-		
+		appliance _appliance = ApplianceHelper.getInstance().getById(_route.getAppliance_id());
 		if (!_route.getId().equals(pickup_route_stopage.getRoute_id()) && 
 				(!_route.getId().equals(dropped_route_stopage.getRoute_id()))) {
 			ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
@@ -113,6 +117,8 @@ public class PresentHelper extends BaseHelper {
 			Present_detailHelper.getInstance().add(_detail);
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 			entryRecordExist = false;
+			String tripId = trip.id(_route.getId(),_appliance.getTimeZone(), new Date(), _route.getStart_timeEx());
+			TripHelper.getInstance().addStudent(tripId, _student.getId());
 		}
 		updateTotalPresent(entryKey);
 		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {

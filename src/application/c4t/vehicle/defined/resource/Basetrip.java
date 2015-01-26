@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -39,6 +35,7 @@ public abstract class Basetrip extends BaseResource {
 	private String helper_id = null;
 	private String alternate_helper_id = null;
 	private Long delayed = null;
+	private ArrayList<String> students = null;
 	private Integer overspeed_count = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -59,6 +56,7 @@ public abstract class Basetrip extends BaseResource {
 	public static String FIELD_HELPER_ID = "helper_id";
 	public static String FIELD_ALTERNATE_HELPER_ID = "alternate_helper_id";
 	public static String FIELD_DELAYED = "delayed";
+	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_OVERSPEED_COUNT = "overspeed_count";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -129,6 +127,9 @@ public abstract class Basetrip extends BaseResource {
 		Field delayedField = new Field("delayed", "long");
 		metaData.addField(delayedField);
 
+		Field studentsField = new Field("students", "Array");
+		metaData.addField(studentsField);
+
 		Field overspeed_countField = new Field("overspeed_count", "int");
 		metaData.addField(overspeed_countField);
 
@@ -164,6 +165,7 @@ public abstract class Basetrip extends BaseResource {
 		this.helper_id = obj.helper_id;
 		this.alternate_helper_id = obj.alternate_helper_id;
 		this.delayed = obj.delayed;
+		this.students = obj.students;
 		this.overspeed_count = obj.overspeed_count;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -207,6 +209,8 @@ public abstract class Basetrip extends BaseResource {
 			map.put("alternate_helper_id", alternate_helper_id);
 		if(delayed != null)
 			map.put("delayed", delayed);
+		if(students != null)
+			map.put("students", students);
 		if(overspeed_count != null)
 			map.put("overspeed_count", overspeed_count);
 		if(creation_time != null)
@@ -250,6 +254,8 @@ public abstract class Basetrip extends BaseResource {
 			map.put("alternate_helper_id", alternate_helper_id);
 		if(delayed != null)
 			map.put("delayed", delayed);
+		if(students != null)
+			map.put("students", students);
 		if(overspeed_count != null)
 			map.put("overspeed_count", overspeed_count);
 		if(creation_time != null)
@@ -282,6 +288,7 @@ public abstract class Basetrip extends BaseResource {
 		helper_id = (String) map.get("helper_id");
 		alternate_helper_id = (String) map.get("alternate_helper_id");
 		delayed = (Long) map.get("delayed");
+		students = (ArrayList<String>) map.get("students");
 		overspeed_count = (Integer) map.get("overspeed_count");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -353,6 +360,7 @@ public abstract class Basetrip extends BaseResource {
 		if(delayedObj != null)
 			delayed = new Long(delayedObj.toString());
 
+		students = (ArrayList<String>) map.get("students");
 		Object overspeed_countObj = map.get("overspeed_count");
 		if(overspeed_countObj != null)
 			overspeed_count = new Integer(overspeed_countObj.toString());
@@ -634,6 +642,25 @@ public abstract class Basetrip extends BaseResource {
 
 	public void unSetDelayed() {
 		this.delayed = null;
+	}
+
+	public ArrayList<String> getStudents() {
+		return students;
+	}
+
+
+	public void setStudents(ArrayList<String> students) {
+		this.students = students;
+	}
+
+	public void addStudents(String value) {
+		if(students == null)
+			students = new ArrayList<String>();
+		students.add(value);
+	}
+
+	public void unSetStudents() {
+		this.students = null;
 	}
 
 	public Integer getOverspeed_count() {
