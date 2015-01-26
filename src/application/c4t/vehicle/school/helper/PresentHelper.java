@@ -161,6 +161,8 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			Present_detailHelper.getInstance().add(_detail);
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
+			String tripId = trip.id(_route.getId(),_appliance.getTimeZone(), new Date(), _route.getStart_timeEx());
+			TripHelper.getInstance().addStudent(tripId, _student.getId());		
 		} else {
 			_detail = new present_detail(exitKeyDetail);
 			_detail.setCreation_time(new Date().getTime());
