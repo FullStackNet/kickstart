@@ -94,15 +94,16 @@ public class NotificationHelper extends BaseHelper {
 		}
 	}
 
-	public void addNotificationFromController(String controllerId,
+	public notification addNotificationFromController(String controllerId,
 			String alertId, int severity,  Map<String, Object> data, Date alertTime)  {
 		controller controller_object = (controller)ControllerHelper.getInstance().getById(controllerId);
 		if (controller_object != null) {
-			addNotificationFromController(controller_object,alertId,severity,data,alertTime);
-		} 
+			return addNotificationFromController(controller_object,alertId,severity,data,alertTime);
+		}
+		return null;
 	}
 
-	public void addNotificationFromController(controller controller_object,
+	public notification addNotificationFromController(controller controller_object,
 			String alertId, int severity,  Map<String, Object> data, Date alertTime)  {
 
 		String site_id = "";
@@ -128,7 +129,7 @@ public class NotificationHelper extends BaseHelper {
 				assetId = _appliance.getAsset_id();
 			}
 		}	
-		addNotification(customer_id, site_id, gateway_Id, controller_object.getId(), deviceType, deviceName, 
+		return addNotification(customer_id, site_id, gateway_Id, controller_object.getId(), deviceType, deviceName, 
 				applianceId, applianceName, assetId, 
 				alertId, severity, data, alertTime);
 	}
@@ -155,13 +156,13 @@ public class NotificationHelper extends BaseHelper {
 		}
 	}
 
-	public void addNotificationFromAppliance(String applianceId,
+	public notification addNotificationFromAppliance(String applianceId,
 			String notificationId, int severity, Map<String, Object> data, Date alertTime)  {
 		appliance _appliance = (appliance)ApplianceHelper.getInstance().getById(applianceId);
-		addNotificationFromAppliance(_appliance, notificationId, severity, data, alertTime);
+		return addNotificationFromAppliance(_appliance, notificationId, severity, data, alertTime);
 	}
 	
-	public void addNotificationFromAppliance(appliance _appliance,
+	public notification addNotificationFromAppliance(appliance _appliance,
 			String notificationId, int severity, Map<String, Object> data, Date alertTime)  {
 		String site_id = "";
 		String deviceType = "";
@@ -180,7 +181,7 @@ public class NotificationHelper extends BaseHelper {
 		applianceName = _appliance.getName();
 		assetId = _appliance.getAsset_id();
 		
-		addNotification(customer_id, site_id, gateway_Id, applianceId, deviceType, deviceName, 
+		notification _notification = addNotification(customer_id, site_id, gateway_Id, applianceId, deviceType, deviceName, 
 				applianceId, applianceName, assetId, 
 				notificationId, severity, data, alertTime);
 		
@@ -199,9 +200,10 @@ public class NotificationHelper extends BaseHelper {
 		if (NotificationFactory.NOTIFICATION_STOPPED.equals(notificationId)) {
 			handleApplianceStopped(_appliance,alertTime.getTime(),data);
 		}
+		return _notification;
 	}
 	
-	public void addNotificationNonAppliance(String notificationId,
+	public notification addNotificationNonAppliance(String notificationId,
 			int severity, Map<String, Object> data, Date alertTime)  {
 		String site_id = "";
 		String deviceType = "";
@@ -212,12 +214,12 @@ public class NotificationHelper extends BaseHelper {
 		String applianceName= "";
 		String assetId= "";
 		
-		addNotification(customer_id, site_id, gateway_Id, applianceId, deviceType, deviceName, 
+		return addNotification(customer_id, site_id, gateway_Id, applianceId, deviceType, deviceName, 
 				applianceId, applianceName, assetId, 
 				notificationId, severity, data, alertTime);
 	}
 
-	void addNotification(String customer_id,String site_id, 
+	notification addNotification(String customer_id,String site_id, 
 			String gateway_id, String deviceId,String deviceType,String deviceName, 
 			String applianceId,String applianceName,String assetId, 
 			String notificationId, int severity, Map<String, Object> data, Date alertTime)  {
@@ -254,5 +256,6 @@ public class NotificationHelper extends BaseHelper {
 		Notification notificationMessage = new Notification();
 		notificationMessage.setId(_notification.getId());
 		EventManager.getInstance().triggerEvent(this, new NotificationAddedEvent(_notification.getId()));
+		return _notification;
 	}
 }

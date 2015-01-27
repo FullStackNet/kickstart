@@ -145,6 +145,12 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_HOME_PRACTICE= "HOME_PRACTICE";
 	public static String MAIL_TYPE_NOTICE = "NOTICE";
 	public static String MAIL_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
+	public static String MAIL_TYPE_SEND_BUS_ENTRY = "BUS_ENTRY";
+	public static String MAIL_TYPE_SEND_BUS_EXIT = "BUS_EXIT";
+	public static String MAIL_TYPE_SEND_SCHOOL_ENTRY = "SCHOOL_ENTRY";
+	public static String MAIL_TYPE_SEND_SCHOOL_EXIT = "SCHOOL_EXIT";
+	
+	
 	public static String MAIL_TYPE_MESSAGE2PARENT_ADMIN = "MESSAGE2PARENT_ADMIN";
 	public static String MAIL_TYPE_MESSAGE2SCHOOL = "MESSAGE2SCHOOL";
 	public static String MAIL_TYPE_ABSENT = "ABSENT";
@@ -182,6 +188,10 @@ public class ApplicationConstants {
 	public static String SMS_TYPE_SEND_BIRTHDAY = "BIRTHDAY";
 	public static String SMS_TYPE_SEND_ABSENT = "ABSENT";
 	public static String SMS_TYPE_SEND_PRESENT = "PRESENT";
+	public static String SMS_TYPE_SEND_BUS_ENTRY = "BUS_ENTRY";
+	public static String SMS_TYPE_SEND_BUS_EXIT = "BUS_EXIT";
+	public static String SMS_TYPE_SEND_SCHOOL_ENTRY = "SCHOOL_ENTRY";
+	public static String SMS_TYPE_SEND_SCHOOL_EXIT = "SCHOOL_EXIT";
 	
 	
 
@@ -195,6 +205,10 @@ public class ApplicationConstants {
 	public static String NOTIFICATION_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String NOTIFICATION_TYPE_ABSENT = "ABSENT";
 	public static String NOTIFICATION_TYPE_PRESENT = "PRESENT";
+	public static String NOTIFICATION_TYPE_SEND_BUS_ENTRY = "BUS_ENTRY";
+	public static String NOTIFICATION_TYPE_SEND_BUS_EXIT = "BUS_EXIT";
+	public static String NOTIFICATION_TYPE_SEND_SCHOOL_ENTRY = "SCHOOL_ENTRY";
+	public static String NOTIFICATION_TYPE_SEND_SCHOOL_EXIT = "SCHOOL_EXIT";
 	
 	
 	public static String NOTIFICATION_TYPE_OVERSPEED = "OVERSPEED";

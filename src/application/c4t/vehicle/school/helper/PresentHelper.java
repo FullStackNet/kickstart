@@ -2,6 +2,7 @@ package application.c4t.vehicle.school.helper;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import platform.db.Expression;
@@ -11,7 +12,9 @@ import platform.db.REL_OP;
 import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
+import platform.helper.NotificationHelper;
 import platform.log.ApplicationLogger;
+import platform.notification.NotificationFactory;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
 import platform.util.ApplicationException;
@@ -25,6 +28,7 @@ import application.c4t.vehicle.resource.trip;
 import application.c4t.vehicle.school.resource.absent;
 import application.c4t.vehicle.school.resource.present;
 import application.c4t.vehicle.school.resource.present_detail;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 import application.c4t.vehicle.school.resource.trip_student_detail;
 
@@ -127,9 +131,28 @@ public class PresentHelper extends BaseHelper {
 			_trip_student_detail.setStudent_id(_student.getId());
 			_trip_student_detail.setStopage_name(_appliance.getLast_stopage_name());
 			_trip_student_detail.setStopage_id(_appliance.getLastStopageId());
-			_trip_student_detail.setEntry_time(new Date().getTime());
+			_trip_student_detail.setEntry_time(currentTime);
 			_trip_student_detail.setRoute_id(_route.getId());
-			Trip_student_detailHelper.getInstance().AddOrUpdate(_trip_student_detail);			
+			Trip_student_detailHelper.getInstance().AddOrUpdate(_trip_student_detail);	
+			Map<String, Object> map = new HashMap<String, Object>();
+			school _school = (school) StudentHelper.getInstance().getById(_student.getSchool_id());
+			map.put("BRAND_NAME", "School");
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_trip_student_detail.getId());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
+					_student.getSchool_id());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_ID,_student.getId());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME,_student.getShort_name());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TYPE,_route.getType());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME,_student.getClass_section_name());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
+			if ((_school != null) && (_school.getBrand_name() != null)) {
+				map.put("BRAND_NAME", _school.getBrand_name());
+			} 
+			NotificationHelper.getInstance().addNotificationNonAppliance(NotificationFactory.NOTIFICATION_BUS_ENTRY, 
+					NotificationFactory.SEVERIRY_INFO, 
+					map, 
+					new Date(currentTime)); 
 		}
 		updateTotalPresent(entryKey);
 		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
@@ -184,6 +207,26 @@ public class PresentHelper extends BaseHelper {
 			_trip_student_detail.setExit_time(new Date().getTime());
 			_trip_student_detail.setRoute_id(_route.getId());
 			Trip_student_detailHelper.getInstance().AddOrUpdate(_trip_student_detail);	
+			Map<String, Object> map = new HashMap<String, Object>();
+			school _school = (school) StudentHelper.getInstance().getById(_student.getSchool_id());
+			map.put("BRAND_NAME", "School");
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_trip_student_detail.getId());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
+					_student.getSchool_id());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_ID,_student.getId());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME,_student.getShort_name());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TYPE,_route.getType());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME,_student.getClass_section_name());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
+			if ((_school != null) && (_school.getBrand_name() != null)) {
+				map.put("BRAND_NAME", _school.getBrand_name());
+			} 
+			NotificationHelper.getInstance().addNotificationNonAppliance(NotificationFactory.NOTIFICATION_BUS_EXIT, 
+					NotificationFactory.SEVERIRY_INFO, 
+					map, 
+					new Date(currentTime)); 
+
 		} else {
 			_detail = new present_detail(exitKeyDetail);
 			_detail.setCreation_time(new Date().getTime());
@@ -255,6 +298,25 @@ public class PresentHelper extends BaseHelper {
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 			updateTotalPresent(entryKey);
 			StudentHelper.getInstance().incrementCounter(_student.getId(),student.FIELD_TOTAL_PRESENT, 1);
+			Map<String, Object> map = new HashMap<String, Object>();
+			school _school = (school) StudentHelper.getInstance().getById(_student.getSchool_id());
+			map.put("BRAND_NAME", "School");
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_detail.getId());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
+					_student.getSchool_id());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_ID,_student.getId());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME,_student.getShort_name());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME,_student.getClass_section_name());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
+			if ((_school != null) && (_school.getBrand_name() != null)) {
+				map.put("BRAND_NAME", _school.getBrand_name());
+			} 
+			NotificationHelper.getInstance().addNotificationNonAppliance(NotificationFactory.NOTIFICATION_SCHOOL_ENTRY, 
+					NotificationFactory.SEVERIRY_INFO, 
+					map, 
+					new Date(currentTime)); 
+
 			return;
 		} 
 		
@@ -296,6 +358,24 @@ public class PresentHelper extends BaseHelper {
 			_detail.setStudent_id(_student.getId());
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			Present_detailHelper.getInstance().add(_detail);
+			Map<String, Object> map = new HashMap<String, Object>();
+			school _school = (school) StudentHelper.getInstance().getById(_student.getSchool_id());
+			map.put("BRAND_NAME", "School");
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_detail.getId());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
+					_student.getSchool_id());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_ID,_student.getId());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME,_student.getShort_name());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME,_student.getClass_section_name());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
+			if ((_school != null) && (_school.getBrand_name() != null)) {
+				map.put("BRAND_NAME", _school.getBrand_name());
+			} 
+			NotificationHelper.getInstance().addNotificationNonAppliance(NotificationFactory.NOTIFICATION_SCHOOL_EXIT, 
+					NotificationFactory.SEVERIRY_INFO, 
+					map, 
+					new Date(currentTime)); 
 		} else {
 			_detail = new present_detail(exitKeyDetail);
 			_detail.setCreation_time(new Date().getTime());
