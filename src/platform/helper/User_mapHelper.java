@@ -1,7 +1,10 @@
 package platform.helper;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import platform.db.Expression;
 import platform.db.JoinField;
@@ -13,6 +16,7 @@ import platform.resource.appliance_map;
 import platform.resource.notification;
 import platform.resource.user_map;
 import platform.util.ApplicationException;
+import platform.util.Util;
 
 
 public class User_mapHelper extends BaseHelper {
@@ -226,8 +230,15 @@ public class User_mapHelper extends BaseHelper {
 		user_map _map = (user_map)getSelectedFieldsById(userId,appliance_map.FIELD_NOTIFICATIONS);
 		if ((_map == null) || (_map.getNotifications() == null))
 			return null;
-		return NotificationHelper.getInstance().getArrayById(_map.getNotifications().toArray(new String[_map.getNotifications().size()]),
+		BaseResource[] resources =   NotificationHelper.getInstance().getArrayById(_map.getNotifications().toArray(new String[_map.getNotifications().size()]),
 				new String[]{notification.FIELD_NOTIFICATION_TIME+" DESC"});
+		if (Util.isEmpty(resources)) 
+			return resources;
+		ArrayList<notification> list = new ArrayList<notification>();
+		for(int i=0 ; i < 25; i++) {
+			list.add((notification)resources[i]);
+		}
+		return list.toArray(new notification[list.size()]);		
 	}
 	
 	public BaseResource[] getInviteArray(String userId) {
