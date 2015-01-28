@@ -92,6 +92,22 @@
 			'creation_time':
 			{
 				'type':'timestamp'
+			},
+			'sms_sent_count':
+			{
+				'type':'int'
+			},
+			'sms_failed_count':
+			{
+				'type':'int'
+			},
+			'email_sent_count':
+			{
+				'type':'int'
+			},
+			'email_failed_count':
+			{
+				'type':'int'
 			}		
 		}
 	}

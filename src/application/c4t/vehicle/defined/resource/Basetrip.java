@@ -38,6 +38,8 @@ public abstract class Basetrip extends BaseResource {
 	private ArrayList<String> students = null;
 	private Integer overspeed_count = null;
 	private Long creation_time = null;
+	private Integer sms_sent_count = null;
+	private Integer sms_failed_count = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -59,6 +61,8 @@ public abstract class Basetrip extends BaseResource {
 	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_OVERSPEED_COUNT = "overspeed_count";
 	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_SMS_SENT_COUNT = "sms_sent_count";
+	public static String FIELD_SMS_FAILED_COUNT = "sms_failed_count";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -136,6 +140,12 @@ public abstract class Basetrip extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
+		Field sms_sent_countField = new Field("sms_sent_count", "int");
+		metaData.addField(sms_sent_countField);
+
+		Field sms_failed_countField = new Field("sms_failed_count", "int");
+		metaData.addField(sms_failed_countField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -168,6 +178,8 @@ public abstract class Basetrip extends BaseResource {
 		this.students = obj.students;
 		this.overspeed_count = obj.overspeed_count;
 		this.creation_time = obj.creation_time;
+		this.sms_sent_count = obj.sms_sent_count;
+		this.sms_failed_count = obj.sms_failed_count;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -215,6 +227,10 @@ public abstract class Basetrip extends BaseResource {
 			map.put("overspeed_count", overspeed_count);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(sms_sent_count != null)
+			map.put("sms_sent_count", sms_sent_count);
+		if(sms_failed_count != null)
+			map.put("sms_failed_count", sms_failed_count);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -260,6 +276,10 @@ public abstract class Basetrip extends BaseResource {
 			map.put("overspeed_count", overspeed_count);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(sms_sent_count != null)
+			map.put("sms_sent_count", sms_sent_count);
+		if(sms_failed_count != null)
+			map.put("sms_failed_count", sms_failed_count);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -291,6 +311,8 @@ public abstract class Basetrip extends BaseResource {
 		students = (ArrayList<String>) map.get("students");
 		overspeed_count = (Integer) map.get("overspeed_count");
 		creation_time = (Long) map.get("creation_time");
+		sms_sent_count = (Integer) map.get("sms_sent_count");
+		sms_failed_count = (Integer) map.get("sms_failed_count");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -368,6 +390,14 @@ public abstract class Basetrip extends BaseResource {
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
+
+		Object sms_sent_countObj = map.get("sms_sent_count");
+		if(sms_sent_countObj != null)
+			sms_sent_count = new Integer(sms_sent_countObj.toString());
+
+		Object sms_failed_countObj = map.get("sms_failed_count");
+		if(sms_failed_countObj != null)
+			sms_failed_count = new Integer(sms_failed_countObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -691,6 +721,46 @@ public abstract class Basetrip extends BaseResource {
 		this.creation_time = creation_time;
 	}
 
+
+	public Integer getSms_sent_count() {
+		return sms_sent_count;
+	}
+
+	public int getSms_sent_countEx() {
+		return sms_sent_count != null ? sms_sent_count : 0;
+	}
+
+	public void setSms_sent_count(int sms_sent_count) {
+		this.sms_sent_count = sms_sent_count;
+	}
+
+	public void setSms_sent_count(Integer sms_sent_count) {
+		this.sms_sent_count = sms_sent_count;
+	}
+
+	public void unSetSms_sent_count() {
+		this.sms_sent_count = null;
+	}
+
+	public Integer getSms_failed_count() {
+		return sms_failed_count;
+	}
+
+	public int getSms_failed_countEx() {
+		return sms_failed_count != null ? sms_failed_count : 0;
+	}
+
+	public void setSms_failed_count(int sms_failed_count) {
+		this.sms_failed_count = sms_failed_count;
+	}
+
+	public void setSms_failed_count(Integer sms_failed_count) {
+		this.sms_failed_count = sms_failed_count;
+	}
+
+	public void unSetSms_failed_count() {
+		this.sms_failed_count = null;
+	}
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;
