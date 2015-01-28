@@ -19,8 +19,8 @@ public class school_timing extends Baseschool_timing {
 		this.setId(id);
 	}	
 	
-	public static String id(String date,String school_id,String class_section_name) {
-		return date+ApplicationConstants.ID_SEPERATOR+school_id+ApplicationConstants.ID_SEPERATOR+class_section_name;
+	public static String id(String school_id,String class_name,String section_name) {
+		return school_id+ApplicationConstants.ID_SEPERATOR+class_name+ApplicationConstants.ID_SEPERATOR+section_name;
 	}
 	
 	@Override

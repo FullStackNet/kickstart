@@ -1,0 +1,70 @@
+{
+	"sms_log" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'reason':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String'
+			},
+			'reference_id':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String'
+			},
+			'reference_description':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String'
+			},
+			'mobile_no':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String'
+			},
+			'person_name':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String'
+			},
+			'invocation_time':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'sent_try_time':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'sent_time':
+			{
+				'name':'mobile_no',
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'sent_status':
+			{
+				'length': 1,
+				'type':'String',
+				'comment' : "N-Not sent,S-Sent,F-Failed"
+			}		
+		}
+	}
+}

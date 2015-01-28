@@ -11,6 +11,7 @@ import platform.helper.HelperFactory;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.absent;
 import application.c4t.vehicle.school.resource.school_timing;
+import application.c4t.vehicle.school.resource.student;
 
 
 public class School_timingHelper extends BaseHelper {
@@ -26,6 +27,19 @@ public class School_timingHelper extends BaseHelper {
 		return instance;
 	}
 	
+	public void addTiming(student _student) {
+		String key = school_timing.id(_student.getId(), _student.getClass_name(), _student.getSection_name());
+		school_timing _timing = new school_timing(key);
+		_timing.setSchool_id(_student.getSchool_id());
+		_timing.setClass_name(_student.getClass_name());
+		_timing.setSection_name(_student.getSection_name());
+		try {
+			School_timingHelper.getInstance().AddOrUpdate(_timing);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools) {
 		HelperFactory.getInstance().register(SchoolHelper.getInstance());
 		HelperFactory.getInstance().register(School_timingHelper.getInstance());
