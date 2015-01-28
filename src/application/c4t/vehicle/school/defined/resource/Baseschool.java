@@ -72,6 +72,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_message2parent_email = null;
 	private String feature_send_birthday_sms = null;
 	private String feature_timing_based_attendance = null;
+	private String timezone = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -127,6 +128,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_MESSAGE2PARENT_EMAIL = "feature_message2parent_email";
 	public static String FIELD_FEATURE_SEND_BIRTHDAY_SMS = "feature_send_birthday_sms";
 	public static String FIELD_FEATURE_TIMING_BASED_ATTENDANCE = "feature_timing_based_attendance";
+	public static String FIELD_TIMEZONE = "timezone";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -383,6 +385,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_timing_based_attendanceField.setLength(1);
 		metaData.addField(feature_timing_based_attendanceField);
 
+		Field timezoneField = new Field("timezone", "String");
+		timezoneField.setDefaultValue("IST");
+		timezoneField.setLength(32);
+		metaData.addField(timezoneField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -449,6 +456,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_message2parent_email = obj.feature_message2parent_email;
 		this.feature_send_birthday_sms = obj.feature_send_birthday_sms;
 		this.feature_timing_based_attendance = obj.feature_timing_based_attendance;
+		this.timezone = obj.timezone;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -531,6 +539,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_send_birthday_sms = "N";
 		if(feature_timing_based_attendance == null)
 			feature_timing_based_attendance = "N";
+		if(timezone == null)
+			timezone = "IST";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -641,6 +651,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_send_birthday_sms", feature_send_birthday_sms);
 		if(feature_timing_based_attendance != null)
 			map.put("feature_timing_based_attendance", feature_timing_based_attendance);
+		if(timezone != null)
+			map.put("timezone", timezone);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -757,6 +769,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_send_birthday_sms", feature_send_birthday_sms);
 		if(feature_timing_based_attendance != null)
 			map.put("feature_timing_based_attendance", feature_timing_based_attendance);
+		if(timezone != null)
+			map.put("timezone", timezone);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -822,6 +836,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_message2parent_email = (String) map.get("feature_message2parent_email");
 		feature_send_birthday_sms = (String) map.get("feature_send_birthday_sms");
 		feature_timing_based_attendance = (String) map.get("feature_timing_based_attendance");
+		timezone = (String) map.get("timezone");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1038,6 +1053,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_timing_based_attendanceObj = map.get("feature_timing_based_attendance");
 		if(feature_timing_based_attendanceObj != null)
 			feature_timing_based_attendance = feature_timing_based_attendanceObj.toString();
+
+		Object timezoneObj = map.get("timezone");
+		if(timezoneObj != null)
+			timezone = timezoneObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1760,6 +1779,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_timing_based_attendance() {
 		this.feature_timing_based_attendance = "N";
+	}
+
+	public String getTimezone() {
+		return timezone != null ? timezone : "IST";
+	}
+
+	public void setTimezone(String timezone) {
+		this.timezone = timezone;
+	}
+
+	public void unSetTimezone() {
+		this.timezone = "IST";
 	}
 
 	public Map<String, Object> getExtra_data() {
