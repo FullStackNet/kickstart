@@ -225,8 +225,10 @@ public class NoticeNotificationTask extends NotificationTask {
 			if (_student == null)
 				continue;
 			school _school = (school)StudentHelper.getInstance().getById(_student.getSchool_id());
-			if (_school == null)
+			if (_school == null) {
+				ApplicationLogger.error("!!! BIG ERROR !!! School id is null for " +_student.getId() + " " +_student.getName(), this.getClass());
 				continue;
+			}
 			try {
 				Student_mapHelper.getInstance().addNotice(_student.getId(), notice_id);
 			} catch (ApplicationException e) {
@@ -299,7 +301,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				e.printStackTrace();
 			}
 		}
-		ApplicationLogger.info("Sending notice by SMS : "+ smsAlertMap.size() + "Email :"+ emailAlertMap.size() +" Notification " + appAlertMap.size()+ " Users and Total " + userMap.size() , this.getClass());
+		ApplicationLogger.info("Sending notice by Students :"+studentMap.size()+" SMS : "+ smsAlertMap.size() + " Email :"+ emailAlertMap.size() +" Notification " + appAlertMap.size()+ " Users and Total " + userMap.size() , this.getClass());
 		NoticeHelper.getInstance().updateSentCounter(notice_id, 
 				students.length, userMap.size(), smsAlertMap.size(), emailAlertMap.size(), appAlertMap.size());
 		
