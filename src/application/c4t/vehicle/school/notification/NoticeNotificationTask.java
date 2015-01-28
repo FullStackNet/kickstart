@@ -223,6 +223,8 @@ public class NoticeNotificationTask extends NotificationTask {
 		for(int i=0; i< students.length; i++) {
 			student _student = (student)students[i];
 			school _school = (school)StudentHelper.getInstance().getById(_student.getSchool_id());
+			if (_school == null)
+				continue;
 			try {
 				Student_mapHelper.getInstance().addNotice(_student.getId(), notice_id);
 			} catch (ApplicationException e) {
