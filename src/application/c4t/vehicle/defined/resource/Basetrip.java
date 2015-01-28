@@ -40,6 +40,8 @@ public abstract class Basetrip extends BaseResource {
 	private Long creation_time = null;
 	private Integer sms_sent_count = null;
 	private Integer sms_failed_count = null;
+	private Integer email_sent_count = null;
+	private Integer email_failed_count = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -63,6 +65,8 @@ public abstract class Basetrip extends BaseResource {
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SMS_SENT_COUNT = "sms_sent_count";
 	public static String FIELD_SMS_FAILED_COUNT = "sms_failed_count";
+	public static String FIELD_EMAIL_SENT_COUNT = "email_sent_count";
+	public static String FIELD_EMAIL_FAILED_COUNT = "email_failed_count";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -146,6 +150,12 @@ public abstract class Basetrip extends BaseResource {
 		Field sms_failed_countField = new Field("sms_failed_count", "int");
 		metaData.addField(sms_failed_countField);
 
+		Field email_sent_countField = new Field("email_sent_count", "int");
+		metaData.addField(email_sent_countField);
+
+		Field email_failed_countField = new Field("email_failed_count", "int");
+		metaData.addField(email_failed_countField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -180,6 +190,8 @@ public abstract class Basetrip extends BaseResource {
 		this.creation_time = obj.creation_time;
 		this.sms_sent_count = obj.sms_sent_count;
 		this.sms_failed_count = obj.sms_failed_count;
+		this.email_sent_count = obj.email_sent_count;
+		this.email_failed_count = obj.email_failed_count;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -231,6 +243,10 @@ public abstract class Basetrip extends BaseResource {
 			map.put("sms_sent_count", sms_sent_count);
 		if(sms_failed_count != null)
 			map.put("sms_failed_count", sms_failed_count);
+		if(email_sent_count != null)
+			map.put("email_sent_count", email_sent_count);
+		if(email_failed_count != null)
+			map.put("email_failed_count", email_failed_count);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -280,6 +296,10 @@ public abstract class Basetrip extends BaseResource {
 			map.put("sms_sent_count", sms_sent_count);
 		if(sms_failed_count != null)
 			map.put("sms_failed_count", sms_failed_count);
+		if(email_sent_count != null)
+			map.put("email_sent_count", email_sent_count);
+		if(email_failed_count != null)
+			map.put("email_failed_count", email_failed_count);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -313,6 +333,8 @@ public abstract class Basetrip extends BaseResource {
 		creation_time = (Long) map.get("creation_time");
 		sms_sent_count = (Integer) map.get("sms_sent_count");
 		sms_failed_count = (Integer) map.get("sms_failed_count");
+		email_sent_count = (Integer) map.get("email_sent_count");
+		email_failed_count = (Integer) map.get("email_failed_count");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -398,6 +420,14 @@ public abstract class Basetrip extends BaseResource {
 		Object sms_failed_countObj = map.get("sms_failed_count");
 		if(sms_failed_countObj != null)
 			sms_failed_count = new Integer(sms_failed_countObj.toString());
+
+		Object email_sent_countObj = map.get("email_sent_count");
+		if(email_sent_countObj != null)
+			email_sent_count = new Integer(email_sent_countObj.toString());
+
+		Object email_failed_countObj = map.get("email_failed_count");
+		if(email_failed_countObj != null)
+			email_failed_count = new Integer(email_failed_countObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -760,6 +790,46 @@ public abstract class Basetrip extends BaseResource {
 
 	public void unSetSms_failed_count() {
 		this.sms_failed_count = null;
+	}
+
+	public Integer getEmail_sent_count() {
+		return email_sent_count;
+	}
+
+	public int getEmail_sent_countEx() {
+		return email_sent_count != null ? email_sent_count : 0;
+	}
+
+	public void setEmail_sent_count(int email_sent_count) {
+		this.email_sent_count = email_sent_count;
+	}
+
+	public void setEmail_sent_count(Integer email_sent_count) {
+		this.email_sent_count = email_sent_count;
+	}
+
+	public void unSetEmail_sent_count() {
+		this.email_sent_count = null;
+	}
+
+	public Integer getEmail_failed_count() {
+		return email_failed_count;
+	}
+
+	public int getEmail_failed_countEx() {
+		return email_failed_count != null ? email_failed_count : 0;
+	}
+
+	public void setEmail_failed_count(int email_failed_count) {
+		this.email_failed_count = email_failed_count;
+	}
+
+	public void setEmail_failed_count(Integer email_failed_count) {
+		this.email_failed_count = email_failed_count;
+	}
+
+	public void unSetEmail_failed_count() {
+		this.email_failed_count = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

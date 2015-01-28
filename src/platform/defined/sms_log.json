@@ -7,74 +7,67 @@
 			'id':
 			{
 				'length': 128,
-				'required': true,
 				'type':'String'
 			},
 			'reason':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
 			},
 			'reference_id':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
 			},
 			'reference_description':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
 			},
 			'student_id':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
 			},
 			'student_name':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
 			},
 			'class_name':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
 			},
 			'section_name':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
 			},
 			'school_id':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
 			},
 			'school_name':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
 			},
 			'mobile_no':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
 			},
 			'person_name':
 			{
 				'length': 32,
-				'required': true,
 				'type':'String'
+			},
+			'date':
+			{
+				'length': 32,
+				'type':'String'			
 			},
 			'invocation_time':
 			{

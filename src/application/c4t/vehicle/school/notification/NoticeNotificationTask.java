@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.helper.Sms_daily_analysisHelper;
 import platform.helper.Sms_logHelper;
 import platform.helper.User_mapHelper;
 import platform.log.ApplicationLogger;
@@ -16,11 +17,13 @@ import platform.notification.NotificationFactory;
 import platform.notification.NotificationTask;
 import platform.resource.BaseResource;
 import platform.resource.notification;
+import platform.resource.sms_daily_analysis;
 import platform.resource.sms_log;
 import platform.resource.user;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
+import platform.util.TimeUtil;
 import platform.util.Util;
 import application.c4t.vehicle.school.helper.NoticeHelper;
 import application.c4t.vehicle.school.helper.SchoolHelper;
@@ -47,6 +50,8 @@ public class NoticeNotificationTask extends NotificationTask {
 			if (_student == null)
 				continue;
 			school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
+			String currentDate = TimeUtil.getDateString(_school.getTimezone(), new Date().getTime());
+			
 			sms_log _log = new sms_log();
 			_log.setSchool_id(_student.getSchool_id());
 			_log.setMobile_no(entry.getKey());
@@ -54,6 +59,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			_log.setStudent_id(_student.getId());
 			_log.setStudent_name(_student.getName());
 			_log.setClass_name(_student.getClass_name());
+			_log.setDate(currentDate);
 			_log.setSection_name(_student.getClass_name());
 			if (_school != null) {
 				_log.setSchool_name(_school.getName());
@@ -64,6 +70,30 @@ public class NoticeNotificationTask extends NotificationTask {
 			//_log.setPerson_name("");
 			_log.setSent_status("N");
 			_log.setProcessing_status("N");
+			String key = sms_daily_analysis.id(currentDate, _log.getSchool_id(), _log.getReason());
+			sms_daily_analysis _analysis = (sms_daily_analysis)Sms_daily_analysisHelper.getInstance().getById(key);
+			if (_analysis == null) {
+				_analysis = new sms_daily_analysis(key);
+				_analysis.setDate(currentDate);
+				_analysis.setReason("NOTICE");
+				_analysis.setSchool_id(_school.getId());
+				_analysis.setSchool_name(_school.getName());
+				_analysis.setInvoke_count(1);
+				try {
+					Sms_daily_analysisHelper.getInstance().add(_analysis);
+				} catch (ApplicationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else {
+				try {
+					Sms_daily_analysisHelper.getInstance().incrementCounter(key, sms_daily_analysis.FIELD_INVOKE_COUNT, 1);
+				} catch (ApplicationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
 			try {
 				Sms_logHelper.getInstance().add(_log);
 			} catch (ApplicationException e) {

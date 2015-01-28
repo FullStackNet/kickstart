@@ -31,6 +31,7 @@ public abstract class Basesms_log extends BaseResource {
 	private String school_name = null;
 	private String mobile_no = null;
 	private String person_name = null;
+	private String date = null;
 	private Long invocation_time = null;
 	private Long sent_try_time = null;
 	private Long sent_time = null;
@@ -50,6 +51,7 @@ public abstract class Basesms_log extends BaseResource {
 	public static String FIELD_SCHOOL_NAME = "school_name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_PERSON_NAME = "person_name";
+	public static String FIELD_DATE = "date";
 	public static String FIELD_INVOCATION_TIME = "invocation_time";
 	public static String FIELD_SENT_TRY_TIME = "sent_try_time";
 	public static String FIELD_SENT_TIME = "sent_time";
@@ -64,64 +66,56 @@ public abstract class Basesms_log extends BaseResource {
 		metaData.setCheckBeforeAdd(false);
 		metaData.setCheckBeforeUpdate(false);
 		Field idField = new Field("id", "String");
-		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
 
 		Field reasonField = new Field("reason", "String");
-		reasonField.setRequired(true);
 		reasonField.setLength(32);
 		metaData.addField(reasonField);
 
 		Field reference_idField = new Field("reference_id", "String");
-		reference_idField.setRequired(true);
 		reference_idField.setLength(32);
 		metaData.addField(reference_idField);
 
 		Field reference_descriptionField = new Field("reference_description", "String");
-		reference_descriptionField.setRequired(true);
 		reference_descriptionField.setLength(32);
 		metaData.addField(reference_descriptionField);
 
 		Field student_idField = new Field("student_id", "String");
-		student_idField.setRequired(true);
 		student_idField.setLength(32);
 		metaData.addField(student_idField);
 
 		Field student_nameField = new Field("student_name", "String");
-		student_nameField.setRequired(true);
 		student_nameField.setLength(32);
 		metaData.addField(student_nameField);
 
 		Field class_nameField = new Field("class_name", "String");
-		class_nameField.setRequired(true);
 		class_nameField.setLength(32);
 		metaData.addField(class_nameField);
 
 		Field section_nameField = new Field("section_name", "String");
-		section_nameField.setRequired(true);
 		section_nameField.setLength(32);
 		metaData.addField(section_nameField);
 
 		Field school_idField = new Field("school_id", "String");
-		school_idField.setRequired(true);
 		school_idField.setLength(32);
 		metaData.addField(school_idField);
 
 		Field school_nameField = new Field("school_name", "String");
-		school_nameField.setRequired(true);
 		school_nameField.setLength(32);
 		metaData.addField(school_nameField);
 
 		Field mobile_noField = new Field("mobile_no", "String");
-		mobile_noField.setRequired(true);
 		mobile_noField.setLength(32);
 		metaData.addField(mobile_noField);
 
 		Field person_nameField = new Field("person_name", "String");
-		person_nameField.setRequired(true);
 		person_nameField.setLength(32);
 		metaData.addField(person_nameField);
+
+		Field dateField = new Field("date", "String");
+		dateField.setLength(32);
+		metaData.addField(dateField);
 
 		Field invocation_timeField = new Field("invocation_time", "timestamp");
 		metaData.addField(invocation_timeField);
@@ -165,6 +159,7 @@ public abstract class Basesms_log extends BaseResource {
 		this.school_name = obj.school_name;
 		this.mobile_no = obj.mobile_no;
 		this.person_name = obj.person_name;
+		this.date = obj.date;
 		this.invocation_time = obj.invocation_time;
 		this.sent_try_time = obj.sent_try_time;
 		this.sent_time = obj.sent_time;
@@ -203,6 +198,8 @@ public abstract class Basesms_log extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(person_name != null)
 			map.put("person_name", person_name);
+		if(date != null)
+			map.put("date", date);
 		if(invocation_time != null)
 			map.put("invocation_time", invocation_time);
 		if(sent_try_time != null)
@@ -220,30 +217,32 @@ public abstract class Basesms_log extends BaseResource {
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		if(validateId(add))
+		if(id != null)
 			map.put("id", id);
-		if(validateReason(add))
+		if(reason != null)
 			map.put("reason", reason);
-		if(validateReference_id(add))
+		if(reference_id != null)
 			map.put("reference_id", reference_id);
-		if(validateReference_description(add))
+		if(reference_description != null)
 			map.put("reference_description", reference_description);
-		if(validateStudent_id(add))
+		if(student_id != null)
 			map.put("student_id", student_id);
-		if(validateStudent_name(add))
+		if(student_name != null)
 			map.put("student_name", student_name);
-		if(validateClass_name(add))
+		if(class_name != null)
 			map.put("class_name", class_name);
-		if(validateSection_name(add))
+		if(section_name != null)
 			map.put("section_name", section_name);
-		if(validateSchool_id(add))
+		if(school_id != null)
 			map.put("school_id", school_id);
-		if(validateSchool_name(add))
+		if(school_name != null)
 			map.put("school_name", school_name);
-		if(validateMobile_no(add))
+		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
-		if(validatePerson_name(add))
+		if(person_name != null)
 			map.put("person_name", person_name);
+		if(date != null)
+			map.put("date", date);
 		if(invocation_time != null)
 			map.put("invocation_time", invocation_time);
 		if(sent_try_time != null)
@@ -278,6 +277,7 @@ public abstract class Basesms_log extends BaseResource {
 		school_name = (String) map.get("school_name");
 		mobile_no = (String) map.get("mobile_no");
 		person_name = (String) map.get("person_name");
+		date = (String) map.get("date");
 		invocation_time = (Long) map.get("invocation_time");
 		sent_try_time = (Long) map.get("sent_try_time");
 		sent_time = (Long) map.get("sent_time");
@@ -336,6 +336,10 @@ public abstract class Basesms_log extends BaseResource {
 		if(person_nameObj != null)
 			person_name = person_nameObj.toString();
 
+		Object dateObj = map.get("date");
+		if(dateObj != null)
+			date = dateObj.toString();
+
 		Object invocation_timeObj = map.get("invocation_time");
 		if(invocation_timeObj != null)
 			invocation_time = (Long) invocation_timeObj;
@@ -381,12 +385,6 @@ public abstract class Basesms_log extends BaseResource {
 		this.id = null;
 	}
 
-	public boolean validateId(boolean add) throws ApplicationException {
-		if(add && id == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
-		return id != null;
-	}
-
 	public String getReason() {
 		return reason;
 	}
@@ -401,12 +399,6 @@ public abstract class Basesms_log extends BaseResource {
 
 	public void unSetReason() {
 		this.reason = null;
-	}
-
-	public boolean validateReason(boolean add) throws ApplicationException {
-		if(add && reason == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[reason]");
-		return reason != null;
 	}
 
 	public String getReference_id() {
@@ -425,12 +417,6 @@ public abstract class Basesms_log extends BaseResource {
 		this.reference_id = null;
 	}
 
-	public boolean validateReference_id(boolean add) throws ApplicationException {
-		if(add && reference_id == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[reference_id]");
-		return reference_id != null;
-	}
-
 	public String getReference_description() {
 		return reference_description;
 	}
@@ -445,12 +431,6 @@ public abstract class Basesms_log extends BaseResource {
 
 	public void unSetReference_description() {
 		this.reference_description = null;
-	}
-
-	public boolean validateReference_description(boolean add) throws ApplicationException {
-		if(add && reference_description == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[reference_description]");
-		return reference_description != null;
 	}
 
 	public String getStudent_id() {
@@ -469,12 +449,6 @@ public abstract class Basesms_log extends BaseResource {
 		this.student_id = null;
 	}
 
-	public boolean validateStudent_id(boolean add) throws ApplicationException {
-		if(add && student_id == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[student_id]");
-		return student_id != null;
-	}
-
 	public String getStudent_name() {
 		return student_name;
 	}
@@ -489,12 +463,6 @@ public abstract class Basesms_log extends BaseResource {
 
 	public void unSetStudent_name() {
 		this.student_name = null;
-	}
-
-	public boolean validateStudent_name(boolean add) throws ApplicationException {
-		if(add && student_name == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[student_name]");
-		return student_name != null;
 	}
 
 	public String getClass_name() {
@@ -513,12 +481,6 @@ public abstract class Basesms_log extends BaseResource {
 		this.class_name = null;
 	}
 
-	public boolean validateClass_name(boolean add) throws ApplicationException {
-		if(add && class_name == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[class_name]");
-		return class_name != null;
-	}
-
 	public String getSection_name() {
 		return section_name;
 	}
@@ -533,12 +495,6 @@ public abstract class Basesms_log extends BaseResource {
 
 	public void unSetSection_name() {
 		this.section_name = null;
-	}
-
-	public boolean validateSection_name(boolean add) throws ApplicationException {
-		if(add && section_name == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[section_name]");
-		return section_name != null;
 	}
 
 	public String getSchool_id() {
@@ -557,12 +513,6 @@ public abstract class Basesms_log extends BaseResource {
 		this.school_id = null;
 	}
 
-	public boolean validateSchool_id(boolean add) throws ApplicationException {
-		if(add && school_id == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[school_id]");
-		return school_id != null;
-	}
-
 	public String getSchool_name() {
 		return school_name;
 	}
@@ -577,12 +527,6 @@ public abstract class Basesms_log extends BaseResource {
 
 	public void unSetSchool_name() {
 		this.school_name = null;
-	}
-
-	public boolean validateSchool_name(boolean add) throws ApplicationException {
-		if(add && school_name == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[school_name]");
-		return school_name != null;
 	}
 
 	public String getMobile_no() {
@@ -601,12 +545,6 @@ public abstract class Basesms_log extends BaseResource {
 		this.mobile_no = null;
 	}
 
-	public boolean validateMobile_no(boolean add) throws ApplicationException {
-		if(add && mobile_no == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[mobile_no]");
-		return mobile_no != null;
-	}
-
 	public String getPerson_name() {
 		return person_name;
 	}
@@ -623,10 +561,20 @@ public abstract class Basesms_log extends BaseResource {
 		this.person_name = null;
 	}
 
-	public boolean validatePerson_name(boolean add) throws ApplicationException {
-		if(add && person_name == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[person_name]");
-		return person_name != null;
+	public String getDate() {
+		return date;
+	}
+
+	public String getDateEx() {
+		return date != null ? date : "";
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public void unSetDate() {
+		this.date = null;
 	}
 
 	public Long getInvocation_time() {
