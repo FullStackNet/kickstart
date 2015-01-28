@@ -28,6 +28,12 @@
 				'required': true,
 				'type':'String'
 			},
+			'school_name':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String'
+			},
 			'invoke_count':
 			{
 				'type':'int'
