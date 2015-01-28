@@ -76,8 +76,8 @@ public class NoticeNotificationTask extends NotificationTask {
 				_analysis = new sms_daily_analysis(key);
 				_analysis.setDate(currentDate);
 				_analysis.setReason("NOTICE");
-				_analysis.setSchool_id(_school.getId());
-				_analysis.setSchool_name(_school.getName());
+				_analysis.setSchool_id(_log.getSchool_id());
+				_analysis.setSchool_name(_log.getSchool_name());
 				_analysis.setInvoke_count(1);
 				try {
 					Sms_daily_analysisHelper.getInstance().add(_analysis);
