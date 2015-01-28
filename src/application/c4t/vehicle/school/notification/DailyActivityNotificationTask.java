@@ -1,9 +1,11 @@
 package application.c4t.vehicle.school.notification;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.helper.Sms_logHelper;
 import platform.helper.User_mapHelper;
 import platform.log.ApplicationLogger;
 import platform.manager.ApplicationManager;
@@ -14,10 +16,12 @@ import platform.notification.NotificationFactory;
 import platform.notification.NotificationTask;
 import platform.resource.BaseResource;
 import platform.resource.notification;
+import platform.resource.sms_log;
 import platform.resource.user;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
+import platform.util.TimeUtil;
 import platform.util.Util;
 import application.c4t.vehicle.school.helper.Daily_activityHelper;
 import application.c4t.vehicle.school.helper.SchoolHelper;
@@ -34,19 +38,39 @@ public class DailyActivityNotificationTask extends NotificationTask {
 	}
 
 	void sendSMS2Users(notification _notification, 
-			Map<String, String> smsAlertMap,
+			Map<String, student> smsAlertMap,
 			String class_section_name,
 			String title,
-			String description,String date,String customer_id) {
+			String description,
+			String date,
+			String customer_id,
+			daily_activity activity) {
 
-		for(Map.Entry<String, String> entry : smsAlertMap.entrySet()) {
+		for(Map.Entry<String, student> entry : smsAlertMap.entrySet()) {
+			student _student = entry.getValue();
+			if (_student == null)
+				continue;
+			school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
+			if (_school == null)
+				continue;
+			String currentDate = TimeUtil.getDateString(_school.getTimezone(), new Date().getTime());
+			sms_log _log = Sms_logHelper.getInstance().logSchoolActivity(_school.getId(), 
+					_school.getName(), 
+					_student.getId(), 
+					_student.getName(), 
+					_student.getClass_name(), 
+					_student.getSection_name(),
+					entry.getKey(), 
+					"DAILY_ACTIVITY",
+					currentDate, activity.getCreation_time(), activity.getTitle(), activity.getId());
 			SendSMS smsMessage = new SendSMS();
 			smsMessage.setMobile_no(entry.getKey());
 			smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_DAILY_ACTIVITY);
 			Map<String, String> map = new HashMap<String, String>();
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOG_ID, _log.getId());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, entry.getValue());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, _student.getShort_name());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ACTIVITY_DATE, date);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 			String params = Json.maptoString(map);
@@ -81,14 +105,14 @@ public class DailyActivityNotificationTask extends NotificationTask {
 	}
 
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
-			Map<String, String> studentMap,
+			Map<String, student> studentMap,
 			Map<String, String> appAlertMap,
 			String class_section_name,
 			String title,
 			String description,String activity_date, String customerId) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
-			String students = studentMap.get(entry.getKey());
+			student _student = studentMap.get(entry.getKey());
 			String appAlert = appAlertMap.get(_user.getId());
 			if ("Y".equals(appAlert) && (_user.getMobile_no() != null)) {
 				SendNotification notificationMessage = new SendNotification();
@@ -98,7 +122,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, _student.getShort_name());
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_ACTIVITY_DATE, activity_date);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customerId);
 				String params = Json.maptoString(map);
@@ -131,8 +155,8 @@ public class DailyActivityNotificationTask extends NotificationTask {
 		if ((students == null) || (students.length == 0)) 
 			return;
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
-		Map<String, String> studentMap = new HashMap<String, String>();
-		Map<String, String> smsAlertMap = new HashMap<String, String>();
+		Map<String, student> studentMap = new HashMap<String, student>();
+		Map<String, student> smsAlertMap = new HashMap<String, student>();
 		Map<String, String> emailAlertMap = new HashMap<String, String>();
 		Map<String, String> appAlertMap = new HashMap<String, String>();
 			
@@ -174,28 +198,22 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());
 			for(int j=0; j < _users.size(); j++) {
 				userMap.put(_users.get(j).getId(), _users.get(j));
-				String str = studentMap.get(_users.get(j).getId());
-				if (str == null) {
-					str = _student.getShort_name(); 
-				} else {
-					str = str +","+_student.getShort_name();
-				}
-				studentMap.put(_users.get(j).getId(), str);
+				studentMap.put(_users.get(j).getId(), _student);
 				appAlertMap.put(_users.get(j).getId(), appAlert);
 			
 			}
 			if ("Y".equals(smsAlert)) {
 				if ((!Util.isEmpty(_student.getFather_mobile_no())) && 
 						("FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getFather_mobile_no(),  _student.getShort_name());
+					smsAlertMap.put(_student.getFather_mobile_no(),  _student);
 				}
 				if ((!Util.isEmpty(_student.getMother_mobile_no())) && 
 						("MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getMother_mobile_no(), _student.getShort_name());
+					smsAlertMap.put(_student.getMother_mobile_no(), _student);
 				}
 				if ((!Util.isEmpty(_student.getOther_mobile_no())) && 
 						("OTHER".equals(_student.getPrimary_contact()) || "OTHER".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getOther_mobile_no(), _student.getShort_name());
+					smsAlertMap.put(_student.getOther_mobile_no(), _student);
 				}
 			}
 
@@ -232,7 +250,8 @@ public class DailyActivityNotificationTask extends NotificationTask {
 				class_section_name,
 				title,
 				description,
-				activity_date,customerId);
+				activity_date,customerId,
+				activity);
 		
 		sendEmail2Users(_notification, 
 				emailAlertMap,

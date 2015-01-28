@@ -50,56 +50,18 @@ public class NoticeNotificationTask extends NotificationTask {
 			if (_student == null)
 				continue;
 			school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
+			if (_school == null)
+				continue;
 			String currentDate = TimeUtil.getDateString(_school.getTimezone(), new Date().getTime());
-			
-			sms_log _log = new sms_log();
-			_log.setSchool_id(_student.getSchool_id());
-			_log.setMobile_no(entry.getKey());
-			_log.setInvocation_time(new Date().getTime());
-			_log.setEvent_creation_time(activity.getCreation_time());
-			_log.setStudent_id(_student.getId());
-			_log.setStudent_name(_student.getName());
-			_log.setClass_name(_student.getClass_name());
-			_log.setDate(currentDate);
-			_log.setSection_name(_student.getClass_name());
-			if (_school != null) {
-				_log.setSchool_name(_school.getName());
-			}
-			_log.setReason("NOTICE");
-			_log.setReference_description(title);
-			_log.setReference_id(activity.getId());	
-			//_log.setPerson_name("");
-			_log.setSent_status("N");
-			_log.setProcessing_status("N");
-			try {
-				Sms_logHelper.getInstance().add(_log);
-			} catch (ApplicationException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			String key = sms_daily_analysis.id(currentDate, _log.getSchool_id(), _log.getReason());
-			sms_daily_analysis _analysis = (sms_daily_analysis)Sms_daily_analysisHelper.getInstance().getById(key);
-			if (_analysis == null) {
-				_analysis = new sms_daily_analysis(key);
-				_analysis.setDate(currentDate);
-				_analysis.setReason("NOTICE");
-				_analysis.setSchool_id(_log.getSchool_id());
-				_analysis.setSchool_name(_log.getSchool_name());
-				_analysis.setInvoke_count(1);
-				try {
-					Sms_daily_analysisHelper.getInstance().add(_analysis);
-				} catch (ApplicationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			} else {
-				try {
-					Sms_daily_analysisHelper.getInstance().incrementCounter(key, sms_daily_analysis.FIELD_INVOKE_COUNT, 1);
-				} catch (ApplicationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			sms_log _log = Sms_logHelper.getInstance().logSchoolActivity(_school.getId(), 
+					_school.getName(), 
+					_student.getId(), 
+					_student.getName(), 
+					_student.getClass_name(), 
+					_student.getSection_name(),
+					entry.getKey(), 
+					"NOTICE",
+					currentDate, activity.getCreation_time(), activity.getTitle(), activity.getId());
 			SendSMS smsMessage = new SendSMS();
 			smsMessage.setMobile_no(entry.getKey());
 			smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_NOTICE);
