@@ -99,13 +99,6 @@ public class NoticeNotificationTask extends NotificationTask {
 					e.printStackTrace();
 				}
 			}
-			
-			try {
-				Sms_logHelper.getInstance().add(_log);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			SendSMS smsMessage = new SendSMS();
 			smsMessage.setMobile_no(entry.getKey());
 			smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_NOTICE);
