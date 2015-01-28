@@ -61,7 +61,7 @@ public class NoticeNotificationTask extends NotificationTask {
 					_student.getSection_name(),
 					entry.getKey(), 
 					"NOTICE",
-					currentDate, activity.getCreation_time(), activity.getTitle(), activity.getId());
+					currentDate, _notification.getNotification_time(), activity.getTitle(), activity.getId());
 			SendSMS smsMessage = new SendSMS();
 			smsMessage.setMobile_no(entry.getKey());
 			smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_NOTICE);

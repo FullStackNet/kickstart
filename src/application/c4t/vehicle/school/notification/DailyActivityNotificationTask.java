@@ -61,7 +61,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 					_student.getClass_name(), 
 					_student.getSection_name(),
 					entry.getKey(), 
-					"DAILY_ACTIVITY",
+					"DAILY ACTIVITY",
 					currentDate, activity.getCreation_time(), activity.getTitle(), activity.getId());
 			SendSMS smsMessage = new SendSMS();
 			smsMessage.setMobile_no(entry.getKey());

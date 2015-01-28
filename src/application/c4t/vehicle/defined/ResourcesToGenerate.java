@@ -35,5 +35,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("vehicle_map", "application.c4t.vehicle.resource.vehicle_map"),
 		new ResourceMap("trip_detail", "application.c4t.vehicle.resource.trip_detail"),
 		new ResourceMap("trip_overspeed_detail", "application.c4t.vehicle.resource.trip_overspeed_detail"),
+		new ResourceMap("attendent", "application.c4t.vehicle.resource.attendent"),
+		
 	};
 }
