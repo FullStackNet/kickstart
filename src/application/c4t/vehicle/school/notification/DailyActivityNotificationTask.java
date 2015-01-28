@@ -20,6 +20,7 @@ import platform.util.ApplicationException;
 import platform.util.Json;
 import platform.util.Util;
 import application.c4t.vehicle.school.helper.Daily_activityHelper;
+import application.c4t.vehicle.school.helper.SchoolHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.daily_activity;
@@ -143,9 +144,11 @@ public class DailyActivityNotificationTask extends NotificationTask {
 			student _student = (student)students[i];
 			if (_student == null)
 				continue;
-			school _school = (school)StudentHelper.getInstance().getById(_student.getSchool_id());
-			if (_school == null)
+			school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
+			if (_school == null) {
+				ApplicationLogger.error("!!! BIG ERROR !!! School id is null for " +_student.getId() + " " +_student.getName(), this.getClass());
 				continue;
+			}
 			if ("Y".equals(_student.getStopage_alert_sms())) {
 				smsAlert = "Y";
 			}
