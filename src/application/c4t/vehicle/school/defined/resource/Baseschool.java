@@ -71,6 +71,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_pick_drop_email = null;
 	private String feature_message2parent_email = null;
 	private String feature_send_birthday_sms = null;
+	private String feature_timing_based_attendance = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -125,6 +126,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_PICK_DROP_EMAIL = "feature_pick_drop_email";
 	public static String FIELD_FEATURE_MESSAGE2PARENT_EMAIL = "feature_message2parent_email";
 	public static String FIELD_FEATURE_SEND_BIRTHDAY_SMS = "feature_send_birthday_sms";
+	public static String FIELD_FEATURE_TIMING_BASED_ATTENDANCE = "feature_timing_based_attendance";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -376,6 +378,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_send_birthday_smsField.setLength(1);
 		metaData.addField(feature_send_birthday_smsField);
 
+		Field feature_timing_based_attendanceField = new Field("feature_timing_based_attendance", "String");
+		feature_timing_based_attendanceField.setDefaultValue("N");
+		feature_timing_based_attendanceField.setLength(1);
+		metaData.addField(feature_timing_based_attendanceField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -441,6 +448,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_pick_drop_email = obj.feature_pick_drop_email;
 		this.feature_message2parent_email = obj.feature_message2parent_email;
 		this.feature_send_birthday_sms = obj.feature_send_birthday_sms;
+		this.feature_timing_based_attendance = obj.feature_timing_based_attendance;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -521,6 +529,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_message2parent_email = "Y";
 		if(feature_send_birthday_sms == null)
 			feature_send_birthday_sms = "N";
+		if(feature_timing_based_attendance == null)
+			feature_timing_based_attendance = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -629,6 +639,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_message2parent_email", feature_message2parent_email);
 		if(feature_send_birthday_sms != null)
 			map.put("feature_send_birthday_sms", feature_send_birthday_sms);
+		if(feature_timing_based_attendance != null)
+			map.put("feature_timing_based_attendance", feature_timing_based_attendance);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -743,6 +755,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_message2parent_email", feature_message2parent_email);
 		if(feature_send_birthday_sms != null)
 			map.put("feature_send_birthday_sms", feature_send_birthday_sms);
+		if(feature_timing_based_attendance != null)
+			map.put("feature_timing_based_attendance", feature_timing_based_attendance);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -807,6 +821,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_pick_drop_email = (String) map.get("feature_pick_drop_email");
 		feature_message2parent_email = (String) map.get("feature_message2parent_email");
 		feature_send_birthday_sms = (String) map.get("feature_send_birthday_sms");
+		feature_timing_based_attendance = (String) map.get("feature_timing_based_attendance");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1019,6 +1034,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_send_birthday_smsObj = map.get("feature_send_birthday_sms");
 		if(feature_send_birthday_smsObj != null)
 			feature_send_birthday_sms = feature_send_birthday_smsObj.toString();
+
+		Object feature_timing_based_attendanceObj = map.get("feature_timing_based_attendance");
+		if(feature_timing_based_attendanceObj != null)
+			feature_timing_based_attendance = feature_timing_based_attendanceObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1729,6 +1748,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_send_birthday_sms() {
 		this.feature_send_birthday_sms = "N";
+	}
+
+	public String getFeature_timing_based_attendance() {
+		return feature_timing_based_attendance != null ? feature_timing_based_attendance : "N";
+	}
+
+	public void setFeature_timing_based_attendance(String feature_timing_based_attendance) {
+		this.feature_timing_based_attendance = feature_timing_based_attendance;
+	}
+
+	public void unSetFeature_timing_based_attendance() {
+		this.feature_timing_based_attendance = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

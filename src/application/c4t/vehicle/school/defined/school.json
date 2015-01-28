@@ -307,6 +307,12 @@
 				'length': 1,
 				'default' : "N",
 				'type':'String'
+			},
+			'feature_timing_based_attendance':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
 			}
 		}
 	}
