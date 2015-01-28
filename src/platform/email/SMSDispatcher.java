@@ -149,15 +149,15 @@ public class SMSDispatcher {
 					} else {
 						String url = "http://luna.a2wi.co.in:7501/failsafe/HttpLink?aid=516180&pin=cfy@1&mnumber=91"+mobile_no+"&message="+message;
 						sendHTTPMessage(url);
-						if (params != null) {
-							String logId = params.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOG_ID);
-							if (logId != null) {
-								sms_log _log = (sms_log)Sms_logHelper.getInstance().getById(logId);
-								if (_log != null) {
-									Sms_logHelper.getInstance().updateSent(_log.getId());
-									String key = sms_daily_analysis.id(_log.getDate(), _log.getSchool_id(), _log.getReason());
-									Sms_daily_analysisHelper.getInstance().incrementCounter(key, sms_daily_analysis.FIELD_SENT_COUNT, 1);
-								}
+					}
+					if (params != null) {
+						String logId = params.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOG_ID);
+						if (logId != null) {
+							sms_log _log = (sms_log)Sms_logHelper.getInstance().getById(logId);
+							if (_log != null) {
+								Sms_logHelper.getInstance().updateSent(_log.getId());
+								String key = sms_daily_analysis.id(_log.getDate(), _log.getSchool_id(), _log.getReason());
+								Sms_daily_analysisHelper.getInstance().incrementCounter(key, sms_daily_analysis.FIELD_SENT_COUNT, 1);
 							}
 						}
 					}
