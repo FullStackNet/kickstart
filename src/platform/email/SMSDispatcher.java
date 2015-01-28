@@ -143,6 +143,15 @@ public class SMSDispatcher {
 			if (isValidMobileforSMS(mobile_no)) {
 				message = URLEncoder.encode(Util.readSMSFileFromLocal(templete.toLowerCase(), params),"UTF-8");
 				try {
+					if (params != null) {
+						String logId = params.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOG_ID);
+						if (logId != null) {
+							sms_log _log = (sms_log)Sms_logHelper.getInstance().getById(logId);
+							if (_log != null) {
+								Sms_logHelper.getInstance().updateTryTime(_log.getId());
+							}
+						}
+					}
 					if (_account != null) {
 						String url = getURLFromAccount(_account,mobile_no,message);
 						sendHTTPMessage(url);
