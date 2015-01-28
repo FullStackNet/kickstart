@@ -93,7 +93,7 @@
 				'length': 1,
 				'type':'String',
 				'comment' : "N-Not sent,S-Sent,F-Failed"
-			}	
+			},	
 			'processing_status':
 			{
 				'length': 1,

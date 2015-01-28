@@ -35,6 +35,7 @@ public abstract class Basesms_log extends BaseResource {
 	private Long sent_try_time = null;
 	private Long sent_time = null;
 	private String sent_status = null; //N-Not sent,S-Sent,F-Failed
+	private String processing_status = null; //N-Not Processed, P-Processed
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -53,6 +54,7 @@ public abstract class Basesms_log extends BaseResource {
 	public static String FIELD_SENT_TRY_TIME = "sent_try_time";
 	public static String FIELD_SENT_TIME = "sent_time";
 	public static String FIELD_SENT_STATUS = "sent_status";
+	public static String FIELD_PROCESSING_STATUS = "processing_status";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -134,6 +136,10 @@ public abstract class Basesms_log extends BaseResource {
 		sent_statusField.setLength(1);
 		metaData.addField(sent_statusField);
 
+		Field processing_statusField = new Field("processing_status", "String");
+		processing_statusField.setLength(1);
+		metaData.addField(processing_statusField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -163,6 +169,7 @@ public abstract class Basesms_log extends BaseResource {
 		this.sent_try_time = obj.sent_try_time;
 		this.sent_time = obj.sent_time;
 		this.sent_status = obj.sent_status;
+		this.processing_status = obj.processing_status;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -204,6 +211,8 @@ public abstract class Basesms_log extends BaseResource {
 			map.put("sent_time", sent_time);
 		if(sent_status != null)
 			map.put("sent_status", sent_status);
+		if(processing_status != null)
+			map.put("processing_status", processing_status);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -243,6 +252,8 @@ public abstract class Basesms_log extends BaseResource {
 			map.put("sent_time", sent_time);
 		if(sent_status != null)
 			map.put("sent_status", sent_status);
+		if(processing_status != null)
+			map.put("processing_status", processing_status);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -271,6 +282,7 @@ public abstract class Basesms_log extends BaseResource {
 		sent_try_time = (Long) map.get("sent_try_time");
 		sent_time = (Long) map.get("sent_time");
 		sent_status = (String) map.get("sent_status");
+		processing_status = (String) map.get("processing_status");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -339,6 +351,10 @@ public abstract class Basesms_log extends BaseResource {
 		Object sent_statusObj = map.get("sent_status");
 		if(sent_statusObj != null)
 			sent_status = sent_statusObj.toString();
+
+		Object processing_statusObj = map.get("processing_status");
+		if(processing_statusObj != null)
+			processing_status = processing_statusObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -654,6 +670,22 @@ public abstract class Basesms_log extends BaseResource {
 
 	public void unSetSent_status() {
 		this.sent_status = null;
+	}
+
+	public String getProcessing_status() {
+		return processing_status;
+	}
+
+	public String getProcessing_statusEx() {
+		return processing_status != null ? processing_status : "";
+	}
+
+	public void setProcessing_status(String processing_status) {
+		this.processing_status = processing_status;
+	}
+
+	public void unSetProcessing_status() {
+		this.processing_status = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
