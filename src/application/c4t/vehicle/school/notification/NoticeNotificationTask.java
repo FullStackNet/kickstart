@@ -1,9 +1,11 @@
 package application.c4t.vehicle.school.notification;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.helper.Sms_logHelper;
 import platform.helper.User_mapHelper;
 import platform.log.ApplicationLogger;
 import platform.manager.ApplicationManager;
@@ -14,12 +16,14 @@ import platform.notification.NotificationFactory;
 import platform.notification.NotificationTask;
 import platform.resource.BaseResource;
 import platform.resource.notification;
+import platform.resource.sms_log;
 import platform.resource.user;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
 import platform.util.Util;
 import application.c4t.vehicle.school.helper.NoticeHelper;
+import application.c4t.vehicle.school.helper.SchoolHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.notice;
@@ -32,20 +36,48 @@ public class NoticeNotificationTask extends NotificationTask {
 		// TODO Auto-generated constructor stub
 	}
 
-	void sendSMS2Users(notification _notification, 
-			Map<String, String> smsAlertMap,
+	void sendSMS2Users(notice activity,notification _notification, 
+			Map<String, student> smsAlertMap,
 			String class_section_name,
 			String title,
 			String description,String date,String customer_id) {
 
-		for(Map.Entry<String, String> entry : smsAlertMap.entrySet()) {
+		for(Map.Entry<String, student> entry : smsAlertMap.entrySet()) {
+			student _student  = entry.getValue();
+			if (_student == null)
+				continue;
+			school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
+			sms_log _log = new sms_log();
+			_log.setSchool_id(_student.getSchool_id());
+			_log.setMobile_no(entry.getKey());
+			_log.setInvocation_time(new Date().getTime());
+			_log.setStudent_id(_student.getId());
+			_log.setStudent_name(_student.getName());
+			_log.setClass_name(_student.getClass_name());
+			_log.setSection_name(_student.getClass_name());
+			if (_school != null) {
+				_log.setSchool_name(_school.getName());
+			}
+			_log.setReason("NOTICE");
+			_log.setReference_description(title);
+			_log.setReference_id(activity.getId());	
+			//_log.setPerson_name("");
+			_log.setSent_status("N");
+			_log.setProcessing_status("N");
+			try {
+				Sms_logHelper.getInstance().add(_log);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			SendSMS smsMessage = new SendSMS();
 			smsMessage.setMobile_no(entry.getKey());
 			smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_NOTICE);
 			Map<String, String> map = new HashMap<String, String>();
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOG_ID, _log.getId());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, entry.getValue());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, _student.getShort_name());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 			String params = Json.maptoString(map);
@@ -55,7 +87,7 @@ public class NoticeNotificationTask extends NotificationTask {
 		}
 	}
 
-	void sendEmail2Users(notification _notification, 
+	void sendEmail2Users(notice activity,notification _notification, 
 			Map<String, String> emailAlertMap,
 			String class_section_name,
 			String title,
@@ -79,15 +111,15 @@ public class NoticeNotificationTask extends NotificationTask {
 	
 		}
 	}
-	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
-			Map<String, String> studentMap,
+	void sendNotification2Users(notice activity,notification _notification, Map<String, BaseResource> userMap,
+			Map<String, student> studentMap,
 			Map<String, String> appAlertMap,
 			String class_section_name,
 			String title,
 			String description,String date,String customer_id) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
-			String students = studentMap.get(entry.getKey());
+			student student = studentMap.get(entry.getKey());
 			String appAlert = appAlertMap.get(_user.getId());
 					
 			if ("Y".equals(appAlert) && (_user.getMobile_no() != null)) {
@@ -98,7 +130,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TITLE, title);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DESCRIPTION, description);
-				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, student.getShort_name());
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 
@@ -150,11 +182,11 @@ public class NoticeNotificationTask extends NotificationTask {
 			return;
 		ApplicationLogger.info("Sending notice to "+ students.length + " Students", this.getClass());
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
-		Map<String, String> studentMap = new HashMap<String, String>();
+		Map<String, student> studentMap = new HashMap<String, student>();
 		String smsAlert = "N";
 		String emailAlert = "N";
 		String appAlert = "N";
-		Map<String, String> smsAlertMap = new HashMap<String, String>();
+		Map<String, student> smsAlertMap = new HashMap<String, student>();
 		Map<String, String> emailAlertMap = new HashMap<String, String>();;
 		Map<String, String> appAlertMap = new HashMap<String, String>();;
 
@@ -194,27 +226,21 @@ public class NoticeNotificationTask extends NotificationTask {
 			for(int j=0; j < _users.size(); j++) {
 				userMap.put(_users.get(j).getId(), _users.get(j));
 				appAlertMap.put(_users.get(j).getId(), appAlert);
-				String str = studentMap.get(_users.get(j).getId());
-				if (str == null) {
-					str = _student.getShort_name(); 
-				} else {
-					str = str +","+_student.getShort_name();
-				}
-				studentMap.put(_users.get(j).getId(), str);
+				studentMap.put(_users.get(j).getId(), _student);
 			}
 
 			if ("Y".equals(smsAlert)) {
 				if ((!Util.isEmpty(_student.getFather_mobile_no())) && 
 						("Y".equals(activity.getSend_father_mother()) || "FATHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getFather_mobile_no(),  _student.getShort_name());
+					smsAlertMap.put(_student.getFather_mobile_no(),  _student);
 				}
 				if ((!Util.isEmpty(_student.getMother_mobile_no())) && 
 						("Y".equals(activity.getSend_father_mother()) || "MOTHER".equals(_student.getPrimary_contact()) || "BOTH".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getMother_mobile_no(), _student.getShort_name());
+					smsAlertMap.put(_student.getMother_mobile_no(), _student);
 				}
 				if ((!Util.isEmpty(_student.getOther_mobile_no())) && 
 						("OTHER".equals(_student.getPrimary_contact()) || "OTHER".equals(_student.getPrimary_contact()))) {
-					smsAlertMap.put(_student.getOther_mobile_no(), _student.getShort_name());
+					smsAlertMap.put(_student.getOther_mobile_no(), _student);
 				}
 			}
 
@@ -243,21 +269,21 @@ public class NoticeNotificationTask extends NotificationTask {
 		NoticeHelper.getInstance().updateSentCounter(notice_id, 
 				students.length, userMap.size(), smsAlertMap.size(), emailAlertMap.size(), appAlertMap.size());
 		
-		sendNotification2Users(_notification, userMap, studentMap,
+		sendNotification2Users(activity,_notification, userMap, studentMap,
 				appAlertMap,
 				class_section_name,
 				title,
 				description,
 				date,customer_id);
 		
-		sendSMS2Users(_notification, 
+		sendSMS2Users(activity,_notification, 
 				smsAlertMap,
 				class_section_name,
 				title,
 				description,
 				date,customer_id);
 		
-		sendEmail2Users(_notification, 
+		sendEmail2Users(activity,_notification, 
 				emailAlertMap,
 				class_section_name,
 				title,
