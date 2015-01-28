@@ -1,7 +1,7 @@
 package platform.helper;
 
 import platform.resource.BaseResource;
-import platform.resource.sms_log;
+import platform.resource.sms_daily_analysis;
 
 
 
@@ -20,7 +20,7 @@ public class Sms_daily_analysisHelper extends BaseHelper {
 	}
 
 	Sms_daily_analysisHelper() {
-		super(new sms_log());
+		super(new sms_daily_analysis());
 		// TODO Auto-generated constructor stub
 	}
 }

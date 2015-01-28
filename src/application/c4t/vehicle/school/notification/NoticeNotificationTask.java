@@ -70,6 +70,12 @@ public class NoticeNotificationTask extends NotificationTask {
 			//_log.setPerson_name("");
 			_log.setSent_status("N");
 			_log.setProcessing_status("N");
+			try {
+				Sms_logHelper.getInstance().add(_log);
+			} catch (ApplicationException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			String key = sms_daily_analysis.id(currentDate, _log.getSchool_id(), _log.getReason());
 			sms_daily_analysis _analysis = (sms_daily_analysis)Sms_daily_analysisHelper.getInstance().getById(key);
 			if (_analysis == null) {
