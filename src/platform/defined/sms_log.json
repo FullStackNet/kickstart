@@ -69,6 +69,10 @@
 				'length': 32,
 				'type':'String'			
 			},
+			'event_creation_time':
+			{
+				'type':'timestamp'
+			},
 			'invocation_time':
 			{
 				'type':'timestamp'

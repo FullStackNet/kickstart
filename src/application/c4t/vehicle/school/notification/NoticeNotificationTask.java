@@ -56,6 +56,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			_log.setSchool_id(_student.getSchool_id());
 			_log.setMobile_no(entry.getKey());
 			_log.setInvocation_time(new Date().getTime());
+			_log.setEvent_creation_time(activity.getCreation_time());
 			_log.setStudent_id(_student.getId());
 			_log.setStudent_name(_student.getName());
 			_log.setClass_name(_student.getClass_name());

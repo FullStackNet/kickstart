@@ -32,6 +32,7 @@ public abstract class Basesms_log extends BaseResource {
 	private String mobile_no = null;
 	private String person_name = null;
 	private String date = null;
+	private Long event_creation_time = null;
 	private Long invocation_time = null;
 	private Long sent_try_time = null;
 	private Long sent_time = null;
@@ -52,6 +53,7 @@ public abstract class Basesms_log extends BaseResource {
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_PERSON_NAME = "person_name";
 	public static String FIELD_DATE = "date";
+	public static String FIELD_EVENT_CREATION_TIME = "event_creation_time";
 	public static String FIELD_INVOCATION_TIME = "invocation_time";
 	public static String FIELD_SENT_TRY_TIME = "sent_try_time";
 	public static String FIELD_SENT_TIME = "sent_time";
@@ -117,6 +119,9 @@ public abstract class Basesms_log extends BaseResource {
 		dateField.setLength(32);
 		metaData.addField(dateField);
 
+		Field event_creation_timeField = new Field("event_creation_time", "timestamp");
+		metaData.addField(event_creation_timeField);
+
 		Field invocation_timeField = new Field("invocation_time", "timestamp");
 		metaData.addField(invocation_timeField);
 
@@ -160,6 +165,7 @@ public abstract class Basesms_log extends BaseResource {
 		this.mobile_no = obj.mobile_no;
 		this.person_name = obj.person_name;
 		this.date = obj.date;
+		this.event_creation_time = obj.event_creation_time;
 		this.invocation_time = obj.invocation_time;
 		this.sent_try_time = obj.sent_try_time;
 		this.sent_time = obj.sent_time;
@@ -200,6 +206,8 @@ public abstract class Basesms_log extends BaseResource {
 			map.put("person_name", person_name);
 		if(date != null)
 			map.put("date", date);
+		if(event_creation_time != null)
+			map.put("event_creation_time", event_creation_time);
 		if(invocation_time != null)
 			map.put("invocation_time", invocation_time);
 		if(sent_try_time != null)
@@ -243,6 +251,8 @@ public abstract class Basesms_log extends BaseResource {
 			map.put("person_name", person_name);
 		if(date != null)
 			map.put("date", date);
+		if(event_creation_time != null)
+			map.put("event_creation_time", event_creation_time);
 		if(invocation_time != null)
 			map.put("invocation_time", invocation_time);
 		if(sent_try_time != null)
@@ -278,6 +288,7 @@ public abstract class Basesms_log extends BaseResource {
 		mobile_no = (String) map.get("mobile_no");
 		person_name = (String) map.get("person_name");
 		date = (String) map.get("date");
+		event_creation_time = (Long) map.get("event_creation_time");
 		invocation_time = (Long) map.get("invocation_time");
 		sent_try_time = (Long) map.get("sent_try_time");
 		sent_time = (Long) map.get("sent_time");
@@ -339,6 +350,10 @@ public abstract class Basesms_log extends BaseResource {
 		Object dateObj = map.get("date");
 		if(dateObj != null)
 			date = dateObj.toString();
+
+		Object event_creation_timeObj = map.get("event_creation_time");
+		if(event_creation_timeObj != null)
+			event_creation_time = (Long) event_creation_timeObj;
 
 		Object invocation_timeObj = map.get("invocation_time");
 		if(invocation_timeObj != null)
@@ -576,6 +591,15 @@ public abstract class Basesms_log extends BaseResource {
 	public void unSetDate() {
 		this.date = null;
 	}
+
+	public Long getEvent_creation_time() {
+		return event_creation_time;
+	}
+
+	public void setEvent_creation_time(Long event_creation_time) {
+		this.event_creation_time = event_creation_time;
+	}
+
 
 	public Long getInvocation_time() {
 		return invocation_time;
