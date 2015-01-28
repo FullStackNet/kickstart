@@ -33,7 +33,19 @@
 				'type':'String',
 				'index' : true
 			},
-			'attendance_bufferInMin':
+			'entry_buffer_beforeInMin':
+			{
+				'type': 'int'
+			},
+			'entry_buffer_afterInMin':
+			{
+				'type': 'int'
+			},
+			'exit_buffer_beforeInMin':
+			{
+				'type': 'int'
+			},
+			'exit_buffer_afterInMin':
 			{
 				'type': 'int'
 			},

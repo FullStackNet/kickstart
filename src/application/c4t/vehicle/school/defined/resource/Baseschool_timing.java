@@ -24,7 +24,10 @@ public abstract class Baseschool_timing extends BaseResource {
 	private String class_name = null;
 	private String section_name = null;
 	private String customer_id = null;
-	private Integer attendance_bufferInMin = null;
+	private Integer entry_buffer_beforeInMin = null;
+	private Integer entry_buffer_afterInMin = null;
+	private Integer exit_buffer_beforeInMin = null;
+	private Integer exit_buffer_afterInMin = null;
 	private String start_time = null;
 	private String end_time = null;
 	private String status = null;
@@ -36,7 +39,10 @@ public abstract class Baseschool_timing extends BaseResource {
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
-	public static String FIELD_ATTENDANCE_BUFFERINMIN = "attendance_bufferInMin";
+	public static String FIELD_ENTRY_BUFFER_BEFOREINMIN = "entry_buffer_beforeInMin";
+	public static String FIELD_ENTRY_BUFFER_AFTERINMIN = "entry_buffer_afterInMin";
+	public static String FIELD_EXIT_BUFFER_BEFOREINMIN = "exit_buffer_beforeInMin";
+	public static String FIELD_EXIT_BUFFER_AFTERINMIN = "exit_buffer_afterInMin";
 	public static String FIELD_START_TIME = "start_time";
 	public static String FIELD_END_TIME = "end_time";
 	public static String FIELD_STATUS = "status";
@@ -72,8 +78,17 @@ public abstract class Baseschool_timing extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
-		Field attendance_bufferInMinField = new Field("attendance_bufferInMin", "int");
-		metaData.addField(attendance_bufferInMinField);
+		Field entry_buffer_beforeInMinField = new Field("entry_buffer_beforeInMin", "int");
+		metaData.addField(entry_buffer_beforeInMinField);
+
+		Field entry_buffer_afterInMinField = new Field("entry_buffer_afterInMin", "int");
+		metaData.addField(entry_buffer_afterInMinField);
+
+		Field exit_buffer_beforeInMinField = new Field("exit_buffer_beforeInMin", "int");
+		metaData.addField(exit_buffer_beforeInMinField);
+
+		Field exit_buffer_afterInMinField = new Field("exit_buffer_afterInMin", "int");
+		metaData.addField(exit_buffer_afterInMinField);
 
 		Field start_timeField = new Field("start_time", "String");
 		start_timeField.setLength(16);
@@ -109,7 +124,10 @@ public abstract class Baseschool_timing extends BaseResource {
 		this.class_name = obj.class_name;
 		this.section_name = obj.section_name;
 		this.customer_id = obj.customer_id;
-		this.attendance_bufferInMin = obj.attendance_bufferInMin;
+		this.entry_buffer_beforeInMin = obj.entry_buffer_beforeInMin;
+		this.entry_buffer_afterInMin = obj.entry_buffer_afterInMin;
+		this.exit_buffer_beforeInMin = obj.exit_buffer_beforeInMin;
+		this.exit_buffer_afterInMin = obj.exit_buffer_afterInMin;
 		this.start_time = obj.start_time;
 		this.end_time = obj.end_time;
 		this.status = obj.status;
@@ -138,8 +156,14 @@ public abstract class Baseschool_timing extends BaseResource {
 			map.put("section_name", section_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if(attendance_bufferInMin != null)
-			map.put("attendance_bufferInMin", attendance_bufferInMin);
+		if(entry_buffer_beforeInMin != null)
+			map.put("entry_buffer_beforeInMin", entry_buffer_beforeInMin);
+		if(entry_buffer_afterInMin != null)
+			map.put("entry_buffer_afterInMin", entry_buffer_afterInMin);
+		if(exit_buffer_beforeInMin != null)
+			map.put("exit_buffer_beforeInMin", exit_buffer_beforeInMin);
+		if(exit_buffer_afterInMin != null)
+			map.put("exit_buffer_afterInMin", exit_buffer_afterInMin);
 		if(start_time != null)
 			map.put("start_time", start_time);
 		if(end_time != null)
@@ -168,8 +192,14 @@ public abstract class Baseschool_timing extends BaseResource {
 			map.put("section_name", section_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if(attendance_bufferInMin != null)
-			map.put("attendance_bufferInMin", attendance_bufferInMin);
+		if(entry_buffer_beforeInMin != null)
+			map.put("entry_buffer_beforeInMin", entry_buffer_beforeInMin);
+		if(entry_buffer_afterInMin != null)
+			map.put("entry_buffer_afterInMin", entry_buffer_afterInMin);
+		if(exit_buffer_beforeInMin != null)
+			map.put("exit_buffer_beforeInMin", exit_buffer_beforeInMin);
+		if(exit_buffer_afterInMin != null)
+			map.put("exit_buffer_afterInMin", exit_buffer_afterInMin);
 		if(start_time != null)
 			map.put("start_time", start_time);
 		if(end_time != null)
@@ -195,7 +225,10 @@ public abstract class Baseschool_timing extends BaseResource {
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
 		customer_id = (String) map.get("customer_id");
-		attendance_bufferInMin = (Integer) map.get("attendance_bufferInMin");
+		entry_buffer_beforeInMin = (Integer) map.get("entry_buffer_beforeInMin");
+		entry_buffer_afterInMin = (Integer) map.get("entry_buffer_afterInMin");
+		exit_buffer_beforeInMin = (Integer) map.get("exit_buffer_beforeInMin");
+		exit_buffer_afterInMin = (Integer) map.get("exit_buffer_afterInMin");
 		start_time = (String) map.get("start_time");
 		end_time = (String) map.get("end_time");
 		status = (String) map.get("status");
@@ -225,9 +258,21 @@ public abstract class Baseschool_timing extends BaseResource {
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
 
-		Object attendance_bufferInMinObj = map.get("attendance_bufferInMin");
-		if(attendance_bufferInMinObj != null)
-			attendance_bufferInMin = new Integer(attendance_bufferInMinObj.toString());
+		Object entry_buffer_beforeInMinObj = map.get("entry_buffer_beforeInMin");
+		if(entry_buffer_beforeInMinObj != null)
+			entry_buffer_beforeInMin = new Integer(entry_buffer_beforeInMinObj.toString());
+
+		Object entry_buffer_afterInMinObj = map.get("entry_buffer_afterInMin");
+		if(entry_buffer_afterInMinObj != null)
+			entry_buffer_afterInMin = new Integer(entry_buffer_afterInMinObj.toString());
+
+		Object exit_buffer_beforeInMinObj = map.get("exit_buffer_beforeInMin");
+		if(exit_buffer_beforeInMinObj != null)
+			exit_buffer_beforeInMin = new Integer(exit_buffer_beforeInMinObj.toString());
+
+		Object exit_buffer_afterInMinObj = map.get("exit_buffer_afterInMin");
+		if(exit_buffer_afterInMinObj != null)
+			exit_buffer_afterInMin = new Integer(exit_buffer_afterInMinObj.toString());
 
 		Object start_timeObj = map.get("start_time");
 		if(start_timeObj != null)
@@ -346,24 +391,84 @@ public abstract class Baseschool_timing extends BaseResource {
 		this.customer_id = null;
 	}
 
-	public Integer getAttendance_bufferInMin() {
-		return attendance_bufferInMin;
+	public Integer getEntry_buffer_beforeInMin() {
+		return entry_buffer_beforeInMin;
 	}
 
-	public int getAttendance_bufferInMinEx() {
-		return attendance_bufferInMin != null ? attendance_bufferInMin : 0;
+	public int getEntry_buffer_beforeInMinEx() {
+		return entry_buffer_beforeInMin != null ? entry_buffer_beforeInMin : 0;
 	}
 
-	public void setAttendance_bufferInMin(int attendance_bufferInMin) {
-		this.attendance_bufferInMin = attendance_bufferInMin;
+	public void setEntry_buffer_beforeInMin(int entry_buffer_beforeInMin) {
+		this.entry_buffer_beforeInMin = entry_buffer_beforeInMin;
 	}
 
-	public void setAttendance_bufferInMin(Integer attendance_bufferInMin) {
-		this.attendance_bufferInMin = attendance_bufferInMin;
+	public void setEntry_buffer_beforeInMin(Integer entry_buffer_beforeInMin) {
+		this.entry_buffer_beforeInMin = entry_buffer_beforeInMin;
 	}
 
-	public void unSetAttendance_bufferInMin() {
-		this.attendance_bufferInMin = null;
+	public void unSetEntry_buffer_beforeInMin() {
+		this.entry_buffer_beforeInMin = null;
+	}
+
+	public Integer getEntry_buffer_afterInMin() {
+		return entry_buffer_afterInMin;
+	}
+
+	public int getEntry_buffer_afterInMinEx() {
+		return entry_buffer_afterInMin != null ? entry_buffer_afterInMin : 0;
+	}
+
+	public void setEntry_buffer_afterInMin(int entry_buffer_afterInMin) {
+		this.entry_buffer_afterInMin = entry_buffer_afterInMin;
+	}
+
+	public void setEntry_buffer_afterInMin(Integer entry_buffer_afterInMin) {
+		this.entry_buffer_afterInMin = entry_buffer_afterInMin;
+	}
+
+	public void unSetEntry_buffer_afterInMin() {
+		this.entry_buffer_afterInMin = null;
+	}
+
+	public Integer getExit_buffer_beforeInMin() {
+		return exit_buffer_beforeInMin;
+	}
+
+	public int getExit_buffer_beforeInMinEx() {
+		return exit_buffer_beforeInMin != null ? exit_buffer_beforeInMin : 0;
+	}
+
+	public void setExit_buffer_beforeInMin(int exit_buffer_beforeInMin) {
+		this.exit_buffer_beforeInMin = exit_buffer_beforeInMin;
+	}
+
+	public void setExit_buffer_beforeInMin(Integer exit_buffer_beforeInMin) {
+		this.exit_buffer_beforeInMin = exit_buffer_beforeInMin;
+	}
+
+	public void unSetExit_buffer_beforeInMin() {
+		this.exit_buffer_beforeInMin = null;
+	}
+
+	public Integer getExit_buffer_afterInMin() {
+		return exit_buffer_afterInMin;
+	}
+
+	public int getExit_buffer_afterInMinEx() {
+		return exit_buffer_afterInMin != null ? exit_buffer_afterInMin : 0;
+	}
+
+	public void setExit_buffer_afterInMin(int exit_buffer_afterInMin) {
+		this.exit_buffer_afterInMin = exit_buffer_afterInMin;
+	}
+
+	public void setExit_buffer_afterInMin(Integer exit_buffer_afterInMin) {
+		this.exit_buffer_afterInMin = exit_buffer_afterInMin;
+	}
+
+	public void unSetExit_buffer_afterInMin() {
+		this.exit_buffer_afterInMin = null;
 	}
 
 	public String getStart_time() {
