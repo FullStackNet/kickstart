@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import application.brushupskills.helper.CandidateHelper;
 import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.db.ResourceOrder;
@@ -43,6 +42,7 @@ import platform.util.HTML;
 import platform.util.Json;
 import platform.util.Util;
 import platform.util.security.SecurityUtil;
+import application.brushupskills.helper.CandidateHelper;
 
 
 public class BaseServlet extends HttpServlet

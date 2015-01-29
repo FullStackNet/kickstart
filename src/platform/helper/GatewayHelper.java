@@ -5,7 +5,6 @@ import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.controller;
 import platform.resource.gateway;
-import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Util;

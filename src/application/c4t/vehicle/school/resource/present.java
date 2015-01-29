@@ -2,7 +2,6 @@ package application.c4t.vehicle.school.resource;
 
 import platform.util.ApplicationConstants;
 import platform.util.Util;
-import application.c4t.vehicle.school.defined.resource.Baseabsent;
 import application.c4t.vehicle.school.defined.resource.Basepresent;
 
 public class present extends Basepresent {

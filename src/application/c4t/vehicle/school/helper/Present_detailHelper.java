@@ -12,7 +12,6 @@ import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.Util;
 import application.c4t.vehicle.school.resource.present_detail;
-import application.c4t.vehicle.school.resource.present_detail;
 
 
 public class Present_detailHelper extends BaseHelper {

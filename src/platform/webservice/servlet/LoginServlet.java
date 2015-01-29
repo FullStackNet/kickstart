@@ -1,6 +1,5 @@
 package platform.webservice.servlet;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +11,6 @@ import platform.util.ApplicationException;
 import platform.version.VersionManager;
 import platform.webservice.BaseServlet;
 import platform.webservice.service.LoginService;
-import platform.webservice.ui.UIServletContext;
 import application.c4t.vehicle.school.helper.Student_parentHelper;
 import application.c4t.vehicle.school.resource.student_parent;
 

@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import platform.helper.Sms_daily_analysisHelper;
 import platform.helper.Sms_logHelper;
 import platform.helper.User_mapHelper;
 import platform.log.ApplicationLogger;
@@ -17,7 +16,6 @@ import platform.notification.NotificationFactory;
 import platform.notification.NotificationTask;
 import platform.resource.BaseResource;
 import platform.resource.notification;
-import platform.resource.sms_daily_analysis;
 import platform.resource.sms_log;
 import platform.resource.user;
 import platform.util.ApplicationConstants;

@@ -1,27 +1,21 @@
 package application.c4t.vehicle.school.notification;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import platform.helper.User_mapHelper;
 import platform.manager.ApplicationManager;
 import platform.message.SendEmail;
-import platform.message.SendNotification;
-import platform.message.SendSMS;
 import platform.notification.NotificationFactory;
 import platform.notification.NotificationTask;
 import platform.resource.BaseResource;
 import platform.resource.notification;
 import platform.resource.user;
 import platform.util.ApplicationConstants;
-import platform.util.ApplicationException;
 import platform.util.Json;
 import platform.util.Util;
 import application.c4t.vehicle.school.helper.SchoolHelper;
 import application.c4t.vehicle.school.helper.School_user_mapHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
-import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
