@@ -147,6 +147,13 @@ public class BusExitNotificationTask extends NotificationTask {
 		
 		
 		student _student = (student)StudentHelper.getInstance().getById(student_id);
+		if (_student == null)
+			return ;
+		
+		school _school = (school) SchoolHelper.getInstance().getById(_student.getSchool_id());
+		if (_school == null)
+			return;
+		
 		if ("Y".equals(_student.getStopage_alert_sms())) {
 			smsAlert = "Y";
 		}
@@ -155,6 +162,18 @@ public class BusExitNotificationTask extends NotificationTask {
 		}
 		if ("Y".equals(_student.getStopage_alert_mobile_app())) {
 			appAlert = "Y";
+		}
+		
+		if ("PICKUP".equals(type)) {
+			if (!"Y".equals(_school.getFeature_bus_pickup_exit_sms())) {
+				smsAlert = "N";
+			}
+		}
+		
+		if ("DROP".equals(type)) {
+			if (!"Y".equals(_school.getFeature_bus_drop_exit_sms())) {
+				smsAlert = "N";
+			}
 		}
 		ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());
 		for(int j=0; j < _users.size(); j++) {

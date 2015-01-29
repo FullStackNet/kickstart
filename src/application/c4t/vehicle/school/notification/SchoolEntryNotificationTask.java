@@ -18,8 +18,10 @@ import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.Json;
 import platform.util.Util;
+import application.c4t.vehicle.school.helper.SchoolHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
 public class SchoolEntryNotificationTask extends NotificationTask {
@@ -109,6 +111,13 @@ public class SchoolEntryNotificationTask extends NotificationTask {
 		
 		
 		student _student = (student)StudentHelper.getInstance().getById(student_id);
+		if (_student == null)
+			return ;
+		
+		school _school = (school) SchoolHelper.getInstance().getById(_student.getSchool_id());
+		if (_school == null)
+			return;
+		
 		if ("Y".equals(_student.getStopage_alert_sms())) {
 			smsAlert = "Y";
 		}
@@ -118,6 +127,12 @@ public class SchoolEntryNotificationTask extends NotificationTask {
 		if ("Y".equals(_student.getStopage_alert_mobile_app())) {
 			appAlert = "Y";
 		}
+		
+		if (!"Y".equals(_school.getFeature_school_entry_sms())) {
+			smsAlert = "N";
+		}
+	
+		
 		ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());
 		for(int j=0; j < _users.size(); j++) {
 			userMap.put(_users.get(j).getId(), _users.get(j));
