@@ -270,7 +270,8 @@ public abstract class BaseForm extends BaseView {
 						textEdit.addStyle("text-transform", "uppercase");
 					}
 					if (value != null) {
-						textEdit.setValue(value.toString());
+						String valstring = value.toString().replace("\"", "\\\"");
+						textEdit.setValue(valstring);
 					}
 					if (field.isReadOnly()) {
 						textEdit.addAttribute("readonly", "true");
