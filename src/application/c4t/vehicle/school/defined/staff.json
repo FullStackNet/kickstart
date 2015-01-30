@@ -15,6 +15,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'employee_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'card_no':
 			{
 				'length': 128,
@@ -82,21 +87,24 @@
 			{
 				'name':'customer_id',
 				'length': 128,
-				'required': true,
 				'type':'String',
 				'index' : true
 			},
 			'designation':
 			{
 				'length': 128,
-				'required': true,
 				'type':'String'
 			},
 			'department':
 			{
 				'length': 128,
-				'required': true,
 				'type':'String'
+			},
+			'permanent_staff':
+			{
+				'length': 128,
+				'type':'String',
+				'default' : "Y"
 			},
 			'remark':
 			{

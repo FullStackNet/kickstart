@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Basestaff extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String employee_no = null;
 	private String card_no = null;
 	private String reporting_to = null;
 	private String school_id = null;
@@ -35,11 +36,13 @@ public abstract class Basestaff extends BaseResource {
 	private String customer_id = null;
 	private String designation = null;
 	private String department = null;
+	private String permanent_staff = null;
 	private String remark = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_EMPLOYEE_NO = "employee_no";
 	public static String FIELD_CARD_NO = "card_no";
 	public static String FIELD_REPORTING_TO = "reporting_to";
 	public static String FIELD_SCHOOL_ID = "school_id";
@@ -54,6 +57,7 @@ public abstract class Basestaff extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_DESIGNATION = "designation";
 	public static String FIELD_DEPARTMENT = "department";
+	public static String FIELD_PERMANENT_STAFF = "permanent_staff";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -71,6 +75,10 @@ public abstract class Basestaff extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field employee_noField = new Field("employee_no", "String");
+		employee_noField.setLength(128);
+		metaData.addField(employee_noField);
 
 		Field card_noField = new Field("card_no", "String");
 		card_noField.setIndexed(true);
@@ -120,19 +128,21 @@ public abstract class Basestaff extends BaseResource {
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setIndexed(true);
-		customer_idField.setRequired(true);
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
 		Field designationField = new Field("designation", "String");
-		designationField.setRequired(true);
 		designationField.setLength(128);
 		metaData.addField(designationField);
 
 		Field departmentField = new Field("department", "String");
-		departmentField.setRequired(true);
 		departmentField.setLength(128);
 		metaData.addField(departmentField);
+
+		Field permanent_staffField = new Field("permanent_staff", "String");
+		permanent_staffField.setDefaultValue("Y");
+		permanent_staffField.setLength(128);
+		metaData.addField(permanent_staffField);
 
 		Field remarkField = new Field("remark", "String");
 		remarkField.setLength(512);
@@ -153,6 +163,7 @@ public abstract class Basestaff extends BaseResource {
 	public Basestaff(Basestaff obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.employee_no = obj.employee_no;
 		this.card_no = obj.card_no;
 		this.reporting_to = obj.reporting_to;
 		this.school_id = obj.school_id;
@@ -167,6 +178,7 @@ public abstract class Basestaff extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.designation = obj.designation;
 		this.department = obj.department;
+		this.permanent_staff = obj.permanent_staff;
 		this.remark = obj.remark;
 		this.extra_data = obj.extra_data;
 	}
@@ -175,12 +187,19 @@ public abstract class Basestaff extends BaseResource {
 		return metaData;
 	}
 
+	private void setDefaultValues() {
+		if(permanent_staff == null)
+			permanent_staff = "Y";
+	}
+
 	public Map<String, Object> convertResourceToMap() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(employee_no != null)
+			map.put("employee_no", employee_no);
 		if(card_no != null)
 			map.put("card_no", card_no);
 		if(reporting_to != null)
@@ -209,6 +228,8 @@ public abstract class Basestaff extends BaseResource {
 			map.put("designation", designation);
 		if(department != null)
 			map.put("department", department);
+		if(permanent_staff != null)
+			map.put("permanent_staff", permanent_staff);
 		if(remark != null)
 			map.put("remark", remark);
 		if(extra_data != null)
@@ -217,11 +238,16 @@ public abstract class Basestaff extends BaseResource {
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(employee_no != null)
+			map.put("employee_no", employee_no);
 		if(card_no != null)
 			map.put("card_no", card_no);
 		if(reporting_to != null)
@@ -244,12 +270,14 @@ public abstract class Basestaff extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(email_id != null)
 			map.put("email_id", email_id);
-		if(validateCustomer_id(add))
+		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if(validateDesignation(add))
+		if(designation != null)
 			map.put("designation", designation);
-		if(validateDepartment(add))
+		if(department != null)
 			map.put("department", department);
+		if(permanent_staff != null)
+			map.put("permanent_staff", permanent_staff);
 		if(remark != null)
 			map.put("remark", remark);
 		if(extra_data != null)
@@ -266,6 +294,7 @@ public abstract class Basestaff extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		employee_no = (String) map.get("employee_no");
 		card_no = (String) map.get("card_no");
 		reporting_to = (String) map.get("reporting_to");
 		school_id = (String) map.get("school_id");
@@ -280,6 +309,7 @@ public abstract class Basestaff extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		designation = (String) map.get("designation");
 		department = (String) map.get("department");
+		permanent_staff = (String) map.get("permanent_staff");
 		remark = (String) map.get("remark");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -293,6 +323,10 @@ public abstract class Basestaff extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object employee_noObj = map.get("employee_no");
+		if(employee_noObj != null)
+			employee_no = employee_noObj.toString();
 
 		Object card_noObj = map.get("card_no");
 		if(card_noObj != null)
@@ -350,6 +384,10 @@ public abstract class Basestaff extends BaseResource {
 		if(departmentObj != null)
 			department = departmentObj.toString();
 
+		Object permanent_staffObj = map.get("permanent_staff");
+		if(permanent_staffObj != null)
+			permanent_staff = permanent_staffObj.toString();
+
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
 			remark = remarkObj.toString();
@@ -399,6 +437,22 @@ public abstract class Basestaff extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getEmployee_no() {
+		return employee_no;
+	}
+
+	public String getEmployee_noEx() {
+		return employee_no != null ? employee_no : "";
+	}
+
+	public void setEmployee_no(String employee_no) {
+		this.employee_no = employee_no;
+	}
+
+	public void unSetEmployee_no() {
+		this.employee_no = null;
 	}
 
 	public String getCard_no() {
@@ -593,12 +647,6 @@ public abstract class Basestaff extends BaseResource {
 		this.customer_id = null;
 	}
 
-	public boolean validateCustomer_id(boolean add) throws ApplicationException {
-		if(add && customer_id == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[customer_id]");
-		return customer_id != null;
-	}
-
 	public String getDesignation() {
 		return designation;
 	}
@@ -613,12 +661,6 @@ public abstract class Basestaff extends BaseResource {
 
 	public void unSetDesignation() {
 		this.designation = null;
-	}
-
-	public boolean validateDesignation(boolean add) throws ApplicationException {
-		if(add && designation == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[designation]");
-		return designation != null;
 	}
 
 	public String getDepartment() {
@@ -637,10 +679,16 @@ public abstract class Basestaff extends BaseResource {
 		this.department = null;
 	}
 
-	public boolean validateDepartment(boolean add) throws ApplicationException {
-		if(add && department == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[department]");
-		return department != null;
+	public String getPermanent_staff() {
+		return permanent_staff != null ? permanent_staff : "Y";
+	}
+
+	public void setPermanent_staff(String permanent_staff) {
+		this.permanent_staff = permanent_staff;
+	}
+
+	public void unSetPermanent_staff() {
+		this.permanent_staff = "Y";
 	}
 
 	public String getRemark() {
