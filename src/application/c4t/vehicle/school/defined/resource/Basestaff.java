@@ -90,7 +90,6 @@ public abstract class Basestaff extends BaseResource {
 		metaData.addField(reporting_toField);
 
 		Field school_idField = new Field("school_id", "String");
-		school_idField.setIndexed(true);
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
 
