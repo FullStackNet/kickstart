@@ -17,6 +17,12 @@
 				'length': 128,
 				'type':'String'
 			},
+			'app_branding':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'brand_name':
 			{
 				'length': 128,

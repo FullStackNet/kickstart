@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -25,6 +21,7 @@ import platform.util.Field;
 public abstract class Baseschool extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String app_branding = null;
 	private String brand_name = null;
 	private String short_name = null;
 	private String address1 = null;
@@ -87,6 +84,7 @@ public abstract class Baseschool extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_APP_BRANDING = "app_branding";
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_SHORT_NAME = "short_name";
 	public static String FIELD_ADDRESS1 = "address1";
@@ -161,6 +159,11 @@ public abstract class Baseschool extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field app_brandingField = new Field("app_branding", "String");
+		app_brandingField.setDefaultValue("N");
+		app_brandingField.setLength(1);
+		metaData.addField(app_brandingField);
 
 		Field brand_nameField = new Field("brand_name", "String");
 		brand_nameField.setLength(128);
@@ -451,6 +454,7 @@ public abstract class Baseschool extends BaseResource {
 	public Baseschool(Baseschool obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.app_branding = obj.app_branding;
 		this.brand_name = obj.brand_name;
 		this.short_name = obj.short_name;
 		this.address1 = obj.address1;
@@ -517,6 +521,8 @@ public abstract class Baseschool extends BaseResource {
 	}
 
 	private void setDefaultValues() {
+		if(app_branding == null)
+			app_branding = "N";
 		if(feature_parent2parent_chat == null)
 			feature_parent2parent_chat = "N";
 		if(feature_homework == null)
@@ -613,6 +619,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(app_branding != null)
+			map.put("app_branding", app_branding);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
 		if(short_name != null)
@@ -743,6 +751,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(app_branding != null)
+			map.put("app_branding", app_branding);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
 		if(short_name != null)
@@ -873,6 +883,7 @@ public abstract class Baseschool extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		app_branding = (String) map.get("app_branding");
 		brand_name = (String) map.get("brand_name");
 		short_name = (String) map.get("short_name");
 		address1 = (String) map.get("address1");
@@ -943,6 +954,10 @@ public abstract class Baseschool extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object app_brandingObj = map.get("app_branding");
+		if(app_brandingObj != null)
+			app_branding = app_brandingObj.toString();
 
 		Object brand_nameObj = map.get("brand_name");
 		if(brand_nameObj != null)
@@ -1221,6 +1236,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getApp_branding() {
+		return app_branding != null ? app_branding : "N";
+	}
+
+	public void setApp_branding(String app_branding) {
+		this.app_branding = app_branding;
+	}
+
+	public void unSetApp_branding() {
+		this.app_branding = "N";
 	}
 
 	public String getBrand_name() {

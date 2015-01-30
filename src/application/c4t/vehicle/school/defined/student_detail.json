@@ -149,6 +149,12 @@
 				'length': 16,
 				'type':'String'
 			},
+			'app_branding':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'bus_started':
 			{
 				'length': 128,

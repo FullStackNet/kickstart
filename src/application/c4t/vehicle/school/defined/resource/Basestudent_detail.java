@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -51,6 +47,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String dropped_driver_mobile_no = null;
 	private String class_name = null;
 	private String section_name = null;
+	private String app_branding = null;
 	private String bus_started = null;
 	private String last_stopage_name = null;
 	private Long last_stopage_time = null;
@@ -126,6 +123,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_DROPPED_DRIVER_MOBILE_NO = "dropped_driver_mobile_no";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_SECTION_NAME = "section_name";
+	public static String FIELD_APP_BRANDING = "app_branding";
 	public static String FIELD_BUS_STARTED = "bus_started";
 	public static String FIELD_LAST_STOPAGE_NAME = "last_stopage_name";
 	public static String FIELD_LAST_STOPAGE_TIME = "last_stopage_time";
@@ -291,6 +289,11 @@ public abstract class Basestudent_detail extends BaseResource {
 		Field section_nameField = new Field("section_name", "String");
 		section_nameField.setLength(16);
 		metaData.addField(section_nameField);
+
+		Field app_brandingField = new Field("app_branding", "String");
+		app_brandingField.setDefaultValue("N");
+		app_brandingField.setLength(1);
+		metaData.addField(app_brandingField);
 
 		Field bus_startedField = new Field("bus_started", "String");
 		bus_startedField.setLength(128);
@@ -534,6 +537,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.dropped_driver_mobile_no = obj.dropped_driver_mobile_no;
 		this.class_name = obj.class_name;
 		this.section_name = obj.section_name;
+		this.app_branding = obj.app_branding;
 		this.bus_started = obj.bus_started;
 		this.last_stopage_name = obj.last_stopage_name;
 		this.last_stopage_time = obj.last_stopage_time;
@@ -587,6 +591,8 @@ public abstract class Basestudent_detail extends BaseResource {
 	}
 
 	private void setDefaultValues() {
+		if(app_branding == null)
+			app_branding = "N";
 		if(stopage_alert_sms == null)
 			stopage_alert_sms = "N";
 		if(stopage_alert_mobile_app == null)
@@ -717,6 +723,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("class_name", class_name);
 		if(section_name != null)
 			map.put("section_name", section_name);
+		if(app_branding != null)
+			map.put("app_branding", app_branding);
 		if(bus_started != null)
 			map.put("bus_started", bus_started);
 		if(last_stopage_name != null)
@@ -873,6 +881,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("class_name", class_name);
 		if(section_name != null)
 			map.put("section_name", section_name);
+		if(app_branding != null)
+			map.put("app_branding", app_branding);
 		if(bus_started != null)
 			map.put("bus_started", bus_started);
 		if(last_stopage_name != null)
@@ -1003,6 +1013,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		dropped_driver_mobile_no = (String) map.get("dropped_driver_mobile_no");
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
+		app_branding = (String) map.get("app_branding");
 		bus_started = (String) map.get("bus_started");
 		last_stopage_name = (String) map.get("last_stopage_name");
 		last_stopage_time = (Long) map.get("last_stopage_time");
@@ -1164,6 +1175,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object section_nameObj = map.get("section_name");
 		if(section_nameObj != null)
 			section_name = section_nameObj.toString();
+
+		Object app_brandingObj = map.get("app_branding");
+		if(app_brandingObj != null)
+			app_branding = app_brandingObj.toString();
 
 		Object bus_startedObj = map.get("bus_started");
 		if(bus_startedObj != null)
@@ -1806,6 +1821,18 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetSection_name() {
 		this.section_name = null;
+	}
+
+	public String getApp_branding() {
+		return app_branding != null ? app_branding : "N";
+	}
+
+	public void setApp_branding(String app_branding) {
+		this.app_branding = app_branding;
+	}
+
+	public void unSetApp_branding() {
+		this.app_branding = "N";
 	}
 
 	public String getBus_started() {
