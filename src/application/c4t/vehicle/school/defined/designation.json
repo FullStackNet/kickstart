@@ -1,0 +1,20 @@
+{
+	"designation" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			}		
+		}
+	}
+}
