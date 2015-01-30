@@ -29,6 +29,7 @@ import application.c4t.vehicle.school.resource.absent;
 import application.c4t.vehicle.school.resource.present;
 import application.c4t.vehicle.school.resource.present_detail;
 import application.c4t.vehicle.school.resource.school;
+import application.c4t.vehicle.school.resource.staff;
 import application.c4t.vehicle.school.resource.student;
 import application.c4t.vehicle.school.resource.trip_student_detail;
 
@@ -135,7 +136,7 @@ public class PresentHelper extends BaseHelper {
 			_trip_student_detail.setRoute_id(_route.getId());
 			Trip_student_detailHelper.getInstance().AddOrUpdate(_trip_student_detail);	
 			Map<String, Object> map = new HashMap<String, Object>();
-			school _school = (school) StudentHelper.getInstance().getById(_student.getSchool_id());
+			school _school = (school) SchoolHelper.getInstance().getById(_student.getSchool_id());
 			map.put("BRAND_NAME", "School");
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_trip_student_detail.getId());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
@@ -208,7 +209,7 @@ public class PresentHelper extends BaseHelper {
 			_trip_student_detail.setRoute_id(_route.getId());
 			Trip_student_detailHelper.getInstance().AddOrUpdate(_trip_student_detail);	
 			Map<String, Object> map = new HashMap<String, Object>();
-			school _school = (school) StudentHelper.getInstance().getById(_student.getSchool_id());
+			school _school = (school) SchoolHelper.getInstance().getById(_student.getSchool_id());
 			map.put("BRAND_NAME", "School");
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_trip_student_detail.getId());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
@@ -243,6 +244,83 @@ public class PresentHelper extends BaseHelper {
 			_trip_student_detail.setRoute_id(_route.getId());
 			Trip_student_detailHelper.getInstance().AddOrUpdate(_trip_student_detail);	
 
+		}	
+		updateTotalPresent(exitKey);
+	}
+	
+	
+	public void updateInSchoolStaffAttendance(staff _staff,String cardId) throws ApplicationException {
+		long currentTime = new Date().getTime();
+		
+		String today = TimeUtil.getDateString("IST", new Date().getTime(),"-");
+		String entryKey =  _staff.getSchool_id();
+		entryKey = entryKey +"^"+"STAFF"+"^"+"ENTRY"+today;
+		present _present = (present)PresentHelper.getInstance().getById(entryKey);
+		if (_present == null){
+			_present = new present(entryKey);
+			_present.setDate_str(today);
+			_present.setDate(TimeUtil.getTimeFromDateString(null, today));
+			_present.setSchool_id(_staff.getSchool_id());
+			_present.setPresent_type("STAFF");
+			_present.setPresent_record_type("ENTRY");
+			PresentHelper.getInstance().add(_present);
+		}
+		
+		String entryKeyDetail = entryKey+"^"+_staff.getId();
+		present_detail _detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
+		if (_detail == null) {
+			_detail = new present_detail(entryKeyDetail);
+			_detail.setPresent_parent_id(entryKey);
+			_detail.setDate_str(today);
+			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+			_detail.setSchool_id(_staff.getSchool_id());
+			_detail.setPresent_type("STAFF");
+		    _detail.setPresent_record_type("ENTRY");
+			_detail.setDate_str(today);
+			_detail.setStudent_id(_staff.getId());
+			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+			Present_detailHelper.getInstance().add(_detail);
+			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
+			updateTotalPresent(entryKey);
+				return;
+		} 
+		
+		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
+			return;
+		}
+		
+		String exitKey =  _staff.getSchool_id();
+		exitKey = exitKey +"^"+"STAFF"+"^"+"EXIT"+today;
+		// create a presnt entry record;
+		String exitKeyDetail = exitKey+"^"+_staff.getId();
+		
+		_present = (present)PresentHelper.getInstance().getById(exitKey);
+		if (_present == null){
+			_present = new present(exitKey);
+			_present.setDate_str(today);
+			_present.setDate(TimeUtil.getTimeFromDateString(null, today));
+			_present.setSchool_id(_staff.getSchool_id());
+			_present.setPresent_type("STAFF");
+			_present.setPresent_record_type("EXIT");
+			PresentHelper.getInstance().add(_present);
+		}
+		_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
+		if (_detail == null) {
+			_detail = new present_detail(exitKeyDetail);
+			_detail.setPresent_parent_id(exitKey);
+			_detail.setDate_str(today);
+			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+			_detail.setSchool_id(_staff.getSchool_id());
+			_detail.setPresent_type("SCHOOL");
+			_detail.setPresent_record_type("EXIT");
+			_detail.setDate_str(today);
+			_detail.setStudent_id(_staff.getId());
+			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+			Present_detailHelper.getInstance().add(_detail);
+		} else {
+			_detail = new present_detail(exitKeyDetail);
+			_detail.setCreation_time(new Date().getTime());
+			Present_detailHelper.getInstance().update(_detail);
 		}	
 		updateTotalPresent(exitKey);
 	}
@@ -299,7 +377,7 @@ public class PresentHelper extends BaseHelper {
 			updateTotalPresent(entryKey);
 			StudentHelper.getInstance().incrementCounter(_student.getId(),student.FIELD_TOTAL_PRESENT, 1);
 			Map<String, Object> map = new HashMap<String, Object>();
-			school _school = (school) StudentHelper.getInstance().getById(_student.getSchool_id());
+			school _school = (school) SchoolHelper.getInstance().getById(_student.getSchool_id());
 			map.put("BRAND_NAME", "School");
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_detail.getId());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
@@ -359,7 +437,7 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			Present_detailHelper.getInstance().add(_detail);
 			Map<String, Object> map = new HashMap<String, Object>();
-			school _school = (school) StudentHelper.getInstance().getById(_student.getSchool_id());
+			school _school = (school) SchoolHelper.getInstance().getById(_student.getSchool_id());
 			map.put("BRAND_NAME", "School");
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_detail.getId());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
