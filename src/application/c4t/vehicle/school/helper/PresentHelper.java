@@ -311,7 +311,7 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate_str(today);
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			_detail.setSchool_id(_staff.getSchool_id());
-			_detail.setPresent_type("SCHOOL");
+			_detail.setPresent_type("STAFF");
 			_detail.setPresent_record_type("EXIT");
 			_detail.setDate_str(today);
 			_detail.setStudent_id(_staff.getId());
@@ -331,13 +331,23 @@ public class PresentHelper extends BaseHelper {
 		String today = TimeUtil.getDateString("IST", new Date().getTime(),"-");
 		BaseResource[] students = StudentHelper.getInstance().getStudentByCardNo(cardId);
 		if (Util.isEmpty(students)) {
-			ApplicationLogger.error(" No student found for card " +cardId, this.getClass());
+			BaseResource[] staffs =StaffHelper.getInstance().getStaffByCardNo(cardId);
+			if (students.length > 1) {
+				ApplicationLogger.error(" Multiple staffs detected for card " +cardId, this.getClass());
+				//need to send the alerts admin
+				return;
+			} if (students.length == 1) { 
+				updateInSchoolStaffAttendance((staff)staffs[0], cardId);
+				return;
+			}
+			ApplicationLogger.error(" No student or Staff found for card " +cardId, this.getClass());
 			return;
 		}
 		
 		if (students.length > 1) {
 			ApplicationLogger.error(" Multiple student detected for card " +cardId, this.getClass());
 			//need to send the alerts admin
+			return;
 		}
 		student _student = (student)students[0];
 		String entryKey =  _student.getSchool_id()+_student.getClass_name()+"^"+_student.getSection_name();

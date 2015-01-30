@@ -191,7 +191,7 @@ public class UserService extends BaseService{
 			if (userId == null) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Session is expired or not authenticated.");
 			}
-			User_mapHelper.getInstance().resetRecentNotification(userId);
+			User_mapHelper.getInstance().getNotificationArray(userId);
 			return User_mapHelper.getInstance().getNotificationArray(userId);
 		}  else if(QueryTypes.QUERY_USER_ID_BY_EMAIL_OR_MOBILE.toString().equals(queryId)) {
 			System.out.println("Received Query "+queryId);
