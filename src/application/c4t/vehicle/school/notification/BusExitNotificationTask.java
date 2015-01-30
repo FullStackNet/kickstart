@@ -237,7 +237,7 @@ public class BusExitNotificationTask extends NotificationTask {
 			String student_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_ID);
 			String type = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TYPE);
 			String customerId = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID);
-			sendNotification(_notification,student_id,type,customerId);
+			sendNotification(_notification,type,student_id,customerId);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
