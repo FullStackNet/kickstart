@@ -1,5 +1,15 @@
 package platform.helper;
 
+import java.util.ArrayList;
+import java.util.Map;
+
+import application.c4t.vehicle.school.helper.Daily_activityHelper;
+import application.c4t.vehicle.school.helper.SchoolHelper;
+import application.c4t.vehicle.school.resource.daily_activity;
+import platform.db.Expression;
+import platform.db.JoinField;
+import platform.db.LOG_OP;
+import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.sms_daily_analysis;
 import platform.resource.sms_log;
@@ -50,5 +60,14 @@ public class Sms_daily_analysisHelper extends BaseHelper {
 				e.printStackTrace();
 			}
 		}
+	}
+	public ArrayList<Map<String, Object>> getForSchools(String[] schools) throws ApplicationException  {
+		HelperFactory.getInstance().register(SchoolHelper.getInstance());
+		HelperFactory.getInstance().register(Sms_daily_analysisHelper.getInstance());
+		ArrayList<JoinField> list = new ArrayList<JoinField>();
+		JoinField field = new JoinField("school", "school_id", "school_name");
+		list.add(field);
+		Expression e = new Expression(sms_daily_analysis.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+		return getByJoining(e,list, new String[]{sms_daily_analysis.FIELD_DATE + " desc"});
 	}
 }
