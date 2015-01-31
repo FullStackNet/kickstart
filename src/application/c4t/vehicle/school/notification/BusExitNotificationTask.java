@@ -180,7 +180,7 @@ public class BusExitNotificationTask extends NotificationTask {
 			userMap.put(_users.get(j).getId(), _users.get(j));
 		}
 		try {
-			StudentHelper.getInstance().incrementCounter(_student.getId(), student.FIELD_NOTICE_COUNT, 1);
+			StudentHelper.getInstance().incrementCounter(_student.getId(), student.FIELD_PRESENT_REPORT_COUNT, 1);
 		} catch (ApplicationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
