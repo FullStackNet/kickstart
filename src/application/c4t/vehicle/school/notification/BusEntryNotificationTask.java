@@ -65,6 +65,8 @@ public class BusEntryNotificationTask extends NotificationTask {
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TYPE,type);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME, (String)_notification.getNotification_data().get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME));
+			map.put("BRAND_NAME", (String)_notification.getNotification_data().get("BRAND_NAME"));
+			
 			String params = Json.maptoString(map);
 			smsMessage.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
@@ -87,7 +89,7 @@ public class BusEntryNotificationTask extends NotificationTask {
 				continue;
 			
 			SendEmail resendMail = new SendEmail();
-			resendMail.setSubject("Bus Attendance Message from " + entry.getValue() + "'s school");
+			resendMail.setSubject("Bus Attendance Message from " +  _student.getShort_name() + "'s school");
 			resendMail.setTo(entry.getKey());
 			resendMail.setType(ApplicationConstants.MAIL_TYPE_SEND_BUS_ENTRY);
 			Map<String, String> map = new HashMap<String, String>();
@@ -95,7 +97,8 @@ public class BusEntryNotificationTask extends NotificationTask {
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME,_student.getShort_name());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME, (String)_notification.getNotification_data().get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME));
-			
+			map.put("BRAND_NAME", (String)_notification.getNotification_data().get("BRAND_NAME"));
+				
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 

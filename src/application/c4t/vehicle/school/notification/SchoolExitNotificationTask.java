@@ -63,6 +63,7 @@ public class SchoolExitNotificationTask extends NotificationTask {
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, _student.getShort_name());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME, (String)_notification.getNotification_data().get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME));
+			map.put("BRAND_NAME", (String)_notification.getNotification_data().get("BRAND_NAME"));
 			
 			String params = Json.maptoString(map);
 			smsMessage.setParams(params);
@@ -79,13 +80,14 @@ public class SchoolExitNotificationTask extends NotificationTask {
 		for(Map.Entry<String, student> entry : emailAlertMap.entrySet()) {
 			student _student = entry.getValue();
 			SendEmail resendMail = new SendEmail();
-			resendMail.setSubject("School Attendance Message from " + entry.getValue() + "'s school");
+			resendMail.setSubject("School Attendance Message from " + _student.getShort_name() + "'s school");
 			resendMail.setTo(entry.getKey());
 			resendMail.setType(ApplicationConstants.MAIL_TYPE_SEND_SCHOOL_EXIT);
 			Map<String, String> map = new HashMap<String, String>();
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, _student.getShort_name());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME, (String)_notification.getNotification_data().get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME));
+			map.put("BRAND_NAME", (String)_notification.getNotification_data().get("BRAND_NAME"));
 			
 			
 			String params = Json.maptoString(map);
