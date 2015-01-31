@@ -147,6 +147,7 @@ public class PresentHelper extends BaseHelper {
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME,_student.getClass_section_name());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME,TimeUtil.getStringFromOnlyTime(_school.getTimezone(), currentTime));
 			if ((_school != null) && (_school.getBrand_name() != null)) {
 				map.put("BRAND_NAME", _school.getBrand_name());
 			} 
@@ -220,6 +221,8 @@ public class PresentHelper extends BaseHelper {
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME,_student.getClass_section_name());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME,TimeUtil.getStringFromOnlyTime(_school.getTimezone(), currentTime));
+			
 			if ((_school != null) && (_school.getBrand_name() != null)) {
 				map.put("BRAND_NAME", _school.getBrand_name());
 			} 
@@ -320,6 +323,8 @@ public class PresentHelper extends BaseHelper {
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME,_student.getClass_section_name());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME,TimeUtil.getStringFromOnlyTime(_school.getTimezone(), currentTime));
+			
 			if ((_school != null) && (_school.getBrand_name() != null)) {
 				map.put("BRAND_NAME", _school.getBrand_name());
 			} 
@@ -380,6 +385,8 @@ public class PresentHelper extends BaseHelper {
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME,_student.getClass_section_name());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME,TimeUtil.getStringFromOnlyTime(_school.getTimezone(), currentTime));
+			
 			if ((_school != null) && (_school.getBrand_name() != null)) {
 				map.put("BRAND_NAME", _school.getBrand_name());
 			} 
