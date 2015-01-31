@@ -149,6 +149,9 @@ public abstract class BaseTableView extends BaseView {
 					if (field.getType() == UIConstants.DATA_TYPE_TIMESTAMP) {
 						value = TimeUtil.getStringFromTime(mDefinition.getTimeZone(),Long.parseLong(value));
 					}
+					if (field.getType() == UIConstants.DATA_TYPE_TIME) {
+						value = TimeUtil.getStringFromOnlyTime(mDefinition.getTimeZone(),Long.parseLong(value));
+					}
 					if (field.getType() == UIConstants.DATA_TYPE_DURATION) {
 						value = TimeUtil.getDurationString(Long.parseLong(value));
 					} 

@@ -9,6 +9,7 @@ public class UIConstants {
 	public final static String DATA_TYPE_STRING_ARRAY = "STRING_ARRAY";
 	public final static String DATA_TYPE_DOUBLE = "DOUBLE";
 	public final static String DATA_TYPE_TIMESTAMP = "TIMESTAMP";
+	public final static String DATA_TYPE_TIME = "TIME";
 	public final static String DATA_TYPE_DURATION = "DURATION";
 	
 	public final static String DATA_TYPE_BLOB = "BLOB";

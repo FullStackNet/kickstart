@@ -283,6 +283,14 @@ public class TimeUtil {
 			return sdf.format(new Date(time));
 	}
 	
+	public static String getStringFromOnlyTime(String timeZone,long time) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date(time));
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		sdf.setTimeZone(TimeZone.getTimeZone(timeZone));
+		return sdf.format(new Date(time));
+}
+	
 	public static String getDurationString(long duration) {
 		String str = "";
 		if (duration == 0)
