@@ -2,7 +2,6 @@ package platform.helper;
 
 import java.util.Date;
 
-import application.c4t.vehicle.school.resource.present_detail;
 import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
