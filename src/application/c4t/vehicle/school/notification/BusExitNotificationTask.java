@@ -59,7 +59,11 @@ public class BusExitNotificationTask extends NotificationTask {
 	
 			SendSMS smsMessage = new SendSMS();
 			smsMessage.setMobile_no(entry.getKey());
-			smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_BUS_EXIT);
+			if ("PICKUP".equals(type)) {
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_PICKUP_BUS_EXIT);
+			} else {
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_DROP_BUS_EXIT);
+			}
 			Map<String, String> map = new HashMap<String, String>();
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOG_ID, _log.getId());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, _student.getShort_name());
@@ -93,7 +97,11 @@ public class BusExitNotificationTask extends NotificationTask {
 			SendEmail resendMail = new SendEmail();
 			resendMail.setSubject("Bus Attendance Message from " +  _student.getShort_name() + "'s school");
 			resendMail.setTo(entry.getKey());
-			resendMail.setType(ApplicationConstants.MAIL_TYPE_SEND_BUS_EXIT);
+			if ("PICKUP".equals(type)) {
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_SEND_PICKUP_BUS_EXIT);
+			} else {
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_SEND_DROP_BUS_EXIT);
+			}
 			Map<String, String> map = new HashMap<String, String>();
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TYPE, type);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, _student.getShort_name());

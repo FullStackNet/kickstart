@@ -149,6 +149,8 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_SEND_BUS_EXIT = "BUS_EXIT";
 	public static String MAIL_TYPE_SEND_SCHOOL_ENTRY = "SCHOOL_ENTRY";
 	public static String MAIL_TYPE_SEND_SCHOOL_EXIT = "SCHOOL_EXIT";
+	public static String MAIL_TYPE_SEND_PICKUP_BUS_EXIT = "PICKUP_BUS_EXIT";
+	public static String MAIL_TYPE_SEND_DROP_BUS_EXIT = "DROP_BUS_EXIT";
 	
 	
 	public static String MAIL_TYPE_MESSAGE2PARENT_ADMIN = "MESSAGE2PARENT_ADMIN";
@@ -158,7 +160,7 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_DAILY_ACTIVITY= "DAILY_ACTIVITY";
 	public static String MAIL_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";
 	public static String MAIL_TYPE_INVITE_CUSTOMER_ADMIN = "INVITE_CUSTOMER_ADMIN";
-
+	
 	public static String MAIL_SUBJECT_INVITE_PARENT = "Activate connect2parent account";
 	public static String MAIL_SUBJECT_HOMEWORK = "Homework notification";
 	public static String MAIL_SUBJECT_HOME_PRACTICE = "Home practice notification";
@@ -190,6 +192,8 @@ public class ApplicationConstants {
 	public static String SMS_TYPE_SEND_PRESENT = "PRESENT";
 	public static String SMS_TYPE_SEND_BUS_ENTRY = "BUS_ENTRY";
 	public static String SMS_TYPE_SEND_BUS_EXIT = "BUS_EXIT";
+	public static String SMS_TYPE_SEND_PICKUP_BUS_EXIT = "PICKUP_BUS_EXIT";
+	public static String SMS_TYPE_SEND_DROP_BUS_EXIT = "DROP_BUS_EXIT";
 	public static String SMS_TYPE_SEND_SCHOOL_ENTRY = "SCHOOL_ENTRY";
 	public static String SMS_TYPE_SEND_SCHOOL_EXIT = "SCHOOL_EXIT";
 	
