@@ -27,7 +27,7 @@ public class Sms_daily_analysisHelper extends BaseSchoolHelper {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void createAnalysis(sms_log _log) {
+	public String createAnalysis(sms_log _log) {
 		String key = sms_daily_analysis.id(_log.getDate(), _log.getSchool_id(), _log.getReason());
 		sms_daily_analysis _analysis = (sms_daily_analysis)Sms_daily_analysisHelper.getInstance().getById(key);
 		if (_analysis == null) {
@@ -51,6 +51,7 @@ public class Sms_daily_analysisHelper extends BaseSchoolHelper {
 				e.printStackTrace();
 			}
 		}
+		return key;
 	}
 	
 }

@@ -9,13 +9,10 @@
 
 package platform.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -23,6 +20,7 @@ import platform.util.Field;
  */
 public abstract class Basesms_log extends BaseResource {
 	private String id = null;
+	private String parent_id = null;
 	private String reason = null;
 	private String reference_id = null;
 	private String reference_description = null;
@@ -44,6 +42,7 @@ public abstract class Basesms_log extends BaseResource {
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_REASON = "reason";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_REFERENCE_DESCRIPTION = "reference_description";
@@ -73,6 +72,10 @@ public abstract class Basesms_log extends BaseResource {
 		Field idField = new Field("id", "String");
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field parent_idField = new Field("parent_id", "String");
+		parent_idField.setLength(128);
+		metaData.addField(parent_idField);
 
 		Field reasonField = new Field("reason", "String");
 		reasonField.setLength(32);
@@ -156,6 +159,7 @@ public abstract class Basesms_log extends BaseResource {
 
 	public Basesms_log(Basesms_log obj) {
 		this.id = obj.id;
+		this.parent_id = obj.parent_id;
 		this.reason = obj.reason;
 		this.reference_id = obj.reference_id;
 		this.reference_description = obj.reference_description;
@@ -185,6 +189,8 @@ public abstract class Basesms_log extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(parent_id != null)
+			map.put("parent_id", parent_id);
 		if(reason != null)
 			map.put("reason", reason);
 		if(reference_id != null)
@@ -230,6 +236,8 @@ public abstract class Basesms_log extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(parent_id != null)
+			map.put("parent_id", parent_id);
 		if(reason != null)
 			map.put("reason", reason);
 		if(reference_id != null)
@@ -279,6 +287,7 @@ public abstract class Basesms_log extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		parent_id = (String) map.get("parent_id");
 		reason = (String) map.get("reason");
 		reference_id = (String) map.get("reference_id");
 		reference_description = (String) map.get("reference_description");
@@ -305,6 +314,10 @@ public abstract class Basesms_log extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object parent_idObj = map.get("parent_id");
+		if(parent_idObj != null)
+			parent_id = parent_idObj.toString();
 
 		Object reasonObj = map.get("reason");
 		if(reasonObj != null)
@@ -401,6 +414,22 @@ public abstract class Basesms_log extends BaseResource {
 
 	public void unSetId() {
 		this.id = null;
+	}
+
+	public String getParent_id() {
+		return parent_id;
+	}
+
+	public String getParent_idEx() {
+		return parent_id != null ? parent_id : "";
+	}
+
+	public void setParent_id(String parent_id) {
+		this.parent_id = parent_id;
+	}
+
+	public void unSetParent_id() {
+		this.parent_id = null;
 	}
 
 	public String getReason() {

@@ -2,6 +2,9 @@ package platform.helper;
 
 import java.util.Date;
 
+import application.c4t.vehicle.school.resource.present_detail;
+import platform.db.Expression;
+import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.sms_log;
 import platform.util.ApplicationException;
@@ -22,6 +25,7 @@ public class Sms_logHelper extends BaseHelper {
 		return instance;
 	}
 
+	
 	Sms_logHelper() {
 		super(new sms_log());
 		// TODO Auto-generated constructor stub
@@ -56,13 +60,15 @@ public class Sms_logHelper extends BaseHelper {
 		//_log.setPerson_name("");
 		_log.setSent_status("N");
 		_log.setProcessing_status("N");
+		String parent_id = Sms_daily_analysisHelper.getInstance().createAnalysis(_log);
+		_log.setParent_id(parent_id);
 		try {
 			Sms_logHelper.getInstance().add(_log);
 		} catch (ApplicationException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		Sms_daily_analysisHelper.getInstance().createAnalysis(_log);
+		
 		return _log;
 	}
 	
@@ -75,6 +81,11 @@ public class Sms_logHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public BaseResource[] getDetail(String parentId) {
+		Expression e = new Expression(sms_log.FIELD_PARENT_ID, REL_OP.EQ, parentId);
+		return getByExpression(e);
 	}
 	
 	public void updateSent(String id)  {
