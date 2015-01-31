@@ -332,11 +332,11 @@ public class PresentHelper extends BaseHelper {
 		BaseResource[] students = StudentHelper.getInstance().getStudentByCardNo(cardId);
 		if (Util.isEmpty(students)) {
 			BaseResource[] staffs =StaffHelper.getInstance().getStaffByCardNo(cardId);
-			if (students.length > 1) {
+			if (staffs.length > 1) {
 				ApplicationLogger.error(" Multiple staffs detected for card " +cardId, this.getClass());
 				//need to send the alerts admin
 				return;
-			} if (students.length == 1) { 
+			} if (staffs.length == 1) { 
 				updateInSchoolStaffAttendance((staff)staffs[0], cardId);
 				return;
 			}
