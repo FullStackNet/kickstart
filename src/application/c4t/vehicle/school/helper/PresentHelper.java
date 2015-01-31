@@ -248,83 +248,6 @@ public class PresentHelper extends BaseHelper {
 		updateTotalPresent(exitKey);
 	}
 	
-	
-	public void updateInSchoolStaffAttendance(staff _staff,String cardId) throws ApplicationException {
-		long currentTime = new Date().getTime();
-		
-		String today = TimeUtil.getDateString("IST", new Date().getTime(),"-");
-		String entryKey =  _staff.getSchool_id();
-		entryKey = entryKey +"^"+"STAFF"+"^"+"ENTRY"+today;
-		present _present = (present)PresentHelper.getInstance().getById(entryKey);
-		if (_present == null){
-			_present = new present(entryKey);
-			_present.setDate_str(today);
-			_present.setDate(TimeUtil.getTimeFromDateString(null, today));
-			_present.setSchool_id(_staff.getSchool_id());
-			_present.setPresent_type("STAFF");
-			_present.setPresent_record_type("ENTRY");
-			PresentHelper.getInstance().add(_present);
-		}
-		
-		String entryKeyDetail = entryKey+"^"+_staff.getId();
-		present_detail _detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
-		if (_detail == null) {
-			_detail = new present_detail(entryKeyDetail);
-			_detail.setPresent_parent_id(entryKey);
-			_detail.setDate_str(today);
-			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
-			_detail.setSchool_id(_staff.getSchool_id());
-			_detail.setPresent_type("STAFF");
-		    _detail.setPresent_record_type("ENTRY");
-			_detail.setDate_str(today);
-			_detail.setStudent_id(_staff.getId());
-			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
-			Present_detailHelper.getInstance().add(_detail);
-			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
-			updateTotalPresent(entryKey);
-				return;
-		} 
-		
-		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
-			return;
-		}
-		
-		String exitKey =  _staff.getSchool_id();
-		exitKey = exitKey +"^"+"STAFF"+"^"+"EXIT"+today;
-		// create a presnt entry record;
-		String exitKeyDetail = exitKey+"^"+_staff.getId();
-		
-		_present = (present)PresentHelper.getInstance().getById(exitKey);
-		if (_present == null){
-			_present = new present(exitKey);
-			_present.setDate_str(today);
-			_present.setDate(TimeUtil.getTimeFromDateString(null, today));
-			_present.setSchool_id(_staff.getSchool_id());
-			_present.setPresent_type("STAFF");
-			_present.setPresent_record_type("EXIT");
-			PresentHelper.getInstance().add(_present);
-		}
-		_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
-		if (_detail == null) {
-			_detail = new present_detail(exitKeyDetail);
-			_detail.setPresent_parent_id(exitKey);
-			_detail.setDate_str(today);
-			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
-			_detail.setSchool_id(_staff.getSchool_id());
-			_detail.setPresent_type("STAFF");
-			_detail.setPresent_record_type("EXIT");
-			_detail.setDate_str(today);
-			_detail.setStudent_id(_staff.getId());
-			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
-			Present_detailHelper.getInstance().add(_detail);
-		} else {
-			_detail = new present_detail(exitKeyDetail);
-			_detail.setCreation_time(new Date().getTime());
-			Present_detailHelper.getInstance().update(_detail);
-		}	
-		updateTotalPresent(exitKey);
-	}
-	
 	public void updateInSchoolAttendance(String cardId) throws ApplicationException {
 		long currentTime = new Date().getTime();
 		
@@ -337,7 +260,7 @@ public class PresentHelper extends BaseHelper {
 				//need to send the alerts admin
 				return;
 			} if (staffs.length == 1) { 
-				updateInSchoolStaffAttendance((staff)staffs[0], cardId);
+				Staff_presentHelper.getInstance().updateInSchoolAttendance((staff)staffs[0], cardId);
 				return;
 			}
 			ApplicationLogger.error(" No student or Staff found for card " +cardId, this.getClass());
