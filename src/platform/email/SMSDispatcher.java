@@ -184,6 +184,18 @@ public class SMSDispatcher {
 						}
 					}
 				}
+			} else {
+				if (params != null) {
+					String logId = params.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOG_ID);
+					if (logId != null) {
+						sms_log _log = (sms_log)Sms_logHelper.getInstance().getById(logId);
+						if (_log != null) {
+							Sms_logHelper.getInstance().updateSentFail(_log.getId());
+							String key = sms_daily_analysis.id(_log.getDate(), _log.getSchool_id(), _log.getReason());
+							Sms_daily_analysisHelper.getInstance().incrementCounter(key, sms_daily_analysis.FIELD_FAILED_COUNT, 1);
+						}
+					}
+				}
 			}
 			EmailDispatcher.getInstance().sendSMSMail("SMS to "+mobile_no, templete, params);
 		} catch (UnsupportedEncodingException e) {
