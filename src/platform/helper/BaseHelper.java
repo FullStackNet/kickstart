@@ -1043,6 +1043,18 @@ public class BaseHelper {
 		}
 	}
 	
+	public ArrayList<Map<String, Object>> getForSchools(String[] schoolIds,String[] order) throws ApplicationException  {
+		try {
+			Expression e = new Expression("school_id", REL_OP.IN, schoolIds);
+			BaseResource[] resoucres =  getByExpression(e,order);
+			return HelperUtils.convertArray2ListMap(resoucres);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ArrayList<Map<String, Object>>();		
+	}
+	
 	public boolean isExistInArray(String id,String fieldName, String value) {
 		BaseResource _resource = getSelectedFieldsById(id,fieldName);
 		if ((_resource == null))

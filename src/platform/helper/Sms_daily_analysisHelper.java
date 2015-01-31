@@ -1,18 +1,14 @@
 package platform.helper;
 
-import java.util.ArrayList;
-import java.util.Map;
-
-import platform.db.Expression;
-import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.sms_daily_analysis;
 import platform.resource.sms_log;
 import platform.util.ApplicationException;
+import application.c4t.vehicle.school.helper.BaseSchoolHelper;
 
 
 
-public class Sms_daily_analysisHelper extends BaseHelper {
+public class Sms_daily_analysisHelper extends BaseSchoolHelper {
 	public Sms_daily_analysisHelper(BaseResource resource) {
 		super(resource);
 		// TODO Auto-generated constructor stub
@@ -56,9 +52,5 @@ public class Sms_daily_analysisHelper extends BaseHelper {
 			}
 		}
 	}
-	public ArrayList<Map<String, Object>> getForSchools(String[] schools) throws ApplicationException  {
-		Expression e = new Expression(sms_daily_analysis.FIELD_SCHOOL_ID, REL_OP.IN, schools);
-		BaseResource[] resoucres =  getByExpression(e,new String[]{sms_daily_analysis.FIELD_DATE + " desc"});
-		return HelperUtils.convertArray2ListMap(resoucres);
-	}
+	
 }
