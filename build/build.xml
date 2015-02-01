@@ -85,6 +85,7 @@
     		 ${thirdparty}/jasper/jasperreports-5.6.1.jar:
     	 	 ${thirdparty}/jasper/js-mongodb-datasource-0.5.0.jar:
     	 	 ${thirdparty}/jasper/mongo-java-driver-2.7.3.jar:
+    	 	 ${thirdparty}/jxl.jar:
     		 ${thirdparty}/uuid-3.2.jar"
  	/>
 	<!-- initilization process-->
