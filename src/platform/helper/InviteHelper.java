@@ -55,10 +55,10 @@ public class InviteHelper extends BaseHelper {
 	}
 
 	public invite getInvite(String mobileno,String emailId,String referenceId) {
-		if (mobileno == null) {
+		if (Util.isEmpty(mobileno )) {
 			mobileno = "dummy";
 		}
-		if (emailId == null) {
+		if (Util.isEmpty(emailId)) {
 			emailId = "dummy";
 		}
 		Expression e1 = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
