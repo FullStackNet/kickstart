@@ -31,7 +31,9 @@ public abstract class TwoColumnApplicationServlet extends BaseUIServlet {
 		headerView.buildUI();
 		layout.getLeftColumn().addChild(getWebLeftMenu(context));
 		Div div = new Div();
-		div.addChild(new TEXT("Welcome "+ context.getUserName()));
+		div.addAttribute("align","left");
+		div.addAttribute("style","color:gray;font-size:13px;margin-top: 0px; margin-bottom:0px; margin-left:5px;");
+		div.addChild(new TEXT("Welcome "+ context.getUserName().toUpperCase()+","));
 		layout.getContent().addChild(div);
 		layout.getContent().addChild(getWebContentView(context));
 		context.getPageBuilder().setLayout(layout);
