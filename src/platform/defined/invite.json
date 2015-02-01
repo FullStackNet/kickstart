@@ -15,7 +15,11 @@
 			{
 				'name':'type',
 				'length': 32,
-				'required': true,
+				'type':'String'
+			},
+			'relation':
+			{
+				'length': 32,
 				'type':'String'
 			},
 			'school_id':

@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Baseinvite extends BaseResource {
 	private String id = null;
 	private String type = null;
+	private String relation = null;
 	private String school_id = null;
 	private String name = null;
 	private String mobile_no = null;
@@ -41,6 +42,7 @@ public abstract class Baseinvite extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TYPE = "type";
+	public static String FIELD_RELATION = "relation";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
@@ -71,9 +73,12 @@ public abstract class Baseinvite extends BaseResource {
 		metaData.addField(idField);
 
 		Field typeField = new Field("type", "String");
-		typeField.setRequired(true);
 		typeField.setLength(32);
 		metaData.addField(typeField);
+
+		Field relationField = new Field("relation", "String");
+		relationField.setLength(32);
+		metaData.addField(relationField);
 
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(128);
@@ -148,6 +153,7 @@ public abstract class Baseinvite extends BaseResource {
 	public Baseinvite(Baseinvite obj) {
 		this.id = obj.id;
 		this.type = obj.type;
+		this.relation = obj.relation;
 		this.school_id = obj.school_id;
 		this.name = obj.name;
 		this.mobile_no = obj.mobile_no;
@@ -177,6 +183,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("id", id);
 		if(type != null)
 			map.put("type", type);
+		if(relation != null)
+			map.put("relation", relation);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(name != null)
@@ -218,8 +226,10 @@ public abstract class Baseinvite extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(validateType(add))
+		if(type != null)
 			map.put("type", type);
+		if(relation != null)
+			map.put("relation", relation);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(name != null)
@@ -266,6 +276,7 @@ public abstract class Baseinvite extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		type = (String) map.get("type");
+		relation = (String) map.get("relation");
 		school_id = (String) map.get("school_id");
 		name = (String) map.get("name");
 		mobile_no = (String) map.get("mobile_no");
@@ -292,6 +303,10 @@ public abstract class Baseinvite extends BaseResource {
 		Object typeObj = map.get("type");
 		if(typeObj != null)
 			type = typeObj.toString();
+
+		Object relationObj = map.get("relation");
+		if(relationObj != null)
+			relation = relationObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -396,10 +411,20 @@ public abstract class Baseinvite extends BaseResource {
 		this.type = null;
 	}
 
-	public boolean validateType(boolean add) throws ApplicationException {
-		if(add && type == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[type]");
-		return type != null;
+	public String getRelation() {
+		return relation;
+	}
+
+	public String getRelationEx() {
+		return relation != null ? relation : "";
+	}
+
+	public void setRelation(String relation) {
+		this.relation = relation;
+	}
+
+	public void unSetRelation() {
+		this.relation = null;
 	}
 
 	public String getSchool_id() {
