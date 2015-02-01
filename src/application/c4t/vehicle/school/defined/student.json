@@ -141,6 +141,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'father_home_phone_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_office_phone_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'father_dob':
 			{
 				'length': 128,
@@ -178,6 +188,16 @@
 				'type':'String'
 			},
 			'mother_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_home_phone_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_office_phone_no':
 			{
 				'length': 128,
 				'type':'String'

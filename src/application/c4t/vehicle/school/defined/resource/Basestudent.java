@@ -42,6 +42,8 @@ public abstract class Basestudent extends BaseResource {
 	private String father_name = null;
 	private String father_email_id = null;
 	private String father_mobile_no = null;
+	private String father_home_phone_no = null;
+	private String father_office_phone_no = null;
 	private String father_dob = null;
 	private String father_occupation = null;
 	private String father_role = null;
@@ -50,6 +52,8 @@ public abstract class Basestudent extends BaseResource {
 	private String mother_name = null;
 	private String mother_dob = null;
 	private String mother_mobile_no = null;
+	private String mother_home_phone_no = null;
+	private String mother_office_phone_no = null;
 	private String mother_occupation = null;
 	private String mother_role = null;
 	private String mother_company_name = null;
@@ -119,6 +123,8 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_FATHER_NAME = "father_name";
 	public static String FIELD_FATHER_EMAIL_ID = "father_email_id";
 	public static String FIELD_FATHER_MOBILE_NO = "father_mobile_no";
+	public static String FIELD_FATHER_HOME_PHONE_NO = "father_home_phone_no";
+	public static String FIELD_FATHER_OFFICE_PHONE_NO = "father_office_phone_no";
 	public static String FIELD_FATHER_DOB = "father_dob";
 	public static String FIELD_FATHER_OCCUPATION = "father_occupation";
 	public static String FIELD_FATHER_ROLE = "father_role";
@@ -127,6 +133,8 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_MOTHER_NAME = "mother_name";
 	public static String FIELD_MOTHER_DOB = "mother_dob";
 	public static String FIELD_MOTHER_MOBILE_NO = "mother_mobile_no";
+	public static String FIELD_MOTHER_HOME_PHONE_NO = "mother_home_phone_no";
+	public static String FIELD_MOTHER_OFFICE_PHONE_NO = "mother_office_phone_no";
 	public static String FIELD_MOTHER_OCCUPATION = "mother_occupation";
 	public static String FIELD_MOTHER_ROLE = "mother_role";
 	public static String FIELD_MOTHER_COMPANY_NAME = "mother_company_name";
@@ -284,6 +292,14 @@ public abstract class Basestudent extends BaseResource {
 		father_mobile_noField.setLength(128);
 		metaData.addField(father_mobile_noField);
 
+		Field father_home_phone_noField = new Field("father_home_phone_no", "String");
+		father_home_phone_noField.setLength(128);
+		metaData.addField(father_home_phone_noField);
+
+		Field father_office_phone_noField = new Field("father_office_phone_no", "String");
+		father_office_phone_noField.setLength(128);
+		metaData.addField(father_office_phone_noField);
+
 		Field father_dobField = new Field("father_dob", "String");
 		father_dobField.setLength(128);
 		metaData.addField(father_dobField);
@@ -315,6 +331,14 @@ public abstract class Basestudent extends BaseResource {
 		Field mother_mobile_noField = new Field("mother_mobile_no", "String");
 		mother_mobile_noField.setLength(128);
 		metaData.addField(mother_mobile_noField);
+
+		Field mother_home_phone_noField = new Field("mother_home_phone_no", "String");
+		mother_home_phone_noField.setLength(128);
+		metaData.addField(mother_home_phone_noField);
+
+		Field mother_office_phone_noField = new Field("mother_office_phone_no", "String");
+		mother_office_phone_noField.setLength(128);
+		metaData.addField(mother_office_phone_noField);
 
 		Field mother_occupationField = new Field("mother_occupation", "String");
 		mother_occupationField.setLength(128);
@@ -539,6 +563,8 @@ public abstract class Basestudent extends BaseResource {
 		this.father_name = obj.father_name;
 		this.father_email_id = obj.father_email_id;
 		this.father_mobile_no = obj.father_mobile_no;
+		this.father_home_phone_no = obj.father_home_phone_no;
+		this.father_office_phone_no = obj.father_office_phone_no;
 		this.father_dob = obj.father_dob;
 		this.father_occupation = obj.father_occupation;
 		this.father_role = obj.father_role;
@@ -547,6 +573,8 @@ public abstract class Basestudent extends BaseResource {
 		this.mother_name = obj.mother_name;
 		this.mother_dob = obj.mother_dob;
 		this.mother_mobile_no = obj.mother_mobile_no;
+		this.mother_home_phone_no = obj.mother_home_phone_no;
+		this.mother_office_phone_no = obj.mother_office_phone_no;
 		this.mother_occupation = obj.mother_occupation;
 		this.mother_role = obj.mother_role;
 		this.mother_company_name = obj.mother_company_name;
@@ -693,6 +721,10 @@ public abstract class Basestudent extends BaseResource {
 			map.put("father_email_id", father_email_id);
 		if(father_mobile_no != null)
 			map.put("father_mobile_no", father_mobile_no);
+		if(father_home_phone_no != null)
+			map.put("father_home_phone_no", father_home_phone_no);
+		if(father_office_phone_no != null)
+			map.put("father_office_phone_no", father_office_phone_no);
 		if(father_dob != null)
 			map.put("father_dob", father_dob);
 		if(father_occupation != null)
@@ -709,6 +741,10 @@ public abstract class Basestudent extends BaseResource {
 			map.put("mother_dob", mother_dob);
 		if(mother_mobile_no != null)
 			map.put("mother_mobile_no", mother_mobile_no);
+		if(mother_home_phone_no != null)
+			map.put("mother_home_phone_no", mother_home_phone_no);
+		if(mother_office_phone_no != null)
+			map.put("mother_office_phone_no", mother_office_phone_no);
 		if(mother_occupation != null)
 			map.put("mother_occupation", mother_occupation);
 		if(mother_role != null)
@@ -853,6 +889,10 @@ public abstract class Basestudent extends BaseResource {
 			map.put("father_email_id", father_email_id);
 		if(father_mobile_no != null)
 			map.put("father_mobile_no", father_mobile_no);
+		if(father_home_phone_no != null)
+			map.put("father_home_phone_no", father_home_phone_no);
+		if(father_office_phone_no != null)
+			map.put("father_office_phone_no", father_office_phone_no);
 		if(father_dob != null)
 			map.put("father_dob", father_dob);
 		if(father_occupation != null)
@@ -869,6 +909,10 @@ public abstract class Basestudent extends BaseResource {
 			map.put("mother_dob", mother_dob);
 		if(mother_mobile_no != null)
 			map.put("mother_mobile_no", mother_mobile_no);
+		if(mother_home_phone_no != null)
+			map.put("mother_home_phone_no", mother_home_phone_no);
+		if(mother_office_phone_no != null)
+			map.put("mother_office_phone_no", mother_office_phone_no);
 		if(mother_occupation != null)
 			map.put("mother_occupation", mother_occupation);
 		if(mother_role != null)
@@ -992,6 +1036,8 @@ public abstract class Basestudent extends BaseResource {
 		father_name = (String) map.get("father_name");
 		father_email_id = (String) map.get("father_email_id");
 		father_mobile_no = (String) map.get("father_mobile_no");
+		father_home_phone_no = (String) map.get("father_home_phone_no");
+		father_office_phone_no = (String) map.get("father_office_phone_no");
 		father_dob = (String) map.get("father_dob");
 		father_occupation = (String) map.get("father_occupation");
 		father_role = (String) map.get("father_role");
@@ -1000,6 +1046,8 @@ public abstract class Basestudent extends BaseResource {
 		mother_name = (String) map.get("mother_name");
 		mother_dob = (String) map.get("mother_dob");
 		mother_mobile_no = (String) map.get("mother_mobile_no");
+		mother_home_phone_no = (String) map.get("mother_home_phone_no");
+		mother_office_phone_no = (String) map.get("mother_office_phone_no");
 		mother_occupation = (String) map.get("mother_occupation");
 		mother_role = (String) map.get("mother_role");
 		mother_company_name = (String) map.get("mother_company_name");
@@ -1141,6 +1189,14 @@ public abstract class Basestudent extends BaseResource {
 		if(father_mobile_noObj != null)
 			father_mobile_no = father_mobile_noObj.toString();
 
+		Object father_home_phone_noObj = map.get("father_home_phone_no");
+		if(father_home_phone_noObj != null)
+			father_home_phone_no = father_home_phone_noObj.toString();
+
+		Object father_office_phone_noObj = map.get("father_office_phone_no");
+		if(father_office_phone_noObj != null)
+			father_office_phone_no = father_office_phone_noObj.toString();
+
 		Object father_dobObj = map.get("father_dob");
 		if(father_dobObj != null)
 			father_dob = father_dobObj.toString();
@@ -1172,6 +1228,14 @@ public abstract class Basestudent extends BaseResource {
 		Object mother_mobile_noObj = map.get("mother_mobile_no");
 		if(mother_mobile_noObj != null)
 			mother_mobile_no = mother_mobile_noObj.toString();
+
+		Object mother_home_phone_noObj = map.get("mother_home_phone_no");
+		if(mother_home_phone_noObj != null)
+			mother_home_phone_no = mother_home_phone_noObj.toString();
+
+		Object mother_office_phone_noObj = map.get("mother_office_phone_no");
+		if(mother_office_phone_noObj != null)
+			mother_office_phone_no = mother_office_phone_noObj.toString();
 
 		Object mother_occupationObj = map.get("mother_occupation");
 		if(mother_occupationObj != null)
@@ -1732,6 +1796,38 @@ public abstract class Basestudent extends BaseResource {
 		this.father_mobile_no = null;
 	}
 
+	public String getFather_home_phone_no() {
+		return father_home_phone_no;
+	}
+
+	public String getFather_home_phone_noEx() {
+		return father_home_phone_no != null ? father_home_phone_no : "";
+	}
+
+	public void setFather_home_phone_no(String father_home_phone_no) {
+		this.father_home_phone_no = father_home_phone_no;
+	}
+
+	public void unSetFather_home_phone_no() {
+		this.father_home_phone_no = null;
+	}
+
+	public String getFather_office_phone_no() {
+		return father_office_phone_no;
+	}
+
+	public String getFather_office_phone_noEx() {
+		return father_office_phone_no != null ? father_office_phone_no : "";
+	}
+
+	public void setFather_office_phone_no(String father_office_phone_no) {
+		this.father_office_phone_no = father_office_phone_no;
+	}
+
+	public void unSetFather_office_phone_no() {
+		this.father_office_phone_no = null;
+	}
+
 	public String getFather_dob() {
 		return father_dob;
 	}
@@ -1858,6 +1954,38 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetMother_mobile_no() {
 		this.mother_mobile_no = null;
+	}
+
+	public String getMother_home_phone_no() {
+		return mother_home_phone_no;
+	}
+
+	public String getMother_home_phone_noEx() {
+		return mother_home_phone_no != null ? mother_home_phone_no : "";
+	}
+
+	public void setMother_home_phone_no(String mother_home_phone_no) {
+		this.mother_home_phone_no = mother_home_phone_no;
+	}
+
+	public void unSetMother_home_phone_no() {
+		this.mother_home_phone_no = null;
+	}
+
+	public String getMother_office_phone_no() {
+		return mother_office_phone_no;
+	}
+
+	public String getMother_office_phone_noEx() {
+		return mother_office_phone_no != null ? mother_office_phone_no : "";
+	}
+
+	public void setMother_office_phone_no(String mother_office_phone_no) {
+		this.mother_office_phone_no = mother_office_phone_no;
+	}
+
+	public void unSetMother_office_phone_no() {
+		this.mother_office_phone_no = null;
 	}
 
 	public String getMother_occupation() {
