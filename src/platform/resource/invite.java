@@ -13,7 +13,8 @@ public class invite extends Baseinvite {
 	public static String INVITE_TYPE_JOIN_C4T_ADMIN = "JOIN_C4T_ADMIN";
 	public static String INVITE_TYPE_JOIN_USER = "JOIN_USER";
 	public static String INVITE_STATUS_JOINED = "JOINED";
-	public static String INVITE_STATUS_PENDING = "PENDING";
+	public static String INVITE_STATUS_NEW = "NEW";
+	public static String INVITE_STATUS_SENT = "SENT";
 	
 	private static final long serialVersionUID = 1L;
 	

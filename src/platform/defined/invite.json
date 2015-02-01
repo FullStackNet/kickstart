@@ -88,7 +88,7 @@
 				'length': 128,
 				'type':'String'
 			},
-			'status':
+			'invite_status':
 			{
 				'length': 128,
 				'type':'String'

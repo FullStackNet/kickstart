@@ -33,7 +33,7 @@ public abstract class Baseinvite extends BaseResource {
 	private String schoolTrackerService = null;
 	private String dgService = null;
 	private String key = null;
-	private String status = null;
+	private String invite_status = null;
 	private String password = null;
 	private String confirm_password = null;
 	private Long creation_time = null;
@@ -53,7 +53,7 @@ public abstract class Baseinvite extends BaseResource {
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_KEY = "key";
-	public static String FIELD_STATUS = "status";
+	public static String FIELD_INVITE_STATUS = "invite_status";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_CONFIRM_PASSWORD = "confirm_password";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -126,9 +126,9 @@ public abstract class Baseinvite extends BaseResource {
 		keyField.setLength(128);
 		metaData.addField(keyField);
 
-		Field statusField = new Field("status", "String");
-		statusField.setLength(128);
-		metaData.addField(statusField);
+		Field invite_statusField = new Field("invite_status", "String");
+		invite_statusField.setLength(128);
+		metaData.addField(invite_statusField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -160,7 +160,7 @@ public abstract class Baseinvite extends BaseResource {
 		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
 		this.key = obj.key;
-		this.status = obj.status;
+		this.invite_status = obj.invite_status;
 		this.password = obj.password;
 		this.confirm_password = obj.confirm_password;
 		this.creation_time = obj.creation_time;
@@ -201,8 +201,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("dgService", dgService);
 		if(key != null)
 			map.put("key", key);
-		if(status != null)
-			map.put("status", status);
+		if(invite_status != null)
+			map.put("invite_status", invite_status);
 		if(password != null)
 			map.put("password", password);
 		if(confirm_password != null)
@@ -244,8 +244,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("dgService", dgService);
 		if(key != null)
 			map.put("key", key);
-		if(status != null)
-			map.put("status", status);
+		if(invite_status != null)
+			map.put("invite_status", invite_status);
 		if(password != null)
 			map.put("password", password);
 		if(confirm_password != null)
@@ -278,7 +278,7 @@ public abstract class Baseinvite extends BaseResource {
 		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
 		key = (String) map.get("key");
-		status = (String) map.get("status");
+		invite_status = (String) map.get("invite_status");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -341,9 +341,9 @@ public abstract class Baseinvite extends BaseResource {
 		if(keyObj != null)
 			key = keyObj.toString();
 
-		Object statusObj = map.get("status");
-		if(statusObj != null)
-			status = statusObj.toString();
+		Object invite_statusObj = map.get("invite_status");
+		if(invite_statusObj != null)
+			invite_status = invite_statusObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -594,20 +594,20 @@ public abstract class Baseinvite extends BaseResource {
 		this.key = null;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getInvite_status() {
+		return invite_status;
 	}
 
-	public String getStatusEx() {
-		return status != null ? status : "";
+	public String getInvite_statusEx() {
+		return invite_status != null ? invite_status : "";
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setInvite_status(String invite_status) {
+		this.invite_status = invite_status;
 	}
 
-	public void unSetStatus() {
-		this.status = null;
+	public void unSetInvite_status() {
+		this.invite_status = null;
 	}
 
 	public String getPassword() {

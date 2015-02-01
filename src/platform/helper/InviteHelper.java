@@ -88,7 +88,7 @@ public class InviteHelper extends BaseHelper {
 		if (status == null) return;
 
 		invite _invite = new invite(inviteId);
-		_invite.setStatus(status);
+		_invite.setInvite_status(status);
 		try {
 			update(_invite);
 		} catch (ApplicationException e) {
@@ -105,7 +105,7 @@ public class InviteHelper extends BaseHelper {
 
 		if (_invite != null) {
 			if (key.equals(_invite.getKey())) {
-				if (_invite.getStatusEx().equals(invite.INVITE_STATUS_JOINED)) {
+				if (_invite.getInvite_statusEx().equals(invite.INVITE_STATUS_JOINED)) {
 					throw new ApplicationException(ExceptionSeverity.ERROR, "Already Joined");
 				}
 				return _invite;

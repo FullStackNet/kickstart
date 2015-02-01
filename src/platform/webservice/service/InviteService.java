@@ -31,6 +31,7 @@ public class InviteService extends BaseService{
 	}
 
 	public void sendParentInvite(invite _invite) throws ApplicationException {
+		InviteHelper.getInstance().updateStatus(_invite.getId(), invite.INVITE_STATUS_SENT);
 		String studentId = _invite.getReference_id();
 		student _student = (student)StudentHelper.getInstance().getById(studentId);
 		if (_student == null) 
