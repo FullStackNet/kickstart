@@ -24,6 +24,8 @@ public abstract class Baseschool_map extends BaseResource {
 	private ArrayList<Object> class_sections = null;
 	private ArrayList<Object> teachers = null;
 	private ArrayList<Object> students = null;
+	private ArrayList<String> card_readers = null;
+	private ArrayList<String> trackers = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -31,6 +33,8 @@ public abstract class Baseschool_map extends BaseResource {
 	public static String FIELD_CLASS_SECTIONS = "class_sections";
 	public static String FIELD_TEACHERS = "teachers";
 	public static String FIELD_STUDENTS = "students";
+	public static String FIELD_CARD_READERS = "card_readers";
+	public static String FIELD_TRACKERS = "trackers";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -56,6 +60,12 @@ public abstract class Baseschool_map extends BaseResource {
 		Field studentsField = new Field("students", "Array");
 		metaData.addField(studentsField);
 
+		Field card_readersField = new Field("card_readers", "Array");
+		metaData.addField(card_readersField);
+
+		Field trackersField = new Field("trackers", "Array");
+		metaData.addField(trackersField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -74,6 +84,8 @@ public abstract class Baseschool_map extends BaseResource {
 		this.class_sections = obj.class_sections;
 		this.teachers = obj.teachers;
 		this.students = obj.students;
+		this.card_readers = obj.card_readers;
+		this.trackers = obj.trackers;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -93,6 +105,10 @@ public abstract class Baseschool_map extends BaseResource {
 			map.put("teachers", teachers);
 		if(students != null)
 			map.put("students", students);
+		if(card_readers != null)
+			map.put("card_readers", card_readers);
+		if(trackers != null)
+			map.put("trackers", trackers);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -110,6 +126,10 @@ public abstract class Baseschool_map extends BaseResource {
 			map.put("teachers", teachers);
 		if(students != null)
 			map.put("students", students);
+		if(card_readers != null)
+			map.put("card_readers", card_readers);
+		if(trackers != null)
+			map.put("trackers", trackers);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -127,6 +147,8 @@ public abstract class Baseschool_map extends BaseResource {
 		class_sections = (ArrayList<Object>) map.get("class_sections");
 		teachers = (ArrayList<Object>) map.get("teachers");
 		students = (ArrayList<Object>) map.get("students");
+		card_readers = (ArrayList<String>) map.get("card_readers");
+		trackers = (ArrayList<String>) map.get("trackers");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -140,6 +162,8 @@ public abstract class Baseschool_map extends BaseResource {
 		class_sections = (ArrayList<Object>) map.get("class_sections");
 		teachers = (ArrayList<Object>) map.get("teachers");
 		students = (ArrayList<Object>) map.get("students");
+		card_readers = (ArrayList<String>) map.get("card_readers");
+		trackers = (ArrayList<String>) map.get("trackers");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -245,6 +269,44 @@ public abstract class Baseschool_map extends BaseResource {
 
 	public void unSetStudents() {
 		this.students = null;
+	}
+
+	public ArrayList<String> getCard_readers() {
+		return card_readers;
+	}
+
+
+	public void setCard_readers(ArrayList<String> card_readers) {
+		this.card_readers = card_readers;
+	}
+
+	public void addCard_readers(String value) {
+		if(card_readers == null)
+			card_readers = new ArrayList<String>();
+		card_readers.add(value);
+	}
+
+	public void unSetCard_readers() {
+		this.card_readers = null;
+	}
+
+	public ArrayList<String> getTrackers() {
+		return trackers;
+	}
+
+
+	public void setTrackers(ArrayList<String> trackers) {
+		this.trackers = trackers;
+	}
+
+	public void addTrackers(String value) {
+		if(trackers == null)
+			trackers = new ArrayList<String>();
+		trackers.add(value);
+	}
+
+	public void unSetTrackers() {
+		this.trackers = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

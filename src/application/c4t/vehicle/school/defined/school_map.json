@@ -31,6 +31,16 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'card_readers':
+			{
+				'type':'Array',
+				'valueType' : 'String' 
+			},
+			'trackers':
+			{
+				'type':'Array',
+				'valueType' : 'String' 
 			}
 		}
 	}
