@@ -140,6 +140,15 @@ public class StudentHelper extends BaseHelper {
 		return (student) resources[0];
 	}
 	
+	public student getByAdmissionNo(String admission_no) {
+		Expression e = new Expression(student.FIELD_ADMISSION_NO, REL_OP.EQ, admission_no);
+		BaseResource[] resources = getByExpression(e);
+		if (Util.isEmpty(resources)) {
+			return null;
+		}
+		return (student) resources[0];
+	}
+	
 	public BaseResource[] getClassStudent(String[] school_ids, String class_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ, class_name);

@@ -35,6 +35,15 @@ public class Student_mapHelper extends BaseHelper {
 		AddOrUpdate(_map);
 	}
 	
+	public void removeUser(String studentId,String userId) throws ApplicationException {
+		if (studentId == null) return;
+		if (userId == null) return;
+		student_map _map = new student_map();
+		_map.setId(studentId);
+		_map.addUsers(userId);
+		unset(_map);
+	}
+	
 	public void addNotice(String studentId,String noticeId) throws ApplicationException {
 		if (studentId == null) return;
 		if (noticeId == null) return;
