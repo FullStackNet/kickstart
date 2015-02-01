@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Baseinvite extends BaseResource {
 	private String id = null;
 	private String type = null;
+	private String school_id = null;
 	private String name = null;
 	private String mobile_no = null;
 	private String email_id = null;
@@ -35,10 +36,12 @@ public abstract class Baseinvite extends BaseResource {
 	private String status = null;
 	private String password = null;
 	private String confirm_password = null;
+	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_TYPE = "type";
+	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
@@ -53,6 +56,7 @@ public abstract class Baseinvite extends BaseResource {
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_CONFIRM_PASSWORD = "confirm_password";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -70,6 +74,10 @@ public abstract class Baseinvite extends BaseResource {
 		typeField.setRequired(true);
 		typeField.setLength(32);
 		metaData.addField(typeField);
+
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
 
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
@@ -122,6 +130,9 @@ public abstract class Baseinvite extends BaseResource {
 		statusField.setLength(128);
 		metaData.addField(statusField);
 
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -137,6 +148,7 @@ public abstract class Baseinvite extends BaseResource {
 	public Baseinvite(Baseinvite obj) {
 		this.id = obj.id;
 		this.type = obj.type;
+		this.school_id = obj.school_id;
 		this.name = obj.name;
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
@@ -151,6 +163,7 @@ public abstract class Baseinvite extends BaseResource {
 		this.status = obj.status;
 		this.password = obj.password;
 		this.confirm_password = obj.confirm_password;
+		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -164,6 +177,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("id", id);
 		if(type != null)
 			map.put("type", type);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(name != null)
 			map.put("name", name);
 		if(mobile_no != null)
@@ -192,6 +207,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("password", password);
 		if(confirm_password != null)
 			map.put("confirm_password", confirm_password);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -203,6 +220,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("id", id);
 		if(validateType(add))
 			map.put("type", type);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(name != null)
 			map.put("name", name);
 		if(mobile_no != null)
@@ -231,6 +250,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("password", password);
 		if(confirm_password != null)
 			map.put("confirm_password", confirm_password);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -245,6 +266,7 @@ public abstract class Baseinvite extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		type = (String) map.get("type");
+		school_id = (String) map.get("school_id");
 		name = (String) map.get("name");
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
@@ -257,6 +279,7 @@ public abstract class Baseinvite extends BaseResource {
 		dgService = (String) map.get("dgService");
 		key = (String) map.get("key");
 		status = (String) map.get("status");
+		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -269,6 +292,10 @@ public abstract class Baseinvite extends BaseResource {
 		Object typeObj = map.get("type");
 		if(typeObj != null)
 			type = typeObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
 
 		Object nameObj = map.get("name");
 		if(nameObj != null)
@@ -317,6 +344,10 @@ public abstract class Baseinvite extends BaseResource {
 		Object statusObj = map.get("status");
 		if(statusObj != null)
 			status = statusObj.toString();
+
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -369,6 +400,22 @@ public abstract class Baseinvite extends BaseResource {
 		if(add && type == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[type]");
 		return type != null;
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
 	}
 
 	public String getName() {
@@ -594,6 +641,15 @@ public abstract class Baseinvite extends BaseResource {
 	public void unSetConfirm_password() {
 		this.confirm_password = null;
 	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

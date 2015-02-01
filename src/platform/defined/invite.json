@@ -18,6 +18,11 @@
 				'required': true,
 				'type':'String'
 			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'name':
 			{
 				'name':'name',
@@ -99,6 +104,10 @@
 				'length': 128,
 				'type':'String',
 				'transient' : true
+			},
+			'creation_time':
+			{
+				type : "timestamp" 
 			}
 		}
 	}

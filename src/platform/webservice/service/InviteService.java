@@ -31,7 +31,6 @@ public class InviteService extends BaseService{
 	}
 
 	public void sendParentInvite(invite _invite) throws ApplicationException {
-		String school_name = "";
 		String studentId = _invite.getReference_id();
 		student _student = (student)StudentHelper.getInstance().getById(studentId);
 		if (_student == null) 
@@ -41,11 +40,6 @@ public class InviteService extends BaseService{
 		if (_school == null) 
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid School Reference");
 		
-		customer _customer = (customer)CustomerHelper.getInstance().getById(_invite.getCustomer_id());
-		if (_customer != null) {
-			school_name = _customer.getName();
-		}
-
 		if (_invite.getEmail_id() != null) {
 			SendEmail resendMail = new SendEmail();
 			resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_PARENT);
@@ -58,6 +52,8 @@ public class InviteService extends BaseService{
 			map.put("SCHOOL_NAME", _school.getBrand_name());
 			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
 			map.put("CUSTOMER_ID",_invite.getCustomer_id());
+			map.put("BRAND_NAME",_school.getBrand_name());
+			
 			String params = Json.maptoString(map);
 			resendMail.setParams(params);
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
