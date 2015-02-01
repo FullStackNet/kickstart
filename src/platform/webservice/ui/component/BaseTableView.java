@@ -148,12 +148,12 @@ public abstract class BaseTableView extends BaseView {
 					String value = data.get(field.getName()).toString();
 					if (field.getType() == UIConstants.DATA_TYPE_TIMESTAMP) {
 						value = TimeUtil.getStringFromTime(mDefinition.getTimeZone(),Long.parseLong(value));
-					}
-					if (field.getType() == UIConstants.DATA_TYPE_TIME) {
+					} else if (field.getType() == UIConstants.DATA_TYPE_TIME) {
 						value = TimeUtil.getStringFromOnlyTime(mDefinition.getTimeZone(),Long.parseLong(value));
-					}
-					if (field.getType() == UIConstants.DATA_TYPE_DURATION) {
+					} else if (field.getType() == UIConstants.DATA_TYPE_DURATION) {
 						value = TimeUtil.getDurationString(Long.parseLong(value));
+					} else if (field.getType() == UIConstants.DATA_TYPE_DATE) {
+						value = TimeUtil.getMMDDYYYYStringFromTime(mDefinition.getTimeZone(),Long.parseLong(value));
 					} 
 					if (field.getUnit() != null)
 						value = value + " "+field.getUnit();

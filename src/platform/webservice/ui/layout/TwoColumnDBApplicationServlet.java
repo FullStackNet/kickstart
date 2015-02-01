@@ -4,6 +4,8 @@ import platform.webservice.WebServiceContants;
 import platform.webservice.ui.BaseUIServlet;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.html.BaseHTMLComponent;
+import platform.webservice.ui.html.Div;
+import platform.webservice.ui.html.TEXT;
 import platform.webservice.ui.view.HeaderView;
 
 public abstract class TwoColumnDBApplicationServlet extends BaseUIServlet {
@@ -51,6 +53,11 @@ public abstract class TwoColumnDBApplicationServlet extends BaseUIServlet {
 		HeaderView headerView = new HeaderView(context, layout.getHeader());
 		headerView.buildUI();
 		layout.getLeftColumn().addChild(getWebLeftMenu(context));
+		Div div = new Div();
+		div.addAttribute("align","left");
+		div.addAttribute("style","font-size:13px;margin-top: 0px; margin-bottom:0px; margin-left:5px;");
+		div.addChild(new TEXT("Welcome "+ context.getUserName().toUpperCase()+","));
+		layout.getContent().addChild(div);
 		layout.getContent().addChild(getWebContentView(context));
 		context.getPageBuilder().setLayout(layout);
 		return context.getPageBuilder().getPageContent();

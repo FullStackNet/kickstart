@@ -5,6 +5,7 @@ import platform.webservice.ui.component.BaseView;
 import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.MenuItem;
+import platform.webservice.ui.html.TEXT;
 import platform.webservice.ui.html.UL;
 import platform.webservice.ui.util.ImageUtils;
 
@@ -36,9 +37,9 @@ public class HeaderView extends BaseView {
 	        logoImageDiv.addChild(logoImg);
 	        headerDiv.addChild(logoImageDiv);
 		}
-        
-        Div headerMenuDiv = new Div(null, "menu");
-        UL menuContainer = new UL();
+		Div headerMenuDiv = new Div(null, "menu");
+	    
+	    UL menuContainer = new UL();
         MenuItem item = new MenuItem(" ", "/ui/myarea", ImageUtils.TAB_MONITOR);
         menuContainer.addChild(item.getItem());
         item = new MenuItem(" ", "/ui/activity", ImageUtils.TAB_ACTIVITY);
@@ -51,7 +52,6 @@ public class HeaderView extends BaseView {
         menuContainer.addChild(item.getItem());
         headerMenuDiv.addChild(menuContainer);
         headerDiv.addChild(headerMenuDiv);
-
         //Div iconDiv = new Div(null, "icon");
         //Div profileDiv = new Div(null, "profile");
         //A a = new A();

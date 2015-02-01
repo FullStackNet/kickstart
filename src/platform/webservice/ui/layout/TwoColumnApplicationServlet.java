@@ -3,6 +3,8 @@ package platform.webservice.ui.layout;
 import platform.webservice.ui.BaseUIServlet;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.html.BaseHTMLComponent;
+import platform.webservice.ui.html.Div;
+import platform.webservice.ui.html.TEXT;
 import platform.webservice.ui.view.HeaderView;
 
 public abstract class TwoColumnApplicationServlet extends BaseUIServlet {
@@ -28,6 +30,9 @@ public abstract class TwoColumnApplicationServlet extends BaseUIServlet {
 		HeaderView headerView = new HeaderView(context, layout.getHeader());
 		headerView.buildUI();
 		layout.getLeftColumn().addChild(getWebLeftMenu(context));
+		Div div = new Div();
+		div.addChild(new TEXT("Welcome "+ context.getUserName()));
+		layout.getContent().addChild(div);
 		layout.getContent().addChild(getWebContentView(context));
 		context.getPageBuilder().setLayout(layout);
 		return context.getPageBuilder().getPageContent();

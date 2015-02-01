@@ -283,6 +283,14 @@ public class TimeUtil {
 			return sdf.format(new Date(time));
 	}
 	
+	public static String getMMDDYYYYStringFromTime(String timeZone,long time) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date(time));
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-YYYY");
+		sdf.setTimeZone(TimeZone.getTimeZone(timeZone));
+		return sdf.format(new Date(time));
+	}
+
 	public static String getStringFromOnlyTime(String timeZone,long time) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date(time));
