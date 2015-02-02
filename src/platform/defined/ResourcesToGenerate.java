@@ -68,6 +68,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("schedule", "platform.resource.schedule"),
 		new ResourceMap("sms_log", "platform.resource.sms_log"),
 		new ResourceMap("sms_daily_analysis", "platform.resource.sms_daily_analysis"),
-				
+		new ResourceMap("id_card", "platform.resource.id_card"),
+					
 	};
 }
