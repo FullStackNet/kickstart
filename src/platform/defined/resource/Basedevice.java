@@ -31,7 +31,6 @@ public abstract class Basedevice extends BaseResource {
 	private String firmware_minor_version = null;
 	private String state = null;
 	private String customer_id = null;
-	private String deployment_type = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -46,7 +45,6 @@ public abstract class Basedevice extends BaseResource {
 	public static String FIELD_FIRMWARE_MINOR_VERSION = "firmware_minor_version";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
-	public static String FIELD_DEPLOYMENT_TYPE = "deployment_type";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -112,11 +110,6 @@ public abstract class Basedevice extends BaseResource {
 		customer_idField.setLength(32);
 		metaData.addField(customer_idField);
 
-		Field deployment_typeField = new Field("deployment_type", "String");
-		deployment_typeField.setDefaultValue("N");
-		deployment_typeField.setLength(1);
-		metaData.addField(deployment_typeField);
-
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -142,7 +135,6 @@ public abstract class Basedevice extends BaseResource {
 		this.firmware_minor_version = obj.firmware_minor_version;
 		this.state = obj.state;
 		this.customer_id = obj.customer_id;
-		this.deployment_type = obj.deployment_type;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -153,8 +145,6 @@ public abstract class Basedevice extends BaseResource {
 	private void setDefaultValues() {
 		if(state == null)
 			state = "IN-STORE";
-		if(deployment_type == null)
-			deployment_type = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -183,8 +173,6 @@ public abstract class Basedevice extends BaseResource {
 			map.put("state", state);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if(deployment_type != null)
-			map.put("deployment_type", deployment_type);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -219,8 +207,6 @@ public abstract class Basedevice extends BaseResource {
 			map.put("state", state);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if(deployment_type != null)
-			map.put("deployment_type", deployment_type);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -245,7 +231,6 @@ public abstract class Basedevice extends BaseResource {
 		firmware_minor_version = (String) map.get("firmware_minor_version");
 		state = (String) map.get("state");
 		customer_id = (String) map.get("customer_id");
-		deployment_type = (String) map.get("deployment_type");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -298,10 +283,6 @@ public abstract class Basedevice extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
-
-		Object deployment_typeObj = map.get("deployment_type");
-		if(deployment_typeObj != null)
-			deployment_type = deployment_typeObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -546,18 +527,6 @@ public abstract class Basedevice extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
-	}
-
-	public String getDeployment_type() {
-		return deployment_type != null ? deployment_type : "N";
-	}
-
-	public void setDeployment_type(String deployment_type) {
-		this.deployment_type = deployment_type;
-	}
-
-	public void unSetDeployment_type() {
-		this.deployment_type = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

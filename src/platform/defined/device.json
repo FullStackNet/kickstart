@@ -75,13 +75,6 @@
 				'length': 32,
 				'type':'String',
 				"remark" : "Which customer has deployed this device"
-			},
-			'deployment_type':
-			{
-				'default':'N',
-				'length': 1,
-				'type':'String',
-				'comments' : "IN Bus, In School, In Office"
 			}
 		}
 	}

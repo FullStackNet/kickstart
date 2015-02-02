@@ -83,6 +83,7 @@ public abstract class Basecontroller extends BaseResource {
 	private Double multiple_factor_port3007 = null;
 	private Double multiple_factor_port3000 = null;
 	private String packet_capture = null;
+	private String deployment_type = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -149,6 +150,7 @@ public abstract class Basecontroller extends BaseResource {
 	public static String FIELD_MULTIPLE_FACTOR_PORT3007 = "multiple_factor_port3007";
 	public static String FIELD_MULTIPLE_FACTOR_PORT3000 = "multiple_factor_port3000";
 	public static String FIELD_PACKET_CAPTURE = "packet_capture";
+	public static String FIELD_DEPLOYMENT_TYPE = "deployment_type";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -423,6 +425,11 @@ public abstract class Basecontroller extends BaseResource {
 		packet_captureField.setLength(1);
 		metaData.addField(packet_captureField);
 
+		Field deployment_typeField = new Field("deployment_type", "String");
+		deployment_typeField.setDefaultValue("N");
+		deployment_typeField.setLength(1);
+		metaData.addField(deployment_typeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -500,6 +507,7 @@ public abstract class Basecontroller extends BaseResource {
 		this.multiple_factor_port3007 = obj.multiple_factor_port3007;
 		this.multiple_factor_port3000 = obj.multiple_factor_port3000;
 		this.packet_capture = obj.packet_capture;
+		this.deployment_type = obj.deployment_type;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -546,6 +554,8 @@ public abstract class Basecontroller extends BaseResource {
 			data_read_interval = 0;
 		if(packet_capture == null)
 			packet_capture = "N";
+		if(deployment_type == null)
+			deployment_type = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -678,6 +688,8 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("multiple_factor_port3000", multiple_factor_port3000);
 		if(packet_capture != null)
 			map.put("packet_capture", packet_capture);
+		if(deployment_type != null)
+			map.put("deployment_type", deployment_type);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -816,6 +828,8 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("multiple_factor_port3000", multiple_factor_port3000);
 		if(packet_capture != null)
 			map.put("packet_capture", packet_capture);
+		if(deployment_type != null)
+			map.put("deployment_type", deployment_type);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -892,6 +906,7 @@ public abstract class Basecontroller extends BaseResource {
 		multiple_factor_port3007 = (Double) map.get("multiple_factor_port3007");
 		multiple_factor_port3000 = (Double) map.get("multiple_factor_port3000");
 		packet_capture = (String) map.get("packet_capture");
+		deployment_type = (String) map.get("deployment_type");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1152,6 +1167,10 @@ public abstract class Basecontroller extends BaseResource {
 		Object packet_captureObj = map.get("packet_capture");
 		if(packet_captureObj != null)
 			packet_capture = packet_captureObj.toString();
+
+		Object deployment_typeObj = map.get("deployment_type");
+		if(deployment_typeObj != null)
+			deployment_type = deployment_typeObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2186,6 +2205,18 @@ public abstract class Basecontroller extends BaseResource {
 
 	public void unSetPacket_capture() {
 		this.packet_capture = "N";
+	}
+
+	public String getDeployment_type() {
+		return deployment_type != null ? deployment_type : "N";
+	}
+
+	public void setDeployment_type(String deployment_type) {
+		this.deployment_type = deployment_type;
+	}
+
+	public void unSetDeployment_type() {
+		this.deployment_type = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

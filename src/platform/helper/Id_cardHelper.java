@@ -38,7 +38,22 @@ public class Id_cardHelper extends BaseHelper {
 		}
 	}
 	
-	public void updateCard(String cardId,String type) {
-		
+	public void updateUsedByStudent(String cardId,String customerId,
+			String school_id,
+			String school_name,
+			String studentId) {
+		id_card card = new id_card(cardId);
+		card.setCard_status(id_card.STATUS_USED);
+		card.setUsed_by_id(studentId);
+		card.setUsed_location_id(school_id);
+		card.setUsed_location_name(school_name);
+		card.setCustomer_id(customerId);
+		card.setUsed_by_type("STDEUNT");
+		try {
+			Id_cardHelper.getInstance().AddOrUpdate(card);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
