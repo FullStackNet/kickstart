@@ -37,6 +37,7 @@ public abstract class Basestaff extends BaseResource {
 	private String designation = null;
 	private String department = null;
 	private String permanent_staff = null;
+	private String timing_id = null;
 	private String remark = null;
 	private Map<String, Object> extra_data = null;
 
@@ -58,6 +59,7 @@ public abstract class Basestaff extends BaseResource {
 	public static String FIELD_DESIGNATION = "designation";
 	public static String FIELD_DEPARTMENT = "department";
 	public static String FIELD_PERMANENT_STAFF = "permanent_staff";
+	public static String FIELD_TIMING_ID = "timing_id";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -143,6 +145,10 @@ public abstract class Basestaff extends BaseResource {
 		permanent_staffField.setLength(128);
 		metaData.addField(permanent_staffField);
 
+		Field timing_idField = new Field("timing_id", "String");
+		timing_idField.setLength(128);
+		metaData.addField(timing_idField);
+
 		Field remarkField = new Field("remark", "String");
 		remarkField.setLength(512);
 		metaData.addField(remarkField);
@@ -178,6 +184,7 @@ public abstract class Basestaff extends BaseResource {
 		this.designation = obj.designation;
 		this.department = obj.department;
 		this.permanent_staff = obj.permanent_staff;
+		this.timing_id = obj.timing_id;
 		this.remark = obj.remark;
 		this.extra_data = obj.extra_data;
 	}
@@ -229,6 +236,8 @@ public abstract class Basestaff extends BaseResource {
 			map.put("department", department);
 		if(permanent_staff != null)
 			map.put("permanent_staff", permanent_staff);
+		if(timing_id != null)
+			map.put("timing_id", timing_id);
 		if(remark != null)
 			map.put("remark", remark);
 		if(extra_data != null)
@@ -277,6 +286,8 @@ public abstract class Basestaff extends BaseResource {
 			map.put("department", department);
 		if(permanent_staff != null)
 			map.put("permanent_staff", permanent_staff);
+		if(timing_id != null)
+			map.put("timing_id", timing_id);
 		if(remark != null)
 			map.put("remark", remark);
 		if(extra_data != null)
@@ -309,6 +320,7 @@ public abstract class Basestaff extends BaseResource {
 		designation = (String) map.get("designation");
 		department = (String) map.get("department");
 		permanent_staff = (String) map.get("permanent_staff");
+		timing_id = (String) map.get("timing_id");
 		remark = (String) map.get("remark");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -386,6 +398,10 @@ public abstract class Basestaff extends BaseResource {
 		Object permanent_staffObj = map.get("permanent_staff");
 		if(permanent_staffObj != null)
 			permanent_staff = permanent_staffObj.toString();
+
+		Object timing_idObj = map.get("timing_id");
+		if(timing_idObj != null)
+			timing_id = timing_idObj.toString();
 
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
@@ -688,6 +704,22 @@ public abstract class Basestaff extends BaseResource {
 
 	public void unSetPermanent_staff() {
 		this.permanent_staff = "Y";
+	}
+
+	public String getTiming_id() {
+		return timing_id;
+	}
+
+	public String getTiming_idEx() {
+		return timing_id != null ? timing_id : "";
+	}
+
+	public void setTiming_id(String timing_id) {
+		this.timing_id = timing_id;
+	}
+
+	public void unSetTiming_id() {
+		this.timing_id = null;
 	}
 
 	public String getRemark() {

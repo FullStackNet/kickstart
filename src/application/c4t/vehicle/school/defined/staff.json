@@ -111,6 +111,10 @@
 				'length': 128,
 				'type':'String'
 			},
+			'timing_id' : {
+				'length': 128,
+				'type':'String'
+			},
 			'remark':
 			{
 				'name':'remark',
