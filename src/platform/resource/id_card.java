@@ -4,6 +4,8 @@ import platform.defined.resource.Baseid_card;
 import platform.util.Util;
 
 public class id_card extends Baseid_card {
+	public static String STATUS_NEW = "N";
+	public static String STATUS_USED = "U";
 	
 	/**
 	 * 
