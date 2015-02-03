@@ -399,6 +399,11 @@
 				'length': 1,
 				'type':'String',
 				'comments' : "IN Bus, In School, In Office"
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String'
 			}
 		}
 	}

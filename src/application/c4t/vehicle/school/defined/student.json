@@ -72,6 +72,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'syllabus_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'country':
 			{
 				'name':'country',

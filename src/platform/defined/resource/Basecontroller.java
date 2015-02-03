@@ -84,6 +84,7 @@ public abstract class Basecontroller extends BaseResource {
 	private Double multiple_factor_port3000 = null;
 	private String packet_capture = null;
 	private String deployment_type = null;
+	private String school_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -151,6 +152,7 @@ public abstract class Basecontroller extends BaseResource {
 	public static String FIELD_MULTIPLE_FACTOR_PORT3000 = "multiple_factor_port3000";
 	public static String FIELD_PACKET_CAPTURE = "packet_capture";
 	public static String FIELD_DEPLOYMENT_TYPE = "deployment_type";
+	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -430,6 +432,10 @@ public abstract class Basecontroller extends BaseResource {
 		deployment_typeField.setLength(1);
 		metaData.addField(deployment_typeField);
 
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -508,6 +514,7 @@ public abstract class Basecontroller extends BaseResource {
 		this.multiple_factor_port3000 = obj.multiple_factor_port3000;
 		this.packet_capture = obj.packet_capture;
 		this.deployment_type = obj.deployment_type;
+		this.school_id = obj.school_id;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -690,6 +697,8 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("packet_capture", packet_capture);
 		if(deployment_type != null)
 			map.put("deployment_type", deployment_type);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -830,6 +839,8 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("packet_capture", packet_capture);
 		if(deployment_type != null)
 			map.put("deployment_type", deployment_type);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -907,6 +918,7 @@ public abstract class Basecontroller extends BaseResource {
 		multiple_factor_port3000 = (Double) map.get("multiple_factor_port3000");
 		packet_capture = (String) map.get("packet_capture");
 		deployment_type = (String) map.get("deployment_type");
+		school_id = (String) map.get("school_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1171,6 +1183,10 @@ public abstract class Basecontroller extends BaseResource {
 		Object deployment_typeObj = map.get("deployment_type");
 		if(deployment_typeObj != null)
 			deployment_type = deployment_typeObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2217,6 +2233,22 @@ public abstract class Basecontroller extends BaseResource {
 
 	public void unSetDeployment_type() {
 		this.deployment_type = "N";
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

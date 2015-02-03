@@ -30,6 +30,7 @@ public abstract class Basestudent extends BaseResource {
 	private String address3 = null;
 	private String city = null;
 	private String state = null;
+	private String syllabus_type = null;
 	private String country = null;
 	private String pickup_route_stopage_id = null;
 	private String pickup_route_id = null;
@@ -111,6 +112,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_ADDRESS3 = "address3";
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
+	public static String FIELD_SYLLABUS_TYPE = "syllabus_type";
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_PICKUP_ROUTE_STOPAGE_ID = "pickup_route_stopage_id";
 	public static String FIELD_PICKUP_ROUTE_ID = "pickup_route_id";
@@ -235,6 +237,10 @@ public abstract class Basestudent extends BaseResource {
 		Field stateField = new Field("state", "String");
 		stateField.setLength(128);
 		metaData.addField(stateField);
+
+		Field syllabus_typeField = new Field("syllabus_type", "String");
+		syllabus_typeField.setLength(128);
+		metaData.addField(syllabus_typeField);
 
 		Field countryField = new Field("country", "String");
 		countryField.setLength(128);
@@ -551,6 +557,7 @@ public abstract class Basestudent extends BaseResource {
 		this.address3 = obj.address3;
 		this.city = obj.city;
 		this.state = obj.state;
+		this.syllabus_type = obj.syllabus_type;
 		this.country = obj.country;
 		this.pickup_route_stopage_id = obj.pickup_route_stopage_id;
 		this.pickup_route_id = obj.pickup_route_id;
@@ -697,6 +704,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("city", city);
 		if(state != null)
 			map.put("state", state);
+		if(syllabus_type != null)
+			map.put("syllabus_type", syllabus_type);
 		if(country != null)
 			map.put("country", country);
 		if(pickup_route_stopage_id != null)
@@ -865,6 +874,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("city", city);
 		if(state != null)
 			map.put("state", state);
+		if(syllabus_type != null)
+			map.put("syllabus_type", syllabus_type);
 		if(country != null)
 			map.put("country", country);
 		if(pickup_route_stopage_id != null)
@@ -1024,6 +1035,7 @@ public abstract class Basestudent extends BaseResource {
 		address3 = (String) map.get("address3");
 		city = (String) map.get("city");
 		state = (String) map.get("state");
+		syllabus_type = (String) map.get("syllabus_type");
 		country = (String) map.get("country");
 		pickup_route_stopage_id = (String) map.get("pickup_route_stopage_id");
 		pickup_route_id = (String) map.get("pickup_route_id");
@@ -1140,6 +1152,10 @@ public abstract class Basestudent extends BaseResource {
 		Object stateObj = map.get("state");
 		if(stateObj != null)
 			state = stateObj.toString();
+
+		Object syllabus_typeObj = map.get("syllabus_type");
+		if(syllabus_typeObj != null)
+			syllabus_type = syllabus_typeObj.toString();
 
 		Object countryObj = map.get("country");
 		if(countryObj != null)
@@ -1602,6 +1618,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetState() {
 		this.state = null;
+	}
+
+	public String getSyllabus_type() {
+		return syllabus_type;
+	}
+
+	public String getSyllabus_typeEx() {
+		return syllabus_type != null ? syllabus_type : "";
+	}
+
+	public void setSyllabus_type(String syllabus_type) {
+		this.syllabus_type = syllabus_type;
+	}
+
+	public void unSetSyllabus_type() {
+		this.syllabus_type = null;
 	}
 
 	public String getCountry() {
