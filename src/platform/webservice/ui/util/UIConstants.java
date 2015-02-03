@@ -71,6 +71,11 @@ public class UIConstants {
 			"X",
 			"XI",
 			"XII",
+			"PRE PRIMARYSr. K.G.",
+			"PRE PRIMARYNursery",
+			"PRE PRIMARYJr. K.G.",
+			"PRE PRIMARYPlayschool",
+			
 	};
 
 	public final static String[] GENDER_ENUM = new String[] {
