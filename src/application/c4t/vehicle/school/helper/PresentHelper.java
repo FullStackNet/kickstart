@@ -12,11 +12,13 @@ import platform.db.REL_OP;
 import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
+import platform.helper.Id_cardHelper;
 import platform.helper.NotificationHelper;
 import platform.log.ApplicationLogger;
 import platform.notification.NotificationFactory;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
+import platform.resource.id_card;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
@@ -251,9 +253,9 @@ public class PresentHelper extends BaseHelper {
 		updateTotalPresent(exitKey);
 	}
 	
-	public void updateInSchoolAttendance(String cardId) throws ApplicationException {
+	public void updateInSchoolAttendance(String cardId,String readerId) throws ApplicationException {
 		long currentTime = new Date().getTime();
-		
+		Id_cardHelper.getInstance().verifyAndAdd(cardId, readerId);
 		String today = TimeUtil.getDateString("IST", new Date().getTime(),"-");
 		BaseResource[] students = StudentHelper.getInstance().getStudentByCardNo(cardId);
 		if (Util.isEmpty(students)) {
@@ -266,10 +268,10 @@ public class PresentHelper extends BaseHelper {
 				Staff_presentHelper.getInstance().updateInSchoolAttendance((staff)staffs[0], cardId);
 				return;
 			}
+			
 			ApplicationLogger.error(" No student or Staff found for card " +cardId, this.getClass());
 			return;
 		}
-		
 		if (students.length > 1) {
 			ApplicationLogger.error(" Multiple student detected for card " +cardId, this.getClass());
 			//need to send the alerts admin

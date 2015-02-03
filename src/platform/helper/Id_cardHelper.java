@@ -27,9 +27,9 @@ public class Id_cardHelper extends BaseHelper {
 		if (card == null) {
 			card = new id_card(cardId);
 			card.setLast_reader_no(readerno);
-			card.setLast_update_time(new Date().getTime());
 			card.setCard_status(id_card.STATUS_NEW);
 		}
+		card.setLast_update_time(new Date().getTime());
 		try {
 			Id_cardHelper.getInstance().AddOrUpdate(card);
 		} catch (ApplicationException e) {
