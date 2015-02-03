@@ -81,6 +81,27 @@ public class Id_cardHelper extends BaseHelper {
 		}
 	}
 	
+	public void updateUsedByStaff(String cardId,String customerId,
+			String school_id,
+			String school_name,
+			String staffId,
+			String staffName) {
+		id_card card = new id_card(cardId);
+		card.setCard_status(id_card.STATUS_USED);
+		card.setUsed_by_id(staffId);
+		card.setUsed_by_name(staffName);
+		card.setUsed_location_id(school_id);
+		card.setUsed_location_name(school_name);
+		card.setCustomer_id(customerId);
+		card.setUsed_by_type("STAFF");
+		try {
+			Id_cardHelper.getInstance().AddOrUpdate(card);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public BaseResource[] getForSchool(String[] school_ids,String[] order)  {
 		Expression e = new Expression(id_card.FIELD_USED_LOCATION_ID, REL_OP.IN, school_ids);
 		return getByExpression(e,order);
