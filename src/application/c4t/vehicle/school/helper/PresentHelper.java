@@ -253,9 +253,9 @@ public class PresentHelper extends BaseHelper {
 		updateTotalPresent(exitKey);
 	}
 	
-	public void updateInSchoolAttendance(String cardId,String readerId) throws ApplicationException {
+	public void updateInSchoolAttendance(String cardId,String readerId, String locationId,String location_name) throws ApplicationException {
 		long currentTime = new Date().getTime();
-		Id_cardHelper.getInstance().verifyAndAdd(cardId, readerId);
+		Id_cardHelper.getInstance().verifyAndAdd(cardId, readerId,locationId, location_name);
 		String today = TimeUtil.getDateString("IST", new Date().getTime(),"-");
 		BaseResource[] students = StudentHelper.getInstance().getStudentByCardNo(cardId);
 		if (Util.isEmpty(students)) {

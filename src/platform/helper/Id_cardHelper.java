@@ -2,6 +2,9 @@ package platform.helper;
 
 import java.util.Date;
 
+import platform.db.Expression;
+import platform.db.REL_OP;
+import platform.resource.BaseResource;
 import platform.resource.id_card;
 import platform.util.ApplicationException;
 
@@ -22,12 +25,14 @@ public class Id_cardHelper extends BaseHelper {
 		return instance;
 	}
 	
-	public void verifyAndAdd(String cardId,String readerno) {
+	public void verifyAndAdd(String cardId,String readerno,String locationId,String location_name) {
 		id_card card = (id_card)Id_cardHelper.getInstance().getById(cardId);
 		if (card == null) {
 			card = new id_card(cardId);
 			card.setCard_no(cardId);
 			card.setLast_reader_no(readerno);
+			card.setUsed_location_id(locationId);
+			card.setUsed_location_name(location_name);
 			card.setCard_status(id_card.STATUS_NEW);
 		}
 		card.setLast_update_time(new Date().getTime());
@@ -56,5 +61,10 @@ public class Id_cardHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public BaseResource[] getForSchool(String[] school_ids,String[] order)  {
+		Expression e = new Expression(id_card.FIELD_USED_LOCATION_ID, REL_OP.IN, school_ids);
+		return getByExpression(e,order);
 	}
 }
