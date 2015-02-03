@@ -25,4 +25,9 @@ public class StaffHelper extends BaseHelper {
 		Expression e = new Expression(staff.FIELD_CARD_NO, REL_OP.EQ, card_no);
 		return getByExpression(e);
 	}
+	
+	public BaseResource[] getSchoolstaff(String[] school_ids,String[] order)  {
+		Expression e = new Expression(staff.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
+		return getByExpression(e,order);
+	}
 }
