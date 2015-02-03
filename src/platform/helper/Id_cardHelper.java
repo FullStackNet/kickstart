@@ -73,6 +73,7 @@ public class Id_cardHelper extends BaseHelper {
 		card.setUsed_location_name(school_name);
 		card.setCustomer_id(customerId);
 		card.setUsed_by_type("STDEUNT");
+		card.setCard_status(id_card.STATUS_USED);
 		try {
 			Id_cardHelper.getInstance().AddOrUpdate(card);
 		} catch (ApplicationException e) {
@@ -94,6 +95,7 @@ public class Id_cardHelper extends BaseHelper {
 		card.setUsed_location_name(school_name);
 		card.setCustomer_id(customerId);
 		card.setUsed_by_type("STAFF");
+		card.setCard_status(id_card.STATUS_USED);
 		try {
 			Id_cardHelper.getInstance().AddOrUpdate(card);
 		} catch (ApplicationException e) {
