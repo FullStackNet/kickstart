@@ -32,6 +32,7 @@ public abstract class Baseschool extends BaseResource {
 	private String country = null;
 	private String pin = null;
 	private String group_id = null;
+	private String customer_id = null;
 	private String feature_parent2parent_chat = null;
 	private String feature_homework = null;
 	private String feature_daily_activity = null;
@@ -95,6 +96,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_PIN = "pin";
 	public static String FIELD_GROUP_ID = "group_id";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_FEATURE_PARENT2PARENT_CHAT = "feature_parent2parent_chat";
 	public static String FIELD_FEATURE_HOMEWORK = "feature_homework";
 	public static String FIELD_FEATURE_DAILY_ACTIVITY = "feature_daily_activity";
@@ -204,6 +206,10 @@ public abstract class Baseschool extends BaseResource {
 		Field group_idField = new Field("group_id", "String");
 		group_idField.setLength(128);
 		metaData.addField(group_idField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
 
 		Field feature_parent2parent_chatField = new Field("feature_parent2parent_chat", "String");
 		feature_parent2parent_chatField.setDefaultValue("N");
@@ -465,6 +471,7 @@ public abstract class Baseschool extends BaseResource {
 		this.country = obj.country;
 		this.pin = obj.pin;
 		this.group_id = obj.group_id;
+		this.customer_id = obj.customer_id;
 		this.feature_parent2parent_chat = obj.feature_parent2parent_chat;
 		this.feature_homework = obj.feature_homework;
 		this.feature_daily_activity = obj.feature_daily_activity;
@@ -641,6 +648,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("pin", pin);
 		if(group_id != null)
 			map.put("group_id", group_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(feature_parent2parent_chat != null)
 			map.put("feature_parent2parent_chat", feature_parent2parent_chat);
 		if(feature_homework != null)
@@ -773,6 +782,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("pin", pin);
 		if(group_id != null)
 			map.put("group_id", group_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(feature_parent2parent_chat != null)
 			map.put("feature_parent2parent_chat", feature_parent2parent_chat);
 		if(feature_homework != null)
@@ -894,6 +905,7 @@ public abstract class Baseschool extends BaseResource {
 		country = (String) map.get("country");
 		pin = (String) map.get("pin");
 		group_id = (String) map.get("group_id");
+		customer_id = (String) map.get("customer_id");
 		feature_parent2parent_chat = (String) map.get("feature_parent2parent_chat");
 		feature_homework = (String) map.get("feature_homework");
 		feature_daily_activity = (String) map.get("feature_daily_activity");
@@ -998,6 +1010,10 @@ public abstract class Baseschool extends BaseResource {
 		Object group_idObj = map.get("group_id");
 		if(group_idObj != null)
 			group_id = group_idObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		Object feature_parent2parent_chatObj = map.get("feature_parent2parent_chat");
 		if(feature_parent2parent_chatObj != null)
@@ -1408,6 +1424,22 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetGroup_id() {
 		this.group_id = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
 	public String getFeature_parent2parent_chat() {
