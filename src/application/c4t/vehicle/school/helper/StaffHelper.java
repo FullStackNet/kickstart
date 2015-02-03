@@ -4,6 +4,7 @@ import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
+import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.staff;
 
 
@@ -21,6 +22,16 @@ public class StaffHelper extends BaseHelper {
 		return instance;
 	}
 	
+	public void updateCardId(String staffId,String cardId) {
+		staff _staff = new staff(staffId);
+		_staff.setCard_no(cardId);
+		try {
+			update(_staff);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public BaseResource[] getStaffByCardNo(String card_no) {
 		Expression e = new Expression(staff.FIELD_CARD_NO, REL_OP.EQ, card_no);
 		return getByExpression(e);

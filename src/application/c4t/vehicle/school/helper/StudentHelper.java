@@ -29,6 +29,16 @@ public class StudentHelper extends BaseHelper {
 		return instance;
 	}
 	
+	public void updateCardId(String studentId,String cardId) {
+		student _student = new student(studentId);
+		_student.setCard_no(cardId);
+		try {
+			update(_student);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void deleteRouteStopage(String routeStopageId) {
 		Expression e = new Expression(student.FIELD_PICKUP_ROUTE_STOPAGE_ID, REL_OP.EQ, routeStopageId);
 		BaseResource[] resources = getByExpression(e);

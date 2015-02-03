@@ -7,6 +7,7 @@ import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.id_card;
 import platform.util.ApplicationException;
+import platform.util.Util;
 
 
 public class Id_cardHelper extends BaseHelper {
@@ -43,14 +44,31 @@ public class Id_cardHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+	public void freeTheCard(String cardId) {
+		if (Util.isEmpty(cardId)) return;
+		id_card card = new id_card(cardId);
+		card.setCard_status(id_card.STATUS_NEW);
+		card.setUsed_by_id("");
+		card.setUsed_by_name("");
+		card.setCustomer_id("");
+		card.setUsed_by_type("");
+		try {
+			Id_cardHelper.getInstance().AddOrUpdate(card);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+			
 	public void updateUsedByStudent(String cardId,String customerId,
 			String school_id,
 			String school_name,
-			String studentId) {
+			String studentId,
+			String studentNAme) {
 		id_card card = new id_card(cardId);
 		card.setCard_status(id_card.STATUS_USED);
 		card.setUsed_by_id(studentId);
+		card.setUsed_by_name(studentNAme);
 		card.setUsed_location_id(school_id);
 		card.setUsed_location_name(school_name);
 		card.setCustomer_id(customerId);
