@@ -30,6 +30,8 @@ public abstract class Basestaff_present_detail extends BaseResource {
 	private String staff_id = null;
 	private Long creation_time = null;
 	private String remark = null;
+	private Long late_comingInMin = null;
+	private Long workingInMin = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -43,6 +45,8 @@ public abstract class Basestaff_present_detail extends BaseResource {
 	public static String FIELD_STAFF_ID = "staff_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_REMARK = "remark";
+	public static String FIELD_LATE_COMINGINMIN = "late_comingInMin";
+	public static String FIELD_WORKINGINMIN = "workingInMin";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -96,6 +100,12 @@ public abstract class Basestaff_present_detail extends BaseResource {
 		remarkField.setLength(1024);
 		metaData.addField(remarkField);
 
+		Field late_comingInMinField = new Field("late_comingInMin", "long");
+		metaData.addField(late_comingInMinField);
+
+		Field workingInMinField = new Field("workingInMin", "long");
+		metaData.addField(workingInMinField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -120,6 +130,8 @@ public abstract class Basestaff_present_detail extends BaseResource {
 		this.staff_id = obj.staff_id;
 		this.creation_time = obj.creation_time;
 		this.remark = obj.remark;
+		this.late_comingInMin = obj.late_comingInMin;
+		this.workingInMin = obj.workingInMin;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -151,6 +163,10 @@ public abstract class Basestaff_present_detail extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(remark != null)
 			map.put("remark", remark);
+		if(late_comingInMin != null)
+			map.put("late_comingInMin", late_comingInMin);
+		if(workingInMin != null)
+			map.put("workingInMin", workingInMin);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -180,6 +196,10 @@ public abstract class Basestaff_present_detail extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(remark != null)
 			map.put("remark", remark);
+		if(late_comingInMin != null)
+			map.put("late_comingInMin", late_comingInMin);
+		if(workingInMin != null)
+			map.put("workingInMin", workingInMin);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -203,6 +223,8 @@ public abstract class Basestaff_present_detail extends BaseResource {
 		staff_id = (String) map.get("staff_id");
 		creation_time = (Long) map.get("creation_time");
 		remark = (String) map.get("remark");
+		late_comingInMin = (Long) map.get("late_comingInMin");
+		workingInMin = (Long) map.get("workingInMin");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -251,6 +273,14 @@ public abstract class Basestaff_present_detail extends BaseResource {
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
 			remark = remarkObj.toString();
+
+		Object late_comingInMinObj = map.get("late_comingInMin");
+		if(late_comingInMinObj != null)
+			late_comingInMin = new Long(late_comingInMinObj.toString());
+
+		Object workingInMinObj = map.get("workingInMin");
+		if(workingInMinObj != null)
+			workingInMin = new Long(workingInMinObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -433,6 +463,46 @@ public abstract class Basestaff_present_detail extends BaseResource {
 
 	public void unSetRemark() {
 		this.remark = null;
+	}
+
+	public Long getLate_comingInMin() {
+		return late_comingInMin;
+	}
+
+	public long getLate_comingInMinEx() {
+		return late_comingInMin != null ? late_comingInMin : 0L;
+	}
+
+	public void setLate_comingInMin(long late_comingInMin) {
+		this.late_comingInMin = late_comingInMin;
+	}
+
+	public void setLate_comingInMin(Long late_comingInMin) {
+		this.late_comingInMin = late_comingInMin;
+	}
+
+	public void unSetLate_comingInMin() {
+		this.late_comingInMin = null;
+	}
+
+	public Long getWorkingInMin() {
+		return workingInMin;
+	}
+
+	public long getWorkingInMinEx() {
+		return workingInMin != null ? workingInMin : 0L;
+	}
+
+	public void setWorkingInMin(long workingInMin) {
+		this.workingInMin = workingInMin;
+	}
+
+	public void setWorkingInMin(Long workingInMin) {
+		this.workingInMin = workingInMin;
+	}
+
+	public void unSetWorkingInMin() {
+		this.workingInMin = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

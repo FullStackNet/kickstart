@@ -5,10 +5,13 @@ import java.util.Map;
 
 import platform.db.Expression;
 import platform.db.JoinField;
+import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
+import platform.resource.BaseResource;
 import platform.util.ApplicationException;
+import platform.util.Util;
 import application.c4t.vehicle.school.resource.absent;
 import application.c4t.vehicle.school.resource.school_timing;
 import application.c4t.vehicle.school.resource.student;
@@ -40,6 +43,20 @@ public class School_timingHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	public BaseResource getSchoolTiming(String schoolId,String className,String sectionName) {
+		Expression e1 = new Expression(school_timing.FIELD_SCHOOL_ID, REL_OP.EQ, schoolId);
+		Expression e2 = new Expression(school_timing.FIELD_CLASS_NAME, REL_OP.EQ, className);
+		Expression e3 = new Expression(school_timing.FIELD_SECTION_NAME, REL_OP.EQ, sectionName);
+		Expression e4 = new Expression(e1, LOG_OP.AND, e2);
+		Expression e5 = new Expression(e4, LOG_OP.AND, e3);
+		BaseResource[] resources = getByExpression(e5);
+		if (Util.isEmpty(resources)) {
+			return null;
+		}
+		return resources[0];
+	}
+	
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools) {
 		HelperFactory.getInstance().register(SchoolHelper.getInstance());
 		HelperFactory.getInstance().register(School_timingHelper.getInstance());

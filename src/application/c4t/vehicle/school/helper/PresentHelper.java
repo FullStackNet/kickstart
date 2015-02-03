@@ -18,7 +18,6 @@ import platform.log.ApplicationLogger;
 import platform.notification.NotificationFactory;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
-import platform.resource.id_card;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
@@ -31,6 +30,7 @@ import application.c4t.vehicle.school.resource.absent;
 import application.c4t.vehicle.school.resource.present;
 import application.c4t.vehicle.school.resource.present_detail;
 import application.c4t.vehicle.school.resource.school;
+import application.c4t.vehicle.school.resource.school_timing;
 import application.c4t.vehicle.school.resource.staff;
 import application.c4t.vehicle.school.resource.student;
 import application.c4t.vehicle.school.resource.trip_student_detail;
@@ -159,7 +159,7 @@ public class PresentHelper extends BaseHelper {
 					new Date(currentTime)); 
 		}
 		updateTotalPresent(entryKey);
-		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
+		if ((currentTime - _detail.getCreation_time()) < 2*60*1000L) {
 			return;
 		}
 		if (!entryRecordExist)
@@ -254,9 +254,10 @@ public class PresentHelper extends BaseHelper {
 	}
 	
 	public void updateInSchoolAttendance(String cardId,String readerId, String locationId,String location_name) throws ApplicationException {
+		String timeZone  = "IST";
 		long currentTime = new Date().getTime();
 		Id_cardHelper.getInstance().verifyAndAdd(cardId, readerId,locationId, location_name);
-		String today = TimeUtil.getDateString("IST", new Date().getTime(),"-");
+		String today = TimeUtil.getDateString(timeZone, new Date().getTime(),"-");
 		BaseResource[] students = StudentHelper.getInstance().getStudentByCardNo(cardId);
 		if (Util.isEmpty(students)) {
 			BaseResource[] staffs =StaffHelper.getInstance().getStaffByCardNo(cardId);
@@ -278,6 +279,16 @@ public class PresentHelper extends BaseHelper {
 			return;
 		}
 		student _student = (student)students[0];
+		boolean isSchoolTimingConfigured =  true;
+		school_timing _timings = (school_timing)School_timingHelper.getInstance().getSchoolTiming(_student.getSchool_id(),
+				_student.getClass_name(), _student.getSection_name());
+		if (_timings == null) {
+			isSchoolTimingConfigured = false;
+		}
+		school _school = (school) SchoolHelper.getInstance().getById(_student.getSchool_id());
+		if (!"Y".equals(_school.getFeature_timing_based_attendance())) {
+			isSchoolTimingConfigured = false;
+		}
 		String entryKey =  _student.getSchool_id()+_student.getClass_name()+"^"+_student.getSection_name();
 		entryKey = entryKey +"^"+"SCHOOL"+"^"+"ENTRY"+today;
 		present _present = (present)PresentHelper.getInstance().getById(entryKey);
@@ -310,12 +321,24 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate_str(today);
 			_detail.setStudent_id(_student.getId());
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+			_detail.setLate_comingInMin(0);
+			if (isSchoolTimingConfigured) {
+				if (!Util.isEmpty(_timings.getStart_time())) {
+					long currentDaytime = TimeUtil.getDayTime(timeZone, currentTime);
+					long startDaytime = TimeUtil.getDayTime(_timings.getStart_time());	
+					long allowedtime = startDaytime+_timings.getEntry_buffer_afterInMinEx();
+					if (currentTime > allowedtime) {
+						_detail.setLate_comingInMin((currentDaytime-startDaytime)/60);
+					}
+				}
+			}
 			Present_detailHelper.getInstance().add(_detail);
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 			updateTotalPresent(entryKey);
+			
+			
 			StudentHelper.getInstance().incrementCounter(_student.getId(),student.FIELD_TOTAL_PRESENT, 1);
 			Map<String, Object> map = new HashMap<String, Object>();
-			school _school = (school) SchoolHelper.getInstance().getById(_student.getSchool_id());
 			map.put("BRAND_NAME", "School");
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_detail.getId());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
@@ -337,11 +360,24 @@ public class PresentHelper extends BaseHelper {
 
 			return;
 		} 
-		
-		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
+		if (isSchoolTimingConfigured) {
+			if (Util.isEmpty(_timings.getEnd_time()))
+					isSchoolTimingConfigured = false;	
+		}
+		if ((currentTime - _detail.getCreation_time()) < 2*60*1000L) {
 			return;
 		}
-		
+		if (isSchoolTimingConfigured) {
+			long currentDaytime = TimeUtil.getDayTime(timeZone, currentTime);
+			long endDaytime = TimeUtil.getDayTime(_timings.getEnd_time());	
+			long allowedtime = endDaytime-_timings.getExit_buffer_beforeInMinEx()*60;
+			if (currentTime < allowedtime) {
+				ApplicationLogger.error(cardId+" card has swapped before exit time at " +TimeUtil.getDayTimeString(currentDaytime) + " but exit time is " +  _timings.getEnd_time(), this.getClass());
+				return;
+			}
+		}
+		long entrytime = _detail.getCreation_time();
+		 
 		String exitKey =  _student.getSchool_id()+_student.getClass_name()+"^"+_student.getSection_name();
 		exitKey = exitKey +"^"+"SCHOOL"+"^"+"EXIT"+today;
 		// create a presnt entry record;
@@ -375,9 +411,9 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate_str(today);
 			_detail.setStudent_id(_student.getId());
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+			_detail.setEntry_time(entrytime);
 			Present_detailHelper.getInstance().add(_detail);
 			Map<String, Object> map = new HashMap<String, Object>();
-			school _school = (school) SchoolHelper.getInstance().getById(_student.getSchool_id());
 			map.put("BRAND_NAME", "School");
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_detail.getId());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,

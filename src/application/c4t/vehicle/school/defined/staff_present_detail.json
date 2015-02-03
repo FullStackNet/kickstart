@@ -64,6 +64,14 @@
 			{
 				'type':'String',
 				length : 1024
+			},
+			'late_comingInMin':
+			{
+				'type':'long'
+			},
+			'workingInMin':
+			{
+				'type':'long'
 			}
 		}
 	}

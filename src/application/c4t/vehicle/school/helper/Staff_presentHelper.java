@@ -13,9 +13,12 @@ import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
+import application.c4t.vehicle.school.resource.school;
+import application.c4t.vehicle.school.resource.school_timing;
 import application.c4t.vehicle.school.resource.staff;
 import application.c4t.vehicle.school.resource.staff_present;
 import application.c4t.vehicle.school.resource.staff_present_detail;
+import application.c4t.vehicle.school.resource.staff_timing;
 
 
 public class Staff_presentHelper extends BaseHelper {
@@ -46,6 +49,15 @@ public class Staff_presentHelper extends BaseHelper {
 	
 	public void updateInSchoolAttendance(staff _staff,String cardId) throws ApplicationException {
 		long currentTime = new Date().getTime();
+		school _school = (school) SchoolHelper.getInstance().getById(_staff.getSchool_id());
+		String timeZone = "IST";
+		if (_school != null)
+			timeZone = _school.getTimezone();
+		boolean isSchoolTimingConfigured = true;
+		staff_timing _timings = (staff_timing)Staff_timingHelper.getInstance().getById(_staff.getTiming_id());
+		if (_timings == null) {
+			isSchoolTimingConfigured = false;
+		}
 		
 		String today = TimeUtil.getDateString("IST", new Date().getTime(),"-");
 		String entryKey =  _staff.getSchool_id();
@@ -74,6 +86,16 @@ public class Staff_presentHelper extends BaseHelper {
 			_detail.setDate_str(today);
 			_detail.setStaff_id(_staff.getId());
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+			if (isSchoolTimingConfigured) {
+				if (!Util.isEmpty(_timings.getStart_time())) {
+					long currentDaytime = TimeUtil.getDayTime(timeZone, currentTime);
+					long startDaytime = TimeUtil.getDayTime(_timings.getStart_time());	
+					long allowedtime = startDaytime+_timings.getEntry_buffer_afterInMinEx();
+					if (currentTime > allowedtime) {
+						_detail.setLate_comingInMin((currentDaytime-startDaytime)/60);
+					}
+				}
+			}
 			Staff_present_detailHelper.getInstance().add(_detail);
 			_detail = (staff_present_detail)Staff_present_detailHelper.getInstance().getById(entryKeyDetail); 
 			updateTotalPresent(entryKey);

@@ -66,6 +66,18 @@
 			{
 				'type':'timestamp'
 			},
+			'entry_time':
+			{
+				'type':'timestamp'
+			},
+			'late_comingInMin':
+			{
+				'type':'long'
+			},
+			'workingInMin':
+			{
+				'type':'long'
+			},
 			'remark':
 			{
 				'type':'String',

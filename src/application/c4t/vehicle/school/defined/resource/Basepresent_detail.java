@@ -30,6 +30,9 @@ public abstract class Basepresent_detail extends BaseResource {
 	private String date_str = null;
 	private String student_id = null;
 	private Long creation_time = null;
+	private Long entry_time = null;
+	private Long late_comingInMin = null;
+	private Long workingInMin = null;
 	private String remark = null;
 	private Map<String, Object> extra_data = null;
 
@@ -44,6 +47,9 @@ public abstract class Basepresent_detail extends BaseResource {
 	public static String FIELD_DATE_STR = "date_str";
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_ENTRY_TIME = "entry_time";
+	public static String FIELD_LATE_COMINGINMIN = "late_comingInMin";
+	public static String FIELD_WORKINGINMIN = "workingInMin";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -99,6 +105,15 @@ public abstract class Basepresent_detail extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
+		Field entry_timeField = new Field("entry_time", "timestamp");
+		metaData.addField(entry_timeField);
+
+		Field late_comingInMinField = new Field("late_comingInMin", "long");
+		metaData.addField(late_comingInMinField);
+
+		Field workingInMinField = new Field("workingInMin", "long");
+		metaData.addField(workingInMinField);
+
 		Field remarkField = new Field("remark", "String");
 		remarkField.setLength(1024);
 		metaData.addField(remarkField);
@@ -127,6 +142,9 @@ public abstract class Basepresent_detail extends BaseResource {
 		this.date_str = obj.date_str;
 		this.student_id = obj.student_id;
 		this.creation_time = obj.creation_time;
+		this.entry_time = obj.entry_time;
+		this.late_comingInMin = obj.late_comingInMin;
+		this.workingInMin = obj.workingInMin;
 		this.remark = obj.remark;
 		this.extra_data = obj.extra_data;
 	}
@@ -159,6 +177,12 @@ public abstract class Basepresent_detail extends BaseResource {
 			map.put("student_id", student_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(entry_time != null)
+			map.put("entry_time", entry_time);
+		if(late_comingInMin != null)
+			map.put("late_comingInMin", late_comingInMin);
+		if(workingInMin != null)
+			map.put("workingInMin", workingInMin);
 		if(remark != null)
 			map.put("remark", remark);
 		if(extra_data != null)
@@ -190,6 +214,12 @@ public abstract class Basepresent_detail extends BaseResource {
 			map.put("student_id", student_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(entry_time != null)
+			map.put("entry_time", entry_time);
+		if(late_comingInMin != null)
+			map.put("late_comingInMin", late_comingInMin);
+		if(workingInMin != null)
+			map.put("workingInMin", workingInMin);
 		if(remark != null)
 			map.put("remark", remark);
 		if(extra_data != null)
@@ -215,6 +245,9 @@ public abstract class Basepresent_detail extends BaseResource {
 		date_str = (String) map.get("date_str");
 		student_id = (String) map.get("student_id");
 		creation_time = (Long) map.get("creation_time");
+		entry_time = (Long) map.get("entry_time");
+		late_comingInMin = (Long) map.get("late_comingInMin");
+		workingInMin = (Long) map.get("workingInMin");
 		remark = (String) map.get("remark");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -264,6 +297,18 @@ public abstract class Basepresent_detail extends BaseResource {
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
+
+		Object entry_timeObj = map.get("entry_time");
+		if(entry_timeObj != null)
+			entry_time = (Long) entry_timeObj;
+
+		Object late_comingInMinObj = map.get("late_comingInMin");
+		if(late_comingInMinObj != null)
+			late_comingInMin = new Long(late_comingInMinObj.toString());
+
+		Object workingInMinObj = map.get("workingInMin");
+		if(workingInMinObj != null)
+			workingInMin = new Long(workingInMinObj.toString());
 
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
@@ -451,6 +496,55 @@ public abstract class Basepresent_detail extends BaseResource {
 		this.creation_time = creation_time;
 	}
 
+
+	public Long getEntry_time() {
+		return entry_time;
+	}
+
+	public void setEntry_time(Long entry_time) {
+		this.entry_time = entry_time;
+	}
+
+
+	public Long getLate_comingInMin() {
+		return late_comingInMin;
+	}
+
+	public long getLate_comingInMinEx() {
+		return late_comingInMin != null ? late_comingInMin : 0L;
+	}
+
+	public void setLate_comingInMin(long late_comingInMin) {
+		this.late_comingInMin = late_comingInMin;
+	}
+
+	public void setLate_comingInMin(Long late_comingInMin) {
+		this.late_comingInMin = late_comingInMin;
+	}
+
+	public void unSetLate_comingInMin() {
+		this.late_comingInMin = null;
+	}
+
+	public Long getWorkingInMin() {
+		return workingInMin;
+	}
+
+	public long getWorkingInMinEx() {
+		return workingInMin != null ? workingInMin : 0L;
+	}
+
+	public void setWorkingInMin(long workingInMin) {
+		this.workingInMin = workingInMin;
+	}
+
+	public void setWorkingInMin(Long workingInMin) {
+		this.workingInMin = workingInMin;
+	}
+
+	public void unSetWorkingInMin() {
+		this.workingInMin = null;
+	}
 
 	public String getRemark() {
 		return remark;
