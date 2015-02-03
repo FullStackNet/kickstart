@@ -26,6 +26,7 @@ public class Id_cardHelper extends BaseHelper {
 		id_card card = (id_card)Id_cardHelper.getInstance().getById(cardId);
 		if (card == null) {
 			card = new id_card(cardId);
+			card.setCard_no(cardId);
 			card.setLast_reader_no(readerno);
 			card.setCard_status(id_card.STATUS_NEW);
 		}
