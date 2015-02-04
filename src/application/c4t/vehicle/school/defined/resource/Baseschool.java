@@ -71,6 +71,12 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_bus_drop_exit_sms = null;
 	private String feature_school_entry_sms = null;
 	private String feature_school_exit_sms = null;
+	private String feature_bus_pickup_entry_email = null;
+	private String feature_bus_pickup_exit_email = null;
+	private String feature_bus_drop_entry_email = null;
+	private String feature_bus_drop_exit_email = null;
+	private String feature_school_entry_email = null;
+	private String feature_school_exit_email = null;
 	private String feature_homework_email = null;
 	private String feature_daily_activity_email = null;
 	private String feature_home_practice_email = null;
@@ -135,6 +141,12 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_BUS_DROP_EXIT_SMS = "feature_bus_drop_exit_sms";
 	public static String FIELD_FEATURE_SCHOOL_ENTRY_SMS = "feature_school_entry_sms";
 	public static String FIELD_FEATURE_SCHOOL_EXIT_SMS = "feature_school_exit_sms";
+	public static String FIELD_FEATURE_BUS_PICKUP_ENTRY_EMAIL = "feature_bus_pickup_entry_email";
+	public static String FIELD_FEATURE_BUS_PICKUP_EXIT_EMAIL = "feature_bus_pickup_exit_email";
+	public static String FIELD_FEATURE_BUS_DROP_ENTRY_EMAIL = "feature_bus_drop_entry_email";
+	public static String FIELD_FEATURE_BUS_DROP_EXIT_EMAIL = "feature_bus_drop_exit_email";
+	public static String FIELD_FEATURE_SCHOOL_ENTRY_EMAIL = "feature_school_entry_email";
+	public static String FIELD_FEATURE_SCHOOL_EXIT_EMAIL = "feature_school_exit_email";
 	public static String FIELD_FEATURE_HOMEWORK_EMAIL = "feature_homework_email";
 	public static String FIELD_FEATURE_DAILY_ACTIVITY_EMAIL = "feature_daily_activity_email";
 	public static String FIELD_FEATURE_HOME_PRACTICE_EMAIL = "feature_home_practice_email";
@@ -395,6 +407,36 @@ public abstract class Baseschool extends BaseResource {
 		feature_school_exit_smsField.setLength(1);
 		metaData.addField(feature_school_exit_smsField);
 
+		Field feature_bus_pickup_entry_emailField = new Field("feature_bus_pickup_entry_email", "String");
+		feature_bus_pickup_entry_emailField.setDefaultValue("Y");
+		feature_bus_pickup_entry_emailField.setLength(1);
+		metaData.addField(feature_bus_pickup_entry_emailField);
+
+		Field feature_bus_pickup_exit_emailField = new Field("feature_bus_pickup_exit_email", "String");
+		feature_bus_pickup_exit_emailField.setDefaultValue("Y");
+		feature_bus_pickup_exit_emailField.setLength(1);
+		metaData.addField(feature_bus_pickup_exit_emailField);
+
+		Field feature_bus_drop_entry_emailField = new Field("feature_bus_drop_entry_email", "String");
+		feature_bus_drop_entry_emailField.setDefaultValue("Y");
+		feature_bus_drop_entry_emailField.setLength(1);
+		metaData.addField(feature_bus_drop_entry_emailField);
+
+		Field feature_bus_drop_exit_emailField = new Field("feature_bus_drop_exit_email", "String");
+		feature_bus_drop_exit_emailField.setDefaultValue("Y");
+		feature_bus_drop_exit_emailField.setLength(1);
+		metaData.addField(feature_bus_drop_exit_emailField);
+
+		Field feature_school_entry_emailField = new Field("feature_school_entry_email", "String");
+		feature_school_entry_emailField.setDefaultValue("Y");
+		feature_school_entry_emailField.setLength(1);
+		metaData.addField(feature_school_entry_emailField);
+
+		Field feature_school_exit_emailField = new Field("feature_school_exit_email", "String");
+		feature_school_exit_emailField.setDefaultValue("Y");
+		feature_school_exit_emailField.setLength(1);
+		metaData.addField(feature_school_exit_emailField);
+
 		Field feature_homework_emailField = new Field("feature_homework_email", "String");
 		feature_homework_emailField.setDefaultValue("N");
 		feature_homework_emailField.setLength(1);
@@ -510,6 +552,12 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_bus_drop_exit_sms = obj.feature_bus_drop_exit_sms;
 		this.feature_school_entry_sms = obj.feature_school_entry_sms;
 		this.feature_school_exit_sms = obj.feature_school_exit_sms;
+		this.feature_bus_pickup_entry_email = obj.feature_bus_pickup_entry_email;
+		this.feature_bus_pickup_exit_email = obj.feature_bus_pickup_exit_email;
+		this.feature_bus_drop_entry_email = obj.feature_bus_drop_entry_email;
+		this.feature_bus_drop_exit_email = obj.feature_bus_drop_exit_email;
+		this.feature_school_entry_email = obj.feature_school_entry_email;
+		this.feature_school_exit_email = obj.feature_school_exit_email;
 		this.feature_homework_email = obj.feature_homework_email;
 		this.feature_daily_activity_email = obj.feature_daily_activity_email;
 		this.feature_home_practice_email = obj.feature_home_practice_email;
@@ -598,6 +646,18 @@ public abstract class Baseschool extends BaseResource {
 			feature_school_entry_sms = "Y";
 		if(feature_school_exit_sms == null)
 			feature_school_exit_sms = "Y";
+		if(feature_bus_pickup_entry_email == null)
+			feature_bus_pickup_entry_email = "Y";
+		if(feature_bus_pickup_exit_email == null)
+			feature_bus_pickup_exit_email = "Y";
+		if(feature_bus_drop_entry_email == null)
+			feature_bus_drop_entry_email = "Y";
+		if(feature_bus_drop_exit_email == null)
+			feature_bus_drop_exit_email = "Y";
+		if(feature_school_entry_email == null)
+			feature_school_entry_email = "Y";
+		if(feature_school_exit_email == null)
+			feature_school_exit_email = "Y";
 		if(feature_homework_email == null)
 			feature_homework_email = "N";
 		if(feature_daily_activity_email == null)
@@ -726,6 +786,18 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_school_entry_sms", feature_school_entry_sms);
 		if(feature_school_exit_sms != null)
 			map.put("feature_school_exit_sms", feature_school_exit_sms);
+		if(feature_bus_pickup_entry_email != null)
+			map.put("feature_bus_pickup_entry_email", feature_bus_pickup_entry_email);
+		if(feature_bus_pickup_exit_email != null)
+			map.put("feature_bus_pickup_exit_email", feature_bus_pickup_exit_email);
+		if(feature_bus_drop_entry_email != null)
+			map.put("feature_bus_drop_entry_email", feature_bus_drop_entry_email);
+		if(feature_bus_drop_exit_email != null)
+			map.put("feature_bus_drop_exit_email", feature_bus_drop_exit_email);
+		if(feature_school_entry_email != null)
+			map.put("feature_school_entry_email", feature_school_entry_email);
+		if(feature_school_exit_email != null)
+			map.put("feature_school_exit_email", feature_school_exit_email);
 		if(feature_homework_email != null)
 			map.put("feature_homework_email", feature_homework_email);
 		if(feature_daily_activity_email != null)
@@ -860,6 +932,18 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_school_entry_sms", feature_school_entry_sms);
 		if(feature_school_exit_sms != null)
 			map.put("feature_school_exit_sms", feature_school_exit_sms);
+		if(feature_bus_pickup_entry_email != null)
+			map.put("feature_bus_pickup_entry_email", feature_bus_pickup_entry_email);
+		if(feature_bus_pickup_exit_email != null)
+			map.put("feature_bus_pickup_exit_email", feature_bus_pickup_exit_email);
+		if(feature_bus_drop_entry_email != null)
+			map.put("feature_bus_drop_entry_email", feature_bus_drop_entry_email);
+		if(feature_bus_drop_exit_email != null)
+			map.put("feature_bus_drop_exit_email", feature_bus_drop_exit_email);
+		if(feature_school_entry_email != null)
+			map.put("feature_school_entry_email", feature_school_entry_email);
+		if(feature_school_exit_email != null)
+			map.put("feature_school_exit_email", feature_school_exit_email);
 		if(feature_homework_email != null)
 			map.put("feature_homework_email", feature_homework_email);
 		if(feature_daily_activity_email != null)
@@ -944,6 +1028,12 @@ public abstract class Baseschool extends BaseResource {
 		feature_bus_drop_exit_sms = (String) map.get("feature_bus_drop_exit_sms");
 		feature_school_entry_sms = (String) map.get("feature_school_entry_sms");
 		feature_school_exit_sms = (String) map.get("feature_school_exit_sms");
+		feature_bus_pickup_entry_email = (String) map.get("feature_bus_pickup_entry_email");
+		feature_bus_pickup_exit_email = (String) map.get("feature_bus_pickup_exit_email");
+		feature_bus_drop_entry_email = (String) map.get("feature_bus_drop_entry_email");
+		feature_bus_drop_exit_email = (String) map.get("feature_bus_drop_exit_email");
+		feature_school_entry_email = (String) map.get("feature_school_entry_email");
+		feature_school_exit_email = (String) map.get("feature_school_exit_email");
 		feature_homework_email = (String) map.get("feature_homework_email");
 		feature_daily_activity_email = (String) map.get("feature_daily_activity_email");
 		feature_home_practice_email = (String) map.get("feature_home_practice_email");
@@ -1166,6 +1256,30 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_school_exit_smsObj = map.get("feature_school_exit_sms");
 		if(feature_school_exit_smsObj != null)
 			feature_school_exit_sms = feature_school_exit_smsObj.toString();
+
+		Object feature_bus_pickup_entry_emailObj = map.get("feature_bus_pickup_entry_email");
+		if(feature_bus_pickup_entry_emailObj != null)
+			feature_bus_pickup_entry_email = feature_bus_pickup_entry_emailObj.toString();
+
+		Object feature_bus_pickup_exit_emailObj = map.get("feature_bus_pickup_exit_email");
+		if(feature_bus_pickup_exit_emailObj != null)
+			feature_bus_pickup_exit_email = feature_bus_pickup_exit_emailObj.toString();
+
+		Object feature_bus_drop_entry_emailObj = map.get("feature_bus_drop_entry_email");
+		if(feature_bus_drop_entry_emailObj != null)
+			feature_bus_drop_entry_email = feature_bus_drop_entry_emailObj.toString();
+
+		Object feature_bus_drop_exit_emailObj = map.get("feature_bus_drop_exit_email");
+		if(feature_bus_drop_exit_emailObj != null)
+			feature_bus_drop_exit_email = feature_bus_drop_exit_emailObj.toString();
+
+		Object feature_school_entry_emailObj = map.get("feature_school_entry_email");
+		if(feature_school_entry_emailObj != null)
+			feature_school_entry_email = feature_school_entry_emailObj.toString();
+
+		Object feature_school_exit_emailObj = map.get("feature_school_exit_email");
+		if(feature_school_exit_emailObj != null)
+			feature_school_exit_email = feature_school_exit_emailObj.toString();
 
 		Object feature_homework_emailObj = map.get("feature_homework_email");
 		if(feature_homework_emailObj != null)
@@ -1920,6 +2034,78 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_school_exit_sms() {
 		this.feature_school_exit_sms = "Y";
+	}
+
+	public String getFeature_bus_pickup_entry_email() {
+		return feature_bus_pickup_entry_email != null ? feature_bus_pickup_entry_email : "Y";
+	}
+
+	public void setFeature_bus_pickup_entry_email(String feature_bus_pickup_entry_email) {
+		this.feature_bus_pickup_entry_email = feature_bus_pickup_entry_email;
+	}
+
+	public void unSetFeature_bus_pickup_entry_email() {
+		this.feature_bus_pickup_entry_email = "Y";
+	}
+
+	public String getFeature_bus_pickup_exit_email() {
+		return feature_bus_pickup_exit_email != null ? feature_bus_pickup_exit_email : "Y";
+	}
+
+	public void setFeature_bus_pickup_exit_email(String feature_bus_pickup_exit_email) {
+		this.feature_bus_pickup_exit_email = feature_bus_pickup_exit_email;
+	}
+
+	public void unSetFeature_bus_pickup_exit_email() {
+		this.feature_bus_pickup_exit_email = "Y";
+	}
+
+	public String getFeature_bus_drop_entry_email() {
+		return feature_bus_drop_entry_email != null ? feature_bus_drop_entry_email : "Y";
+	}
+
+	public void setFeature_bus_drop_entry_email(String feature_bus_drop_entry_email) {
+		this.feature_bus_drop_entry_email = feature_bus_drop_entry_email;
+	}
+
+	public void unSetFeature_bus_drop_entry_email() {
+		this.feature_bus_drop_entry_email = "Y";
+	}
+
+	public String getFeature_bus_drop_exit_email() {
+		return feature_bus_drop_exit_email != null ? feature_bus_drop_exit_email : "Y";
+	}
+
+	public void setFeature_bus_drop_exit_email(String feature_bus_drop_exit_email) {
+		this.feature_bus_drop_exit_email = feature_bus_drop_exit_email;
+	}
+
+	public void unSetFeature_bus_drop_exit_email() {
+		this.feature_bus_drop_exit_email = "Y";
+	}
+
+	public String getFeature_school_entry_email() {
+		return feature_school_entry_email != null ? feature_school_entry_email : "Y";
+	}
+
+	public void setFeature_school_entry_email(String feature_school_entry_email) {
+		this.feature_school_entry_email = feature_school_entry_email;
+	}
+
+	public void unSetFeature_school_entry_email() {
+		this.feature_school_entry_email = "Y";
+	}
+
+	public String getFeature_school_exit_email() {
+		return feature_school_exit_email != null ? feature_school_exit_email : "Y";
+	}
+
+	public void setFeature_school_exit_email(String feature_school_exit_email) {
+		this.feature_school_exit_email = feature_school_exit_email;
+	}
+
+	public void unSetFeature_school_exit_email() {
+		this.feature_school_exit_email = "Y";
 	}
 
 	public String getFeature_homework_email() {

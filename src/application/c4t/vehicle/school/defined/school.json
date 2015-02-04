@@ -307,12 +307,44 @@
 				'default' : "Y",
 				'type':'String'
 			},
-			'feature_school_exit_sms':
+			
+			'feature_bus_pickup_entry_email':
 			{
 				'length': 1,
 				'default' : "Y",
 				'type':'String'
 			},
+			'feature_bus_pickup_exit_email':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_bus_drop_entry_email':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_bus_drop_exit_email':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_school_entry_email':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_school_exit_email':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			
 			'feature_homework_email':
 			{
 				'length': 1,
