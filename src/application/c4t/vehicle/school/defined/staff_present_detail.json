@@ -60,6 +60,10 @@
 			{
 				'type':'timestamp'
 			},
+			'entry_time':
+			{
+				'type':'timestamp'
+			},
 			'remark':
 			{
 				'type':'String',

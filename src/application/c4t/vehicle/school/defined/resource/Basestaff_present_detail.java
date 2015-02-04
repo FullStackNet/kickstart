@@ -29,6 +29,7 @@ public abstract class Basestaff_present_detail extends BaseResource {
 	private String date_str = null;
 	private String staff_id = null;
 	private Long creation_time = null;
+	private Long entry_time = null;
 	private String remark = null;
 	private Long late_comingInMin = null;
 	private Long workingInMin = null;
@@ -44,6 +45,7 @@ public abstract class Basestaff_present_detail extends BaseResource {
 	public static String FIELD_DATE_STR = "date_str";
 	public static String FIELD_STAFF_ID = "staff_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_ENTRY_TIME = "entry_time";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_LATE_COMINGINMIN = "late_comingInMin";
 	public static String FIELD_WORKINGINMIN = "workingInMin";
@@ -96,6 +98,9 @@ public abstract class Basestaff_present_detail extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
+		Field entry_timeField = new Field("entry_time", "timestamp");
+		metaData.addField(entry_timeField);
+
 		Field remarkField = new Field("remark", "String");
 		remarkField.setLength(1024);
 		metaData.addField(remarkField);
@@ -129,6 +134,7 @@ public abstract class Basestaff_present_detail extends BaseResource {
 		this.date_str = obj.date_str;
 		this.staff_id = obj.staff_id;
 		this.creation_time = obj.creation_time;
+		this.entry_time = obj.entry_time;
 		this.remark = obj.remark;
 		this.late_comingInMin = obj.late_comingInMin;
 		this.workingInMin = obj.workingInMin;
@@ -161,6 +167,8 @@ public abstract class Basestaff_present_detail extends BaseResource {
 			map.put("staff_id", staff_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(entry_time != null)
+			map.put("entry_time", entry_time);
 		if(remark != null)
 			map.put("remark", remark);
 		if(late_comingInMin != null)
@@ -194,6 +202,8 @@ public abstract class Basestaff_present_detail extends BaseResource {
 			map.put("staff_id", staff_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(entry_time != null)
+			map.put("entry_time", entry_time);
 		if(remark != null)
 			map.put("remark", remark);
 		if(late_comingInMin != null)
@@ -222,6 +232,7 @@ public abstract class Basestaff_present_detail extends BaseResource {
 		date_str = (String) map.get("date_str");
 		staff_id = (String) map.get("staff_id");
 		creation_time = (Long) map.get("creation_time");
+		entry_time = (Long) map.get("entry_time");
 		remark = (String) map.get("remark");
 		late_comingInMin = (Long) map.get("late_comingInMin");
 		workingInMin = (Long) map.get("workingInMin");
@@ -269,6 +280,10 @@ public abstract class Basestaff_present_detail extends BaseResource {
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
+
+		Object entry_timeObj = map.get("entry_time");
+		if(entry_timeObj != null)
+			entry_time = (Long) entry_timeObj;
 
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
@@ -446,6 +461,15 @@ public abstract class Basestaff_present_detail extends BaseResource {
 
 	public void setCreation_time(Long creation_time) {
 		this.creation_time = creation_time;
+	}
+
+
+	public Long getEntry_time() {
+		return entry_time;
+	}
+
+	public void setEntry_time(Long entry_time) {
+		this.entry_time = entry_time;
 	}
 
 

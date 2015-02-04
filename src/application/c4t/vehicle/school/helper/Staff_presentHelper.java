@@ -9,6 +9,7 @@ import platform.db.JoinField;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
+import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
@@ -101,9 +102,12 @@ public class Staff_presentHelper extends BaseHelper {
 				return;
 		} 
 		
-		if ((currentTime - _detail.getCreation_time()) < 60*1000L) {
+		if ((currentTime - _detail.getCreation_time()) < 2*60*1000L) {
 			return;
 		}
+		
+		long entrytime = _detail.getCreation_time();
+		long latecomming = _detail.getLate_comingInMinEx();
 		
 		String exitKey =  _staff.getSchool_id();
 		exitKey = exitKey +"^"+"STAFF"+"^"+"EXIT"+today;
@@ -131,11 +135,15 @@ public class Staff_presentHelper extends BaseHelper {
 			_detail.setPresent_record_type("EXIT");
 			_detail.setDate_str(today);
 			_detail.setStaff_id(_staff.getId());
+			_detail.setEntry_time(entrytime);
+			_detail.setLate_comingInMin(latecomming);
+			_detail.setWorkingInMin((currentTime-entrytime)/(1000*60));
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			Staff_present_detailHelper.getInstance().add(_detail);
 		} else {
 			_detail = new staff_present_detail(exitKeyDetail);
 			_detail.setCreation_time(new Date().getTime());
+			_detail.setWorkingInMin((currentTime-entrytime)/(1000*60));
 			Staff_present_detailHelper.getInstance().update(_detail);
 		}	
 		updateTotalPresent(exitKey);
