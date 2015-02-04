@@ -44,6 +44,19 @@ public class DataSource {
 		this.valueFields = valueFields;
 	}
 	
+	public DataSource(String keyField, String[] valueFields , BaseResource[] resources) {
+		super();
+		this.type = LISTMAP;
+		listMap = new ArrayList<Map<String, Object>>();
+		if (!Util.isEmpty(resources)) {
+			for(int i=0; i < resources.length; i++) {
+				listMap.add(resources[i].convertResourceToMap());
+			}
+		}
+		this.keyField = keyField;
+		this.valueFields = valueFields;
+	}
+	
 	public DataSource(String keyField, String valueField , BaseResource[] resources) {
 		super();
 		this.type = LISTMAP;
@@ -79,6 +92,14 @@ public class DataSource {
 		this.valueField = valueField;
 	}
 
+	public DataSource(String keyField, String[] valueFields , ArrayList<Map<String, Object>> listMap) {
+		super();
+		this.type = LISTMAP;
+		this.listMap = listMap;
+		this.keyField = keyField;
+		this.valueFields = valueFields;
+	}
+	
 	public DataSource(String keyField, String valueField , BaseHelper helper , String sql) {
 		super();
 		this.type = SQL;
@@ -88,6 +109,15 @@ public class DataSource {
 		this.sql = sql;
 	}
 
+	public DataSource(String keyField, String[] valueFields , BaseHelper helper , platform.db.Expression expression) {
+		super();
+		this.type = EXPRESSION;
+		this.helper = helper;
+		this.keyField = keyField;
+		this.valueFields = valueFields;
+		this.expression = expression;
+	}
+	
 	public DataSource(String keyField, String valueField , BaseHelper helper , platform.db.Expression expression) {
 		super();
 		this.type = EXPRESSION;
