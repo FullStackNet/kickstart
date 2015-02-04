@@ -22,6 +22,7 @@ public class DataSource {
 	IdValue[] values;
 	String keyField;
 	String valueField;
+	String[] valueFields;
 	String[] stringArrray;
 	ArrayList<Map<String, Object>> listMap;
 	ArrayList<Map<String, Object>> additionBeforeOption;
@@ -35,6 +36,14 @@ public class DataSource {
 		this.valueField = valueField;
 	}
 
+	public DataSource(String keyField, String[] valueFields , BaseHelper helper) {
+		super();
+		this.type = HELPER;
+		this.helper = helper;
+		this.keyField = keyField;
+		this.valueFields = valueFields;
+	}
+	
 	public DataSource(String keyField, String valueField , BaseResource[] resources) {
 		super();
 		this.type = LISTMAP;
@@ -133,13 +142,28 @@ public class DataSource {
 				for(int i=0 ;i < additionBeforeOption.size() ; i++) {
 					String keyValue = (String) additionBeforeOption.get(i).get(keyField);
 					Object object = additionBeforeOption.get(i).get(valueField);
+					
 					IdValue value = new IdValue(keyValue, object);
 					data.add(value);
 				}
 			}
 			for(int i=0 ;i < list.size() ; i++) {
 				String keyValue = (String) list.get(i).get(keyField);
-				Object object = list.get(i).get(valueField);
+				Object object= "";
+				if (valueField != null) {
+					object = list.get(i).get(valueField);
+				} else if (valueFields != null) {
+					String str = "";
+					for(int j=0;j < valueFields.length ; j++) {
+						if (list.get(i).get(valueFields[j]) != null) {
+							if (!Util.isEmpty(str)) {
+								str = str + ",";
+							}
+							str = str +list.get(i).get(valueFields[j]);
+						}
+					}
+					object = str;
+				}
 				IdValue value = new IdValue(keyValue, object);
 				data.add(value);
 			}
@@ -156,7 +180,21 @@ public class DataSource {
 				for(int i=0 ;i < listMap.size() ; i++) {
 					Map<String, Object> map = listMap.get(i);
 					String keyValue = (String) map.get(keyField);
-					Object object = map.get(valueField);
+					Object object= "";
+					if (valueField != null) {
+						object = map.get(valueField);
+					} else if (valueFields != null) {
+						String str = "";
+						for(int j=0;j < valueFields.length ; j++) {
+							if (!Util.isEmpty(str)) {
+								str = str + ",";
+							}
+							if (map.get(valueFields[j]) != null) {
+								str = str +map.get(valueFields[j]);
+							}
+						}
+						object = str;
+					}
 					IdValue value = new IdValue(keyValue, object);
 					data.add(value);
 				}

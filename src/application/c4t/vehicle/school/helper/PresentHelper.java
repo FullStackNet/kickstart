@@ -326,7 +326,8 @@ public class PresentHelper extends BaseHelper {
 				if (!Util.isEmpty(_timings.getStart_time())) {
 					long currentDaytime = TimeUtil.getDayTime(timeZone, currentTime);
 					long startDaytime = TimeUtil.getDayTime(_timings.getStart_time());	
-					long allowedtime = startDaytime+_timings.getEntry_buffer_afterInMinEx();
+					long allowedtime = startDaytime+_timings.getEntry_buffer_afterInMinEx()*60;
+					System.out.println(cardId +" Start Time : " + startDaytime + " Current Time : " + startDaytime + " Allow time : " + allowedtime);
 					if (currentTime > allowedtime) {
 						_detail.setLate_comingInMin((currentDaytime-startDaytime)/60);
 					}
