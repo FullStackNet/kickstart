@@ -14,7 +14,6 @@ import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
 import application.c4t.vehicle.school.resource.school;
-import application.c4t.vehicle.school.resource.school_timing;
 import application.c4t.vehicle.school.resource.staff;
 import application.c4t.vehicle.school.resource.staff_present;
 import application.c4t.vehicle.school.resource.staff_present_detail;
