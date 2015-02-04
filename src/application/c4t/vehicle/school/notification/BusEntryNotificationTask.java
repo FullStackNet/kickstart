@@ -171,11 +171,17 @@ public class BusEntryNotificationTask extends NotificationTask {
 			if (!"Y".equals(_school.getFeature_bus_pickup_entry_sms())) {
 				smsAlert = "N";
 			}
+			if (!"Y".equals(_school.getFeature_bus_pickup_entry_email())) {
+				emailAlert = "N";
+			}
 		}
 		
 		if ("DROP".equals(type)) {
 			if (!"Y".equals(_school.getFeature_bus_drop_entry_sms())) {
 				smsAlert = "N";
+			}
+			if (!"Y".equals(_school.getFeature_bus_drop_entry_email())) {
+				emailAlert = "N";
 			}
 		}
 		

@@ -159,6 +159,9 @@ public class SchoolEntryNotificationTask extends NotificationTask {
 			smsAlert = "N";
 		}
 		
+		if (!"Y".equals(_school.getFeature_school_entry_email())) {
+			emailAlert = "N";
+		}
 		
 		ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());
 		for(int j=0; j < _users.size(); j++) {

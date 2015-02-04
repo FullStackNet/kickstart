@@ -181,11 +181,18 @@ public class BusExitNotificationTask extends NotificationTask {
 			if (!"Y".equals(_school.getFeature_bus_pickup_exit_sms())) {
 				smsAlert = "N";
 			}
+			
+			if (!"Y".equals(_school.getFeature_bus_pickup_exit_email())) {
+				emailAlert = "N";
+			}
 		}
 		
 		if ("DROP".equals(type)) {
 			if (!"Y".equals(_school.getFeature_bus_drop_exit_sms())) {
 				smsAlert = "N";
+			}
+			if (!"Y".equals(_school.getFeature_bus_drop_exit_email())) {
+				emailAlert = "N";
 			}
 		}
 		ArrayList<BaseResource> _users = Student_mapHelper.getInstance().getUsersList(_student.getId());
