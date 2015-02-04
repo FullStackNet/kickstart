@@ -3,6 +3,7 @@ package platform.helper;
 import java.util.Date;
 
 import platform.db.Expression;
+import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.id_card;
@@ -102,6 +103,20 @@ public class Id_cardHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public BaseResource[] getForSchoolNew(String[] school_ids,String[] order)  {
+		Expression e1 = new Expression(id_card.FIELD_USED_LOCATION_ID, REL_OP.IN, school_ids);
+		Expression e2= new Expression(id_card.FIELD_CARD_STATUS, REL_OP.EQ, id_card.STATUS_NEW);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e,order);
+	}
+	
+	public BaseResource[] getForSchoolUsed(String[] school_ids,String[] order)  {
+		Expression e1 = new Expression(id_card.FIELD_USED_LOCATION_ID, REL_OP.IN, school_ids);
+		Expression e2= new Expression(id_card.FIELD_CARD_STATUS, REL_OP.EQ, id_card.STATUS_USED);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e,order);
 	}
 	
 	public BaseResource[] getForSchool(String[] school_ids,String[] order)  {
