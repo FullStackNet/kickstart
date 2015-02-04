@@ -84,6 +84,7 @@ public class Staff_presentHelper extends BaseHelper {
 			_detail.setPresent_type("STAFF");
 		    _detail.setPresent_record_type("ENTRY");
 			_detail.setDate_str(today);
+			_detail.setEntry_time(currentTime);
 			_detail.setStaff_id(_staff.getId());
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			if (isSchoolTimingConfigured) {
