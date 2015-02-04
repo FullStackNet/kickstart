@@ -20,6 +20,7 @@ import java.util.*;
  */
 public abstract class Basestaff_timing extends BaseResource {
 	private String id = null;
+	private String name = null;
 	private String school_id = null;
 	private String customer_id = null;
 	private Integer entry_buffer_beforeInMin = null;
@@ -32,6 +33,7 @@ public abstract class Basestaff_timing extends BaseResource {
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_NAME = "name";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_ENTRY_BUFFER_BEFOREINMIN = "entry_buffer_beforeInMin";
@@ -53,6 +55,10 @@ public abstract class Basestaff_timing extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field nameField = new Field("name", "String");
+		nameField.setLength(128);
+		metaData.addField(nameField);
 
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setRequired(true);
@@ -101,6 +107,7 @@ public abstract class Basestaff_timing extends BaseResource {
 
 	public Basestaff_timing(Basestaff_timing obj) {
 		this.id = obj.id;
+		this.name = obj.name;
 		this.school_id = obj.school_id;
 		this.customer_id = obj.customer_id;
 		this.entry_buffer_beforeInMin = obj.entry_buffer_beforeInMin;
@@ -121,6 +128,8 @@ public abstract class Basestaff_timing extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(name != null)
+			map.put("name", name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(customer_id != null)
@@ -148,6 +157,8 @@ public abstract class Basestaff_timing extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(name != null)
+			map.put("name", name);
 		if(validateSchool_id(add))
 			map.put("school_id", school_id);
 		if(customer_id != null)
@@ -179,6 +190,7 @@ public abstract class Basestaff_timing extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		name = (String) map.get("name");
 		school_id = (String) map.get("school_id");
 		customer_id = (String) map.get("customer_id");
 		entry_buffer_beforeInMin = (Integer) map.get("entry_buffer_beforeInMin");
@@ -196,6 +208,10 @@ public abstract class Basestaff_timing extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object nameObj = map.get("name");
+		if(nameObj != null)
+			name = nameObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -262,6 +278,22 @@ public abstract class Basestaff_timing extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getNameEx() {
+		return name != null ? name : "";
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void unSetName() {
+		this.name = null;
 	}
 
 	public String getSchool_id() {
