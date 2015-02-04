@@ -52,6 +52,12 @@
 				'type':'String',
 				'index' : true
 			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'user_id':
 			{
 				'length': 128,

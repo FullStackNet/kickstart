@@ -3,6 +3,7 @@ package platform.webservice.ui.renderer;
 import java.util.Map;
 
 import platform.util.TimeUtil;
+import platform.util.Util;
 import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.SPAN;
@@ -23,6 +24,12 @@ public class DurationRenderer extends BaseRenderer {
 	@Override
 	public BaseHTMLComponent render(Field field, String value,String refreshKey) {
 		// TODO Auto-generated method stub
+		if (Util.isEmpty(value)) {
+			SPAN span = new SPAN(field.getName()+"_"+refreshKey,field.getClassName());
+			span.addAttribute("data-renderer","DURATION");
+			span.setText("-");
+			return span;
+		}
 		if (unit.equals(INPUT_UNIT_SEC)) 
 			value = TimeUtil.getDurationString(Long.parseLong(value)*1000L);
 		else if(unit.equals(INPUT_UNIT_MINUTE))
@@ -43,6 +50,12 @@ public class DurationRenderer extends BaseRenderer {
 		if (data.get(field.getName()) != null) {
 			value = data.get(field.getName()).toString();
 
+		}
+		if (Util.isEmpty(value)) {
+			SPAN span = new SPAN(field.getName(),field.getClassName());
+			span.addAttribute("data-renderer","DURATION");
+			span.setText("-");
+			return span;
 		}
 		if (unit.equals(INPUT_UNIT_SEC)) 
 			value = TimeUtil.getDurationString(Long.parseLong(value)*1000L);

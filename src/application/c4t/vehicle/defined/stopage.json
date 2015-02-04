@@ -37,6 +37,17 @@
 				'type':'String',
 				'index' : true
 			},
+			'area':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'user_id':
 			{
 				'name':'user_id',

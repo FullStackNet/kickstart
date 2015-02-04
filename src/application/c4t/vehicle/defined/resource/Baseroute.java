@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -32,6 +28,7 @@ public abstract class Baseroute extends BaseResource {
 	private String to_point = null;
 	private String by_route = null;
 	private String customer_id = null;
+	private String school_id = null;
 	private String user_id = null;
 	private String appliance_id = null;
 	private String driver_id = null;
@@ -67,6 +64,7 @@ public abstract class Baseroute extends BaseResource {
 	public static String FIELD_TO_POINT = "to_point";
 	public static String FIELD_BY_ROUTE = "by_route";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_APPLIANCE_ID = "appliance_id";
 	public static String FIELD_DRIVER_ID = "driver_id";
@@ -137,6 +135,11 @@ public abstract class Baseroute extends BaseResource {
 		customer_idField.setRequired(true);
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
+
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setIndexed(true);
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
 
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setRequired(true);
@@ -266,6 +269,7 @@ public abstract class Baseroute extends BaseResource {
 		this.to_point = obj.to_point;
 		this.by_route = obj.by_route;
 		this.customer_id = obj.customer_id;
+		this.school_id = obj.school_id;
 		this.user_id = obj.user_id;
 		this.appliance_id = obj.appliance_id;
 		this.driver_id = obj.driver_id;
@@ -348,6 +352,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("by_route", by_route);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(appliance_id != null)
@@ -424,6 +430,8 @@ public abstract class Baseroute extends BaseResource {
 			map.put("by_route", by_route);
 		if(validateCustomer_id(add))
 			map.put("customer_id", customer_id);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(validateUser_id(add))
 			map.put("user_id", user_id);
 		if(appliance_id != null)
@@ -493,6 +501,7 @@ public abstract class Baseroute extends BaseResource {
 		to_point = (String) map.get("to_point");
 		by_route = (String) map.get("by_route");
 		customer_id = (String) map.get("customer_id");
+		school_id = (String) map.get("school_id");
 		user_id = (String) map.get("user_id");
 		appliance_id = (String) map.get("appliance_id");
 		driver_id = (String) map.get("driver_id");
@@ -557,6 +566,10 @@ public abstract class Baseroute extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
 
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
@@ -817,6 +830,22 @@ public abstract class Baseroute extends BaseResource {
 		if(add && customer_id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[customer_id]");
 		return customer_id != null;
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
 	}
 
 	public String getUser_id() {

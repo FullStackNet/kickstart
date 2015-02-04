@@ -2,6 +2,7 @@ package platform.util;
 
 public class ApplicationConstants {
 	public static String IMPORT_FILE = "import";
+	public static String IMPORT_TARNSPORT_FILE = "import_transport";
 	public static String CONFIGURATION_FILE = "configuration";
 	public static String MOBD_CONFIGURATION_FILE = "mobd";
 	public static String DC_CONFIGURATION_FILE = "dc";

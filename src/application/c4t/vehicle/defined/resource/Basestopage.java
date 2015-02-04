@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -28,6 +24,8 @@ public abstract class Basestopage extends BaseResource {
 	private String longitude = null;
 	private String latitude = null;
 	private String customer_id = null;
+	private String area = null;
+	private String school_id = null;
 	private String user_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -36,6 +34,8 @@ public abstract class Basestopage extends BaseResource {
 	public static String FIELD_LONGITUDE = "longitude";
 	public static String FIELD_LATITUDE = "latitude";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_AREA = "area";
+	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -68,6 +68,15 @@ public abstract class Basestopage extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
+		Field areaField = new Field("area", "String");
+		areaField.setLength(128);
+		metaData.addField(areaField);
+
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setIndexed(true);
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
+
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setRequired(true);
 		user_idField.setLength(128);
@@ -91,6 +100,8 @@ public abstract class Basestopage extends BaseResource {
 		this.longitude = obj.longitude;
 		this.latitude = obj.latitude;
 		this.customer_id = obj.customer_id;
+		this.area = obj.area;
+		this.school_id = obj.school_id;
 		this.user_id = obj.user_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -111,6 +122,10 @@ public abstract class Basestopage extends BaseResource {
 			map.put("latitude", latitude);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(area != null)
+			map.put("area", area);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(extra_data != null)
@@ -130,6 +145,10 @@ public abstract class Basestopage extends BaseResource {
 			map.put("latitude", latitude);
 		if(validateCustomer_id(add))
 			map.put("customer_id", customer_id);
+		if(area != null)
+			map.put("area", area);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(validateUser_id(add))
 			map.put("user_id", user_id);
 		if(extra_data != null)
@@ -149,6 +168,8 @@ public abstract class Basestopage extends BaseResource {
 		longitude = (String) map.get("longitude");
 		latitude = (String) map.get("latitude");
 		customer_id = (String) map.get("customer_id");
+		area = (String) map.get("area");
+		school_id = (String) map.get("school_id");
 		user_id = (String) map.get("user_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -174,6 +195,14 @@ public abstract class Basestopage extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object areaObj = map.get("area");
+		if(areaObj != null)
+			area = areaObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
 
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
@@ -278,6 +307,38 @@ public abstract class Basestopage extends BaseResource {
 		if(add && customer_id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[customer_id]");
 		return customer_id != null;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public String getAreaEx() {
+		return area != null ? area : "";
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public void unSetArea() {
+		this.area = null;
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
 	}
 
 	public String getUser_id() {
