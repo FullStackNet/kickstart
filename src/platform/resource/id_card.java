@@ -14,7 +14,7 @@ public class id_card extends Baseid_card {
 	
 	public static IdValue[] CARD_STATUS_ENUM = new IdValue[] {
 			new IdValue(STATUS_NEW, STATUS_NEW),
-			new IdValue(STATUS_USED, STATUS_NEW),
+			new IdValue(STATUS_USED, STATUS_USED),
 	};
 	
 	/**
