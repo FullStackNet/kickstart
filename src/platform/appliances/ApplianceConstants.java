@@ -11,6 +11,7 @@ public class ApplianceConstants {
 	public static String APPLIANCE_STATE_STOPPED = "STOPPED";
 	
 	public static String APPLIANCE_TYPE_VEHICLE = "VEHICLE";
+	public static String APPLIANCE_TYPE_READER = "READER";
 	public static String APPLIANCE_TYPE_DG = "DG";
 	public static String APPLIANCE_TYPE_SWITCH = "SWITCH";
 	
