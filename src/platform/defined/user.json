@@ -200,6 +200,114 @@
 				'length': 1,
 				'default' : "Y",
 				'type':'String'
+			},
+			'feature_homework':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_daily_activity':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_home_practice':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_notice':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_absent_report':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_pick_drop':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_message2parent':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_message2school':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_proficiency':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_wof':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_photo':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_video':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_fees':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_work_sheet':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_present_report':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_news':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_parenting':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_event':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
 			}					
 		}
 	}

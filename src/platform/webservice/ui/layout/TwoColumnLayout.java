@@ -41,9 +41,9 @@ public class TwoColumnLayout extends BaseLayout {
 		mLayoutContent.addAttribute(new Attribute("id", "content"));
 		content_container_2.addChild(mLayoutContent);
 		
-		mLayoutFooter = new Div();
-		mLayoutFooter.addAttribute(new Attribute("id", "footer"));
-		content_container_2.addChild(mLayoutFooter);
+		//mLayoutFooter = new Div();
+		//mLayoutFooter.addAttribute(new Attribute("id", "footer"));
+		//content_container_2.addChild(mLayoutFooter);
 
 	}
 	
