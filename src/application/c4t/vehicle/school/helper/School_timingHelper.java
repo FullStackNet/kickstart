@@ -31,7 +31,7 @@ public class School_timingHelper extends BaseHelper {
 	}
 	
 	public void addTiming(student _student) {
-		String key = school_timing.id(_student.getId(), _student.getClass_name(), _student.getSection_name());
+		String key = school_timing.id(_student.getSchool_id(), _student.getClass_name(), _student.getSection_name());
 		school_timing _timing = new school_timing(key);
 		_timing.setSchool_id(_student.getSchool_id());
 		_timing.setClass_name(_student.getClass_name());

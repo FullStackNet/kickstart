@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import platform.alert.AlertFactory;
+import platform.appliances.Appliance;
 import platform.db.Expression;
+import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.notification.NotificationFactory;
 import platform.resource.BaseResource;
@@ -48,15 +50,55 @@ public class ApplianceHelper extends BaseHelper {
 	}
 	public BaseResource[] getCustomerVehicle(String customerId) {
 		return ApplianceHelper.getInstance().getByCustomerIdForType(customerId,"VEHICLE");
-		
+
 	}
 	public BaseResource[] getUserVehicle(String userId) {
 		return User_mapHelper.getInstance().getApplinaceResources(userId);
 	}
 
-	public BaseResource[] getSchoolBusAdminDetail(String customerId) {
+	public BaseResource[] getSchoolVehicle(String[] schoolIds) {
+		Expression e1 = new Expression(appliance.FIELD_TYPE, REL_OP.EQ, Appliance.APPLIANCE_VEHICLE);
+		Expression e2 = new Expression(appliance.FIELD_LOCATION_ID, REL_OP.IN, schoolIds);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
+	
+	public BaseResource[] getSchoolReader(String[] schoolId) {
+		Expression e1 = new Expression(appliance.FIELD_TYPE, REL_OP.EQ, Appliance.APPLIANCE_READER);
+		Expression e2 = new Expression(appliance.FIELD_LOCATION_ID, REL_OP.IN, schoolId);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		BaseResource[] appliances = getByExpression(e);
+		if (Util.isEmpty(appliances)) 
+			return null;
+		for(BaseResource resource : appliances) {
+			appliance _appliance = (appliance) resource;
+			String connected = "U";
+			BaseResource[] _controllers = ControllerHelper.getInstance().getByApplianceId(_appliance.getId());
+			if (!Util.isEmpty(_controllers)) {
+				connected = "Y";
+				controller _controller = (controller)_controllers[0];
+				_appliance.setController_id(_controller.getId());
+				if (_appliance.getLast_update_time() == null) {
+					connected = "U";
+				} else {
+					long diff = System.currentTimeMillis()-_appliance.getLast_update_time();
+					if (diff > (_controller.getHeartbeat_interval()*3*1000L)) {
+						connected = "N";
+					}
+				}
+			}
+			_appliance.setConnected(connected);
+		}
+		return appliances;
+	}
+
+	public BaseResource[] getSchoolVehicleDetail(String customerId, String[] schoolIds) {
 		BaseResource[] appliances;
-		appliances = ApplianceHelper.getInstance().getByCustomerIdForType(customerId,"VEHICLE");
+		if (!Util.isEmpty(schoolIds)) {
+			appliances = ApplianceHelper.getInstance().getSchoolVehicle(schoolIds);
+		} else {
+			appliances = ApplianceHelper.getInstance().getByCustomerIdForType(customerId,"VEHICLE");
+		}
 		if (Util.isEmpty(appliances)) 
 			return null;
 		for(BaseResource resource : appliances) {
@@ -88,7 +130,7 @@ public class ApplianceHelper extends BaseHelper {
 					connected = "U";
 				} else {
 					long diff = System.currentTimeMillis()-_appliance.getLast_update_time();
-					if (diff > (_controller.getData_read_interval()*3*1000L)) {
+					if (diff > (_controller.getHeartbeat_interval()*3*1000L)) {
 						connected = "N";
 					}
 				}
