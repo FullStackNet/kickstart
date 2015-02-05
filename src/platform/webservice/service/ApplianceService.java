@@ -199,7 +199,7 @@ public class ApplianceService extends BaseService{
 
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
 		if(QueryTypes.QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN.toString().equals(queryId)) {
-			return ApplianceHelper.getInstance().getSchoolBusAdminDetail(ctx.getCustomerId());
+			return ApplianceHelper.getInstance().getSchoolBusAdminDetail(ctx.getCustomerId(),null);
 		}
 		if(QueryTypes.QUERY_APPLIANCE_HOME_AUTOMATION.toString().equals(queryId)) {
 			return ApplianceHelper.getInstance().getByCustomerId(ctx.getCustomerId());

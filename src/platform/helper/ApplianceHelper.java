@@ -92,7 +92,7 @@ public class ApplianceHelper extends BaseHelper {
 		return appliances;
 	}
 
-	public BaseResource[] getSchoolVehicleDetail(String customerId, String[] schoolIds) {
+	public BaseResource[] getSchoolBusAdminDetail(String customerId, String[] schoolIds) {
 		BaseResource[] appliances;
 		if (!Util.isEmpty(schoolIds)) {
 			appliances = ApplianceHelper.getInstance().getSchoolVehicle(schoolIds);
