@@ -1,7 +1,6 @@
 package application.c4t.vehicle.school.helper;
 
 import platform.helper.BaseHelper;
-import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.news;
 
 
