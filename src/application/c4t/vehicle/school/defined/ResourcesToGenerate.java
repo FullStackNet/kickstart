@@ -80,6 +80,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("tutorial", "application.c4t.vehicle.school.resource.tutorial"),		
 		new ResourceMap("tutorial_category", "application.c4t.vehicle.school.resource.tutorial_category"),		
 		new ResourceMap("objective_question", "application.c4t.vehicle.school.resource.objective_question"),		
+		new ResourceMap("practical_master", "application.c4t.vehicle.school.resource.practical_master"),		
 
 	};
 }
