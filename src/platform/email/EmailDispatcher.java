@@ -224,8 +224,7 @@ public class EmailDispatcher {
 		else if(sendMailUniqueId) { // Demo & Dev
 			subject = subject + " " + Arrays.toString(toEmailIds);
 			toEmailIds = new String[] {uniqueId};
-		} else if(sendMailToRightId)
-			toEmailIds = new String[] {wtBccMail};
+		} 
 		
 		String replyToEmailId = iMailReply != null ? iMailReply.getReplyToEmailId() : null;
 		String replyToName = iMailReply != null ? iMailReply.getReplyToName() : null;
