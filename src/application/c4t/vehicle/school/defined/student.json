@@ -440,6 +440,22 @@
 			{
 				'type':'String',
 				length : 10
+			},
+			'student_account':
+			{
+				'type':'String',
+				length : 1,
+				'default' : "Y"
+			},
+			'student_email_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'student_mobile_no':
+			{
+				'type':'String',
+				length : 128
 			}
 		}
 	}
