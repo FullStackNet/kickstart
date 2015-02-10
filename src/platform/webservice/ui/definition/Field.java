@@ -40,6 +40,9 @@ public class Field {
 	boolean modifyOnly;
 	boolean readOnly;
 	boolean showCount;
+	String[] names;
+	String[] types;
+	String[] labels;
 	
 	
 	public DataSource getDatasource() {
@@ -105,6 +108,18 @@ public class Field {
 		this.type = type;
 	}
 
+	public Field(String[] labels, String[] names,String[] types) {
+		super();
+			this.labels = labels;
+			this.names = names;
+			this.types = types;
+			this.compomentType = UIConstants.COMPONENT_TYPE_TEXTINPUT;
+			required = false;
+			timeZone = "IST";
+			showCount = false;
+	}
+	
+	
 	public Field(String label, String name,String type) {
 		super();
 			this.label = label;
@@ -325,5 +340,29 @@ public class Field {
 
 	public void setHint(String hint) {
 		this.hint = hint;
+	}
+
+	public String[] getNames() {
+		return names;
+	}
+
+	public void setNames(String[] names) {
+		this.names = names;
+	}
+
+	public String[] getTypes() {
+		return types;
+	}
+
+	public void setTypes(String[] types) {
+		this.types = types;
+	}
+
+	public String[] getLabels() {
+		return labels;
+	}
+
+	public void setLabels(String[] labels) {
+		this.labels = labels;
 	}
 }

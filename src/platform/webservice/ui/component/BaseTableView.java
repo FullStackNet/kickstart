@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import platform.util.TimeUtil;
+import platform.util.Util;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.definition.TableDefinition;
@@ -64,7 +65,19 @@ public abstract class BaseTableView extends BaseView {
 			if (field.getWidth() > 0) {
 				th.addAttribute("width",""+field.getWidth());
 			}
-			th.setText(field.getLabel());
+			if (field.getLabel() != null) {
+				th.setText(field.getLabel());
+			} else if (field.getLabels() != null) {
+				String labels = "";
+				for(String label : field.getLabels()) {
+					if (!Util.isEmpty(label)) {
+						labels = labels + "<br>";
+					}
+					labels = labels + label;
+				}
+				th.setText(labels);
+			}
+			
 			row.addChild(th);
 		}
 		th = new TH();
@@ -144,7 +157,7 @@ public abstract class BaseTableView extends BaseView {
 				td.addChild(renderer.render(field, data));
 			} else {
 
-				if (data.get(field.getName()) != null) {
+				if ((field.getName() != null) && data.get(field.getName()) != null) {
 					String value = data.get(field.getName()).toString();
 					if (field.getType() == UIConstants.DATA_TYPE_TIMESTAMP) {
 						value = TimeUtil.getStringFromTime(mDefinition.getTimeZone(),Long.parseLong(value));
@@ -158,7 +171,31 @@ public abstract class BaseTableView extends BaseView {
 					if (field.getUnit() != null)
 						value = value + " "+field.getUnit();
 					td.setText(value);
-				} else {
+				} else if (field.getNames() != null) {
+					String values = "";
+					int k = 0;
+					for(String name : field.getNames()) {
+						if (data.get(name) == null)
+							continue;
+						String value = data.get(name).toString();
+						if (field.getTypes()[k] == UIConstants.DATA_TYPE_TIMESTAMP) {
+							value = TimeUtil.getStringFromTime(mDefinition.getTimeZone(),Long.parseLong(value));
+						} else if (field.getTypes()[k]  == UIConstants.DATA_TYPE_TIME) {
+							value = TimeUtil.getStringFromOnlyTime(mDefinition.getTimeZone(),Long.parseLong(value));
+						} else if (field.getTypes()[k]  == UIConstants.DATA_TYPE_DURATION) {
+							value = TimeUtil.getDurationString(Long.parseLong(value));
+						} else if (field.getTypes()[k]  == UIConstants.DATA_TYPE_DATE) {
+							value = TimeUtil.getMMDDYYYYStringFromTime(mDefinition.getTimeZone(),Long.parseLong(value));
+						} 
+						if (!Util.isEmpty(values)) {
+							values = values+ "<br>";
+						}
+						values = values + value;
+						k++;
+					}
+					td.setText(values);
+				}	else {
+				
 					td.setText("-");
 				}
 			}
