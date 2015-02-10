@@ -102,6 +102,9 @@ public abstract class Basestudent extends BaseResource {
 	private String student_account = null;
 	private String student_email_id = null;
 	private String student_mobile_no = null;
+	private String card_not_working = null;
+	private String card_not_working_reason = null;
+	private String card_not_working_date_str = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -187,6 +190,9 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_STUDENT_ACCOUNT = "student_account";
 	public static String FIELD_STUDENT_EMAIL_ID = "student_email_id";
 	public static String FIELD_STUDENT_MOBILE_NO = "student_mobile_no";
+	public static String FIELD_CARD_NOT_WORKING = "card_not_working";
+	public static String FIELD_CARD_NOT_WORKING_REASON = "card_not_working_reason";
+	public static String FIELD_CARD_NOT_WORKING_DATE_STR = "card_not_working_date_str";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -552,6 +558,19 @@ public abstract class Basestudent extends BaseResource {
 		student_mobile_noField.setLength(128);
 		metaData.addField(student_mobile_noField);
 
+		Field card_not_workingField = new Field("card_not_working", "String");
+		card_not_workingField.setDefaultValue("N");
+		card_not_workingField.setLength(128);
+		metaData.addField(card_not_workingField);
+
+		Field card_not_working_reasonField = new Field("card_not_working_reason", "String");
+		card_not_working_reasonField.setLength(128);
+		metaData.addField(card_not_working_reasonField);
+
+		Field card_not_working_date_strField = new Field("card_not_working_date_str", "String");
+		card_not_working_date_strField.setLength(32);
+		metaData.addField(card_not_working_date_strField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -648,6 +667,9 @@ public abstract class Basestudent extends BaseResource {
 		this.student_account = obj.student_account;
 		this.student_email_id = obj.student_email_id;
 		this.student_mobile_no = obj.student_mobile_no;
+		this.card_not_working = obj.card_not_working;
+		this.card_not_working_reason = obj.card_not_working_reason;
+		this.card_not_working_date_str = obj.card_not_working_date_str;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -702,6 +724,8 @@ public abstract class Basestudent extends BaseResource {
 			primary_contact = "MOTHER";
 		if(student_account == null)
 			student_account = "Y";
+		if(card_not_working == null)
+			card_not_working = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -872,6 +896,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("student_email_id", student_email_id);
 		if(student_mobile_no != null)
 			map.put("student_mobile_no", student_mobile_no);
+		if(card_not_working != null)
+			map.put("card_not_working", card_not_working);
+		if(card_not_working_reason != null)
+			map.put("card_not_working_reason", card_not_working_reason);
+		if(card_not_working_date_str != null)
+			map.put("card_not_working_date_str", card_not_working_date_str);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1048,6 +1078,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("student_email_id", student_email_id);
 		if(student_mobile_no != null)
 			map.put("student_mobile_no", student_mobile_no);
+		if(card_not_working != null)
+			map.put("card_not_working", card_not_working);
+		if(card_not_working_reason != null)
+			map.put("card_not_working_reason", card_not_working_reason);
+		if(card_not_working_date_str != null)
+			map.put("card_not_working_date_str", card_not_working_date_str);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1143,6 +1179,9 @@ public abstract class Basestudent extends BaseResource {
 		student_account = (String) map.get("student_account");
 		student_email_id = (String) map.get("student_email_id");
 		student_mobile_no = (String) map.get("student_mobile_no");
+		card_not_working = (String) map.get("card_not_working");
+		card_not_working_reason = (String) map.get("card_not_working_reason");
+		card_not_working_date_str = (String) map.get("card_not_working_date_str");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1479,6 +1518,18 @@ public abstract class Basestudent extends BaseResource {
 		Object student_mobile_noObj = map.get("student_mobile_no");
 		if(student_mobile_noObj != null)
 			student_mobile_no = student_mobile_noObj.toString();
+
+		Object card_not_workingObj = map.get("card_not_working");
+		if(card_not_workingObj != null)
+			card_not_working = card_not_workingObj.toString();
+
+		Object card_not_working_reasonObj = map.get("card_not_working_reason");
+		if(card_not_working_reasonObj != null)
+			card_not_working_reason = card_not_working_reasonObj.toString();
+
+		Object card_not_working_date_strObj = map.get("card_not_working_date_str");
+		if(card_not_working_date_strObj != null)
+			card_not_working_date_str = card_not_working_date_strObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2753,6 +2804,50 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetStudent_mobile_no() {
 		this.student_mobile_no = null;
+	}
+
+	public String getCard_not_working() {
+		return card_not_working != null ? card_not_working : "N";
+	}
+
+	public void setCard_not_working(String card_not_working) {
+		this.card_not_working = card_not_working;
+	}
+
+	public void unSetCard_not_working() {
+		this.card_not_working = "N";
+	}
+
+	public String getCard_not_working_reason() {
+		return card_not_working_reason;
+	}
+
+	public String getCard_not_working_reasonEx() {
+		return card_not_working_reason != null ? card_not_working_reason : "";
+	}
+
+	public void setCard_not_working_reason(String card_not_working_reason) {
+		this.card_not_working_reason = card_not_working_reason;
+	}
+
+	public void unSetCard_not_working_reason() {
+		this.card_not_working_reason = null;
+	}
+
+	public String getCard_not_working_date_str() {
+		return card_not_working_date_str;
+	}
+
+	public String getCard_not_working_date_strEx() {
+		return card_not_working_date_str != null ? card_not_working_date_str : "";
+	}
+
+	public void setCard_not_working_date_str(String card_not_working_date_str) {
+		this.card_not_working_date_str = card_not_working_date_str;
+	}
+
+	public void unSetCard_not_working_date_str() {
+		this.card_not_working_date_str = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

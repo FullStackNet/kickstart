@@ -456,6 +456,22 @@
 			{
 				'type':'String',
 				length : 128
+			},
+			'card_not_working':
+			{
+				'type':'String',
+				length : 128,
+				'default' : "N"
+			},
+			'card_not_working_reason':
+			{
+				'type':'String',
+				length : 128
+			},
+			'card_not_working_date_str':
+			{
+				'type':'String',
+				length : 32
 			}
 		}
 	}
