@@ -36,6 +36,9 @@
 			'attendant_date':{
 				'type': 'timestamp'
 			},
+			'attendant_date_str':{
+				'type': 'String'
+			},
 			'result':{
 				'length': 4096,
 				'type': 'String'
