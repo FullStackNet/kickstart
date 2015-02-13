@@ -20,6 +20,7 @@ public class Device {
 	
 	public static String DEVICE_MANAGER_V3 = "V3";
 	public static String DEVICE_MANAGER_C4T = "C4T";
+	public static String DEVICE_MANAGER_MQTT = "MQTT";
 	public static String DEVICE_MANAGER_V3TRACKER = "V3TRACKER";
 	public static String DEVICE_MANAGER_CISTRACKER = "CISTRACKER";
 	public static String DEVICE_MANAGER_ACPTRACKER = "ACPTRACKER";

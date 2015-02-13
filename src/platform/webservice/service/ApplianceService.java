@@ -34,7 +34,9 @@ public class ApplianceService extends BaseService{
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		appliance _resource = (appliance) resource;
-		_resource.setCustomer_id(ctx.getCustomerId());
+		if (_resource.getCustomer_id() == null) {
+			_resource.setCustomer_id(ctx.getCustomerId());
+		}
 		_resource.setUser_id(ctx.getUserId());
 		getHelper().add(resource);
 		Appliance_mapHelper.getInstance().addAdmin(_resource.getId(),ctx.getUserId());
