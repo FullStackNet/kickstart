@@ -83,6 +83,6 @@ public class ResourcesToGenerate {
 		new ResourceMap("practical_master", "application.c4t.vehicle.school.resource.practical_master"),		
 		new ResourceMap("doubt", "application.c4t.vehicle.school.resource.doubt"),		
 		new ResourceMap("doubt_conversation", "application.c4t.vehicle.school.resource.doubt_conversation"),		
-
+		new ResourceMap("student_assignment", "application.c4t.vehicle.school.resource.student_assignment"),		
 	};
 }

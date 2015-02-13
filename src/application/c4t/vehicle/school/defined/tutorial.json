@@ -52,6 +52,11 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'assigment_url':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}

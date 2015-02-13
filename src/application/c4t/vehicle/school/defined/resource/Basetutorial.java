@@ -28,6 +28,7 @@ public abstract class Basetutorial extends BaseResource {
 	private String pdf_url = null;
 	private String video_url = null;
 	private String audio_url = null;
+	private String assigment_url = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -40,6 +41,7 @@ public abstract class Basetutorial extends BaseResource {
 	public static String FIELD_PDF_URL = "pdf_url";
 	public static String FIELD_VIDEO_URL = "video_url";
 	public static String FIELD_AUDIO_URL = "audio_url";
+	public static String FIELD_ASSIGMENT_URL = "assigment_url";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -88,6 +90,10 @@ public abstract class Basetutorial extends BaseResource {
 		audio_urlField.setLength(512);
 		metaData.addField(audio_urlField);
 
+		Field assigment_urlField = new Field("assigment_url", "String");
+		assigment_urlField.setLength(512);
+		metaData.addField(assigment_urlField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -113,6 +119,7 @@ public abstract class Basetutorial extends BaseResource {
 		this.pdf_url = obj.pdf_url;
 		this.video_url = obj.video_url;
 		this.audio_url = obj.audio_url;
+		this.assigment_url = obj.assigment_url;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -141,6 +148,8 @@ public abstract class Basetutorial extends BaseResource {
 			map.put("video_url", video_url);
 		if(audio_url != null)
 			map.put("audio_url", audio_url);
+		if(assigment_url != null)
+			map.put("assigment_url", assigment_url);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -168,6 +177,8 @@ public abstract class Basetutorial extends BaseResource {
 			map.put("video_url", video_url);
 		if(audio_url != null)
 			map.put("audio_url", audio_url);
+		if(assigment_url != null)
+			map.put("assigment_url", assigment_url);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -191,6 +202,7 @@ public abstract class Basetutorial extends BaseResource {
 		pdf_url = (String) map.get("pdf_url");
 		video_url = (String) map.get("video_url");
 		audio_url = (String) map.get("audio_url");
+		assigment_url = (String) map.get("assigment_url");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -232,6 +244,10 @@ public abstract class Basetutorial extends BaseResource {
 		Object audio_urlObj = map.get("audio_url");
 		if(audio_urlObj != null)
 			audio_url = audio_urlObj.toString();
+
+		Object assigment_urlObj = map.get("assigment_url");
+		if(assigment_urlObj != null)
+			assigment_url = assigment_urlObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -394,6 +410,22 @@ public abstract class Basetutorial extends BaseResource {
 
 	public void unSetAudio_url() {
 		this.audio_url = null;
+	}
+
+	public String getAssigment_url() {
+		return assigment_url;
+	}
+
+	public String getAssigment_urlEx() {
+		return assigment_url != null ? assigment_url : "";
+	}
+
+	public void setAssigment_url(String assigment_url) {
+		this.assigment_url = assigment_url;
+	}
+
+	public void unSetAssigment_url() {
+		this.assigment_url = null;
 	}
 
 	public Long getCreation_time() {

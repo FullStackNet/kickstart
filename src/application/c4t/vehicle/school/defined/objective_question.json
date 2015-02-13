@@ -20,6 +20,11 @@
 				'length': 32,
 				'type':'String'
 			},
+			'tutorial_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'subject_id':
 			{
 				'length': 128,
@@ -59,6 +64,30 @@
 			{
 				'length': 128,
 				'type':'String'
+			},
+			'answer_1':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'answer_2':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'answer_3':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'answer_4':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
 			},
 			'answer_explanation':
 			{
