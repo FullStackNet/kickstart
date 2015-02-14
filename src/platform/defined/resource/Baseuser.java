@@ -51,6 +51,24 @@ public abstract class Baseuser extends BaseResource {
 	private Long last_login = null;
 	private String send_email = null;
 	private String send_sms = null;
+	private String feature_homework = null;
+	private String feature_daily_activity = null;
+	private String feature_home_practice = null;
+	private String feature_notice = null;
+	private String feature_absent_report = null;
+	private String feature_pick_drop = null;
+	private String feature_message2parent = null;
+	private String feature_message2school = null;
+	private String feature_proficiency = null;
+	private String feature_wof = null;
+	private String feature_photo = null;
+	private String feature_video = null;
+	private String feature_fees = null;
+	private String feature_work_sheet = null;
+	private String feature_present_report = null;
+	private String feature_news = null;
+	private String feature_parenting = null;
+	private String feature_event = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -85,6 +103,24 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_LAST_LOGIN = "last_login";
 	public static String FIELD_SEND_EMAIL = "send_email";
 	public static String FIELD_SEND_SMS = "send_sms";
+	public static String FIELD_FEATURE_HOMEWORK = "feature_homework";
+	public static String FIELD_FEATURE_DAILY_ACTIVITY = "feature_daily_activity";
+	public static String FIELD_FEATURE_HOME_PRACTICE = "feature_home_practice";
+	public static String FIELD_FEATURE_NOTICE = "feature_notice";
+	public static String FIELD_FEATURE_ABSENT_REPORT = "feature_absent_report";
+	public static String FIELD_FEATURE_PICK_DROP = "feature_pick_drop";
+	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
+	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
+	public static String FIELD_FEATURE_PROFICIENCY = "feature_proficiency";
+	public static String FIELD_FEATURE_WOF = "feature_wof";
+	public static String FIELD_FEATURE_PHOTO = "feature_photo";
+	public static String FIELD_FEATURE_VIDEO = "feature_video";
+	public static String FIELD_FEATURE_FEES = "feature_fees";
+	public static String FIELD_FEATURE_WORK_SHEET = "feature_work_sheet";
+	public static String FIELD_FEATURE_PRESENT_REPORT = "feature_present_report";
+	public static String FIELD_FEATURE_NEWS = "feature_news";
+	public static String FIELD_FEATURE_PARENTING = "feature_parenting";
+	public static String FIELD_FEATURE_EVENT = "feature_event";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -243,6 +279,96 @@ public abstract class Baseuser extends BaseResource {
 		send_smsField.setLength(1);
 		metaData.addField(send_smsField);
 
+		Field feature_homeworkField = new Field("feature_homework", "String");
+		feature_homeworkField.setDefaultValue("N");
+		feature_homeworkField.setLength(1);
+		metaData.addField(feature_homeworkField);
+
+		Field feature_daily_activityField = new Field("feature_daily_activity", "String");
+		feature_daily_activityField.setDefaultValue("N");
+		feature_daily_activityField.setLength(1);
+		metaData.addField(feature_daily_activityField);
+
+		Field feature_home_practiceField = new Field("feature_home_practice", "String");
+		feature_home_practiceField.setDefaultValue("N");
+		feature_home_practiceField.setLength(1);
+		metaData.addField(feature_home_practiceField);
+
+		Field feature_noticeField = new Field("feature_notice", "String");
+		feature_noticeField.setDefaultValue("N");
+		feature_noticeField.setLength(1);
+		metaData.addField(feature_noticeField);
+
+		Field feature_absent_reportField = new Field("feature_absent_report", "String");
+		feature_absent_reportField.setDefaultValue("N");
+		feature_absent_reportField.setLength(1);
+		metaData.addField(feature_absent_reportField);
+
+		Field feature_pick_dropField = new Field("feature_pick_drop", "String");
+		feature_pick_dropField.setDefaultValue("N");
+		feature_pick_dropField.setLength(1);
+		metaData.addField(feature_pick_dropField);
+
+		Field feature_message2parentField = new Field("feature_message2parent", "String");
+		feature_message2parentField.setDefaultValue("N");
+		feature_message2parentField.setLength(1);
+		metaData.addField(feature_message2parentField);
+
+		Field feature_message2schoolField = new Field("feature_message2school", "String");
+		feature_message2schoolField.setDefaultValue("N");
+		feature_message2schoolField.setLength(1);
+		metaData.addField(feature_message2schoolField);
+
+		Field feature_proficiencyField = new Field("feature_proficiency", "String");
+		feature_proficiencyField.setDefaultValue("N");
+		feature_proficiencyField.setLength(1);
+		metaData.addField(feature_proficiencyField);
+
+		Field feature_wofField = new Field("feature_wof", "String");
+		feature_wofField.setDefaultValue("N");
+		feature_wofField.setLength(1);
+		metaData.addField(feature_wofField);
+
+		Field feature_photoField = new Field("feature_photo", "String");
+		feature_photoField.setDefaultValue("N");
+		feature_photoField.setLength(1);
+		metaData.addField(feature_photoField);
+
+		Field feature_videoField = new Field("feature_video", "String");
+		feature_videoField.setDefaultValue("N");
+		feature_videoField.setLength(1);
+		metaData.addField(feature_videoField);
+
+		Field feature_feesField = new Field("feature_fees", "String");
+		feature_feesField.setDefaultValue("N");
+		feature_feesField.setLength(1);
+		metaData.addField(feature_feesField);
+
+		Field feature_work_sheetField = new Field("feature_work_sheet", "String");
+		feature_work_sheetField.setDefaultValue("N");
+		feature_work_sheetField.setLength(1);
+		metaData.addField(feature_work_sheetField);
+
+		Field feature_present_reportField = new Field("feature_present_report", "String");
+		feature_present_reportField.setDefaultValue("N");
+		feature_present_reportField.setLength(1);
+		metaData.addField(feature_present_reportField);
+
+		Field feature_newsField = new Field("feature_news", "String");
+		feature_newsField.setDefaultValue("Y");
+		feature_newsField.setLength(1);
+		metaData.addField(feature_newsField);
+
+		Field feature_parentingField = new Field("feature_parenting", "String");
+		feature_parentingField.setDefaultValue("Y");
+		feature_parentingField.setLength(1);
+		metaData.addField(feature_parentingField);
+
+		Field feature_eventField = new Field("feature_event", "String");
+		feature_eventField.setDefaultValue("Y");
+		feature_eventField.setLength(1);
+		metaData.addField(feature_eventField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -288,6 +414,24 @@ public abstract class Baseuser extends BaseResource {
 		this.last_login = obj.last_login;
 		this.send_email = obj.send_email;
 		this.send_sms = obj.send_sms;
+		this.feature_homework = obj.feature_homework;
+		this.feature_daily_activity = obj.feature_daily_activity;
+		this.feature_home_practice = obj.feature_home_practice;
+		this.feature_notice = obj.feature_notice;
+		this.feature_absent_report = obj.feature_absent_report;
+		this.feature_pick_drop = obj.feature_pick_drop;
+		this.feature_message2parent = obj.feature_message2parent;
+		this.feature_message2school = obj.feature_message2school;
+		this.feature_proficiency = obj.feature_proficiency;
+		this.feature_wof = obj.feature_wof;
+		this.feature_photo = obj.feature_photo;
+		this.feature_video = obj.feature_video;
+		this.feature_fees = obj.feature_fees;
+		this.feature_work_sheet = obj.feature_work_sheet;
+		this.feature_present_report = obj.feature_present_report;
+		this.feature_news = obj.feature_news;
+		this.feature_parenting = obj.feature_parenting;
+		this.feature_event = obj.feature_event;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -332,6 +476,42 @@ public abstract class Baseuser extends BaseResource {
 			send_email = "Y";
 		if(send_sms == null)
 			send_sms = "Y";
+		if(feature_homework == null)
+			feature_homework = "N";
+		if(feature_daily_activity == null)
+			feature_daily_activity = "N";
+		if(feature_home_practice == null)
+			feature_home_practice = "N";
+		if(feature_notice == null)
+			feature_notice = "N";
+		if(feature_absent_report == null)
+			feature_absent_report = "N";
+		if(feature_pick_drop == null)
+			feature_pick_drop = "N";
+		if(feature_message2parent == null)
+			feature_message2parent = "N";
+		if(feature_message2school == null)
+			feature_message2school = "N";
+		if(feature_proficiency == null)
+			feature_proficiency = "N";
+		if(feature_wof == null)
+			feature_wof = "N";
+		if(feature_photo == null)
+			feature_photo = "N";
+		if(feature_video == null)
+			feature_video = "N";
+		if(feature_fees == null)
+			feature_fees = "N";
+		if(feature_work_sheet == null)
+			feature_work_sheet = "N";
+		if(feature_present_report == null)
+			feature_present_report = "N";
+		if(feature_news == null)
+			feature_news = "Y";
+		if(feature_parenting == null)
+			feature_parenting = "Y";
+		if(feature_event == null)
+			feature_event = "Y";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -400,6 +580,42 @@ public abstract class Baseuser extends BaseResource {
 			map.put("send_email", send_email);
 		if(send_sms != null)
 			map.put("send_sms", send_sms);
+		if(feature_homework != null)
+			map.put("feature_homework", feature_homework);
+		if(feature_daily_activity != null)
+			map.put("feature_daily_activity", feature_daily_activity);
+		if(feature_home_practice != null)
+			map.put("feature_home_practice", feature_home_practice);
+		if(feature_notice != null)
+			map.put("feature_notice", feature_notice);
+		if(feature_absent_report != null)
+			map.put("feature_absent_report", feature_absent_report);
+		if(feature_pick_drop != null)
+			map.put("feature_pick_drop", feature_pick_drop);
+		if(feature_message2parent != null)
+			map.put("feature_message2parent", feature_message2parent);
+		if(feature_message2school != null)
+			map.put("feature_message2school", feature_message2school);
+		if(feature_proficiency != null)
+			map.put("feature_proficiency", feature_proficiency);
+		if(feature_wof != null)
+			map.put("feature_wof", feature_wof);
+		if(feature_photo != null)
+			map.put("feature_photo", feature_photo);
+		if(feature_video != null)
+			map.put("feature_video", feature_video);
+		if(feature_fees != null)
+			map.put("feature_fees", feature_fees);
+		if(feature_work_sheet != null)
+			map.put("feature_work_sheet", feature_work_sheet);
+		if(feature_present_report != null)
+			map.put("feature_present_report", feature_present_report);
+		if(feature_news != null)
+			map.put("feature_news", feature_news);
+		if(feature_parenting != null)
+			map.put("feature_parenting", feature_parenting);
+		if(feature_event != null)
+			map.put("feature_event", feature_event);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -474,6 +690,42 @@ public abstract class Baseuser extends BaseResource {
 			map.put("send_email", send_email);
 		if(send_sms != null)
 			map.put("send_sms", send_sms);
+		if(feature_homework != null)
+			map.put("feature_homework", feature_homework);
+		if(feature_daily_activity != null)
+			map.put("feature_daily_activity", feature_daily_activity);
+		if(feature_home_practice != null)
+			map.put("feature_home_practice", feature_home_practice);
+		if(feature_notice != null)
+			map.put("feature_notice", feature_notice);
+		if(feature_absent_report != null)
+			map.put("feature_absent_report", feature_absent_report);
+		if(feature_pick_drop != null)
+			map.put("feature_pick_drop", feature_pick_drop);
+		if(feature_message2parent != null)
+			map.put("feature_message2parent", feature_message2parent);
+		if(feature_message2school != null)
+			map.put("feature_message2school", feature_message2school);
+		if(feature_proficiency != null)
+			map.put("feature_proficiency", feature_proficiency);
+		if(feature_wof != null)
+			map.put("feature_wof", feature_wof);
+		if(feature_photo != null)
+			map.put("feature_photo", feature_photo);
+		if(feature_video != null)
+			map.put("feature_video", feature_video);
+		if(feature_fees != null)
+			map.put("feature_fees", feature_fees);
+		if(feature_work_sheet != null)
+			map.put("feature_work_sheet", feature_work_sheet);
+		if(feature_present_report != null)
+			map.put("feature_present_report", feature_present_report);
+		if(feature_news != null)
+			map.put("feature_news", feature_news);
+		if(feature_parenting != null)
+			map.put("feature_parenting", feature_parenting);
+		if(feature_event != null)
+			map.put("feature_event", feature_event);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -518,6 +770,24 @@ public abstract class Baseuser extends BaseResource {
 		last_login = (Long) map.get("last_login");
 		send_email = (String) map.get("send_email");
 		send_sms = (String) map.get("send_sms");
+		feature_homework = (String) map.get("feature_homework");
+		feature_daily_activity = (String) map.get("feature_daily_activity");
+		feature_home_practice = (String) map.get("feature_home_practice");
+		feature_notice = (String) map.get("feature_notice");
+		feature_absent_report = (String) map.get("feature_absent_report");
+		feature_pick_drop = (String) map.get("feature_pick_drop");
+		feature_message2parent = (String) map.get("feature_message2parent");
+		feature_message2school = (String) map.get("feature_message2school");
+		feature_proficiency = (String) map.get("feature_proficiency");
+		feature_wof = (String) map.get("feature_wof");
+		feature_photo = (String) map.get("feature_photo");
+		feature_video = (String) map.get("feature_video");
+		feature_fees = (String) map.get("feature_fees");
+		feature_work_sheet = (String) map.get("feature_work_sheet");
+		feature_present_report = (String) map.get("feature_present_report");
+		feature_news = (String) map.get("feature_news");
+		feature_parenting = (String) map.get("feature_parenting");
+		feature_event = (String) map.get("feature_event");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -650,6 +920,78 @@ public abstract class Baseuser extends BaseResource {
 		Object send_smsObj = map.get("send_sms");
 		if(send_smsObj != null)
 			send_sms = send_smsObj.toString();
+
+		Object feature_homeworkObj = map.get("feature_homework");
+		if(feature_homeworkObj != null)
+			feature_homework = feature_homeworkObj.toString();
+
+		Object feature_daily_activityObj = map.get("feature_daily_activity");
+		if(feature_daily_activityObj != null)
+			feature_daily_activity = feature_daily_activityObj.toString();
+
+		Object feature_home_practiceObj = map.get("feature_home_practice");
+		if(feature_home_practiceObj != null)
+			feature_home_practice = feature_home_practiceObj.toString();
+
+		Object feature_noticeObj = map.get("feature_notice");
+		if(feature_noticeObj != null)
+			feature_notice = feature_noticeObj.toString();
+
+		Object feature_absent_reportObj = map.get("feature_absent_report");
+		if(feature_absent_reportObj != null)
+			feature_absent_report = feature_absent_reportObj.toString();
+
+		Object feature_pick_dropObj = map.get("feature_pick_drop");
+		if(feature_pick_dropObj != null)
+			feature_pick_drop = feature_pick_dropObj.toString();
+
+		Object feature_message2parentObj = map.get("feature_message2parent");
+		if(feature_message2parentObj != null)
+			feature_message2parent = feature_message2parentObj.toString();
+
+		Object feature_message2schoolObj = map.get("feature_message2school");
+		if(feature_message2schoolObj != null)
+			feature_message2school = feature_message2schoolObj.toString();
+
+		Object feature_proficiencyObj = map.get("feature_proficiency");
+		if(feature_proficiencyObj != null)
+			feature_proficiency = feature_proficiencyObj.toString();
+
+		Object feature_wofObj = map.get("feature_wof");
+		if(feature_wofObj != null)
+			feature_wof = feature_wofObj.toString();
+
+		Object feature_photoObj = map.get("feature_photo");
+		if(feature_photoObj != null)
+			feature_photo = feature_photoObj.toString();
+
+		Object feature_videoObj = map.get("feature_video");
+		if(feature_videoObj != null)
+			feature_video = feature_videoObj.toString();
+
+		Object feature_feesObj = map.get("feature_fees");
+		if(feature_feesObj != null)
+			feature_fees = feature_feesObj.toString();
+
+		Object feature_work_sheetObj = map.get("feature_work_sheet");
+		if(feature_work_sheetObj != null)
+			feature_work_sheet = feature_work_sheetObj.toString();
+
+		Object feature_present_reportObj = map.get("feature_present_report");
+		if(feature_present_reportObj != null)
+			feature_present_report = feature_present_reportObj.toString();
+
+		Object feature_newsObj = map.get("feature_news");
+		if(feature_newsObj != null)
+			feature_news = feature_newsObj.toString();
+
+		Object feature_parentingObj = map.get("feature_parenting");
+		if(feature_parentingObj != null)
+			feature_parenting = feature_parentingObj.toString();
+
+		Object feature_eventObj = map.get("feature_event");
+		if(feature_eventObj != null)
+			feature_event = feature_eventObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1109,6 +1451,222 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetSend_sms() {
 		this.send_sms = "Y";
+	}
+
+	public String getFeature_homework() {
+		return feature_homework != null ? feature_homework : "N";
+	}
+
+	public void setFeature_homework(String feature_homework) {
+		this.feature_homework = feature_homework;
+	}
+
+	public void unSetFeature_homework() {
+		this.feature_homework = "N";
+	}
+
+	public String getFeature_daily_activity() {
+		return feature_daily_activity != null ? feature_daily_activity : "N";
+	}
+
+	public void setFeature_daily_activity(String feature_daily_activity) {
+		this.feature_daily_activity = feature_daily_activity;
+	}
+
+	public void unSetFeature_daily_activity() {
+		this.feature_daily_activity = "N";
+	}
+
+	public String getFeature_home_practice() {
+		return feature_home_practice != null ? feature_home_practice : "N";
+	}
+
+	public void setFeature_home_practice(String feature_home_practice) {
+		this.feature_home_practice = feature_home_practice;
+	}
+
+	public void unSetFeature_home_practice() {
+		this.feature_home_practice = "N";
+	}
+
+	public String getFeature_notice() {
+		return feature_notice != null ? feature_notice : "N";
+	}
+
+	public void setFeature_notice(String feature_notice) {
+		this.feature_notice = feature_notice;
+	}
+
+	public void unSetFeature_notice() {
+		this.feature_notice = "N";
+	}
+
+	public String getFeature_absent_report() {
+		return feature_absent_report != null ? feature_absent_report : "N";
+	}
+
+	public void setFeature_absent_report(String feature_absent_report) {
+		this.feature_absent_report = feature_absent_report;
+	}
+
+	public void unSetFeature_absent_report() {
+		this.feature_absent_report = "N";
+	}
+
+	public String getFeature_pick_drop() {
+		return feature_pick_drop != null ? feature_pick_drop : "N";
+	}
+
+	public void setFeature_pick_drop(String feature_pick_drop) {
+		this.feature_pick_drop = feature_pick_drop;
+	}
+
+	public void unSetFeature_pick_drop() {
+		this.feature_pick_drop = "N";
+	}
+
+	public String getFeature_message2parent() {
+		return feature_message2parent != null ? feature_message2parent : "N";
+	}
+
+	public void setFeature_message2parent(String feature_message2parent) {
+		this.feature_message2parent = feature_message2parent;
+	}
+
+	public void unSetFeature_message2parent() {
+		this.feature_message2parent = "N";
+	}
+
+	public String getFeature_message2school() {
+		return feature_message2school != null ? feature_message2school : "N";
+	}
+
+	public void setFeature_message2school(String feature_message2school) {
+		this.feature_message2school = feature_message2school;
+	}
+
+	public void unSetFeature_message2school() {
+		this.feature_message2school = "N";
+	}
+
+	public String getFeature_proficiency() {
+		return feature_proficiency != null ? feature_proficiency : "N";
+	}
+
+	public void setFeature_proficiency(String feature_proficiency) {
+		this.feature_proficiency = feature_proficiency;
+	}
+
+	public void unSetFeature_proficiency() {
+		this.feature_proficiency = "N";
+	}
+
+	public String getFeature_wof() {
+		return feature_wof != null ? feature_wof : "N";
+	}
+
+	public void setFeature_wof(String feature_wof) {
+		this.feature_wof = feature_wof;
+	}
+
+	public void unSetFeature_wof() {
+		this.feature_wof = "N";
+	}
+
+	public String getFeature_photo() {
+		return feature_photo != null ? feature_photo : "N";
+	}
+
+	public void setFeature_photo(String feature_photo) {
+		this.feature_photo = feature_photo;
+	}
+
+	public void unSetFeature_photo() {
+		this.feature_photo = "N";
+	}
+
+	public String getFeature_video() {
+		return feature_video != null ? feature_video : "N";
+	}
+
+	public void setFeature_video(String feature_video) {
+		this.feature_video = feature_video;
+	}
+
+	public void unSetFeature_video() {
+		this.feature_video = "N";
+	}
+
+	public String getFeature_fees() {
+		return feature_fees != null ? feature_fees : "N";
+	}
+
+	public void setFeature_fees(String feature_fees) {
+		this.feature_fees = feature_fees;
+	}
+
+	public void unSetFeature_fees() {
+		this.feature_fees = "N";
+	}
+
+	public String getFeature_work_sheet() {
+		return feature_work_sheet != null ? feature_work_sheet : "N";
+	}
+
+	public void setFeature_work_sheet(String feature_work_sheet) {
+		this.feature_work_sheet = feature_work_sheet;
+	}
+
+	public void unSetFeature_work_sheet() {
+		this.feature_work_sheet = "N";
+	}
+
+	public String getFeature_present_report() {
+		return feature_present_report != null ? feature_present_report : "N";
+	}
+
+	public void setFeature_present_report(String feature_present_report) {
+		this.feature_present_report = feature_present_report;
+	}
+
+	public void unSetFeature_present_report() {
+		this.feature_present_report = "N";
+	}
+
+	public String getFeature_news() {
+		return feature_news != null ? feature_news : "Y";
+	}
+
+	public void setFeature_news(String feature_news) {
+		this.feature_news = feature_news;
+	}
+
+	public void unSetFeature_news() {
+		this.feature_news = "Y";
+	}
+
+	public String getFeature_parenting() {
+		return feature_parenting != null ? feature_parenting : "Y";
+	}
+
+	public void setFeature_parenting(String feature_parenting) {
+		this.feature_parenting = feature_parenting;
+	}
+
+	public void unSetFeature_parenting() {
+		this.feature_parenting = "Y";
+	}
+
+	public String getFeature_event() {
+		return feature_event != null ? feature_event : "Y";
+	}
+
+	public void setFeature_event(String feature_event) {
+		this.feature_event = feature_event;
+	}
+
+	public void unSetFeature_event() {
+		this.feature_event = "Y";
 	}
 
 	public Map<String, Object> getExtra_data() {

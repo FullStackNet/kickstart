@@ -20,9 +20,11 @@ import java.util.*;
  */
 public abstract class Basesubject extends BaseResource {
 	private String id = null;
+	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +37,11 @@ public abstract class Basesubject extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setRequired(true);
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -50,6 +57,7 @@ public abstract class Basesubject extends BaseResource {
 
 	public Basesubject(Basesubject obj) {
 		this.id = obj.id;
+		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -61,6 +69,8 @@ public abstract class Basesubject extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -70,6 +80,8 @@ public abstract class Basesubject extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(validateCustomer_id(add))
+			map.put("customer_id", customer_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -83,6 +95,7 @@ public abstract class Basesubject extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -91,6 +104,10 @@ public abstract class Basesubject extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -121,6 +138,28 @@ public abstract class Basesubject extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
+	}
+
+	public boolean validateCustomer_id(boolean add) throws ApplicationException {
+		if(add && customer_id == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[customer_id]");
+		return customer_id != null;
 	}
 
 	public Map<String, Object> getExtra_data() {
