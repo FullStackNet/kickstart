@@ -69,6 +69,7 @@ public abstract class Baseuser extends BaseResource {
 	private String feature_news = null;
 	private String feature_parenting = null;
 	private String feature_event = null;
+	private String feature_tutorial = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -121,6 +122,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_FEATURE_NEWS = "feature_news";
 	public static String FIELD_FEATURE_PARENTING = "feature_parenting";
 	public static String FIELD_FEATURE_EVENT = "feature_event";
+	public static String FIELD_FEATURE_TUTORIAL = "feature_tutorial";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -369,6 +371,11 @@ public abstract class Baseuser extends BaseResource {
 		feature_eventField.setLength(1);
 		metaData.addField(feature_eventField);
 
+		Field feature_tutorialField = new Field("feature_tutorial", "String");
+		feature_tutorialField.setDefaultValue("Y");
+		feature_tutorialField.setLength(1);
+		metaData.addField(feature_tutorialField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -432,6 +439,7 @@ public abstract class Baseuser extends BaseResource {
 		this.feature_news = obj.feature_news;
 		this.feature_parenting = obj.feature_parenting;
 		this.feature_event = obj.feature_event;
+		this.feature_tutorial = obj.feature_tutorial;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -512,6 +520,8 @@ public abstract class Baseuser extends BaseResource {
 			feature_parenting = "Y";
 		if(feature_event == null)
 			feature_event = "Y";
+		if(feature_tutorial == null)
+			feature_tutorial = "Y";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -616,6 +626,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_parenting", feature_parenting);
 		if(feature_event != null)
 			map.put("feature_event", feature_event);
+		if(feature_tutorial != null)
+			map.put("feature_tutorial", feature_tutorial);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -726,6 +738,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_parenting", feature_parenting);
 		if(feature_event != null)
 			map.put("feature_event", feature_event);
+		if(feature_tutorial != null)
+			map.put("feature_tutorial", feature_tutorial);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -788,6 +802,7 @@ public abstract class Baseuser extends BaseResource {
 		feature_news = (String) map.get("feature_news");
 		feature_parenting = (String) map.get("feature_parenting");
 		feature_event = (String) map.get("feature_event");
+		feature_tutorial = (String) map.get("feature_tutorial");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -992,6 +1007,10 @@ public abstract class Baseuser extends BaseResource {
 		Object feature_eventObj = map.get("feature_event");
 		if(feature_eventObj != null)
 			feature_event = feature_eventObj.toString();
+
+		Object feature_tutorialObj = map.get("feature_tutorial");
+		if(feature_tutorialObj != null)
+			feature_tutorial = feature_tutorialObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1667,6 +1686,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetFeature_event() {
 		this.feature_event = "Y";
+	}
+
+	public String getFeature_tutorial() {
+		return feature_tutorial != null ? feature_tutorial : "Y";
+	}
+
+	public void setFeature_tutorial(String feature_tutorial) {
+		this.feature_tutorial = feature_tutorial;
+	}
+
+	public void unSetFeature_tutorial() {
+		this.feature_tutorial = "Y";
 	}
 
 	public Map<String, Object> getExtra_data() {

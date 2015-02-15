@@ -1,4 +1,4 @@
-package platform.defined;
+   package platform.defined;
 
 
 public class GenerateResource {

@@ -308,6 +308,12 @@
 				'length': 1,
 				'default' : "Y",
 				'type':'String'
+			},
+			'feature_tutorial':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
 			}					
 		}
 	}

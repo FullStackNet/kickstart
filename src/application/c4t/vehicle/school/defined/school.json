@@ -211,6 +211,12 @@
 				'default' : "Y",
 				'type':'String'
 			},
+			'feature_tutorial':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
 			'logo_file_name':
 			{
 				'length': 128,
@@ -375,6 +381,7 @@
 				'default' : "N",
 				'type':'String'
 			},
+			
 			'feature_pick_drop_email':
 			{
 				'length': 1,

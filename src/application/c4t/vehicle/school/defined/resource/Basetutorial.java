@@ -27,6 +27,7 @@ public abstract class Basetutorial extends BaseResource {
 	private String description = null;
 	private String pdf_url = null;
 	private String video_url = null;
+	private String tutorial_cateory_id = null;
 	private String audio_url = null;
 	private String assigment_url = null;
 	private Long creation_time = null;
@@ -40,6 +41,7 @@ public abstract class Basetutorial extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_PDF_URL = "pdf_url";
 	public static String FIELD_VIDEO_URL = "video_url";
+	public static String FIELD_TUTORIAL_CATEORY_ID = "tutorial_cateory_id";
 	public static String FIELD_AUDIO_URL = "audio_url";
 	public static String FIELD_ASSIGMENT_URL = "assigment_url";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -86,6 +88,10 @@ public abstract class Basetutorial extends BaseResource {
 		video_urlField.setLength(512);
 		metaData.addField(video_urlField);
 
+		Field tutorial_cateory_idField = new Field("tutorial_cateory_id", "String");
+		tutorial_cateory_idField.setLength(128);
+		metaData.addField(tutorial_cateory_idField);
+
 		Field audio_urlField = new Field("audio_url", "String");
 		audio_urlField.setLength(512);
 		metaData.addField(audio_urlField);
@@ -118,6 +124,7 @@ public abstract class Basetutorial extends BaseResource {
 		this.description = obj.description;
 		this.pdf_url = obj.pdf_url;
 		this.video_url = obj.video_url;
+		this.tutorial_cateory_id = obj.tutorial_cateory_id;
 		this.audio_url = obj.audio_url;
 		this.assigment_url = obj.assigment_url;
 		this.creation_time = obj.creation_time;
@@ -146,6 +153,8 @@ public abstract class Basetutorial extends BaseResource {
 			map.put("pdf_url", pdf_url);
 		if(video_url != null)
 			map.put("video_url", video_url);
+		if(tutorial_cateory_id != null)
+			map.put("tutorial_cateory_id", tutorial_cateory_id);
 		if(audio_url != null)
 			map.put("audio_url", audio_url);
 		if(assigment_url != null)
@@ -175,6 +184,8 @@ public abstract class Basetutorial extends BaseResource {
 			map.put("pdf_url", pdf_url);
 		if(video_url != null)
 			map.put("video_url", video_url);
+		if(tutorial_cateory_id != null)
+			map.put("tutorial_cateory_id", tutorial_cateory_id);
 		if(audio_url != null)
 			map.put("audio_url", audio_url);
 		if(assigment_url != null)
@@ -201,6 +212,7 @@ public abstract class Basetutorial extends BaseResource {
 		description = (String) map.get("description");
 		pdf_url = (String) map.get("pdf_url");
 		video_url = (String) map.get("video_url");
+		tutorial_cateory_id = (String) map.get("tutorial_cateory_id");
 		audio_url = (String) map.get("audio_url");
 		assigment_url = (String) map.get("assigment_url");
 		creation_time = (Long) map.get("creation_time");
@@ -240,6 +252,10 @@ public abstract class Basetutorial extends BaseResource {
 		Object video_urlObj = map.get("video_url");
 		if(video_urlObj != null)
 			video_url = video_urlObj.toString();
+
+		Object tutorial_cateory_idObj = map.get("tutorial_cateory_id");
+		if(tutorial_cateory_idObj != null)
+			tutorial_cateory_id = tutorial_cateory_idObj.toString();
 
 		Object audio_urlObj = map.get("audio_url");
 		if(audio_urlObj != null)
@@ -394,6 +410,22 @@ public abstract class Basetutorial extends BaseResource {
 
 	public void unSetVideo_url() {
 		this.video_url = null;
+	}
+
+	public String getTutorial_cateory_id() {
+		return tutorial_cateory_id;
+	}
+
+	public String getTutorial_cateory_idEx() {
+		return tutorial_cateory_id != null ? tutorial_cateory_id : "";
+	}
+
+	public void setTutorial_cateory_id(String tutorial_cateory_id) {
+		this.tutorial_cateory_id = tutorial_cateory_id;
+	}
+
+	public void unSetTutorial_cateory_id() {
+		this.tutorial_cateory_id = null;
 	}
 
 	public String getAudio_url() {

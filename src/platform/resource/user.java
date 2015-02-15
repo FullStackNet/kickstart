@@ -108,5 +108,12 @@ public class user extends Baseuser {
 		}
 		return false;
 	}
+	
+	public boolean isTutorialFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_tutorial())) {
+			return true;
+		}
+		return false;
+	}
 }
 
