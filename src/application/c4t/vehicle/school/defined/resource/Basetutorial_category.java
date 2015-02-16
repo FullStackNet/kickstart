@@ -25,6 +25,7 @@ public abstract class Basetutorial_category extends BaseResource {
 	private String subject_id = null;
 	private String parent_id = null;
 	private String name = null;
+	private Integer order = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -34,6 +35,7 @@ public abstract class Basetutorial_category extends BaseResource {
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_ORDER = "order";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -70,6 +72,9 @@ public abstract class Basetutorial_category extends BaseResource {
 		nameField.setLength(512);
 		metaData.addField(nameField);
 
+		Field orderField = new Field("order", "int");
+		metaData.addField(orderField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -92,6 +97,7 @@ public abstract class Basetutorial_category extends BaseResource {
 		this.subject_id = obj.subject_id;
 		this.parent_id = obj.parent_id;
 		this.name = obj.name;
+		this.order = obj.order;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -114,6 +120,8 @@ public abstract class Basetutorial_category extends BaseResource {
 			map.put("parent_id", parent_id);
 		if(name != null)
 			map.put("name", name);
+		if(order != null)
+			map.put("order", order);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -135,6 +143,8 @@ public abstract class Basetutorial_category extends BaseResource {
 			map.put("parent_id", parent_id);
 		if(name != null)
 			map.put("name", name);
+		if(order != null)
+			map.put("order", order);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -155,6 +165,7 @@ public abstract class Basetutorial_category extends BaseResource {
 		subject_id = (String) map.get("subject_id");
 		parent_id = (String) map.get("parent_id");
 		name = (String) map.get("name");
+		order = (Integer) map.get("order");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -184,6 +195,10 @@ public abstract class Basetutorial_category extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object orderObj = map.get("order");
+		if(orderObj != null)
+			order = new Integer(orderObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -298,6 +313,26 @@ public abstract class Basetutorial_category extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public Integer getOrder() {
+		return order;
+	}
+
+	public int getOrderEx() {
+		return order != null ? order : 0;
+	}
+
+	public void setOrder(int order) {
+		this.order = order;
+	}
+
+	public void setOrder(Integer order) {
+		this.order = order;
+	}
+
+	public void unSetOrder() {
+		this.order = null;
 	}
 
 	public Long getCreation_time() {

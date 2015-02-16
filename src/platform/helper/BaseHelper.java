@@ -568,6 +568,18 @@ public class BaseHelper {
 	}
 
 
+	public ArrayList<Map<String, Object>> getByJoiningForCustomer(String customerId,ArrayList<JoinField> joinFields,String[] order) {
+		Expression e = new Expression("customer_id",REL_OP.EQ, customerId);
+		ArrayList<Map<String, Object>>  list = new ArrayList<Map<String, Object>>();
+		try {
+			list = getByJoining(e, joinFields,order);
+		} catch (ApplicationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return list;
+	}
+	
 	public ArrayList<Map<String, Object>> getByJoining(Expression e,ArrayList<JoinField> joinFields) {
 		ArrayList<Map<String, Object>>  list = new ArrayList<Map<String, Object>>();
 		try {

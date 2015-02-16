@@ -62,6 +62,10 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'order':
+			{
+				'type': 'int'
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}

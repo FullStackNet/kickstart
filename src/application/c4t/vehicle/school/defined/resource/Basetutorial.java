@@ -30,6 +30,7 @@ public abstract class Basetutorial extends BaseResource {
 	private String tutorial_cateory_id = null;
 	private String audio_url = null;
 	private String assigment_url = null;
+	private Integer order = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -44,6 +45,7 @@ public abstract class Basetutorial extends BaseResource {
 	public static String FIELD_TUTORIAL_CATEORY_ID = "tutorial_cateory_id";
 	public static String FIELD_AUDIO_URL = "audio_url";
 	public static String FIELD_ASSIGMENT_URL = "assigment_url";
+	public static String FIELD_ORDER = "order";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -100,6 +102,9 @@ public abstract class Basetutorial extends BaseResource {
 		assigment_urlField.setLength(512);
 		metaData.addField(assigment_urlField);
 
+		Field orderField = new Field("order", "int");
+		metaData.addField(orderField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -127,6 +132,7 @@ public abstract class Basetutorial extends BaseResource {
 		this.tutorial_cateory_id = obj.tutorial_cateory_id;
 		this.audio_url = obj.audio_url;
 		this.assigment_url = obj.assigment_url;
+		this.order = obj.order;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -159,6 +165,8 @@ public abstract class Basetutorial extends BaseResource {
 			map.put("audio_url", audio_url);
 		if(assigment_url != null)
 			map.put("assigment_url", assigment_url);
+		if(order != null)
+			map.put("order", order);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -190,6 +198,8 @@ public abstract class Basetutorial extends BaseResource {
 			map.put("audio_url", audio_url);
 		if(assigment_url != null)
 			map.put("assigment_url", assigment_url);
+		if(order != null)
+			map.put("order", order);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -215,6 +225,7 @@ public abstract class Basetutorial extends BaseResource {
 		tutorial_cateory_id = (String) map.get("tutorial_cateory_id");
 		audio_url = (String) map.get("audio_url");
 		assigment_url = (String) map.get("assigment_url");
+		order = (Integer) map.get("order");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -264,6 +275,10 @@ public abstract class Basetutorial extends BaseResource {
 		Object assigment_urlObj = map.get("assigment_url");
 		if(assigment_urlObj != null)
 			assigment_url = assigment_urlObj.toString();
+
+		Object orderObj = map.get("order");
+		if(orderObj != null)
+			order = new Integer(orderObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -458,6 +473,26 @@ public abstract class Basetutorial extends BaseResource {
 
 	public void unSetAssigment_url() {
 		this.assigment_url = null;
+	}
+
+	public Integer getOrder() {
+		return order;
+	}
+
+	public int getOrderEx() {
+		return order != null ? order : 0;
+	}
+
+	public void setOrder(int order) {
+		this.order = order;
+	}
+
+	public void setOrder(Integer order) {
+		this.order = order;
+	}
+
+	public void unSetOrder() {
+		this.order = null;
 	}
 
 	public Long getCreation_time() {
