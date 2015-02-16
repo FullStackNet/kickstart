@@ -19,8 +19,17 @@ public class MessageHeader {
 	byte hour;
 	byte minute;
 	byte second;
+	String sessionId;
 	
 	
+	public String getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
+	}
+
 	public MessageHeader() {
 		messageVersion = 1;
 		protocolVersion = 1;
