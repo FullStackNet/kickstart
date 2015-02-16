@@ -15,4 +15,5 @@ public class ApplianceConstants {
 	public static String APPLIANCE_TYPE_DG = "DG";
 	public static String APPLIANCE_TYPE_SWITCH = "SWITCH";
 	
+	
 }

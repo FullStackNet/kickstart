@@ -3,6 +3,7 @@ package platform.webservice.service;
 import java.util.ArrayList;
 import java.util.Map;
 
+import platform.appliances.Appliance;
 import platform.appliances.ApplianceConstants;
 import platform.db.Expression;
 import platform.db.REL_OP;
@@ -115,11 +116,28 @@ public class ApplianceService extends BaseService{
 			if (userId  == null) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
 			}
-			appliance _appliance = (appliance)User_mapHelper.getInstance().getApplianace(userId, resource.getId());
+			appliance _appliance = (appliance)ApplianceHelper.getInstance().getById(resource.getId());
 			if (_appliance  == null) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Permission denied");
 			}
 			if (ApplianceConstants.APPLIANCE_TYPE_DG.equalsIgnoreCase(_appliance.getType())) {
+				Expression e = new Expression(controller.FIELD_APPLIANCE_ID, REL_OP.EQ, _appliance.getId());
+				BaseResource[] resources = ControllerHelper.getInstance().getByExpression(e);
+				if (platform.util.Util.isEmpty(resources)) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "No controller specified");
+				}
+				if (resources.length > 1) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "In consitent configuration , More than one controller attached , I am confused ...");
+				}
+				controller _controller = (controller)resources[0];
+				if (_controller.getGateway_id() == null) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "No Gateway attached to controller ... Cannot process this action");
+				}
+				DeviceAction message = new DeviceAction();
+				message.setDeviceId(_controller.getId());
+				message.setAction("ON");
+				ApplicationManager.getInstance().sendMessage(_controller.getGateway_id(), message);
+			} else if (Appliance.APPLIANCE_HOME_APPLAINCE.equalsIgnoreCase(_appliance.getType())) {
 				Expression e = new Expression(controller.FIELD_APPLIANCE_ID, REL_OP.EQ, _appliance.getId());
 				BaseResource[] resources = ControllerHelper.getInstance().getByExpression(e);
 				if (platform.util.Util.isEmpty(resources)) {
@@ -142,11 +160,28 @@ public class ApplianceService extends BaseService{
 			if (userId  == null) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
 			}
-			appliance _appliance = (appliance)User_mapHelper.getInstance().getApplianace(userId, resource.getId());
+			appliance _appliance = (appliance)ApplianceHelper.getInstance().getById(resource.getId());
 			if (_appliance  == null) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Permission denied");
 			}
 			if (ApplianceConstants.APPLIANCE_TYPE_DG.equalsIgnoreCase(_appliance.getType())) {
+				Expression e = new Expression(controller.FIELD_APPLIANCE_ID, REL_OP.EQ, _appliance.getId());
+				BaseResource[] resources = ControllerHelper.getInstance().getByExpression(e);
+				if (platform.util.Util.isEmpty(resources)) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "No controller specified");
+				}
+				if (resources.length > 1) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "In consitent configuration , More than one controller attached , I am confused ...");
+				}
+				controller _controller = (controller)resources[0];
+				if (_controller.getGateway_id() == null) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "No Gateway attached to controller ... Cannot process this action");
+				}
+				DeviceAction message = new DeviceAction();
+				message.setDeviceId(_controller.getId());
+				message.setAction("OFF");
+				ApplicationManager.getInstance().sendMessage(_controller.getGateway_id(), message);
+			} else if (Appliance.APPLIANCE_HOME_APPLAINCE.equalsIgnoreCase(_appliance.getType())) {
 				Expression e = new Expression(controller.FIELD_APPLIANCE_ID, REL_OP.EQ, _appliance.getId());
 				BaseResource[] resources = ControllerHelper.getInstance().getByExpression(e);
 				if (platform.util.Util.isEmpty(resources)) {
@@ -270,7 +305,7 @@ public class ApplianceService extends BaseService{
 			}
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid stopage/route");
 		}
-		
+
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_QUERY);
 	}
 }

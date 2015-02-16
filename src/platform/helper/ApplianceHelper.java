@@ -241,7 +241,29 @@ public class ApplianceHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
+	public void updateHAPowerDeviceData(controller _controller,
+			appliance _appliance,
+			byte state,
+			int voltage, int current,double power, long time) {
+		appliance __appliance = new appliance(_controller.getAppliance_id());
+		__appliance.setState("N");
+		if (state == 1) {
+			__appliance.setState("Y");
+		}
+		__appliance.setVoltage(voltage);
+		__appliance.setCurrent(current);	
+		__appliance.setEnergy(power);	
+		__appliance.setLast_reading_updated(time);
+		__appliance.setConnected("Y");
+		try {
+			ApplianceHelper.getInstance().update(__appliance);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+	}
+	
 	public void updateDGData(controller _controller,
 			appliance _appliance,
 			double fuelLevel, double fuelQuantity,double canopyTemperature,

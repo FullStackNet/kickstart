@@ -394,7 +394,10 @@ public class Util {
 		String str = "";
 		int i = 0;
 		while (i < len) {
-			str = str + (int) (data[i]& 0xFF) + " ";
+			if ((char)(data[i]& 0xFF) == 0) {
+				return str;
+			}
+			str = str + (char)(data[i]& 0xFF);
 			i++;
 		}
 		return str;

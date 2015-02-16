@@ -42,15 +42,14 @@ public class GatewayHelper extends BaseHelper {
 	}
 	public void addController(String gatewayId,String controllerId) throws ApplicationException {
 		controller _fetchedResource = (controller)ControllerHelper.getInstance().getById(resource.getId());
-		controller _resource = (controller)resource;
-		if (_resource.getGateway_id() != null) {
-			if (!_resource.getGateway_id().equals(_fetchedResource.getGateway_id())) {
-				removeController(_fetchedResource.getGateway_id(), _resource.getId());
-				_addController(_resource.getGateway_id(), _resource.getId());
+		if (gatewayId != null) {
+			if (!gatewayId.equals(_fetchedResource.getGateway_id())) {
+				removeController(_fetchedResource.getGateway_id(), controllerId);
+				_addController(gatewayId, controllerId);
 			}
 		} else {
 			if (_fetchedResource.getGateway_id() != null) {
-				removeController(_fetchedResource.getGateway_id(), _resource.getId());
+				removeController(_fetchedResource.getGateway_id(), controllerId);
 			}
 		}
 	}
