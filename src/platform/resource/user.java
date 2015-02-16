@@ -61,7 +61,7 @@ public class user extends Baseuser {
 		return false;
 	}
 	
-	public boolean isSchoolTrackerServiceEnable() {
+	public boolean isSchoolServiceEnable() {
 		if ("Y".equalsIgnoreCase(getSchoolTrackerService())) {
 			return true;
 		}
@@ -146,6 +146,19 @@ public class user extends Baseuser {
 	}
 	public boolean isAttendanceEnable() {
 		if ("Y".equalsIgnoreCase(getFeature_present_report())) {
+			return true;
+		}
+		return false;
+	}
+	public boolean isParentServiceEnable() {
+		if ("Y".equalsIgnoreCase(getParentService())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isStudentServiceEnable() {
+		if ("Y".equalsIgnoreCase(getStudentService())) {
 			return true;
 		}
 		return false;

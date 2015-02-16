@@ -50,7 +50,7 @@ public class customer extends Basecustomer {
 		return false;
 	}
 	
-	public boolean isSchoolTrackerServiceEnable() {
+	public boolean isSchoolServiceEnable() {
 		if ("Y".equalsIgnoreCase(getSchoolTrackerService())) {
 			return true;
 		}

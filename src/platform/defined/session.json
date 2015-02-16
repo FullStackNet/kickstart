@@ -23,6 +23,12 @@
 				'length': 128,
 				'type':'String'
 			},
+			'student_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'type':'String'
+			},
 			'user_type':
 			{
 				'name':'user_type',
@@ -36,6 +42,12 @@
 				'type':'String'
 			},
 			'super_user':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'readonly_user':
 			{
 				'length': 1,
 				'default' : "N",

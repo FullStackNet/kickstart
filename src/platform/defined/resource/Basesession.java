@@ -22,17 +22,21 @@ public abstract class Basesession extends BaseResource {
 	private String id = null;
 	private String user_id = null;
 	private String customer_id = null;
+	private String student_id = null;
 	private String user_type = null;
 	private String user_name = null;
 	private String super_user = null;
+	private String readonly_user = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_USER_TYPE = "user_type";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_SUPER_USER = "super_user";
+	public static String FIELD_READONLY_USER = "readonly_user";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -54,6 +58,10 @@ public abstract class Basesession extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
+		Field student_idField = new Field("student_id", "String");
+		student_idField.setLength(128);
+		metaData.addField(student_idField);
+
 		Field user_typeField = new Field("user_type", "String");
 		user_typeField.setLength(32);
 		metaData.addField(user_typeField);
@@ -66,6 +74,11 @@ public abstract class Basesession extends BaseResource {
 		super_userField.setDefaultValue("N");
 		super_userField.setLength(1);
 		metaData.addField(super_userField);
+
+		Field readonly_userField = new Field("readonly_user", "String");
+		readonly_userField.setDefaultValue("N");
+		readonly_userField.setLength(1);
+		metaData.addField(readonly_userField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -83,9 +96,11 @@ public abstract class Basesession extends BaseResource {
 		this.id = obj.id;
 		this.user_id = obj.user_id;
 		this.customer_id = obj.customer_id;
+		this.student_id = obj.student_id;
 		this.user_type = obj.user_type;
 		this.user_name = obj.user_name;
 		this.super_user = obj.super_user;
+		this.readonly_user = obj.readonly_user;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -96,6 +111,8 @@ public abstract class Basesession extends BaseResource {
 	private void setDefaultValues() {
 		if(super_user == null)
 			super_user = "N";
+		if(readonly_user == null)
+			readonly_user = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -106,12 +123,16 @@ public abstract class Basesession extends BaseResource {
 			map.put("user_id", user_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(student_id != null)
+			map.put("student_id", student_id);
 		if(user_type != null)
 			map.put("user_type", user_type);
 		if(user_name != null)
 			map.put("user_name", user_name);
 		if(super_user != null)
 			map.put("super_user", super_user);
+		if(readonly_user != null)
+			map.put("readonly_user", readonly_user);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -128,12 +149,16 @@ public abstract class Basesession extends BaseResource {
 			map.put("user_id", user_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(student_id != null)
+			map.put("student_id", student_id);
 		if(user_type != null)
 			map.put("user_type", user_type);
 		if(user_name != null)
 			map.put("user_name", user_name);
 		if(super_user != null)
 			map.put("super_user", super_user);
+		if(readonly_user != null)
+			map.put("readonly_user", readonly_user);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -149,9 +174,11 @@ public abstract class Basesession extends BaseResource {
 		id = (String) map.get("id");
 		user_id = (String) map.get("user_id");
 		customer_id = (String) map.get("customer_id");
+		student_id = (String) map.get("student_id");
 		user_type = (String) map.get("user_type");
 		user_name = (String) map.get("user_name");
 		super_user = (String) map.get("super_user");
+		readonly_user = (String) map.get("readonly_user");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -169,6 +196,10 @@ public abstract class Basesession extends BaseResource {
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
 
+		Object student_idObj = map.get("student_id");
+		if(student_idObj != null)
+			student_id = student_idObj.toString();
+
 		Object user_typeObj = map.get("user_type");
 		if(user_typeObj != null)
 			user_type = user_typeObj.toString();
@@ -180,6 +211,10 @@ public abstract class Basesession extends BaseResource {
 		Object super_userObj = map.get("super_user");
 		if(super_userObj != null)
 			super_user = super_userObj.toString();
+
+		Object readonly_userObj = map.get("readonly_user");
+		if(readonly_userObj != null)
+			readonly_user = readonly_userObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -244,6 +279,22 @@ public abstract class Basesession extends BaseResource {
 		this.customer_id = null;
 	}
 
+	public String getStudent_id() {
+		return student_id;
+	}
+
+	public String getStudent_idEx() {
+		return student_id != null ? student_id : "";
+	}
+
+	public void setStudent_id(String student_id) {
+		this.student_id = student_id;
+	}
+
+	public void unSetStudent_id() {
+		this.student_id = null;
+	}
+
 	public String getUser_type() {
 		return user_type;
 	}
@@ -286,6 +337,18 @@ public abstract class Basesession extends BaseResource {
 
 	public void unSetSuper_user() {
 		this.super_user = "N";
+	}
+
+	public String getReadonly_user() {
+		return readonly_user != null ? readonly_user : "N";
+	}
+
+	public void setReadonly_user(String readonly_user) {
+		this.readonly_user = readonly_user;
+	}
+
+	public void unSetReadonly_user() {
+		this.readonly_user = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {

@@ -31,4 +31,87 @@ public class school extends Baseschool {
 		return null;
 	}
 
+
+	public boolean isDailyActivityFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_daily_activity())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isNoticeFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_notice())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isAbsentReportFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_absent_report())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isAttendanceFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_present_report())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isProficiencyFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_proficiency())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isWorksheetFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_work_sheet())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isReportCardFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_report_card())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isHomeworkFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_homework())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isHome_practiceFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_home_practice())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isTutorialFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_tutorial())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isTransportEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_pick_drop())) {
+			return true;
+		}
+		return false;
+	}
+	public boolean isAttendanceEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_present_report())) {
+			return true;
+		}
+		return false;
+	}
 }

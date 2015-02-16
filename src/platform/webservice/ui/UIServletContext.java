@@ -92,6 +92,10 @@ public class UIServletContext {
 		return _session.getCustomer_id();
 	}
 
+	public String getStudentId() {
+		return _session.getCustomer_id();
+	}
+	
 	public String getUserType() {
 		return _session.getUser_type();
 	}
@@ -100,6 +104,17 @@ public class UIServletContext {
 		return _session.getUser_name();
 	}
 	
+	public void setStudentId(String studentId) {
+		session __session = new session(sessionId);
+		__session.setStudent_id(studentId);
+		try {
+			SessionHelper.getInstance().update(__session);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		_session.setStudent_id(studentId);
+	}
 	
 	public void setUserId(String userId) {
 		session __session = new session(sessionId);
@@ -125,6 +140,18 @@ public class UIServletContext {
 		_session.setSuper_user(superUser);
 	}
 
+	public void setReadonlyUser(String readonly) {
+		session __session = new session(sessionId);
+		__session.setReadonly_user(readonly);
+		try {
+			SessionHelper.getInstance().update(__session);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		_session.setReadonly_user(readonly);
+	}
+	
 	public void setUserName(String userName) {
 		session __session = new session(sessionId);
 		__session.setUser_name(userName);
