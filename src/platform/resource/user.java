@@ -95,6 +95,27 @@ public class user extends Baseuser {
 		return false;
 	}
 	
+	public boolean isProficiencyFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_proficiency())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isWorksheetFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_work_sheet())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isReportCardFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_report_card())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isHomeworkFeatureEnable() {
 		if ("Y".equalsIgnoreCase(getFeature_homework())) {
 			return true;
@@ -115,5 +136,19 @@ public class user extends Baseuser {
 		}
 		return false;
 	}
+	
+	public boolean isTransportEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_pick_drop())) {
+			return true;
+		}
+		return false;
+	}
+	public boolean isAttendanceEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_present_report())) {
+			return true;
+		}
+		return false;
+	}
 }
+
 

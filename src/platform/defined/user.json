@@ -314,7 +314,13 @@
 				'length': 1,
 				'default' : "Y",
 				'type':'String'
-			}					
+			},
+			'feature_report_card':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			}
 		}
 	}
 }

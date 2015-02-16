@@ -9,7 +9,6 @@ import platform.db.JoinField;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
-import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;

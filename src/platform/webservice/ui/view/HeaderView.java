@@ -5,7 +5,6 @@ import platform.webservice.ui.component.BaseView;
 import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.MenuItem;
-import platform.webservice.ui.html.TEXT;
 import platform.webservice.ui.html.UL;
 import platform.webservice.ui.util.ImageUtils;
 

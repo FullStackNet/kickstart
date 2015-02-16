@@ -41,6 +41,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_teacher2parent_chat = null;
 	private String feature_admin2parent_chat = null;
 	private String feature_absent_report = null;
+	private String feature_report_card = null;
 	private String feature_pick_drop = null;
 	private String feature_message2parent = null;
 	private String feature_message2school = null;
@@ -112,6 +113,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_TEACHER2PARENT_CHAT = "feature_teacher2parent_chat";
 	public static String FIELD_FEATURE_ADMIN2PARENT_CHAT = "feature_admin2parent_chat";
 	public static String FIELD_FEATURE_ABSENT_REPORT = "feature_absent_report";
+	public static String FIELD_FEATURE_REPORT_CARD = "feature_report_card";
 	public static String FIELD_FEATURE_PICK_DROP = "feature_pick_drop";
 	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
 	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
@@ -264,6 +266,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_absent_reportField.setDefaultValue("N");
 		feature_absent_reportField.setLength(1);
 		metaData.addField(feature_absent_reportField);
+
+		Field feature_report_cardField = new Field("feature_report_card", "String");
+		feature_report_cardField.setDefaultValue("N");
+		feature_report_cardField.setLength(1);
+		metaData.addField(feature_report_cardField);
 
 		Field feature_pick_dropField = new Field("feature_pick_drop", "String");
 		feature_pick_dropField.setDefaultValue("N");
@@ -529,6 +536,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_teacher2parent_chat = obj.feature_teacher2parent_chat;
 		this.feature_admin2parent_chat = obj.feature_admin2parent_chat;
 		this.feature_absent_report = obj.feature_absent_report;
+		this.feature_report_card = obj.feature_report_card;
 		this.feature_pick_drop = obj.feature_pick_drop;
 		this.feature_message2parent = obj.feature_message2parent;
 		this.feature_message2school = obj.feature_message2school;
@@ -602,6 +610,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_admin2parent_chat = "N";
 		if(feature_absent_report == null)
 			feature_absent_report = "N";
+		if(feature_report_card == null)
+			feature_report_card = "N";
 		if(feature_pick_drop == null)
 			feature_pick_drop = "N";
 		if(feature_message2parent == null)
@@ -736,6 +746,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_admin2parent_chat", feature_admin2parent_chat);
 		if(feature_absent_report != null)
 			map.put("feature_absent_report", feature_absent_report);
+		if(feature_report_card != null)
+			map.put("feature_report_card", feature_report_card);
 		if(feature_pick_drop != null)
 			map.put("feature_pick_drop", feature_pick_drop);
 		if(feature_message2parent != null)
@@ -884,6 +896,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_admin2parent_chat", feature_admin2parent_chat);
 		if(feature_absent_report != null)
 			map.put("feature_absent_report", feature_absent_report);
+		if(feature_report_card != null)
+			map.put("feature_report_card", feature_report_card);
 		if(feature_pick_drop != null)
 			map.put("feature_pick_drop", feature_pick_drop);
 		if(feature_message2parent != null)
@@ -1012,6 +1026,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_teacher2parent_chat = (String) map.get("feature_teacher2parent_chat");
 		feature_admin2parent_chat = (String) map.get("feature_admin2parent_chat");
 		feature_absent_report = (String) map.get("feature_absent_report");
+		feature_report_card = (String) map.get("feature_report_card");
 		feature_pick_drop = (String) map.get("feature_pick_drop");
 		feature_message2parent = (String) map.get("feature_message2parent");
 		feature_message2school = (String) map.get("feature_message2school");
@@ -1151,6 +1166,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_absent_reportObj = map.get("feature_absent_report");
 		if(feature_absent_reportObj != null)
 			feature_absent_report = feature_absent_reportObj.toString();
+
+		Object feature_report_cardObj = map.get("feature_report_card");
+		if(feature_report_cardObj != null)
+			feature_report_card = feature_report_cardObj.toString();
 
 		Object feature_pick_dropObj = map.get("feature_pick_drop");
 		if(feature_pick_dropObj != null)
@@ -1669,6 +1688,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_absent_report() {
 		this.feature_absent_report = "N";
+	}
+
+	public String getFeature_report_card() {
+		return feature_report_card != null ? feature_report_card : "N";
+	}
+
+	public void setFeature_report_card(String feature_report_card) {
+		this.feature_report_card = feature_report_card;
+	}
+
+	public void unSetFeature_report_card() {
+		this.feature_report_card = "N";
 	}
 
 	public String getFeature_pick_drop() {
