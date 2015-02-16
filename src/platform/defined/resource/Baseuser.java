@@ -32,6 +32,7 @@ public abstract class Baseuser extends BaseResource {
 	private String company_name = null;
 	private String state = null;
 	private String parentService = null;
+	private String studentService = null;
 	private String teacherService = null;
 	private String fleetService = null;
 	private String schoolTrackerService = null;
@@ -86,6 +87,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_PARENTSERVICE = "parentService";
+	public static String FIELD_STUDENTSERVICE = "studentService";
 	public static String FIELD_TEACHERSERVICE = "teacherService";
 	public static String FIELD_FLEETSERVICE = "fleetService";
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
@@ -190,6 +192,11 @@ public abstract class Baseuser extends BaseResource {
 		parentServiceField.setDefaultValue("N");
 		parentServiceField.setLength(1);
 		metaData.addField(parentServiceField);
+
+		Field studentServiceField = new Field("studentService", "String");
+		studentServiceField.setDefaultValue("N");
+		studentServiceField.setLength(1);
+		metaData.addField(studentServiceField);
 
 		Field teacherServiceField = new Field("teacherService", "String");
 		teacherServiceField.setDefaultValue("N");
@@ -409,6 +416,7 @@ public abstract class Baseuser extends BaseResource {
 		this.company_name = obj.company_name;
 		this.state = obj.state;
 		this.parentService = obj.parentService;
+		this.studentService = obj.studentService;
 		this.teacherService = obj.teacherService;
 		this.fleetService = obj.fleetService;
 		this.schoolTrackerService = obj.schoolTrackerService;
@@ -458,6 +466,8 @@ public abstract class Baseuser extends BaseResource {
 	private void setDefaultValues() {
 		if(parentService == null)
 			parentService = "N";
+		if(studentService == null)
+			studentService = "N";
 		if(teacherService == null)
 			teacherService = "N";
 		if(fleetService == null)
@@ -562,6 +572,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("state", state);
 		if(parentService != null)
 			map.put("parentService", parentService);
+		if(studentService != null)
+			map.put("studentService", studentService);
 		if(teacherService != null)
 			map.put("teacherService", teacherService);
 		if(fleetService != null)
@@ -676,6 +688,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("state", state);
 		if(parentService != null)
 			map.put("parentService", parentService);
+		if(studentService != null)
+			map.put("studentService", studentService);
 		if(teacherService != null)
 			map.put("teacherService", teacherService);
 		if(fleetService != null)
@@ -779,6 +793,7 @@ public abstract class Baseuser extends BaseResource {
 		company_name = (String) map.get("company_name");
 		state = (String) map.get("state");
 		parentService = (String) map.get("parentService");
+		studentService = (String) map.get("studentService");
 		teacherService = (String) map.get("teacherService");
 		fleetService = (String) map.get("fleetService");
 		schoolTrackerService = (String) map.get("schoolTrackerService");
@@ -874,6 +889,10 @@ public abstract class Baseuser extends BaseResource {
 		Object parentServiceObj = map.get("parentService");
 		if(parentServiceObj != null)
 			parentService = parentServiceObj.toString();
+
+		Object studentServiceObj = map.get("studentService");
+		if(studentServiceObj != null)
+			studentService = studentServiceObj.toString();
 
 		Object teacherServiceObj = map.get("teacherService");
 		if(teacherServiceObj != null)
@@ -1260,6 +1279,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetParentService() {
 		this.parentService = "N";
+	}
+
+	public String getStudentService() {
+		return studentService != null ? studentService : "N";
+	}
+
+	public void setStudentService(String studentService) {
+		this.studentService = studentService;
+	}
+
+	public void unSetStudentService() {
+		this.studentService = "N";
 	}
 
 	public String getTeacherService() {

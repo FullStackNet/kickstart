@@ -84,6 +84,12 @@
 				'type':'String',
 				'default' : "N"
 			},
+			'studentService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'teacherService':
 			{
 				'length': 1,

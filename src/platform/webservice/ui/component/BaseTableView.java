@@ -70,7 +70,9 @@ public abstract class BaseTableView extends BaseView {
 			} else if (field.getLabels() != null) {
 				String labels = "";
 				for(String label : field.getLabels()) {
-					if (!Util.isEmpty(label)) {
+					if (Util.isEmpty(label))
+						continue;
+					if (!Util.isEmpty(labels)) {
 						labels = labels + "<br>";
 					}
 					labels = labels + label;

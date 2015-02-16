@@ -13,7 +13,8 @@ public class user extends Baseuser {
 	public static String USER_TYPE_SERVICING_ADMIN = "SERVICE_ADMIN";
 	public static String USER_TYPE_FLEET_OWNER = "FLEET_OWNER";
 	public static String USER_TYPE_USER = "USER";
-	
+	public static String USER_TYPE_PARENT = "PARENT";
+	public static String USER_TYPE_STUDENT = "STUDENT";
 	
 	/**
 	 * 

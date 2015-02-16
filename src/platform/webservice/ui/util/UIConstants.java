@@ -165,6 +165,7 @@ public class UIConstants {
 	};
 	
 	public final static IdValue[] PRIMARY_CONTACT_ENUM = new IdValue[] {
+		new IdValue("STUDENT", "STUDENT"),
 		new IdValue("MOTHER", "MOTHER"),
 		new IdValue("FATHER", "FATHER"),
 		new IdValue("BOTH", "BOTH"),
