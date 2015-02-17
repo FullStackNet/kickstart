@@ -22,7 +22,11 @@ public abstract class Basestudent_tutorial extends BaseResource {
 	private String id = null;
 	private String student_id = null;
 	private String student_name = null;
+	private String class_name = null;
+	private String school_id = null;
+	private String customer_id = null;
 	private String tutorial_id = null;
+	private String subject_id = null;
 	private String tutorial_title = null;
 	private String tutorial_status = null;
 	private String assigment_status = null;
@@ -36,7 +40,11 @@ public abstract class Basestudent_tutorial extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_STUDENT_NAME = "student_name";
+	public static String FIELD_CLASS_NAME = "class_name";
+	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_TUTORIAL_ID = "tutorial_id";
+	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_TUTORIAL_TITLE = "tutorial_title";
 	public static String FIELD_TUTORIAL_STATUS = "tutorial_status";
 	public static String FIELD_ASSIGMENT_STATUS = "assigment_status";
@@ -66,9 +74,25 @@ public abstract class Basestudent_tutorial extends BaseResource {
 		student_nameField.setLength(32);
 		metaData.addField(student_nameField);
 
+		Field class_nameField = new Field("class_name", "String");
+		class_nameField.setLength(32);
+		metaData.addField(class_nameField);
+
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setLength(32);
+		metaData.addField(school_idField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(32);
+		metaData.addField(customer_idField);
+
 		Field tutorial_idField = new Field("tutorial_id", "String");
 		tutorial_idField.setLength(32);
 		metaData.addField(tutorial_idField);
+
+		Field subject_idField = new Field("subject_id", "String");
+		subject_idField.setLength(32);
+		metaData.addField(subject_idField);
 
 		Field tutorial_titleField = new Field("tutorial_title", "String");
 		tutorial_titleField.setLength(32);
@@ -111,7 +135,11 @@ public abstract class Basestudent_tutorial extends BaseResource {
 		this.id = obj.id;
 		this.student_id = obj.student_id;
 		this.student_name = obj.student_name;
+		this.class_name = obj.class_name;
+		this.school_id = obj.school_id;
+		this.customer_id = obj.customer_id;
 		this.tutorial_id = obj.tutorial_id;
+		this.subject_id = obj.subject_id;
 		this.tutorial_title = obj.tutorial_title;
 		this.tutorial_status = obj.tutorial_status;
 		this.assigment_status = obj.assigment_status;
@@ -135,8 +163,16 @@ public abstract class Basestudent_tutorial extends BaseResource {
 			map.put("student_id", student_id);
 		if(student_name != null)
 			map.put("student_name", student_name);
+		if(class_name != null)
+			map.put("class_name", class_name);
+		if(school_id != null)
+			map.put("school_id", school_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(tutorial_id != null)
 			map.put("tutorial_id", tutorial_id);
+		if(subject_id != null)
+			map.put("subject_id", subject_id);
 		if(tutorial_title != null)
 			map.put("tutorial_title", tutorial_title);
 		if(tutorial_status != null)
@@ -166,8 +202,16 @@ public abstract class Basestudent_tutorial extends BaseResource {
 			map.put("student_id", student_id);
 		if(student_name != null)
 			map.put("student_name", student_name);
+		if(class_name != null)
+			map.put("class_name", class_name);
+		if(school_id != null)
+			map.put("school_id", school_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(tutorial_id != null)
 			map.put("tutorial_id", tutorial_id);
+		if(subject_id != null)
+			map.put("subject_id", subject_id);
 		if(tutorial_title != null)
 			map.put("tutorial_title", tutorial_title);
 		if(tutorial_status != null)
@@ -199,7 +243,11 @@ public abstract class Basestudent_tutorial extends BaseResource {
 		id = (String) map.get("id");
 		student_id = (String) map.get("student_id");
 		student_name = (String) map.get("student_name");
+		class_name = (String) map.get("class_name");
+		school_id = (String) map.get("school_id");
+		customer_id = (String) map.get("customer_id");
 		tutorial_id = (String) map.get("tutorial_id");
+		subject_id = (String) map.get("subject_id");
 		tutorial_title = (String) map.get("tutorial_title");
 		tutorial_status = (String) map.get("tutorial_status");
 		assigment_status = (String) map.get("assigment_status");
@@ -225,9 +273,25 @@ public abstract class Basestudent_tutorial extends BaseResource {
 		if(student_nameObj != null)
 			student_name = student_nameObj.toString();
 
+		Object class_nameObj = map.get("class_name");
+		if(class_nameObj != null)
+			class_name = class_nameObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
+
 		Object tutorial_idObj = map.get("tutorial_id");
 		if(tutorial_idObj != null)
 			tutorial_id = tutorial_idObj.toString();
+
+		Object subject_idObj = map.get("subject_id");
+		if(subject_idObj != null)
+			subject_id = subject_idObj.toString();
 
 		Object tutorial_titleObj = map.get("tutorial_title");
 		if(tutorial_titleObj != null)
@@ -324,6 +388,54 @@ public abstract class Basestudent_tutorial extends BaseResource {
 		this.student_name = null;
 	}
 
+	public String getClass_name() {
+		return class_name;
+	}
+
+	public String getClass_nameEx() {
+		return class_name != null ? class_name : "";
+	}
+
+	public void setClass_name(String class_name) {
+		this.class_name = class_name;
+	}
+
+	public void unSetClass_name() {
+		this.class_name = null;
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
+	}
+
 	public String getTutorial_id() {
 		return tutorial_id;
 	}
@@ -338,6 +450,22 @@ public abstract class Basestudent_tutorial extends BaseResource {
 
 	public void unSetTutorial_id() {
 		this.tutorial_id = null;
+	}
+
+	public String getSubject_id() {
+		return subject_id;
+	}
+
+	public String getSubject_idEx() {
+		return subject_id != null ? subject_id : "";
+	}
+
+	public void setSubject_id(String subject_id) {
+		this.subject_id = subject_id;
+	}
+
+	public void unSetSubject_id() {
+		this.subject_id = null;
 	}
 
 	public String getTutorial_title() {

@@ -21,7 +21,22 @@
 				'length': 32,
 				'type':'String'
 			},
+			'class_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
 			'tutorial_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'customer_id':
 			{
 				'length': 32,
 				'type':'String'
