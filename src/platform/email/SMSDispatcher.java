@@ -197,7 +197,9 @@ public class SMSDispatcher {
 					}
 				}
 			}
-			EmailDispatcher.getInstance().sendSMSMail("SMS to "+mobile_no, templete, params);
+			if ((_account != null) && ("Y".equalsIgnoreCase(_account.getSend_email()))) {
+				EmailDispatcher.getInstance().sendSMSMail("SMS to "+mobile_no, templete, params);
+			}
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

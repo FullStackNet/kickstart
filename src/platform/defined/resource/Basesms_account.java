@@ -28,6 +28,7 @@ public abstract class Basesms_account extends BaseResource {
 	private String password = null;
 	private String mobile_fieldname = null;
 	private String message_fieldname = null;
+	private String send_email = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -39,6 +40,7 @@ public abstract class Basesms_account extends BaseResource {
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_MOBILE_FIELDNAME = "mobile_fieldname";
 	public static String FIELD_MESSAGE_FIELDNAME = "message_fieldname";
+	public static String FIELD_SEND_EMAIL = "send_email";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -84,6 +86,11 @@ public abstract class Basesms_account extends BaseResource {
 		message_fieldnameField.setLength(128);
 		metaData.addField(message_fieldnameField);
 
+		Field send_emailField = new Field("send_email", "String");
+		send_emailField.setDefaultValue("N");
+		send_emailField.setLength(1);
+		metaData.addField(send_emailField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -106,11 +113,17 @@ public abstract class Basesms_account extends BaseResource {
 		this.password = obj.password;
 		this.mobile_fieldname = obj.mobile_fieldname;
 		this.message_fieldname = obj.message_fieldname;
+		this.send_email = obj.send_email;
 		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(send_email == null)
+			send_email = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -133,12 +146,17 @@ public abstract class Basesms_account extends BaseResource {
 			map.put("mobile_fieldname", mobile_fieldname);
 		if(message_fieldname != null)
 			map.put("message_fieldname", message_fieldname);
+		if(send_email != null)
+			map.put("send_email", send_email);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -158,6 +176,8 @@ public abstract class Basesms_account extends BaseResource {
 			map.put("mobile_fieldname", mobile_fieldname);
 		if(message_fieldname != null)
 			map.put("message_fieldname", message_fieldname);
+		if(send_email != null)
+			map.put("send_email", send_email);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -179,6 +199,7 @@ public abstract class Basesms_account extends BaseResource {
 		password = (String) map.get("password");
 		mobile_fieldname = (String) map.get("mobile_fieldname");
 		message_fieldname = (String) map.get("message_fieldname");
+		send_email = (String) map.get("send_email");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -219,6 +240,10 @@ public abstract class Basesms_account extends BaseResource {
 		Object message_fieldnameObj = map.get("message_fieldname");
 		if(message_fieldnameObj != null)
 			message_fieldname = message_fieldnameObj.toString();
+
+		Object send_emailObj = map.get("send_email");
+		if(send_emailObj != null)
+			send_email = send_emailObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -377,6 +402,18 @@ public abstract class Basesms_account extends BaseResource {
 
 	public void unSetMessage_fieldname() {
 		this.message_fieldname = null;
+	}
+
+	public String getSend_email() {
+		return send_email != null ? send_email : "N";
+	}
+
+	public void setSend_email(String send_email) {
+		this.send_email = send_email;
+	}
+
+	public void unSetSend_email() {
+		this.send_email = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {
