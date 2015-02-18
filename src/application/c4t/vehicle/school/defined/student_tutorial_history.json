@@ -1,7 +1,7 @@
 {
 	"student_tutorial_history" :
 	{
-		"cluster": "DB_SCHOOL",
+		"cluster": "DB_LOG",
 		"fields":
 		{
 			'id':

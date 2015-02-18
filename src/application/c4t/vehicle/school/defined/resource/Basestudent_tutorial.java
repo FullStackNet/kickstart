@@ -126,7 +126,7 @@ public abstract class Basestudent_tutorial extends BaseResource {
 
 		metaData.setTableName("student_tutorial");
 
-		metaData.setCluster("DB_SCHOOL");
+		metaData.setCluster("DB_LOG");
 	}
 
 	public Basestudent_tutorial() {}
@@ -608,7 +608,7 @@ public abstract class Basestudent_tutorial extends BaseResource {
 		this.extra_data = null;
 	}
 	public String getCluster() {
-		return "DB_SCHOOL";
+		return "DB_LOG";
 	}
 	public String getClusterType() {
 		return "REPLICATED";
