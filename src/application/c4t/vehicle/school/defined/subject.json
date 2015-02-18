@@ -11,12 +11,15 @@
 				'required': true,
 				'type':'String'
 			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'customer_id':
 			{
-				'name':'customer_id',
 				'type':'String',
-				'length': 128,
-				'required': true
+				'length': 128
 			}	
 		}
 	}
