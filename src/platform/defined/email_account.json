@@ -51,6 +51,12 @@
 				'type':'String',
 				default : "N"
 			},
+			'send_to_bcc_id':
+			{
+				'length': 1,
+				'type':'String',
+				default : "N"
+			},
 			'domain':
 			{
 				'length': 128,

@@ -30,6 +30,8 @@ public class EmailDispatcher {
 	private boolean sendMailUniqueId;
 	private boolean sendMailToRightId;
 	private boolean sendMailToBoth;
+	private boolean sendMailToBcc;
+	
 	private Map<String, email_account> accountMap;
 	
 	public static EmailDispatcher getInstance() {
@@ -55,6 +57,7 @@ public class EmailDispatcher {
 		sendMailToRightId  = reader.getBoolean("send_mail_to_right_id",false);
 		sendMailToBoth  = reader.getBoolean("send_mail_to_both",false);
 		domainName = reader.getString("domain",null);
+		sendMailToBcc = reader.getBoolean("send_mail_to_bcc",true);
 	}
 	
 	public void cleanCache() {
@@ -171,7 +174,9 @@ public class EmailDispatcher {
 		}
 		String[] bcc  = null;
 		if("Y".equals(_account.getSend_to_both_id())) {	// SoftLayer 
-			bcc = new String[] {_account.getUnique_idEx()};
+			if ("Y".equals(_account.getSend_to_bcc_id())) {
+				bcc = new String[] {_account.getBcc_id()};
+			}
 		} else if("Y".equals(_account.getSend_to_unique_id())) { // Demo & Dev
 			subject = subject + " " + Arrays.toString(toEmailIds);
 			toEmailIds = new String[] {_account.getUnique_idEx()};

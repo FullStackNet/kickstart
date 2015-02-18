@@ -27,6 +27,7 @@ public abstract class Baseemail_account extends BaseResource {
 	private String send_to_unique_id = null;
 	private String send_to_right_id = null;
 	private String send_to_both_id = null;
+	private String send_to_bcc_id = null;
 	private String domain = null;
 	private String smtp_server = null;
 	private Integer smtp_ssl_port = null;
@@ -46,6 +47,7 @@ public abstract class Baseemail_account extends BaseResource {
 	public static String FIELD_SEND_TO_UNIQUE_ID = "send_to_unique_id";
 	public static String FIELD_SEND_TO_RIGHT_ID = "send_to_right_id";
 	public static String FIELD_SEND_TO_BOTH_ID = "send_to_both_id";
+	public static String FIELD_SEND_TO_BCC_ID = "send_to_bcc_id";
 	public static String FIELD_DOMAIN = "domain";
 	public static String FIELD_SMTP_SERVER = "smtp_server";
 	public static String FIELD_SMTP_SSL_PORT = "smtp_ssl_port";
@@ -100,6 +102,11 @@ public abstract class Baseemail_account extends BaseResource {
 		send_to_both_idField.setDefaultValue("N");
 		send_to_both_idField.setLength(1);
 		metaData.addField(send_to_both_idField);
+
+		Field send_to_bcc_idField = new Field("send_to_bcc_id", "String");
+		send_to_bcc_idField.setDefaultValue("N");
+		send_to_bcc_idField.setLength(1);
+		metaData.addField(send_to_bcc_idField);
 
 		Field domainField = new Field("domain", "String");
 		domainField.setLength(128);
@@ -158,6 +165,7 @@ public abstract class Baseemail_account extends BaseResource {
 		this.send_to_unique_id = obj.send_to_unique_id;
 		this.send_to_right_id = obj.send_to_right_id;
 		this.send_to_both_id = obj.send_to_both_id;
+		this.send_to_bcc_id = obj.send_to_bcc_id;
 		this.domain = obj.domain;
 		this.smtp_server = obj.smtp_server;
 		this.smtp_ssl_port = obj.smtp_ssl_port;
@@ -183,6 +191,8 @@ public abstract class Baseemail_account extends BaseResource {
 			send_to_right_id = "N";
 		if(send_to_both_id == null)
 			send_to_both_id = "N";
+		if(send_to_bcc_id == null)
+			send_to_bcc_id = "N";
 		if(smtp_ssl_port == null)
 			smtp_ssl_port = 463;
 		if(db_workers == null)
@@ -211,6 +221,8 @@ public abstract class Baseemail_account extends BaseResource {
 			map.put("send_to_right_id", send_to_right_id);
 		if(send_to_both_id != null)
 			map.put("send_to_both_id", send_to_both_id);
+		if(send_to_bcc_id != null)
+			map.put("send_to_bcc_id", send_to_bcc_id);
 		if(domain != null)
 			map.put("domain", domain);
 		if(smtp_server != null)
@@ -255,6 +267,8 @@ public abstract class Baseemail_account extends BaseResource {
 			map.put("send_to_right_id", send_to_right_id);
 		if(send_to_both_id != null)
 			map.put("send_to_both_id", send_to_both_id);
+		if(send_to_bcc_id != null)
+			map.put("send_to_bcc_id", send_to_bcc_id);
 		if(domain != null)
 			map.put("domain", domain);
 		if(smtp_server != null)
@@ -293,6 +307,7 @@ public abstract class Baseemail_account extends BaseResource {
 		send_to_unique_id = (String) map.get("send_to_unique_id");
 		send_to_right_id = (String) map.get("send_to_right_id");
 		send_to_both_id = (String) map.get("send_to_both_id");
+		send_to_bcc_id = (String) map.get("send_to_bcc_id");
 		domain = (String) map.get("domain");
 		smtp_server = (String) map.get("smtp_server");
 		smtp_ssl_port = (Integer) map.get("smtp_ssl_port");
@@ -338,6 +353,10 @@ public abstract class Baseemail_account extends BaseResource {
 		Object send_to_both_idObj = map.get("send_to_both_id");
 		if(send_to_both_idObj != null)
 			send_to_both_id = send_to_both_idObj.toString();
+
+		Object send_to_bcc_idObj = map.get("send_to_bcc_id");
+		if(send_to_bcc_idObj != null)
+			send_to_bcc_id = send_to_bcc_idObj.toString();
 
 		Object domainObj = map.get("domain");
 		if(domainObj != null)
@@ -506,6 +525,18 @@ public abstract class Baseemail_account extends BaseResource {
 
 	public void unSetSend_to_both_id() {
 		this.send_to_both_id = "N";
+	}
+
+	public String getSend_to_bcc_id() {
+		return send_to_bcc_id != null ? send_to_bcc_id : "N";
+	}
+
+	public void setSend_to_bcc_id(String send_to_bcc_id) {
+		this.send_to_bcc_id = send_to_bcc_id;
+	}
+
+	public void unSetSend_to_bcc_id() {
+		this.send_to_bcc_id = "N";
 	}
 
 	public String getDomain() {
