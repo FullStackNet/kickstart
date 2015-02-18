@@ -278,6 +278,8 @@ public class Route_stopageHelper extends BaseHelper {
 					continue;
 				if (_stopage != null) {
 						_route_stopage.setStopage_name(_stopage.getName());
+						_route_stopage.setLatitude(_stopage.getLatitude());
+						_route_stopage.setLongitude(_stopage.getLongitude());
 				}
 					
 				if (valid_route) {

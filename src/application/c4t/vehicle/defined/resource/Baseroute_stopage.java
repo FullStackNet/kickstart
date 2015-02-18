@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -27,6 +23,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 	private String name = null;
 	private String customer_id = null;
 	private String user_id = null;
+	private String longitude = null;
+	private String latitude = null;
 	private String route_id = null;
 	private String stopage_id = null;
 	private String stopage_name = null;
@@ -51,6 +49,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_LONGITUDE = "longitude";
+	public static String FIELD_LATITUDE = "latitude";
 	public static String FIELD_ROUTE_ID = "route_id";
 	public static String FIELD_STOPAGE_ID = "stopage_id";
 	public static String FIELD_STOPAGE_NAME = "stopage_name";
@@ -97,6 +97,14 @@ public abstract class Baseroute_stopage extends BaseResource {
 		user_idField.setRequired(true);
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
+
+		Field longitudeField = new Field("longitude", "String");
+		longitudeField.setLength(128);
+		metaData.addField(longitudeField);
+
+		Field latitudeField = new Field("latitude", "String");
+		latitudeField.setLength(128);
+		metaData.addField(latitudeField);
 
 		Field route_idField = new Field("route_id", "String");
 		route_idField.setIndexed(true);
@@ -168,6 +176,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 		this.name = obj.name;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
+		this.longitude = obj.longitude;
+		this.latitude = obj.latitude;
 		this.route_id = obj.route_id;
 		this.stopage_id = obj.stopage_id;
 		this.stopage_name = obj.stopage_name;
@@ -216,6 +226,10 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(longitude != null)
+			map.put("longitude", longitude);
+		if(latitude != null)
+			map.put("latitude", latitude);
 		if(route_id != null)
 			map.put("route_id", route_id);
 		if(stopage_id != null)
@@ -270,6 +284,10 @@ public abstract class Baseroute_stopage extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(validateUser_id(add))
 			map.put("user_id", user_id);
+		if(longitude != null)
+			map.put("longitude", longitude);
+		if(latitude != null)
+			map.put("latitude", latitude);
 		if(route_id != null)
 			map.put("route_id", route_id);
 		if(stopage_id != null)
@@ -322,6 +340,8 @@ public abstract class Baseroute_stopage extends BaseResource {
 		name = (String) map.get("name");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
+		longitude = (String) map.get("longitude");
+		latitude = (String) map.get("latitude");
 		route_id = (String) map.get("route_id");
 		stopage_id = (String) map.get("stopage_id");
 		stopage_order = (Integer) map.get("stopage_order");
@@ -356,6 +376,14 @@ public abstract class Baseroute_stopage extends BaseResource {
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
+
+		Object longitudeObj = map.get("longitude");
+		if(longitudeObj != null)
+			longitude = longitudeObj.toString();
+
+		Object latitudeObj = map.get("latitude");
+		if(latitudeObj != null)
+			latitude = latitudeObj.toString();
 
 		Object route_idObj = map.get("route_id");
 		if(route_idObj != null)
@@ -508,6 +536,38 @@ public abstract class Baseroute_stopage extends BaseResource {
 		if(add && user_id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[user_id]");
 		return user_id != null;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public String getLongitudeEx() {
+		return longitude != null ? longitude : "";
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	public void unSetLongitude() {
+		this.longitude = null;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public String getLatitudeEx() {
+		return latitude != null ? latitude : "";
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public void unSetLatitude() {
+		this.latitude = null;
 	}
 
 	public String getRoute_id() {

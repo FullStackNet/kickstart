@@ -29,6 +29,18 @@
 				'required': true,
 				'type':'String'
 			},
+			'longitude':
+			{
+				'name':'longitude',
+				'length': 128,
+				'type':'String'
+			},
+			'latitude':
+			{
+				'name':'latitude',
+				'length': 128,
+				'type':'String'
+			},
 			'route_id':
 			{
 				'length': 128,
