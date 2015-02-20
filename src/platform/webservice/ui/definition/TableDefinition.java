@@ -25,7 +25,7 @@ public class TableDefinition {
 	boolean dailyTotal;
 	boolean monthlyTotal;
 	long width;
-	
+	boolean displayTitles;
 	private ArrayList<JoinField> joinFields;
 	
 	public long getAutoRefreshInterval() {
@@ -47,6 +47,7 @@ public class TableDefinition {
 		timeZone = "IST";
 		modifyButton = true;
 		deleteButton = false;
+		displayTitles = true;
 	}
 
 	public void addJoinField(JoinField field) {
@@ -195,5 +196,11 @@ public class TableDefinition {
 	}
 	public void setDetailButton(boolean detailButton) {
 		this.detailButton = detailButton;
+	}
+	public boolean isDisplayTitles() {
+		return displayTitles;
+	}
+	public void setDisplayTitles(boolean displayTitles) {
+		this.displayTitles = displayTitles;
 	}
 }

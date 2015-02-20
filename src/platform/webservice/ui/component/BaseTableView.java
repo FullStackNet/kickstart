@@ -79,7 +79,7 @@ public abstract class BaseTableView extends BaseView {
 				}
 				th.setText(labels);
 			}
-			
+
 			row.addChild(th);
 		}
 		th = new TH();
@@ -87,13 +87,13 @@ public abstract class BaseTableView extends BaseView {
 		thead.addChild(row);
 		mTable.addChild(thead);
 	}
-	
+
 	protected void renderTitle() {
 		THEAD thead = new THEAD();
 		TR row = new TR();
 		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");
 		TD td = new TD();
-		td.addAttribute("colspan",""+(mDefinition.getFields().size()+1));
+		td.addAttribute("colspan",""+15);
 		td.addAttribute("align", "center");
 		td.addAttribute("style","text-align:center;padding:0;");
 		td.addChild(new H3(mDefinition.getTitle()));
@@ -121,7 +121,7 @@ public abstract class BaseTableView extends BaseView {
 		thead.addChild(row);
 		mTable.addChild(thead);
 	}
-	
+
 	protected String getModifyURL(String id) {
 		if (getDefinition().getModifyURL() == null)
 			return null;
@@ -130,19 +130,19 @@ public abstract class BaseTableView extends BaseView {
 		}
 		return getDefinition().getModifyURL()+"?id="+id+"&op=modify";
 	}
-	
+
 	protected String getDeleteURL(String id) {
 		return getDefinition().getDeleteURL();
 	}
-	
+
 	protected String getURL(Map<String,Object> row) {
 		return null;
 	}
-	
+
 	protected String getDeleteURL(Map<String,Object> row) {
 		return null;
 	}
-	
+
 	protected void renderRow(TBODY body , Map<String, Object> data, int rowNumber) {
 		TR row = new TR();
 		TD td = new TD();
@@ -197,7 +197,7 @@ public abstract class BaseTableView extends BaseView {
 					}
 					td.setText(values);
 				}	else {
-				
+
 					td.setText("-");
 				}
 			}
@@ -234,7 +234,7 @@ public abstract class BaseTableView extends BaseView {
 			actiontd.addChild(_link);
 		}
 		row.addChild(actiontd);
-		
+
 		body.addChild(row);
 	}
 
@@ -289,11 +289,13 @@ public abstract class BaseTableView extends BaseView {
 			td.setText(" Total Records : " + list.size());
 		}
 		row.addChild(td);
-		
+
 		thead.addChild(row);
 		mTable.addChild(thead);
-		renderHeading();
-		
+		if (mDefinition.isDisplayTitles()) {
+			renderHeading();
+		}
+
 		TBODY tbody = new TBODY();
 		mTable.addChild(tbody);
 		if (list != null) {

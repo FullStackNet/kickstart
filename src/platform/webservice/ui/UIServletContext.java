@@ -222,4 +222,7 @@ public class UIServletContext {
 	public void setResponse(HttpServletResponse response) {
 		this.response = response;
 	}
+	public Map<String, String> getParams() {
+		return params;
+	}
 }
