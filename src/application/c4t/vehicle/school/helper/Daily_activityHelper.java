@@ -97,7 +97,7 @@ public class Daily_activityHelper extends BaseHelper {
 			Expression e1 = new Expression(daily_activity.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, schools);
 			Expression e3 = new Expression(e1,LOG_OP.OR, e2);
 
-			Expression e4 = new Expression(daily_activity.FIELD_ACTIVITY_DATE, REL_OP.GT, fromtime);
+			Expression e4 = new Expression(daily_activity.FIELD_ACTIVITY_DATE, REL_OP.GTEQ, fromtime);
 			Expression e5 = new Expression(daily_activity.FIELD_ACTIVITY_DATE, REL_OP.LT, totime);
 			
 			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
