@@ -86,15 +86,28 @@ public class Home_practiceHelper extends BaseHelper {
 		update(_resource);
 	}
 	
-	public  ArrayList<Map<String, Object>>  getForSchools(String[] schools) throws ApplicationException {
-		HelperFactory.getInstance().register(SchoolHelper.getInstance());
-		HelperFactory.getInstance().register(Home_practiceHelper.getInstance());
-		ArrayList<JoinField> list = new ArrayList<JoinField>();
-		JoinField field = new JoinField("school", "school_id", "school_name");
-		list.add(field);
-		Expression e2 = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.IN, schools);
-		Expression e1 = new Expression(home_practice.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, schools);
-		Expression e = new Expression(e1,LOG_OP.OR, e2);
-		return getByJoining(e,list, new String[]{home_practice.FIELD_CREATION_TIME + " desc"});
+	public ArrayList<Map<String, Object>> getForSchools(String[] schools,String[] order,long fromtime,long totime) throws ApplicationException  {
+		try {
+			HelperFactory.getInstance().register(SchoolHelper.getInstance());
+			HelperFactory.getInstance().register(Home_practiceHelper.getInstance());
+			ArrayList<JoinField> list = new ArrayList<JoinField>();
+			JoinField field = new JoinField("school", "school_id", "school_name");
+			list.add(field);
+			
+			Expression e2 = new Expression(home_practice.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+			Expression e1 = new Expression(home_practice.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, schools);
+			Expression e3 = new Expression(e1,LOG_OP.OR, e2);
+
+			Expression e4 = new Expression(home_practice.FIELD_ACTIVITY_DATE, REL_OP.GTEQ, fromtime);
+			Expression e5 = new Expression(home_practice.FIELD_ACTIVITY_DATE, REL_OP.LT, totime);
+			
+			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
+			Expression e = new Expression(e3, LOG_OP.AND, e6);
+			return getByJoining(e,list,order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ArrayList<Map<String, Object>>();		
 	}
 }

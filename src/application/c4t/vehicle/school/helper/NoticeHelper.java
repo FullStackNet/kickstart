@@ -88,7 +88,7 @@ public class NoticeHelper extends BaseHelper {
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools,String[] order,long fromtime,long totime) throws ApplicationException  {
 		try {
 			HelperFactory.getInstance().register(SchoolHelper.getInstance());
-			HelperFactory.getInstance().register(Daily_activityHelper.getInstance());
+			HelperFactory.getInstance().register(NoticeHelper.getInstance());
 			ArrayList<JoinField> list = new ArrayList<JoinField>();
 			JoinField field = new JoinField("school", "school_id", "school_name");
 			list.add(field);
