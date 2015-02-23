@@ -132,6 +132,7 @@ public abstract class BaseTableView extends BaseView {
 		table.addChild(tr);
 		TD td = new TD();
 		td.addAttribute("align", "center");
+		td.addAttribute("style", "padding : 3px 3px 3px 3px;");
 		tr.addChild(td);
 		FORM form = new FORM(mDefinition.getId()+"_form", null);
 		form.setAction(getfromAndToDateURL());
@@ -140,7 +141,7 @@ public abstract class BaseTableView extends BaseView {
 		
 		form.addAttribute("align","left");
 		TEXTEDIT fromDate = new TEXTEDIT();
-		fromDate.addAttribute("style", "width: 140px;height : 25px");
+		fromDate.addAttribute("style", "width: 140px;height : 20px");
 		fromDate.addAttribute("name","from_date");
 		fromDate.addAttribute("placeholder","From date in YYYYMMDD format");
 		fromDate.addAttribute("id","from_date");
@@ -149,7 +150,7 @@ public abstract class BaseTableView extends BaseView {
 		form.addChild(fromDate);
 		
 		TEXTEDIT toDate = new TEXTEDIT();
-		toDate.addAttribute("style", "width: 140px;height : 25px");
+		toDate.addAttribute("style", "width: 140px;height : 20px");
 		toDate.addAttribute("name","to_date");
 		toDate.addAttribute("placeholder","To date in YYYYMMDD format");
 		toDate.addAttribute("id","to_date");
@@ -167,12 +168,13 @@ public abstract class BaseTableView extends BaseView {
 		}
 		BUTTON button = new BUTTON();
 		button.addAttribute("type","submit");
-		button.addAttribute("style", "width: 120px;height : 30px");
+		button.addAttribute("style", "width: 120px;height : 25px");
 		button.addAttribute("value","Fetch");
 		form.addChild(button);
 		
 		td = new TD();
 		td.addAttribute("align","right");
+		td.addAttribute("style", "padding : 3px 3px 3px 3px;");
 		tr.addChild(td);
 		
 		Div div = new Div();
@@ -196,11 +198,14 @@ public abstract class BaseTableView extends BaseView {
 		a.setText("Current Month");
 		a.setHref(getCurrentMonthURL());
 		div.addChild(a);
+		
 		tr = new TR();
 		td = new TD();
 		td.addAttribute("colspan", "10");
+		td.addAttribute("style", "padding : 3px 3px 3px 3px;");
 		td.addChild(table);
 		tr.addChild(td);
+		
 		mTable.addChild(tr);
 	}
 	public String getSearchURL() {
