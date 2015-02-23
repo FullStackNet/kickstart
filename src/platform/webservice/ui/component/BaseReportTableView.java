@@ -18,6 +18,7 @@ import platform.webservice.ui.html.LI;
 import platform.webservice.ui.html.TABLE;
 import platform.webservice.ui.html.TBODY;
 import platform.webservice.ui.html.TD;
+import platform.webservice.ui.html.TEXT;
 import platform.webservice.ui.html.TEXTEDIT;
 import platform.webservice.ui.html.TH;
 import platform.webservice.ui.html.THEAD;
@@ -123,15 +124,18 @@ public abstract class BaseReportTableView extends BaseView {
 		TR tr = new TR();
 		mTable.addChild(tr);
 		TD td = new TD();
+		
 		tr.addChild(td);
 		td.addAttribute("align", "center");
+		td.addAttribute("colspan", "10");
 		td.addChild(h2);
-		
+	
 		tr = new TR();
 		mTable.addChild(tr);
 		td = new TD();
+		td.addAttribute("style", "height : 25px");
+		td.setText("&nbsp;");
 		tr.addChild(td);
-		td.setText(" ");
 		
 		tr = new TR();
 		mTable.addChild(tr);
@@ -145,6 +149,7 @@ public abstract class BaseReportTableView extends BaseView {
 		
 		form.addAttribute("align","left");
 		TEXTEDIT fromDate = new TEXTEDIT();
+		fromDate.addAttribute("style", "width: 140px;height : 25px");
 		fromDate.addAttribute("name","from_date");
 		fromDate.addAttribute("placeholder","From date in YYYYMMDD format");
 		fromDate.addAttribute("id","from_date");
@@ -153,6 +158,7 @@ public abstract class BaseReportTableView extends BaseView {
 		form.addChild(fromDate);
 		
 		TEXTEDIT toDate = new TEXTEDIT();
+		toDate.addAttribute("style", "width: 140px;height : 25px");
 		toDate.addAttribute("name","to_date");
 		toDate.addAttribute("placeholder","To date in YYYYMMDD format");
 		toDate.addAttribute("id","to_date");
@@ -170,11 +176,10 @@ public abstract class BaseReportTableView extends BaseView {
 		}
 		BUTTON button = new BUTTON();
 		button.addAttribute("type","submit");
+		button.addAttribute("style", "width: 120px;height : 30px");
 		button.addAttribute("value","Fetch");
 		form.addChild(button);
 		
-		tr = new TR();
-		mTable.addChild(tr);
 		td = new TD();
 		td.addAttribute("align","right");
 		tr.addChild(td);
@@ -184,34 +189,22 @@ public abstract class BaseReportTableView extends BaseView {
 		td.addChild(div);
 		
 		
-		UL ul = new UL();
-		ul.addAttribute("class","report_date_menu");
-		div.addChild(ul);
-		
-		LI li = new LI();
-		li.addAttribute("class","report_date_menu_item");
-		ul.addChild(li);
 		A a = new A();
 		a.setText("Today");
 		a.setHref(getTodayURL());
-		li.addChild(a);
+		div.addChild(a);
 		
-		li = new LI();
-		li.addAttribute("class","report_date_menu_item");
-		ul.addChild(li);
-		
+		div.addChild(new TEXT(" | "));
 		a = new A();
 		a.setText("Current Week");
 		a.setHref(getCurrentWeekURL());
-		li.addChild(a);
+		div.addChild(a);
 		
-		li = new LI();
-		li.addAttribute("class","report_date_menu_item");
-		ul.addChild(li);
+		div.addChild(new TEXT(" | "));
 		a = new A();
 		a.setText("Current Month");
 		a.setHref(getCurrentMonthURL());
-		li.addChild(a);
+		div.addChild(a);
 		
 		mTable = new TABLE(mDefinition.getId(), mDefinition.getClassName());
 		TBODY tbody = new TBODY();
