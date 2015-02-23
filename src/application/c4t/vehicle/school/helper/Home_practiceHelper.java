@@ -86,6 +86,7 @@ public class Home_practiceHelper extends BaseHelper {
 		update(_resource);
 	}
 	
+	
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools,String[] order,long fromtime,long totime) throws ApplicationException  {
 		try {
 			HelperFactory.getInstance().register(SchoolHelper.getInstance());
