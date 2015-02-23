@@ -114,7 +114,7 @@ public abstract class BaseTableView extends BaseView {
 	protected void renderTitle() {
 		THEAD thead = new THEAD();
 		TR row = new TR();
-		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");
+		row.addAttribute("style","font-size:13px; background-color: transparent;text-align:center;padding:0;");
 		TD td = new TD();
 		td.addAttribute("colspan",""+15);
 		td.addAttribute("align", "center");
