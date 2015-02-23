@@ -2,6 +2,7 @@ package platform.webservice.ui.component;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import platform.util.TimeUtil;
 import platform.util.Util;
@@ -9,7 +10,11 @@ import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.definition.TableDefinition;
 import platform.webservice.ui.html.A;
+import platform.webservice.ui.html.BUTTON;
+import platform.webservice.ui.html.Div;
+import platform.webservice.ui.html.FORM;
 import platform.webservice.ui.html.H3;
+import platform.webservice.ui.html.HIDDEN;
 import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.JS;
 import platform.webservice.ui.html.P;
@@ -17,6 +22,8 @@ import platform.webservice.ui.html.SPAN;
 import platform.webservice.ui.html.TABLE;
 import platform.webservice.ui.html.TBODY;
 import platform.webservice.ui.html.TD;
+import platform.webservice.ui.html.TEXT;
+import platform.webservice.ui.html.TEXTEDIT;
 import platform.webservice.ui.html.TH;
 import platform.webservice.ui.html.THEAD;
 import platform.webservice.ui.html.TR;
@@ -34,6 +41,22 @@ public abstract class BaseTableView extends BaseView {
 	abstract protected void populateDefinition();
 	abstract protected ArrayList<Map<String, Object>> getData();
 
+
+	public  String getTodayURL() {
+		return null;
+	}
+	public  String getCurrentWeekURL() {
+		return null;
+	}
+	public  String getCurrentMonthURL() {
+		return null;
+	}
+	public  Map<String, Object> getfromAndToDateHiddenFields() {
+		return null;
+	}
+	public  String getfromAndToDateURL() {
+		return null;
+	}
 
 	public BaseTableView(UIServletContext ctx) {
 		super();
@@ -100,6 +123,85 @@ public abstract class BaseTableView extends BaseView {
 		row.addChild(td);
 		thead.addChild(row);
 		mTable.addChild(thead);
+	}
+	
+	public void displayDateUI() {
+		TABLE table = new TABLE();	
+		table.addAttribute("width","100%");
+		TR tr = new TR();
+		table.addChild(tr);
+		TD td = new TD();
+		td.addAttribute("align", "center");
+		tr.addChild(td);
+		FORM form = new FORM(mDefinition.getId()+"_form", null);
+		form.setAction(getfromAndToDateURL());
+		form.setMethod("GET");
+		td.addChild(form);
+		
+		form.addAttribute("align","left");
+		TEXTEDIT fromDate = new TEXTEDIT();
+		fromDate.addAttribute("style", "width: 140px;height : 25px");
+		fromDate.addAttribute("name","from_date");
+		fromDate.addAttribute("placeholder","From date in YYYYMMDD format");
+		fromDate.addAttribute("id","from_date");
+		if (mContext.getParamValue("from_date") != null)
+			fromDate.setValue(mContext.getParamValue("from_date"));
+		form.addChild(fromDate);
+		
+		TEXTEDIT toDate = new TEXTEDIT();
+		toDate.addAttribute("style", "width: 140px;height : 25px");
+		toDate.addAttribute("name","to_date");
+		toDate.addAttribute("placeholder","To date in YYYYMMDD format");
+		toDate.addAttribute("id","to_date");
+		if (mContext.getParamValue("to_date") != null)
+			toDate.setValue(mContext.getParamValue("to_date"));
+		form.addChild(toDate);
+		
+		Map<String, Object> map = getfromAndToDateHiddenFields();
+		if (map != null) {
+			for(Entry<String, Object> entry : map.entrySet()) {
+				HIDDEN hidden = new HIDDEN(entry.getKey(), entry.getValue());
+				hidden.addAttribute("name", entry.getKey());
+				form.addChild(hidden);
+			}
+		}
+		BUTTON button = new BUTTON();
+		button.addAttribute("type","submit");
+		button.addAttribute("style", "width: 120px;height : 30px");
+		button.addAttribute("value","Fetch");
+		form.addChild(button);
+		
+		td = new TD();
+		td.addAttribute("align","right");
+		tr.addChild(td);
+		
+		Div div = new Div();
+		div.addAttribute("style","float:right;");
+		td.addChild(div);
+		
+		
+		A a = new A();
+		a.setText("Today");
+		a.setHref(getTodayURL());
+		div.addChild(a);
+		
+		div.addChild(new TEXT(" | "));
+		a = new A();
+		a.setText("Current Week");
+		a.setHref(getCurrentWeekURL());
+		div.addChild(a);
+		
+		div.addChild(new TEXT(" | "));
+		a = new A();
+		a.setText("Current Month");
+		a.setHref(getCurrentMonthURL());
+		div.addChild(a);
+		tr = new TR();
+		td = new TD();
+		td.addAttribute("colspan", "10");
+		td.addChild(table);
+		tr.addChild(td);
+		mTable.addChild(tr);
 	}
 	public String getSearchURL() {
 		return null;
@@ -258,6 +360,9 @@ public abstract class BaseTableView extends BaseView {
 			renderTitle();
 		}
 		renderSerach();
+		if (mDefinition.isDateWiseFilter()) {
+			displayDateUI();
+		}
 		THEAD thead = new THEAD();
 		TR row = new TR();
 		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");

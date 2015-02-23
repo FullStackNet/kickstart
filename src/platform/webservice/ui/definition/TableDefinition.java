@@ -27,6 +27,7 @@ public class TableDefinition {
 	long width;
 	boolean displayTitles;
 	private ArrayList<JoinField> joinFields;
+	boolean dateWiseFilter; 
 	
 	public long getAutoRefreshInterval() {
 		return autoRefreshInterval;
@@ -202,5 +203,11 @@ public class TableDefinition {
 	}
 	public void setDisplayTitles(boolean displayTitles) {
 		this.displayTitles = displayTitles;
+	}
+	public boolean isDateWiseFilter() {
+		return dateWiseFilter;
+	}
+	public void setDateWiseFilter(boolean dateWiseFilter) {
+		this.dateWiseFilter = dateWiseFilter;
 	}
 }

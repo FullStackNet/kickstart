@@ -14,7 +14,6 @@ import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.FORM;
 import platform.webservice.ui.html.H2;
 import platform.webservice.ui.html.HIDDEN;
-import platform.webservice.ui.html.LI;
 import platform.webservice.ui.html.TABLE;
 import platform.webservice.ui.html.TBODY;
 import platform.webservice.ui.html.TD;
@@ -23,7 +22,6 @@ import platform.webservice.ui.html.TEXTEDIT;
 import platform.webservice.ui.html.TH;
 import platform.webservice.ui.html.THEAD;
 import platform.webservice.ui.html.TR;
-import platform.webservice.ui.html.UL;
 import platform.webservice.ui.renderer.BaseRenderer;
 import platform.webservice.ui.util.UIConstants;
 
