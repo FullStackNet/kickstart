@@ -102,8 +102,7 @@ public class Daily_activityHelper extends BaseHelper {
 			
 			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
 			Expression e = new Expression(e3, LOG_OP.AND, e6);
-			BaseResource[] resoucres =  getByExpression(e,order);
-			return HelperUtils.convertArray2ListMap(resoucres);
+			return getByJoining(e,list,order);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
