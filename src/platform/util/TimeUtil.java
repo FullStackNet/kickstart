@@ -71,6 +71,19 @@ public class TimeUtil {
 					cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR));
 		}
 	    
+	    public static String getDateStringMMDDYYYY(String timeZone,long time,String sepeartor) {
+			if (timeZone == null)
+				timeZone = "GMT";
+			if (time == 0) {
+				time = new Date().getTime();
+			}
+			Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+			cal.setTime(new Date(time));
+	
+			return String.format("%02d"+sepeartor+"%02d"+sepeartor+"%04d",
+					cal.get(Calendar.DAY_OF_MONTH),cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR));
+		}
+	    
 	    public static String getDateString(String timeZone,long time,String sepeartor) {
 			if (timeZone == null)
 				timeZone = "GMT";
