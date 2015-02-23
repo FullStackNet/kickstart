@@ -30,6 +30,7 @@ public class Home_practiceHelper extends BaseHelper {
 	}
 	
 	
+	
 	public void addSchool(String id,String[] schoolIds) {
 		home_practice _activity = new home_practice();
 		_activity.setId(id);
