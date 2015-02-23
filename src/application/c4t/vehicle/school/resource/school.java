@@ -102,6 +102,13 @@ public class school extends Baseschool {
 		return false;
 	}
 	
+	public boolean isPracticalAttendanceFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_practical_attendance())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isTransportEnable() {
 		if ("Y".equalsIgnoreCase(getFeature_pick_drop())) {
 			return true;

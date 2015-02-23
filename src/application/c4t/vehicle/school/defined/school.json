@@ -199,6 +199,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_practical_attendance':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_news':
 			{
 				'length': 1,

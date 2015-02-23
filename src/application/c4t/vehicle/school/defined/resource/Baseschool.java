@@ -52,6 +52,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_fees = null;
 	private String feature_work_sheet = null;
 	private String feature_present_report = null;
+	private String feature_practical_attendance = null;
 	private String feature_news = null;
 	private String feature_parenting = null;
 	private String feature_event = null;
@@ -124,6 +125,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_FEES = "feature_fees";
 	public static String FIELD_FEATURE_WORK_SHEET = "feature_work_sheet";
 	public static String FIELD_FEATURE_PRESENT_REPORT = "feature_present_report";
+	public static String FIELD_FEATURE_PRACTICAL_ATTENDANCE = "feature_practical_attendance";
 	public static String FIELD_FEATURE_NEWS = "feature_news";
 	public static String FIELD_FEATURE_PARENTING = "feature_parenting";
 	public static String FIELD_FEATURE_EVENT = "feature_event";
@@ -321,6 +323,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_present_reportField.setDefaultValue("N");
 		feature_present_reportField.setLength(1);
 		metaData.addField(feature_present_reportField);
+
+		Field feature_practical_attendanceField = new Field("feature_practical_attendance", "String");
+		feature_practical_attendanceField.setDefaultValue("N");
+		feature_practical_attendanceField.setLength(1);
+		metaData.addField(feature_practical_attendanceField);
 
 		Field feature_newsField = new Field("feature_news", "String");
 		feature_newsField.setDefaultValue("Y");
@@ -547,6 +554,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_fees = obj.feature_fees;
 		this.feature_work_sheet = obj.feature_work_sheet;
 		this.feature_present_report = obj.feature_present_report;
+		this.feature_practical_attendance = obj.feature_practical_attendance;
 		this.feature_news = obj.feature_news;
 		this.feature_parenting = obj.feature_parenting;
 		this.feature_event = obj.feature_event;
@@ -632,6 +640,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_work_sheet = "N";
 		if(feature_present_report == null)
 			feature_present_report = "N";
+		if(feature_practical_attendance == null)
+			feature_practical_attendance = "N";
 		if(feature_news == null)
 			feature_news = "Y";
 		if(feature_parenting == null)
@@ -768,6 +778,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_work_sheet", feature_work_sheet);
 		if(feature_present_report != null)
 			map.put("feature_present_report", feature_present_report);
+		if(feature_practical_attendance != null)
+			map.put("feature_practical_attendance", feature_practical_attendance);
 		if(feature_news != null)
 			map.put("feature_news", feature_news);
 		if(feature_parenting != null)
@@ -918,6 +930,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_work_sheet", feature_work_sheet);
 		if(feature_present_report != null)
 			map.put("feature_present_report", feature_present_report);
+		if(feature_practical_attendance != null)
+			map.put("feature_practical_attendance", feature_practical_attendance);
 		if(feature_news != null)
 			map.put("feature_news", feature_news);
 		if(feature_parenting != null)
@@ -1037,6 +1051,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_fees = (String) map.get("feature_fees");
 		feature_work_sheet = (String) map.get("feature_work_sheet");
 		feature_present_report = (String) map.get("feature_present_report");
+		feature_practical_attendance = (String) map.get("feature_practical_attendance");
 		feature_news = (String) map.get("feature_news");
 		feature_parenting = (String) map.get("feature_parenting");
 		feature_event = (String) map.get("feature_event");
@@ -1210,6 +1225,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_present_reportObj = map.get("feature_present_report");
 		if(feature_present_reportObj != null)
 			feature_present_report = feature_present_reportObj.toString();
+
+		Object feature_practical_attendanceObj = map.get("feature_practical_attendance");
+		if(feature_practical_attendanceObj != null)
+			feature_practical_attendance = feature_practical_attendanceObj.toString();
 
 		Object feature_newsObj = map.get("feature_news");
 		if(feature_newsObj != null)
@@ -1820,6 +1839,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_present_report() {
 		this.feature_present_report = "N";
+	}
+
+	public String getFeature_practical_attendance() {
+		return feature_practical_attendance != null ? feature_practical_attendance : "N";
+	}
+
+	public void setFeature_practical_attendance(String feature_practical_attendance) {
+		this.feature_practical_attendance = feature_practical_attendance;
+	}
+
+	public void unSetFeature_practical_attendance() {
+		this.feature_practical_attendance = "N";
 	}
 
 	public String getFeature_news() {
