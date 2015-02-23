@@ -49,6 +49,7 @@ public class AbsentHelper extends BaseHelper {
 			HelperFactory.getInstance().register(SchoolHelper.getInstance());
 			HelperFactory.getInstance().register(AbsentHelper.getInstance());
 			ArrayList<JoinField> list = new ArrayList<JoinField>();
+			
 			JoinField field = new JoinField("school", "school_id", "school_name");
 			list.add(field);
 			
@@ -58,7 +59,7 @@ public class AbsentHelper extends BaseHelper {
 			
 			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
 			Expression e = new Expression(e2, LOG_OP.AND, e6);
-			return  getByJoining(e,list,order);
+			return getByJoining(e,list,order);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
