@@ -9,6 +9,7 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
+import platform.helper.HelperUtils;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.absent;
@@ -43,19 +44,27 @@ public class AbsentHelper extends BaseHelper {
 		return getByExpression(e5, new String[]{absent.FIELD_DATE+ " desc"});
 	}
 	
-	public ArrayList<Map<String, Object>> getForSchools(String[] schools) {
-		HelperFactory.getInstance().register(SchoolHelper.getInstance());
-		HelperFactory.getInstance().register(AbsentHelper.getInstance());
-		ArrayList<JoinField> list = new ArrayList<JoinField>();
-		JoinField field = new JoinField("school", "school_id", "school_name");
-		list.add(field);
-		Expression e = new Expression(absent.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+	
+	public ArrayList<Map<String, Object>> getForSchools(String[] schools,String[] order,long fromtime,long totime)  {
 		try {
-			return getByJoining(e,list, new String[]{absent.FIELD_DATE+ " desc"});
-		} catch (ApplicationException e1) {
+			HelperFactory.getInstance().register(SchoolHelper.getInstance());
+			HelperFactory.getInstance().register(AbsentHelper.getInstance());
+			ArrayList<JoinField> list = new ArrayList<JoinField>();
+			JoinField field = new JoinField("school", "school_id", "school_name");
+			list.add(field);
+			
+			Expression e2 = new Expression(absent.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+			Expression e4 = new Expression(absent.FIELD_DATE, REL_OP.GTEQ, fromtime);
+			Expression e5 = new Expression(absent.FIELD_DATE, REL_OP.LT, totime);
+			
+			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
+			Expression e = new Expression(e2, LOG_OP.AND, e6);
+			BaseResource[] resoucres =  getByExpression(e,order);
+			return HelperUtils.convertArray2ListMap(resoucres);
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			e.printStackTrace();
 		}
-		return new ArrayList<Map<String, Object>>();
+		return new ArrayList<Map<String, Object>>();		
 	}
 }
