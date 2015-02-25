@@ -165,7 +165,12 @@ public class DataSource {
 				data.add(value);
 			}
 		} else if(type.equals(HELPER)) {
-			List<Map<String, Object>> list = helper.getAllMap();
+			List<Map<String, Object>> list = null;
+			if (valueField != null) {
+				list = helper.getAllMap(new String[]{valueField});
+			} else {
+				list = helper.getAllMap(valueFields);
+			}
 			if (list == null) 
 				list = new ArrayList<Map<String, Object>>();
 			if (additionBeforeOption != null) {
