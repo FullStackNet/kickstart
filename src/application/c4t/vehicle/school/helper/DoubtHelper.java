@@ -1,9 +1,15 @@
 package application.c4t.vehicle.school.helper;
 
+import java.util.ArrayList;
+import java.util.Map;
+
+import platform.db.Expression;
+import platform.db.JoinField;
+import platform.db.REL_OP;
 import platform.helper.BaseHelper;
+import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.doubt;
-import application.c4t.vehicle.school.resource.news;
 
 
 public class DoubtHelper extends BaseHelper {
@@ -20,9 +26,10 @@ public class DoubtHelper extends BaseHelper {
 		return instance;
 	}
 	
-	public void updateSent(String id) throws ApplicationException {
-		news object = new news(id);
-		object.setSent("Y");
-		DoubtHelper.getInstance().update(object);
+	
+	
+	public ArrayList<Map<String, Object>> getByJoin4StudentId(String student_id,ArrayList<JoinField> list) throws ApplicationException {
+		Expression e = new Expression(doubt.FIELD_STUDENT_ID, REL_OP.EQ, student_id);
+		return getByJoining(e,list, new String[]{doubt.FIELD_CREATION_TIME});
 	}
 }
