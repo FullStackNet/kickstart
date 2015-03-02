@@ -71,6 +71,7 @@ public abstract class Baseuser extends BaseResource {
 	private String feature_parenting = null;
 	private String feature_event = null;
 	private String feature_tutorial = null;
+	private String feature_practical_attendance = null;
 	private String feature_report_card = null;
 	private Map<String, Object> extra_data = null;
 
@@ -126,6 +127,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_FEATURE_PARENTING = "feature_parenting";
 	public static String FIELD_FEATURE_EVENT = "feature_event";
 	public static String FIELD_FEATURE_TUTORIAL = "feature_tutorial";
+	public static String FIELD_FEATURE_PRACTICAL_ATTENDANCE = "feature_practical_attendance";
 	public static String FIELD_FEATURE_REPORT_CARD = "feature_report_card";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -385,6 +387,11 @@ public abstract class Baseuser extends BaseResource {
 		feature_tutorialField.setLength(1);
 		metaData.addField(feature_tutorialField);
 
+		Field feature_practical_attendanceField = new Field("feature_practical_attendance", "String");
+		feature_practical_attendanceField.setDefaultValue("N");
+		feature_practical_attendanceField.setLength(1);
+		metaData.addField(feature_practical_attendanceField);
+
 		Field feature_report_cardField = new Field("feature_report_card", "String");
 		feature_report_cardField.setDefaultValue("N");
 		feature_report_cardField.setLength(1);
@@ -455,6 +462,7 @@ public abstract class Baseuser extends BaseResource {
 		this.feature_parenting = obj.feature_parenting;
 		this.feature_event = obj.feature_event;
 		this.feature_tutorial = obj.feature_tutorial;
+		this.feature_practical_attendance = obj.feature_practical_attendance;
 		this.feature_report_card = obj.feature_report_card;
 		this.extra_data = obj.extra_data;
 	}
@@ -540,6 +548,8 @@ public abstract class Baseuser extends BaseResource {
 			feature_event = "Y";
 		if(feature_tutorial == null)
 			feature_tutorial = "Y";
+		if(feature_practical_attendance == null)
+			feature_practical_attendance = "N";
 		if(feature_report_card == null)
 			feature_report_card = "N";
 	}
@@ -650,6 +660,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_event", feature_event);
 		if(feature_tutorial != null)
 			map.put("feature_tutorial", feature_tutorial);
+		if(feature_practical_attendance != null)
+			map.put("feature_practical_attendance", feature_practical_attendance);
 		if(feature_report_card != null)
 			map.put("feature_report_card", feature_report_card);
 		if(extra_data != null)
@@ -766,6 +778,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_event", feature_event);
 		if(feature_tutorial != null)
 			map.put("feature_tutorial", feature_tutorial);
+		if(feature_practical_attendance != null)
+			map.put("feature_practical_attendance", feature_practical_attendance);
 		if(feature_report_card != null)
 			map.put("feature_report_card", feature_report_card);
 		if(extra_data != null)
@@ -832,6 +846,7 @@ public abstract class Baseuser extends BaseResource {
 		feature_parenting = (String) map.get("feature_parenting");
 		feature_event = (String) map.get("feature_event");
 		feature_tutorial = (String) map.get("feature_tutorial");
+		feature_practical_attendance = (String) map.get("feature_practical_attendance");
 		feature_report_card = (String) map.get("feature_report_card");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1045,6 +1060,10 @@ public abstract class Baseuser extends BaseResource {
 		Object feature_tutorialObj = map.get("feature_tutorial");
 		if(feature_tutorialObj != null)
 			feature_tutorial = feature_tutorialObj.toString();
+
+		Object feature_practical_attendanceObj = map.get("feature_practical_attendance");
+		if(feature_practical_attendanceObj != null)
+			feature_practical_attendance = feature_practical_attendanceObj.toString();
 
 		Object feature_report_cardObj = map.get("feature_report_card");
 		if(feature_report_cardObj != null)
@@ -1748,6 +1767,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetFeature_tutorial() {
 		this.feature_tutorial = "Y";
+	}
+
+	public String getFeature_practical_attendance() {
+		return feature_practical_attendance != null ? feature_practical_attendance : "N";
+	}
+
+	public void setFeature_practical_attendance(String feature_practical_attendance) {
+		this.feature_practical_attendance = feature_practical_attendance;
+	}
+
+	public void unSetFeature_practical_attendance() {
+		this.feature_practical_attendance = "N";
 	}
 
 	public String getFeature_report_card() {

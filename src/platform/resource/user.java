@@ -163,6 +163,13 @@ public class user extends Baseuser {
 		}
 		return false;
 	}
+	
+	public boolean isPracticalAttendanceFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_practical_attendance())) {
+			return true;
+		}
+		return false;
+	}
 }
 
 

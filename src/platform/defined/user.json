@@ -321,6 +321,12 @@
 				'default' : "Y",
 				'type':'String'
 			},
+			'feature_practical_attendance':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_report_card':
 			{
 				'length': 1,
