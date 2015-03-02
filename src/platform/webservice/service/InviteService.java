@@ -166,7 +166,7 @@ public class InviteService extends BaseService{
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Password and confirm password not matching");
 			}
 			InviteHelper.getInstance().acceptInvite(_resource);
-		} if (action.equalsIgnoreCase(WebServiceContants.OPERATION_DELETE)) {
+		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_DELETE)) {
 			invite _resource = (invite) resource;
 			InviteHelper.getInstance().deleteById(_resource.getId());
 		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_ACTIVATE)) {

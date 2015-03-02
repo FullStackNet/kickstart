@@ -83,10 +83,11 @@ public abstract class BaseForm extends BaseView {
 	protected String getImageSource(Field field, Map<String, Object> data) {
 		return "#";
 	}
-	void buildUI(String operation, Map<String, Object> data) {
+	 void buildUI(String op, Map<String, Object> data) {
 		this.dataMap = data;
 		// TODO Auto-generated method stub
-		this.operation = operation;
+		if (op != null)
+			this.operation = op;
 		populateDefinition();
 		mForm = new FORM(mDefinition.getId(), mDefinition.getClassName());
 		mForm.setMethod("POST");
