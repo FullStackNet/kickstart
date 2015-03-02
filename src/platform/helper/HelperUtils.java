@@ -34,6 +34,8 @@ public class HelperUtils {
 		if (Util.isEmpty(resources))
 			return list;
 		for(int i=0;i < resources.length; i++) {
+			if (resources[i] == null)
+				continue;
 			list.add( resources[i].convertResourceToMap());
 		}
 		return list;
