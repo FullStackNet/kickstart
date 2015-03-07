@@ -150,6 +150,20 @@ public class user extends Baseuser {
 		}
 		return false;
 	}
+	public boolean isMessage2ParentFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_message2parent())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isMessage2SchoolFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_message2school())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isParentServiceEnable() {
 		if ("Y".equalsIgnoreCase(getParentService())) {
 			return true;
