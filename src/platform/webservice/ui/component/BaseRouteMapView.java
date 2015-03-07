@@ -30,7 +30,7 @@ public abstract class BaseRouteMapView extends BaseView {
 		populateData();
 		Div div = new Div();
 		div.addAttribute("id",mDefinition.getId());
-		div.addAttribute("style","font-size : 10px;width: 100%; height: 600px");
+		div.addAttribute("style","font-size : 10px;width: 100%; height: 600px; border : 1px solid gray");
 		getView().addChild(div);
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("<script type=\"text/javascript\">\n");
