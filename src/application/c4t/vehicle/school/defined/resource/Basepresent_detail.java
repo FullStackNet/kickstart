@@ -25,6 +25,8 @@ public abstract class Basepresent_detail extends BaseResource {
 	private String class_section_name = null;
 	private String present_type = null;
 	private String sub_present_type = null;
+	private String langitude = null;
+	private String latitude = null;
 	private String present_record_type = null;
 	private Long date = null;
 	private String date_str = null;
@@ -42,6 +44,8 @@ public abstract class Basepresent_detail extends BaseResource {
 	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_PRESENT_TYPE = "present_type";
 	public static String FIELD_SUB_PRESENT_TYPE = "sub_present_type";
+	public static String FIELD_LANGITUDE = "langitude";
+	public static String FIELD_LATITUDE = "latitude";
 	public static String FIELD_PRESENT_RECORD_TYPE = "present_record_type";
 	public static String FIELD_DATE = "date";
 	public static String FIELD_DATE_STR = "date_str";
@@ -87,6 +91,14 @@ public abstract class Basepresent_detail extends BaseResource {
 		Field sub_present_typeField = new Field("sub_present_type", "String");
 		sub_present_typeField.setLength(128);
 		metaData.addField(sub_present_typeField);
+
+		Field langitudeField = new Field("langitude", "String");
+		langitudeField.setLength(32);
+		metaData.addField(langitudeField);
+
+		Field latitudeField = new Field("latitude", "String");
+		latitudeField.setLength(32);
+		metaData.addField(latitudeField);
 
 		Field present_record_typeField = new Field("present_record_type", "String");
 		present_record_typeField.setLength(128);
@@ -137,6 +149,8 @@ public abstract class Basepresent_detail extends BaseResource {
 		this.class_section_name = obj.class_section_name;
 		this.present_type = obj.present_type;
 		this.sub_present_type = obj.sub_present_type;
+		this.langitude = obj.langitude;
+		this.latitude = obj.latitude;
 		this.present_record_type = obj.present_record_type;
 		this.date = obj.date;
 		this.date_str = obj.date_str;
@@ -167,6 +181,10 @@ public abstract class Basepresent_detail extends BaseResource {
 			map.put("present_type", present_type);
 		if(sub_present_type != null)
 			map.put("sub_present_type", sub_present_type);
+		if(langitude != null)
+			map.put("langitude", langitude);
+		if(latitude != null)
+			map.put("latitude", latitude);
 		if(present_record_type != null)
 			map.put("present_record_type", present_record_type);
 		if(date != null)
@@ -204,6 +222,10 @@ public abstract class Basepresent_detail extends BaseResource {
 			map.put("present_type", present_type);
 		if(sub_present_type != null)
 			map.put("sub_present_type", sub_present_type);
+		if(langitude != null)
+			map.put("langitude", langitude);
+		if(latitude != null)
+			map.put("latitude", latitude);
 		if(present_record_type != null)
 			map.put("present_record_type", present_record_type);
 		if(date != null)
@@ -240,6 +262,8 @@ public abstract class Basepresent_detail extends BaseResource {
 		class_section_name = (String) map.get("class_section_name");
 		present_type = (String) map.get("present_type");
 		sub_present_type = (String) map.get("sub_present_type");
+		langitude = (String) map.get("langitude");
+		latitude = (String) map.get("latitude");
 		present_record_type = (String) map.get("present_record_type");
 		date = (Long) map.get("date");
 		date_str = (String) map.get("date_str");
@@ -277,6 +301,14 @@ public abstract class Basepresent_detail extends BaseResource {
 		Object sub_present_typeObj = map.get("sub_present_type");
 		if(sub_present_typeObj != null)
 			sub_present_type = sub_present_typeObj.toString();
+
+		Object langitudeObj = map.get("langitude");
+		if(langitudeObj != null)
+			langitude = langitudeObj.toString();
+
+		Object latitudeObj = map.get("latitude");
+		if(latitudeObj != null)
+			latitude = latitudeObj.toString();
 
 		Object present_record_typeObj = map.get("present_record_type");
 		if(present_record_typeObj != null)
@@ -429,6 +461,38 @@ public abstract class Basepresent_detail extends BaseResource {
 
 	public void unSetSub_present_type() {
 		this.sub_present_type = null;
+	}
+
+	public String getLangitude() {
+		return langitude;
+	}
+
+	public String getLangitudeEx() {
+		return langitude != null ? langitude : "";
+	}
+
+	public void setLangitude(String langitude) {
+		this.langitude = langitude;
+	}
+
+	public void unSetLangitude() {
+		this.langitude = null;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public String getLatitudeEx() {
+		return latitude != null ? latitude : "";
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public void unSetLatitude() {
+		this.latitude = null;
 	}
 
 	public String getPresent_record_type() {

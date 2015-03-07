@@ -61,7 +61,7 @@ public class PresentHelper extends BaseHelper {
 			}
 		}
 	}
-	public void updateInBusAttendance(route _route,String cardId) throws ApplicationException {
+	public void updateInBusAttendance(route _route,String cardId,String latitude, String longitude) throws ApplicationException {
 		long currentTime = new Date().getTime();
 		
 		String today = TimeUtil.getDateString("IST", new Date().getTime(),"-");
@@ -122,6 +122,8 @@ public class PresentHelper extends BaseHelper {
 			_detail.setStudent_id(_student.getId());
 			_detail.setPresent_record_type("ENTRY");
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+			_detail.setLatitude(latitude);
+			_detail.setLangitude(longitude);
 			Present_detailHelper.getInstance().add(_detail);
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 			entryRecordExist = false;
@@ -197,6 +199,8 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate_str(today);
 			_detail.setStudent_id(_student.getId());
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+			_detail.setLatitude(latitude);
+			_detail.setLangitude(longitude);
 			Present_detailHelper.getInstance().add(_detail);
 			_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
 			String tripId = trip.id(_route.getId(),_appliance.getTimeZone(), new Date(), _route.getStart_timeEx());
@@ -236,6 +240,8 @@ public class PresentHelper extends BaseHelper {
 		} else {
 			_detail = new present_detail(exitKeyDetail);
 			_detail.setCreation_time(new Date().getTime());
+			_detail.setLatitude(latitude);
+			_detail.setLangitude(longitude);
 			Present_detailHelper.getInstance().update(_detail);
 			String tripId = trip.id(_route.getId(),_appliance.getTimeZone(), new Date(), _route.getStart_timeEx());
 			trip_student_detail _trip_student_detail = new trip_student_detail(trip_student_detail.id(tripId, _student.getId()));

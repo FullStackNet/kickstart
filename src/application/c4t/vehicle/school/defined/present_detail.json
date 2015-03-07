@@ -43,6 +43,18 @@
 				'type':'String',
 				'comments' : "PICKUP/DROP or Enter/Exit"
 			},
+			'langitude':
+			{
+				'name':'langitude',
+				'type':'String',
+				'length' : 32
+			},
+			'latitude':
+			{
+				'name':'langitude',
+				'type':'String',
+				'length' : 32
+			},
 			'present_record_type':
 			{
 				'length': 128,
