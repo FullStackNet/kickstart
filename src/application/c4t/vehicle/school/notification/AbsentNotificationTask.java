@@ -30,7 +30,7 @@ public class AbsentNotificationTask extends NotificationTask {
 	void sendNotification2Users(notification _notification, Map<String, BaseResource> userMap,
 			Map<String, String> studentMap,
 			String appAlert,String smsAlert,String emailAlert,
-			String absent_parent_id,String date,String brand_name) {
+			String absent_parent_id,String date,String brand_name, String customer_id) {
 		for(Map.Entry<String, BaseResource> entry : userMap.entrySet()) {
 			user _user = (user)entry.getValue();
 			String students = studentMap.get(entry.getKey());
@@ -41,6 +41,7 @@ public class AbsentNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 				map.put("BRAND_NAME", brand_name);
 				String params = Json.maptoString(map);
 				smsMessage.setParams(params);
@@ -55,6 +56,8 @@ public class AbsentNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
+				
 				map.put("BRAND_NAME", brand_name);
 				String params = Json.maptoString(map);
 				resendMail.setParams(params);
@@ -70,6 +73,7 @@ public class AbsentNotificationTask extends NotificationTask {
 				Map<String, String> map = new HashMap<String, String>();
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENTS, students);
 				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE, date);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
 				map.put("BRAND_NAME", brand_name);
 				String params = Json.maptoString(map);
 				notificationMessage.setParams(params);
@@ -88,7 +92,8 @@ public class AbsentNotificationTask extends NotificationTask {
 	void sendNotification(notification _notification, 
 			String absent_parent_id,
 			String date,
-			String brand_name) {
+			String brand_name,
+			String customer_id) {
 		
 		BaseResource[] students = Absent_detailHelper.getInstance().getStudent(absent_parent_id);
 		if ((students == null) || (students.length == 0)) 
@@ -130,7 +135,7 @@ public class AbsentNotificationTask extends NotificationTask {
 		}
 		sendNotification2Users(_notification, userMap, studentMap,appAlert,smsAlert,emailAlert,
 				absent_parent_id,
-				date,brand_name);
+				date,brand_name,customer_id);
 	}
 	@Override
 	public void process(notification _notification) {
@@ -142,8 +147,9 @@ public class AbsentNotificationTask extends NotificationTask {
 				return;
 			String absent_parent_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID);
 			String date = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE);
+			String customer_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID);
 			String brand_name = (String)data.get("BRAND_NAME");
-			sendNotification(_notification,absent_parent_id,date,brand_name);
+			sendNotification(_notification,absent_parent_id,date,brand_name,customer_id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
