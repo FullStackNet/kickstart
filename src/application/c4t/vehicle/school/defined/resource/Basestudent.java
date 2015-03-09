@@ -100,6 +100,9 @@ public abstract class Basestudent extends BaseResource {
 	private String primary_contact = null;
 	private String gender = null;
 	private String student_account = null;
+	private String left = null;
+	private String left_date_str = null;
+	private String left_reason = null;
 	private String student_email_id = null;
 	private String student_mobile_no = null;
 	private String card_not_working = null;
@@ -188,6 +191,9 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_PRIMARY_CONTACT = "primary_contact";
 	public static String FIELD_GENDER = "gender";
 	public static String FIELD_STUDENT_ACCOUNT = "student_account";
+	public static String FIELD_LEFT = "left";
+	public static String FIELD_LEFT_DATE_STR = "left_date_str";
+	public static String FIELD_LEFT_REASON = "left_reason";
 	public static String FIELD_STUDENT_EMAIL_ID = "student_email_id";
 	public static String FIELD_STUDENT_MOBILE_NO = "student_mobile_no";
 	public static String FIELD_CARD_NOT_WORKING = "card_not_working";
@@ -550,6 +556,19 @@ public abstract class Basestudent extends BaseResource {
 		student_accountField.setLength(1);
 		metaData.addField(student_accountField);
 
+		Field leftField = new Field("left", "String");
+		leftField.setDefaultValue("N");
+		leftField.setLength(1);
+		metaData.addField(leftField);
+
+		Field left_date_strField = new Field("left_date_str", "String");
+		left_date_strField.setLength(16);
+		metaData.addField(left_date_strField);
+
+		Field left_reasonField = new Field("left_reason", "String");
+		left_reasonField.setLength(256);
+		metaData.addField(left_reasonField);
+
 		Field student_email_idField = new Field("student_email_id", "String");
 		student_email_idField.setLength(128);
 		metaData.addField(student_email_idField);
@@ -665,6 +684,9 @@ public abstract class Basestudent extends BaseResource {
 		this.primary_contact = obj.primary_contact;
 		this.gender = obj.gender;
 		this.student_account = obj.student_account;
+		this.left = obj.left;
+		this.left_date_str = obj.left_date_str;
+		this.left_reason = obj.left_reason;
 		this.student_email_id = obj.student_email_id;
 		this.student_mobile_no = obj.student_mobile_no;
 		this.card_not_working = obj.card_not_working;
@@ -724,6 +746,8 @@ public abstract class Basestudent extends BaseResource {
 			primary_contact = "MOTHER";
 		if(student_account == null)
 			student_account = "Y";
+		if(left == null)
+			left = "N";
 		if(card_not_working == null)
 			card_not_working = "N";
 	}
@@ -892,6 +916,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("gender", gender);
 		if(student_account != null)
 			map.put("student_account", student_account);
+		if(left != null)
+			map.put("left", left);
+		if(left_date_str != null)
+			map.put("left_date_str", left_date_str);
+		if(left_reason != null)
+			map.put("left_reason", left_reason);
 		if(student_email_id != null)
 			map.put("student_email_id", student_email_id);
 		if(student_mobile_no != null)
@@ -1074,6 +1104,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("gender", gender);
 		if(student_account != null)
 			map.put("student_account", student_account);
+		if(left != null)
+			map.put("left", left);
+		if(left_date_str != null)
+			map.put("left_date_str", left_date_str);
+		if(left_reason != null)
+			map.put("left_reason", left_reason);
 		if(student_email_id != null)
 			map.put("student_email_id", student_email_id);
 		if(student_mobile_no != null)
@@ -1177,6 +1213,9 @@ public abstract class Basestudent extends BaseResource {
 		primary_contact = (String) map.get("primary_contact");
 		gender = (String) map.get("gender");
 		student_account = (String) map.get("student_account");
+		left = (String) map.get("left");
+		left_date_str = (String) map.get("left_date_str");
+		left_reason = (String) map.get("left_reason");
 		student_email_id = (String) map.get("student_email_id");
 		student_mobile_no = (String) map.get("student_mobile_no");
 		card_not_working = (String) map.get("card_not_working");
@@ -1510,6 +1549,18 @@ public abstract class Basestudent extends BaseResource {
 		Object student_accountObj = map.get("student_account");
 		if(student_accountObj != null)
 			student_account = student_accountObj.toString();
+
+		Object leftObj = map.get("left");
+		if(leftObj != null)
+			left = leftObj.toString();
+
+		Object left_date_strObj = map.get("left_date_str");
+		if(left_date_strObj != null)
+			left_date_str = left_date_strObj.toString();
+
+		Object left_reasonObj = map.get("left_reason");
+		if(left_reasonObj != null)
+			left_reason = left_reasonObj.toString();
 
 		Object student_email_idObj = map.get("student_email_id");
 		if(student_email_idObj != null)
@@ -2772,6 +2823,50 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetStudent_account() {
 		this.student_account = "Y";
+	}
+
+	public String getLeft() {
+		return left != null ? left : "N";
+	}
+
+	public void setLeft(String left) {
+		this.left = left;
+	}
+
+	public void unSetLeft() {
+		this.left = "N";
+	}
+
+	public String getLeft_date_str() {
+		return left_date_str;
+	}
+
+	public String getLeft_date_strEx() {
+		return left_date_str != null ? left_date_str : "";
+	}
+
+	public void setLeft_date_str(String left_date_str) {
+		this.left_date_str = left_date_str;
+	}
+
+	public void unSetLeft_date_str() {
+		this.left_date_str = null;
+	}
+
+	public String getLeft_reason() {
+		return left_reason;
+	}
+
+	public String getLeft_reasonEx() {
+		return left_reason != null ? left_reason : "";
+	}
+
+	public void setLeft_reason(String left_reason) {
+		this.left_reason = left_reason;
+	}
+
+	public void unSetLeft_reason() {
+		this.left_reason = null;
 	}
 
 	public String getStudent_email_id() {

@@ -447,6 +447,22 @@
 				length : 1,
 				'default' : "Y"
 			},
+			'left':
+			{
+				'type':'String',
+				length : 1,
+				'default' : "N"
+			},
+			'left_date_str':
+			{
+				'type':'String',
+				length : 16
+			},
+			'left_reason':
+			{
+				'type':'String',
+				length : 256
+			},
 			'student_email_id':
 			{
 				'type':'String',
