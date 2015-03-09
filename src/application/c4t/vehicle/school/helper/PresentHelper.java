@@ -478,4 +478,25 @@ public class PresentHelper extends BaseHelper {
 		}
 		return new ArrayList<Map<String, Object>>();
 	}
+	
+	public ArrayList<Map<String, Object>> getForSchools(String[] schools,String[] order,long fromtime,long totime) {
+		try {
+			HelperFactory.getInstance().register(SchoolHelper.getInstance());
+			HelperFactory.getInstance().register(NoticeHelper.getInstance());
+			ArrayList<JoinField> list = new ArrayList<JoinField>();
+			JoinField field = new JoinField("school", "school_id", "school_name");
+			list.add(field);
+			Expression e2 = new Expression(present.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+			Expression e4 = new Expression(present.FIELD_DATE, REL_OP.GTEQ, fromtime);
+			Expression e5 = new Expression(present.FIELD_DATE, REL_OP.LT, totime);
+			
+			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
+			Expression e = new Expression(e2, LOG_OP.AND, e6);
+			return getByJoining(e,list,order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ArrayList<Map<String, Object>>();		
+	}
 }
