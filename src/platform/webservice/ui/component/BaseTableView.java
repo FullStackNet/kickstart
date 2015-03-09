@@ -124,7 +124,7 @@ public abstract class BaseTableView extends BaseView {
 		thead.addChild(row);
 		mTable.addChild(thead);
 	}
-	
+
 	public void displayDateUI() {
 		TABLE table = new TABLE();	
 		table.addAttribute("width","100%");
@@ -138,7 +138,7 @@ public abstract class BaseTableView extends BaseView {
 		form.setAction(getfromAndToDateURL());
 		form.setMethod("GET");
 		td.addChild(form);
-		
+
 		form.addAttribute("align","left");
 		TEXTEDIT fromDate = new TEXTEDIT();
 		fromDate.addAttribute("style", "width: 140px;height : 20px");
@@ -148,7 +148,7 @@ public abstract class BaseTableView extends BaseView {
 		if (mContext.getParamValue("from_date") != null)
 			fromDate.setValue(mContext.getParamValue("from_date"));
 		form.addChild(fromDate);
-		
+
 		TEXTEDIT toDate = new TEXTEDIT();
 		toDate.addAttribute("style", "width: 140px;height : 20px");
 		toDate.addAttribute("name","to_date");
@@ -157,7 +157,7 @@ public abstract class BaseTableView extends BaseView {
 		if (mContext.getParamValue("to_date") != null)
 			toDate.setValue(mContext.getParamValue("to_date"));
 		form.addChild(toDate);
-		
+
 		Map<String, Object> map = getfromAndToDateHiddenFields();
 		if (map != null) {
 			for(Entry<String, Object> entry : map.entrySet()) {
@@ -171,41 +171,41 @@ public abstract class BaseTableView extends BaseView {
 		button.addAttribute("style", "width: 120px;height : 25px");
 		button.addAttribute("value","Fetch");
 		form.addChild(button);
-		
+
 		td = new TD();
 		td.addAttribute("align","right");
 		td.addAttribute("style", "padding : 3px 3px 3px 3px;");
 		tr.addChild(td);
-		
+
 		Div div = new Div();
 		div.addAttribute("style","float:right;");
 		td.addChild(div);
-		
-		
+
+
 		A a = new A();
 		a.setText("Today");
 		a.setHref(getTodayURL());
 		div.addChild(a);
-		
+
 		div.addChild(new TEXT(" | "));
 		a = new A();
 		a.setText("Current Week");
 		a.setHref(getCurrentWeekURL());
 		div.addChild(a);
-		
+
 		div.addChild(new TEXT(" | "));
 		a = new A();
 		a.setText("Current Month");
 		a.setHref(getCurrentMonthURL());
 		div.addChild(a);
-		
+
 		tr = new TR();
 		td = new TD();
 		td.addAttribute("colspan", "10");
 		td.addAttribute("style", "padding : 3px 3px 3px 3px;");
 		td.addChild(table);
 		tr.addChild(td);
-		
+
 		mTable.addChild(tr);
 	}
 	public String getSearchURL() {
@@ -313,7 +313,8 @@ public abstract class BaseTableView extends BaseView {
 		TD actiontd = new TD();
 		String url = getURL(data);
 		if (url == null) {
-			url = getModifyURL(data.get("id").toString());
+			if (mDefinition.isDeleteButton()) 
+				url = getModifyURL(data.get("id").toString());
 		}
 		boolean requiredSeperator = false;
 		if (mDefinition.isModifyButton() && (url != null)) {
