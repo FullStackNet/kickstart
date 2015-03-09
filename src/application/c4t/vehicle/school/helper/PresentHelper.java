@@ -482,7 +482,7 @@ public class PresentHelper extends BaseHelper {
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools,String[] order,long fromtime,long totime) {
 		try {
 			HelperFactory.getInstance().register(SchoolHelper.getInstance());
-			HelperFactory.getInstance().register(NoticeHelper.getInstance());
+			HelperFactory.getInstance().register(PresentHelper.getInstance());
 			ArrayList<JoinField> list = new ArrayList<JoinField>();
 			JoinField field = new JoinField("school", "school_id", "school_name");
 			list.add(field);
