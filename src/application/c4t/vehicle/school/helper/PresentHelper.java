@@ -499,4 +499,20 @@ public class PresentHelper extends BaseHelper {
 		}
 		return new ArrayList<Map<String, Object>>();		
 	}
+	
+	public BaseResource[] getResourceForSchools(String[] schools,String[] order,long fromtime,long totime) {
+		try {
+			Expression e2 = new Expression(present.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+			Expression e4 = new Expression(present.FIELD_DATE, REL_OP.GTEQ, fromtime);
+			Expression e5 = new Expression(present.FIELD_DATE, REL_OP.LT, totime);
+			
+			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
+			Expression e = new Expression(e2, LOG_OP.AND, e6);
+			return getByExpression(e,order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
+	}
 }
