@@ -219,7 +219,9 @@ public class StudentHelper extends BaseHelper {
 	}
 	
 	public BaseResource[] getStudentBySchools(String[] school_ids) {
-		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN,school_ids);
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN,school_ids);
+		Expression e2 = new Expression(student.FIELD_LEFT, REL_OP.NEQ,"Y");
+		Expression e = new Expression(e1, LOG_OP.AND,e2);
 		return getByExpression(e);
 	}
 	
