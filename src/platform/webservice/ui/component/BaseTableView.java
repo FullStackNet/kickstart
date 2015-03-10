@@ -313,7 +313,7 @@ public abstract class BaseTableView extends BaseView {
 		TD actiontd = new TD();
 		String url = getURL(data);
 		if (url == null) {
-			if (mDefinition.isDeleteButton()) 
+			if (mDefinition.isModifyButton()) 
 				url = getModifyURL(data.get("id").toString());
 		}
 		boolean requiredSeperator = false;
