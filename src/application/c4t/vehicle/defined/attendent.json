@@ -65,12 +65,6 @@
 				'length': 128,
 				'type':'String'
 			},
-			'license_number':
-			{
-				'name':'license_number',
-				'length': 128,
-				'type':'String'
-			},
 			'remark':
 			{
 				'name':'remark',
@@ -93,11 +87,6 @@
 				'type':'String'
 			},
 			'dob':
-			{
-				'type': 'String',
-				'length': 28
-			},
-			'licenseExpiry':
 			{
 				'type': 'String',
 				'length': 28

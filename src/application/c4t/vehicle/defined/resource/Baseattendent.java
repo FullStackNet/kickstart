@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -33,12 +29,10 @@ public abstract class Baseattendent extends BaseResource {
 	private String city = null;
 	private String state = null;
 	private String country = null;
-	private String license_number = null;
 	private String remark = null;
 	private String customer_id = null;
 	private String user_id = null;
 	private String dob = null;
-	private String licenseExpiry = null;
 	private String dateOfJoining = null;
 	private String eyeSight = null;
 	private String qualification = null;
@@ -56,12 +50,10 @@ public abstract class Baseattendent extends BaseResource {
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
-	public static String FIELD_LICENSE_NUMBER = "license_number";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_DOB = "dob";
-	public static String FIELD_LICENSEEXPIRY = "licenseExpiry";
 	public static String FIELD_DATEOFJOINING = "dateOfJoining";
 	public static String FIELD_EYESIGHT = "eyeSight";
 	public static String FIELD_QUALIFICATION = "qualification";
@@ -116,10 +108,6 @@ public abstract class Baseattendent extends BaseResource {
 		countryField.setLength(128);
 		metaData.addField(countryField);
 
-		Field license_numberField = new Field("license_number", "String");
-		license_numberField.setLength(128);
-		metaData.addField(license_numberField);
-
 		Field remarkField = new Field("remark", "String");
 		remarkField.setLength(512);
 		metaData.addField(remarkField);
@@ -138,10 +126,6 @@ public abstract class Baseattendent extends BaseResource {
 		Field dobField = new Field("dob", "String");
 		dobField.setLength(28);
 		metaData.addField(dobField);
-
-		Field licenseExpiryField = new Field("licenseExpiry", "String");
-		licenseExpiryField.setLength(28);
-		metaData.addField(licenseExpiryField);
 
 		Field dateOfJoiningField = new Field("dateOfJoining", "String");
 		dateOfJoiningField.setLength(28);
@@ -186,12 +170,10 @@ public abstract class Baseattendent extends BaseResource {
 		this.city = obj.city;
 		this.state = obj.state;
 		this.country = obj.country;
-		this.license_number = obj.license_number;
 		this.remark = obj.remark;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
 		this.dob = obj.dob;
-		this.licenseExpiry = obj.licenseExpiry;
 		this.dateOfJoining = obj.dateOfJoining;
 		this.eyeSight = obj.eyeSight;
 		this.qualification = obj.qualification;
@@ -226,8 +208,6 @@ public abstract class Baseattendent extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
-		if(license_number != null)
-			map.put("license_number", license_number);
 		if(remark != null)
 			map.put("remark", remark);
 		if(customer_id != null)
@@ -236,8 +216,6 @@ public abstract class Baseattendent extends BaseResource {
 			map.put("user_id", user_id);
 		if(dob != null)
 			map.put("dob", dob);
-		if(licenseExpiry != null)
-			map.put("licenseExpiry", licenseExpiry);
 		if(dateOfJoining != null)
 			map.put("dateOfJoining", dateOfJoining);
 		if(eyeSight != null)
@@ -275,8 +253,6 @@ public abstract class Baseattendent extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
-		if(license_number != null)
-			map.put("license_number", license_number);
 		if(remark != null)
 			map.put("remark", remark);
 		if(validateCustomer_id(add))
@@ -285,8 +261,6 @@ public abstract class Baseattendent extends BaseResource {
 			map.put("user_id", user_id);
 		if(dob != null)
 			map.put("dob", dob);
-		if(licenseExpiry != null)
-			map.put("licenseExpiry", licenseExpiry);
 		if(dateOfJoining != null)
 			map.put("dateOfJoining", dateOfJoining);
 		if(eyeSight != null)
@@ -319,12 +293,10 @@ public abstract class Baseattendent extends BaseResource {
 		city = (String) map.get("city");
 		state = (String) map.get("state");
 		country = (String) map.get("country");
-		license_number = (String) map.get("license_number");
 		remark = (String) map.get("remark");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
 		dob = (String) map.get("dob");
-		licenseExpiry = (String) map.get("licenseExpiry");
 		dateOfJoining = (String) map.get("dateOfJoining");
 		eyeSight = (String) map.get("eyeSight");
 		qualification = (String) map.get("qualification");
@@ -375,10 +347,6 @@ public abstract class Baseattendent extends BaseResource {
 		if(countryObj != null)
 			country = countryObj.toString();
 
-		Object license_numberObj = map.get("license_number");
-		if(license_numberObj != null)
-			license_number = license_numberObj.toString();
-
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
 			remark = remarkObj.toString();
@@ -394,10 +362,6 @@ public abstract class Baseattendent extends BaseResource {
 		Object dobObj = map.get("dob");
 		if(dobObj != null)
 			dob = dobObj.toString();
-
-		Object licenseExpiryObj = map.get("licenseExpiry");
-		if(licenseExpiryObj != null)
-			licenseExpiry = licenseExpiryObj.toString();
 
 		Object dateOfJoiningObj = map.get("dateOfJoining");
 		if(dateOfJoiningObj != null)
@@ -594,22 +558,6 @@ public abstract class Baseattendent extends BaseResource {
 		this.country = null;
 	}
 
-	public String getLicense_number() {
-		return license_number;
-	}
-
-	public String getLicense_numberEx() {
-		return license_number != null ? license_number : "";
-	}
-
-	public void setLicense_number(String license_number) {
-		this.license_number = license_number;
-	}
-
-	public void unSetLicense_number() {
-		this.license_number = null;
-	}
-
 	public String getRemark() {
 		return remark;
 	}
@@ -684,22 +632,6 @@ public abstract class Baseattendent extends BaseResource {
 
 	public void unSetDob() {
 		this.dob = null;
-	}
-
-	public String getLicenseExpiry() {
-		return licenseExpiry;
-	}
-
-	public String getLicenseExpiryEx() {
-		return licenseExpiry != null ? licenseExpiry : "";
-	}
-
-	public void setLicenseExpiry(String licenseExpiry) {
-		this.licenseExpiry = licenseExpiry;
-	}
-
-	public void unSetLicenseExpiry() {
-		this.licenseExpiry = null;
 	}
 
 	public String getDateOfJoining() {
