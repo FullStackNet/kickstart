@@ -11,6 +11,7 @@ import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.Util;
+import application.c4t.vehicle.school.resource.present;
 import application.c4t.vehicle.school.resource.present_detail;
 
 
@@ -63,6 +64,23 @@ public class Present_detailHelper extends BaseHelper {
 		Expression e2 = new Expression(present_detail.FIELD_PRESENT_TYPE, REL_OP.EQ, "SCHOOL");
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e,new String[]{present_detail.FIELD_DATE +" desc", present_detail.FIELD_CREATION_TIME + " desc"});
+	}
+	
+	public BaseResource[] getSchoolEntry(String[] schoolId,long fromTime,long toTime) {
+		Expression e1 = new Expression(present_detail.FIELD_SCHOOL_ID, REL_OP.IN, schoolId);
+		Expression e2 = new Expression(present_detail.FIELD_PRESENT_TYPE, REL_OP.EQ, "SCHOOL");
+		Expression e3 = new Expression(present_detail.FIELD_PRESENT_RECORD_TYPE, REL_OP.EQ, "ENTRY");
+		Expression e4 = new Expression(e2, LOG_OP.AND, e3);
+		Expression e5 = new Expression(e1, LOG_OP.AND, e4);
+	
+		Expression e6 = new Expression(present.FIELD_DATE, REL_OP.GTEQ, fromTime);
+		Expression e7 = new Expression(present.FIELD_DATE, REL_OP.LT, toTime);
+		
+		Expression e8 = new Expression(e6, LOG_OP.AND, e7);
+	
+		Expression e = new Expression(e5, LOG_OP.AND, e8);
+		
+		return getByExpression(e, null);
 	}
 	
 	public ArrayList<Map<String, Object>> getDetailListMap(String absent_parent_id,ArrayList<JoinField> joinFields) {
