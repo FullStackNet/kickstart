@@ -33,6 +33,7 @@ public abstract class Baselog_id_card extends BaseResource {
 	private String student_name = null;
 	private String customer_id = null;
 	private Long event_time = null;
+	private String error_reason = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -50,6 +51,7 @@ public abstract class Baselog_id_card extends BaseResource {
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EVENT_TIME = "event_time";
+	public static String FIELD_ERROR_REASON = "error_reason";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -118,6 +120,10 @@ public abstract class Baselog_id_card extends BaseResource {
 		Field event_timeField = new Field("event_time", "timestamp");
 		metaData.addField(event_timeField);
 
+		Field error_reasonField = new Field("error_reason", "String");
+		error_reasonField.setLength(128);
+		metaData.addField(error_reasonField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -148,6 +154,7 @@ public abstract class Baselog_id_card extends BaseResource {
 		this.student_name = obj.student_name;
 		this.customer_id = obj.customer_id;
 		this.event_time = obj.event_time;
+		this.error_reason = obj.error_reason;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -191,6 +198,8 @@ public abstract class Baselog_id_card extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(event_time != null)
 			map.put("event_time", event_time);
+		if(error_reason != null)
+			map.put("error_reason", error_reason);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -231,6 +240,8 @@ public abstract class Baselog_id_card extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(event_time != null)
 			map.put("event_time", event_time);
+		if(error_reason != null)
+			map.put("error_reason", error_reason);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -259,6 +270,7 @@ public abstract class Baselog_id_card extends BaseResource {
 		student_name = (String) map.get("student_name");
 		customer_id = (String) map.get("customer_id");
 		event_time = (Long) map.get("event_time");
+		error_reason = (String) map.get("error_reason");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -320,6 +332,10 @@ public abstract class Baselog_id_card extends BaseResource {
 		Object event_timeObj = map.get("event_time");
 		if(event_timeObj != null)
 			event_time = (Long) event_timeObj;
+
+		Object error_reasonObj = map.get("error_reason");
+		if(error_reasonObj != null)
+			error_reason = error_reasonObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -552,6 +568,22 @@ public abstract class Baselog_id_card extends BaseResource {
 		this.event_time = event_time;
 	}
 
+
+	public String getError_reason() {
+		return error_reason;
+	}
+
+	public String getError_reasonEx() {
+		return error_reason != null ? error_reason : "";
+	}
+
+	public void setError_reason(String error_reason) {
+		this.error_reason = error_reason;
+	}
+
+	public void unSetError_reason() {
+		this.error_reason = null;
+	}
 
 	public Long getCreation_time() {
 		return creation_time;

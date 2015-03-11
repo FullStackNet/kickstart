@@ -13,11 +13,13 @@ import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
 import platform.helper.Id_cardHelper;
+import platform.helper.Log_id_cardHelper;
 import platform.helper.NotificationHelper;
 import platform.log.ApplicationLogger;
 import platform.notification.NotificationFactory;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
+import platform.resource.log_id_card;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
@@ -61,22 +63,25 @@ public class PresentHelper extends BaseHelper {
 			}
 		}
 	}
-	public void updateInBusAttendance(route _route,String cardId,String latitude, String longitude) throws ApplicationException {
+	public void updateInBusAttendance(route _route,String cardId,String latitude, String longitude,log_id_card _log) throws ApplicationException {
 		long currentTime = new Date().getTime();
-		
 		String today = TimeUtil.getDateString("IST", new Date().getTime(),"-");
 		BaseResource[] students = StudentHelper.getInstance().getStudentByCardNo(cardId);
 		if (Util.isEmpty(students)) {
+			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_NO_STUDENT);
 			ApplicationLogger.error(" No student found for card " +cardId, this.getClass());
 			return;
 		}
 		
 		if (students.length > 1) {
+			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_MUTIPLE_STUDENT);
 			ApplicationLogger.error(" Multiple student detected for card " +cardId, this.getClass());
 			//need to send the alerts admin
 		}
+		
 		boolean entryRecordExist = true;
 		student _student = (student)students[0];
+		_log.setStudent_id(_student.getId());
 		route_stopage pickup_route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(_student.getPickup_route_stopage_id());
 		if (pickup_route_stopage == null)
 			return;
@@ -89,8 +94,12 @@ public class PresentHelper extends BaseHelper {
 		if (!_route.getId().equals(pickup_route_stopage.getRoute_id()) && 
 				(!_route.getId().equals(dropped_route_stopage.getRoute_id()))) {
 			ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
+			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_INCORRECT_ROUTE);
 			return;
 		}
+		_log.setStudent_id(_student.getId());
+		_log.setStudent_name(_student.getName());
+		_log.setStudent_name(_student.getClass_section_name());
 		String entryKey =  _route.getId()+"^";
 		entryKey = entryKey +"^"+"BUS"+"^"+_route.getType()+"^"+"ENTRY"+today;
 		present _present = (present)PresentHelper.getInstance().getById(entryKey);
@@ -109,6 +118,7 @@ public class PresentHelper extends BaseHelper {
 		String entryKeyDetail = entryKey+"^"+_student.getId();
 		present_detail _detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 		if (_detail == null) {
+			_log.setRecord_type("ENTRY");
 			_detail = new present_detail(entryKeyDetail);
 			_detail.setPresent_parent_id(entryKey);
 			_detail.setDate_str(today);
@@ -236,6 +246,8 @@ public class PresentHelper extends BaseHelper {
 					NotificationFactory.SEVERIRY_INFO, 
 					map, 
 					new Date(currentTime)); 
+			_log.setRecord_type("EXIT");
+			
 
 		} else {
 			_detail = new present_detail(exitKeyDetail);
@@ -254,9 +266,10 @@ public class PresentHelper extends BaseHelper {
 			_trip_student_detail.setExit_time(new Date().getTime());
 			_trip_student_detail.setRoute_id(_route.getId());
 			Trip_student_detailHelper.getInstance().AddOrUpdate(_trip_student_detail);	
-
+			_log.setRecord_type("EXIT");
 		}	
 		updateTotalPresent(exitKey);
+		Log_id_cardHelper.getInstance().update(_log);
 	}
 	
 	public void updateInSchoolAttendance(String cardId,String readerId, String locationId,String location_name) throws ApplicationException {
