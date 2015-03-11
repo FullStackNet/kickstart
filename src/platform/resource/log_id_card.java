@@ -10,6 +10,9 @@ public class log_id_card extends Baselog_id_card {
 	public static String REASON_INVALID_CONTROLLER = "WRONG_CONTROLLER";
 	public static String REASON_INVALID_APPLIANCE = "INVALID APPLIANCE";
 	public static String REASON_INVALID_DEVICE = "INVALID DEVICE";
+	public static String REASON_SWAP_BEFORE_EXIT_TIME= "SWAP BEFORE EXIT TIME";
+	public static String REASON_SWAP_TO_FAST= "SWAP TOO FAST";
+	
 	/**
 	 * 
 	 */

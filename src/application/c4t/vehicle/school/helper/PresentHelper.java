@@ -99,7 +99,8 @@ public class PresentHelper extends BaseHelper {
 		}
 		_log.setStudent_id(_student.getId());
 		_log.setStudent_name(_student.getName());
-		_log.setStudent_name(_student.getClass_section_name());
+		_log.setClass_section_name(_student.getClass_section_name());
+		
 		String entryKey =  _route.getId()+"^";
 		entryKey = entryKey +"^"+"BUS"+"^"+_route.getType()+"^"+"ENTRY"+today;
 		present _present = (present)PresentHelper.getInstance().getById(entryKey);
@@ -172,6 +173,7 @@ public class PresentHelper extends BaseHelper {
 		}
 		updateTotalPresent(entryKey);
 		if ((currentTime - _detail.getCreation_time()) < 2*60*1000L) {
+			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_SWAP_TO_FAST);
 			return;
 		}
 		if (!entryRecordExist)
@@ -272,7 +274,7 @@ public class PresentHelper extends BaseHelper {
 		Log_id_cardHelper.getInstance().update(_log);
 	}
 	
-	public void updateInSchoolAttendance(String cardId,String readerId, String locationId,String location_name) throws ApplicationException {
+	public void updateInSchoolAttendance(String cardId,String readerId, String locationId,String location_name,log_id_card _log) throws ApplicationException {
 		String timeZone  = "IST";
 		long currentTime = new Date().getTime();
 		Id_cardHelper.getInstance().verifyAndAdd(cardId, readerId,locationId, location_name);
@@ -288,11 +290,12 @@ public class PresentHelper extends BaseHelper {
 				Staff_presentHelper.getInstance().updateInSchoolAttendance((staff)staffs[0], cardId);
 				return;
 			}
-			
+			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_NO_STUDENT);
 			ApplicationLogger.error(" No student or Staff found for card " +cardId, this.getClass());
 			return;
 		}
 		if (students.length > 1) {
+			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_MUTIPLE_STUDENT);
 			ApplicationLogger.error(" Multiple student detected for card " +cardId, this.getClass());
 			//need to send the alerts admin
 			return;
@@ -308,6 +311,9 @@ public class PresentHelper extends BaseHelper {
 		if (!"Y".equals(_school.getFeature_timing_based_attendance())) {
 			isSchoolTimingConfigured = false;
 		}
+		_log.setStudent_id(_student.getId());
+		_log.setStudent_name(_student.getName());
+		_log.setClass_section_name(_student.getClass_section_name());
 		String entryKey =  _student.getSchool_id()+_student.getClass_name()+"^"+_student.getSection_name();
 		entryKey = entryKey +"^"+"SCHOOL"+"^"+"ENTRY"+today;
 		present _present = (present)PresentHelper.getInstance().getById(entryKey);
@@ -328,6 +334,7 @@ public class PresentHelper extends BaseHelper {
 		String entryKeyDetail = entryKey+"^"+_student.getId();
 		present_detail _detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 		if (_detail == null) {
+			_log.setRecord_type("ENTRY");
 			_detail = new present_detail(entryKeyDetail);
 			_detail.setPresent_parent_id(entryKey);
 			_detail.setDate_str(today);
@@ -377,7 +384,7 @@ public class PresentHelper extends BaseHelper {
 					NotificationFactory.SEVERIRY_INFO, 
 					map, 
 					new Date(currentTime)); 
-
+			Log_id_cardHelper.getInstance().update(_log);
 			return;
 		} 
 		if (isSchoolTimingConfigured) {
@@ -385,6 +392,7 @@ public class PresentHelper extends BaseHelper {
 					isSchoolTimingConfigured = false;	
 		}
 		if ((currentTime - _detail.getCreation_time()) < 2*60*1000L) {
+			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_SWAP_TO_FAST);
 			return;
 		}
 		if (isSchoolTimingConfigured) {
@@ -392,6 +400,7 @@ public class PresentHelper extends BaseHelper {
 			long endDaytime = TimeUtil.getDayTime(_timings.getEnd_time());	
 			long allowedtime = endDaytime-_timings.getExit_buffer_beforeInMinEx()*60;
 			if (currentTime < allowedtime) {
+				Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_SWAP_BEFORE_EXIT_TIME);
 				ApplicationLogger.error(cardId+" card has swapped before exit time at " +TimeUtil.getDayTimeString(currentDaytime) + " but exit time is " +  _timings.getEnd_time(), this.getClass());
 				return;
 			}
@@ -419,6 +428,7 @@ public class PresentHelper extends BaseHelper {
 		}
 		_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
 		if (_detail == null) {
+			_log.setRecord_type("EXIT");
 			_detail = new present_detail(exitKeyDetail);
 			_detail.setPresent_parent_id(exitKey);
 			_detail.setDate_str(today);
@@ -458,6 +468,8 @@ public class PresentHelper extends BaseHelper {
 			Present_detailHelper.getInstance().update(_detail);
 		}	
 		updateTotalPresent(exitKey);
+		Log_id_cardHelper.getInstance().update(_log);
+
 	}
 	
 	public void updateSend(String id) throws ApplicationException {

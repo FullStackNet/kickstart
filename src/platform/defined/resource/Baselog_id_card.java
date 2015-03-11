@@ -21,6 +21,8 @@ import java.util.*;
 public abstract class Baselog_id_card extends BaseResource {
 	private String id = null;
 	private String school_id = null;
+	private String school_name = null;
+	private String class_section_name = null;
 	private String person_type = null;
 	private String type = null;
 	private String reader_id = null;
@@ -39,6 +41,8 @@ public abstract class Baselog_id_card extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_SCHOOL_NAME = "school_name";
+	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_PERSON_TYPE = "person_type";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_READER_ID = "reader_id";
@@ -70,6 +74,14 @@ public abstract class Baselog_id_card extends BaseResource {
 		school_idField.setIndexed(true);
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
+
+		Field school_nameField = new Field("school_name", "String");
+		school_nameField.setLength(128);
+		metaData.addField(school_nameField);
+
+		Field class_section_nameField = new Field("class_section_name", "String");
+		class_section_nameField.setLength(128);
+		metaData.addField(class_section_nameField);
 
 		Field person_typeField = new Field("person_type", "String");
 		metaData.addField(person_typeField);
@@ -142,6 +154,8 @@ public abstract class Baselog_id_card extends BaseResource {
 	public Baselog_id_card(Baselog_id_card obj) {
 		this.id = obj.id;
 		this.school_id = obj.school_id;
+		this.school_name = obj.school_name;
+		this.class_section_name = obj.class_section_name;
 		this.person_type = obj.person_type;
 		this.type = obj.type;
 		this.reader_id = obj.reader_id;
@@ -174,6 +188,10 @@ public abstract class Baselog_id_card extends BaseResource {
 			map.put("id", id);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(school_name != null)
+			map.put("school_name", school_name);
+		if(class_section_name != null)
+			map.put("class_section_name", class_section_name);
 		if(person_type != null)
 			map.put("person_type", person_type);
 		if(type != null)
@@ -216,6 +234,10 @@ public abstract class Baselog_id_card extends BaseResource {
 			map.put("id", id);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(school_name != null)
+			map.put("school_name", school_name);
+		if(class_section_name != null)
+			map.put("class_section_name", class_section_name);
 		if(person_type != null)
 			map.put("person_type", person_type);
 		if(type != null)
@@ -258,6 +280,8 @@ public abstract class Baselog_id_card extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		school_id = (String) map.get("school_id");
+		school_name = (String) map.get("school_name");
+		class_section_name = (String) map.get("class_section_name");
 		person_type = (String) map.get("person_type");
 		type = (String) map.get("type");
 		reader_id = (String) map.get("reader_id");
@@ -284,6 +308,14 @@ public abstract class Baselog_id_card extends BaseResource {
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
+
+		Object school_nameObj = map.get("school_name");
+		if(school_nameObj != null)
+			school_name = school_nameObj.toString();
+
+		Object class_section_nameObj = map.get("class_section_name");
+		if(class_section_nameObj != null)
+			class_section_name = class_section_nameObj.toString();
 
 		Object person_typeObj = map.get("person_type");
 		if(person_typeObj != null)
@@ -386,6 +418,38 @@ public abstract class Baselog_id_card extends BaseResource {
 
 	public void unSetSchool_id() {
 		this.school_id = null;
+	}
+
+	public String getSchool_name() {
+		return school_name;
+	}
+
+	public String getSchool_nameEx() {
+		return school_name != null ? school_name : "";
+	}
+
+	public void setSchool_name(String school_name) {
+		this.school_name = school_name;
+	}
+
+	public void unSetSchool_name() {
+		this.school_name = null;
+	}
+
+	public String getClass_section_name() {
+		return class_section_name;
+	}
+
+	public String getClass_section_nameEx() {
+		return class_section_name != null ? class_section_name : "";
+	}
+
+	public void setClass_section_name(String class_section_name) {
+		this.class_section_name = class_section_name;
+	}
+
+	public void unSetClass_section_name() {
+		this.class_section_name = null;
 	}
 
 	public String getPerson_type() {
