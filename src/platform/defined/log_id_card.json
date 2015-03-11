@@ -17,6 +17,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'person_type':
+			{
+				'type':'String',
+				"Remark" : "STAFF/STUDENT"
+			},
 			'type':
 			{
 				'type':'String',

@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Baselog_id_card extends BaseResource {
 	private String id = null;
 	private String school_id = null;
+	private String person_type = null;
 	private String type = null;
 	private String reader_id = null;
 	private String card_no = null;
@@ -37,6 +38,7 @@ public abstract class Baselog_id_card extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_PERSON_TYPE = "person_type";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_READER_ID = "reader_id";
 	public static String FIELD_CARD_NO = "card_no";
@@ -66,6 +68,9 @@ public abstract class Baselog_id_card extends BaseResource {
 		school_idField.setIndexed(true);
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
+
+		Field person_typeField = new Field("person_type", "String");
+		metaData.addField(person_typeField);
 
 		Field typeField = new Field("type", "String");
 		metaData.addField(typeField);
@@ -131,6 +136,7 @@ public abstract class Baselog_id_card extends BaseResource {
 	public Baselog_id_card(Baselog_id_card obj) {
 		this.id = obj.id;
 		this.school_id = obj.school_id;
+		this.person_type = obj.person_type;
 		this.type = obj.type;
 		this.reader_id = obj.reader_id;
 		this.card_no = obj.card_no;
@@ -161,6 +167,8 @@ public abstract class Baselog_id_card extends BaseResource {
 			map.put("id", id);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(person_type != null)
+			map.put("person_type", person_type);
 		if(type != null)
 			map.put("type", type);
 		if(reader_id != null)
@@ -199,6 +207,8 @@ public abstract class Baselog_id_card extends BaseResource {
 			map.put("id", id);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(person_type != null)
+			map.put("person_type", person_type);
 		if(type != null)
 			map.put("type", type);
 		if(reader_id != null)
@@ -237,6 +247,7 @@ public abstract class Baselog_id_card extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		school_id = (String) map.get("school_id");
+		person_type = (String) map.get("person_type");
 		type = (String) map.get("type");
 		reader_id = (String) map.get("reader_id");
 		card_no = (String) map.get("card_no");
@@ -261,6 +272,10 @@ public abstract class Baselog_id_card extends BaseResource {
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
+
+		Object person_typeObj = map.get("person_type");
+		if(person_typeObj != null)
+			person_type = person_typeObj.toString();
 
 		Object typeObj = map.get("type");
 		if(typeObj != null)
@@ -355,6 +370,22 @@ public abstract class Baselog_id_card extends BaseResource {
 
 	public void unSetSchool_id() {
 		this.school_id = null;
+	}
+
+	public String getPerson_type() {
+		return person_type;
+	}
+
+	public String getPerson_typeEx() {
+		return person_type != null ? person_type : "";
+	}
+
+	public void setPerson_type(String person_type) {
+		this.person_type = person_type;
+	}
+
+	public void unSetPerson_type() {
+		this.person_type = null;
 	}
 
 	public String getType() {
