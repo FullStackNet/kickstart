@@ -42,6 +42,10 @@
 				'type':'String',
 				length : 16
 			},
+			'total_student':
+			{
+				'type':'int'
+			},
 			'total_present':
 			{
 				'type':'int'
