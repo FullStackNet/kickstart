@@ -391,7 +391,7 @@ public class PresentHelper extends BaseHelper {
 			if (Util.isEmpty(_timings.getEnd_time()))
 					isSchoolTimingConfigured = false;	
 		}
-		if ((currentTime - _detail.getCreation_time()) < 2*60*1000L) {
+		if ((currentTime - _detail.getCreation_time()) < 60*60*1000L) {
 			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_SWAP_TO_FAST);
 			return;
 		}
