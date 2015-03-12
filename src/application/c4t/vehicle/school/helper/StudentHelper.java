@@ -232,6 +232,13 @@ public class StudentHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 	
+	public BaseResource[] getStudentByUsingTransport(String[] school_ids) {
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN,school_ids);
+		Expression e2 = new Expression(student.FIELD_TRANSPORT, REL_OP.EQ,"Y");
+		Expression e = new Expression(e1, LOG_OP.AND,e2);
+		return getByExpression(e);
+	}
+	
 	public BaseResource[] getStudentByClassName(String school_ids[],String class_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN,school_ids);
 		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ,class_name);
