@@ -114,7 +114,12 @@ public class PresentHelper extends BaseHelper {
 			_present.setPresent_type("BUS");
 			_present.setSub_present_type(_route.getType());
 			_present.setPresent_record_type("ENTRY");
+			BaseResource[] resoucres = StudentHelper.getInstance().getStudentByRouteId(_route.getId());
+			if (!Util.isEmpty(resoucres)) {
+				_present.setTotal_student(resoucres.length);
+			}
 			PresentHelper.getInstance().add(_present);
+			
 		}
 		String entryKeyDetail = entryKey+"^"+_student.getId();
 		present_detail _detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
@@ -194,6 +199,10 @@ public class PresentHelper extends BaseHelper {
 			_present.setPresent_type("BUS");
 			_present.setSub_present_type(_route.getType());
 			_present.setPresent_record_type("EXIT");
+			BaseResource[] resoucres = StudentHelper.getInstance().getStudentByRouteId(_route.getId());
+			if (!Util.isEmpty(resoucres)) {
+				_present.setTotal_student(resoucres.length);
+			}
 			PresentHelper.getInstance().add(_present);
 		}
 		_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
@@ -328,6 +337,11 @@ public class PresentHelper extends BaseHelper {
 			_present.setClass_section_name(class_section_name);
 			_present.setPresent_type("SCHOOL");
 			_present.setPresent_record_type("ENTRY");
+			BaseResource[] resoucres = StudentHelper.getInstance().getStudentByClassSectionName(_student.getSchool_id(), 
+					class_section_name);
+			if (!Util.isEmpty(resoucres)) {
+				_present.setTotal_student(resoucres.length);
+			}
 			PresentHelper.getInstance().add(_present);
 		}
 		
@@ -424,6 +438,11 @@ public class PresentHelper extends BaseHelper {
 			_present.setClass_section_name(class_section_name);
 			_present.setPresent_type("SCHOOL");
 			_present.setPresent_record_type("EXIT");
+			BaseResource[] resoucres = StudentHelper.getInstance().getStudentByClassSectionName(_student.getSchool_id(), 
+					class_section_name);
+			if (!Util.isEmpty(resoucres)) {
+				_present.setTotal_student(resoucres.length);
+			}
 			PresentHelper.getInstance().add(_present);
 		}
 		_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 

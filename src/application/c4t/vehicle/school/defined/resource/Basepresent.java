@@ -32,6 +32,7 @@ public abstract class Basepresent extends BaseResource {
 	private String section_name = null;
 	private Long date = null;
 	private String date_str = null;
+	private Integer total_student = null;
 	private Integer total_present = null;
 	private String customer_id = null;
 	private String sent = null;
@@ -50,6 +51,7 @@ public abstract class Basepresent extends BaseResource {
 	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_DATE = "date";
 	public static String FIELD_DATE_STR = "date_str";
+	public static String FIELD_TOTAL_STUDENT = "total_student";
 	public static String FIELD_TOTAL_PRESENT = "total_present";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_SENT = "sent";
@@ -117,6 +119,9 @@ public abstract class Basepresent extends BaseResource {
 		date_strField.setLength(16);
 		metaData.addField(date_strField);
 
+		Field total_studentField = new Field("total_student", "int");
+		metaData.addField(total_studentField);
+
 		Field total_presentField = new Field("total_present", "int");
 		metaData.addField(total_presentField);
 
@@ -156,6 +161,7 @@ public abstract class Basepresent extends BaseResource {
 		this.section_name = obj.section_name;
 		this.date = obj.date;
 		this.date_str = obj.date_str;
+		this.total_student = obj.total_student;
 		this.total_present = obj.total_present;
 		this.customer_id = obj.customer_id;
 		this.sent = obj.sent;
@@ -199,6 +205,8 @@ public abstract class Basepresent extends BaseResource {
 			map.put("date", date);
 		if(date_str != null)
 			map.put("date_str", date_str);
+		if(total_student != null)
+			map.put("total_student", total_student);
 		if(total_present != null)
 			map.put("total_present", total_present);
 		if(customer_id != null)
@@ -241,6 +249,8 @@ public abstract class Basepresent extends BaseResource {
 			map.put("date", date);
 		if(date_str != null)
 			map.put("date_str", date_str);
+		if(total_student != null)
+			map.put("total_student", total_student);
 		if(total_present != null)
 			map.put("total_present", total_present);
 		if(customer_id != null)
@@ -272,6 +282,7 @@ public abstract class Basepresent extends BaseResource {
 		section_name = (String) map.get("section_name");
 		date = (Long) map.get("date");
 		date_str = (String) map.get("date_str");
+		total_student = (Integer) map.get("total_student");
 		total_present = (Integer) map.get("total_present");
 		customer_id = (String) map.get("customer_id");
 		sent = (String) map.get("sent");
@@ -331,6 +342,10 @@ public abstract class Basepresent extends BaseResource {
 		Object date_strObj = map.get("date_str");
 		if(date_strObj != null)
 			date_str = date_strObj.toString();
+
+		Object total_studentObj = map.get("total_student");
+		if(total_studentObj != null)
+			total_student = new Integer(total_studentObj.toString());
 
 		Object total_presentObj = map.get("total_present");
 		if(total_presentObj != null)
@@ -558,6 +573,26 @@ public abstract class Basepresent extends BaseResource {
 
 	public void unSetDate_str() {
 		this.date_str = null;
+	}
+
+	public Integer getTotal_student() {
+		return total_student;
+	}
+
+	public int getTotal_studentEx() {
+		return total_student != null ? total_student : 0;
+	}
+
+	public void setTotal_student(int total_student) {
+		this.total_student = total_student;
+	}
+
+	public void setTotal_student(Integer total_student) {
+		this.total_student = total_student;
+	}
+
+	public void unSetTotal_student() {
+		this.total_student = null;
 	}
 
 	public Integer getTotal_present() {
