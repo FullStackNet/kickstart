@@ -8,7 +8,7 @@ import platform.util.ApplicationException;
 public class Log_id_cardHelper extends BaseHelper {
 	
 	public Log_id_cardHelper() {
-		super(new activity());
+		super(new log_id_card());
 		// TODO Auto-generated constructor stub
 	}
 	private static Log_id_cardHelper instance;

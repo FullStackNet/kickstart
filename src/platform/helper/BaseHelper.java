@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import application.c4t.vehicle.school.resource.present;
 import platform.db.DbConnection;
 import platform.db.DbManager;
 import platform.db.Expression;
