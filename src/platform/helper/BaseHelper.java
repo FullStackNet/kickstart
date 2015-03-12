@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import application.c4t.vehicle.school.resource.present;
 import platform.db.DbConnection;
 import platform.db.DbManager;
 import platform.db.Expression;
@@ -1053,6 +1054,22 @@ public class BaseHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public BaseResource[] getForSchoolsDateWise(String[] schools,String[] order,String timeFeild,long fromtime,long totime) {
+		try {
+			Expression e2 = new Expression("school_id", REL_OP.IN, schools);
+			Expression e4 = new Expression(timeFeild, REL_OP.GTEQ, fromtime);
+			Expression e5 = new Expression(timeFeild, REL_OP.LT, totime);
+			
+			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
+			Expression e = new Expression(e2, LOG_OP.AND, e6);
+			return getByExpression(e,order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
 	}
 	
 	public ArrayList<Map<String, Object>> getForSchools(String[] schoolIds,String[] order) throws ApplicationException  {
