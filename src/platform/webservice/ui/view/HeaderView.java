@@ -23,7 +23,7 @@ public class HeaderView extends BaseView {
 	}
 	
 	public void buildUI() {
-		if (mContext.getDomainName().equals("connect2parent.com")) {
+		if (mContext.getDomainName().equals("connect2parent.com") || mContext.getDomainName().equals("www.connect2parent.com")) {
 			Div logoImageDiv = new Div(null, "logo");
 			IMG logoImg = new IMG();
 	        logoImg.setSRC(ImageUtils.C2P_HEADER_LOGO);
