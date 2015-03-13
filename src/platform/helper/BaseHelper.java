@@ -1071,7 +1071,7 @@ public class BaseHelper {
 		return null;		
 	}
 	
-	public BaseResource[] getResourcesForSchools(String[] schoolIds,String[] order) throws ApplicationException  {
+	public BaseResource[] getResourcesForSchools(String[] schoolIds,String[] order)  {
 		try {
 			Expression e = new Expression("school_id", REL_OP.IN, schoolIds);
 			return getByExpression(e,order);
@@ -1082,7 +1082,7 @@ public class BaseHelper {
 		return null;		
 	}
 	
-	public ArrayList<Map<String, Object>> getForSchools(String[] schoolIds,String[] order) throws ApplicationException  {
+	public ArrayList<Map<String, Object>> getForSchools(String[] schoolIds,String[] order)  {
 		try {
 			Expression e = new Expression("school_id", REL_OP.IN, schoolIds);
 			BaseResource[] resoucres =  getByExpression(e,order);
