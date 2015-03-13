@@ -382,7 +382,7 @@ public class PresentHelper extends BaseHelper {
 					long startDaytime = TimeUtil.getDayTime(_timings.getStart_time());	
 					long allowedtime = startDaytime+_timings.getEntry_buffer_afterInMinEx()*60;
 					System.out.println(cardId +" Start Time : " + startDaytime + " Current Time : " + startDaytime + " Allow time : " + allowedtime);
-					if (currentTime > allowedtime) {
+					if (currentDaytime > allowedtime) {
 						_detail.setLate_comingInMin((currentDaytime-startDaytime)/60);
 					}
 				}
@@ -427,7 +427,7 @@ public class PresentHelper extends BaseHelper {
 			long currentDaytime = TimeUtil.getDayTime(timeZone, currentTime);
 			long endDaytime = TimeUtil.getDayTime(_timings.getEnd_time());	
 			long allowedtime = endDaytime-_timings.getExit_buffer_beforeInMinEx()*60;
-			if (currentTime < allowedtime) {
+			if (currentDaytime < allowedtime) {
 				Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_SWAP_BEFORE_EXIT_TIME);
 				ApplicationLogger.error(cardId+" card has swapped before exit time at " +TimeUtil.getDayTimeString(currentDaytime) + " but exit time is " +  _timings.getEnd_time(), this.getClass());
 				return;

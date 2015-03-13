@@ -91,7 +91,7 @@ public class Staff_presentHelper extends BaseHelper {
 					long currentDaytime = TimeUtil.getDayTime(timeZone, currentTime);
 					long startDaytime = TimeUtil.getDayTime(_timings.getStart_time());	
 					long allowedtime = startDaytime+_timings.getEntry_buffer_afterInMinEx()*60;
-					if (currentTime > allowedtime) {
+					if (currentDaytime > allowedtime) {
 						_detail.setLate_comingInMin((currentDaytime-startDaytime)/60);
 					}
 				}
