@@ -96,7 +96,7 @@ public class Server  {
 						client.close();
 						continue;
 					}
-					ClientReadHandler  clientHandler= new ClientReadHandler(this,context.getProtocolProvider(), client);
+					ClientReadHandler  clientHandler= new ClientReadHandler(this,context.getProtocolProvider().getClone(), client);
 					Thread thread = new Thread(clientHandler);
 					thread.setName("CLIENT_HANDLING_THREAD");
 					clientHandler.setThread(thread);

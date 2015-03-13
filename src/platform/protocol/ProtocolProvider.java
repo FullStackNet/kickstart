@@ -2,7 +2,7 @@ package platform.protocol;
 
 import platform.message.MessageManager;
 
-public class ProtocolProvider {
+public abstract class ProtocolProvider {
 	Reader reader;
 	Writer writer;
 	long sequenceNumber ;
@@ -20,6 +20,8 @@ public class ProtocolProvider {
 		messageManager = new MessageManager();
 	}
 	
+	
+	public abstract ProtocolProvider getClone();
 	public Reader getReader() {
 		return reader;
 	}

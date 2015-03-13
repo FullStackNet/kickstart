@@ -11,5 +11,11 @@ public class OBDProtocolProvider  extends ProtocolProvider{
 		super(new OBDReader(readStartChar), new OBDWriter(writeStartChar), messageManager);
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public ProtocolProvider getClone() {
+		// TODO Auto-generated method stub
+		return this;
+	}
 	
 }

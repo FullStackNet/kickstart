@@ -10,5 +10,11 @@ public class MOBDProtocolProvider  extends ProtocolProvider{
 		super(new MOBDReader(readStartChar), new MOBDWriter(writeStartChar), messageManager);
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public ProtocolProvider getClone() {
+		// TODO Auto-generated method stub
+		return this;
+	}
 	
 }

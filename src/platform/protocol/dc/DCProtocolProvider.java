@@ -10,5 +10,11 @@ public class DCProtocolProvider  extends ProtocolProvider{
 		super(new DCReader(readStartChar), new DCWriter(writeStartChar), messageManager);
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public ProtocolProvider getClone() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

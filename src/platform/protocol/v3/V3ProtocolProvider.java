@@ -14,5 +14,11 @@ public class V3ProtocolProvider  extends ProtocolProvider{
 		super(new V3Reader(sender,receiver), new V3Writer(receiver,sender), messageManager);
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public ProtocolProvider getClone() {
+		// TODO Auto-generated method stub
+		return this;
+	}
 	
 }
