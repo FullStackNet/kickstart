@@ -152,12 +152,6 @@ public class UIConstants {
 	};
 	
 	
-	public final static IdValue[] SUB_PRESNT_TYPE_ENUM = new IdValue[] {
-		new IdValue("NA", "N/A"),
-		new IdValue("BUS", "BUS"),
-		new IdValue("SCHOOL", "SCHOOL")
-	};
-	
 	
 	public final static IdValue[] PRESNT_SUB_TYPE_ENUM = new IdValue[] {
 		new IdValue("NA", "N/A"),
