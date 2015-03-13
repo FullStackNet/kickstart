@@ -44,7 +44,7 @@ public class Log_id_cardHelper extends BaseHelper {
 			
 			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
 			Expression e8 = new Expression(e2, LOG_OP.AND, e6);
-			Expression e9 = new Expression(log_id_card.FIELD_ERROR_REASON, REL_OP.LT, reason);
+			Expression e9 = new Expression(log_id_card.FIELD_ERROR_REASON, REL_OP.EQ, reason);
 			Expression e = new Expression(e8, LOG_OP.AND, e9);
 			return getByExpression(e,order);
 		} catch (Exception e) {
