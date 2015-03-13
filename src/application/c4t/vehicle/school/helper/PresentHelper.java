@@ -82,25 +82,39 @@ public class PresentHelper extends BaseHelper {
 		boolean entryRecordExist = true;
 		student _student = (student)students[0];
 		_log.setStudent_id(_student.getId());
-		route_stopage pickup_route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(_student.getPickup_route_stopage_id());
-		if (pickup_route_stopage == null)
-			return;
-		
-		route_stopage dropped_route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(_student.getDropped_route_stopage_id());
-		
-		if (dropped_route_stopage == null)
-			return;
-		appliance _appliance = ApplianceHelper.getInstance().getById(_route.getAppliance_id());
-		if (!_route.getId().equals(pickup_route_stopage.getRoute_id()) && 
-				(!_route.getId().equals(dropped_route_stopage.getRoute_id()))) {
-			ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
-			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_INCORRECT_ROUTE);
-			return;
-		}
-		_log.setStudent_id(_student.getId());
 		_log.setStudent_name(_student.getName());
 		_log.setClass_section_name(_student.getClass_section_name());
-		
+	
+		if (route.ROUTE_TYPE_PICKUP.equals(_route.getType())) {
+			route_stopage pickup_route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(_student.getPickup_route_stopage_id());
+			if (pickup_route_stopage == null) {
+				ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
+				_log.setRemark("Cards Swapped: " + _route.getName() + ", Configured Route : N/A");
+				Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_INCORRECT_ROUTE);
+	
+			}
+			if (!_route.getId().equals(pickup_route_stopage.getRoute_id())) {
+				ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
+				_log.setRemark("Cards Swapped: " + _route.getName() + ", Configured Route : "+ pickup_route_stopage.getName());
+				Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_INCORRECT_ROUTE);
+				return;
+			}		
+		} else {
+			route_stopage dropped_route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(_student.getDropped_route_stopage_id());
+			if (dropped_route_stopage == null) {
+				ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
+				_log.setRemark("Cards Swapped: " + _route.getName() + ", Configured Route : N/A");
+				Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_INCORRECT_ROUTE);
+				return;
+			}	
+			if (!_route.getId().equals(dropped_route_stopage.getRoute_id())) {
+				ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
+				_log.setRemark("Cards Swapped: " + _route.getName() + ", Configured Route : "+ dropped_route_stopage.getName());
+				Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_INCORRECT_ROUTE);
+				return;
+			}
+		}
+		appliance _appliance = ApplianceHelper.getInstance().getById(_route.getAppliance_id());
 		String entryKey =  _route.getId()+"^";
 		entryKey = entryKey +"^"+"BUS"+"^"+_route.getType()+"^"+"ENTRY"+today;
 		present _present = (present)PresentHelper.getInstance().getById(entryKey);
