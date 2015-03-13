@@ -1071,6 +1071,17 @@ public class BaseHelper {
 		return null;		
 	}
 	
+	public BaseResource[] getResourcesForSchools(String[] schoolIds,String[] order) throws ApplicationException  {
+		try {
+			Expression e = new Expression("school_id", REL_OP.IN, schoolIds);
+			return getByExpression(e,order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
+	}
+	
 	public ArrayList<Map<String, Object>> getForSchools(String[] schoolIds,String[] order) throws ApplicationException  {
 		try {
 			Expression e = new Expression("school_id", REL_OP.IN, schoolIds);

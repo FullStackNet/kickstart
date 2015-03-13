@@ -1,19 +1,29 @@
 package platform.helper;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
+import platform.manager.ApplicationManager;
+import platform.message.SendEmail;
+import platform.message.SendSMS;
 import platform.resource.BaseResource;
 import platform.resource.invite;
 import platform.resource.user;
+import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
+import platform.util.Json;
 import platform.util.Util;
+import application.c4t.vehicle.school.helper.SchoolHelper;
 import application.c4t.vehicle.school.helper.School_user_mapHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.helper.Student_mapHelper;
 import application.c4t.vehicle.school.helper.TeacherHelper;
 import application.c4t.vehicle.school.helper.Teacher_mapHelper;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 import application.c4t.vehicle.school.resource.teacher;
 
@@ -175,5 +185,52 @@ public class InviteHelper extends BaseHelper {
 		}
 		UserHelper.getInstance().AddOrUpdate(_user);
 		updateStatus(_invite.getId(), invite.INVITE_STATUS_JOINED);
+	}
+	
+	public void sendParentInvite(invite _invite) throws ApplicationException {
+		InviteHelper.getInstance().updateStatus(_invite.getId(), invite.INVITE_STATUS_SENT);
+		String studentId = _invite.getReference_id();
+		student _student = (student)StudentHelper.getInstance().getById(studentId);
+		if (_student == null) 
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Stdeunt Reference");
+		
+		school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
+		if (_school == null) 
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid School Reference");
+		
+		if (_invite.getEmail_id() != null) {
+			SendEmail resendMail = new SendEmail();
+			resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_PARENT);
+			resendMail.setTo(_invite.getEmail_id());
+			resendMail.setType(ApplicationConstants.MAIL_TYPE_INVITE_PARENT);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("NAME", _invite.getName());
+			map.put("STUDENT_NAME", _invite.getReference_name());
+			map.put("ACTIVATION_TOKEN", _invite.getKey());
+			map.put("SCHOOL_NAME", _school.getBrand_name());
+			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			map.put("CUSTOMER_ID",_invite.getCustomer_id());
+			map.put("BRAND_NAME",_school.getBrand_name());
+			
+			String params = Json.maptoString(map);
+			resendMail.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+					resendMail);
+		}
+		if (_invite.getMobile_no() != null) {
+			SendSMS smsMessage = new SendSMS();
+			smsMessage.setMobile_no(_invite.getMobile_no());
+			smsMessage.setType(ApplicationConstants.SMS_TYPE_INVITE_PARENT);
+			Map<String, String> smsMap = new HashMap<String, String>();
+			smsMap.put("STUDENT_NAME", _invite.getReference_name());
+			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
+			smsMap.put("SCHOOL_NAME", _school.getBrand_name());
+			smsMap.put("BRAND_NAME", _school.getBrand_name());
+			smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
+			String params = Json.maptoString(smsMap);
+			smsMessage.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
+					smsMessage);
+		}
 	}
 }

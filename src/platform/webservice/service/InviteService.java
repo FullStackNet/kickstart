@@ -20,62 +20,13 @@ import platform.util.Json;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 import platform.webservice.WebServiceContants;
-import application.c4t.vehicle.school.helper.SchoolHelper;
-import application.c4t.vehicle.school.helper.StudentHelper;
-import application.c4t.vehicle.school.resource.school;
-import application.c4t.vehicle.school.resource.student;
 
 public class InviteService extends BaseService{
 	public InviteService() {
 		super(InviteHelper.getInstance(),new invite());
 	}
 
-	public void sendParentInvite(invite _invite) throws ApplicationException {
-		InviteHelper.getInstance().updateStatus(_invite.getId(), invite.INVITE_STATUS_SENT);
-		String studentId = _invite.getReference_id();
-		student _student = (student)StudentHelper.getInstance().getById(studentId);
-		if (_student == null) 
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Stdeunt Reference");
-		
-		school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
-		if (_school == null) 
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid School Reference");
-		
-		if (_invite.getEmail_id() != null) {
-			SendEmail resendMail = new SendEmail();
-			resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_PARENT);
-			resendMail.setTo(_invite.getEmail_id());
-			resendMail.setType(ApplicationConstants.MAIL_TYPE_INVITE_PARENT);
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("NAME", _invite.getName());
-			map.put("STUDENT_NAME", _invite.getReference_name());
-			map.put("ACTIVATION_TOKEN", _invite.getKey());
-			map.put("SCHOOL_NAME", _school.getBrand_name());
-			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
-			map.put("CUSTOMER_ID",_invite.getCustomer_id());
-			map.put("BRAND_NAME",_school.getBrand_name());
-			
-			String params = Json.maptoString(map);
-			resendMail.setParams(params);
-			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
-					resendMail);
-		}
-		if (_invite.getMobile_no() != null) {
-			SendSMS smsMessage = new SendSMS();
-			smsMessage.setMobile_no(_invite.getMobile_no());
-			smsMessage.setType(ApplicationConstants.SMS_TYPE_INVITE_PARENT);
-			Map<String, String> smsMap = new HashMap<String, String>();
-			smsMap.put("STUDENT_NAME", _invite.getReference_name());
-			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
-			smsMap.put("SCHOOL_NAME", _school.getBrand_name());
-			smsMap.put("BRAND_NAME", _school.getBrand_name());
-			smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
-			String params = Json.maptoString(smsMap);
-			smsMessage.setParams(params);
-			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
-					smsMessage);
-		}
-	}
+	
 	
 	public void sendTeacherInvite(invite _invite) {
 		String school_name = "";
@@ -188,7 +139,7 @@ public class InviteService extends BaseService{
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Request");
 			if (invite.INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE.equals(_invite.getInvite_type())) {
 				if (_invite.getEmail_id() != null) {
-					sendParentInvite(_invite);
+					InviteHelper.getInstance().sendParentInvite(_invite);
 				}
 			}else if (invite.INVITE_TYPE_JOIN_TEACHER.equals(_invite.getInvite_type())) {
 				if (_invite.getEmail_id() != null) {
