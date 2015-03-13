@@ -1,5 +1,9 @@
 package platform.helper;
 
+import platform.db.Expression;
+import platform.db.LOG_OP;
+import platform.db.REL_OP;
+import platform.resource.BaseResource;
 import platform.resource.activity;
 import platform.resource.log_id_card;
 import platform.util.ApplicationException;
@@ -30,5 +34,23 @@ public class Log_id_cardHelper extends BaseHelper {
 	public void updateReason(log_id_card _log, String reason) {
 		_log.setError_reason(reason);
 		Log_id_cardHelper.getInstance().update(_log);
+	}
+	
+	public BaseResource[] getForSchoolsDateWiseAndReason(String[] schools,String[] order,String reason,long fromtime,long totime) {
+		try {
+			Expression e2 = new Expression("school_id", REL_OP.IN, schools);
+			Expression e4 = new Expression(log_id_card.FIELD_CREATION_TIME, REL_OP.GTEQ, fromtime);
+			Expression e5 = new Expression(log_id_card.FIELD_CREATION_TIME, REL_OP.LT, totime);
+			
+			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
+			Expression e8 = new Expression(e2, LOG_OP.AND, e6);
+			Expression e9 = new Expression(log_id_card.FIELD_ERROR_REASON, REL_OP.LT, reason);
+			Expression e = new Expression(e8, LOG_OP.AND, e9);
+			return getByExpression(e,order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
 	}
 }
