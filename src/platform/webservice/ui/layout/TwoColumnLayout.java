@@ -2,6 +2,7 @@ package platform.webservice.ui.layout;
 
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.html.A;
+import platform.webservice.ui.html.BR;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.CSS;
 import platform.webservice.ui.html.Div;
@@ -54,6 +55,9 @@ public class TwoColumnLayout extends BaseLayout {
 		div.addChild(a);
 		content_container_2.addChild(div);
 		content_container_2.addChild(mLayoutContent);
+		mLayoutContent.addChild(new BR());
+		mLayoutContent.addChild(new BR());
+		mLayoutContent.addChild(new BR());
 		
 		//mLayoutFooter = new Div();
 		//mLayoutFooter.addAttribute(new Attribute("id", "footer"));
