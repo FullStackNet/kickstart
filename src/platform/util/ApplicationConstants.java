@@ -18,6 +18,8 @@ public class ApplicationConstants {
 	public static String TALLY_CONFIGURATION_FILE = "tally";
 	
 	public static String ACPREADER_CONFIGURATION_FILE = "acpreader";
+	public static String BTMREADER_CONFIGURATION_FILE = "btmreader";
+	
 	public static int PROCESS_WAIT_TIME_BEFORE_EXIT = 10000;
 	
 	public static String DB_FILE = "db";
@@ -71,6 +73,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_V3TRACKER_SERVER_PORT = "v3tracker_server_port";
 	public static String PROPERTY_CISTRACKER_SERVER_PORT = "cistracker_server_port";
 	public static String PROPERTY_ACPTRACKER_SERVER_PORT = "acptracker_server_port";
+	public static String PROPERTY_BTMREADER_SERVER_PORT = "btmreader_server_port";
 	public static String PROPERTY_JMNTRACKER_SERVER_PORT = "jmntracker_server_port";
 	public static String PROPERTY_ACPREADER_SERVER_PORT = "acpreader_server_port";
 	public static String PROPERTY_MAX_CONNECTIONS = "max_connections";
@@ -116,7 +119,7 @@ public class ApplicationConstants {
 	public static int	ACPREADER_DEFAULT_PORT = 5392;
 	public static int	C4T_DEFAULT_PORT = 5393;
 	public static int	JMNTRACKER_DEFAULT_PORT = 5394;
-
+	public static int	BTMREADER_DEFAULT_PORT = 5395;
 	public static String DEFAULT_DB_SERVER = "localhost";
 	public static String DEFAULT_DB_USERNAME = "root";
 	public static String SESSION_ID = "session_id";
