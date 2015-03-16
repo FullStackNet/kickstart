@@ -58,14 +58,14 @@ public class Staff_presentHelper extends BaseHelper {
 			isSchoolTimingConfigured = false;
 		}
 		
-		String today = TimeUtil.getDateString("IST", new Date().getTime(),"-");
+		String today = TimeUtil.getDateStringMMDDYYYY("IST", new Date().getTime(),"-");
 		String entryKey =  _staff.getSchool_id();
 		entryKey = entryKey +"^"+"STAFF"+"^"+"ENTRY"+today;
 		staff_present _present = (staff_present)Staff_presentHelper.getInstance().getById(entryKey);
 		if (_present == null){
 			_present = new staff_present(entryKey);
 			_present.setDate_str(today);
-			_present.setDate(TimeUtil.getTimeFromDateStringYYYYMMDD(null, today));
+			_present.setDate(TimeUtil.getTimeFromDateString(null, today));
 			_present.setSchool_id(_staff.getSchool_id());
 			_present.setPresent_type("STAFF");
 			_present.setPresent_record_type("ENTRY");
@@ -78,14 +78,14 @@ public class Staff_presentHelper extends BaseHelper {
 			_detail = new staff_present_detail(entryKeyDetail);
 			_detail.setPresent_parent_id(entryKey);
 			_detail.setDate_str(today);
-			_detail.setDate(TimeUtil.getTimeFromDateStringYYYYMMDD(null, today));
+			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			_detail.setSchool_id(_staff.getSchool_id());
 			_detail.setPresent_type("STAFF");
 		    _detail.setPresent_record_type("ENTRY");
 			_detail.setDate_str(today);
 			_detail.setEntry_time(currentTime);
 			_detail.setStaff_id(_staff.getId());
-			_detail.setDate(TimeUtil.getTimeFromDateStringYYYYMMDD(null, today));
+			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			if (isSchoolTimingConfigured) {
 				if (!Util.isEmpty(_timings.getStart_time())) {
 					long currentDaytime = TimeUtil.getDayTime(timeZone, currentTime);
@@ -118,7 +118,7 @@ public class Staff_presentHelper extends BaseHelper {
 		if (_present == null){
 			_present = new staff_present(exitKey);
 			_present.setDate_str(today);
-			_present.setDate(TimeUtil.getTimeFromDateStringYYYYMMDD(null, today));
+			_present.setDate(TimeUtil.getTimeFromDateString(null, today));
 			_present.setSchool_id(_staff.getSchool_id());
 			_present.setPresent_type("STAFF");
 			_present.setPresent_record_type("EXIT");
@@ -129,7 +129,7 @@ public class Staff_presentHelper extends BaseHelper {
 			_detail = new staff_present_detail(exitKeyDetail);
 			_detail.setPresent_parent_id(exitKey);
 			_detail.setDate_str(today);
-			_detail.setDate(TimeUtil.getTimeFromDateStringYYYYMMDD(null, today));
+			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			_detail.setSchool_id(_staff.getSchool_id());
 			_detail.setPresent_type("STAFF");
 			_detail.setPresent_record_type("EXIT");
@@ -138,7 +138,7 @@ public class Staff_presentHelper extends BaseHelper {
 			_detail.setEntry_time(entrytime);
 			_detail.setLate_comingInMin(latecomming);
 			_detail.setWorkingInMin((currentTime-entrytime)/(1000*60));
-			_detail.setDate(TimeUtil.getTimeFromDateStringYYYYMMDD(null, today));
+			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			Staff_present_detailHelper.getInstance().add(_detail);
 		} else {
 			_detail = new staff_present_detail(exitKeyDetail);
