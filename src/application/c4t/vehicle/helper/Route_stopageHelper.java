@@ -373,7 +373,7 @@ public class Route_stopageHelper extends BaseHelper {
 					} else {
 						System.out.println("getReached_time is null");
 						long current_time = TimeUtil.getDayTime(_appliance.getTimeZone(),new Date());
-						lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
+						lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stopEx();
 						if (current_time > lastReachTime) {
 							lastReachTime = current_time;
 						}
