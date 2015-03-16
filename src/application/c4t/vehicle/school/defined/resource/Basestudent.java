@@ -108,6 +108,12 @@ public abstract class Basestudent extends BaseResource {
 	private String card_not_working = null;
 	private String card_not_working_reason = null;
 	private String card_not_working_date_str = null;
+	private String feature_bus_pickup_entry_sms = null;
+	private String feature_bus_pickup_exit_sms = null;
+	private String feature_bus_drop_entry_sms = null;
+	private String feature_bus_drop_exit_sms = null;
+	private String feature_school_entry_sms = null;
+	private String feature_school_exit_sms = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -199,6 +205,12 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_CARD_NOT_WORKING = "card_not_working";
 	public static String FIELD_CARD_NOT_WORKING_REASON = "card_not_working_reason";
 	public static String FIELD_CARD_NOT_WORKING_DATE_STR = "card_not_working_date_str";
+	public static String FIELD_FEATURE_BUS_PICKUP_ENTRY_SMS = "feature_bus_pickup_entry_sms";
+	public static String FIELD_FEATURE_BUS_PICKUP_EXIT_SMS = "feature_bus_pickup_exit_sms";
+	public static String FIELD_FEATURE_BUS_DROP_ENTRY_SMS = "feature_bus_drop_entry_sms";
+	public static String FIELD_FEATURE_BUS_DROP_EXIT_SMS = "feature_bus_drop_exit_sms";
+	public static String FIELD_FEATURE_SCHOOL_ENTRY_SMS = "feature_school_entry_sms";
+	public static String FIELD_FEATURE_SCHOOL_EXIT_SMS = "feature_school_exit_sms";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -590,6 +602,36 @@ public abstract class Basestudent extends BaseResource {
 		card_not_working_date_strField.setLength(32);
 		metaData.addField(card_not_working_date_strField);
 
+		Field feature_bus_pickup_entry_smsField = new Field("feature_bus_pickup_entry_sms", "String");
+		feature_bus_pickup_entry_smsField.setDefaultValue("Y");
+		feature_bus_pickup_entry_smsField.setLength(1);
+		metaData.addField(feature_bus_pickup_entry_smsField);
+
+		Field feature_bus_pickup_exit_smsField = new Field("feature_bus_pickup_exit_sms", "String");
+		feature_bus_pickup_exit_smsField.setDefaultValue("Y");
+		feature_bus_pickup_exit_smsField.setLength(1);
+		metaData.addField(feature_bus_pickup_exit_smsField);
+
+		Field feature_bus_drop_entry_smsField = new Field("feature_bus_drop_entry_sms", "String");
+		feature_bus_drop_entry_smsField.setDefaultValue("Y");
+		feature_bus_drop_entry_smsField.setLength(1);
+		metaData.addField(feature_bus_drop_entry_smsField);
+
+		Field feature_bus_drop_exit_smsField = new Field("feature_bus_drop_exit_sms", "String");
+		feature_bus_drop_exit_smsField.setDefaultValue("Y");
+		feature_bus_drop_exit_smsField.setLength(1);
+		metaData.addField(feature_bus_drop_exit_smsField);
+
+		Field feature_school_entry_smsField = new Field("feature_school_entry_sms", "String");
+		feature_school_entry_smsField.setDefaultValue("Y");
+		feature_school_entry_smsField.setLength(1);
+		metaData.addField(feature_school_entry_smsField);
+
+		Field feature_school_exit_smsField = new Field("feature_school_exit_sms", "String");
+		feature_school_exit_smsField.setDefaultValue("Y");
+		feature_school_exit_smsField.setLength(1);
+		metaData.addField(feature_school_exit_smsField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -692,6 +734,12 @@ public abstract class Basestudent extends BaseResource {
 		this.card_not_working = obj.card_not_working;
 		this.card_not_working_reason = obj.card_not_working_reason;
 		this.card_not_working_date_str = obj.card_not_working_date_str;
+		this.feature_bus_pickup_entry_sms = obj.feature_bus_pickup_entry_sms;
+		this.feature_bus_pickup_exit_sms = obj.feature_bus_pickup_exit_sms;
+		this.feature_bus_drop_entry_sms = obj.feature_bus_drop_entry_sms;
+		this.feature_bus_drop_exit_sms = obj.feature_bus_drop_exit_sms;
+		this.feature_school_entry_sms = obj.feature_school_entry_sms;
+		this.feature_school_exit_sms = obj.feature_school_exit_sms;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -750,6 +798,18 @@ public abstract class Basestudent extends BaseResource {
 			left = "N";
 		if(card_not_working == null)
 			card_not_working = "N";
+		if(feature_bus_pickup_entry_sms == null)
+			feature_bus_pickup_entry_sms = "Y";
+		if(feature_bus_pickup_exit_sms == null)
+			feature_bus_pickup_exit_sms = "Y";
+		if(feature_bus_drop_entry_sms == null)
+			feature_bus_drop_entry_sms = "Y";
+		if(feature_bus_drop_exit_sms == null)
+			feature_bus_drop_exit_sms = "Y";
+		if(feature_school_entry_sms == null)
+			feature_school_entry_sms = "Y";
+		if(feature_school_exit_sms == null)
+			feature_school_exit_sms = "Y";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -932,6 +992,18 @@ public abstract class Basestudent extends BaseResource {
 			map.put("card_not_working_reason", card_not_working_reason);
 		if(card_not_working_date_str != null)
 			map.put("card_not_working_date_str", card_not_working_date_str);
+		if(feature_bus_pickup_entry_sms != null)
+			map.put("feature_bus_pickup_entry_sms", feature_bus_pickup_entry_sms);
+		if(feature_bus_pickup_exit_sms != null)
+			map.put("feature_bus_pickup_exit_sms", feature_bus_pickup_exit_sms);
+		if(feature_bus_drop_entry_sms != null)
+			map.put("feature_bus_drop_entry_sms", feature_bus_drop_entry_sms);
+		if(feature_bus_drop_exit_sms != null)
+			map.put("feature_bus_drop_exit_sms", feature_bus_drop_exit_sms);
+		if(feature_school_entry_sms != null)
+			map.put("feature_school_entry_sms", feature_school_entry_sms);
+		if(feature_school_exit_sms != null)
+			map.put("feature_school_exit_sms", feature_school_exit_sms);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1120,6 +1192,18 @@ public abstract class Basestudent extends BaseResource {
 			map.put("card_not_working_reason", card_not_working_reason);
 		if(card_not_working_date_str != null)
 			map.put("card_not_working_date_str", card_not_working_date_str);
+		if(feature_bus_pickup_entry_sms != null)
+			map.put("feature_bus_pickup_entry_sms", feature_bus_pickup_entry_sms);
+		if(feature_bus_pickup_exit_sms != null)
+			map.put("feature_bus_pickup_exit_sms", feature_bus_pickup_exit_sms);
+		if(feature_bus_drop_entry_sms != null)
+			map.put("feature_bus_drop_entry_sms", feature_bus_drop_entry_sms);
+		if(feature_bus_drop_exit_sms != null)
+			map.put("feature_bus_drop_exit_sms", feature_bus_drop_exit_sms);
+		if(feature_school_entry_sms != null)
+			map.put("feature_school_entry_sms", feature_school_entry_sms);
+		if(feature_school_exit_sms != null)
+			map.put("feature_school_exit_sms", feature_school_exit_sms);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1221,6 +1305,12 @@ public abstract class Basestudent extends BaseResource {
 		card_not_working = (String) map.get("card_not_working");
 		card_not_working_reason = (String) map.get("card_not_working_reason");
 		card_not_working_date_str = (String) map.get("card_not_working_date_str");
+		feature_bus_pickup_entry_sms = (String) map.get("feature_bus_pickup_entry_sms");
+		feature_bus_pickup_exit_sms = (String) map.get("feature_bus_pickup_exit_sms");
+		feature_bus_drop_entry_sms = (String) map.get("feature_bus_drop_entry_sms");
+		feature_bus_drop_exit_sms = (String) map.get("feature_bus_drop_exit_sms");
+		feature_school_entry_sms = (String) map.get("feature_school_entry_sms");
+		feature_school_exit_sms = (String) map.get("feature_school_exit_sms");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1581,6 +1671,30 @@ public abstract class Basestudent extends BaseResource {
 		Object card_not_working_date_strObj = map.get("card_not_working_date_str");
 		if(card_not_working_date_strObj != null)
 			card_not_working_date_str = card_not_working_date_strObj.toString();
+
+		Object feature_bus_pickup_entry_smsObj = map.get("feature_bus_pickup_entry_sms");
+		if(feature_bus_pickup_entry_smsObj != null)
+			feature_bus_pickup_entry_sms = feature_bus_pickup_entry_smsObj.toString();
+
+		Object feature_bus_pickup_exit_smsObj = map.get("feature_bus_pickup_exit_sms");
+		if(feature_bus_pickup_exit_smsObj != null)
+			feature_bus_pickup_exit_sms = feature_bus_pickup_exit_smsObj.toString();
+
+		Object feature_bus_drop_entry_smsObj = map.get("feature_bus_drop_entry_sms");
+		if(feature_bus_drop_entry_smsObj != null)
+			feature_bus_drop_entry_sms = feature_bus_drop_entry_smsObj.toString();
+
+		Object feature_bus_drop_exit_smsObj = map.get("feature_bus_drop_exit_sms");
+		if(feature_bus_drop_exit_smsObj != null)
+			feature_bus_drop_exit_sms = feature_bus_drop_exit_smsObj.toString();
+
+		Object feature_school_entry_smsObj = map.get("feature_school_entry_sms");
+		if(feature_school_entry_smsObj != null)
+			feature_school_entry_sms = feature_school_entry_smsObj.toString();
+
+		Object feature_school_exit_smsObj = map.get("feature_school_exit_sms");
+		if(feature_school_exit_smsObj != null)
+			feature_school_exit_sms = feature_school_exit_smsObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2943,6 +3057,78 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetCard_not_working_date_str() {
 		this.card_not_working_date_str = null;
+	}
+
+	public String getFeature_bus_pickup_entry_sms() {
+		return feature_bus_pickup_entry_sms != null ? feature_bus_pickup_entry_sms : "Y";
+	}
+
+	public void setFeature_bus_pickup_entry_sms(String feature_bus_pickup_entry_sms) {
+		this.feature_bus_pickup_entry_sms = feature_bus_pickup_entry_sms;
+	}
+
+	public void unSetFeature_bus_pickup_entry_sms() {
+		this.feature_bus_pickup_entry_sms = "Y";
+	}
+
+	public String getFeature_bus_pickup_exit_sms() {
+		return feature_bus_pickup_exit_sms != null ? feature_bus_pickup_exit_sms : "Y";
+	}
+
+	public void setFeature_bus_pickup_exit_sms(String feature_bus_pickup_exit_sms) {
+		this.feature_bus_pickup_exit_sms = feature_bus_pickup_exit_sms;
+	}
+
+	public void unSetFeature_bus_pickup_exit_sms() {
+		this.feature_bus_pickup_exit_sms = "Y";
+	}
+
+	public String getFeature_bus_drop_entry_sms() {
+		return feature_bus_drop_entry_sms != null ? feature_bus_drop_entry_sms : "Y";
+	}
+
+	public void setFeature_bus_drop_entry_sms(String feature_bus_drop_entry_sms) {
+		this.feature_bus_drop_entry_sms = feature_bus_drop_entry_sms;
+	}
+
+	public void unSetFeature_bus_drop_entry_sms() {
+		this.feature_bus_drop_entry_sms = "Y";
+	}
+
+	public String getFeature_bus_drop_exit_sms() {
+		return feature_bus_drop_exit_sms != null ? feature_bus_drop_exit_sms : "Y";
+	}
+
+	public void setFeature_bus_drop_exit_sms(String feature_bus_drop_exit_sms) {
+		this.feature_bus_drop_exit_sms = feature_bus_drop_exit_sms;
+	}
+
+	public void unSetFeature_bus_drop_exit_sms() {
+		this.feature_bus_drop_exit_sms = "Y";
+	}
+
+	public String getFeature_school_entry_sms() {
+		return feature_school_entry_sms != null ? feature_school_entry_sms : "Y";
+	}
+
+	public void setFeature_school_entry_sms(String feature_school_entry_sms) {
+		this.feature_school_entry_sms = feature_school_entry_sms;
+	}
+
+	public void unSetFeature_school_entry_sms() {
+		this.feature_school_entry_sms = "Y";
+	}
+
+	public String getFeature_school_exit_sms() {
+		return feature_school_exit_sms != null ? feature_school_exit_sms : "Y";
+	}
+
+	public void setFeature_school_exit_sms(String feature_school_exit_sms) {
+		this.feature_school_exit_sms = feature_school_exit_sms;
+	}
+
+	public void unSetFeature_school_exit_sms() {
+		this.feature_school_exit_sms = "Y";
 	}
 
 	public Map<String, Object> getExtra_data() {

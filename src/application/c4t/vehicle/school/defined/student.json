@@ -488,6 +488,42 @@
 			{
 				'type':'String',
 				length : 32
+			},
+			'feature_bus_pickup_entry_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_bus_pickup_exit_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_bus_drop_entry_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_bus_drop_exit_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_school_entry_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_school_exit_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
 			}
 		}
 	}
