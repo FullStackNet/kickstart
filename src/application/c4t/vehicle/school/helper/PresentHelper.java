@@ -44,7 +44,7 @@ public class PresentHelper extends BaseHelper {
 		// TODO Auto-generated constructor stub
 	}
 	private static PresentHelper instance;
-	
+
 	public static PresentHelper getInstance() {
 		if (instance == null)
 			instance = new PresentHelper();
@@ -72,19 +72,19 @@ public class PresentHelper extends BaseHelper {
 			ApplicationLogger.error(" No student found for card " +cardId, this.getClass());
 			return;
 		}
-		
+
 		if (students.length > 1) {
 			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_MUTIPLE_STUDENT);
 			ApplicationLogger.error(" Multiple student detected for card " +cardId, this.getClass());
 			//need to send the alerts admin
 		}
-		
+
 		boolean entryRecordExist = true;
 		student _student = (student)students[0];
 		_log.setStudent_id(_student.getId());
 		_log.setStudent_name(_student.getName());
 		_log.setClass_section_name(_student.getClass_section_name());
-	
+
 		if (route.ROUTE_TYPE_PICKUP.equals(_route.getType())) {
 			route_stopage pickup_route_stopage = (route_stopage)Route_stopageHelper.getInstance().getById(_student.getPickup_route_stopage_id());
 			if (pickup_route_stopage == null) {
@@ -133,7 +133,7 @@ public class PresentHelper extends BaseHelper {
 				_present.setTotal_student(resoucres.length);
 			}
 			PresentHelper.getInstance().add(_present);
-			
+
 		}
 		String entryKeyDetail = entryKey+"^"+_student.getId();
 		present_detail _detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
@@ -144,10 +144,10 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate_str(today);
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			_detail.setSchool_id(_student.getSchool_id());
-			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
+			String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
 			_detail.setClass_section_name(class_section_name);
 			_detail.setPresent_type("BUS");
-		    _detail.setSub_present_type(_route.getType());
+			_detail.setSub_present_type(_route.getType());
 			_detail.setDate_str(today);
 			_detail.setStudent_id(_student.getId());
 			_detail.setPresent_record_type("ENTRY");
@@ -201,7 +201,7 @@ public class PresentHelper extends BaseHelper {
 		exitKey = exitKey +"^"+"BUS"+"^"+_route.getType()+"^"+"EXIT"+today;
 		// create a presnt entry record;
 		String exitKeyDetail = exitKey+"^"+_student.getId();
-		
+
 		_present = (present)PresentHelper.getInstance().getById(exitKey);
 		if (_present == null){
 			_present = new present(exitKey);
@@ -226,10 +226,10 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate_str(today);
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			_detail.setSchool_id(_student.getSchool_id());
-			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
+			String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
 			_detail.setClass_section_name(class_section_name);
 			_detail.setPresent_type("BUS");
-		    _detail.setSub_present_type(_route.getType());
+			_detail.setSub_present_type(_route.getType());
 			_detail.setPresent_record_type("EXIT");
 			_detail.setDate_str(today);
 			_detail.setStudent_id(_student.getId());
@@ -263,7 +263,7 @@ public class PresentHelper extends BaseHelper {
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME,TimeUtil.getStringFromOnlyTime(_school.getTimezone(), currentTime));
-			
+
 			if ((_school != null) && (_school.getBrand_name() != null)) {
 				map.put("BRAND_NAME", _school.getBrand_name());
 			} 
@@ -272,7 +272,7 @@ public class PresentHelper extends BaseHelper {
 					map, 
 					new Date(currentTime)); 
 			_log.setRecord_type("EXIT");
-			
+
 
 		} else {
 			_detail = new present_detail(exitKeyDetail);
@@ -296,7 +296,7 @@ public class PresentHelper extends BaseHelper {
 		updateTotalPresent(exitKey);
 		Log_id_cardHelper.getInstance().update(_log);
 	}
-	
+
 	public void updateInSchoolAttendance(String cardId,String readerId, String locationId,String location_name,log_id_card _log) throws ApplicationException {
 		String timeZone  = "IST";
 		long currentTime = new Date().getTime();
@@ -347,7 +347,7 @@ public class PresentHelper extends BaseHelper {
 			_present.setSchool_id(_student.getSchool_id());
 			_present.setClass_name(_student.getClass_name());
 			_present.setSection_name(_student.getSection_name());
-			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
+			String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
 			_present.setClass_section_name(class_section_name);
 			_present.setPresent_type("SCHOOL");
 			_present.setPresent_record_type("ENTRY");
@@ -358,68 +358,79 @@ public class PresentHelper extends BaseHelper {
 			}
 			PresentHelper.getInstance().add(_present);
 		}
-		
+
 		String entryKeyDetail = entryKey+"^"+_student.getId();
 		present_detail _detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
 		if (_detail == null) {
-			_log.setRecord_type("ENTRY");
-			_detail = new present_detail(entryKeyDetail);
-			_detail.setPresent_parent_id(entryKey);
-			_detail.setDate_str(today);
-			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
-			_detail.setSchool_id(_student.getSchool_id());
-			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
-			_detail.setClass_section_name(class_section_name);
-			_detail.setPresent_type("SCHOOL");
-		    _detail.setPresent_record_type("ENTRY");
-			_detail.setDate_str(today);
-			_detail.setStudent_id(_student.getId());
-			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
-			_detail.setLate_comingInMin(0);
+			boolean isExitTime = false;
 			if (isSchoolTimingConfigured) {
-				if (!Util.isEmpty(_timings.getStart_time())) {
-					long currentDaytime = TimeUtil.getDayTime(timeZone, currentTime);
-					long startDaytime = TimeUtil.getDayTime(_timings.getStart_time());	
-					long allowedtime = startDaytime+_timings.getEntry_buffer_afterInMinEx()*60;
-					System.out.println(cardId +" Start Time : " + startDaytime + " Current Time : " + startDaytime + " Allow time : " + allowedtime);
-					if (currentDaytime > allowedtime) {
-						_detail.setLate_comingInMin((currentDaytime-startDaytime)/60);
-					}
+				long currentDaytime = TimeUtil.getDayTime(timeZone, currentTime);
+				long endDaytime = TimeUtil.getDayTime(_timings.getEnd_time());	
+				long allowedtime = endDaytime-_timings.getExit_buffer_beforeInMinEx()*60;
+				if (currentDaytime > allowedtime) {
+					isExitTime = true;
 				}
 			}
-			Present_detailHelper.getInstance().add(_detail);
-			_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
-			updateTotalPresent(entryKey);
-			
-			
-			StudentHelper.getInstance().incrementCounter(_student.getId(),student.FIELD_TOTAL_PRESENT, 1);
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("BRAND_NAME", "School");
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_detail.getId());
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
-					_student.getSchool_id());
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_ID,_student.getId());
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME,_student.getShort_name());
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME,_student.getClass_section_name());
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
-			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME,TimeUtil.getStringFromOnlyTime(_school.getTimezone(), currentTime));
-			
-			if ((_school != null) && (_school.getBrand_name() != null)) {
-				map.put("BRAND_NAME", _school.getBrand_name());
-			} 
-			NotificationHelper.getInstance().addNotificationNonAppliance(NotificationFactory.NOTIFICATION_SCHOOL_ENTRY, 
-					NotificationFactory.SEVERIRY_INFO, 
-					map, 
-					new Date(currentTime)); 
-			Log_id_cardHelper.getInstance().update(_log);
-			return;
+			if (!isExitTime) {
+				_log.setRecord_type("ENTRY");
+				_detail = new present_detail(entryKeyDetail);
+				_detail.setPresent_parent_id(entryKey);
+				_detail.setDate_str(today);
+				_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+				_detail.setSchool_id(_student.getSchool_id());
+				String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
+				_detail.setClass_section_name(class_section_name);
+				_detail.setPresent_type("SCHOOL");
+				_detail.setPresent_record_type("ENTRY");
+				_detail.setDate_str(today);
+				_detail.setStudent_id(_student.getId());
+				_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
+				_detail.setLate_comingInMin(0);
+				if (isSchoolTimingConfigured) {
+					if (!Util.isEmpty(_timings.getStart_time())) {
+						long currentDaytime = TimeUtil.getDayTime(timeZone, currentTime);
+						long startDaytime = TimeUtil.getDayTime(_timings.getStart_time());	
+						long allowedtime = startDaytime+_timings.getEntry_buffer_afterInMinEx()*60;
+						System.out.println(cardId +" Start Time : " + startDaytime + " Current Time : " + startDaytime + " Allow time : " + allowedtime);
+						if (currentDaytime > allowedtime) {
+							_detail.setLate_comingInMin((currentDaytime-startDaytime)/60);
+						}
+					}
+				}
+				Present_detailHelper.getInstance().add(_detail);
+				_detail = (present_detail)Present_detailHelper.getInstance().getById(entryKeyDetail); 
+				updateTotalPresent(entryKey);
+
+
+				StudentHelper.getInstance().incrementCounter(_student.getId(),student.FIELD_TOTAL_PRESENT, 1);
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("BRAND_NAME", "School");
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_ID,_detail.getId());
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SCHOOL_ID,
+						_student.getSchool_id());
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_ID,_student.getId());
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME,_student.getShort_name());
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_SECTION_NAME,_student.getClass_section_name());
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
+				map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME,TimeUtil.getStringFromOnlyTime(_school.getTimezone(), currentTime));
+
+				if ((_school != null) && (_school.getBrand_name() != null)) {
+					map.put("BRAND_NAME", _school.getBrand_name());
+				} 
+				NotificationHelper.getInstance().addNotificationNonAppliance(NotificationFactory.NOTIFICATION_SCHOOL_ENTRY, 
+						NotificationFactory.SEVERIRY_INFO, 
+						map, 
+						new Date(currentTime)); 
+				Log_id_cardHelper.getInstance().update(_log);
+				return;
+			}
 		} 
 		if (isSchoolTimingConfigured) {
 			if (Util.isEmpty(_timings.getEnd_time()))
-					isSchoolTimingConfigured = false;	
+				isSchoolTimingConfigured = false;	
 		}
-		if ((currentTime - _detail.getCreation_time()) < 60*60*1000L) {
+		if ((_detail !=  null) && (currentTime - _detail.getCreation_time()) < 60*60*1000L) {
 			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_SWAP_TO_FAST);
 			return;
 		}
@@ -433,13 +444,15 @@ public class PresentHelper extends BaseHelper {
 				return;
 			}
 		}
-		long entrytime = _detail.getCreation_time();
-		 
+		long entrytime = 0;
+		if (_detail != null)
+			entrytime = _detail.getCreation_time();
+
 		String exitKey =  _student.getSchool_id()+_student.getClass_name()+"^"+_student.getSection_name();
 		exitKey = exitKey +"^"+"SCHOOL"+"^"+"EXIT"+today;
 		// create a presnt entry record;
 		String exitKeyDetail = exitKey+"^"+_student.getId();
-		
+
 		_present = (present)PresentHelper.getInstance().getById(exitKey);
 		if (_present == null){
 			_present = new present(exitKey);
@@ -448,7 +461,7 @@ public class PresentHelper extends BaseHelper {
 			_present.setSchool_id(_student.getSchool_id());
 			_present.setClass_name(_student.getClass_name());
 			_present.setSection_name(_student.getSection_name());
-			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
+			String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
 			_present.setClass_section_name(class_section_name);
 			_present.setPresent_type("SCHOOL");
 			_present.setPresent_record_type("EXIT");
@@ -467,7 +480,7 @@ public class PresentHelper extends BaseHelper {
 			_detail.setDate_str(today);
 			_detail.setDate(TimeUtil.getTimeFromDateString(null, today));
 			_detail.setSchool_id(_student.getSchool_id());
-			 String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
+			String class_section_name = _student.getClass_name()+" "+_student.getSection_name();
 			_detail.setClass_section_name(class_section_name);
 			_detail.setPresent_type("SCHOOL");
 			_detail.setPresent_record_type("EXIT");
@@ -487,7 +500,7 @@ public class PresentHelper extends BaseHelper {
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_REFERENCE_DATE,currentTime);
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID,_student.getCustomer_id());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_DISPLAY_TIME,TimeUtil.getStringFromOnlyTime(_school.getTimezone(), currentTime));
-			
+
 			if ((_school != null) && (_school.getBrand_name() != null)) {
 				map.put("BRAND_NAME", _school.getBrand_name());
 			} 
@@ -504,23 +517,23 @@ public class PresentHelper extends BaseHelper {
 		Log_id_cardHelper.getInstance().update(_log);
 
 	}
-	
+
 	public void updateSend(String id) throws ApplicationException {
 		present _present = new present(id);
 		_present.setSent("Y");
 		PresentHelper.getInstance().update(_present);
 	}
-	
+
 	public BaseResource[] getDaily_activiyForClass(String customerId, String class_section_name) {
 		Expression e1 = new Expression(present.FIELD_SCHOOL_ID, REL_OP.EQ, customerId);
 		Expression e2 = new Expression(present.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e3 = new Expression(e1, LOG_OP.AND, e2);
 		Expression e4 = new Expression(present.FIELD_SENT, REL_OP.EQ, "Y");
 		Expression e5 = new Expression(e3, LOG_OP.AND, e4);
-		
+
 		return getByExpression(e5, new String[]{absent.FIELD_DATE+ " desc"});
 	}
-	
+
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools) {
 		HelperFactory.getInstance().register(SchoolHelper.getInstance());
 		HelperFactory.getInstance().register(PresentHelper.getInstance());
@@ -536,7 +549,7 @@ public class PresentHelper extends BaseHelper {
 		}
 		return new ArrayList<Map<String, Object>>();
 	}
-	
+
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools,String[] order,long fromtime,long totime) {
 		try {
 			HelperFactory.getInstance().register(SchoolHelper.getInstance());
@@ -547,7 +560,7 @@ public class PresentHelper extends BaseHelper {
 			Expression e2 = new Expression(present.FIELD_SCHOOL_ID, REL_OP.IN, schools);
 			Expression e4 = new Expression(present.FIELD_DATE, REL_OP.GTEQ, fromtime);
 			Expression e5 = new Expression(present.FIELD_DATE, REL_OP.LT, totime);
-			
+
 			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
 			Expression e = new Expression(e2, LOG_OP.AND, e6);
 			return getByJoining(e,list,order);
@@ -557,13 +570,13 @@ public class PresentHelper extends BaseHelper {
 		}
 		return new ArrayList<Map<String, Object>>();		
 	}
-	
+
 	public BaseResource[] getResourceForSchools(String[] schools,String[] order,long fromtime,long totime) {
 		try {
 			Expression e2 = new Expression(present.FIELD_SCHOOL_ID, REL_OP.IN, schools);
 			Expression e4 = new Expression(present.FIELD_DATE, REL_OP.GTEQ, fromtime);
 			Expression e5 = new Expression(present.FIELD_DATE, REL_OP.LT, totime);
-			
+
 			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
 			Expression e = new Expression(e2, LOG_OP.AND, e6);
 			return getByExpression(e,order);
