@@ -60,6 +60,8 @@ public abstract class Message implements Cloneable,Serializable{
 	public short  destinationPort;
 	private Date messageTime;
 	
+	private boolean persistent;
+	
 	public Message() {
 		ackOnly = false;
 		messageVersion = 1;
@@ -68,6 +70,7 @@ public abstract class Message implements Cloneable,Serializable{
 		messageDeviceIdFields = new ArrayList<String>();
 		messageId = "";
 		messageTime = new Date();
+		persistent = false;
 	}
 
 	protected Object clone() throws CloneNotSupportedException {
@@ -78,6 +81,8 @@ public abstract class Message implements Cloneable,Serializable{
 		return messageId;
 	}
 
+	
+	
 	public boolean isSingleMessage() {
 		return false;
 	}
@@ -358,5 +363,13 @@ public abstract class Message implements Cloneable,Serializable{
 
 	public void setDestinationPort(short destinationPort) {
 		this.destinationPort = destinationPort;
+	}
+
+	public boolean isPersistent() {
+		return persistent;
+	}
+
+	public void setPersistent(boolean persistent) {
+		this.persistent = persistent;
 	}
 }
