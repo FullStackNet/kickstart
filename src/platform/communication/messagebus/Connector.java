@@ -208,10 +208,10 @@ public class Connector {
 			return;
 		String targetId = message.getTarget();
 		if (message.isPersistent()) {
-			MessageProducer producer = peerMap.get("permament_"+targetId);
+			MessageProducer producer = peerMap.get("permanent_"+targetId);
 			if (producer == null) {
 				addPeer(targetId);
-				producer = peerMap.get("permament_"+targetId);
+				producer = peerMap.get("permanent_"+targetId);
 			}
 			try {
 				ApplicationLogger.info(message.getSender()+" Sending Permament Message "+message.getName()+" to " + targetId + "\n"+message.getDump(), this.getClass());
@@ -256,7 +256,7 @@ public class Connector {
 			Destination parmanentDestination = session.createQueue("MessageQueue.permanent."+peerId);
 			MessageProducer paramanentPeer = session.createProducer(parmanentDestination);
 			paramanentPeer.setDeliveryMode(DeliveryMode.PERSISTENT);
-			peerMap.put("permament_"+peerId, paramanentPeer);
+			peerMap.put("permanent_"+peerId, paramanentPeer);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
