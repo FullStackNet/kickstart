@@ -91,7 +91,7 @@ public class PresentHelper extends BaseHelper {
 				ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
 				_log.setRemark("Cards Swapped: " + _route.getName() + ", Configured Route : N/A");
 				Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_INCORRECT_ROUTE);
-	
+				return;
 			}
 			if (!_route.getId().equals(pickup_route_stopage.getRoute_id())) {
 				ApplicationLogger.error("Rejecting the card not in right route ... " +cardId, this.getClass());
