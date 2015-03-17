@@ -96,7 +96,8 @@ public class Connector {
 		pool.start();
 
 		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(connectURL);
-		 // Create a Connection
+	  	((ActiveMQConnectionFactory)connectionFactory).setUseAsyncSend(true);
+    	 // Create a Connection
       try {
     	  	connection = connectionFactory.createConnection();
     	  	connection.setExceptionListener(new ExceptionListener() {
