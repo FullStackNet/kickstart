@@ -328,7 +328,8 @@ public class PresentHelper extends BaseHelper {
 		school_timing _timings = (school_timing)School_timingHelper.getInstance().getSchoolTiming(_student.getSchool_id(),
 				_student.getClass_name(), _student.getSection_name());
 		if (_timings == null) {
-			isSchoolTimingConfigured = false;
+			if (Util.isEmpty(_timings.getStart_time()))
+				isSchoolTimingConfigured = false;
 		}
 		school _school = (school) SchoolHelper.getInstance().getById(_student.getSchool_id());
 		if (!"Y".equals(_school.getFeature_timing_based_attendance())) {
