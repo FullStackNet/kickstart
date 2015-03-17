@@ -270,14 +270,20 @@ public class Route_stopageHelper extends BaseHelper {
 		if (!Util.isEmpty(resources)) {
 			for(BaseResource resource : resources) {
 				route_stopage _route_stopage = (route_stopage) resource;
-				
 				if (_route_stopage == null)
 					continue;
 				stopage _stopage = (stopage) StopageHelper.getInstance().getById(_route_stopage.getStopage_id());
 				if (_stopage == null)
 					continue;
+				
 				if (_stopage != null) {
-						_route_stopage.setStopage_name(_stopage.getName());
+					if (Util.isEmpty(_stopage.getLatitude())) {
+						_stopage.setLatitude(null);
+					}
+					if (Util.isEmpty(_stopage.getLongitude())) {
+						_stopage.setLatitude(null);
+					}
+					_route_stopage.setStopage_name(_stopage.getName());
 						_route_stopage.setLatitude(_stopage.getLatitude());
 						_route_stopage.setLongitude(_stopage.getLongitude());
 				}
