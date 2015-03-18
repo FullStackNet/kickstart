@@ -234,8 +234,8 @@ public class Appliance_time_seriesHelper extends BaseHelper {
 		appliance _appliance = ApplianceHelper.getInstance().getById(applianceId);
 		if (_appliance == null)
 			return null;
-		String fromDate = TimeUtil.getDateString(_appliance.getTimeZone(), fromTime);
-		String toDate = TimeUtil.getDateString(_appliance.getTimeZone(), toTime);
+		String fromDate = TimeUtil.getDateString(null, fromTime);
+		String toDate = TimeUtil.getDateString(null, toTime);
 		System.out.println("From date" + fromDate + "ToDate date "+toDate);	
 		BaseResource[] time_seriesData = Appliance_time_seriesHelper.getInstance().getArray(applianceId, "location",fromDate,toDate);
 		if (Util.isEmpty(time_seriesData))
