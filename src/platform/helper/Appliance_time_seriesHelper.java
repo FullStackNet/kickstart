@@ -230,14 +230,11 @@ public class Appliance_time_seriesHelper extends BaseHelper {
 	}
 	
 	
-	public BaseResource[] getLocationDetail(String applianceId,long fromTime,long toTime) {
+	public BaseResource[] getLocationDetail(String applianceId,String fromDate,String toDate) {
 		appliance _appliance = ApplianceHelper.getInstance().getById(applianceId);
 		if (_appliance == null)
 			return null;
-		String fromDate = TimeUtil.getDateString(null, fromTime);
-		String toDate = TimeUtil.getDateString(null, toTime);
-		System.out.println("From date" + fromDate + "ToDate date "+toDate);	
-		BaseResource[] time_seriesData = Appliance_time_seriesHelper.getInstance().getArray(applianceId, "location",fromDate,toDate);
+		BaseResource[] time_seriesData = Appliance_time_seriesHelper.getInstance().getArray(applianceId,"location",fromDate,toDate);
 		if (Util.isEmpty(time_seriesData))
 			return null;
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
