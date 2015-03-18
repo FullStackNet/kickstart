@@ -14,6 +14,8 @@ import platform.resource.appliance_time_series;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
+import platform.util.Util;
+import application.c4t.vehicle.resource.trip_detail;
 
 
 public class Appliance_time_seriesHelper extends BaseHelper {
@@ -226,4 +228,39 @@ public class Appliance_time_seriesHelper extends BaseHelper {
 		}
 		return list;
 	}
+	
+	
+	public BaseResource[] getLocationDetail(String applianceId,long fromTime,long toTime) {
+		appliance _appliance = ApplianceHelper.getInstance().getById(applianceId);
+		if (_appliance == null)
+			return null;
+		String fromDate = TimeUtil.getDateString(_appliance.getTimeZone(), fromTime);
+		String toDate = TimeUtil.getDateString(_appliance.getTimeZone(), toTime);
+			
+		BaseResource[] time_seriesData = Appliance_time_seriesHelper.getInstance().getArray(applianceId, "location",fromDate,toDate);
+		if (Util.isEmpty(time_seriesData))
+			return null;
+		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
+		long last_time = 0;
+		for(int i=0; i < time_seriesData.length; i++) {
+			String speed = "-"; 
+			appliance_time_series data = (appliance_time_series) time_seriesData[i];
+			if (data.getValue() == null)
+				continue;
+			String[] location = data.getValue().split(",");
+			if (location.length != 2)
+				continue;
+			trip_detail _detail = new trip_detail();
+			_detail.setCreation_time(data.getCreation_time());
+			_detail.setLocation_latitude_longitude(data.getValue());
+			_detail.setSpeed(speed);
+			if (last_time != 0) {
+				_detail.setData_get_duration(data.getCreation_time()-last_time);
+			}
+			last_time = data.getCreation_time();
+			list.add(_detail);
+		}
+		return HelperUtils.convertList2Array(list);
+	}
+
 }

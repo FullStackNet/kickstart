@@ -40,6 +40,9 @@ public abstract class BaseTableView extends BaseView {
 
 	abstract protected void populateDefinition();
 	abstract protected ArrayList<Map<String, Object>> getData();
+	protected String fromDatestring;
+	protected String toDatestring;
+	protected String timeZone;
 
 
 	public  String getTodayURL() {
@@ -63,6 +66,8 @@ public abstract class BaseTableView extends BaseView {
 		mContext = ctx;
 		ctx.getPageBuilder().addJS(new JS("action_handle.js", "/ui/js/"));
 		populateDefinition();
+		fromDatestring = (String) getContext().getParamValue("from_date");
+		toDatestring =  getContext().getParamValue("to_date");
 	}
 
 
