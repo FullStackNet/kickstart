@@ -236,14 +236,13 @@ public class Appliance_time_seriesHelper extends BaseHelper {
 			return null;
 		String fromDate = TimeUtil.getDateString(_appliance.getTimeZone(), fromTime);
 		String toDate = TimeUtil.getDateString(_appliance.getTimeZone(), toTime);
-			
+		System.out.println("From date" + fromDate + "ToDate date "+toDate);	
 		BaseResource[] time_seriesData = Appliance_time_seriesHelper.getInstance().getArray(applianceId, "location",fromDate,toDate);
 		if (Util.isEmpty(time_seriesData))
 			return null;
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		long last_time = 0;
 		for(int i=0; i < time_seriesData.length; i++) {
-			String speed = "-"; 
 			appliance_time_series data = (appliance_time_series) time_seriesData[i];
 			if (data.getValue() == null)
 				continue;
@@ -253,7 +252,6 @@ public class Appliance_time_seriesHelper extends BaseHelper {
 			trip_detail _detail = new trip_detail();
 			_detail.setCreation_time(data.getCreation_time());
 			_detail.setLocation_latitude_longitude(data.getValue());
-			_detail.setSpeed(speed);
 			if (last_time != 0) {
 				_detail.setData_get_duration(data.getCreation_time()-last_time);
 			}
