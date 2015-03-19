@@ -239,7 +239,7 @@ public class ApplianceService extends BaseService{
 		if(QueryTypes.QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN.toString().equals(queryId)) {
 			return ApplianceHelper.getInstance().getSchoolBusAdminDetail(ctx.getCustomerId(),null);
 		}
-		if(QueryTypes.QUERY_USER_VEHICLE_LOCATION.toString().equals(queryId)) {
+		else if(QueryTypes.QUERY_USER_VEHICLE_LOCATION.toString().equals(queryId)) {
 			String appliance_id = (String)map.get("id");
 			BaseResource appliance = ApplianceHelper.getInstance().getApplianceLocation(appliance_id);
 			if (appliance == null)
@@ -248,10 +248,10 @@ public class ApplianceService extends BaseService{
 			resources[0] = appliance;
 			return resources;
 		}
-		if(QueryTypes.QUERY_APPLIANCE_HOME_AUTOMATION.toString().equals(queryId)) {
+		else if(QueryTypes.QUERY_APPLIANCE_HOME_AUTOMATION.toString().equals(queryId)) {
 			return ApplianceHelper.getInstance().getByCustomerId(ctx.getCustomerId());
 		}
-		if(QueryTypes.QUERY_USER_APPLIANCES_SUMMARY.toString().equals(queryId)) {
+		else if(QueryTypes.QUERY_USER_APPLIANCES_SUMMARY.toString().equals(queryId)) {
 			System.out.println("Received Query "+queryId);
 			String userId = ctx.getUserId();
 			if (userId == null) {

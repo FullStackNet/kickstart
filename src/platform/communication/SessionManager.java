@@ -1,9 +1,11 @@
 package platform.communication;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import platform.log.ApplicationLogger;
+import platform.util.TimeUtil;
 
 public class SessionManager {
 	Map<Object, Session> sessionTable = null ;
@@ -57,7 +59,7 @@ public class SessionManager {
 				}
 			}
 			if ((currentTime - session.getLastUpdateTime()) > 300000L) {
-				ApplicationLogger.info("Marking the delete for session for not responding sessions ..." + session.getClientId(),this.getClass());
+				ApplicationLogger.info("Marking the delete for session for not responding sessions ...Last Heard from this " +TimeUtil.ago(session.getLastUpdateTime()) +" ->"+ session.getClientId(),this.getClass());
 				session.setDelete(true);
 			}
 		}
