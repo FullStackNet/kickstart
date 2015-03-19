@@ -182,7 +182,6 @@ class ClientReadHandler extends Communication implements Runnable {
 		handle.setKeepAlive(true);
 		handle.setSoTimeout(3000);
 		session = new Session();
-		session.setLastUpdateTime(new Date().getTime());
 		session.setKey(handle.toString());
 		session.setMax_message_queue_per_client(server.getContext().getMaxMessageQueueSizePerClient());
 		SessionManager.getInstance().addSession(session);
