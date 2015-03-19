@@ -92,6 +92,10 @@ public class ApplianceHelper extends BaseHelper {
 		return appliances;
 	}
 
+	public BaseResource getApplianceLocation(String applianceId) {
+		return ApplianceHelper.getInstance().getSelectedFieldsById(applianceId, new String[]{appliance.FIELD_ID,appliance.FIELD_LATITUDE,appliance.FIELD_LANGITUDE});
+	}
+	
 	public BaseResource[] getSchoolBusAdminDetail(String customerId, String[] schoolIds) {
 		BaseResource[] appliances;
 		if (!Util.isEmpty(schoolIds)) {

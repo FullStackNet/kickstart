@@ -226,7 +226,8 @@ public class ApplianceService extends BaseService{
 		QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN,
 		QUERY_GET_BY_ROUTE_ID,
 		QUERY_APPLIANCE_HOME_AUTOMATION,
-		QUERY_USER_VEHICLE_SUMMARY
+		QUERY_USER_VEHICLE_SUMMARY,
+		QUERY_USER_VEHICLE_LOCATION
 	};
 
 	public BaseResource get(ServletContext ctx, String uid) {
@@ -237,6 +238,15 @@ public class ApplianceService extends BaseService{
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
 		if(QueryTypes.QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN.toString().equals(queryId)) {
 			return ApplianceHelper.getInstance().getSchoolBusAdminDetail(ctx.getCustomerId(),null);
+		}
+		if(QueryTypes.QUERY_USER_VEHICLE_LOCATION.toString().equals(queryId)) {
+			String appliance_id = (String)map.get("id");
+			BaseResource appliance = ApplianceHelper.getInstance().getApplianceLocation(appliance_id);
+			if (appliance == null)
+				return null;
+			BaseResource[] resources = new appliance[1];
+			resources[0] = appliance;
+			return resources;
 		}
 		if(QueryTypes.QUERY_APPLIANCE_HOME_AUTOMATION.toString().equals(queryId)) {
 			return ApplianceHelper.getInstance().getByCustomerId(ctx.getCustomerId());
