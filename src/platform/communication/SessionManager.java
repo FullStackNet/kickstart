@@ -53,7 +53,7 @@ public class SessionManager {
 			Session session = (Session)entry.getValue();
 			long currentTime = System.currentTimeMillis();
 			if (session.getClientId() == null) {
-				if ((currentTime-session.getCreationTime()) > 20000) {
+				if ((currentTime-session.getCreationTime()) > 60000) {
 					ApplicationLogger.info("Marking the null session delete :",this.getClass());
 					session.setDelete(true);
 				}
