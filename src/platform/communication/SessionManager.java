@@ -49,11 +49,16 @@ public class SessionManager {
 	public void deleteOrphanedConnection() {
 		for(Map.Entry<Object, Session> entry : sessionTable.entrySet()) {
 			Session session = (Session)entry.getValue();
+			long currentTime = System.currentTimeMillis();
 			if (session.getClientId() == null) {
-				long currentTime = System.currentTimeMillis();
 				if ((currentTime-session.getCreationTime()) > 20000) {
+					ApplicationLogger.info("Marking the null session delete :",this.getClass());
 					session.setDelete(true);
 				}
+			}
+			if ((currentTime - session.getLastUpdateTime()) > 300000L) {
+				ApplicationLogger.info("Marking the delete for session for not responding sessions ..." + session.getClientId(),this.getClass());
+				session.setDelete(true);
 			}
 		}
 	}

@@ -8,6 +8,12 @@ import platform.protocol.ProtocolProvider;
 
 
 public abstract class Communication {
+	public Object getHandle() {
+		return handle;
+	}
+	public void setHandle(Object handle) {
+		this.handle = handle;
+	}
 	// Listen for incoming connections and handle them
 	protected Object handle;
 	boolean ssl;

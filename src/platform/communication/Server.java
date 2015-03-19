@@ -5,6 +5,7 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.util.Date;
 
 import javax.net.ServerSocketFactory;
 import javax.net.ssl.SSLServerSocketFactory;
@@ -181,6 +182,7 @@ class ClientReadHandler extends Communication implements Runnable {
 		handle.setKeepAlive(true);
 		handle.setSoTimeout(3000);
 		session = new Session();
+		session.setLastUpdateTime(new Date().getTime());
 		session.setKey(handle.toString());
 		session.setMax_message_queue_per_client(server.getContext().getMaxMessageQueueSizePerClient());
 		SessionManager.getInstance().addSession(session);
