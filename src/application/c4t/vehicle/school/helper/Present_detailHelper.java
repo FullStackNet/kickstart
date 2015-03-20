@@ -33,6 +33,35 @@ public class Present_detailHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 	
+	public BaseResource[] getDetail(String[] parentIds) {
+		Expression e = new Expression(present_detail.FIELD_PRESENT_PARENT_ID, REL_OP.IN, parentIds);
+		return getByExpression(e);
+	}
+	
+	public BaseResource[] getSchoolEntry(String[] parentIds) {
+		Expression e1 = new Expression(present_detail.FIELD_PRESENT_PARENT_ID, REL_OP.IN, parentIds);
+		Expression e2 = new Expression(present_detail.FIELD_PRESENT_TYPE, REL_OP.EQ, "SCHOOL");
+		Expression e3 = new Expression(present_detail.FIELD_PRESENT_RECORD_TYPE, REL_OP.EQ, "ENTRY");
+		Expression e4 = new Expression(e1, LOG_OP.AND, e2);
+		Expression e = new Expression(e3, LOG_OP.AND, e4);
+		return getByExpression(e);
+	}
+	
+	public BaseResource[] getBusTapped(String[] parentIds) {
+		Expression e1 = new Expression(present_detail.FIELD_PRESENT_PARENT_ID, REL_OP.IN, parentIds);
+		Expression e2 = new Expression(present_detail.FIELD_PRESENT_TYPE, REL_OP.EQ, "BUS");
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
+	
+	public BaseResource[] getSchoolExit(String[] parentIds) {
+		Expression e1 = new Expression(present_detail.FIELD_PRESENT_PARENT_ID, REL_OP.IN, parentIds);
+		Expression e2 = new Expression(present_detail.FIELD_PRESENT_TYPE, REL_OP.EQ, "SCHOOL");
+		Expression e3 = new Expression(present_detail.FIELD_PRESENT_RECORD_TYPE, REL_OP.EQ, "EXIT");
+		Expression e4 = new Expression(e1, LOG_OP.AND, e2);
+		Expression e = new Expression(e3, LOG_OP.AND, e4);
+		return getByExpression(e);
+	}
 	public BaseResource[] getStudent(String parentId) {
 		Expression e = new Expression(present_detail.FIELD_PRESENT_PARENT_ID, REL_OP.EQ, parentId);
 		BaseResource[] resources = getByExpression(e);

@@ -63,6 +63,8 @@ public class HelperUtils {
 		}
 		return map;
 	}
+	
+	
 	public static String[] convertResource2IdArray(BaseResource[] resources) {
 		String[] ids = new String[resources.length];
 		int count = 0;
