@@ -99,6 +99,16 @@
 				'type':'String',
 				'length': 128
 			},
+			'latitude':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'longitude':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'remark':
 			{
 				'type':'String',

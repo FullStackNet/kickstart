@@ -36,6 +36,8 @@ public abstract class Baselog_id_card extends BaseResource {
 	private String customer_id = null;
 	private Long event_time = null;
 	private String error_reason = null;
+	private String latitude = null;
+	private String longitude = null;
 	private String remark = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -57,6 +59,8 @@ public abstract class Baselog_id_card extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EVENT_TIME = "event_time";
 	public static String FIELD_ERROR_REASON = "error_reason";
+	public static String FIELD_LATITUDE = "latitude";
+	public static String FIELD_LONGITUDE = "longitude";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -138,6 +142,14 @@ public abstract class Baselog_id_card extends BaseResource {
 		error_reasonField.setLength(128);
 		metaData.addField(error_reasonField);
 
+		Field latitudeField = new Field("latitude", "String");
+		latitudeField.setLength(128);
+		metaData.addField(latitudeField);
+
+		Field longitudeField = new Field("longitude", "String");
+		longitudeField.setLength(128);
+		metaData.addField(longitudeField);
+
 		Field remarkField = new Field("remark", "String");
 		remarkField.setLength(128);
 		metaData.addField(remarkField);
@@ -175,6 +187,8 @@ public abstract class Baselog_id_card extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.event_time = obj.event_time;
 		this.error_reason = obj.error_reason;
+		this.latitude = obj.latitude;
+		this.longitude = obj.longitude;
 		this.remark = obj.remark;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -225,6 +239,10 @@ public abstract class Baselog_id_card extends BaseResource {
 			map.put("event_time", event_time);
 		if(error_reason != null)
 			map.put("error_reason", error_reason);
+		if(latitude != null)
+			map.put("latitude", latitude);
+		if(longitude != null)
+			map.put("longitude", longitude);
 		if(remark != null)
 			map.put("remark", remark);
 		if(creation_time != null)
@@ -273,6 +291,10 @@ public abstract class Baselog_id_card extends BaseResource {
 			map.put("event_time", event_time);
 		if(error_reason != null)
 			map.put("error_reason", error_reason);
+		if(latitude != null)
+			map.put("latitude", latitude);
+		if(longitude != null)
+			map.put("longitude", longitude);
 		if(remark != null)
 			map.put("remark", remark);
 		if(creation_time != null)
@@ -306,6 +328,8 @@ public abstract class Baselog_id_card extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		event_time = (Long) map.get("event_time");
 		error_reason = (String) map.get("error_reason");
+		latitude = (String) map.get("latitude");
+		longitude = (String) map.get("longitude");
 		remark = (String) map.get("remark");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -380,6 +404,14 @@ public abstract class Baselog_id_card extends BaseResource {
 		Object error_reasonObj = map.get("error_reason");
 		if(error_reasonObj != null)
 			error_reason = error_reasonObj.toString();
+
+		Object latitudeObj = map.get("latitude");
+		if(latitudeObj != null)
+			latitude = latitudeObj.toString();
+
+		Object longitudeObj = map.get("longitude");
+		if(longitudeObj != null)
+			longitude = longitudeObj.toString();
 
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
@@ -663,6 +695,38 @@ public abstract class Baselog_id_card extends BaseResource {
 
 	public void unSetError_reason() {
 		this.error_reason = null;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public String getLatitudeEx() {
+		return latitude != null ? latitude : "";
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public void unSetLatitude() {
+		this.latitude = null;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public String getLongitudeEx() {
+		return longitude != null ? longitude : "";
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	public void unSetLongitude() {
+		this.longitude = null;
 	}
 
 	public String getRemark() {
