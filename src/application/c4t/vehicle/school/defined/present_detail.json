@@ -94,6 +94,18 @@
 			{
 				'type':'String',
 				length : 1024
+			},
+			'corrected':
+			{
+				'type':'String',
+				length : 1,
+				'default' : "N"
+			},
+			'correction_type':
+			{
+				'type':'String',
+				length : 1,
+				'default' : "N"
 			}
 		}
 	}

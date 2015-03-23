@@ -36,6 +36,8 @@ public abstract class Basepresent_detail extends BaseResource {
 	private Long late_comingInMin = null;
 	private Long workingInMin = null;
 	private String remark = null;
+	private String corrected = null;
+	private String correction_type = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -55,6 +57,8 @@ public abstract class Basepresent_detail extends BaseResource {
 	public static String FIELD_LATE_COMINGINMIN = "late_comingInMin";
 	public static String FIELD_WORKINGINMIN = "workingInMin";
 	public static String FIELD_REMARK = "remark";
+	public static String FIELD_CORRECTED = "corrected";
+	public static String FIELD_CORRECTION_TYPE = "correction_type";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -130,6 +134,16 @@ public abstract class Basepresent_detail extends BaseResource {
 		remarkField.setLength(1024);
 		metaData.addField(remarkField);
 
+		Field correctedField = new Field("corrected", "String");
+		correctedField.setDefaultValue("N");
+		correctedField.setLength(1);
+		metaData.addField(correctedField);
+
+		Field correction_typeField = new Field("correction_type", "String");
+		correction_typeField.setDefaultValue("N");
+		correction_typeField.setLength(1);
+		metaData.addField(correction_typeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -160,11 +174,20 @@ public abstract class Basepresent_detail extends BaseResource {
 		this.late_comingInMin = obj.late_comingInMin;
 		this.workingInMin = obj.workingInMin;
 		this.remark = obj.remark;
+		this.corrected = obj.corrected;
+		this.correction_type = obj.correction_type;
 		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
+		if(corrected == null)
+			corrected = "N";
+		if(correction_type == null)
+			correction_type = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -203,12 +226,19 @@ public abstract class Basepresent_detail extends BaseResource {
 			map.put("workingInMin", workingInMin);
 		if(remark != null)
 			map.put("remark", remark);
+		if(corrected != null)
+			map.put("corrected", corrected);
+		if(correction_type != null)
+			map.put("correction_type", correction_type);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
@@ -244,6 +274,10 @@ public abstract class Basepresent_detail extends BaseResource {
 			map.put("workingInMin", workingInMin);
 		if(remark != null)
 			map.put("remark", remark);
+		if(corrected != null)
+			map.put("corrected", corrected);
+		if(correction_type != null)
+			map.put("correction_type", correction_type);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -273,6 +307,8 @@ public abstract class Basepresent_detail extends BaseResource {
 		late_comingInMin = (Long) map.get("late_comingInMin");
 		workingInMin = (Long) map.get("workingInMin");
 		remark = (String) map.get("remark");
+		corrected = (String) map.get("corrected");
+		correction_type = (String) map.get("correction_type");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -345,6 +381,14 @@ public abstract class Basepresent_detail extends BaseResource {
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
 			remark = remarkObj.toString();
+
+		Object correctedObj = map.get("corrected");
+		if(correctedObj != null)
+			corrected = correctedObj.toString();
+
+		Object correction_typeObj = map.get("correction_type");
+		if(correction_typeObj != null)
+			correction_type = correction_typeObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -624,6 +668,30 @@ public abstract class Basepresent_detail extends BaseResource {
 
 	public void unSetRemark() {
 		this.remark = null;
+	}
+
+	public String getCorrected() {
+		return corrected != null ? corrected : "N";
+	}
+
+	public void setCorrected(String corrected) {
+		this.corrected = corrected;
+	}
+
+	public void unSetCorrected() {
+		this.corrected = "N";
+	}
+
+	public String getCorrection_type() {
+		return correction_type != null ? correction_type : "N";
+	}
+
+	public void setCorrection_type(String correction_type) {
+		this.correction_type = correction_type;
+	}
+
+	public void unSetCorrection_type() {
+		this.correction_type = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {
