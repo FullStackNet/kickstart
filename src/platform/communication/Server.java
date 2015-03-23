@@ -5,7 +5,6 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.Date;
 
 import javax.net.ServerSocketFactory;
 import javax.net.ssl.SSLServerSocketFactory;
@@ -35,17 +34,17 @@ public class Server  {
 
 	private ServerSocket listener;
 	private long numberOfConnection;
-	
+
 	public synchronized void incrementConnection() {
 		numberOfConnection ++;
 		ApplicationLogger.info("Incremented connections for " + context.getName()+"("+context.getPort()+") -> total connection -> "+ numberOfConnection , this.getClass());
 	}
-	
+
 	public synchronized void decrementConnection() {
 		numberOfConnection --;
 		ApplicationLogger.info("Decremented connections for " +context.getName()+"("+context.getPort()+") -> total connection  ->  "+ numberOfConnection , this.getClass());
 	}
-	
+
 	public Server(ServerContext context) {
 		this.context = context;
 		stop = false;
@@ -55,7 +54,7 @@ public class Server  {
 
 	public void stop() {
 		stop = true;
-		
+
 		try {
 			if (listener != null)
 				listener.close();
@@ -66,7 +65,7 @@ public class Server  {
 		listener = null;
 	}
 	// Listen for incoming connections and handle them
-	
+
 	public void start() {
 		try{
 			//BinaryMessageQueue.getInstance().test();
@@ -102,7 +101,7 @@ public class Server  {
 					thread.setName("CLIENT_HANDLING_THREAD");
 					clientHandler.setThread(thread);
 					thread.start();
-					
+
 				} catch(Exception e) {
 					e.printStackTrace();
 					ApplicationLogger.error("Error in client handling", this.getClass());
@@ -121,11 +120,11 @@ public class Server  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public void startSSL() {
-		
+
 		ApplicationLogger.init();
 		try{
 			//BinaryMessageQueue.getInstance().test();
@@ -235,7 +234,7 @@ class ClientReadHandler extends Communication implements Runnable {
 			}
 			try {
 				executeCommandFromMessageQueue();
-				
+
 				Message msg = null;
 				msg = getProtocolProvider().getReader().read(session, getReaderHandle(), protocolProvider.getMessageManager());
 				if (msg == null) {
@@ -257,10 +256,10 @@ class ClientReadHandler extends Communication implements Runnable {
 				break;
 			}
 		}
+		
 		try {
-			ApplicationLogger.warn("Peered closed the connection closing the connection "+session.getClientId()+" for "+server.getContext().getName()+"("+server.getContext().getPort()+")", this.getClass());
 			((Socket)handle).close();
-
+			ApplicationLogger.warn("Peered closed the connection closing the connection "+session.getClientId()+" for "+server.getContext().getName()+"("+server.getContext().getPort()+")", this.getClass());
 		} catch(Exception e) {
 		}
 		SessionManager.getInstance().deleteSession(handle.toString());

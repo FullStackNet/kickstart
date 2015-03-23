@@ -66,6 +66,6 @@ public class SessionManager {
 	}
 	
 	public void cleanupSession(Object key) {
-		
+		sessionTable.remove(key);
 	}
 }
