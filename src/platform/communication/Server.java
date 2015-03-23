@@ -251,7 +251,7 @@ class ClientReadHandler extends Communication implements Runnable {
 					processMessage(msg);
 				}
 				responseMessageQueue.cleanUnAttendedMessage(session);
-			} catch (ApplicationException e) {
+			} catch (Exception e) {
 				ApplicationLogger.info("Exiting the Session due to exception "+e.getMessage()+"...."+session.getClientId(), this.getClass());
 				break;
 			}
