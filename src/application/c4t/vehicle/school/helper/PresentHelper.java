@@ -191,12 +191,15 @@ public class PresentHelper extends BaseHelper {
 					new Date(currentTime)); 
 		}
 		updateTotalPresent(entryKey);
+		
+		if (!entryRecordExist) {
+			Log_id_cardHelper.getInstance().update(_log);
+			return;
+		}
 		if ((currentTime - _detail.getCreation_time()) < 2*60*1000L) {
 			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_SWAP_TO_FAST);
 			return;
 		}
-		if (!entryRecordExist)
-			return;
 		String exitKey =  _route.getId()+"^";
 		exitKey = exitKey +"^"+"BUS"+"^"+_route.getType()+"^"+"EXIT"+today;
 		// create a presnt entry record;
