@@ -1,5 +1,7 @@
 package platform.communication;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -66,5 +68,18 @@ public class SessionManager {
 	
 	public void cleanupSession(Object key) {
 		sessionTable.remove(key);
+	}
+	
+	public ArrayList<Map<String, Object>> getSessionListMap() {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		for(Map.Entry<Object, Session> entry : sessionTable.entrySet()) {
+			Session session = entry.getValue();
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("key", session.getSessionKey());
+			map.put("client_id", session.getClientId());
+			map.put("ago", TimeUtil.ago(session.getLastUpdateTime()));
+			list.add(map);
+		}
+		return list;
 	}
 }

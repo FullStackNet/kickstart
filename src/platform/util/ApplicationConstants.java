@@ -54,6 +54,7 @@ public class ApplicationConstants {
 	
 	public static String PROPERTY_SERVER = "server";
 	public static String PROPERTY_PORT = "port";
+	public static String PROPERTY_HTTP_PORT = "http_port";
 	public static String PROPERTY_USERNAME = "username";
 	public static String PROPERTY_PASSWORD = "password";
 	public static String PROPERTY_API_KEY = "api_key";
