@@ -1022,35 +1022,8 @@ public class Util {
 		buffer.append("<a href=\"/\">Configuration</a>");
 		buffer.append("</td>");
 		buffer.append("<td>");
-		buffer.append("<a href=\"/dashboard\">DashBoard</a>");
+		buffer.append("<a href=\"/session\">Session</a>");
 		buffer.append("</td>");
-		buffer.append("<td>");
-		buffer.append("<a href=\"/counters\">Counters</a>");
-		buffer.append("</td>");
-		buffer.append("<td>");
-		buffer.append("<a href=\"/sensor\">Sensors</a>");
-		buffer.append("</td>");
-		buffer.append("<td>");
-		buffer.append("<a href=\"/alert\">Alerts</a>");
-		buffer.append("</td>");
-
-		buffer.append("<td>");
-		buffer.append("<a href=\"/client/message_queue\">Client Message Queue</a>");
-		buffer.append("</td>");
-
-		buffer.append("<td>");
-		buffer.append("<a href=\"/dic/message_queue\">DIC Message Queue</a>");
-		buffer.append("</td>");
-		buffer.append("<td>");
-		buffer.append("<a href=\"/dic/urgent_message_queue\">DIC Urgent Message Queue</a>");
-		buffer.append("</td>");
-		buffer.append("<td>");
-		buffer.append("<a href=\"/dic\">DIC List</a>");
-		buffer.append("</td>");
-		buffer.append("<td>");
-		buffer.append("<a href=\"/dic/down\">Down DIC</a>");
-		buffer.append("</td>");
-
 		buffer.append("</tr>");
 		buffer.append("</table>");
 		return buffer.toString();
