@@ -144,6 +144,9 @@ public class Home_practiceNotificationTask extends NotificationTask {
 			student _student = (student)students[i];
 			if (_student == null)
 				continue;
+			
+			if ("Y".equals(_student.getLeft())) 
+				continue;
 			school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
 			if (_school == null) {
 				ApplicationLogger.error("!!! BIG ERROR !!! School id is null for " +_student.getId() + " " +_student.getName(), this.getClass());

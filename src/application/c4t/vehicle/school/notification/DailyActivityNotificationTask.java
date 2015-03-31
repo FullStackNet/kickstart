@@ -154,6 +154,7 @@ public class DailyActivityNotificationTask extends NotificationTask {
 		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(ids,class_section_name);
 		if ((students == null) || (students.length == 0)) 
 			return;
+		
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
 		Map<String, student> studentMap = new HashMap<String, student>();
 		Map<String, student> smsAlertMap = new HashMap<String, student>();
@@ -167,6 +168,8 @@ public class DailyActivityNotificationTask extends NotificationTask {
 		for(int i=0; i< students.length; i++) {
 			student _student = (student)students[i];
 			if (_student == null)
+				continue;
+			if ("Y".equals(_student.getLeft())) 
 				continue;
 			school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
 			if (_school == null) {

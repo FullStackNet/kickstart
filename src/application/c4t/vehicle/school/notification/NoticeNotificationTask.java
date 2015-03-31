@@ -170,7 +170,18 @@ public class NoticeNotificationTask extends NotificationTask {
 		} 
 		if ((students == null) || (students.length == 0)) 
 			return;
-		ApplicationLogger.info("Sending notice to "+ students.length + " Students", this.getClass());
+		int total_students = 0;
+		for(int i=0; i< students.length; i++) {
+			student _student = (student)students[i];
+			if (_student == null)
+				continue;
+			if ("Y".equals(_student.getLeft())) 
+				continue;
+			total_students++;
+		}
+		ApplicationLogger.info("Sending notice to "+ total_students + " Students", this.getClass());
+		if (total_students == 0)
+			return;
 		Map<String, BaseResource> userMap = new HashMap<String, BaseResource>();
 		Map<String, student> studentMap = new HashMap<String, student>();
 		String smsAlert = "N";
@@ -183,6 +194,8 @@ public class NoticeNotificationTask extends NotificationTask {
 		for(int i=0; i< students.length; i++) {
 			student _student = (student)students[i];
 			if (_student == null)
+				continue;
+			if ("Y".equals(_student.getLeft())) 
 				continue;
 			school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
 			if (_school == null) {
@@ -263,7 +276,7 @@ public class NoticeNotificationTask extends NotificationTask {
 		}
 		ApplicationLogger.info("Sending notice by Students :"+studentMap.size()+" SMS : "+ smsAlertMap.size() + " Email :"+ emailAlertMap.size() +" Notification " + appAlertMap.size()+ " Users and Total " + userMap.size() , this.getClass());
 		NoticeHelper.getInstance().updateSentCounter(notice_id, 
-				students.length, userMap.size(), smsAlertMap.size(), emailAlertMap.size(), appAlertMap.size());
+				total_students, userMap.size(), smsAlertMap.size(), emailAlertMap.size(), appAlertMap.size());
 		
 		sendNotification2Users(activity,_notification, userMap, studentMap,
 				appAlertMap,
