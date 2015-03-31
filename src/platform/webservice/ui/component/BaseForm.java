@@ -44,6 +44,7 @@ public abstract class BaseForm extends BaseView {
 	public BaseForm(UIServletContext ctx) {
 		super();
 		mContext = ctx;
+		ctx.getPageBuilder().addJS(new JS("action_handle.js", "/ui/js/"));
 		getView().addChild(mForm);
 	}
 

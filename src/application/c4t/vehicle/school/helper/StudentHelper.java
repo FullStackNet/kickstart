@@ -84,9 +84,9 @@ public class StudentHelper extends BaseHelper {
 		try {
 			list = getByJoining(e, joinFields, new String[]{student.FIELD_NAME});
 			return list;
-		} catch (ApplicationException e3) {
+		} catch (ApplicationException exp) {
 			// TODO Auto-generated catch block
-			e3.printStackTrace();
+			exp.printStackTrace();
 		}
 		
 		return null;
