@@ -47,7 +47,7 @@ public abstract class BaseTrackMapView extends BaseView {
 				    "center: new google.maps.LatLng("+startPoint.getLatitude()+", "+startPoint.getLongitude()+"),\n"+
 				    "mapTypeId: google.maps.MapTypeId.TERRAIN\n"+
 				  "};\n"+
-				  "var map = new google.maps.Map(document.getElementById('map-canvas'),\n"+
+				  "var map = new google.maps.Map(document.getElementById('"+mDefinition.getId()+"'),\n"+
 				  "    mapOptions);\n"+
 				  "var flightPlanCoordinates = [];\n ");
 				  for(int i =0; i < mDefinition.getMapPointList().size() ; i++) {
