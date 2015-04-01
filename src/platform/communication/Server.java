@@ -224,7 +224,7 @@ class ClientReadHandler extends Communication implements Runnable {
 				ApplicationLogger.info("Invalid session terminating it ...."+session.getClientId() +" for "+server.getContext().getName()+"("+server.getContext().getPort()+")", this.getClass());
 				break;
 			}
-			if (session.isDelete()) {
+			if (session.isDelete() && getProtocolProvider().getReader().isOk2Exit()) {
 				ApplicationLogger.info("Session mark deleted ...."+session.getClientId(), this.getClass());
 				break;
 			}

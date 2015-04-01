@@ -8,5 +8,7 @@ import platform.util.ApplicationException;
 public abstract class Reader {
 	public abstract Message read(Session session, Object handle, MessageManager messageManager) throws ApplicationException;	
 	public abstract Message readWrite(Session session, Object handle,Object writeHandle, MessageManager messageManager) throws ApplicationException;	
-
+	public boolean isOk2Exit() {
+		return true;
+	}
 }
