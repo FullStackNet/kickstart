@@ -25,6 +25,7 @@ public class Session implements  Serializable {
 	long 	 heartbeatInterval;
 	byte 	 type;
 	boolean  delete;
+	long 	 pendingMessages;
 	long  max_message_queue_per_client;
 
 
@@ -37,6 +38,24 @@ public class Session implements  Serializable {
 		lastUpdateTime = System.currentTimeMillis();
 		type = CommunitionConst.CLIENT_TYPE_C4T_GATEWAY;
 		max_message_queue_per_client = 256;
+		pendingMessages = 0;
+	}
+	
+	
+	public long getPendingMessage() {
+		return pendingMessages;
+	}
+	
+	public void incrementPendingMessage() {
+		pendingMessages++;
+	}
+	
+	public void setPendingMessage(long num) {
+		pendingMessages = num;
+	}
+	
+	public void decrementPendingMessage() {
+		pendingMessages--;
 	}
 	
 	public long getMax_message_queue_per_client() {

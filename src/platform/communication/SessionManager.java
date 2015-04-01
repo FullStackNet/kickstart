@@ -80,6 +80,7 @@ public class SessionManager {
 			map.put("Created", TimeUtil.ago(session.getCreationTime()));
 			map.put("Last Updated", TimeUtil.ago(session.getLastUpdateTime()));
 			map.put("Deleted", session.isDelete());
+			map.put("Total Message", session.getPendingMessage());
 			list.add(map);
 		}
 		return list;
