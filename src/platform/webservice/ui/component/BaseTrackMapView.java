@@ -53,9 +53,7 @@ public abstract class BaseTrackMapView extends BaseView {
 				  for(int i =0; i < mDefinition.getMapPointList().size() ; i++) {
 						MapPoint point = mDefinition.getMapPointList().get(i);
 						buffer.append("var stop = new google.maps.LatLng("+point.getLatitude()+", "+point.getLongitude()+") \n"+ 
-							"flightPlanCoordinates.push({ \n"+
-					        "    location:stop, \n"+
-					        "    stopover:true});\n");
+							"flightPlanCoordinates.push(stop);\n");
 					}
 				  buffer.append("var flightPath = new google.maps.Polyline({\n"+
 				    "path: flightPlanCoordinates,\n"+
