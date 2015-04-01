@@ -50,7 +50,7 @@ public abstract class BaseTrackMapView extends BaseView {
 			    "    var startpoint = new google.maps.LatLng("+startPoint.getLatitude()+", "+startPoint.getLongitude()+");\n"+
 			    "    var myOptions = {\n"+
 			    "        zoom: 6,\n"+
-			    "		 center : startpoint\n"+	
+			    "		 center : startpoint,\n"+	
 			    "        mapTypeId: google.maps.MapTypeId.ROADMAP\n"+
 			    "    } \n"+
 			    "    map = new google.maps.Map(document.getElementById(\""+mDefinition.getId()+"\"), myOptions);\n"+
@@ -64,7 +64,7 @@ public abstract class BaseTrackMapView extends BaseView {
 	        "var waypts = []; \n");
 	    for(int i =0; i < mDefinition.getMapPointList().size() ; i++) {
 			MapPoint point = mDefinition.getMapPointList().get(i);
-			buffer.append("var stop = new google.maps.LatLng("+point.getLatitude()+", "+point.getLongitude()+") \n"+ 
+			buffer.append("stop = new google.maps.LatLng("+point.getLatitude()+", "+point.getLongitude()+") \n"+ 
 				"waypts.push({ \n"+
 		        "    location:stop, \n"+
 		        "    stopover:true});\n");
