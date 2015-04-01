@@ -32,6 +32,8 @@ public abstract class BaseRouteMapView extends BaseView {
 		div.addAttribute("id",mDefinition.getId());
 		div.addAttribute("style","font-size : 10px;width: 100%; height: 600px; border : 1px solid gray");
 		getView().addChild(div);
+		if (mDefinition.getMapPointList().size() == 0)
+			return;
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("<script type=\"text/javascript\">\n");
 		buffer.append("var markers = [\n");

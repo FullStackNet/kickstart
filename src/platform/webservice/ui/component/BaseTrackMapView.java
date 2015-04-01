@@ -33,6 +33,8 @@ public abstract class BaseTrackMapView extends BaseView {
 		div.addAttribute("id",mDefinition.getId());
 		div.addAttribute("style","font-size : 10px;width: 100%; height: 600px; border : 1px solid gray");
 		getView().addChild(div);
+		if (mDefinition.getMapPointList().size() == 0)
+			return;
 		StringBuffer buffer = new StringBuffer();
 		MapPoint startPoint =  mDefinition.getMapPointList().get(0);
 		MapPoint endPoint = mDefinition.getMapPointList().get(mDefinition.getMapPointList().size()-1);
@@ -43,7 +45,7 @@ public abstract class BaseTrackMapView extends BaseView {
 				"});\n"+
 			    "function initialize() {\n"+
 				    "var mapOptions = {\n"+
-				    "zoom: 3,\n"+
+				    "zoom: 15,\n"+
 				    "center: new google.maps.LatLng("+startPoint.getLatitude()+", "+startPoint.getLongitude()+"),\n"+
 				    "mapTypeId: google.maps.MapTypeId.TERRAIN\n"+
 				  "};\n"+
