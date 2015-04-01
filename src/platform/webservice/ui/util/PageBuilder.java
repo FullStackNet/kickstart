@@ -69,9 +69,9 @@ public class PageBuilder {
 		mBody.removeAllChild();
 		mHead.removeAllChild();
 		if (mContext.isMobileRequest()) {
-			cssFileList.add(new CSS("mobile_base.css", "/ui/css"));
 			cssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
 			cssFileList.add(new CSS("bootstrap-theme.min.cs", "/ui/css"));
+			cssFileList.add(new CSS("mobile_base.css", "/ui/css"));
 			cssFileList.add(new CSS("jquery.mobile-1.4.0.min.css", "http://code.jquery.com/mobile/1.4.0/"));
 			jsFileList.add(new JS("jquery-1.10.2.min.js", "/ui/js"));
 			jsFileList.add(new JS("jquery.mobile-1.4.0.min.js", "http://code.jquery.com/mobile/1.4.0"));
@@ -80,6 +80,8 @@ public class PageBuilder {
 			jsFileList.add(new JS("json.js", "/ui/js"));
 			jsFileList.add(new JS("bootstrap.min.js", "/ui/js"));
 		} else {
+			cssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
+			cssFileList.add(new CSS("bootstrap-theme.min.css", "/ui/css"));
 			cssFileList.add(new CSS("base.css", "/ui/css"));
 			cssFileList.add(new CSS("jquery-ui.css", "http://code.jquery.com/ui/1.11.0/themes/smoothness"));
 			jsFileList.add(new JS("jquery-1.10.2.js", "http://code.jquery.com"));
@@ -88,8 +90,6 @@ public class PageBuilder {
 			jsFileList.add(new JS("DataHandler.js", "/ui/js"));
 			jsFileList.add(new JS("json.js", "/ui/js"));
 			jsFileList.add(new JS("base64.js", "/ui/js"));
-			cssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
-			cssFileList.add(new CSS("bootstrap-theme.min.cs", "/ui/css"));
 			jsFileList.add(new JS("bootstrap.min.js", "/ui/js"));
 			if (isEditor()) {
 				jsFileList.add(new JS("nicEdit-latest.js", "http://js.nicedit.com"));
