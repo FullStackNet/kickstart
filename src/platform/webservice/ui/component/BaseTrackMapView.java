@@ -41,52 +41,31 @@ public abstract class BaseTrackMapView extends BaseView {
 				"$(document).ready(function(){\n"+
 					"initialize();\n"+
 				"});\n"+
-				"var directionDisplay;\n"+
-			    "var directionsService;\n"+
-			    "var map;\n"+
 			    "function initialize() {\n"+
-			    "	 directionsService = new google.maps.DirectionsService();\n" +
-			    "    directionsDisplay = new google.maps.DirectionsRenderer();\n"+
-			    "    var startpoint = new google.maps.LatLng("+startPoint.getLatitude()+", "+startPoint.getLongitude()+");\n"+
-			    "    var myOptions = {\n"+
-			    "        zoom: 6,\n"+
-			    "		 center : startpoint,\n"+	
-			    "        mapTypeId: google.maps.MapTypeId.ROADMAP\n"+
-			    "    } \n"+
-			    "    map = new google.maps.Map(document.getElementById(\""+mDefinition.getId()+"\"), myOptions);\n"+
-			    "    directionsDisplay.setMap(map);\n"+
-			    "    calcRoute();\n"+
-			 	"}; \n");
-		
-		
-		buffer.append(""+
-			"function calcRoute() { \n"+
-	        "var waypts = []; \n");
-	    for(int i =0; i < mDefinition.getMapPointList().size() ; i++) {
-			MapPoint point = mDefinition.getMapPointList().get(i);
-			buffer.append("stop = new google.maps.LatLng("+point.getLatitude()+", "+point.getLongitude()+") \n"+ 
-				"waypts.push({ \n"+
-		        "    location:stop, \n"+
-		        "    stopover:true});\n");
-		}
-		buffer.append("var start  = new google.maps.LatLng("+startPoint.getLatitude()+", "+startPoint.getLongitude()+"); \n"+
-	        "var end = new google.maps.LatLng("+endPoint.getLatitude()+", "+endPoint.getLongitude()+"); \n"+
-	        "var request = {\n"+
-	         "   origin: start,\n"+
-	         "   destination: end,\n"+
-	         "   waypoints: waypts,\n"+
-	         "   optimizeWaypoints: true,\n"+
-	         "   travelMode: google.maps.DirectionsTravelMode.WALKING\n"+
-	         "}; \n");
-		
-		buffer.append(""+
-				"directionsService.route(request, function(response, status) { \n"+
-	            "if (status == google.maps.DirectionsStatus.OK) { \n"+
-	            "    directionsDisplay.setDirections(response); \n"+
-	            "   var route = response.routes[0]; \n"+
-	           " } \n"+
-	        "});\n");
-		buffer.append(""+"}");
+				    "var mapOptions = {\n"+
+				    "zoom: 3,\n"+
+				    "center: new google.maps.LatLng("+startPoint.getLatitude()+", "+startPoint.getLongitude()+"),\n"+
+				    "mapTypeId: google.maps.MapTypeId.TERRAIN\n"+
+				  "};\n"+
+				  "var map = new google.maps.Map(document.getElementById('map-canvas'),\n"+
+				  "    mapOptions);\n"+
+				  "var flightPlanCoordinates = [];\n ");
+				  for(int i =0; i < mDefinition.getMapPointList().size() ; i++) {
+						MapPoint point = mDefinition.getMapPointList().get(i);
+						buffer.append("var stop = new google.maps.LatLng("+point.getLatitude()+", "+point.getLongitude()+") \n"+ 
+							"flightPlanCoordinates.push({ \n"+
+					        "    location:stop, \n"+
+					        "    stopover:true});\n");
+					}
+				  buffer.append("var flightPath = new google.maps.Polyline({\n"+
+				    "path: flightPlanCoordinates,\n"+
+				    "geodesic: true,\n"+
+				    "strokeColor: '#FF0000',\n"+
+				    "strokeOpacity: 1.0,\n"+
+				    "strokeWeight: 2\n"+
+				  "});\n"+
+				  "flightPath.setMap(map);\n"+
+				"}; \n");
 		buffer.append("</script>");
 		TEXT text = new TEXT(buffer.toString());
 		getView().addChild(text);
