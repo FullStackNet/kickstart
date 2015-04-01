@@ -75,9 +75,11 @@ public class SessionManager {
 		for(Map.Entry<Object, Session> entry : sessionTable.entrySet()) {
 			Session session = entry.getValue();
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("key", session.getSessionKey());
-			map.put("client_id", session.getClientId());
-			map.put("ago", TimeUtil.ago(session.getLastUpdateTime()));
+			map.put("Session Id", session.getSessionKey());
+			map.put("Client", session.getClientId());
+			map.put("Created", TimeUtil.ago(session.getCreationTime()));
+			map.put("Last Updated", TimeUtil.ago(session.getLastUpdateTime()));
+			map.put("Deleted", session.isDelete());
 			list.add(map);
 		}
 		return list;
