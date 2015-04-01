@@ -255,17 +255,21 @@ public abstract class BaseForm extends BaseView {
 					column.addChild(img);
 					row.addChild(column);
 					column = new TD();
+					column.addAttribute("style","padding-left:10px;padding-top:10px;padding-bottom:10px;");
+					
 				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PHOTO) { 
 					IMG img = new IMG();
 					img.setSRC(getImageSource(field,dataMap));
 					column.addChild(img);
 					row.addChild(column);
 					column = new TD();
+					column.addAttribute("style","padding-left:10px;padding-top:10px;padding-bottom:10px;");
 				}else {
 					column.addAttribute("width","150px");
 					column.setText(field.getLabel());
 					row.addChild(column);
 					column = new TD();
+					column.addAttribute("style","padding-left:10px;padding-top:10px;padding-bottom:10px;");
 				}
 				if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTINPUT) {
 					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
