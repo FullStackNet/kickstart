@@ -254,7 +254,7 @@ class ClientReadHandler extends Communication implements Runnable {
 				responseMessageQueue.cleanUnAttendedMessage(session);
 			} catch (Exception e) {
 				ApplicationLogger.info("Exiting the Session due to exception and Pending messages are " + session.getPendingMessage()+"->"+e.getMessage()+"...."+session.getClientId(), this.getClass());
-				break;
+				session.setDelete(true);
 			}
 		}
 		
