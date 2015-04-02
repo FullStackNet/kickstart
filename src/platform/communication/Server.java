@@ -239,8 +239,9 @@ class ClientReadHandler extends Communication implements Runnable {
 				if (msg == null) {
 					msg = getProtocolProvider().getReader().readWrite(session, getReaderHandle(), getWriterHandle(),protocolProvider.getMessageManager());
 				}
-				if (msg != null) 
+				if (msg != null) {
 					session.setLastUpdateTime(System.currentTimeMillis());
+				}
 				if ((msg != null ) && msg.isAuthenticationRequired()) {
 					if (!session.isAuthenticated()) {
 						continue;
@@ -248,6 +249,7 @@ class ClientReadHandler extends Communication implements Runnable {
 				}
 				if (msg != null) {
 					processMessage(msg);
+					session.incrementProcessedMessage();
 				}
 				responseMessageQueue.cleanUnAttendedMessage(session);
 			} catch (Exception e) {

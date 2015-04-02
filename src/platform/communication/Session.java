@@ -26,6 +26,7 @@ public class Session implements  Serializable {
 	byte 	 type;
 	boolean  delete;
 	long 	 pendingMessages;
+	long 	 processedMessage;
 	long  max_message_queue_per_client;
 
 
@@ -39,6 +40,7 @@ public class Session implements  Serializable {
 		type = CommunitionConst.CLIENT_TYPE_C4T_GATEWAY;
 		max_message_queue_per_client = 256;
 		pendingMessages = 0;
+		processedMessage = 0;
 	}
 	
 	
@@ -54,6 +56,13 @@ public class Session implements  Serializable {
 		pendingMessages = num;
 	}
 	
+	public void incrementProcessedMessage() {
+		processedMessage++;
+	}
+	
+	public long getProcessedMessage() {
+		return processedMessage;
+	}
 	public void decrementPendingMessage() {
 		pendingMessages--;
 	}
