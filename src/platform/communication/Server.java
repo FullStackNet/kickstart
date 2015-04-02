@@ -17,7 +17,6 @@ import platform.log.ApplicationLogger;
 import platform.manager.GlobalDataManager;
 import platform.message.Message;
 import platform.protocol.ProtocolProvider;
-import platform.util.ApplicationException;
 
 public class Server  {
 	public static final int NUM_THREADS = 10000;
@@ -252,7 +251,7 @@ class ClientReadHandler extends Communication implements Runnable {
 				}
 				responseMessageQueue.cleanUnAttendedMessage(session);
 			} catch (Exception e) {
-				ApplicationLogger.info("Exiting the Session due to exception "+e.getMessage()+"...."+session.getClientId(), this.getClass());
+				ApplicationLogger.info("Exiting the Session due to exception and Pending messages are " + session.getPendingMessage()+"->"+e.getMessage()+"...."+session.getClientId(), this.getClass());
 				break;
 			}
 		}
