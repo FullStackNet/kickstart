@@ -54,6 +54,25 @@ public class Present_detailHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 	
+	public BaseResource[] getBusPickup(String[] parentIds) {
+		Expression e1 = new Expression(present_detail.FIELD_PRESENT_PARENT_ID, REL_OP.IN, parentIds);
+		Expression e2 = new Expression(present_detail.FIELD_PRESENT_TYPE, REL_OP.EQ, "BUS");
+		Expression e3 = new Expression(present_detail.FIELD_SUB_PRESENT_TYPE, REL_OP.EQ, "PICKUP");
+		
+		Expression e4 = new Expression(e1, LOG_OP.AND, e2);
+		Expression e = new Expression(e3, LOG_OP.AND, e4);
+		return getByExpression(e);
+	}
+	
+	public BaseResource[] getBusDrop(String[] parentIds) {
+		Expression e1 = new Expression(present_detail.FIELD_PRESENT_PARENT_ID, REL_OP.IN, parentIds);
+		Expression e2 = new Expression(present_detail.FIELD_PRESENT_TYPE, REL_OP.EQ, "BUS");
+		Expression e3 = new Expression(present_detail.FIELD_SUB_PRESENT_TYPE, REL_OP.EQ, "DROP");
+		Expression e4 = new Expression(e1, LOG_OP.AND, e2);
+		Expression e = new Expression(e3, LOG_OP.AND, e4);
+		return getByExpression(e);
+	}
+	
 	public BaseResource[] getSchoolExit(String[] parentIds) {
 		Expression e1 = new Expression(present_detail.FIELD_PRESENT_PARENT_ID, REL_OP.IN, parentIds);
 		Expression e2 = new Expression(present_detail.FIELD_PRESENT_TYPE, REL_OP.EQ, "SCHOOL");
