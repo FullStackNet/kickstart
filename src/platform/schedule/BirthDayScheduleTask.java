@@ -1,16 +1,20 @@
 package platform.schedule;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.helper.Sms_logHelper;
 import platform.manager.ApplicationManager;
 import platform.message.SendSMS;
 import platform.notification.NotificationFactory;
 import platform.resource.BaseResource;
 import platform.resource.schedule;
+import platform.resource.sms_log;
 import platform.util.ApplicationConstants;
 import platform.util.Json;
+import platform.util.TimeUtil;
 import platform.util.Util;
 import application.c4t.vehicle.school.helper.SchoolHelper;
 import application.c4t.vehicle.school.helper.StudentHelper;
@@ -57,13 +61,24 @@ public class BirthDayScheduleTask extends ScheduleTask {
 			String customer_id,student _student, school _school) {
 		
 		for(Map.Entry<String, String> entry : smsAlertMap.entrySet()) {
-			
+			String currentDate = TimeUtil.getDateString(_school.getTimezone(), new Date().getTime());
+			sms_log _log = Sms_logHelper.getInstance().logSchoolActivity(_school.getId(), 
+					_school.getName(), 
+					_student.getId(), 
+					_student.getName(), 
+					_student.getClass_name(), 
+					_student.getSection_name(),
+					entry.getKey(), 
+					"BIRTHDAY",
+					currentDate);
+	
 			SendSMS smsMessage = new SendSMS();
 			smsMessage.setMobile_no(entry.getKey());
 			smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_BIRTHDAY);
 			Map<String, String> map = new HashMap<String, String>();
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_STUDENT_NAME, _student.getShort_name());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CUSTOMER_ID, customer_id);
+			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOG_ID, _log.getId());
 			String brandName = "School";
 			if (_school.getBrand_name() == null) {
 				brandName = _school.getBrand_name();

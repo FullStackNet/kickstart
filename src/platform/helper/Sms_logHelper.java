@@ -71,6 +71,41 @@ public class Sms_logHelper extends BaseHelper {
 		return _log;
 	}
 	
+	public sms_log logSchoolActivity(String schoolId,
+			String schoolName,
+			String studentId,
+			String studentName,
+			String className,
+			String sectionName,
+			String mobileNumber,
+			String reason,
+			String currentDate)  {
+		sms_log _log = new sms_log();
+		_log.setSchool_id(schoolId);
+		_log.setMobile_no(mobileNumber);
+		_log.setInvocation_time(new Date().getTime());
+		_log.setStudent_id(studentId);
+		_log.setStudent_name(studentName);
+		_log.setClass_name(className);
+		_log.setDate(currentDate);
+		_log.setSection_name(sectionName);
+		_log.setSchool_name(schoolName);
+		_log.setReason(reason);
+		//_log.setPerson_name("");
+		_log.setSent_status("N");
+		_log.setProcessing_status("N");
+		String parent_id = Sms_daily_analysisHelper.getInstance().createAnalysis(_log);
+		_log.setParent_id(parent_id);
+		try {
+			Sms_logHelper.getInstance().add(_log);
+		} catch (ApplicationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		return _log;
+	}
+	
 	public void updateTryTime(String id)  {
 		sms_log _log = new sms_log(id);
 		_log.setSent_try_time(new Date().getTime());
