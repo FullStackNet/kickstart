@@ -55,8 +55,9 @@ public class BirthDayScheduleTask extends ScheduleTask {
 
 	void sendSMS2Users(Map<String, String> smsAlertMap,
 			String customer_id,student _student, school _school) {
-
+		
 		for(Map.Entry<String, String> entry : smsAlertMap.entrySet()) {
+			
 			SendSMS smsMessage = new SendSMS();
 			smsMessage.setMobile_no(entry.getKey());
 			smsMessage.setType(ApplicationConstants.SMS_TYPE_SEND_BIRTHDAY);
