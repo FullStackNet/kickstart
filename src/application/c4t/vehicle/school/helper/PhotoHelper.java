@@ -5,7 +5,6 @@ import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import application.c4t.vehicle.school.resource.photo;
-import application.c4t.vehicle.school.resource.video;
 
 
 public class PhotoHelper extends BaseHelper {
