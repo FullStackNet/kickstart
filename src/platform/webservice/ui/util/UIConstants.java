@@ -140,7 +140,12 @@ public class UIConstants {
 		new IdValue("SCHOOL", "Whole School"),
 		new IdValue("CLASS", "Whole class"),
 		new IdValue("SECTION", "Particluler Section"),
-		//new IdValue("VAN", "All Van users"),
+	};
+	
+	public final static IdValue[] NEWS_TYPE_ENUM = new IdValue[] {
+		new IdValue("SCHOOL", "Whole School"),
+		new IdValue("CLASS", "Whole class"),
+		new IdValue("SECTION", "Particluler Section"),
 	};
 	
 	public final static IdValue[] PRESNT_TYPE_ENUM = new IdValue[] {

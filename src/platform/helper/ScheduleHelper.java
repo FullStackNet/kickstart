@@ -41,6 +41,7 @@ public class ScheduleHelper extends BaseHelper {
 		deleteBirthdaySchedule(_student.getId());
 		if (Util.isEmpty(_student.getDob())) return;
 		schedule _schedule = new schedule();
+		_schedule.setName(ScheduleFactory.BIRTHDAY+" of " + _student.getName() +" ("+ _student.getAdmission_no()+")");
 		_schedule.setType(ScheduleFactory.BIRTHDAY);
 		_schedule.setReference_id(_student.getId());
 		_schedule.setFrequency(schedule.FRQUENCY_YEARLY);
@@ -51,12 +52,13 @@ public class ScheduleHelper extends BaseHelper {
 		if (time < currentTime) {
 			time = TimeUtil.addYear(time,1);
 		}
-		_schedule.setDate_str(_student.getDob());
+		_schedule.setDate_str(TimeUtil.getDisplayDateString(null,_schedule.getDate()));
 		_schedule.setTime("07:00:00");
 		_schedule.setSchedule_time(time);
 		_schedule.setSchedule_status(schedule.STATUS_NOT_SCHEDULED);
 		_schedule.setCustomer_id(_student.getCustomer_id());
-		_schedule.setSchool_id(_student.getSchool_id());		
+		_schedule.setSchool_id(_student.getSchool_id());	
+		_schedule.setReference_date(_student.getDob());
 		try {
 			ScheduleHelper.getInstance().add(_schedule);
 		} catch (ApplicationException e) {
