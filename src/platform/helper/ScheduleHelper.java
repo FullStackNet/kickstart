@@ -46,13 +46,13 @@ public class ScheduleHelper extends BaseHelper {
 		_schedule.setReference_id(_student.getId());
 		_schedule.setFrequency(schedule.FRQUENCY_YEARLY);
 		_schedule.setReference_name(_student.getName());
-		_schedule.setDate(TimeUtil.getTimeFromDateStringWithCurrentYear(null, _student.getDob()));
 		long time = TimeUtil.getTimeFromDateStringWithCurrentYear(null, _student.getDob(),"07:00:00");
 		long currentTime =  new Date().getTime();
 		if (time < currentTime) {
 			time = TimeUtil.addYear(time,1);
 		}
-		_schedule.setDate_str(TimeUtil.getDisplayDateString(null,_schedule.getDate()));
+		_schedule.setDate_str(TimeUtil.getDisplayDateString(null,time));
+		_schedule.setDate(TimeUtil.getTimeFromDateString(_schedule.getDate_str(), null));
 		_schedule.setTime("07:00:00");
 		_schedule.setSchedule_time(time);
 		_schedule.setSchedule_status(schedule.STATUS_NOT_SCHEDULED);

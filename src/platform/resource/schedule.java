@@ -1,6 +1,7 @@
 package platform.resource;
 
 import platform.util.Util;
+import platform.webservice.ui.definition.IdValue;
 
 public class schedule extends platform.defined.resource.Baseschedule {
 	
@@ -36,5 +37,11 @@ public class schedule extends platform.defined.resource.Baseschedule {
 		FRQUENCY_MONTHLY,
 		FRQUENCY_DAILY,
 		FRQUENCY_HOURLY
+	};
+	
+	final public static IdValue[] STATUS_ENUM = {
+		new IdValue(STATUS_NOT_SCHEDULED, "None"),
+		new IdValue(STATUS_PROCESSING, "Processing"),
+		new IdValue(STATUS_DONE, "Done"),
 	};
 }

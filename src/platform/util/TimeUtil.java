@@ -39,6 +39,8 @@ public class TimeUtil {
 	}
 	
 	public static long getTimeFromString(String date,String timeZone) {
+			if (Util.isEmpty(timeZone))
+				timeZone = "IST";
 		    int year = Integer.parseInt(date.substring(0,4));
 			int month = Integer.parseInt(date.substring(4,6));
 			int day = Integer.parseInt(date.substring(6,8));
@@ -441,9 +443,9 @@ public class TimeUtil {
 		int  day = Integer.parseInt(tokens[0]);
 		 
 		String[] timeTokens = timeHHMMSS.split(":");
-		int hh = Integer.parseInt(timeTokens[2]);
+		int hh = Integer.parseInt(timeTokens[0]);
 		int  mm = Integer.parseInt(timeTokens[1]);
-		int  ss = Integer.parseInt(timeTokens[0]);
+		int  ss = Integer.parseInt(timeTokens[2]);
 		
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
 		
