@@ -103,7 +103,12 @@ public class DbManager {
 		}
 		return getConnection(dbType,resource.getCluster(),resource.getMetaData().getClusterType(),resource.getMetaData().getName(),keyValue);
 	}
-
+	
+	public synchronized DbConnection getConnection(byte dbType,String clusterName,String collection) throws ApplicationException {
+		String clusterType = "REPLICATED";
+		return getConnection(dbType,clusterName,clusterType,collection,null);
+	}
+	
 	public synchronized DbConnection getConnection(byte  dbType,String clusterName,String getClusterType,String resourceName, Object keyValue) throws ApplicationException {
 		if (clusterName == null) {
 			clusterName = DBNameEnum.DB_CONFIG.toString();

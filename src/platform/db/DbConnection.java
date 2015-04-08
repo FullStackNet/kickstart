@@ -9,11 +9,6 @@ import java.util.Map;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.Field;
-
-
-
-
-
 public abstract class DbConnection {
  public String getServer() {
 		return server;
@@ -99,6 +94,7 @@ public abstract class DbConnection {
 			return free;
 	 }
 	 abstract public byte getType();
+	 abstract public void  saveFile(String folder,String file,String tempFile) throws Exception;
 	 abstract public void  createTable(ResourceMetaData metaData) throws Exception;
 	 abstract public void  createIndex(ResourceMetaData metaData, String[] fieldNames) throws Exception;
 	 abstract public void  createDistributionKey(ResourceMetaData metaData, String[] fieldNames) throws Exception;

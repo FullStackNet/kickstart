@@ -1,5 +1,6 @@
 package platform.db;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -32,6 +33,8 @@ import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.ServerAddress;
 import com.mongodb.WriteConcern;
+import com.mongodb.gridfs.GridFS;
+import com.mongodb.gridfs.GridFSInputFile;
 
 
 public class MongoDBConnection extends DbConnection {
@@ -1046,5 +1049,22 @@ public class MongoDBConnection extends DbConnection {
 		// TODO Auto-generated method stub
 		
 		return getByExpression(metaData, expression,order, page, number);
+	}
+
+	@Override
+	public void saveFile(String folder, String fileName,String tempFile)
+			throws Exception {
+		// TODO Auto-generated method stub
+		checkAndReviveConnection();
+		if (conn == null) {
+			ApplicationException e = new ApplicationException(ExceptionSeverity.ERROR, "Unable to connect to database"); 
+			e.printStackTrace();
+			throw e;
+		}
+		File file = new File(tempFile);
+		GridFS gridfs = new GridFS(conn, folder);
+		GridFSInputFile gfsFile = gridfs.createFile(file);
+		gfsFile.setFilename(tempFile);
+		gfsFile.save();
 	}
 }

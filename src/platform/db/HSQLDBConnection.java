@@ -803,4 +803,11 @@ public class HSQLDBConnection extends DbConnection {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void saveFile(String folder, String file, String tempFile)
+			throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
 }

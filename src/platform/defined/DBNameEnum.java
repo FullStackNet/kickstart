@@ -77,4 +77,9 @@ public enum DBNameEnum {
 			return "DB_ACCOUNT";
 		}
 	},
+	DB_PHOTO {
+		public String toString() {
+			return "DB_PHOTO";
+		}
+	},
 }
