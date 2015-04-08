@@ -11,6 +11,11 @@
 				'required': true,
 				'type':'String'
 			},
+			'collection_id':
+			{
+				'length': 128,
+				'type': 'String'
+			},
 			'title':
 			{
 				'length': 512,
