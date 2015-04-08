@@ -32,6 +32,7 @@ public abstract class Basestudent extends BaseResource {
 	private String state = null;
 	private String syllabus_type = null;
 	private String country = null;
+	private String course_id = null;
 	private String pickup_route_stopage_id = null;
 	private String pickup_route_id = null;
 	private String pickup_stopage_id = null;
@@ -114,6 +115,9 @@ public abstract class Basestudent extends BaseResource {
 	private String feature_bus_drop_exit_sms = null;
 	private String feature_school_entry_sms = null;
 	private String feature_school_exit_sms = null;
+	private Double total_fees = null;
+	private Double total_fees_paid = null;
+	private Double discount = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -129,6 +133,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_STATE = "state";
 	public static String FIELD_SYLLABUS_TYPE = "syllabus_type";
 	public static String FIELD_COUNTRY = "country";
+	public static String FIELD_COURSE_ID = "course_id";
 	public static String FIELD_PICKUP_ROUTE_STOPAGE_ID = "pickup_route_stopage_id";
 	public static String FIELD_PICKUP_ROUTE_ID = "pickup_route_id";
 	public static String FIELD_PICKUP_STOPAGE_ID = "pickup_stopage_id";
@@ -211,6 +216,9 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_FEATURE_BUS_DROP_EXIT_SMS = "feature_bus_drop_exit_sms";
 	public static String FIELD_FEATURE_SCHOOL_ENTRY_SMS = "feature_school_entry_sms";
 	public static String FIELD_FEATURE_SCHOOL_EXIT_SMS = "feature_school_exit_sms";
+	public static String FIELD_TOTAL_FEES = "total_fees";
+	public static String FIELD_TOTAL_FEES_PAID = "total_fees_paid";
+	public static String FIELD_DISCOUNT = "discount";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -275,6 +283,10 @@ public abstract class Basestudent extends BaseResource {
 		Field countryField = new Field("country", "String");
 		countryField.setLength(128);
 		metaData.addField(countryField);
+
+		Field course_idField = new Field("course_id", "String");
+		course_idField.setLength(128);
+		metaData.addField(course_idField);
 
 		Field pickup_route_stopage_idField = new Field("pickup_route_stopage_id", "String");
 		pickup_route_stopage_idField.setIndexed(true);
@@ -632,6 +644,15 @@ public abstract class Basestudent extends BaseResource {
 		feature_school_exit_smsField.setLength(1);
 		metaData.addField(feature_school_exit_smsField);
 
+		Field total_feesField = new Field("total_fees", "double");
+		metaData.addField(total_feesField);
+
+		Field total_fees_paidField = new Field("total_fees_paid", "double");
+		metaData.addField(total_fees_paidField);
+
+		Field discountField = new Field("discount", "double");
+		metaData.addField(discountField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -658,6 +679,7 @@ public abstract class Basestudent extends BaseResource {
 		this.state = obj.state;
 		this.syllabus_type = obj.syllabus_type;
 		this.country = obj.country;
+		this.course_id = obj.course_id;
 		this.pickup_route_stopage_id = obj.pickup_route_stopage_id;
 		this.pickup_route_id = obj.pickup_route_id;
 		this.pickup_stopage_id = obj.pickup_stopage_id;
@@ -740,6 +762,9 @@ public abstract class Basestudent extends BaseResource {
 		this.feature_bus_drop_exit_sms = obj.feature_bus_drop_exit_sms;
 		this.feature_school_entry_sms = obj.feature_school_entry_sms;
 		this.feature_school_exit_sms = obj.feature_school_exit_sms;
+		this.total_fees = obj.total_fees;
+		this.total_fees_paid = obj.total_fees_paid;
+		this.discount = obj.discount;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -840,6 +865,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("syllabus_type", syllabus_type);
 		if(country != null)
 			map.put("country", country);
+		if(course_id != null)
+			map.put("course_id", course_id);
 		if(pickup_route_stopage_id != null)
 			map.put("pickup_route_stopage_id", pickup_route_stopage_id);
 		if(pickup_route_id != null)
@@ -1004,6 +1031,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("feature_school_entry_sms", feature_school_entry_sms);
 		if(feature_school_exit_sms != null)
 			map.put("feature_school_exit_sms", feature_school_exit_sms);
+		if(total_fees != null)
+			map.put("total_fees", total_fees);
+		if(total_fees_paid != null)
+			map.put("total_fees_paid", total_fees_paid);
+		if(discount != null)
+			map.put("discount", discount);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1040,6 +1073,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("syllabus_type", syllabus_type);
 		if(country != null)
 			map.put("country", country);
+		if(course_id != null)
+			map.put("course_id", course_id);
 		if(pickup_route_stopage_id != null)
 			map.put("pickup_route_stopage_id", pickup_route_stopage_id);
 		if(pickup_route_id != null)
@@ -1204,6 +1239,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("feature_school_entry_sms", feature_school_entry_sms);
 		if(feature_school_exit_sms != null)
 			map.put("feature_school_exit_sms", feature_school_exit_sms);
+		if(total_fees != null)
+			map.put("total_fees", total_fees);
+		if(total_fees_paid != null)
+			map.put("total_fees_paid", total_fees_paid);
+		if(discount != null)
+			map.put("discount", discount);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1229,6 +1270,7 @@ public abstract class Basestudent extends BaseResource {
 		state = (String) map.get("state");
 		syllabus_type = (String) map.get("syllabus_type");
 		country = (String) map.get("country");
+		course_id = (String) map.get("course_id");
 		pickup_route_stopage_id = (String) map.get("pickup_route_stopage_id");
 		pickup_route_id = (String) map.get("pickup_route_id");
 		pickup_stopage_id = (String) map.get("pickup_stopage_id");
@@ -1311,6 +1353,9 @@ public abstract class Basestudent extends BaseResource {
 		feature_bus_drop_exit_sms = (String) map.get("feature_bus_drop_exit_sms");
 		feature_school_entry_sms = (String) map.get("feature_school_entry_sms");
 		feature_school_exit_sms = (String) map.get("feature_school_exit_sms");
+		total_fees = (Double) map.get("total_fees");
+		total_fees_paid = (Double) map.get("total_fees_paid");
+		discount = (Double) map.get("discount");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1367,6 +1412,10 @@ public abstract class Basestudent extends BaseResource {
 		Object countryObj = map.get("country");
 		if(countryObj != null)
 			country = countryObj.toString();
+
+		Object course_idObj = map.get("course_id");
+		if(course_idObj != null)
+			course_id = course_idObj.toString();
 
 		Object pickup_route_stopage_idObj = map.get("pickup_route_stopage_id");
 		if(pickup_route_stopage_idObj != null)
@@ -1696,6 +1745,18 @@ public abstract class Basestudent extends BaseResource {
 		if(feature_school_exit_smsObj != null)
 			feature_school_exit_sms = feature_school_exit_smsObj.toString();
 
+		Object total_feesObj = map.get("total_fees");
+		if(total_feesObj != null)
+			total_fees = new Double(total_feesObj.toString());
+
+		Object total_fees_paidObj = map.get("total_fees_paid");
+		if(total_fees_paidObj != null)
+			total_fees_paid = new Double(total_fees_paidObj.toString());
+
+		Object discountObj = map.get("discount");
+		if(discountObj != null)
+			discount = new Double(discountObj.toString());
+
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1917,6 +1978,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetCountry() {
 		this.country = null;
+	}
+
+	public String getCourse_id() {
+		return course_id;
+	}
+
+	public String getCourse_idEx() {
+		return course_id != null ? course_id : "";
+	}
+
+	public void setCourse_id(String course_id) {
+		this.course_id = course_id;
+	}
+
+	public void unSetCourse_id() {
+		this.course_id = null;
 	}
 
 	public String getPickup_route_stopage_id() {
@@ -3129,6 +3206,66 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetFeature_school_exit_sms() {
 		this.feature_school_exit_sms = "Y";
+	}
+
+	public Double getTotal_fees() {
+		return total_fees;
+	}
+
+	public double getTotal_feesEx() {
+		return total_fees != null ? total_fees : 0;
+	}
+
+	public void setTotal_fees(double total_fees) {
+		this.total_fees = total_fees;
+	}
+
+	public void setTotal_fees(Double total_fees) {
+		this.total_fees = total_fees;
+	}
+
+	public void unSetTotal_fees() {
+		this.total_fees = null;
+	}
+
+	public Double getTotal_fees_paid() {
+		return total_fees_paid;
+	}
+
+	public double getTotal_fees_paidEx() {
+		return total_fees_paid != null ? total_fees_paid : 0;
+	}
+
+	public void setTotal_fees_paid(double total_fees_paid) {
+		this.total_fees_paid = total_fees_paid;
+	}
+
+	public void setTotal_fees_paid(Double total_fees_paid) {
+		this.total_fees_paid = total_fees_paid;
+	}
+
+	public void unSetTotal_fees_paid() {
+		this.total_fees_paid = null;
+	}
+
+	public Double getDiscount() {
+		return discount;
+	}
+
+	public double getDiscountEx() {
+		return discount != null ? discount : 0;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+	public void setDiscount(Double discount) {
+		this.discount = discount;
+	}
+
+	public void unSetDiscount() {
+		this.discount = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

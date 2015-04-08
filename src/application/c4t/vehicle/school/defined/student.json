@@ -83,6 +83,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'course_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'pickup_route_stopage_id':
 			{
 				'length': 128,
@@ -524,6 +529,18 @@
 				'length': 1,
 				'default' : "Y",
 				'type':'String'
+			},
+			'total_fees':
+			{
+				'type':'double'
+			},
+			'total_fees_paid':
+			{
+				'type':'double'
+			},
+			'discount':
+			{
+				'type':'double'
 			}
 		}
 	}
