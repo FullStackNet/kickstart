@@ -386,9 +386,9 @@ public class TimeUtil {
 		int  day = Integer.parseInt(tokens[0]);
 		 
 		String[] timeTokens = timeHHMMSS.split(":");
-		int hh = Integer.parseInt(timeTokens[2]);
+		int hh = Integer.parseInt(timeTokens[0]);
 		int  mm = Integer.parseInt(timeTokens[1]);
-		int  ss = Integer.parseInt(timeTokens[0]);
+		int  ss = Integer.parseInt(timeTokens[2]);
 		
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
 		

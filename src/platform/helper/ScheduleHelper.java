@@ -77,6 +77,8 @@ public class ScheduleHelper extends BaseHelper {
 	public void reschedule(String id, long time) {
 		schedule _schedule = new schedule(id);
 		_schedule.setSchedule_time(time);
+		_schedule.setDate_str(TimeUtil.getDisplayDateString(null,time));
+		_schedule.setDate(TimeUtil.getTimeFromDateString(_schedule.getDate_str(), null));
 		_schedule.setSchedule_status(schedule.STATUS_NOT_SCHEDULED);
 		try {
 			ScheduleHelper.getInstance().update(_schedule);
