@@ -96,6 +96,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("fee_schedule", "application.c4t.vehicle.school.resource.fee_schedule"),	
 		new ResourceMap("fee_breakup", "application.c4t.vehicle.school.resource.fee_breakup"),	
 		new ResourceMap("timetable", "application.c4t.vehicle.school.resource.timetable"),	
+		new ResourceMap("fee_receipt", "application.c4t.vehicle.school.resource.fee_receipt"),	
 
 	};
 }
