@@ -15,6 +15,13 @@ public class JoinField {
 		fieldMap.put(fieldName, "name");
 	}
 	
+	public JoinField(String resource,String joiningId,String fieldName,String nameField) {
+		this.resource = resource;
+		this.joiningId = joiningId;
+		fieldMap = new HashMap<String, String>();
+		fieldMap.put(fieldName, nameField);
+	}
+	
 	public void addField(String fieldName,String mapFieldName) {
 		fieldMap.put(fieldName, mapFieldName);
 	}

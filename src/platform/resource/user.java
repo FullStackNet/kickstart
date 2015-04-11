@@ -184,6 +184,13 @@ public class user extends Baseuser {
 		}
 		return false;
 	}
+	
+	public boolean isFeesFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_fees())) {
+			return true;
+		}
+		return false;
+	}
 }
 
 
