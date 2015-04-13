@@ -20,12 +20,12 @@ public class VideoHelper extends BaseHelper {
 		return instance;
 	}
 	
-	public BaseResource[] getPhotos(String parentId) {
+	public BaseResource[] getVideos(String parentId) {
 		Expression e = new Expression(video.FIELD_COLLECTION_ID, REL_OP.EQ, parentId);
 		return getByExpression(e);
 	}
 	
-	public BaseResource[] getPhotos(String[] parentIds) {
+	public BaseResource[] getVideos(String[] parentIds) {
 		Expression e = new Expression(video.FIELD_COLLECTION_ID, REL_OP.IN, parentIds);
 		return getByExpression(e);
 	}
