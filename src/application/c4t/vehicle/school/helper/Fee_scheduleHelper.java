@@ -22,12 +22,12 @@ public class Fee_scheduleHelper extends BaseHelper {
 	
 	public BaseResource[] getfee_schedules(String parentId) {
 		Expression e = new Expression(fee_schedule.FIELD_PARENT_ID, REL_OP.EQ, parentId);
-		return getByExpression(e);
+		return getByExpression(e,new String[]{fee_schedule.FIELD_DUE_DATE});
 	}
 	
 	public BaseResource[] getfee_schedules(String[] parentIds) {
 		Expression e = new Expression(fee_schedule.FIELD_PARENT_ID, REL_OP.IN, parentIds);
-		return getByExpression(e);
+		return getByExpression(e,new String[]{fee_schedule.FIELD_DUE_DATE});
 	}
 	
 }
