@@ -1,10 +1,9 @@
 package application.c4t.vehicle.school.helper;
 
-import platform.helper.BaseHelper;
 import application.c4t.vehicle.school.resource.teacher;
 
 
-public class TeacherHelper extends BaseHelper {
+public class TeacherHelper extends BaseSchoolHelper {
 	
 	TeacherHelper() {
 		super(new teacher());
