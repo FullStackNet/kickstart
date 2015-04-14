@@ -3,20 +3,39 @@ package platform.db;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.helper.HelperFactory;
+
 public class JoinField {
-	String resource;
+	String resourceName;
 	String joiningId;
 	Map<String, String> fieldMap;
 	
 	public JoinField(String resource,String joiningId,String fieldName) {
-		this.resource = resource;
+		this.resourceName = resource;
 		this.joiningId = joiningId;
 		fieldMap = new HashMap<String, String>();
 		fieldMap.put(fieldName, "name");
 	}
 	
+	public JoinField(platform.helper.BaseHelper helper,String joiningId,String fieldName) {
+		this.joiningId = joiningId;
+		fieldMap = new HashMap<String, String>();
+		fieldMap.put(fieldName, "name");
+		HelperFactory.getInstance().register(helper);
+		this.resourceName = helper.getResource().getMetaData().getName();
+	}
+	
+	public JoinField(platform.helper.BaseHelper masterHelper,platform.helper.BaseHelper helper,String joiningId,String fieldName) {
+		this.joiningId = joiningId;
+		fieldMap = new HashMap<String, String>();
+		fieldMap.put(fieldName, "name");
+		HelperFactory.getInstance().register(helper);
+		HelperFactory.getInstance().register(masterHelper);
+		this.resourceName = helper.getResource().getMetaData().getName();
+	}
+	
 	public JoinField(String resource,String joiningId,String fieldName,String nameField) {
-		this.resource = resource;
+		this.resourceName = resource;
 		this.joiningId = joiningId;
 		fieldMap = new HashMap<String, String>();
 		fieldMap.put(fieldName, nameField);
@@ -35,11 +54,11 @@ public class JoinField {
 	}
 
 	public String getResource() {
-		return resource;
+		return resourceName;
 	}
 
 	public void setResource(String resource) {
-		this.resource = resource;
+		this.resourceName = resource;
 	}
 
 	public String getJoiningId() {

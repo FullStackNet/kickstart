@@ -3,6 +3,7 @@ package platform.webservice.ui.definition;
 import java.util.ArrayList;
 
 import platform.db.JoinField;
+import platform.helper.HelperFactory;
 
 public class TableDefinition {
 	ArrayList<Field> fields;
