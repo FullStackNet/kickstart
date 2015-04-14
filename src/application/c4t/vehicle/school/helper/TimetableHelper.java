@@ -1,10 +1,9 @@
 package application.c4t.vehicle.school.helper;
 
-import platform.helper.BaseHelper;
 import application.c4t.vehicle.school.resource.timetable;
 
 
-public class TimetableHelper extends BaseHelper {
+public class TimetableHelper extends BaseSchoolHelper {
 	TimetableHelper() {
 		super(new timetable());
 		// TODO Auto-generated constructor stub

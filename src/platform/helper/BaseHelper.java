@@ -941,6 +941,17 @@ public class BaseHelper {
 		return list;
 	}
 
+	public ArrayList<Map<String, Object>> getListMapByCustomerId(String customerId,ArrayList<JoinField> joinFields, String[] order) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		Expression e = new Expression("customer_id", REL_OP.EQ, customerId);
+		try {
+			list =  getByJoining(e,joinFields,order);
+		} catch (ApplicationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return list;
+	}
 	public ArrayList<Map<String, Object>> getListMap(ArrayList<JoinField> joinFields) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		return getByJoining(null,joinFields);
