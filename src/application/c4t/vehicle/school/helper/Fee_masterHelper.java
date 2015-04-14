@@ -9,7 +9,9 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
+import platform.resource.BaseResource;
 import platform.util.ApplicationException;
+import platform.util.Util;
 import application.c4t.vehicle.school.resource.fee_master;
 import application.c4t.vehicle.school.resource.notice;
 
@@ -25,6 +27,18 @@ public class Fee_masterHelper extends BaseHelper {
 		if (instance == null)
 			instance = new Fee_masterHelper();
 		return instance;
+	}
+	public fee_master getByClassCourse(String school_id,String class_name,String courseId)  {
+		Expression e1 = new Expression(fee_master.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
+		Expression e2 = new Expression(fee_master.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
+		Expression e3 = new Expression(fee_master.FIELD_COURSE_ID, REL_OP.EQ, courseId);
+		Expression e4 = new Expression(e2, LOG_OP.AND, e3);
+		Expression e = new Expression(e1, LOG_OP.AND, e4);
+		BaseResource[] resources =  getByExpression(e);
+		if (!Util.isEmpty(resources)) {
+			return (fee_master)resources[0];
+		}
+		return null;
 	}
 	
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools,String[] order)  {
