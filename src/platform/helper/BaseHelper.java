@@ -544,6 +544,8 @@ public class BaseHelper {
 				if (Util.isEmpty(list)) 
 					continue;
 				BaseHelper childHelper = HelperFactory.getInstance().getHelper(joinField.getResource());
+				if (childHelper == null)
+					throw new ApplicationException(ExceptionSeverity.ERROR, joinField.getResource() + " not registered with the helper factory ...");
 				Map<String, Map<String, Object>>  foriegnMap = null;
 				foriegnMap = childHelper.getMapMapById(HelperUtils.convertMap2IdArray(list),orderBy);
 				resourceMap.put(joinField.getJoiningId(), foriegnMap);
