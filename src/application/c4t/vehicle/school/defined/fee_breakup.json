@@ -22,6 +22,12 @@
 				'type': 'String',
 				'length': 32
 			},
+			'heading_name':
+			{
+				'type': 'String',
+				'length': 128,
+				'transient' : true
+			},
 			'fees':
 			{
 				'type': 'double'

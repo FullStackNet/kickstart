@@ -22,6 +22,7 @@ public abstract class Basefee_breakup extends BaseResource {
 	private String id = null;
 	private String parent_id = null;
 	private String heading_id = null;
+	private String heading_name = null;
 	private Double fees = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -29,6 +30,7 @@ public abstract class Basefee_breakup extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_HEADING_ID = "heading_id";
+	public static String FIELD_HEADING_NAME = "heading_name";
 	public static String FIELD_FEES = "fees";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -75,6 +77,7 @@ public abstract class Basefee_breakup extends BaseResource {
 		this.id = obj.id;
 		this.parent_id = obj.parent_id;
 		this.heading_id = obj.heading_id;
+		this.heading_name = obj.heading_name;
 		this.fees = obj.fees;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -92,6 +95,8 @@ public abstract class Basefee_breakup extends BaseResource {
 			map.put("parent_id", parent_id);
 		if(heading_id != null)
 			map.put("heading_id", heading_id);
+		if(heading_name != null)
+			map.put("heading_name", heading_name);
 		if(fees != null)
 			map.put("fees", fees);
 		if(creation_time != null)
@@ -109,6 +114,8 @@ public abstract class Basefee_breakup extends BaseResource {
 			map.put("parent_id", parent_id);
 		if(heading_id != null)
 			map.put("heading_id", heading_id);
+		if(heading_name != null)
+			map.put("heading_name", heading_name);
 		if(fees != null)
 			map.put("fees", fees);
 		if(creation_time != null)
@@ -216,6 +223,22 @@ public abstract class Basefee_breakup extends BaseResource {
 
 	public void unSetHeading_id() {
 		this.heading_id = null;
+	}
+
+	public String getHeading_name() {
+		return heading_name;
+	}
+
+	public String getHeading_nameEx() {
+		return heading_name != null ? heading_name : "";
+	}
+
+	public void setHeading_name(String heading_name) {
+		this.heading_name = heading_name;
+	}
+
+	public void unSetHeading_name() {
+		this.heading_name = null;
 	}
 
 	public Double getFees() {
