@@ -156,7 +156,27 @@ public class UIConstants {
 		//new IdValue("VAN", "All Van users"),
 	};
 	
+	public final static IdValue[] DAY_ENUM = new IdValue[] {
+		new IdValue("0", "Sunday"),
+		new IdValue("1", "Monday"),
+		new IdValue("2", "TuesDay"),
+		new IdValue("3", "Wednesday"),
+		new IdValue("4", "Thursday"),
+		new IdValue("5", "Friday"),
+		new IdValue("6", "Saturday"),
+	};
 	
+	public final static IdValue[] PERIOD_ENUM = new IdValue[] {
+		new IdValue("1", "1"),
+		new IdValue("2", "2"),
+		new IdValue("3", "3"),
+		new IdValue("4", "4"),
+		new IdValue("5", "5"),
+		new IdValue("6", "6"),
+		new IdValue("7", "7"),
+		new IdValue("8", "8"),
+		new IdValue("9", "9"),
+	};
 	
 	public final static IdValue[] PRESNT_SUB_TYPE_ENUM = new IdValue[] {
 		new IdValue("NA", "N/A"),
