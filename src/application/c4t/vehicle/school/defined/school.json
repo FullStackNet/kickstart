@@ -418,6 +418,15 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'fee_starting_date':
+			{
+				'type':'long'
+			},
+			'fee_starting_date_str':
+			{
+				'length': 32,
+				'type':'String'
+			},
 			'timezone':
 			{
 				'length': 32,

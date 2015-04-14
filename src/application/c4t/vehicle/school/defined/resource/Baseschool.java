@@ -89,6 +89,8 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_message2parent_email = null;
 	private String feature_send_birthday_sms = null;
 	private String feature_timing_based_attendance = null;
+	private Long fee_starting_date = null;
+	private String fee_starting_date_str = null;
 	private String timezone = null;
 	private Map<String, Object> extra_data = null;
 
@@ -162,6 +164,8 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_MESSAGE2PARENT_EMAIL = "feature_message2parent_email";
 	public static String FIELD_FEATURE_SEND_BIRTHDAY_SMS = "feature_send_birthday_sms";
 	public static String FIELD_FEATURE_TIMING_BASED_ATTENDANCE = "feature_timing_based_attendance";
+	public static String FIELD_FEE_STARTING_DATE = "fee_starting_date";
+	public static String FIELD_FEE_STARTING_DATE_STR = "fee_starting_date_str";
 	public static String FIELD_TIMEZONE = "timezone";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -503,6 +507,13 @@ public abstract class Baseschool extends BaseResource {
 		feature_timing_based_attendanceField.setLength(1);
 		metaData.addField(feature_timing_based_attendanceField);
 
+		Field fee_starting_dateField = new Field("fee_starting_date", "long");
+		metaData.addField(fee_starting_dateField);
+
+		Field fee_starting_date_strField = new Field("fee_starting_date_str", "String");
+		fee_starting_date_strField.setLength(32);
+		metaData.addField(fee_starting_date_strField);
+
 		Field timezoneField = new Field("timezone", "String");
 		timezoneField.setDefaultValue("IST");
 		timezoneField.setLength(32);
@@ -591,6 +602,8 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_message2parent_email = obj.feature_message2parent_email;
 		this.feature_send_birthday_sms = obj.feature_send_birthday_sms;
 		this.feature_timing_based_attendance = obj.feature_timing_based_attendance;
+		this.fee_starting_date = obj.fee_starting_date;
+		this.fee_starting_date_str = obj.fee_starting_date_str;
 		this.timezone = obj.timezone;
 		this.extra_data = obj.extra_data;
 	}
@@ -852,6 +865,10 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_send_birthday_sms", feature_send_birthday_sms);
 		if(feature_timing_based_attendance != null)
 			map.put("feature_timing_based_attendance", feature_timing_based_attendance);
+		if(fee_starting_date != null)
+			map.put("fee_starting_date", fee_starting_date);
+		if(fee_starting_date_str != null)
+			map.put("fee_starting_date_str", fee_starting_date_str);
 		if(timezone != null)
 			map.put("timezone", timezone);
 		if(extra_data != null)
@@ -1004,6 +1021,10 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_send_birthday_sms", feature_send_birthday_sms);
 		if(feature_timing_based_attendance != null)
 			map.put("feature_timing_based_attendance", feature_timing_based_attendance);
+		if(fee_starting_date != null)
+			map.put("fee_starting_date", fee_starting_date);
+		if(fee_starting_date_str != null)
+			map.put("fee_starting_date_str", fee_starting_date_str);
 		if(timezone != null)
 			map.put("timezone", timezone);
 		if(extra_data != null)
@@ -1088,6 +1109,8 @@ public abstract class Baseschool extends BaseResource {
 		feature_message2parent_email = (String) map.get("feature_message2parent_email");
 		feature_send_birthday_sms = (String) map.get("feature_send_birthday_sms");
 		feature_timing_based_attendance = (String) map.get("feature_timing_based_attendance");
+		fee_starting_date = (Long) map.get("fee_starting_date");
+		fee_starting_date_str = (String) map.get("fee_starting_date_str");
 		timezone = (String) map.get("timezone");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1373,6 +1396,14 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_timing_based_attendanceObj = map.get("feature_timing_based_attendance");
 		if(feature_timing_based_attendanceObj != null)
 			feature_timing_based_attendance = feature_timing_based_attendanceObj.toString();
+
+		Object fee_starting_dateObj = map.get("fee_starting_date");
+		if(fee_starting_dateObj != null)
+			fee_starting_date = new Long(fee_starting_dateObj.toString());
+
+		Object fee_starting_date_strObj = map.get("fee_starting_date_str");
+		if(fee_starting_date_strObj != null)
+			fee_starting_date_str = fee_starting_date_strObj.toString();
 
 		Object timezoneObj = map.get("timezone");
 		if(timezoneObj != null)
@@ -2307,6 +2338,42 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_timing_based_attendance() {
 		this.feature_timing_based_attendance = "N";
+	}
+
+	public Long getFee_starting_date() {
+		return fee_starting_date;
+	}
+
+	public long getFee_starting_dateEx() {
+		return fee_starting_date != null ? fee_starting_date : 0L;
+	}
+
+	public void setFee_starting_date(long fee_starting_date) {
+		this.fee_starting_date = fee_starting_date;
+	}
+
+	public void setFee_starting_date(Long fee_starting_date) {
+		this.fee_starting_date = fee_starting_date;
+	}
+
+	public void unSetFee_starting_date() {
+		this.fee_starting_date = null;
+	}
+
+	public String getFee_starting_date_str() {
+		return fee_starting_date_str;
+	}
+
+	public String getFee_starting_date_strEx() {
+		return fee_starting_date_str != null ? fee_starting_date_str : "";
+	}
+
+	public void setFee_starting_date_str(String fee_starting_date_str) {
+		this.fee_starting_date_str = fee_starting_date_str;
+	}
+
+	public void unSetFee_starting_date_str() {
+		this.fee_starting_date_str = null;
 	}
 
 	public String getTimezone() {
