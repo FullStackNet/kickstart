@@ -185,6 +185,13 @@ public class user extends Baseuser {
 		return false;
 	}
 	
+	public boolean isTimeTableFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_timetable())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isFeesFeatureEnable() {
 		if ("Y".equalsIgnoreCase(getFeature_fees())) {
 			return true;
