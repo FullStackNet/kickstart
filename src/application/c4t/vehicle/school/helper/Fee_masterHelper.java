@@ -41,6 +41,17 @@ public class Fee_masterHelper extends BaseHelper {
 		return null;
 	}
 	
+	public BaseResource[] getForSchoolsResources(String[] schools,String[] order)  {
+		try {
+			Expression e = new Expression(fee_master.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+			return getByExpression(e,order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
+	}
+	
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools,String[] order)  {
 		try {
 			HelperFactory.getInstance().register(SchoolHelper.getInstance());
