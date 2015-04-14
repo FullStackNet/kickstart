@@ -64,6 +64,7 @@ public abstract class Baseuser extends BaseResource {
 	private String feature_wof = null;
 	private String feature_photo = null;
 	private String feature_video = null;
+	private String feature_timetable = null;
 	private String feature_fees = null;
 	private String feature_work_sheet = null;
 	private String feature_present_report = null;
@@ -120,6 +121,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_FEATURE_WOF = "feature_wof";
 	public static String FIELD_FEATURE_PHOTO = "feature_photo";
 	public static String FIELD_FEATURE_VIDEO = "feature_video";
+	public static String FIELD_FEATURE_TIMETABLE = "feature_timetable";
 	public static String FIELD_FEATURE_FEES = "feature_fees";
 	public static String FIELD_FEATURE_WORK_SHEET = "feature_work_sheet";
 	public static String FIELD_FEATURE_PRESENT_REPORT = "feature_present_report";
@@ -352,6 +354,11 @@ public abstract class Baseuser extends BaseResource {
 		feature_videoField.setLength(1);
 		metaData.addField(feature_videoField);
 
+		Field feature_timetableField = new Field("feature_timetable", "String");
+		feature_timetableField.setDefaultValue("N");
+		feature_timetableField.setLength(1);
+		metaData.addField(feature_timetableField);
+
 		Field feature_feesField = new Field("feature_fees", "String");
 		feature_feesField.setDefaultValue("N");
 		feature_feesField.setLength(1);
@@ -455,6 +462,7 @@ public abstract class Baseuser extends BaseResource {
 		this.feature_wof = obj.feature_wof;
 		this.feature_photo = obj.feature_photo;
 		this.feature_video = obj.feature_video;
+		this.feature_timetable = obj.feature_timetable;
 		this.feature_fees = obj.feature_fees;
 		this.feature_work_sheet = obj.feature_work_sheet;
 		this.feature_present_report = obj.feature_present_report;
@@ -534,6 +542,8 @@ public abstract class Baseuser extends BaseResource {
 			feature_photo = "N";
 		if(feature_video == null)
 			feature_video = "N";
+		if(feature_timetable == null)
+			feature_timetable = "N";
 		if(feature_fees == null)
 			feature_fees = "N";
 		if(feature_work_sheet == null)
@@ -646,6 +656,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_photo", feature_photo);
 		if(feature_video != null)
 			map.put("feature_video", feature_video);
+		if(feature_timetable != null)
+			map.put("feature_timetable", feature_timetable);
 		if(feature_fees != null)
 			map.put("feature_fees", feature_fees);
 		if(feature_work_sheet != null)
@@ -764,6 +776,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_photo", feature_photo);
 		if(feature_video != null)
 			map.put("feature_video", feature_video);
+		if(feature_timetable != null)
+			map.put("feature_timetable", feature_timetable);
 		if(feature_fees != null)
 			map.put("feature_fees", feature_fees);
 		if(feature_work_sheet != null)
@@ -839,6 +853,7 @@ public abstract class Baseuser extends BaseResource {
 		feature_wof = (String) map.get("feature_wof");
 		feature_photo = (String) map.get("feature_photo");
 		feature_video = (String) map.get("feature_video");
+		feature_timetable = (String) map.get("feature_timetable");
 		feature_fees = (String) map.get("feature_fees");
 		feature_work_sheet = (String) map.get("feature_work_sheet");
 		feature_present_report = (String) map.get("feature_present_report");
@@ -1032,6 +1047,10 @@ public abstract class Baseuser extends BaseResource {
 		Object feature_videoObj = map.get("feature_video");
 		if(feature_videoObj != null)
 			feature_video = feature_videoObj.toString();
+
+		Object feature_timetableObj = map.get("feature_timetable");
+		if(feature_timetableObj != null)
+			feature_timetable = feature_timetableObj.toString();
 
 		Object feature_feesObj = map.get("feature_fees");
 		if(feature_feesObj != null)
@@ -1683,6 +1702,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetFeature_video() {
 		this.feature_video = "N";
+	}
+
+	public String getFeature_timetable() {
+		return feature_timetable != null ? feature_timetable : "N";
+	}
+
+	public void setFeature_timetable(String feature_timetable) {
+		this.feature_timetable = feature_timetable;
+	}
+
+	public void unSetFeature_timetable() {
+		this.feature_timetable = "N";
 	}
 
 	public String getFeature_fees() {

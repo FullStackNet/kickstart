@@ -279,6 +279,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_timetable':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_fees':
 			{
 				'length': 1,

@@ -211,6 +211,12 @@
 				'default' : "Y",
 				'type':'String'
 			},
+			'feature_timetable':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_parenting':
 			{
 				'length': 1,

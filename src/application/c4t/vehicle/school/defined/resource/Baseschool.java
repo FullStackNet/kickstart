@@ -54,6 +54,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_present_report = null;
 	private String feature_practical_attendance = null;
 	private String feature_news = null;
+	private String feature_timetable = null;
 	private String feature_parenting = null;
 	private String feature_event = null;
 	private String feature_tutorial = null;
@@ -129,6 +130,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_PRESENT_REPORT = "feature_present_report";
 	public static String FIELD_FEATURE_PRACTICAL_ATTENDANCE = "feature_practical_attendance";
 	public static String FIELD_FEATURE_NEWS = "feature_news";
+	public static String FIELD_FEATURE_TIMETABLE = "feature_timetable";
 	public static String FIELD_FEATURE_PARENTING = "feature_parenting";
 	public static String FIELD_FEATURE_EVENT = "feature_event";
 	public static String FIELD_FEATURE_TUTORIAL = "feature_tutorial";
@@ -337,6 +339,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_newsField.setDefaultValue("Y");
 		feature_newsField.setLength(1);
 		metaData.addField(feature_newsField);
+
+		Field feature_timetableField = new Field("feature_timetable", "String");
+		feature_timetableField.setDefaultValue("N");
+		feature_timetableField.setLength(1);
+		metaData.addField(feature_timetableField);
 
 		Field feature_parentingField = new Field("feature_parenting", "String");
 		feature_parentingField.setDefaultValue("Y");
@@ -567,6 +574,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_present_report = obj.feature_present_report;
 		this.feature_practical_attendance = obj.feature_practical_attendance;
 		this.feature_news = obj.feature_news;
+		this.feature_timetable = obj.feature_timetable;
 		this.feature_parenting = obj.feature_parenting;
 		this.feature_event = obj.feature_event;
 		this.feature_tutorial = obj.feature_tutorial;
@@ -657,6 +665,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_practical_attendance = "N";
 		if(feature_news == null)
 			feature_news = "Y";
+		if(feature_timetable == null)
+			feature_timetable = "N";
 		if(feature_parenting == null)
 			feature_parenting = "Y";
 		if(feature_event == null)
@@ -795,6 +805,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_practical_attendance", feature_practical_attendance);
 		if(feature_news != null)
 			map.put("feature_news", feature_news);
+		if(feature_timetable != null)
+			map.put("feature_timetable", feature_timetable);
 		if(feature_parenting != null)
 			map.put("feature_parenting", feature_parenting);
 		if(feature_event != null)
@@ -951,6 +963,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_practical_attendance", feature_practical_attendance);
 		if(feature_news != null)
 			map.put("feature_news", feature_news);
+		if(feature_timetable != null)
+			map.put("feature_timetable", feature_timetable);
 		if(feature_parenting != null)
 			map.put("feature_parenting", feature_parenting);
 		if(feature_event != null)
@@ -1074,6 +1088,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_present_report = (String) map.get("feature_present_report");
 		feature_practical_attendance = (String) map.get("feature_practical_attendance");
 		feature_news = (String) map.get("feature_news");
+		feature_timetable = (String) map.get("feature_timetable");
 		feature_parenting = (String) map.get("feature_parenting");
 		feature_event = (String) map.get("feature_event");
 		feature_tutorial = (String) map.get("feature_tutorial");
@@ -1256,6 +1271,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_newsObj = map.get("feature_news");
 		if(feature_newsObj != null)
 			feature_news = feature_newsObj.toString();
+
+		Object feature_timetableObj = map.get("feature_timetable");
+		if(feature_timetableObj != null)
+			feature_timetable = feature_timetableObj.toString();
 
 		Object feature_parentingObj = map.get("feature_parenting");
 		if(feature_parentingObj != null)
@@ -1894,6 +1913,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_news() {
 		this.feature_news = "Y";
+	}
+
+	public String getFeature_timetable() {
+		return feature_timetable != null ? feature_timetable : "N";
+	}
+
+	public void setFeature_timetable(String feature_timetable) {
+		this.feature_timetable = feature_timetable;
+	}
+
+	public void unSetFeature_timetable() {
+		this.feature_timetable = "N";
 	}
 
 	public String getFeature_parenting() {
