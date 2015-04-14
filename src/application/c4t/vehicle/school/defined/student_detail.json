@@ -264,6 +264,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_timetable':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_present_report':
 			{
 				'length': 1,
