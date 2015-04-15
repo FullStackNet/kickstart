@@ -116,6 +116,7 @@ public abstract class Basestudent extends BaseResource {
 	private String feature_school_entry_sms = null;
 	private String feature_school_exit_sms = null;
 	private Double total_fees = null;
+	private Double total_additional_charges = null;
 	private Double total_fees_paid = null;
 	private Double discount = null;
 	private Map<String, Object> extra_data = null;
@@ -217,6 +218,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_FEATURE_SCHOOL_ENTRY_SMS = "feature_school_entry_sms";
 	public static String FIELD_FEATURE_SCHOOL_EXIT_SMS = "feature_school_exit_sms";
 	public static String FIELD_TOTAL_FEES = "total_fees";
+	public static String FIELD_TOTAL_ADDITIONAL_CHARGES = "total_additional_charges";
 	public static String FIELD_TOTAL_FEES_PAID = "total_fees_paid";
 	public static String FIELD_DISCOUNT = "discount";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -647,6 +649,9 @@ public abstract class Basestudent extends BaseResource {
 		Field total_feesField = new Field("total_fees", "double");
 		metaData.addField(total_feesField);
 
+		Field total_additional_chargesField = new Field("total_additional_charges", "double");
+		metaData.addField(total_additional_chargesField);
+
 		Field total_fees_paidField = new Field("total_fees_paid", "double");
 		metaData.addField(total_fees_paidField);
 
@@ -763,6 +768,7 @@ public abstract class Basestudent extends BaseResource {
 		this.feature_school_entry_sms = obj.feature_school_entry_sms;
 		this.feature_school_exit_sms = obj.feature_school_exit_sms;
 		this.total_fees = obj.total_fees;
+		this.total_additional_charges = obj.total_additional_charges;
 		this.total_fees_paid = obj.total_fees_paid;
 		this.discount = obj.discount;
 		this.extra_data = obj.extra_data;
@@ -1033,6 +1039,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("feature_school_exit_sms", feature_school_exit_sms);
 		if(total_fees != null)
 			map.put("total_fees", total_fees);
+		if(total_additional_charges != null)
+			map.put("total_additional_charges", total_additional_charges);
 		if(total_fees_paid != null)
 			map.put("total_fees_paid", total_fees_paid);
 		if(discount != null)
@@ -1241,6 +1249,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("feature_school_exit_sms", feature_school_exit_sms);
 		if(total_fees != null)
 			map.put("total_fees", total_fees);
+		if(total_additional_charges != null)
+			map.put("total_additional_charges", total_additional_charges);
 		if(total_fees_paid != null)
 			map.put("total_fees_paid", total_fees_paid);
 		if(discount != null)
@@ -1354,6 +1364,7 @@ public abstract class Basestudent extends BaseResource {
 		feature_school_entry_sms = (String) map.get("feature_school_entry_sms");
 		feature_school_exit_sms = (String) map.get("feature_school_exit_sms");
 		total_fees = (Double) map.get("total_fees");
+		total_additional_charges = (Double) map.get("total_additional_charges");
 		total_fees_paid = (Double) map.get("total_fees_paid");
 		discount = (Double) map.get("discount");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -1748,6 +1759,10 @@ public abstract class Basestudent extends BaseResource {
 		Object total_feesObj = map.get("total_fees");
 		if(total_feesObj != null)
 			total_fees = new Double(total_feesObj.toString());
+
+		Object total_additional_chargesObj = map.get("total_additional_charges");
+		if(total_additional_chargesObj != null)
+			total_additional_charges = new Double(total_additional_chargesObj.toString());
 
 		Object total_fees_paidObj = map.get("total_fees_paid");
 		if(total_fees_paidObj != null)
@@ -3226,6 +3241,26 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetTotal_fees() {
 		this.total_fees = null;
+	}
+
+	public Double getTotal_additional_charges() {
+		return total_additional_charges;
+	}
+
+	public double getTotal_additional_chargesEx() {
+		return total_additional_charges != null ? total_additional_charges : 0;
+	}
+
+	public void setTotal_additional_charges(double total_additional_charges) {
+		this.total_additional_charges = total_additional_charges;
+	}
+
+	public void setTotal_additional_charges(Double total_additional_charges) {
+		this.total_additional_charges = total_additional_charges;
+	}
+
+	public void unSetTotal_additional_charges() {
+		this.total_additional_charges = null;
 	}
 
 	public Double getTotal_fees_paid() {

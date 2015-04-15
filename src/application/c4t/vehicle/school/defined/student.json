@@ -534,6 +534,10 @@
 			{
 				'type':'double'
 			},
+			'total_additional_charges':
+			{
+				'type':'double'
+			},
 			'total_fees_paid':
 			{
 				'type':'double'
