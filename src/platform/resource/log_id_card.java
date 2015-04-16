@@ -5,6 +5,7 @@ import platform.util.Util;
 
 public class log_id_card extends Baselog_id_card {
 	public static String REASON_NO_STUDENT = "NO_STUDENT";
+	public static String REASON_NO_STAFF = "NO_STAFF";
 	public static String REASON_MUTIPLE_STUDENT = "MUTIPLE_STUDENT";
 	public static String REASON_INCORRECT_ROUTE = "INCORRECT_ROUTE";
 	public static String REASON_INVALID_CONTROLLER = "WRONG_CONTROLLER";

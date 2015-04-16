@@ -311,7 +311,7 @@ public class PresentHelper extends BaseHelper {
 				Staff_presentHelper.getInstance().updateInSchoolAttendance((staff)staffs[0], cardId);
 				return;
 			}
-			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_NO_STUDENT);
+			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_NO_STAFF);
 			ApplicationLogger.error(" No student or Staff found for card " +cardId, this.getClass());
 			return;
 		}
