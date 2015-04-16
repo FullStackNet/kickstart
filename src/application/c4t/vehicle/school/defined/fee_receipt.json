@@ -60,8 +60,7 @@
 			},
 			'amount':
 			{
-				'type': 'String',
-				'length': 32
+				'type': 'double'
 			},
 			'payment_date_str':
 			{

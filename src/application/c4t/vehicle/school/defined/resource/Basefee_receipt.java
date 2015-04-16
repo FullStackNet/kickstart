@@ -28,7 +28,7 @@ public abstract class Basefee_receipt extends BaseResource {
 	private String student_name = null;
 	private String class_name = null;
 	private String section_name = null;
-	private String amount = null;
+	private Double amount = null;
 	private String payment_date_str = null;
 	private Long payment_date = null;
 	private String payment_method = null;
@@ -109,8 +109,7 @@ public abstract class Basefee_receipt extends BaseResource {
 		section_nameField.setLength(128);
 		metaData.addField(section_nameField);
 
-		Field amountField = new Field("amount", "String");
-		amountField.setLength(32);
+		Field amountField = new Field("amount", "double");
 		metaData.addField(amountField);
 
 		Field payment_date_strField = new Field("payment_date_str", "String");
@@ -283,7 +282,7 @@ public abstract class Basefee_receipt extends BaseResource {
 		student_name = (String) map.get("student_name");
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
-		amount = (String) map.get("amount");
+		amount = (Double) map.get("amount");
 		payment_date_str = (String) map.get("payment_date_str");
 		payment_date = (Long) map.get("payment_date");
 		payment_method = (String) map.get("payment_method");
@@ -335,7 +334,7 @@ public abstract class Basefee_receipt extends BaseResource {
 
 		Object amountObj = map.get("amount");
 		if(amountObj != null)
-			amount = amountObj.toString();
+			amount = new Double(amountObj.toString());
 
 		Object payment_date_strObj = map.get("payment_date_str");
 		if(payment_date_strObj != null)
@@ -528,15 +527,19 @@ public abstract class Basefee_receipt extends BaseResource {
 		this.section_name = null;
 	}
 
-	public String getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public String getAmountEx() {
-		return amount != null ? amount : "";
+	public double getAmountEx() {
+		return amount != null ? amount : 0;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 

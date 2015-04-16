@@ -12,6 +12,8 @@ import platform.resource.BaseResource;
 import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.Util;
+import application.c4t.vehicle.school.resource.fee_receipt;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
 
@@ -45,6 +47,25 @@ public class StudentHelper extends BaseHelper {
 		_student.setTotal_fees(fees);
 		try {
 			update(_student);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateTotalFeePaid(String studentId) {
+		student _student = (student)StudentHelper.getInstance().getById(studentId);
+		if (_student == null)
+			return;
+		school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
+		if (_school == null)
+			return;
+		long start_date = _school.getFee_starting_date();
+		double total_fee_paid = Fee_receiptHelper.getInstance().getTotalFee4Year(start_date,studentId);
+		student __student = new student(studentId);
+		__student.setTotal_fees_paid(total_fee_paid);
+		try {
+			update(__student);
 		} catch (ApplicationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
