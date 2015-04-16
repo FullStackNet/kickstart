@@ -301,7 +301,7 @@ public class PresentHelper extends BaseHelper {
 		long currentTime = new Date().getTime();
 		Id_cardHelper.getInstance().verifyAndAdd(cardId, readerId,locationId, location_name);
 		String today = TimeUtil.getDateStringMMDDYYYY(timeZone, new Date().getTime(),"-");
-		if (!"STDEUNT".equals(_id_card.getUsed_by_type())) {
+		if (!"STUDENT".equals(_id_card.getUsed_by_type())) {
 			BaseResource[] staffs =StaffHelper.getInstance().getStaffByCardNo(cardId);
 			if (staffs.length > 1) {
 				ApplicationLogger.error(" Multiple staffs detected for card " +cardId, this.getClass());
