@@ -19,6 +19,7 @@ import platform.log.ApplicationLogger;
 import platform.notification.NotificationFactory;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
+import platform.resource.id_card;
 import platform.resource.log_id_card;
 import platform.util.ApplicationException;
 import platform.util.TimeUtil;
@@ -63,24 +64,17 @@ public class PresentHelper extends BaseHelper {
 			}
 		}
 	}
-	public void updateInBusAttendance(route _route,String cardId,String latitude, String longitude,log_id_card _log) throws ApplicationException {
+	public void updateInBusAttendance(route _route,String cardId,String latitude, String longitude,log_id_card _log, id_card _id_card) throws ApplicationException {
 		long currentTime = new Date().getTime();
 		String today = TimeUtil.getDateStringMMDDYYYY("IST", new Date().getTime(),"-");
-		BaseResource[] students = StudentHelper.getInstance().getStudentByCardNo(cardId);
-		if (Util.isEmpty(students)) {
+		student _student = (student)StudentHelper.getInstance().getById(_id_card.getUsed_by_id());
+		if (_student == null) {
 			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_NO_STUDENT);
 			ApplicationLogger.error(" No student found for card " +cardId, this.getClass());
 			return;
 		}
 
-		if (students.length > 1) {
-			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_MUTIPLE_STUDENT);
-			ApplicationLogger.error(" Multiple student detected for card " +cardId, this.getClass());
-			//need to send the alerts admin
-		}
-
 		boolean entryRecordExist = true;
-		student _student = (student)students[0];
 		_log.setStudent_id(_student.getId());
 		_log.setStudent_name(_student.getName());
 		_log.setClass_section_name(_student.getClass_section_name());
@@ -300,13 +294,14 @@ public class PresentHelper extends BaseHelper {
 		Log_id_cardHelper.getInstance().update(_log);
 	}
 
-	public void updateInSchoolAttendance(String cardId,String readerId, String locationId,String location_name,log_id_card _log) throws ApplicationException {
+	public void updateInSchoolAttendance(String cardId,String readerId, 
+			String locationId,String location_name,
+			log_id_card _log, id_card _id_card) throws ApplicationException {
 		String timeZone  = "IST";
 		long currentTime = new Date().getTime();
 		Id_cardHelper.getInstance().verifyAndAdd(cardId, readerId,locationId, location_name);
 		String today = TimeUtil.getDateStringMMDDYYYY(timeZone, new Date().getTime(),"-");
-		BaseResource[] students = StudentHelper.getInstance().getStudentByCardNo(cardId);
-		if (Util.isEmpty(students)) {
+		if (!"STDEUNT".equals(_id_card.getUsed_by_type())) {
 			BaseResource[] staffs =StaffHelper.getInstance().getStaffByCardNo(cardId);
 			if (staffs.length > 1) {
 				ApplicationLogger.error(" Multiple staffs detected for card " +cardId, this.getClass());
@@ -320,13 +315,12 @@ public class PresentHelper extends BaseHelper {
 			ApplicationLogger.error(" No student or Staff found for card " +cardId, this.getClass());
 			return;
 		}
-		if (students.length > 1) {
-			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_MUTIPLE_STUDENT);
-			ApplicationLogger.error(" Multiple student detected for card " +cardId, this.getClass());
-			//need to send the alerts admin
+		student _student = (student)StudentHelper.getInstance().getById(_id_card.getUsed_by_id());
+		if (_student == null) {
+			Log_id_cardHelper.getInstance().updateReason(_log,log_id_card.REASON_NO_STUDENT);
+			ApplicationLogger.error(" No student found for card " +cardId, this.getClass());
 			return;
 		}
-		student _student = (student)students[0];
 		boolean isSchoolTimingConfigured =  true;
 		school_timing _timings = (school_timing)School_timingHelper.getInstance().getSchoolTiming(_student.getSchool_id(),
 				_student.getClass_name(), _student.getSection_name());

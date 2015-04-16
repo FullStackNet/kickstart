@@ -12,6 +12,10 @@ public class log_id_card extends Baselog_id_card {
 	public static String REASON_INVALID_DEVICE = "INVALID DEVICE";
 	public static String REASON_SWAP_BEFORE_EXIT_TIME= "SWAP BEFORE EXIT TIME";
 	public static String REASON_SWAP_TO_FAST= "SWAP TOO FAST";
+	public static String REASON_INVALID_CARD = "INVALID_CARD";
+	public static String REASON_CARD_IS_NOT_ASSIGNED = "CARD_IS_NOT_ASSIGNED";
+	public static String REASON_STAFF_NOT_ALLOWED_IN_BUS = "STAFF_NOT_ALLOWED_IN_BUS";
+	
 	
 	/**
 	 * 
