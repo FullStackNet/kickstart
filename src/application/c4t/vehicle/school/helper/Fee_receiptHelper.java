@@ -1,10 +1,9 @@
 package application.c4t.vehicle.school.helper;
 
-import platform.helper.BaseHelper;
 import application.c4t.vehicle.school.resource.fee_receipt;
 
 
-public class Fee_receiptHelper extends BaseHelper {
+public class Fee_receiptHelper extends BaseSchoolHelper{
 	
 	Fee_receiptHelper() {
 		super(new fee_receipt());

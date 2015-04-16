@@ -21,6 +21,9 @@ import java.util.*;
 public abstract class Basefee_receipt extends BaseResource {
 	private String id = null;
 	private String receipt_no = null;
+	private String school_id = null;
+	private String school_name = null;
+	private String customer_id = null;
 	private String student_id = null;
 	private String student_name = null;
 	private String class_name = null;
@@ -38,6 +41,9 @@ public abstract class Basefee_receipt extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_RECEIPT_NO = "receipt_no";
+	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_SCHOOL_NAME = "school_name";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_CLASS_NAME = "class_name";
@@ -67,6 +73,21 @@ public abstract class Basefee_receipt extends BaseResource {
 		Field receipt_noField = new Field("receipt_no", "String");
 		receipt_noField.setLength(128);
 		metaData.addField(receipt_noField);
+
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setIndexed(true);
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
+
+		Field school_nameField = new Field("school_name", "String");
+		school_nameField.setIndexed(true);
+		school_nameField.setLength(128);
+		metaData.addField(school_nameField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setIndexed(true);
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
 
 		Field student_idField = new Field("student_id", "String");
 		student_idField.setIndexed(true);
@@ -137,6 +158,9 @@ public abstract class Basefee_receipt extends BaseResource {
 	public Basefee_receipt(Basefee_receipt obj) {
 		this.id = obj.id;
 		this.receipt_no = obj.receipt_no;
+		this.school_id = obj.school_id;
+		this.school_name = obj.school_name;
+		this.customer_id = obj.customer_id;
 		this.student_id = obj.student_id;
 		this.student_name = obj.student_name;
 		this.class_name = obj.class_name;
@@ -163,6 +187,12 @@ public abstract class Basefee_receipt extends BaseResource {
 			map.put("id", id);
 		if(receipt_no != null)
 			map.put("receipt_no", receipt_no);
+		if(school_id != null)
+			map.put("school_id", school_id);
+		if(school_name != null)
+			map.put("school_name", school_name);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(student_id != null)
 			map.put("student_id", student_id);
 		if(student_name != null)
@@ -200,6 +230,12 @@ public abstract class Basefee_receipt extends BaseResource {
 			map.put("id", id);
 		if(receipt_no != null)
 			map.put("receipt_no", receipt_no);
+		if(school_id != null)
+			map.put("school_id", school_id);
+		if(school_name != null)
+			map.put("school_name", school_name);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(student_id != null)
 			map.put("student_id", student_id);
 		if(student_name != null)
@@ -240,6 +276,9 @@ public abstract class Basefee_receipt extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		receipt_no = (String) map.get("receipt_no");
+		school_id = (String) map.get("school_id");
+		school_name = (String) map.get("school_name");
+		customer_id = (String) map.get("customer_id");
 		student_id = (String) map.get("student_id");
 		student_name = (String) map.get("student_name");
 		class_name = (String) map.get("class_name");
@@ -265,6 +304,18 @@ public abstract class Basefee_receipt extends BaseResource {
 		Object receipt_noObj = map.get("receipt_no");
 		if(receipt_noObj != null)
 			receipt_no = receipt_noObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
+
+		Object school_nameObj = map.get("school_name");
+		if(school_nameObj != null)
+			school_name = school_nameObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		Object student_idObj = map.get("student_id");
 		if(student_idObj != null)
@@ -363,6 +414,54 @@ public abstract class Basefee_receipt extends BaseResource {
 
 	public void unSetReceipt_no() {
 		this.receipt_no = null;
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
+	}
+
+	public String getSchool_name() {
+		return school_name;
+	}
+
+	public String getSchool_nameEx() {
+		return school_name != null ? school_name : "";
+	}
+
+	public void setSchool_name(String school_name) {
+		this.school_name = school_name;
+	}
+
+	public void unSetSchool_name() {
+		this.school_name = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
 	public String getStudent_id() {
