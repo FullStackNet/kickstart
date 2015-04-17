@@ -12,7 +12,6 @@ import platform.resource.BaseResource;
 import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.Util;
-import application.c4t.vehicle.school.resource.fee_receipt;
 import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
