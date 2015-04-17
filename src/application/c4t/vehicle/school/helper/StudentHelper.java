@@ -91,6 +91,25 @@ public class StudentHelper extends BaseHelper {
 		}
 	}
 	
+	public void updateTotalAdditionalCharges(String studentId) {
+		student _student = (student)StudentHelper.getInstance().getById(studentId);
+		if (_student == null)
+			return;
+		school _school = (school)SchoolHelper.getInstance().getById(_student.getSchool_id());
+		if (_school == null)
+			return;
+		long start_date = _school.getFee_starting_date();
+		double total_charges = Fee_additioanl_chargeHelper.getInstance().getTotalcharges4Year(start_date,studentId);
+		student __student = new student(studentId);
+		__student.setTotal_additional_charges(total_charges);
+		try {
+			update(__student);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void deleteRouteStopage(String routeStopageId) {
 		Expression e = new Expression(student.FIELD_PICKUP_ROUTE_STOPAGE_ID, REL_OP.EQ, routeStopageId);
 		BaseResource[] resources = getByExpression(e);

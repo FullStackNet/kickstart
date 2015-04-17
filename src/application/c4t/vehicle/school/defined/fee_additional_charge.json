@@ -11,6 +11,24 @@
 				'required': true,
 				'type':'String'
 			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'school_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'student_id':
 			{
 				'length': 128,
@@ -46,8 +64,7 @@
 			},
 			'amount':
 			{
-				'type': 'String',
-				'length': 32
+				'type': 'double'
 			},
 			'reason':
 			{

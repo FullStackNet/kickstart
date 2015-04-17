@@ -20,18 +20,24 @@ import java.util.*;
  */
 public abstract class Basefee_additional_charge extends BaseResource {
 	private String id = null;
+	private String school_id = null;
+	private String school_name = null;
+	private String customer_id = null;
 	private String student_id = null;
 	private String student_name = null;
 	private String class_name = null;
 	private String section_name = null;
 	private String charge_date_str = null;
 	private Long charge_date = null;
-	private String amount = null;
+	private Double amount = null;
 	private String reason = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_SCHOOL_NAME = "school_name";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_CLASS_NAME = "class_name";
@@ -53,6 +59,21 @@ public abstract class Basefee_additional_charge extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setIndexed(true);
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
+
+		Field school_nameField = new Field("school_name", "String");
+		school_nameField.setIndexed(true);
+		school_nameField.setLength(128);
+		metaData.addField(school_nameField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setIndexed(true);
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
 
 		Field student_idField = new Field("student_id", "String");
 		student_idField.setIndexed(true);
@@ -81,8 +102,7 @@ public abstract class Basefee_additional_charge extends BaseResource {
 		Field charge_dateField = new Field("charge_date", "long");
 		metaData.addField(charge_dateField);
 
-		Field amountField = new Field("amount", "String");
-		amountField.setLength(32);
+		Field amountField = new Field("amount", "double");
 		metaData.addField(amountField);
 
 		Field reasonField = new Field("reason", "String");
@@ -106,6 +126,9 @@ public abstract class Basefee_additional_charge extends BaseResource {
 
 	public Basefee_additional_charge(Basefee_additional_charge obj) {
 		this.id = obj.id;
+		this.school_id = obj.school_id;
+		this.school_name = obj.school_name;
+		this.customer_id = obj.customer_id;
 		this.student_id = obj.student_id;
 		this.student_name = obj.student_name;
 		this.class_name = obj.class_name;
@@ -126,6 +149,12 @@ public abstract class Basefee_additional_charge extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(school_id != null)
+			map.put("school_id", school_id);
+		if(school_name != null)
+			map.put("school_name", school_name);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(student_id != null)
 			map.put("student_id", student_id);
 		if(student_name != null)
@@ -153,6 +182,12 @@ public abstract class Basefee_additional_charge extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(school_id != null)
+			map.put("school_id", school_id);
+		if(school_name != null)
+			map.put("school_name", school_name);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(student_id != null)
 			map.put("student_id", student_id);
 		if(student_name != null)
@@ -184,13 +219,16 @@ public abstract class Basefee_additional_charge extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		school_id = (String) map.get("school_id");
+		school_name = (String) map.get("school_name");
+		customer_id = (String) map.get("customer_id");
 		student_id = (String) map.get("student_id");
 		student_name = (String) map.get("student_name");
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
 		charge_date_str = (String) map.get("charge_date_str");
 		charge_date = (Long) map.get("charge_date");
-		amount = (String) map.get("amount");
+		amount = (Double) map.get("amount");
 		reason = (String) map.get("reason");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -201,6 +239,18 @@ public abstract class Basefee_additional_charge extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
+
+		Object school_nameObj = map.get("school_name");
+		if(school_nameObj != null)
+			school_name = school_nameObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		Object student_idObj = map.get("student_id");
 		if(student_idObj != null)
@@ -228,7 +278,7 @@ public abstract class Basefee_additional_charge extends BaseResource {
 
 		Object amountObj = map.get("amount");
 		if(amountObj != null)
-			amount = amountObj.toString();
+			amount = new Double(amountObj.toString());
 
 		Object reasonObj = map.get("reason");
 		if(reasonObj != null)
@@ -267,6 +317,54 @@ public abstract class Basefee_additional_charge extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
+	}
+
+	public String getSchool_name() {
+		return school_name;
+	}
+
+	public String getSchool_nameEx() {
+		return school_name != null ? school_name : "";
+	}
+
+	public void setSchool_name(String school_name) {
+		this.school_name = school_name;
+	}
+
+	public void unSetSchool_name() {
+		this.school_name = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
 	public String getStudent_id() {
@@ -369,15 +467,19 @@ public abstract class Basefee_additional_charge extends BaseResource {
 		this.charge_date = null;
 	}
 
-	public String getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public String getAmountEx() {
-		return amount != null ? amount : "";
+	public double getAmountEx() {
+		return amount != null ? amount : 0;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 
