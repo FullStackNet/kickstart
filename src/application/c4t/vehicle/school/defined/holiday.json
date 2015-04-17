@@ -1,5 +1,5 @@
 {
-	"photo_collection" :
+	"holiday" :
 	{
 		"cluster": "DB_SCHOOL",
 		"fields":
@@ -49,20 +49,16 @@
 				'length': 512,
 				'type': 'String'
 			},
-			'description':{
-				'length': 4096,
-				'type': 'String'
-			},
-			'activity_date': {
+			'holiday_date': {
 				'type': 'timestamp'
 			},
-			'activity_date_str': {
+			'holiday_date_str': {
 				'type': 'String',
 				'length' : 32
 			},
 			'creation_time': {
 				'type': 'timestamp'
-			}		
+			}
 		}
 	}
 }

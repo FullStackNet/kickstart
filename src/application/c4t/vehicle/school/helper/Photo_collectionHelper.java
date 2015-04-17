@@ -26,11 +26,7 @@ public class Photo_collectionHelper extends BaseHelper {
 			instance = new Photo_collectionHelper();
 		return instance;
 	}
-	public void updateSend(String id) throws ApplicationException {
-		photo_collection _photo_collection = new photo_collection(id);
-		_photo_collection.setSent("Y");
-		update(_photo_collection);
-	}
+	
 	public void addSchool(String photo_collectionId,String schoolId) {
 		photo_collection _photo_collection = new photo_collection();
 		_photo_collection.setId(photo_collectionId);
@@ -63,22 +59,6 @@ public class Photo_collectionHelper extends BaseHelper {
 		_photo_collection.addSchools(schoolId);
 		try {
 			Photo_collectionHelper.getInstance().unset(_photo_collection);
-		} catch (ApplicationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public void updateSentCounter(String id,int total_students_sent, 
-			int total_users_sent, int total_sms_sent, int total_email_sent, 
-			int total_app_notification_sent)  {
-		photo_collection _photo_collection = new photo_collection(id);
-		_photo_collection.setTotal_student_sent(total_students_sent);
-		_photo_collection.setTotal_user_sent(total_users_sent);
-		_photo_collection.setTotal_sms_sent(total_sms_sent);
-		_photo_collection.setTotal_email_sent(total_email_sent);
-		_photo_collection.setTotal_app_notification_sent(total_app_notification_sent);
-		try {
-			update(_photo_collection);
 		} catch (ApplicationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
