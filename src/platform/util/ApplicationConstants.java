@@ -207,6 +207,7 @@ public class ApplicationConstants {
 	public static String SMS_TYPE_SEND_DROP_BUS_EXIT = "DROP_BUS_EXIT";
 	public static String SMS_TYPE_SEND_SCHOOL_ENTRY = "SCHOOL_ENTRY";
 	public static String SMS_TYPE_SEND_SCHOOL_EXIT = "SCHOOL_EXIT";
+	public static String SMS_TYPE_DIRECT_MESSAGE = "DIRECT_MESSAGE";
 	
 	
 

@@ -75,6 +75,13 @@ public class user extends Baseuser {
 		return false;
 	}
 	
+	public boolean isSMSEnable() {
+		if ("Y".equalsIgnoreCase(getSend_sms())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isNoticeFeatureEnable() {
 		if ("Y".equalsIgnoreCase(getFeature_notice())) {
 			return true;
