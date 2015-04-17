@@ -6,7 +6,6 @@ import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.util.Util;
 import application.c4t.vehicle.school.resource.fee_additional_charge;
-import application.c4t.vehicle.school.resource.fee_discount;
 
 
 public class Fee_additioanl_chargeHelper extends BaseSchoolHelper {
