@@ -75,6 +75,7 @@ public class UIConstants {
 			"PRE PRIMARYNursery",
 			"PRE PRIMARYJr. K.G.",
 			"PRE PRIMARYPlayschool",
+			"Day Care",
 			
 	};
 
