@@ -18,23 +18,19 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Basecommunity extends BaseResource {
-	private String id = null;
-	private String name = null;
-	private String type = null;
-	private Long creation_time = null;
-	private Long updation_time = null;
+public abstract class Baseuser_community_map extends BaseResource {
+	private String id = null; //user ids
+	private ArrayList<String> community = null;
+	private ArrayList<String> group_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_NAME = "name";
-	public static String FIELD_TYPE = "type";
-	public static String FIELD_CREATION_TIME = "creation_time";
-	public static String FIELD_UPDATION_TIME = "updation_time";
+	public static String FIELD_COMMUNITY = "community";
+	public static String FIELD_GROUP_ID = "group_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("community");
+	private final static ResourceMetaData metaData = new ResourceMetaData("user_community_map");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -44,38 +40,28 @@ public abstract class Basecommunity extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
-		Field nameField = new Field("name", "String");
-		nameField.setLength(128);
-		metaData.addField(nameField);
+		Field communityField = new Field("community", "Array");
+		metaData.addField(communityField);
 
-		Field typeField = new Field("type", "String");
-		typeField.setLength(128);
-		metaData.addField(typeField);
-
-		Field creation_timeField = new Field("creation_time", "timestamp");
-		metaData.addField(creation_timeField);
-
-		Field updation_timeField = new Field("updation_time", "timestamp");
-		metaData.addField(updation_timeField);
+		Field group_idField = new Field("group_id", "Array");
+		metaData.addField(group_idField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
 
 
-		metaData.setTableName("community");
+		metaData.setTableName("user_community_map");
 
 		metaData.setCluster("DB_COMMUNITY");
 	}
 
-	public Basecommunity() {}
+	public Baseuser_community_map() {}
 
-	public Basecommunity(Basecommunity obj) {
+	public Baseuser_community_map(Baseuser_community_map obj) {
 		this.id = obj.id;
-		this.name = obj.name;
-		this.type = obj.type;
-		this.creation_time = obj.creation_time;
-		this.updation_time = obj.updation_time;
+		this.community = obj.community;
+		this.group_id = obj.group_id;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -87,14 +73,10 @@ public abstract class Basecommunity extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(name != null)
-			map.put("name", name);
-		if(type != null)
-			map.put("type", type);
-		if(creation_time != null)
-			map.put("creation_time", creation_time);
-		if(updation_time != null)
-			map.put("updation_time", updation_time);
+		if(community != null)
+			map.put("community", community);
+		if(group_id != null)
+			map.put("group_id", group_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -104,14 +86,10 @@ public abstract class Basecommunity extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(name != null)
-			map.put("name", name);
-		if(type != null)
-			map.put("type", type);
-		if(creation_time != null)
-			map.put("creation_time", creation_time);
-		if(updation_time != null)
-			map.put("updation_time", updation_time);
+		if(community != null)
+			map.put("community", community);
+		if(group_id != null)
+			map.put("group_id", group_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -125,10 +103,8 @@ public abstract class Basecommunity extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		name = (String) map.get("name");
-		type = (String) map.get("type");
-		creation_time = (Long) map.get("creation_time");
-		updation_time = (Long) map.get("updation_time");
+		community = (ArrayList<String>) map.get("community");
+		group_id = (ArrayList<String>) map.get("group_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -138,22 +114,8 @@ public abstract class Basecommunity extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		Object nameObj = map.get("name");
-		if(nameObj != null)
-			name = nameObj.toString();
-
-		Object typeObj = map.get("type");
-		if(typeObj != null)
-			type = typeObj.toString();
-
-		Object creation_timeObj = map.get("creation_time");
-		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
-
-		Object updation_timeObj = map.get("updation_time");
-		if(updation_timeObj != null)
-			updation_time = (Long) updation_timeObj;
-
+		community = (ArrayList<String>) map.get("community");
+		group_id = (ArrayList<String>) map.get("group_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -185,55 +147,43 @@ public abstract class Basecommunity extends BaseResource {
 		return id != null;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getNameEx() {
-		return name != null ? name : "";
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void unSetName() {
-		this.name = null;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public String getTypeEx() {
-		return type != null ? type : "";
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public void unSetType() {
-		this.type = null;
-	}
-
-	public Long getCreation_time() {
-		return creation_time;
-	}
-
-	public void setCreation_time(Long creation_time) {
-		this.creation_time = creation_time;
+	public ArrayList<String> getCommunity() {
+		return community;
 	}
 
 
-	public Long getUpdation_time() {
-		return updation_time;
+	public void setCommunity(ArrayList<String> community) {
+		this.community = community;
 	}
 
-	public void setUpdation_time(Long updation_time) {
-		this.updation_time = updation_time;
+	public void addCommunity(String value) {
+		if(community == null)
+			community = new ArrayList<String>();
+		community.add(value);
 	}
 
+	public void unSetCommunity() {
+		this.community = null;
+	}
+
+	public ArrayList<String> getGroup_id() {
+		return group_id;
+	}
+
+
+	public void setGroup_id(ArrayList<String> group_id) {
+		this.group_id = group_id;
+	}
+
+	public void addGroup_id(String value) {
+		if(group_id == null)
+			group_id = new ArrayList<String>();
+		group_id.add(value);
+	}
+
+	public void unSetGroup_id() {
+		this.group_id = null;
+	}
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

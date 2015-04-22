@@ -1,5 +1,5 @@
 {
-	"community" :
+	"community_group" :
 	{
 		"cluster": "DB_COMMUNITY",
 		"fields":
@@ -16,11 +16,12 @@
 				'length': 128,
 				'type':'String'
 			},
-			'type':
+			'community_id':
 			{
+				'name':'id',
 				'length': 128,
-				'type':'String',
-				'remark' : "SPIRITUAL,BUSINESS,FAMILY,APARTMENT"
+				'required': true,
+				'type':'String'
 			},
 			'creation_time':
 			{

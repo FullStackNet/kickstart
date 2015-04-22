@@ -22,5 +22,9 @@ public class ResourcesToGenerate {
 	 */
 	public static ResourceMap[] resourceMaps =  {
 		new ResourceMap("community", "application.community.resource.community"),
+		new ResourceMap("community_member", "application.community.resource.community_member"),
+		new ResourceMap("user_community_map", "application.community.resource.user_community_map"),
+		new ResourceMap("community_group", "application.community.resource.community_group"),
+
 	};
 }

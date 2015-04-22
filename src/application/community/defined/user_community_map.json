@@ -1,0 +1,27 @@
+{
+	"user_community_map" :
+	{
+		"cluster": "DB_COMMUNITY",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'comment' : "user ids"
+			},
+			'community':
+			{
+				'type':'Array',
+				'valueType' : 'String' 
+			},
+			'group_id':
+			{
+				'type':'Array',
+				'valueType' : 'String' 
+			}
+		}
+	}
+}

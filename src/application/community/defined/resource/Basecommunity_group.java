@@ -18,23 +18,23 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Basecommunity extends BaseResource {
+public abstract class Basecommunity_group extends BaseResource {
 	private String id = null;
 	private String name = null;
-	private String type = null;
+	private String community_id = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
-	public static String FIELD_TYPE = "type";
+	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("community");
+	private final static ResourceMetaData metaData = new ResourceMetaData("community_group");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -48,9 +48,10 @@ public abstract class Basecommunity extends BaseResource {
 		nameField.setLength(128);
 		metaData.addField(nameField);
 
-		Field typeField = new Field("type", "String");
-		typeField.setLength(128);
-		metaData.addField(typeField);
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setRequired(true);
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -63,17 +64,17 @@ public abstract class Basecommunity extends BaseResource {
 		metaData.addField(extra_dataField);
 
 
-		metaData.setTableName("community");
+		metaData.setTableName("community_group");
 
 		metaData.setCluster("DB_COMMUNITY");
 	}
 
-	public Basecommunity() {}
+	public Basecommunity_group() {}
 
-	public Basecommunity(Basecommunity obj) {
+	public Basecommunity_group(Basecommunity_group obj) {
 		this.id = obj.id;
 		this.name = obj.name;
-		this.type = obj.type;
+		this.community_id = obj.community_id;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
 		this.extra_data = obj.extra_data;
@@ -89,8 +90,8 @@ public abstract class Basecommunity extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
-		if(type != null)
-			map.put("type", type);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -106,8 +107,8 @@ public abstract class Basecommunity extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
-		if(type != null)
-			map.put("type", type);
+		if(validateCommunity_id(add))
+			map.put("community_id", community_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -126,7 +127,7 @@ public abstract class Basecommunity extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
-		type = (String) map.get("type");
+		community_id = (String) map.get("community_id");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -142,9 +143,9 @@ public abstract class Basecommunity extends BaseResource {
 		if(nameObj != null)
 			name = nameObj.toString();
 
-		Object typeObj = map.get("type");
-		if(typeObj != null)
-			type = typeObj.toString();
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -201,20 +202,26 @@ public abstract class Basecommunity extends BaseResource {
 		this.name = null;
 	}
 
-	public String getType() {
-		return type;
+	public String getCommunity_id() {
+		return community_id;
 	}
 
-	public String getTypeEx() {
-		return type != null ? type : "";
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
 	}
 
-	public void unSetType() {
-		this.type = null;
+	public void unSetCommunity_id() {
+		this.community_id = null;
+	}
+
+	public boolean validateCommunity_id(boolean add) throws ApplicationException {
+		if(add && community_id == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[community_id]");
+		return community_id != null;
 	}
 
 	public Long getCreation_time() {
