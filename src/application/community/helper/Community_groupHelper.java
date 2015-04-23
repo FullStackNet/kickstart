@@ -1,7 +1,7 @@
 package application.community.helper;
 
 import platform.helper.BaseHelper;
-import application.community.resource.community_group;
+import platform.resource.c4t_object;
 
 public class Community_groupHelper extends BaseHelper {
 	private static Community_groupHelper instance;
@@ -13,7 +13,7 @@ public class Community_groupHelper extends BaseHelper {
 	}
 	
 	public Community_groupHelper() {
-		super(new community_group());
+		super(new c4t_object());
 		// TODO Auto-generated constructor stub
 	}
 }
