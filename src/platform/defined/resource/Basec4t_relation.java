@@ -22,7 +22,6 @@ public abstract class Basec4t_relation extends BaseResource {
 	private String id = null;
 	private String to_id = null;
 	private String type = null;
-	private String user_id = null;
 	private String name = null;
 	private String email_id = null;
 	private String mobile_no = null;
@@ -34,7 +33,6 @@ public abstract class Basec4t_relation extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_TO_ID = "to_id";
 	public static String FIELD_TYPE = "type";
-	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_MOBILE_NO = "mobile_no";
@@ -63,10 +61,6 @@ public abstract class Basec4t_relation extends BaseResource {
 		typeField.setRequired(true);
 		typeField.setLength(128);
 		metaData.addField(typeField);
-
-		Field user_idField = new Field("user_id", "String");
-		user_idField.setLength(128);
-		metaData.addField(user_idField);
 
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
@@ -107,7 +101,6 @@ public abstract class Basec4t_relation extends BaseResource {
 		this.id = obj.id;
 		this.to_id = obj.to_id;
 		this.type = obj.type;
-		this.user_id = obj.user_id;
 		this.name = obj.name;
 		this.email_id = obj.email_id;
 		this.mobile_no = obj.mobile_no;
@@ -129,8 +122,6 @@ public abstract class Basec4t_relation extends BaseResource {
 			map.put("to_id", to_id);
 		if(type != null)
 			map.put("type", type);
-		if(user_id != null)
-			map.put("user_id", user_id);
 		if(name != null)
 			map.put("name", name);
 		if(email_id != null)
@@ -156,8 +147,6 @@ public abstract class Basec4t_relation extends BaseResource {
 			map.put("to_id", to_id);
 		if(validateType(add))
 			map.put("type", type);
-		if(user_id != null)
-			map.put("user_id", user_id);
 		if(name != null)
 			map.put("name", name);
 		if(email_id != null)
@@ -185,7 +174,6 @@ public abstract class Basec4t_relation extends BaseResource {
 		id = (String) map.get("id");
 		to_id = (String) map.get("to_id");
 		type = (String) map.get("type");
-		user_id = (String) map.get("user_id");
 		name = (String) map.get("name");
 		email_id = (String) map.get("email_id");
 		mobile_no = (String) map.get("mobile_no");
@@ -208,10 +196,6 @@ public abstract class Basec4t_relation extends BaseResource {
 		Object typeObj = map.get("type");
 		if(typeObj != null)
 			type = typeObj.toString();
-
-		Object user_idObj = map.get("user_id");
-		if(user_idObj != null)
-			user_id = user_idObj.toString();
 
 		Object nameObj = map.get("name");
 		if(nameObj != null)
@@ -310,22 +294,6 @@ public abstract class Basec4t_relation extends BaseResource {
 		if(add && type == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[type]");
 		return type != null;
-	}
-
-	public String getUser_id() {
-		return user_id;
-	}
-
-	public String getUser_idEx() {
-		return user_id != null ? user_id : "";
-	}
-
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
-
-	public void unSetUser_id() {
-		this.user_id = null;
 	}
 
 	public String getName() {
