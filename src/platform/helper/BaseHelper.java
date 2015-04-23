@@ -13,6 +13,7 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
+import platform.resource.c4t_object;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
@@ -49,6 +50,24 @@ public class BaseHelper {
 		}
 	}
 
+	public void updateInObject(BaseResource _resource) throws ApplicationException {
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			Map<String, Object> map = _resource.convertResourceToMap();
+			c4t_object  _object = new c4t_object();
+			_object.convertMapToResource(map);
+			connection.update(_object);
+		} catch(Exception e) {	
+			e.printStackTrace();
+			if (connection != null)
+				connection.release();
+			throw new ApplicationException(ExceptionSeverity.ERROR,e.getMessage());
+		} finally {
+			if (connection != null)
+				connection.release();	
+		}
+	}
 
 	public void incrementCounter(String id,String counterName, int incrementBy) throws ApplicationException {
 		DbConnection connection = null;
@@ -153,6 +172,30 @@ public class BaseHelper {
 		}
 	}
 
+	public void addInObject(BaseResource _resource) throws ApplicationException {
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			Map<String, Object> map = _resource.convertResourceToMap();
+			c4t_object  _object = new c4t_object();
+			_object.setType(_resource.getMetaData().getName());
+			_object.convertMapToResource(map);
+			connection.add(_object);
+		} catch(ApplicationException e) {	
+			e.printStackTrace();
+			if (connection != null)
+				connection.release();
+			throw e;
+		} catch(Exception e) {	
+			e.printStackTrace();
+			if (connection != null)
+				connection.release();
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Error in Adding" + e.getMessage());
+		} finally {
+			if (connection != null)
+				connection.release();	
+		}
+	}
 	public void createTable() throws ApplicationException {
 		DbConnection connection = null;
 		try {
