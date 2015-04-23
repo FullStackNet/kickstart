@@ -22,11 +22,6 @@
 				'required': true,
 				'type':'String'
 			},
-			'user_id':
-			{
-				'length': 128,
-				'type':'String'
-			},
 			'name':
 			{
 				'length': 128,
