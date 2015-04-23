@@ -82,14 +82,14 @@ public enum DBNameEnum {
 			return "DB_PHOTO";
 		}
 	},
-	DB_COMMUNITY {
+	DB_OBJECT {
 		public String toString() {
-			return "DB_COMMUNITY";
+			return "DB_OBJECT";
 		}
 	},
-	DB_COMMUNITY_ACTIVITY {
+	DB_RECORD {
 		public String toString() {
-			return "DB_COMMUNITY_ACTIVITY";
+			return "DB_RECORD";
 		}
 	},
 }
