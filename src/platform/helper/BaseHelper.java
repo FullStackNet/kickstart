@@ -178,7 +178,7 @@ public class BaseHelper {
 			connection = DbManager.getInstance().getConnection(this.getResource());
 			Map<String, Object> map = _resource.convertResourceToMap();
 			c4t_object  _object = new c4t_object();
-			_object.setType(_resource.getMetaData().getName());
+			_object.setObject_type(_resource.getMetaData().getName());
 			_object.convertMapToResource(map);
 			connection.add(_object);
 		} catch(ApplicationException e) {	
