@@ -11,7 +11,6 @@ public class CommunityHelper extends BaseHelper   {
 			instance = new CommunityHelper();
 		return instance;
 	}
-	
 	public CommunityHelper() {
 		super(new c4t_object());
 		// TODO Auto-generated constructor stub
