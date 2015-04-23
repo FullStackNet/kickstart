@@ -16,4 +16,5 @@ public class C4t_objectHelper extends BaseHelper {
 			instance = new C4t_objectHelper();
 		return instance;
 	}
+	
 }
