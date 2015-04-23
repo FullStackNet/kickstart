@@ -1,9 +1,9 @@
 package application.community.helper;
 
 import platform.helper.BaseHelper;
-import application.community.resource.community;
+import platform.resource.c4t_object;
 
-public class CommunityHelper extends BaseHelper {
+public class CommunityHelper extends BaseHelper   {
 	private static CommunityHelper instance;
 
 	public static CommunityHelper getInstance() {
@@ -13,7 +13,7 @@ public class CommunityHelper extends BaseHelper {
 	}
 	
 	public CommunityHelper() {
-		super(new community());
+		super(new c4t_object());
 		// TODO Auto-generated constructor stub
 	}
 }
