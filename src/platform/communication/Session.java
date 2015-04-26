@@ -28,9 +28,19 @@ public class Session implements  Serializable {
 	long 	 pendingMessages;
 	long 	 processedMessage;
 	long  max_message_queue_per_client;
-
+	boolean  exited;
 
 	
+
+	public boolean isExited() {
+		return exited;
+	}
+
+
+	public void setExited(boolean exited) {
+		this.exited = exited;
+	}
+
 
 	public Session() {
 		authenticated = false;

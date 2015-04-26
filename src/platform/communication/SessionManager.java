@@ -52,6 +52,11 @@ public class SessionManager {
 	public void deleteOrphanedConnection() {
 		for(Map.Entry<Object, Session> entry : sessionTable.entrySet()) {
 			Session session = (Session)entry.getValue();
+			if (session.isExited()) {
+				ApplicationLogger.info("Deleting the session as it is exited : ",this.getClass());
+				deleteSession(session.getSessionKey());
+				continue;
+			}
 			long currentTime = System.currentTimeMillis();
 			if (session.getClientId() == null) {
 				if ((currentTime-session.getCreationTime()) > 60000) {

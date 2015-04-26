@@ -259,10 +259,13 @@ class ClientReadHandler extends Communication implements Runnable {
 		}
 		
 		try {
+			getReaderHandle().close();
+			getWriterHandle().close();
 			((Socket)handle).close();
 			ApplicationLogger.warn("Peered closed the connection closing the connection "+session.getClientId()+" for "+server.getContext().getName()+"("+server.getContext().getPort()+")", this.getClass());
 		} catch(Exception e) {
 		}
+		session.setExited(true);
 		SessionManager.getInstance().deleteSession(handle.toString());
 		server.decrementConnection();
 	}
