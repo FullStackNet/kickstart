@@ -1341,7 +1341,7 @@ public class Util {
 	public static synchronized void saveDataInFile(String filename, String data) {
 		FileWriter fileWritter;
 		try {
-			fileWritter = new FileWriter(filename,true);
+			fileWritter = new FileWriter("logs/"+filename,true);
 			BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
 		    bufferWritter.write(new Date()+"::"+data);
 		    bufferWritter.close();
