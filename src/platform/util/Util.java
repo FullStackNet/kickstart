@@ -1338,12 +1338,12 @@ public class Util {
 		ImageIO.write(newImage, Field.MINIFIED_IMAGE_FILE_TYPE, outputStreams);
 		return outputStreams;
 	}
-	public static void saveDataInFile(String filename, String data) {
+	public static synchronized void saveDataInFile(String filename, String data) {
 		FileWriter fileWritter;
 		try {
 			fileWritter = new FileWriter(filename,true);
 			BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
-		    bufferWritter.write(data);
+		    bufferWritter.write(new Date()+"::"+data);
 		    bufferWritter.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
