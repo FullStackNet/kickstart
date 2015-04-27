@@ -28,6 +28,12 @@ public abstract class Basec4t_object extends BaseResource {
 	private String mobile_no = null;
 	private String status = null;
 	private String role = null;
+	private String address = null;
+	private String area = null;
+	private String city = null;
+	private String state = null;
+	private String country = null;
+	private String zip_code = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -41,6 +47,12 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_ROLE = "role";
+	public static String FIELD_ADDRESS = "address";
+	public static String FIELD_AREA = "area";
+	public static String FIELD_CITY = "city";
+	public static String FIELD_STATE = "state";
+	public static String FIELD_COUNTRY = "country";
+	public static String FIELD_ZIP_CODE = "zip_code";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -88,6 +100,30 @@ public abstract class Basec4t_object extends BaseResource {
 		roleField.setLength(128);
 		metaData.addField(roleField);
 
+		Field addressField = new Field("address", "String");
+		addressField.setLength(128);
+		metaData.addField(addressField);
+
+		Field areaField = new Field("area", "String");
+		areaField.setLength(128);
+		metaData.addField(areaField);
+
+		Field cityField = new Field("city", "String");
+		cityField.setLength(128);
+		metaData.addField(cityField);
+
+		Field stateField = new Field("state", "String");
+		stateField.setLength(128);
+		metaData.addField(stateField);
+
+		Field countryField = new Field("country", "String");
+		countryField.setLength(128);
+		metaData.addField(countryField);
+
+		Field zip_codeField = new Field("zip_code", "String");
+		zip_codeField.setLength(128);
+		metaData.addField(zip_codeField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -116,6 +152,12 @@ public abstract class Basec4t_object extends BaseResource {
 		this.mobile_no = obj.mobile_no;
 		this.status = obj.status;
 		this.role = obj.role;
+		this.address = obj.address;
+		this.area = obj.area;
+		this.city = obj.city;
+		this.state = obj.state;
+		this.country = obj.country;
+		this.zip_code = obj.zip_code;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
 		this.extra_data = obj.extra_data;
@@ -145,6 +187,18 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("status", status);
 		if(role != null)
 			map.put("role", role);
+		if(address != null)
+			map.put("address", address);
+		if(area != null)
+			map.put("area", area);
+		if(city != null)
+			map.put("city", city);
+		if(state != null)
+			map.put("state", state);
+		if(country != null)
+			map.put("country", country);
+		if(zip_code != null)
+			map.put("zip_code", zip_code);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -174,6 +228,18 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("status", status);
 		if(role != null)
 			map.put("role", role);
+		if(address != null)
+			map.put("address", address);
+		if(area != null)
+			map.put("area", area);
+		if(city != null)
+			map.put("city", city);
+		if(state != null)
+			map.put("state", state);
+		if(country != null)
+			map.put("country", country);
+		if(zip_code != null)
+			map.put("zip_code", zip_code);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -199,6 +265,12 @@ public abstract class Basec4t_object extends BaseResource {
 		mobile_no = (String) map.get("mobile_no");
 		status = (String) map.get("status");
 		role = (String) map.get("role");
+		address = (String) map.get("address");
+		area = (String) map.get("area");
+		city = (String) map.get("city");
+		state = (String) map.get("state");
+		country = (String) map.get("country");
+		zip_code = (String) map.get("zip_code");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -241,6 +313,30 @@ public abstract class Basec4t_object extends BaseResource {
 		Object roleObj = map.get("role");
 		if(roleObj != null)
 			role = roleObj.toString();
+
+		Object addressObj = map.get("address");
+		if(addressObj != null)
+			address = addressObj.toString();
+
+		Object areaObj = map.get("area");
+		if(areaObj != null)
+			area = areaObj.toString();
+
+		Object cityObj = map.get("city");
+		if(cityObj != null)
+			city = cityObj.toString();
+
+		Object stateObj = map.get("state");
+		if(stateObj != null)
+			state = stateObj.toString();
+
+		Object countryObj = map.get("country");
+		if(countryObj != null)
+			country = countryObj.toString();
+
+		Object zip_codeObj = map.get("zip_code");
+		if(zip_codeObj != null)
+			zip_code = zip_codeObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -407,6 +503,102 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetRole() {
 		this.role = null;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getAddressEx() {
+		return address != null ? address : "";
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void unSetAddress() {
+		this.address = null;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public String getAreaEx() {
+		return area != null ? area : "";
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public void unSetArea() {
+		this.area = null;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public String getCityEx() {
+		return city != null ? city : "";
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void unSetCity() {
+		this.city = null;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public String getStateEx() {
+		return state != null ? state : "";
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public void unSetState() {
+		this.state = null;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public String getCountryEx() {
+		return country != null ? country : "";
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public void unSetCountry() {
+		this.country = null;
+	}
+
+	public String getZip_code() {
+		return zip_code;
+	}
+
+	public String getZip_codeEx() {
+		return zip_code != null ? zip_code : "";
+	}
+
+	public void setZip_code(String zip_code) {
+		this.zip_code = zip_code;
+	}
+
+	public void unSetZip_code() {
+		this.zip_code = null;
 	}
 
 	public Long getCreation_time() {

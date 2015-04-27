@@ -60,6 +60,36 @@
 				'type':'String',
 				'length': 128
 			},
+			'address':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'area':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'city':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'state':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'country':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'zip_code':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'creation_time':
 			{
 				'type':'timestamp'

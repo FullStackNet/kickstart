@@ -7,9 +7,14 @@ public class CommunityConstants {
 		IdValue[] idvalues = {
 				new IdValue("APARTMENT", "Apartment"),	
 				new IdValue("BUISINESS", "Buisiness"),
-				new IdValue("FAMILY", "Family"),	
-				new IdValue("SPIRITUAL", "Spiritual")
-		};
+				new IdValue("COLLEGE", "College"),
+				new IdValue("FAMILY", "Family"),
+				new IdValue("PARENT", "Parent"),
+				new IdValue("SCHOOL", "School"),
+				new IdValue("SPIRITUAL", "Spiritual"),
+				new IdValue("WORK", "Work"),
+			};
+		
 		return idvalues;
 	}
 
