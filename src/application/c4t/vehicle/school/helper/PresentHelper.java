@@ -12,7 +12,6 @@ import platform.db.REL_OP;
 import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
-import platform.helper.Id_cardHelper;
 import platform.helper.Log_id_cardHelper;
 import platform.helper.NotificationHelper;
 import platform.log.ApplicationLogger;
@@ -126,7 +125,7 @@ public class PresentHelper extends BaseHelper {
 			if (!Util.isEmpty(resoucres)) {
 				_present.setTotal_student(resoucres.length);
 			}
-			PresentHelper.getInstance().add(_present);
+			PresentHelper.getInstance().AddOrUpdate(_present);
 
 		}
 		String entryKeyDetail = entryKey+"^"+_student.getId();
@@ -214,7 +213,7 @@ public class PresentHelper extends BaseHelper {
 			if (!Util.isEmpty(resoucres)) {
 				_present.setTotal_student(resoucres.length);
 			}
-			PresentHelper.getInstance().add(_present);
+			PresentHelper.getInstance().AddOrUpdate(_present);
 		}
 		_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
 		if (_detail == null) {
@@ -358,7 +357,7 @@ public class PresentHelper extends BaseHelper {
 			if (!Util.isEmpty(resoucres)) {
 				_present.setTotal_student(resoucres.length);
 			}
-			PresentHelper.getInstance().add(_present);
+			PresentHelper.getInstance().AddOrUpdate(_present);
 		}
 
 		String entryKeyDetail = entryKey+"^"+_student.getId();
@@ -472,7 +471,7 @@ public class PresentHelper extends BaseHelper {
 			if (!Util.isEmpty(resoucres)) {
 				_present.setTotal_student(resoucres.length);
 			}
-			PresentHelper.getInstance().add(_present);
+			PresentHelper.getInstance().AddOrUpdate(_present);
 		}
 		_detail = (present_detail)Present_detailHelper.getInstance().getById(exitKeyDetail); 
 		if (_detail == null) {
