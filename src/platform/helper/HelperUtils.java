@@ -74,4 +74,16 @@ public class HelperUtils {
 		}
 		return ids;
 	}
+	public static String[] convertResource2IdArray(BaseResource[] resources,String field_name) {
+		ArrayList<String> list = new ArrayList<>();
+		for (BaseResource resource : resources) {
+			Map<String, Object> map = resource.convertResourceToMap();
+			if (map.get(field_name) != null) {
+				list.add(map.get(field_name).toString());
+			}
+		}
+		if (list.size() == 0)
+			return null;
+		return list.toArray(new String[list.size()]);
+	}
 }

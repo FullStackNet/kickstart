@@ -418,6 +418,12 @@ public class BaseHelper {
 		}
 	}
 
+	public BaseResource[] getById(BaseResource[] resources,String id_field_name,String[] orderBy) {
+		String[] ids = HelperUtils.convertResource2IdArray(resources,id_field_name);
+		return  getById(ids, orderBy);
+	}
+	
+	
 	public BaseResource[] getById(String[] ids,String[] orderBy) {
 		ArrayList<BaseResource> list = getListById(ids, orderBy);
 		return  HelperUtils.convertList2Array(list);

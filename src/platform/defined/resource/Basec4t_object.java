@@ -24,6 +24,10 @@ public abstract class Basec4t_object extends BaseResource {
 	private String parent_id = null;
 	private String object_type = null;
 	private String type = null;
+	private String email_id = null;
+	private String mobile_no = null;
+	private String status = null;
+	private String role = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -33,6 +37,10 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_OBJECT_TYPE = "object_type";
 	public static String FIELD_TYPE = "type";
+	public static String FIELD_EMAIL_ID = "email_id";
+	public static String FIELD_MOBILE_NO = "mobile_no";
+	public static String FIELD_STATUS = "status";
+	public static String FIELD_ROLE = "role";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -64,6 +72,22 @@ public abstract class Basec4t_object extends BaseResource {
 		typeField.setLength(128);
 		metaData.addField(typeField);
 
+		Field email_idField = new Field("email_id", "String");
+		email_idField.setLength(128);
+		metaData.addField(email_idField);
+
+		Field mobile_noField = new Field("mobile_no", "String");
+		mobile_noField.setLength(128);
+		metaData.addField(mobile_noField);
+
+		Field statusField = new Field("status", "String");
+		statusField.setLength(128);
+		metaData.addField(statusField);
+
+		Field roleField = new Field("role", "String");
+		roleField.setLength(128);
+		metaData.addField(roleField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -88,6 +112,10 @@ public abstract class Basec4t_object extends BaseResource {
 		this.parent_id = obj.parent_id;
 		this.object_type = obj.object_type;
 		this.type = obj.type;
+		this.email_id = obj.email_id;
+		this.mobile_no = obj.mobile_no;
+		this.status = obj.status;
+		this.role = obj.role;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
 		this.extra_data = obj.extra_data;
@@ -109,6 +137,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("object_type", object_type);
 		if(type != null)
 			map.put("type", type);
+		if(email_id != null)
+			map.put("email_id", email_id);
+		if(mobile_no != null)
+			map.put("mobile_no", mobile_no);
+		if(status != null)
+			map.put("status", status);
+		if(role != null)
+			map.put("role", role);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -130,6 +166,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("object_type", object_type);
 		if(type != null)
 			map.put("type", type);
+		if(email_id != null)
+			map.put("email_id", email_id);
+		if(mobile_no != null)
+			map.put("mobile_no", mobile_no);
+		if(status != null)
+			map.put("status", status);
+		if(role != null)
+			map.put("role", role);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -151,6 +195,10 @@ public abstract class Basec4t_object extends BaseResource {
 		parent_id = (String) map.get("parent_id");
 		object_type = (String) map.get("object_type");
 		type = (String) map.get("type");
+		email_id = (String) map.get("email_id");
+		mobile_no = (String) map.get("mobile_no");
+		status = (String) map.get("status");
+		role = (String) map.get("role");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -177,6 +225,22 @@ public abstract class Basec4t_object extends BaseResource {
 		Object typeObj = map.get("type");
 		if(typeObj != null)
 			type = typeObj.toString();
+
+		Object email_idObj = map.get("email_id");
+		if(email_idObj != null)
+			email_id = email_idObj.toString();
+
+		Object mobile_noObj = map.get("mobile_no");
+		if(mobile_noObj != null)
+			mobile_no = mobile_noObj.toString();
+
+		Object statusObj = map.get("status");
+		if(statusObj != null)
+			status = statusObj.toString();
+
+		Object roleObj = map.get("role");
+		if(roleObj != null)
+			role = roleObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -279,6 +343,70 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetType() {
 		this.type = null;
+	}
+
+	public String getEmail_id() {
+		return email_id;
+	}
+
+	public String getEmail_idEx() {
+		return email_id != null ? email_id : "";
+	}
+
+	public void setEmail_id(String email_id) {
+		this.email_id = email_id;
+	}
+
+	public void unSetEmail_id() {
+		this.email_id = null;
+	}
+
+	public String getMobile_no() {
+		return mobile_no;
+	}
+
+	public String getMobile_noEx() {
+		return mobile_no != null ? mobile_no : "";
+	}
+
+	public void setMobile_no(String mobile_no) {
+		this.mobile_no = mobile_no;
+	}
+
+	public void unSetMobile_no() {
+		this.mobile_no = null;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public String getStatusEx() {
+		return status != null ? status : "";
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public void unSetStatus() {
+		this.status = null;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public String getRoleEx() {
+		return role != null ? role : "";
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public void unSetRole() {
+		this.role = null;
 	}
 
 	public Long getCreation_time() {

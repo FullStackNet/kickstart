@@ -35,6 +35,31 @@
 				'length': 128,
 				'type':'String'
 			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'email_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'status':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'role':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'creation_time':
 			{
 				'type':'timestamp'

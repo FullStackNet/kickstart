@@ -5,6 +5,7 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.c4t_object;
+import platform.resource.c4t_relation;
 
 
 public class C4t_objectHelper extends BaseHelper {
@@ -32,4 +33,9 @@ public class C4t_objectHelper extends BaseHelper {
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e,orderby);
 	}
+	
+	public BaseResource[] getByRelation(String from_id, String relation_type,String[] orderby) {
+		BaseResource[] resources = C4t_relationHelper.getInstance().getByRelation(from_id, relation_type);
+		return C4t_objectHelper.getInstance().getById(resources, c4t_relation.FIELD_TO_ID,orderby);
+	}	
 }
