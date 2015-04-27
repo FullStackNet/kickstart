@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Basec4t_object extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String parent_id = null;
 	private String object_type = null;
 	private String type = null;
 	private Long creation_time = null;
@@ -29,6 +30,7 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_OBJECT_TYPE = "object_type";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -49,6 +51,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field parent_idField = new Field("parent_id", "String");
+		parent_idField.setLength(128);
+		metaData.addField(parent_idField);
 
 		Field object_typeField = new Field("object_type", "String");
 		object_typeField.setLength(128);
@@ -79,6 +85,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public Basec4t_object(Basec4t_object obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.parent_id = obj.parent_id;
 		this.object_type = obj.object_type;
 		this.type = obj.type;
 		this.creation_time = obj.creation_time;
@@ -96,6 +103,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(parent_id != null)
+			map.put("parent_id", parent_id);
 		if(object_type != null)
 			map.put("object_type", object_type);
 		if(type != null)
@@ -115,6 +124,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(parent_id != null)
+			map.put("parent_id", parent_id);
 		if(object_type != null)
 			map.put("object_type", object_type);
 		if(type != null)
@@ -137,6 +148,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		parent_id = (String) map.get("parent_id");
 		object_type = (String) map.get("object_type");
 		type = (String) map.get("type");
 		creation_time = (Long) map.get("creation_time");
@@ -153,6 +165,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object parent_idObj = map.get("parent_id");
+		if(parent_idObj != null)
+			parent_id = parent_idObj.toString();
 
 		Object object_typeObj = map.get("object_type");
 		if(object_typeObj != null)
@@ -215,6 +231,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getParent_id() {
+		return parent_id;
+	}
+
+	public String getParent_idEx() {
+		return parent_id != null ? parent_id : "";
+	}
+
+	public void setParent_id(String parent_id) {
+		this.parent_id = parent_id;
+	}
+
+	public void unSetParent_id() {
+		this.parent_id = null;
 	}
 
 	public String getObject_type() {
