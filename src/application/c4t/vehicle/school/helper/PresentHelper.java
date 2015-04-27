@@ -299,7 +299,6 @@ public class PresentHelper extends BaseHelper {
 			log_id_card _log, id_card _id_card) throws ApplicationException {
 		String timeZone  = "IST";
 		long currentTime = new Date().getTime();
-		Id_cardHelper.getInstance().verifyAndAdd(cardId, readerId,locationId, location_name);
 		String today = TimeUtil.getDateStringMMDDYYYY(timeZone, new Date().getTime(),"-");
 		if (!"STUDENT".equals(_id_card.getUsed_by_type())) {
 			BaseResource[] staffs =StaffHelper.getInstance().getStaffByCardNo(cardId);
