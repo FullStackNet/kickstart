@@ -216,6 +216,19 @@ public class ApplianceHelper extends BaseHelper {
 
 	}
 
+	public void updateLastDataUpdateTime(String applianceId, Date time) {
+		if (applianceId ==null) return;
+		
+		appliance _appliance = new appliance();
+		_appliance.setId(applianceId);
+		_appliance.setLast_update_time(time.getTime());
+		try {
+			ApplianceHelper.getInstance().update(_appliance);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void updateLastStopage(String applianceId,String lastStopageId) {
 		appliance _appliance = new appliance(applianceId);
 		_appliance.setLastStopageId(lastStopageId);
