@@ -17,8 +17,8 @@ public class HelperFactory {
 	public static String HELPER_SCHOOL = "school";
 	public static String HELPER_GATEWAY = "gateway";
 	public static String HELPER_SUBJECT = "subject";
-	
-	
+	public static String HELPER_C4T_OBJECT = "c4t_object";
+	public static String HELPER_LOCATION = "location";
 	
 	
 	public static HelperFactory instance;
@@ -32,6 +32,8 @@ public class HelperFactory {
 		DbManager.getInstance().register(SensorHelper.getInstance());
 		DbManager.getInstance().register(CustomerHelper.getInstance());
 		DbManager.getInstance().register(UserHelper.getInstance());
+		DbManager.getInstance().register(C4t_objectHelper.getInstance());
+		DbManager.getInstance().register(LocationHelper.getInstance());
 	}
 	
 	public void register(BaseHelper helper) {

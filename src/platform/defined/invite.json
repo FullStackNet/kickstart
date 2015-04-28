@@ -77,6 +77,11 @@
 				'length': 1,
 				'type':'String'
 			},
+			'gameService':
+			{
+				'length': 1,
+				'type':'String'
+			},
 			'schoolTrackerService':
 			{
 				'length': 1,

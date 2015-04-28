@@ -189,6 +189,8 @@ public abstract class Baseappliance extends BaseResource {
 	private String current_route_schedule = null;
 	private String last_stopage_name = null;
 	private Long last_stopage_reached_time = null;
+	private Double cost = null;
+	private String cost_unit = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -361,6 +363,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_CURRENT_ROUTE_SCHEDULE = "current_route_schedule";
 	public static String FIELD_LAST_STOPAGE_NAME = "last_stopage_name";
 	public static String FIELD_LAST_STOPAGE_REACHED_TIME = "last_stopage_reached_time";
+	public static String FIELD_COST = "cost";
+	public static String FIELD_COST_UNIT = "cost_unit";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -1156,6 +1160,13 @@ public abstract class Baseappliance extends BaseResource {
 		lastServiceField.setLength(28);
 		metaData.addField(lastServiceField);
 
+		Field costField = new Field("cost", "double");
+		metaData.addField(costField);
+
+		Field cost_unitField = new Field("cost_unit", "String");
+		cost_unitField.setLength(32);
+		metaData.addField(cost_unitField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -1339,6 +1350,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.current_route_schedule = obj.current_route_schedule;
 		this.last_stopage_name = obj.last_stopage_name;
 		this.last_stopage_reached_time = obj.last_stopage_reached_time;
+		this.cost = obj.cost;
+		this.cost_unit = obj.cost_unit;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -1899,6 +1912,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("last_stopage_name", last_stopage_name);
 		if(last_stopage_reached_time != null)
 			map.put("last_stopage_reached_time", last_stopage_reached_time);
+		if(cost != null)
+			map.put("cost", cost);
+		if(cost_unit != null)
+			map.put("cost_unit", cost_unit);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -2249,6 +2266,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("last_stopage_name", last_stopage_name);
 		if(last_stopage_reached_time != null)
 			map.put("last_stopage_reached_time", last_stopage_reached_time);
+		if(cost != null)
+			map.put("cost", cost);
+		if(cost_unit != null)
+			map.put("cost_unit", cost_unit);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -2424,6 +2445,8 @@ public abstract class Baseappliance extends BaseResource {
 		pollutionCertificateExpiry = (String) map.get("pollutionCertificateExpiry");
 		vehicleFitnessExpiry = (String) map.get("vehicleFitnessExpiry");
 		lastService = (String) map.get("lastService");
+		cost = (Double) map.get("cost");
+		cost_unit = (String) map.get("cost_unit");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -3080,6 +3103,14 @@ public abstract class Baseappliance extends BaseResource {
 		Object lastServiceObj = map.get("lastService");
 		if(lastServiceObj != null)
 			lastService = lastServiceObj.toString();
+
+		Object costObj = map.get("cost");
+		if(costObj != null)
+			cost = new Double(costObj.toString());
+
+		Object cost_unitObj = map.get("cost_unit");
+		if(cost_unitObj != null)
+			cost_unit = cost_unitObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -5415,6 +5446,42 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetLast_stopage_reached_time() {
 		this.last_stopage_reached_time = null;
+	}
+
+	public Double getCost() {
+		return cost;
+	}
+
+	public double getCostEx() {
+		return cost != null ? cost : 0;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
+	public void setCost(Double cost) {
+		this.cost = cost;
+	}
+
+	public void unSetCost() {
+		this.cost = null;
+	}
+
+	public String getCost_unit() {
+		return cost_unit;
+	}
+
+	public String getCost_unitEx() {
+		return cost_unit != null ? cost_unit : "";
+	}
+
+	public void setCost_unit(String cost_unit) {
+		this.cost_unit = cost_unit;
+	}
+
+	public void unSetCost_unit() {
+		this.cost_unit = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

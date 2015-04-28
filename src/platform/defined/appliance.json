@@ -1113,7 +1113,14 @@
 				 transient : true,
 				'length': 128,
 				'type': 'String'
-			}				
+			},
+			cost : {
+				'type': 'double'
+			},
+			cost_unit : {
+				'type': 'String',
+				'length': 32
+			}					
 		}
 	}
 }

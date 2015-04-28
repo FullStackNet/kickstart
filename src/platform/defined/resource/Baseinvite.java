@@ -31,6 +31,7 @@ public abstract class Baseinvite extends BaseResource {
 	private String reference_id = null;
 	private String reference_name = null;
 	private String fleetService = null;
+	private String gameService = null;
 	private String schoolTrackerService = null;
 	private String dgService = null;
 	private String key = null;
@@ -52,6 +53,7 @@ public abstract class Baseinvite extends BaseResource {
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_REFERENCE_NAME = "reference_name";
 	public static String FIELD_FLEETSERVICE = "fleetService";
+	public static String FIELD_GAMESERVICE = "gameService";
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_KEY = "key";
@@ -119,6 +121,10 @@ public abstract class Baseinvite extends BaseResource {
 		fleetServiceField.setLength(1);
 		metaData.addField(fleetServiceField);
 
+		Field gameServiceField = new Field("gameService", "String");
+		gameServiceField.setLength(1);
+		metaData.addField(gameServiceField);
+
 		Field schoolTrackerServiceField = new Field("schoolTrackerService", "String");
 		schoolTrackerServiceField.setLength(1);
 		metaData.addField(schoolTrackerServiceField);
@@ -163,6 +169,7 @@ public abstract class Baseinvite extends BaseResource {
 		this.reference_id = obj.reference_id;
 		this.reference_name = obj.reference_name;
 		this.fleetService = obj.fleetService;
+		this.gameService = obj.gameService;
 		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
 		this.key = obj.key;
@@ -203,6 +210,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("reference_name", reference_name);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
+		if(gameService != null)
+			map.put("gameService", gameService);
 		if(schoolTrackerService != null)
 			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
@@ -248,6 +257,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("reference_name", reference_name);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
+		if(gameService != null)
+			map.put("gameService", gameService);
 		if(schoolTrackerService != null)
 			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
@@ -286,6 +297,7 @@ public abstract class Baseinvite extends BaseResource {
 		reference_id = (String) map.get("reference_id");
 		reference_name = (String) map.get("reference_name");
 		fleetService = (String) map.get("fleetService");
+		gameService = (String) map.get("gameService");
 		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
 		key = (String) map.get("key");
@@ -343,6 +355,10 @@ public abstract class Baseinvite extends BaseResource {
 		Object fleetServiceObj = map.get("fleetService");
 		if(fleetServiceObj != null)
 			fleetService = fleetServiceObj.toString();
+
+		Object gameServiceObj = map.get("gameService");
+		if(gameServiceObj != null)
+			gameService = gameServiceObj.toString();
 
 		Object schoolTrackerServiceObj = map.get("schoolTrackerService");
 		if(schoolTrackerServiceObj != null)
@@ -569,6 +585,22 @@ public abstract class Baseinvite extends BaseResource {
 
 	public void unSetFleetService() {
 		this.fleetService = null;
+	}
+
+	public String getGameService() {
+		return gameService;
+	}
+
+	public String getGameServiceEx() {
+		return gameService != null ? gameService : "";
+	}
+
+	public void setGameService(String gameService) {
+		this.gameService = gameService;
+	}
+
+	public void unSetGameService() {
+		this.gameService = null;
 	}
 
 	public String getSchoolTrackerService() {

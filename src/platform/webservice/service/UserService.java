@@ -27,8 +27,8 @@ public class UserService extends BaseService{
 		super(UserHelper.getInstance(),new user());
 	}
 	
-	public void sendInvite(invite _invite) {
-		if (_invite.getEmail_id() != null) {
+	public void sendInvite(invite _invite,user _resource) {
+		if ((_invite.getEmail_id() != null) && user.USER_TYPE_CUSTOMER_ADMIN.equals(_resource.getType())) {
 			SendEmail email =  new SendEmail();
 			email.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_CUSTOMER_ADMIN);
 			email.setTo(_invite.getEmail_id());
@@ -63,9 +63,10 @@ public class UserService extends BaseService{
 				_invite.setKey(Util.getRandonToken());
 				_invite.setDgService(_resource.getDgService());
 				_invite.setFleetService(_resource.getFleetService());
+				_invite.setGameService(_resource.getGameService());
 				_invite.setSchoolTrackerService(_resource.getSchoolTrackerService());
 				InviteHelper.getInstance().add(_invite);
-				sendInvite(_invite);
+				sendInvite(_invite,_resource);
 			}
 		}
 	}

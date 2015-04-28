@@ -6,6 +6,7 @@ import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.c4t_object;
 import platform.resource.c4t_relation;
+import platform.resource.customer;
 
 
 public class C4t_objectHelper extends BaseHelper {
@@ -27,9 +28,9 @@ public class C4t_objectHelper extends BaseHelper {
 		return getByExpression(e,orderby);
 	}
 	
-	public BaseResource[] getByObjectTypeByCustomerId(String CustomerId,String object_type, String[] orderby) {
+	public BaseResource[] getByObjectTypeByCustomerId(String customerId,String object_type, String[] orderby) {
 		Expression e1 = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, object_type);
-		Expression e2 = new Expression(c4t_object.FIELD_CUSTOMER_ID, REL_OP.EQ, object_type);
+		Expression e2 = new Expression(c4t_object.FIELD_CUSTOMER_ID, REL_OP.EQ, customerId);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e,orderby);
 	}

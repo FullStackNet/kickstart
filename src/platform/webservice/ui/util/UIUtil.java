@@ -23,4 +23,9 @@ public class UIUtil {
 		IdValue[] options = {new IdValue("IST", "IST"), new IdValue("GMT", "GMT")};
 		return options;
 	}
+	
+	public static IdValue[] getCurrency() {
+		IdValue[] options = {new IdValue("DOLLER", "Doller"), new IdValue("INR", "INR")};
+		return options;
+	}
 }
