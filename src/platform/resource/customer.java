@@ -36,6 +36,12 @@ public class customer extends Basecustomer {
 		}
 		return false;
 	}
+	public boolean isGameServiceEnabled() {
+		if ("Y".equalsIgnoreCase(getGameService())) {
+			return true;
+		}
+		return false;
+	}
 	public boolean isFleetServiceEnable() {
 		if ("Y".equalsIgnoreCase(getFleetService())) {
 			return true;

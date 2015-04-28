@@ -34,6 +34,7 @@ public abstract class Basecustomer extends BaseResource {
 	private String schoolTrackerService = null;
 	private String dgService = null;
 	private String brushUpSkillService = null;
+	private String gameService = null;
 	private String homeAutomationService = null;
 	private String customerService = null;
 	private String merchantService = null;
@@ -59,6 +60,7 @@ public abstract class Basecustomer extends BaseResource {
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_BRUSHUPSKILLSERVICE = "brushUpSkillService";
+	public static String FIELD_GAMESERVICE = "gameService";
 	public static String FIELD_HOMEAUTOMATIONSERVICE = "homeAutomationService";
 	public static String FIELD_CUSTOMERSERVICE = "customerService";
 	public static String FIELD_MERCHANTSERVICE = "merchantService";
@@ -136,6 +138,10 @@ public abstract class Basecustomer extends BaseResource {
 		brushUpSkillServiceField.setLength(1);
 		metaData.addField(brushUpSkillServiceField);
 
+		Field gameServiceField = new Field("gameService", "String");
+		gameServiceField.setLength(1);
+		metaData.addField(gameServiceField);
+
 		Field homeAutomationServiceField = new Field("homeAutomationService", "String");
 		homeAutomationServiceField.setDefaultValue("N");
 		homeAutomationServiceField.setLength(1);
@@ -199,6 +205,7 @@ public abstract class Basecustomer extends BaseResource {
 		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
 		this.brushUpSkillService = obj.brushUpSkillService;
+		this.gameService = obj.gameService;
 		this.homeAutomationService = obj.homeAutomationService;
 		this.customerService = obj.customerService;
 		this.merchantService = obj.merchantService;
@@ -255,6 +262,8 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("dgService", dgService);
 		if(brushUpSkillService != null)
 			map.put("brushUpSkillService", brushUpSkillService);
+		if(gameService != null)
+			map.put("gameService", gameService);
 		if(homeAutomationService != null)
 			map.put("homeAutomationService", homeAutomationService);
 		if(customerService != null)
@@ -311,6 +320,8 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("dgService", dgService);
 		if(brushUpSkillService != null)
 			map.put("brushUpSkillService", brushUpSkillService);
+		if(gameService != null)
+			map.put("gameService", gameService);
 		if(homeAutomationService != null)
 			map.put("homeAutomationService", homeAutomationService);
 		if(customerService != null)
@@ -354,6 +365,7 @@ public abstract class Basecustomer extends BaseResource {
 		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
 		brushUpSkillService = (String) map.get("brushUpSkillService");
+		gameService = (String) map.get("gameService");
 		homeAutomationService = (String) map.get("homeAutomationService");
 		customerService = (String) map.get("customerService");
 		merchantService = (String) map.get("merchantService");
@@ -426,6 +438,10 @@ public abstract class Basecustomer extends BaseResource {
 		Object brushUpSkillServiceObj = map.get("brushUpSkillService");
 		if(brushUpSkillServiceObj != null)
 			brushUpSkillService = brushUpSkillServiceObj.toString();
+
+		Object gameServiceObj = map.get("gameService");
+		if(gameServiceObj != null)
+			gameService = gameServiceObj.toString();
 
 		Object homeAutomationServiceObj = map.get("homeAutomationService");
 		if(homeAutomationServiceObj != null)
@@ -712,6 +728,22 @@ public abstract class Basecustomer extends BaseResource {
 
 	public void unSetBrushUpSkillService() {
 		this.brushUpSkillService = null;
+	}
+
+	public String getGameService() {
+		return gameService;
+	}
+
+	public String getGameServiceEx() {
+		return gameService != null ? gameService : "";
+	}
+
+	public void setGameService(String gameService) {
+		this.gameService = gameService;
+	}
+
+	public void unSetGameService() {
+		this.gameService = null;
 	}
 
 	public String getHomeAutomationService() {

@@ -41,6 +41,13 @@ public class user extends Baseuser {
 		return false;
 	}
 	
+	public boolean isGameServiceEnabled() {
+		if ("Y".equalsIgnoreCase(getGameService())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isBrushupSkillEnabled() {
 		if ("Y".equalsIgnoreCase(getBrushUpSkillService())) {
 			return true;
