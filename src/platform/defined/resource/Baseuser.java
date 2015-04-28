@@ -35,6 +35,7 @@ public abstract class Baseuser extends BaseResource {
 	private String studentService = null;
 	private String teacherService = null;
 	private String fleetService = null;
+	private String gameService = null;
 	private String schoolTrackerService = null;
 	private String dgService = null;
 	private String brushUpSkillService = null;
@@ -92,6 +93,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_STUDENTSERVICE = "studentService";
 	public static String FIELD_TEACHERSERVICE = "teacherService";
 	public static String FIELD_FLEETSERVICE = "fleetService";
+	public static String FIELD_GAMESERVICE = "gameService";
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_BRUSHUPSKILLSERVICE = "brushUpSkillService";
@@ -211,6 +213,11 @@ public abstract class Baseuser extends BaseResource {
 		fleetServiceField.setDefaultValue("N");
 		fleetServiceField.setLength(1);
 		metaData.addField(fleetServiceField);
+
+		Field gameServiceField = new Field("gameService", "String");
+		gameServiceField.setDefaultValue("N");
+		gameServiceField.setLength(1);
+		metaData.addField(gameServiceField);
 
 		Field schoolTrackerServiceField = new Field("schoolTrackerService", "String");
 		schoolTrackerServiceField.setDefaultValue("N");
@@ -433,6 +440,7 @@ public abstract class Baseuser extends BaseResource {
 		this.studentService = obj.studentService;
 		this.teacherService = obj.teacherService;
 		this.fleetService = obj.fleetService;
+		this.gameService = obj.gameService;
 		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
 		this.brushUpSkillService = obj.brushUpSkillService;
@@ -488,6 +496,8 @@ public abstract class Baseuser extends BaseResource {
 			teacherService = "N";
 		if(fleetService == null)
 			fleetService = "N";
+		if(gameService == null)
+			gameService = "N";
 		if(schoolTrackerService == null)
 			schoolTrackerService = "N";
 		if(dgService == null)
@@ -598,6 +608,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("teacherService", teacherService);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
+		if(gameService != null)
+			map.put("gameService", gameService);
 		if(schoolTrackerService != null)
 			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
@@ -718,6 +730,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("teacherService", teacherService);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
+		if(gameService != null)
+			map.put("gameService", gameService);
 		if(schoolTrackerService != null)
 			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
@@ -824,6 +838,7 @@ public abstract class Baseuser extends BaseResource {
 		studentService = (String) map.get("studentService");
 		teacherService = (String) map.get("teacherService");
 		fleetService = (String) map.get("fleetService");
+		gameService = (String) map.get("gameService");
 		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
 		brushUpSkillService = (String) map.get("brushUpSkillService");
@@ -931,6 +946,10 @@ public abstract class Baseuser extends BaseResource {
 		Object fleetServiceObj = map.get("fleetService");
 		if(fleetServiceObj != null)
 			fleetService = fleetServiceObj.toString();
+
+		Object gameServiceObj = map.get("gameService");
+		if(gameServiceObj != null)
+			gameService = gameServiceObj.toString();
 
 		Object schoolTrackerServiceObj = map.get("schoolTrackerService");
 		if(schoolTrackerServiceObj != null)
@@ -1353,6 +1372,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetFleetService() {
 		this.fleetService = "N";
+	}
+
+	public String getGameService() {
+		return gameService != null ? gameService : "N";
+	}
+
+	public void setGameService(String gameService) {
+		this.gameService = gameService;
+	}
+
+	public void unSetGameService() {
+		this.gameService = "N";
 	}
 
 	public String getSchoolTrackerService() {
