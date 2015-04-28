@@ -22,6 +22,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String parent_id = null;
+	private String customer_id = null;
 	private String object_type = null;
 	private String type = null;
 	private String email_id = null;
@@ -41,6 +42,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_PARENT_ID = "parent_id";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_OBJECT_TYPE = "object_type";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_EMAIL_ID = "email_id";
@@ -75,6 +77,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field parent_idField = new Field("parent_id", "String");
 		parent_idField.setLength(128);
 		metaData.addField(parent_idField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
 
 		Field object_typeField = new Field("object_type", "String");
 		object_typeField.setLength(128);
@@ -146,6 +152,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.parent_id = obj.parent_id;
+		this.customer_id = obj.customer_id;
 		this.object_type = obj.object_type;
 		this.type = obj.type;
 		this.email_id = obj.email_id;
@@ -175,6 +182,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("name", name);
 		if(parent_id != null)
 			map.put("parent_id", parent_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(object_type != null)
 			map.put("object_type", object_type);
 		if(type != null)
@@ -216,6 +225,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("name", name);
 		if(parent_id != null)
 			map.put("parent_id", parent_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(object_type != null)
 			map.put("object_type", object_type);
 		if(type != null)
@@ -259,6 +270,7 @@ public abstract class Basec4t_object extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		parent_id = (String) map.get("parent_id");
+		customer_id = (String) map.get("customer_id");
 		object_type = (String) map.get("object_type");
 		type = (String) map.get("type");
 		email_id = (String) map.get("email_id");
@@ -289,6 +301,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object parent_idObj = map.get("parent_id");
 		if(parent_idObj != null)
 			parent_id = parent_idObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		Object object_typeObj = map.get("object_type");
 		if(object_typeObj != null)
@@ -407,6 +423,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetParent_id() {
 		this.parent_id = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
 	public String getObject_type() {

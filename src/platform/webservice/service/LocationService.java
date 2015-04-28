@@ -9,6 +9,7 @@ import platform.resource.BaseResource;
 import platform.resource.location;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
+import platform.util.Util;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 import platform.webservice.WebServiceContants;
@@ -20,10 +21,12 @@ public class LocationService extends BaseService{
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		location _resource = (location) resource;
-		_resource.setName(_resource.getAddress()+","+
+		if (Util.isEmpty(_resource.getName())) {
+			_resource.setName(_resource.getAddress()+","+
 				_resource.getStreat()+","+_resource.getArea()+","+
 				_resource.getCity()+","+_resource.getState()+
 				","+_resource.getCountry()+","+_resource.getPinCode());
+		}
 		getHelper().add(_resource);
 		Customer_mapHelper.getInstance().addLocation(ctx.getCustomerId(), _resource.getId());
 	}
@@ -31,10 +34,12 @@ public class LocationService extends BaseService{
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
 		if (action.equalsIgnoreCase(WebServiceContants.OPERATION_MODIFY)) {
 			location _resource = (location) resource;
+			if (Util.isEmpty(_resource.getName())) {
 			_resource.setName(_resource.getAddress()+","+
 					_resource.getStreat()+","+_resource.getArea()+","+
 					_resource.getCity()+","+_resource.getState()+
 					","+_resource.getCountry()+","+_resource.getPinCode());
+			}
 			update(ctx, _resource);
 		}
 	}

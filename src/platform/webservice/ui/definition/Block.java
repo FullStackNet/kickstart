@@ -46,4 +46,8 @@ public class Block {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
+	public int getFieldCount() {
+		return fields.size();
+	}
 }

@@ -152,6 +152,13 @@ public class user extends Baseuser {
 		return false;
 	}
 	
+	public boolean isSuperAdmin() {
+		if ("Y".equalsIgnoreCase(getSuper_user())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isTransportEnable() {
 		if ("Y".equalsIgnoreCase(getFeature_pick_drop())) {
 			return true;

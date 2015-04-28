@@ -10,6 +10,7 @@ public class c4t_object extends Basec4t_object {
 	public static String OBJECT_TYPE_COMMUNITY = "COMMUNITY";
 	public static String OBJECT_TYPE_COMMUNITY_GROUP = "COMMUNITY_GROUP";
 	public static String OBJECT_TYPE_COMMUNITY_MEMBER = "COMMUNITY_MEMBER";
+	public static String OBJECT_TYPE_GAME = "GAME";
 	
 	private static final long serialVersionUID = 1L;
 	
