@@ -14,10 +14,19 @@
 			'school_id':
 			{
 				'length': 128,
-				'type':'String',
-				'index' : true
+				'type':'String'
+			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String'
 			},
 			'schools':
+			{
+				'type':'Array',
+				'valueType' : "String"
+			},
+			'students':
 			{
 				'type':'Array',
 				'valueType' : "String"
