@@ -63,4 +63,17 @@ public class customer extends Basecustomer {
 		return false;
 	}
 
+	public boolean isMerchantServiceEnable() {
+		if ("Y".equalsIgnoreCase(getMerchantService())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isCustomerServiceEnable() {
+		if ("Y".equalsIgnoreCase(getCustomerService())) {
+			return true;
+		}
+		return false;
+	}
 }
