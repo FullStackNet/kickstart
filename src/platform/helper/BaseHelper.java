@@ -69,6 +69,24 @@ public class BaseHelper {
 		}
 	}
 
+	public void incrementCounter(String id,String fieldName, double incrementBy) throws ApplicationException {
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			BaseResource clonedResource = (BaseResource) this.resource.clone();
+			clonedResource.setId(id);
+			connection.incrementValue(clonedResource, fieldName, incrementBy);
+		} catch(Exception e) {	
+			e.printStackTrace();
+			if (connection != null)
+				connection.release();
+			throw new ApplicationException(ExceptionSeverity.ERROR,e.getMessage());
+		} finally {
+			if (connection != null)
+				connection.release();	
+		}
+	}
+	
 	public void incrementCounter(String id,String counterName, int incrementBy) throws ApplicationException {
 		DbConnection connection = null;
 		try {

@@ -83,6 +83,15 @@ public class Id_cardHelper extends BaseHelper {
 		}
 	}
 	
+	public void loadMoney(String cardId,double amount) {
+		try {
+			Id_cardHelper.getInstance().incrementCounter(cardId, id_card.FIELD_AMOUNT, amount);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void updateUsedByStaff(String cardId,String customerId,
 			String school_id,
 			String school_name,

@@ -298,4 +298,13 @@ public class User_mapHelper extends BaseHelper {
 		return LocationHelper.getInstance().getListMapById(_map.getLocations().toArray(new String[_map.getLocations().size()]),
 				new String[]{location.FIELD_NAME});
 	}
+	
+	public BaseResource[] getLocations(String user_id) {
+		user_map _map = (user_map)getSelectedFieldsById(user_id,
+				user_map.FIELD_LOCATIONS);
+		if ((_map == null) || (_map.getLocations() == null))
+			return null;
+		return LocationHelper.getInstance().getById(_map.getLocations().toArray(new String[_map.getLocations().size()]),
+				new String[]{location.FIELD_NAME});
+	}
 }

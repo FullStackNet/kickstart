@@ -79,6 +79,7 @@ public abstract class DbConnection {
 	 abstract public void updateStartTime(BaseResource resource,Date date) throws Exception;
 	 abstract public void updateStopTime(BaseResource resource,Date date) throws Exception;
 	 abstract public int incrementCounter(BaseResource resource, String counter,int increment) throws Exception;
+	 abstract public int incrementValue(BaseResource resource, String fieldName,double increment) throws Exception;
 	 abstract public int unset(BaseResource resource) throws Exception;
 	 abstract public int unset(BaseResource resource,String[] fieldnames) throws Exception;
 	 public Connection getConnection() {

@@ -30,6 +30,7 @@ public abstract class Baseid_card extends BaseResource {
 	private String used_by_type = null;
 	private String used_by_id = null;
 	private String used_by_name = null;
+	private Double amount = null;
 	private String card_status = null;
 	private Map<String, Object> extra_data = null;
 
@@ -44,6 +45,7 @@ public abstract class Baseid_card extends BaseResource {
 	public static String FIELD_USED_BY_TYPE = "used_by_type";
 	public static String FIELD_USED_BY_ID = "used_by_id";
 	public static String FIELD_USED_BY_NAME = "used_by_name";
+	public static String FIELD_AMOUNT = "amount";
 	public static String FIELD_CARD_STATUS = "card_status";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -98,6 +100,10 @@ public abstract class Baseid_card extends BaseResource {
 		used_by_nameField.setLength(128);
 		metaData.addField(used_by_nameField);
 
+		Field amountField = new Field("amount", "double");
+		amountField.setDefaultValue(0.0);
+		metaData.addField(amountField);
+
 		Field card_statusField = new Field("card_status", "String");
 		card_statusField.setDefaultValue("N");
 		card_statusField.setLength(1);
@@ -127,6 +133,7 @@ public abstract class Baseid_card extends BaseResource {
 		this.used_by_type = obj.used_by_type;
 		this.used_by_id = obj.used_by_id;
 		this.used_by_name = obj.used_by_name;
+		this.amount = obj.amount;
 		this.card_status = obj.card_status;
 		this.extra_data = obj.extra_data;
 	}
@@ -136,6 +143,8 @@ public abstract class Baseid_card extends BaseResource {
 	}
 
 	private void setDefaultValues() {
+		if(amount == null)
+			amount = 0.0;
 		if(card_status == null)
 			card_status = "N";
 	}
@@ -164,6 +173,8 @@ public abstract class Baseid_card extends BaseResource {
 			map.put("used_by_id", used_by_id);
 		if(used_by_name != null)
 			map.put("used_by_name", used_by_name);
+		if(amount != null)
+			map.put("amount", amount);
 		if(card_status != null)
 			map.put("card_status", card_status);
 		if(extra_data != null)
@@ -198,6 +209,8 @@ public abstract class Baseid_card extends BaseResource {
 			map.put("used_by_id", used_by_id);
 		if(used_by_name != null)
 			map.put("used_by_name", used_by_name);
+		if(amount != null)
+			map.put("amount", amount);
 		if(card_status != null)
 			map.put("card_status", card_status);
 		if(extra_data != null)
@@ -223,6 +236,7 @@ public abstract class Baseid_card extends BaseResource {
 		used_by_type = (String) map.get("used_by_type");
 		used_by_id = (String) map.get("used_by_id");
 		used_by_name = (String) map.get("used_by_name");
+		amount = (Double) map.get("amount");
 		card_status = (String) map.get("card_status");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -272,6 +286,10 @@ public abstract class Baseid_card extends BaseResource {
 		Object used_by_nameObj = map.get("used_by_name");
 		if(used_by_nameObj != null)
 			used_by_name = used_by_nameObj.toString();
+
+		Object amountObj = map.get("amount");
+		if(amountObj != null)
+			amount = new Double(amountObj.toString());
 
 		Object card_statusObj = map.get("card_status");
 		if(card_statusObj != null)
@@ -464,6 +482,22 @@ public abstract class Baseid_card extends BaseResource {
 
 	public void unSetUsed_by_name() {
 		this.used_by_name = null;
+	}
+
+	public Double getAmount() {
+		return amount != null ? amount : 0.0;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+
+	public void unSetAmount() {
+		this.amount = 0.0;
 	}
 
 	public String getCard_status() {

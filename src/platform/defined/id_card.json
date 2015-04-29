@@ -60,6 +60,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'amount':
+			{
+				'default':'0.0',
+				'type':'double'
+			},
 			'card_status':
 			{
 				'default':'N',

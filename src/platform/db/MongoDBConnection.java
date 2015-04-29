@@ -1067,4 +1067,28 @@ public class MongoDBConnection extends DbConnection {
 		gfsFile.setFilename(tempFile);
 		gfsFile.save();
 	}
+
+	@Override
+	public int incrementValue(BaseResource resource, String fieldName,
+			double increment) throws Exception {
+		checkAndReviveConnection();
+		if (conn == null) {
+			ApplicationException e = new ApplicationException(ExceptionSeverity.ERROR, "Unable to connect to database"); 
+			throw e;
+		}
+		ResourceMetaData metaData = resource.getMetaData();
+		DBCollection table = conn.getCollection(metaData.getTableName());
+		BasicDBObject doc = new BasicDBObject();
+		doc.append(fieldName, increment);
+		try {
+			BasicDBObject searchDoc = new BasicDBObject();
+			searchDoc.put("_id", resource.getId());
+			table.update(searchDoc, new BasicDBObject("$inc", doc));
+		} catch (Exception e) {
+			ApplicationLogger.error("Update SQL Failed :: "+e.getMessage(), this.getClass());
+			throw e;
+		}
+		return 0;
+
+	}
 }

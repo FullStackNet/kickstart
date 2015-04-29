@@ -882,5 +882,12 @@ public class MySQLDBConnection extends DbConnection {
 		
 	}
 
+	@Override
+	public int incrementValue(BaseResource resource, String fieldName,
+			double increment) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 }

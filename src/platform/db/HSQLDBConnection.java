@@ -810,4 +810,11 @@ public class HSQLDBConnection extends DbConnection {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int incrementValue(BaseResource resource, String fieldName,
+			double increment) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
