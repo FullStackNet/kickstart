@@ -10,6 +10,7 @@ import platform.resource.BaseResource;
 import platform.resource.alert;
 import platform.resource.appliance;
 import platform.resource.appliance_map;
+import platform.resource.location;
 import platform.resource.notification;
 import platform.resource.user_map;
 import platform.util.ApplicationException;
@@ -37,6 +38,20 @@ public class User_mapHelper extends BaseHelper {
 		_user_map.setId(userId);
 		_user_map.addAppliances(applianceId);
 		AddOrUpdate(_user_map);
+	}
+	
+	public void addLocation(String userId,String locationId) throws ApplicationException {
+		user_map _user_map = new user_map();
+		_user_map.setId(userId);
+		_user_map.addLocations(locationId);
+		AddOrUpdate(_user_map);
+	}
+	
+	public void removeLocation(String userId,String locationId) throws ApplicationException {
+		user_map _user_map = new user_map();
+		_user_map.setId(userId);
+		_user_map.addLocations(locationId);
+		unset(_user_map);
 	}
 	
 	public void addAlert(String userId,String alertId) throws ApplicationException {
@@ -263,5 +278,14 @@ public class User_mapHelper extends BaseHelper {
 			return list;
 		return NotificationHelper.getInstance().getListMapById(_map.getNotifications().toArray(new String[_map.getNotifications().size()]),
 				new String[]{notification.FIELD_NOTIFICATION_TIME+" DESC"});
+	}
+	public ArrayList<Map<String, Object>> getLocationListMap(String user_id) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		user_map _map = (user_map)getSelectedFieldsById(user_id,
+				user_map.FIELD_LOCATIONS);
+		if ((_map == null) || (_map.getLocations() == null))
+			return list;
+		return LocationHelper.getInstance().getListMapById(_map.getLocations().toArray(new String[_map.getLocations().size()]),
+				new String[]{location.FIELD_NAME});
 	}
 }

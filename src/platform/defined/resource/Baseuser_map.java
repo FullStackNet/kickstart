@@ -28,6 +28,7 @@ public abstract class Baseuser_map extends BaseResource {
 	private ArrayList<Object> recent_notifications = null;
 	private ArrayList<Object> recent_alerts = null;
 	private ArrayList<Object> invites = null;
+	private ArrayList<Object> locations = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -39,6 +40,7 @@ public abstract class Baseuser_map extends BaseResource {
 	public static String FIELD_RECENT_NOTIFICATIONS = "recent_notifications";
 	public static String FIELD_RECENT_ALERTS = "recent_alerts";
 	public static String FIELD_INVITES = "invites";
+	public static String FIELD_LOCATIONS = "locations";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -77,6 +79,9 @@ public abstract class Baseuser_map extends BaseResource {
 		Field invitesField = new Field("invites", "Array");
 		metaData.addField(invitesField);
 
+		Field locationsField = new Field("locations", "Array");
+		metaData.addField(locationsField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -99,6 +104,7 @@ public abstract class Baseuser_map extends BaseResource {
 		this.recent_notifications = obj.recent_notifications;
 		this.recent_alerts = obj.recent_alerts;
 		this.invites = obj.invites;
+		this.locations = obj.locations;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -126,6 +132,8 @@ public abstract class Baseuser_map extends BaseResource {
 			map.put("recent_alerts", recent_alerts);
 		if(invites != null)
 			map.put("invites", invites);
+		if(locations != null)
+			map.put("locations", locations);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -151,6 +159,8 @@ public abstract class Baseuser_map extends BaseResource {
 			map.put("recent_alerts", recent_alerts);
 		if(invites != null)
 			map.put("invites", invites);
+		if(locations != null)
+			map.put("locations", locations);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -172,6 +182,7 @@ public abstract class Baseuser_map extends BaseResource {
 		recent_notifications = (ArrayList<Object>) map.get("recent_notifications");
 		recent_alerts = (ArrayList<Object>) map.get("recent_alerts");
 		invites = (ArrayList<Object>) map.get("invites");
+		locations = (ArrayList<Object>) map.get("locations");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -189,6 +200,7 @@ public abstract class Baseuser_map extends BaseResource {
 		recent_notifications = (ArrayList<Object>) map.get("recent_notifications");
 		recent_alerts = (ArrayList<Object>) map.get("recent_alerts");
 		invites = (ArrayList<Object>) map.get("invites");
+		locations = (ArrayList<Object>) map.get("locations");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -373,6 +385,25 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void unSetInvites() {
 		this.invites = null;
+	}
+
+	public ArrayList<Object> getLocations() {
+		return locations;
+	}
+
+
+	public void setLocations(ArrayList<Object> locations) {
+		this.locations = locations;
+	}
+
+	public void addLocations(Object value) {
+		if(locations == null)
+			locations = new ArrayList<Object>();
+		locations.add(value);
+	}
+
+	public void unSetLocations() {
+		this.locations = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

@@ -55,6 +55,11 @@
 				'name':'invites',
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'locations':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}
