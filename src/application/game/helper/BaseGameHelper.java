@@ -3,6 +3,7 @@ package application.game.helper;
 import java.util.ArrayList;
 import java.util.Map;
 
+import application.game.resource.log_money_load;
 import platform.db.Expression;
 import platform.db.JoinField;
 import platform.db.REL_OP;
@@ -21,18 +22,28 @@ public class BaseGameHelper extends BaseHelper {
 		// TODO Auto-generated constructor stub
 	}
 
+	public BaseResource[] getForCenter(String userId,String[] order,String timeFieldName,long from_time, long to_time) {
+		String[] locationIds = User_mapHelper.getInstance().getLocationIds(userId);
+		try {
+			return  getForLocationsDateWise(locationIds,new String[]{sms_daily_analysis.FIELD_DATE},timeFieldName,from_time,to_time);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+
 	public ArrayList<Map<String, Object>> getForCenter(String userId,String[] order) {
 		String[] locationIds = User_mapHelper.getInstance().getLocationIds(userId);
 		try {
-			return  getForSchools(locationIds,new String[]{sms_daily_analysis.FIELD_DATE});
+			return  getForLocations(locationIds,new String[]{sms_daily_analysis.FIELD_DATE});
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return new ArrayList<Map<String, Object>>();
 	}
-
-
 
 	public ArrayList<Map<String, Object>> getListMapByUserId(String userId,ArrayList<JoinField> joinFields, String[] order) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();

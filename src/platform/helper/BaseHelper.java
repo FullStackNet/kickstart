@@ -69,7 +69,7 @@ public class BaseHelper {
 		}
 	}
 
-	public void incrementCounter(String id,String fieldName, double incrementBy) throws ApplicationException {
+	public void incrementValue(String id,String fieldName, double incrementBy) throws ApplicationException {
 		DbConnection connection = null;
 		try {
 			connection = DbManager.getInstance().getConnection(this.getResource());
@@ -1152,6 +1152,22 @@ public class BaseHelper {
 		return null;		
 	}
 	
+	public BaseResource[] getForLocationsDateWise(String[] locations,String[] order,String timeFeild,long fromtime,long totime) {
+		try {
+			Expression e2 = new Expression("location_id", REL_OP.IN, locations);
+			Expression e4 = new Expression(timeFeild, REL_OP.GTEQ, fromtime);
+			Expression e5 = new Expression(timeFeild, REL_OP.LT, totime);
+			
+			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
+			Expression e = new Expression(e2, LOG_OP.AND, e6);
+			return getByExpression(e,order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
+	}
+	
 	public BaseResource[] getResourcesForSchools(String[] schoolIds,String[] order)  {
 		try {
 			Expression e = new Expression("school_id", REL_OP.IN, schoolIds);
@@ -1166,6 +1182,18 @@ public class BaseHelper {
 	public ArrayList<Map<String, Object>> getForSchools(String[] schoolIds,String[] order)  {
 		try {
 			Expression e = new Expression("school_id", REL_OP.IN, schoolIds);
+			BaseResource[] resoucres =  getByExpression(e,order);
+			return HelperUtils.convertArray2ListMap(resoucres);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ArrayList<Map<String, Object>>();		
+	}
+	
+	public ArrayList<Map<String, Object>> getForLocations(String[] schoolIds,String[] order)  {
+		try {
+			Expression e = new Expression("location_id", REL_OP.IN, schoolIds);
 			BaseResource[] resoucres =  getByExpression(e,order);
 			return HelperUtils.convertArray2ListMap(resoucres);
 		} catch (Exception e) {
