@@ -167,6 +167,12 @@ public class NoticeNotificationTask extends NotificationTask {
 			}
 			String[] ids = activity.getSchools().toArray(new String[activity.getSchools().size()]);
 			students = StudentHelper.getInstance().getSectionStudent(ids,class_section_name);
+		} else if ("PARENTS".equals(type)) {
+			if (Util.isEmpty(activity.getStudents())) {
+				return;
+			}
+			String[] ids = activity.getStudents().toArray(new String[activity.getStudents().size()]);
+			students = StudentHelper.getInstance().getById(ids, null);
 		} 
 		if ((students == null) || (students.length == 0)) 
 			return;
