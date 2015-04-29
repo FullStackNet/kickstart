@@ -279,6 +279,16 @@ public class User_mapHelper extends BaseHelper {
 		return NotificationHelper.getInstance().getListMapById(_map.getNotifications().toArray(new String[_map.getNotifications().size()]),
 				new String[]{notification.FIELD_NOTIFICATION_TIME+" DESC"});
 	}
+	
+	public String[] getLocationIds(String user_id) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		user_map _map = (user_map)getSelectedFieldsById(user_id,
+				user_map.FIELD_LOCATIONS);
+		if ((_map == null) || (_map.getLocations() == null))
+			return null;
+		return _map.getLocations().toArray(new String[_map.getLocations().size()]);
+	}
+	
 	public ArrayList<Map<String, Object>> getLocationListMap(String user_id) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		user_map _map = (user_map)getSelectedFieldsById(user_id,

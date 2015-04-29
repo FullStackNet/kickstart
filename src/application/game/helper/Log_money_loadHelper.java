@@ -1,10 +1,9 @@
 package application.game.helper;
 
-import platform.helper.BaseHelper;
 import application.game.resource.log_money_load;
 
 
-public class Log_money_loadHelper extends BaseHelper {
+public class Log_money_loadHelper extends BaseGameHelper {
 	
 	Log_money_loadHelper() {
 		super(new log_money_load());
