@@ -43,6 +43,30 @@ public class NoticeHelper extends BaseHelper {
 		}
 	}
 	
+	public void addStudent(String noticeId,String studentId) {
+		notice _notice = new notice();
+		_notice.setId(noticeId);
+		_notice.addStudents(studentId);
+		try {
+			NoticeHelper.getInstance().update(_notice);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeStudent(String noticeId,String studentId) {
+		notice _notice = new notice();
+		_notice.setId(noticeId);
+		_notice.addStudents(studentId);
+		try {
+			NoticeHelper.getInstance().unset(_notice);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void addSchool(String noticeId,String[] schoolIds) {
 		notice _notice = new notice();
 		_notice.setId(noticeId);
