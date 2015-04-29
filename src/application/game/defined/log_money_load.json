@@ -1,0 +1,89 @@
+{
+	"log_money_load" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'location_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'location_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'appliance_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'appliance_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'controller_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'rf_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'event_date_str':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'event_date':
+			{
+				'type':'long'
+			},
+			'user_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'amount':
+			{
+				'type':'double'
+			},
+			
+			'creation_time':
+			{
+				'type':'timestamp'
+			}			
+		}
+	}
+}
