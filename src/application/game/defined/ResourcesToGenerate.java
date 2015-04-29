@@ -22,5 +22,6 @@ public class ResourcesToGenerate {
 	 */
 	public static ResourceMap[] resourceMaps =  {
 		new ResourceMap("log_money_load", "application.game.resource.log_money_load"),
+		new ResourceMap("log_money_used", "application.game.resource.log_money_used"),
 	};
 }
