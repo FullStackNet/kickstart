@@ -17,6 +17,10 @@ public class c4t_relation extends Basec4t_relation  {
 
 	private static final long serialVersionUID = 1L;
 	
+	public static String getMapId(String from_id,String relation_type) {
+		return from_id+ApplicationConstants.ID_SEPERATOR+relation_type;
+	}
+	
 	public c4t_relation() {
 		this.setId(Util.getUniqueId());
 	}

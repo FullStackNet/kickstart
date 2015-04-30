@@ -29,11 +29,34 @@ public class C4t_relationHelper extends BaseHelper {
 		return getByExpression(e);	
 	}
 	
+	public String[] getByRelationMap(String from_id, String relation_type) {
+		String id =  c4t_relation.getMapId(from_id, relation_type);
+		c4t_relation _relation = (c4t_relation)C4t_relationHelper.getInstance().getById(id);
+		if (_relation == null)
+			return null;
+		return _relation.getObject_map().toArray(new String[_relation.getObject_map().size()]);
+	}
+	
 	public void addRelation(String from_id,String to_id, String relation_type) {
 		c4t_relation relation = new c4t_relation(c4t_relation.id(from_id, to_id, relation_type));
 		relation.setFrom_id(from_id);
 		relation.setTo_id(to_id);
 		relation.setRelation_type(relation_type);
+		try {
+			C4t_relationHelper.getInstance().AddOrUpdate(relation);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}	
+	
+	public void addRelationMap(String from_id,String to_id, String relation_type) {
+		String id = c4t_relation.getMapId(from_id, relation_type);
+		c4t_relation relation = new c4t_relation(id);
+		relation.setFrom_id(from_id);
+		relation.setTo_id(to_id);
+		relation.setRelation_type(relation_type);
+		relation.addObject_map(to_id);
 		try {
 			C4t_relationHelper.getInstance().AddOrUpdate(relation);
 		} catch (ApplicationException e) {

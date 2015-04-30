@@ -23,7 +23,7 @@ public abstract class Basec4t_relation extends BaseResource {
 	private String from_id = null;
 	private String to_id = null;
 	private String relation_type = null;
-	private String object_map = null;
+	private ArrayList<Object> object_map = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -61,9 +61,7 @@ public abstract class Basec4t_relation extends BaseResource {
 		relation_typeField.setLength(128);
 		metaData.addField(relation_typeField);
 
-		Field object_mapField = new Field("object_map", "String");
-		object_mapField.setRequired(true);
-		object_mapField.setLength(128);
+		Field object_mapField = new Field("object_map", "Array");
 		metaData.addField(object_mapField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
@@ -124,7 +122,7 @@ public abstract class Basec4t_relation extends BaseResource {
 			map.put("to_id", to_id);
 		if(validateRelation_type(add))
 			map.put("relation_type", relation_type);
-		if(validateObject_map(add))
+		if(object_map != null)
 			map.put("object_map", object_map);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
@@ -144,7 +142,7 @@ public abstract class Basec4t_relation extends BaseResource {
 		from_id = (String) map.get("from_id");
 		to_id = (String) map.get("to_id");
 		relation_type = (String) map.get("relation_type");
-		object_map = (String) map.get("object_map");
+		object_map = (ArrayList<Object>) map.get("object_map");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -167,10 +165,7 @@ public abstract class Basec4t_relation extends BaseResource {
 		if(relation_typeObj != null)
 			relation_type = relation_typeObj.toString();
 
-		Object object_mapObj = map.get("object_map");
-		if(object_mapObj != null)
-			object_map = object_mapObj.toString();
-
+		object_map = (ArrayList<Object>) map.get("object_map");
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
@@ -272,26 +267,23 @@ public abstract class Basec4t_relation extends BaseResource {
 		return relation_type != null;
 	}
 
-	public String getObject_map() {
+	public ArrayList<Object> getObject_map() {
 		return object_map;
 	}
 
-	public String getObject_mapEx() {
-		return object_map != null ? object_map : "";
+
+	public void setObject_map(ArrayList<Object> object_map) {
+		this.object_map = object_map;
 	}
 
-	public void setObject_map(String object_map) {
-		this.object_map = object_map;
+	public void addObject_map(Object value) {
+		if(object_map == null)
+			object_map = new ArrayList<Object>();
+		object_map.add(value);
 	}
 
 	public void unSetObject_map() {
 		this.object_map = null;
-	}
-
-	public boolean validateObject_map(boolean add) throws ApplicationException {
-		if(add && object_map == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[object_map]");
-		return object_map != null;
 	}
 
 	public Long getCreation_time() {
