@@ -2,6 +2,7 @@ package platform.resource;
 
 
 import platform.defined.resource.Basec4t_record_map;
+import platform.util.ApplicationConstants;
 import platform.util.Util;
 
 public class c4t_record_map extends Basec4t_record_map {
@@ -24,5 +25,8 @@ public class c4t_record_map extends Basec4t_record_map {
 		return null;
 	}
 	
+	public static String getMapId(String from_id,String relation_type) {
+		return from_id+ApplicationConstants.ID_SEPERATOR+relation_type;
+	}
 	
 }
