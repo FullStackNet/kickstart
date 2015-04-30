@@ -58,6 +58,12 @@
 				'type':'String',
 				'transient' : true
 			},
+			'community_id':
+			{
+				'length': 128,
+				'type':'String',
+				'transient' : true
+			},
 			'dob':
 			{
 				'length': 128,
