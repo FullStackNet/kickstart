@@ -28,6 +28,7 @@ public abstract class Baseuser extends BaseResource {
 	private String customer_id = null;
 	private String location_id = null;
 	private String community_id = null;
+	private String reference_id = null;
 	private String dob = null;
 	private String occupation = null;
 	private String role = null;
@@ -89,6 +90,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_LOCATION_ID = "location_id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_DOB = "dob";
 	public static String FIELD_OCCUPATION = "occupation";
 	public static String FIELD_ROLE = "role";
@@ -444,6 +446,7 @@ public abstract class Baseuser extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.location_id = obj.location_id;
 		this.community_id = obj.community_id;
+		this.reference_id = obj.reference_id;
 		this.dob = obj.dob;
 		this.occupation = obj.occupation;
 		this.role = obj.role;
@@ -610,6 +613,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("location_id", location_id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
 		if(dob != null)
 			map.put("dob", dob);
 		if(occupation != null)
@@ -738,6 +743,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("location_id", location_id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
 		if(dob != null)
 			map.put("dob", dob);
 		if(occupation != null)
@@ -1309,6 +1316,22 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetCommunity_id() {
 		this.community_id = null;
+	}
+
+	public String getReference_id() {
+		return reference_id;
+	}
+
+	public String getReference_idEx() {
+		return reference_id != null ? reference_id : "";
+	}
+
+	public void setReference_id(String reference_id) {
+		this.reference_id = reference_id;
+	}
+
+	public void unSetReference_id() {
+		this.reference_id = null;
 	}
 
 	public String getDob() {

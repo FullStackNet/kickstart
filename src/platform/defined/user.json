@@ -64,6 +64,12 @@
 				'type':'String',
 				'transient' : true
 			},
+			'reference_id':
+			{
+				'length': 128,
+				'type':'String',
+				'transient' : true
+			},
 			'dob':
 			{
 				'length': 128,
