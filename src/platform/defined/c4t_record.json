@@ -11,6 +11,12 @@
 				'required': true,
 				'type':'String'
 			},
+			'community_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'customer_id':
 			{
 				'length': 128,

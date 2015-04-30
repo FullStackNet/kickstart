@@ -20,6 +20,7 @@ import java.util.*;
  */
 public abstract class Basec4t_record extends BaseResource {
 	private String id = null;
+	private String community_id = null;
 	private String customer_id = null;
 	private String record_type = null;
 	private String title = null;
@@ -38,6 +39,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_TITLE = "title";
@@ -65,6 +67,11 @@ public abstract class Basec4t_record extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setIndexed(true);
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setIndexed(true);
@@ -137,6 +144,7 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public Basec4t_record(Basec4t_record obj) {
 		this.id = obj.id;
+		this.community_id = obj.community_id;
 		this.customer_id = obj.customer_id;
 		this.record_type = obj.record_type;
 		this.title = obj.title;
@@ -172,6 +180,8 @@ public abstract class Basec4t_record extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(record_type != null)
@@ -214,6 +224,8 @@ public abstract class Basec4t_record extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(record_type != null)
@@ -257,6 +269,7 @@ public abstract class Basec4t_record extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		community_id = (String) map.get("community_id");
 		customer_id = (String) map.get("customer_id");
 		record_type = (String) map.get("record_type");
 		title = (String) map.get("title");
@@ -280,6 +293,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -370,6 +387,22 @@ public abstract class Basec4t_record extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getCommunity_id() {
+		return community_id;
+	}
+
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
+	}
+
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
+	}
+
+	public void unSetCommunity_id() {
+		this.community_id = null;
 	}
 
 	public String getCustomer_id() {
