@@ -43,6 +43,7 @@ public abstract class Baseuser extends BaseResource {
 	private String key = null;
 	private String routeSettingService = null;
 	private String homeAutomationService = null;
+	private String communityService = null;
 	private String schoolAdminService = null;
 	private String customerService = null;
 	private String merchantService = null;
@@ -102,6 +103,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_KEY = "key";
 	public static String FIELD_ROUTESETTINGSERVICE = "routeSettingService";
 	public static String FIELD_HOMEAUTOMATIONSERVICE = "homeAutomationService";
+	public static String FIELD_COMMUNITYSERVICE = "communityService";
 	public static String FIELD_SCHOOLADMINSERVICE = "schoolAdminService";
 	public static String FIELD_CUSTOMERSERVICE = "customerService";
 	public static String FIELD_MERCHANTSERVICE = "merchantService";
@@ -249,6 +251,11 @@ public abstract class Baseuser extends BaseResource {
 		homeAutomationServiceField.setDefaultValue("N");
 		homeAutomationServiceField.setLength(1);
 		metaData.addField(homeAutomationServiceField);
+
+		Field communityServiceField = new Field("communityService", "String");
+		communityServiceField.setDefaultValue("N");
+		communityServiceField.setLength(1);
+		metaData.addField(communityServiceField);
 
 		Field schoolAdminServiceField = new Field("schoolAdminService", "String");
 		schoolAdminServiceField.setDefaultValue("N");
@@ -450,6 +457,7 @@ public abstract class Baseuser extends BaseResource {
 		this.key = obj.key;
 		this.routeSettingService = obj.routeSettingService;
 		this.homeAutomationService = obj.homeAutomationService;
+		this.communityService = obj.communityService;
 		this.schoolAdminService = obj.schoolAdminService;
 		this.customerService = obj.customerService;
 		this.merchantService = obj.merchantService;
@@ -511,6 +519,8 @@ public abstract class Baseuser extends BaseResource {
 			routeSettingService = "N";
 		if(homeAutomationService == null)
 			homeAutomationService = "N";
+		if(communityService == null)
+			communityService = "N";
 		if(schoolAdminService == null)
 			schoolAdminService = "N";
 		if(customerService == null)
@@ -627,6 +637,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("routeSettingService", routeSettingService);
 		if(homeAutomationService != null)
 			map.put("homeAutomationService", homeAutomationService);
+		if(communityService != null)
+			map.put("communityService", communityService);
 		if(schoolAdminService != null)
 			map.put("schoolAdminService", schoolAdminService);
 		if(customerService != null)
@@ -751,6 +763,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("routeSettingService", routeSettingService);
 		if(homeAutomationService != null)
 			map.put("homeAutomationService", homeAutomationService);
+		if(communityService != null)
+			map.put("communityService", communityService);
 		if(schoolAdminService != null)
 			map.put("schoolAdminService", schoolAdminService);
 		if(customerService != null)
@@ -852,6 +866,7 @@ public abstract class Baseuser extends BaseResource {
 		key = (String) map.get("key");
 		routeSettingService = (String) map.get("routeSettingService");
 		homeAutomationService = (String) map.get("homeAutomationService");
+		communityService = (String) map.get("communityService");
 		schoolAdminService = (String) map.get("schoolAdminService");
 		customerService = (String) map.get("customerService");
 		merchantService = (String) map.get("merchantService");
@@ -981,6 +996,10 @@ public abstract class Baseuser extends BaseResource {
 		Object homeAutomationServiceObj = map.get("homeAutomationService");
 		if(homeAutomationServiceObj != null)
 			homeAutomationService = homeAutomationServiceObj.toString();
+
+		Object communityServiceObj = map.get("communityService");
+		if(communityServiceObj != null)
+			communityService = communityServiceObj.toString();
 
 		Object schoolAdminServiceObj = map.get("schoolAdminService");
 		if(schoolAdminServiceObj != null)
@@ -1483,6 +1502,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetHomeAutomationService() {
 		this.homeAutomationService = "N";
+	}
+
+	public String getCommunityService() {
+		return communityService != null ? communityService : "N";
+	}
+
+	public void setCommunityService(String communityService) {
+		this.communityService = communityService;
+	}
+
+	public void unSetCommunityService() {
+		this.communityService = "N";
 	}
 
 	public String getSchoolAdminService() {

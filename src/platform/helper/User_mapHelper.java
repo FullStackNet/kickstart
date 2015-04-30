@@ -10,6 +10,7 @@ import platform.resource.BaseResource;
 import platform.resource.alert;
 import platform.resource.appliance;
 import platform.resource.appliance_map;
+import platform.resource.c4t_object;
 import platform.resource.location;
 import platform.resource.notification;
 import platform.resource.user_map;
@@ -51,6 +52,20 @@ public class User_mapHelper extends BaseHelper {
 		user_map _user_map = new user_map();
 		_user_map.setId(userId);
 		_user_map.addLocations(locationId);
+		unset(_user_map);
+	}
+	
+	public void addCommunity(String userId,String communityId) throws ApplicationException {
+		user_map _user_map = new user_map();
+		_user_map.setId(userId);
+		_user_map.addCommunities(communityId);
+		AddOrUpdate(_user_map);
+	}
+	
+	public void removeCommunity(String userId,String communityId) throws ApplicationException {
+		user_map _user_map = new user_map();
+		_user_map.setId(userId);
+		_user_map.addCommunities(communityId);
 		unset(_user_map);
 	}
 	
@@ -306,5 +321,24 @@ public class User_mapHelper extends BaseHelper {
 			return null;
 		return LocationHelper.getInstance().getById(_map.getLocations().toArray(new String[_map.getLocations().size()]),
 				new String[]{location.FIELD_NAME});
+	}
+	
+	public ArrayList<Map<String, Object>> getCommunityListMap(String user_id) {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		user_map _map = (user_map)getSelectedFieldsById(user_id,
+				user_map.FIELD_LOCATIONS);
+		if ((_map == null) || (_map.getLocations() == null))
+			return list;
+		return LocationHelper.getInstance().getListMapById(_map.getLocations().toArray(new String[_map.getLocations().size()]),
+				new String[]{location.FIELD_NAME});
+	}
+	
+	public BaseResource[] getCommunities(String user_id) {
+		user_map _map = (user_map)getSelectedFieldsById(user_id,
+				user_map.FIELD_COMMUNITIES);
+		if ((_map == null) || (_map.getCommunities() == null))
+			return null;
+		return C4t_objectHelper.getInstance().getById(_map.getCommunities().toArray(new String[_map.getCommunities().size()]),
+				new String[]{c4t_object.FIELD_NAME});
 	}
 }

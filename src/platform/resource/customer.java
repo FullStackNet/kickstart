@@ -42,6 +42,14 @@ public class customer extends Basecustomer {
 		}
 		return false;
 	}
+	
+	public boolean isCommunityServiceEnabled() {
+		if ("Y".equalsIgnoreCase(getCommunityService())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isFleetServiceEnable() {
 		if ("Y".equalsIgnoreCase(getFleetService())) {
 			return true;

@@ -156,6 +156,12 @@
 				'type':'String',
 				'default' : "N"
 			},
+			'communityService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'schoolAdminService':
 			{
 				'length': 1,

@@ -72,7 +72,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("log_id_card", "platform.resource.log_id_card"),						
 		new ResourceMap("c4t_object", "platform.resource.c4t_object"),						
 		new ResourceMap("c4t_relation", "platform.resource.c4t_relation"),	
-		new ResourceMap("place", "platform.resource.place")	
+		new ResourceMap("place", "platform.resource.place"),	
+		new ResourceMap("c4t_record", "platform.resource.c4t_record")	
 
 	};
 }

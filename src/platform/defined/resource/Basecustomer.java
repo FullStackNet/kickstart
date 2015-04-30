@@ -37,6 +37,7 @@ public abstract class Basecustomer extends BaseResource {
 	private String gameService = null;
 	private String homeAutomationService = null;
 	private String customerService = null;
+	private String communityService = null;
 	private String merchantService = null;
 	private String selfOwned = null;
 	private String leasedOut = null;
@@ -63,6 +64,7 @@ public abstract class Basecustomer extends BaseResource {
 	public static String FIELD_GAMESERVICE = "gameService";
 	public static String FIELD_HOMEAUTOMATIONSERVICE = "homeAutomationService";
 	public static String FIELD_CUSTOMERSERVICE = "customerService";
+	public static String FIELD_COMMUNITYSERVICE = "communityService";
 	public static String FIELD_MERCHANTSERVICE = "merchantService";
 	public static String FIELD_SELFOWNED = "selfOwned";
 	public static String FIELD_LEASEDOUT = "leasedOut";
@@ -152,6 +154,11 @@ public abstract class Basecustomer extends BaseResource {
 		customerServiceField.setLength(1);
 		metaData.addField(customerServiceField);
 
+		Field communityServiceField = new Field("communityService", "String");
+		communityServiceField.setDefaultValue("N");
+		communityServiceField.setLength(1);
+		metaData.addField(communityServiceField);
+
 		Field merchantServiceField = new Field("merchantService", "String");
 		merchantServiceField.setDefaultValue("N");
 		merchantServiceField.setLength(1);
@@ -208,6 +215,7 @@ public abstract class Basecustomer extends BaseResource {
 		this.gameService = obj.gameService;
 		this.homeAutomationService = obj.homeAutomationService;
 		this.customerService = obj.customerService;
+		this.communityService = obj.communityService;
 		this.merchantService = obj.merchantService;
 		this.selfOwned = obj.selfOwned;
 		this.leasedOut = obj.leasedOut;
@@ -226,6 +234,8 @@ public abstract class Basecustomer extends BaseResource {
 			homeAutomationService = "N";
 		if(customerService == null)
 			customerService = "N";
+		if(communityService == null)
+			communityService = "N";
 		if(merchantService == null)
 			merchantService = "N";
 	}
@@ -268,6 +278,8 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("homeAutomationService", homeAutomationService);
 		if(customerService != null)
 			map.put("customerService", customerService);
+		if(communityService != null)
+			map.put("communityService", communityService);
 		if(merchantService != null)
 			map.put("merchantService", merchantService);
 		if(selfOwned != null)
@@ -326,6 +338,8 @@ public abstract class Basecustomer extends BaseResource {
 			map.put("homeAutomationService", homeAutomationService);
 		if(customerService != null)
 			map.put("customerService", customerService);
+		if(communityService != null)
+			map.put("communityService", communityService);
 		if(merchantService != null)
 			map.put("merchantService", merchantService);
 		if(selfOwned != null)
@@ -368,6 +382,7 @@ public abstract class Basecustomer extends BaseResource {
 		gameService = (String) map.get("gameService");
 		homeAutomationService = (String) map.get("homeAutomationService");
 		customerService = (String) map.get("customerService");
+		communityService = (String) map.get("communityService");
 		merchantService = (String) map.get("merchantService");
 		selfOwned = (String) map.get("selfOwned");
 		leasedOut = (String) map.get("leasedOut");
@@ -450,6 +465,10 @@ public abstract class Basecustomer extends BaseResource {
 		Object customerServiceObj = map.get("customerService");
 		if(customerServiceObj != null)
 			customerService = customerServiceObj.toString();
+
+		Object communityServiceObj = map.get("communityService");
+		if(communityServiceObj != null)
+			communityService = communityServiceObj.toString();
 
 		Object merchantServiceObj = map.get("merchantService");
 		if(merchantServiceObj != null)
@@ -768,6 +787,18 @@ public abstract class Basecustomer extends BaseResource {
 
 	public void unSetCustomerService() {
 		this.customerService = "N";
+	}
+
+	public String getCommunityService() {
+		return communityService != null ? communityService : "N";
+	}
+
+	public void setCommunityService(String communityService) {
+		this.communityService = communityService;
+	}
+
+	public void unSetCommunityService() {
+		this.communityService = "N";
 	}
 
 	public String getMerchantService() {

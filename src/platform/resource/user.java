@@ -48,6 +48,13 @@ public class user extends Baseuser {
 		return false;
 	}
 	
+	public boolean isCommunityServiceEnabled() {
+		if ("Y".equalsIgnoreCase(getCommunityService())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isBrushupSkillEnabled() {
 		if ("Y".equalsIgnoreCase(getBrushUpSkillService())) {
 			return true;
