@@ -8,7 +8,8 @@
 			{
 				'length': 128,
 				'required': true,
-				'type':'String'
+				'type':'String',
+				"remark" : "from id and relation type"
 			},
 			'from_id':
 			{
@@ -23,6 +24,12 @@
 				'type':'String'
 			},
 			'relation_type':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'object_map':
 			{
 				'length': 128,
 				'required': true,

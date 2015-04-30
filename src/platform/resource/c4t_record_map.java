@@ -1,22 +1,21 @@
 package platform.resource;
 
-import platform.defined.resource.Basec4t_record;
+
+import platform.defined.resource.Basec4t_record_map;
 import platform.util.Util;
 
-public class c4t_record extends Basec4t_record {
+public class c4t_record_map extends Basec4t_record_map {
 	
 	/**
 	 * 
 	 */
-	public static String C4T_RECORD_TYPE_COMMUNITY_COMMUNICATION  = "COMMUNITY_COMMUNICATION";
-	
 	private static final long serialVersionUID = 1L;
 	
-	public c4t_record() {
+	public c4t_record_map() {
 		this.setId(Util.getUniqueId());
 	}
 	
-	public c4t_record(String id) {
+	public c4t_record_map(String id) {
 		this.setId(id);
 	}	
 	@Override
