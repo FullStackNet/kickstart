@@ -1,5 +1,8 @@
 package platform.resource;
 
+import platform.db.Expression;
+import platform.db.LOG_OP;
+import platform.db.REL_OP;
 import platform.defined.resource.Basec4t_record;
 import platform.util.Util;
 
@@ -24,5 +27,6 @@ public class c4t_record extends Basec4t_record {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	
 }

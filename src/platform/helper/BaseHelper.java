@@ -14,6 +14,8 @@ import platform.db.REL_OP;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
 import platform.resource.c4t_object;
+import platform.resource.c4t_record;
+import platform.resource.sms_daily_analysis;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
@@ -1168,6 +1170,24 @@ public class BaseHelper {
 		return null;		
 	}
 	
+	public BaseResource[] getForCommunityDateWise(String[] communities,String record_type,String[] order,String timeFeild,long fromtime,long totime) {
+		try {
+			Expression e1 = new Expression(c4t_record.FIELD_RECORD_TYPE, REL_OP.IN, record_type);
+			Expression e2 = new Expression(c4t_record.FIELD_COMMUNITY_ID, REL_OP.IN, communities);
+			Expression e4 = new Expression(timeFeild, REL_OP.GTEQ, fromtime);
+			Expression e5 = new Expression(timeFeild, REL_OP.LT, totime);
+			
+			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
+			Expression e7 = new Expression(e2, LOG_OP.AND, e6);
+			Expression e = new Expression(e1, LOG_OP.AND, e7);
+			return getByExpression(e,order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
+	}
+	
 	public BaseResource[] getResourcesForSchools(String[] schoolIds,String[] order)  {
 		try {
 			Expression e = new Expression("school_id", REL_OP.IN, schoolIds);
@@ -1222,5 +1242,4 @@ public class BaseHelper {
 		}
 		return false;
 	}
-	
 }
