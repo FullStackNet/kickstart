@@ -33,7 +33,6 @@ public class User_mapHelper extends BaseHelper {
 	}
 	
 	
-	
 	public void addAppliance(String userId,String applianceId) throws ApplicationException {
 		user_map _user_map = new user_map();
 		_user_map.setId(userId);
