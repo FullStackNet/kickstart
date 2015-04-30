@@ -24,6 +24,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String customer_id = null;
 	private String record_type = null;
 	private String title = null;
+	private String recipients = null;
 	private String description = null;
 	private Long event_date = null;
 	private String event_date_str = null;
@@ -43,6 +44,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_TITLE = "title";
+	public static String FIELD_RECIPIENTS = "recipients";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_EVENT_DATE = "event_date";
 	public static String FIELD_EVENT_DATE_STR = "event_date_str";
@@ -85,6 +87,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Field titleField = new Field("title", "String");
 		titleField.setLength(512);
 		metaData.addField(titleField);
+
+		Field recipientsField = new Field("recipients", "String");
+		recipientsField.setLength(512);
+		metaData.addField(recipientsField);
 
 		Field descriptionField = new Field("description", "String");
 		descriptionField.setLength(4096);
@@ -137,7 +143,7 @@ public abstract class Basec4t_record extends BaseResource {
 
 		metaData.setTableName("c4t_record");
 
-		metaData.setCluster("DB_OBJECT");
+		metaData.setCluster("DB_RECORD");
 	}
 
 	public Basec4t_record() {}
@@ -148,6 +154,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.record_type = obj.record_type;
 		this.title = obj.title;
+		this.recipients = obj.recipients;
 		this.description = obj.description;
 		this.event_date = obj.event_date;
 		this.event_date_str = obj.event_date_str;
@@ -188,6 +195,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("record_type", record_type);
 		if(title != null)
 			map.put("title", title);
+		if(recipients != null)
+			map.put("recipients", recipients);
 		if(description != null)
 			map.put("description", description);
 		if(event_date != null)
@@ -232,6 +241,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("record_type", record_type);
 		if(title != null)
 			map.put("title", title);
+		if(recipients != null)
+			map.put("recipients", recipients);
 		if(description != null)
 			map.put("description", description);
 		if(event_date != null)
@@ -273,6 +284,7 @@ public abstract class Basec4t_record extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		record_type = (String) map.get("record_type");
 		title = (String) map.get("title");
+		recipients = (String) map.get("recipients");
 		description = (String) map.get("description");
 		event_date = (Long) map.get("event_date");
 		event_date_str = (String) map.get("event_date_str");
@@ -309,6 +321,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object titleObj = map.get("title");
 		if(titleObj != null)
 			title = titleObj.toString();
+
+		Object recipientsObj = map.get("recipients");
+		if(recipientsObj != null)
+			recipients = recipientsObj.toString();
 
 		Object descriptionObj = map.get("description");
 		if(descriptionObj != null)
@@ -451,6 +467,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTitle() {
 		this.title = null;
+	}
+
+	public String getRecipients() {
+		return recipients;
+	}
+
+	public String getRecipientsEx() {
+		return recipients != null ? recipients : "";
+	}
+
+	public void setRecipients(String recipients) {
+		this.recipients = recipients;
+	}
+
+	public void unSetRecipients() {
+		this.recipients = null;
 	}
 
 	public String getDescription() {
@@ -661,7 +693,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.extra_data = null;
 	}
 	public String getCluster() {
-		return "DB_OBJECT";
+		return "DB_RECORD";
 	}
 	public String getClusterType() {
 		return "REPLICATED";

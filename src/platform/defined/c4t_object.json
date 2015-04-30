@@ -91,6 +91,18 @@
 				'type':'String',
 				'length': 128
 			},
+			'feature_distributer_management':
+			{
+				'type':'String',
+				'length': 1,
+				'remark' : "only for business communities"
+			},
+			'feature_dealer_management':
+			{
+				'type':'String',
+				'length': 1,
+				'remark' : "only for business communities"
+			},
 			'zip_code':
 			{
 				'type':'String',
@@ -100,6 +112,7 @@
 			{
 				'type':'timestamp'
 			},
+		
 			'updation_time':
 			{
 				'type':'timestamp'

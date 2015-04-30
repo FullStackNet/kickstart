@@ -34,6 +34,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String city = null;
 	private String state = null;
 	private String country = null;
+	private String feature_distributer_management = null;
+	private String feature_dealer_management = null;
 	private String zip_code = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
@@ -54,6 +56,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
+	public static String FIELD_FEATURE_DISTRIBUTER_MANAGEMENT = "feature_distributer_management";
+	public static String FIELD_FEATURE_DEALER_MANAGEMENT = "feature_dealer_management";
 	public static String FIELD_ZIP_CODE = "zip_code";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
@@ -126,6 +130,14 @@ public abstract class Basec4t_object extends BaseResource {
 		countryField.setLength(128);
 		metaData.addField(countryField);
 
+		Field feature_distributer_managementField = new Field("feature_distributer_management", "String");
+		feature_distributer_managementField.setLength(1);
+		metaData.addField(feature_distributer_managementField);
+
+		Field feature_dealer_managementField = new Field("feature_dealer_management", "String");
+		feature_dealer_managementField.setLength(1);
+		metaData.addField(feature_dealer_managementField);
+
 		Field zip_codeField = new Field("zip_code", "String");
 		zip_codeField.setLength(128);
 		metaData.addField(zip_codeField);
@@ -164,6 +176,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.city = obj.city;
 		this.state = obj.state;
 		this.country = obj.country;
+		this.feature_distributer_management = obj.feature_distributer_management;
+		this.feature_dealer_management = obj.feature_dealer_management;
 		this.zip_code = obj.zip_code;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
@@ -206,6 +220,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
+		if(feature_distributer_management != null)
+			map.put("feature_distributer_management", feature_distributer_management);
+		if(feature_dealer_management != null)
+			map.put("feature_dealer_management", feature_dealer_management);
 		if(zip_code != null)
 			map.put("zip_code", zip_code);
 		if(creation_time != null)
@@ -249,6 +267,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
+		if(feature_distributer_management != null)
+			map.put("feature_distributer_management", feature_distributer_management);
+		if(feature_dealer_management != null)
+			map.put("feature_dealer_management", feature_dealer_management);
 		if(zip_code != null)
 			map.put("zip_code", zip_code);
 		if(creation_time != null)
@@ -282,6 +304,8 @@ public abstract class Basec4t_object extends BaseResource {
 		city = (String) map.get("city");
 		state = (String) map.get("state");
 		country = (String) map.get("country");
+		feature_distributer_management = (String) map.get("feature_distributer_management");
+		feature_dealer_management = (String) map.get("feature_dealer_management");
 		zip_code = (String) map.get("zip_code");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
@@ -349,6 +373,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object countryObj = map.get("country");
 		if(countryObj != null)
 			country = countryObj.toString();
+
+		Object feature_distributer_managementObj = map.get("feature_distributer_management");
+		if(feature_distributer_managementObj != null)
+			feature_distributer_management = feature_distributer_managementObj.toString();
+
+		Object feature_dealer_managementObj = map.get("feature_dealer_management");
+		if(feature_dealer_managementObj != null)
+			feature_dealer_management = feature_dealer_managementObj.toString();
 
 		Object zip_codeObj = map.get("zip_code");
 		if(zip_codeObj != null)
@@ -615,6 +647,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetCountry() {
 		this.country = null;
+	}
+
+	public String getFeature_distributer_management() {
+		return feature_distributer_management;
+	}
+
+	public String getFeature_distributer_managementEx() {
+		return feature_distributer_management != null ? feature_distributer_management : "";
+	}
+
+	public void setFeature_distributer_management(String feature_distributer_management) {
+		this.feature_distributer_management = feature_distributer_management;
+	}
+
+	public void unSetFeature_distributer_management() {
+		this.feature_distributer_management = null;
+	}
+
+	public String getFeature_dealer_management() {
+		return feature_dealer_management;
+	}
+
+	public String getFeature_dealer_managementEx() {
+		return feature_dealer_management != null ? feature_dealer_management : "";
+	}
+
+	public void setFeature_dealer_management(String feature_dealer_management) {
+		this.feature_dealer_management = feature_dealer_management;
+	}
+
+	public void unSetFeature_dealer_management() {
+		this.feature_dealer_management = null;
 	}
 
 	public String getZip_code() {

@@ -1,7 +1,7 @@
 {
 	"c4t_record" :
 	{
-		"cluster": "DB_OBJECT",
+		"cluster": "DB_RECORD",
 		"fields":
 		{
 			'id':
@@ -30,6 +30,11 @@
 				'remark' : "COMMUNICATION,PERSONAL_COMMUNICATION"
 			},
 			'title':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'recipients':
 			{
 				'length': 512,
 				'type': 'String'
