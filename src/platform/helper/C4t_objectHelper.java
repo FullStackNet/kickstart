@@ -60,7 +60,7 @@ public class C4t_objectHelper extends BaseHelper {
 	}	
 
 	
-	/*public ArrayList<Map<String, Object>> getListMapByUserId(String userId,String record_type,ArrayList<JoinField> joinFields, String[] order) {
+	public ArrayList<Map<String, Object>> getListMapByUserIdForCommunity(String userId,String record_type,ArrayList<JoinField> joinFields, String[] order) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		String[] ids = User_mapHelper.getInstance().getCommunityIds(userId);
 		Expression e1 = new Expression(c4t_record.FIELD_RECORD_TYPE, REL_OP.IN, record_type);
@@ -76,15 +76,24 @@ public class C4t_objectHelper extends BaseHelper {
 		return list;
 	}
 
-	public BaseResource[] getByUserId(String userId,String record_type, String[] order) {
+	public BaseResource[] getByUserIdForCommunity(String userId,String record_type, String[] order) {
 		String[] ids = User_mapHelper.getInstance().getCommunityIds(userId);
-		Expression e1 = new Expression(c4t_record.FIELD_RECORD_TYPE, REL_OP.IN, record_type);
+		Expression e1 = new Expression(c4t_record.FIELD_RECORD_TYPE, REL_OP.EQ, record_type);
 		Expression e2 = new Expression(c4t_record.FIELD_COMMUNITY_ID, REL_OP.IN, ids);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e,order);
 	}
 	
-	public ArrayList<Map<String, Object>> getByListMapUserIdWithCommunityName(String userId, String[] order) {
+	public BaseResource[] getForCommunity(String userId,String communityId, String record_type, String[] order) {
+		//String[] ids = User_mapHelper.getInstance().getCommunityIds(userId);
+		/// need to check here validity
+		Expression e1 = new Expression(c4t_record.FIELD_RECORD_TYPE, REL_OP.EQ, record_type);
+		Expression e2 = new Expression(c4t_record.FIELD_COMMUNITY_ID, REL_OP.EQ, communityId);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e,order);
+	}
+	
+	/*public ArrayList<Map<String, Object>> getByListMapUserIdWithCommunityName(String userId, String[] order) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		HelperFactory.getInstance().register(this);
 		ArrayList<JoinField> joinList = new ArrayList<>();
