@@ -1,11 +1,6 @@
 package platform.helper;
 
-import platform.db.Expression;
-import platform.db.LOG_OP;
-import platform.db.REL_OP;
-import platform.resource.BaseResource;
 import platform.resource.c4t_record_map;
-import platform.resource.c4t_relation;
 import platform.util.ApplicationException;
 
 

@@ -44,6 +44,14 @@ public abstract class Basec4t_record_map extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
+		Field record_idField = new Field("record_id", "String");
+		record_idField.setLength(512);
+		metaData.addField(record_idField);
+
+		Field record_map_typeField = new Field("record_map_type", "String");
+		record_map_typeField.setLength(512);
+		metaData.addField(record_map_typeField);
+
 		Field record_mapField = new Field("record_map", "Array");
 		metaData.addField(record_mapField);
 
@@ -114,6 +122,8 @@ public abstract class Basec4t_record_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		record_id = (String) map.get("record_id");
+		record_map_type = (String) map.get("record_map_type");
 		record_map = (ArrayList<Object>) map.get("record_map");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -123,6 +133,14 @@ public abstract class Basec4t_record_map extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object record_idObj = map.get("record_id");
+		if(record_idObj != null)
+			record_id = record_idObj.toString();
+
+		Object record_map_typeObj = map.get("record_map_type");
+		if(record_map_typeObj != null)
+			record_map_type = record_map_typeObj.toString();
 
 		record_map = (ArrayList<Object>) map.get("record_map");
 		extra_data = (Map<String, Object>) map.get("extra_data");

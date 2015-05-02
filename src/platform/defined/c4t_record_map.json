@@ -15,14 +15,12 @@
 			'record_id':
 			{
 				'length': 512,
-				'type': 'String',
-				'transient' : true
+				'type': 'String'
 			},
 			'record_map_type':
 			{
 				'length': 512,
-				'type': 'String',
-				'transient' : true
+				'type': 'String'
 			},
 			'reference_id':
 			{
