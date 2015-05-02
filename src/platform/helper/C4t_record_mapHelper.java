@@ -35,7 +35,7 @@ public class C4t_record_mapHelper extends BaseHelper {
 		relation.setRecord_map_type(relation_type);
 		relation.addRecord_map(to_id);
 		try {
-			C4t_relationHelper.getInstance().AddOrUpdate(relation);
+			C4t_record_mapHelper.getInstance().AddOrUpdate(relation);
 		} catch (ApplicationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
