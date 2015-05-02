@@ -59,6 +59,12 @@ public class C4t_objectHelper extends BaseHelper {
 		return C4t_objectHelper.getInstance().getById(ids,orderby);
 	}	
 
+
+	public BaseResource[] getByRecordMap(String from_id, String relation_type,String[] orderby) {
+		String[] ids = C4t_record_mapHelper.getInstance().getByRelationMap(from_id, relation_type);
+		return C4t_objectHelper.getInstance().getById(ids,orderby);
+	}	
+
 	
 	public ArrayList<Map<String, Object>> getListMapByUserIdForCommunity(String userId,String record_type,ArrayList<JoinField> joinFields, String[] order) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();

@@ -26,6 +26,7 @@ public class C4t_record_mapHelper extends BaseHelper {
 		return _map.getRecord_map().toArray(new String[_map.getRecord_map().size()]);
 	}
 	
+	
 	public void addRelationMap(String record_id,String to_id, String relation_type) {
 		String id = c4t_record_map.getMapId(record_id, relation_type);
 		c4t_record_map relation = new c4t_record_map(id);
