@@ -8,13 +8,7 @@ public class c4t_relation extends Basec4t_relation  {
 	/**
 	 * 
 	 */
-	public static String RT_COMMUNITY_AND_COMMUNITY_GROUP  = "COMMUNITY->COMMUNITY_GROUP";
-	public static String RT_COMMUNITY_AND_COMMUNITY_MEMBER  = "COMMUNITY->COMMUNITY_MEMBER";
-	public static String RT_COMMUNITY_AND_DISTRIBUTER  = "COMMUNITY->DISTRIBUTER";
-	public static String RT_COMMUNITY_AND_DEALER  = "COMMUNITY->DEALER";
-	public static String RT_DISTRIBUTER_AND_DEALER  = "DISTRIBUTER->DEALER";
-	public static String RT_COMMUNITY_DISTRIBUTER_AND_MEMBER  = "DISTRIBUTER->COMMUNITY_MEMBER";
-	public static String RT_COMMUNITY_DEALER_AND_MEMBER  = "DEALER->COMMUNITY_MEMBER";
+	
 	private static final long serialVersionUID = 1L;
 	
 	public static String getMapId(String from_id,String relation_type) {

@@ -10,6 +10,7 @@ public class c4t_record_map extends Basec4t_record_map {
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 1L;
 	
 	public c4t_record_map() {
