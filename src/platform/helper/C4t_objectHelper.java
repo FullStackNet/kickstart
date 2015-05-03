@@ -14,6 +14,7 @@ import platform.resource.c4t_relation;
 import platform.resource.customer;
 import platform.resource.sms_daily_analysis;
 import platform.util.ApplicationException;
+import platform.util.Util;
 
 
 public class C4t_objectHelper extends BaseHelper {
@@ -51,17 +52,26 @@ public class C4t_objectHelper extends BaseHelper {
 	
 	public BaseResource[] getByRelation(String from_id, String relation_type,String[] orderby) {
 		BaseResource[] resources = C4t_relationHelper.getInstance().getByRelation(from_id, relation_type);
+		if (Util.isEmpty(resources)) {
+			return null;
+		}
 		return C4t_objectHelper.getInstance().getById(resources, c4t_relation.FIELD_TO_ID,orderby);
 	}	
 	
 	public BaseResource[] getByRelationMap(String from_id, String relation_type,String[] orderby) {
 		String[] ids = C4t_relationHelper.getInstance().getByRelationMap(from_id, relation_type);
+		if (Util.isEmpty(ids)) {
+			return null;
+		}
 		return C4t_objectHelper.getInstance().getById(ids,orderby);
 	}	
 
 
 	public BaseResource[] getByRecordMap(String from_id, String relation_type,String[] orderby) {
 		String[] ids = C4t_record_mapHelper.getInstance().getByRelationMap(from_id, relation_type);
+		if (Util.isEmpty(ids)) {
+			return null;
+		}
 		return C4t_objectHelper.getInstance().getById(ids,orderby);
 	}	
 
