@@ -1,11 +1,14 @@
 package platform.helper;
 
+import java.util.ArrayList;
+
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.resource.c4t_relation;
 import platform.util.ApplicationException;
+import platform.util.Util;
 
 
 public class C4t_relationHelper extends BaseHelper {
@@ -35,6 +38,27 @@ public class C4t_relationHelper extends BaseHelper {
 		if (_relation == null)
 			return null;
 		return _relation.getObject_map().toArray(new String[_relation.getObject_map().size()]);
+	}
+	
+	public String[] getByRelationMap(String from_ids[], String relation_type) {
+		ArrayList<String> list = new ArrayList<>();
+		
+		String[] ids = new String[from_ids.length];
+		for(int i =0; i < from_ids.length; i++) {
+			ids[i] = c4t_relation.getMapId(from_ids[i], relation_type);
+		}
+		BaseResource[] _relations = C4t_relationHelper.getInstance().getById(ids);
+		if (Util.isEmpty(_relations))
+			return null;
+		for(int i=0; i < _relations.length; i++) {
+			c4t_relation _relation = (c4t_relation)_relations[i];
+			if (!Util.isEmpty(_relation.getObject_map())) {
+				for(int j=0; j < _relation.getObject_map().size(); j++) {
+					list.add(_relation.getObject_map().get(j).toString());
+				}
+			}
+		}
+		return list.toArray(new String[list.size()]);
 	}
 	
 	public void addRelation(String from_id,String to_id, String relation_type) {

@@ -17,6 +17,12 @@
 				'length': 128,
 				'type':'String'
 			},
+			'short_name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
 			'parent_id':
 			{
 				'name':'name',
@@ -104,6 +110,21 @@
 				'remark' : "only for business communities"
 			},
 			'zip_code':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'feature_send_sms':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'feature_send_email':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'user_id':
 			{
 				'type':'String',
 				'length': 128

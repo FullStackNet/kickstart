@@ -28,8 +28,13 @@ public abstract class Basesms_log extends BaseResource {
 	private String student_name = null;
 	private String class_name = null;
 	private String section_name = null;
+	private String community_id = null;
+	private String community_name = null;
+	private String customer_id = null;
 	private String school_id = null;
 	private String school_name = null;
+	private String user_id = null;
+	private String member_name = null;
 	private String mobile_no = null;
 	private String person_name = null;
 	private String date = null;
@@ -50,8 +55,13 @@ public abstract class Basesms_log extends BaseResource {
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_SECTION_NAME = "section_name";
+	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_COMMUNITY_NAME = "community_name";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_SCHOOL_NAME = "school_name";
+	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_MEMBER_NAME = "member_name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_PERSON_NAME = "person_name";
 	public static String FIELD_DATE = "date";
@@ -105,6 +115,18 @@ public abstract class Basesms_log extends BaseResource {
 		section_nameField.setLength(32);
 		metaData.addField(section_nameField);
 
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setLength(32);
+		metaData.addField(community_idField);
+
+		Field community_nameField = new Field("community_name", "String");
+		community_nameField.setLength(32);
+		metaData.addField(community_nameField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(32);
+		metaData.addField(customer_idField);
+
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(32);
 		metaData.addField(school_idField);
@@ -112,6 +134,14 @@ public abstract class Basesms_log extends BaseResource {
 		Field school_nameField = new Field("school_name", "String");
 		school_nameField.setLength(32);
 		metaData.addField(school_nameField);
+
+		Field user_idField = new Field("user_id", "String");
+		user_idField.setLength(32);
+		metaData.addField(user_idField);
+
+		Field member_nameField = new Field("member_name", "String");
+		member_nameField.setLength(32);
+		metaData.addField(member_nameField);
 
 		Field mobile_noField = new Field("mobile_no", "String");
 		mobile_noField.setLength(32);
@@ -167,8 +197,13 @@ public abstract class Basesms_log extends BaseResource {
 		this.student_name = obj.student_name;
 		this.class_name = obj.class_name;
 		this.section_name = obj.section_name;
+		this.community_id = obj.community_id;
+		this.community_name = obj.community_name;
+		this.customer_id = obj.customer_id;
 		this.school_id = obj.school_id;
 		this.school_name = obj.school_name;
+		this.user_id = obj.user_id;
+		this.member_name = obj.member_name;
 		this.mobile_no = obj.mobile_no;
 		this.person_name = obj.person_name;
 		this.date = obj.date;
@@ -205,10 +240,20 @@ public abstract class Basesms_log extends BaseResource {
 			map.put("class_name", class_name);
 		if(section_name != null)
 			map.put("section_name", section_name);
+		if(community_id != null)
+			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(school_name != null)
 			map.put("school_name", school_name);
+		if(user_id != null)
+			map.put("user_id", user_id);
+		if(member_name != null)
+			map.put("member_name", member_name);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
 		if(person_name != null)
@@ -252,10 +297,20 @@ public abstract class Basesms_log extends BaseResource {
 			map.put("class_name", class_name);
 		if(section_name != null)
 			map.put("section_name", section_name);
+		if(community_id != null)
+			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(school_name != null)
 			map.put("school_name", school_name);
+		if(user_id != null)
+			map.put("user_id", user_id);
+		if(member_name != null)
+			map.put("member_name", member_name);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
 		if(person_name != null)
@@ -295,8 +350,13 @@ public abstract class Basesms_log extends BaseResource {
 		student_name = (String) map.get("student_name");
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
+		community_id = (String) map.get("community_id");
+		community_name = (String) map.get("community_name");
+		customer_id = (String) map.get("customer_id");
 		school_id = (String) map.get("school_id");
 		school_name = (String) map.get("school_name");
+		user_id = (String) map.get("user_id");
+		member_name = (String) map.get("member_name");
 		mobile_no = (String) map.get("mobile_no");
 		person_name = (String) map.get("person_name");
 		date = (String) map.get("date");
@@ -347,6 +407,18 @@ public abstract class Basesms_log extends BaseResource {
 		if(section_nameObj != null)
 			section_name = section_nameObj.toString();
 
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
+
+		Object community_nameObj = map.get("community_name");
+		if(community_nameObj != null)
+			community_name = community_nameObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
+
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
@@ -354,6 +426,14 @@ public abstract class Basesms_log extends BaseResource {
 		Object school_nameObj = map.get("school_name");
 		if(school_nameObj != null)
 			school_name = school_nameObj.toString();
+
+		Object user_idObj = map.get("user_id");
+		if(user_idObj != null)
+			user_id = user_idObj.toString();
+
+		Object member_nameObj = map.get("member_name");
+		if(member_nameObj != null)
+			member_name = member_nameObj.toString();
 
 		Object mobile_noObj = map.get("mobile_no");
 		if(mobile_noObj != null)
@@ -544,6 +624,54 @@ public abstract class Basesms_log extends BaseResource {
 		this.section_name = null;
 	}
 
+	public String getCommunity_id() {
+		return community_id;
+	}
+
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
+	}
+
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
+	}
+
+	public void unSetCommunity_id() {
+		this.community_id = null;
+	}
+
+	public String getCommunity_name() {
+		return community_name;
+	}
+
+	public String getCommunity_nameEx() {
+		return community_name != null ? community_name : "";
+	}
+
+	public void setCommunity_name(String community_name) {
+		this.community_name = community_name;
+	}
+
+	public void unSetCommunity_name() {
+		this.community_name = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
+	}
+
 	public String getSchool_id() {
 		return school_id;
 	}
@@ -574,6 +702,38 @@ public abstract class Basesms_log extends BaseResource {
 
 	public void unSetSchool_name() {
 		this.school_name = null;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public String getUser_idEx() {
+		return user_id != null ? user_id : "";
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public void unSetUser_id() {
+		this.user_id = null;
+	}
+
+	public String getMember_name() {
+		return member_name;
+	}
+
+	public String getMember_nameEx() {
+		return member_name != null ? member_name : "";
+	}
+
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
+
+	public void unSetMember_name() {
+		this.member_name = null;
 	}
 
 	public String getMobile_no() {

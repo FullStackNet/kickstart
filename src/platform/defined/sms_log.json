@@ -49,12 +49,37 @@
 				'length': 32,
 				'type':'String'
 			},
+			'community_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'community_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
 			'school_id':
 			{
 				'length': 32,
 				'type':'String'
 			},
 			'school_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'member_name':
 			{
 				'length': 32,
 				'type':'String'

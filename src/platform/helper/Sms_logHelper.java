@@ -71,6 +71,45 @@ public class Sms_logHelper extends BaseHelper {
 		return _log;
 	}
 	
+	public sms_log logCommunityActivity(String communityId,
+			String communityName,
+			String userId,
+			String memberName,
+			String mobileNumber,
+			String reason,
+			String currentDate,
+			long activityCreationTime,
+			String activityTitle,
+			String activityId,
+			String customerId)  {
+		sms_log _log = new sms_log();
+		_log.setCommunity_id(communityId);
+		_log.setMobile_no(mobileNumber);
+		_log.setInvocation_time(new Date().getTime());
+		_log.setEvent_creation_time(activityCreationTime);
+		_log.setUser_id(userId);
+		_log.setMember_name(memberName);
+		_log.setDate(currentDate);
+		_log.setCommunity_name(communityName);
+		_log.setReason(reason);
+		_log.setReference_description(activityTitle);
+		_log.setReference_id(activityId);
+		_log.setCustomer_id(customerId);
+		//_log.setPerson_name("");
+		_log.setSent_status("N");
+		_log.setProcessing_status("N");
+		String parent_id = Sms_daily_analysisHelper.getInstance().createAnalysis(_log);
+		_log.setParent_id(parent_id);
+		try {
+			Sms_logHelper.getInstance().add(_log);
+		} catch (ApplicationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		return _log;
+	}
+	
 	public sms_log logSchoolActivity(String schoolId,
 			String schoolName,
 			String studentId,

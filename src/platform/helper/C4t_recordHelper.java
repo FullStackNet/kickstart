@@ -74,4 +74,19 @@ public class C4t_recordHelper extends BaseHelper {
 		return list;
 		
 	}
+	
+	public void updateSentCounter(String id,int total_users_sent, int total_sms_sent, int total_email_sent, 
+			int total_app_notification_sent)  {
+		c4t_record _record = new c4t_record(id);
+		_record.setTotal_user_sent(total_users_sent);
+		_record.setTotal_sms_sent(total_sms_sent);
+		_record.setTotal_email_sent(total_email_sent);
+		_record.setTotal_app_notification_sent(total_app_notification_sent);
+		try {
+			C4t_recordHelper.getInstance().update(_record);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

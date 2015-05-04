@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Basec4t_object extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String short_name = null;
 	private String parent_id = null;
 	private String customer_id = null;
 	private String object_type = null;
@@ -37,12 +38,16 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_distributer_management = null;
 	private String feature_dealer_management = null;
 	private String zip_code = null;
+	private String feature_send_sms = null;
+	private String feature_send_email = null;
+	private String user_id = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_SHORT_NAME = "short_name";
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_OBJECT_TYPE = "object_type";
@@ -59,6 +64,9 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_DISTRIBUTER_MANAGEMENT = "feature_distributer_management";
 	public static String FIELD_FEATURE_DEALER_MANAGEMENT = "feature_dealer_management";
 	public static String FIELD_ZIP_CODE = "zip_code";
+	public static String FIELD_FEATURE_SEND_SMS = "feature_send_sms";
+	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
+	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -77,6 +85,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field short_nameField = new Field("short_name", "String");
+		short_nameField.setLength(128);
+		metaData.addField(short_nameField);
 
 		Field parent_idField = new Field("parent_id", "String");
 		parent_idField.setLength(128);
@@ -142,6 +154,18 @@ public abstract class Basec4t_object extends BaseResource {
 		zip_codeField.setLength(128);
 		metaData.addField(zip_codeField);
 
+		Field feature_send_smsField = new Field("feature_send_sms", "String");
+		feature_send_smsField.setLength(128);
+		metaData.addField(feature_send_smsField);
+
+		Field feature_send_emailField = new Field("feature_send_email", "String");
+		feature_send_emailField.setLength(128);
+		metaData.addField(feature_send_emailField);
+
+		Field user_idField = new Field("user_id", "String");
+		user_idField.setLength(128);
+		metaData.addField(user_idField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -163,6 +187,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public Basec4t_object(Basec4t_object obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.short_name = obj.short_name;
 		this.parent_id = obj.parent_id;
 		this.customer_id = obj.customer_id;
 		this.object_type = obj.object_type;
@@ -179,6 +204,9 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_distributer_management = obj.feature_distributer_management;
 		this.feature_dealer_management = obj.feature_dealer_management;
 		this.zip_code = obj.zip_code;
+		this.feature_send_sms = obj.feature_send_sms;
+		this.feature_send_email = obj.feature_send_email;
+		this.user_id = obj.user_id;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
 		this.extra_data = obj.extra_data;
@@ -194,6 +222,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(short_name != null)
+			map.put("short_name", short_name);
 		if(parent_id != null)
 			map.put("parent_id", parent_id);
 		if(customer_id != null)
@@ -226,6 +256,12 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_dealer_management", feature_dealer_management);
 		if(zip_code != null)
 			map.put("zip_code", zip_code);
+		if(feature_send_sms != null)
+			map.put("feature_send_sms", feature_send_sms);
+		if(feature_send_email != null)
+			map.put("feature_send_email", feature_send_email);
+		if(user_id != null)
+			map.put("user_id", user_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -241,6 +277,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(short_name != null)
+			map.put("short_name", short_name);
 		if(parent_id != null)
 			map.put("parent_id", parent_id);
 		if(customer_id != null)
@@ -273,6 +311,12 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_dealer_management", feature_dealer_management);
 		if(zip_code != null)
 			map.put("zip_code", zip_code);
+		if(feature_send_sms != null)
+			map.put("feature_send_sms", feature_send_sms);
+		if(feature_send_email != null)
+			map.put("feature_send_email", feature_send_email);
+		if(user_id != null)
+			map.put("user_id", user_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -291,6 +335,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		short_name = (String) map.get("short_name");
 		parent_id = (String) map.get("parent_id");
 		customer_id = (String) map.get("customer_id");
 		object_type = (String) map.get("object_type");
@@ -307,6 +352,9 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_distributer_management = (String) map.get("feature_distributer_management");
 		feature_dealer_management = (String) map.get("feature_dealer_management");
 		zip_code = (String) map.get("zip_code");
+		feature_send_sms = (String) map.get("feature_send_sms");
+		feature_send_email = (String) map.get("feature_send_email");
+		user_id = (String) map.get("user_id");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -321,6 +369,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object short_nameObj = map.get("short_name");
+		if(short_nameObj != null)
+			short_name = short_nameObj.toString();
 
 		Object parent_idObj = map.get("parent_id");
 		if(parent_idObj != null)
@@ -386,6 +438,18 @@ public abstract class Basec4t_object extends BaseResource {
 		if(zip_codeObj != null)
 			zip_code = zip_codeObj.toString();
 
+		Object feature_send_smsObj = map.get("feature_send_sms");
+		if(feature_send_smsObj != null)
+			feature_send_sms = feature_send_smsObj.toString();
+
+		Object feature_send_emailObj = map.get("feature_send_email");
+		if(feature_send_emailObj != null)
+			feature_send_email = feature_send_emailObj.toString();
+
+		Object user_idObj = map.get("user_id");
+		if(user_idObj != null)
+			user_id = user_idObj.toString();
+
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
@@ -439,6 +503,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getShort_name() {
+		return short_name;
+	}
+
+	public String getShort_nameEx() {
+		return short_name != null ? short_name : "";
+	}
+
+	public void setShort_name(String short_name) {
+		this.short_name = short_name;
+	}
+
+	public void unSetShort_name() {
+		this.short_name = null;
 	}
 
 	public String getParent_id() {
@@ -695,6 +775,54 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetZip_code() {
 		this.zip_code = null;
+	}
+
+	public String getFeature_send_sms() {
+		return feature_send_sms;
+	}
+
+	public String getFeature_send_smsEx() {
+		return feature_send_sms != null ? feature_send_sms : "";
+	}
+
+	public void setFeature_send_sms(String feature_send_sms) {
+		this.feature_send_sms = feature_send_sms;
+	}
+
+	public void unSetFeature_send_sms() {
+		this.feature_send_sms = null;
+	}
+
+	public String getFeature_send_email() {
+		return feature_send_email;
+	}
+
+	public String getFeature_send_emailEx() {
+		return feature_send_email != null ? feature_send_email : "";
+	}
+
+	public void setFeature_send_email(String feature_send_email) {
+		this.feature_send_email = feature_send_email;
+	}
+
+	public void unSetFeature_send_email() {
+		this.feature_send_email = null;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public String getUser_idEx() {
+		return user_id != null ? user_id : "";
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public void unSetUser_id() {
+		this.user_id = null;
 	}
 
 	public Long getCreation_time() {

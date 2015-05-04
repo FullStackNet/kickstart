@@ -15,7 +15,6 @@ import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
 import platform.resource.c4t_object;
 import platform.resource.c4t_record;
-import platform.resource.sms_daily_analysis;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
@@ -443,6 +442,11 @@ public class BaseHelper {
 		return  getById(ids, orderBy);
 	}
 	
+	
+	public BaseResource[] getById(String[] ids) {
+		ArrayList<BaseResource> list = getListById(ids);
+		return  HelperUtils.convertList2Array(list);
+	}
 	
 	public BaseResource[] getById(String[] ids,String[] orderBy) {
 		ArrayList<BaseResource> list = getListById(ids, orderBy);

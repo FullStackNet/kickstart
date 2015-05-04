@@ -11,8 +11,6 @@ import platform.resource.BaseResource;
 import platform.resource.c4t_object;
 import platform.resource.c4t_record;
 import platform.resource.c4t_relation;
-import platform.resource.customer;
-import platform.resource.sms_daily_analysis;
 import platform.util.ApplicationException;
 import platform.util.Util;
 
@@ -25,6 +23,9 @@ public class C4t_objectHelper extends BaseHelper {
 	}
 	private static C4t_objectHelper instance;
 	
+	public c4t_object getById(String id) {
+		return (c4t_object)super.getById(id);
+	}
 	public static C4t_objectHelper getInstance() {
 		if (instance == null)
 			instance = new C4t_objectHelper();
@@ -50,6 +51,22 @@ public class C4t_objectHelper extends BaseHelper {
 		return getByExpression(e,orderby);
 	}
 	
+	public BaseResource[] getByRelation(String[] from_ids, String relation_type) {
+		String[] ids = C4t_relationHelper.getInstance().getByRelationMap(from_ids, relation_type);
+		if (Util.isEmpty(ids)) {
+			return null;
+		}
+		return C4t_objectHelper.getInstance().getById(ids);
+	}	
+	
+	public BaseResource[] getByRelation(String[] from_ids, String relation_type,String[] orderby) {
+		String[] ids = C4t_relationHelper.getInstance().getByRelationMap(from_ids, relation_type);
+		if (Util.isEmpty(ids)) {
+			return null;
+		}
+		return C4t_objectHelper.getInstance().getById(ids,orderby);
+	}	
+	
 	public BaseResource[] getByRelation(String from_id, String relation_type,String[] orderby) {
 		BaseResource[] resources = C4t_relationHelper.getInstance().getByRelation(from_id, relation_type);
 		if (Util.isEmpty(resources)) {
@@ -66,7 +83,14 @@ public class C4t_objectHelper extends BaseHelper {
 		return C4t_objectHelper.getInstance().getById(ids,orderby);
 	}	
 
-
+	public BaseResource[] getByRelationMap(String from_id, String relation_type) {
+		String[] ids = C4t_relationHelper.getInstance().getByRelationMap(from_id, relation_type);
+		if (Util.isEmpty(ids)) {
+			return null;
+		}
+		return C4t_objectHelper.getInstance().getById(ids);
+	}	
+	
 	public BaseResource[] getByRecordMap(String from_id, String relation_type,String[] orderby) {
 		String[] ids = C4t_record_mapHelper.getInstance().getByRelationMap(from_id, relation_type);
 		if (Util.isEmpty(ids)) {
@@ -75,6 +99,13 @@ public class C4t_objectHelper extends BaseHelper {
 		return C4t_objectHelper.getInstance().getById(ids,orderby);
 	}	
 
+	public BaseResource[] getByRecordMap(String from_id, String relation_type) {
+		String[] ids = C4t_record_mapHelper.getInstance().getByRelationMap(from_id, relation_type);
+		if (Util.isEmpty(ids)) {
+			return null;
+		}
+		return C4t_objectHelper.getInstance().getById(ids);
+	}
 	
 	public ArrayList<Map<String, Object>> getListMapByUserIdForCommunity(String userId,String record_type,ArrayList<JoinField> joinFields, String[] order) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
