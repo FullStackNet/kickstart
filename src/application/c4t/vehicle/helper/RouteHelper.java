@@ -319,8 +319,18 @@ public class RouteHelper extends BaseHelper {
 			
 			double dLatitude = Double.parseDouble(latitude);
 			double dLongitude = Double.parseDouble(longitude);
-			double stopageLatitude = Double.parseDouble(_stopage.getLatitude());
-			double stopageLongitude = Double.parseDouble(_stopage.getLongitude());
+			double stopageLatitude = 0.0;
+			try {
+				stopageLatitude  =Double.parseDouble(_stopage.getLatitude());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			double stopageLongitude = 0.0;
+			try {
+				stopageLongitude  = Double.parseDouble(_stopage.getLongitude());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			double distance = LocationUtil.getDistance(dLatitude, dLongitude, stopageLatitude, stopageLongitude);
 
 
