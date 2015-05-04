@@ -1,5 +1,8 @@
 package platform.webservice;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import platform.helper.SessionHelper;
 import platform.resource.session;
 import platform.util.ApplicationException;
@@ -10,7 +13,8 @@ public class ServletContext {
 	private session _session;
 	String sessionId;
 	String path;
-
+	Map<String , String> params;
+	
 	public ServletContext(String sessionId) throws ApplicationException {
 		//Don't start a new session or add it to DB if no session id is coming
 		//Ex: API calls made without logging in
@@ -20,8 +24,17 @@ public class ServletContext {
 			SessionHelper.getInstance().add(_session);
 		}
 		this.sessionId = sessionId;
+		params = new HashMap<String , String>();
 	}
 
+	public void addParam(String name,String value) {
+		params.put(name, value);
+	}
+	
+	public String getParamValue(String name) {
+		return params.get(name);
+	}
+	
 	public String getSessionId() {
 		return sessionId;
 	}
