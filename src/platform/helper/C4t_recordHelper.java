@@ -26,6 +26,12 @@ public class C4t_recordHelper extends BaseHelper {
 		return instance;
 	}	
 	
+	
+	public void updateSend(String id) throws ApplicationException {
+		c4t_record _record = new c4t_record(id);
+		_record.setSent("Y");
+		update(_record);
+	}
 	public BaseResource[] getForCommunity(String[] ids,String record_type, String[] orderby, long fromtime, long totime) {
 		Expression e1 = new Expression(c4t_record.FIELD_RECORD_TYPE, REL_OP.EQ, record_type);
 		Expression e2 = new Expression(c4t_record.FIELD_COMMUNITY_ID, REL_OP.IN, ids);
