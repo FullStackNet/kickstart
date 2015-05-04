@@ -926,6 +926,23 @@ public class BaseHelper {
 		return clonedResource ;
 	}
 
+	public BaseResource deleteById(String[] ids) {
+		BaseResource clonedResource = null;
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			for(String id : ids) {
+				connection.deleteById(resource.getMetaData(),id);
+			}
+		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return clonedResource ;
+	}
+	
 	public BaseResource deleteByExpression(Expression expression) {
 		BaseResource clonedResource = null;
 		DbConnection connection = null;

@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -105,6 +106,13 @@ public class BaseServlet extends HttpServlet
 				sessionId = Util.getUniqueId();
 			ServletContext ctx = new ServletContext(sessionId);
 			ctx.setServletPath(getServletContext().getRealPath("/"));
+		
+			Enumeration<String> names = request.getParameterNames();
+			while (names.hasMoreElements()) {
+				String name = names.nextElement();
+				String value = request.getParameter(name);
+				ctx.addParam(name, value);
+			}
 			action = request.getParameter(QUERYPARAM_ACTION);
 			if (WebServiceContants.OPERATION_ADD.equalsIgnoreCase(action)) {
 				action = null;
@@ -402,7 +410,12 @@ public class BaseServlet extends HttpServlet
 		
 		try {
 			ServletContext ctx = new ServletContext(getSessionIdFromCookie(request));
-
+			Enumeration<String> names = request.getParameterNames();
+			while (names.hasMoreElements()) {
+				String name = names.nextElement();
+				String value = request.getParameter(name);
+				ctx.addParam(name, value);
+			}
 			// Parse query params
 			id = request.getParameter(QUERYPARAM_ID);
 			queryId = request.getParameter(QUERYPARAM_QUERYID);

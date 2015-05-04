@@ -88,4 +88,19 @@ public class C4t_relationHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}	
+	
+	public void removeRelationMap(String from_id,String to_id, String relation_type) {
+		String id = c4t_relation.getMapId(from_id, relation_type);
+		c4t_relation relation = new c4t_relation(id);
+		relation.setFrom_id(from_id);
+		relation.setTo_id(to_id);
+		relation.setRelation_type(relation_type);
+		relation.addObject_map(to_id);
+		try {
+			C4t_relationHelper.getInstance().unset(relation);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}	
 }
