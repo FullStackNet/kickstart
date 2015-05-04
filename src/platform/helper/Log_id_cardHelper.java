@@ -4,7 +4,6 @@ import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
-import platform.resource.activity;
 import platform.resource.log_id_card;
 import platform.util.ApplicationException;
 

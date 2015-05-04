@@ -1,13 +1,8 @@
 package platform.helper;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
-import platform.resource.customer_map;
-import platform.resource.location;
 import platform.resource.place;
 
 

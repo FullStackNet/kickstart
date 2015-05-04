@@ -2,7 +2,6 @@ package application.c4t.vehicle.resource;
 
 import platform.util.Util;
 import application.c4t.vehicle.defined.resource.Baseattendent;
-import application.c4t.vehicle.defined.resource.Basedriver;
 
 public class attendent extends Baseattendent {
 	

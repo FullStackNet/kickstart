@@ -6,7 +6,6 @@ import platform.db.REL_OP;
 import platform.resource.BaseResource;
 import platform.util.Util;
 import application.c4t.vehicle.school.resource.fee_discount;
-import application.c4t.vehicle.school.resource.fee_receipt;
 
 
 public class Fee_discountHelper extends BaseSchoolHelper {
