@@ -7,6 +7,7 @@ public class invite extends Baseinvite {
 	/**
 	 * 
 	 */
+	public static String INVITE_TYPE_JOIN_COMMUNITY = "COMMUNITY_INVITE";
 	public static String INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE = "JOIN_SCHOOL_TRACK_SERVICE";
 	public static String INVITE_TYPE_JOIN_TEACHER = "JOIN_TEACHER";
 	public static String INVITE_TYPE_JOIN_CUSTOMER_ADMIN = "JOIN_CUSTOMER_ADMIN";
@@ -15,6 +16,7 @@ public class invite extends Baseinvite {
 	public static String INVITE_STATUS_JOINED = "JOINED";
 	public static String INVITE_STATUS_NEW = "NEW";
 	public static String INVITE_STATUS_SENT = "SENT";
+	
 	
 	private static final long serialVersionUID = 1L;
 	

@@ -10,6 +10,7 @@ import platform.manager.ApplicationManager;
 import platform.message.SendEmail;
 import platform.message.SendSMS;
 import platform.resource.BaseResource;
+import platform.resource.c4t_relation;
 import platform.resource.invite;
 import platform.resource.user;
 import platform.util.ApplicationConstants;
@@ -176,6 +177,11 @@ public class InviteHelper extends BaseHelper {
 			} else
 				_user.setParentService("Y");
 			InviteHelper.getInstance().parentInviteAccepted(_fetched_resource, _user.getId());
+		}
+		if (invite.INVITE_TYPE_JOIN_COMMUNITY.equals(_fetched_resource.getInvite_type())) {
+				C4t_relationHelper.getInstance().addRelation(_user.getId(),
+						_fetched_resource.getCommunity_id(),_fetched_resource.getRelation());
+				_user.setCommunityService("Y");
 		}
 		if (invite.INVITE_TYPE_JOIN_TEACHER.equals(_fetched_resource.getInvite_type())) {
 			// check the user if exists

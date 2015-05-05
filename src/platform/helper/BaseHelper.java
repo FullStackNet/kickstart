@@ -1232,6 +1232,18 @@ public class BaseHelper {
 		return new ArrayList<Map<String, Object>>();		
 	}
 	
+	public ArrayList<Map<String, Object>> getForCommunities(String[] communityIds,String[] order)  {
+		try {
+			Expression e = new Expression("community_id", REL_OP.IN, communityIds);
+			BaseResource[] resoucres =  getByExpression(e,order);
+			return HelperUtils.convertArray2ListMap(resoucres);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ArrayList<Map<String, Object>>();		
+	}
+	
 	public ArrayList<Map<String, Object>> getForLocations(String[] schoolIds,String[] order)  {
 		try {
 			Expression e = new Expression("location_id", REL_OP.IN, schoolIds);

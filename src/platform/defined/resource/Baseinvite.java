@@ -9,14 +9,10 @@
 
 package platform.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -26,16 +22,19 @@ public abstract class Baseinvite extends BaseResource {
 	private String id = null;
 	private String type = null;
 	private String relation = null;
+	private String community_id = null;
 	private String school_id = null;
 	private String name = null;
 	private String mobile_no = null;
 	private String email_id = null;
 	private String customer_id = null;
 	private String invite_type = null;
+	private String reference_type = null;
 	private String reference_id = null;
 	private String reference_name = null;
 	private String fleetService = null;
 	private String gameService = null;
+	private String communityService = null;
 	private String schoolTrackerService = null;
 	private String dgService = null;
 	private String key = null;
@@ -48,16 +47,19 @@ public abstract class Baseinvite extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_RELATION = "relation";
+	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_INVITE_TYPE = "invite_type";
+	public static String FIELD_REFERENCE_TYPE = "reference_type";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_REFERENCE_NAME = "reference_name";
 	public static String FIELD_FLEETSERVICE = "fleetService";
 	public static String FIELD_GAMESERVICE = "gameService";
+	public static String FIELD_COMMUNITYSERVICE = "communityService";
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
 	public static String FIELD_KEY = "key";
@@ -86,6 +88,10 @@ public abstract class Baseinvite extends BaseResource {
 		relationField.setLength(32);
 		metaData.addField(relationField);
 
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
+
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
@@ -113,6 +119,10 @@ public abstract class Baseinvite extends BaseResource {
 		invite_typeField.setLength(128);
 		metaData.addField(invite_typeField);
 
+		Field reference_typeField = new Field("reference_type", "String");
+		reference_typeField.setLength(128);
+		metaData.addField(reference_typeField);
+
 		Field reference_idField = new Field("reference_id", "String");
 		reference_idField.setLength(128);
 		metaData.addField(reference_idField);
@@ -128,6 +138,10 @@ public abstract class Baseinvite extends BaseResource {
 		Field gameServiceField = new Field("gameService", "String");
 		gameServiceField.setLength(1);
 		metaData.addField(gameServiceField);
+
+		Field communityServiceField = new Field("communityService", "String");
+		communityServiceField.setLength(1);
+		metaData.addField(communityServiceField);
 
 		Field schoolTrackerServiceField = new Field("schoolTrackerService", "String");
 		schoolTrackerServiceField.setLength(1);
@@ -164,16 +178,19 @@ public abstract class Baseinvite extends BaseResource {
 		this.id = obj.id;
 		this.type = obj.type;
 		this.relation = obj.relation;
+		this.community_id = obj.community_id;
 		this.school_id = obj.school_id;
 		this.name = obj.name;
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
 		this.customer_id = obj.customer_id;
 		this.invite_type = obj.invite_type;
+		this.reference_type = obj.reference_type;
 		this.reference_id = obj.reference_id;
 		this.reference_name = obj.reference_name;
 		this.fleetService = obj.fleetService;
 		this.gameService = obj.gameService;
+		this.communityService = obj.communityService;
 		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
 		this.key = obj.key;
@@ -196,6 +213,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("type", type);
 		if(relation != null)
 			map.put("relation", relation);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(name != null)
@@ -208,6 +227,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(invite_type != null)
 			map.put("invite_type", invite_type);
+		if(reference_type != null)
+			map.put("reference_type", reference_type);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
 		if(reference_name != null)
@@ -216,6 +237,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("fleetService", fleetService);
 		if(gameService != null)
 			map.put("gameService", gameService);
+		if(communityService != null)
+			map.put("communityService", communityService);
 		if(schoolTrackerService != null)
 			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
@@ -243,6 +266,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("type", type);
 		if(relation != null)
 			map.put("relation", relation);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(name != null)
@@ -255,6 +280,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(invite_type != null)
 			map.put("invite_type", invite_type);
+		if(reference_type != null)
+			map.put("reference_type", reference_type);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
 		if(reference_name != null)
@@ -263,6 +290,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("fleetService", fleetService);
 		if(gameService != null)
 			map.put("gameService", gameService);
+		if(communityService != null)
+			map.put("communityService", communityService);
 		if(schoolTrackerService != null)
 			map.put("schoolTrackerService", schoolTrackerService);
 		if(dgService != null)
@@ -292,16 +321,19 @@ public abstract class Baseinvite extends BaseResource {
 		id = (String) map.get("id");
 		type = (String) map.get("type");
 		relation = (String) map.get("relation");
+		community_id = (String) map.get("community_id");
 		school_id = (String) map.get("school_id");
 		name = (String) map.get("name");
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
 		customer_id = (String) map.get("customer_id");
 		invite_type = (String) map.get("invite_type");
+		reference_type = (String) map.get("reference_type");
 		reference_id = (String) map.get("reference_id");
 		reference_name = (String) map.get("reference_name");
 		fleetService = (String) map.get("fleetService");
 		gameService = (String) map.get("gameService");
+		communityService = (String) map.get("communityService");
 		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
 		key = (String) map.get("key");
@@ -323,6 +355,10 @@ public abstract class Baseinvite extends BaseResource {
 		Object relationObj = map.get("relation");
 		if(relationObj != null)
 			relation = relationObj.toString();
+
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -348,6 +384,10 @@ public abstract class Baseinvite extends BaseResource {
 		if(invite_typeObj != null)
 			invite_type = invite_typeObj.toString();
 
+		Object reference_typeObj = map.get("reference_type");
+		if(reference_typeObj != null)
+			reference_type = reference_typeObj.toString();
+
 		Object reference_idObj = map.get("reference_id");
 		if(reference_idObj != null)
 			reference_id = reference_idObj.toString();
@@ -363,6 +403,10 @@ public abstract class Baseinvite extends BaseResource {
 		Object gameServiceObj = map.get("gameService");
 		if(gameServiceObj != null)
 			gameService = gameServiceObj.toString();
+
+		Object communityServiceObj = map.get("communityService");
+		if(communityServiceObj != null)
+			communityService = communityServiceObj.toString();
 
 		Object schoolTrackerServiceObj = map.get("schoolTrackerService");
 		if(schoolTrackerServiceObj != null)
@@ -445,6 +489,22 @@ public abstract class Baseinvite extends BaseResource {
 
 	public void unSetRelation() {
 		this.relation = null;
+	}
+
+	public String getCommunity_id() {
+		return community_id;
+	}
+
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
+	}
+
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
+	}
+
+	public void unSetCommunity_id() {
+		this.community_id = null;
 	}
 
 	public String getSchool_id() {
@@ -543,6 +603,22 @@ public abstract class Baseinvite extends BaseResource {
 		this.invite_type = null;
 	}
 
+	public String getReference_type() {
+		return reference_type;
+	}
+
+	public String getReference_typeEx() {
+		return reference_type != null ? reference_type : "";
+	}
+
+	public void setReference_type(String reference_type) {
+		this.reference_type = reference_type;
+	}
+
+	public void unSetReference_type() {
+		this.reference_type = null;
+	}
+
 	public String getReference_id() {
 		return reference_id;
 	}
@@ -605,6 +681,22 @@ public abstract class Baseinvite extends BaseResource {
 
 	public void unSetGameService() {
 		this.gameService = null;
+	}
+
+	public String getCommunityService() {
+		return communityService;
+	}
+
+	public String getCommunityServiceEx() {
+		return communityService != null ? communityService : "";
+	}
+
+	public void setCommunityService(String communityService) {
+		this.communityService = communityService;
+	}
+
+	public void unSetCommunityService() {
+		this.communityService = null;
 	}
 
 	public String getSchoolTrackerService() {
