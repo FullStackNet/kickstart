@@ -32,6 +32,17 @@ public class C4t_objectHelper extends BaseHelper {
 		return instance;
 	}
 	
+	public void updateUserId(String id, String userId) {
+		c4t_object _object = new c4t_object();
+		_object.setId(id);
+		_object.setUser_id(userId);
+		try {
+			C4t_objectHelper.getInstance().update(_object);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public BaseResource[] getByObjectType(String object_type, String[] orderby) {
 		Expression e = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, object_type);
 		return getByExpression(e,orderby);
