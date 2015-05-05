@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import platform.exception.ExceptionEnum;
+import platform.helper.C4t_objectHelper;
 import platform.helper.CustomerHelper;
 import platform.helper.InviteHelper;
 import platform.helper.User_mapHelper;
@@ -11,6 +12,7 @@ import platform.manager.ApplicationManager;
 import platform.message.SendEmail;
 import platform.message.SendSMS;
 import platform.resource.BaseResource;
+import platform.resource.c4t_object;
 import platform.resource.customer;
 import platform.resource.invite;
 import platform.util.ApplicationConstants;
@@ -60,6 +62,48 @@ public class InviteService extends BaseService{
 			smsMap.put("TEACHER_NAME", _invite.getReference_name());
 			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
 			smsMap.put("SCHOOL_NAME", school_name);
+			smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
+			String params = Json.maptoString(smsMap);
+			smsMessage.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
+					smsMessage);
+		}
+	}
+	
+	public void sendCommunityInvite(invite _invite) {
+		String community_name = "";
+		c4t_object _community = (c4t_object)C4t_objectHelper.getInstance().getById(_invite.getCommunity_id());
+		if (_community != null) {
+			community_name = _community.getShort_name();
+			if (community_name == null)
+				community_name = _community.getName();
+		}
+
+		if (_invite.getEmail_id() != null) {
+			SendEmail resendMail = new SendEmail();
+			resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_COMMUNITY_ACTIVATE_ACCOUNT);
+			resendMail.setTo(_invite.getEmail_id());
+			resendMail.setType(ApplicationConstants.MAIL_SUBJECT_INVITE_COMMUNITY_ACTIVATE_ACCOUNT);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("NAME", _invite.getName());
+			map.put("ACTIVATION_TOKEN", _invite.getKey());
+			map.put("COMMUNITY_NAME", community_name);
+			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+			map.put("CUSTOMER_ID",_invite.getCustomer_id());
+			String params = Json.maptoString(map);
+			resendMail.setParams(params);
+			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+					resendMail);
+		}
+		if (_invite.getMobile_no() != null) {
+			SendSMS smsMessage = new SendSMS();
+			smsMessage.setMobile_no(_invite.getMobile_no());
+			smsMessage.setType(ApplicationConstants.SMS_TYPE_COMMUNITY_INVITE);
+			Map<String, String> smsMap = new HashMap<String, String>();
+			smsMap.put("NAME", _invite.getName());
+			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
+			smsMap.put("COMMUNITY_NAME", community_name);
+			smsMap.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
 			smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
 			String params = Json.maptoString(smsMap);
 			smsMessage.setParams(params);
@@ -149,7 +193,9 @@ public class InviteService extends BaseService{
 				if (_invite.getEmail_id() != null) {
 					sendCustomerAdminInvite(_invite);
 				}
-			} 
+			} else if (invite.INVITE_TYPE_JOIN_COMMUNITY.equals(_invite.getInvite_type())) {
+				sendCommunityInvite(_invite);
+			}
 		} else  
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Action");
 	}
