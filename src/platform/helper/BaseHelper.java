@@ -448,6 +448,7 @@ public class BaseHelper {
 		return  HelperUtils.convertList2Array(list);
 	}
 	
+	
 	public BaseResource[] getById(String[] ids,String[] orderBy) {
 		ArrayList<BaseResource> list = getListById(ids, orderBy);
 		return  HelperUtils.convertList2Array(list);
@@ -834,6 +835,7 @@ public class BaseHelper {
 		return  getMapById(ids,orderBy);
 	}
 
+	
 	public BaseResource[] getById(ArrayList<String> idList, String[] orderBy) {
 		String[] ids = idList.toArray(new String[idList.size()]);
 		return  getById(ids,orderBy);
