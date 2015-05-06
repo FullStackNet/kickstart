@@ -9,15 +9,10 @@
 
 package platform.defined.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -25,17 +20,25 @@ import platform.util.Field;
  */
 public abstract class Basec4t_record_detail extends BaseResource {
 	private String id = null;
-	private String recipient_id = null;
-	private ArrayList<Object> recipient_distributers = null;
-	private ArrayList<Object> recipient_dealer = null;
-	private ArrayList<Object> recipient_group = null;
+	private String parent_id = null;
+	private String customer_id = null;
+	private String community_id = null;
+	private String record_type = null;
+	private String message = null;
+	private String user_id = null;
+	private String user_name = null;
+	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
-	public static String FIELD_RECIPIENT_ID = "recipient_id";
-	public static String FIELD_RECIPIENT_DISTRIBUTERS = "recipient_distributers";
-	public static String FIELD_RECIPIENT_DEALER = "recipient_dealer";
-	public static String FIELD_RECIPIENT_GROUP = "recipient_group";
+	public static String FIELD_PARENT_ID = "parent_id";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_RECORD_TYPE = "record_type";
+	public static String FIELD_MESSAGE = "message";
+	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_USER_NAME = "user_name";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -49,14 +52,39 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
-		Field recipient_distributersField = new Field("recipient_distributers", "Array");
-		metaData.addField(recipient_distributersField);
+		Field parent_idField = new Field("parent_id", "String");
+		parent_idField.setIndexed(true);
+		parent_idField.setLength(128);
+		metaData.addField(parent_idField);
 
-		Field recipient_dealerField = new Field("recipient_dealer", "Array");
-		metaData.addField(recipient_dealerField);
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setIndexed(true);
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
 
-		Field recipient_groupField = new Field("recipient_group", "Array");
-		metaData.addField(recipient_groupField);
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setIndexed(true);
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
+
+		Field record_typeField = new Field("record_type", "String");
+		record_typeField.setLength(512);
+		metaData.addField(record_typeField);
+
+		Field messageField = new Field("message", "String");
+		messageField.setLength(512);
+		metaData.addField(messageField);
+
+		Field user_idField = new Field("user_id", "String");
+		user_idField.setLength(512);
+		metaData.addField(user_idField);
+
+		Field user_nameField = new Field("user_name", "String");
+		user_nameField.setLength(512);
+		metaData.addField(user_nameField);
+
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -72,10 +100,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public Basec4t_record_detail(Basec4t_record_detail obj) {
 		this.id = obj.id;
-		this.recipient_id = obj.recipient_id;
-		this.recipient_distributers = obj.recipient_distributers;
-		this.recipient_dealer = obj.recipient_dealer;
-		this.recipient_group = obj.recipient_group;
+		this.parent_id = obj.parent_id;
+		this.customer_id = obj.customer_id;
+		this.community_id = obj.community_id;
+		this.record_type = obj.record_type;
+		this.message = obj.message;
+		this.user_id = obj.user_id;
+		this.user_name = obj.user_name;
+		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -87,14 +119,22 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
-		if(recipient_id != null)
-			map.put("recipient_id", recipient_id);
-		if(recipient_distributers != null)
-			map.put("recipient_distributers", recipient_distributers);
-		if(recipient_dealer != null)
-			map.put("recipient_dealer", recipient_dealer);
-		if(recipient_group != null)
-			map.put("recipient_group", recipient_group);
+		if(parent_id != null)
+			map.put("parent_id", parent_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
+		if(community_id != null)
+			map.put("community_id", community_id);
+		if(record_type != null)
+			map.put("record_type", record_type);
+		if(message != null)
+			map.put("message", message);
+		if(user_id != null)
+			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -104,14 +144,22 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
-		if(recipient_id != null)
-			map.put("recipient_id", recipient_id);
-		if(recipient_distributers != null)
-			map.put("recipient_distributers", recipient_distributers);
-		if(recipient_dealer != null)
-			map.put("recipient_dealer", recipient_dealer);
-		if(recipient_group != null)
-			map.put("recipient_group", recipient_group);
+		if(parent_id != null)
+			map.put("parent_id", parent_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
+		if(community_id != null)
+			map.put("community_id", community_id);
+		if(record_type != null)
+			map.put("record_type", record_type);
+		if(message != null)
+			map.put("message", message);
+		if(user_id != null)
+			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -125,9 +173,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		recipient_distributers = (ArrayList<Object>) map.get("recipient_distributers");
-		recipient_dealer = (ArrayList<Object>) map.get("recipient_dealer");
-		recipient_group = (ArrayList<Object>) map.get("recipient_group");
+		parent_id = (String) map.get("parent_id");
+		customer_id = (String) map.get("customer_id");
+		community_id = (String) map.get("community_id");
+		record_type = (String) map.get("record_type");
+		message = (String) map.get("message");
+		user_id = (String) map.get("user_id");
+		user_name = (String) map.get("user_name");
+		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -137,9 +190,38 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		recipient_distributers = (ArrayList<Object>) map.get("recipient_distributers");
-		recipient_dealer = (ArrayList<Object>) map.get("recipient_dealer");
-		recipient_group = (ArrayList<Object>) map.get("recipient_group");
+		Object parent_idObj = map.get("parent_id");
+		if(parent_idObj != null)
+			parent_id = parent_idObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
+
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
+
+		Object record_typeObj = map.get("record_type");
+		if(record_typeObj != null)
+			record_type = record_typeObj.toString();
+
+		Object messageObj = map.get("message");
+		if(messageObj != null)
+			message = messageObj.toString();
+
+		Object user_idObj = map.get("user_id");
+		if(user_idObj != null)
+			user_id = user_idObj.toString();
+
+		Object user_nameObj = map.get("user_name");
+		if(user_nameObj != null)
+			user_name = user_nameObj.toString();
+
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
+
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -171,78 +253,126 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		return id != null;
 	}
 
-	public String getRecipient_id() {
-		return recipient_id;
+	public String getParent_id() {
+		return parent_id;
 	}
 
-	public String getRecipient_idEx() {
-		return recipient_id != null ? recipient_id : "";
+	public String getParent_idEx() {
+		return parent_id != null ? parent_id : "";
 	}
 
-	public void setRecipient_id(String recipient_id) {
-		this.recipient_id = recipient_id;
+	public void setParent_id(String parent_id) {
+		this.parent_id = parent_id;
 	}
 
-	public void unSetRecipient_id() {
-		this.recipient_id = null;
+	public void unSetParent_id() {
+		this.parent_id = null;
 	}
 
-	public ArrayList<Object> getRecipient_distributers() {
-		return recipient_distributers;
+	public String getCustomer_id() {
+		return customer_id;
 	}
 
-
-	public void setRecipient_distributers(ArrayList<Object> recipient_distributers) {
-		this.recipient_distributers = recipient_distributers;
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
 	}
 
-	public void addRecipient_distributers(Object value) {
-		if(recipient_distributers == null)
-			recipient_distributers = new ArrayList<Object>();
-		recipient_distributers.add(value);
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
 	}
 
-	public void unSetRecipient_distributers() {
-		this.recipient_distributers = null;
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
-	public ArrayList<Object> getRecipient_dealer() {
-		return recipient_dealer;
+	public String getCommunity_id() {
+		return community_id;
 	}
 
-
-	public void setRecipient_dealer(ArrayList<Object> recipient_dealer) {
-		this.recipient_dealer = recipient_dealer;
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
 	}
 
-	public void addRecipient_dealer(Object value) {
-		if(recipient_dealer == null)
-			recipient_dealer = new ArrayList<Object>();
-		recipient_dealer.add(value);
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
 	}
 
-	public void unSetRecipient_dealer() {
-		this.recipient_dealer = null;
+	public void unSetCommunity_id() {
+		this.community_id = null;
 	}
 
-	public ArrayList<Object> getRecipient_group() {
-		return recipient_group;
+	public String getRecord_type() {
+		return record_type;
 	}
 
-
-	public void setRecipient_group(ArrayList<Object> recipient_group) {
-		this.recipient_group = recipient_group;
+	public String getRecord_typeEx() {
+		return record_type != null ? record_type : "";
 	}
 
-	public void addRecipient_group(Object value) {
-		if(recipient_group == null)
-			recipient_group = new ArrayList<Object>();
-		recipient_group.add(value);
+	public void setRecord_type(String record_type) {
+		this.record_type = record_type;
 	}
 
-	public void unSetRecipient_group() {
-		this.recipient_group = null;
+	public void unSetRecord_type() {
+		this.record_type = null;
 	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public String getMessageEx() {
+		return message != null ? message : "";
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public void unSetMessage() {
+		this.message = null;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public String getUser_idEx() {
+		return user_id != null ? user_id : "";
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public void unSetUser_id() {
+		this.user_id = null;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public String getUser_nameEx() {
+		return user_name != null ? user_name : "";
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public void unSetUser_name() {
+		this.user_name = null;
+	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;
