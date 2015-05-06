@@ -28,6 +28,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String description = null;
 	private Long event_date = null;
 	private String event_date_str = null;
+	private Long sent_time = null;
 	private Long creation_time = null;
 	private String sent = null;
 	private String send_sms = null;
@@ -48,6 +49,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_EVENT_DATE = "event_date";
 	public static String FIELD_EVENT_DATE_STR = "event_date_str";
+	public static String FIELD_SENT_TIME = "sent_time";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SENT = "sent";
 	public static String FIELD_SEND_SMS = "send_sms";
@@ -102,6 +104,9 @@ public abstract class Basec4t_record extends BaseResource {
 		Field event_date_strField = new Field("event_date_str", "String");
 		event_date_strField.setLength(32);
 		metaData.addField(event_date_strField);
+
+		Field sent_timeField = new Field("sent_time", "timestamp");
+		metaData.addField(sent_timeField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -158,6 +163,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.description = obj.description;
 		this.event_date = obj.event_date;
 		this.event_date_str = obj.event_date_str;
+		this.sent_time = obj.sent_time;
 		this.creation_time = obj.creation_time;
 		this.sent = obj.sent;
 		this.send_sms = obj.send_sms;
@@ -203,6 +209,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("event_date", event_date);
 		if(event_date_str != null)
 			map.put("event_date_str", event_date_str);
+		if(sent_time != null)
+			map.put("sent_time", sent_time);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(sent != null)
@@ -249,6 +257,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("event_date", event_date);
 		if(event_date_str != null)
 			map.put("event_date_str", event_date_str);
+		if(sent_time != null)
+			map.put("sent_time", sent_time);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(sent != null)
@@ -288,6 +298,7 @@ public abstract class Basec4t_record extends BaseResource {
 		description = (String) map.get("description");
 		event_date = (Long) map.get("event_date");
 		event_date_str = (String) map.get("event_date_str");
+		sent_time = (Long) map.get("sent_time");
 		creation_time = (Long) map.get("creation_time");
 		sent = (String) map.get("sent");
 		send_sms = (String) map.get("send_sms");
@@ -337,6 +348,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object event_date_strObj = map.get("event_date_str");
 		if(event_date_strObj != null)
 			event_date_str = event_date_strObj.toString();
+
+		Object sent_timeObj = map.get("sent_time");
+		if(sent_timeObj != null)
+			sent_time = (Long) sent_timeObj;
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -525,6 +540,15 @@ public abstract class Basec4t_record extends BaseResource {
 	public void unSetEvent_date_str() {
 		this.event_date_str = null;
 	}
+
+	public Long getSent_time() {
+		return sent_time;
+	}
+
+	public void setSent_time(Long sent_time) {
+		this.sent_time = sent_time;
+	}
+
 
 	public Long getCreation_time() {
 		return creation_time;

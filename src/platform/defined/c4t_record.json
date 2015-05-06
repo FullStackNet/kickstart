@@ -50,6 +50,9 @@
 				'type': 'String',
 				'length' : 32
 			},
+			'sent_time': {
+				'type': 'timestamp'
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			},

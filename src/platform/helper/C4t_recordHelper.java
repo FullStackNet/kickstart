@@ -1,6 +1,7 @@
 package platform.helper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 import platform.db.Expression;
@@ -30,6 +31,7 @@ public class C4t_recordHelper extends BaseHelper {
 	public void updateSend(String id) throws ApplicationException {
 		c4t_record _record = new c4t_record(id);
 		_record.setSent("Y");
+		_record.setSent_time(new Date().getTime());
 		update(_record);
 	}
 	public BaseResource[] getForCommunity(String[] ids,String record_type, String[] orderby, long fromtime, long totime) {
