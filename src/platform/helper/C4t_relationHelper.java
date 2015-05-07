@@ -72,6 +72,17 @@ public class C4t_relationHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		relation = new c4t_relation(c4t_relation.id(to_id, from_id, relation_type));
+		relation.setFrom_id(to_id);
+		relation.setTo_id(from_id);
+		relation.setRelation_type(relation_type);
+		try {
+			C4t_relationHelper.getInstance().AddOrUpdate(relation);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}	
 	
 	public void addRelationMap(String from_id,String to_id, String relation_type) {
@@ -81,6 +92,19 @@ public class C4t_relationHelper extends BaseHelper {
 		relation.setTo_id(to_id);
 		relation.setRelation_type(relation_type);
 		relation.addObject_map(to_id);
+		try {
+			C4t_relationHelper.getInstance().AddOrUpdate(relation);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		id = c4t_relation.getMapId(to_id, relation_type);
+		relation = new c4t_relation(id);
+		relation.setFrom_id(to_id);
+		relation.setTo_id(from_id);
+		relation.setRelation_type(relation_type);
+		relation.addObject_map(from_id);
 		try {
 			C4t_relationHelper.getInstance().AddOrUpdate(relation);
 		} catch (ApplicationException e) {
@@ -102,5 +126,19 @@ public class C4t_relationHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		id = c4t_relation.getMapId(to_id, relation_type);
+		relation = new c4t_relation(id);
+		relation.setFrom_id(to_id);
+		relation.setTo_id(from_id);
+		relation.setRelation_type(relation_type);
+		relation.addObject_map(from_id);
+		try {
+			C4t_relationHelper.getInstance().unset(relation);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}	
 }
