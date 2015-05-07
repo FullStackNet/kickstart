@@ -23,6 +23,12 @@
 				'length': 128,
 				'type':'String'
 			},
+			'brand_name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
 			'parent_id':
 			{
 				'name':'name',
@@ -123,6 +129,34 @@
 			{
 				'type':'String',
 				'length': 128
+			},
+			'mrp_price':
+			{
+				'type':'double'
+			},
+			'distribter_price':
+			{
+				'type':'double'
+			},
+			'attribute_name':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'attribute_value':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'dealer_price':
+			{
+				'type':'double'
+			},
+			'unit':
+			{
+				'type':'String',
+				'length': 32
+				
 			},
 			'user_id':
 			{

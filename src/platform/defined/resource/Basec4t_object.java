@@ -22,6 +22,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String short_name = null;
+	private String brand_name = null;
 	private String parent_id = null;
 	private String customer_id = null;
 	private String object_type = null;
@@ -40,6 +41,12 @@ public abstract class Basec4t_object extends BaseResource {
 	private String zip_code = null;
 	private String feature_send_sms = null;
 	private String feature_send_email = null;
+	private Double mrp_price = null;
+	private Double distribter_price = null;
+	private String attribute_name = null;
+	private String attribute_value = null;
+	private Double dealer_price = null;
+	private String unit = null;
 	private String user_id = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
@@ -48,6 +55,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_SHORT_NAME = "short_name";
+	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_OBJECT_TYPE = "object_type";
@@ -66,6 +74,12 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ZIP_CODE = "zip_code";
 	public static String FIELD_FEATURE_SEND_SMS = "feature_send_sms";
 	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
+	public static String FIELD_MRP_PRICE = "mrp_price";
+	public static String FIELD_DISTRIBTER_PRICE = "distribter_price";
+	public static String FIELD_ATTRIBUTE_NAME = "attribute_name";
+	public static String FIELD_ATTRIBUTE_VALUE = "attribute_value";
+	public static String FIELD_DEALER_PRICE = "dealer_price";
+	public static String FIELD_UNIT = "unit";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
@@ -89,6 +103,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field short_nameField = new Field("short_name", "String");
 		short_nameField.setLength(128);
 		metaData.addField(short_nameField);
+
+		Field brand_nameField = new Field("brand_name", "String");
+		brand_nameField.setLength(128);
+		metaData.addField(brand_nameField);
 
 		Field parent_idField = new Field("parent_id", "String");
 		parent_idField.setLength(128);
@@ -162,6 +180,27 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_send_emailField.setLength(128);
 		metaData.addField(feature_send_emailField);
 
+		Field mrp_priceField = new Field("mrp_price", "double");
+		metaData.addField(mrp_priceField);
+
+		Field distribter_priceField = new Field("distribter_price", "double");
+		metaData.addField(distribter_priceField);
+
+		Field attribute_nameField = new Field("attribute_name", "String");
+		attribute_nameField.setLength(128);
+		metaData.addField(attribute_nameField);
+
+		Field attribute_valueField = new Field("attribute_value", "String");
+		attribute_valueField.setLength(128);
+		metaData.addField(attribute_valueField);
+
+		Field dealer_priceField = new Field("dealer_price", "double");
+		metaData.addField(dealer_priceField);
+
+		Field unitField = new Field("unit", "String");
+		unitField.setLength(32);
+		metaData.addField(unitField);
+
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
@@ -188,6 +227,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.short_name = obj.short_name;
+		this.brand_name = obj.brand_name;
 		this.parent_id = obj.parent_id;
 		this.customer_id = obj.customer_id;
 		this.object_type = obj.object_type;
@@ -206,6 +246,12 @@ public abstract class Basec4t_object extends BaseResource {
 		this.zip_code = obj.zip_code;
 		this.feature_send_sms = obj.feature_send_sms;
 		this.feature_send_email = obj.feature_send_email;
+		this.mrp_price = obj.mrp_price;
+		this.distribter_price = obj.distribter_price;
+		this.attribute_name = obj.attribute_name;
+		this.attribute_value = obj.attribute_value;
+		this.dealer_price = obj.dealer_price;
+		this.unit = obj.unit;
 		this.user_id = obj.user_id;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
@@ -224,6 +270,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("name", name);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(brand_name != null)
+			map.put("brand_name", brand_name);
 		if(parent_id != null)
 			map.put("parent_id", parent_id);
 		if(customer_id != null)
@@ -260,6 +308,18 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_sms", feature_send_sms);
 		if(feature_send_email != null)
 			map.put("feature_send_email", feature_send_email);
+		if(mrp_price != null)
+			map.put("mrp_price", mrp_price);
+		if(distribter_price != null)
+			map.put("distribter_price", distribter_price);
+		if(attribute_name != null)
+			map.put("attribute_name", attribute_name);
+		if(attribute_value != null)
+			map.put("attribute_value", attribute_value);
+		if(dealer_price != null)
+			map.put("dealer_price", dealer_price);
+		if(unit != null)
+			map.put("unit", unit);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(creation_time != null)
@@ -279,6 +339,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("name", name);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(brand_name != null)
+			map.put("brand_name", brand_name);
 		if(parent_id != null)
 			map.put("parent_id", parent_id);
 		if(customer_id != null)
@@ -315,6 +377,18 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_sms", feature_send_sms);
 		if(feature_send_email != null)
 			map.put("feature_send_email", feature_send_email);
+		if(mrp_price != null)
+			map.put("mrp_price", mrp_price);
+		if(distribter_price != null)
+			map.put("distribter_price", distribter_price);
+		if(attribute_name != null)
+			map.put("attribute_name", attribute_name);
+		if(attribute_value != null)
+			map.put("attribute_value", attribute_value);
+		if(dealer_price != null)
+			map.put("dealer_price", dealer_price);
+		if(unit != null)
+			map.put("unit", unit);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(creation_time != null)
@@ -336,6 +410,7 @@ public abstract class Basec4t_object extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		short_name = (String) map.get("short_name");
+		brand_name = (String) map.get("brand_name");
 		parent_id = (String) map.get("parent_id");
 		customer_id = (String) map.get("customer_id");
 		object_type = (String) map.get("object_type");
@@ -354,6 +429,12 @@ public abstract class Basec4t_object extends BaseResource {
 		zip_code = (String) map.get("zip_code");
 		feature_send_sms = (String) map.get("feature_send_sms");
 		feature_send_email = (String) map.get("feature_send_email");
+		mrp_price = (Double) map.get("mrp_price");
+		distribter_price = (Double) map.get("distribter_price");
+		attribute_name = (String) map.get("attribute_name");
+		attribute_value = (String) map.get("attribute_value");
+		dealer_price = (Double) map.get("dealer_price");
+		unit = (String) map.get("unit");
 		user_id = (String) map.get("user_id");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
@@ -373,6 +454,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object short_nameObj = map.get("short_name");
 		if(short_nameObj != null)
 			short_name = short_nameObj.toString();
+
+		Object brand_nameObj = map.get("brand_name");
+		if(brand_nameObj != null)
+			brand_name = brand_nameObj.toString();
 
 		Object parent_idObj = map.get("parent_id");
 		if(parent_idObj != null)
@@ -445,6 +530,30 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_send_emailObj = map.get("feature_send_email");
 		if(feature_send_emailObj != null)
 			feature_send_email = feature_send_emailObj.toString();
+
+		Object mrp_priceObj = map.get("mrp_price");
+		if(mrp_priceObj != null)
+			mrp_price = new Double(mrp_priceObj.toString());
+
+		Object distribter_priceObj = map.get("distribter_price");
+		if(distribter_priceObj != null)
+			distribter_price = new Double(distribter_priceObj.toString());
+
+		Object attribute_nameObj = map.get("attribute_name");
+		if(attribute_nameObj != null)
+			attribute_name = attribute_nameObj.toString();
+
+		Object attribute_valueObj = map.get("attribute_value");
+		if(attribute_valueObj != null)
+			attribute_value = attribute_valueObj.toString();
+
+		Object dealer_priceObj = map.get("dealer_price");
+		if(dealer_priceObj != null)
+			dealer_price = new Double(dealer_priceObj.toString());
+
+		Object unitObj = map.get("unit");
+		if(unitObj != null)
+			unit = unitObj.toString();
 
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
@@ -519,6 +628,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetShort_name() {
 		this.short_name = null;
+	}
+
+	public String getBrand_name() {
+		return brand_name;
+	}
+
+	public String getBrand_nameEx() {
+		return brand_name != null ? brand_name : "";
+	}
+
+	public void setBrand_name(String brand_name) {
+		this.brand_name = brand_name;
+	}
+
+	public void unSetBrand_name() {
+		this.brand_name = null;
 	}
 
 	public String getParent_id() {
@@ -807,6 +932,114 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_send_email() {
 		this.feature_send_email = null;
+	}
+
+	public Double getMrp_price() {
+		return mrp_price;
+	}
+
+	public double getMrp_priceEx() {
+		return mrp_price != null ? mrp_price : 0;
+	}
+
+	public void setMrp_price(double mrp_price) {
+		this.mrp_price = mrp_price;
+	}
+
+	public void setMrp_price(Double mrp_price) {
+		this.mrp_price = mrp_price;
+	}
+
+	public void unSetMrp_price() {
+		this.mrp_price = null;
+	}
+
+	public Double getDistribter_price() {
+		return distribter_price;
+	}
+
+	public double getDistribter_priceEx() {
+		return distribter_price != null ? distribter_price : 0;
+	}
+
+	public void setDistribter_price(double distribter_price) {
+		this.distribter_price = distribter_price;
+	}
+
+	public void setDistribter_price(Double distribter_price) {
+		this.distribter_price = distribter_price;
+	}
+
+	public void unSetDistribter_price() {
+		this.distribter_price = null;
+	}
+
+	public String getAttribute_name() {
+		return attribute_name;
+	}
+
+	public String getAttribute_nameEx() {
+		return attribute_name != null ? attribute_name : "";
+	}
+
+	public void setAttribute_name(String attribute_name) {
+		this.attribute_name = attribute_name;
+	}
+
+	public void unSetAttribute_name() {
+		this.attribute_name = null;
+	}
+
+	public String getAttribute_value() {
+		return attribute_value;
+	}
+
+	public String getAttribute_valueEx() {
+		return attribute_value != null ? attribute_value : "";
+	}
+
+	public void setAttribute_value(String attribute_value) {
+		this.attribute_value = attribute_value;
+	}
+
+	public void unSetAttribute_value() {
+		this.attribute_value = null;
+	}
+
+	public Double getDealer_price() {
+		return dealer_price;
+	}
+
+	public double getDealer_priceEx() {
+		return dealer_price != null ? dealer_price : 0;
+	}
+
+	public void setDealer_price(double dealer_price) {
+		this.dealer_price = dealer_price;
+	}
+
+	public void setDealer_price(Double dealer_price) {
+		this.dealer_price = dealer_price;
+	}
+
+	public void unSetDealer_price() {
+		this.dealer_price = null;
+	}
+
+	public String getUnit() {
+		return unit;
+	}
+
+	public String getUnitEx() {
+		return unit != null ? unit : "";
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
+	public void unSetUnit() {
+		this.unit = null;
 	}
 
 	public String getUser_id() {
