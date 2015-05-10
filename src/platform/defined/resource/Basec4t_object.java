@@ -38,6 +38,13 @@ public abstract class Basec4t_object extends BaseResource {
 	private String country = null;
 	private String feature_distributer_management = null;
 	private String feature_dealer_management = null;
+	private Integer no_of_flats = null;
+	private Integer block_id = null;
+	private String profession = null;
+	private String company_name = null;
+	private String domain = null;
+	private String designation = null;
+	private String resident = null;
 	private String zip_code = null;
 	private String feature_send_sms = null;
 	private String feature_send_email = null;
@@ -48,6 +55,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private Double dealer_price = null;
 	private String unit = null;
 	private String user_id = null;
+	private String reporting_to_id = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -71,6 +79,13 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_FEATURE_DISTRIBUTER_MANAGEMENT = "feature_distributer_management";
 	public static String FIELD_FEATURE_DEALER_MANAGEMENT = "feature_dealer_management";
+	public static String FIELD_NO_OF_FLATS = "no_of_flats";
+	public static String FIELD_BLOCK_ID = "block_id";
+	public static String FIELD_PROFESSION = "profession";
+	public static String FIELD_COMPANY_NAME = "company_name";
+	public static String FIELD_DOMAIN = "domain";
+	public static String FIELD_DESIGNATION = "designation";
+	public static String FIELD_RESIDENT = "resident";
 	public static String FIELD_ZIP_CODE = "zip_code";
 	public static String FIELD_FEATURE_SEND_SMS = "feature_send_sms";
 	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
@@ -81,6 +96,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_DEALER_PRICE = "dealer_price";
 	public static String FIELD_UNIT = "unit";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_REPORTING_TO_ID = "reporting_to_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -168,6 +184,32 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_dealer_managementField.setLength(1);
 		metaData.addField(feature_dealer_managementField);
 
+		Field no_of_flatsField = new Field("no_of_flats", "int");
+		metaData.addField(no_of_flatsField);
+
+		Field block_idField = new Field("block_id", "int");
+		metaData.addField(block_idField);
+
+		Field professionField = new Field("profession", "String");
+		professionField.setLength(80);
+		metaData.addField(professionField);
+
+		Field company_nameField = new Field("company_name", "String");
+		company_nameField.setLength(128);
+		metaData.addField(company_nameField);
+
+		Field domainField = new Field("domain", "String");
+		domainField.setLength(128);
+		metaData.addField(domainField);
+
+		Field designationField = new Field("designation", "String");
+		designationField.setLength(128);
+		metaData.addField(designationField);
+
+		Field residentField = new Field("resident", "String");
+		residentField.setLength(1);
+		metaData.addField(residentField);
+
 		Field zip_codeField = new Field("zip_code", "String");
 		zip_codeField.setLength(128);
 		metaData.addField(zip_codeField);
@@ -204,6 +246,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
+
+		Field reporting_to_idField = new Field("reporting_to_id", "String");
+		reporting_to_idField.setLength(128);
+		metaData.addField(reporting_to_idField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -243,6 +289,13 @@ public abstract class Basec4t_object extends BaseResource {
 		this.country = obj.country;
 		this.feature_distributer_management = obj.feature_distributer_management;
 		this.feature_dealer_management = obj.feature_dealer_management;
+		this.no_of_flats = obj.no_of_flats;
+		this.block_id = obj.block_id;
+		this.profession = obj.profession;
+		this.company_name = obj.company_name;
+		this.domain = obj.domain;
+		this.designation = obj.designation;
+		this.resident = obj.resident;
 		this.zip_code = obj.zip_code;
 		this.feature_send_sms = obj.feature_send_sms;
 		this.feature_send_email = obj.feature_send_email;
@@ -253,6 +306,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.dealer_price = obj.dealer_price;
 		this.unit = obj.unit;
 		this.user_id = obj.user_id;
+		this.reporting_to_id = obj.reporting_to_id;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
 		this.extra_data = obj.extra_data;
@@ -302,6 +356,20 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_distributer_management", feature_distributer_management);
 		if(feature_dealer_management != null)
 			map.put("feature_dealer_management", feature_dealer_management);
+		if(no_of_flats != null)
+			map.put("no_of_flats", no_of_flats);
+		if(block_id != null)
+			map.put("block_id", block_id);
+		if(profession != null)
+			map.put("profession", profession);
+		if(company_name != null)
+			map.put("company_name", company_name);
+		if(domain != null)
+			map.put("domain", domain);
+		if(designation != null)
+			map.put("designation", designation);
+		if(resident != null)
+			map.put("resident", resident);
 		if(zip_code != null)
 			map.put("zip_code", zip_code);
 		if(feature_send_sms != null)
@@ -322,6 +390,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("unit", unit);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(reporting_to_id != null)
+			map.put("reporting_to_id", reporting_to_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -371,6 +441,20 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_distributer_management", feature_distributer_management);
 		if(feature_dealer_management != null)
 			map.put("feature_dealer_management", feature_dealer_management);
+		if(no_of_flats != null)
+			map.put("no_of_flats", no_of_flats);
+		if(block_id != null)
+			map.put("block_id", block_id);
+		if(profession != null)
+			map.put("profession", profession);
+		if(company_name != null)
+			map.put("company_name", company_name);
+		if(domain != null)
+			map.put("domain", domain);
+		if(designation != null)
+			map.put("designation", designation);
+		if(resident != null)
+			map.put("resident", resident);
 		if(zip_code != null)
 			map.put("zip_code", zip_code);
 		if(feature_send_sms != null)
@@ -391,6 +475,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("unit", unit);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(reporting_to_id != null)
+			map.put("reporting_to_id", reporting_to_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -426,6 +512,13 @@ public abstract class Basec4t_object extends BaseResource {
 		country = (String) map.get("country");
 		feature_distributer_management = (String) map.get("feature_distributer_management");
 		feature_dealer_management = (String) map.get("feature_dealer_management");
+		no_of_flats = (Integer) map.get("no_of_flats");
+		block_id = (Integer) map.get("block_id");
+		profession = (String) map.get("profession");
+		company_name = (String) map.get("company_name");
+		domain = (String) map.get("domain");
+		designation = (String) map.get("designation");
+		resident = (String) map.get("resident");
 		zip_code = (String) map.get("zip_code");
 		feature_send_sms = (String) map.get("feature_send_sms");
 		feature_send_email = (String) map.get("feature_send_email");
@@ -436,6 +529,7 @@ public abstract class Basec4t_object extends BaseResource {
 		dealer_price = (Double) map.get("dealer_price");
 		unit = (String) map.get("unit");
 		user_id = (String) map.get("user_id");
+		reporting_to_id = (String) map.get("reporting_to_id");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -519,6 +613,34 @@ public abstract class Basec4t_object extends BaseResource {
 		if(feature_dealer_managementObj != null)
 			feature_dealer_management = feature_dealer_managementObj.toString();
 
+		Object no_of_flatsObj = map.get("no_of_flats");
+		if(no_of_flatsObj != null)
+			no_of_flats = new Integer(no_of_flatsObj.toString());
+
+		Object block_idObj = map.get("block_id");
+		if(block_idObj != null)
+			block_id = new Integer(block_idObj.toString());
+
+		Object professionObj = map.get("profession");
+		if(professionObj != null)
+			profession = professionObj.toString();
+
+		Object company_nameObj = map.get("company_name");
+		if(company_nameObj != null)
+			company_name = company_nameObj.toString();
+
+		Object domainObj = map.get("domain");
+		if(domainObj != null)
+			domain = domainObj.toString();
+
+		Object designationObj = map.get("designation");
+		if(designationObj != null)
+			designation = designationObj.toString();
+
+		Object residentObj = map.get("resident");
+		if(residentObj != null)
+			resident = residentObj.toString();
+
 		Object zip_codeObj = map.get("zip_code");
 		if(zip_codeObj != null)
 			zip_code = zip_codeObj.toString();
@@ -558,6 +680,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
+
+		Object reporting_to_idObj = map.get("reporting_to_id");
+		if(reporting_to_idObj != null)
+			reporting_to_id = reporting_to_idObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -886,6 +1012,126 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_dealer_management = null;
 	}
 
+	public Integer getNo_of_flats() {
+		return no_of_flats;
+	}
+
+	public int getNo_of_flatsEx() {
+		return no_of_flats != null ? no_of_flats : 0;
+	}
+
+	public void setNo_of_flats(int no_of_flats) {
+		this.no_of_flats = no_of_flats;
+	}
+
+	public void setNo_of_flats(Integer no_of_flats) {
+		this.no_of_flats = no_of_flats;
+	}
+
+	public void unSetNo_of_flats() {
+		this.no_of_flats = null;
+	}
+
+	public Integer getBlock_id() {
+		return block_id;
+	}
+
+	public int getBlock_idEx() {
+		return block_id != null ? block_id : 0;
+	}
+
+	public void setBlock_id(int block_id) {
+		this.block_id = block_id;
+	}
+
+	public void setBlock_id(Integer block_id) {
+		this.block_id = block_id;
+	}
+
+	public void unSetBlock_id() {
+		this.block_id = null;
+	}
+
+	public String getProfession() {
+		return profession;
+	}
+
+	public String getProfessionEx() {
+		return profession != null ? profession : "";
+	}
+
+	public void setProfession(String profession) {
+		this.profession = profession;
+	}
+
+	public void unSetProfession() {
+		this.profession = null;
+	}
+
+	public String getCompany_name() {
+		return company_name;
+	}
+
+	public String getCompany_nameEx() {
+		return company_name != null ? company_name : "";
+	}
+
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
+	}
+
+	public void unSetCompany_name() {
+		this.company_name = null;
+	}
+
+	public String getDomain() {
+		return domain;
+	}
+
+	public String getDomainEx() {
+		return domain != null ? domain : "";
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+
+	public void unSetDomain() {
+		this.domain = null;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public String getDesignationEx() {
+		return designation != null ? designation : "";
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public void unSetDesignation() {
+		this.designation = null;
+	}
+
+	public String getResident() {
+		return resident;
+	}
+
+	public String getResidentEx() {
+		return resident != null ? resident : "";
+	}
+
+	public void setResident(String resident) {
+		this.resident = resident;
+	}
+
+	public void unSetResident() {
+		this.resident = null;
+	}
+
 	public String getZip_code() {
 		return zip_code;
 	}
@@ -1056,6 +1302,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetUser_id() {
 		this.user_id = null;
+	}
+
+	public String getReporting_to_id() {
+		return reporting_to_id;
+	}
+
+	public String getReporting_to_idEx() {
+		return reporting_to_id != null ? reporting_to_id : "";
+	}
+
+	public void setReporting_to_id(String reporting_to_id) {
+		this.reporting_to_id = reporting_to_id;
+	}
+
+	public void unSetReporting_to_id() {
+		this.reporting_to_id = null;
 	}
 
 	public Long getCreation_time() {

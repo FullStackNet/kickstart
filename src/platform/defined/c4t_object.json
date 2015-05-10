@@ -115,6 +115,39 @@
 				'length': 1,
 				'remark' : "only for business communities"
 			},
+			'no_of_flats':
+			{
+				'type':'int'
+			},
+			'block_id':
+			{
+				'type':'int'
+			},
+			'profession':
+			{
+				'type':'String',
+				'length': 80
+			},
+			'company_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'domain':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'designation':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'resident':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'zip_code':
 			{
 				'type':'String',
@@ -159,6 +192,11 @@
 				
 			},
 			'user_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'reporting_to_id':
 			{
 				'type':'String',
 				'length': 128

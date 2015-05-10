@@ -29,7 +29,22 @@
 				'type': 'String',
 				'remark' : "COMMUNICATION,PERSONAL_COMMUNICATION"
 			},
+			'location_type':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'title':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'flat_no':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'user_id':
 			{
 				'length': 512,
 				'type': 'String'

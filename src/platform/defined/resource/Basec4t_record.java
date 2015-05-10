@@ -23,7 +23,10 @@ public abstract class Basec4t_record extends BaseResource {
 	private String community_id = null;
 	private String customer_id = null;
 	private String record_type = null;
+	private String location_type = null;
 	private String title = null;
+	private String flat_no = null;
+	private String user_id = null;
 	private String recipients = null;
 	private String description = null;
 	private Long event_date = null;
@@ -44,7 +47,10 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_RECORD_TYPE = "record_type";
+	public static String FIELD_LOCATION_TYPE = "location_type";
 	public static String FIELD_TITLE = "title";
+	public static String FIELD_FLAT_NO = "flat_no";
+	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_RECIPIENTS = "recipients";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_EVENT_DATE = "event_date";
@@ -86,9 +92,21 @@ public abstract class Basec4t_record extends BaseResource {
 		record_typeField.setLength(512);
 		metaData.addField(record_typeField);
 
+		Field location_typeField = new Field("location_type", "String");
+		location_typeField.setLength(512);
+		metaData.addField(location_typeField);
+
 		Field titleField = new Field("title", "String");
 		titleField.setLength(512);
 		metaData.addField(titleField);
+
+		Field flat_noField = new Field("flat_no", "String");
+		flat_noField.setLength(512);
+		metaData.addField(flat_noField);
+
+		Field user_idField = new Field("user_id", "String");
+		user_idField.setLength(512);
+		metaData.addField(user_idField);
 
 		Field recipientsField = new Field("recipients", "String");
 		recipientsField.setLength(512);
@@ -158,7 +176,10 @@ public abstract class Basec4t_record extends BaseResource {
 		this.community_id = obj.community_id;
 		this.customer_id = obj.customer_id;
 		this.record_type = obj.record_type;
+		this.location_type = obj.location_type;
 		this.title = obj.title;
+		this.flat_no = obj.flat_no;
+		this.user_id = obj.user_id;
 		this.recipients = obj.recipients;
 		this.description = obj.description;
 		this.event_date = obj.event_date;
@@ -199,8 +220,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(record_type != null)
 			map.put("record_type", record_type);
+		if(location_type != null)
+			map.put("location_type", location_type);
 		if(title != null)
 			map.put("title", title);
+		if(flat_no != null)
+			map.put("flat_no", flat_no);
+		if(user_id != null)
+			map.put("user_id", user_id);
 		if(recipients != null)
 			map.put("recipients", recipients);
 		if(description != null)
@@ -247,8 +274,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(record_type != null)
 			map.put("record_type", record_type);
+		if(location_type != null)
+			map.put("location_type", location_type);
 		if(title != null)
 			map.put("title", title);
+		if(flat_no != null)
+			map.put("flat_no", flat_no);
+		if(user_id != null)
+			map.put("user_id", user_id);
 		if(recipients != null)
 			map.put("recipients", recipients);
 		if(description != null)
@@ -293,7 +326,10 @@ public abstract class Basec4t_record extends BaseResource {
 		community_id = (String) map.get("community_id");
 		customer_id = (String) map.get("customer_id");
 		record_type = (String) map.get("record_type");
+		location_type = (String) map.get("location_type");
 		title = (String) map.get("title");
+		flat_no = (String) map.get("flat_no");
+		user_id = (String) map.get("user_id");
 		recipients = (String) map.get("recipients");
 		description = (String) map.get("description");
 		event_date = (Long) map.get("event_date");
@@ -329,9 +365,21 @@ public abstract class Basec4t_record extends BaseResource {
 		if(record_typeObj != null)
 			record_type = record_typeObj.toString();
 
+		Object location_typeObj = map.get("location_type");
+		if(location_typeObj != null)
+			location_type = location_typeObj.toString();
+
 		Object titleObj = map.get("title");
 		if(titleObj != null)
 			title = titleObj.toString();
+
+		Object flat_noObj = map.get("flat_no");
+		if(flat_noObj != null)
+			flat_no = flat_noObj.toString();
+
+		Object user_idObj = map.get("user_id");
+		if(user_idObj != null)
+			user_id = user_idObj.toString();
 
 		Object recipientsObj = map.get("recipients");
 		if(recipientsObj != null)
@@ -468,6 +516,22 @@ public abstract class Basec4t_record extends BaseResource {
 		this.record_type = null;
 	}
 
+	public String getLocation_type() {
+		return location_type;
+	}
+
+	public String getLocation_typeEx() {
+		return location_type != null ? location_type : "";
+	}
+
+	public void setLocation_type(String location_type) {
+		this.location_type = location_type;
+	}
+
+	public void unSetLocation_type() {
+		this.location_type = null;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -482,6 +546,38 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTitle() {
 		this.title = null;
+	}
+
+	public String getFlat_no() {
+		return flat_no;
+	}
+
+	public String getFlat_noEx() {
+		return flat_no != null ? flat_no : "";
+	}
+
+	public void setFlat_no(String flat_no) {
+		this.flat_no = flat_no;
+	}
+
+	public void unSetFlat_no() {
+		this.flat_no = null;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public String getUser_idEx() {
+		return user_id != null ? user_id : "";
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public void unSetUser_id() {
+		this.user_id = null;
 	}
 
 	public String getRecipients() {
