@@ -31,6 +31,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private String description = null;
 	private Long event_date = null;
 	private String event_date_str = null;
+	private Long expiry_date = null;
+	private String expiry_date_str = null;
 	private Long sent_time = null;
 	private Long creation_time = null;
 	private String sent = null;
@@ -55,6 +57,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_EVENT_DATE = "event_date";
 	public static String FIELD_EVENT_DATE_STR = "event_date_str";
+	public static String FIELD_EXPIRY_DATE = "expiry_date";
+	public static String FIELD_EXPIRY_DATE_STR = "expiry_date_str";
 	public static String FIELD_SENT_TIME = "sent_time";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SENT = "sent";
@@ -123,6 +127,13 @@ public abstract class Basec4t_record extends BaseResource {
 		event_date_strField.setLength(32);
 		metaData.addField(event_date_strField);
 
+		Field expiry_dateField = new Field("expiry_date", "timestamp");
+		metaData.addField(expiry_dateField);
+
+		Field expiry_date_strField = new Field("expiry_date_str", "String");
+		expiry_date_strField.setLength(32);
+		metaData.addField(expiry_date_strField);
+
 		Field sent_timeField = new Field("sent_time", "timestamp");
 		metaData.addField(sent_timeField);
 
@@ -184,6 +195,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.description = obj.description;
 		this.event_date = obj.event_date;
 		this.event_date_str = obj.event_date_str;
+		this.expiry_date = obj.expiry_date;
+		this.expiry_date_str = obj.expiry_date_str;
 		this.sent_time = obj.sent_time;
 		this.creation_time = obj.creation_time;
 		this.sent = obj.sent;
@@ -236,6 +249,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("event_date", event_date);
 		if(event_date_str != null)
 			map.put("event_date_str", event_date_str);
+		if(expiry_date != null)
+			map.put("expiry_date", expiry_date);
+		if(expiry_date_str != null)
+			map.put("expiry_date_str", expiry_date_str);
 		if(sent_time != null)
 			map.put("sent_time", sent_time);
 		if(creation_time != null)
@@ -290,6 +307,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("event_date", event_date);
 		if(event_date_str != null)
 			map.put("event_date_str", event_date_str);
+		if(expiry_date != null)
+			map.put("expiry_date", expiry_date);
+		if(expiry_date_str != null)
+			map.put("expiry_date_str", expiry_date_str);
 		if(sent_time != null)
 			map.put("sent_time", sent_time);
 		if(creation_time != null)
@@ -334,6 +355,8 @@ public abstract class Basec4t_record extends BaseResource {
 		description = (String) map.get("description");
 		event_date = (Long) map.get("event_date");
 		event_date_str = (String) map.get("event_date_str");
+		expiry_date = (Long) map.get("expiry_date");
+		expiry_date_str = (String) map.get("expiry_date_str");
 		sent_time = (Long) map.get("sent_time");
 		creation_time = (Long) map.get("creation_time");
 		sent = (String) map.get("sent");
@@ -396,6 +419,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object event_date_strObj = map.get("event_date_str");
 		if(event_date_strObj != null)
 			event_date_str = event_date_strObj.toString();
+
+		Object expiry_dateObj = map.get("expiry_date");
+		if(expiry_dateObj != null)
+			expiry_date = (Long) expiry_dateObj;
+
+		Object expiry_date_strObj = map.get("expiry_date_str");
+		if(expiry_date_strObj != null)
+			expiry_date_str = expiry_date_strObj.toString();
 
 		Object sent_timeObj = map.get("sent_time");
 		if(sent_timeObj != null)
@@ -635,6 +666,31 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetEvent_date_str() {
 		this.event_date_str = null;
+	}
+
+	public Long getExpiry_date() {
+		return expiry_date;
+	}
+
+	public void setExpiry_date(Long expiry_date) {
+		this.expiry_date = expiry_date;
+	}
+
+
+	public String getExpiry_date_str() {
+		return expiry_date_str;
+	}
+
+	public String getExpiry_date_strEx() {
+		return expiry_date_str != null ? expiry_date_str : "";
+	}
+
+	public void setExpiry_date_str(String expiry_date_str) {
+		this.expiry_date_str = expiry_date_str;
+	}
+
+	public void unSetExpiry_date_str() {
+		this.expiry_date_str = null;
 	}
 
 	public Long getSent_time() {

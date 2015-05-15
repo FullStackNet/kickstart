@@ -80,6 +80,10 @@ public class UIServletContext {
 		return _session.getUser_id();
 	}
 
+	public String getContextId() {
+		return _session.getContext_id();
+	}
+	
 	public boolean isSuperUser() {
 		if ("Y".equals(_session.getSuper_user())) {
 			return true;
@@ -114,6 +118,18 @@ public class UIServletContext {
 			e.printStackTrace();
 		}
 		_session.setStudent_id(studentId);
+	}
+	
+	public void setContextId(String contextId) {
+		session __session = new session(sessionId);
+		__session.setContext_id(contextId);
+		try {
+			SessionHelper.getInstance().update(__session);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		_session.setContext_id(contextId);
 	}
 	
 	public void setUserId(String userId) {

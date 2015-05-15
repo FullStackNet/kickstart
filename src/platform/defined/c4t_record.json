@@ -65,6 +65,13 @@
 				'type': 'String',
 				'length' : 32
 			},
+			'expiry_date': {
+				'type': 'timestamp'
+			},
+			'expiry_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
 			'sent_time': {
 				'type': 'timestamp'
 			},
