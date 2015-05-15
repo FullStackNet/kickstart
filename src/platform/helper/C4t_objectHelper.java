@@ -142,10 +142,10 @@ public class C4t_objectHelper extends BaseHelper {
 		return getByExpression(e,order);
 	}
 	
-	public BaseResource[] getForCommunity(String userId,String communityId, String record_type, String[] order) {
+	public BaseResource[] getForCommunity(String userId,String communityId, String object_type, String[] order) {
 		//String[] ids = User_mapHelper.getInstance().getCommunityIds(userId);
 		/// need to check here validity
-		Expression e1 = new Expression(c4t_record.FIELD_RECORD_TYPE, REL_OP.EQ, record_type);
+		Expression e1 = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, object_type);
 		Expression e2 = new Expression(c4t_record.FIELD_COMMUNITY_ID, REL_OP.EQ, communityId);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e,order);

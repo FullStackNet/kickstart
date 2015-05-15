@@ -24,9 +24,11 @@ public abstract class Basec4t_object extends BaseResource {
 	private String short_name = null;
 	private String brand_name = null;
 	private String parent_id = null;
+	private String community_id = null;
 	private String customer_id = null;
 	private String object_type = null;
 	private String type = null;
+	private String floor_no = null;
 	private String email_id = null;
 	private String mobile_no = null;
 	private String status = null;
@@ -56,6 +58,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String unit = null;
 	private String user_id = null;
 	private String reporting_to_id = null;
+	private String dob_str = null;
+	private Long dob = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -65,9 +69,11 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_SHORT_NAME = "short_name";
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_PARENT_ID = "parent_id";
+	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_OBJECT_TYPE = "object_type";
 	public static String FIELD_TYPE = "type";
+	public static String FIELD_FLOOR_NO = "floor_no";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_STATUS = "status";
@@ -97,6 +103,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_UNIT = "unit";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_REPORTING_TO_ID = "reporting_to_id";
+	public static String FIELD_DOB_STR = "dob_str";
+	public static String FIELD_DOB = "dob";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -128,6 +136,10 @@ public abstract class Basec4t_object extends BaseResource {
 		parent_idField.setLength(128);
 		metaData.addField(parent_idField);
 
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
@@ -139,6 +151,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field typeField = new Field("type", "String");
 		typeField.setLength(128);
 		metaData.addField(typeField);
+
+		Field floor_noField = new Field("floor_no", "String");
+		floor_noField.setLength(128);
+		metaData.addField(floor_noField);
 
 		Field email_idField = new Field("email_id", "String");
 		email_idField.setLength(128);
@@ -251,6 +267,13 @@ public abstract class Basec4t_object extends BaseResource {
 		reporting_to_idField.setLength(128);
 		metaData.addField(reporting_to_idField);
 
+		Field dob_strField = new Field("dob_str", "String");
+		dob_strField.setLength(16);
+		metaData.addField(dob_strField);
+
+		Field dobField = new Field("dob", "long");
+		metaData.addField(dobField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -275,9 +298,11 @@ public abstract class Basec4t_object extends BaseResource {
 		this.short_name = obj.short_name;
 		this.brand_name = obj.brand_name;
 		this.parent_id = obj.parent_id;
+		this.community_id = obj.community_id;
 		this.customer_id = obj.customer_id;
 		this.object_type = obj.object_type;
 		this.type = obj.type;
+		this.floor_no = obj.floor_no;
 		this.email_id = obj.email_id;
 		this.mobile_no = obj.mobile_no;
 		this.status = obj.status;
@@ -307,6 +332,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.unit = obj.unit;
 		this.user_id = obj.user_id;
 		this.reporting_to_id = obj.reporting_to_id;
+		this.dob_str = obj.dob_str;
+		this.dob = obj.dob;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
 		this.extra_data = obj.extra_data;
@@ -328,12 +355,16 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("brand_name", brand_name);
 		if(parent_id != null)
 			map.put("parent_id", parent_id);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(object_type != null)
 			map.put("object_type", object_type);
 		if(type != null)
 			map.put("type", type);
+		if(floor_no != null)
+			map.put("floor_no", floor_no);
 		if(email_id != null)
 			map.put("email_id", email_id);
 		if(mobile_no != null)
@@ -392,6 +423,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("user_id", user_id);
 		if(reporting_to_id != null)
 			map.put("reporting_to_id", reporting_to_id);
+		if(dob_str != null)
+			map.put("dob_str", dob_str);
+		if(dob != null)
+			map.put("dob", dob);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -413,12 +448,16 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("brand_name", brand_name);
 		if(parent_id != null)
 			map.put("parent_id", parent_id);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(object_type != null)
 			map.put("object_type", object_type);
 		if(type != null)
 			map.put("type", type);
+		if(floor_no != null)
+			map.put("floor_no", floor_no);
 		if(email_id != null)
 			map.put("email_id", email_id);
 		if(mobile_no != null)
@@ -477,6 +516,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("user_id", user_id);
 		if(reporting_to_id != null)
 			map.put("reporting_to_id", reporting_to_id);
+		if(dob_str != null)
+			map.put("dob_str", dob_str);
+		if(dob != null)
+			map.put("dob", dob);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -498,9 +541,11 @@ public abstract class Basec4t_object extends BaseResource {
 		short_name = (String) map.get("short_name");
 		brand_name = (String) map.get("brand_name");
 		parent_id = (String) map.get("parent_id");
+		community_id = (String) map.get("community_id");
 		customer_id = (String) map.get("customer_id");
 		object_type = (String) map.get("object_type");
 		type = (String) map.get("type");
+		floor_no = (String) map.get("floor_no");
 		email_id = (String) map.get("email_id");
 		mobile_no = (String) map.get("mobile_no");
 		status = (String) map.get("status");
@@ -530,6 +575,8 @@ public abstract class Basec4t_object extends BaseResource {
 		unit = (String) map.get("unit");
 		user_id = (String) map.get("user_id");
 		reporting_to_id = (String) map.get("reporting_to_id");
+		dob_str = (String) map.get("dob_str");
+		dob = (Long) map.get("dob");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -557,6 +604,10 @@ public abstract class Basec4t_object extends BaseResource {
 		if(parent_idObj != null)
 			parent_id = parent_idObj.toString();
 
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
+
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
@@ -568,6 +619,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object typeObj = map.get("type");
 		if(typeObj != null)
 			type = typeObj.toString();
+
+		Object floor_noObj = map.get("floor_no");
+		if(floor_noObj != null)
+			floor_no = floor_noObj.toString();
 
 		Object email_idObj = map.get("email_id");
 		if(email_idObj != null)
@@ -685,6 +740,14 @@ public abstract class Basec4t_object extends BaseResource {
 		if(reporting_to_idObj != null)
 			reporting_to_id = reporting_to_idObj.toString();
 
+		Object dob_strObj = map.get("dob_str");
+		if(dob_strObj != null)
+			dob_str = dob_strObj.toString();
+
+		Object dobObj = map.get("dob");
+		if(dobObj != null)
+			dob = new Long(dobObj.toString());
+
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
@@ -788,6 +851,22 @@ public abstract class Basec4t_object extends BaseResource {
 		this.parent_id = null;
 	}
 
+	public String getCommunity_id() {
+		return community_id;
+	}
+
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
+	}
+
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
+	}
+
+	public void unSetCommunity_id() {
+		this.community_id = null;
+	}
+
 	public String getCustomer_id() {
 		return customer_id;
 	}
@@ -834,6 +913,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetType() {
 		this.type = null;
+	}
+
+	public String getFloor_no() {
+		return floor_no;
+	}
+
+	public String getFloor_noEx() {
+		return floor_no != null ? floor_no : "";
+	}
+
+	public void setFloor_no(String floor_no) {
+		this.floor_no = floor_no;
+	}
+
+	public void unSetFloor_no() {
+		this.floor_no = null;
 	}
 
 	public String getEmail_id() {
@@ -1318,6 +1413,42 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetReporting_to_id() {
 		this.reporting_to_id = null;
+	}
+
+	public String getDob_str() {
+		return dob_str;
+	}
+
+	public String getDob_strEx() {
+		return dob_str != null ? dob_str : "";
+	}
+
+	public void setDob_str(String dob_str) {
+		this.dob_str = dob_str;
+	}
+
+	public void unSetDob_str() {
+		this.dob_str = null;
+	}
+
+	public Long getDob() {
+		return dob;
+	}
+
+	public long getDobEx() {
+		return dob != null ? dob : 0L;
+	}
+
+	public void setDob(long dob) {
+		this.dob = dob;
+	}
+
+	public void setDob(Long dob) {
+		this.dob = dob;
+	}
+
+	public void unSetDob() {
+		this.dob = null;
 	}
 
 	public Long getCreation_time() {

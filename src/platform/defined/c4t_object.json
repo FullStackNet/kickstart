@@ -35,6 +35,12 @@
 				'length': 128,
 				'type':'String'
 			},
+			'community_id':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
 			'customer_id':
 			{
 				'name':'name',
@@ -54,6 +60,11 @@
 				'type':'String'
 			},
 			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'floor_no':
 			{
 				'length': 128,
 				'type':'String'
@@ -200,6 +211,15 @@
 			{
 				'type':'String',
 				'length': 128
+			},
+			'dob_str':
+			{
+				'type':'String',
+				'length': 16
+			},
+			'dob':
+			{
+				'type':'long'
 			},
 			'creation_time':
 			{

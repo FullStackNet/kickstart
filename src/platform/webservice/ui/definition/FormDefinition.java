@@ -26,6 +26,7 @@ public class FormDefinition {
 	String formSubmitURL;
 	boolean uploadFileForm;
 	String title;
+	String submitURLAdd;
 	
 	public FormDefinition() {
 		blocks = new ArrayList<Block>();
@@ -34,6 +35,7 @@ public class FormDefinition {
 		width = 600;
 		timeZone = "IST";
 		uploadFileForm = false;
+		
 	}
 	public FormDefinition(String id, String name,String className) {
 		this();
@@ -239,5 +241,11 @@ public class FormDefinition {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getSubmitURLAdd() {
+		return submitURLAdd;
+	}
+	public void setSubmitURLAdd(String submitURLAdd) {
+		this.submitURLAdd = submitURLAdd;
 	}
 }

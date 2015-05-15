@@ -17,6 +17,12 @@
 				'length': 128,
 				'type':'String'
 			},
+			'context_id':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
 			'customer_id':
 			{
 				'name':'customer_id',
