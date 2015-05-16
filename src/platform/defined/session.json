@@ -19,31 +19,31 @@
 			},
 			'context_id':
 			{
-				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'context_name':
+			{
 				'length': 128,
 				'type':'String'
 			},
 			'customer_id':
 			{
-				'name':'customer_id',
 				'length': 128,
 				'type':'String'
 			},
 			'student_id':
 			{
-				'name':'customer_id',
 				'length': 128,
 				'type':'String'
 			},
 			'user_type':
 			{
-				'name':'user_type',
 				'length': 32,
 				'type':'String'
 			},
 			'user_name':
 			{
-				'name':'user_name',
 				'length': 128,
 				'type':'String'
 			},
