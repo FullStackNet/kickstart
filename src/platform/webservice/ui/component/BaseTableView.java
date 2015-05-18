@@ -124,7 +124,11 @@ public abstract class BaseTableView extends BaseView {
 		td.addAttribute("colspan",""+15);
 		td.addAttribute("align", "center");
 		td.addAttribute("style","text-align:center;padding:0;");
-		td.addChild(new H3(mDefinition.getTitle()));
+		String title = mDefinition.getTitle();
+		if (getContext().getContextName() != null) {
+			title = title +" ["+getContext().getContextName()+"]";
+		}
+		td.addChild(new H3(title));
 		row.addChild(td);
 		thead.addChild(row);
 		mTable.addChild(thead);

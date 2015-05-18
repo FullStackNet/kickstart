@@ -84,6 +84,10 @@ public class UIServletContext {
 		return _session.getContext_id();
 	}
 	
+	public String getContextName() {
+		return _session.getContext_name();
+	}
+	
 	public boolean isSuperUser() {
 		if ("Y".equals(_session.getSuper_user())) {
 			return true;
@@ -130,6 +134,18 @@ public class UIServletContext {
 			e.printStackTrace();
 		}
 		_session.setContext_id(contextId);
+	}
+	
+	public void setContextName(String contextName) {
+		session __session = new session(sessionId);
+		__session.setContext_name(contextName);
+		try {
+			SessionHelper.getInstance().update(__session);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		_session.setContext_name(contextName);
 	}
 	
 	public void setUserId(String userId) {
