@@ -83,6 +83,10 @@ public class C4t_recordHelper extends BaseHelper {
 		
 	}
 	
+	public c4t_record getById(String id) {
+		return (c4t_record)super.getById(id);
+	}
+	
 	public void updateSentCounter(String id,int total_users_sent, int total_sms_sent, int total_email_sent, 
 			int total_app_notification_sent)  {
 		c4t_record _record = new c4t_record(id);
