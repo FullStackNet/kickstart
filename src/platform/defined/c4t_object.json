@@ -41,6 +41,12 @@
 				'length': 128,
 				'type':'String'
 			},
+			'community_type':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
 			'customer_id':
 			{
 				'name':'name',

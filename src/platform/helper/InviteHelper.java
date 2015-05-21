@@ -186,6 +186,7 @@ public class InviteHelper extends BaseHelper {
 				_object.setParent_id(_fetched_resource.getCommunity_id());
 				_object.setName(_community.getName());
 				_object.setType(_fetched_resource.getRelation());
+				_object.setCommunity_type(_community.getType());
 				C4t_objectHelper.getInstance().AddOrUpdate(_object);
 				C4t_objectHelper.getInstance().updateUserId(_fetched_resource.getReference_id(),_user.getId());
 		}

@@ -25,6 +25,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String brand_name = null;
 	private String parent_id = null;
 	private String community_id = null;
+	private String community_type = null;
 	private String customer_id = null;
 	private String object_type = null;
 	private String type = null;
@@ -70,6 +71,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_COMMUNITY_TYPE = "community_type";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_OBJECT_TYPE = "object_type";
 	public static String FIELD_TYPE = "type";
@@ -139,6 +141,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field community_idField = new Field("community_id", "String");
 		community_idField.setLength(128);
 		metaData.addField(community_idField);
+
+		Field community_typeField = new Field("community_type", "String");
+		community_typeField.setLength(128);
+		metaData.addField(community_typeField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
@@ -299,6 +305,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.brand_name = obj.brand_name;
 		this.parent_id = obj.parent_id;
 		this.community_id = obj.community_id;
+		this.community_type = obj.community_type;
 		this.customer_id = obj.customer_id;
 		this.object_type = obj.object_type;
 		this.type = obj.type;
@@ -357,6 +364,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("parent_id", parent_id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(community_type != null)
+			map.put("community_type", community_type);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(object_type != null)
@@ -450,6 +459,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("parent_id", parent_id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(community_type != null)
+			map.put("community_type", community_type);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(object_type != null)
@@ -542,6 +553,7 @@ public abstract class Basec4t_object extends BaseResource {
 		brand_name = (String) map.get("brand_name");
 		parent_id = (String) map.get("parent_id");
 		community_id = (String) map.get("community_id");
+		community_type = (String) map.get("community_type");
 		customer_id = (String) map.get("customer_id");
 		object_type = (String) map.get("object_type");
 		type = (String) map.get("type");
@@ -607,6 +619,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object community_idObj = map.get("community_id");
 		if(community_idObj != null)
 			community_id = community_idObj.toString();
+
+		Object community_typeObj = map.get("community_type");
+		if(community_typeObj != null)
+			community_type = community_typeObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -865,6 +881,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetCommunity_id() {
 		this.community_id = null;
+	}
+
+	public String getCommunity_type() {
+		return community_type;
+	}
+
+	public String getCommunity_typeEx() {
+		return community_type != null ? community_type : "";
+	}
+
+	public void setCommunity_type(String community_type) {
+		this.community_type = community_type;
+	}
+
+	public void unSetCommunity_type() {
+		this.community_type = null;
 	}
 
 	public String getCustomer_id() {
