@@ -13,7 +13,7 @@ import platform.webservice.ui.html.A;
 import platform.webservice.ui.html.BUTTON;
 import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.FORM;
-import platform.webservice.ui.html.H3;
+import platform.webservice.ui.html.H4;
 import platform.webservice.ui.html.HIDDEN;
 import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.JS;
@@ -128,7 +128,7 @@ public abstract class BaseTableView extends BaseView {
 		if (getContext().getContextName() != null) {
 			title = title +" ["+getContext().getContextName()+"]";
 		}
-		td.addChild(new H3(title));
+		td.addChild(new H4(title));
 		row.addChild(td);
 		thead.addChild(row);
 		mTable.addChild(thead);
