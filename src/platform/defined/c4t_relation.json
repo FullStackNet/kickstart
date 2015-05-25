@@ -29,6 +29,13 @@
 				'required': true,
 				'type':'String'
 			},
+			'role':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			
 			'object_map':
 			{
 				'type':'Array',

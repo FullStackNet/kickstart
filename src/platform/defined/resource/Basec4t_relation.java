@@ -23,6 +23,7 @@ public abstract class Basec4t_relation extends BaseResource {
 	private String from_id = null;
 	private String to_id = null;
 	private String relation_type = null;
+	private String role = null;
 	private ArrayList<Object> object_map = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -31,6 +32,7 @@ public abstract class Basec4t_relation extends BaseResource {
 	public static String FIELD_FROM_ID = "from_id";
 	public static String FIELD_TO_ID = "to_id";
 	public static String FIELD_RELATION_TYPE = "relation_type";
+	public static String FIELD_ROLE = "role";
 	public static String FIELD_OBJECT_MAP = "object_map";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -61,6 +63,11 @@ public abstract class Basec4t_relation extends BaseResource {
 		relation_typeField.setLength(128);
 		metaData.addField(relation_typeField);
 
+		Field roleField = new Field("role", "String");
+		roleField.setRequired(true);
+		roleField.setLength(128);
+		metaData.addField(roleField);
+
 		Field object_mapField = new Field("object_map", "Array");
 		metaData.addField(object_mapField);
 
@@ -84,6 +91,7 @@ public abstract class Basec4t_relation extends BaseResource {
 		this.from_id = obj.from_id;
 		this.to_id = obj.to_id;
 		this.relation_type = obj.relation_type;
+		this.role = obj.role;
 		this.object_map = obj.object_map;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -103,6 +111,8 @@ public abstract class Basec4t_relation extends BaseResource {
 			map.put("to_id", to_id);
 		if(relation_type != null)
 			map.put("relation_type", relation_type);
+		if(role != null)
+			map.put("role", role);
 		if(object_map != null)
 			map.put("object_map", object_map);
 		if(creation_time != null)
@@ -122,6 +132,8 @@ public abstract class Basec4t_relation extends BaseResource {
 			map.put("to_id", to_id);
 		if(validateRelation_type(add))
 			map.put("relation_type", relation_type);
+		if(validateRole(add))
+			map.put("role", role);
 		if(object_map != null)
 			map.put("object_map", object_map);
 		if(creation_time != null)
@@ -142,6 +154,7 @@ public abstract class Basec4t_relation extends BaseResource {
 		from_id = (String) map.get("from_id");
 		to_id = (String) map.get("to_id");
 		relation_type = (String) map.get("relation_type");
+		role = (String) map.get("role");
 		object_map = (ArrayList<Object>) map.get("object_map");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -164,6 +177,10 @@ public abstract class Basec4t_relation extends BaseResource {
 		Object relation_typeObj = map.get("relation_type");
 		if(relation_typeObj != null)
 			relation_type = relation_typeObj.toString();
+
+		Object roleObj = map.get("role");
+		if(roleObj != null)
+			role = roleObj.toString();
 
 		object_map = (ArrayList<Object>) map.get("object_map");
 		Object creation_timeObj = map.get("creation_time");
@@ -265,6 +282,28 @@ public abstract class Basec4t_relation extends BaseResource {
 		if(add && relation_type == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[relation_type]");
 		return relation_type != null;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public String getRoleEx() {
+		return role != null ? role : "";
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public void unSetRole() {
+		this.role = null;
+	}
+
+	public boolean validateRole(boolean add) throws ApplicationException {
+		if(add && role == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[role]");
+		return role != null;
 	}
 
 	public ArrayList<Object> getObject_map() {
