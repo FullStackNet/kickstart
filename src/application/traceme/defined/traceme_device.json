@@ -1,0 +1,30 @@
+{
+	"traceme_device" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'latitude':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'longitude':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			}
+		}
+	}
+}
