@@ -17,6 +17,12 @@
 				'type':'String',
 				'index' : true
 			},
+			'community_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'customer_id':
 			{
 				'length': 128,
@@ -48,6 +54,25 @@
 			{
 				'length': 512,
 				'type': 'String'
+			},
+			'user_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'product_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'product_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'quantity':
+			{
+				'type': 'Double'
 			},
 			'recipients':
 			{

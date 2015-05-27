@@ -42,7 +42,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_distributer_management = null;
 	private String feature_dealer_management = null;
 	private Integer no_of_flats = null;
-	private Integer block_id = null;
+	private String block_id = null;
 	private String profession = null;
 	private String company_name = null;
 	private String domain = null;
@@ -209,7 +209,8 @@ public abstract class Basec4t_object extends BaseResource {
 		Field no_of_flatsField = new Field("no_of_flats", "int");
 		metaData.addField(no_of_flatsField);
 
-		Field block_idField = new Field("block_id", "int");
+		Field block_idField = new Field("block_id", "String");
+		block_idField.setLength(80);
 		metaData.addField(block_idField);
 
 		Field professionField = new Field("profession", "String");
@@ -570,7 +571,7 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_distributer_management = (String) map.get("feature_distributer_management");
 		feature_dealer_management = (String) map.get("feature_dealer_management");
 		no_of_flats = (Integer) map.get("no_of_flats");
-		block_id = (Integer) map.get("block_id");
+		block_id = (String) map.get("block_id");
 		profession = (String) map.get("profession");
 		company_name = (String) map.get("company_name");
 		domain = (String) map.get("domain");
@@ -690,7 +691,7 @@ public abstract class Basec4t_object extends BaseResource {
 
 		Object block_idObj = map.get("block_id");
 		if(block_idObj != null)
-			block_id = new Integer(block_idObj.toString());
+			block_id = block_idObj.toString();
 
 		Object professionObj = map.get("profession");
 		if(professionObj != null)
@@ -1159,19 +1160,15 @@ public abstract class Basec4t_object extends BaseResource {
 		this.no_of_flats = null;
 	}
 
-	public Integer getBlock_id() {
+	public String getBlock_id() {
 		return block_id;
 	}
 
-	public int getBlock_idEx() {
-		return block_id != null ? block_id : 0;
+	public String getBlock_idEx() {
+		return block_id != null ? block_id : "";
 	}
 
-	public void setBlock_id(int block_id) {
-		this.block_id = block_id;
-	}
-
-	public void setBlock_id(Integer block_id) {
+	public void setBlock_id(String block_id) {
 		this.block_id = block_id;
 	}
 

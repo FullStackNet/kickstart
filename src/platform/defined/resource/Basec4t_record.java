@@ -21,12 +21,17 @@ import java.util.*;
 public abstract class Basec4t_record extends BaseResource {
 	private String id = null;
 	private String community_id = null;
+	private String community_name = null;
 	private String customer_id = null;
 	private String record_type = null;
 	private String location_type = null;
 	private String title = null;
 	private String flat_no = null;
 	private String user_id = null;
+	private String user_name = null;
+	private String product_id = null;
+	private String product_name = null;
+	private Double quantity = null;
 	private String recipients = null;
 	private String description = null;
 	private Long event_date = null;
@@ -47,12 +52,17 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_COMMUNITY_NAME = "community_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_LOCATION_TYPE = "location_type";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_FLAT_NO = "flat_no";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_USER_NAME = "user_name";
+	public static String FIELD_PRODUCT_ID = "product_id";
+	public static String FIELD_PRODUCT_NAME = "product_name";
+	public static String FIELD_QUANTITY = "quantity";
 	public static String FIELD_RECIPIENTS = "recipients";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_EVENT_DATE = "event_date";
@@ -87,6 +97,11 @@ public abstract class Basec4t_record extends BaseResource {
 		community_idField.setLength(128);
 		metaData.addField(community_idField);
 
+		Field community_nameField = new Field("community_name", "String");
+		community_nameField.setIndexed(true);
+		community_nameField.setLength(128);
+		metaData.addField(community_nameField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setIndexed(true);
 		customer_idField.setLength(128);
@@ -111,6 +126,21 @@ public abstract class Basec4t_record extends BaseResource {
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(512);
 		metaData.addField(user_idField);
+
+		Field user_nameField = new Field("user_name", "String");
+		user_nameField.setLength(512);
+		metaData.addField(user_nameField);
+
+		Field product_idField = new Field("product_id", "String");
+		product_idField.setLength(512);
+		metaData.addField(product_idField);
+
+		Field product_nameField = new Field("product_name", "String");
+		product_nameField.setLength(512);
+		metaData.addField(product_nameField);
+
+		Field quantityField = new Field("quantity", "Double");
+		metaData.addField(quantityField);
 
 		Field recipientsField = new Field("recipients", "String");
 		recipientsField.setLength(512);
@@ -185,12 +215,17 @@ public abstract class Basec4t_record extends BaseResource {
 	public Basec4t_record(Basec4t_record obj) {
 		this.id = obj.id;
 		this.community_id = obj.community_id;
+		this.community_name = obj.community_name;
 		this.customer_id = obj.customer_id;
 		this.record_type = obj.record_type;
 		this.location_type = obj.location_type;
 		this.title = obj.title;
 		this.flat_no = obj.flat_no;
 		this.user_id = obj.user_id;
+		this.user_name = obj.user_name;
+		this.product_id = obj.product_id;
+		this.product_name = obj.product_name;
+		this.quantity = obj.quantity;
 		this.recipients = obj.recipients;
 		this.description = obj.description;
 		this.event_date = obj.event_date;
@@ -229,6 +264,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("id", id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(record_type != null)
@@ -241,6 +278,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("flat_no", flat_no);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
+		if(product_id != null)
+			map.put("product_id", product_id);
+		if(product_name != null)
+			map.put("product_name", product_name);
+		if(quantity != null)
+			map.put("quantity", quantity);
 		if(recipients != null)
 			map.put("recipients", recipients);
 		if(description != null)
@@ -287,6 +332,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("id", id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(record_type != null)
@@ -299,6 +346,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("flat_no", flat_no);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
+		if(product_id != null)
+			map.put("product_id", product_id);
+		if(product_name != null)
+			map.put("product_name", product_name);
+		if(quantity != null)
+			map.put("quantity", quantity);
 		if(recipients != null)
 			map.put("recipients", recipients);
 		if(description != null)
@@ -345,12 +400,17 @@ public abstract class Basec4t_record extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		community_id = (String) map.get("community_id");
+		community_name = (String) map.get("community_name");
 		customer_id = (String) map.get("customer_id");
 		record_type = (String) map.get("record_type");
 		location_type = (String) map.get("location_type");
 		title = (String) map.get("title");
 		flat_no = (String) map.get("flat_no");
 		user_id = (String) map.get("user_id");
+		user_name = (String) map.get("user_name");
+		product_id = (String) map.get("product_id");
+		product_name = (String) map.get("product_name");
+		quantity = (Double) map.get("quantity");
 		recipients = (String) map.get("recipients");
 		description = (String) map.get("description");
 		event_date = (Long) map.get("event_date");
@@ -380,6 +440,10 @@ public abstract class Basec4t_record extends BaseResource {
 		if(community_idObj != null)
 			community_id = community_idObj.toString();
 
+		Object community_nameObj = map.get("community_name");
+		if(community_nameObj != null)
+			community_name = community_nameObj.toString();
+
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
@@ -403,6 +467,22 @@ public abstract class Basec4t_record extends BaseResource {
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
+
+		Object user_nameObj = map.get("user_name");
+		if(user_nameObj != null)
+			user_name = user_nameObj.toString();
+
+		Object product_idObj = map.get("product_id");
+		if(product_idObj != null)
+			product_id = product_idObj.toString();
+
+		Object product_nameObj = map.get("product_name");
+		if(product_nameObj != null)
+			product_name = product_nameObj.toString();
+
+		Object quantityObj = map.get("quantity");
+		if(quantityObj != null)
+			quantity = new Double(quantityObj.toString());
 
 		Object recipientsObj = map.get("recipients");
 		if(recipientsObj != null)
@@ -515,6 +595,22 @@ public abstract class Basec4t_record extends BaseResource {
 		this.community_id = null;
 	}
 
+	public String getCommunity_name() {
+		return community_name;
+	}
+
+	public String getCommunity_nameEx() {
+		return community_name != null ? community_name : "";
+	}
+
+	public void setCommunity_name(String community_name) {
+		this.community_name = community_name;
+	}
+
+	public void unSetCommunity_name() {
+		this.community_name = null;
+	}
+
 	public String getCustomer_id() {
 		return customer_id;
 	}
@@ -609,6 +705,66 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetUser_id() {
 		this.user_id = null;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public String getUser_nameEx() {
+		return user_name != null ? user_name : "";
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public void unSetUser_name() {
+		this.user_name = null;
+	}
+
+	public String getProduct_id() {
+		return product_id;
+	}
+
+	public String getProduct_idEx() {
+		return product_id != null ? product_id : "";
+	}
+
+	public void setProduct_id(String product_id) {
+		this.product_id = product_id;
+	}
+
+	public void unSetProduct_id() {
+		this.product_id = null;
+	}
+
+	public String getProduct_name() {
+		return product_name;
+	}
+
+	public String getProduct_nameEx() {
+		return product_name != null ? product_name : "";
+	}
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+
+	public void unSetProduct_name() {
+		this.product_name = null;
+	}
+
+	public Double getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Double quantity) {
+		this.quantity = quantity;
+	}
+
+	public void unSetQuantity() {
+		this.quantity = null;
 	}
 
 	public String getRecipients() {

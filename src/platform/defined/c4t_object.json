@@ -138,7 +138,8 @@
 			},
 			'block_id':
 			{
-				'type':'int'
+				'type':'String',
+				'length': 80
 			},
 			'profession':
 			{
