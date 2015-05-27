@@ -26,11 +26,18 @@ public abstract class Basec4t_record extends BaseResource {
 	private String record_type = null;
 	private String location_type = null;
 	private String title = null;
+	private String flat_id = null;
 	private String flat_no = null;
 	private String user_id = null;
 	private String user_name = null;
 	private String product_id = null;
 	private String product_name = null;
+	private String reference_id = null;
+	private String reference_name = null;
+	private String mobile_no = null;
+	private String company_name = null;
+	private String designation = null;
+	private String address = null;
 	private Double quantity = null;
 	private String recipients = null;
 	private String description = null;
@@ -57,11 +64,18 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_LOCATION_TYPE = "location_type";
 	public static String FIELD_TITLE = "title";
+	public static String FIELD_FLAT_ID = "flat_id";
 	public static String FIELD_FLAT_NO = "flat_no";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
+	public static String FIELD_REFERENCE_ID = "reference_id";
+	public static String FIELD_REFERENCE_NAME = "reference_name";
+	public static String FIELD_MOBILE_NO = "mobile_no";
+	public static String FIELD_COMPANY_NAME = "company_name";
+	public static String FIELD_DESIGNATION = "designation";
+	public static String FIELD_ADDRESS = "address";
 	public static String FIELD_QUANTITY = "quantity";
 	public static String FIELD_RECIPIENTS = "recipients";
 	public static String FIELD_DESCRIPTION = "description";
@@ -119,6 +133,10 @@ public abstract class Basec4t_record extends BaseResource {
 		titleField.setLength(512);
 		metaData.addField(titleField);
 
+		Field flat_idField = new Field("flat_id", "String");
+		flat_idField.setLength(512);
+		metaData.addField(flat_idField);
+
 		Field flat_noField = new Field("flat_no", "String");
 		flat_noField.setLength(512);
 		metaData.addField(flat_noField);
@@ -138,6 +156,30 @@ public abstract class Basec4t_record extends BaseResource {
 		Field product_nameField = new Field("product_name", "String");
 		product_nameField.setLength(512);
 		metaData.addField(product_nameField);
+
+		Field reference_idField = new Field("reference_id", "String");
+		reference_idField.setLength(128);
+		metaData.addField(reference_idField);
+
+		Field reference_nameField = new Field("reference_name", "String");
+		reference_nameField.setLength(512);
+		metaData.addField(reference_nameField);
+
+		Field mobile_noField = new Field("mobile_no", "String");
+		mobile_noField.setLength(32);
+		metaData.addField(mobile_noField);
+
+		Field company_nameField = new Field("company_name", "String");
+		company_nameField.setLength(128);
+		metaData.addField(company_nameField);
+
+		Field designationField = new Field("designation", "String");
+		designationField.setLength(512);
+		metaData.addField(designationField);
+
+		Field addressField = new Field("address", "String");
+		addressField.setLength(512);
+		metaData.addField(addressField);
 
 		Field quantityField = new Field("quantity", "Double");
 		metaData.addField(quantityField);
@@ -220,11 +262,18 @@ public abstract class Basec4t_record extends BaseResource {
 		this.record_type = obj.record_type;
 		this.location_type = obj.location_type;
 		this.title = obj.title;
+		this.flat_id = obj.flat_id;
 		this.flat_no = obj.flat_no;
 		this.user_id = obj.user_id;
 		this.user_name = obj.user_name;
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
+		this.reference_id = obj.reference_id;
+		this.reference_name = obj.reference_name;
+		this.mobile_no = obj.mobile_no;
+		this.company_name = obj.company_name;
+		this.designation = obj.designation;
+		this.address = obj.address;
 		this.quantity = obj.quantity;
 		this.recipients = obj.recipients;
 		this.description = obj.description;
@@ -274,6 +323,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("location_type", location_type);
 		if(title != null)
 			map.put("title", title);
+		if(flat_id != null)
+			map.put("flat_id", flat_id);
 		if(flat_no != null)
 			map.put("flat_no", flat_no);
 		if(user_id != null)
@@ -284,6 +335,18 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
+		if(reference_name != null)
+			map.put("reference_name", reference_name);
+		if(mobile_no != null)
+			map.put("mobile_no", mobile_no);
+		if(company_name != null)
+			map.put("company_name", company_name);
+		if(designation != null)
+			map.put("designation", designation);
+		if(address != null)
+			map.put("address", address);
 		if(quantity != null)
 			map.put("quantity", quantity);
 		if(recipients != null)
@@ -342,6 +405,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("location_type", location_type);
 		if(title != null)
 			map.put("title", title);
+		if(flat_id != null)
+			map.put("flat_id", flat_id);
 		if(flat_no != null)
 			map.put("flat_no", flat_no);
 		if(user_id != null)
@@ -352,6 +417,18 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
+		if(reference_name != null)
+			map.put("reference_name", reference_name);
+		if(mobile_no != null)
+			map.put("mobile_no", mobile_no);
+		if(company_name != null)
+			map.put("company_name", company_name);
+		if(designation != null)
+			map.put("designation", designation);
+		if(address != null)
+			map.put("address", address);
 		if(quantity != null)
 			map.put("quantity", quantity);
 		if(recipients != null)
@@ -405,11 +482,18 @@ public abstract class Basec4t_record extends BaseResource {
 		record_type = (String) map.get("record_type");
 		location_type = (String) map.get("location_type");
 		title = (String) map.get("title");
+		flat_id = (String) map.get("flat_id");
 		flat_no = (String) map.get("flat_no");
 		user_id = (String) map.get("user_id");
 		user_name = (String) map.get("user_name");
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
+		reference_id = (String) map.get("reference_id");
+		reference_name = (String) map.get("reference_name");
+		mobile_no = (String) map.get("mobile_no");
+		company_name = (String) map.get("company_name");
+		designation = (String) map.get("designation");
+		address = (String) map.get("address");
 		quantity = (Double) map.get("quantity");
 		recipients = (String) map.get("recipients");
 		description = (String) map.get("description");
@@ -460,6 +544,10 @@ public abstract class Basec4t_record extends BaseResource {
 		if(titleObj != null)
 			title = titleObj.toString();
 
+		Object flat_idObj = map.get("flat_id");
+		if(flat_idObj != null)
+			flat_id = flat_idObj.toString();
+
 		Object flat_noObj = map.get("flat_no");
 		if(flat_noObj != null)
 			flat_no = flat_noObj.toString();
@@ -479,6 +567,30 @@ public abstract class Basec4t_record extends BaseResource {
 		Object product_nameObj = map.get("product_name");
 		if(product_nameObj != null)
 			product_name = product_nameObj.toString();
+
+		Object reference_idObj = map.get("reference_id");
+		if(reference_idObj != null)
+			reference_id = reference_idObj.toString();
+
+		Object reference_nameObj = map.get("reference_name");
+		if(reference_nameObj != null)
+			reference_name = reference_nameObj.toString();
+
+		Object mobile_noObj = map.get("mobile_no");
+		if(mobile_noObj != null)
+			mobile_no = mobile_noObj.toString();
+
+		Object company_nameObj = map.get("company_name");
+		if(company_nameObj != null)
+			company_name = company_nameObj.toString();
+
+		Object designationObj = map.get("designation");
+		if(designationObj != null)
+			designation = designationObj.toString();
+
+		Object addressObj = map.get("address");
+		if(addressObj != null)
+			address = addressObj.toString();
 
 		Object quantityObj = map.get("quantity");
 		if(quantityObj != null)
@@ -675,6 +787,22 @@ public abstract class Basec4t_record extends BaseResource {
 		this.title = null;
 	}
 
+	public String getFlat_id() {
+		return flat_id;
+	}
+
+	public String getFlat_idEx() {
+		return flat_id != null ? flat_id : "";
+	}
+
+	public void setFlat_id(String flat_id) {
+		this.flat_id = flat_id;
+	}
+
+	public void unSetFlat_id() {
+		this.flat_id = null;
+	}
+
 	public String getFlat_no() {
 		return flat_no;
 	}
@@ -753,6 +881,102 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetProduct_name() {
 		this.product_name = null;
+	}
+
+	public String getReference_id() {
+		return reference_id;
+	}
+
+	public String getReference_idEx() {
+		return reference_id != null ? reference_id : "";
+	}
+
+	public void setReference_id(String reference_id) {
+		this.reference_id = reference_id;
+	}
+
+	public void unSetReference_id() {
+		this.reference_id = null;
+	}
+
+	public String getReference_name() {
+		return reference_name;
+	}
+
+	public String getReference_nameEx() {
+		return reference_name != null ? reference_name : "";
+	}
+
+	public void setReference_name(String reference_name) {
+		this.reference_name = reference_name;
+	}
+
+	public void unSetReference_name() {
+		this.reference_name = null;
+	}
+
+	public String getMobile_no() {
+		return mobile_no;
+	}
+
+	public String getMobile_noEx() {
+		return mobile_no != null ? mobile_no : "";
+	}
+
+	public void setMobile_no(String mobile_no) {
+		this.mobile_no = mobile_no;
+	}
+
+	public void unSetMobile_no() {
+		this.mobile_no = null;
+	}
+
+	public String getCompany_name() {
+		return company_name;
+	}
+
+	public String getCompany_nameEx() {
+		return company_name != null ? company_name : "";
+	}
+
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
+	}
+
+	public void unSetCompany_name() {
+		this.company_name = null;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public String getDesignationEx() {
+		return designation != null ? designation : "";
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public void unSetDesignation() {
+		this.designation = null;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getAddressEx() {
+		return address != null ? address : "";
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void unSetAddress() {
+		this.address = null;
 	}
 
 	public Double getQuantity() {
