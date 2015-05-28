@@ -151,6 +151,18 @@ public class C4t_objectHelper extends BaseHelper {
 		return getByExpression(e,order);
 	}
 	
+	public c4t_object getByFlat_no(String community_id,String flat_no) {
+		Expression e1 = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, "COMMUNITY_FLAT");
+		Expression e2 = new Expression(c4t_object.FIELD_NAME, REL_OP.EQ, flat_no);
+		Expression e3 = new Expression(c4t_object.FIELD_PARENT_ID, REL_OP.EQ, community_id);
+		Expression e4 = new Expression(e1, LOG_OP.AND, e2);
+		Expression e = new Expression(e3, LOG_OP.AND, e4);
+		BaseResource[] resources =  C4t_objectHelper.getInstance().getByExpression(e);
+		if (Util.isEmpty(resources)) 
+			return null;
+		return (c4t_object)resources[0];
+	}
+
 	/*public ArrayList<Map<String, Object>> getByListMapUserIdWithCommunityName(String userId, String[] order) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		HelperFactory.getInstance().register(this);
