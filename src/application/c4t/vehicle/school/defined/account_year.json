@@ -36,6 +36,10 @@
 			'closing_balance': {
 				'type': 'double'
 			},
+			'closing_status': {
+				'type': 'String',
+				'length' : 1
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}

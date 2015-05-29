@@ -27,6 +27,7 @@ public abstract class Baseaccount_year extends BaseResource {
 	private Double total_debit = null;
 	private Double total_credit = null;
 	private Double closing_balance = null;
+	private String closing_status = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -38,6 +39,7 @@ public abstract class Baseaccount_year extends BaseResource {
 	public static String FIELD_TOTAL_DEBIT = "total_debit";
 	public static String FIELD_TOTAL_CREDIT = "total_credit";
 	public static String FIELD_CLOSING_BALANCE = "closing_balance";
+	public static String FIELD_CLOSING_STATUS = "closing_status";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -75,6 +77,10 @@ public abstract class Baseaccount_year extends BaseResource {
 		Field closing_balanceField = new Field("closing_balance", "double");
 		metaData.addField(closing_balanceField);
 
+		Field closing_statusField = new Field("closing_status", "String");
+		closing_statusField.setLength(1);
+		metaData.addField(closing_statusField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -99,6 +105,7 @@ public abstract class Baseaccount_year extends BaseResource {
 		this.total_debit = obj.total_debit;
 		this.total_credit = obj.total_credit;
 		this.closing_balance = obj.closing_balance;
+		this.closing_status = obj.closing_status;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -125,6 +132,8 @@ public abstract class Baseaccount_year extends BaseResource {
 			map.put("total_credit", total_credit);
 		if(closing_balance != null)
 			map.put("closing_balance", closing_balance);
+		if(closing_status != null)
+			map.put("closing_status", closing_status);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -150,6 +159,8 @@ public abstract class Baseaccount_year extends BaseResource {
 			map.put("total_credit", total_credit);
 		if(closing_balance != null)
 			map.put("closing_balance", closing_balance);
+		if(closing_status != null)
+			map.put("closing_status", closing_status);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -172,6 +183,7 @@ public abstract class Baseaccount_year extends BaseResource {
 		total_debit = (Double) map.get("total_debit");
 		total_credit = (Double) map.get("total_credit");
 		closing_balance = (Double) map.get("closing_balance");
+		closing_status = (String) map.get("closing_status");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -209,6 +221,10 @@ public abstract class Baseaccount_year extends BaseResource {
 		Object closing_balanceObj = map.get("closing_balance");
 		if(closing_balanceObj != null)
 			closing_balance = new Double(closing_balanceObj.toString());
+
+		Object closing_statusObj = map.get("closing_status");
+		if(closing_statusObj != null)
+			closing_status = closing_statusObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -379,6 +395,22 @@ public abstract class Baseaccount_year extends BaseResource {
 
 	public void unSetClosing_balance() {
 		this.closing_balance = null;
+	}
+
+	public String getClosing_status() {
+		return closing_status;
+	}
+
+	public String getClosing_statusEx() {
+		return closing_status != null ? closing_status : "";
+	}
+
+	public void setClosing_status(String closing_status) {
+		this.closing_status = closing_status;
+	}
+
+	public void unSetClosing_status() {
+		this.closing_status = null;
 	}
 
 	public Long getCreation_time() {

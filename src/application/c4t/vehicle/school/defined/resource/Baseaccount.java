@@ -23,6 +23,8 @@ public abstract class Baseaccount extends BaseResource {
 	private String name = null;
 	private String student_id = null;
 	private String customer_id = null;
+	private Integer current_from_year = null;
+	private Integer current_to_year = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -30,6 +32,8 @@ public abstract class Baseaccount extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_CURRENT_FROM_YEAR = "current_from_year";
+	public static String FIELD_CURRENT_TO_YEAR = "current_to_year";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -59,6 +63,12 @@ public abstract class Baseaccount extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
+		Field current_from_yearField = new Field("current_from_year", "int");
+		metaData.addField(current_from_yearField);
+
+		Field current_to_yearField = new Field("current_to_year", "int");
+		metaData.addField(current_to_yearField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -79,6 +89,8 @@ public abstract class Baseaccount extends BaseResource {
 		this.name = obj.name;
 		this.student_id = obj.student_id;
 		this.customer_id = obj.customer_id;
+		this.current_from_year = obj.current_from_year;
+		this.current_to_year = obj.current_to_year;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -97,6 +109,10 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("student_id", student_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(current_from_year != null)
+			map.put("current_from_year", current_from_year);
+		if(current_to_year != null)
+			map.put("current_to_year", current_to_year);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -114,6 +130,10 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("student_id", student_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(current_from_year != null)
+			map.put("current_from_year", current_from_year);
+		if(current_to_year != null)
+			map.put("current_to_year", current_to_year);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -132,6 +152,8 @@ public abstract class Baseaccount extends BaseResource {
 		name = (String) map.get("name");
 		student_id = (String) map.get("student_id");
 		customer_id = (String) map.get("customer_id");
+		current_from_year = (Integer) map.get("current_from_year");
+		current_to_year = (Integer) map.get("current_to_year");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -153,6 +175,14 @@ public abstract class Baseaccount extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object current_from_yearObj = map.get("current_from_year");
+		if(current_from_yearObj != null)
+			current_from_year = new Integer(current_from_yearObj.toString());
+
+		Object current_to_yearObj = map.get("current_to_year");
+		if(current_to_yearObj != null)
+			current_to_year = new Integer(current_to_yearObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -235,6 +265,46 @@ public abstract class Baseaccount extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public Integer getCurrent_from_year() {
+		return current_from_year;
+	}
+
+	public int getCurrent_from_yearEx() {
+		return current_from_year != null ? current_from_year : 0;
+	}
+
+	public void setCurrent_from_year(int current_from_year) {
+		this.current_from_year = current_from_year;
+	}
+
+	public void setCurrent_from_year(Integer current_from_year) {
+		this.current_from_year = current_from_year;
+	}
+
+	public void unSetCurrent_from_year() {
+		this.current_from_year = null;
+	}
+
+	public Integer getCurrent_to_year() {
+		return current_to_year;
+	}
+
+	public int getCurrent_to_yearEx() {
+		return current_to_year != null ? current_to_year : 0;
+	}
+
+	public void setCurrent_to_year(int current_to_year) {
+		this.current_to_year = current_to_year;
+	}
+
+	public void setCurrent_to_year(Integer current_to_year) {
+		this.current_to_year = current_to_year;
+	}
+
+	public void unSetCurrent_to_year() {
+		this.current_to_year = null;
 	}
 
 	public Long getCreation_time() {
