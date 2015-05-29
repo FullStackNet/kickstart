@@ -29,6 +29,12 @@
 				'type':'String',
 				'index' : true
 			},
+			'house_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'name':
 			{
 				'name':'name',
