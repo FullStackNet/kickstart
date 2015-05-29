@@ -73,7 +73,7 @@ public class PageBuilder {
 			cssFileList.add(new CSS("bootstrap-theme.min.cs", "/ui/css"));
 			cssFileList.add(new CSS("mobile_base.css", "/ui/css"));
 			cssFileList.add(new CSS("jquery.mobile-1.4.0.min.css", "http://code.jquery.com/mobile/1.4.0/"));
-			jsFileList.add(new JS("jquery-1.10.2.min.js", "/ui/js"));
+			jsFileList.add(new JS("jquery-1.11.3.min.js", "/ui/js"));
 			jsFileList.add(new JS("jquery.mobile-1.4.0.min.js", "http://code.jquery.com/mobile/1.4.0"));
 			jsFileList.add(new JS("function.js", "/ui/js"));
 			jsFileList.add(new JS("DataHandler.js", "/ui/js"));
@@ -84,8 +84,8 @@ public class PageBuilder {
 			cssFileList.add(new CSS("bootstrap-theme.min.css", "/ui/css"));
 			cssFileList.add(new CSS("base.css", "/ui/css"));
 			cssFileList.add(new CSS("jquery-ui.css", "http://code.jquery.com/ui/1.11.0/themes/smoothness"));
-			jsFileList.add(new JS("jquery-1.10.2.js", "http://code.jquery.com"));
-			jsFileList.add(new JS("jquery-ui.js", "http://code.jquery.com/ui/1.11.0"));
+			jsFileList.add(new JS("jquery-1.11.3.min.js", "http://code.jquery.com"));
+			jsFileList.add(new JS("jquery-ui.min.js", "http://code.jquery.com/ui/1.11.4"));
 			jsFileList.add(new JS("function.js", "/ui/js"));
 			jsFileList.add(new JS("DataHandler.js", "/ui/js"));
 			jsFileList.add(new JS("json.js", "/ui/js"));
