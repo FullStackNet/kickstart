@@ -79,6 +79,7 @@ public abstract class Baseuser extends BaseResource {
 	private String feature_tutorial = null;
 	private String feature_practical_attendance = null;
 	private String feature_report_card = null;
+	private String feature_account = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -141,6 +142,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_FEATURE_TUTORIAL = "feature_tutorial";
 	public static String FIELD_FEATURE_PRACTICAL_ATTENDANCE = "feature_practical_attendance";
 	public static String FIELD_FEATURE_REPORT_CARD = "feature_report_card";
+	public static String FIELD_FEATURE_ACCOUNT = "feature_account";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -424,6 +426,11 @@ public abstract class Baseuser extends BaseResource {
 		feature_report_cardField.setLength(1);
 		metaData.addField(feature_report_cardField);
 
+		Field feature_accountField = new Field("feature_account", "String");
+		feature_accountField.setDefaultValue("N");
+		feature_accountField.setLength(1);
+		metaData.addField(feature_accountField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -497,6 +504,7 @@ public abstract class Baseuser extends BaseResource {
 		this.feature_tutorial = obj.feature_tutorial;
 		this.feature_practical_attendance = obj.feature_practical_attendance;
 		this.feature_report_card = obj.feature_report_card;
+		this.feature_account = obj.feature_account;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -591,6 +599,8 @@ public abstract class Baseuser extends BaseResource {
 			feature_practical_attendance = "N";
 		if(feature_report_card == null)
 			feature_report_card = "N";
+		if(feature_account == null)
+			feature_account = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -715,6 +725,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_practical_attendance", feature_practical_attendance);
 		if(feature_report_card != null)
 			map.put("feature_report_card", feature_report_card);
+		if(feature_account != null)
+			map.put("feature_account", feature_account);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -845,6 +857,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_practical_attendance", feature_practical_attendance);
 		if(feature_report_card != null)
 			map.put("feature_report_card", feature_report_card);
+		if(feature_account != null)
+			map.put("feature_account", feature_account);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -914,6 +928,7 @@ public abstract class Baseuser extends BaseResource {
 		feature_tutorial = (String) map.get("feature_tutorial");
 		feature_practical_attendance = (String) map.get("feature_practical_attendance");
 		feature_report_card = (String) map.get("feature_report_card");
+		feature_account = (String) map.get("feature_account");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1146,6 +1161,10 @@ public abstract class Baseuser extends BaseResource {
 		Object feature_report_cardObj = map.get("feature_report_card");
 		if(feature_report_cardObj != null)
 			feature_report_card = feature_report_cardObj.toString();
+
+		Object feature_accountObj = map.get("feature_account");
+		if(feature_accountObj != null)
+			feature_account = feature_accountObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1953,6 +1972,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetFeature_report_card() {
 		this.feature_report_card = "N";
+	}
+
+	public String getFeature_account() {
+		return feature_account != null ? feature_account : "N";
+	}
+
+	public void setFeature_account(String feature_account) {
+		this.feature_account = feature_account;
+	}
+
+	public void unSetFeature_account() {
+		this.feature_account = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {
