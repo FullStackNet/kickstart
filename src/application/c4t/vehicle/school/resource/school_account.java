@@ -1,20 +1,20 @@
 package application.c4t.vehicle.school.resource;
 
 import platform.util.Util;
-import application.c4t.vehicle.school.defined.resource.Baseaccount;
+import application.c4t.vehicle.school.defined.resource.Baseschool_account;
 
-public class account extends Baseaccount {
+public class school_account extends Baseschool_account {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public account() {
+	public school_account() {
 		this.setId(Util.getUniqueId());
 	}
 	
-	public account(String id) {
+	public school_account(String id) {
 		this.setId(id);
 	}	
 	

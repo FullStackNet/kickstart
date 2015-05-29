@@ -1,5 +1,8 @@
 package application.traceme.helper;
 
+import platform.db.Expression;
+import platform.db.LOG_OP;
+import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import application.traceme.resource.traceme_url;
 
@@ -16,4 +19,8 @@ public class Traceme_urlHelper extends BaseHelper {
 			instance = new Traceme_urlHelper();
 		return instance;
 	}
+	
+	/*BaseResource[] getByDeviceId(String deviceId) {
+		Expression e = new Expression(traceme_url.FIELD_DEVICE_ID, REL_OP.EQ, );
+	}*/
 }
