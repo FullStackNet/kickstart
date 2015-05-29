@@ -42,6 +42,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'blood_group':
+			{
+				'length': 10,
+				'type':'String'
+			},
 			'address1':
 			{
 				'name':'address1',

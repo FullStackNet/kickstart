@@ -25,6 +25,7 @@ public abstract class Basestudent extends BaseResource {
 	private String school_id = null;
 	private String name = null;
 	private String short_name = null;
+	private String blood_group = null;
 	private String address1 = null;
 	private String address2 = null;
 	private String address3 = null;
@@ -127,6 +128,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_SHORT_NAME = "short_name";
+	public static String FIELD_BLOOD_GROUP = "blood_group";
 	public static String FIELD_ADDRESS1 = "address1";
 	public static String FIELD_ADDRESS2 = "address2";
 	public static String FIELD_ADDRESS3 = "address3";
@@ -257,6 +259,10 @@ public abstract class Basestudent extends BaseResource {
 		short_nameField.setIndexed(true);
 		short_nameField.setLength(128);
 		metaData.addField(short_nameField);
+
+		Field blood_groupField = new Field("blood_group", "String");
+		blood_groupField.setLength(10);
+		metaData.addField(blood_groupField);
 
 		Field address1Field = new Field("address1", "String");
 		address1Field.setLength(128);
@@ -677,6 +683,7 @@ public abstract class Basestudent extends BaseResource {
 		this.school_id = obj.school_id;
 		this.name = obj.name;
 		this.short_name = obj.short_name;
+		this.blood_group = obj.blood_group;
 		this.address1 = obj.address1;
 		this.address2 = obj.address2;
 		this.address3 = obj.address3;
@@ -857,6 +864,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("name", name);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(blood_group != null)
+			map.put("blood_group", blood_group);
 		if(address1 != null)
 			map.put("address1", address1);
 		if(address2 != null)
@@ -1067,6 +1076,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("name", name);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(blood_group != null)
+			map.put("blood_group", blood_group);
 		if(address1 != null)
 			map.put("address1", address1);
 		if(address2 != null)
@@ -1273,6 +1284,7 @@ public abstract class Basestudent extends BaseResource {
 		school_id = (String) map.get("school_id");
 		name = (String) map.get("name");
 		short_name = (String) map.get("short_name");
+		blood_group = (String) map.get("blood_group");
 		address1 = (String) map.get("address1");
 		address2 = (String) map.get("address2");
 		address3 = (String) map.get("address3");
@@ -1395,6 +1407,10 @@ public abstract class Basestudent extends BaseResource {
 		Object short_nameObj = map.get("short_name");
 		if(short_nameObj != null)
 			short_name = short_nameObj.toString();
+
+		Object blood_groupObj = map.get("blood_group");
+		if(blood_groupObj != null)
+			blood_group = blood_groupObj.toString();
 
 		Object address1Obj = map.get("address1");
 		if(address1Obj != null)
@@ -1881,6 +1897,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetShort_name() {
 		this.short_name = null;
+	}
+
+	public String getBlood_group() {
+		return blood_group;
+	}
+
+	public String getBlood_groupEx() {
+		return blood_group != null ? blood_group : "";
+	}
+
+	public void setBlood_group(String blood_group) {
+		this.blood_group = blood_group;
+	}
+
+	public void unSetBlood_group() {
+		this.blood_group = null;
 	}
 
 	public String getAddress1() {
