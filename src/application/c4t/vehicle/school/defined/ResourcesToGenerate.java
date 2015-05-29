@@ -102,6 +102,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("fee_receipt", "application.c4t.vehicle.school.resource.fee_receipt"),	
 		new ResourceMap("fee_discount", "application.c4t.vehicle.school.resource.fee_discount"),	
 		new ResourceMap("holiday", "application.c4t.vehicle.school.resource.holiday"),	
+		new ResourceMap("account_heading", "application.c4t.vehicle.school.resource.account_heading"),	
+		
 
 	};
 }
