@@ -23,6 +23,7 @@ public abstract class Baseaccount_transaction extends BaseResource {
 	private Long transaction_date = null;
 	private String transaction_date_str = null;
 	private String account_id = null;
+	private String account_name = null;
 	private String accounting_head_id = null;
 	private String accounting_head_name = null;
 	private Double credit_amount = null;
@@ -35,6 +36,7 @@ public abstract class Baseaccount_transaction extends BaseResource {
 	public static String FIELD_TRANSACTION_DATE = "transaction_date";
 	public static String FIELD_TRANSACTION_DATE_STR = "transaction_date_str";
 	public static String FIELD_ACCOUNT_ID = "account_id";
+	public static String FIELD_ACCOUNT_NAME = "account_name";
 	public static String FIELD_ACCOUNTING_HEAD_ID = "accounting_head_id";
 	public static String FIELD_ACCOUNTING_HEAD_NAME = "accounting_head_name";
 	public static String FIELD_CREDIT_AMOUNT = "credit_amount";
@@ -65,6 +67,10 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		account_idField.setIndexed(true);
 		account_idField.setLength(128);
 		metaData.addField(account_idField);
+
+		Field account_nameField = new Field("account_name", "String");
+		account_nameField.setLength(128);
+		metaData.addField(account_nameField);
 
 		Field accounting_head_idField = new Field("accounting_head_id", "String");
 		accounting_head_idField.setLength(128);
@@ -104,6 +110,7 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		this.transaction_date = obj.transaction_date;
 		this.transaction_date_str = obj.transaction_date_str;
 		this.account_id = obj.account_id;
+		this.account_name = obj.account_name;
 		this.accounting_head_id = obj.accounting_head_id;
 		this.accounting_head_name = obj.accounting_head_name;
 		this.credit_amount = obj.credit_amount;
@@ -127,6 +134,8 @@ public abstract class Baseaccount_transaction extends BaseResource {
 			map.put("transaction_date_str", transaction_date_str);
 		if(account_id != null)
 			map.put("account_id", account_id);
+		if(account_name != null)
+			map.put("account_name", account_name);
 		if(accounting_head_id != null)
 			map.put("accounting_head_id", accounting_head_id);
 		if(accounting_head_name != null)
@@ -154,6 +163,8 @@ public abstract class Baseaccount_transaction extends BaseResource {
 			map.put("transaction_date_str", transaction_date_str);
 		if(account_id != null)
 			map.put("account_id", account_id);
+		if(account_name != null)
+			map.put("account_name", account_name);
 		if(accounting_head_id != null)
 			map.put("accounting_head_id", accounting_head_id);
 		if(accounting_head_name != null)
@@ -182,6 +193,7 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		transaction_date = (Long) map.get("transaction_date");
 		transaction_date_str = (String) map.get("transaction_date_str");
 		account_id = (String) map.get("account_id");
+		account_name = (String) map.get("account_name");
 		accounting_head_id = (String) map.get("accounting_head_id");
 		accounting_head_name = (String) map.get("accounting_head_name");
 		credit_amount = (Double) map.get("credit_amount");
@@ -208,6 +220,10 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		Object account_idObj = map.get("account_id");
 		if(account_idObj != null)
 			account_id = account_idObj.toString();
+
+		Object account_nameObj = map.get("account_name");
+		if(account_nameObj != null)
+			account_name = account_nameObj.toString();
 
 		Object accounting_head_idObj = map.get("accounting_head_id");
 		if(accounting_head_idObj != null)
@@ -303,6 +319,22 @@ public abstract class Baseaccount_transaction extends BaseResource {
 
 	public void unSetAccount_id() {
 		this.account_id = null;
+	}
+
+	public String getAccount_name() {
+		return account_name;
+	}
+
+	public String getAccount_nameEx() {
+		return account_name != null ? account_name : "";
+	}
+
+	public void setAccount_name(String account_name) {
+		this.account_name = account_name;
+	}
+
+	public void unSetAccount_name() {
+		this.account_name = null;
 	}
 
 	public String getAccounting_head_id() {

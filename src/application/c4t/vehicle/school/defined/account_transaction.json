@@ -24,6 +24,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'account_name':
+			{
+				'type':'String',
+				length : 128
+			},
 			'accounting_head_id':
 			{
 				'type':'String',
