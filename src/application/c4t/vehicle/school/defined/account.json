@@ -29,6 +29,14 @@
 				'type':'String',
 				'index' : true
 			},
+			'current_from_year':
+			{
+				'type':'int'
+			},
+			'current_to_year':
+			{
+				'type':'int'
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}
