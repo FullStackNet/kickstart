@@ -1,7 +1,7 @@
 package application.c4t.vehicle.school.resource;
 
 import platform.util.Util;
-import application.account.defined.resource.Baseaccount;
+import application.c4t.vehicle.school.defined.resource.Baseaccount;
 
 public class account extends Baseaccount {
 
