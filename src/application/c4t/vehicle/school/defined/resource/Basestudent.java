@@ -121,6 +121,10 @@ public abstract class Basestudent extends BaseResource {
 	private Double total_additional_charges = null;
 	private Double total_fees_paid = null;
 	private Double discount = null;
+	private Double opening_balance = null;
+	private Double total_debit = null;
+	private Double total_credit = null;
+	private Double closing_balance = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -225,6 +229,10 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_TOTAL_ADDITIONAL_CHARGES = "total_additional_charges";
 	public static String FIELD_TOTAL_FEES_PAID = "total_fees_paid";
 	public static String FIELD_DISCOUNT = "discount";
+	public static String FIELD_OPENING_BALANCE = "opening_balance";
+	public static String FIELD_TOTAL_DEBIT = "total_debit";
+	public static String FIELD_TOTAL_CREDIT = "total_credit";
+	public static String FIELD_CLOSING_BALANCE = "closing_balance";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -671,6 +679,18 @@ public abstract class Basestudent extends BaseResource {
 		Field discountField = new Field("discount", "double");
 		metaData.addField(discountField);
 
+		Field opening_balanceField = new Field("opening_balance", "double");
+		metaData.addField(opening_balanceField);
+
+		Field total_debitField = new Field("total_debit", "double");
+		metaData.addField(total_debitField);
+
+		Field total_creditField = new Field("total_credit", "double");
+		metaData.addField(total_creditField);
+
+		Field closing_balanceField = new Field("closing_balance", "double");
+		metaData.addField(closing_balanceField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -786,6 +806,10 @@ public abstract class Basestudent extends BaseResource {
 		this.total_additional_charges = obj.total_additional_charges;
 		this.total_fees_paid = obj.total_fees_paid;
 		this.discount = obj.discount;
+		this.opening_balance = obj.opening_balance;
+		this.total_debit = obj.total_debit;
+		this.total_credit = obj.total_credit;
+		this.closing_balance = obj.closing_balance;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -1064,6 +1088,14 @@ public abstract class Basestudent extends BaseResource {
 			map.put("total_fees_paid", total_fees_paid);
 		if(discount != null)
 			map.put("discount", discount);
+		if(opening_balance != null)
+			map.put("opening_balance", opening_balance);
+		if(total_debit != null)
+			map.put("total_debit", total_debit);
+		if(total_credit != null)
+			map.put("total_credit", total_credit);
+		if(closing_balance != null)
+			map.put("closing_balance", closing_balance);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1278,6 +1310,14 @@ public abstract class Basestudent extends BaseResource {
 			map.put("total_fees_paid", total_fees_paid);
 		if(discount != null)
 			map.put("discount", discount);
+		if(opening_balance != null)
+			map.put("opening_balance", opening_balance);
+		if(total_debit != null)
+			map.put("total_debit", total_debit);
+		if(total_credit != null)
+			map.put("total_credit", total_credit);
+		if(closing_balance != null)
+			map.put("closing_balance", closing_balance);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1392,6 +1432,10 @@ public abstract class Basestudent extends BaseResource {
 		total_additional_charges = (Double) map.get("total_additional_charges");
 		total_fees_paid = (Double) map.get("total_fees_paid");
 		discount = (Double) map.get("discount");
+		opening_balance = (Double) map.get("opening_balance");
+		total_debit = (Double) map.get("total_debit");
+		total_credit = (Double) map.get("total_credit");
+		closing_balance = (Double) map.get("closing_balance");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1804,6 +1848,22 @@ public abstract class Basestudent extends BaseResource {
 		Object discountObj = map.get("discount");
 		if(discountObj != null)
 			discount = new Double(discountObj.toString());
+
+		Object opening_balanceObj = map.get("opening_balance");
+		if(opening_balanceObj != null)
+			opening_balance = new Double(opening_balanceObj.toString());
+
+		Object total_debitObj = map.get("total_debit");
+		if(total_debitObj != null)
+			total_debit = new Double(total_debitObj.toString());
+
+		Object total_creditObj = map.get("total_credit");
+		if(total_creditObj != null)
+			total_credit = new Double(total_creditObj.toString());
+
+		Object closing_balanceObj = map.get("closing_balance");
+		if(closing_balanceObj != null)
+			closing_balance = new Double(closing_balanceObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -3366,6 +3426,86 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetDiscount() {
 		this.discount = null;
+	}
+
+	public Double getOpening_balance() {
+		return opening_balance;
+	}
+
+	public double getOpening_balanceEx() {
+		return opening_balance != null ? opening_balance : 0;
+	}
+
+	public void setOpening_balance(double opening_balance) {
+		this.opening_balance = opening_balance;
+	}
+
+	public void setOpening_balance(Double opening_balance) {
+		this.opening_balance = opening_balance;
+	}
+
+	public void unSetOpening_balance() {
+		this.opening_balance = null;
+	}
+
+	public Double getTotal_debit() {
+		return total_debit;
+	}
+
+	public double getTotal_debitEx() {
+		return total_debit != null ? total_debit : 0;
+	}
+
+	public void setTotal_debit(double total_debit) {
+		this.total_debit = total_debit;
+	}
+
+	public void setTotal_debit(Double total_debit) {
+		this.total_debit = total_debit;
+	}
+
+	public void unSetTotal_debit() {
+		this.total_debit = null;
+	}
+
+	public Double getTotal_credit() {
+		return total_credit;
+	}
+
+	public double getTotal_creditEx() {
+		return total_credit != null ? total_credit : 0;
+	}
+
+	public void setTotal_credit(double total_credit) {
+		this.total_credit = total_credit;
+	}
+
+	public void setTotal_credit(Double total_credit) {
+		this.total_credit = total_credit;
+	}
+
+	public void unSetTotal_credit() {
+		this.total_credit = null;
+	}
+
+	public Double getClosing_balance() {
+		return closing_balance;
+	}
+
+	public double getClosing_balanceEx() {
+		return closing_balance != null ? closing_balance : 0;
+	}
+
+	public void setClosing_balance(double closing_balance) {
+		this.closing_balance = closing_balance;
+	}
+
+	public void setClosing_balance(Double closing_balance) {
+		this.closing_balance = closing_balance;
+	}
+
+	public void unSetClosing_balance() {
+		this.closing_balance = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

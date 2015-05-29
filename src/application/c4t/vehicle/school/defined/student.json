@@ -556,6 +556,22 @@
 			'discount':
 			{
 				'type':'double'
+			},
+			'opening_balance':
+			{
+				'type':'double'
+			},
+			'total_debit':
+			{
+				'type':'double'
+			},
+			'total_credit':
+			{
+				'type':'double'
+			},
+			'closing_balance':
+			{
+				'type':'double'
 			}
 		}
 	}
