@@ -25,6 +25,10 @@ public abstract class Baseaccount extends BaseResource {
 	private String customer_id = null;
 	private Integer current_from_year = null;
 	private Integer current_to_year = null;
+	private Double opening_balance = null;
+	private Double total_credit = null;
+	private Double total_debit = null;
+	private Double closing_balance = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -34,6 +38,10 @@ public abstract class Baseaccount extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CURRENT_FROM_YEAR = "current_from_year";
 	public static String FIELD_CURRENT_TO_YEAR = "current_to_year";
+	public static String FIELD_OPENING_BALANCE = "opening_balance";
+	public static String FIELD_TOTAL_CREDIT = "total_credit";
+	public static String FIELD_TOTAL_DEBIT = "total_debit";
+	public static String FIELD_CLOSING_BALANCE = "closing_balance";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -69,6 +77,18 @@ public abstract class Baseaccount extends BaseResource {
 		Field current_to_yearField = new Field("current_to_year", "int");
 		metaData.addField(current_to_yearField);
 
+		Field opening_balanceField = new Field("opening_balance", "double");
+		metaData.addField(opening_balanceField);
+
+		Field total_creditField = new Field("total_credit", "double");
+		metaData.addField(total_creditField);
+
+		Field total_debitField = new Field("total_debit", "double");
+		metaData.addField(total_debitField);
+
+		Field closing_balanceField = new Field("closing_balance", "double");
+		metaData.addField(closing_balanceField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -91,6 +111,10 @@ public abstract class Baseaccount extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.current_from_year = obj.current_from_year;
 		this.current_to_year = obj.current_to_year;
+		this.opening_balance = obj.opening_balance;
+		this.total_credit = obj.total_credit;
+		this.total_debit = obj.total_debit;
+		this.closing_balance = obj.closing_balance;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -113,6 +137,14 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("current_from_year", current_from_year);
 		if(current_to_year != null)
 			map.put("current_to_year", current_to_year);
+		if(opening_balance != null)
+			map.put("opening_balance", opening_balance);
+		if(total_credit != null)
+			map.put("total_credit", total_credit);
+		if(total_debit != null)
+			map.put("total_debit", total_debit);
+		if(closing_balance != null)
+			map.put("closing_balance", closing_balance);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -134,6 +166,14 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("current_from_year", current_from_year);
 		if(current_to_year != null)
 			map.put("current_to_year", current_to_year);
+		if(opening_balance != null)
+			map.put("opening_balance", opening_balance);
+		if(total_credit != null)
+			map.put("total_credit", total_credit);
+		if(total_debit != null)
+			map.put("total_debit", total_debit);
+		if(closing_balance != null)
+			map.put("closing_balance", closing_balance);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -154,6 +194,10 @@ public abstract class Baseaccount extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		current_from_year = (Integer) map.get("current_from_year");
 		current_to_year = (Integer) map.get("current_to_year");
+		opening_balance = (Double) map.get("opening_balance");
+		total_credit = (Double) map.get("total_credit");
+		total_debit = (Double) map.get("total_debit");
+		closing_balance = (Double) map.get("closing_balance");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -183,6 +227,22 @@ public abstract class Baseaccount extends BaseResource {
 		Object current_to_yearObj = map.get("current_to_year");
 		if(current_to_yearObj != null)
 			current_to_year = new Integer(current_to_yearObj.toString());
+
+		Object opening_balanceObj = map.get("opening_balance");
+		if(opening_balanceObj != null)
+			opening_balance = new Double(opening_balanceObj.toString());
+
+		Object total_creditObj = map.get("total_credit");
+		if(total_creditObj != null)
+			total_credit = new Double(total_creditObj.toString());
+
+		Object total_debitObj = map.get("total_debit");
+		if(total_debitObj != null)
+			total_debit = new Double(total_debitObj.toString());
+
+		Object closing_balanceObj = map.get("closing_balance");
+		if(closing_balanceObj != null)
+			closing_balance = new Double(closing_balanceObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -305,6 +365,86 @@ public abstract class Baseaccount extends BaseResource {
 
 	public void unSetCurrent_to_year() {
 		this.current_to_year = null;
+	}
+
+	public Double getOpening_balance() {
+		return opening_balance;
+	}
+
+	public double getOpening_balanceEx() {
+		return opening_balance != null ? opening_balance : 0;
+	}
+
+	public void setOpening_balance(double opening_balance) {
+		this.opening_balance = opening_balance;
+	}
+
+	public void setOpening_balance(Double opening_balance) {
+		this.opening_balance = opening_balance;
+	}
+
+	public void unSetOpening_balance() {
+		this.opening_balance = null;
+	}
+
+	public Double getTotal_credit() {
+		return total_credit;
+	}
+
+	public double getTotal_creditEx() {
+		return total_credit != null ? total_credit : 0;
+	}
+
+	public void setTotal_credit(double total_credit) {
+		this.total_credit = total_credit;
+	}
+
+	public void setTotal_credit(Double total_credit) {
+		this.total_credit = total_credit;
+	}
+
+	public void unSetTotal_credit() {
+		this.total_credit = null;
+	}
+
+	public Double getTotal_debit() {
+		return total_debit;
+	}
+
+	public double getTotal_debitEx() {
+		return total_debit != null ? total_debit : 0;
+	}
+
+	public void setTotal_debit(double total_debit) {
+		this.total_debit = total_debit;
+	}
+
+	public void setTotal_debit(Double total_debit) {
+		this.total_debit = total_debit;
+	}
+
+	public void unSetTotal_debit() {
+		this.total_debit = null;
+	}
+
+	public Double getClosing_balance() {
+		return closing_balance;
+	}
+
+	public double getClosing_balanceEx() {
+		return closing_balance != null ? closing_balance : 0;
+	}
+
+	public void setClosing_balance(double closing_balance) {
+		this.closing_balance = closing_balance;
+	}
+
+	public void setClosing_balance(Double closing_balance) {
+		this.closing_balance = closing_balance;
+	}
+
+	public void unSetClosing_balance() {
+		this.closing_balance = null;
 	}
 
 	public Long getCreation_time() {

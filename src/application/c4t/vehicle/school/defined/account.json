@@ -37,6 +37,26 @@
 			{
 				'type':'int'
 			},
+			'opening_balance':
+			{
+				'type':'double'
+			},
+			'total_credit':
+			{
+				'type':'double'
+			},
+			'total_debit':
+			{
+				'type':'double'
+			},
+			'closing_balance':
+			{
+				'type':'double'
+			},
+			'current_to_year':
+			{
+				'type':'int'
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}
