@@ -115,11 +115,11 @@ public abstract class BaseService {
 	}
 
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
-		throw new ApplicationException(ExceptionSeverity.ERROR, "Not Supported");
+		throw new ApplicationException(ExceptionSeverity.ERROR, "resource :: Not Supported");
 	}
 
 	public void action(ServletContext ctx, String resourceText, String action) throws ApplicationException {
-		throw new ApplicationException(ExceptionSeverity.ERROR, "Not Supported");
+		throw new ApplicationException(ExceptionSeverity.ERROR, "String :: Not Supported");
 	}
 	
 	public BaseResource[] getQuery(ServletContext ctx, String expression) throws ApplicationException, InstantiationException, IllegalAccessException, ClassNotFoundException {
