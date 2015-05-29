@@ -5,6 +5,9 @@ import application.traceme.defined.resource.Basetraceme_url;
 
 public class traceme_url extends Basetraceme_url {
 	
+	public static String TRACEME_URL_STATUS_ACTIVE = "A";
+	public static String TRACEME_URL_STATUS_EXPIRED = "E";
+	
 	/**
 	 * 
 	 */
