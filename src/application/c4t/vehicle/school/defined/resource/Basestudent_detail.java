@@ -74,6 +74,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String feature_message2parent = null;
 	private String feature_message2school = null;
 	private String feature_proficiency = null;
+	private String feature_account = null;
 	private String feature_wof = null;
 	private String feature_photo = null;
 	private String feature_video = null;
@@ -151,6 +152,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_FEATURE_MESSAGE2PARENT = "feature_message2parent";
 	public static String FIELD_FEATURE_MESSAGE2SCHOOL = "feature_message2school";
 	public static String FIELD_FEATURE_PROFICIENCY = "feature_proficiency";
+	public static String FIELD_FEATURE_ACCOUNT = "feature_account";
 	public static String FIELD_FEATURE_WOF = "feature_wof";
 	public static String FIELD_FEATURE_PHOTO = "feature_photo";
 	public static String FIELD_FEATURE_VIDEO = "feature_video";
@@ -416,6 +418,11 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_proficiencyField.setLength(1);
 		metaData.addField(feature_proficiencyField);
 
+		Field feature_accountField = new Field("feature_account", "String");
+		feature_accountField.setDefaultValue("N");
+		feature_accountField.setLength(1);
+		metaData.addField(feature_accountField);
+
 		Field feature_wofField = new Field("feature_wof", "String");
 		feature_wofField.setDefaultValue("N");
 		feature_wofField.setLength(1);
@@ -571,6 +578,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.feature_message2parent = obj.feature_message2parent;
 		this.feature_message2school = obj.feature_message2school;
 		this.feature_proficiency = obj.feature_proficiency;
+		this.feature_account = obj.feature_account;
 		this.feature_wof = obj.feature_wof;
 		this.feature_photo = obj.feature_photo;
 		this.feature_video = obj.feature_video;
@@ -635,6 +643,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			feature_message2school = "N";
 		if(feature_proficiency == null)
 			feature_proficiency = "N";
+		if(feature_account == null)
+			feature_account = "N";
 		if(feature_wof == null)
 			feature_wof = "N";
 		if(feature_photo == null)
@@ -787,6 +797,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_message2school", feature_message2school);
 		if(feature_proficiency != null)
 			map.put("feature_proficiency", feature_proficiency);
+		if(feature_account != null)
+			map.put("feature_account", feature_account);
 		if(feature_wof != null)
 			map.put("feature_wof", feature_wof);
 		if(feature_photo != null)
@@ -947,6 +959,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_message2school", feature_message2school);
 		if(feature_proficiency != null)
 			map.put("feature_proficiency", feature_proficiency);
+		if(feature_account != null)
+			map.put("feature_account", feature_account);
 		if(feature_wof != null)
 			map.put("feature_wof", feature_wof);
 		if(feature_photo != null)
@@ -1054,6 +1068,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_message2parent = (String) map.get("feature_message2parent");
 		feature_message2school = (String) map.get("feature_message2school");
 		feature_proficiency = (String) map.get("feature_proficiency");
+		feature_account = (String) map.get("feature_account");
 		feature_wof = (String) map.get("feature_wof");
 		feature_photo = (String) map.get("feature_photo");
 		feature_video = (String) map.get("feature_video");
@@ -1298,6 +1313,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object feature_proficiencyObj = map.get("feature_proficiency");
 		if(feature_proficiencyObj != null)
 			feature_proficiency = feature_proficiencyObj.toString();
+
+		Object feature_accountObj = map.get("feature_account");
+		if(feature_accountObj != null)
+			feature_account = feature_accountObj.toString();
 
 		Object feature_wofObj = map.get("feature_wof");
 		if(feature_wofObj != null)
@@ -2208,6 +2227,18 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetFeature_proficiency() {
 		this.feature_proficiency = "N";
+	}
+
+	public String getFeature_account() {
+		return feature_account != null ? feature_account : "N";
+	}
+
+	public void setFeature_account(String feature_account) {
+		this.feature_account = feature_account;
+	}
+
+	public void unSetFeature_account() {
+		this.feature_account = "N";
 	}
 
 	public String getFeature_wof() {
