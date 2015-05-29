@@ -27,6 +27,7 @@ public abstract class Baseaccount_transaction extends BaseResource {
 	private String accounting_head_name = null;
 	private Double credit_amount = null;
 	private Double debit_amount = null;
+	private String remark = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -38,6 +39,7 @@ public abstract class Baseaccount_transaction extends BaseResource {
 	public static String FIELD_ACCOUNTING_HEAD_NAME = "accounting_head_name";
 	public static String FIELD_CREDIT_AMOUNT = "credit_amount";
 	public static String FIELD_DEBIT_AMOUNT = "debit_amount";
+	public static String FIELD_REMARK = "remark";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -78,6 +80,10 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		Field debit_amountField = new Field("debit_amount", "double");
 		metaData.addField(debit_amountField);
 
+		Field remarkField = new Field("remark", "String");
+		remarkField.setLength(256);
+		metaData.addField(remarkField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -102,6 +108,7 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		this.accounting_head_name = obj.accounting_head_name;
 		this.credit_amount = obj.credit_amount;
 		this.debit_amount = obj.debit_amount;
+		this.remark = obj.remark;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -128,6 +135,8 @@ public abstract class Baseaccount_transaction extends BaseResource {
 			map.put("credit_amount", credit_amount);
 		if(debit_amount != null)
 			map.put("debit_amount", debit_amount);
+		if(remark != null)
+			map.put("remark", remark);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -153,6 +162,8 @@ public abstract class Baseaccount_transaction extends BaseResource {
 			map.put("credit_amount", credit_amount);
 		if(debit_amount != null)
 			map.put("debit_amount", debit_amount);
+		if(remark != null)
+			map.put("remark", remark);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -175,6 +186,7 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		accounting_head_name = (String) map.get("accounting_head_name");
 		credit_amount = (Double) map.get("credit_amount");
 		debit_amount = (Double) map.get("debit_amount");
+		remark = (String) map.get("remark");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -212,6 +224,10 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		Object debit_amountObj = map.get("debit_amount");
 		if(debit_amountObj != null)
 			debit_amount = new Double(debit_amountObj.toString());
+
+		Object remarkObj = map.get("remark");
+		if(remarkObj != null)
+			remark = remarkObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -359,6 +375,22 @@ public abstract class Baseaccount_transaction extends BaseResource {
 
 	public void unSetDebit_amount() {
 		this.debit_amount = null;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public String getRemarkEx() {
+		return remark != null ? remark : "";
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public void unSetRemark() {
+		this.remark = null;
 	}
 
 	public Long getCreation_time() {

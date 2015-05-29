@@ -40,6 +40,10 @@
 			'debit_amount': {
 				'type': 'double'
 			},
+			'remark': {
+				'type': 'String',
+				length : 256
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}
