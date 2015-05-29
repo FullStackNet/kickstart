@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -96,6 +92,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_timing_based_attendance = null;
 	private Long fee_starting_date = null;
 	private String fee_starting_date_str = null;
+	private String house_id = null;
 	private String timezone = null;
 	private Map<String, Object> extra_data = null;
 
@@ -172,6 +169,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_TIMING_BASED_ATTENDANCE = "feature_timing_based_attendance";
 	public static String FIELD_FEE_STARTING_DATE = "fee_starting_date";
 	public static String FIELD_FEE_STARTING_DATE_STR = "fee_starting_date_str";
+	public static String FIELD_HOUSE_ID = "house_id";
 	public static String FIELD_TIMEZONE = "timezone";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -525,6 +523,10 @@ public abstract class Baseschool extends BaseResource {
 		fee_starting_date_strField.setLength(32);
 		metaData.addField(fee_starting_date_strField);
 
+		Field house_idField = new Field("house_id", "String");
+		house_idField.setLength(128);
+		metaData.addField(house_idField);
+
 		Field timezoneField = new Field("timezone", "String");
 		timezoneField.setDefaultValue("IST");
 		timezoneField.setLength(32);
@@ -616,6 +618,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_timing_based_attendance = obj.feature_timing_based_attendance;
 		this.fee_starting_date = obj.fee_starting_date;
 		this.fee_starting_date_str = obj.fee_starting_date_str;
+		this.house_id = obj.house_id;
 		this.timezone = obj.timezone;
 		this.extra_data = obj.extra_data;
 	}
@@ -885,6 +888,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("fee_starting_date", fee_starting_date);
 		if(fee_starting_date_str != null)
 			map.put("fee_starting_date_str", fee_starting_date_str);
+		if(house_id != null)
+			map.put("house_id", house_id);
 		if(timezone != null)
 			map.put("timezone", timezone);
 		if(extra_data != null)
@@ -1043,6 +1048,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("fee_starting_date", fee_starting_date);
 		if(fee_starting_date_str != null)
 			map.put("fee_starting_date_str", fee_starting_date_str);
+		if(house_id != null)
+			map.put("house_id", house_id);
 		if(timezone != null)
 			map.put("timezone", timezone);
 		if(extra_data != null)
@@ -1130,6 +1137,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_timing_based_attendance = (String) map.get("feature_timing_based_attendance");
 		fee_starting_date = (Long) map.get("fee_starting_date");
 		fee_starting_date_str = (String) map.get("fee_starting_date_str");
+		house_id = (String) map.get("house_id");
 		timezone = (String) map.get("timezone");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1427,6 +1435,10 @@ public abstract class Baseschool extends BaseResource {
 		Object fee_starting_date_strObj = map.get("fee_starting_date_str");
 		if(fee_starting_date_strObj != null)
 			fee_starting_date_str = fee_starting_date_strObj.toString();
+
+		Object house_idObj = map.get("house_id");
+		if(house_idObj != null)
+			house_id = house_idObj.toString();
 
 		Object timezoneObj = map.get("timezone");
 		if(timezoneObj != null)
@@ -2409,6 +2421,22 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFee_starting_date_str() {
 		this.fee_starting_date_str = null;
+	}
+
+	public String getHouse_id() {
+		return house_id;
+	}
+
+	public String getHouse_idEx() {
+		return house_id != null ? house_id : "";
+	}
+
+	public void setHouse_id(String house_id) {
+		this.house_id = house_id;
+	}
+
+	public void unSetHouse_id() {
+		this.house_id = null;
 	}
 
 	public String getTimezone() {
