@@ -226,6 +226,12 @@ public class user extends Baseuser {
 		}
 		return false;
 	}
+	public boolean isAccountFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_account())) {
+			return true;
+		}
+		return false;
+	}
 }
 
 

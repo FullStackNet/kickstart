@@ -121,4 +121,11 @@ public class school extends Baseschool {
 		}
 		return false;
 	}
+	
+	public boolean isAccountFeatureEnable() {
+		if ("Y".equalsIgnoreCase(getFeature_account())) {
+			return true;
+		}
+		return false;
+	}
 }
