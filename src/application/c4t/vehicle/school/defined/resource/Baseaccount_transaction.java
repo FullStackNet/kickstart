@@ -23,6 +23,8 @@ public abstract class Baseaccount_transaction extends BaseResource {
 	private Long transaction_date = null;
 	private String transaction_date_str = null;
 	private String account_id = null;
+	private String student_id = null;
+	private String school_id = null;
 	private String account_name = null;
 	private String accounting_head_id = null;
 	private String accounting_head_name = null;
@@ -36,6 +38,8 @@ public abstract class Baseaccount_transaction extends BaseResource {
 	public static String FIELD_TRANSACTION_DATE = "transaction_date";
 	public static String FIELD_TRANSACTION_DATE_STR = "transaction_date_str";
 	public static String FIELD_ACCOUNT_ID = "account_id";
+	public static String FIELD_STUDENT_ID = "student_id";
+	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_ACCOUNT_NAME = "account_name";
 	public static String FIELD_ACCOUNTING_HEAD_ID = "accounting_head_id";
 	public static String FIELD_ACCOUNTING_HEAD_NAME = "accounting_head_name";
@@ -67,6 +71,16 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		account_idField.setIndexed(true);
 		account_idField.setLength(128);
 		metaData.addField(account_idField);
+
+		Field student_idField = new Field("student_id", "String");
+		student_idField.setIndexed(true);
+		student_idField.setLength(128);
+		metaData.addField(student_idField);
+
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setIndexed(true);
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
 
 		Field account_nameField = new Field("account_name", "String");
 		account_nameField.setLength(128);
@@ -110,6 +124,8 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		this.transaction_date = obj.transaction_date;
 		this.transaction_date_str = obj.transaction_date_str;
 		this.account_id = obj.account_id;
+		this.student_id = obj.student_id;
+		this.school_id = obj.school_id;
 		this.account_name = obj.account_name;
 		this.accounting_head_id = obj.accounting_head_id;
 		this.accounting_head_name = obj.accounting_head_name;
@@ -134,6 +150,10 @@ public abstract class Baseaccount_transaction extends BaseResource {
 			map.put("transaction_date_str", transaction_date_str);
 		if(account_id != null)
 			map.put("account_id", account_id);
+		if(student_id != null)
+			map.put("student_id", student_id);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(account_name != null)
 			map.put("account_name", account_name);
 		if(accounting_head_id != null)
@@ -163,6 +183,10 @@ public abstract class Baseaccount_transaction extends BaseResource {
 			map.put("transaction_date_str", transaction_date_str);
 		if(account_id != null)
 			map.put("account_id", account_id);
+		if(student_id != null)
+			map.put("student_id", student_id);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(account_name != null)
 			map.put("account_name", account_name);
 		if(accounting_head_id != null)
@@ -193,6 +217,8 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		transaction_date = (Long) map.get("transaction_date");
 		transaction_date_str = (String) map.get("transaction_date_str");
 		account_id = (String) map.get("account_id");
+		student_id = (String) map.get("student_id");
+		school_id = (String) map.get("school_id");
 		account_name = (String) map.get("account_name");
 		accounting_head_id = (String) map.get("accounting_head_id");
 		accounting_head_name = (String) map.get("accounting_head_name");
@@ -220,6 +246,14 @@ public abstract class Baseaccount_transaction extends BaseResource {
 		Object account_idObj = map.get("account_id");
 		if(account_idObj != null)
 			account_id = account_idObj.toString();
+
+		Object student_idObj = map.get("student_id");
+		if(student_idObj != null)
+			student_id = student_idObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
 
 		Object account_nameObj = map.get("account_name");
 		if(account_nameObj != null)
@@ -319,6 +353,38 @@ public abstract class Baseaccount_transaction extends BaseResource {
 
 	public void unSetAccount_id() {
 		this.account_id = null;
+	}
+
+	public String getStudent_id() {
+		return student_id;
+	}
+
+	public String getStudent_idEx() {
+		return student_id != null ? student_id : "";
+	}
+
+	public void setStudent_id(String student_id) {
+		this.student_id = student_id;
+	}
+
+	public void unSetStudent_id() {
+		this.student_id = null;
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
 	}
 
 	public String getAccount_name() {

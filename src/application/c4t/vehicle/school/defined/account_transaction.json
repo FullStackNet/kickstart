@@ -24,6 +24,19 @@
 				'type':'String',
 				'index' : true
 			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+		
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'account_name':
 			{
 				'type':'String',
