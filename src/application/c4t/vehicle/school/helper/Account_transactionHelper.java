@@ -28,11 +28,11 @@ public class Account_transactionHelper extends BaseHelper {
 		if (_account == null)
 			return null;
 		long fromTime = TimeUtil.getTimeFromDateString(null, "01-04-"+_account.getCurrent_from_year());
-		long toTime = TimeUtil.getTimeFromDateString(null, "31-03-"+_account.getCurrent_to_year()+60*24*60*1000L);
+		long toTime = TimeUtil.getTimeFromDateString(null, "31-03-"+_account.getCurrent_to_year())+60*24*60*1000L;
 		
 		Expression e1 = new Expression(account_transaction.FIELD_ACCOUNT_ID,REL_OP.EQ, accountId);
 		Expression e2 = new Expression(account_transaction.FIELD_TRANSACTION_DATE,REL_OP.GTEQ, fromTime);
-		Expression e3 = new Expression(account_transaction.FIELD_ACCOUNT_ID,REL_OP.LT, toTime);
+		Expression e3 = new Expression(account_transaction.FIELD_TRANSACTION_DATE,REL_OP.LT, toTime);
 		Expression e4 = new Expression(e2, LOG_OP.AND, e3);
 		Expression e = new Expression(e1, LOG_OP.AND, e4);
 		
