@@ -56,7 +56,9 @@ public abstract class Basec4t_object extends BaseResource {
 	private String attribute_name = null;
 	private String attribute_value = null;
 	private Double dealer_price = null;
+	private Double customer_price = null;
 	private String unit = null;
+	private String reference_id = null;
 	private String user_id = null;
 	private String reporting_to_id = null;
 	private String dob_str = null;
@@ -102,7 +104,9 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ATTRIBUTE_NAME = "attribute_name";
 	public static String FIELD_ATTRIBUTE_VALUE = "attribute_value";
 	public static String FIELD_DEALER_PRICE = "dealer_price";
+	public static String FIELD_CUSTOMER_PRICE = "customer_price";
 	public static String FIELD_UNIT = "unit";
+	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_REPORTING_TO_ID = "reporting_to_id";
 	public static String FIELD_DOB_STR = "dob_str";
@@ -262,9 +266,16 @@ public abstract class Basec4t_object extends BaseResource {
 		Field dealer_priceField = new Field("dealer_price", "double");
 		metaData.addField(dealer_priceField);
 
+		Field customer_priceField = new Field("customer_price", "double");
+		metaData.addField(customer_priceField);
+
 		Field unitField = new Field("unit", "String");
 		unitField.setLength(32);
 		metaData.addField(unitField);
+
+		Field reference_idField = new Field("reference_id", "String");
+		reference_idField.setLength(128);
+		metaData.addField(reference_idField);
 
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(128);
@@ -337,7 +348,9 @@ public abstract class Basec4t_object extends BaseResource {
 		this.attribute_name = obj.attribute_name;
 		this.attribute_value = obj.attribute_value;
 		this.dealer_price = obj.dealer_price;
+		this.customer_price = obj.customer_price;
 		this.unit = obj.unit;
+		this.reference_id = obj.reference_id;
 		this.user_id = obj.user_id;
 		this.reporting_to_id = obj.reporting_to_id;
 		this.dob_str = obj.dob_str;
@@ -427,8 +440,12 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("attribute_value", attribute_value);
 		if(dealer_price != null)
 			map.put("dealer_price", dealer_price);
+		if(customer_price != null)
+			map.put("customer_price", customer_price);
 		if(unit != null)
 			map.put("unit", unit);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(reporting_to_id != null)
@@ -522,8 +539,12 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("attribute_value", attribute_value);
 		if(dealer_price != null)
 			map.put("dealer_price", dealer_price);
+		if(customer_price != null)
+			map.put("customer_price", customer_price);
 		if(unit != null)
 			map.put("unit", unit);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(reporting_to_id != null)
@@ -585,7 +606,9 @@ public abstract class Basec4t_object extends BaseResource {
 		attribute_name = (String) map.get("attribute_name");
 		attribute_value = (String) map.get("attribute_value");
 		dealer_price = (Double) map.get("dealer_price");
+		customer_price = (Double) map.get("customer_price");
 		unit = (String) map.get("unit");
+		reference_id = (String) map.get("reference_id");
 		user_id = (String) map.get("user_id");
 		reporting_to_id = (String) map.get("reporting_to_id");
 		dob_str = (String) map.get("dob_str");
@@ -745,9 +768,17 @@ public abstract class Basec4t_object extends BaseResource {
 		if(dealer_priceObj != null)
 			dealer_price = new Double(dealer_priceObj.toString());
 
+		Object customer_priceObj = map.get("customer_price");
+		if(customer_priceObj != null)
+			customer_price = new Double(customer_priceObj.toString());
+
 		Object unitObj = map.get("unit");
 		if(unitObj != null)
 			unit = unitObj.toString();
+
+		Object reference_idObj = map.get("reference_id");
+		if(reference_idObj != null)
+			reference_id = reference_idObj.toString();
 
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
@@ -1396,6 +1427,26 @@ public abstract class Basec4t_object extends BaseResource {
 		this.dealer_price = null;
 	}
 
+	public Double getCustomer_price() {
+		return customer_price;
+	}
+
+	public double getCustomer_priceEx() {
+		return customer_price != null ? customer_price : 0;
+	}
+
+	public void setCustomer_price(double customer_price) {
+		this.customer_price = customer_price;
+	}
+
+	public void setCustomer_price(Double customer_price) {
+		this.customer_price = customer_price;
+	}
+
+	public void unSetCustomer_price() {
+		this.customer_price = null;
+	}
+
 	public String getUnit() {
 		return unit;
 	}
@@ -1410,6 +1461,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetUnit() {
 		this.unit = null;
+	}
+
+	public String getReference_id() {
+		return reference_id;
+	}
+
+	public String getReference_idEx() {
+		return reference_id != null ? reference_id : "";
+	}
+
+	public void setReference_id(String reference_id) {
+		this.reference_id = reference_id;
+	}
+
+	public void unSetReference_id() {
+		this.reference_id = null;
 	}
 
 	public String getUser_id() {

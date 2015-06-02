@@ -203,11 +203,20 @@
 			{
 				'type':'double'
 			},
+			'customer_price':
+			{
+				'type':'double'
+			},
 			'unit':
 			{
 				'type':'String',
 				'length': 32
 				
+			},
+			'reference_id':
+			{
+				'type':'String',
+				'length': 128
 			},
 			'user_id':
 			{
