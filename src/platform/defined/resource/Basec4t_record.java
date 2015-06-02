@@ -45,6 +45,9 @@ public abstract class Basec4t_record extends BaseResource {
 	private String event_date_str = null;
 	private Long expiry_date = null;
 	private String expiry_date_str = null;
+	private String last_updated_message = null;
+	private String last_updated_by = null;
+	private Long last_updated = null;
 	private Long sent_time = null;
 	private Long creation_time = null;
 	private String sent = null;
@@ -83,6 +86,9 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_EVENT_DATE_STR = "event_date_str";
 	public static String FIELD_EXPIRY_DATE = "expiry_date";
 	public static String FIELD_EXPIRY_DATE_STR = "expiry_date_str";
+	public static String FIELD_LAST_UPDATED_MESSAGE = "last_updated_message";
+	public static String FIELD_LAST_UPDATED_BY = "last_updated_by";
+	public static String FIELD_LAST_UPDATED = "last_updated";
 	public static String FIELD_SENT_TIME = "sent_time";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SENT = "sent";
@@ -206,6 +212,15 @@ public abstract class Basec4t_record extends BaseResource {
 		expiry_date_strField.setLength(32);
 		metaData.addField(expiry_date_strField);
 
+		Field last_updated_messageField = new Field("last_updated_message", "String");
+		metaData.addField(last_updated_messageField);
+
+		Field last_updated_byField = new Field("last_updated_by", "String");
+		metaData.addField(last_updated_byField);
+
+		Field last_updatedField = new Field("last_updated", "timestamp");
+		metaData.addField(last_updatedField);
+
 		Field sent_timeField = new Field("sent_time", "timestamp");
 		metaData.addField(sent_timeField);
 
@@ -281,6 +296,9 @@ public abstract class Basec4t_record extends BaseResource {
 		this.event_date_str = obj.event_date_str;
 		this.expiry_date = obj.expiry_date;
 		this.expiry_date_str = obj.expiry_date_str;
+		this.last_updated_message = obj.last_updated_message;
+		this.last_updated_by = obj.last_updated_by;
+		this.last_updated = obj.last_updated;
 		this.sent_time = obj.sent_time;
 		this.creation_time = obj.creation_time;
 		this.sent = obj.sent;
@@ -361,6 +379,12 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("expiry_date", expiry_date);
 		if(expiry_date_str != null)
 			map.put("expiry_date_str", expiry_date_str);
+		if(last_updated_message != null)
+			map.put("last_updated_message", last_updated_message);
+		if(last_updated_by != null)
+			map.put("last_updated_by", last_updated_by);
+		if(last_updated != null)
+			map.put("last_updated", last_updated);
 		if(sent_time != null)
 			map.put("sent_time", sent_time);
 		if(creation_time != null)
@@ -443,6 +467,12 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("expiry_date", expiry_date);
 		if(expiry_date_str != null)
 			map.put("expiry_date_str", expiry_date_str);
+		if(last_updated_message != null)
+			map.put("last_updated_message", last_updated_message);
+		if(last_updated_by != null)
+			map.put("last_updated_by", last_updated_by);
+		if(last_updated != null)
+			map.put("last_updated", last_updated);
 		if(sent_time != null)
 			map.put("sent_time", sent_time);
 		if(creation_time != null)
@@ -501,6 +531,9 @@ public abstract class Basec4t_record extends BaseResource {
 		event_date_str = (String) map.get("event_date_str");
 		expiry_date = (Long) map.get("expiry_date");
 		expiry_date_str = (String) map.get("expiry_date_str");
+		last_updated_message = (String) map.get("last_updated_message");
+		last_updated_by = (String) map.get("last_updated_by");
+		last_updated = (Long) map.get("last_updated");
 		sent_time = (Long) map.get("sent_time");
 		creation_time = (Long) map.get("creation_time");
 		sent = (String) map.get("sent");
@@ -619,6 +652,18 @@ public abstract class Basec4t_record extends BaseResource {
 		Object expiry_date_strObj = map.get("expiry_date_str");
 		if(expiry_date_strObj != null)
 			expiry_date_str = expiry_date_strObj.toString();
+
+		Object last_updated_messageObj = map.get("last_updated_message");
+		if(last_updated_messageObj != null)
+			last_updated_message = last_updated_messageObj.toString();
+
+		Object last_updated_byObj = map.get("last_updated_by");
+		if(last_updated_byObj != null)
+			last_updated_by = last_updated_byObj.toString();
+
+		Object last_updatedObj = map.get("last_updated");
+		if(last_updatedObj != null)
+			last_updated = (Long) last_updatedObj;
 
 		Object sent_timeObj = map.get("sent_time");
 		if(sent_timeObj != null)
@@ -1072,6 +1117,47 @@ public abstract class Basec4t_record extends BaseResource {
 	public void unSetExpiry_date_str() {
 		this.expiry_date_str = null;
 	}
+
+	public String getLast_updated_message() {
+		return last_updated_message;
+	}
+
+	public String getLast_updated_messageEx() {
+		return last_updated_message != null ? last_updated_message : "";
+	}
+
+	public void setLast_updated_message(String last_updated_message) {
+		this.last_updated_message = last_updated_message;
+	}
+
+	public void unSetLast_updated_message() {
+		this.last_updated_message = null;
+	}
+
+	public String getLast_updated_by() {
+		return last_updated_by;
+	}
+
+	public String getLast_updated_byEx() {
+		return last_updated_by != null ? last_updated_by : "";
+	}
+
+	public void setLast_updated_by(String last_updated_by) {
+		this.last_updated_by = last_updated_by;
+	}
+
+	public void unSetLast_updated_by() {
+		this.last_updated_by = null;
+	}
+
+	public Long getLast_updated() {
+		return last_updated;
+	}
+
+	public void setLast_updated(Long last_updated) {
+		this.last_updated = last_updated;
+	}
+
 
 	public Long getSent_time() {
 		return sent_time;

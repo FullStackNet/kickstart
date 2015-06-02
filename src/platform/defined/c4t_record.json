@@ -132,6 +132,15 @@
 				'type': 'String',
 				'length' : 32
 			},
+			'last_updated_message': {
+				'type': 'String'
+			},
+			'last_updated_by': {
+				'type': 'String'
+			},
+			'last_updated': {
+				'type': 'timestamp'
+			},
 			'sent_time': {
 				'type': 'timestamp'
 			},
