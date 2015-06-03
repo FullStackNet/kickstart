@@ -45,6 +45,18 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'bay_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'supervisor_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'flat_id':
 			{
 				'length': 512,

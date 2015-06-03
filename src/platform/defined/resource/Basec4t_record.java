@@ -26,6 +26,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private String record_type = null;
 	private String location_type = null;
 	private String title = null;
+	private String bay_id = null;
+	private String supervisor_id = null;
 	private String flat_id = null;
 	private String flat_no = null;
 	private String user_id = null;
@@ -67,6 +69,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_LOCATION_TYPE = "location_type";
 	public static String FIELD_TITLE = "title";
+	public static String FIELD_BAY_ID = "bay_id";
+	public static String FIELD_SUPERVISOR_ID = "supervisor_id";
 	public static String FIELD_FLAT_ID = "flat_id";
 	public static String FIELD_FLAT_NO = "flat_no";
 	public static String FIELD_USER_ID = "user_id";
@@ -138,6 +142,16 @@ public abstract class Basec4t_record extends BaseResource {
 		Field titleField = new Field("title", "String");
 		titleField.setLength(512);
 		metaData.addField(titleField);
+
+		Field bay_idField = new Field("bay_id", "String");
+		bay_idField.setIndexed(true);
+		bay_idField.setLength(128);
+		metaData.addField(bay_idField);
+
+		Field supervisor_idField = new Field("supervisor_id", "String");
+		supervisor_idField.setIndexed(true);
+		supervisor_idField.setLength(128);
+		metaData.addField(supervisor_idField);
 
 		Field flat_idField = new Field("flat_id", "String");
 		flat_idField.setLength(512);
@@ -277,6 +291,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.record_type = obj.record_type;
 		this.location_type = obj.location_type;
 		this.title = obj.title;
+		this.bay_id = obj.bay_id;
+		this.supervisor_id = obj.supervisor_id;
 		this.flat_id = obj.flat_id;
 		this.flat_no = obj.flat_no;
 		this.user_id = obj.user_id;
@@ -341,6 +357,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("location_type", location_type);
 		if(title != null)
 			map.put("title", title);
+		if(bay_id != null)
+			map.put("bay_id", bay_id);
+		if(supervisor_id != null)
+			map.put("supervisor_id", supervisor_id);
 		if(flat_id != null)
 			map.put("flat_id", flat_id);
 		if(flat_no != null)
@@ -429,6 +449,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("location_type", location_type);
 		if(title != null)
 			map.put("title", title);
+		if(bay_id != null)
+			map.put("bay_id", bay_id);
+		if(supervisor_id != null)
+			map.put("supervisor_id", supervisor_id);
 		if(flat_id != null)
 			map.put("flat_id", flat_id);
 		if(flat_no != null)
@@ -512,6 +536,8 @@ public abstract class Basec4t_record extends BaseResource {
 		record_type = (String) map.get("record_type");
 		location_type = (String) map.get("location_type");
 		title = (String) map.get("title");
+		bay_id = (String) map.get("bay_id");
+		supervisor_id = (String) map.get("supervisor_id");
 		flat_id = (String) map.get("flat_id");
 		flat_no = (String) map.get("flat_no");
 		user_id = (String) map.get("user_id");
@@ -576,6 +602,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object titleObj = map.get("title");
 		if(titleObj != null)
 			title = titleObj.toString();
+
+		Object bay_idObj = map.get("bay_id");
+		if(bay_idObj != null)
+			bay_id = bay_idObj.toString();
+
+		Object supervisor_idObj = map.get("supervisor_id");
+		if(supervisor_idObj != null)
+			supervisor_id = supervisor_idObj.toString();
 
 		Object flat_idObj = map.get("flat_id");
 		if(flat_idObj != null)
@@ -830,6 +864,38 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTitle() {
 		this.title = null;
+	}
+
+	public String getBay_id() {
+		return bay_id;
+	}
+
+	public String getBay_idEx() {
+		return bay_id != null ? bay_id : "";
+	}
+
+	public void setBay_id(String bay_id) {
+		this.bay_id = bay_id;
+	}
+
+	public void unSetBay_id() {
+		this.bay_id = null;
+	}
+
+	public String getSupervisor_id() {
+		return supervisor_id;
+	}
+
+	public String getSupervisor_idEx() {
+		return supervisor_id != null ? supervisor_id : "";
+	}
+
+	public void setSupervisor_id(String supervisor_id) {
+		this.supervisor_id = supervisor_id;
+	}
+
+	public void unSetSupervisor_id() {
+		this.supervisor_id = null;
 	}
 
 	public String getFlat_id() {

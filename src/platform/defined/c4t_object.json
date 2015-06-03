@@ -70,6 +70,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'gender':
+			{
+				'length': 10,
+				'type':'String'
+			},
 			'floor_no':
 			{
 				'length': 128,
