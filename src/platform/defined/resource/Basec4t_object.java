@@ -69,6 +69,11 @@ public abstract class Basec4t_object extends BaseResource {
 	private String reference_no_1 = null;
 	private String reference_no_2 = null;
 	private String reporting_to_id = null;
+	private String assign_to = null;
+	private String assign_date_str = null;
+	private Long assign_date = null;
+	private String completion_date_str = null;
+	private Long completion_date = null;
 	private String dob_str = null;
 	private Long dob = null;
 	private Long creation_time = null;
@@ -125,6 +130,11 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_REFERENCE_NO_1 = "reference_no_1";
 	public static String FIELD_REFERENCE_NO_2 = "reference_no_2";
 	public static String FIELD_REPORTING_TO_ID = "reporting_to_id";
+	public static String FIELD_ASSIGN_TO = "assign_to";
+	public static String FIELD_ASSIGN_DATE_STR = "assign_date_str";
+	public static String FIELD_ASSIGN_DATE = "assign_date";
+	public static String FIELD_COMPLETION_DATE_STR = "completion_date_str";
+	public static String FIELD_COMPLETION_DATE = "completion_date";
 	public static String FIELD_DOB_STR = "dob_str";
 	public static String FIELD_DOB = "dob";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -333,6 +343,24 @@ public abstract class Basec4t_object extends BaseResource {
 		reporting_to_idField.setLength(128);
 		metaData.addField(reporting_to_idField);
 
+		Field assign_toField = new Field("assign_to", "String");
+		assign_toField.setLength(128);
+		metaData.addField(assign_toField);
+
+		Field assign_date_strField = new Field("assign_date_str", "String");
+		assign_date_strField.setLength(16);
+		metaData.addField(assign_date_strField);
+
+		Field assign_dateField = new Field("assign_date", "long");
+		metaData.addField(assign_dateField);
+
+		Field completion_date_strField = new Field("completion_date_str", "String");
+		completion_date_strField.setLength(16);
+		metaData.addField(completion_date_strField);
+
+		Field completion_dateField = new Field("completion_date", "long");
+		metaData.addField(completion_dateField);
+
 		Field dob_strField = new Field("dob_str", "String");
 		dob_strField.setLength(16);
 		metaData.addField(dob_strField);
@@ -409,6 +437,11 @@ public abstract class Basec4t_object extends BaseResource {
 		this.reference_no_1 = obj.reference_no_1;
 		this.reference_no_2 = obj.reference_no_2;
 		this.reporting_to_id = obj.reporting_to_id;
+		this.assign_to = obj.assign_to;
+		this.assign_date_str = obj.assign_date_str;
+		this.assign_date = obj.assign_date;
+		this.completion_date_str = obj.completion_date_str;
+		this.completion_date = obj.completion_date;
 		this.dob_str = obj.dob_str;
 		this.dob = obj.dob;
 		this.creation_time = obj.creation_time;
@@ -522,6 +555,16 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("reference_no_2", reference_no_2);
 		if(reporting_to_id != null)
 			map.put("reporting_to_id", reporting_to_id);
+		if(assign_to != null)
+			map.put("assign_to", assign_to);
+		if(assign_date_str != null)
+			map.put("assign_date_str", assign_date_str);
+		if(assign_date != null)
+			map.put("assign_date", assign_date);
+		if(completion_date_str != null)
+			map.put("completion_date_str", completion_date_str);
+		if(completion_date != null)
+			map.put("completion_date", completion_date);
 		if(dob_str != null)
 			map.put("dob_str", dob_str);
 		if(dob != null)
@@ -637,6 +680,16 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("reference_no_2", reference_no_2);
 		if(reporting_to_id != null)
 			map.put("reporting_to_id", reporting_to_id);
+		if(assign_to != null)
+			map.put("assign_to", assign_to);
+		if(assign_date_str != null)
+			map.put("assign_date_str", assign_date_str);
+		if(assign_date != null)
+			map.put("assign_date", assign_date);
+		if(completion_date_str != null)
+			map.put("completion_date_str", completion_date_str);
+		if(completion_date != null)
+			map.put("completion_date", completion_date);
 		if(dob_str != null)
 			map.put("dob_str", dob_str);
 		if(dob != null)
@@ -707,6 +760,11 @@ public abstract class Basec4t_object extends BaseResource {
 		reference_no_1 = (String) map.get("reference_no_1");
 		reference_no_2 = (String) map.get("reference_no_2");
 		reporting_to_id = (String) map.get("reporting_to_id");
+		assign_to = (String) map.get("assign_to");
+		assign_date_str = (String) map.get("assign_date_str");
+		assign_date = (Long) map.get("assign_date");
+		completion_date_str = (String) map.get("completion_date_str");
+		completion_date = (Long) map.get("completion_date");
 		dob_str = (String) map.get("dob_str");
 		dob = (Long) map.get("dob");
 		creation_time = (Long) map.get("creation_time");
@@ -915,6 +973,26 @@ public abstract class Basec4t_object extends BaseResource {
 		Object reporting_to_idObj = map.get("reporting_to_id");
 		if(reporting_to_idObj != null)
 			reporting_to_id = reporting_to_idObj.toString();
+
+		Object assign_toObj = map.get("assign_to");
+		if(assign_toObj != null)
+			assign_to = assign_toObj.toString();
+
+		Object assign_date_strObj = map.get("assign_date_str");
+		if(assign_date_strObj != null)
+			assign_date_str = assign_date_strObj.toString();
+
+		Object assign_dateObj = map.get("assign_date");
+		if(assign_dateObj != null)
+			assign_date = new Long(assign_dateObj.toString());
+
+		Object completion_date_strObj = map.get("completion_date_str");
+		if(completion_date_strObj != null)
+			completion_date_str = completion_date_strObj.toString();
+
+		Object completion_dateObj = map.get("completion_date");
+		if(completion_dateObj != null)
+			completion_date = new Long(completion_dateObj.toString());
 
 		Object dob_strObj = map.get("dob_str");
 		if(dob_strObj != null)
@@ -1765,6 +1843,94 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetReporting_to_id() {
 		this.reporting_to_id = null;
+	}
+
+	public String getAssign_to() {
+		return assign_to;
+	}
+
+	public String getAssign_toEx() {
+		return assign_to != null ? assign_to : "";
+	}
+
+	public void setAssign_to(String assign_to) {
+		this.assign_to = assign_to;
+	}
+
+	public void unSetAssign_to() {
+		this.assign_to = null;
+	}
+
+	public String getAssign_date_str() {
+		return assign_date_str;
+	}
+
+	public String getAssign_date_strEx() {
+		return assign_date_str != null ? assign_date_str : "";
+	}
+
+	public void setAssign_date_str(String assign_date_str) {
+		this.assign_date_str = assign_date_str;
+	}
+
+	public void unSetAssign_date_str() {
+		this.assign_date_str = null;
+	}
+
+	public Long getAssign_date() {
+		return assign_date;
+	}
+
+	public long getAssign_dateEx() {
+		return assign_date != null ? assign_date : 0L;
+	}
+
+	public void setAssign_date(long assign_date) {
+		this.assign_date = assign_date;
+	}
+
+	public void setAssign_date(Long assign_date) {
+		this.assign_date = assign_date;
+	}
+
+	public void unSetAssign_date() {
+		this.assign_date = null;
+	}
+
+	public String getCompletion_date_str() {
+		return completion_date_str;
+	}
+
+	public String getCompletion_date_strEx() {
+		return completion_date_str != null ? completion_date_str : "";
+	}
+
+	public void setCompletion_date_str(String completion_date_str) {
+		this.completion_date_str = completion_date_str;
+	}
+
+	public void unSetCompletion_date_str() {
+		this.completion_date_str = null;
+	}
+
+	public Long getCompletion_date() {
+		return completion_date;
+	}
+
+	public long getCompletion_dateEx() {
+		return completion_date != null ? completion_date : 0L;
+	}
+
+	public void setCompletion_date(long completion_date) {
+		this.completion_date = completion_date;
+	}
+
+	public void setCompletion_date(Long completion_date) {
+		this.completion_date = completion_date;
+	}
+
+	public void unSetCompletion_date() {
+		this.completion_date = null;
 	}
 
 	public String getDob_str() {
