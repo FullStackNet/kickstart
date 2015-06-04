@@ -39,6 +39,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'share_name':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'share_duration':
 			{
 				'type':'long'

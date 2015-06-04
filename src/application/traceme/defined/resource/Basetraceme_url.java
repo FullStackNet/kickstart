@@ -26,6 +26,7 @@ public abstract class Basetraceme_url extends BaseResource {
 	private Long end_time = null;
 	private String latitude = null;
 	private String longitude = null;
+	private String share_name = null;
 	private Long share_duration = null;
 	private String status = null;
 	private Long creation_time = null;
@@ -38,6 +39,7 @@ public abstract class Basetraceme_url extends BaseResource {
 	public static String FIELD_END_TIME = "end_time";
 	public static String FIELD_LATITUDE = "latitude";
 	public static String FIELD_LONGITUDE = "longitude";
+	public static String FIELD_SHARE_NAME = "share_name";
 	public static String FIELD_SHARE_DURATION = "share_duration";
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -76,6 +78,10 @@ public abstract class Basetraceme_url extends BaseResource {
 		longitudeField.setLength(128);
 		metaData.addField(longitudeField);
 
+		Field share_nameField = new Field("share_name", "String");
+		share_nameField.setLength(128);
+		metaData.addField(share_nameField);
+
 		Field share_durationField = new Field("share_duration", "long");
 		metaData.addField(share_durationField);
 
@@ -106,6 +112,7 @@ public abstract class Basetraceme_url extends BaseResource {
 		this.end_time = obj.end_time;
 		this.latitude = obj.latitude;
 		this.longitude = obj.longitude;
+		this.share_name = obj.share_name;
 		this.share_duration = obj.share_duration;
 		this.status = obj.status;
 		this.creation_time = obj.creation_time;
@@ -132,6 +139,8 @@ public abstract class Basetraceme_url extends BaseResource {
 			map.put("latitude", latitude);
 		if(longitude != null)
 			map.put("longitude", longitude);
+		if(share_name != null)
+			map.put("share_name", share_name);
 		if(share_duration != null)
 			map.put("share_duration", share_duration);
 		if(status != null)
@@ -159,6 +168,8 @@ public abstract class Basetraceme_url extends BaseResource {
 			map.put("latitude", latitude);
 		if(longitude != null)
 			map.put("longitude", longitude);
+		if(share_name != null)
+			map.put("share_name", share_name);
 		if(share_duration != null)
 			map.put("share_duration", share_duration);
 		if(status != null)
@@ -184,6 +195,7 @@ public abstract class Basetraceme_url extends BaseResource {
 		end_time = (Long) map.get("end_time");
 		latitude = (String) map.get("latitude");
 		longitude = (String) map.get("longitude");
+		share_name = (String) map.get("share_name");
 		share_duration = (Long) map.get("share_duration");
 		status = (String) map.get("status");
 		creation_time = (Long) map.get("creation_time");
@@ -219,6 +231,10 @@ public abstract class Basetraceme_url extends BaseResource {
 		Object longitudeObj = map.get("longitude");
 		if(longitudeObj != null)
 			longitude = longitudeObj.toString();
+
+		Object share_nameObj = map.get("share_name");
+		if(share_nameObj != null)
+			share_name = share_nameObj.toString();
 
 		Object share_durationObj = map.get("share_duration");
 		if(share_durationObj != null)
@@ -343,6 +359,22 @@ public abstract class Basetraceme_url extends BaseResource {
 
 	public void unSetLongitude() {
 		this.longitude = null;
+	}
+
+	public String getShare_name() {
+		return share_name;
+	}
+
+	public String getShare_nameEx() {
+		return share_name != null ? share_name : "";
+	}
+
+	public void setShare_name(String share_name) {
+		this.share_name = share_name;
+	}
+
+	public void unSetShare_name() {
+		this.share_name = null;
 	}
 
 	public Long getShare_duration() {
