@@ -52,7 +52,7 @@ public abstract class BaseLocationInMapView extends BaseView {
 		buffer.append("window.onload = function () {\n" +
 				"var mapOptions = { "+
 				"    center: new google.maps.LatLng(markers[0].lat, markers[0].lng), \n" +
-				"    zoom: 8, \n" +
+				"    zoom: 6, \n" +
 				"    mapTypeId: google.maps.MapTypeId.ROADMAP \n"+
 				"}; \n" +
 				"var map = new google.maps.Map(document.getElementById(\""+mDefinition.getId()+"\"), mapOptions);\n"+
