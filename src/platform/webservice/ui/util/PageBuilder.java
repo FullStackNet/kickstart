@@ -120,7 +120,7 @@ public class PageBuilder {
 			mHead.addChild(new TEXT("<script type=\"text/javascript\">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>"));
 		}
 		mBody.addChild(layout.getLayout());
-		String purechat = "<script type='text/javascript'>	"
+		/*String purechat = "<script type='text/javascript'>	"
 				+ "(function () { var done = false;	var script = document.createElement('script');	"
 				+ "script.async = true;	script.type = 'text/javascript'; "
 				+ "script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; "
@@ -130,7 +130,7 @@ public class PageBuilder {
 				+ "{	var w = new PCWidget({ c: '7774f0c8-7876-43ba-b5f4-0c1ea97e0008', f: true });	done = true;	}	};	})();	"
 				+ "</script>";
 		if (!mContext.getDomainName().contains("localhost"))
-			mBody.addChild(new TEXT(purechat));
+			mBody.addChild(new TEXT(purechat)); */
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
 		buffer.append(mHtml.getContent(0));
