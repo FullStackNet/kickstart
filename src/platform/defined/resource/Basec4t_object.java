@@ -61,6 +61,13 @@ public abstract class Basec4t_object extends BaseResource {
 	private String unit = null;
 	private String reference_id = null;
 	private String user_id = null;
+	private String verified = null;
+	private String reference_name_1 = null;
+	private String reference_name_2 = null;
+	private String reference_relation_1 = null;
+	private String reference_relation_2 = null;
+	private String reference_no_1 = null;
+	private String reference_no_2 = null;
 	private String reporting_to_id = null;
 	private String dob_str = null;
 	private Long dob = null;
@@ -110,6 +117,13 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_UNIT = "unit";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_VERIFIED = "verified";
+	public static String FIELD_REFERENCE_NAME_1 = "reference_name_1";
+	public static String FIELD_REFERENCE_NAME_2 = "reference_name_2";
+	public static String FIELD_REFERENCE_RELATION_1 = "reference_relation_1";
+	public static String FIELD_REFERENCE_RELATION_2 = "reference_relation_2";
+	public static String FIELD_REFERENCE_NO_1 = "reference_no_1";
+	public static String FIELD_REFERENCE_NO_2 = "reference_no_2";
 	public static String FIELD_REPORTING_TO_ID = "reporting_to_id";
 	public static String FIELD_DOB_STR = "dob_str";
 	public static String FIELD_DOB = "dob";
@@ -287,6 +301,34 @@ public abstract class Basec4t_object extends BaseResource {
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
 
+		Field verifiedField = new Field("verified", "String");
+		verifiedField.setLength(1);
+		metaData.addField(verifiedField);
+
+		Field reference_name_1Field = new Field("reference_name_1", "String");
+		reference_name_1Field.setLength(128);
+		metaData.addField(reference_name_1Field);
+
+		Field reference_name_2Field = new Field("reference_name_2", "String");
+		reference_name_2Field.setLength(128);
+		metaData.addField(reference_name_2Field);
+
+		Field reference_relation_1Field = new Field("reference_relation_1", "String");
+		reference_relation_1Field.setLength(128);
+		metaData.addField(reference_relation_1Field);
+
+		Field reference_relation_2Field = new Field("reference_relation_2", "String");
+		reference_relation_2Field.setLength(128);
+		metaData.addField(reference_relation_2Field);
+
+		Field reference_no_1Field = new Field("reference_no_1", "String");
+		reference_no_1Field.setLength(128);
+		metaData.addField(reference_no_1Field);
+
+		Field reference_no_2Field = new Field("reference_no_2", "String");
+		reference_no_2Field.setLength(128);
+		metaData.addField(reference_no_2Field);
+
 		Field reporting_to_idField = new Field("reporting_to_id", "String");
 		reporting_to_idField.setLength(128);
 		metaData.addField(reporting_to_idField);
@@ -359,6 +401,13 @@ public abstract class Basec4t_object extends BaseResource {
 		this.unit = obj.unit;
 		this.reference_id = obj.reference_id;
 		this.user_id = obj.user_id;
+		this.verified = obj.verified;
+		this.reference_name_1 = obj.reference_name_1;
+		this.reference_name_2 = obj.reference_name_2;
+		this.reference_relation_1 = obj.reference_relation_1;
+		this.reference_relation_2 = obj.reference_relation_2;
+		this.reference_no_1 = obj.reference_no_1;
+		this.reference_no_2 = obj.reference_no_2;
 		this.reporting_to_id = obj.reporting_to_id;
 		this.dob_str = obj.dob_str;
 		this.dob = obj.dob;
@@ -457,6 +506,20 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("reference_id", reference_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(verified != null)
+			map.put("verified", verified);
+		if(reference_name_1 != null)
+			map.put("reference_name_1", reference_name_1);
+		if(reference_name_2 != null)
+			map.put("reference_name_2", reference_name_2);
+		if(reference_relation_1 != null)
+			map.put("reference_relation_1", reference_relation_1);
+		if(reference_relation_2 != null)
+			map.put("reference_relation_2", reference_relation_2);
+		if(reference_no_1 != null)
+			map.put("reference_no_1", reference_no_1);
+		if(reference_no_2 != null)
+			map.put("reference_no_2", reference_no_2);
 		if(reporting_to_id != null)
 			map.put("reporting_to_id", reporting_to_id);
 		if(dob_str != null)
@@ -558,6 +621,20 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("reference_id", reference_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(verified != null)
+			map.put("verified", verified);
+		if(reference_name_1 != null)
+			map.put("reference_name_1", reference_name_1);
+		if(reference_name_2 != null)
+			map.put("reference_name_2", reference_name_2);
+		if(reference_relation_1 != null)
+			map.put("reference_relation_1", reference_relation_1);
+		if(reference_relation_2 != null)
+			map.put("reference_relation_2", reference_relation_2);
+		if(reference_no_1 != null)
+			map.put("reference_no_1", reference_no_1);
+		if(reference_no_2 != null)
+			map.put("reference_no_2", reference_no_2);
 		if(reporting_to_id != null)
 			map.put("reporting_to_id", reporting_to_id);
 		if(dob_str != null)
@@ -622,6 +699,13 @@ public abstract class Basec4t_object extends BaseResource {
 		unit = (String) map.get("unit");
 		reference_id = (String) map.get("reference_id");
 		user_id = (String) map.get("user_id");
+		verified = (String) map.get("verified");
+		reference_name_1 = (String) map.get("reference_name_1");
+		reference_name_2 = (String) map.get("reference_name_2");
+		reference_relation_1 = (String) map.get("reference_relation_1");
+		reference_relation_2 = (String) map.get("reference_relation_2");
+		reference_no_1 = (String) map.get("reference_no_1");
+		reference_no_2 = (String) map.get("reference_no_2");
 		reporting_to_id = (String) map.get("reporting_to_id");
 		dob_str = (String) map.get("dob_str");
 		dob = (Long) map.get("dob");
@@ -799,6 +883,34 @@ public abstract class Basec4t_object extends BaseResource {
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
+
+		Object verifiedObj = map.get("verified");
+		if(verifiedObj != null)
+			verified = verifiedObj.toString();
+
+		Object reference_name_1Obj = map.get("reference_name_1");
+		if(reference_name_1Obj != null)
+			reference_name_1 = reference_name_1Obj.toString();
+
+		Object reference_name_2Obj = map.get("reference_name_2");
+		if(reference_name_2Obj != null)
+			reference_name_2 = reference_name_2Obj.toString();
+
+		Object reference_relation_1Obj = map.get("reference_relation_1");
+		if(reference_relation_1Obj != null)
+			reference_relation_1 = reference_relation_1Obj.toString();
+
+		Object reference_relation_2Obj = map.get("reference_relation_2");
+		if(reference_relation_2Obj != null)
+			reference_relation_2 = reference_relation_2Obj.toString();
+
+		Object reference_no_1Obj = map.get("reference_no_1");
+		if(reference_no_1Obj != null)
+			reference_no_1 = reference_no_1Obj.toString();
+
+		Object reference_no_2Obj = map.get("reference_no_2");
+		if(reference_no_2Obj != null)
+			reference_no_2 = reference_no_2Obj.toString();
 
 		Object reporting_to_idObj = map.get("reporting_to_id");
 		if(reporting_to_idObj != null)
@@ -1525,6 +1637,118 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetUser_id() {
 		this.user_id = null;
+	}
+
+	public String getVerified() {
+		return verified;
+	}
+
+	public String getVerifiedEx() {
+		return verified != null ? verified : "";
+	}
+
+	public void setVerified(String verified) {
+		this.verified = verified;
+	}
+
+	public void unSetVerified() {
+		this.verified = null;
+	}
+
+	public String getReference_name_1() {
+		return reference_name_1;
+	}
+
+	public String getReference_name_1Ex() {
+		return reference_name_1 != null ? reference_name_1 : "";
+	}
+
+	public void setReference_name_1(String reference_name_1) {
+		this.reference_name_1 = reference_name_1;
+	}
+
+	public void unSetReference_name_1() {
+		this.reference_name_1 = null;
+	}
+
+	public String getReference_name_2() {
+		return reference_name_2;
+	}
+
+	public String getReference_name_2Ex() {
+		return reference_name_2 != null ? reference_name_2 : "";
+	}
+
+	public void setReference_name_2(String reference_name_2) {
+		this.reference_name_2 = reference_name_2;
+	}
+
+	public void unSetReference_name_2() {
+		this.reference_name_2 = null;
+	}
+
+	public String getReference_relation_1() {
+		return reference_relation_1;
+	}
+
+	public String getReference_relation_1Ex() {
+		return reference_relation_1 != null ? reference_relation_1 : "";
+	}
+
+	public void setReference_relation_1(String reference_relation_1) {
+		this.reference_relation_1 = reference_relation_1;
+	}
+
+	public void unSetReference_relation_1() {
+		this.reference_relation_1 = null;
+	}
+
+	public String getReference_relation_2() {
+		return reference_relation_2;
+	}
+
+	public String getReference_relation_2Ex() {
+		return reference_relation_2 != null ? reference_relation_2 : "";
+	}
+
+	public void setReference_relation_2(String reference_relation_2) {
+		this.reference_relation_2 = reference_relation_2;
+	}
+
+	public void unSetReference_relation_2() {
+		this.reference_relation_2 = null;
+	}
+
+	public String getReference_no_1() {
+		return reference_no_1;
+	}
+
+	public String getReference_no_1Ex() {
+		return reference_no_1 != null ? reference_no_1 : "";
+	}
+
+	public void setReference_no_1(String reference_no_1) {
+		this.reference_no_1 = reference_no_1;
+	}
+
+	public void unSetReference_no_1() {
+		this.reference_no_1 = null;
+	}
+
+	public String getReference_no_2() {
+		return reference_no_2;
+	}
+
+	public String getReference_no_2Ex() {
+		return reference_no_2 != null ? reference_no_2 : "";
+	}
+
+	public void setReference_no_2(String reference_no_2) {
+		this.reference_no_2 = reference_no_2;
+	}
+
+	public void unSetReference_no_2() {
+		this.reference_no_2 = null;
 	}
 
 	public String getReporting_to_id() {
