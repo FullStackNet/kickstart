@@ -79,6 +79,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String completion_date_str = null;
 	private Long completion_date = null;
 	private String dob_str = null;
+	private String flat_id = null;
+	private String flat_no = null;
 	private Long dob = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
@@ -144,6 +146,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_COMPLETION_DATE_STR = "completion_date_str";
 	public static String FIELD_COMPLETION_DATE = "completion_date";
 	public static String FIELD_DOB_STR = "dob_str";
+	public static String FIELD_FLAT_ID = "flat_id";
+	public static String FIELD_FLAT_NO = "flat_no";
 	public static String FIELD_DOB = "dob";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
@@ -389,6 +393,14 @@ public abstract class Basec4t_object extends BaseResource {
 		dob_strField.setLength(16);
 		metaData.addField(dob_strField);
 
+		Field flat_idField = new Field("flat_id", "String");
+		flat_idField.setLength(128);
+		metaData.addField(flat_idField);
+
+		Field flat_noField = new Field("flat_no", "String");
+		flat_noField.setLength(64);
+		metaData.addField(flat_noField);
+
 		Field dobField = new Field("dob", "long");
 		metaData.addField(dobField);
 
@@ -471,6 +483,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.completion_date_str = obj.completion_date_str;
 		this.completion_date = obj.completion_date;
 		this.dob_str = obj.dob_str;
+		this.flat_id = obj.flat_id;
+		this.flat_no = obj.flat_no;
 		this.dob = obj.dob;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
@@ -603,6 +617,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("completion_date", completion_date);
 		if(dob_str != null)
 			map.put("dob_str", dob_str);
+		if(flat_id != null)
+			map.put("flat_id", flat_id);
+		if(flat_no != null)
+			map.put("flat_no", flat_no);
 		if(dob != null)
 			map.put("dob", dob);
 		if(creation_time != null)
@@ -736,6 +754,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("completion_date", completion_date);
 		if(dob_str != null)
 			map.put("dob_str", dob_str);
+		if(flat_id != null)
+			map.put("flat_id", flat_id);
+		if(flat_no != null)
+			map.put("flat_no", flat_no);
 		if(dob != null)
 			map.put("dob", dob);
 		if(creation_time != null)
@@ -814,6 +836,8 @@ public abstract class Basec4t_object extends BaseResource {
 		completion_date_str = (String) map.get("completion_date_str");
 		completion_date = (Long) map.get("completion_date");
 		dob_str = (String) map.get("dob_str");
+		flat_id = (String) map.get("flat_id");
+		flat_no = (String) map.get("flat_no");
 		dob = (Long) map.get("dob");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
@@ -1061,6 +1085,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object dob_strObj = map.get("dob_str");
 		if(dob_strObj != null)
 			dob_str = dob_strObj.toString();
+
+		Object flat_idObj = map.get("flat_id");
+		if(flat_idObj != null)
+			flat_id = flat_idObj.toString();
+
+		Object flat_noObj = map.get("flat_no");
+		if(flat_noObj != null)
+			flat_no = flat_noObj.toString();
 
 		Object dobObj = map.get("dob");
 		if(dobObj != null)
@@ -2075,6 +2107,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetDob_str() {
 		this.dob_str = null;
+	}
+
+	public String getFlat_id() {
+		return flat_id;
+	}
+
+	public String getFlat_idEx() {
+		return flat_id != null ? flat_id : "";
+	}
+
+	public void setFlat_id(String flat_id) {
+		this.flat_id = flat_id;
+	}
+
+	public void unSetFlat_id() {
+		this.flat_id = null;
+	}
+
+	public String getFlat_no() {
+		return flat_no;
+	}
+
+	public String getFlat_noEx() {
+		return flat_no != null ? flat_no : "";
+	}
+
+	public void setFlat_no(String flat_no) {
+		this.flat_no = flat_no;
+	}
+
+	public void unSetFlat_no() {
+		this.flat_no = null;
 	}
 
 	public Long getDob() {

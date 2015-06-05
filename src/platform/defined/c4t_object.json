@@ -316,6 +316,16 @@
 				'type':'String',
 				'length': 16
 			},
+			'flat_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'flat_no':
+			{
+				'type':'String',
+				'length': 64
+			},
 			'dob':
 			{
 				'type':'long'
