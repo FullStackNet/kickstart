@@ -1266,7 +1266,11 @@ public class Util {
 		String str2 = firstString.substring(0, firstString.length()-2);
 		System.out.println(str);
 		System.out.println(str1+"-"+str2);
-		double value = Integer.parseInt(str2)+Double.parseDouble(str1+"."+decSplit[1])/60;
+		int value2 = 0;
+		if (!Util.isEmpty(str2)) {
+			value2 = Integer.parseInt(str2);
+		}
+		double value = value2+Double.parseDouble(str1+"."+decSplit[1])/60;
 		return (multipler)*value;
 	}
 
