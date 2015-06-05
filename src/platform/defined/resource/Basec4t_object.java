@@ -79,6 +79,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String completion_date_str = null;
 	private Long completion_date = null;
 	private String dob_str = null;
+	private String primary_contact_id = null;
 	private String flat_id = null;
 	private String flat_no = null;
 	private Long dob = null;
@@ -146,6 +147,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_COMPLETION_DATE_STR = "completion_date_str";
 	public static String FIELD_COMPLETION_DATE = "completion_date";
 	public static String FIELD_DOB_STR = "dob_str";
+	public static String FIELD_PRIMARY_CONTACT_ID = "primary_contact_id";
 	public static String FIELD_FLAT_ID = "flat_id";
 	public static String FIELD_FLAT_NO = "flat_no";
 	public static String FIELD_DOB = "dob";
@@ -393,6 +395,10 @@ public abstract class Basec4t_object extends BaseResource {
 		dob_strField.setLength(16);
 		metaData.addField(dob_strField);
 
+		Field primary_contact_idField = new Field("primary_contact_id", "String");
+		primary_contact_idField.setLength(128);
+		metaData.addField(primary_contact_idField);
+
 		Field flat_idField = new Field("flat_id", "String");
 		flat_idField.setLength(128);
 		metaData.addField(flat_idField);
@@ -483,6 +489,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.completion_date_str = obj.completion_date_str;
 		this.completion_date = obj.completion_date;
 		this.dob_str = obj.dob_str;
+		this.primary_contact_id = obj.primary_contact_id;
 		this.flat_id = obj.flat_id;
 		this.flat_no = obj.flat_no;
 		this.dob = obj.dob;
@@ -617,6 +624,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("completion_date", completion_date);
 		if(dob_str != null)
 			map.put("dob_str", dob_str);
+		if(primary_contact_id != null)
+			map.put("primary_contact_id", primary_contact_id);
 		if(flat_id != null)
 			map.put("flat_id", flat_id);
 		if(flat_no != null)
@@ -754,6 +763,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("completion_date", completion_date);
 		if(dob_str != null)
 			map.put("dob_str", dob_str);
+		if(primary_contact_id != null)
+			map.put("primary_contact_id", primary_contact_id);
 		if(flat_id != null)
 			map.put("flat_id", flat_id);
 		if(flat_no != null)
@@ -836,6 +847,7 @@ public abstract class Basec4t_object extends BaseResource {
 		completion_date_str = (String) map.get("completion_date_str");
 		completion_date = (Long) map.get("completion_date");
 		dob_str = (String) map.get("dob_str");
+		primary_contact_id = (String) map.get("primary_contact_id");
 		flat_id = (String) map.get("flat_id");
 		flat_no = (String) map.get("flat_no");
 		dob = (Long) map.get("dob");
@@ -1085,6 +1097,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object dob_strObj = map.get("dob_str");
 		if(dob_strObj != null)
 			dob_str = dob_strObj.toString();
+
+		Object primary_contact_idObj = map.get("primary_contact_id");
+		if(primary_contact_idObj != null)
+			primary_contact_id = primary_contact_idObj.toString();
 
 		Object flat_idObj = map.get("flat_id");
 		if(flat_idObj != null)
@@ -2107,6 +2123,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetDob_str() {
 		this.dob_str = null;
+	}
+
+	public String getPrimary_contact_id() {
+		return primary_contact_id;
+	}
+
+	public String getPrimary_contact_idEx() {
+		return primary_contact_id != null ? primary_contact_id : "";
+	}
+
+	public void setPrimary_contact_id(String primary_contact_id) {
+		this.primary_contact_id = primary_contact_id;
+	}
+
+	public void unSetPrimary_contact_id() {
+		this.primary_contact_id = null;
 	}
 
 	public String getFlat_id() {
