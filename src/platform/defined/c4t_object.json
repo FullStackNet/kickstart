@@ -233,6 +233,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'priority':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'user_id':
 			{
 				'type':'String',
