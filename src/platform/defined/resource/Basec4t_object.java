@@ -60,6 +60,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private Double customer_price = null;
 	private String unit = null;
 	private String reference_id = null;
+	private String reference_name = null;
+	private String release = null;
 	private String user_id = null;
 	private String verified = null;
 	private String reference_name_1 = null;
@@ -69,7 +71,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String reference_no_1 = null;
 	private String reference_no_2 = null;
 	private String reporting_to_id = null;
-	private String assign_to = null;
+	private String assign_to_id = null;
+	private String assign_to_name = null;
 	private String assign_date_str = null;
 	private Long assign_date = null;
 	private String completion_date_str = null;
@@ -121,6 +124,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_CUSTOMER_PRICE = "customer_price";
 	public static String FIELD_UNIT = "unit";
 	public static String FIELD_REFERENCE_ID = "reference_id";
+	public static String FIELD_REFERENCE_NAME = "reference_name";
+	public static String FIELD_RELEASE = "release";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_VERIFIED = "verified";
 	public static String FIELD_REFERENCE_NAME_1 = "reference_name_1";
@@ -130,7 +135,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_REFERENCE_NO_1 = "reference_no_1";
 	public static String FIELD_REFERENCE_NO_2 = "reference_no_2";
 	public static String FIELD_REPORTING_TO_ID = "reporting_to_id";
-	public static String FIELD_ASSIGN_TO = "assign_to";
+	public static String FIELD_ASSIGN_TO_ID = "assign_to_id";
+	public static String FIELD_ASSIGN_TO_NAME = "assign_to_name";
 	public static String FIELD_ASSIGN_DATE_STR = "assign_date_str";
 	public static String FIELD_ASSIGN_DATE = "assign_date";
 	public static String FIELD_COMPLETION_DATE_STR = "completion_date_str";
@@ -307,6 +313,14 @@ public abstract class Basec4t_object extends BaseResource {
 		reference_idField.setLength(128);
 		metaData.addField(reference_idField);
 
+		Field reference_nameField = new Field("reference_name", "String");
+		reference_nameField.setLength(128);
+		metaData.addField(reference_nameField);
+
+		Field releaseField = new Field("release", "String");
+		releaseField.setLength(128);
+		metaData.addField(releaseField);
+
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
@@ -343,9 +357,13 @@ public abstract class Basec4t_object extends BaseResource {
 		reporting_to_idField.setLength(128);
 		metaData.addField(reporting_to_idField);
 
-		Field assign_toField = new Field("assign_to", "String");
-		assign_toField.setLength(128);
-		metaData.addField(assign_toField);
+		Field assign_to_idField = new Field("assign_to_id", "String");
+		assign_to_idField.setLength(128);
+		metaData.addField(assign_to_idField);
+
+		Field assign_to_nameField = new Field("assign_to_name", "String");
+		assign_to_nameField.setLength(128);
+		metaData.addField(assign_to_nameField);
 
 		Field assign_date_strField = new Field("assign_date_str", "String");
 		assign_date_strField.setLength(16);
@@ -428,6 +446,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.customer_price = obj.customer_price;
 		this.unit = obj.unit;
 		this.reference_id = obj.reference_id;
+		this.reference_name = obj.reference_name;
+		this.release = obj.release;
 		this.user_id = obj.user_id;
 		this.verified = obj.verified;
 		this.reference_name_1 = obj.reference_name_1;
@@ -437,7 +457,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.reference_no_1 = obj.reference_no_1;
 		this.reference_no_2 = obj.reference_no_2;
 		this.reporting_to_id = obj.reporting_to_id;
-		this.assign_to = obj.assign_to;
+		this.assign_to_id = obj.assign_to_id;
+		this.assign_to_name = obj.assign_to_name;
 		this.assign_date_str = obj.assign_date_str;
 		this.assign_date = obj.assign_date;
 		this.completion_date_str = obj.completion_date_str;
@@ -537,6 +558,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("unit", unit);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
+		if(reference_name != null)
+			map.put("reference_name", reference_name);
+		if(release != null)
+			map.put("release", release);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(verified != null)
@@ -555,8 +580,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("reference_no_2", reference_no_2);
 		if(reporting_to_id != null)
 			map.put("reporting_to_id", reporting_to_id);
-		if(assign_to != null)
-			map.put("assign_to", assign_to);
+		if(assign_to_id != null)
+			map.put("assign_to_id", assign_to_id);
+		if(assign_to_name != null)
+			map.put("assign_to_name", assign_to_name);
 		if(assign_date_str != null)
 			map.put("assign_date_str", assign_date_str);
 		if(assign_date != null)
@@ -662,6 +689,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("unit", unit);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
+		if(reference_name != null)
+			map.put("reference_name", reference_name);
+		if(release != null)
+			map.put("release", release);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(verified != null)
@@ -680,8 +711,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("reference_no_2", reference_no_2);
 		if(reporting_to_id != null)
 			map.put("reporting_to_id", reporting_to_id);
-		if(assign_to != null)
-			map.put("assign_to", assign_to);
+		if(assign_to_id != null)
+			map.put("assign_to_id", assign_to_id);
+		if(assign_to_name != null)
+			map.put("assign_to_name", assign_to_name);
 		if(assign_date_str != null)
 			map.put("assign_date_str", assign_date_str);
 		if(assign_date != null)
@@ -751,6 +784,8 @@ public abstract class Basec4t_object extends BaseResource {
 		customer_price = (Double) map.get("customer_price");
 		unit = (String) map.get("unit");
 		reference_id = (String) map.get("reference_id");
+		reference_name = (String) map.get("reference_name");
+		release = (String) map.get("release");
 		user_id = (String) map.get("user_id");
 		verified = (String) map.get("verified");
 		reference_name_1 = (String) map.get("reference_name_1");
@@ -760,7 +795,8 @@ public abstract class Basec4t_object extends BaseResource {
 		reference_no_1 = (String) map.get("reference_no_1");
 		reference_no_2 = (String) map.get("reference_no_2");
 		reporting_to_id = (String) map.get("reporting_to_id");
-		assign_to = (String) map.get("assign_to");
+		assign_to_id = (String) map.get("assign_to_id");
+		assign_to_name = (String) map.get("assign_to_name");
 		assign_date_str = (String) map.get("assign_date_str");
 		assign_date = (Long) map.get("assign_date");
 		completion_date_str = (String) map.get("completion_date_str");
@@ -938,6 +974,14 @@ public abstract class Basec4t_object extends BaseResource {
 		if(reference_idObj != null)
 			reference_id = reference_idObj.toString();
 
+		Object reference_nameObj = map.get("reference_name");
+		if(reference_nameObj != null)
+			reference_name = reference_nameObj.toString();
+
+		Object releaseObj = map.get("release");
+		if(releaseObj != null)
+			release = releaseObj.toString();
+
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
@@ -974,9 +1018,13 @@ public abstract class Basec4t_object extends BaseResource {
 		if(reporting_to_idObj != null)
 			reporting_to_id = reporting_to_idObj.toString();
 
-		Object assign_toObj = map.get("assign_to");
-		if(assign_toObj != null)
-			assign_to = assign_toObj.toString();
+		Object assign_to_idObj = map.get("assign_to_id");
+		if(assign_to_idObj != null)
+			assign_to_id = assign_to_idObj.toString();
+
+		Object assign_to_nameObj = map.get("assign_to_name");
+		if(assign_to_nameObj != null)
+			assign_to_name = assign_to_nameObj.toString();
 
 		Object assign_date_strObj = map.get("assign_date_str");
 		if(assign_date_strObj != null)
@@ -1701,6 +1749,38 @@ public abstract class Basec4t_object extends BaseResource {
 		this.reference_id = null;
 	}
 
+	public String getReference_name() {
+		return reference_name;
+	}
+
+	public String getReference_nameEx() {
+		return reference_name != null ? reference_name : "";
+	}
+
+	public void setReference_name(String reference_name) {
+		this.reference_name = reference_name;
+	}
+
+	public void unSetReference_name() {
+		this.reference_name = null;
+	}
+
+	public String getRelease() {
+		return release;
+	}
+
+	public String getReleaseEx() {
+		return release != null ? release : "";
+	}
+
+	public void setRelease(String release) {
+		this.release = release;
+	}
+
+	public void unSetRelease() {
+		this.release = null;
+	}
+
 	public String getUser_id() {
 		return user_id;
 	}
@@ -1845,20 +1925,36 @@ public abstract class Basec4t_object extends BaseResource {
 		this.reporting_to_id = null;
 	}
 
-	public String getAssign_to() {
-		return assign_to;
+	public String getAssign_to_id() {
+		return assign_to_id;
 	}
 
-	public String getAssign_toEx() {
-		return assign_to != null ? assign_to : "";
+	public String getAssign_to_idEx() {
+		return assign_to_id != null ? assign_to_id : "";
 	}
 
-	public void setAssign_to(String assign_to) {
-		this.assign_to = assign_to;
+	public void setAssign_to_id(String assign_to_id) {
+		this.assign_to_id = assign_to_id;
 	}
 
-	public void unSetAssign_to() {
-		this.assign_to = null;
+	public void unSetAssign_to_id() {
+		this.assign_to_id = null;
+	}
+
+	public String getAssign_to_name() {
+		return assign_to_name;
+	}
+
+	public String getAssign_to_nameEx() {
+		return assign_to_name != null ? assign_to_name : "";
+	}
+
+	public void setAssign_to_name(String assign_to_name) {
+		this.assign_to_name = assign_to_name;
+	}
+
+	public void unSetAssign_to_name() {
+		this.assign_to_name = null;
 	}
 
 	public String getAssign_date_str() {

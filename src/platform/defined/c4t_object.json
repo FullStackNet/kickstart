@@ -223,6 +223,16 @@
 				'type':'String',
 				'length': 128
 			},
+			'reference_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'release':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'user_id':
 			{
 				'type':'String',
@@ -268,7 +278,12 @@
 				'type':'String',
 				'length': 128
 			},
-			'assign_to':
+			'assign_to_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'assign_to_name':
 			{
 				'type':'String',
 				'length': 128
