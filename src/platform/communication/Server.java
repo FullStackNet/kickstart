@@ -253,17 +253,21 @@ class ClientReadHandler extends Communication implements Runnable {
 				}
 				responseMessageQueue.cleanUnAttendedMessage(session);
 			} catch (Exception e) {
+				e.printStackTrace();
 				ApplicationLogger.info("Exiting the Session due to exception and Pending messages are " + session.getPendingMessage()+"->"+e.getMessage()+"...."+session.getClientId(), this.getClass());
 				session.setDelete(true);
 			}
 		}
 		
 		try {
-			getReaderHandle().close();
-			getWriterHandle().close();
+			if (!((Socket)handle).isClosed()) {
+				getReaderHandle().close();
+				getWriterHandle().close();
+			}
 			((Socket)handle).close();
 			ApplicationLogger.warn("Peered closed the connection closing the connection "+session.getClientId()+" for "+server.getContext().getName()+"("+server.getContext().getPort()+")", this.getClass());
 		} catch(Exception e) {
+			e.printStackTrace();
 		}
 		session.setExited(true);
 		SessionManager.getInstance().deleteSession(handle.toString());
@@ -288,6 +292,9 @@ class ClientReadHandler extends Communication implements Runnable {
 	public PrintStream getWriterHandle() {
 		// TODO Auto-generated method stub
 		try {
+			if (((Socket)handle).isClosed()) {
+				return null;
+			}
 			return new PrintStream(((Socket)handle).getOutputStream());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
