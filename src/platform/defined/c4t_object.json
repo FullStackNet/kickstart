@@ -15,7 +15,8 @@
 			{
 				'name':'name',
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				index : true
 			},
 			'short_name':
 			{
@@ -39,7 +40,8 @@
 			{
 				'name':'name',
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				index : true
 			},
 			'community_type':
 			{
@@ -57,16 +59,12 @@
 			{
 				'name':'name',
 				'length': 128,
-				'type':'String'
+				'type':'String',
+				index : true
 			},
 			'type':
 			{
 				'name':'name',
-				'length': 128,
-				'type':'String'
-			},
-			'name':
-			{
 				'length': 128,
 				'type':'String'
 			},

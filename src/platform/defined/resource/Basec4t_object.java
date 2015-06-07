@@ -167,6 +167,7 @@ public abstract class Basec4t_object extends BaseResource {
 		metaData.addField(idField);
 
 		Field nameField = new Field("name", "String");
+		nameField.setIndexed(true);
 		nameField.setLength(128);
 		metaData.addField(nameField);
 
@@ -183,6 +184,7 @@ public abstract class Basec4t_object extends BaseResource {
 		metaData.addField(parent_idField);
 
 		Field community_idField = new Field("community_id", "String");
+		community_idField.setIndexed(true);
 		community_idField.setLength(128);
 		metaData.addField(community_idField);
 
@@ -195,6 +197,7 @@ public abstract class Basec4t_object extends BaseResource {
 		metaData.addField(customer_idField);
 
 		Field object_typeField = new Field("object_type", "String");
+		object_typeField.setIndexed(true);
 		object_typeField.setLength(128);
 		metaData.addField(object_typeField);
 
