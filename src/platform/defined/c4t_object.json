@@ -69,6 +69,12 @@
 				'length': 128,
 				'type':'String'
 			},
+			'sub_type':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
 			'gender':
 			{
 				'length': 10,

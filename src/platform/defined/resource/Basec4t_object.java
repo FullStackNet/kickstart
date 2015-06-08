@@ -29,6 +29,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String customer_id = null;
 	private String object_type = null;
 	private String type = null;
+	private String sub_type = null;
 	private String gender = null;
 	private String floor_no = null;
 	private String email_id = null;
@@ -97,6 +98,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_OBJECT_TYPE = "object_type";
 	public static String FIELD_TYPE = "type";
+	public static String FIELD_SUB_TYPE = "sub_type";
 	public static String FIELD_GENDER = "gender";
 	public static String FIELD_FLOOR_NO = "floor_no";
 	public static String FIELD_EMAIL_ID = "email_id";
@@ -180,6 +182,7 @@ public abstract class Basec4t_object extends BaseResource {
 		metaData.addField(brand_nameField);
 
 		Field parent_idField = new Field("parent_id", "String");
+		parent_idField.setIndexed(true);
 		parent_idField.setLength(128);
 		metaData.addField(parent_idField);
 
@@ -204,6 +207,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field typeField = new Field("type", "String");
 		typeField.setLength(128);
 		metaData.addField(typeField);
+
+		Field sub_typeField = new Field("sub_type", "String");
+		sub_typeField.setLength(128);
+		metaData.addField(sub_typeField);
 
 		Field genderField = new Field("gender", "String");
 		genderField.setLength(10);
@@ -442,6 +449,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.object_type = obj.object_type;
 		this.type = obj.type;
+		this.sub_type = obj.sub_type;
 		this.gender = obj.gender;
 		this.floor_no = obj.floor_no;
 		this.email_id = obj.email_id;
@@ -527,6 +535,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("object_type", object_type);
 		if(type != null)
 			map.put("type", type);
+		if(sub_type != null)
+			map.put("sub_type", sub_type);
 		if(gender != null)
 			map.put("gender", gender);
 		if(floor_no != null)
@@ -666,6 +676,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("object_type", object_type);
 		if(type != null)
 			map.put("type", type);
+		if(sub_type != null)
+			map.put("sub_type", sub_type);
 		if(gender != null)
 			map.put("gender", gender);
 		if(floor_no != null)
@@ -800,6 +812,7 @@ public abstract class Basec4t_object extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		object_type = (String) map.get("object_type");
 		type = (String) map.get("type");
+		sub_type = (String) map.get("sub_type");
 		gender = (String) map.get("gender");
 		floor_no = (String) map.get("floor_no");
 		email_id = (String) map.get("email_id");
@@ -900,6 +913,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object typeObj = map.get("type");
 		if(typeObj != null)
 			type = typeObj.toString();
+
+		Object sub_typeObj = map.get("sub_type");
+		if(sub_typeObj != null)
+			sub_type = sub_typeObj.toString();
 
 		Object genderObj = map.get("gender");
 		if(genderObj != null)
@@ -1298,6 +1315,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetType() {
 		this.type = null;
+	}
+
+	public String getSub_type() {
+		return sub_type;
+	}
+
+	public String getSub_typeEx() {
+		return sub_type != null ? sub_type : "";
+	}
+
+	public void setSub_type(String sub_type) {
+		this.sub_type = sub_type;
+	}
+
+	public void unSetSub_type() {
+		this.sub_type = null;
 	}
 
 	public String getGender() {
