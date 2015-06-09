@@ -94,6 +94,16 @@ public class C4t_objectHelper extends BaseHelper {
 		return C4t_objectHelper.getInstance().getById(ids,orderby);
 	}	
 
+	public BaseResource[] getByRelationMap(String from_id, Expression condition, String relation_type,String[] orderby) {
+		String[] ids = C4t_relationHelper.getInstance().getByRelationMap(from_id, relation_type);
+		if (Util.isEmpty(ids)) {
+			return null;
+		}
+		Expression e1 = new Expression(c4t_object.FIELD_ID, REL_OP.IN, ids);
+		Expression e = new Expression(condition, LOG_OP.AND, e1);
+		return C4t_objectHelper.getInstance().getByExpression(e,orderby);
+	}	
+	
 	public BaseResource[] getByRelationMap(String from_id, String relation_type) {
 		String[] ids = C4t_relationHelper.getInstance().getByRelationMap(from_id, relation_type);
 		if (Util.isEmpty(ids)) {

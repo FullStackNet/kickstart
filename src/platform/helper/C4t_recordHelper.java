@@ -9,8 +9,10 @@ import platform.db.JoinField;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
+import platform.resource.c4t_object;
 import platform.resource.c4t_record;
 import platform.util.ApplicationException;
+import platform.util.Util;
 
 
 public class C4t_recordHelper extends BaseHelper {
@@ -34,6 +36,17 @@ public class C4t_recordHelper extends BaseHelper {
 		_record.setSent_time(new Date().getTime());
 		update(_record);
 	}
+	
+	public BaseResource[] getByRelationMap(String from_id, Expression condition, String relation_type,String[] orderby) {
+		String[] ids = C4t_record_mapHelper.getInstance().getByRelationMap(from_id, relation_type);
+		if (Util.isEmpty(ids)) {
+			return null;
+		}
+		Expression e1 = new Expression(c4t_object.FIELD_ID, REL_OP.IN, ids);
+		Expression e = new Expression(condition, LOG_OP.AND, e1);
+		return C4t_recordHelper.getInstance().getByExpression(e,orderby);
+	}	
+	
 	public BaseResource[] getForCommunity(String[] ids,String record_type, String[] orderby, long fromtime, long totime) {
 		Expression e1 = new Expression(c4t_record.FIELD_RECORD_TYPE, REL_OP.EQ, record_type);
 		Expression e2 = new Expression(c4t_record.FIELD_COMMUNITY_ID, REL_OP.IN, ids);
