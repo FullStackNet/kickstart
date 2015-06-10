@@ -179,17 +179,18 @@ public class InviteHelper extends BaseHelper {
 			InviteHelper.getInstance().parentInviteAccepted(_fetched_resource, _user.getId());
 		}
 		if (invite.INVITE_TYPE_JOIN_COMMUNITY.equals(_fetched_resource.getInvite_type())) {
-				c4t_object _community = C4t_objectHelper.getInstance().getById(_fetched_resource.getCommunity_id());
+			 	 c4t_object _community = C4t_objectHelper.getInstance().getById(_fetched_resource.getCommunity_id());
 				 c4t_object _object = new c4t_object(_user.getId()+"^"+_fetched_resource.getRelation()+"^"+_fetched_resource.getCommunity_id());
 				 _object.setObject_type("COMMUNITY_USER");
 				 _object.setUser_id(_user.getId());
-				_object.setParent_id(_fetched_resource.getCommunity_id());
-				_object.setName(_community.getName());
-				_object.setType(_fetched_resource.getRelation());
-				_object.setCommunity_type(_community.getType());
-				_object.setReference_id(_fetched_resource.getReference_id());
-				C4t_objectHelper.getInstance().AddOrUpdate(_object);
-				C4t_objectHelper.getInstance().updateUserId(_fetched_resource.getReference_id(),_user.getId());
+				 _object.setParent_id(_fetched_resource.getCommunity_id());
+				 _object.setName(_community.getName());
+				 _object.setType(_fetched_resource.getRelation());
+				 _object.setCommunity_type(_community.getType());
+				 _object.setReference_id(_fetched_resource.getReference_id());
+				 _object.setCompany_name(_fetched_resource.getCompany_name());
+				 C4t_objectHelper.getInstance().AddOrUpdate(_object);
+				 C4t_objectHelper.getInstance().updateUserId(_fetched_resource.getReference_id(),_user.getId());
 		}
 		if (invite.INVITE_TYPE_JOIN_TEACHER.equals(_fetched_resource.getInvite_type())) {
 			// check the user if exists
