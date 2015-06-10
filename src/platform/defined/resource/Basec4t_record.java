@@ -227,6 +227,7 @@ public abstract class Basec4t_record extends BaseResource {
 		metaData.addField(descriptionField);
 
 		Field event_dateField = new Field("event_date", "timestamp");
+		event_dateField.setIndexed(true);
 		metaData.addField(event_dateField);
 
 		Field event_date_strField = new Field("event_date_str", "String");

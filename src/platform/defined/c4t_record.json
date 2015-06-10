@@ -143,7 +143,8 @@
 				'type': 'String'
 			},
 			'event_date': {
-				'type': 'timestamp'
+				'type': 'timestamp',
+				index : true
 			},
 			'event_date_str': {
 				'type': 'String',
