@@ -29,6 +29,11 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'classes':
+			{
+				'type':'Array',
+				'valueType' : 'String' 
 			}
 		}
 	}

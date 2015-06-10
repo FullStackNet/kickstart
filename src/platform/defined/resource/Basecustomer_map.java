@@ -24,6 +24,7 @@ public abstract class Basecustomer_map extends BaseResource {
 	private ArrayList<Object> join = null;
 	private ArrayList<Object> controllers = null;
 	private ArrayList<Object> locations = null;
+	private ArrayList<String> classes = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -31,6 +32,7 @@ public abstract class Basecustomer_map extends BaseResource {
 	public static String FIELD_JOIN = "join";
 	public static String FIELD_CONTROLLERS = "controllers";
 	public static String FIELD_LOCATIONS = "locations";
+	public static String FIELD_CLASSES = "classes";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -56,6 +58,9 @@ public abstract class Basecustomer_map extends BaseResource {
 		Field locationsField = new Field("locations", "Array");
 		metaData.addField(locationsField);
 
+		Field classesField = new Field("classes", "Array");
+		metaData.addField(classesField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -74,6 +79,7 @@ public abstract class Basecustomer_map extends BaseResource {
 		this.join = obj.join;
 		this.controllers = obj.controllers;
 		this.locations = obj.locations;
+		this.classes = obj.classes;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -93,6 +99,8 @@ public abstract class Basecustomer_map extends BaseResource {
 			map.put("controllers", controllers);
 		if(locations != null)
 			map.put("locations", locations);
+		if(classes != null)
+			map.put("classes", classes);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -110,6 +118,8 @@ public abstract class Basecustomer_map extends BaseResource {
 			map.put("controllers", controllers);
 		if(locations != null)
 			map.put("locations", locations);
+		if(classes != null)
+			map.put("classes", classes);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -127,6 +137,7 @@ public abstract class Basecustomer_map extends BaseResource {
 		join = (ArrayList<Object>) map.get("join");
 		controllers = (ArrayList<Object>) map.get("controllers");
 		locations = (ArrayList<Object>) map.get("locations");
+		classes = (ArrayList<String>) map.get("classes");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -140,6 +151,7 @@ public abstract class Basecustomer_map extends BaseResource {
 		join = (ArrayList<Object>) map.get("join");
 		controllers = (ArrayList<Object>) map.get("controllers");
 		locations = (ArrayList<Object>) map.get("locations");
+		classes = (ArrayList<String>) map.get("classes");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -245,6 +257,25 @@ public abstract class Basecustomer_map extends BaseResource {
 
 	public void unSetLocations() {
 		this.locations = null;
+	}
+
+	public ArrayList<String> getClasses() {
+		return classes;
+	}
+
+
+	public void setClasses(ArrayList<String> classes) {
+		this.classes = classes;
+	}
+
+	public void addClasses(String value) {
+		if(classes == null)
+			classes = new ArrayList<String>();
+		classes.add(value);
+	}
+
+	public void unSetClasses() {
+		this.classes = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
