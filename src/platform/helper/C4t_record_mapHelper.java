@@ -65,4 +65,18 @@ public class C4t_record_mapHelper extends BaseHelper {
 		}
 	}
 	
+	public void removeRelationMap(String record_id,String to_id, String relation_type) {
+		String id = c4t_record_map.getMapId(record_id, relation_type);
+		c4t_record_map relation = new c4t_record_map(id);
+		relation.setRecord_id(record_id);
+		relation.setReference_id(to_id);
+		relation.setRecord_map_type(relation_type);
+		relation.addRecord_map(to_id);
+		try {
+			C4t_record_mapHelper.getInstance().unset(relation);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
