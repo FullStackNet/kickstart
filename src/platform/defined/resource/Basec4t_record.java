@@ -40,6 +40,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String reference_name = null;
 	private String mobile_no = null;
 	private String company_name = null;
+	private String record_status = null;
 	private String designation = null;
 	private String address = null;
 	private Double quantity = null;
@@ -85,6 +86,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_REFERENCE_NAME = "reference_name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_COMPANY_NAME = "company_name";
+	public static String FIELD_RECORD_STATUS = "record_status";
 	public static String FIELD_DESIGNATION = "designation";
 	public static String FIELD_ADDRESS = "address";
 	public static String FIELD_QUANTITY = "quantity";
@@ -207,6 +209,10 @@ public abstract class Basec4t_record extends BaseResource {
 		company_nameField.setLength(128);
 		metaData.addField(company_nameField);
 
+		Field record_statusField = new Field("record_status", "String");
+		record_statusField.setLength(32);
+		metaData.addField(record_statusField);
+
 		Field designationField = new Field("designation", "String");
 		designationField.setLength(512);
 		metaData.addField(designationField);
@@ -320,6 +326,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.reference_name = obj.reference_name;
 		this.mobile_no = obj.mobile_no;
 		this.company_name = obj.company_name;
+		this.record_status = obj.record_status;
 		this.designation = obj.designation;
 		this.address = obj.address;
 		this.quantity = obj.quantity;
@@ -402,6 +409,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(company_name != null)
 			map.put("company_name", company_name);
+		if(record_status != null)
+			map.put("record_status", record_status);
 		if(designation != null)
 			map.put("designation", designation);
 		if(address != null)
@@ -498,6 +507,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(company_name != null)
 			map.put("company_name", company_name);
+		if(record_status != null)
+			map.put("record_status", record_status);
 		if(designation != null)
 			map.put("designation", designation);
 		if(address != null)
@@ -575,6 +586,7 @@ public abstract class Basec4t_record extends BaseResource {
 		reference_name = (String) map.get("reference_name");
 		mobile_no = (String) map.get("mobile_no");
 		company_name = (String) map.get("company_name");
+		record_status = (String) map.get("record_status");
 		designation = (String) map.get("designation");
 		address = (String) map.get("address");
 		quantity = (Double) map.get("quantity");
@@ -685,6 +697,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object company_nameObj = map.get("company_name");
 		if(company_nameObj != null)
 			company_name = company_nameObj.toString();
+
+		Object record_statusObj = map.get("record_status");
+		if(record_statusObj != null)
+			record_status = record_statusObj.toString();
 
 		Object designationObj = map.get("designation");
 		if(designationObj != null)
@@ -1123,6 +1139,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetCompany_name() {
 		this.company_name = null;
+	}
+
+	public String getRecord_status() {
+		return record_status;
+	}
+
+	public String getRecord_statusEx() {
+		return record_status != null ? record_status : "";
+	}
+
+	public void setRecord_status(String record_status) {
+		this.record_status = record_status;
+	}
+
+	public void unSetRecord_status() {
+		this.record_status = null;
 	}
 
 	public String getDesignation() {
