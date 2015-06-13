@@ -326,6 +326,29 @@ public class BaseHelper {
 		return getLatest(exp,new String[]{"creation_time desc"},number);
 	}
 	
+	public BaseResource[] getPage(Expression exp, String[] order, int pageno, int number) {
+		BaseResource[] resources = null;
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			List<Map<String, Object>> rows = connection.getPage(resource.getMetaData(),exp,order,pageno,number);
+			resources = new BaseResource[rows.size()];
+			int i = 0;
+			for(Map<String, Object> row : rows) {
+				BaseResource clonedResource = (BaseResource) this.resource.clone();
+				clonedResource.convertMapToResource(row);
+				resources[i++] = clonedResource;
+			}
+
+		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return resources;
+	}
+	
 	public BaseResource[] getLatest(Expression exp, String[] order, int number) {
 		BaseResource[] resources = null;
 		DbConnection connection = null;

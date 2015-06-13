@@ -210,7 +210,7 @@ public abstract class BaseTableView extends BaseView {
 
 		tr = new TR();
 		td = new TD();
-		td.addAttribute("colspan", "10");
+		td.addAttribute("colspan", "20");
 		td.addAttribute("style", "padding : 3px 3px 3px 3px;");
 		td.addChild(table);
 		tr.addChild(td);
@@ -403,7 +403,7 @@ public abstract class BaseTableView extends BaseView {
 		}
 		row.addAttribute("style","background-color: transparent;text-align:center;padding:0;");
 		td = new TD();
-		td.addAttribute("colspan", "10");
+		td.addAttribute("colspan", "20");
 		td.addAttribute("style","padding:10px;text-align : right");
 		if (list != null) {
 			td.setText(" Total Records : " + list.size());
