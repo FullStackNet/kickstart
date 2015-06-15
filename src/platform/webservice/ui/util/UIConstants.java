@@ -77,7 +77,9 @@ public class UIConstants {
 			"PRE PRIMARYPlayschool",
 			"Day Care",
 			"Day Care/Toddler",
-			
+			"Day Care/NURSERY",
+			"Day Care/LKG",
+			"Day Care/UKG",
 	};
 
 	public final static String[] GENDER_ENUM = new String[] {
