@@ -195,7 +195,8 @@ public class InviteHelper extends BaseHelper {
 				 _object.setEmail_id(_fetched_resource.getEmail_id());
 				 C4t_objectHelper.getInstance().AddOrUpdate(_object);
 				 C4t_objectHelper.getInstance().updateUserId(_fetched_resource.getReference_id(),_user.getId());
-				 C4t_relationHelper.getInstance().addRelationMap(_user.getId(), _fetched_resource.getReference_id(), _fetched_resource.getRelation());
+				 String key = _community.getId()+"^"+_user.getId();
+				 C4t_relationHelper.getInstance().addRelationMap(key, _fetched_resource.getReference_id(), _fetched_resource.getRelation());
 		}
 		if (invite.INVITE_TYPE_JOIN_TEACHER.equals(_fetched_resource.getInvite_type())) {
 			// check the user if exists
