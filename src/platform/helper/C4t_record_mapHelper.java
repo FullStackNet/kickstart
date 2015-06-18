@@ -1,9 +1,13 @@
 package platform.helper;
 
+import java.util.ArrayList;
+
 import platform.resource.BaseResource;
 import platform.resource.c4t_record;
 import platform.resource.c4t_record_map;
+import platform.resource.c4t_relation;
 import platform.util.ApplicationException;
+import platform.util.Util;
 
 
 public class C4t_record_mapHelper extends BaseHelper {
@@ -26,6 +30,27 @@ public class C4t_record_mapHelper extends BaseHelper {
 		if (_map == null)
 			return null;
 		return _map.getRecord_map().toArray(new String[_map.getRecord_map().size()]);
+	}
+	
+	public String[] getByRelationMap(String from_ids[], String relation_type) {
+		ArrayList<String> list = new ArrayList<>();
+		
+		String[] ids = new String[from_ids.length];
+		for(int i =0; i < from_ids.length; i++) {
+			ids[i] = c4t_record_map.getMapId(from_ids[i], relation_type);
+		}
+		BaseResource[] _maps = C4t_record_mapHelper.getInstance().getById(ids);
+		if (Util.isEmpty(_maps))
+			return null;
+		for(int i=0; i < _maps.length; i++) {
+			c4t_record_map _map = (c4t_record_map)_maps[i];
+			if (!Util.isEmpty(_map.getRecord_map())) {
+				for(int j=0; j < _map.getRecord_map().size(); j++) {
+					list.add(_map.getRecord_map().get(j).toString());
+				}
+			}
+		}
+		return list.toArray(new String[list.size()]);
 	}
 	
 	public void manageRecentEntry(String key,String relation_type,int max_entry) {
@@ -64,6 +89,8 @@ public class C4t_record_mapHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	public void removeRelationMap(String record_id,String to_id, String relation_type) {
 		String id = c4t_record_map.getMapId(record_id, relation_type);
