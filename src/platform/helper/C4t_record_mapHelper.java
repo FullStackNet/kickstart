@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import platform.resource.BaseResource;
 import platform.resource.c4t_record;
 import platform.resource.c4t_record_map;
-import platform.resource.c4t_relation;
 import platform.util.ApplicationException;
 import platform.util.Util;
 
