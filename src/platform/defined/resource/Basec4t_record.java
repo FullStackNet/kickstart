@@ -36,6 +36,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String user_name = null;
 	private String product_id = null;
 	private String product_name = null;
+	private String product_unit = null;
 	private String reference_id = null;
 	private String reference_name = null;
 	private String mobile_no = null;
@@ -82,6 +83,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
+	public static String FIELD_PRODUCT_UNIT = "product_unit";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_REFERENCE_NAME = "reference_name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
@@ -192,6 +194,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Field product_nameField = new Field("product_name", "String");
 		product_nameField.setLength(512);
 		metaData.addField(product_nameField);
+
+		Field product_unitField = new Field("product_unit", "String");
+		product_unitField.setLength(128);
+		metaData.addField(product_unitField);
 
 		Field reference_idField = new Field("reference_id", "String");
 		reference_idField.setLength(128);
@@ -322,6 +328,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.user_name = obj.user_name;
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
+		this.product_unit = obj.product_unit;
 		this.reference_id = obj.reference_id;
 		this.reference_name = obj.reference_name;
 		this.mobile_no = obj.mobile_no;
@@ -401,6 +408,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(product_unit != null)
+			map.put("product_unit", product_unit);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
 		if(reference_name != null)
@@ -499,6 +508,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(product_unit != null)
+			map.put("product_unit", product_unit);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
 		if(reference_name != null)
@@ -582,6 +593,7 @@ public abstract class Basec4t_record extends BaseResource {
 		user_name = (String) map.get("user_name");
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
+		product_unit = (String) map.get("product_unit");
 		reference_id = (String) map.get("reference_id");
 		reference_name = (String) map.get("reference_name");
 		mobile_no = (String) map.get("mobile_no");
@@ -681,6 +693,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object product_nameObj = map.get("product_name");
 		if(product_nameObj != null)
 			product_name = product_nameObj.toString();
+
+		Object product_unitObj = map.get("product_unit");
+		if(product_unitObj != null)
+			product_unit = product_unitObj.toString();
 
 		Object reference_idObj = map.get("reference_id");
 		if(reference_idObj != null)
@@ -1075,6 +1091,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetProduct_name() {
 		this.product_name = null;
+	}
+
+	public String getProduct_unit() {
+		return product_unit;
+	}
+
+	public String getProduct_unitEx() {
+		return product_unit != null ? product_unit : "";
+	}
+
+	public void setProduct_unit(String product_unit) {
+		this.product_unit = product_unit;
+	}
+
+	public void unSetProduct_unit() {
+		this.product_unit = null;
 	}
 
 	public String getReference_id() {
