@@ -1,0 +1,344 @@
+{
+	"c4t_transient_object" :
+	{
+		"cluster": "DB_OBJECT",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'short_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'brand_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'parent_id':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'community_id':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'community_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'object_type':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'type':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'sub_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'gender':
+			{
+				'length': 10,
+				'type':'String'
+			},
+			'floor_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'email_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'status':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'role':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'address':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'area':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'city':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'state':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'country':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'feature_distributer_management':
+			{
+				'type':'String',
+				'length': 1,
+				'remark' : "only for business communities"
+			},
+			'feature_dealer_management':
+			{
+				'type':'String',
+				'length': 1,
+				'remark' : "only for business communities"
+			},
+			'no_of_flats':
+			{
+				'type':'int'
+			},
+			'block_id':
+			{
+				'type':'String',
+				'length': 80
+			},
+			'profession':
+			{
+				'type':'String',
+				'length': 80
+			},
+			'company_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'domain':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'designation':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'resident':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'zip_code':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'feature_send_sms':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'feature_send_email':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'mrp_price':
+			{
+				'type':'double'
+			},
+			'distribter_price':
+			{
+				'type':'double'
+			},
+			'attribute_name':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'attribute_value':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'dealer_price':
+			{
+				'type':'double'
+			},
+			'customer_price':
+			{
+				'type':'double'
+			},
+			'unit':
+			{
+				'type':'String',
+				'length': 32
+				
+			},
+			'reference_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'reference_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'release':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'priority':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'user_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'verified':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'reference_name_1':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'reference_name_2':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'reference_relation_1':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'reference_relation_2':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'reference_no_1':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'reference_no_2':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'reporting_to_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'assign_to_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'assign_to_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'assign_date_str':
+			{
+				'type':'String',
+				'length': 16
+			},
+			'assign_date':
+			{
+				'type':'long'
+			},
+			'completion_date_str':
+			{
+				'type':'String',
+				'length': 16
+			},
+			'completion_date':
+			{
+				'type':'long'
+			},
+			'dob_str':
+			{
+				'type':'String',
+				'length': 16
+			},
+			'primary_contact_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'flat_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'flat_no':
+			{
+				'type':'String',
+				'length': 64
+			},
+			'dob':
+			{
+				'type':'long'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			},
+		
+			'updation_time':
+			{
+				'type':'timestamp'
+			}			
+		}
+	}
+}

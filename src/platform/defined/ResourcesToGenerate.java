@@ -75,7 +75,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("place", "platform.resource.place"),	
 		new ResourceMap("c4t_record", "platform.resource.c4t_record"),	
 		new ResourceMap("c4t_record_map", "platform.resource.c4t_record_map"),	
-		new ResourceMap("c4t_record_detail", "platform.resource.c4t_record_detail")	
-
+		new ResourceMap("c4t_record_detail", "platform.resource.c4t_record_detail"),	
+		new ResourceMap("c4t_transient_object", "platform.resource.c4t_transient_object"),	
+		
 	};
 }
