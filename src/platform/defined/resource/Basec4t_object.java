@@ -84,6 +84,9 @@ public abstract class Basec4t_object extends BaseResource {
 	private String flat_id = null;
 	private String flat_no = null;
 	private Long dob = null;
+	private Long notification_orders = null;
+	private Long notification_offers = null;
+	private Long notification_communication = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -153,6 +156,9 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FLAT_ID = "flat_id";
 	public static String FIELD_FLAT_NO = "flat_no";
 	public static String FIELD_DOB = "dob";
+	public static String FIELD_NOTIFICATION_ORDERS = "notification_orders";
+	public static String FIELD_NOTIFICATION_OFFERS = "notification_offers";
+	public static String FIELD_NOTIFICATION_COMMUNICATION = "notification_communication";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -420,6 +426,15 @@ public abstract class Basec4t_object extends BaseResource {
 		Field dobField = new Field("dob", "long");
 		metaData.addField(dobField);
 
+		Field notification_ordersField = new Field("notification_orders", "long");
+		metaData.addField(notification_ordersField);
+
+		Field notification_offersField = new Field("notification_offers", "long");
+		metaData.addField(notification_offersField);
+
+		Field notification_communicationField = new Field("notification_communication", "long");
+		metaData.addField(notification_communicationField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -504,6 +519,9 @@ public abstract class Basec4t_object extends BaseResource {
 		this.flat_id = obj.flat_id;
 		this.flat_no = obj.flat_no;
 		this.dob = obj.dob;
+		this.notification_orders = obj.notification_orders;
+		this.notification_offers = obj.notification_offers;
+		this.notification_communication = obj.notification_communication;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
 		this.extra_data = obj.extra_data;
@@ -645,6 +663,12 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("flat_no", flat_no);
 		if(dob != null)
 			map.put("dob", dob);
+		if(notification_orders != null)
+			map.put("notification_orders", notification_orders);
+		if(notification_offers != null)
+			map.put("notification_offers", notification_offers);
+		if(notification_communication != null)
+			map.put("notification_communication", notification_communication);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -786,6 +810,12 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("flat_no", flat_no);
 		if(dob != null)
 			map.put("dob", dob);
+		if(notification_orders != null)
+			map.put("notification_orders", notification_orders);
+		if(notification_offers != null)
+			map.put("notification_offers", notification_offers);
+		if(notification_communication != null)
+			map.put("notification_communication", notification_communication);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -867,6 +897,9 @@ public abstract class Basec4t_object extends BaseResource {
 		flat_id = (String) map.get("flat_id");
 		flat_no = (String) map.get("flat_no");
 		dob = (Long) map.get("dob");
+		notification_orders = (Long) map.get("notification_orders");
+		notification_offers = (Long) map.get("notification_offers");
+		notification_communication = (Long) map.get("notification_communication");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -1133,6 +1166,18 @@ public abstract class Basec4t_object extends BaseResource {
 		Object dobObj = map.get("dob");
 		if(dobObj != null)
 			dob = new Long(dobObj.toString());
+
+		Object notification_ordersObj = map.get("notification_orders");
+		if(notification_ordersObj != null)
+			notification_orders = new Long(notification_ordersObj.toString());
+
+		Object notification_offersObj = map.get("notification_offers");
+		if(notification_offersObj != null)
+			notification_offers = new Long(notification_offersObj.toString());
+
+		Object notification_communicationObj = map.get("notification_communication");
+		if(notification_communicationObj != null)
+			notification_communication = new Long(notification_communicationObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -2227,6 +2272,66 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetDob() {
 		this.dob = null;
+	}
+
+	public Long getNotification_orders() {
+		return notification_orders;
+	}
+
+	public long getNotification_ordersEx() {
+		return notification_orders != null ? notification_orders : 0L;
+	}
+
+	public void setNotification_orders(long notification_orders) {
+		this.notification_orders = notification_orders;
+	}
+
+	public void setNotification_orders(Long notification_orders) {
+		this.notification_orders = notification_orders;
+	}
+
+	public void unSetNotification_orders() {
+		this.notification_orders = null;
+	}
+
+	public Long getNotification_offers() {
+		return notification_offers;
+	}
+
+	public long getNotification_offersEx() {
+		return notification_offers != null ? notification_offers : 0L;
+	}
+
+	public void setNotification_offers(long notification_offers) {
+		this.notification_offers = notification_offers;
+	}
+
+	public void setNotification_offers(Long notification_offers) {
+		this.notification_offers = notification_offers;
+	}
+
+	public void unSetNotification_offers() {
+		this.notification_offers = null;
+	}
+
+	public Long getNotification_communication() {
+		return notification_communication;
+	}
+
+	public long getNotification_communicationEx() {
+		return notification_communication != null ? notification_communication : 0L;
+	}
+
+	public void setNotification_communication(long notification_communication) {
+		this.notification_communication = notification_communication;
+	}
+
+	public void setNotification_communication(Long notification_communication) {
+		this.notification_communication = notification_communication;
+	}
+
+	public void unSetNotification_communication() {
+		this.notification_communication = null;
 	}
 
 	public Long getCreation_time() {

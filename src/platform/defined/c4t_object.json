@@ -330,6 +330,18 @@
 			{
 				'type':'long'
 			},
+			'notification_orders':
+			{
+				'type':'long'
+			},
+			'notification_offers':
+			{
+				'type':'long'
+			},
+			'notification_communication':
+			{
+				'type':'long'
+			},
 			'creation_time':
 			{
 				'type':'timestamp'
