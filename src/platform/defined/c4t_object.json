@@ -332,15 +332,15 @@
 			},
 			'notification_orders':
 			{
-				'type':'long'
+				'type':'int'
 			},
 			'notification_offers':
 			{
-				'type':'long'
+				'type':'int'
 			},
 			'notification_communication':
 			{
-				'type':'long'
+				'type':'int'
 			},
 			'creation_time':
 			{

@@ -84,9 +84,9 @@ public abstract class Basec4t_object extends BaseResource {
 	private String flat_id = null;
 	private String flat_no = null;
 	private Long dob = null;
-	private Long notification_orders = null;
-	private Long notification_offers = null;
-	private Long notification_communication = null;
+	private Integer notification_orders = null;
+	private Integer notification_offers = null;
+	private Integer notification_communication = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -426,13 +426,13 @@ public abstract class Basec4t_object extends BaseResource {
 		Field dobField = new Field("dob", "long");
 		metaData.addField(dobField);
 
-		Field notification_ordersField = new Field("notification_orders", "long");
+		Field notification_ordersField = new Field("notification_orders", "int");
 		metaData.addField(notification_ordersField);
 
-		Field notification_offersField = new Field("notification_offers", "long");
+		Field notification_offersField = new Field("notification_offers", "int");
 		metaData.addField(notification_offersField);
 
-		Field notification_communicationField = new Field("notification_communication", "long");
+		Field notification_communicationField = new Field("notification_communication", "int");
 		metaData.addField(notification_communicationField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
@@ -897,9 +897,9 @@ public abstract class Basec4t_object extends BaseResource {
 		flat_id = (String) map.get("flat_id");
 		flat_no = (String) map.get("flat_no");
 		dob = (Long) map.get("dob");
-		notification_orders = (Long) map.get("notification_orders");
-		notification_offers = (Long) map.get("notification_offers");
-		notification_communication = (Long) map.get("notification_communication");
+		notification_orders = (Integer) map.get("notification_orders");
+		notification_offers = (Integer) map.get("notification_offers");
+		notification_communication = (Integer) map.get("notification_communication");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -1169,15 +1169,15 @@ public abstract class Basec4t_object extends BaseResource {
 
 		Object notification_ordersObj = map.get("notification_orders");
 		if(notification_ordersObj != null)
-			notification_orders = new Long(notification_ordersObj.toString());
+			notification_orders = new Integer(notification_ordersObj.toString());
 
 		Object notification_offersObj = map.get("notification_offers");
 		if(notification_offersObj != null)
-			notification_offers = new Long(notification_offersObj.toString());
+			notification_offers = new Integer(notification_offersObj.toString());
 
 		Object notification_communicationObj = map.get("notification_communication");
 		if(notification_communicationObj != null)
-			notification_communication = new Long(notification_communicationObj.toString());
+			notification_communication = new Integer(notification_communicationObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -2274,19 +2274,19 @@ public abstract class Basec4t_object extends BaseResource {
 		this.dob = null;
 	}
 
-	public Long getNotification_orders() {
+	public Integer getNotification_orders() {
 		return notification_orders;
 	}
 
-	public long getNotification_ordersEx() {
-		return notification_orders != null ? notification_orders : 0L;
+	public int getNotification_ordersEx() {
+		return notification_orders != null ? notification_orders : 0;
 	}
 
-	public void setNotification_orders(long notification_orders) {
+	public void setNotification_orders(int notification_orders) {
 		this.notification_orders = notification_orders;
 	}
 
-	public void setNotification_orders(Long notification_orders) {
+	public void setNotification_orders(Integer notification_orders) {
 		this.notification_orders = notification_orders;
 	}
 
@@ -2294,19 +2294,19 @@ public abstract class Basec4t_object extends BaseResource {
 		this.notification_orders = null;
 	}
 
-	public Long getNotification_offers() {
+	public Integer getNotification_offers() {
 		return notification_offers;
 	}
 
-	public long getNotification_offersEx() {
-		return notification_offers != null ? notification_offers : 0L;
+	public int getNotification_offersEx() {
+		return notification_offers != null ? notification_offers : 0;
 	}
 
-	public void setNotification_offers(long notification_offers) {
+	public void setNotification_offers(int notification_offers) {
 		this.notification_offers = notification_offers;
 	}
 
-	public void setNotification_offers(Long notification_offers) {
+	public void setNotification_offers(Integer notification_offers) {
 		this.notification_offers = notification_offers;
 	}
 
@@ -2314,19 +2314,19 @@ public abstract class Basec4t_object extends BaseResource {
 		this.notification_offers = null;
 	}
 
-	public Long getNotification_communication() {
+	public Integer getNotification_communication() {
 		return notification_communication;
 	}
 
-	public long getNotification_communicationEx() {
-		return notification_communication != null ? notification_communication : 0L;
+	public int getNotification_communicationEx() {
+		return notification_communication != null ? notification_communication : 0;
 	}
 
-	public void setNotification_communication(long notification_communication) {
+	public void setNotification_communication(int notification_communication) {
 		this.notification_communication = notification_communication;
 	}
 
-	public void setNotification_communication(Long notification_communication) {
+	public void setNotification_communication(Integer notification_communication) {
 		this.notification_communication = notification_communication;
 	}
 
