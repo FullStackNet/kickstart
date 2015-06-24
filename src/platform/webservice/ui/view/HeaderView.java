@@ -2,7 +2,9 @@ package platform.webservice.ui.view;
 
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.component.BaseView;
+import platform.webservice.ui.html.A;
 import platform.webservice.ui.html.Div;
+import platform.webservice.ui.html.H2;
 import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.MenuItem;
 import platform.webservice.ui.html.UL;
@@ -28,6 +30,12 @@ public class HeaderView extends BaseView {
 			IMG logoImg = new IMG();
 	        logoImg.setSRC(ImageUtils.C2P_HEADER_LOGO);
 	        logoImageDiv.addChild(logoImg);
+	        headerDiv.addChild(logoImageDiv);
+		} else if (mContext.getDomainName().equals("connect2community.in") || mContext.getDomainName().equals("www.connect2community.in")) {
+			Div logoImageDiv = new Div(null, "logo");
+			H2 h2 = new H2("Connect2Community");
+			h2.addAttribute("style","color:orange");
+		    logoImageDiv.addChild(h2);
 	        headerDiv.addChild(logoImageDiv);
 		} else {
 			Div logoImageDiv = new Div(null, "logo");
