@@ -34,7 +34,7 @@ public class HeaderView extends BaseView {
 		} else if (mContext.getDomainName().equals("connect2community.in") || mContext.getDomainName().equals("www.connect2community.in")) {
 			Div logoImageDiv = new Div(null, "logo");
 			IMG logoImg = new IMG();
-	        logoImg.setSRC(ImageUtils.C2P_HEADER_LOGO);
+	        logoImg.setSRC(ImageUtils.C2C_HEADER_LOGO);
 	        logoImageDiv.addChild(logoImg);
 	        headerDiv.addChild(logoImageDiv);
 		} else {
