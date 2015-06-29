@@ -21,7 +21,9 @@ import java.util.*;
 public abstract class Basec4t_object extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String description = null;
 	private String short_name = null;
+	private String url = null;
 	private String brand_name = null;
 	private String parent_id = null;
 	private String community_id = null;
@@ -54,6 +56,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_send_sms = null;
 	private String feature_send_email = null;
 	private Double mrp_price = null;
+	private Double service_tax = null;
+	private Double vat = null;
 	private Double distribter_price = null;
 	private String attribute_name = null;
 	private String attribute_value = null;
@@ -93,7 +97,9 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_SHORT_NAME = "short_name";
+	public static String FIELD_URL = "url";
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
@@ -126,6 +132,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_SEND_SMS = "feature_send_sms";
 	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
 	public static String FIELD_MRP_PRICE = "mrp_price";
+	public static String FIELD_SERVICE_TAX = "service_tax";
+	public static String FIELD_VAT = "vat";
 	public static String FIELD_DISTRIBTER_PRICE = "distribter_price";
 	public static String FIELD_ATTRIBUTE_NAME = "attribute_name";
 	public static String FIELD_ATTRIBUTE_VALUE = "attribute_value";
@@ -179,9 +187,18 @@ public abstract class Basec4t_object extends BaseResource {
 		nameField.setLength(128);
 		metaData.addField(nameField);
 
+		Field descriptionField = new Field("description", "String");
+		descriptionField.setIndexed(true);
+		descriptionField.setLength(512);
+		metaData.addField(descriptionField);
+
 		Field short_nameField = new Field("short_name", "String");
 		short_nameField.setLength(128);
 		metaData.addField(short_nameField);
+
+		Field urlField = new Field("url", "String");
+		urlField.setLength(128);
+		metaData.addField(urlField);
 
 		Field brand_nameField = new Field("brand_name", "String");
 		brand_nameField.setLength(128);
@@ -311,6 +328,12 @@ public abstract class Basec4t_object extends BaseResource {
 
 		Field mrp_priceField = new Field("mrp_price", "double");
 		metaData.addField(mrp_priceField);
+
+		Field service_taxField = new Field("service_tax", "double");
+		metaData.addField(service_taxField);
+
+		Field vatField = new Field("vat", "double");
+		metaData.addField(vatField);
 
 		Field distribter_priceField = new Field("distribter_price", "double");
 		metaData.addField(distribter_priceField);
@@ -456,7 +479,9 @@ public abstract class Basec4t_object extends BaseResource {
 	public Basec4t_object(Basec4t_object obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.description = obj.description;
 		this.short_name = obj.short_name;
+		this.url = obj.url;
 		this.brand_name = obj.brand_name;
 		this.parent_id = obj.parent_id;
 		this.community_id = obj.community_id;
@@ -489,6 +514,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_send_sms = obj.feature_send_sms;
 		this.feature_send_email = obj.feature_send_email;
 		this.mrp_price = obj.mrp_price;
+		this.service_tax = obj.service_tax;
+		this.vat = obj.vat;
 		this.distribter_price = obj.distribter_price;
 		this.attribute_name = obj.attribute_name;
 		this.attribute_value = obj.attribute_value;
@@ -537,8 +564,12 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(description != null)
+			map.put("description", description);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(url != null)
+			map.put("url", url);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
 		if(parent_id != null)
@@ -603,6 +634,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_email", feature_send_email);
 		if(mrp_price != null)
 			map.put("mrp_price", mrp_price);
+		if(service_tax != null)
+			map.put("service_tax", service_tax);
+		if(vat != null)
+			map.put("vat", vat);
 		if(distribter_price != null)
 			map.put("distribter_price", distribter_price);
 		if(attribute_name != null)
@@ -684,8 +719,12 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(description != null)
+			map.put("description", description);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(url != null)
+			map.put("url", url);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
 		if(parent_id != null)
@@ -750,6 +789,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_email", feature_send_email);
 		if(mrp_price != null)
 			map.put("mrp_price", mrp_price);
+		if(service_tax != null)
+			map.put("service_tax", service_tax);
+		if(vat != null)
+			map.put("vat", vat);
 		if(distribter_price != null)
 			map.put("distribter_price", distribter_price);
 		if(attribute_name != null)
@@ -834,7 +877,9 @@ public abstract class Basec4t_object extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		description = (String) map.get("description");
 		short_name = (String) map.get("short_name");
+		url = (String) map.get("url");
 		brand_name = (String) map.get("brand_name");
 		parent_id = (String) map.get("parent_id");
 		community_id = (String) map.get("community_id");
@@ -867,6 +912,8 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_send_sms = (String) map.get("feature_send_sms");
 		feature_send_email = (String) map.get("feature_send_email");
 		mrp_price = (Double) map.get("mrp_price");
+		service_tax = (Double) map.get("service_tax");
+		vat = (Double) map.get("vat");
 		distribter_price = (Double) map.get("distribter_price");
 		attribute_name = (String) map.get("attribute_name");
 		attribute_value = (String) map.get("attribute_value");
@@ -915,9 +962,17 @@ public abstract class Basec4t_object extends BaseResource {
 		if(nameObj != null)
 			name = nameObj.toString();
 
+		Object descriptionObj = map.get("description");
+		if(descriptionObj != null)
+			description = descriptionObj.toString();
+
 		Object short_nameObj = map.get("short_name");
 		if(short_nameObj != null)
 			short_name = short_nameObj.toString();
+
+		Object urlObj = map.get("url");
+		if(urlObj != null)
+			url = urlObj.toString();
 
 		Object brand_nameObj = map.get("brand_name");
 		if(brand_nameObj != null)
@@ -1046,6 +1101,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object mrp_priceObj = map.get("mrp_price");
 		if(mrp_priceObj != null)
 			mrp_price = new Double(mrp_priceObj.toString());
+
+		Object service_taxObj = map.get("service_tax");
+		if(service_taxObj != null)
+			service_tax = new Double(service_taxObj.toString());
+
+		Object vatObj = map.get("vat");
+		if(vatObj != null)
+			vat = new Double(vatObj.toString());
 
 		Object distribter_priceObj = map.get("distribter_price");
 		if(distribter_priceObj != null)
@@ -1234,6 +1297,22 @@ public abstract class Basec4t_object extends BaseResource {
 		this.name = null;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public String getDescriptionEx() {
+		return description != null ? description : "";
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void unSetDescription() {
+		this.description = null;
+	}
+
 	public String getShort_name() {
 		return short_name;
 	}
@@ -1248,6 +1327,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetShort_name() {
 		this.short_name = null;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public String getUrlEx() {
+		return url != null ? url : "";
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public void unSetUrl() {
+		this.url = null;
 	}
 
 	public String getBrand_name() {
@@ -1768,6 +1863,46 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetMrp_price() {
 		this.mrp_price = null;
+	}
+
+	public Double getService_tax() {
+		return service_tax;
+	}
+
+	public double getService_taxEx() {
+		return service_tax != null ? service_tax : 0;
+	}
+
+	public void setService_tax(double service_tax) {
+		this.service_tax = service_tax;
+	}
+
+	public void setService_tax(Double service_tax) {
+		this.service_tax = service_tax;
+	}
+
+	public void unSetService_tax() {
+		this.service_tax = null;
+	}
+
+	public Double getVat() {
+		return vat;
+	}
+
+	public double getVatEx() {
+		return vat != null ? vat : 0;
+	}
+
+	public void setVat(double vat) {
+		this.vat = vat;
+	}
+
+	public void setVat(Double vat) {
+		this.vat = vat;
+	}
+
+	public void unSetVat() {
+		this.vat = null;
 	}
 
 	public Double getDistribter_price() {

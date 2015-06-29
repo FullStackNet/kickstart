@@ -16,7 +16,18 @@
 				'type':'String',
 				index : true
 			},
+			'description':
+			{
+				'length': 512,
+				'type':'String',
+				index : true
+			},
 			'short_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'url':
 			{
 				'length': 128,
 				'type':'String'
@@ -182,6 +193,14 @@
 				'length': 128
 			},
 			'mrp_price':
+			{
+				'type':'double'
+			},
+			'service_tax':
+			{
+				'type':'double'
+			},
+			'vat':
 			{
 				'type':'double'
 			},
