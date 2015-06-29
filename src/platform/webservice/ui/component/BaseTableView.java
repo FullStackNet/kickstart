@@ -61,13 +61,17 @@ public abstract class BaseTableView extends BaseView {
 		return null;
 	}
 
+	protected void prePopulateDefinition() {
+		
+	}
 	public BaseTableView(UIServletContext ctx) {
 		super();
 		mContext = ctx;
 		ctx.getPageBuilder().addJS(new JS("action_handle.js", "/ui/js/"));
-		populateDefinition();
 		fromDatestring = (String) getContext().getParamValue("from_date");
 		toDatestring =  getContext().getParamValue("to_date");
+		prePopulateDefinition();
+		populateDefinition();
 	}
 
 
