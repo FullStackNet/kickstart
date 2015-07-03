@@ -29,6 +29,7 @@ import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.db.ResourceOrder;
 import platform.exception.ExceptionEnum;
+import platform.helper.SessionHelper;
 import platform.helper.User_mapHelper;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
@@ -36,6 +37,7 @@ import platform.resource.CountResult;
 import platform.resource.FailureResult;
 import platform.resource.SuccessResult;
 import platform.resource.result;
+import platform.resource.session;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
@@ -52,7 +54,7 @@ public class BaseServlet extends HttpServlet
 	private static String QUERYPARAM_QUERY = "term";
 	private static String QUERYPARAM_PAGENO = "pageno";
 	private static String QUERYPARAM_PAGESIZE = "pagesize";
-	
+
 	protected static String QUERYPARAM_ID = "id";
 	protected static String QUERYPARAM_FIELDS = "fields";
 	protected static String QUERYPARAM_SUPER_FIELD = "sfield";
@@ -66,14 +68,14 @@ public class BaseServlet extends HttpServlet
 	private static String QUERYPARAM_ACTION = "action";
 	private static String QUERYPARAM_TEST = "test";
 	private static String QUERYPARAM_ORDERBY = "orderby";
-	
+
 	protected BaseResource resource;
-	
+
 	protected BaseService svc;
 	protected boolean allowAddIfSessionExists = true;
-	
+
 	public BaseServlet() {
-		
+
 	}
 
 	public BaseServlet(BaseResource resource, BaseService service) {
@@ -81,13 +83,17 @@ public class BaseServlet extends HttpServlet
 		if (service != null)
 			svc = service;
 	}
-	
+
 	public void init(ServletConfig config) throws ServletException 
 	{
 		super.init(config);
 		ApplicationLogger.init();
 	}
-	
+
+	protected boolean isLoginRequired() {
+		return true;
+	}
+
 	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
@@ -102,11 +108,47 @@ public class BaseServlet extends HttpServlet
 			// This is to avoid the utf-8 char creating problem.
 			request.setCharacterEncoding("utf-8");
 			String sessionId = getSessionIdFromCookie(request); 
-			if (Util.isEmpty(sessionId))
-				sessionId = Util.getUniqueId();
-			ServletContext ctx = new ServletContext(sessionId);
+			ServletContext ctx;
+			if (Util.isEmpty(sessionId))  {
+				if (isLoginRequired()) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+				}
+				synchronized (BaseServlet.class) {
+					while (true) {
+						sessionId = Util.getUniqueId();
+						session _session = (session) SessionHelper.getInstance().getById(sessionId);
+						if (_session == null) {
+							_session = new session(sessionId);
+							SessionHelper.getInstance().add(_session);
+							ctx = new ServletContext(_session);
+							break;
+						}
+					}
+				}
+			} else {
+				session _session = (session) SessionHelper.getInstance().getById(sessionId);
+				if (_session == null) {
+					if (isLoginRequired())
+						throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+					synchronized (BaseServlet.class) {
+						while (true) {
+							sessionId = Util.getUniqueId();
+							_session = (session) SessionHelper.getInstance().getById(sessionId);
+							if (_session == null) {
+								_session = new session(sessionId);
+								SessionHelper.getInstance().add(_session);
+								ctx = new ServletContext(_session);
+								break;
+							}
+						}
+					}
+				}
+				ctx = new ServletContext(_session);
+			}
+
+			
 			ctx.setServletPath(getServletContext().getRealPath("/"));
-		
+
 			Enumeration<String> names = request.getParameterNames();
 			while (names.hasMoreElements()) {
 				String name = names.nextElement();
@@ -117,10 +159,10 @@ public class BaseServlet extends HttpServlet
 			if (WebServiceContants.OPERATION_ADD.equalsIgnoreCase(action)) {
 				action = null;
 			}
-			
+
 			if(sessionId != null && !allowAddIfSessionExists)
 				throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.LOGIN_SESSION_ALREADY_EXISTS);
-			
+
 			if (request.getParameterValues(ApplicationConstants.REQ_RESOURCES) != null) {
 				resourceText = request.getParameterValues(ApplicationConstants.REQ_RESOURCES)[0];
 				resourceText = unescapePOSTBody(resourceText);
@@ -163,12 +205,12 @@ public class BaseServlet extends HttpServlet
 				}
 			}
 			if (action != null) {
-					if (multiResource) {
-						svc.action(ctx, resourceText, action);
-					} else {
-						p = Json.stringToResource(resourceText,resource.getClass());
-						svc.action(ctx,p,action);
-					}
+				if (multiResource) {
+					svc.action(ctx, resourceText, action);
+				} else {
+					p = Json.stringToResource(resourceText,resource.getClass());
+					svc.action(ctx,p,action);
+				}
 			} else {
 				if (multiResource) {
 					svc.add(ctx,resourceText);
@@ -182,8 +224,8 @@ public class BaseServlet extends HttpServlet
 			result.setResource(p);
 			result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 			result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
-		//	result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
-			
+			//	result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
+
 		} catch(ApplicationException e){
 			if ((e.getErrorCode() != null) && (e.getErrorCode() == ExceptionEnum.INVALID_SESSION)) {
 				expireSessionCookie(request, response);
@@ -207,23 +249,23 @@ public class BaseServlet extends HttpServlet
 		}
 		out.println(responseStr);
 	}
-	
-	
+
+
 	protected void postProcessing(ServletContext ctx, HttpServletRequest request, HttpServletResponse response, BaseResource resource, String action) throws ApplicationException {
-	
+
 	}
-	
+
 	private boolean isGetAllSupported() {
 		return false;
 	}
-	
+
 	private String convertStreamToString(InputStream is) throws IOException {
 		/*
-		* To convert the InputStream to String we use the
-		* Reader.read(char[] buffer) method. We iterate until the
-		* Reader return -1 which means there's no more data to
-		* read. We use the StringWriter class to produce the string.
-		*/
+		 * To convert the InputStream to String we use the
+		 * Reader.read(char[] buffer) method. We iterate until the
+		 * Reader return -1 which means there's no more data to
+		 * read. We use the StringWriter class to produce the string.
+		 */
 		if (is != null) {
 			Writer writer = new StringWriter();
 
@@ -243,30 +285,55 @@ public class BaseServlet extends HttpServlet
 			return "";
 		}
 	}
-		
+
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		PrintWriter out = response.getWriter();
 		setResponseParameters(response);
 
 		result result = new result();
-		
-		
+
+
 		try {
 			String resourceText = convertStreamToString(request.getInputStream());
 			resourceText = aesDecrypt(request, resourceText);
 			// This is to avoid the utf-8 char creating problem.
-				request.setCharacterEncoding("utf-8");
-				ServletContext ctx = new ServletContext(getSessionIdFromCookie(request));
-				BaseResource p = Json.stringToResource(resourceText, resource.getClass());
-				svc.update(ctx, p);
-				result.setErrCode(0);
-				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
-				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
-				//result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
-				
-				result.setMessage("Success");
-				
+			request.setCharacterEncoding("utf-8");
+			String sessionId = getSessionIdFromCookie(request); 
+			ServletContext ctx;
+			if (Util.isEmpty(sessionId))  {
+				if (isLoginRequired()) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+				}
+				synchronized (BaseServlet.class) {
+					while (true) {
+						sessionId = Util.getUniqueId();
+						session _session = (session) SessionHelper.getInstance().getById(sessionId);
+						if (_session == null) {
+							_session = new session(sessionId);
+							SessionHelper.getInstance().add(_session);
+							ctx = new ServletContext(_session);
+							break;
+						}
+					}
+				}
+			} else {
+				session _session = (session) SessionHelper.getInstance().getById(sessionId);
+				if (_session == null) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+				}
+				ctx = new ServletContext(_session);
+			}
+
+			BaseResource p = Json.stringToResource(resourceText, resource.getClass());
+			svc.update(ctx, p);
+			result.setErrCode(0);
+			result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
+			result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
+			//result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
+
+			result.setMessage("Success");
+
 		} catch (ApplicationException e){
 			if ((e.getErrorCode() != null) && (e.getErrorCode() == ExceptionEnum.INVALID_SESSION)) {
 				expireSessionCookie(request, response);
@@ -301,11 +368,36 @@ public class BaseServlet extends HttpServlet
 
 		result result = new result();
 		// String resourceText = convertStreamToString(request.getInputStream());
-		
+
 		try {
 			// This is to avoid the utf-8 char creating problem.
 			request.setCharacterEncoding("utf-8");
-			ServletContext ctx = new ServletContext(getSessionIdFromCookie(request));
+			String sessionId = getSessionIdFromCookie(request); 
+			ServletContext ctx;
+			if (Util.isEmpty(sessionId))  {
+				if (isLoginRequired()) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+				}
+				synchronized (BaseServlet.class) {
+					while (true) {
+						sessionId = Util.getUniqueId();
+						session _session = (session) SessionHelper.getInstance().getById(sessionId);
+						if (_session == null) {
+							_session = new session(sessionId);
+							SessionHelper.getInstance().add(_session);
+							ctx = new ServletContext(_session);
+							break;
+						}
+					}
+				}
+			} else {
+				session _session = (session) SessionHelper.getInstance().getById(sessionId);
+				if (_session == null) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+				}
+				ctx = new ServletContext(_session);
+			}
+
 
 			arguids = request.getParameter(QUERYPARAM_ID);
 			fields = request.getParameter(QUERYPARAM_FIELDS);
@@ -321,7 +413,7 @@ public class BaseServlet extends HttpServlet
 				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 				//result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
-				
+
 			}
 		} catch (ApplicationException e){
 			if ((e.getErrorCode() != null) && (e.getErrorCode() == ExceptionEnum.INVALID_SESSION)) {
@@ -348,9 +440,9 @@ public class BaseServlet extends HttpServlet
 	}
 
 	protected void postDelete(HttpServletRequest request, HttpServletResponse response) {
-		
+
 	}
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		String action = request.getParameter(QUERYPARAM_ACTION);
@@ -358,11 +450,11 @@ public class BaseServlet extends HttpServlet
 		if (action != null) {
 			if (action.equals("delete"))
 				doDelete(request, response);
-				return;
+			return;
 		}
 		OutputStream out = null;
 		// This is to avoid the utf-8 char creating problem.
-		 request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
 		//Select the appropriate content encoding based on the client's Accept-Encoding header.
 		//Choose GZIP if the header  includes "gzip". Choose ZIP if the header includes "compress". 
 		//Choose no compression otherwise.
@@ -379,14 +471,14 @@ public class BaseServlet extends HttpServlet
 		else
 			out = response.getOutputStream();
 		response.setHeader("Vary", "Accept-Encoding");
-		
+
 		response.setHeader("Access-Control-Allow-Origin", "*"); // use a wildcard (*) as the 2nd parameter if you want to be less restrictive
 		response.setHeader("Access-Control-Max-Age", "360");
 		response.setHeader("Access-Control-Allow-Credentials", "true");
 		response.setHeader("Access-Control-Allow-Methods", "GET");
 		response.setHeader("Access-Control-Allow-Headers", "Origin");
 		response.setHeader("Access-Control-Expose-Headers","Access-Control-Allow-Origin");
-		
+
 		setResponseParameters(response);
 		result result = new result();
 		String responseStr = "";
@@ -401,15 +493,40 @@ public class BaseServlet extends HttpServlet
 		String fieldName = null;
 		String rendertype = null;
 		String test = null;
-	//	String fields = null;
-	//	String superField = null;
+		//	String fields = null;
+		//	String superField = null;
 		BaseResource resource = null;
 		BaseResource[] resources = null;
 		String orderby = null;
 		int resourceCount = 0;
-		
+
 		try {
-			ServletContext ctx = new ServletContext(getSessionIdFromCookie(request));
+			String sessionId = getSessionIdFromCookie(request); 
+			ServletContext ctx;
+			if (Util.isEmpty(sessionId))  {
+				if (isLoginRequired()) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+				}
+				synchronized (BaseServlet.class) {
+					while (true) {
+						sessionId = Util.getUniqueId();
+						session _session = (session) SessionHelper.getInstance().getById(sessionId);
+						if (_session == null) {
+							_session = new session(sessionId);
+							SessionHelper.getInstance().add(_session);
+							ctx = new ServletContext(_session);
+							break;
+						}
+					}
+				}
+			} else {
+				session _session = (session) SessionHelper.getInstance().getById(sessionId);
+				if (_session == null) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+				}
+				ctx = new ServletContext(_session);
+			}
+
 			Enumeration<String> names = request.getParameterNames();
 			while (names.hasMoreElements()) {
 				String name = names.nextElement();
@@ -431,7 +548,7 @@ public class BaseServlet extends HttpServlet
 			//fields = request.getParameter(QUERYPARAM_FIELDS);
 			//superField = request.getParameter(QUERYPARAM_SUPER_FIELD);
 			orderby = request.getParameter(QUERYPARAM_ORDERBY);
-			
+
 			if (count != null && !count.isEmpty()) {
 				if (count.equalsIgnoreCase("yes")) {
 					resourceCount = svc.getCount(ctx);
@@ -454,14 +571,14 @@ public class BaseServlet extends HttpServlet
 				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 				//result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
-				
+
 				result.setMessage("success");
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
 					responseStr = HTML.resulttoString(result,fieldName,rendertype);
 				} else 
 					responseStr = Json.resulttoString(result);
-				
+
 			} else if (queryId != null && !queryId.isEmpty()) {
 				// QUERY ID
 				String args = request.getParameter(QUERYPARAM_ARGS);
@@ -484,14 +601,14 @@ public class BaseServlet extends HttpServlet
 					}
 					resources = svc.getQuery(ctx, queryId, map);
 				}
-				
+
 				result.setErrCode(0);
 				result.setMessage("success");
 				result.setResource(resources);
 				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 				//result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
-				
+
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
 					responseStr = HTML.resulttoString(result,fieldName,rendertype);
@@ -510,7 +627,7 @@ public class BaseServlet extends HttpServlet
 					ro = new ResourceOrder(Integer.parseInt(pagesize),
 							Integer.parseInt(pageno));
 				}
-				
+
 				// fire get all
 				resources = svc.getAll(ctx, e, ro);
 				result.setErrCode(0);
@@ -525,10 +642,10 @@ public class BaseServlet extends HttpServlet
 				} else 
 					responseStr = Json.resulttoString(result);
 			}
-				
+
 			else {
 				// GET ALL
-				
+
 				if (!isGetAllSupported()) {
 					if (test == null || !test.equals("taskerpark")) {
 						throw new ApplicationException(ExceptionSeverity.ERROR, "You are not authorized");
@@ -537,9 +654,9 @@ public class BaseServlet extends HttpServlet
 				// Check if autocomplete required
 				Expression e = null;
 				if ((autocomplete != null) && autocomplete.equals("yes")) {
-					 e = new Expression("name", REL_OP.REGEX, "(?i)"+query+".*");
+					e = new Expression("name", REL_OP.REGEX, "(?i)"+query+".*");
 				}
-				
+
 				// check if pagination required
 				ResourceOrder ro = null;
 				if ((pageno != null && pagesize != null)  ||  (orderby != null)) {
@@ -550,7 +667,7 @@ public class BaseServlet extends HttpServlet
 					if (orderby != null)
 						ro.setFieldNames(orderby.split(","), true);
 				}
-				
+
 				// fire get all
 				resources = svc.getAll(ctx, e, ro);
 				result.setErrCode(0);
@@ -559,7 +676,7 @@ public class BaseServlet extends HttpServlet
 				result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
 				result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 				//result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
-				
+
 				if ((format != null) && format.equals("html")) {
 					response.setContentType("text/html; charset=UTF-8");
 					responseStr = HTML.resulttoString(result,fieldName,rendertype);
@@ -592,16 +709,16 @@ public class BaseServlet extends HttpServlet
 		}
 		out.write(responseStr.getBytes());
 		//Write the compression trailer and close the output stream
-	    out.close();
+		out.close();
 	}
-	
+
 	private void checkAndSendException(Exception e) {
 		/*try {
 			HelperFactory.getUrgentEmailHelper().createEntryForException(e);
 		} catch (C4TException e1) {}
-		*/
+		 */
 	}
-	
+
 	protected BaseResource getResourceByName(ServletContext ctx, String arguids) throws ApplicationException, InstantiationException, IllegalAccessException, ClassNotFoundException {
 		return getResourceByName(ctx, arguids, null);
 	}
@@ -609,11 +726,11 @@ public class BaseServlet extends HttpServlet
 	protected BaseResource getResourceByName(ServletContext ctx, String arguids, String fields) throws ApplicationException, InstantiationException, IllegalAccessException, ClassNotFoundException {
 		return getResourceByName(ctx, arguids, fields, null);
 	}
-	
+
 	private BaseResource getResourceByName(ServletContext ctx, String arguids, String fields, String superFieldName) throws ApplicationException, InstantiationException, IllegalAccessException, ClassNotFoundException {
 		Map<String, Object> map = new HashMap<String, Object>();
 		String[] argvalues = arguids.split(",");
-		
+
 		if (argvalues.length == 1 && !argvalues[0].contains(":")) {
 			map.put("id", argvalues[0]);
 		} else {
@@ -625,11 +742,11 @@ public class BaseServlet extends HttpServlet
 				map.put(valpair[0], valpair[1]);
 			}
 		}
-		
+
 		String[] fieldNames = null;
 		if(!Util.isEmpty(fields))
 			fieldNames = fields.split(",");
-		
+
 		BaseResource resource;
 		if(Util.isEmpty(fieldNames))
 			resource = svc.get(ctx, map);
@@ -642,11 +759,11 @@ public class BaseServlet extends HttpServlet
 		}
 		return resource;
 	}
-	
+
 	private void deleteResourceByName(ServletContext ctx, String arguids, String fields, String superFieldName) throws ApplicationException, InstantiationException, IllegalAccessException, ClassNotFoundException {
 		Map<String, Object> map = new HashMap<String, Object>();
 		String[] argvalues = arguids.split(",");
-		
+
 		if (argvalues.length == 1 && !argvalues[0].contains(":")) {
 			map.put("id", argvalues[0]);
 		} else {
@@ -658,11 +775,11 @@ public class BaseServlet extends HttpServlet
 				map.put(valpair[0], valpair[1]);
 			}
 		}
-		
+
 		String[] fieldNames = null;
 		if(!Util.isEmpty(fields))
 			fieldNames = fields.split(",");
-		
+
 		if(Util.isEmpty(fieldNames))
 			svc.delete(ctx, map);
 		else if(Util.isEmpty(superFieldName))
@@ -670,7 +787,7 @@ public class BaseServlet extends HttpServlet
 		else
 			svc.unset(ctx, map, superFieldName, fieldNames);
 	}
-	
+
 	protected void setResponseParameters(HttpServletResponse response)
 	{
 		if(response == null)
@@ -708,19 +825,19 @@ public class BaseServlet extends HttpServlet
 
 	public void addSessionCookie(HttpServletRequest request, HttpServletResponse response, String sessionId, String keepMeLogin) {
 		Cookie sessionCookie = new Cookie(ApplicationConstants.SESSION_ID, sessionId);
-			// This cookie expiration should be same for recruiterLogin cookie in ui:LoginView:_onRecProfileSuccess()
+		// This cookie expiration should be same for recruiterLogin cookie in ui:LoginView:_onRecProfileSuccess()
 		sessionCookie.setMaxAge(60*60*24*30); // 30 days
 		sessionCookie.setPath("/");
 		setDomainForCookie(request, sessionCookie);
 		response.addCookie(sessionCookie);
-		
+
 		Cookie sessionCookie8080 = new Cookie(ApplicationConstants.SESSION_ID, sessionId);
-			// This cookie expiration should be same for recruiterLogin cookie in ui:LoginView:_onRecProfileSuccess()
+		// This cookie expiration should be same for recruiterLogin cookie in ui:LoginView:_onRecProfileSuccess()
 		sessionCookie8080.setMaxAge(60*60*24*30); // 30 days
 		sessionCookie8080.setPath("/");
 		setDomainForCookie8080(request, sessionCookie8080);
 		response.addCookie(sessionCookie8080);
-		
+
 	}
 
 	//Adds a cookie that is readable by GUI JS
@@ -775,7 +892,7 @@ public class BaseServlet extends HttpServlet
 
 		return SecurityUtil.aesDecrypt(encryptedText);		 
 	}
-	
+
 	// Reverse is in RestUtils.js::_escapePOSTBody()
 	private String unescapePOSTBody(String postBody) {
 		return postBody.replaceAll("%25", "%").replaceAll("%26", "&").replaceAll("%2B", "+");

@@ -15,15 +15,11 @@ public class ServletContext {
 	String path;
 	Map<String , String> params;
 	
-	public ServletContext(String sessionId) throws ApplicationException {
+	public ServletContext(session _session) throws ApplicationException {
 		//Don't start a new session or add it to DB if no session id is coming
 		//Ex: API calls made without logging in
-		_session = (session) SessionHelper.getInstance().getById(sessionId);
-		if (_session == null) {
-			_session = new session(sessionId);
-			SessionHelper.getInstance().add(_session);
-		}
-		this.sessionId = sessionId;
+		this._session = _session;
+		this.sessionId = _session.getId();
 		params = new HashMap<String , String>();
 	}
 
