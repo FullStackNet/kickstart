@@ -111,7 +111,7 @@ public class BaseServlet extends HttpServlet
 			ServletContext ctx;
 			if (Util.isEmpty(sessionId))  {
 				if (isLoginRequired()) {
-					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+					throw new ApplicationException(ExceptionSeverity.ERROR,ExceptionEnum.INVALID_SESSION);
 				}
 				synchronized (BaseServlet.class) {
 					while (true) {
@@ -129,7 +129,7 @@ public class BaseServlet extends HttpServlet
 				session _session = (session) SessionHelper.getInstance().getById(sessionId);
 				if (_session == null) {
 					if (isLoginRequired())
-						throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+						throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_SESSION);
 					synchronized (BaseServlet.class) {
 						while (true) {
 							sessionId = Util.getUniqueId();
@@ -303,7 +303,7 @@ public class BaseServlet extends HttpServlet
 			ServletContext ctx;
 			if (Util.isEmpty(sessionId))  {
 				if (isLoginRequired()) {
-					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+					throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_SESSION);
 				}
 				synchronized (BaseServlet.class) {
 					while (true) {
@@ -320,7 +320,7 @@ public class BaseServlet extends HttpServlet
 			} else {
 				session _session = (session) SessionHelper.getInstance().getById(sessionId);
 				if (_session == null) {
-					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+					throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_SESSION);
 				}
 				ctx = new ServletContext(_session);
 			}
@@ -376,7 +376,7 @@ public class BaseServlet extends HttpServlet
 			ServletContext ctx;
 			if (Util.isEmpty(sessionId))  {
 				if (isLoginRequired()) {
-					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+					throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_SESSION);
 				}
 				synchronized (BaseServlet.class) {
 					while (true) {
@@ -393,7 +393,7 @@ public class BaseServlet extends HttpServlet
 			} else {
 				session _session = (session) SessionHelper.getInstance().getById(sessionId);
 				if (_session == null) {
-					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+					throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_SESSION);
 				}
 				ctx = new ServletContext(_session);
 			}
@@ -505,7 +505,7 @@ public class BaseServlet extends HttpServlet
 			ServletContext ctx;
 			if (Util.isEmpty(sessionId))  {
 				if (isLoginRequired()) {
-					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+					throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_SESSION);
 				}
 				synchronized (BaseServlet.class) {
 					while (true) {
@@ -522,7 +522,7 @@ public class BaseServlet extends HttpServlet
 			} else {
 				session _session = (session) SessionHelper.getInstance().getById(sessionId);
 				if (_session == null) {
-					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+					throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_SESSION);
 				}
 				ctx = new ServletContext(_session);
 			}
