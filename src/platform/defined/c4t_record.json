@@ -35,6 +35,11 @@
 				'type': 'String',
 				'remark' : "COMMUNICATION,PERSONAL_COMMUNICATION"
 			},
+			'record_sub_type':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'location_type':
 			{
 				'length': 512,

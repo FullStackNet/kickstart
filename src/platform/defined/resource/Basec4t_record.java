@@ -24,6 +24,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String community_name = null;
 	private String customer_id = null;
 	private String record_type = null;
+	private String record_sub_type = null;
 	private String location_type = null;
 	private String title = null;
 	private String bay_id = null;
@@ -76,6 +77,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_COMMUNITY_NAME = "community_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_RECORD_TYPE = "record_type";
+	public static String FIELD_RECORD_SUB_TYPE = "record_sub_type";
 	public static String FIELD_LOCATION_TYPE = "location_type";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_BAY_ID = "bay_id";
@@ -152,6 +154,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Field record_typeField = new Field("record_type", "String");
 		record_typeField.setLength(512);
 		metaData.addField(record_typeField);
+
+		Field record_sub_typeField = new Field("record_sub_type", "String");
+		record_sub_typeField.setLength(512);
+		metaData.addField(record_sub_typeField);
 
 		Field location_typeField = new Field("location_type", "String");
 		location_typeField.setLength(512);
@@ -341,6 +347,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.community_name = obj.community_name;
 		this.customer_id = obj.customer_id;
 		this.record_type = obj.record_type;
+		this.record_sub_type = obj.record_sub_type;
 		this.location_type = obj.location_type;
 		this.title = obj.title;
 		this.bay_id = obj.bay_id;
@@ -414,6 +421,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(record_type != null)
 			map.put("record_type", record_type);
+		if(record_sub_type != null)
+			map.put("record_sub_type", record_sub_type);
 		if(location_type != null)
 			map.put("location_type", location_type);
 		if(title != null)
@@ -524,6 +533,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(record_type != null)
 			map.put("record_type", record_type);
+		if(record_sub_type != null)
+			map.put("record_sub_type", record_sub_type);
 		if(location_type != null)
 			map.put("location_type", location_type);
 		if(title != null)
@@ -631,6 +642,7 @@ public abstract class Basec4t_record extends BaseResource {
 		community_name = (String) map.get("community_name");
 		customer_id = (String) map.get("customer_id");
 		record_type = (String) map.get("record_type");
+		record_sub_type = (String) map.get("record_sub_type");
 		location_type = (String) map.get("location_type");
 		title = (String) map.get("title");
 		bay_id = (String) map.get("bay_id");
@@ -700,6 +712,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object record_typeObj = map.get("record_type");
 		if(record_typeObj != null)
 			record_type = record_typeObj.toString();
+
+		Object record_sub_typeObj = map.get("record_sub_type");
+		if(record_sub_typeObj != null)
+			record_sub_type = record_sub_typeObj.toString();
 
 		Object location_typeObj = map.get("location_type");
 		if(location_typeObj != null)
@@ -974,6 +990,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetRecord_type() {
 		this.record_type = null;
+	}
+
+	public String getRecord_sub_type() {
+		return record_sub_type;
+	}
+
+	public String getRecord_sub_typeEx() {
+		return record_sub_type != null ? record_sub_type : "";
+	}
+
+	public void setRecord_sub_type(String record_sub_type) {
+		this.record_sub_type = record_sub_type;
+	}
+
+	public void unSetRecord_sub_type() {
+		this.record_sub_type = null;
 	}
 
 	public String getLocation_type() {
