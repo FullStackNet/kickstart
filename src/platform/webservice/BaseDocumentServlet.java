@@ -18,10 +18,12 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
 
 import platform.exception.ExceptionEnum;
+import platform.helper.SessionHelper;
 import platform.resource.BaseResource;
 import platform.resource.FailureResult;
 import platform.resource.SuccessResult;
 import platform.resource.result;
+import platform.resource.session;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
@@ -80,6 +82,9 @@ public class BaseDocumentServlet extends HttpServlet {
 		}
 		return null;
 	}
+	protected boolean isLoginRequired() {
+		return true;
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		result result = null;
 		setResponseParameters(response);
@@ -90,11 +95,44 @@ public class BaseDocumentServlet extends HttpServlet {
 		String id = null;
 		try {
 			request.setCharacterEncoding("utf-8");
+			ServletContext ctx;
 			String sessionId = getSessionIdFromCookie(request); 
-			if (Util.isEmpty(sessionId))
-				sessionId = Util.getUniqueId();
-			ServletContext ctx = new ServletContext(sessionId);
-			
+			if (Util.isEmpty(sessionId))  {
+				if (isLoginRequired()) {
+					throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+				}
+				synchronized (BaseServlet.class) {
+					while (true) {
+						sessionId = Util.getUniqueId();
+						session _session = (session) SessionHelper.getInstance().getById(sessionId);
+						if (_session == null) {
+							_session = new session(sessionId);
+							SessionHelper.getInstance().add(_session);
+							ctx = new ServletContext(_session);
+							break;
+						}
+					}
+				}
+			} else {
+				session _session = (session) SessionHelper.getInstance().getById(sessionId);
+				if (_session == null) {
+					if (isLoginRequired())
+						throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Session");
+					synchronized (BaseServlet.class) {
+						while (true) {
+							sessionId = Util.getUniqueId();
+							_session = (session) SessionHelper.getInstance().getById(sessionId);
+							if (_session == null) {
+								_session = new session(sessionId);
+								SessionHelper.getInstance().add(_session);
+								ctx = new ServletContext(_session);
+								break;
+							}
+						}
+					}
+				}
+				ctx = new ServletContext(_session);
+			}
 			if(!ServletFileUpload.isMultipartContent(request))
 				throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_REQUEST);
 			Map<String, Object> map = new HashMap<String, Object>();

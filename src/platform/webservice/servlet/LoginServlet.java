@@ -23,7 +23,12 @@ public class LoginServlet extends BaseServlet {
 	public LoginServlet() {
 		super(new login(), new LoginService());
 	}
-
+	
+	@Override
+	protected boolean isLoginRequired() {
+		return false;
+	}
+	
 	protected void postProcessing(platform.webservice.ServletContext ctx, HttpServletRequest request, HttpServletResponse response, BaseResource resource, String action) throws ApplicationException {
 		if (resource == null)
 			return;
