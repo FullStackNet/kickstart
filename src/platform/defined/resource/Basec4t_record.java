@@ -45,6 +45,11 @@ public abstract class Basec4t_record extends BaseResource {
 	private String designation = null;
 	private String address = null;
 	private Double quantity = null;
+	private Double total_vat = null;
+	private Long total_items = null;
+	private Double total_service_tax = null;
+	private Double total_service_charge = null;
+	private Double total_amount = null;
 	private String recipients = null;
 	private String description = null;
 	private Long event_date = null;
@@ -92,6 +97,11 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_DESIGNATION = "designation";
 	public static String FIELD_ADDRESS = "address";
 	public static String FIELD_QUANTITY = "quantity";
+	public static String FIELD_TOTAL_VAT = "total_vat";
+	public static String FIELD_TOTAL_ITEMS = "total_items";
+	public static String FIELD_TOTAL_SERVICE_TAX = "total_service_tax";
+	public static String FIELD_TOTAL_SERVICE_CHARGE = "total_service_charge";
+	public static String FIELD_TOTAL_AMOUNT = "total_amount";
 	public static String FIELD_RECIPIENTS = "recipients";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_EVENT_DATE = "event_date";
@@ -230,6 +240,21 @@ public abstract class Basec4t_record extends BaseResource {
 		Field quantityField = new Field("quantity", "Double");
 		metaData.addField(quantityField);
 
+		Field total_vatField = new Field("total_vat", "Double");
+		metaData.addField(total_vatField);
+
+		Field total_itemsField = new Field("total_items", "long");
+		metaData.addField(total_itemsField);
+
+		Field total_service_taxField = new Field("total_service_tax", "Double");
+		metaData.addField(total_service_taxField);
+
+		Field total_service_chargeField = new Field("total_service_charge", "Double");
+		metaData.addField(total_service_chargeField);
+
+		Field total_amountField = new Field("total_amount", "Double");
+		metaData.addField(total_amountField);
+
 		Field recipientsField = new Field("recipients", "String");
 		recipientsField.setLength(512);
 		metaData.addField(recipientsField);
@@ -337,6 +362,11 @@ public abstract class Basec4t_record extends BaseResource {
 		this.designation = obj.designation;
 		this.address = obj.address;
 		this.quantity = obj.quantity;
+		this.total_vat = obj.total_vat;
+		this.total_items = obj.total_items;
+		this.total_service_tax = obj.total_service_tax;
+		this.total_service_charge = obj.total_service_charge;
+		this.total_amount = obj.total_amount;
 		this.recipients = obj.recipients;
 		this.description = obj.description;
 		this.event_date = obj.event_date;
@@ -426,6 +456,16 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("address", address);
 		if(quantity != null)
 			map.put("quantity", quantity);
+		if(total_vat != null)
+			map.put("total_vat", total_vat);
+		if(total_items != null)
+			map.put("total_items", total_items);
+		if(total_service_tax != null)
+			map.put("total_service_tax", total_service_tax);
+		if(total_service_charge != null)
+			map.put("total_service_charge", total_service_charge);
+		if(total_amount != null)
+			map.put("total_amount", total_amount);
 		if(recipients != null)
 			map.put("recipients", recipients);
 		if(description != null)
@@ -526,6 +566,16 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("address", address);
 		if(quantity != null)
 			map.put("quantity", quantity);
+		if(total_vat != null)
+			map.put("total_vat", total_vat);
+		if(total_items != null)
+			map.put("total_items", total_items);
+		if(total_service_tax != null)
+			map.put("total_service_tax", total_service_tax);
+		if(total_service_charge != null)
+			map.put("total_service_charge", total_service_charge);
+		if(total_amount != null)
+			map.put("total_amount", total_amount);
 		if(recipients != null)
 			map.put("recipients", recipients);
 		if(description != null)
@@ -602,6 +652,11 @@ public abstract class Basec4t_record extends BaseResource {
 		designation = (String) map.get("designation");
 		address = (String) map.get("address");
 		quantity = (Double) map.get("quantity");
+		total_vat = (Double) map.get("total_vat");
+		total_items = (Long) map.get("total_items");
+		total_service_tax = (Double) map.get("total_service_tax");
+		total_service_charge = (Double) map.get("total_service_charge");
+		total_amount = (Double) map.get("total_amount");
 		recipients = (String) map.get("recipients");
 		description = (String) map.get("description");
 		event_date = (Long) map.get("event_date");
@@ -729,6 +784,26 @@ public abstract class Basec4t_record extends BaseResource {
 		Object quantityObj = map.get("quantity");
 		if(quantityObj != null)
 			quantity = new Double(quantityObj.toString());
+
+		Object total_vatObj = map.get("total_vat");
+		if(total_vatObj != null)
+			total_vat = new Double(total_vatObj.toString());
+
+		Object total_itemsObj = map.get("total_items");
+		if(total_itemsObj != null)
+			total_items = new Long(total_itemsObj.toString());
+
+		Object total_service_taxObj = map.get("total_service_tax");
+		if(total_service_taxObj != null)
+			total_service_tax = new Double(total_service_taxObj.toString());
+
+		Object total_service_chargeObj = map.get("total_service_charge");
+		if(total_service_chargeObj != null)
+			total_service_charge = new Double(total_service_chargeObj.toString());
+
+		Object total_amountObj = map.get("total_amount");
+		if(total_amountObj != null)
+			total_amount = new Double(total_amountObj.toString());
 
 		Object recipientsObj = map.get("recipients");
 		if(recipientsObj != null)
@@ -1231,6 +1306,74 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetQuantity() {
 		this.quantity = null;
+	}
+
+	public Double getTotal_vat() {
+		return total_vat;
+	}
+
+	public void setTotal_vat(Double total_vat) {
+		this.total_vat = total_vat;
+	}
+
+	public void unSetTotal_vat() {
+		this.total_vat = null;
+	}
+
+	public Long getTotal_items() {
+		return total_items;
+	}
+
+	public long getTotal_itemsEx() {
+		return total_items != null ? total_items : 0L;
+	}
+
+	public void setTotal_items(long total_items) {
+		this.total_items = total_items;
+	}
+
+	public void setTotal_items(Long total_items) {
+		this.total_items = total_items;
+	}
+
+	public void unSetTotal_items() {
+		this.total_items = null;
+	}
+
+	public Double getTotal_service_tax() {
+		return total_service_tax;
+	}
+
+	public void setTotal_service_tax(Double total_service_tax) {
+		this.total_service_tax = total_service_tax;
+	}
+
+	public void unSetTotal_service_tax() {
+		this.total_service_tax = null;
+	}
+
+	public Double getTotal_service_charge() {
+		return total_service_charge;
+	}
+
+	public void setTotal_service_charge(Double total_service_charge) {
+		this.total_service_charge = total_service_charge;
+	}
+
+	public void unSetTotal_service_charge() {
+		this.total_service_charge = null;
+	}
+
+	public Double getTotal_amount() {
+		return total_amount;
+	}
+
+	public void setTotal_amount(Double total_amount) {
+		this.total_amount = total_amount;
+	}
+
+	public void unSetTotal_amount() {
+		this.total_amount = null;
 	}
 
 	public String getRecipients() {

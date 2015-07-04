@@ -143,6 +143,26 @@
 			{
 				'type': 'Double'
 			},
+			'total_vat':
+			{
+				'type': 'Double'
+			},
+			'total_items':
+			{
+				'type': 'long'
+			},
+			'total_service_tax':
+			{
+				'type': 'Double'
+			},
+			'total_service_charge':
+			{
+				'type': 'Double'
+			},
+			'total_amount':
+			{
+				'type': 'Double'
+			},
 			'recipients':
 			{
 				'length': 512,
