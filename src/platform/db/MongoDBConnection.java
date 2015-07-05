@@ -198,7 +198,7 @@ public class MongoDBConnection extends DbConnection {
 		for (Map.Entry<String, Field> entry : map.entrySet()) {
 			String columnName =  (String) entry.getKey();
 			Object value =  dataMap.get(columnName);
-			System.out.println(columnName+"->"+value);
+			//System.out.println(columnName+"->"+value);
 			Field field = entry.getValue();
 			if (field.getType().equalsIgnoreCase("Array") ) {
 				ArrayList<Object> list = new ArrayList<Object>();
