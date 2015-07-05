@@ -217,6 +217,8 @@ public class MongoDBConnection extends DbConnection {
 				if (value instanceof Double) {
 					if (field.getType().equalsIgnoreCase("int")) {
 						row.put(columnName, ((Double)value).intValue());
+					} else if (field.getType().equalsIgnoreCase("long")) {
+						row.put(columnName, ((Double)value).longValue());
 					} else if (field.getType().equalsIgnoreCase("short")) {
 						row.put(columnName, ((Double)value).shortValue());
 					} else if (field.getType().equalsIgnoreCase("byte")) {
