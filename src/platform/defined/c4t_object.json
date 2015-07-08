@@ -200,6 +200,14 @@
 			{
 				'type':'double'
 			},
+			'service_charges':
+			{
+				'type':'double'
+			},
+			'service_charges_home_delivery':
+			{
+				'type':'double'
+			},
 			'vat':
 			{
 				'type':'double'
