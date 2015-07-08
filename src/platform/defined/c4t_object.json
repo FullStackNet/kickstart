@@ -208,6 +208,14 @@
 			{
 				'type':'double'
 			},
+			'service_charges_takeaway':
+			{
+				'type':'double'
+			},
+			'service_charges_on_table':
+			{
+				'type':'double'
+			},
 			'vat':
 			{
 				'type':'double'
