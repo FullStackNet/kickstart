@@ -57,6 +57,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_send_email = null;
 	private Double mrp_price = null;
 	private Double service_tax = null;
+	private Double service_charges = null;
+	private Double service_charges_home_delivery = null;
 	private Double vat = null;
 	private Double distribter_price = null;
 	private String attribute_name = null;
@@ -133,6 +135,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
 	public static String FIELD_MRP_PRICE = "mrp_price";
 	public static String FIELD_SERVICE_TAX = "service_tax";
+	public static String FIELD_SERVICE_CHARGES = "service_charges";
+	public static String FIELD_SERVICE_CHARGES_HOME_DELIVERY = "service_charges_home_delivery";
 	public static String FIELD_VAT = "vat";
 	public static String FIELD_DISTRIBTER_PRICE = "distribter_price";
 	public static String FIELD_ATTRIBUTE_NAME = "attribute_name";
@@ -332,6 +336,12 @@ public abstract class Basec4t_object extends BaseResource {
 		Field service_taxField = new Field("service_tax", "double");
 		metaData.addField(service_taxField);
 
+		Field service_chargesField = new Field("service_charges", "double");
+		metaData.addField(service_chargesField);
+
+		Field service_charges_home_deliveryField = new Field("service_charges_home_delivery", "double");
+		metaData.addField(service_charges_home_deliveryField);
+
 		Field vatField = new Field("vat", "double");
 		metaData.addField(vatField);
 
@@ -515,6 +525,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_send_email = obj.feature_send_email;
 		this.mrp_price = obj.mrp_price;
 		this.service_tax = obj.service_tax;
+		this.service_charges = obj.service_charges;
+		this.service_charges_home_delivery = obj.service_charges_home_delivery;
 		this.vat = obj.vat;
 		this.distribter_price = obj.distribter_price;
 		this.attribute_name = obj.attribute_name;
@@ -636,6 +648,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("mrp_price", mrp_price);
 		if(service_tax != null)
 			map.put("service_tax", service_tax);
+		if(service_charges != null)
+			map.put("service_charges", service_charges);
+		if(service_charges_home_delivery != null)
+			map.put("service_charges_home_delivery", service_charges_home_delivery);
 		if(vat != null)
 			map.put("vat", vat);
 		if(distribter_price != null)
@@ -791,6 +807,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("mrp_price", mrp_price);
 		if(service_tax != null)
 			map.put("service_tax", service_tax);
+		if(service_charges != null)
+			map.put("service_charges", service_charges);
+		if(service_charges_home_delivery != null)
+			map.put("service_charges_home_delivery", service_charges_home_delivery);
 		if(vat != null)
 			map.put("vat", vat);
 		if(distribter_price != null)
@@ -913,6 +933,8 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_send_email = (String) map.get("feature_send_email");
 		mrp_price = (Double) map.get("mrp_price");
 		service_tax = (Double) map.get("service_tax");
+		service_charges = (Double) map.get("service_charges");
+		service_charges_home_delivery = (Double) map.get("service_charges_home_delivery");
 		vat = (Double) map.get("vat");
 		distribter_price = (Double) map.get("distribter_price");
 		attribute_name = (String) map.get("attribute_name");
@@ -1105,6 +1127,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object service_taxObj = map.get("service_tax");
 		if(service_taxObj != null)
 			service_tax = new Double(service_taxObj.toString());
+
+		Object service_chargesObj = map.get("service_charges");
+		if(service_chargesObj != null)
+			service_charges = new Double(service_chargesObj.toString());
+
+		Object service_charges_home_deliveryObj = map.get("service_charges_home_delivery");
+		if(service_charges_home_deliveryObj != null)
+			service_charges_home_delivery = new Double(service_charges_home_deliveryObj.toString());
 
 		Object vatObj = map.get("vat");
 		if(vatObj != null)
@@ -1883,6 +1913,46 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetService_tax() {
 		this.service_tax = null;
+	}
+
+	public Double getService_charges() {
+		return service_charges;
+	}
+
+	public double getService_chargesEx() {
+		return service_charges != null ? service_charges : 0;
+	}
+
+	public void setService_charges(double service_charges) {
+		this.service_charges = service_charges;
+	}
+
+	public void setService_charges(Double service_charges) {
+		this.service_charges = service_charges;
+	}
+
+	public void unSetService_charges() {
+		this.service_charges = null;
+	}
+
+	public Double getService_charges_home_delivery() {
+		return service_charges_home_delivery;
+	}
+
+	public double getService_charges_home_deliveryEx() {
+		return service_charges_home_delivery != null ? service_charges_home_delivery : 0;
+	}
+
+	public void setService_charges_home_delivery(double service_charges_home_delivery) {
+		this.service_charges_home_delivery = service_charges_home_delivery;
+	}
+
+	public void setService_charges_home_delivery(Double service_charges_home_delivery) {
+		this.service_charges_home_delivery = service_charges_home_delivery;
+	}
+
+	public void unSetService_charges_home_delivery() {
+		this.service_charges_home_delivery = null;
 	}
 
 	public Double getVat() {
