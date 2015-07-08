@@ -117,6 +117,7 @@ public abstract class Basestudent extends BaseResource {
 	private String feature_bus_drop_exit_sms = null;
 	private String feature_school_entry_sms = null;
 	private String feature_school_exit_sms = null;
+	private String application_processed = null;
 	private Double total_fees = null;
 	private Double total_additional_charges = null;
 	private Double total_fees_paid = null;
@@ -225,6 +226,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_FEATURE_BUS_DROP_EXIT_SMS = "feature_bus_drop_exit_sms";
 	public static String FIELD_FEATURE_SCHOOL_ENTRY_SMS = "feature_school_entry_sms";
 	public static String FIELD_FEATURE_SCHOOL_EXIT_SMS = "feature_school_exit_sms";
+	public static String FIELD_APPLICATION_PROCESSED = "application_processed";
 	public static String FIELD_TOTAL_FEES = "total_fees";
 	public static String FIELD_TOTAL_ADDITIONAL_CHARGES = "total_additional_charges";
 	public static String FIELD_TOTAL_FEES_PAID = "total_fees_paid";
@@ -667,6 +669,11 @@ public abstract class Basestudent extends BaseResource {
 		feature_school_exit_smsField.setLength(1);
 		metaData.addField(feature_school_exit_smsField);
 
+		Field application_processedField = new Field("application_processed", "String");
+		application_processedField.setDefaultValue("N");
+		application_processedField.setLength(1);
+		metaData.addField(application_processedField);
+
 		Field total_feesField = new Field("total_fees", "double");
 		metaData.addField(total_feesField);
 
@@ -802,6 +809,7 @@ public abstract class Basestudent extends BaseResource {
 		this.feature_bus_drop_exit_sms = obj.feature_bus_drop_exit_sms;
 		this.feature_school_entry_sms = obj.feature_school_entry_sms;
 		this.feature_school_exit_sms = obj.feature_school_exit_sms;
+		this.application_processed = obj.application_processed;
 		this.total_fees = obj.total_fees;
 		this.total_additional_charges = obj.total_additional_charges;
 		this.total_fees_paid = obj.total_fees_paid;
@@ -880,6 +888,8 @@ public abstract class Basestudent extends BaseResource {
 			feature_school_entry_sms = "Y";
 		if(feature_school_exit_sms == null)
 			feature_school_exit_sms = "Y";
+		if(application_processed == null)
+			application_processed = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -1080,6 +1090,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("feature_school_entry_sms", feature_school_entry_sms);
 		if(feature_school_exit_sms != null)
 			map.put("feature_school_exit_sms", feature_school_exit_sms);
+		if(application_processed != null)
+			map.put("application_processed", application_processed);
 		if(total_fees != null)
 			map.put("total_fees", total_fees);
 		if(total_additional_charges != null)
@@ -1302,6 +1314,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("feature_school_entry_sms", feature_school_entry_sms);
 		if(feature_school_exit_sms != null)
 			map.put("feature_school_exit_sms", feature_school_exit_sms);
+		if(application_processed != null)
+			map.put("application_processed", application_processed);
 		if(total_fees != null)
 			map.put("total_fees", total_fees);
 		if(total_additional_charges != null)
@@ -1428,6 +1442,7 @@ public abstract class Basestudent extends BaseResource {
 		feature_bus_drop_exit_sms = (String) map.get("feature_bus_drop_exit_sms");
 		feature_school_entry_sms = (String) map.get("feature_school_entry_sms");
 		feature_school_exit_sms = (String) map.get("feature_school_exit_sms");
+		application_processed = (String) map.get("application_processed");
 		total_fees = (Double) map.get("total_fees");
 		total_additional_charges = (Double) map.get("total_additional_charges");
 		total_fees_paid = (Double) map.get("total_fees_paid");
@@ -1832,6 +1847,10 @@ public abstract class Basestudent extends BaseResource {
 		Object feature_school_exit_smsObj = map.get("feature_school_exit_sms");
 		if(feature_school_exit_smsObj != null)
 			feature_school_exit_sms = feature_school_exit_smsObj.toString();
+
+		Object application_processedObj = map.get("application_processed");
+		if(application_processedObj != null)
+			application_processed = application_processedObj.toString();
 
 		Object total_feesObj = map.get("total_fees");
 		if(total_feesObj != null)
@@ -3346,6 +3365,18 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetFeature_school_exit_sms() {
 		this.feature_school_exit_sms = "Y";
+	}
+
+	public String getApplication_processed() {
+		return application_processed != null ? application_processed : "N";
+	}
+
+	public void setApplication_processed(String application_processed) {
+		this.application_processed = application_processed;
+	}
+
+	public void unSetApplication_processed() {
+		this.application_processed = "N";
 	}
 
 	public Double getTotal_fees() {

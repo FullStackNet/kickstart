@@ -541,6 +541,12 @@
 				'default' : "Y",
 				'type':'String'
 			},
+			'application_processed':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'total_fees':
 			{
 				'type':'double'
