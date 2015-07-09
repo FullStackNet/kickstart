@@ -1,0 +1,63 @@
+{
+	"c4t_cart" :
+	{
+		"cluster": "DB_RECORD",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				"remark" : "from id and relation type"
+			},
+			'community_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'order_type':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'no_of_products':
+			{
+				'type':'long'
+			},
+			
+			'no_of_items':
+			{
+				'type':'long'
+			},
+			'total_amount':
+			{
+				'type':'double'
+			},
+			'total_vat':
+			{
+				'type':'double'
+			},
+			'total_service_tax':
+			{
+				'type':'double'
+			},
+			'total_service_charge':
+			{
+				'type':'double'
+			},
+			'cart_items':
+			{
+				'type': 'Array',
+				'valueType' : "c4t_cart_item"
+			},
+			
+			'creation_time':
+			{
+				'type':'timestamp'
+			}						
+		}
+	}
+}

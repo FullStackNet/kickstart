@@ -1,0 +1,56 @@
+{
+	"c4t_cart_item" :
+	{
+		"cluster": "DB_RECORD",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				"remark" : "from id and relation type"
+			},
+			'product_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'product_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'unit':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'quantity':
+			{
+				'type':'double'
+			},
+			'rate':
+			{
+				'type':'long'
+			},
+			'amount':
+			{
+				'type':'double'
+			},
+			'remark':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			}						
+		}
+	}
+}
