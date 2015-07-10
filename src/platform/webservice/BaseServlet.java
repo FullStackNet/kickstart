@@ -526,7 +526,7 @@ public class BaseServlet extends HttpServlet
 				}
 				ctx = new ServletContext(_session);
 			}
-
+			System.out.println("Session Id " + ctx.getSessionId() + " , user Name : " + ctx.getUserId() + ", user id = "+ ctx.getUserId());
 			Enumeration<String> names = request.getParameterNames();
 			while (names.hasMoreElements()) {
 				String name = names.nextElement();
