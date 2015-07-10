@@ -17,6 +17,7 @@ public class ServletContext {
 	public ServletContext(session _session) throws ApplicationException {
 		//Don't start a new session or add it to DB if no session id is coming
 		//Ex: API calls made without logging in
+		 _session = (session) SessionHelper.getInstance().getById(_session.getId());
 		this._session = _session;
 		params = new HashMap<String , String>();
 	}
