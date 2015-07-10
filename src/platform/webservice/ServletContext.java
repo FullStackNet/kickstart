@@ -11,7 +11,6 @@ import platform.util.ApplicationException;
 
 public class ServletContext {
 	private session _session;
-	String sessionId;
 	String path;
 	Map<String , String> params;
 	
@@ -19,7 +18,6 @@ public class ServletContext {
 		//Don't start a new session or add it to DB if no session id is coming
 		//Ex: API calls made without logging in
 		this._session = _session;
-		this.sessionId = _session.getId();
 		params = new HashMap<String , String>();
 	}
 
@@ -32,7 +30,7 @@ public class ServletContext {
 	}
 	
 	public String getSessionId() {
-		return sessionId;
+		return _session.getId();
 	}
 	
 	public String getUserId() {
@@ -57,7 +55,7 @@ public class ServletContext {
 	
 	
 	public void setUserId(String userId) {
-		session __session = new session(sessionId);
+		session __session = new session(_session.getId());
 		__session.setUser_id(userId);
 		try {
 			SessionHelper.getInstance().update(__session);
@@ -69,7 +67,7 @@ public class ServletContext {
 	}
 	
 	public void setSuperUser(String superUser) {
-		session __session = new session(sessionId);
+		session __session = new session(_session.getId());
 		__session.setSuper_user(superUser);
 		try {
 			SessionHelper.getInstance().update(__session);
@@ -82,7 +80,7 @@ public class ServletContext {
 	
 
 	public void setUserName(String userName) {
-		session __session = new session(sessionId);
+		session __session = new session(_session.getId());
 		__session.setUser_name(userName);
 		try {
 			SessionHelper.getInstance().update(__session);
@@ -93,7 +91,7 @@ public class ServletContext {
 	}
 	
 	public void setUserType(String type) {
-		session __session = new session(sessionId);
+		session __session = new session(_session.getId());
 		__session.setUser_type(type);
 		try {
 			SessionHelper.getInstance().update(__session);
@@ -113,7 +111,7 @@ public class ServletContext {
 	}
 	
 	public void setCustomerId(String customerId) {
-		session __session = new session(sessionId);
+		session __session = new session(_session.getId());
 		__session.setCustomer_id(customerId);
 		try {
 			SessionHelper.getInstance().update(__session);
@@ -124,6 +122,6 @@ public class ServletContext {
 	}
 	
 	public void delete() throws ApplicationException {
-		SessionHelper.getInstance().deleteById(sessionId);
+		SessionHelper.getInstance().deleteById(_session.getId());
 	}
 }

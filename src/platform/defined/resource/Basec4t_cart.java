@@ -10,10 +10,11 @@
 package platform.defined.resource;
 
 import platform.resource.BaseResource;
+import platform.resource.c4t_cart_item;
 import platform.util.*;
 import platform.db.*;
+
 import java.util.*;
-import platform.resource.c4t_cart_item;
 
 /*
  ********** This is a generated class **********
@@ -22,6 +23,15 @@ import platform.resource.c4t_cart_item;
 public abstract class Basec4t_cart extends BaseResource {
 	private String id = null;
 	private String community_id = null;
+	private String name = null;
+	private String mobile_no = null;
+	private String address = null;
+	private String area = null;
+	private String city = null;
+	private String state = null;
+	private String country = null;
+	private String zip_code = null;
+	private String land_mark = null;
 	private String order_type = null;
 	private Long no_of_products = null;
 	private Long no_of_items = null;
@@ -29,12 +39,21 @@ public abstract class Basec4t_cart extends BaseResource {
 	private Double total_vat = null;
 	private Double total_service_tax = null;
 	private Double total_service_charge = null;
-	private List<c4t_cart_item> cart_items = null;
+	private ArrayList<c4t_cart_item> cart_items = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_NAME = "name";
+	public static String FIELD_MOBILE_NO = "mobile_no";
+	public static String FIELD_ADDRESS = "address";
+	public static String FIELD_AREA = "area";
+	public static String FIELD_CITY = "city";
+	public static String FIELD_STATE = "state";
+	public static String FIELD_COUNTRY = "country";
+	public static String FIELD_ZIP_CODE = "zip_code";
+	public static String FIELD_LAND_MARK = "land_mark";
 	public static String FIELD_ORDER_TYPE = "order_type";
 	public static String FIELD_NO_OF_PRODUCTS = "no_of_products";
 	public static String FIELD_NO_OF_ITEMS = "no_of_items";
@@ -61,6 +80,42 @@ public abstract class Basec4t_cart extends BaseResource {
 		community_idField.setRequired(true);
 		community_idField.setLength(128);
 		metaData.addField(community_idField);
+
+		Field nameField = new Field("name", "String");
+		nameField.setLength(256);
+		metaData.addField(nameField);
+
+		Field mobile_noField = new Field("mobile_no", "String");
+		mobile_noField.setLength(256);
+		metaData.addField(mobile_noField);
+
+		Field addressField = new Field("address", "String");
+		addressField.setLength(256);
+		metaData.addField(addressField);
+
+		Field areaField = new Field("area", "String");
+		areaField.setLength(128);
+		metaData.addField(areaField);
+
+		Field cityField = new Field("city", "String");
+		cityField.setLength(128);
+		metaData.addField(cityField);
+
+		Field stateField = new Field("state", "String");
+		stateField.setLength(128);
+		metaData.addField(stateField);
+
+		Field countryField = new Field("country", "String");
+		countryField.setLength(128);
+		metaData.addField(countryField);
+
+		Field zip_codeField = new Field("zip_code", "String");
+		zip_codeField.setLength(10);
+		metaData.addField(zip_codeField);
+
+		Field land_markField = new Field("land_mark", "String");
+		land_markField.setLength(128);
+		metaData.addField(land_markField);
 
 		Field order_typeField = new Field("order_type", "String");
 		order_typeField.setRequired(true);
@@ -106,6 +161,15 @@ public abstract class Basec4t_cart extends BaseResource {
 	public Basec4t_cart(Basec4t_cart obj) {
 		this.id = obj.id;
 		this.community_id = obj.community_id;
+		this.name = obj.name;
+		this.mobile_no = obj.mobile_no;
+		this.address = obj.address;
+		this.area = obj.area;
+		this.city = obj.city;
+		this.state = obj.state;
+		this.country = obj.country;
+		this.zip_code = obj.zip_code;
+		this.land_mark = obj.land_mark;
 		this.order_type = obj.order_type;
 		this.no_of_products = obj.no_of_products;
 		this.no_of_items = obj.no_of_items;
@@ -128,6 +192,24 @@ public abstract class Basec4t_cart extends BaseResource {
 			map.put("id", id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(name != null)
+			map.put("name", name);
+		if(mobile_no != null)
+			map.put("mobile_no", mobile_no);
+		if(address != null)
+			map.put("address", address);
+		if(area != null)
+			map.put("area", area);
+		if(city != null)
+			map.put("city", city);
+		if(state != null)
+			map.put("state", state);
+		if(country != null)
+			map.put("country", country);
+		if(zip_code != null)
+			map.put("zip_code", zip_code);
+		if(land_mark != null)
+			map.put("land_mark", land_mark);
 		if(order_type != null)
 			map.put("order_type", order_type);
 		if(no_of_products != null)
@@ -157,6 +239,24 @@ public abstract class Basec4t_cart extends BaseResource {
 			map.put("id", id);
 		if(validateCommunity_id(add))
 			map.put("community_id", community_id);
+		if(name != null)
+			map.put("name", name);
+		if(mobile_no != null)
+			map.put("mobile_no", mobile_no);
+		if(address != null)
+			map.put("address", address);
+		if(area != null)
+			map.put("area", area);
+		if(city != null)
+			map.put("city", city);
+		if(state != null)
+			map.put("state", state);
+		if(country != null)
+			map.put("country", country);
+		if(zip_code != null)
+			map.put("zip_code", zip_code);
+		if(land_mark != null)
+			map.put("land_mark", land_mark);
 		if(validateOrder_type(add))
 			map.put("order_type", order_type);
 		if(no_of_products != null)
@@ -189,6 +289,15 @@ public abstract class Basec4t_cart extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		community_id = (String) map.get("community_id");
+		name = (String) map.get("name");
+		mobile_no = (String) map.get("mobile_no");
+		address = (String) map.get("address");
+		area = (String) map.get("area");
+		city = (String) map.get("city");
+		state = (String) map.get("state");
+		country = (String) map.get("country");
+		zip_code = (String) map.get("zip_code");
+		land_mark = (String) map.get("land_mark");
 		order_type = (String) map.get("order_type");
 		no_of_products = (Long) map.get("no_of_products");
 		no_of_items = (Long) map.get("no_of_items");
@@ -196,7 +305,7 @@ public abstract class Basec4t_cart extends BaseResource {
 		total_vat = (Double) map.get("total_vat");
 		total_service_tax = (Double) map.get("total_service_tax");
 		total_service_charge = (Double) map.get("total_service_charge");
-		cart_items = (List<c4t_cart_item>) map.get("cart_items");
+		cart_items = (ArrayList<c4t_cart_item>) map.get("cart_items");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -210,6 +319,42 @@ public abstract class Basec4t_cart extends BaseResource {
 		Object community_idObj = map.get("community_id");
 		if(community_idObj != null)
 			community_id = community_idObj.toString();
+
+		Object nameObj = map.get("name");
+		if(nameObj != null)
+			name = nameObj.toString();
+
+		Object mobile_noObj = map.get("mobile_no");
+		if(mobile_noObj != null)
+			mobile_no = mobile_noObj.toString();
+
+		Object addressObj = map.get("address");
+		if(addressObj != null)
+			address = addressObj.toString();
+
+		Object areaObj = map.get("area");
+		if(areaObj != null)
+			area = areaObj.toString();
+
+		Object cityObj = map.get("city");
+		if(cityObj != null)
+			city = cityObj.toString();
+
+		Object stateObj = map.get("state");
+		if(stateObj != null)
+			state = stateObj.toString();
+
+		Object countryObj = map.get("country");
+		if(countryObj != null)
+			country = countryObj.toString();
+
+		Object zip_codeObj = map.get("zip_code");
+		if(zip_codeObj != null)
+			zip_code = zip_codeObj.toString();
+
+		Object land_markObj = map.get("land_mark");
+		if(land_markObj != null)
+			land_mark = land_markObj.toString();
 
 		Object order_typeObj = map.get("order_type");
 		if(order_typeObj != null)
@@ -239,7 +384,7 @@ public abstract class Basec4t_cart extends BaseResource {
 		if(total_service_chargeObj != null)
 			total_service_charge = new Double(total_service_chargeObj.toString());
 
-		cart_items = (List<c4t_cart_item>) map.get("cart_items");
+		cart_items = (ArrayList<c4t_cart_item>) map.get("cart_items");
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
@@ -295,6 +440,150 @@ public abstract class Basec4t_cart extends BaseResource {
 		if(add && community_id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[community_id]");
 		return community_id != null;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getNameEx() {
+		return name != null ? name : "";
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void unSetName() {
+		this.name = null;
+	}
+
+	public String getMobile_no() {
+		return mobile_no;
+	}
+
+	public String getMobile_noEx() {
+		return mobile_no != null ? mobile_no : "";
+	}
+
+	public void setMobile_no(String mobile_no) {
+		this.mobile_no = mobile_no;
+	}
+
+	public void unSetMobile_no() {
+		this.mobile_no = null;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getAddressEx() {
+		return address != null ? address : "";
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void unSetAddress() {
+		this.address = null;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public String getAreaEx() {
+		return area != null ? area : "";
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public void unSetArea() {
+		this.area = null;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public String getCityEx() {
+		return city != null ? city : "";
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void unSetCity() {
+		this.city = null;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public String getStateEx() {
+		return state != null ? state : "";
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public void unSetState() {
+		this.state = null;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public String getCountryEx() {
+		return country != null ? country : "";
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public void unSetCountry() {
+		this.country = null;
+	}
+
+	public String getZip_code() {
+		return zip_code;
+	}
+
+	public String getZip_codeEx() {
+		return zip_code != null ? zip_code : "";
+	}
+
+	public void setZip_code(String zip_code) {
+		this.zip_code = zip_code;
+	}
+
+	public void unSetZip_code() {
+		this.zip_code = null;
+	}
+
+	public String getLand_mark() {
+		return land_mark;
+	}
+
+	public String getLand_markEx() {
+		return land_mark != null ? land_mark : "";
+	}
+
+	public void setLand_mark(String land_mark) {
+		this.land_mark = land_mark;
+	}
+
+	public void unSetLand_mark() {
+		this.land_mark = null;
 	}
 
 	public String getOrder_type() {
@@ -439,12 +728,12 @@ public abstract class Basec4t_cart extends BaseResource {
 		this.total_service_charge = null;
 	}
 
-	public List<c4t_cart_item> getCart_items() {
+	public ArrayList<c4t_cart_item> getCart_items() {
 		return cart_items;
 	}
 
 
-	public void setCart_items(List<c4t_cart_item> cart_items) {
+	public void setCart_items(ArrayList<c4t_cart_item> cart_items) {
 		this.cart_items = cart_items;
 	}
 

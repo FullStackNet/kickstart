@@ -40,6 +40,41 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'product_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'product_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'product_unit':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'quantity':
+			{
+				'type': 'Double'
+			},
+			'rate':
+			{
+				'type': 'Double'
+			},
+			'service_tax':
+			{
+				'type': 'Double'
+			},
+			'vat':
+			{
+				'type': 'Double'
+			},
+			'amount':
+			{
+				'type': 'Double'
+			},	
 			'user_id':
 			{
 				'length': 512,

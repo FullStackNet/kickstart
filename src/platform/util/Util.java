@@ -1274,7 +1274,7 @@ public class Util {
 		return (multipler)*value;
 	}
 
-	public static String getRandonToken() {
+	public synchronized static String getRandonToken() {
 
 		long number = 100000 + generator.nextInt(900000);
 		return "" +number;  

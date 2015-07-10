@@ -23,7 +23,7 @@ public abstract class Basec4t_cart_item extends BaseResource {
 	private String product_id = null;
 	private String unit = null;
 	private Double quantity = null;
-	private Long rate = null;
+	private Double rate = null;
 	private Double amount = null;
 	private String remark = null;
 	private Long creation_time = null;
@@ -63,7 +63,7 @@ public abstract class Basec4t_cart_item extends BaseResource {
 		Field quantityField = new Field("quantity", "double");
 		metaData.addField(quantityField);
 
-		Field rateField = new Field("rate", "long");
+		Field rateField = new Field("rate", "Double");
 		metaData.addField(rateField);
 
 		Field amountField = new Field("amount", "double");
@@ -162,7 +162,7 @@ public abstract class Basec4t_cart_item extends BaseResource {
 		product_id = (String) map.get("product_id");
 		unit = (String) map.get("unit");
 		quantity = (Double) map.get("quantity");
-		rate = (Long) map.get("rate");
+		rate = (Double) map.get("rate");
 		amount = (Double) map.get("amount");
 		remark = (String) map.get("remark");
 		creation_time = (Long) map.get("creation_time");
@@ -189,7 +189,7 @@ public abstract class Basec4t_cart_item extends BaseResource {
 
 		Object rateObj = map.get("rate");
 		if(rateObj != null)
-			rate = new Long(rateObj.toString());
+			rate = new Double(rateObj.toString());
 
 		Object amountObj = map.get("amount");
 		if(amountObj != null)
@@ -298,19 +298,11 @@ public abstract class Basec4t_cart_item extends BaseResource {
 		this.quantity = null;
 	}
 
-	public Long getRate() {
+	public Double getRate() {
 		return rate;
 	}
 
-	public long getRateEx() {
-		return rate != null ? rate : 0L;
-	}
-
-	public void setRate(long rate) {
-		this.rate = rate;
-	}
-
-	public void setRate(Long rate) {
+	public void setRate(Double rate) {
 		this.rate = rate;
 	}
 

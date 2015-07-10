@@ -35,7 +35,7 @@
 			},
 			'rate':
 			{
-				'type':'long'
+				'type':'Double'
 			},
 			'amount':
 			{

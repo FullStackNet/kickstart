@@ -25,6 +25,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String community_id = null;
 	private String record_type = null;
 	private String message = null;
+	private String product_id = null;
+	private String product_name = null;
+	private String product_unit = null;
+	private Double quantity = null;
+	private Double rate = null;
+	private Double service_tax = null;
+	private Double vat = null;
+	private Double amount = null;
 	private String user_id = null;
 	private String user_name = null;
 	private Long creation_time = null;
@@ -36,6 +44,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_MESSAGE = "message";
+	public static String FIELD_PRODUCT_ID = "product_id";
+	public static String FIELD_PRODUCT_NAME = "product_name";
+	public static String FIELD_PRODUCT_UNIT = "product_unit";
+	public static String FIELD_QUANTITY = "quantity";
+	public static String FIELD_RATE = "rate";
+	public static String FIELD_SERVICE_TAX = "service_tax";
+	public static String FIELD_VAT = "vat";
+	public static String FIELD_AMOUNT = "amount";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -75,6 +91,33 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		messageField.setLength(512);
 		metaData.addField(messageField);
 
+		Field product_idField = new Field("product_id", "String");
+		product_idField.setLength(512);
+		metaData.addField(product_idField);
+
+		Field product_nameField = new Field("product_name", "String");
+		product_nameField.setLength(512);
+		metaData.addField(product_nameField);
+
+		Field product_unitField = new Field("product_unit", "String");
+		product_unitField.setLength(128);
+		metaData.addField(product_unitField);
+
+		Field quantityField = new Field("quantity", "Double");
+		metaData.addField(quantityField);
+
+		Field rateField = new Field("rate", "Double");
+		metaData.addField(rateField);
+
+		Field service_taxField = new Field("service_tax", "Double");
+		metaData.addField(service_taxField);
+
+		Field vatField = new Field("vat", "Double");
+		metaData.addField(vatField);
+
+		Field amountField = new Field("amount", "Double");
+		metaData.addField(amountField);
+
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(512);
 		metaData.addField(user_idField);
@@ -105,6 +148,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.community_id = obj.community_id;
 		this.record_type = obj.record_type;
 		this.message = obj.message;
+		this.product_id = obj.product_id;
+		this.product_name = obj.product_name;
+		this.product_unit = obj.product_unit;
+		this.quantity = obj.quantity;
+		this.rate = obj.rate;
+		this.service_tax = obj.service_tax;
+		this.vat = obj.vat;
+		this.amount = obj.amount;
 		this.user_id = obj.user_id;
 		this.user_name = obj.user_name;
 		this.creation_time = obj.creation_time;
@@ -129,6 +180,22 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("record_type", record_type);
 		if(message != null)
 			map.put("message", message);
+		if(product_id != null)
+			map.put("product_id", product_id);
+		if(product_name != null)
+			map.put("product_name", product_name);
+		if(product_unit != null)
+			map.put("product_unit", product_unit);
+		if(quantity != null)
+			map.put("quantity", quantity);
+		if(rate != null)
+			map.put("rate", rate);
+		if(service_tax != null)
+			map.put("service_tax", service_tax);
+		if(vat != null)
+			map.put("vat", vat);
+		if(amount != null)
+			map.put("amount", amount);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(user_name != null)
@@ -154,6 +221,22 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("record_type", record_type);
 		if(message != null)
 			map.put("message", message);
+		if(product_id != null)
+			map.put("product_id", product_id);
+		if(product_name != null)
+			map.put("product_name", product_name);
+		if(product_unit != null)
+			map.put("product_unit", product_unit);
+		if(quantity != null)
+			map.put("quantity", quantity);
+		if(rate != null)
+			map.put("rate", rate);
+		if(service_tax != null)
+			map.put("service_tax", service_tax);
+		if(vat != null)
+			map.put("vat", vat);
+		if(amount != null)
+			map.put("amount", amount);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(user_name != null)
@@ -178,6 +261,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		community_id = (String) map.get("community_id");
 		record_type = (String) map.get("record_type");
 		message = (String) map.get("message");
+		product_id = (String) map.get("product_id");
+		product_name = (String) map.get("product_name");
+		product_unit = (String) map.get("product_unit");
+		quantity = (Double) map.get("quantity");
+		rate = (Double) map.get("rate");
+		service_tax = (Double) map.get("service_tax");
+		vat = (Double) map.get("vat");
+		amount = (Double) map.get("amount");
 		user_id = (String) map.get("user_id");
 		user_name = (String) map.get("user_name");
 		creation_time = (Long) map.get("creation_time");
@@ -209,6 +300,38 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object messageObj = map.get("message");
 		if(messageObj != null)
 			message = messageObj.toString();
+
+		Object product_idObj = map.get("product_id");
+		if(product_idObj != null)
+			product_id = product_idObj.toString();
+
+		Object product_nameObj = map.get("product_name");
+		if(product_nameObj != null)
+			product_name = product_nameObj.toString();
+
+		Object product_unitObj = map.get("product_unit");
+		if(product_unitObj != null)
+			product_unit = product_unitObj.toString();
+
+		Object quantityObj = map.get("quantity");
+		if(quantityObj != null)
+			quantity = new Double(quantityObj.toString());
+
+		Object rateObj = map.get("rate");
+		if(rateObj != null)
+			rate = new Double(rateObj.toString());
+
+		Object service_taxObj = map.get("service_tax");
+		if(service_taxObj != null)
+			service_tax = new Double(service_taxObj.toString());
+
+		Object vatObj = map.get("vat");
+		if(vatObj != null)
+			vat = new Double(vatObj.toString());
+
+		Object amountObj = map.get("amount");
+		if(amountObj != null)
+			amount = new Double(amountObj.toString());
 
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
@@ -331,6 +454,114 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetMessage() {
 		this.message = null;
+	}
+
+	public String getProduct_id() {
+		return product_id;
+	}
+
+	public String getProduct_idEx() {
+		return product_id != null ? product_id : "";
+	}
+
+	public void setProduct_id(String product_id) {
+		this.product_id = product_id;
+	}
+
+	public void unSetProduct_id() {
+		this.product_id = null;
+	}
+
+	public String getProduct_name() {
+		return product_name;
+	}
+
+	public String getProduct_nameEx() {
+		return product_name != null ? product_name : "";
+	}
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+
+	public void unSetProduct_name() {
+		this.product_name = null;
+	}
+
+	public String getProduct_unit() {
+		return product_unit;
+	}
+
+	public String getProduct_unitEx() {
+		return product_unit != null ? product_unit : "";
+	}
+
+	public void setProduct_unit(String product_unit) {
+		this.product_unit = product_unit;
+	}
+
+	public void unSetProduct_unit() {
+		this.product_unit = null;
+	}
+
+	public Double getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Double quantity) {
+		this.quantity = quantity;
+	}
+
+	public void unSetQuantity() {
+		this.quantity = null;
+	}
+
+	public Double getRate() {
+		return rate;
+	}
+
+	public void setRate(Double rate) {
+		this.rate = rate;
+	}
+
+	public void unSetRate() {
+		this.rate = null;
+	}
+
+	public Double getService_tax() {
+		return service_tax;
+	}
+
+	public void setService_tax(Double service_tax) {
+		this.service_tax = service_tax;
+	}
+
+	public void unSetService_tax() {
+		this.service_tax = null;
+	}
+
+	public Double getVat() {
+		return vat;
+	}
+
+	public void setVat(Double vat) {
+		this.vat = vat;
+	}
+
+	public void unSetVat() {
+		this.vat = null;
+	}
+
+	public Double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+
+	public void unSetAmount() {
+		this.amount = null;
 	}
 
 	public String getUser_id() {

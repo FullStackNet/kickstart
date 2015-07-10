@@ -41,16 +41,24 @@ public abstract class Basec4t_record extends BaseResource {
 	private String reference_id = null;
 	private String reference_name = null;
 	private String mobile_no = null;
+	private String address = null;
+	private String area = null;
+	private String city = null;
+	private String state = null;
+	private String country = null;
+	private String zip_code = null;
+	private String land_mark = null;
 	private String company_name = null;
 	private String record_status = null;
 	private String designation = null;
-	private String address = null;
 	private Double quantity = null;
 	private Double total_vat = null;
 	private Long total_items = null;
 	private Double total_service_tax = null;
 	private Double total_service_charge = null;
 	private Double total_amount = null;
+	private Double total_products = null;
+	private Double total_quantity = null;
 	private String recipients = null;
 	private String description = null;
 	private Long event_date = null;
@@ -94,16 +102,24 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_REFERENCE_NAME = "reference_name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
+	public static String FIELD_ADDRESS = "address";
+	public static String FIELD_AREA = "area";
+	public static String FIELD_CITY = "city";
+	public static String FIELD_STATE = "state";
+	public static String FIELD_COUNTRY = "country";
+	public static String FIELD_ZIP_CODE = "zip_code";
+	public static String FIELD_LAND_MARK = "land_mark";
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_RECORD_STATUS = "record_status";
 	public static String FIELD_DESIGNATION = "designation";
-	public static String FIELD_ADDRESS = "address";
 	public static String FIELD_QUANTITY = "quantity";
 	public static String FIELD_TOTAL_VAT = "total_vat";
 	public static String FIELD_TOTAL_ITEMS = "total_items";
 	public static String FIELD_TOTAL_SERVICE_TAX = "total_service_tax";
 	public static String FIELD_TOTAL_SERVICE_CHARGE = "total_service_charge";
 	public static String FIELD_TOTAL_AMOUNT = "total_amount";
+	public static String FIELD_TOTAL_PRODUCTS = "total_products";
+	public static String FIELD_TOTAL_QUANTITY = "total_quantity";
 	public static String FIELD_RECIPIENTS = "recipients";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_EVENT_DATE = "event_date";
@@ -227,6 +243,34 @@ public abstract class Basec4t_record extends BaseResource {
 		mobile_noField.setLength(32);
 		metaData.addField(mobile_noField);
 
+		Field addressField = new Field("address", "String");
+		addressField.setLength(512);
+		metaData.addField(addressField);
+
+		Field areaField = new Field("area", "String");
+		areaField.setLength(128);
+		metaData.addField(areaField);
+
+		Field cityField = new Field("city", "String");
+		cityField.setLength(128);
+		metaData.addField(cityField);
+
+		Field stateField = new Field("state", "String");
+		stateField.setLength(128);
+		metaData.addField(stateField);
+
+		Field countryField = new Field("country", "String");
+		countryField.setLength(128);
+		metaData.addField(countryField);
+
+		Field zip_codeField = new Field("zip_code", "String");
+		zip_codeField.setLength(10);
+		metaData.addField(zip_codeField);
+
+		Field land_markField = new Field("land_mark", "String");
+		land_markField.setLength(128);
+		metaData.addField(land_markField);
+
 		Field company_nameField = new Field("company_name", "String");
 		company_nameField.setLength(128);
 		metaData.addField(company_nameField);
@@ -238,10 +282,6 @@ public abstract class Basec4t_record extends BaseResource {
 		Field designationField = new Field("designation", "String");
 		designationField.setLength(512);
 		metaData.addField(designationField);
-
-		Field addressField = new Field("address", "String");
-		addressField.setLength(512);
-		metaData.addField(addressField);
 
 		Field quantityField = new Field("quantity", "Double");
 		metaData.addField(quantityField);
@@ -260,6 +300,12 @@ public abstract class Basec4t_record extends BaseResource {
 
 		Field total_amountField = new Field("total_amount", "Double");
 		metaData.addField(total_amountField);
+
+		Field total_productsField = new Field("total_products", "Double");
+		metaData.addField(total_productsField);
+
+		Field total_quantityField = new Field("total_quantity", "Double");
+		metaData.addField(total_quantityField);
 
 		Field recipientsField = new Field("recipients", "String");
 		recipientsField.setLength(512);
@@ -364,16 +410,24 @@ public abstract class Basec4t_record extends BaseResource {
 		this.reference_id = obj.reference_id;
 		this.reference_name = obj.reference_name;
 		this.mobile_no = obj.mobile_no;
+		this.address = obj.address;
+		this.area = obj.area;
+		this.city = obj.city;
+		this.state = obj.state;
+		this.country = obj.country;
+		this.zip_code = obj.zip_code;
+		this.land_mark = obj.land_mark;
 		this.company_name = obj.company_name;
 		this.record_status = obj.record_status;
 		this.designation = obj.designation;
-		this.address = obj.address;
 		this.quantity = obj.quantity;
 		this.total_vat = obj.total_vat;
 		this.total_items = obj.total_items;
 		this.total_service_tax = obj.total_service_tax;
 		this.total_service_charge = obj.total_service_charge;
 		this.total_amount = obj.total_amount;
+		this.total_products = obj.total_products;
+		this.total_quantity = obj.total_quantity;
 		this.recipients = obj.recipients;
 		this.description = obj.description;
 		this.event_date = obj.event_date;
@@ -455,14 +509,26 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("reference_name", reference_name);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
+		if(address != null)
+			map.put("address", address);
+		if(area != null)
+			map.put("area", area);
+		if(city != null)
+			map.put("city", city);
+		if(state != null)
+			map.put("state", state);
+		if(country != null)
+			map.put("country", country);
+		if(zip_code != null)
+			map.put("zip_code", zip_code);
+		if(land_mark != null)
+			map.put("land_mark", land_mark);
 		if(company_name != null)
 			map.put("company_name", company_name);
 		if(record_status != null)
 			map.put("record_status", record_status);
 		if(designation != null)
 			map.put("designation", designation);
-		if(address != null)
-			map.put("address", address);
 		if(quantity != null)
 			map.put("quantity", quantity);
 		if(total_vat != null)
@@ -475,6 +541,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_service_charge", total_service_charge);
 		if(total_amount != null)
 			map.put("total_amount", total_amount);
+		if(total_products != null)
+			map.put("total_products", total_products);
+		if(total_quantity != null)
+			map.put("total_quantity", total_quantity);
 		if(recipients != null)
 			map.put("recipients", recipients);
 		if(description != null)
@@ -567,14 +637,26 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("reference_name", reference_name);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
+		if(address != null)
+			map.put("address", address);
+		if(area != null)
+			map.put("area", area);
+		if(city != null)
+			map.put("city", city);
+		if(state != null)
+			map.put("state", state);
+		if(country != null)
+			map.put("country", country);
+		if(zip_code != null)
+			map.put("zip_code", zip_code);
+		if(land_mark != null)
+			map.put("land_mark", land_mark);
 		if(company_name != null)
 			map.put("company_name", company_name);
 		if(record_status != null)
 			map.put("record_status", record_status);
 		if(designation != null)
 			map.put("designation", designation);
-		if(address != null)
-			map.put("address", address);
 		if(quantity != null)
 			map.put("quantity", quantity);
 		if(total_vat != null)
@@ -587,6 +669,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_service_charge", total_service_charge);
 		if(total_amount != null)
 			map.put("total_amount", total_amount);
+		if(total_products != null)
+			map.put("total_products", total_products);
+		if(total_quantity != null)
+			map.put("total_quantity", total_quantity);
 		if(recipients != null)
 			map.put("recipients", recipients);
 		if(description != null)
@@ -659,16 +745,24 @@ public abstract class Basec4t_record extends BaseResource {
 		reference_id = (String) map.get("reference_id");
 		reference_name = (String) map.get("reference_name");
 		mobile_no = (String) map.get("mobile_no");
+		address = (String) map.get("address");
+		area = (String) map.get("area");
+		city = (String) map.get("city");
+		state = (String) map.get("state");
+		country = (String) map.get("country");
+		zip_code = (String) map.get("zip_code");
+		land_mark = (String) map.get("land_mark");
 		company_name = (String) map.get("company_name");
 		record_status = (String) map.get("record_status");
 		designation = (String) map.get("designation");
-		address = (String) map.get("address");
 		quantity = (Double) map.get("quantity");
 		total_vat = (Double) map.get("total_vat");
 		total_items = (Long) map.get("total_items");
 		total_service_tax = (Double) map.get("total_service_tax");
 		total_service_charge = (Double) map.get("total_service_charge");
 		total_amount = (Double) map.get("total_amount");
+		total_products = (Double) map.get("total_products");
+		total_quantity = (Double) map.get("total_quantity");
 		recipients = (String) map.get("recipients");
 		description = (String) map.get("description");
 		event_date = (Long) map.get("event_date");
@@ -781,6 +875,34 @@ public abstract class Basec4t_record extends BaseResource {
 		if(mobile_noObj != null)
 			mobile_no = mobile_noObj.toString();
 
+		Object addressObj = map.get("address");
+		if(addressObj != null)
+			address = addressObj.toString();
+
+		Object areaObj = map.get("area");
+		if(areaObj != null)
+			area = areaObj.toString();
+
+		Object cityObj = map.get("city");
+		if(cityObj != null)
+			city = cityObj.toString();
+
+		Object stateObj = map.get("state");
+		if(stateObj != null)
+			state = stateObj.toString();
+
+		Object countryObj = map.get("country");
+		if(countryObj != null)
+			country = countryObj.toString();
+
+		Object zip_codeObj = map.get("zip_code");
+		if(zip_codeObj != null)
+			zip_code = zip_codeObj.toString();
+
+		Object land_markObj = map.get("land_mark");
+		if(land_markObj != null)
+			land_mark = land_markObj.toString();
+
 		Object company_nameObj = map.get("company_name");
 		if(company_nameObj != null)
 			company_name = company_nameObj.toString();
@@ -792,10 +914,6 @@ public abstract class Basec4t_record extends BaseResource {
 		Object designationObj = map.get("designation");
 		if(designationObj != null)
 			designation = designationObj.toString();
-
-		Object addressObj = map.get("address");
-		if(addressObj != null)
-			address = addressObj.toString();
 
 		Object quantityObj = map.get("quantity");
 		if(quantityObj != null)
@@ -820,6 +938,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_amountObj = map.get("total_amount");
 		if(total_amountObj != null)
 			total_amount = new Double(total_amountObj.toString());
+
+		Object total_productsObj = map.get("total_products");
+		if(total_productsObj != null)
+			total_products = new Double(total_productsObj.toString());
+
+		Object total_quantityObj = map.get("total_quantity");
+		if(total_quantityObj != null)
+			total_quantity = new Double(total_quantityObj.toString());
 
 		Object recipientsObj = map.get("recipients");
 		if(recipientsObj != null)
@@ -1264,6 +1390,118 @@ public abstract class Basec4t_record extends BaseResource {
 		this.mobile_no = null;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public String getAddressEx() {
+		return address != null ? address : "";
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void unSetAddress() {
+		this.address = null;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public String getAreaEx() {
+		return area != null ? area : "";
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public void unSetArea() {
+		this.area = null;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public String getCityEx() {
+		return city != null ? city : "";
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void unSetCity() {
+		this.city = null;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public String getStateEx() {
+		return state != null ? state : "";
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public void unSetState() {
+		this.state = null;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public String getCountryEx() {
+		return country != null ? country : "";
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public void unSetCountry() {
+		this.country = null;
+	}
+
+	public String getZip_code() {
+		return zip_code;
+	}
+
+	public String getZip_codeEx() {
+		return zip_code != null ? zip_code : "";
+	}
+
+	public void setZip_code(String zip_code) {
+		this.zip_code = zip_code;
+	}
+
+	public void unSetZip_code() {
+		this.zip_code = null;
+	}
+
+	public String getLand_mark() {
+		return land_mark;
+	}
+
+	public String getLand_markEx() {
+		return land_mark != null ? land_mark : "";
+	}
+
+	public void setLand_mark(String land_mark) {
+		this.land_mark = land_mark;
+	}
+
+	public void unSetLand_mark() {
+		this.land_mark = null;
+	}
+
 	public String getCompany_name() {
 		return company_name;
 	}
@@ -1310,22 +1548,6 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetDesignation() {
 		this.designation = null;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public String getAddressEx() {
-		return address != null ? address : "";
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public void unSetAddress() {
-		this.address = null;
 	}
 
 	public Double getQuantity() {
@@ -1406,6 +1628,30 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_amount() {
 		this.total_amount = null;
+	}
+
+	public Double getTotal_products() {
+		return total_products;
+	}
+
+	public void setTotal_products(Double total_products) {
+		this.total_products = total_products;
+	}
+
+	public void unSetTotal_products() {
+		this.total_products = null;
+	}
+
+	public Double getTotal_quantity() {
+		return total_quantity;
+	}
+
+	public void setTotal_quantity(Double total_quantity) {
+		this.total_quantity = total_quantity;
+	}
+
+	public void unSetTotal_quantity() {
+		this.total_quantity = null;
 	}
 
 	public String getRecipients() {
