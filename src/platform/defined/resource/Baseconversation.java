@@ -24,7 +24,7 @@ public abstract class Baseconversation extends BaseResource {
 	private Long message_time = null;
 	private String message_text = null;
 	private String direction = null;
-	private ArrayList<Object> messages = null;
+	private List<Object> messages = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -121,7 +121,7 @@ public abstract class Baseconversation extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		messages = (ArrayList<Object>) map.get("messages");
+		messages = (List<Object>) map.get("messages");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -131,7 +131,7 @@ public abstract class Baseconversation extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		messages = (ArrayList<Object>) map.get("messages");
+		messages = (List<Object>) map.get("messages");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -231,18 +231,18 @@ public abstract class Baseconversation extends BaseResource {
 		this.direction = null;
 	}
 
-	public ArrayList<Object> getMessages() {
+	public List<Object> getMessages() {
 		return messages;
 	}
 
 
-	public void setMessages(ArrayList<Object> messages) {
+	public void setMessages(List<Object> messages) {
 		this.messages = messages;
 	}
 
 	public void addMessages(Object value) {
 		if(messages == null)
-			messages = new ArrayList<Object>();
+			messages = new ArrayList<>();
 		messages.add(value);
 	}
 

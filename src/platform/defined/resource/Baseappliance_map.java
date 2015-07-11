@@ -20,10 +20,10 @@ import java.util.*;
  */
 public abstract class Baseappliance_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> admins = null;
-	private ArrayList<Object> users = null;
-	private ArrayList<Object> alerts = null;
-	private ArrayList<Object> notifications = null;
+	private List<Object> admins = null;
+	private List<Object> users = null;
+	private List<Object> alerts = null;
+	private List<Object> notifications = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -123,10 +123,10 @@ public abstract class Baseappliance_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		admins = (ArrayList<Object>) map.get("admins");
-		users = (ArrayList<Object>) map.get("users");
-		alerts = (ArrayList<Object>) map.get("alerts");
-		notifications = (ArrayList<Object>) map.get("notifications");
+		admins = (List<Object>) map.get("admins");
+		users = (List<Object>) map.get("users");
+		alerts = (List<Object>) map.get("alerts");
+		notifications = (List<Object>) map.get("notifications");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -136,10 +136,10 @@ public abstract class Baseappliance_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		admins = (ArrayList<Object>) map.get("admins");
-		users = (ArrayList<Object>) map.get("users");
-		alerts = (ArrayList<Object>) map.get("alerts");
-		notifications = (ArrayList<Object>) map.get("notifications");
+		admins = (List<Object>) map.get("admins");
+		users = (List<Object>) map.get("users");
+		alerts = (List<Object>) map.get("alerts");
+		notifications = (List<Object>) map.get("notifications");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -171,18 +171,18 @@ public abstract class Baseappliance_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getAdmins() {
+	public List<Object> getAdmins() {
 		return admins;
 	}
 
 
-	public void setAdmins(ArrayList<Object> admins) {
+	public void setAdmins(List<Object> admins) {
 		this.admins = admins;
 	}
 
 	public void addAdmins(Object value) {
 		if(admins == null)
-			admins = new ArrayList<Object>();
+			admins = new ArrayList<>();
 		admins.add(value);
 	}
 
@@ -190,18 +190,18 @@ public abstract class Baseappliance_map extends BaseResource {
 		this.admins = null;
 	}
 
-	public ArrayList<Object> getUsers() {
+	public List<Object> getUsers() {
 		return users;
 	}
 
 
-	public void setUsers(ArrayList<Object> users) {
+	public void setUsers(List<Object> users) {
 		this.users = users;
 	}
 
 	public void addUsers(Object value) {
 		if(users == null)
-			users = new ArrayList<Object>();
+			users = new ArrayList<>();
 		users.add(value);
 	}
 
@@ -209,18 +209,18 @@ public abstract class Baseappliance_map extends BaseResource {
 		this.users = null;
 	}
 
-	public ArrayList<Object> getAlerts() {
+	public List<Object> getAlerts() {
 		return alerts;
 	}
 
 
-	public void setAlerts(ArrayList<Object> alerts) {
+	public void setAlerts(List<Object> alerts) {
 		this.alerts = alerts;
 	}
 
 	public void addAlerts(Object value) {
 		if(alerts == null)
-			alerts = new ArrayList<Object>();
+			alerts = new ArrayList<>();
 		alerts.add(value);
 	}
 
@@ -228,18 +228,18 @@ public abstract class Baseappliance_map extends BaseResource {
 		this.alerts = null;
 	}
 
-	public ArrayList<Object> getNotifications() {
+	public List<Object> getNotifications() {
 		return notifications;
 	}
 
 
-	public void setNotifications(ArrayList<Object> notifications) {
+	public void setNotifications(List<Object> notifications) {
 		this.notifications = notifications;
 	}
 
 	public void addNotifications(Object value) {
 		if(notifications == null)
-			notifications = new ArrayList<Object>();
+			notifications = new ArrayList<>();
 		notifications.add(value);
 	}
 

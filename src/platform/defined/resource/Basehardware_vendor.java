@@ -22,7 +22,7 @@ public abstract class Basehardware_vendor extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String short_code = null;
-	private ArrayList<Object> devices = null;
+	private List<Object> devices = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -119,7 +119,7 @@ public abstract class Basehardware_vendor extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		short_code = (String) map.get("short_code");
-		devices = (ArrayList<Object>) map.get("devices");
+		devices = (List<Object>) map.get("devices");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -137,7 +137,7 @@ public abstract class Basehardware_vendor extends BaseResource {
 		if(short_codeObj != null)
 			short_code = short_codeObj.toString();
 
-		devices = (ArrayList<Object>) map.get("devices");
+		devices = (List<Object>) map.get("devices");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -213,18 +213,18 @@ public abstract class Basehardware_vendor extends BaseResource {
 		return short_code != null;
 	}
 
-	public ArrayList<Object> getDevices() {
+	public List<Object> getDevices() {
 		return devices;
 	}
 
 
-	public void setDevices(ArrayList<Object> devices) {
+	public void setDevices(List<Object> devices) {
 		this.devices = devices;
 	}
 
 	public void addDevices(Object value) {
 		if(devices == null)
-			devices = new ArrayList<Object>();
+			devices = new ArrayList<>();
 		devices.add(value);
 	}
 

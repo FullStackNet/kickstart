@@ -23,7 +23,7 @@ public abstract class Basec4t_record_map extends BaseResource {
 	private String record_id = null;
 	private String record_map_type = null;
 	private String reference_id = null;
-	private ArrayList<Object> record_map = null;
+	private List<Object> record_map = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -124,7 +124,7 @@ public abstract class Basec4t_record_map extends BaseResource {
 		id = (String) map.get("id");
 		record_id = (String) map.get("record_id");
 		record_map_type = (String) map.get("record_map_type");
-		record_map = (ArrayList<Object>) map.get("record_map");
+		record_map = (List<Object>) map.get("record_map");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -142,7 +142,7 @@ public abstract class Basec4t_record_map extends BaseResource {
 		if(record_map_typeObj != null)
 			record_map_type = record_map_typeObj.toString();
 
-		record_map = (ArrayList<Object>) map.get("record_map");
+		record_map = (List<Object>) map.get("record_map");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -222,18 +222,18 @@ public abstract class Basec4t_record_map extends BaseResource {
 		this.reference_id = null;
 	}
 
-	public ArrayList<Object> getRecord_map() {
+	public List<Object> getRecord_map() {
 		return record_map;
 	}
 
 
-	public void setRecord_map(ArrayList<Object> record_map) {
+	public void setRecord_map(List<Object> record_map) {
 		this.record_map = record_map;
 	}
 
 	public void addRecord_map(Object value) {
 		if(record_map == null)
-			record_map = new ArrayList<Object>();
+			record_map = new ArrayList<>();
 		record_map.add(value);
 	}
 

@@ -85,7 +85,7 @@ public abstract class Basegateway extends BaseResource {
 	private Number free_disk_space = null;
 	private Number total_disk_space = null;
 	private String admin_status = null;
-	private ArrayList<Object> controllers = null;
+	private List<Object> controllers = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -953,7 +953,7 @@ public abstract class Basegateway extends BaseResource {
 		free_disk_space = (Number) map.get("free_disk_space");
 		total_disk_space = (Number) map.get("total_disk_space");
 		admin_status = (String) map.get("admin_status");
-		controllers = (ArrayList<Object>) map.get("controllers");
+		controllers = (List<Object>) map.get("controllers");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1223,7 +1223,7 @@ public abstract class Basegateway extends BaseResource {
 		if(admin_statusObj != null)
 			admin_status = admin_statusObj.toString();
 
-		controllers = (ArrayList<Object>) map.get("controllers");
+		controllers = (List<Object>) map.get("controllers");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -2231,18 +2231,18 @@ public abstract class Basegateway extends BaseResource {
 		this.admin_status = "S";
 	}
 
-	public ArrayList<Object> getControllers() {
+	public List<Object> getControllers() {
 		return controllers;
 	}
 
 
-	public void setControllers(ArrayList<Object> controllers) {
+	public void setControllers(List<Object> controllers) {
 		this.controllers = controllers;
 	}
 
 	public void addControllers(Object value) {
 		if(controllers == null)
-			controllers = new ArrayList<Object>();
+			controllers = new ArrayList<>();
 		controllers.add(value);
 	}
 

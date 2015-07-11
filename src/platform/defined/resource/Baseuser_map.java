@@ -21,15 +21,15 @@ import java.util.*;
 public abstract class Baseuser_map extends BaseResource {
 	private String id = null;
 	private Map<String, String> applications = null;
-	private ArrayList<Object> appliances = null;
-	private ArrayList<Object> devices = null;
-	private ArrayList<Object> alerts = null;
-	private ArrayList<Object> notifications = null;
-	private ArrayList<Object> recent_notifications = null;
-	private ArrayList<Object> recent_alerts = null;
-	private ArrayList<Object> invites = null;
-	private ArrayList<Object> locations = null;
-	private ArrayList<Object> communities = null;
+	private List<Object> appliances = null;
+	private List<Object> devices = null;
+	private List<Object> alerts = null;
+	private List<Object> notifications = null;
+	private List<Object> recent_notifications = null;
+	private List<Object> recent_alerts = null;
+	private List<Object> invites = null;
+	private List<Object> locations = null;
+	private List<Object> communities = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -185,15 +185,15 @@ public abstract class Baseuser_map extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		applications = (Map<String, String>) map.get("applications");
-		appliances = (ArrayList<Object>) map.get("appliances");
-		devices = (ArrayList<Object>) map.get("devices");
-		alerts = (ArrayList<Object>) map.get("alerts");
-		notifications = (ArrayList<Object>) map.get("notifications");
-		recent_notifications = (ArrayList<Object>) map.get("recent_notifications");
-		recent_alerts = (ArrayList<Object>) map.get("recent_alerts");
-		invites = (ArrayList<Object>) map.get("invites");
-		locations = (ArrayList<Object>) map.get("locations");
-		communities = (ArrayList<Object>) map.get("communities");
+		appliances = (List<Object>) map.get("appliances");
+		devices = (List<Object>) map.get("devices");
+		alerts = (List<Object>) map.get("alerts");
+		notifications = (List<Object>) map.get("notifications");
+		recent_notifications = (List<Object>) map.get("recent_notifications");
+		recent_alerts = (List<Object>) map.get("recent_alerts");
+		invites = (List<Object>) map.get("invites");
+		locations = (List<Object>) map.get("locations");
+		communities = (List<Object>) map.get("communities");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -204,15 +204,15 @@ public abstract class Baseuser_map extends BaseResource {
 			id = idObj.toString();
 
 		applications = (Map<String, String>) map.get("applications");
-		appliances = (ArrayList<Object>) map.get("appliances");
-		devices = (ArrayList<Object>) map.get("devices");
-		alerts = (ArrayList<Object>) map.get("alerts");
-		notifications = (ArrayList<Object>) map.get("notifications");
-		recent_notifications = (ArrayList<Object>) map.get("recent_notifications");
-		recent_alerts = (ArrayList<Object>) map.get("recent_alerts");
-		invites = (ArrayList<Object>) map.get("invites");
-		locations = (ArrayList<Object>) map.get("locations");
-		communities = (ArrayList<Object>) map.get("communities");
+		appliances = (List<Object>) map.get("appliances");
+		devices = (List<Object>) map.get("devices");
+		alerts = (List<Object>) map.get("alerts");
+		notifications = (List<Object>) map.get("notifications");
+		recent_notifications = (List<Object>) map.get("recent_notifications");
+		recent_alerts = (List<Object>) map.get("recent_alerts");
+		invites = (List<Object>) map.get("invites");
+		locations = (List<Object>) map.get("locations");
+		communities = (List<Object>) map.get("communities");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -266,18 +266,18 @@ public abstract class Baseuser_map extends BaseResource {
 		this.applications = null;
 	}
 
-	public ArrayList<Object> getAppliances() {
+	public List<Object> getAppliances() {
 		return appliances;
 	}
 
 
-	public void setAppliances(ArrayList<Object> appliances) {
+	public void setAppliances(List<Object> appliances) {
 		this.appliances = appliances;
 	}
 
 	public void addAppliances(Object value) {
 		if(appliances == null)
-			appliances = new ArrayList<Object>();
+			appliances = new ArrayList<>();
 		appliances.add(value);
 	}
 
@@ -285,18 +285,18 @@ public abstract class Baseuser_map extends BaseResource {
 		this.appliances = null;
 	}
 
-	public ArrayList<Object> getDevices() {
+	public List<Object> getDevices() {
 		return devices;
 	}
 
 
-	public void setDevices(ArrayList<Object> devices) {
+	public void setDevices(List<Object> devices) {
 		this.devices = devices;
 	}
 
 	public void addDevices(Object value) {
 		if(devices == null)
-			devices = new ArrayList<Object>();
+			devices = new ArrayList<>();
 		devices.add(value);
 	}
 
@@ -304,18 +304,18 @@ public abstract class Baseuser_map extends BaseResource {
 		this.devices = null;
 	}
 
-	public ArrayList<Object> getAlerts() {
+	public List<Object> getAlerts() {
 		return alerts;
 	}
 
 
-	public void setAlerts(ArrayList<Object> alerts) {
+	public void setAlerts(List<Object> alerts) {
 		this.alerts = alerts;
 	}
 
 	public void addAlerts(Object value) {
 		if(alerts == null)
-			alerts = new ArrayList<Object>();
+			alerts = new ArrayList<>();
 		alerts.add(value);
 	}
 
@@ -323,18 +323,18 @@ public abstract class Baseuser_map extends BaseResource {
 		this.alerts = null;
 	}
 
-	public ArrayList<Object> getNotifications() {
+	public List<Object> getNotifications() {
 		return notifications;
 	}
 
 
-	public void setNotifications(ArrayList<Object> notifications) {
+	public void setNotifications(List<Object> notifications) {
 		this.notifications = notifications;
 	}
 
 	public void addNotifications(Object value) {
 		if(notifications == null)
-			notifications = new ArrayList<Object>();
+			notifications = new ArrayList<>();
 		notifications.add(value);
 	}
 
@@ -342,18 +342,18 @@ public abstract class Baseuser_map extends BaseResource {
 		this.notifications = null;
 	}
 
-	public ArrayList<Object> getRecent_notifications() {
+	public List<Object> getRecent_notifications() {
 		return recent_notifications;
 	}
 
 
-	public void setRecent_notifications(ArrayList<Object> recent_notifications) {
+	public void setRecent_notifications(List<Object> recent_notifications) {
 		this.recent_notifications = recent_notifications;
 	}
 
 	public void addRecent_notifications(Object value) {
 		if(recent_notifications == null)
-			recent_notifications = new ArrayList<Object>();
+			recent_notifications = new ArrayList<>();
 		recent_notifications.add(value);
 	}
 
@@ -361,18 +361,18 @@ public abstract class Baseuser_map extends BaseResource {
 		this.recent_notifications = null;
 	}
 
-	public ArrayList<Object> getRecent_alerts() {
+	public List<Object> getRecent_alerts() {
 		return recent_alerts;
 	}
 
 
-	public void setRecent_alerts(ArrayList<Object> recent_alerts) {
+	public void setRecent_alerts(List<Object> recent_alerts) {
 		this.recent_alerts = recent_alerts;
 	}
 
 	public void addRecent_alerts(Object value) {
 		if(recent_alerts == null)
-			recent_alerts = new ArrayList<Object>();
+			recent_alerts = new ArrayList<>();
 		recent_alerts.add(value);
 	}
 
@@ -380,18 +380,18 @@ public abstract class Baseuser_map extends BaseResource {
 		this.recent_alerts = null;
 	}
 
-	public ArrayList<Object> getInvites() {
+	public List<Object> getInvites() {
 		return invites;
 	}
 
 
-	public void setInvites(ArrayList<Object> invites) {
+	public void setInvites(List<Object> invites) {
 		this.invites = invites;
 	}
 
 	public void addInvites(Object value) {
 		if(invites == null)
-			invites = new ArrayList<Object>();
+			invites = new ArrayList<>();
 		invites.add(value);
 	}
 
@@ -399,18 +399,18 @@ public abstract class Baseuser_map extends BaseResource {
 		this.invites = null;
 	}
 
-	public ArrayList<Object> getLocations() {
+	public List<Object> getLocations() {
 		return locations;
 	}
 
 
-	public void setLocations(ArrayList<Object> locations) {
+	public void setLocations(List<Object> locations) {
 		this.locations = locations;
 	}
 
 	public void addLocations(Object value) {
 		if(locations == null)
-			locations = new ArrayList<Object>();
+			locations = new ArrayList<>();
 		locations.add(value);
 	}
 
@@ -418,18 +418,18 @@ public abstract class Baseuser_map extends BaseResource {
 		this.locations = null;
 	}
 
-	public ArrayList<Object> getCommunities() {
+	public List<Object> getCommunities() {
 		return communities;
 	}
 
 
-	public void setCommunities(ArrayList<Object> communities) {
+	public void setCommunities(List<Object> communities) {
 		this.communities = communities;
 	}
 
 	public void addCommunities(Object value) {
 		if(communities == null)
-			communities = new ArrayList<Object>();
+			communities = new ArrayList<>();
 		communities.add(value);
 	}
 

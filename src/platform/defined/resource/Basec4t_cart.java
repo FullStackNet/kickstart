@@ -40,7 +40,7 @@ public abstract class Basec4t_cart extends BaseResource {
 	private Double total_vat = null;
 	private Double total_service_tax = null;
 	private Double total_service_charge = null;
-	private ArrayList<c4t_cart_item> cart_items = null;
+	private List<c4t_cart_item> cart_items = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -317,7 +317,7 @@ public abstract class Basec4t_cart extends BaseResource {
 		total_vat = (Double) map.get("total_vat");
 		total_service_tax = (Double) map.get("total_service_tax");
 		total_service_charge = (Double) map.get("total_service_charge");
-		cart_items = (ArrayList<c4t_cart_item>) map.get("cart_items");
+		cart_items = (List<c4t_cart_item>) map.get("cart_items");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -400,7 +400,7 @@ public abstract class Basec4t_cart extends BaseResource {
 		if(total_service_chargeObj != null)
 			total_service_charge = new Double(total_service_chargeObj.toString());
 
-		cart_items = (ArrayList<c4t_cart_item>) map.get("cart_items");
+		cart_items = (List<c4t_cart_item>) map.get("cart_items");
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
@@ -760,18 +760,18 @@ public abstract class Basec4t_cart extends BaseResource {
 		this.total_service_charge = null;
 	}
 
-	public ArrayList<c4t_cart_item> getCart_items() {
+	public List<c4t_cart_item> getCart_items() {
 		return cart_items;
 	}
 
 
-	public void setCart_items(ArrayList<c4t_cart_item> cart_items) {
+	public void setCart_items(List<c4t_cart_item> cart_items) {
 		this.cart_items = cart_items;
 	}
 
 	public void addCart_items(c4t_cart_item value) {
 		if(cart_items == null)
-			cart_items = new ArrayList<c4t_cart_item>();
+			cart_items = new ArrayList<>();
 		cart_items.add(value);
 	}
 

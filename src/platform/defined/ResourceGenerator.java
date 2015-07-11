@@ -130,7 +130,7 @@ public class ResourceGenerator {
 	private static String SETTER_METHOD = "\tpublic void set%s(%s %s) {\n\t\tthis.%s = %s;\n\t}\n";
 	private static String WRAPPER_SETTER_METHOD = "\tpublic void set%s(%s %s) {\n\t\tthis.%s = %s;\n\t}\n";
 	private static String SETTER_MAP_METHOD = "\tpublic void set%s(String key, %s value) {\n\t\tif(%s == null)\n\t\t\t%s = new %s();\n\t\t%s.put(key, value);\n\t}\n";
-	private static String SETTER_ARRAY_METHOD = "\tpublic void add%s(%s value) {\n\t\tif(%s == null)\n\t\t\t%s = new %s();\n\t\t%s.add(value);\n\t}\n";
+	private static String SETTER_ARRAY_METHOD = "\tpublic void add%s(%s value) {\n\t\tif(%s == null)\n\t\t\t%s = new ArrayList<>();\n\t\t%s.add(value);\n\t}\n";
 
 	private static String WRAPPER_SETTER_MAP_METHOD = "\tpublic void set%s(String key, %s value) {\n\t\tif(%s == null)\n\t\t\t%s = new %s();\n\t\t%s.put(key, value);\n\t}\n";
 	private static String UNSETTER_METHOD = "\tpublic void unSet%s() {\n\t\tthis.%s = %s;\n\t}\n";
@@ -473,7 +473,7 @@ public class ResourceGenerator {
 					generate("\n");
 					generate(String.format(SETTER_METHOD, name, wrapperType, resourceField.getName(), resourceField.getName(), resourceField.getName()));
 					generate("\n");
-					generate(String.format(SETTER_ARRAY_METHOD, name, resourceField.getValueType(), resourceField.getName(), resourceField.getName(), implementationWrapperType, resourceField.getName()));
+					generate(String.format(SETTER_ARRAY_METHOD, name, resourceField.getValueType(), resourceField.getName(), resourceField.getName(), resourceField.getName()));
 					if(!resourceField.getValueType().equals(valueWrapperType)) {
 						generate("\n");
 						generate(String.format(WRAPPER_SETTER_MAP_METHOD, name, valueWrapperType, resourceField.getName(), resourceField.getName(), implementationWrapperType, resourceField.getName()));
@@ -672,7 +672,7 @@ public class ResourceGenerator {
 		if(type.equals("Map"))
 			return (implementationType ? "HashMap" : "Map") + "<" + field.getKeyType() + ", " + getWrapperType(field, field.getValueType()) + ">";
 		if(type.equals("Array"))
-			return (implementationType ? "ArrayList" : "ArrayList") + "<" + getWrapperType(field, field.getValueType()) +">";
+			return (implementationType ? "List" : "List") + "<" + getWrapperType(field, field.getValueType()) +">";
 	
 		return type;
 	}

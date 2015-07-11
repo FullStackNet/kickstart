@@ -20,7 +20,7 @@ import java.util.*;
  */
 public abstract class Baseemail_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> invites = null;
+	private List<Object> invites = null;
 	private String user_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -105,7 +105,7 @@ public abstract class Baseemail_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		invites = (ArrayList<Object>) map.get("invites");
+		invites = (List<Object>) map.get("invites");
 		user_id = (String) map.get("user_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -116,7 +116,7 @@ public abstract class Baseemail_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		invites = (ArrayList<Object>) map.get("invites");
+		invites = (List<Object>) map.get("invites");
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
@@ -152,18 +152,18 @@ public abstract class Baseemail_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getInvites() {
+	public List<Object> getInvites() {
 		return invites;
 	}
 
 
-	public void setInvites(ArrayList<Object> invites) {
+	public void setInvites(List<Object> invites) {
 		this.invites = invites;
 	}
 
 	public void addInvites(Object value) {
 		if(invites == null)
-			invites = new ArrayList<Object>();
+			invites = new ArrayList<>();
 		invites.add(value);
 	}
 
