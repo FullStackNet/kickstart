@@ -124,7 +124,12 @@
 				'length': 32,
 				'type': 'String'
 			},
-			'address':
+			'address1':
+			{
+				'length': 256,
+				'type': 'String'
+			},
+			'address2':
 			{
 				'length': 256,
 				'type': 'String'

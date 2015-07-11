@@ -25,7 +25,8 @@ public abstract class Basec4t_cart extends BaseResource {
 	private String community_id = null;
 	private String name = null;
 	private String mobile_no = null;
-	private String address = null;
+	private String address1 = null;
+	private String address2 = null;
 	private String area = null;
 	private String city = null;
 	private String state = null;
@@ -47,7 +48,8 @@ public abstract class Basec4t_cart extends BaseResource {
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
-	public static String FIELD_ADDRESS = "address";
+	public static String FIELD_ADDRESS1 = "address1";
+	public static String FIELD_ADDRESS2 = "address2";
 	public static String FIELD_AREA = "area";
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
@@ -89,9 +91,13 @@ public abstract class Basec4t_cart extends BaseResource {
 		mobile_noField.setLength(256);
 		metaData.addField(mobile_noField);
 
-		Field addressField = new Field("address", "String");
-		addressField.setLength(256);
-		metaData.addField(addressField);
+		Field address1Field = new Field("address1", "String");
+		address1Field.setLength(256);
+		metaData.addField(address1Field);
+
+		Field address2Field = new Field("address2", "String");
+		address2Field.setLength(256);
+		metaData.addField(address2Field);
 
 		Field areaField = new Field("area", "String");
 		areaField.setLength(128);
@@ -163,7 +169,8 @@ public abstract class Basec4t_cart extends BaseResource {
 		this.community_id = obj.community_id;
 		this.name = obj.name;
 		this.mobile_no = obj.mobile_no;
-		this.address = obj.address;
+		this.address1 = obj.address1;
+		this.address2 = obj.address2;
 		this.area = obj.area;
 		this.city = obj.city;
 		this.state = obj.state;
@@ -196,8 +203,10 @@ public abstract class Basec4t_cart extends BaseResource {
 			map.put("name", name);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
-		if(address != null)
-			map.put("address", address);
+		if(address1 != null)
+			map.put("address1", address1);
+		if(address2 != null)
+			map.put("address2", address2);
 		if(area != null)
 			map.put("area", area);
 		if(city != null)
@@ -243,8 +252,10 @@ public abstract class Basec4t_cart extends BaseResource {
 			map.put("name", name);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
-		if(address != null)
-			map.put("address", address);
+		if(address1 != null)
+			map.put("address1", address1);
+		if(address2 != null)
+			map.put("address2", address2);
 		if(area != null)
 			map.put("area", area);
 		if(city != null)
@@ -291,7 +302,8 @@ public abstract class Basec4t_cart extends BaseResource {
 		community_id = (String) map.get("community_id");
 		name = (String) map.get("name");
 		mobile_no = (String) map.get("mobile_no");
-		address = (String) map.get("address");
+		address1 = (String) map.get("address1");
+		address2 = (String) map.get("address2");
 		area = (String) map.get("area");
 		city = (String) map.get("city");
 		state = (String) map.get("state");
@@ -328,9 +340,13 @@ public abstract class Basec4t_cart extends BaseResource {
 		if(mobile_noObj != null)
 			mobile_no = mobile_noObj.toString();
 
-		Object addressObj = map.get("address");
-		if(addressObj != null)
-			address = addressObj.toString();
+		Object address1Obj = map.get("address1");
+		if(address1Obj != null)
+			address1 = address1Obj.toString();
+
+		Object address2Obj = map.get("address2");
+		if(address2Obj != null)
+			address2 = address2Obj.toString();
 
 		Object areaObj = map.get("area");
 		if(areaObj != null)
@@ -474,20 +490,36 @@ public abstract class Basec4t_cart extends BaseResource {
 		this.mobile_no = null;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getAddress1() {
+		return address1;
 	}
 
-	public String getAddressEx() {
-		return address != null ? address : "";
+	public String getAddress1Ex() {
+		return address1 != null ? address1 : "";
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddress1(String address1) {
+		this.address1 = address1;
 	}
 
-	public void unSetAddress() {
-		this.address = null;
+	public void unSetAddress1() {
+		this.address1 = null;
+	}
+
+	public String getAddress2() {
+		return address2;
+	}
+
+	public String getAddress2Ex() {
+		return address2 != null ? address2 : "";
+	}
+
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+
+	public void unSetAddress2() {
+		this.address2 = null;
 	}
 
 	public String getArea() {

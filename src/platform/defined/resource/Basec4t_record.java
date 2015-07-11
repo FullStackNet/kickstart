@@ -41,7 +41,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private String reference_id = null;
 	private String reference_name = null;
 	private String mobile_no = null;
-	private String address = null;
+	private String address1 = null;
+	private String address2 = null;
 	private String area = null;
 	private String city = null;
 	private String state = null;
@@ -51,6 +52,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String company_name = null;
 	private String record_status = null;
 	private String designation = null;
+	private String address = null;
 	private Double quantity = null;
 	private Double total_vat = null;
 	private Long total_items = null;
@@ -102,7 +104,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_REFERENCE_NAME = "reference_name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
-	public static String FIELD_ADDRESS = "address";
+	public static String FIELD_ADDRESS1 = "address1";
+	public static String FIELD_ADDRESS2 = "address2";
 	public static String FIELD_AREA = "area";
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
@@ -112,6 +115,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_RECORD_STATUS = "record_status";
 	public static String FIELD_DESIGNATION = "designation";
+	public static String FIELD_ADDRESS = "address";
 	public static String FIELD_QUANTITY = "quantity";
 	public static String FIELD_TOTAL_VAT = "total_vat";
 	public static String FIELD_TOTAL_ITEMS = "total_items";
@@ -243,9 +247,13 @@ public abstract class Basec4t_record extends BaseResource {
 		mobile_noField.setLength(32);
 		metaData.addField(mobile_noField);
 
-		Field addressField = new Field("address", "String");
-		addressField.setLength(512);
-		metaData.addField(addressField);
+		Field address1Field = new Field("address1", "String");
+		address1Field.setLength(256);
+		metaData.addField(address1Field);
+
+		Field address2Field = new Field("address2", "String");
+		address2Field.setLength(256);
+		metaData.addField(address2Field);
 
 		Field areaField = new Field("area", "String");
 		areaField.setLength(128);
@@ -282,6 +290,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Field designationField = new Field("designation", "String");
 		designationField.setLength(512);
 		metaData.addField(designationField);
+
+		Field addressField = new Field("address", "String");
+		addressField.setLength(512);
+		metaData.addField(addressField);
 
 		Field quantityField = new Field("quantity", "Double");
 		metaData.addField(quantityField);
@@ -410,7 +422,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.reference_id = obj.reference_id;
 		this.reference_name = obj.reference_name;
 		this.mobile_no = obj.mobile_no;
-		this.address = obj.address;
+		this.address1 = obj.address1;
+		this.address2 = obj.address2;
 		this.area = obj.area;
 		this.city = obj.city;
 		this.state = obj.state;
@@ -420,6 +433,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.company_name = obj.company_name;
 		this.record_status = obj.record_status;
 		this.designation = obj.designation;
+		this.address = obj.address;
 		this.quantity = obj.quantity;
 		this.total_vat = obj.total_vat;
 		this.total_items = obj.total_items;
@@ -509,8 +523,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("reference_name", reference_name);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
-		if(address != null)
-			map.put("address", address);
+		if(address1 != null)
+			map.put("address1", address1);
+		if(address2 != null)
+			map.put("address2", address2);
 		if(area != null)
 			map.put("area", area);
 		if(city != null)
@@ -529,6 +545,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("record_status", record_status);
 		if(designation != null)
 			map.put("designation", designation);
+		if(address != null)
+			map.put("address", address);
 		if(quantity != null)
 			map.put("quantity", quantity);
 		if(total_vat != null)
@@ -637,8 +655,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("reference_name", reference_name);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
-		if(address != null)
-			map.put("address", address);
+		if(address1 != null)
+			map.put("address1", address1);
+		if(address2 != null)
+			map.put("address2", address2);
 		if(area != null)
 			map.put("area", area);
 		if(city != null)
@@ -657,6 +677,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("record_status", record_status);
 		if(designation != null)
 			map.put("designation", designation);
+		if(address != null)
+			map.put("address", address);
 		if(quantity != null)
 			map.put("quantity", quantity);
 		if(total_vat != null)
@@ -745,7 +767,8 @@ public abstract class Basec4t_record extends BaseResource {
 		reference_id = (String) map.get("reference_id");
 		reference_name = (String) map.get("reference_name");
 		mobile_no = (String) map.get("mobile_no");
-		address = (String) map.get("address");
+		address1 = (String) map.get("address1");
+		address2 = (String) map.get("address2");
 		area = (String) map.get("area");
 		city = (String) map.get("city");
 		state = (String) map.get("state");
@@ -755,6 +778,7 @@ public abstract class Basec4t_record extends BaseResource {
 		company_name = (String) map.get("company_name");
 		record_status = (String) map.get("record_status");
 		designation = (String) map.get("designation");
+		address = (String) map.get("address");
 		quantity = (Double) map.get("quantity");
 		total_vat = (Double) map.get("total_vat");
 		total_items = (Long) map.get("total_items");
@@ -875,9 +899,13 @@ public abstract class Basec4t_record extends BaseResource {
 		if(mobile_noObj != null)
 			mobile_no = mobile_noObj.toString();
 
-		Object addressObj = map.get("address");
-		if(addressObj != null)
-			address = addressObj.toString();
+		Object address1Obj = map.get("address1");
+		if(address1Obj != null)
+			address1 = address1Obj.toString();
+
+		Object address2Obj = map.get("address2");
+		if(address2Obj != null)
+			address2 = address2Obj.toString();
 
 		Object areaObj = map.get("area");
 		if(areaObj != null)
@@ -914,6 +942,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object designationObj = map.get("designation");
 		if(designationObj != null)
 			designation = designationObj.toString();
+
+		Object addressObj = map.get("address");
+		if(addressObj != null)
+			address = addressObj.toString();
 
 		Object quantityObj = map.get("quantity");
 		if(quantityObj != null)
@@ -1390,20 +1422,36 @@ public abstract class Basec4t_record extends BaseResource {
 		this.mobile_no = null;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getAddress1() {
+		return address1;
 	}
 
-	public String getAddressEx() {
-		return address != null ? address : "";
+	public String getAddress1Ex() {
+		return address1 != null ? address1 : "";
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddress1(String address1) {
+		this.address1 = address1;
 	}
 
-	public void unSetAddress() {
-		this.address = null;
+	public void unSetAddress1() {
+		this.address1 = null;
+	}
+
+	public String getAddress2() {
+		return address2;
+	}
+
+	public String getAddress2Ex() {
+		return address2 != null ? address2 : "";
+	}
+
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+
+	public void unSetAddress2() {
+		this.address2 = null;
 	}
 
 	public String getArea() {
@@ -1548,6 +1596,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetDesignation() {
 		this.designation = null;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getAddressEx() {
+		return address != null ? address : "";
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void unSetAddress() {
+		this.address = null;
 	}
 
 	public Double getQuantity() {
