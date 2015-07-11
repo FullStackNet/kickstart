@@ -1,6 +1,5 @@
 package platform.helper;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import platform.db.REL_OP;
@@ -67,7 +66,7 @@ public class ControllerHelper extends BaseHelper {
 		gateway _gateway = (gateway)GatewayHelper.getInstance().getById(gatewayId);
 		if (_gateway == null)
 			return 0;
-		ArrayList<Object> list = _gateway.getControllers();
+		java.util.List<Object> list = _gateway.getControllers();
 		if (list != null)
 			return list.size();
 		return 0;
@@ -76,7 +75,7 @@ public class ControllerHelper extends BaseHelper {
 		gateway _gateway = (gateway)GatewayHelper.getInstance().getById(gatewayId);
 		if (_gateway == null)
 			return null;
-		ArrayList<Object> list = _gateway.getControllers();
+		java.util.List<Object> list = _gateway.getControllers();
 		return ControllerHelper.getInstance().getById(list.toArray(new String[list.size()]), null);
 	}
 	
