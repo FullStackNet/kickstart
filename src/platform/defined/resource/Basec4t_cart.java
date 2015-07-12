@@ -24,6 +24,7 @@ public abstract class Basec4t_cart extends BaseResource {
 	private String id = null;
 	private String community_id = null;
 	private String name = null;
+	private String table_no = null;
 	private String mobile_no = null;
 	private String address1 = null;
 	private String address2 = null;
@@ -47,6 +48,7 @@ public abstract class Basec4t_cart extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_TABLE_NO = "table_no";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_ADDRESS1 = "address1";
 	public static String FIELD_ADDRESS2 = "address2";
@@ -86,6 +88,10 @@ public abstract class Basec4t_cart extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(256);
 		metaData.addField(nameField);
+
+		Field table_noField = new Field("table_no", "String");
+		table_noField.setLength(256);
+		metaData.addField(table_noField);
 
 		Field mobile_noField = new Field("mobile_no", "String");
 		mobile_noField.setLength(256);
@@ -168,6 +174,7 @@ public abstract class Basec4t_cart extends BaseResource {
 		this.id = obj.id;
 		this.community_id = obj.community_id;
 		this.name = obj.name;
+		this.table_no = obj.table_no;
 		this.mobile_no = obj.mobile_no;
 		this.address1 = obj.address1;
 		this.address2 = obj.address2;
@@ -201,6 +208,8 @@ public abstract class Basec4t_cart extends BaseResource {
 			map.put("community_id", community_id);
 		if(name != null)
 			map.put("name", name);
+		if(table_no != null)
+			map.put("table_no", table_no);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
 		if(address1 != null)
@@ -250,6 +259,8 @@ public abstract class Basec4t_cart extends BaseResource {
 			map.put("community_id", community_id);
 		if(name != null)
 			map.put("name", name);
+		if(table_no != null)
+			map.put("table_no", table_no);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
 		if(address1 != null)
@@ -301,6 +312,7 @@ public abstract class Basec4t_cart extends BaseResource {
 		id = (String) map.get("id");
 		community_id = (String) map.get("community_id");
 		name = (String) map.get("name");
+		table_no = (String) map.get("table_no");
 		mobile_no = (String) map.get("mobile_no");
 		address1 = (String) map.get("address1");
 		address2 = (String) map.get("address2");
@@ -335,6 +347,10 @@ public abstract class Basec4t_cart extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object table_noObj = map.get("table_no");
+		if(table_noObj != null)
+			table_no = table_noObj.toString();
 
 		Object mobile_noObj = map.get("mobile_no");
 		if(mobile_noObj != null)
@@ -472,6 +488,22 @@ public abstract class Basec4t_cart extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getTable_no() {
+		return table_no;
+	}
+
+	public String getTable_noEx() {
+		return table_no != null ? table_no : "";
+	}
+
+	public void setTable_no(String table_no) {
+		this.table_no = table_no;
+	}
+
+	public void unSetTable_no() {
+		this.table_no = null;
 	}
 
 	public String getMobile_no() {
