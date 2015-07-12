@@ -56,6 +56,12 @@
 				'type':'String',
 				'index' : true
 			},
+			'table_no':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'bay_name':
 			{
 				'length': 128,
