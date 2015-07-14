@@ -12,4 +12,9 @@ public class UserServlet extends BaseServlet {
 	public UserServlet() {
 		super(new user(), new UserService());
 	}
+	
+	@Override
+	protected boolean isLoginRequired() {
+		return false;
+	}
 }
