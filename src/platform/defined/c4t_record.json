@@ -216,7 +216,19 @@
 			},
 			'total_products':
 			{
-				'type': 'Double'
+				'type': 'long'
+			},
+			'total_ready':
+			{
+				'type': 'long'
+			},
+			'total_not_available':
+			{
+				'type': 'long'
+			},
+			'total_pending':
+			{
+				'type': 'long'
 			},
 			'total_quantity':
 			{

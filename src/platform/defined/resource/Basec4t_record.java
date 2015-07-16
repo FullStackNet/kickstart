@@ -60,7 +60,10 @@ public abstract class Basec4t_record extends BaseResource {
 	private Double total_service_tax = null;
 	private Double total_service_charge = null;
 	private Double total_amount = null;
-	private Double total_products = null;
+	private Long total_products = null;
+	private Long total_ready = null;
+	private Long total_not_available = null;
+	private Long total_pending = null;
 	private Double total_quantity = null;
 	private String recipients = null;
 	private String description = null;
@@ -125,6 +128,9 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_SERVICE_CHARGE = "total_service_charge";
 	public static String FIELD_TOTAL_AMOUNT = "total_amount";
 	public static String FIELD_TOTAL_PRODUCTS = "total_products";
+	public static String FIELD_TOTAL_READY = "total_ready";
+	public static String FIELD_TOTAL_NOT_AVAILABLE = "total_not_available";
+	public static String FIELD_TOTAL_PENDING = "total_pending";
 	public static String FIELD_TOTAL_QUANTITY = "total_quantity";
 	public static String FIELD_RECIPIENTS = "recipients";
 	public static String FIELD_DESCRIPTION = "description";
@@ -320,8 +326,17 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_amountField = new Field("total_amount", "Double");
 		metaData.addField(total_amountField);
 
-		Field total_productsField = new Field("total_products", "Double");
+		Field total_productsField = new Field("total_products", "long");
 		metaData.addField(total_productsField);
+
+		Field total_readyField = new Field("total_ready", "long");
+		metaData.addField(total_readyField);
+
+		Field total_not_availableField = new Field("total_not_available", "long");
+		metaData.addField(total_not_availableField);
+
+		Field total_pendingField = new Field("total_pending", "long");
+		metaData.addField(total_pendingField);
 
 		Field total_quantityField = new Field("total_quantity", "Double");
 		metaData.addField(total_quantityField);
@@ -449,6 +464,9 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_service_charge = obj.total_service_charge;
 		this.total_amount = obj.total_amount;
 		this.total_products = obj.total_products;
+		this.total_ready = obj.total_ready;
+		this.total_not_available = obj.total_not_available;
+		this.total_pending = obj.total_pending;
 		this.total_quantity = obj.total_quantity;
 		this.recipients = obj.recipients;
 		this.description = obj.description;
@@ -571,6 +589,12 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_amount", total_amount);
 		if(total_products != null)
 			map.put("total_products", total_products);
+		if(total_ready != null)
+			map.put("total_ready", total_ready);
+		if(total_not_available != null)
+			map.put("total_not_available", total_not_available);
+		if(total_pending != null)
+			map.put("total_pending", total_pending);
 		if(total_quantity != null)
 			map.put("total_quantity", total_quantity);
 		if(recipients != null)
@@ -705,6 +729,12 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_amount", total_amount);
 		if(total_products != null)
 			map.put("total_products", total_products);
+		if(total_ready != null)
+			map.put("total_ready", total_ready);
+		if(total_not_available != null)
+			map.put("total_not_available", total_not_available);
+		if(total_pending != null)
+			map.put("total_pending", total_pending);
 		if(total_quantity != null)
 			map.put("total_quantity", total_quantity);
 		if(recipients != null)
@@ -798,7 +828,10 @@ public abstract class Basec4t_record extends BaseResource {
 		total_service_tax = (Double) map.get("total_service_tax");
 		total_service_charge = (Double) map.get("total_service_charge");
 		total_amount = (Double) map.get("total_amount");
-		total_products = (Double) map.get("total_products");
+		total_products = (Long) map.get("total_products");
+		total_ready = (Long) map.get("total_ready");
+		total_not_available = (Long) map.get("total_not_available");
+		total_pending = (Long) map.get("total_pending");
 		total_quantity = (Double) map.get("total_quantity");
 		recipients = (String) map.get("recipients");
 		description = (String) map.get("description");
@@ -990,7 +1023,19 @@ public abstract class Basec4t_record extends BaseResource {
 
 		Object total_productsObj = map.get("total_products");
 		if(total_productsObj != null)
-			total_products = new Double(total_productsObj.toString());
+			total_products = new Long(total_productsObj.toString());
+
+		Object total_readyObj = map.get("total_ready");
+		if(total_readyObj != null)
+			total_ready = new Long(total_readyObj.toString());
+
+		Object total_not_availableObj = map.get("total_not_available");
+		if(total_not_availableObj != null)
+			total_not_available = new Long(total_not_availableObj.toString());
+
+		Object total_pendingObj = map.get("total_pending");
+		if(total_pendingObj != null)
+			total_pending = new Long(total_pendingObj.toString());
 
 		Object total_quantityObj = map.get("total_quantity");
 		if(total_quantityObj != null)
@@ -1727,16 +1772,84 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_amount = null;
 	}
 
-	public Double getTotal_products() {
+	public Long getTotal_products() {
 		return total_products;
 	}
 
-	public void setTotal_products(Double total_products) {
+	public long getTotal_productsEx() {
+		return total_products != null ? total_products : 0L;
+	}
+
+	public void setTotal_products(long total_products) {
+		this.total_products = total_products;
+	}
+
+	public void setTotal_products(Long total_products) {
 		this.total_products = total_products;
 	}
 
 	public void unSetTotal_products() {
 		this.total_products = null;
+	}
+
+	public Long getTotal_ready() {
+		return total_ready;
+	}
+
+	public long getTotal_readyEx() {
+		return total_ready != null ? total_ready : 0L;
+	}
+
+	public void setTotal_ready(long total_ready) {
+		this.total_ready = total_ready;
+	}
+
+	public void setTotal_ready(Long total_ready) {
+		this.total_ready = total_ready;
+	}
+
+	public void unSetTotal_ready() {
+		this.total_ready = null;
+	}
+
+	public Long getTotal_not_available() {
+		return total_not_available;
+	}
+
+	public long getTotal_not_availableEx() {
+		return total_not_available != null ? total_not_available : 0L;
+	}
+
+	public void setTotal_not_available(long total_not_available) {
+		this.total_not_available = total_not_available;
+	}
+
+	public void setTotal_not_available(Long total_not_available) {
+		this.total_not_available = total_not_available;
+	}
+
+	public void unSetTotal_not_available() {
+		this.total_not_available = null;
+	}
+
+	public Long getTotal_pending() {
+		return total_pending;
+	}
+
+	public long getTotal_pendingEx() {
+		return total_pending != null ? total_pending : 0L;
+	}
+
+	public void setTotal_pending(long total_pending) {
+		this.total_pending = total_pending;
+	}
+
+	public void setTotal_pending(Long total_pending) {
+		this.total_pending = total_pending;
+	}
+
+	public void unSetTotal_pending() {
+		this.total_pending = null;
 	}
 
 	public Double getTotal_quantity() {
