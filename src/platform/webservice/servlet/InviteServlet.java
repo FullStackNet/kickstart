@@ -12,4 +12,9 @@ public class InviteServlet extends BaseServlet {
 	public InviteServlet() {
 		super(new invite(), new InviteService());
 	}
+	
+	@Override
+	protected boolean isLoginRequired() {
+		return false;
+	}
 }
