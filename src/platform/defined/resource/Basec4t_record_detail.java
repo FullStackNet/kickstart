@@ -24,6 +24,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String customer_id = null;
 	private String community_id = null;
 	private String record_type = null;
+	private String record_status = null;
 	private String message = null;
 	private String product_id = null;
 	private String product_name = null;
@@ -43,6 +44,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_RECORD_TYPE = "record_type";
+	public static String FIELD_RECORD_STATUS = "record_status";
 	public static String FIELD_MESSAGE = "message";
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
@@ -86,6 +88,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Field record_typeField = new Field("record_type", "String");
 		record_typeField.setLength(512);
 		metaData.addField(record_typeField);
+
+		Field record_statusField = new Field("record_status", "String");
+		record_statusField.setLength(128);
+		metaData.addField(record_statusField);
 
 		Field messageField = new Field("message", "String");
 		messageField.setLength(512);
@@ -147,6 +153,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.community_id = obj.community_id;
 		this.record_type = obj.record_type;
+		this.record_status = obj.record_status;
 		this.message = obj.message;
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
@@ -178,6 +185,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("community_id", community_id);
 		if(record_type != null)
 			map.put("record_type", record_type);
+		if(record_status != null)
+			map.put("record_status", record_status);
 		if(message != null)
 			map.put("message", message);
 		if(product_id != null)
@@ -219,6 +228,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("community_id", community_id);
 		if(record_type != null)
 			map.put("record_type", record_type);
+		if(record_status != null)
+			map.put("record_status", record_status);
 		if(message != null)
 			map.put("message", message);
 		if(product_id != null)
@@ -260,6 +271,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		community_id = (String) map.get("community_id");
 		record_type = (String) map.get("record_type");
+		record_status = (String) map.get("record_status");
 		message = (String) map.get("message");
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
@@ -296,6 +308,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object record_typeObj = map.get("record_type");
 		if(record_typeObj != null)
 			record_type = record_typeObj.toString();
+
+		Object record_statusObj = map.get("record_status");
+		if(record_statusObj != null)
+			record_status = record_statusObj.toString();
 
 		Object messageObj = map.get("message");
 		if(messageObj != null)
@@ -438,6 +454,22 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetRecord_type() {
 		this.record_type = null;
+	}
+
+	public String getRecord_status() {
+		return record_status;
+	}
+
+	public String getRecord_statusEx() {
+		return record_status != null ? record_status : "";
+	}
+
+	public void setRecord_status(String record_status) {
+		this.record_status = record_status;
+	}
+
+	public void unSetRecord_status() {
+		this.record_status = null;
 	}
 
 	public String getMessage() {

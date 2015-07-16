@@ -35,6 +35,11 @@
 				'type': 'String',
 				'remark' : "CONVERSATION"
 			},
+			'record_status':
+			{
+				'length': 128,
+				'type': 'String'
+			},
 			'message':
 			{
 				'length': 512,

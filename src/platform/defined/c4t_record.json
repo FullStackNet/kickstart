@@ -230,6 +230,14 @@
 			{
 				'type': 'long'
 			},
+			'total_cancelled':
+			{
+				'type': 'long'
+			},
+			'total_delivered':
+			{
+				'type': 'long'
+			},
 			'total_quantity':
 			{
 				'type': 'Double'

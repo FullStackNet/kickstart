@@ -64,6 +64,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private Long total_ready = null;
 	private Long total_not_available = null;
 	private Long total_pending = null;
+	private Long total_cancelled = null;
+	private Long total_delivered = null;
 	private Double total_quantity = null;
 	private String recipients = null;
 	private String description = null;
@@ -131,6 +133,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_READY = "total_ready";
 	public static String FIELD_TOTAL_NOT_AVAILABLE = "total_not_available";
 	public static String FIELD_TOTAL_PENDING = "total_pending";
+	public static String FIELD_TOTAL_CANCELLED = "total_cancelled";
+	public static String FIELD_TOTAL_DELIVERED = "total_delivered";
 	public static String FIELD_TOTAL_QUANTITY = "total_quantity";
 	public static String FIELD_RECIPIENTS = "recipients";
 	public static String FIELD_DESCRIPTION = "description";
@@ -338,6 +342,12 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_pendingField = new Field("total_pending", "long");
 		metaData.addField(total_pendingField);
 
+		Field total_cancelledField = new Field("total_cancelled", "long");
+		metaData.addField(total_cancelledField);
+
+		Field total_deliveredField = new Field("total_delivered", "long");
+		metaData.addField(total_deliveredField);
+
 		Field total_quantityField = new Field("total_quantity", "Double");
 		metaData.addField(total_quantityField);
 
@@ -467,6 +477,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_ready = obj.total_ready;
 		this.total_not_available = obj.total_not_available;
 		this.total_pending = obj.total_pending;
+		this.total_cancelled = obj.total_cancelled;
+		this.total_delivered = obj.total_delivered;
 		this.total_quantity = obj.total_quantity;
 		this.recipients = obj.recipients;
 		this.description = obj.description;
@@ -595,6 +607,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_not_available", total_not_available);
 		if(total_pending != null)
 			map.put("total_pending", total_pending);
+		if(total_cancelled != null)
+			map.put("total_cancelled", total_cancelled);
+		if(total_delivered != null)
+			map.put("total_delivered", total_delivered);
 		if(total_quantity != null)
 			map.put("total_quantity", total_quantity);
 		if(recipients != null)
@@ -735,6 +751,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_not_available", total_not_available);
 		if(total_pending != null)
 			map.put("total_pending", total_pending);
+		if(total_cancelled != null)
+			map.put("total_cancelled", total_cancelled);
+		if(total_delivered != null)
+			map.put("total_delivered", total_delivered);
 		if(total_quantity != null)
 			map.put("total_quantity", total_quantity);
 		if(recipients != null)
@@ -832,6 +852,8 @@ public abstract class Basec4t_record extends BaseResource {
 		total_ready = (Long) map.get("total_ready");
 		total_not_available = (Long) map.get("total_not_available");
 		total_pending = (Long) map.get("total_pending");
+		total_cancelled = (Long) map.get("total_cancelled");
+		total_delivered = (Long) map.get("total_delivered");
 		total_quantity = (Double) map.get("total_quantity");
 		recipients = (String) map.get("recipients");
 		description = (String) map.get("description");
@@ -1036,6 +1058,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_pendingObj = map.get("total_pending");
 		if(total_pendingObj != null)
 			total_pending = new Long(total_pendingObj.toString());
+
+		Object total_cancelledObj = map.get("total_cancelled");
+		if(total_cancelledObj != null)
+			total_cancelled = new Long(total_cancelledObj.toString());
+
+		Object total_deliveredObj = map.get("total_delivered");
+		if(total_deliveredObj != null)
+			total_delivered = new Long(total_deliveredObj.toString());
 
 		Object total_quantityObj = map.get("total_quantity");
 		if(total_quantityObj != null)
@@ -1850,6 +1880,46 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_pending() {
 		this.total_pending = null;
+	}
+
+	public Long getTotal_cancelled() {
+		return total_cancelled;
+	}
+
+	public long getTotal_cancelledEx() {
+		return total_cancelled != null ? total_cancelled : 0L;
+	}
+
+	public void setTotal_cancelled(long total_cancelled) {
+		this.total_cancelled = total_cancelled;
+	}
+
+	public void setTotal_cancelled(Long total_cancelled) {
+		this.total_cancelled = total_cancelled;
+	}
+
+	public void unSetTotal_cancelled() {
+		this.total_cancelled = null;
+	}
+
+	public Long getTotal_delivered() {
+		return total_delivered;
+	}
+
+	public long getTotal_deliveredEx() {
+		return total_delivered != null ? total_delivered : 0L;
+	}
+
+	public void setTotal_delivered(long total_delivered) {
+		this.total_delivered = total_delivered;
+	}
+
+	public void setTotal_delivered(Long total_delivered) {
+		this.total_delivered = total_delivered;
+	}
+
+	public void unSetTotal_delivered() {
+		this.total_delivered = null;
 	}
 
 	public Double getTotal_quantity() {
