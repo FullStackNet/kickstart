@@ -44,6 +44,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String city = null;
 	private String state = null;
 	private String country = null;
+	private String feature_non_veg = null;
 	private String feature_distributer_management = null;
 	private String feature_dealer_management = null;
 	private Integer no_of_flats = null;
@@ -125,6 +126,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
+	public static String FIELD_FEATURE_NON_VEG = "feature_non_veg";
 	public static String FIELD_FEATURE_DISTRIBUTER_MANAGEMENT = "feature_distributer_management";
 	public static String FIELD_FEATURE_DEALER_MANAGEMENT = "feature_dealer_management";
 	public static String FIELD_NO_OF_FLATS = "no_of_flats";
@@ -293,6 +295,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field countryField = new Field("country", "String");
 		countryField.setLength(128);
 		metaData.addField(countryField);
+
+		Field feature_non_vegField = new Field("feature_non_veg", "String");
+		feature_non_vegField.setLength(1);
+		metaData.addField(feature_non_vegField);
 
 		Field feature_distributer_managementField = new Field("feature_distributer_management", "String");
 		feature_distributer_managementField.setLength(1);
@@ -529,6 +535,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.city = obj.city;
 		this.state = obj.state;
 		this.country = obj.country;
+		this.feature_non_veg = obj.feature_non_veg;
 		this.feature_distributer_management = obj.feature_distributer_management;
 		this.feature_dealer_management = obj.feature_dealer_management;
 		this.no_of_flats = obj.no_of_flats;
@@ -642,6 +649,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
+		if(feature_non_veg != null)
+			map.put("feature_non_veg", feature_non_veg);
 		if(feature_distributer_management != null)
 			map.put("feature_distributer_management", feature_distributer_management);
 		if(feature_dealer_management != null)
@@ -807,6 +816,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
+		if(feature_non_veg != null)
+			map.put("feature_non_veg", feature_non_veg);
 		if(feature_distributer_management != null)
 			map.put("feature_distributer_management", feature_distributer_management);
 		if(feature_dealer_management != null)
@@ -952,6 +963,7 @@ public abstract class Basec4t_object extends BaseResource {
 		city = (String) map.get("city");
 		state = (String) map.get("state");
 		country = (String) map.get("country");
+		feature_non_veg = (String) map.get("feature_non_veg");
 		feature_distributer_management = (String) map.get("feature_distributer_management");
 		feature_dealer_management = (String) map.get("feature_dealer_management");
 		no_of_flats = (Integer) map.get("no_of_flats");
@@ -1110,6 +1122,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object countryObj = map.get("country");
 		if(countryObj != null)
 			country = countryObj.toString();
+
+		Object feature_non_vegObj = map.get("feature_non_veg");
+		if(feature_non_vegObj != null)
+			feature_non_veg = feature_non_vegObj.toString();
 
 		Object feature_distributer_managementObj = map.get("feature_distributer_management");
 		if(feature_distributer_managementObj != null)
@@ -1740,6 +1756,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetCountry() {
 		this.country = null;
+	}
+
+	public String getFeature_non_veg() {
+		return feature_non_veg;
+	}
+
+	public String getFeature_non_vegEx() {
+		return feature_non_veg != null ? feature_non_veg : "";
+	}
+
+	public void setFeature_non_veg(String feature_non_veg) {
+		this.feature_non_veg = feature_non_veg;
+	}
+
+	public void unSetFeature_non_veg() {
+		this.feature_non_veg = null;
 	}
 
 	public String getFeature_distributer_management() {

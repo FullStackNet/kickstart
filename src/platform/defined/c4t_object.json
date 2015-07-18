@@ -137,6 +137,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'feature_non_veg':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_distributer_management':
 			{
 				'type':'String',
