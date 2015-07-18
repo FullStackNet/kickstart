@@ -63,6 +63,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private Double service_charges_home_delivery = null;
 	private Double service_charges_takeaway = null;
 	private Double service_charges_on_table = null;
+	private String delivery_time = null;
 	private Double vat = null;
 	private Double distribter_price = null;
 	private String attribute_name = null;
@@ -145,6 +146,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_SERVICE_CHARGES_HOME_DELIVERY = "service_charges_home_delivery";
 	public static String FIELD_SERVICE_CHARGES_TAKEAWAY = "service_charges_takeaway";
 	public static String FIELD_SERVICE_CHARGES_ON_TABLE = "service_charges_on_table";
+	public static String FIELD_DELIVERY_TIME = "delivery_time";
 	public static String FIELD_VAT = "vat";
 	public static String FIELD_DISTRIBTER_PRICE = "distribter_price";
 	public static String FIELD_ATTRIBUTE_NAME = "attribute_name";
@@ -365,6 +367,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field service_charges_on_tableField = new Field("service_charges_on_table", "double");
 		metaData.addField(service_charges_on_tableField);
 
+		Field delivery_timeField = new Field("delivery_time", "String");
+		delivery_timeField.setLength(32);
+		metaData.addField(delivery_timeField);
+
 		Field vatField = new Field("vat", "double");
 		metaData.addField(vatField);
 
@@ -554,6 +560,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.service_charges_home_delivery = obj.service_charges_home_delivery;
 		this.service_charges_takeaway = obj.service_charges_takeaway;
 		this.service_charges_on_table = obj.service_charges_on_table;
+		this.delivery_time = obj.delivery_time;
 		this.vat = obj.vat;
 		this.distribter_price = obj.distribter_price;
 		this.attribute_name = obj.attribute_name;
@@ -687,6 +694,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("service_charges_takeaway", service_charges_takeaway);
 		if(service_charges_on_table != null)
 			map.put("service_charges_on_table", service_charges_on_table);
+		if(delivery_time != null)
+			map.put("delivery_time", delivery_time);
 		if(vat != null)
 			map.put("vat", vat);
 		if(distribter_price != null)
@@ -854,6 +863,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("service_charges_takeaway", service_charges_takeaway);
 		if(service_charges_on_table != null)
 			map.put("service_charges_on_table", service_charges_on_table);
+		if(delivery_time != null)
+			map.put("delivery_time", delivery_time);
 		if(vat != null)
 			map.put("vat", vat);
 		if(distribter_price != null)
@@ -982,6 +993,7 @@ public abstract class Basec4t_object extends BaseResource {
 		service_charges_home_delivery = (Double) map.get("service_charges_home_delivery");
 		service_charges_takeaway = (Double) map.get("service_charges_takeaway");
 		service_charges_on_table = (Double) map.get("service_charges_on_table");
+		delivery_time = (String) map.get("delivery_time");
 		vat = (Double) map.get("vat");
 		distribter_price = (Double) map.get("distribter_price");
 		attribute_name = (String) map.get("attribute_name");
@@ -1198,6 +1210,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object service_charges_on_tableObj = map.get("service_charges_on_table");
 		if(service_charges_on_tableObj != null)
 			service_charges_on_table = new Double(service_charges_on_tableObj.toString());
+
+		Object delivery_timeObj = map.get("delivery_time");
+		if(delivery_timeObj != null)
+			delivery_time = delivery_timeObj.toString();
 
 		Object vatObj = map.get("vat");
 		if(vatObj != null)
@@ -2088,6 +2104,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetService_charges_on_table() {
 		this.service_charges_on_table = null;
+	}
+
+	public String getDelivery_time() {
+		return delivery_time;
+	}
+
+	public String getDelivery_timeEx() {
+		return delivery_time != null ? delivery_time : "";
+	}
+
+	public void setDelivery_time(String delivery_time) {
+		this.delivery_time = delivery_time;
+	}
+
+	public void unSetDelivery_time() {
+		this.delivery_time = null;
 	}
 
 	public Double getVat() {

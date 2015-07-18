@@ -227,6 +227,11 @@
 			{
 				'type':'double'
 			},
+			'delivery_time':
+			{
+				'type':'String',
+				 'length': 32	
+			},
 			'vat':
 			{
 				'type':'double'
