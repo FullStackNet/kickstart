@@ -57,6 +57,11 @@
 				'length': 128,
 				'type': 'String'
 			},
+			'delivery_time':
+			{
+				'length': 128,
+				'type': 'String'
+			},
 			'country':
 			{
 				'length': 128,

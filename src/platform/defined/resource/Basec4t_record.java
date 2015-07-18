@@ -28,6 +28,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String location_type = null;
 	private String title = null;
 	private String bay_id = null;
+	private String delivery_time = null;
 	private String table_no = null;
 	private String bay_name = null;
 	private String supervisor_id = null;
@@ -97,6 +98,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_LOCATION_TYPE = "location_type";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_BAY_ID = "bay_id";
+	public static String FIELD_DELIVERY_TIME = "delivery_time";
 	public static String FIELD_TABLE_NO = "table_no";
 	public static String FIELD_BAY_NAME = "bay_name";
 	public static String FIELD_SUPERVISOR_ID = "supervisor_id";
@@ -203,6 +205,10 @@ public abstract class Basec4t_record extends BaseResource {
 		bay_idField.setIndexed(true);
 		bay_idField.setLength(128);
 		metaData.addField(bay_idField);
+
+		Field delivery_timeField = new Field("delivery_time", "String");
+		delivery_timeField.setLength(128);
+		metaData.addField(delivery_timeField);
 
 		Field table_noField = new Field("table_no", "String");
 		table_noField.setIndexed(true);
@@ -441,6 +447,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.location_type = obj.location_type;
 		this.title = obj.title;
 		this.bay_id = obj.bay_id;
+		this.delivery_time = obj.delivery_time;
 		this.table_no = obj.table_no;
 		this.bay_name = obj.bay_name;
 		this.supervisor_id = obj.supervisor_id;
@@ -535,6 +542,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("title", title);
 		if(bay_id != null)
 			map.put("bay_id", bay_id);
+		if(delivery_time != null)
+			map.put("delivery_time", delivery_time);
 		if(table_no != null)
 			map.put("table_no", table_no);
 		if(bay_name != null)
@@ -679,6 +688,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("title", title);
 		if(bay_id != null)
 			map.put("bay_id", bay_id);
+		if(delivery_time != null)
+			map.put("delivery_time", delivery_time);
 		if(table_no != null)
 			map.put("table_no", table_no);
 		if(bay_name != null)
@@ -816,6 +827,7 @@ public abstract class Basec4t_record extends BaseResource {
 		location_type = (String) map.get("location_type");
 		title = (String) map.get("title");
 		bay_id = (String) map.get("bay_id");
+		delivery_time = (String) map.get("delivery_time");
 		table_no = (String) map.get("table_no");
 		bay_name = (String) map.get("bay_name");
 		supervisor_id = (String) map.get("supervisor_id");
@@ -914,6 +926,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object bay_idObj = map.get("bay_id");
 		if(bay_idObj != null)
 			bay_id = bay_idObj.toString();
+
+		Object delivery_timeObj = map.get("delivery_time");
+		if(delivery_timeObj != null)
+			delivery_time = delivery_timeObj.toString();
 
 		Object table_noObj = map.get("table_no");
 		if(table_noObj != null)
@@ -1304,6 +1320,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetBay_id() {
 		this.bay_id = null;
+	}
+
+	public String getDelivery_time() {
+		return delivery_time;
+	}
+
+	public String getDelivery_timeEx() {
+		return delivery_time != null ? delivery_time : "";
+	}
+
+	public void setDelivery_time(String delivery_time) {
+		this.delivery_time = delivery_time;
+	}
+
+	public void unSetDelivery_time() {
+		this.delivery_time = null;
 	}
 
 	public String getTable_no() {

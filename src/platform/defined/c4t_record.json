@@ -56,6 +56,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'delivery_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'table_no':
 			{
 				'length': 128,

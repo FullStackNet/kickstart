@@ -31,6 +31,7 @@ public abstract class Basec4t_cart extends BaseResource {
 	private String area = null;
 	private String city = null;
 	private String state = null;
+	private String delivery_time = null;
 	private String country = null;
 	private String zip_code = null;
 	private String land_mark = null;
@@ -55,6 +56,7 @@ public abstract class Basec4t_cart extends BaseResource {
 	public static String FIELD_AREA = "area";
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
+	public static String FIELD_DELIVERY_TIME = "delivery_time";
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_ZIP_CODE = "zip_code";
 	public static String FIELD_LAND_MARK = "land_mark";
@@ -116,6 +118,10 @@ public abstract class Basec4t_cart extends BaseResource {
 		Field stateField = new Field("state", "String");
 		stateField.setLength(128);
 		metaData.addField(stateField);
+
+		Field delivery_timeField = new Field("delivery_time", "String");
+		delivery_timeField.setLength(128);
+		metaData.addField(delivery_timeField);
 
 		Field countryField = new Field("country", "String");
 		countryField.setLength(128);
@@ -181,6 +187,7 @@ public abstract class Basec4t_cart extends BaseResource {
 		this.area = obj.area;
 		this.city = obj.city;
 		this.state = obj.state;
+		this.delivery_time = obj.delivery_time;
 		this.country = obj.country;
 		this.zip_code = obj.zip_code;
 		this.land_mark = obj.land_mark;
@@ -222,6 +229,8 @@ public abstract class Basec4t_cart extends BaseResource {
 			map.put("city", city);
 		if(state != null)
 			map.put("state", state);
+		if(delivery_time != null)
+			map.put("delivery_time", delivery_time);
 		if(country != null)
 			map.put("country", country);
 		if(zip_code != null)
@@ -273,6 +282,8 @@ public abstract class Basec4t_cart extends BaseResource {
 			map.put("city", city);
 		if(state != null)
 			map.put("state", state);
+		if(delivery_time != null)
+			map.put("delivery_time", delivery_time);
 		if(country != null)
 			map.put("country", country);
 		if(zip_code != null)
@@ -319,6 +330,7 @@ public abstract class Basec4t_cart extends BaseResource {
 		area = (String) map.get("area");
 		city = (String) map.get("city");
 		state = (String) map.get("state");
+		delivery_time = (String) map.get("delivery_time");
 		country = (String) map.get("country");
 		zip_code = (String) map.get("zip_code");
 		land_mark = (String) map.get("land_mark");
@@ -375,6 +387,10 @@ public abstract class Basec4t_cart extends BaseResource {
 		Object stateObj = map.get("state");
 		if(stateObj != null)
 			state = stateObj.toString();
+
+		Object delivery_timeObj = map.get("delivery_time");
+		if(delivery_timeObj != null)
+			delivery_time = delivery_timeObj.toString();
 
 		Object countryObj = map.get("country");
 		if(countryObj != null)
@@ -600,6 +616,22 @@ public abstract class Basec4t_cart extends BaseResource {
 
 	public void unSetState() {
 		this.state = null;
+	}
+
+	public String getDelivery_time() {
+		return delivery_time;
+	}
+
+	public String getDelivery_timeEx() {
+		return delivery_time != null ? delivery_time : "";
+	}
+
+	public void setDelivery_time(String delivery_time) {
+		this.delivery_time = delivery_time;
+	}
+
+	public void unSetDelivery_time() {
+		this.delivery_time = null;
 	}
 
 	public String getCountry() {
