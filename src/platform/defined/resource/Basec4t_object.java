@@ -44,6 +44,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String city = null;
 	private String state = null;
 	private String country = null;
+	private String feature_show_sales_price = null;
+	private String feature_show_mrp_price = null;
 	private String feature_non_veg = null;
 	private String feature_distributer_management = null;
 	private String feature_dealer_management = null;
@@ -127,6 +129,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
+	public static String FIELD_FEATURE_SHOW_SALES_PRICE = "feature_show_sales_price";
+	public static String FIELD_FEATURE_SHOW_MRP_PRICE = "feature_show_mrp_price";
 	public static String FIELD_FEATURE_NON_VEG = "feature_non_veg";
 	public static String FIELD_FEATURE_DISTRIBUTER_MANAGEMENT = "feature_distributer_management";
 	public static String FIELD_FEATURE_DEALER_MANAGEMENT = "feature_dealer_management";
@@ -297,6 +301,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Field countryField = new Field("country", "String");
 		countryField.setLength(128);
 		metaData.addField(countryField);
+
+		Field feature_show_sales_priceField = new Field("feature_show_sales_price", "String");
+		feature_show_sales_priceField.setLength(1);
+		metaData.addField(feature_show_sales_priceField);
+
+		Field feature_show_mrp_priceField = new Field("feature_show_mrp_price", "String");
+		feature_show_mrp_priceField.setLength(1);
+		metaData.addField(feature_show_mrp_priceField);
 
 		Field feature_non_vegField = new Field("feature_non_veg", "String");
 		feature_non_vegField.setLength(1);
@@ -541,6 +553,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.city = obj.city;
 		this.state = obj.state;
 		this.country = obj.country;
+		this.feature_show_sales_price = obj.feature_show_sales_price;
+		this.feature_show_mrp_price = obj.feature_show_mrp_price;
 		this.feature_non_veg = obj.feature_non_veg;
 		this.feature_distributer_management = obj.feature_distributer_management;
 		this.feature_dealer_management = obj.feature_dealer_management;
@@ -656,6 +670,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
+		if(feature_show_sales_price != null)
+			map.put("feature_show_sales_price", feature_show_sales_price);
+		if(feature_show_mrp_price != null)
+			map.put("feature_show_mrp_price", feature_show_mrp_price);
 		if(feature_non_veg != null)
 			map.put("feature_non_veg", feature_non_veg);
 		if(feature_distributer_management != null)
@@ -825,6 +843,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("state", state);
 		if(country != null)
 			map.put("country", country);
+		if(feature_show_sales_price != null)
+			map.put("feature_show_sales_price", feature_show_sales_price);
+		if(feature_show_mrp_price != null)
+			map.put("feature_show_mrp_price", feature_show_mrp_price);
 		if(feature_non_veg != null)
 			map.put("feature_non_veg", feature_non_veg);
 		if(feature_distributer_management != null)
@@ -974,6 +996,8 @@ public abstract class Basec4t_object extends BaseResource {
 		city = (String) map.get("city");
 		state = (String) map.get("state");
 		country = (String) map.get("country");
+		feature_show_sales_price = (String) map.get("feature_show_sales_price");
+		feature_show_mrp_price = (String) map.get("feature_show_mrp_price");
 		feature_non_veg = (String) map.get("feature_non_veg");
 		feature_distributer_management = (String) map.get("feature_distributer_management");
 		feature_dealer_management = (String) map.get("feature_dealer_management");
@@ -1134,6 +1158,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object countryObj = map.get("country");
 		if(countryObj != null)
 			country = countryObj.toString();
+
+		Object feature_show_sales_priceObj = map.get("feature_show_sales_price");
+		if(feature_show_sales_priceObj != null)
+			feature_show_sales_price = feature_show_sales_priceObj.toString();
+
+		Object feature_show_mrp_priceObj = map.get("feature_show_mrp_price");
+		if(feature_show_mrp_priceObj != null)
+			feature_show_mrp_price = feature_show_mrp_priceObj.toString();
 
 		Object feature_non_vegObj = map.get("feature_non_veg");
 		if(feature_non_vegObj != null)
@@ -1772,6 +1804,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetCountry() {
 		this.country = null;
+	}
+
+	public String getFeature_show_sales_price() {
+		return feature_show_sales_price;
+	}
+
+	public String getFeature_show_sales_priceEx() {
+		return feature_show_sales_price != null ? feature_show_sales_price : "";
+	}
+
+	public void setFeature_show_sales_price(String feature_show_sales_price) {
+		this.feature_show_sales_price = feature_show_sales_price;
+	}
+
+	public void unSetFeature_show_sales_price() {
+		this.feature_show_sales_price = null;
+	}
+
+	public String getFeature_show_mrp_price() {
+		return feature_show_mrp_price;
+	}
+
+	public String getFeature_show_mrp_priceEx() {
+		return feature_show_mrp_price != null ? feature_show_mrp_price : "";
+	}
+
+	public void setFeature_show_mrp_price(String feature_show_mrp_price) {
+		this.feature_show_mrp_price = feature_show_mrp_price;
+	}
+
+	public void unSetFeature_show_mrp_price() {
+		this.feature_show_mrp_price = null;
 	}
 
 	public String getFeature_non_veg() {

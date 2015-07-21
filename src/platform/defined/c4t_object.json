@@ -137,6 +137,16 @@
 				'type':'String',
 				'length': 128
 			},
+			'feature_show_sales_price':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_show_mrp_price':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_non_veg':
 			{
 				'type':'String',
