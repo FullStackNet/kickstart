@@ -24,6 +24,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String description = null;
 	private String short_name = null;
 	private String url = null;
+	private String brand_id = null;
 	private String brand_name = null;
 	private String parent_id = null;
 	private String community_id = null;
@@ -109,6 +110,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_SHORT_NAME = "short_name";
 	public static String FIELD_URL = "url";
+	public static String FIELD_BRAND_ID = "brand_id";
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
@@ -217,6 +219,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field urlField = new Field("url", "String");
 		urlField.setLength(128);
 		metaData.addField(urlField);
+
+		Field brand_idField = new Field("brand_id", "String");
+		brand_idField.setLength(128);
+		metaData.addField(brand_idField);
 
 		Field brand_nameField = new Field("brand_name", "String");
 		brand_nameField.setLength(128);
@@ -533,6 +539,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.description = obj.description;
 		this.short_name = obj.short_name;
 		this.url = obj.url;
+		this.brand_id = obj.brand_id;
 		this.brand_name = obj.brand_name;
 		this.parent_id = obj.parent_id;
 		this.community_id = obj.community_id;
@@ -630,6 +637,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("short_name", short_name);
 		if(url != null)
 			map.put("url", url);
+		if(brand_id != null)
+			map.put("brand_id", brand_id);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
 		if(parent_id != null)
@@ -803,6 +812,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("short_name", short_name);
 		if(url != null)
 			map.put("url", url);
+		if(brand_id != null)
+			map.put("brand_id", brand_id);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
 		if(parent_id != null)
@@ -976,6 +987,7 @@ public abstract class Basec4t_object extends BaseResource {
 		description = (String) map.get("description");
 		short_name = (String) map.get("short_name");
 		url = (String) map.get("url");
+		brand_id = (String) map.get("brand_id");
 		brand_name = (String) map.get("brand_name");
 		parent_id = (String) map.get("parent_id");
 		community_id = (String) map.get("community_id");
@@ -1078,6 +1090,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object urlObj = map.get("url");
 		if(urlObj != null)
 			url = urlObj.toString();
+
+		Object brand_idObj = map.get("brand_id");
+		if(brand_idObj != null)
+			brand_id = brand_idObj.toString();
 
 		Object brand_nameObj = map.get("brand_name");
 		if(brand_nameObj != null)
@@ -1484,6 +1500,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetUrl() {
 		this.url = null;
+	}
+
+	public String getBrand_id() {
+		return brand_id;
+	}
+
+	public String getBrand_idEx() {
+		return brand_id != null ? brand_id : "";
+	}
+
+	public void setBrand_id(String brand_id) {
+		this.brand_id = brand_id;
+	}
+
+	public void unSetBrand_id() {
+		this.brand_id = null;
 	}
 
 	public String getBrand_name() {
