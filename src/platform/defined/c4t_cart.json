@@ -111,7 +111,7 @@
 			'cart_items':
 			{
 				'type': 'Array',
-				'valueType' : "c4t_cart_item"
+				'valueType' : "platform.resource.c4t_cart_item"
 			},
 			
 			'creation_time':
