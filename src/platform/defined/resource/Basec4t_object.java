@@ -54,6 +54,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String block_id = null;
 	private String profession = null;
 	private String company_name = null;
+	private String company_id = null;
 	private String domain = null;
 	private String designation = null;
 	private String resident = null;
@@ -140,6 +141,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_BLOCK_ID = "block_id";
 	public static String FIELD_PROFESSION = "profession";
 	public static String FIELD_COMPANY_NAME = "company_name";
+	public static String FIELD_COMPANY_ID = "company_id";
 	public static String FIELD_DOMAIN = "domain";
 	public static String FIELD_DESIGNATION = "designation";
 	public static String FIELD_RESIDENT = "resident";
@@ -342,6 +344,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field company_nameField = new Field("company_name", "String");
 		company_nameField.setLength(128);
 		metaData.addField(company_nameField);
+
+		Field company_idField = new Field("company_id", "String");
+		company_idField.setLength(128);
+		metaData.addField(company_idField);
 
 		Field domainField = new Field("domain", "String");
 		domainField.setLength(128);
@@ -569,6 +575,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.block_id = obj.block_id;
 		this.profession = obj.profession;
 		this.company_name = obj.company_name;
+		this.company_id = obj.company_id;
 		this.domain = obj.domain;
 		this.designation = obj.designation;
 		this.resident = obj.resident;
@@ -697,6 +704,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("profession", profession);
 		if(company_name != null)
 			map.put("company_name", company_name);
+		if(company_id != null)
+			map.put("company_id", company_id);
 		if(domain != null)
 			map.put("domain", domain);
 		if(designation != null)
@@ -872,6 +881,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("profession", profession);
 		if(company_name != null)
 			map.put("company_name", company_name);
+		if(company_id != null)
+			map.put("company_id", company_id);
 		if(domain != null)
 			map.put("domain", domain);
 		if(designation != null)
@@ -1017,6 +1028,7 @@ public abstract class Basec4t_object extends BaseResource {
 		block_id = (String) map.get("block_id");
 		profession = (String) map.get("profession");
 		company_name = (String) map.get("company_name");
+		company_id = (String) map.get("company_id");
 		domain = (String) map.get("domain");
 		designation = (String) map.get("designation");
 		resident = (String) map.get("resident");
@@ -1210,6 +1222,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object company_nameObj = map.get("company_name");
 		if(company_nameObj != null)
 			company_name = company_nameObj.toString();
+
+		Object company_idObj = map.get("company_id");
+		if(company_idObj != null)
+			company_id = company_idObj.toString();
 
 		Object domainObj = map.get("domain");
 		if(domainObj != null)
@@ -1984,6 +2000,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetCompany_name() {
 		this.company_name = null;
+	}
+
+	public String getCompany_id() {
+		return company_id;
+	}
+
+	public String getCompany_idEx() {
+		return company_id != null ? company_id : "";
+	}
+
+	public void setCompany_id(String company_id) {
+		this.company_id = company_id;
+	}
+
+	public void unSetCompany_id() {
+		this.company_id = null;
 	}
 
 	public String getDomain() {
