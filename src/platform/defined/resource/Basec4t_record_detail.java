@@ -28,6 +28,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String message = null;
 	private String product_id = null;
 	private String product_name = null;
+	private String remark = null;
 	private String product_unit = null;
 	private Double quantity = null;
 	private Double rate = null;
@@ -48,6 +49,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_MESSAGE = "message";
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
+	public static String FIELD_REMARK = "remark";
 	public static String FIELD_PRODUCT_UNIT = "product_unit";
 	public static String FIELD_QUANTITY = "quantity";
 	public static String FIELD_RATE = "rate";
@@ -105,6 +107,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		product_nameField.setLength(512);
 		metaData.addField(product_nameField);
 
+		Field remarkField = new Field("remark", "String");
+		remarkField.setLength(512);
+		metaData.addField(remarkField);
+
 		Field product_unitField = new Field("product_unit", "String");
 		product_unitField.setLength(128);
 		metaData.addField(product_unitField);
@@ -157,6 +163,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.message = obj.message;
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
+		this.remark = obj.remark;
 		this.product_unit = obj.product_unit;
 		this.quantity = obj.quantity;
 		this.rate = obj.rate;
@@ -193,6 +200,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(remark != null)
+			map.put("remark", remark);
 		if(product_unit != null)
 			map.put("product_unit", product_unit);
 		if(quantity != null)
@@ -236,6 +245,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(remark != null)
+			map.put("remark", remark);
 		if(product_unit != null)
 			map.put("product_unit", product_unit);
 		if(quantity != null)
@@ -275,6 +286,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		message = (String) map.get("message");
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
+		remark = (String) map.get("remark");
 		product_unit = (String) map.get("product_unit");
 		quantity = (Double) map.get("quantity");
 		rate = (Double) map.get("rate");
@@ -324,6 +336,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object product_nameObj = map.get("product_name");
 		if(product_nameObj != null)
 			product_name = product_nameObj.toString();
+
+		Object remarkObj = map.get("remark");
+		if(remarkObj != null)
+			remark = remarkObj.toString();
 
 		Object product_unitObj = map.get("product_unit");
 		if(product_unitObj != null)
@@ -518,6 +534,22 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetProduct_name() {
 		this.product_name = null;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public String getRemarkEx() {
+		return remark != null ? remark : "";
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public void unSetRemark() {
+		this.remark = null;
 	}
 
 	public String getProduct_unit() {
