@@ -137,7 +137,8 @@ public class UIConstants {
 		"W",
 		"X",
 		"Y",
-		"Z",		
+		"Z",
+		"ALL"
 };
 
 	public final static IdValue[] NOTICE_TYPE_ENUM = new IdValue[] {

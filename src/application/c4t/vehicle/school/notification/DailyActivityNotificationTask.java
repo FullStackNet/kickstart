@@ -151,7 +151,12 @@ public class DailyActivityNotificationTask extends NotificationTask {
 		}
 		String[] ids = activity.getSchools().toArray(new String[activity.getSchools().size()]);
 		
-		BaseResource[] students = StudentHelper.getInstance().getSectionStudent(ids,class_section_name);
+		BaseResource[] students = null;
+		if ("ALL".equals(activity.getSection_name())) {
+			students =	StudentHelper.getInstance().getClassStudent(ids,activity.getClass_name());
+		} else {
+			students =	StudentHelper.getInstance().getSectionStudent(ids,class_section_name);
+		}
 		if ((students == null) || (students.length == 0)) 
 			return;
 		
