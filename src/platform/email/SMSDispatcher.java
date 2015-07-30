@@ -114,6 +114,9 @@ public class SMSDispatcher {
 		url = url + "&"+_account.getPassword_fieldname()+"="+_account.getPassword();
 		url = url + "&"+_account.getMobile_fieldname()+"=91"+mobile_no;
 		url = url + "&"+_account.getMessage_fieldname()+"="+message;
+		if (!Util.isEmpty(_account.getSignature_field())) {
+			url = url + "&"+_account.getSignature_field()+"="+_account.getSignature();
+		}
 		return url;
 	}
 
