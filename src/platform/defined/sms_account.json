@@ -52,6 +52,21 @@
 				'length': 128,
 				'type':'String'
 			},
+			'signature_field':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'signature':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'message_fieldname':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'send_email':
 			{
 				'length': 1,

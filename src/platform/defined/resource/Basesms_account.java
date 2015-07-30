@@ -28,6 +28,8 @@ public abstract class Basesms_account extends BaseResource {
 	private String password = null;
 	private String mobile_fieldname = null;
 	private String message_fieldname = null;
+	private String signature_field = null;
+	private String signature = null;
 	private String send_email = null;
 	private Map<String, Object> extra_data = null;
 
@@ -40,6 +42,8 @@ public abstract class Basesms_account extends BaseResource {
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_MOBILE_FIELDNAME = "mobile_fieldname";
 	public static String FIELD_MESSAGE_FIELDNAME = "message_fieldname";
+	public static String FIELD_SIGNATURE_FIELD = "signature_field";
+	public static String FIELD_SIGNATURE = "signature";
 	public static String FIELD_SEND_EMAIL = "send_email";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -86,6 +90,14 @@ public abstract class Basesms_account extends BaseResource {
 		message_fieldnameField.setLength(128);
 		metaData.addField(message_fieldnameField);
 
+		Field signature_fieldField = new Field("signature_field", "String");
+		signature_fieldField.setLength(128);
+		metaData.addField(signature_fieldField);
+
+		Field signatureField = new Field("signature", "String");
+		signatureField.setLength(128);
+		metaData.addField(signatureField);
+
 		Field send_emailField = new Field("send_email", "String");
 		send_emailField.setDefaultValue("N");
 		send_emailField.setLength(1);
@@ -113,6 +125,8 @@ public abstract class Basesms_account extends BaseResource {
 		this.password = obj.password;
 		this.mobile_fieldname = obj.mobile_fieldname;
 		this.message_fieldname = obj.message_fieldname;
+		this.signature_field = obj.signature_field;
+		this.signature = obj.signature;
 		this.send_email = obj.send_email;
 		this.extra_data = obj.extra_data;
 	}
@@ -146,6 +160,10 @@ public abstract class Basesms_account extends BaseResource {
 			map.put("mobile_fieldname", mobile_fieldname);
 		if(message_fieldname != null)
 			map.put("message_fieldname", message_fieldname);
+		if(signature_field != null)
+			map.put("signature_field", signature_field);
+		if(signature != null)
+			map.put("signature", signature);
 		if(send_email != null)
 			map.put("send_email", send_email);
 		if(extra_data != null)
@@ -176,6 +194,10 @@ public abstract class Basesms_account extends BaseResource {
 			map.put("mobile_fieldname", mobile_fieldname);
 		if(message_fieldname != null)
 			map.put("message_fieldname", message_fieldname);
+		if(signature_field != null)
+			map.put("signature_field", signature_field);
+		if(signature != null)
+			map.put("signature", signature);
 		if(send_email != null)
 			map.put("send_email", send_email);
 		if(extra_data != null)
@@ -199,6 +221,8 @@ public abstract class Basesms_account extends BaseResource {
 		password = (String) map.get("password");
 		mobile_fieldname = (String) map.get("mobile_fieldname");
 		message_fieldname = (String) map.get("message_fieldname");
+		signature_field = (String) map.get("signature_field");
+		signature = (String) map.get("signature");
 		send_email = (String) map.get("send_email");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -240,6 +264,14 @@ public abstract class Basesms_account extends BaseResource {
 		Object message_fieldnameObj = map.get("message_fieldname");
 		if(message_fieldnameObj != null)
 			message_fieldname = message_fieldnameObj.toString();
+
+		Object signature_fieldObj = map.get("signature_field");
+		if(signature_fieldObj != null)
+			signature_field = signature_fieldObj.toString();
+
+		Object signatureObj = map.get("signature");
+		if(signatureObj != null)
+			signature = signatureObj.toString();
 
 		Object send_emailObj = map.get("send_email");
 		if(send_emailObj != null)
@@ -402,6 +434,38 @@ public abstract class Basesms_account extends BaseResource {
 
 	public void unSetMessage_fieldname() {
 		this.message_fieldname = null;
+	}
+
+	public String getSignature_field() {
+		return signature_field;
+	}
+
+	public String getSignature_fieldEx() {
+		return signature_field != null ? signature_field : "";
+	}
+
+	public void setSignature_field(String signature_field) {
+		this.signature_field = signature_field;
+	}
+
+	public void unSetSignature_field() {
+		this.signature_field = null;
+	}
+
+	public String getSignature() {
+		return signature;
+	}
+
+	public String getSignatureEx() {
+		return signature != null ? signature : "";
+	}
+
+	public void setSignature(String signature) {
+		this.signature = signature;
+	}
+
+	public void unSetSignature() {
+		this.signature = null;
 	}
 
 	public String getSend_email() {
