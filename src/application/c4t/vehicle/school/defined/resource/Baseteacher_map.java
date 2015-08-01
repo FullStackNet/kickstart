@@ -20,8 +20,8 @@ import java.util.*;
  */
 public abstract class Baseteacher_map extends BaseResource {
 	private String id = null; //teacher id
-	private ArrayList<Object> users = null;
-	private ArrayList<Object> class_sections = null;
+	private List<Object> users = null;
+	private List<Object> class_sections = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -103,8 +103,8 @@ public abstract class Baseteacher_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		users = (ArrayList<Object>) map.get("users");
-		class_sections = (ArrayList<Object>) map.get("class_sections");
+		users = (List<Object>) map.get("users");
+		class_sections = (List<Object>) map.get("class_sections");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -114,8 +114,8 @@ public abstract class Baseteacher_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		users = (ArrayList<Object>) map.get("users");
-		class_sections = (ArrayList<Object>) map.get("class_sections");
+		users = (List<Object>) map.get("users");
+		class_sections = (List<Object>) map.get("class_sections");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -147,18 +147,18 @@ public abstract class Baseteacher_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getUsers() {
+	public List<Object> getUsers() {
 		return users;
 	}
 
 
-	public void setUsers(ArrayList<Object> users) {
+	public void setUsers(List<Object> users) {
 		this.users = users;
 	}
 
 	public void addUsers(Object value) {
 		if(users == null)
-			users = new ArrayList<Object>();
+			users = new ArrayList<>();
 		users.add(value);
 	}
 
@@ -166,18 +166,18 @@ public abstract class Baseteacher_map extends BaseResource {
 		this.users = null;
 	}
 
-	public ArrayList<Object> getClass_sections() {
+	public List<Object> getClass_sections() {
 		return class_sections;
 	}
 
 
-	public void setClass_sections(ArrayList<Object> class_sections) {
+	public void setClass_sections(List<Object> class_sections) {
 		this.class_sections = class_sections;
 	}
 
 	public void addClass_sections(Object value) {
 		if(class_sections == null)
-			class_sections = new ArrayList<Object>();
+			class_sections = new ArrayList<>();
 		class_sections.add(value);
 	}
 

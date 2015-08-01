@@ -30,7 +30,7 @@ public abstract class Basestudent_parent extends BaseResource {
 	private String mobile_no = null;
 	private String email_id = null;
 	private String relation = null;
-	private ArrayList<Object> students = null;
+	private List<Object> students = null;
 	private Long last_login = null;
 	private String installed_app = null;
 	private Map<String, Object> extra_data = null;
@@ -243,7 +243,7 @@ public abstract class Basestudent_parent extends BaseResource {
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
 		relation = (String) map.get("relation");
-		students = (ArrayList<Object>) map.get("students");
+		students = (List<Object>) map.get("students");
 		last_login = (Long) map.get("last_login");
 		installed_app = (String) map.get("installed_app");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -295,7 +295,7 @@ public abstract class Basestudent_parent extends BaseResource {
 		if(relationObj != null)
 			relation = relationObj.toString();
 
-		students = (ArrayList<Object>) map.get("students");
+		students = (List<Object>) map.get("students");
 		Object last_loginObj = map.get("last_login");
 		if(last_loginObj != null)
 			last_login = (Long) last_loginObj;
@@ -495,18 +495,18 @@ public abstract class Basestudent_parent extends BaseResource {
 		this.relation = null;
 	}
 
-	public ArrayList<Object> getStudents() {
+	public List<Object> getStudents() {
 		return students;
 	}
 
 
-	public void setStudents(ArrayList<Object> students) {
+	public void setStudents(List<Object> students) {
 		this.students = students;
 	}
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<Object>();
+			students = new ArrayList<>();
 		students.add(value);
 	}
 

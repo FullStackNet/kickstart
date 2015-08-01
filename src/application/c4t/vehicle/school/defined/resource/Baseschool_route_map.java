@@ -20,7 +20,7 @@ import java.util.*;
  */
 public abstract class Baseschool_route_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> students = null;
+	private List<Object> students = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -93,7 +93,7 @@ public abstract class Baseschool_route_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		students = (ArrayList<Object>) map.get("students");
+		students = (List<Object>) map.get("students");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -103,7 +103,7 @@ public abstract class Baseschool_route_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		students = (ArrayList<Object>) map.get("students");
+		students = (List<Object>) map.get("students");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -135,18 +135,18 @@ public abstract class Baseschool_route_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getStudents() {
+	public List<Object> getStudents() {
 		return students;
 	}
 
 
-	public void setStudents(ArrayList<Object> students) {
+	public void setStudents(List<Object> students) {
 		this.students = students;
 	}
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<Object>();
+			students = new ArrayList<>();
 		students.add(value);
 	}
 

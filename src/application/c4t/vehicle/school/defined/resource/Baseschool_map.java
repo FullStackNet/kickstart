@@ -20,12 +20,12 @@ import java.util.*;
  */
 public abstract class Baseschool_map extends BaseResource {
 	private String id = null; //school id
-	private ArrayList<Object> classes = null;
-	private ArrayList<Object> class_sections = null;
-	private ArrayList<Object> teachers = null;
-	private ArrayList<Object> students = null;
-	private ArrayList<String> card_readers = null;
-	private ArrayList<String> trackers = null;
+	private List<Object> classes = null;
+	private List<Object> class_sections = null;
+	private List<Object> teachers = null;
+	private List<Object> students = null;
+	private List<String> card_readers = null;
+	private List<String> trackers = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -143,12 +143,12 @@ public abstract class Baseschool_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		classes = (ArrayList<Object>) map.get("classes");
-		class_sections = (ArrayList<Object>) map.get("class_sections");
-		teachers = (ArrayList<Object>) map.get("teachers");
-		students = (ArrayList<Object>) map.get("students");
-		card_readers = (ArrayList<String>) map.get("card_readers");
-		trackers = (ArrayList<String>) map.get("trackers");
+		classes = (List<Object>) map.get("classes");
+		class_sections = (List<Object>) map.get("class_sections");
+		teachers = (List<Object>) map.get("teachers");
+		students = (List<Object>) map.get("students");
+		card_readers = (List<String>) map.get("card_readers");
+		trackers = (List<String>) map.get("trackers");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -158,12 +158,12 @@ public abstract class Baseschool_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		classes = (ArrayList<Object>) map.get("classes");
-		class_sections = (ArrayList<Object>) map.get("class_sections");
-		teachers = (ArrayList<Object>) map.get("teachers");
-		students = (ArrayList<Object>) map.get("students");
-		card_readers = (ArrayList<String>) map.get("card_readers");
-		trackers = (ArrayList<String>) map.get("trackers");
+		classes = (List<Object>) map.get("classes");
+		class_sections = (List<Object>) map.get("class_sections");
+		teachers = (List<Object>) map.get("teachers");
+		students = (List<Object>) map.get("students");
+		card_readers = (List<String>) map.get("card_readers");
+		trackers = (List<String>) map.get("trackers");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -195,18 +195,18 @@ public abstract class Baseschool_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getClasses() {
+	public List<Object> getClasses() {
 		return classes;
 	}
 
 
-	public void setClasses(ArrayList<Object> classes) {
+	public void setClasses(List<Object> classes) {
 		this.classes = classes;
 	}
 
 	public void addClasses(Object value) {
 		if(classes == null)
-			classes = new ArrayList<Object>();
+			classes = new ArrayList<>();
 		classes.add(value);
 	}
 
@@ -214,18 +214,18 @@ public abstract class Baseschool_map extends BaseResource {
 		this.classes = null;
 	}
 
-	public ArrayList<Object> getClass_sections() {
+	public List<Object> getClass_sections() {
 		return class_sections;
 	}
 
 
-	public void setClass_sections(ArrayList<Object> class_sections) {
+	public void setClass_sections(List<Object> class_sections) {
 		this.class_sections = class_sections;
 	}
 
 	public void addClass_sections(Object value) {
 		if(class_sections == null)
-			class_sections = new ArrayList<Object>();
+			class_sections = new ArrayList<>();
 		class_sections.add(value);
 	}
 
@@ -233,18 +233,18 @@ public abstract class Baseschool_map extends BaseResource {
 		this.class_sections = null;
 	}
 
-	public ArrayList<Object> getTeachers() {
+	public List<Object> getTeachers() {
 		return teachers;
 	}
 
 
-	public void setTeachers(ArrayList<Object> teachers) {
+	public void setTeachers(List<Object> teachers) {
 		this.teachers = teachers;
 	}
 
 	public void addTeachers(Object value) {
 		if(teachers == null)
-			teachers = new ArrayList<Object>();
+			teachers = new ArrayList<>();
 		teachers.add(value);
 	}
 
@@ -252,18 +252,18 @@ public abstract class Baseschool_map extends BaseResource {
 		this.teachers = null;
 	}
 
-	public ArrayList<Object> getStudents() {
+	public List<Object> getStudents() {
 		return students;
 	}
 
 
-	public void setStudents(ArrayList<Object> students) {
+	public void setStudents(List<Object> students) {
 		this.students = students;
 	}
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<Object>();
+			students = new ArrayList<>();
 		students.add(value);
 	}
 
@@ -271,18 +271,18 @@ public abstract class Baseschool_map extends BaseResource {
 		this.students = null;
 	}
 
-	public ArrayList<String> getCard_readers() {
+	public List<String> getCard_readers() {
 		return card_readers;
 	}
 
 
-	public void setCard_readers(ArrayList<String> card_readers) {
+	public void setCard_readers(List<String> card_readers) {
 		this.card_readers = card_readers;
 	}
 
 	public void addCard_readers(String value) {
 		if(card_readers == null)
-			card_readers = new ArrayList<String>();
+			card_readers = new ArrayList<>();
 		card_readers.add(value);
 	}
 
@@ -290,18 +290,18 @@ public abstract class Baseschool_map extends BaseResource {
 		this.card_readers = null;
 	}
 
-	public ArrayList<String> getTrackers() {
+	public List<String> getTrackers() {
 		return trackers;
 	}
 
 
-	public void setTrackers(ArrayList<String> trackers) {
+	public void setTrackers(List<String> trackers) {
 		this.trackers = trackers;
 	}
 
 	public void addTrackers(String value) {
 		if(trackers == null)
-			trackers = new ArrayList<String>();
+			trackers = new ArrayList<>();
 		trackers.add(value);
 	}
 

@@ -20,11 +20,11 @@ import java.util.*;
  */
 public abstract class Basestudent_map extends BaseResource {
 	private String id = null; //student id
-	private ArrayList<Object> users = null;
-	private ArrayList<Object> parents = null;
-	private ArrayList<Object> pickup_alert_stopages = null;
-	private ArrayList<Object> drop_alert_stopages = null;
-	private ArrayList<Object> notices = null;
+	private List<Object> users = null;
+	private List<Object> parents = null;
+	private List<Object> pickup_alert_stopages = null;
+	private List<Object> drop_alert_stopages = null;
+	private List<Object> notices = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -133,11 +133,11 @@ public abstract class Basestudent_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		users = (ArrayList<Object>) map.get("users");
-		parents = (ArrayList<Object>) map.get("parents");
-		pickup_alert_stopages = (ArrayList<Object>) map.get("pickup_alert_stopages");
-		drop_alert_stopages = (ArrayList<Object>) map.get("drop_alert_stopages");
-		notices = (ArrayList<Object>) map.get("notices");
+		users = (List<Object>) map.get("users");
+		parents = (List<Object>) map.get("parents");
+		pickup_alert_stopages = (List<Object>) map.get("pickup_alert_stopages");
+		drop_alert_stopages = (List<Object>) map.get("drop_alert_stopages");
+		notices = (List<Object>) map.get("notices");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -147,11 +147,11 @@ public abstract class Basestudent_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		users = (ArrayList<Object>) map.get("users");
-		parents = (ArrayList<Object>) map.get("parents");
-		pickup_alert_stopages = (ArrayList<Object>) map.get("pickup_alert_stopages");
-		drop_alert_stopages = (ArrayList<Object>) map.get("drop_alert_stopages");
-		notices = (ArrayList<Object>) map.get("notices");
+		users = (List<Object>) map.get("users");
+		parents = (List<Object>) map.get("parents");
+		pickup_alert_stopages = (List<Object>) map.get("pickup_alert_stopages");
+		drop_alert_stopages = (List<Object>) map.get("drop_alert_stopages");
+		notices = (List<Object>) map.get("notices");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -183,18 +183,18 @@ public abstract class Basestudent_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getUsers() {
+	public List<Object> getUsers() {
 		return users;
 	}
 
 
-	public void setUsers(ArrayList<Object> users) {
+	public void setUsers(List<Object> users) {
 		this.users = users;
 	}
 
 	public void addUsers(Object value) {
 		if(users == null)
-			users = new ArrayList<Object>();
+			users = new ArrayList<>();
 		users.add(value);
 	}
 
@@ -202,18 +202,18 @@ public abstract class Basestudent_map extends BaseResource {
 		this.users = null;
 	}
 
-	public ArrayList<Object> getParents() {
+	public List<Object> getParents() {
 		return parents;
 	}
 
 
-	public void setParents(ArrayList<Object> parents) {
+	public void setParents(List<Object> parents) {
 		this.parents = parents;
 	}
 
 	public void addParents(Object value) {
 		if(parents == null)
-			parents = new ArrayList<Object>();
+			parents = new ArrayList<>();
 		parents.add(value);
 	}
 
@@ -221,18 +221,18 @@ public abstract class Basestudent_map extends BaseResource {
 		this.parents = null;
 	}
 
-	public ArrayList<Object> getPickup_alert_stopages() {
+	public List<Object> getPickup_alert_stopages() {
 		return pickup_alert_stopages;
 	}
 
 
-	public void setPickup_alert_stopages(ArrayList<Object> pickup_alert_stopages) {
+	public void setPickup_alert_stopages(List<Object> pickup_alert_stopages) {
 		this.pickup_alert_stopages = pickup_alert_stopages;
 	}
 
 	public void addPickup_alert_stopages(Object value) {
 		if(pickup_alert_stopages == null)
-			pickup_alert_stopages = new ArrayList<Object>();
+			pickup_alert_stopages = new ArrayList<>();
 		pickup_alert_stopages.add(value);
 	}
 
@@ -240,18 +240,18 @@ public abstract class Basestudent_map extends BaseResource {
 		this.pickup_alert_stopages = null;
 	}
 
-	public ArrayList<Object> getDrop_alert_stopages() {
+	public List<Object> getDrop_alert_stopages() {
 		return drop_alert_stopages;
 	}
 
 
-	public void setDrop_alert_stopages(ArrayList<Object> drop_alert_stopages) {
+	public void setDrop_alert_stopages(List<Object> drop_alert_stopages) {
 		this.drop_alert_stopages = drop_alert_stopages;
 	}
 
 	public void addDrop_alert_stopages(Object value) {
 		if(drop_alert_stopages == null)
-			drop_alert_stopages = new ArrayList<Object>();
+			drop_alert_stopages = new ArrayList<>();
 		drop_alert_stopages.add(value);
 	}
 
@@ -259,18 +259,18 @@ public abstract class Basestudent_map extends BaseResource {
 		this.drop_alert_stopages = null;
 	}
 
-	public ArrayList<Object> getNotices() {
+	public List<Object> getNotices() {
 		return notices;
 	}
 
 
-	public void setNotices(ArrayList<Object> notices) {
+	public void setNotices(List<Object> notices) {
 		this.notices = notices;
 	}
 
 	public void addNotices(Object value) {
 		if(notices == null)
-			notices = new ArrayList<Object>();
+			notices = new ArrayList<>();
 		notices.add(value);
 	}
 

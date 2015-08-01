@@ -22,8 +22,8 @@ public abstract class Basenotice extends BaseResource {
 	private String id = null;
 	private String school_id = null;
 	private String student_id = null;
-	private ArrayList<String> schools = null;
-	private ArrayList<String> students = null;
+	private List<String> schools = null;
+	private List<String> students = null;
 	private String customer_id = null;
 	private String type = null;
 	private String class_name = null;
@@ -337,8 +337,8 @@ public abstract class Basenotice extends BaseResource {
 		id = (String) map.get("id");
 		school_id = (String) map.get("school_id");
 		student_id = (String) map.get("student_id");
-		schools = (ArrayList<String>) map.get("schools");
-		students = (ArrayList<String>) map.get("students");
+		schools = (List<String>) map.get("schools");
+		students = (List<String>) map.get("students");
 		customer_id = (String) map.get("customer_id");
 		type = (String) map.get("type");
 		class_name = (String) map.get("class_name");
@@ -374,8 +374,8 @@ public abstract class Basenotice extends BaseResource {
 		if(student_idObj != null)
 			student_id = student_idObj.toString();
 
-		schools = (ArrayList<String>) map.get("schools");
-		students = (ArrayList<String>) map.get("students");
+		schools = (List<String>) map.get("schools");
+		students = (List<String>) map.get("students");
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
@@ -511,18 +511,18 @@ public abstract class Basenotice extends BaseResource {
 		this.student_id = null;
 	}
 
-	public ArrayList<String> getSchools() {
+	public List<String> getSchools() {
 		return schools;
 	}
 
 
-	public void setSchools(ArrayList<String> schools) {
+	public void setSchools(List<String> schools) {
 		this.schools = schools;
 	}
 
 	public void addSchools(String value) {
 		if(schools == null)
-			schools = new ArrayList<String>();
+			schools = new ArrayList<>();
 		schools.add(value);
 	}
 
@@ -530,18 +530,18 @@ public abstract class Basenotice extends BaseResource {
 		this.schools = null;
 	}
 
-	public ArrayList<String> getStudents() {
+	public List<String> getStudents() {
 		return students;
 	}
 
 
-	public void setStudents(ArrayList<String> students) {
+	public void setStudents(List<String> students) {
 		this.students = students;
 	}
 
 	public void addStudents(String value) {
 		if(students == null)
-			students = new ArrayList<String>();
+			students = new ArrayList<>();
 		students.add(value);
 	}
 

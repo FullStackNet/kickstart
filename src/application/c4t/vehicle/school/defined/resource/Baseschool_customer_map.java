@@ -20,8 +20,8 @@ import java.util.*;
  */
 public abstract class Baseschool_customer_map extends BaseResource {
 	private String id = null; //customer ids
-	private ArrayList<Object> schools = null;
-	private ArrayList<Object> students = null;
+	private List<Object> schools = null;
+	private List<Object> students = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -103,8 +103,8 @@ public abstract class Baseschool_customer_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		schools = (ArrayList<Object>) map.get("schools");
-		students = (ArrayList<Object>) map.get("students");
+		schools = (List<Object>) map.get("schools");
+		students = (List<Object>) map.get("students");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -114,8 +114,8 @@ public abstract class Baseschool_customer_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		schools = (ArrayList<Object>) map.get("schools");
-		students = (ArrayList<Object>) map.get("students");
+		schools = (List<Object>) map.get("schools");
+		students = (List<Object>) map.get("students");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -147,18 +147,18 @@ public abstract class Baseschool_customer_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getSchools() {
+	public List<Object> getSchools() {
 		return schools;
 	}
 
 
-	public void setSchools(ArrayList<Object> schools) {
+	public void setSchools(List<Object> schools) {
 		this.schools = schools;
 	}
 
 	public void addSchools(Object value) {
 		if(schools == null)
-			schools = new ArrayList<Object>();
+			schools = new ArrayList<>();
 		schools.add(value);
 	}
 
@@ -166,18 +166,18 @@ public abstract class Baseschool_customer_map extends BaseResource {
 		this.schools = null;
 	}
 
-	public ArrayList<Object> getStudents() {
+	public List<Object> getStudents() {
 		return students;
 	}
 
 
-	public void setStudents(ArrayList<Object> students) {
+	public void setStudents(List<Object> students) {
 		this.students = students;
 	}
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<Object>();
+			students = new ArrayList<>();
 		students.add(value);
 	}
 

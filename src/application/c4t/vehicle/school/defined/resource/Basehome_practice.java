@@ -20,7 +20,7 @@ import java.util.*;
  */
 public abstract class Basehome_practice extends BaseResource {
 	private String id = null;
-	private ArrayList<String> schools = null;
+	private List<String> schools = null;
 	private String class_name = null;
 	private String section_name = null;
 	private String class_section_name = null;
@@ -251,7 +251,7 @@ public abstract class Basehome_practice extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		schools = (ArrayList<String>) map.get("schools");
+		schools = (List<String>) map.get("schools");
 		class_name = (String) map.get("class_name");
 		section_name = (String) map.get("section_name");
 		class_section_name = (String) map.get("class_section_name");
@@ -274,7 +274,7 @@ public abstract class Basehome_practice extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		schools = (ArrayList<String>) map.get("schools");
+		schools = (List<String>) map.get("schools");
 		Object class_nameObj = map.get("class_name");
 		if(class_nameObj != null)
 			class_name = class_nameObj.toString();
@@ -358,18 +358,18 @@ public abstract class Basehome_practice extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<String> getSchools() {
+	public List<String> getSchools() {
 		return schools;
 	}
 
 
-	public void setSchools(ArrayList<String> schools) {
+	public void setSchools(List<String> schools) {
 		this.schools = schools;
 	}
 
 	public void addSchools(String value) {
 		if(schools == null)
-			schools = new ArrayList<String>();
+			schools = new ArrayList<>();
 		schools.add(value);
 	}
 

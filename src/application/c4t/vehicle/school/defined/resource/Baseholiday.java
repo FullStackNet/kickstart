@@ -21,7 +21,7 @@ import java.util.*;
 public abstract class Baseholiday extends BaseResource {
 	private String id = null;
 	private String school_id = null;
-	private ArrayList<String> schools = null;
+	private List<String> schools = null;
 	private String customer_id = null;
 	private String type = null;
 	private String class_name = null;
@@ -193,7 +193,7 @@ public abstract class Baseholiday extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		school_id = (String) map.get("school_id");
-		schools = (ArrayList<String>) map.get("schools");
+		schools = (List<String>) map.get("schools");
 		customer_id = (String) map.get("customer_id");
 		type = (String) map.get("type");
 		class_name = (String) map.get("class_name");
@@ -215,7 +215,7 @@ public abstract class Baseholiday extends BaseResource {
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
 
-		schools = (ArrayList<String>) map.get("schools");
+		schools = (List<String>) map.get("schools");
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
@@ -295,18 +295,18 @@ public abstract class Baseholiday extends BaseResource {
 		this.school_id = null;
 	}
 
-	public ArrayList<String> getSchools() {
+	public List<String> getSchools() {
 		return schools;
 	}
 
 
-	public void setSchools(ArrayList<String> schools) {
+	public void setSchools(List<String> schools) {
 		this.schools = schools;
 	}
 
 	public void addSchools(String value) {
 		if(schools == null)
-			schools = new ArrayList<String>();
+			schools = new ArrayList<>();
 		schools.add(value);
 	}
 

@@ -29,7 +29,7 @@ public abstract class Basedaily_activity extends BaseResource {
 	private String description = null;
 	private Long creation_time = null;
 	private Long activity_date = null;
-	private ArrayList<String> schools = null;
+	private List<String> schools = null;
 	private String activity_date_str = null;
 	private String sent = null;
 	private String send_sms = null;
@@ -260,7 +260,7 @@ public abstract class Basedaily_activity extends BaseResource {
 		description = (String) map.get("description");
 		creation_time = (Long) map.get("creation_time");
 		activity_date = (Long) map.get("activity_date");
-		schools = (ArrayList<String>) map.get("schools");
+		schools = (List<String>) map.get("schools");
 		activity_date_str = (String) map.get("activity_date_str");
 		sent = (String) map.get("sent");
 		send_sms = (String) map.get("send_sms");
@@ -310,7 +310,7 @@ public abstract class Basedaily_activity extends BaseResource {
 		if(activity_dateObj != null)
 			activity_date = (Long) activity_dateObj;
 
-		schools = (ArrayList<String>) map.get("schools");
+		schools = (List<String>) map.get("schools");
 		Object activity_date_strObj = map.get("activity_date_str");
 		if(activity_date_strObj != null)
 			activity_date_str = activity_date_strObj.toString();
@@ -488,18 +488,18 @@ public abstract class Basedaily_activity extends BaseResource {
 	}
 
 
-	public ArrayList<String> getSchools() {
+	public List<String> getSchools() {
 		return schools;
 	}
 
 
-	public void setSchools(ArrayList<String> schools) {
+	public void setSchools(List<String> schools) {
 		this.schools = schools;
 	}
 
 	public void addSchools(String value) {
 		if(schools == null)
-			schools = new ArrayList<String>();
+			schools = new ArrayList<>();
 		schools.add(value);
 	}
 

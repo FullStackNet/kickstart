@@ -20,12 +20,12 @@ import java.util.*;
  */
 public abstract class Baseschool_user_map extends BaseResource {
 	private String id = null; //user ids
-	private ArrayList<Object> students = null;
-	private ArrayList<Object> teachers = null;
-	private ArrayList<Object> schools = null;
-	private ArrayList<Object> appliances = null;
-	private ArrayList<Object> messageaFromSchool = null;
-	private ArrayList<Object> messageaFromTeacher = null;
+	private List<Object> students = null;
+	private List<Object> teachers = null;
+	private List<Object> schools = null;
+	private List<Object> appliances = null;
+	private List<Object> messageaFromSchool = null;
+	private List<Object> messageaFromTeacher = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -143,12 +143,12 @@ public abstract class Baseschool_user_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		students = (ArrayList<Object>) map.get("students");
-		teachers = (ArrayList<Object>) map.get("teachers");
-		schools = (ArrayList<Object>) map.get("schools");
-		appliances = (ArrayList<Object>) map.get("appliances");
-		messageaFromSchool = (ArrayList<Object>) map.get("messageaFromSchool");
-		messageaFromTeacher = (ArrayList<Object>) map.get("messageaFromTeacher");
+		students = (List<Object>) map.get("students");
+		teachers = (List<Object>) map.get("teachers");
+		schools = (List<Object>) map.get("schools");
+		appliances = (List<Object>) map.get("appliances");
+		messageaFromSchool = (List<Object>) map.get("messageaFromSchool");
+		messageaFromTeacher = (List<Object>) map.get("messageaFromTeacher");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -158,12 +158,12 @@ public abstract class Baseschool_user_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		students = (ArrayList<Object>) map.get("students");
-		teachers = (ArrayList<Object>) map.get("teachers");
-		schools = (ArrayList<Object>) map.get("schools");
-		appliances = (ArrayList<Object>) map.get("appliances");
-		messageaFromSchool = (ArrayList<Object>) map.get("messageaFromSchool");
-		messageaFromTeacher = (ArrayList<Object>) map.get("messageaFromTeacher");
+		students = (List<Object>) map.get("students");
+		teachers = (List<Object>) map.get("teachers");
+		schools = (List<Object>) map.get("schools");
+		appliances = (List<Object>) map.get("appliances");
+		messageaFromSchool = (List<Object>) map.get("messageaFromSchool");
+		messageaFromTeacher = (List<Object>) map.get("messageaFromTeacher");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -195,18 +195,18 @@ public abstract class Baseschool_user_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getStudents() {
+	public List<Object> getStudents() {
 		return students;
 	}
 
 
-	public void setStudents(ArrayList<Object> students) {
+	public void setStudents(List<Object> students) {
 		this.students = students;
 	}
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<Object>();
+			students = new ArrayList<>();
 		students.add(value);
 	}
 
@@ -214,18 +214,18 @@ public abstract class Baseschool_user_map extends BaseResource {
 		this.students = null;
 	}
 
-	public ArrayList<Object> getTeachers() {
+	public List<Object> getTeachers() {
 		return teachers;
 	}
 
 
-	public void setTeachers(ArrayList<Object> teachers) {
+	public void setTeachers(List<Object> teachers) {
 		this.teachers = teachers;
 	}
 
 	public void addTeachers(Object value) {
 		if(teachers == null)
-			teachers = new ArrayList<Object>();
+			teachers = new ArrayList<>();
 		teachers.add(value);
 	}
 
@@ -233,18 +233,18 @@ public abstract class Baseschool_user_map extends BaseResource {
 		this.teachers = null;
 	}
 
-	public ArrayList<Object> getSchools() {
+	public List<Object> getSchools() {
 		return schools;
 	}
 
 
-	public void setSchools(ArrayList<Object> schools) {
+	public void setSchools(List<Object> schools) {
 		this.schools = schools;
 	}
 
 	public void addSchools(Object value) {
 		if(schools == null)
-			schools = new ArrayList<Object>();
+			schools = new ArrayList<>();
 		schools.add(value);
 	}
 
@@ -252,18 +252,18 @@ public abstract class Baseschool_user_map extends BaseResource {
 		this.schools = null;
 	}
 
-	public ArrayList<Object> getAppliances() {
+	public List<Object> getAppliances() {
 		return appliances;
 	}
 
 
-	public void setAppliances(ArrayList<Object> appliances) {
+	public void setAppliances(List<Object> appliances) {
 		this.appliances = appliances;
 	}
 
 	public void addAppliances(Object value) {
 		if(appliances == null)
-			appliances = new ArrayList<Object>();
+			appliances = new ArrayList<>();
 		appliances.add(value);
 	}
 
@@ -271,18 +271,18 @@ public abstract class Baseschool_user_map extends BaseResource {
 		this.appliances = null;
 	}
 
-	public ArrayList<Object> getMessageaFromSchool() {
+	public List<Object> getMessageaFromSchool() {
 		return messageaFromSchool;
 	}
 
 
-	public void setMessageaFromSchool(ArrayList<Object> messageaFromSchool) {
+	public void setMessageaFromSchool(List<Object> messageaFromSchool) {
 		this.messageaFromSchool = messageaFromSchool;
 	}
 
 	public void addMessageaFromSchool(Object value) {
 		if(messageaFromSchool == null)
-			messageaFromSchool = new ArrayList<Object>();
+			messageaFromSchool = new ArrayList<>();
 		messageaFromSchool.add(value);
 	}
 
@@ -290,18 +290,18 @@ public abstract class Baseschool_user_map extends BaseResource {
 		this.messageaFromSchool = null;
 	}
 
-	public ArrayList<Object> getMessageaFromTeacher() {
+	public List<Object> getMessageaFromTeacher() {
 		return messageaFromTeacher;
 	}
 
 
-	public void setMessageaFromTeacher(ArrayList<Object> messageaFromTeacher) {
+	public void setMessageaFromTeacher(List<Object> messageaFromTeacher) {
 		this.messageaFromTeacher = messageaFromTeacher;
 	}
 
 	public void addMessageaFromTeacher(Object value) {
 		if(messageaFromTeacher == null)
-			messageaFromTeacher = new ArrayList<Object>();
+			messageaFromTeacher = new ArrayList<>();
 		messageaFromTeacher.add(value);
 	}
 
