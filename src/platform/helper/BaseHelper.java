@@ -1257,6 +1257,21 @@ public class BaseHelper {
 		return new ArrayList<Map<String, Object>>();		
 	}
 	
+	public BaseResource getSingleResourceForCommunity(String communityId)  {
+		try {
+			Expression e = new Expression("community_id", REL_OP.EQ, communityId);
+			BaseResource[] resoucres =  getByExpression(e);
+			if (Util.isEmpty(resoucres))
+				return null;
+			return resoucres[0];
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
+	}
+	
+	
 	public ArrayList<Map<String, Object>> getForCommunity(String communityId,String[] order)  {
 		try {
 			Expression e = new Expression("community_id", REL_OP.EQ, communityId);

@@ -58,6 +58,12 @@
 				'length': 50,
 				'type':'String'
 			},
+			'gateway_type':
+			{
+				'length': 50,
+				'type':'String',
+				'remark' : "C4T,MEDICAL-DISTRIBUTER"
+			},
 			'software_version':
 			{
 				'name':'software_version',
@@ -76,13 +82,13 @@
 				'length': 50,
 				'type':'String'
 			},
-			'site_id':
+			'community_id':
 			{
 				'name':'site_id',
 				'length': 128,
 				'type':'String'
 			},
-			'site_name':
+			'community_name':
 			{
 				'name':'site_name',
 				'length': 128,

@@ -8,6 +8,14 @@ public class gateway extends Basegateway {
 	/**
 	 * 
 	 */
+	public static String GATEWAY_TYPE_C4T = "C4T";
+	public static String GATEWAY_TYPE_MEDICAL_DISTRIBUTER = "MEDICAL-DISTRIBUTER";
+	public static String GATEWAY_TYPE_RESTAURENT = "RESTAURENT";
+
+	
+	public static String[] getGatewayType() {
+		return new String[]{GATEWAY_TYPE_C4T,GATEWAY_TYPE_MEDICAL_DISTRIBUTER,GATEWAY_TYPE_RESTAURENT};
+	}
 	private static final long serialVersionUID = 1L;
 	
 	public gateway() {

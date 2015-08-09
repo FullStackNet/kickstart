@@ -54,6 +54,7 @@ public class GatewayHelper extends BaseHelper {
 		}
 	}
 
+
 	void _addController(String gatewayId,String controllerId) throws ApplicationException {
 		gateway _resource = new gateway();
 		_resource.setId(gatewayId);

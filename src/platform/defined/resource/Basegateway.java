@@ -28,11 +28,12 @@ public abstract class Basegateway extends BaseResource {
 	private String password = null;
 	private String mfg_date = null;
 	private String hardware_version = null;
+	private String gateway_type = null;
 	private String software_version = null;
 	private String sdp_protocol_version = null;
 	private String application = null;
-	private String site_id = null;
-	private String site_name = null;
+	private String community_id = null;
+	private String community_name = null;
 	private Integer data_read_interval = null;
 	private Integer data_push_interval = null;
 	private Integer heartbeat_interval = null;
@@ -97,11 +98,12 @@ public abstract class Basegateway extends BaseResource {
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_MFG_DATE = "mfg_date";
 	public static String FIELD_HARDWARE_VERSION = "hardware_version";
+	public static String FIELD_GATEWAY_TYPE = "gateway_type";
 	public static String FIELD_SOFTWARE_VERSION = "software_version";
 	public static String FIELD_SDP_PROTOCOL_VERSION = "sdp_protocol_version";
 	public static String FIELD_APPLICATION = "application";
-	public static String FIELD_SITE_ID = "site_id";
-	public static String FIELD_SITE_NAME = "site_name";
+	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_COMMUNITY_NAME = "community_name";
 	public static String FIELD_DATA_READ_INTERVAL = "data_read_interval";
 	public static String FIELD_DATA_PUSH_INTERVAL = "data_push_interval";
 	public static String FIELD_HEARTBEAT_INTERVAL = "heartbeat_interval";
@@ -200,6 +202,10 @@ public abstract class Basegateway extends BaseResource {
 		hardware_versionField.setLength(50);
 		metaData.addField(hardware_versionField);
 
+		Field gateway_typeField = new Field("gateway_type", "String");
+		gateway_typeField.setLength(50);
+		metaData.addField(gateway_typeField);
+
 		Field software_versionField = new Field("software_version", "String");
 		software_versionField.setLength(50);
 		metaData.addField(software_versionField);
@@ -212,13 +218,13 @@ public abstract class Basegateway extends BaseResource {
 		applicationField.setLength(50);
 		metaData.addField(applicationField);
 
-		Field site_idField = new Field("site_id", "String");
-		site_idField.setLength(128);
-		metaData.addField(site_idField);
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
 
-		Field site_nameField = new Field("site_name", "String");
-		site_nameField.setLength(128);
-		metaData.addField(site_nameField);
+		Field community_nameField = new Field("community_name", "String");
+		community_nameField.setLength(128);
+		metaData.addField(community_nameField);
 
 		Field data_read_intervalField = new Field("data_read_interval", "int");
 		data_read_intervalField.setDefaultValue(30);
@@ -479,11 +485,12 @@ public abstract class Basegateway extends BaseResource {
 		this.password = obj.password;
 		this.mfg_date = obj.mfg_date;
 		this.hardware_version = obj.hardware_version;
+		this.gateway_type = obj.gateway_type;
 		this.software_version = obj.software_version;
 		this.sdp_protocol_version = obj.sdp_protocol_version;
 		this.application = obj.application;
-		this.site_id = obj.site_id;
-		this.site_name = obj.site_name;
+		this.community_id = obj.community_id;
+		this.community_name = obj.community_name;
 		this.data_read_interval = obj.data_read_interval;
 		this.data_push_interval = obj.data_push_interval;
 		this.heartbeat_interval = obj.heartbeat_interval;
@@ -615,16 +622,18 @@ public abstract class Basegateway extends BaseResource {
 			map.put("mfg_date", mfg_date);
 		if(hardware_version != null)
 			map.put("hardware_version", hardware_version);
+		if(gateway_type != null)
+			map.put("gateway_type", gateway_type);
 		if(software_version != null)
 			map.put("software_version", software_version);
 		if(sdp_protocol_version != null)
 			map.put("sdp_protocol_version", sdp_protocol_version);
 		if(application != null)
 			map.put("application", application);
-		if(site_id != null)
-			map.put("site_id", site_id);
-		if(site_name != null)
-			map.put("site_name", site_name);
+		if(community_id != null)
+			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
 		if(data_read_interval != null)
 			map.put("data_read_interval", data_read_interval);
 		if(data_push_interval != null)
@@ -759,16 +768,18 @@ public abstract class Basegateway extends BaseResource {
 			map.put("mfg_date", mfg_date);
 		if(hardware_version != null)
 			map.put("hardware_version", hardware_version);
+		if(gateway_type != null)
+			map.put("gateway_type", gateway_type);
 		if(software_version != null)
 			map.put("software_version", software_version);
 		if(sdp_protocol_version != null)
 			map.put("sdp_protocol_version", sdp_protocol_version);
 		if(application != null)
 			map.put("application", application);
-		if(site_id != null)
-			map.put("site_id", site_id);
-		if(site_name != null)
-			map.put("site_name", site_name);
+		if(community_id != null)
+			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
 		if(data_read_interval != null)
 			map.put("data_read_interval", data_read_interval);
 		if(data_push_interval != null)
@@ -896,11 +907,12 @@ public abstract class Basegateway extends BaseResource {
 		password = (String) map.get("password");
 		mfg_date = (String) map.get("mfg_date");
 		hardware_version = (String) map.get("hardware_version");
+		gateway_type = (String) map.get("gateway_type");
 		software_version = (String) map.get("software_version");
 		sdp_protocol_version = (String) map.get("sdp_protocol_version");
 		application = (String) map.get("application");
-		site_id = (String) map.get("site_id");
-		site_name = (String) map.get("site_name");
+		community_id = (String) map.get("community_id");
+		community_name = (String) map.get("community_name");
 		data_read_interval = (Integer) map.get("data_read_interval");
 		data_push_interval = (Integer) map.get("data_push_interval");
 		heartbeat_interval = (Integer) map.get("heartbeat_interval");
@@ -995,6 +1007,10 @@ public abstract class Basegateway extends BaseResource {
 		if(hardware_versionObj != null)
 			hardware_version = hardware_versionObj.toString();
 
+		Object gateway_typeObj = map.get("gateway_type");
+		if(gateway_typeObj != null)
+			gateway_type = gateway_typeObj.toString();
+
 		Object software_versionObj = map.get("software_version");
 		if(software_versionObj != null)
 			software_version = software_versionObj.toString();
@@ -1007,13 +1023,13 @@ public abstract class Basegateway extends BaseResource {
 		if(applicationObj != null)
 			application = applicationObj.toString();
 
-		Object site_idObj = map.get("site_id");
-		if(site_idObj != null)
-			site_id = site_idObj.toString();
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
 
-		Object site_nameObj = map.get("site_name");
-		if(site_nameObj != null)
-			site_name = site_nameObj.toString();
+		Object community_nameObj = map.get("community_name");
+		if(community_nameObj != null)
+			community_name = community_nameObj.toString();
 
 		Object data_read_intervalObj = map.get("data_read_interval");
 		if(data_read_intervalObj != null)
@@ -1383,6 +1399,22 @@ public abstract class Basegateway extends BaseResource {
 		this.hardware_version = null;
 	}
 
+	public String getGateway_type() {
+		return gateway_type;
+	}
+
+	public String getGateway_typeEx() {
+		return gateway_type != null ? gateway_type : "";
+	}
+
+	public void setGateway_type(String gateway_type) {
+		this.gateway_type = gateway_type;
+	}
+
+	public void unSetGateway_type() {
+		this.gateway_type = null;
+	}
+
 	public String getSoftware_version() {
 		return software_version;
 	}
@@ -1431,36 +1463,36 @@ public abstract class Basegateway extends BaseResource {
 		this.application = null;
 	}
 
-	public String getSite_id() {
-		return site_id;
+	public String getCommunity_id() {
+		return community_id;
 	}
 
-	public String getSite_idEx() {
-		return site_id != null ? site_id : "";
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
 	}
 
-	public void setSite_id(String site_id) {
-		this.site_id = site_id;
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
 	}
 
-	public void unSetSite_id() {
-		this.site_id = null;
+	public void unSetCommunity_id() {
+		this.community_id = null;
 	}
 
-	public String getSite_name() {
-		return site_name;
+	public String getCommunity_name() {
+		return community_name;
 	}
 
-	public String getSite_nameEx() {
-		return site_name != null ? site_name : "";
+	public String getCommunity_nameEx() {
+		return community_name != null ? community_name : "";
 	}
 
-	public void setSite_name(String site_name) {
-		this.site_name = site_name;
+	public void setCommunity_name(String community_name) {
+		this.community_name = community_name;
 	}
 
-	public void unSetSite_name() {
-		this.site_name = null;
+	public void unSetCommunity_name() {
+		this.community_name = null;
 	}
 
 	public Integer getData_read_interval() {

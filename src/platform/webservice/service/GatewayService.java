@@ -3,9 +3,11 @@ package platform.webservice.service;
 import java.util.Map;
 
 import platform.exception.ExceptionEnum;
+import platform.helper.C4t_objectHelper;
 import platform.helper.DeviceHelper;
 import platform.helper.User_mapHelper;
 import platform.resource.BaseResource;
+import platform.resource.c4t_object;
 import platform.resource.device;
 import platform.resource.gateway;
 import platform.util.ApplicationException;
@@ -31,6 +33,13 @@ public class GatewayService extends BaseService{
 		}
 	}
 	public void update(ServletContext ctx, BaseResource resource) throws ApplicationException {
+		gateway _resource = (gateway) resource;
+		if (_resource.getCommunity_id() != null) {
+			c4t_object _community = C4t_objectHelper.getInstance().getById(_resource.getCommunity_id());
+			if (_community != null) {
+				_community.setCommunity_name(_community.getName());
+			}
+		}
 		getHelper().update(resource);
 	}
 	
