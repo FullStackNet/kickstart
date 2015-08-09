@@ -37,7 +37,7 @@ public class GatewayService extends BaseService{
 		if (_resource.getCommunity_id() != null) {
 			c4t_object _community = C4t_objectHelper.getInstance().getById(_resource.getCommunity_id());
 			if (_community != null) {
-				_community.setCommunity_name(_community.getName());
+				_resource.setCommunity_name(_community.getName());
 			}
 		}
 		getHelper().update(resource);
