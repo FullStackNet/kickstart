@@ -25,6 +25,7 @@ public abstract class Baseinvite extends BaseResource {
 	private String community_id = null;
 	private String school_id = null;
 	private String name = null;
+	private String company_id = null;
 	private String company_name = null;
 	private String mobile_no = null;
 	private String email_id = null;
@@ -51,6 +52,7 @@ public abstract class Baseinvite extends BaseResource {
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_COMPANY_ID = "company_id";
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
@@ -101,6 +103,10 @@ public abstract class Baseinvite extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field company_idField = new Field("company_id", "String");
+		company_idField.setLength(128);
+		metaData.addField(company_idField);
 
 		Field company_nameField = new Field("company_name", "String");
 		company_nameField.setLength(128);
@@ -187,6 +193,7 @@ public abstract class Baseinvite extends BaseResource {
 		this.community_id = obj.community_id;
 		this.school_id = obj.school_id;
 		this.name = obj.name;
+		this.company_id = obj.company_id;
 		this.company_name = obj.company_name;
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
@@ -226,6 +233,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("school_id", school_id);
 		if(name != null)
 			map.put("name", name);
+		if(company_id != null)
+			map.put("company_id", company_id);
 		if(company_name != null)
 			map.put("company_name", company_name);
 		if(mobile_no != null)
@@ -281,6 +290,8 @@ public abstract class Baseinvite extends BaseResource {
 			map.put("school_id", school_id);
 		if(name != null)
 			map.put("name", name);
+		if(company_id != null)
+			map.put("company_id", company_id);
 		if(company_name != null)
 			map.put("company_name", company_name);
 		if(mobile_no != null)
@@ -335,6 +346,7 @@ public abstract class Baseinvite extends BaseResource {
 		community_id = (String) map.get("community_id");
 		school_id = (String) map.get("school_id");
 		name = (String) map.get("name");
+		company_id = (String) map.get("company_id");
 		company_name = (String) map.get("company_name");
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
@@ -379,6 +391,10 @@ public abstract class Baseinvite extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object company_idObj = map.get("company_id");
+		if(company_idObj != null)
+			company_id = company_idObj.toString();
 
 		Object company_nameObj = map.get("company_name");
 		if(company_nameObj != null)
@@ -553,6 +569,22 @@ public abstract class Baseinvite extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getCompany_id() {
+		return company_id;
+	}
+
+	public String getCompany_idEx() {
+		return company_id != null ? company_id : "";
+	}
+
+	public void setCompany_id(String company_id) {
+		this.company_id = company_id;
+	}
+
+	public void unSetCompany_id() {
+		this.company_id = null;
 	}
 
 	public String getCompany_name() {
