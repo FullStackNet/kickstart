@@ -94,6 +94,11 @@ public class GlobalDataManager {
 	boolean ruleEngineEnabled;
 	boolean deviceLoaded;
 	long waitOnPowerSwitch;
+	String community_id;
+	String community_admin_username;
+	String community_admin_password;
+	
+	
 	
 	GlobalDataManager() {
 		heartbeatInterval = 1;
@@ -635,5 +640,29 @@ public class GlobalDataManager {
 
 	public void setProcessStatEnable(String processStatEnable) {
 		this.processStatEnable = processStatEnable;
+	}
+
+	public String getCommunity_id() {
+		return community_id;
+	}
+
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
+	}
+
+	public String getCommunity_admin_username() {
+		return community_admin_username;
+	}
+
+	public void setCommunity_admin_username(String community_admin_username) {
+		this.community_admin_username = community_admin_username;
+	}
+
+	public String getCommunity_admin_password() {
+		return community_admin_password;
+	}
+
+	public void setCommunity_admin_password(String community_admin_password) {
+		this.community_admin_password = community_admin_password;
 	}
 }
