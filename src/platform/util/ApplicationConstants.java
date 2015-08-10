@@ -16,6 +16,7 @@ public class ApplicationConstants {
 	public static String ACPTRACKER_CONFIGURATION_FILE = "acptracker";
 	public static String JMNTRACKER_CONFIGURATION_FILE = "jmntracker";
 	public static String TALLY_CONFIGURATION_FILE = "tally";
+	public static String C2C_CONFIGURATION_FILE = "c2c";
 	public static String KPP1_CONFIGURATION_FILE = "kpp1";
 	
 	public static String ACPREADER_CONFIGURATION_FILE = "acpreader";

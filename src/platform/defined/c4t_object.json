@@ -216,12 +216,17 @@
 			'feature_send_sms':
 			{
 				'type':'String',
-				'length': 128
+				'length': 1
 			},
 			'feature_send_email':
 			{
 				'type':'String',
-				'length': 128
+				'length': 1
+			},
+			'feature_printer':
+			{
+				'type':'String',
+				'length': 1
 			},
 			'mrp_price':
 			{

@@ -61,6 +61,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String zip_code = null;
 	private String feature_send_sms = null;
 	private String feature_send_email = null;
+	private String feature_printer = null;
 	private Double mrp_price = null;
 	private Double service_tax = null;
 	private Double service_charges = null;
@@ -148,6 +149,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ZIP_CODE = "zip_code";
 	public static String FIELD_FEATURE_SEND_SMS = "feature_send_sms";
 	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
+	public static String FIELD_FEATURE_PRINTER = "feature_printer";
 	public static String FIELD_MRP_PRICE = "mrp_price";
 	public static String FIELD_SERVICE_TAX = "service_tax";
 	public static String FIELD_SERVICE_CHARGES = "service_charges";
@@ -366,12 +368,16 @@ public abstract class Basec4t_object extends BaseResource {
 		metaData.addField(zip_codeField);
 
 		Field feature_send_smsField = new Field("feature_send_sms", "String");
-		feature_send_smsField.setLength(128);
+		feature_send_smsField.setLength(1);
 		metaData.addField(feature_send_smsField);
 
 		Field feature_send_emailField = new Field("feature_send_email", "String");
-		feature_send_emailField.setLength(128);
+		feature_send_emailField.setLength(1);
 		metaData.addField(feature_send_emailField);
+
+		Field feature_printerField = new Field("feature_printer", "String");
+		feature_printerField.setLength(1);
+		metaData.addField(feature_printerField);
 
 		Field mrp_priceField = new Field("mrp_price", "double");
 		metaData.addField(mrp_priceField);
@@ -582,6 +588,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.zip_code = obj.zip_code;
 		this.feature_send_sms = obj.feature_send_sms;
 		this.feature_send_email = obj.feature_send_email;
+		this.feature_printer = obj.feature_printer;
 		this.mrp_price = obj.mrp_price;
 		this.service_tax = obj.service_tax;
 		this.service_charges = obj.service_charges;
@@ -718,6 +725,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_sms", feature_send_sms);
 		if(feature_send_email != null)
 			map.put("feature_send_email", feature_send_email);
+		if(feature_printer != null)
+			map.put("feature_printer", feature_printer);
 		if(mrp_price != null)
 			map.put("mrp_price", mrp_price);
 		if(service_tax != null)
@@ -895,6 +904,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_sms", feature_send_sms);
 		if(feature_send_email != null)
 			map.put("feature_send_email", feature_send_email);
+		if(feature_printer != null)
+			map.put("feature_printer", feature_printer);
 		if(mrp_price != null)
 			map.put("mrp_price", mrp_price);
 		if(service_tax != null)
@@ -1035,6 +1046,7 @@ public abstract class Basec4t_object extends BaseResource {
 		zip_code = (String) map.get("zip_code");
 		feature_send_sms = (String) map.get("feature_send_sms");
 		feature_send_email = (String) map.get("feature_send_email");
+		feature_printer = (String) map.get("feature_printer");
 		mrp_price = (Double) map.get("mrp_price");
 		service_tax = (Double) map.get("service_tax");
 		service_charges = (Double) map.get("service_charges");
@@ -1250,6 +1262,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_send_emailObj = map.get("feature_send_email");
 		if(feature_send_emailObj != null)
 			feature_send_email = feature_send_emailObj.toString();
+
+		Object feature_printerObj = map.get("feature_printer");
+		if(feature_printerObj != null)
+			feature_printer = feature_printerObj.toString();
 
 		Object mrp_priceObj = map.get("mrp_price");
 		if(mrp_priceObj != null)
@@ -2112,6 +2128,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_send_email() {
 		this.feature_send_email = null;
+	}
+
+	public String getFeature_printer() {
+		return feature_printer;
+	}
+
+	public String getFeature_printerEx() {
+		return feature_printer != null ? feature_printer : "";
+	}
+
+	public void setFeature_printer(String feature_printer) {
+		this.feature_printer = feature_printer;
+	}
+
+	public void unSetFeature_printer() {
+		this.feature_printer = null;
 	}
 
 	public Double getMrp_price() {
