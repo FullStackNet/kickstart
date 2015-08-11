@@ -97,7 +97,7 @@ public class GlobalDataManager {
 	String community_id;
 	String community_admin_username;
 	String community_admin_password;
-	
+	String community_server_url;
 	
 	
 	GlobalDataManager() {
@@ -664,5 +664,13 @@ public class GlobalDataManager {
 
 	public void setCommunity_admin_password(String community_admin_password) {
 		this.community_admin_password = community_admin_password;
+	}
+
+	public String getCommunity_server_url() {
+		return community_server_url;
+	}
+
+	public void setCommunity_server_url(String community_server_url) {
+		this.community_server_url = community_server_url;
 	}
 }
