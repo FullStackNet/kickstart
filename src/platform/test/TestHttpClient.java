@@ -3,6 +3,8 @@ package platform.test;
 import platform.communication.RestClient;
 import platform.resource.c4t_object;
 import platform.resource.c4t_objectResult;
+import platform.resource.c4t_record;
+import platform.resource.c4t_recordResult;
 import platform.resource.login;
 import platform.resource.loginResult;
 
@@ -23,6 +25,11 @@ public class TestHttpClient {
 				for(int i=0; i < _responses.length; i++) {
 					System.out.println(_responses[i].getName());
 				}
+			}
+			c4t_recordResult _orderResult = (c4t_recordResult)rest.getById("community_order","5594cd71-40e2-11e5-9aca-005056c00008",c4t_recordResult.class);
+			if (_orderResult.getErrCode() == 0) {
+				c4t_record _order = _orderResult.getResource()[0];
+				System.out.println(_order.getUser_name()+","+_order.getTotal_products());
 			}
 		}
 	}

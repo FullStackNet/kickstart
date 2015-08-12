@@ -50,6 +50,12 @@ public class HttpClient {
 			}
 		}
 	}
+	
+	public  static String sendGetByIdRequest(String serverURL, String namespace, String session_id, String resourceName, String id) throws IOException {
+		String url =serverURL+"/"+namespace+"/"+resourceName+"?id="+id;
+		return sendGetRequest(url,session_id);
+	}
+	
 	public  static String sendGetRequest(String serverURL, String namespace, String session_id, String resourceName, String queryId, String args) throws IOException {
 		String url =serverURL+"/"+namespace+"/"+resourceName+"?queryId="+queryId
 				+"&args="+ URLEncoder.encode(args,"UTF-8");

@@ -10,7 +10,15 @@ public class RestClient {
 	String server_url;
 	String namespace;
 
-
+	private static RestClient instance; 
+	
+	public static RestClient getInstance() {
+		if (instance == null) {
+			instance = new RestClient();
+		}
+		return instance;
+	}
+	
 	public String getSession_id() {
 		return session_id;
 	}
@@ -35,12 +43,18 @@ public class RestClient {
 		this.namespace = namespace;
 	}
 
-	public RestClient(String server_url) {
-		this.server_url = server_url;
+	public RestClient() {
+		server_url = "http://api.connect2community.in/";
 		this.namespace = "c4t"; 
 	}
 	
+	public RestClient(String server_url) {
+		this();
+		this.server_url = server_url;
+	}
+	
 	public RestClient(String server_url,String namespace) {
+		this(server_url);
 		this.namespace = namespace;
 	}
 
@@ -49,6 +63,25 @@ public class RestClient {
 	}
 	public Baseresult get(String resourceName,String queryId, String args,Class<?> resultType) {
 		return get(resourceName, queryId, args,resultType,namespace);
+	}
+	public Baseresult getById(String resourceName, String id, Class<?> resultType) {
+		return getById(resourceName, id, resultType,namespace);
+	}	
+	
+	public Baseresult getById(String resourceName, String id, Class<?> resultType,String _namespace) {
+		Baseresult _result;
+		try {
+			String resultString = HttpClient.sendGetByIdRequest(server_url, _namespace, session_id,
+					resourceName, id);
+			_result =  Json.stringToBaseResult(resultString, resultType);
+			return _result;
+		} catch(Exception e) {
+			e.printStackTrace();
+			_result = new result();
+			_result.setErrCode(-1);
+			_result.setMessage(e.getMessage());
+			return _result;
+		}
 	}
 	
 	public Baseresult get(String resourceName,String queryId, String args, Class<?> resultType,String _namespace) {

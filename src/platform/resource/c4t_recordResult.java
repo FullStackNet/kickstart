@@ -2,7 +2,6 @@ package platform.resource;
 
 import platform.defined.resource.Baseresult;
 
-
 public class c4t_recordResult extends Baseresult  {
 	/**
 	 * 
