@@ -4,9 +4,10 @@ import platform.defined.resource.Baseresult;
 
 public class result extends Baseresult {
 	
-public BaseResource[] resource;
+	public BaseResource[] resource;
 	
 	public result() {
+		super();
 		this.setErrCode(-1);
 		this.setMessage("Error");
 		this.resource = null;

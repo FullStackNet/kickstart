@@ -132,8 +132,9 @@ public class Json {
 	public static result stringToResult(String jsonText, Class<?> c) throws ApplicationException {
 		try {
 			Gson gson = new Gson();
-			return (result)gson.fromJson(InputValidator.escape(jsonText), c);
+			return (result)gson.fromJson(jsonText, c);
 		} catch(Exception e) {
+			e.printStackTrace();
 			throw new ApplicationException(ExceptionSeverity.ERROR, e.getMessage());
 		}
 	}
@@ -141,8 +142,9 @@ public class Json {
 	public static Baseresult stringToBaseResult(String jsonText, Class<?> c) throws ApplicationException {
 		try {
 			Gson gson = new Gson();
-			return (Baseresult)gson.fromJson(InputValidator.escape(jsonText), c);
+			return (Baseresult)gson.fromJson(jsonText, c);
 		} catch(Exception e) {
+			e.printStackTrace();
 			throw new ApplicationException(ExceptionSeverity.ERROR, e.getMessage());
 		}
 	}

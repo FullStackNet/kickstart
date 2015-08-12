@@ -10,6 +10,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import platform.util.security.SecurityUtil;
+
 public class HttpClient {
 
 	private static int CONNECTION_TIMEOUT = 1000*20;    // timeout 20 second
@@ -127,11 +129,15 @@ public class HttpClient {
 		}
 	}
 	
-	public static String sendPostRequest(String serverURL, String namespace, String session_id,String resourceName,String resourceString,String action) {
-		String serverUrl = serverURL+"/"+namespace+"/"+resourceName;
+	public static String sendPostRequest(String serverURL, String _namespace, String session_id,
+			String resourceName,String resourceString,String action) {
+		String serverUrl = serverURL+"/"+_namespace+"/"+resourceName;
 		System.out.println( "REQUEST URL :: " + serverUrl);
 		try {
-			String encyptedString= escapePOSTBody(resourceString);
+			String encyptedString ; //= escapePOSTBody(resourceString);
+			encyptedString = resourceString;
+			//encyptedString = escapePOSTBody(resourceString);
+			encyptedString = SecurityUtil.encodeBase64(encyptedString);
 			String data = "resource="+encyptedString;
 			if (action != null) {
 				data = data+"&action="+action;

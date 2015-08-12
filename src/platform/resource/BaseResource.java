@@ -65,6 +65,10 @@ public abstract class BaseResource  implements Cloneable, Serializable {
 		return null;
 	}
 	
+	public BaseResource() {
+		
+	}
+	
 	public abstract Class<?> getResultClass();
 	
 	public String getController() {

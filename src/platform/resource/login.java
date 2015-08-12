@@ -21,7 +21,7 @@ public class login extends Baselogin {
 	@Override
 	public Class<?> getResultClass() {
 		// TODO Auto-generated method stub
-		return null;
+		return loginResult.class;
 	}
 
 }

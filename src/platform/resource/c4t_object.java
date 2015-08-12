@@ -21,7 +21,7 @@ public class c4t_object extends Basec4t_object {
 	@Override
 	public Class<?> getResultClass() {
 		// TODO Auto-generated method stub
-		return null;
+		return c4t_objectResult.class;
 	}
 
 }
