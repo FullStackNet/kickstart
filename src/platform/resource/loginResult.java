@@ -1,6 +1,7 @@
 package platform.resource;
 
 import platform.defined.resource.Baseresult;
+import platform.util.Util;
 
 
 public class loginResult extends Baseresult  {
@@ -24,6 +25,12 @@ public class loginResult extends Baseresult  {
 		this.resource = resources;
 	}
 
+	public login getFirstResource() {
+		if (Util.isEmpty(resource))
+			return null;
+		return resource[0];
+	}
+	
 	@Override
 	public Class<?> getResultClass() {
 		// TODO Auto-generated method stub

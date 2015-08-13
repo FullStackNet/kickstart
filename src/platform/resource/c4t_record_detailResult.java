@@ -3,7 +3,7 @@ package platform.resource;
 import platform.defined.resource.Baseresult;
 import platform.util.Util;
 
-public class c4t_recordResult extends Baseresult  {
+public class c4t_record_detailResult extends Baseresult  {
 	/**
 	 * 
 	 */
@@ -11,22 +11,22 @@ public class c4t_recordResult extends Baseresult  {
 	/**
 	 * 
 	 */
-	public c4t_recordResult() {
+	public c4t_record_detailResult() {
 		
 	}
-	public c4t_record[] resource;
+	public c4t_record_detail[] resource;
 	
-	public c4t_record[] getResource() {
+	public c4t_record_detail[] getResource() {
 		return resource;
 	}
 	
-	public c4t_record getFirstResource() {
+	public c4t_record_detail getFirstResource() {
 		if (Util.isEmpty(resource))
 			return null;
 		return resource[0];
 	}
 
-	public void setResource(c4t_record[] resources) {
+	public void setResource(c4t_record_detail[] resources) {
 		this.resource = resources;
 	}
 

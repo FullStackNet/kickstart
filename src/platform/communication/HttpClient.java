@@ -142,6 +142,8 @@ public class HttpClient {
 		try {
 			String encyptedString ; //= escapePOSTBody(resourceString);
 			encyptedString = resourceString;
+			System.out.println( "Data:: " + resourceString);
+					
 			//encyptedString = escapePOSTBody(resourceString);
 			encyptedString = SecurityUtil.encodeBase64(encyptedString);
 			String data = "resource="+encyptedString;
