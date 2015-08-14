@@ -537,6 +537,11 @@ public class Util {
 
 	public static String readFileFromLocal(String template,
 			Map<String, String> params) {
+			return readFileFromLocal(template, params,"html");
+	}
+	
+	public static String readFileFromLocal(String template,
+			Map<String, String> params,String extension) {
 		String messageWithTokens = "";
 		String currentdir = System.getProperty("user.dir");
 		if (currentdir == null) {
@@ -545,7 +550,7 @@ public class Util {
 		try {
 			String file = currentdir
 					+ File.separator + "conf" + File.separator
-					+ "mail_templates" + File.separator + template + ".html";
+					+ "mail_templates" + File.separator + template + "."+extension;
 			FileInputStream fstream = new FileInputStream(file);
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -565,6 +570,55 @@ public class Util {
 			}
 		}
 		return messageWithTokens;
+	}
+	
+	public static String readPrintFormat(String template,
+			Map<String, String> params) {
+		String messageWithTokens = "";
+		String currentdir = System.getProperty("user.dir");
+		if (currentdir == null) {
+			currentdir = ".";
+		}
+		try {
+			String file = currentdir
+					+ File.separator + "conf" + File.separator
+					+ "templates" + File.separator + template + ".fmt";
+			FileInputStream fstream = new FileInputStream(file);
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			String strLine;
+			while ((strLine = br.readLine()) != null) {
+				messageWithTokens = messageWithTokens + strLine+"\r\n";
+			}
+			br.close();
+		} catch (Exception e) {// Catch exception if any
+			System.err.println("Error: " + e.getMessage());
+		}
+		if (params != null) {
+			for (Map.Entry<String, String> param : params.entrySet()) {
+				String value = param.getValue();
+				String key = "!!!"+param.getKey()+"!!!";
+				messageWithTokens = messageWithTokens.replaceAll(key, value);
+			}
+		}
+		return messageWithTokens;
+	}
+	
+	File theDir = new File("new folder");
+
+	// if the directory does not exist, create it
+	public static boolean createFolder(String path) {
+		File theDir = new File(path);
+		if (!theDir.exists()) {
+		  	try{
+		        theDir.mkdir();
+		        return true;
+		    } 
+		    catch(SecurityException se){
+		    	
+		    }        
+		}
+		return false;
 	}
 
 	public static String readSMSFileFromLocal(String template,

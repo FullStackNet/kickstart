@@ -98,7 +98,7 @@ public class GlobalDataManager {
 	String community_admin_username;
 	String community_admin_password;
 	String community_server_url;
-	
+	boolean print;
 	
 	GlobalDataManager() {
 		heartbeatInterval = 1;
@@ -672,5 +672,13 @@ public class GlobalDataManager {
 
 	public void setCommunity_server_url(String community_server_url) {
 		this.community_server_url = community_server_url;
+	}
+
+	public boolean isPrint() {
+		return print;
+	}
+
+	public void setPrint(boolean print) {
+		this.print = print;
 	}
 }
