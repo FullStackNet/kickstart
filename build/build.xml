@@ -87,6 +87,7 @@
     	 	 ${thirdparty}/jasper/mongo-java-driver-2.7.3.jar:
     	 	 ${thirdparty}/jxl.jar:
     	 	 ${thirdparty}/mqtt-client-0.4.0.jar:
+		 	 ${thirdparty}/chunk-templates-3.0.1.jar:
     		 ${thirdparty}/uuid-3.2.jar"
  	/>
 	<!-- initilization process-->

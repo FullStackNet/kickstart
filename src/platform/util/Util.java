@@ -46,9 +46,23 @@ import org.imgscalr.Scalr;
 import platform.log.ApplicationLogger;
 
 import com.eaio.uuid.UUID;
+import com.x5.template.Chunk;
+import com.x5.template.Theme;
 
 public class Util {
+	public static Long uniqueNumber = new Long(0); 
+	
+	
 	private static final Random generator = new Random();  
+	
+	public static long nextNumber() {
+		synchronized (uniqueNumber) {
+			if (uniqueNumber == 99) {
+				uniqueNumber = new Long(0);
+			}
+			return ++uniqueNumber;
+		}
+	}
 	public static byte[] getByte(short data) {
 		byte[] packet = new byte[2];
 		packet[0] = (byte) (data & 0xff);
@@ -477,7 +491,7 @@ public class Util {
 	public static String getUniqueId() {
 		UUID uuid = null;
 		uuid = new UUID();
-		return "" + uuid;
+		return "" + uuid +"-"+nextNumber();
 	}
 
 	public static String convertByteToHexString(byte[] bytes) {
@@ -574,7 +588,6 @@ public class Util {
 	
 	public static String readPrintFormat(String template,
 			Map<String, String> params) {
-		String messageWithTokens = "";
 		String currentdir = System.getProperty("user.dir");
 		if (currentdir == null) {
 			currentdir = ".";
@@ -583,29 +596,21 @@ public class Util {
 			String file = currentdir
 					+ File.separator + "conf" + File.separator
 					+ "templates" + File.separator + template + ".fmt";
-			FileInputStream fstream = new FileInputStream(file);
-			DataInputStream in = new DataInputStream(fstream);
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			String strLine;
-			while ((strLine = br.readLine()) != null) {
-				messageWithTokens = messageWithTokens + strLine+"\r\n";
+			
+			Theme theme = new Theme();         // a standard theme with no layers.
+			Chunk c = theme.makeChunk(file);  // from src/themes/hello.chtml
+			if (params != null) {
+				for (Map.Entry<String, String> param : params.entrySet()) {
+					c.set(param.getKey(),param.getValue());
+				}
 			}
-			br.close();
+			return c.toString();
 		} catch (Exception e) {// Catch exception if any
 			System.err.println("Error: " + e.getMessage());
 		}
-		if (params != null) {
-			for (Map.Entry<String, String> param : params.entrySet()) {
-				String value = param.getValue();
-				String key = "!!!"+param.getKey()+"!!!";
-				messageWithTokens = messageWithTokens.replaceAll(key, value);
-			}
-		}
-		return messageWithTokens;
+		return "";
 	}
 	
-	File theDir = new File("new folder");
-
 	// if the directory does not exist, create it
 	public static boolean createFolder(String path) {
 		File theDir = new File(path);
