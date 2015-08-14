@@ -46,15 +46,13 @@ import org.imgscalr.Scalr;
 import platform.log.ApplicationLogger;
 
 import com.eaio.uuid.UUID;
-import com.x5.template.Chunk;
-import com.x5.template.Theme;
 
 public class Util {
 	public static Long uniqueNumber = new Long(0); 
-	
-	
+
+
 	private static final Random generator = new Random();  
-	
+
 	public static long nextNumber() {
 		synchronized (uniqueNumber) {
 			if (uniqueNumber == 99) {
@@ -511,19 +509,19 @@ public class Util {
 	}
 
 	public static String base48Encode(Long no) {
-        Double num = Double.valueOf(no);
-        String charSet = "23456789abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
-        Integer length = charSet.length();
-        String encodeString = new String();
-        while(num > length) {
-            encodeString = charSet.charAt(num.intValue() % length)+encodeString;
-             num = Math.ceil(new Double(num / length) - 1) ;
-        }
-        encodeString = charSet.charAt(num.intValue())+encodeString;
- 
-        return encodeString;
-    }
-	
+		Double num = Double.valueOf(no);
+		String charSet = "23456789abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
+		Integer length = charSet.length();
+		String encodeString = new String();
+		while(num > length) {
+			encodeString = charSet.charAt(num.intValue() % length)+encodeString;
+			num = Math.ceil(new Double(num / length) - 1) ;
+		}
+		encodeString = charSet.charAt(num.intValue())+encodeString;
+
+		return encodeString;
+	}
+
 	public static byte[] convertHexToByte(String hexString) {
 		if (hexString == null) return null;
 		String[] byteStrings = hexString.split("-");
@@ -551,9 +549,9 @@ public class Util {
 
 	public static String readFileFromLocal(String template,
 			Map<String, String> params) {
-			return readFileFromLocal(template, params,"html");
+		return readFileFromLocal(template, params,"html");
 	}
-	
+
 	public static String readFileFromLocal(String template,
 			Map<String, String> params,String extension) {
 		String messageWithTokens = "";
@@ -585,9 +583,10 @@ public class Util {
 		}
 		return messageWithTokens;
 	}
-	
+
 	public static String readPrintFormat(String template,
 			Map<String, String> params) {
+		String messageWithTokens = "";
 		String currentdir = System.getProperty("user.dir");
 		if (currentdir == null) {
 			currentdir = ".";
@@ -596,32 +595,38 @@ public class Util {
 			String file = currentdir
 					+ File.separator + "conf" + File.separator
 					+ "templates" + File.separator + template + ".fmt";
-			
-			Theme theme = new Theme();         // a standard theme with no layers.
-			Chunk c = theme.makeChunk(file);  // from src/themes/hello.chtml
-			if (params != null) {
-				for (Map.Entry<String, String> param : params.entrySet()) {
-					c.set(param.getKey(),param.getValue());
-				}
+			FileInputStream fstream = new FileInputStream(file);
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			String strLine;
+			while ((strLine = br.readLine()) != null) {
+				messageWithTokens = messageWithTokens + strLine+"\r\n";
 			}
-			return c.toString();
+			br.close();
 		} catch (Exception e) {// Catch exception if any
 			System.err.println("Error: " + e.getMessage());
 		}
-		return "";
+		if (params != null) {
+			for (Map.Entry<String, String> param : params.entrySet()) {
+				String value = param.getValue();
+				String key = "!!!"+param.getKey()+"!!!";
+				messageWithTokens = messageWithTokens.replaceAll(key, value);
+			}
+		}
+		return messageWithTokens;
 	}
-	
+
 	// if the directory does not exist, create it
 	public static boolean createFolder(String path) {
 		File theDir = new File(path);
 		if (!theDir.exists()) {
-		  	try{
-		        theDir.mkdir();
-		        return true;
-		    } 
-		    catch(SecurityException se){
-		    	
-		    }        
+			try{
+				theDir.mkdir();
+				return true;
+			} 
+			catch(SecurityException se){
+
+			}        
 		}
 		return false;
 	}
@@ -1185,7 +1190,7 @@ public class Util {
 	public static boolean isEmpty(byte[] array) {
 		return array == null || array.length == 0;
 	}
-	
+
 	public static boolean isEmpty(int[] array) {
 		return array == null || array.length == 0;
 	}
@@ -1420,16 +1425,16 @@ public class Util {
 		try {
 			fileWritter = new FileWriter("logs/"+filename,true);
 			BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
-		    bufferWritter.write(new Date()+"::"+data);
-		    bufferWritter.close();
+			bufferWritter.write(new Date()+"::"+data);
+			bufferWritter.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
- 	}
-	
-	
-	
+	}
+
+
+
 	public static void savetoFile(String filename, ByteArrayOutputStream byteArrayOutputStream) {
 		OutputStream outputStream = null;
 		try {
@@ -1454,6 +1459,6 @@ public class Util {
 			}
 		}
 	}
-	
-	
+
+
 }
