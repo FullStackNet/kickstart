@@ -198,6 +198,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'scheme_avaialble':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'designation':
 			{
 				'type':'String',
@@ -426,7 +431,7 @@
 			'updation_time':
 			{
 				'type':'timestamp'
-			}			
+			} 			
 		}
 	}
 }

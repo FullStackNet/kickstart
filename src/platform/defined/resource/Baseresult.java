@@ -69,7 +69,7 @@ public abstract class Baseresult extends BaseResource {
 		metaData.setCluster("DB_CONFIG");
 	}
 
-	public Baseresult() {super();}
+	public Baseresult() {}
 
 	public Baseresult(Baseresult obj) {
 		this.errCode = obj.errCode;

@@ -56,6 +56,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String company_name = null;
 	private String company_id = null;
 	private String domain = null;
+	private String scheme_avaialble = null;
 	private String designation = null;
 	private String resident = null;
 	private String zip_code = null;
@@ -144,6 +145,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_COMPANY_ID = "company_id";
 	public static String FIELD_DOMAIN = "domain";
+	public static String FIELD_SCHEME_AVAIALBLE = "scheme_avaialble";
 	public static String FIELD_DESIGNATION = "designation";
 	public static String FIELD_RESIDENT = "resident";
 	public static String FIELD_ZIP_CODE = "zip_code";
@@ -354,6 +356,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field domainField = new Field("domain", "String");
 		domainField.setLength(128);
 		metaData.addField(domainField);
+
+		Field scheme_avaialbleField = new Field("scheme_avaialble", "String");
+		scheme_avaialbleField.setLength(1);
+		metaData.addField(scheme_avaialbleField);
 
 		Field designationField = new Field("designation", "String");
 		designationField.setLength(128);
@@ -583,6 +589,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.company_name = obj.company_name;
 		this.company_id = obj.company_id;
 		this.domain = obj.domain;
+		this.scheme_avaialble = obj.scheme_avaialble;
 		this.designation = obj.designation;
 		this.resident = obj.resident;
 		this.zip_code = obj.zip_code;
@@ -715,6 +722,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("company_id", company_id);
 		if(domain != null)
 			map.put("domain", domain);
+		if(scheme_avaialble != null)
+			map.put("scheme_avaialble", scheme_avaialble);
 		if(designation != null)
 			map.put("designation", designation);
 		if(resident != null)
@@ -894,6 +903,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("company_id", company_id);
 		if(domain != null)
 			map.put("domain", domain);
+		if(scheme_avaialble != null)
+			map.put("scheme_avaialble", scheme_avaialble);
 		if(designation != null)
 			map.put("designation", designation);
 		if(resident != null)
@@ -1041,6 +1052,7 @@ public abstract class Basec4t_object extends BaseResource {
 		company_name = (String) map.get("company_name");
 		company_id = (String) map.get("company_id");
 		domain = (String) map.get("domain");
+		scheme_avaialble = (String) map.get("scheme_avaialble");
 		designation = (String) map.get("designation");
 		resident = (String) map.get("resident");
 		zip_code = (String) map.get("zip_code");
@@ -1242,6 +1254,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object domainObj = map.get("domain");
 		if(domainObj != null)
 			domain = domainObj.toString();
+
+		Object scheme_avaialbleObj = map.get("scheme_avaialble");
+		if(scheme_avaialbleObj != null)
+			scheme_avaialble = scheme_avaialbleObj.toString();
 
 		Object designationObj = map.get("designation");
 		if(designationObj != null)
@@ -2048,6 +2064,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetDomain() {
 		this.domain = null;
+	}
+
+	public String getScheme_avaialble() {
+		return scheme_avaialble;
+	}
+
+	public String getScheme_avaialbleEx() {
+		return scheme_avaialble != null ? scheme_avaialble : "";
+	}
+
+	public void setScheme_avaialble(String scheme_avaialble) {
+		this.scheme_avaialble = scheme_avaialble;
+	}
+
+	public void unSetScheme_avaialble() {
+		this.scheme_avaialble = null;
 	}
 
 	public String getDesignation() {
