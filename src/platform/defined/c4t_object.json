@@ -198,7 +198,7 @@
 				'type':'String',
 				'length': 128
 			},
-			'scheme_avaialble':
+			'scheme_available':
 			{
 				'type':'String',
 				'length': 1
