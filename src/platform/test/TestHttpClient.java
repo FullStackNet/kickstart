@@ -14,7 +14,7 @@ public class TestHttpClient {
 		login _login = new login();
 		_login.setEmail_id("admin@pharma");
 		_login.setPassword("x");
-		loginResult _result = (loginResult)rest.post(_login, null);
+		loginResult _result = (loginResult)rest.post("login",_login, null);
 		System.out.println(_result.getMessage());
 		if (_result.getErrCode() == 0) {
 			login _response = _result.getResource()[0];

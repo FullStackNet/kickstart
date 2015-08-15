@@ -58,8 +58,8 @@ public class RestClient {
 		this.namespace = namespace;
 	}
 
-	public Baseresult post(BaseResource resource,String action) {
-		return post(resource,action,namespace) ;
+	public Baseresult post(String resourceName,BaseResource resource,String action) {
+		return post(resourceName,resource,action,namespace) ;
 	}
 	public Baseresult get(String resourceName,String queryId, String args,Class<?> resultType) {
 		return get(resourceName, queryId, args,resultType,namespace);
@@ -101,12 +101,12 @@ public class RestClient {
 	}
 	
 	
-	public Baseresult post(BaseResource resource,String action,String _namespace) {
+	public Baseresult post(String resourceName,BaseResource resource,String action,String _namespace) {
 		String resourceString = Json.resourcetoString(resource);
 		Baseresult _result;
 		try {
 			String resultString = HttpClient.sendPostRequest(server_url, _namespace, session_id,
-					resource.getMetaData().getName(), resourceString, action);
+					resourceName, resourceString, action);
 			System.out.println(resultString);
 			if (resource.getResultClass() != null) {
 				_result =  Json.stringToBaseResult(resultString, resource.getResultClass());
