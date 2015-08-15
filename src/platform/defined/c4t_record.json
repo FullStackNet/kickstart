@@ -276,6 +276,14 @@
 				'type': 'String',
 				'length' : 32
 			},
+			'downloaded': {
+				'type': 'String',
+				'length' : 1
+			},
+			'printed': {
+				'type': 'String',
+				'length' : 1
+			},
 			'last_updated_message': {
 				'type': 'String'
 			},

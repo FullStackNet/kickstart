@@ -75,6 +75,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private String event_date_str = null;
 	private Long expiry_date = null;
 	private String expiry_date_str = null;
+	private String downloaded = null;
+	private String printed = null;
 	private String last_updated_message = null;
 	private String last_updated_by = null;
 	private Long last_updated = null;
@@ -146,6 +148,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_EVENT_DATE_STR = "event_date_str";
 	public static String FIELD_EXPIRY_DATE = "expiry_date";
 	public static String FIELD_EXPIRY_DATE_STR = "expiry_date_str";
+	public static String FIELD_DOWNLOADED = "downloaded";
+	public static String FIELD_PRINTED = "printed";
 	public static String FIELD_LAST_UPDATED_MESSAGE = "last_updated_message";
 	public static String FIELD_LAST_UPDATED_BY = "last_updated_by";
 	public static String FIELD_LAST_UPDATED = "last_updated";
@@ -386,6 +390,14 @@ public abstract class Basec4t_record extends BaseResource {
 		expiry_date_strField.setLength(32);
 		metaData.addField(expiry_date_strField);
 
+		Field downloadedField = new Field("downloaded", "String");
+		downloadedField.setLength(1);
+		metaData.addField(downloadedField);
+
+		Field printedField = new Field("printed", "String");
+		printedField.setLength(1);
+		metaData.addField(printedField);
+
 		Field last_updated_messageField = new Field("last_updated_message", "String");
 		metaData.addField(last_updated_messageField);
 
@@ -500,6 +512,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.event_date_str = obj.event_date_str;
 		this.expiry_date = obj.expiry_date;
 		this.expiry_date_str = obj.expiry_date_str;
+		this.downloaded = obj.downloaded;
+		this.printed = obj.printed;
 		this.last_updated_message = obj.last_updated_message;
 		this.last_updated_by = obj.last_updated_by;
 		this.last_updated = obj.last_updated;
@@ -643,6 +657,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("expiry_date", expiry_date);
 		if(expiry_date_str != null)
 			map.put("expiry_date_str", expiry_date_str);
+		if(downloaded != null)
+			map.put("downloaded", downloaded);
+		if(printed != null)
+			map.put("printed", printed);
 		if(last_updated_message != null)
 			map.put("last_updated_message", last_updated_message);
 		if(last_updated_by != null)
@@ -791,6 +809,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("expiry_date", expiry_date);
 		if(expiry_date_str != null)
 			map.put("expiry_date_str", expiry_date_str);
+		if(downloaded != null)
+			map.put("downloaded", downloaded);
+		if(printed != null)
+			map.put("printed", printed);
 		if(last_updated_message != null)
 			map.put("last_updated_message", last_updated_message);
 		if(last_updated_by != null)
@@ -885,6 +907,8 @@ public abstract class Basec4t_record extends BaseResource {
 		event_date_str = (String) map.get("event_date_str");
 		expiry_date = (Long) map.get("expiry_date");
 		expiry_date_str = (String) map.get("expiry_date_str");
+		downloaded = (String) map.get("downloaded");
+		printed = (String) map.get("printed");
 		last_updated_message = (String) map.get("last_updated_message");
 		last_updated_by = (String) map.get("last_updated_by");
 		last_updated = (Long) map.get("last_updated");
@@ -1126,6 +1150,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object expiry_date_strObj = map.get("expiry_date_str");
 		if(expiry_date_strObj != null)
 			expiry_date_str = expiry_date_strObj.toString();
+
+		Object downloadedObj = map.get("downloaded");
+		if(downloadedObj != null)
+			downloaded = downloadedObj.toString();
+
+		Object printedObj = map.get("printed");
+		if(printedObj != null)
+			printed = printedObj.toString();
 
 		Object last_updated_messageObj = map.get("last_updated_message");
 		if(last_updated_messageObj != null)
@@ -2078,6 +2110,38 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetExpiry_date_str() {
 		this.expiry_date_str = null;
+	}
+
+	public String getDownloaded() {
+		return downloaded;
+	}
+
+	public String getDownloadedEx() {
+		return downloaded != null ? downloaded : "";
+	}
+
+	public void setDownloaded(String downloaded) {
+		this.downloaded = downloaded;
+	}
+
+	public void unSetDownloaded() {
+		this.downloaded = null;
+	}
+
+	public String getPrinted() {
+		return printed;
+	}
+
+	public String getPrintedEx() {
+		return printed != null ? printed : "";
+	}
+
+	public void setPrinted(String printed) {
+		this.printed = printed;
+	}
+
+	public void unSetPrinted() {
+		this.printed = null;
 	}
 
 	public String getLast_updated_message() {
