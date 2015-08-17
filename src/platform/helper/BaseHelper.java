@@ -471,6 +471,11 @@ public class BaseHelper {
 		return  HelperUtils.convertList2Array(list);
 	}
 	
+	public BaseResource[] getById(String[] ids,String[] orderBy,Expression e,int pageno,int pagesize) {
+		ArrayList<BaseResource> list = getListById(ids, orderBy,e,pageno,pagesize);
+		return  HelperUtils.convertList2Array(list);
+	}
+	
 	
 	public BaseResource[] getById(String[] ids,String[] orderBy) {
 		ArrayList<BaseResource> list = getListById(ids, orderBy);
@@ -519,6 +524,30 @@ public class BaseHelper {
 		}
 		return list;
 	}
+	
+	public ArrayList<BaseResource> getListById(String[] ids,String[] orderby, Expression expression,int pageno, int pagesize) {
+		BaseResource clonedResource = null;
+		DbConnection connection = null;
+		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			ArrayList<Map<String, Object>> rows = (ArrayList<Map<String, Object>>) connection.getById(resource.getMetaData(),ids, orderby, expression,pageno,pagesize);
+			if (!Util.isEmpty(rows)) {
+				for(int i=0;i < rows.size(); i++) {
+					clonedResource = (BaseResource) this.resource.clone();
+					clonedResource.convertMapToResource(rows.get(i));
+					list.add(clonedResource);
+				}
+			}
+		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return list;
+	}
+	
 	public ArrayList<Map<String, Object>> getListMapById(String[] ids,String[] orderBy) {
 		return getListMapById(ids, orderBy, null);
 	}

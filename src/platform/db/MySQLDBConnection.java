@@ -889,5 +889,13 @@ public class MySQLDBConnection extends DbConnection {
 		return 0;
 	}
 
+	@Override
+	public List<Map<String, Object>> getById(ResourceMetaData metaData,
+			String[] ids, String[] orderBy, Expression expression, int pageno,
+			int pagesize) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

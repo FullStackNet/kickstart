@@ -1096,4 +1096,25 @@ public class MongoDBConnection extends DbConnection {
 		return 0;
 
 	}
+
+	@Override
+	public List<Map<String, Object>> getById(ResourceMetaData metaData,
+			String[] ids, String[] orderBy, Expression expression, int pageno,
+			int pagesize) throws Exception {
+		// TODO Auto-generated method stub
+		BasicDBList list = new  BasicDBList();
+		for(int i = 0 ; i < ids.length ; i++ )
+			list.add(ids[i]);
+		Expression e1 = new Expression("_id", REL_OP.IN, list);
+		Expression e;
+		if (expression != null) {
+			e = new Expression(e1, LOG_OP.AND, expression);
+		} else {
+			e = e1;
+		}
+		if (pagesize == 0) {
+			return getByExpression(metaData, e, orderBy);
+		}
+		return getByExpression(metaData,e,orderBy,pageno,pagesize);
+	}
 }
