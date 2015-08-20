@@ -61,29 +61,33 @@ public class Daily_activityHelper extends BaseHelper {
 		}
 		
 	}
-	public BaseResource[] getDaily_activiyForClass(String schoolId, String class_section_name) {
+	public BaseResource[] getDaily_activiyForClass(String schoolId, String class_section_name,String class_name) {
 		Expression e12 = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.EQ, schoolId);
 		Expression e11 = new Expression(daily_activity.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, new String[]{schoolId});
 		Expression e1 = new Expression(e12,LOG_OP.OR, e11);
 		Expression e21 = new Expression(daily_activity.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
-		Expression e22 = new Expression(daily_activity.FIELD_SECTION_NAME, REL_OP.EQ, "ALL");
+		Expression e221 = new Expression(daily_activity.FIELD_SECTION_NAME, REL_OP.EQ, "ALL");
+		Expression e222 = new Expression(daily_activity.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
+		Expression e22 = new Expression(e221, LOG_OP.AND, e222);
 		Expression e2 = new Expression(e21, LOG_OP.OR, e22);
 		Expression e3 = new Expression(e1, LOG_OP.AND, e2);
 		Expression e4 = new Expression(daily_activity.FIELD_SENT, REL_OP.EQ, "Y");
 		Expression e5 = new Expression(e3, LOG_OP.AND, e4);
-		
+			
 		return getByExpression(e5, new String[]{daily_activity.FIELD_ACTIVITY_DATE + " desc"});
 	}
 	
 	public BaseResource[] getDaily_activiyForStudent(String studentId) {
 		String school_id;
 		String class_section_name;
+		String class_name;
 		student _student = (student)StudentHelper.getInstance().getById(studentId);
 		if (_student == null)
 			return null;
 		school_id = _student.getSchool_id();
 		class_section_name = _student.getClass_section_name();
-		return getDaily_activiyForClass(school_id,class_section_name);
+		class_name = _student.getClass_name();
+		return getDaily_activiyForClass(school_id,class_section_name,class_name);
 	}
 	
 	public ArrayList<Map<String, Object>> getForSchools(String[] schools,String[] order,long fromtime,long totime) throws ApplicationException  {
