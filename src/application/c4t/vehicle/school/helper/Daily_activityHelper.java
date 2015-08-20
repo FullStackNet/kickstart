@@ -65,7 +65,9 @@ public class Daily_activityHelper extends BaseHelper {
 		Expression e12 = new Expression(daily_activity.FIELD_SCHOOL_ID, REL_OP.EQ, schoolId);
 		Expression e11 = new Expression(daily_activity.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, new String[]{schoolId});
 		Expression e1 = new Expression(e12,LOG_OP.OR, e11);
-		Expression e2 = new Expression(daily_activity.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
+		Expression e21 = new Expression(daily_activity.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
+		Expression e22 = new Expression(daily_activity.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, "ALL");
+		Expression e2 = new Expression(e21, LOG_OP.OR, e22);
 		Expression e3 = new Expression(e1, LOG_OP.AND, e2);
 		Expression e4 = new Expression(daily_activity.FIELD_SENT, REL_OP.EQ, "Y");
 		Expression e5 = new Expression(e3, LOG_OP.AND, e4);
