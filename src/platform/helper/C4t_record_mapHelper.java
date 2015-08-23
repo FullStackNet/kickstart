@@ -93,7 +93,7 @@ public class C4t_record_mapHelper extends BaseHelper {
 			relation.setRecord_id(to_id);
 			relation.setReference_id(record_id);
 			relation.setRecord_map_type(relation_type);
-			relation.addRecord_map(to_id);
+			relation.addRecord_map(record_id);
 			try {
 				C4t_record_mapHelper.getInstance().AddOrUpdate(relation);
 			} catch (ApplicationException e) {
@@ -117,5 +117,19 @@ public class C4t_record_mapHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		id = c4t_record_map.getMapId(to_id, relation_type);
+	    relation = new c4t_record_map(id);
+			relation.setRecord_id(to_id);
+			relation.setReference_id(record_id);
+			relation.setRecord_map_type(relation_type);
+			relation.addRecord_map(record_id);
+			try {
+				C4t_record_mapHelper.getInstance().unset(relation);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 	}
 }
