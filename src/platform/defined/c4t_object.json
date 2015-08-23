@@ -218,6 +218,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'last_scheme':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'feature_send_sms':
 			{
 				'type':'String',

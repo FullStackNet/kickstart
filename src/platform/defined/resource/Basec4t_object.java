@@ -60,6 +60,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String designation = null;
 	private String resident = null;
 	private String zip_code = null;
+	private String last_scheme = null;
 	private String feature_send_sms = null;
 	private String feature_send_email = null;
 	private String feature_printer = null;
@@ -149,6 +150,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_DESIGNATION = "designation";
 	public static String FIELD_RESIDENT = "resident";
 	public static String FIELD_ZIP_CODE = "zip_code";
+	public static String FIELD_LAST_SCHEME = "last_scheme";
 	public static String FIELD_FEATURE_SEND_SMS = "feature_send_sms";
 	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
 	public static String FIELD_FEATURE_PRINTER = "feature_printer";
@@ -373,6 +375,10 @@ public abstract class Basec4t_object extends BaseResource {
 		zip_codeField.setLength(128);
 		metaData.addField(zip_codeField);
 
+		Field last_schemeField = new Field("last_scheme", "String");
+		last_schemeField.setLength(128);
+		metaData.addField(last_schemeField);
+
 		Field feature_send_smsField = new Field("feature_send_sms", "String");
 		feature_send_smsField.setLength(1);
 		metaData.addField(feature_send_smsField);
@@ -593,6 +599,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.designation = obj.designation;
 		this.resident = obj.resident;
 		this.zip_code = obj.zip_code;
+		this.last_scheme = obj.last_scheme;
 		this.feature_send_sms = obj.feature_send_sms;
 		this.feature_send_email = obj.feature_send_email;
 		this.feature_printer = obj.feature_printer;
@@ -730,6 +737,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("resident", resident);
 		if(zip_code != null)
 			map.put("zip_code", zip_code);
+		if(last_scheme != null)
+			map.put("last_scheme", last_scheme);
 		if(feature_send_sms != null)
 			map.put("feature_send_sms", feature_send_sms);
 		if(feature_send_email != null)
@@ -911,6 +920,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("resident", resident);
 		if(zip_code != null)
 			map.put("zip_code", zip_code);
+		if(last_scheme != null)
+			map.put("last_scheme", last_scheme);
 		if(feature_send_sms != null)
 			map.put("feature_send_sms", feature_send_sms);
 		if(feature_send_email != null)
@@ -1056,6 +1067,7 @@ public abstract class Basec4t_object extends BaseResource {
 		designation = (String) map.get("designation");
 		resident = (String) map.get("resident");
 		zip_code = (String) map.get("zip_code");
+		last_scheme = (String) map.get("last_scheme");
 		feature_send_sms = (String) map.get("feature_send_sms");
 		feature_send_email = (String) map.get("feature_send_email");
 		feature_printer = (String) map.get("feature_printer");
@@ -1270,6 +1282,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object zip_codeObj = map.get("zip_code");
 		if(zip_codeObj != null)
 			zip_code = zip_codeObj.toString();
+
+		Object last_schemeObj = map.get("last_scheme");
+		if(last_schemeObj != null)
+			last_scheme = last_schemeObj.toString();
 
 		Object feature_send_smsObj = map.get("feature_send_sms");
 		if(feature_send_smsObj != null)
@@ -2128,6 +2144,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetZip_code() {
 		this.zip_code = null;
+	}
+
+	public String getLast_scheme() {
+		return last_scheme;
+	}
+
+	public String getLast_schemeEx() {
+		return last_scheme != null ? last_scheme : "";
+	}
+
+	public void setLast_scheme(String last_scheme) {
+		this.last_scheme = last_scheme;
+	}
+
+	public void unSetLast_scheme() {
+		this.last_scheme = null;
 	}
 
 	public String getFeature_send_sms() {
