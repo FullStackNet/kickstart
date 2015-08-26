@@ -1,5 +1,6 @@
 package platform.printer;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -35,7 +36,7 @@ public class PrinterManager {
 	
 	
 	void initPrinter() {
-		flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
+		flavor = DocFlavor.INPUT_STREAM.TEXT_PLAIN_UTF_8;
 		service = PrintServiceLookup.lookupDefaultPrintService();
 		aset = new HashPrintRequestAttributeSet();	
 		aset.add(new Copies(1));
@@ -52,7 +53,7 @@ public class PrinterManager {
 		}
 		FileInputStream textStream;
 		try {
-			textStream = new FileInputStream(filename);
+			textStream = new FileInputStream(new File(filename));
 			Doc mydoc = new SimpleDoc(textStream, flavor, null);
 			
 			//print using default
