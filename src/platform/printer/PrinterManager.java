@@ -37,7 +37,9 @@ public class PrinterManager {
 	void initPrinter() {
 		flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
 		service = PrintServiceLookup.lookupDefaultPrintService();
-		aset = new HashPrintRequestAttributeSet();		
+		aset = new HashPrintRequestAttributeSet();	
+		aset.add(new Copies(1));
+	
 	}	
 	
 	public void printTextFile(String filename) {
@@ -52,7 +54,7 @@ public class PrinterManager {
 		try {
 			textStream = new FileInputStream(filename);
 			Doc mydoc = new SimpleDoc(textStream, flavor, null);
-			aset.add(new Copies(1));
+			
 			//print using default
 			DocPrintJob job = service.createPrintJob();
 			job.print(mydoc, aset);
