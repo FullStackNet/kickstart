@@ -45,6 +45,7 @@ public class PrinterManager {
 		DocFlavor flavor;
 		PrintRequestAttributeSet aset;
 		flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
+		
 		service = PrintServiceLookup.lookupDefaultPrintService();
 		aset = new HashPrintRequestAttributeSet();	
 		aset.add(new Copies(1));
@@ -57,6 +58,10 @@ public class PrinterManager {
 		}
 		FileInputStream textStream;
 		try {
+			if (!service.isDocFlavorSupported(flavor)) {
+				ApplicationLogger.error("ERROR :: PRINTER FLAOUR not suported .....", this.getClass());
+				return;
+			}
 			textStream = new FileInputStream(new File(filename));
 			Doc mydoc = new SimpleDoc(textStream, flavor, null);
 			
@@ -68,6 +73,7 @@ public class PrinterManager {
 	        pjDone.waitForDone();
 	   		textStream.close();
 	   		System.out.println("\n\nPrint completed\n\n");
+	   		
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
