@@ -1459,6 +1459,8 @@ public class Util {
 			}
 		}
 	}
-
+	public static String getPathSeperator() {
+		return java.nio.file.FileSystems.getDefault().getSeparator();
+	}
 
 }

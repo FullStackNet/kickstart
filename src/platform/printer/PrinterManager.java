@@ -12,6 +12,7 @@ import javax.print.PrintServiceLookup;
 import javax.print.SimpleDoc;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.Copies;
 
 import platform.log.ApplicationLogger;
 
@@ -36,7 +37,7 @@ public class PrinterManager {
 	void initPrinter() {
 		flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
 		service = PrintServiceLookup.lookupDefaultPrintService();
-		aset = new HashPrintRequestAttributeSet();
+		aset = new HashPrintRequestAttributeSet();		
 	}	
 	
 	public void printTextFile(String filename) {
@@ -51,6 +52,7 @@ public class PrinterManager {
 		try {
 			textStream = new FileInputStream(filename);
 			Doc mydoc = new SimpleDoc(textStream, flavor, null);
+			aset.add(new Copies(1));
 			//print using default
 			DocPrintJob job = service.createPrintJob();
 			job.print(mydoc, aset);
