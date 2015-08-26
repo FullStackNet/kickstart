@@ -67,6 +67,7 @@ public class PrinterManager {
             // Wait for the print job to be done
 	        pjDone.waitForDone();
 	   		textStream.close();
+	   		System.out.println("\n\nPrint completed\n\n");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
