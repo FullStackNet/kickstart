@@ -19,9 +19,9 @@ public class SystemUtil {
 	}
 	SystemUtil() {
 		sigar = new Sigar();
-		
+
 	}
-	
+
 	public double getCpuUsage( ) {
 		CpuPerc cpu;
 		try {
@@ -31,9 +31,9 @@ public class SystemUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    return 0;
+		return 0;
 	}
-	
+
 	public double getSystemCpuUsage( ) {
 		CpuPerc cpu;
 		try {
@@ -43,9 +43,9 @@ public class SystemUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    return 0;
+		return 0;
 	}
-	
+
 	public  long getFreeMemory( ) {
 		Mem mem;
 		try {
@@ -55,9 +55,9 @@ public class SystemUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    return 0;
+		return 0;
 	}
-	
+
 	public long getTotalMemory( ) {
 		Mem mem;
 		try {
@@ -67,10 +67,10 @@ public class SystemUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    return 0;
+		return 0;
 	}
-	
-	
+
+
 	public long getTotalDisk() {
 		FileSystemUsage stat;
 		try {
@@ -80,9 +80,9 @@ public class SystemUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    return 0;
+		return 0;
 	}
-	
+
 	public long getFreeDisk() {
 		FileSystemUsage stat;
 		try {
@@ -92,9 +92,9 @@ public class SystemUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    return 0;
+		return 0;
 	}
-	
+
 	public long getUsageDisk() {
 		FileSystemUsage stat;
 		try {
@@ -104,35 +104,27 @@ public class SystemUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    return 0;
+		return 0;
 	}
-	
+
 	public static String getMAC() {  
-		  Sigar sigar = null;  
-		  try {  
-		   sigar = new Sigar();  
-		   String[] ifaces = sigar.getNetInterfaceList();  
-		   String hwaddr = null;  
-		   for (int i = 0; i < ifaces.length; i++) {  
-		    NetInterfaceConfig cfg = sigar.getNetInterfaceConfig(ifaces[i]);  
-		    if (NetFlags.LOOPBACK_ADDRESS.equals(cfg.getAddress())  
-		      || (cfg.getFlags() & NetFlags.IFF_LOOPBACK) != 0  
-		      || NetFlags.NULL_HWADDR.equals(cfg.getHwaddr())) {  
-		     continue;  
-		    }  
-		    /* 
-		     * ?MAC???Collection 
-		     * ?forMAC? 
-		     */  
-		    hwaddr = cfg.getHwaddr();  
-		    break;  
-		   }  
-		   return hwaddr != null ? hwaddr : null;  
-		  } catch (Exception e) {  
-		   return null;  
-		  } finally {  
-		   if (sigar != null)  
-		    sigar.close();  
-		  }  
-		 }  
+		Sigar sigar = null;  
+		try {  
+			sigar = new Sigar();  
+			String[] ifaces = sigar.getNetInterfaceList();  
+			for (int i = 0; i < ifaces.length; i++) {  
+				NetInterfaceConfig cfg = sigar.getNetInterfaceConfig(ifaces[i]);  
+				if ("eth0".equals(cfg.getName())) {
+					return cfg.getHwaddr();
+				}
+			}  
+		} catch (Exception e) {  
+			return null;  
+		} finally {  
+			if (sigar != null)  
+				sigar.close();  
+		}  
+		return null;
+	}  
+
 }
