@@ -66,6 +66,11 @@ public enum REL_OP {
 		public String toString() {
 			return "<>";
 		}
+	},
+	STARTWITH { //Value should be a regex String
+			public String toString() {
+				return "@@";
+			}
 	};
 	
 	public static REL_OP parse(String input) throws ApplicationException {
