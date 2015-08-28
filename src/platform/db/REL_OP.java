@@ -97,6 +97,8 @@ public enum REL_OP {
 				return NIN;
 			if(input.equals("<>"))
 				return CONTAINS;
+			if(input.equals("@@"))
+				return STARTWITH;
 		}
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_RELATIONAL_OPERATOR, input);
 	}
