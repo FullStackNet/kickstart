@@ -117,6 +117,7 @@ public class SMSDispatcher {
 		if (!Util.isEmpty(_account.getSignature_field())) {
 			url = url + "&"+_account.getSignature_field()+"="+_account.getSignature();
 		}
+		System.out.println(url);
 		return url;
 	}
 
