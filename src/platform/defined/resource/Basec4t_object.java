@@ -29,6 +29,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String parent_id = null;
 	private String community_id = null;
 	private String community_name = null;
+	private String search_suffix = null;
 	private String community_type = null;
 	private String customer_id = null;
 	private String object_type = null;
@@ -119,6 +120,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_COMMUNITY_NAME = "community_name";
+	public static String FIELD_SEARCH_SUFFIX = "search_suffix";
 	public static String FIELD_COMMUNITY_TYPE = "community_type";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_OBJECT_TYPE = "object_type";
@@ -250,6 +252,11 @@ public abstract class Basec4t_object extends BaseResource {
 		community_nameField.setIndexed(true);
 		community_nameField.setLength(128);
 		metaData.addField(community_nameField);
+
+		Field search_suffixField = new Field("search_suffix", "String");
+		search_suffixField.setIndexed(true);
+		search_suffixField.setLength(128);
+		metaData.addField(search_suffixField);
 
 		Field community_typeField = new Field("community_type", "String");
 		community_typeField.setLength(128);
@@ -568,6 +575,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.parent_id = obj.parent_id;
 		this.community_id = obj.community_id;
 		this.community_name = obj.community_name;
+		this.search_suffix = obj.search_suffix;
 		this.community_type = obj.community_type;
 		this.customer_id = obj.customer_id;
 		this.object_type = obj.object_type;
@@ -675,6 +683,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(search_suffix != null)
+			map.put("search_suffix", search_suffix);
 		if(community_type != null)
 			map.put("community_type", community_type);
 		if(customer_id != null)
@@ -858,6 +868,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(search_suffix != null)
+			map.put("search_suffix", search_suffix);
 		if(community_type != null)
 			map.put("community_type", community_type);
 		if(customer_id != null)
@@ -1036,6 +1048,7 @@ public abstract class Basec4t_object extends BaseResource {
 		parent_id = (String) map.get("parent_id");
 		community_id = (String) map.get("community_id");
 		community_name = (String) map.get("community_name");
+		search_suffix = (String) map.get("search_suffix");
 		community_type = (String) map.get("community_type");
 		customer_id = (String) map.get("customer_id");
 		object_type = (String) map.get("object_type");
@@ -1158,6 +1171,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object community_nameObj = map.get("community_name");
 		if(community_nameObj != null)
 			community_name = community_nameObj.toString();
+
+		Object search_suffixObj = map.get("search_suffix");
+		if(search_suffixObj != null)
+			search_suffix = search_suffixObj.toString();
 
 		Object community_typeObj = map.get("community_type");
 		if(community_typeObj != null)
@@ -1644,6 +1661,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetCommunity_name() {
 		this.community_name = null;
+	}
+
+	public String getSearch_suffix() {
+		return search_suffix;
+	}
+
+	public String getSearch_suffixEx() {
+		return search_suffix != null ? search_suffix : "";
+	}
+
+	public void setSearch_suffix(String search_suffix) {
+		this.search_suffix = search_suffix;
+	}
+
+	public void unSetSearch_suffix() {
+		this.search_suffix = null;
 	}
 
 	public String getCommunity_type() {

@@ -60,6 +60,12 @@
 				'type':'String',
 				index : true
 			},
+			'search_suffix':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
 			'community_type':
 			{
 				'length': 128,
