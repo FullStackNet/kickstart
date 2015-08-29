@@ -134,11 +134,11 @@ public class SMSDispatcher {
 		String message;
 		String customerId = params.get("CUSTOMER_ID");
 		_account = accountMap.get(customerId);
-		System.out.println("cUSTOMER iD -> "+customerId);
+		//System.out.println("cUSTOMER iD -> "+customerId);
 		if (_account == null) {
 			customer _customer = (customer)CustomerHelper.getInstance().getById(customerId);
 			if (_customer != null) {
-				System.out.println("cUSTOMER iD -> "+customerId + " sms account ->" + _customer.getSms_account());
+				//System.out.println("cUSTOMER iD -> "+customerId + " sms account ->" + _customer.getSms_account());
 			}
 			if ((_customer != null) && (_customer.getSms_account() != null)) {
 				_account = (sms_account)SMS_accountHelper.getInstance().getById(_customer.getSms_account());
@@ -148,15 +148,14 @@ public class SMSDispatcher {
 					}
 					accountMap.put(customerId, _account);
 				} else {
-					System.out.println("Failed in account fetch -> "+_customer.getSms_account());
+					//System.out.println("Failed in account fetch -> "+_customer.getSms_account());
 				}
 			}
 		} else {
-			System.out.println("Found Account   -> "+_account.getName());
+			//System.out.println("Found Account   -> "+_account.getName());
 		}
 		if (_account == null) {
-			System.out.println("no account associtae for  -> "+customerId);
-			
+			//System.out.println("no account associtae for  -> "+customerId);			
 		}
 		try {
 			if (isValidMobileforSMS(mobile_no)) {
