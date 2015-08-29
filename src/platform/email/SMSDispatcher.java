@@ -151,6 +151,8 @@ public class SMSDispatcher {
 					System.out.println("Failed in account fetch -> "+_customer.getSms_account());
 				}
 			}
+		} else {
+			System.out.println("Found Account   -> "+_account.getName());
 		}
 		if (_account == null) {
 			System.out.println("no account associtae for  -> "+customerId);
