@@ -23,6 +23,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String name = null;
 	private String description = null;
 	private String short_name = null;
+	private String license_no = null;
 	private String url = null;
 	private String brand_id = null;
 	private String brand_name = null;
@@ -114,6 +115,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_SHORT_NAME = "short_name";
+	public static String FIELD_LICENSE_NO = "license_no";
 	public static String FIELD_URL = "url";
 	public static String FIELD_BRAND_ID = "brand_id";
 	public static String FIELD_BRAND_NAME = "brand_name";
@@ -225,6 +227,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field short_nameField = new Field("short_name", "String");
 		short_nameField.setLength(128);
 		metaData.addField(short_nameField);
+
+		Field license_noField = new Field("license_no", "String");
+		license_noField.setLength(128);
+		metaData.addField(license_noField);
 
 		Field urlField = new Field("url", "String");
 		urlField.setLength(128);
@@ -569,6 +575,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.name = obj.name;
 		this.description = obj.description;
 		this.short_name = obj.short_name;
+		this.license_no = obj.license_no;
 		this.url = obj.url;
 		this.brand_id = obj.brand_id;
 		this.brand_name = obj.brand_name;
@@ -671,6 +678,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("description", description);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(license_no != null)
+			map.put("license_no", license_no);
 		if(url != null)
 			map.put("url", url);
 		if(brand_id != null)
@@ -856,6 +865,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("description", description);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(license_no != null)
+			map.put("license_no", license_no);
 		if(url != null)
 			map.put("url", url);
 		if(brand_id != null)
@@ -1042,6 +1053,7 @@ public abstract class Basec4t_object extends BaseResource {
 		name = (String) map.get("name");
 		description = (String) map.get("description");
 		short_name = (String) map.get("short_name");
+		license_no = (String) map.get("license_no");
 		url = (String) map.get("url");
 		brand_id = (String) map.get("brand_id");
 		brand_name = (String) map.get("brand_name");
@@ -1147,6 +1159,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object short_nameObj = map.get("short_name");
 		if(short_nameObj != null)
 			short_name = short_nameObj.toString();
+
+		Object license_noObj = map.get("license_no");
+		if(license_noObj != null)
+			license_no = license_noObj.toString();
 
 		Object urlObj = map.get("url");
 		if(urlObj != null)
@@ -1565,6 +1581,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetShort_name() {
 		this.short_name = null;
+	}
+
+	public String getLicense_no() {
+		return license_no;
+	}
+
+	public String getLicense_noEx() {
+		return license_no != null ? license_no : "";
+	}
+
+	public void setLicense_no(String license_no) {
+		this.license_no = license_no;
+	}
+
+	public void unSetLicense_no() {
+		this.license_no = null;
 	}
 
 	public String getUrl() {

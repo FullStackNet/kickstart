@@ -27,6 +27,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'license_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'url':
 			{
 				'length': 128,
