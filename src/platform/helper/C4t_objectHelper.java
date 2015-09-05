@@ -173,6 +173,13 @@ public class C4t_objectHelper extends BaseHelper {
 		return (c4t_object)resources[0];
 	}
 
+	public BaseResource[] getByGlobal4ObjectTypeByMobileNo(String mobile_no) {
+		Expression e1 = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, "COMMUNITY_MEMBER");
+		Expression e2 = new Expression(c4t_object.FIELD_MOBILE_NO, REL_OP.EQ, mobile_no);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return  C4t_objectHelper.getInstance().getByExpression(e);
+	}
+	
 	/*public ArrayList<Map<String, Object>> getByListMapUserIdWithCommunityName(String userId, String[] order) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		HelperFactory.getInstance().register(this);
