@@ -261,6 +261,11 @@
 				'length': 4096,
 				'type': 'String'
 			},
+			
+			'remark':{
+				'length': 4096,
+				'type': 'String'
+			},
 			'event_date': {
 				'type': 'timestamp',
 				index : true

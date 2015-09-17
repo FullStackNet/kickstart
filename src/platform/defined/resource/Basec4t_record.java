@@ -71,6 +71,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private Double total_quantity = null;
 	private String recipients = null;
 	private String description = null;
+	private String remark = null;
 	private Long event_date = null;
 	private String event_date_str = null;
 	private Long expiry_date = null;
@@ -144,6 +145,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_QUANTITY = "total_quantity";
 	public static String FIELD_RECIPIENTS = "recipients";
 	public static String FIELD_DESCRIPTION = "description";
+	public static String FIELD_REMARK = "remark";
 	public static String FIELD_EVENT_DATE = "event_date";
 	public static String FIELD_EVENT_DATE_STR = "event_date_str";
 	public static String FIELD_EXPIRY_DATE = "expiry_date";
@@ -375,6 +377,10 @@ public abstract class Basec4t_record extends BaseResource {
 		descriptionField.setLength(4096);
 		metaData.addField(descriptionField);
 
+		Field remarkField = new Field("remark", "String");
+		remarkField.setLength(4096);
+		metaData.addField(remarkField);
+
 		Field event_dateField = new Field("event_date", "timestamp");
 		event_dateField.setIndexed(true);
 		metaData.addField(event_dateField);
@@ -508,6 +514,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_quantity = obj.total_quantity;
 		this.recipients = obj.recipients;
 		this.description = obj.description;
+		this.remark = obj.remark;
 		this.event_date = obj.event_date;
 		this.event_date_str = obj.event_date_str;
 		this.expiry_date = obj.expiry_date;
@@ -649,6 +656,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("recipients", recipients);
 		if(description != null)
 			map.put("description", description);
+		if(remark != null)
+			map.put("remark", remark);
 		if(event_date != null)
 			map.put("event_date", event_date);
 		if(event_date_str != null)
@@ -801,6 +810,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("recipients", recipients);
 		if(description != null)
 			map.put("description", description);
+		if(remark != null)
+			map.put("remark", remark);
 		if(event_date != null)
 			map.put("event_date", event_date);
 		if(event_date_str != null)
@@ -903,6 +914,7 @@ public abstract class Basec4t_record extends BaseResource {
 		total_quantity = (Double) map.get("total_quantity");
 		recipients = (String) map.get("recipients");
 		description = (String) map.get("description");
+		remark = (String) map.get("remark");
 		event_date = (Long) map.get("event_date");
 		event_date_str = (String) map.get("event_date_str");
 		expiry_date = (Long) map.get("expiry_date");
@@ -1134,6 +1146,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object descriptionObj = map.get("description");
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
+
+		Object remarkObj = map.get("remark");
+		if(remarkObj != null)
+			remark = remarkObj.toString();
 
 		Object event_dateObj = map.get("event_date");
 		if(event_dateObj != null)
@@ -2060,6 +2076,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetDescription() {
 		this.description = null;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public String getRemarkEx() {
+		return remark != null ? remark : "";
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public void unSetRemark() {
+		this.remark = null;
 	}
 
 	public Long getEvent_date() {
