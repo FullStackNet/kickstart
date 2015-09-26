@@ -168,6 +168,16 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_product_available':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_active':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_distributer_management':
 			{
 				'type':'String',

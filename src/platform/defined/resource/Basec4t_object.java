@@ -50,6 +50,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_show_sales_price = null;
 	private String feature_show_mrp_price = null;
 	private String feature_non_veg = null;
+	private String feature_product_available = null;
+	private String feature_active = null;
 	private String feature_distributer_management = null;
 	private String feature_dealer_management = null;
 	private Integer no_of_flats = null;
@@ -142,6 +144,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_SHOW_SALES_PRICE = "feature_show_sales_price";
 	public static String FIELD_FEATURE_SHOW_MRP_PRICE = "feature_show_mrp_price";
 	public static String FIELD_FEATURE_NON_VEG = "feature_non_veg";
+	public static String FIELD_FEATURE_PRODUCT_AVAILABLE = "feature_product_available";
+	public static String FIELD_FEATURE_ACTIVE = "feature_active";
 	public static String FIELD_FEATURE_DISTRIBUTER_MANAGEMENT = "feature_distributer_management";
 	public static String FIELD_FEATURE_DEALER_MANAGEMENT = "feature_dealer_management";
 	public static String FIELD_NO_OF_FLATS = "no_of_flats";
@@ -340,6 +344,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Field feature_non_vegField = new Field("feature_non_veg", "String");
 		feature_non_vegField.setLength(1);
 		metaData.addField(feature_non_vegField);
+
+		Field feature_product_availableField = new Field("feature_product_available", "String");
+		feature_product_availableField.setLength(1);
+		metaData.addField(feature_product_availableField);
+
+		Field feature_activeField = new Field("feature_active", "String");
+		feature_activeField.setLength(1);
+		metaData.addField(feature_activeField);
 
 		Field feature_distributer_managementField = new Field("feature_distributer_management", "String");
 		feature_distributer_managementField.setLength(1);
@@ -602,6 +614,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_show_sales_price = obj.feature_show_sales_price;
 		this.feature_show_mrp_price = obj.feature_show_mrp_price;
 		this.feature_non_veg = obj.feature_non_veg;
+		this.feature_product_available = obj.feature_product_available;
+		this.feature_active = obj.feature_active;
 		this.feature_distributer_management = obj.feature_distributer_management;
 		this.feature_dealer_management = obj.feature_dealer_management;
 		this.no_of_flats = obj.no_of_flats;
@@ -732,6 +746,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_show_mrp_price", feature_show_mrp_price);
 		if(feature_non_veg != null)
 			map.put("feature_non_veg", feature_non_veg);
+		if(feature_product_available != null)
+			map.put("feature_product_available", feature_product_available);
+		if(feature_active != null)
+			map.put("feature_active", feature_active);
 		if(feature_distributer_management != null)
 			map.put("feature_distributer_management", feature_distributer_management);
 		if(feature_dealer_management != null)
@@ -919,6 +937,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_show_mrp_price", feature_show_mrp_price);
 		if(feature_non_veg != null)
 			map.put("feature_non_veg", feature_non_veg);
+		if(feature_product_available != null)
+			map.put("feature_product_available", feature_product_available);
+		if(feature_active != null)
+			map.put("feature_active", feature_active);
 		if(feature_distributer_management != null)
 			map.put("feature_distributer_management", feature_distributer_management);
 		if(feature_dealer_management != null)
@@ -1080,6 +1102,8 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_show_sales_price = (String) map.get("feature_show_sales_price");
 		feature_show_mrp_price = (String) map.get("feature_show_mrp_price");
 		feature_non_veg = (String) map.get("feature_non_veg");
+		feature_product_available = (String) map.get("feature_product_available");
+		feature_active = (String) map.get("feature_active");
 		feature_distributer_management = (String) map.get("feature_distributer_management");
 		feature_dealer_management = (String) map.get("feature_dealer_management");
 		no_of_flats = (Integer) map.get("no_of_flats");
@@ -1267,6 +1291,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_non_vegObj = map.get("feature_non_veg");
 		if(feature_non_vegObj != null)
 			feature_non_veg = feature_non_vegObj.toString();
+
+		Object feature_product_availableObj = map.get("feature_product_available");
+		if(feature_product_availableObj != null)
+			feature_product_available = feature_product_availableObj.toString();
+
+		Object feature_activeObj = map.get("feature_active");
+		if(feature_activeObj != null)
+			feature_active = feature_activeObj.toString();
 
 		Object feature_distributer_managementObj = map.get("feature_distributer_management");
 		if(feature_distributer_managementObj != null)
@@ -2013,6 +2045,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_non_veg() {
 		this.feature_non_veg = null;
+	}
+
+	public String getFeature_product_available() {
+		return feature_product_available;
+	}
+
+	public String getFeature_product_availableEx() {
+		return feature_product_available != null ? feature_product_available : "";
+	}
+
+	public void setFeature_product_available(String feature_product_available) {
+		this.feature_product_available = feature_product_available;
+	}
+
+	public void unSetFeature_product_available() {
+		this.feature_product_available = null;
+	}
+
+	public String getFeature_active() {
+		return feature_active;
+	}
+
+	public String getFeature_activeEx() {
+		return feature_active != null ? feature_active : "";
+	}
+
+	public void setFeature_active(String feature_active) {
+		this.feature_active = feature_active;
+	}
+
+	public void unSetFeature_active() {
+		this.feature_active = null;
 	}
 
 	public String getFeature_distributer_management() {
