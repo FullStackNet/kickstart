@@ -17,19 +17,19 @@ import application.c4t.vehicle.school.resource.student;
 
 
 public class StudentHelper extends BaseHelper {
-	
+
 	StudentHelper() {
 		super(new student());
 		// TODO Auto-generated constructor stub
 	}
 	private static StudentHelper instance;
-	
+
 	public static StudentHelper getInstance() {
 		if (instance == null)
 			instance = new StudentHelper();
 		return instance;
 	}
-	
+
 	public void updateCardId(String studentId,String cardId) {
 		student _student = new student(studentId);
 		_student.setCard_no(cardId);
@@ -40,7 +40,7 @@ public class StudentHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateTotalFee(String studentId,Double fees) {
 		student _student = new student(studentId);
 		_student.setTotal_fees(fees);
@@ -51,7 +51,7 @@ public class StudentHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateTotalFeePaid(String studentId) {
 		student _student = (student)StudentHelper.getInstance().getById(studentId);
 		if (_student == null)
@@ -70,7 +70,7 @@ public class StudentHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateTotalDiscountd(String studentId) {
 		student _student = (student)StudentHelper.getInstance().getById(studentId);
 		if (_student == null)
@@ -89,7 +89,7 @@ public class StudentHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateTotalAdditionalCharges(String studentId) {
 		student _student = (student)StudentHelper.getInstance().getById(studentId);
 		if (_student == null)
@@ -108,7 +108,7 @@ public class StudentHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void deleteRouteStopage(String routeStopageId) {
 		Expression e = new Expression(student.FIELD_PICKUP_ROUTE_STOPAGE_ID, REL_OP.EQ, routeStopageId);
 		BaseResource[] resources = getByExpression(e);
@@ -145,7 +145,7 @@ public class StudentHelper extends BaseHelper {
 			}
 		}
 	}
-	
+
 	public ArrayList<Map<String,Object>> getClassStudentListMap(String[] school_ids, String class_name, ArrayList<JoinField> joinFields)  {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
@@ -158,10 +158,10 @@ public class StudentHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			exp.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	
+
 	public ArrayList<Map<String,Object>> getSectionStudentListMap(String[] school_ids, String class_section_name, ArrayList<JoinField> joinFields)  {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		Expression e2 = new Expression(student.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
@@ -174,10 +174,10 @@ public class StudentHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			e3.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	
+
 	public ArrayList<Map<String,Object>> getSchoolStudentListMap(String school_ids, ArrayList<JoinField> joinFields)  {
 		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_ids);
 		ArrayList<Map<String, Object>> list;
@@ -190,30 +190,30 @@ public class StudentHelper extends BaseHelper {
 		}
 		return null;
 	}
-	
+
 	public ArrayList<Map<String,Object>> getSchoolStudentListMap(String[] school_ids, ArrayList<JoinField> joinFields)  {
-		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
-		ArrayList<Map<String, Object>> list;
-		try {
-			list = getByJoining(e, joinFields, new String[]{student.FIELD_NAME});
-			return list;
-		} catch (ApplicationException e3) {
-			// TODO Auto-generated catch block
-			e3.printStackTrace();
-		}
+			Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
+			ArrayList<Map<String, Object>> list;
+			try {
+				list = getByJoining(e, joinFields, new String[]{student.FIELD_NAME});
+				return list;
+			} catch (ApplicationException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
 		return null;
 	}
-	
+
 	public BaseResource[] getSchoolStudent(String[] school_ids,String[] order)  {
 		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		return getByExpression(e,order);
 	}
-	
+
 	public BaseResource[] getSchoolStudent(String[] school_ids)  {
 		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		return getByExpression(e);
 	}
-	
+
 	public student getByAdmissionNoBySchool(String school_id, String admission_no) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
 		Expression e2 = new Expression(student.FIELD_ADMISSION_NO, REL_OP.EQ, admission_no);
@@ -224,7 +224,7 @@ public class StudentHelper extends BaseHelper {
 		}
 		return (student) resources[0];
 	}
-	
+
 	public student getByAdmissionNo(String customerId, String admission_no) {
 		Expression e1 = new Expression(student.FIELD_CUSTOMER_ID, REL_OP.EQ, customerId);
 		Expression e2 = new Expression(student.FIELD_ADMISSION_NO, REL_OP.EQ, admission_no);
@@ -235,7 +235,7 @@ public class StudentHelper extends BaseHelper {
 		}
 		return (student) resources[0];
 	}
-	
+
 	public student getByAdmissionNo(String admission_no) {
 		Expression e = new Expression(student.FIELD_ADMISSION_NO, REL_OP.EQ, admission_no);
 		BaseResource[] resources = getByExpression(e);
@@ -244,121 +244,121 @@ public class StudentHelper extends BaseHelper {
 		}
 		return (student) resources[0];
 	}
-	
+
 	public BaseResource[] getClassStudent(String[] school_ids, String class_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e);
 	}
-	
-	
+
+
 	public BaseResource[] getClassStudent(String school_id, String class_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
 		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ, class_name);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getSectionStudent(String[] school_ids, String class_section_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		Expression e2 = new Expression(student.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e);
 	}
-	
-	
+
+
 	public BaseResource[] getSectionStudent(String school_id, String class_section_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
 		Expression e2 = new Expression(student.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getStudentByRouteId(String route_id) {
 		Expression e1 = new Expression(student.FIELD_PICKUP_ROUTE_ID, REL_OP.EQ,route_id);
 		Expression e2 = new Expression(student.FIELD_DROPPED_ROUTE_ID, REL_OP.EQ,route_id);
 		Expression e = new Expression(e1, LOG_OP.OR,e2);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getStudentByRouteStopageId(String route_stopage_id) {
 		Expression e1 = new Expression(student.FIELD_PICKUP_ROUTE_STOPAGE_ID, REL_OP.EQ,route_stopage_id);
 		Expression e2 = new Expression(student.FIELD_DROPPED_ROUTE_STOPAGE_ID, REL_OP.EQ,route_stopage_id);
 		Expression e = new Expression(e1, LOG_OP.OR,e2);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getStudentByCardNo(String card_no) {
 		Expression e = new Expression(student.FIELD_CARD_NO, REL_OP.EQ, card_no);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getStudentBySchool(String school_id) {
 		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ,school_id);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getStudentBySchools(String[] school_ids, String[] order) {
 		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN,school_ids);
 		//Expression e2 = new Expression(student.FIELD_LEFT, REL_OP.NEQ,"Y");
 		//Expression e = new Expression(e1, LOG_OP.AND,e2);
 		return getByExpression(e,order);
 	}
-	
+
 	public BaseResource[] getStudentBySchools(String[] school_ids) {
 		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN,school_ids);
 		//Expression e2 = new Expression(student.FIELD_LEFT, REL_OP.NEQ,"Y");
 		//Expression e = new Expression(e1, LOG_OP.AND,e2);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getStudentByUsingTransport(String[] school_ids) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN,school_ids);
 		Expression e2 = new Expression(student.FIELD_TRANSPORT, REL_OP.EQ,"Y");
 		Expression e = new Expression(e1, LOG_OP.AND,e2);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getStudentByClassName(String school_ids[],String class_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN,school_ids);
 		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ,class_name);
 		Expression e = new Expression(e1, LOG_OP.AND,e2);
 		return getByExpression(e);
 	}
-	
-	
+
+
 	public BaseResource[] getStudentByClassName(String school_id,String class_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ,school_id);
 		Expression e2 = new Expression(student.FIELD_CLASS_NAME, REL_OP.EQ,class_name);
 		Expression e = new Expression(e1, LOG_OP.AND,e2);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getStudentBySectionName(String[] school_ids,String class_name, String section_name) {
 		String class_section_name = Util.getClassSectionName(class_name, section_name);
 		return getStudentByClassSectionName(school_ids,class_section_name);
 	}
-	
+
 	public BaseResource[] getStudentBySectionName(String school_id,String class_name, String section_name) {
 		String class_section_name = Util.getClassSectionName(class_name, section_name);
 		return getStudentByClassSectionName(school_id,class_section_name);
 	}
-	
+
 	public BaseResource[]  getStudentByClassSectionName(String[] school_ids, String class_section_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		Expression e2 = new Expression(student.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e  = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[]  getStudentByClassSectionName(String school_id, String class_section_name) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
 		Expression e2 = new Expression(student.FIELD_CLASS_SECTION_NAME, REL_OP.EQ, class_section_name);
 		Expression e  = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e);
 	}
-	
+
 	public BaseResource[] getUserByClassName(String school_id,String class_name) {
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		BaseResource[] students = getStudentByClassName(school_id,class_name);
@@ -375,7 +375,7 @@ public class StudentHelper extends BaseHelper {
 		}
 		return list.toArray(new user[list.size()]);
 	}
-	
+
 	public BaseResource[] getUserBySectionName(String school_id,String class_name,String section_name) {
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		BaseResource[] students = getStudentBySectionName(school_id,class_name,section_name);
@@ -392,7 +392,7 @@ public class StudentHelper extends BaseHelper {
 		}
 		return list.toArray(new user[list.size()]);
 	}
-	
+
 	public BaseResource[] getUserByStudentId(String student_id) {
 		ArrayList<BaseResource> list = new ArrayList<BaseResource>();
 		list = Student_mapHelper.getInstance().getUsersList(student_id);

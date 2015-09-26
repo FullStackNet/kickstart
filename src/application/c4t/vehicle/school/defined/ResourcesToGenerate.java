@@ -107,6 +107,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("school_account", "application.c4t.vehicle.school.resource.school_account"),	
 		new ResourceMap("account_year", "application.c4t.vehicle.school.resource.account_year"),	
 		new ResourceMap("account_transaction", "application.c4t.vehicle.school.resource.account_transaction"),	
+		new ResourceMap("student_photo", "application.c4t.vehicle.school.resource.student_photo"),	
 				
 
 	};

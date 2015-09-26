@@ -36,6 +36,11 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'photos':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}
