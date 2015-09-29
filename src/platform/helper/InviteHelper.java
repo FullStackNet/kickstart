@@ -153,6 +153,45 @@ public class InviteHelper extends BaseHelper {
 			School_user_mapHelper.getInstance().addTeacher(userId,_teacher.getId());
 		}
 	}
+	BaseResource[] getOtherInvites(invite _invite) {
+		Map<String, BaseResource> inviteMap = new HashMap<>();
+		if (!Util.isEmpty(_invite.getMobile_no())) {
+			Expression e = new Expression(invite.FIELD_MOBILE_NO, REL_OP.EQ, _invite.getMobile_no()); 
+			BaseResource[] invites = InviteHelper.getInstance().getByExpression(e);
+			if (!Util.isEmpty(invites)) {
+				for(BaseResource resource : invites) {
+					if (_invite.getId().equals(resource.getId()))
+						continue;
+					inviteMap.put(resource.getId(), resource);
+				}
+			}
+		}
+		if (!Util.isEmpty(_invite.getEmail_id())) {
+			Expression e = new Expression(invite.FIELD_EMAIL_ID, REL_OP.EQ, _invite.getEmail_id()); 
+			BaseResource[] invites = InviteHelper.getInstance().getByExpression(e);
+			if (!Util.isEmpty(invites)) {
+				for(BaseResource resource : invites) {
+					if (_invite.getId().equals(resource.getId()))
+						continue;
+					inviteMap.put(resource.getId(), resource);
+				}
+			}
+		}
+		if (inviteMap.size() == 0)
+			return null;
+
+		
+		return inviteMap.entrySet().toArray(new invite[inviteMap.size()]);
+	}
+	
+	public void acceptOtherInvites(invite _invite) throws ApplicationException {
+		BaseResource[] invites = getOtherInvites(_invite);
+		if (Util.isEmpty(invites)) 
+			return;
+		for(int i=0; i < invites.length ; i++) {
+			acceptInvite((invite)invites[i]);
+		}		
+	}
 	
 	public void acceptInvite(invite _invite) throws ApplicationException {
 		invite _fetched_resource = (invite)getById(_invite.getId());
