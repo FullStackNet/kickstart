@@ -179,13 +179,20 @@ public class InviteHelper extends BaseHelper {
 		}
 		if (inviteMap.size() == 0)
 			return null;
-		return inviteMap.values().toArray(new invite[inviteMap.size()]);
+		BaseResource[] inviteArray = new invite[inviteMap.size()];
+		int i = 0;
+		for(BaseResource resource : inviteMap.values()) {
+			inviteArray[i] = resource;
+			i++;
+		}
+		return inviteArray;
 	}
 	
 	public void acceptOtherInvites(invite _invite) throws ApplicationException {
 		BaseResource[] invites = getOtherInvites(_invite);
 		if (Util.isEmpty(invites)) 
 			return;
+		System.out.println(_invite.getMobile_no()+" has " + invites.length + " more invite to accept");
 		for(int i=0; i < invites.length ; i++) {
 			acceptInvite((invite)invites[i]);
 		}		
