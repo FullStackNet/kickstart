@@ -179,9 +179,7 @@ public class InviteHelper extends BaseHelper {
 		}
 		if (inviteMap.size() == 0)
 			return null;
-
-		
-		return inviteMap.entrySet().toArray(new invite[inviteMap.size()]);
+		return inviteMap.values().toArray(new invite[inviteMap.size()]);
 	}
 	
 	public void acceptOtherInvites(invite _invite) throws ApplicationException {
