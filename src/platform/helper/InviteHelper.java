@@ -153,8 +153,11 @@ public class InviteHelper extends BaseHelper {
 			School_user_mapHelper.getInstance().addTeacher(userId,_teacher.getId());
 		}
 	}
-	BaseResource[] getOtherInvites(invite _invite) {
+	BaseResource[] getOtherInvites(invite invite) {
+		invite _invite = (invite)getById(invite.getId());
 		Map<String, BaseResource> inviteMap = new HashMap<>();
+		if (_invite == null)
+			return null;
 		if (!Util.isEmpty(_invite.getMobile_no())) {
 			Expression e = new Expression(invite.FIELD_MOBILE_NO, REL_OP.EQ, _invite.getMobile_no()); 
 			BaseResource[] invites = InviteHelper.getInstance().getByExpression(e);
