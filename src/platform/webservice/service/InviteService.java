@@ -181,23 +181,7 @@ public class InviteService extends BaseService{
 			InviteHelper.getInstance().acceptOtherInvites(_resource);
 		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_RESEND_INVITE)) {
 			invite _invite = (invite)InviteHelper.getInstance().getById(resource.getId());
-			if (_invite == null)
-				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Request");
-			if (invite.INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE.equals(_invite.getInvite_type())) {
-				if (_invite.getEmail_id() != null) {
-					InviteHelper.getInstance().sendParentInvite(_invite);
-				}
-			}else if (invite.INVITE_TYPE_JOIN_TEACHER.equals(_invite.getInvite_type())) {
-				if (_invite.getEmail_id() != null) {
-					sendTeacherInvite(_invite);
-				}
-			}else if (invite.INVITE_TYPE_JOIN_CUSTOMER_ADMIN.equals(_invite.getInvite_type())) {
-				if (_invite.getEmail_id() != null) {
-					sendCustomerAdminInvite(_invite);
-				}
-			} else if (invite.INVITE_TYPE_JOIN_COMMUNITY.equals(_invite.getInvite_type())) {
-				sendCommunityInvite(_invite);
-			}
+			sendInvite(_invite);
 		} else  
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Action");
 	}
@@ -205,12 +189,37 @@ public class InviteService extends BaseService{
 	private enum QueryTypes {
 		//Expects emailId. Returns the profile associated with this emailId.
 		QUERY_INVITE_LIST ,
+		INVITE,
 	};
 
+	public void sendInvite(invite _invite) throws ApplicationException {
+		if (_invite == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Request");
+		if (invite.INVITE_TYPE_JOIN_SCHOOL_TRACK_SERVICE.equals(_invite.getInvite_type())) {
+			if (_invite.getEmail_id() != null) {
+				InviteHelper.getInstance().sendParentInvite(_invite);
+			}
+		}else if (invite.INVITE_TYPE_JOIN_TEACHER.equals(_invite.getInvite_type())) {
+			if (_invite.getEmail_id() != null) {
+				sendTeacherInvite(_invite);
+			}
+		}else if (invite.INVITE_TYPE_JOIN_CUSTOMER_ADMIN.equals(_invite.getInvite_type())) {
+			if (_invite.getEmail_id() != null) {
+				sendCustomerAdminInvite(_invite);
+			}
+		} else if (invite.INVITE_TYPE_JOIN_COMMUNITY.equals(_invite.getInvite_type())) {
+			sendCommunityInvite(_invite);
+		}
+	}
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
 		if(QueryTypes.QUERY_INVITE_LIST.toString().equals(queryId)) {
 			String userId = ctx.getUserId();
 			return User_mapHelper.getInstance().getInviteArray(userId);
+		} else if(QueryTypes.INVITE.toString().equals(queryId)) {
+			String mobile_no = (String)map.get("m");
+			invite _invite = InviteHelper.getInstance().getByMobileId(mobile_no);
+			sendInvite(_invite);
+			return null;
 		}
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_QUERY);
 	}
