@@ -39,10 +39,9 @@ public abstract class BaseImportFileServlet extends HttpServlet {
 	public BaseImportFileServlet() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
 		
 	}
-	abstract void importFile(Map<String, Object> map,String extention);
+	abstract protected void importFile(ServletContext ctx, Map<String, Object> map,String extention) throws Exception;
 	abstract protected boolean validateExtension(String extension);
 	abstract protected String  getValidExtension();
-	abstract String redirectSuccessUrl(Map<String, Object> map);
 	
 	protected void setResponseParameters(HttpServletResponse response)
 	{
@@ -81,6 +80,7 @@ public abstract class BaseImportFileServlet extends HttpServlet {
 		String extension = null;
 		InputStream inputStream = null;
 		session _session = null;
+		ServletContext ctx;
 		try {
 			if(!ServletFileUpload.isMultipartContent(request))
 				throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_REQUEST);
@@ -94,7 +94,7 @@ public abstract class BaseImportFileServlet extends HttpServlet {
 						throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_SESSION);
 				}
 			}
-				
+			ctx = new ServletContext(_session);	
 			Map<String, Object> map = new HashMap<String, Object>();
 			FileItemIterator fileItemIterator = new ServletFileUpload().getItemIterator(request);
 			while(fileItemIterator.hasNext()) {
@@ -118,11 +118,7 @@ public abstract class BaseImportFileServlet extends HttpServlet {
 			if (!validateExtension(extension)) {
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid Extension . Valid Extension " + getValidExtension());
 			}
-			importFile(map,extension);
-			String redirectURL = redirectSuccessUrl(map);
-			if (redirectURL != null) {
-				response.sendRedirect(redirectURL);
-			}
+			importFile(ctx, map,extension);
 			result = new SuccessResult();
 		} catch(Exception e) {
 			e.printStackTrace();
