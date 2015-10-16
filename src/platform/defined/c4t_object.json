@@ -259,6 +259,11 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_order_sms':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'mrp_price':
 			{
 				'type':'double'

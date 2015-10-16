@@ -68,6 +68,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_send_sms = null;
 	private String feature_send_email = null;
 	private String feature_printer = null;
+	private String feature_order_sms = null;
 	private Double mrp_price = null;
 	private Double service_tax = null;
 	private Double service_charges = null;
@@ -162,6 +163,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_SEND_SMS = "feature_send_sms";
 	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
 	public static String FIELD_FEATURE_PRINTER = "feature_printer";
+	public static String FIELD_FEATURE_ORDER_SMS = "feature_order_sms";
 	public static String FIELD_MRP_PRICE = "mrp_price";
 	public static String FIELD_SERVICE_TAX = "service_tax";
 	public static String FIELD_SERVICE_CHARGES = "service_charges";
@@ -416,6 +418,10 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_printerField.setLength(1);
 		metaData.addField(feature_printerField);
 
+		Field feature_order_smsField = new Field("feature_order_sms", "String");
+		feature_order_smsField.setLength(1);
+		metaData.addField(feature_order_smsField);
+
 		Field mrp_priceField = new Field("mrp_price", "double");
 		metaData.addField(mrp_priceField);
 
@@ -632,6 +638,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_send_sms = obj.feature_send_sms;
 		this.feature_send_email = obj.feature_send_email;
 		this.feature_printer = obj.feature_printer;
+		this.feature_order_sms = obj.feature_order_sms;
 		this.mrp_price = obj.mrp_price;
 		this.service_tax = obj.service_tax;
 		this.service_charges = obj.service_charges;
@@ -782,6 +789,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_email", feature_send_email);
 		if(feature_printer != null)
 			map.put("feature_printer", feature_printer);
+		if(feature_order_sms != null)
+			map.put("feature_order_sms", feature_order_sms);
 		if(mrp_price != null)
 			map.put("mrp_price", mrp_price);
 		if(service_tax != null)
@@ -973,6 +982,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_email", feature_send_email);
 		if(feature_printer != null)
 			map.put("feature_printer", feature_printer);
+		if(feature_order_sms != null)
+			map.put("feature_order_sms", feature_order_sms);
 		if(mrp_price != null)
 			map.put("mrp_price", mrp_price);
 		if(service_tax != null)
@@ -1120,6 +1131,7 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_send_sms = (String) map.get("feature_send_sms");
 		feature_send_email = (String) map.get("feature_send_email");
 		feature_printer = (String) map.get("feature_printer");
+		feature_order_sms = (String) map.get("feature_order_sms");
 		mrp_price = (Double) map.get("mrp_price");
 		service_tax = (Double) map.get("service_tax");
 		service_charges = (Double) map.get("service_charges");
@@ -1363,6 +1375,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_printerObj = map.get("feature_printer");
 		if(feature_printerObj != null)
 			feature_printer = feature_printerObj.toString();
+
+		Object feature_order_smsObj = map.get("feature_order_sms");
+		if(feature_order_smsObj != null)
+			feature_order_sms = feature_order_smsObj.toString();
 
 		Object mrp_priceObj = map.get("mrp_price");
 		if(mrp_priceObj != null)
@@ -2337,6 +2353,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_printer() {
 		this.feature_printer = null;
+	}
+
+	public String getFeature_order_sms() {
+		return feature_order_sms;
+	}
+
+	public String getFeature_order_smsEx() {
+		return feature_order_sms != null ? feature_order_sms : "";
+	}
+
+	public void setFeature_order_sms(String feature_order_sms) {
+		this.feature_order_sms = feature_order_sms;
+	}
+
+	public void unSetFeature_order_sms() {
+		this.feature_order_sms = null;
 	}
 
 	public Double getMrp_price() {
