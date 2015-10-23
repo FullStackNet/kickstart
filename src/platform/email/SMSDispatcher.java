@@ -126,10 +126,14 @@ public class SMSDispatcher {
 	{
 		sms_account _account = null;
 		if (mobile_no.startsWith("91")) {
-			mobile_no = mobile_no.substring(2, mobile_no.length());
+			if (mobile_no.length() > 10) {
+				mobile_no = mobile_no.substring(2, mobile_no.length());
+			}
 		}
 		if (mobile_no.startsWith("+91")) {
-			mobile_no = mobile_no.substring(3, mobile_no.length());
+			if (mobile_no.length() > 10) {
+				mobile_no = mobile_no.substring(3, mobile_no.length());
+			}
 		}
 		String message;
 		String customerId = params.get("CUSTOMER_ID");

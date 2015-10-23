@@ -47,10 +47,12 @@ public class UserHelper extends BaseHelper {
 
 	public user getByMobileId(String mobileno) {
 		if ((mobileno != null) && mobileno.startsWith("91")) {
-			mobileno = mobileno.substring(2, mobileno.length());
+			if (mobileno.length() > 10) 
+				mobileno = mobileno.substring(2, mobileno.length());
 		}
 		if ((mobileno != null) &&  mobileno.startsWith("+91")) {
-			mobileno = mobileno.substring(3, mobileno.length());
+			if (mobileno.length() > 10) 
+				mobileno = mobileno.substring(3, mobileno.length());
 		}
 		Expression e = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
 		BaseResource[] resources = UserHelper.getInstance().getByExpression(e);
@@ -65,10 +67,12 @@ public class UserHelper extends BaseHelper {
 		
 		if (!Util.isEmpty(mobileno)) {
 			if ((mobileno != null) && mobileno.startsWith("91")) {
-				mobileno = mobileno.substring(2, mobileno.length());
+				if (mobileno.length() > 10) 
+					mobileno = mobileno.substring(2, mobileno.length());
 			}
 			if ((mobileno != null) &&  mobileno.startsWith("+91")) {
-				mobileno = mobileno.substring(3, mobileno.length());
+				if (mobileno.length() > 10) 
+					mobileno = mobileno.substring(3, mobileno.length());
 			}
 			e = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
 			BaseResource[] resources = getByExpression(e);
