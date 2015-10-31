@@ -16,6 +16,18 @@
 				'type':'String',
 				index : true
 			},
+			'first_name':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'last_name':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
 			'description':
 			{
 				'length': 512,
@@ -116,6 +128,21 @@
 			'mobile_no':
 			{
 				'length': 128,
+				'type':'String'
+			},
+			'server_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'deleted':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'synced':
+			{
+				'length': 1,
 				'type':'String'
 			},
 			'status':
