@@ -21,6 +21,8 @@ import java.util.*;
 public abstract class Basec4t_object extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String first_name = null;
+	private String last_name = null;
 	private String description = null;
 	private String short_name = null;
 	private String license_no = null;
@@ -40,6 +42,9 @@ public abstract class Basec4t_object extends BaseResource {
 	private String floor_no = null;
 	private String email_id = null;
 	private String mobile_no = null;
+	private String server_id = null;
+	private String deleted = null;
+	private String synced = null;
 	private String status = null;
 	private String role = null;
 	private String address = null;
@@ -116,6 +121,8 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_FIRST_NAME = "first_name";
+	public static String FIELD_LAST_NAME = "last_name";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_SHORT_NAME = "short_name";
 	public static String FIELD_LICENSE_NO = "license_no";
@@ -135,6 +142,9 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FLOOR_NO = "floor_no";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_MOBILE_NO = "mobile_no";
+	public static String FIELD_SERVER_ID = "server_id";
+	public static String FIELD_DELETED = "deleted";
+	public static String FIELD_SYNCED = "synced";
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_ROLE = "role";
 	public static String FIELD_ADDRESS = "address";
@@ -225,6 +235,16 @@ public abstract class Basec4t_object extends BaseResource {
 		nameField.setLength(128);
 		metaData.addField(nameField);
 
+		Field first_nameField = new Field("first_name", "String");
+		first_nameField.setIndexed(true);
+		first_nameField.setLength(128);
+		metaData.addField(first_nameField);
+
+		Field last_nameField = new Field("last_name", "String");
+		last_nameField.setIndexed(true);
+		last_nameField.setLength(128);
+		metaData.addField(last_nameField);
+
 		Field descriptionField = new Field("description", "String");
 		descriptionField.setIndexed(true);
 		descriptionField.setLength(512);
@@ -306,6 +326,18 @@ public abstract class Basec4t_object extends BaseResource {
 		Field mobile_noField = new Field("mobile_no", "String");
 		mobile_noField.setLength(128);
 		metaData.addField(mobile_noField);
+
+		Field server_idField = new Field("server_id", "String");
+		server_idField.setLength(128);
+		metaData.addField(server_idField);
+
+		Field deletedField = new Field("deleted", "String");
+		deletedField.setLength(1);
+		metaData.addField(deletedField);
+
+		Field syncedField = new Field("synced", "String");
+		syncedField.setLength(1);
+		metaData.addField(syncedField);
 
 		Field statusField = new Field("status", "String");
 		statusField.setLength(128);
@@ -591,6 +623,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public Basec4t_object(Basec4t_object obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.first_name = obj.first_name;
+		this.last_name = obj.last_name;
 		this.description = obj.description;
 		this.short_name = obj.short_name;
 		this.license_no = obj.license_no;
@@ -610,6 +644,9 @@ public abstract class Basec4t_object extends BaseResource {
 		this.floor_no = obj.floor_no;
 		this.email_id = obj.email_id;
 		this.mobile_no = obj.mobile_no;
+		this.server_id = obj.server_id;
+		this.deleted = obj.deleted;
+		this.synced = obj.synced;
 		this.status = obj.status;
 		this.role = obj.role;
 		this.address = obj.address;
@@ -695,6 +732,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(first_name != null)
+			map.put("first_name", first_name);
+		if(last_name != null)
+			map.put("last_name", last_name);
 		if(description != null)
 			map.put("description", description);
 		if(short_name != null)
@@ -733,6 +774,12 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("email_id", email_id);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
+		if(server_id != null)
+			map.put("server_id", server_id);
+		if(deleted != null)
+			map.put("deleted", deleted);
+		if(synced != null)
+			map.put("synced", synced);
 		if(status != null)
 			map.put("status", status);
 		if(role != null)
@@ -888,6 +935,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(first_name != null)
+			map.put("first_name", first_name);
+		if(last_name != null)
+			map.put("last_name", last_name);
 		if(description != null)
 			map.put("description", description);
 		if(short_name != null)
@@ -926,6 +977,12 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("email_id", email_id);
 		if(mobile_no != null)
 			map.put("mobile_no", mobile_no);
+		if(server_id != null)
+			map.put("server_id", server_id);
+		if(deleted != null)
+			map.put("deleted", deleted);
+		if(synced != null)
+			map.put("synced", synced);
 		if(status != null)
 			map.put("status", status);
 		if(role != null)
@@ -1084,6 +1141,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		first_name = (String) map.get("first_name");
+		last_name = (String) map.get("last_name");
 		description = (String) map.get("description");
 		short_name = (String) map.get("short_name");
 		license_no = (String) map.get("license_no");
@@ -1103,6 +1162,9 @@ public abstract class Basec4t_object extends BaseResource {
 		floor_no = (String) map.get("floor_no");
 		email_id = (String) map.get("email_id");
 		mobile_no = (String) map.get("mobile_no");
+		server_id = (String) map.get("server_id");
+		deleted = (String) map.get("deleted");
+		synced = (String) map.get("synced");
 		status = (String) map.get("status");
 		role = (String) map.get("role");
 		address = (String) map.get("address");
@@ -1188,6 +1250,14 @@ public abstract class Basec4t_object extends BaseResource {
 		if(nameObj != null)
 			name = nameObj.toString();
 
+		Object first_nameObj = map.get("first_name");
+		if(first_nameObj != null)
+			first_name = first_nameObj.toString();
+
+		Object last_nameObj = map.get("last_name");
+		if(last_nameObj != null)
+			last_name = last_nameObj.toString();
+
 		Object descriptionObj = map.get("description");
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
@@ -1263,6 +1333,18 @@ public abstract class Basec4t_object extends BaseResource {
 		Object mobile_noObj = map.get("mobile_no");
 		if(mobile_noObj != null)
 			mobile_no = mobile_noObj.toString();
+
+		Object server_idObj = map.get("server_id");
+		if(server_idObj != null)
+			server_id = server_idObj.toString();
+
+		Object deletedObj = map.get("deleted");
+		if(deletedObj != null)
+			deleted = deletedObj.toString();
+
+		Object syncedObj = map.get("synced");
+		if(syncedObj != null)
+			synced = syncedObj.toString();
 
 		Object statusObj = map.get("status");
 		if(statusObj != null)
@@ -1599,6 +1681,38 @@ public abstract class Basec4t_object extends BaseResource {
 		this.name = null;
 	}
 
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public String getFirst_nameEx() {
+		return first_name != null ? first_name : "";
+	}
+
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+
+	public void unSetFirst_name() {
+		this.first_name = null;
+	}
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+	public String getLast_nameEx() {
+		return last_name != null ? last_name : "";
+	}
+
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
+	}
+
+	public void unSetLast_name() {
+		this.last_name = null;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -1901,6 +2015,54 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetMobile_no() {
 		this.mobile_no = null;
+	}
+
+	public String getServer_id() {
+		return server_id;
+	}
+
+	public String getServer_idEx() {
+		return server_id != null ? server_id : "";
+	}
+
+	public void setServer_id(String server_id) {
+		this.server_id = server_id;
+	}
+
+	public void unSetServer_id() {
+		this.server_id = null;
+	}
+
+	public String getDeleted() {
+		return deleted;
+	}
+
+	public String getDeletedEx() {
+		return deleted != null ? deleted : "";
+	}
+
+	public void setDeleted(String deleted) {
+		this.deleted = deleted;
+	}
+
+	public void unSetDeleted() {
+		this.deleted = null;
+	}
+
+	public String getSynced() {
+		return synced;
+	}
+
+	public String getSyncedEx() {
+		return synced != null ? synced : "";
+	}
+
+	public void setSynced(String synced) {
+		this.synced = synced;
+	}
+
+	public void unSetSynced() {
+		this.synced = null;
 	}
 
 	public String getStatus() {
