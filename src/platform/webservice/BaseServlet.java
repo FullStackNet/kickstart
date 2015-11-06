@@ -222,8 +222,8 @@ public class BaseServlet extends HttpServlet
 			result = new SuccessResult();
 			postProcessing(ctx, request, response, p, action);
 			result.setResource(p);
-			result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
-			result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
+			//result.setRecentAlerts(User_mapHelper.getInstance().getRecentAlertCount(ctx.getUserId()));
+			//result.setRecentNotifications(User_mapHelper.getInstance().getRecentNotificationCount(ctx.getUserId()));
 			//	result.setPendingCoins(CandidateHelper.getInstance().getPendingCoins(ctx.getUserId()));
 
 		} catch(ApplicationException e){
