@@ -23,7 +23,6 @@ public abstract class Baseuser extends BaseResource {
 	private String password = null;
 	private String varified = null;
 	private String disabled = null;
-	private String token = null;
 	private String type = null;
 	private String name = null;
 	private String mobile_no = null;
@@ -89,7 +88,6 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_VARIFIED = "varified";
 	public static String FIELD_DISABLED = "disabled";
-	public static String FIELD_TOKEN = "token";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
@@ -176,11 +174,6 @@ public abstract class Baseuser extends BaseResource {
 		disabledField.setRequired(true);
 		disabledField.setLength(1);
 		metaData.addField(disabledField);
-
-		Field tokenField = new Field("token", "String");
-		tokenField.setRequired(true);
-		tokenField.setLength(1);
-		metaData.addField(tokenField);
 
 		Field typeField = new Field("type", "String");
 		typeField.setRequired(true);
@@ -469,7 +462,6 @@ public abstract class Baseuser extends BaseResource {
 		this.password = obj.password;
 		this.varified = obj.varified;
 		this.disabled = obj.disabled;
-		this.token = obj.token;
 		this.type = obj.type;
 		this.name = obj.name;
 		this.mobile_no = obj.mobile_no;
@@ -637,8 +629,6 @@ public abstract class Baseuser extends BaseResource {
 			map.put("varified", varified);
 		if(disabled != null)
 			map.put("disabled", disabled);
-		if(token != null)
-			map.put("token", token);
 		if(type != null)
 			map.put("type", type);
 		if(name != null)
@@ -775,8 +765,6 @@ public abstract class Baseuser extends BaseResource {
 			map.put("varified", varified);
 		if(validateDisabled(add))
 			map.put("disabled", disabled);
-		if(validateToken(add))
-			map.put("token", token);
 		if(validateType(add))
 			map.put("type", type);
 		if(name != null)
@@ -911,7 +899,6 @@ public abstract class Baseuser extends BaseResource {
 		password = (String) map.get("password");
 		varified = (String) map.get("varified");
 		disabled = (String) map.get("disabled");
-		token = (String) map.get("token");
 		type = (String) map.get("type");
 		name = (String) map.get("name");
 		mobile_no = (String) map.get("mobile_no");
@@ -988,10 +975,6 @@ public abstract class Baseuser extends BaseResource {
 		Object disabledObj = map.get("disabled");
 		if(disabledObj != null)
 			disabled = disabledObj.toString();
-
-		Object tokenObj = map.get("token");
-		if(tokenObj != null)
-			token = tokenObj.toString();
 
 		Object typeObj = map.get("type");
 		if(typeObj != null)
@@ -1312,28 +1295,6 @@ public abstract class Baseuser extends BaseResource {
 		if(add && disabled == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[disabled]");
 		return disabled != null;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public String getTokenEx() {
-		return token != null ? token : "";
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	public void unSetToken() {
-		this.token = null;
-	}
-
-	public boolean validateToken(boolean add) throws ApplicationException {
-		if(add && token == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[token]");
-		return token != null;
 	}
 
 	public String getType() {
