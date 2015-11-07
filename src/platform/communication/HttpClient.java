@@ -9,6 +9,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.List;
+import java.util.Map;
 
 import platform.util.security.SecurityUtil;
 
@@ -40,6 +42,16 @@ public class HttpClient {
 			if (response == 200) {
 				is = conn.getInputStream();
 				return readIt(is);
+			}
+			Map<String, List<String>> headerFields = conn.getHeaderFields();
+			List<String> cookiesHeader = headerFields.get("Set-Cookie");
+
+			if(cookiesHeader != null)
+			{
+			    for (String _cookie : cookiesHeader) 
+			    {
+			      System.out.println("\n\n"+_cookie+"\n\n");
+			    }               
 			}
 			System.out.println( "SERVER RESPONSE CODE :: " + response);
 			return null;
@@ -110,6 +122,59 @@ public class HttpClient {
 			wr.flush ();
 			wr.close ();
 
+			//Get Response
+			InputStream is = connection.getInputStream();
+			BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+			String line;
+			StringBuffer response = new StringBuffer();
+			while((line = rd.readLine()) != null) {
+				response.append(line);
+				response.append('\r');
+			}
+			rd.close();
+			return response.toString();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			return null;
+
+		} finally {
+
+			if(connection != null) {
+				connection.disconnect();
+			}
+		}
+	}
+	
+	public static String sendPostRequest(String serverURL, String session_id,String params,String cookie) {
+		URL url;
+		HttpURLConnection connection = null;
+		try {
+			url = new URL(serverURL);
+			connection = (HttpURLConnection)url.openConnection();
+			connection.setRequestMethod("POST");
+			connection.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded");
+
+			connection.setRequestProperty("Content-Length", "" +
+					Integer.toString(params.length()));
+			connection.setRequestProperty("Content-Language", "en-US");
+			connection.setRequestProperty("Cookie", "session_id=" + session_id);
+			System.out.println("Session id -> " + session_id);
+			connection.setReadTimeout(CONNECTION_TIMEOUT);
+			connection.setConnectTimeout(CONNECTION_TIMEOUT);
+			connection.setUseCaches (false);
+			connection.setDoInput(true);
+			connection.setDoOutput(true);
+			
+			//Send request
+			DataOutputStream wr = new DataOutputStream (
+					connection.getOutputStream ());
+			wr.writeBytes (params);
+			wr.flush ();
+			wr.close ();
+			
 			//Get Response
 			InputStream is = connection.getInputStream();
 			BufferedReader rd = new BufferedReader(new InputStreamReader(is));

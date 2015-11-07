@@ -19,6 +19,18 @@
 				'required': true,
 				'type':'String'
 			},
+			'varified':
+			{
+				'length': 1,
+				'required': true,
+				'type':'String'
+			},
+			'disabled':
+			{
+				'length': 1,
+				'required': true,
+				'type':'String'
+			},
 			'type':
 			{
 				'name':'type',

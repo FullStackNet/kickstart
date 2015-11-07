@@ -1340,7 +1340,7 @@ public class Util {
 
 	public synchronized static String getRandonToken() {
 
-		long number = 100000 + generator.nextInt(900000);
+		long number = 1000 + generator.nextInt(9000);
 		return "" +number;  
 	}
 

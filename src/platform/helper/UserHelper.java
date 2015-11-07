@@ -36,6 +36,22 @@ public class UserHelper extends BaseHelper {
 		return false;
 	}
 
+	public boolean isExistsByMobile(String mobileno) {
+		if ((mobileno != null) && mobileno.startsWith("91")) {
+			if (mobileno.length() > 10) 
+				mobileno = mobileno.substring(2, mobileno.length());
+		}
+		if ((mobileno != null) &&  mobileno.startsWith("+91")) {
+			if (mobileno.length() > 10) 
+				mobileno = mobileno.substring(3, mobileno.length());
+		}
+		Expression e = new Expression(user.FIELD_MOBILE_NO, REL_OP.EQ, mobileno);
+		BaseResource[] resources = UserHelper.getInstance().getByExpression(e);
+		if (!Util.isEmpty(resources))
+			return true;
+		return false;
+	}
+
 	public user getByEmailId(String emailId) {
 		Expression e = new Expression(user.FIELD_EMAIL_ID, REL_OP.EQ, emailId);
 		BaseResource[] resources = UserHelper.getInstance().getByExpression(e);

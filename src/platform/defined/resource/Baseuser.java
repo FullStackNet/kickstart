@@ -21,6 +21,8 @@ import java.util.*;
 public abstract class Baseuser extends BaseResource {
 	private String id = null;
 	private String password = null;
+	private String varified = null;
+	private String disabled = null;
 	private String type = null;
 	private String name = null;
 	private String mobile_no = null;
@@ -84,6 +86,8 @@ public abstract class Baseuser extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_PASSWORD = "password";
+	public static String FIELD_VARIFIED = "varified";
+	public static String FIELD_DISABLED = "disabled";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
@@ -160,6 +164,16 @@ public abstract class Baseuser extends BaseResource {
 		passwordField.setRequired(true);
 		passwordField.setLength(32);
 		metaData.addField(passwordField);
+
+		Field varifiedField = new Field("varified", "String");
+		varifiedField.setRequired(true);
+		varifiedField.setLength(1);
+		metaData.addField(varifiedField);
+
+		Field disabledField = new Field("disabled", "String");
+		disabledField.setRequired(true);
+		disabledField.setLength(1);
+		metaData.addField(disabledField);
 
 		Field typeField = new Field("type", "String");
 		typeField.setRequired(true);
@@ -446,6 +460,8 @@ public abstract class Baseuser extends BaseResource {
 	public Baseuser(Baseuser obj) {
 		this.id = obj.id;
 		this.password = obj.password;
+		this.varified = obj.varified;
+		this.disabled = obj.disabled;
 		this.type = obj.type;
 		this.name = obj.name;
 		this.mobile_no = obj.mobile_no;
@@ -609,6 +625,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("id", id);
 		if(password != null)
 			map.put("password", password);
+		if(varified != null)
+			map.put("varified", varified);
+		if(disabled != null)
+			map.put("disabled", disabled);
 		if(type != null)
 			map.put("type", type);
 		if(name != null)
@@ -741,6 +761,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("id", id);
 		if(validatePassword(add))
 			map.put("password", password);
+		if(validateVarified(add))
+			map.put("varified", varified);
+		if(validateDisabled(add))
+			map.put("disabled", disabled);
 		if(validateType(add))
 			map.put("type", type);
 		if(name != null)
@@ -873,6 +897,8 @@ public abstract class Baseuser extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		password = (String) map.get("password");
+		varified = (String) map.get("varified");
+		disabled = (String) map.get("disabled");
 		type = (String) map.get("type");
 		name = (String) map.get("name");
 		mobile_no = (String) map.get("mobile_no");
@@ -941,6 +967,14 @@ public abstract class Baseuser extends BaseResource {
 		Object passwordObj = map.get("password");
 		if(passwordObj != null)
 			password = passwordObj.toString();
+
+		Object varifiedObj = map.get("varified");
+		if(varifiedObj != null)
+			varified = varifiedObj.toString();
+
+		Object disabledObj = map.get("disabled");
+		if(disabledObj != null)
+			disabled = disabledObj.toString();
 
 		Object typeObj = map.get("type");
 		if(typeObj != null)
@@ -1217,6 +1251,50 @@ public abstract class Baseuser extends BaseResource {
 		if(add && password == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[password]");
 		return password != null;
+	}
+
+	public String getVarified() {
+		return varified;
+	}
+
+	public String getVarifiedEx() {
+		return varified != null ? varified : "";
+	}
+
+	public void setVarified(String varified) {
+		this.varified = varified;
+	}
+
+	public void unSetVarified() {
+		this.varified = null;
+	}
+
+	public boolean validateVarified(boolean add) throws ApplicationException {
+		if(add && varified == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[varified]");
+		return varified != null;
+	}
+
+	public String getDisabled() {
+		return disabled;
+	}
+
+	public String getDisabledEx() {
+		return disabled != null ? disabled : "";
+	}
+
+	public void setDisabled(String disabled) {
+		this.disabled = disabled;
+	}
+
+	public void unSetDisabled() {
+		this.disabled = null;
+	}
+
+	public boolean validateDisabled(boolean add) throws ApplicationException {
+		if(add && disabled == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[disabled]");
+		return disabled != null;
 	}
 
 	public String getType() {
