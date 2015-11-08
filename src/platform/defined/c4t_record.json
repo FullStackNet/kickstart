@@ -50,11 +50,53 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'attachment':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'has_attachment':
+			{
+				'length': 128,
+				'type': 'String'
+			},
 			'bay_id':
 			{
 				'length': 128,
 				'type':'String',
 				'index' : true
+			},
+	
+	
+			'from_date':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'reference_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'to_date':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'start_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'end_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'is_holiday':
+			{
+				'length': 128,
+				'type':'String'
 			},
 			'delivery_time':
 			{

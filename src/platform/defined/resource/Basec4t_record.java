@@ -27,7 +27,15 @@ public abstract class Basec4t_record extends BaseResource {
 	private String record_sub_type = null;
 	private String location_type = null;
 	private String title = null;
+	private String attachment = null;
+	private String has_attachment = null;
 	private String bay_id = null;
+	private String from_date = null;
+	private String reference_id = null;
+	private String to_date = null;
+	private String start_time = null;
+	private String end_time = null;
+	private String is_holiday = null;
 	private String delivery_time = null;
 	private String table_no = null;
 	private String bay_name = null;
@@ -40,7 +48,6 @@ public abstract class Basec4t_record extends BaseResource {
 	private String product_id = null;
 	private String product_name = null;
 	private String product_unit = null;
-	private String reference_id = null;
 	private String reference_name = null;
 	private String mobile_no = null;
 	private String address1 = null;
@@ -101,7 +108,15 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_RECORD_SUB_TYPE = "record_sub_type";
 	public static String FIELD_LOCATION_TYPE = "location_type";
 	public static String FIELD_TITLE = "title";
+	public static String FIELD_ATTACHMENT = "attachment";
+	public static String FIELD_HAS_ATTACHMENT = "has_attachment";
 	public static String FIELD_BAY_ID = "bay_id";
+	public static String FIELD_FROM_DATE = "from_date";
+	public static String FIELD_REFERENCE_ID = "reference_id";
+	public static String FIELD_TO_DATE = "to_date";
+	public static String FIELD_START_TIME = "start_time";
+	public static String FIELD_END_TIME = "end_time";
+	public static String FIELD_IS_HOLIDAY = "is_holiday";
 	public static String FIELD_DELIVERY_TIME = "delivery_time";
 	public static String FIELD_TABLE_NO = "table_no";
 	public static String FIELD_BAY_NAME = "bay_name";
@@ -114,7 +129,6 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
 	public static String FIELD_PRODUCT_UNIT = "product_unit";
-	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_REFERENCE_NAME = "reference_name";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_ADDRESS1 = "address1";
@@ -209,10 +223,42 @@ public abstract class Basec4t_record extends BaseResource {
 		titleField.setLength(512);
 		metaData.addField(titleField);
 
+		Field attachmentField = new Field("attachment", "String");
+		attachmentField.setLength(128);
+		metaData.addField(attachmentField);
+
+		Field has_attachmentField = new Field("has_attachment", "String");
+		has_attachmentField.setLength(128);
+		metaData.addField(has_attachmentField);
+
 		Field bay_idField = new Field("bay_id", "String");
 		bay_idField.setIndexed(true);
 		bay_idField.setLength(128);
 		metaData.addField(bay_idField);
+
+		Field from_dateField = new Field("from_date", "String");
+		from_dateField.setLength(128);
+		metaData.addField(from_dateField);
+
+		Field reference_idField = new Field("reference_id", "String");
+		reference_idField.setLength(128);
+		metaData.addField(reference_idField);
+
+		Field to_dateField = new Field("to_date", "String");
+		to_dateField.setLength(128);
+		metaData.addField(to_dateField);
+
+		Field start_timeField = new Field("start_time", "String");
+		start_timeField.setLength(128);
+		metaData.addField(start_timeField);
+
+		Field end_timeField = new Field("end_time", "String");
+		end_timeField.setLength(128);
+		metaData.addField(end_timeField);
+
+		Field is_holidayField = new Field("is_holiday", "String");
+		is_holidayField.setLength(128);
+		metaData.addField(is_holidayField);
 
 		Field delivery_timeField = new Field("delivery_time", "String");
 		delivery_timeField.setLength(128);
@@ -265,10 +311,6 @@ public abstract class Basec4t_record extends BaseResource {
 		Field product_unitField = new Field("product_unit", "String");
 		product_unitField.setLength(128);
 		metaData.addField(product_unitField);
-
-		Field reference_idField = new Field("reference_id", "String");
-		reference_idField.setLength(128);
-		metaData.addField(reference_idField);
 
 		Field reference_nameField = new Field("reference_name", "String");
 		reference_nameField.setLength(512);
@@ -470,7 +512,15 @@ public abstract class Basec4t_record extends BaseResource {
 		this.record_sub_type = obj.record_sub_type;
 		this.location_type = obj.location_type;
 		this.title = obj.title;
+		this.attachment = obj.attachment;
+		this.has_attachment = obj.has_attachment;
 		this.bay_id = obj.bay_id;
+		this.from_date = obj.from_date;
+		this.reference_id = obj.reference_id;
+		this.to_date = obj.to_date;
+		this.start_time = obj.start_time;
+		this.end_time = obj.end_time;
+		this.is_holiday = obj.is_holiday;
 		this.delivery_time = obj.delivery_time;
 		this.table_no = obj.table_no;
 		this.bay_name = obj.bay_name;
@@ -483,7 +533,6 @@ public abstract class Basec4t_record extends BaseResource {
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
 		this.product_unit = obj.product_unit;
-		this.reference_id = obj.reference_id;
 		this.reference_name = obj.reference_name;
 		this.mobile_no = obj.mobile_no;
 		this.address1 = obj.address1;
@@ -568,8 +617,24 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("location_type", location_type);
 		if(title != null)
 			map.put("title", title);
+		if(attachment != null)
+			map.put("attachment", attachment);
+		if(has_attachment != null)
+			map.put("has_attachment", has_attachment);
 		if(bay_id != null)
 			map.put("bay_id", bay_id);
+		if(from_date != null)
+			map.put("from_date", from_date);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
+		if(to_date != null)
+			map.put("to_date", to_date);
+		if(start_time != null)
+			map.put("start_time", start_time);
+		if(end_time != null)
+			map.put("end_time", end_time);
+		if(is_holiday != null)
+			map.put("is_holiday", is_holiday);
 		if(delivery_time != null)
 			map.put("delivery_time", delivery_time);
 		if(table_no != null)
@@ -594,8 +659,6 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("product_name", product_name);
 		if(product_unit != null)
 			map.put("product_unit", product_unit);
-		if(reference_id != null)
-			map.put("reference_id", reference_id);
 		if(reference_name != null)
 			map.put("reference_name", reference_name);
 		if(mobile_no != null)
@@ -722,8 +785,24 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("location_type", location_type);
 		if(title != null)
 			map.put("title", title);
+		if(attachment != null)
+			map.put("attachment", attachment);
+		if(has_attachment != null)
+			map.put("has_attachment", has_attachment);
 		if(bay_id != null)
 			map.put("bay_id", bay_id);
+		if(from_date != null)
+			map.put("from_date", from_date);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
+		if(to_date != null)
+			map.put("to_date", to_date);
+		if(start_time != null)
+			map.put("start_time", start_time);
+		if(end_time != null)
+			map.put("end_time", end_time);
+		if(is_holiday != null)
+			map.put("is_holiday", is_holiday);
 		if(delivery_time != null)
 			map.put("delivery_time", delivery_time);
 		if(table_no != null)
@@ -748,8 +827,6 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("product_name", product_name);
 		if(product_unit != null)
 			map.put("product_unit", product_unit);
-		if(reference_id != null)
-			map.put("reference_id", reference_id);
 		if(reference_name != null)
 			map.put("reference_name", reference_name);
 		if(mobile_no != null)
@@ -870,7 +947,15 @@ public abstract class Basec4t_record extends BaseResource {
 		record_sub_type = (String) map.get("record_sub_type");
 		location_type = (String) map.get("location_type");
 		title = (String) map.get("title");
+		attachment = (String) map.get("attachment");
+		has_attachment = (String) map.get("has_attachment");
 		bay_id = (String) map.get("bay_id");
+		from_date = (String) map.get("from_date");
+		reference_id = (String) map.get("reference_id");
+		to_date = (String) map.get("to_date");
+		start_time = (String) map.get("start_time");
+		end_time = (String) map.get("end_time");
+		is_holiday = (String) map.get("is_holiday");
 		delivery_time = (String) map.get("delivery_time");
 		table_no = (String) map.get("table_no");
 		bay_name = (String) map.get("bay_name");
@@ -883,7 +968,6 @@ public abstract class Basec4t_record extends BaseResource {
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
 		product_unit = (String) map.get("product_unit");
-		reference_id = (String) map.get("reference_id");
 		reference_name = (String) map.get("reference_name");
 		mobile_no = (String) map.get("mobile_no");
 		address1 = (String) map.get("address1");
@@ -971,9 +1055,41 @@ public abstract class Basec4t_record extends BaseResource {
 		if(titleObj != null)
 			title = titleObj.toString();
 
+		Object attachmentObj = map.get("attachment");
+		if(attachmentObj != null)
+			attachment = attachmentObj.toString();
+
+		Object has_attachmentObj = map.get("has_attachment");
+		if(has_attachmentObj != null)
+			has_attachment = has_attachmentObj.toString();
+
 		Object bay_idObj = map.get("bay_id");
 		if(bay_idObj != null)
 			bay_id = bay_idObj.toString();
+
+		Object from_dateObj = map.get("from_date");
+		if(from_dateObj != null)
+			from_date = from_dateObj.toString();
+
+		Object reference_idObj = map.get("reference_id");
+		if(reference_idObj != null)
+			reference_id = reference_idObj.toString();
+
+		Object to_dateObj = map.get("to_date");
+		if(to_dateObj != null)
+			to_date = to_dateObj.toString();
+
+		Object start_timeObj = map.get("start_time");
+		if(start_timeObj != null)
+			start_time = start_timeObj.toString();
+
+		Object end_timeObj = map.get("end_time");
+		if(end_timeObj != null)
+			end_time = end_timeObj.toString();
+
+		Object is_holidayObj = map.get("is_holiday");
+		if(is_holidayObj != null)
+			is_holiday = is_holidayObj.toString();
 
 		Object delivery_timeObj = map.get("delivery_time");
 		if(delivery_timeObj != null)
@@ -1022,10 +1138,6 @@ public abstract class Basec4t_record extends BaseResource {
 		Object product_unitObj = map.get("product_unit");
 		if(product_unitObj != null)
 			product_unit = product_unitObj.toString();
-
-		Object reference_idObj = map.get("reference_id");
-		if(reference_idObj != null)
-			reference_id = reference_idObj.toString();
 
 		Object reference_nameObj = map.get("reference_name");
 		if(reference_nameObj != null)
@@ -1370,6 +1482,38 @@ public abstract class Basec4t_record extends BaseResource {
 		this.title = null;
 	}
 
+	public String getAttachment() {
+		return attachment;
+	}
+
+	public String getAttachmentEx() {
+		return attachment != null ? attachment : "";
+	}
+
+	public void setAttachment(String attachment) {
+		this.attachment = attachment;
+	}
+
+	public void unSetAttachment() {
+		this.attachment = null;
+	}
+
+	public String getHas_attachment() {
+		return has_attachment;
+	}
+
+	public String getHas_attachmentEx() {
+		return has_attachment != null ? has_attachment : "";
+	}
+
+	public void setHas_attachment(String has_attachment) {
+		this.has_attachment = has_attachment;
+	}
+
+	public void unSetHas_attachment() {
+		this.has_attachment = null;
+	}
+
 	public String getBay_id() {
 		return bay_id;
 	}
@@ -1384,6 +1528,102 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetBay_id() {
 		this.bay_id = null;
+	}
+
+	public String getFrom_date() {
+		return from_date;
+	}
+
+	public String getFrom_dateEx() {
+		return from_date != null ? from_date : "";
+	}
+
+	public void setFrom_date(String from_date) {
+		this.from_date = from_date;
+	}
+
+	public void unSetFrom_date() {
+		this.from_date = null;
+	}
+
+	public String getReference_id() {
+		return reference_id;
+	}
+
+	public String getReference_idEx() {
+		return reference_id != null ? reference_id : "";
+	}
+
+	public void setReference_id(String reference_id) {
+		this.reference_id = reference_id;
+	}
+
+	public void unSetReference_id() {
+		this.reference_id = null;
+	}
+
+	public String getTo_date() {
+		return to_date;
+	}
+
+	public String getTo_dateEx() {
+		return to_date != null ? to_date : "";
+	}
+
+	public void setTo_date(String to_date) {
+		this.to_date = to_date;
+	}
+
+	public void unSetTo_date() {
+		this.to_date = null;
+	}
+
+	public String getStart_time() {
+		return start_time;
+	}
+
+	public String getStart_timeEx() {
+		return start_time != null ? start_time : "";
+	}
+
+	public void setStart_time(String start_time) {
+		this.start_time = start_time;
+	}
+
+	public void unSetStart_time() {
+		this.start_time = null;
+	}
+
+	public String getEnd_time() {
+		return end_time;
+	}
+
+	public String getEnd_timeEx() {
+		return end_time != null ? end_time : "";
+	}
+
+	public void setEnd_time(String end_time) {
+		this.end_time = end_time;
+	}
+
+	public void unSetEnd_time() {
+		this.end_time = null;
+	}
+
+	public String getIs_holiday() {
+		return is_holiday;
+	}
+
+	public String getIs_holidayEx() {
+		return is_holiday != null ? is_holiday : "";
+	}
+
+	public void setIs_holiday(String is_holiday) {
+		this.is_holiday = is_holiday;
+	}
+
+	public void unSetIs_holiday() {
+		this.is_holiday = null;
 	}
 
 	public String getDelivery_time() {
@@ -1576,22 +1816,6 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetProduct_unit() {
 		this.product_unit = null;
-	}
-
-	public String getReference_id() {
-		return reference_id;
-	}
-
-	public String getReference_idEx() {
-		return reference_id != null ? reference_id : "";
-	}
-
-	public void setReference_id(String reference_id) {
-		this.reference_id = reference_id;
-	}
-
-	public void unSetReference_id() {
-		this.reference_id = null;
 	}
 
 	public String getReference_name() {
