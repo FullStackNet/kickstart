@@ -375,7 +375,12 @@
 			},
 			'total_app_notification_sent' : {
 				'type': 'int'
-			}
+			},
+			'messageType':
+			{
+				'length': 128,
+				'type': 'String'
+			}			
 		}					
 	}
 }

@@ -98,6 +98,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private Integer total_sms_sent = null;
 	private Integer total_email_sent = null;
 	private Integer total_app_notification_sent = null;
+	private String messageType = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -179,6 +180,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_SMS_SENT = "total_sms_sent";
 	public static String FIELD_TOTAL_EMAIL_SENT = "total_email_sent";
 	public static String FIELD_TOTAL_APP_NOTIFICATION_SENT = "total_app_notification_sent";
+	public static String FIELD_MESSAGETYPE = "messageType";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -491,6 +493,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_app_notification_sentField = new Field("total_app_notification_sent", "int");
 		metaData.addField(total_app_notification_sentField);
 
+		Field messageTypeField = new Field("messageType", "String");
+		messageTypeField.setLength(128);
+		metaData.addField(messageTypeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -583,6 +589,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_sms_sent = obj.total_sms_sent;
 		this.total_email_sent = obj.total_email_sent;
 		this.total_app_notification_sent = obj.total_app_notification_sent;
+		this.messageType = obj.messageType;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -759,6 +766,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_email_sent", total_email_sent);
 		if(total_app_notification_sent != null)
 			map.put("total_app_notification_sent", total_app_notification_sent);
+		if(messageType != null)
+			map.put("messageType", messageType);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -927,6 +936,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_email_sent", total_email_sent);
 		if(total_app_notification_sent != null)
 			map.put("total_app_notification_sent", total_app_notification_sent);
+		if(messageType != null)
+			map.put("messageType", messageType);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1018,6 +1029,7 @@ public abstract class Basec4t_record extends BaseResource {
 		total_sms_sent = (Integer) map.get("total_sms_sent");
 		total_email_sent = (Integer) map.get("total_email_sent");
 		total_app_notification_sent = (Integer) map.get("total_app_notification_sent");
+		messageType = (String) map.get("messageType");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1338,6 +1350,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_app_notification_sentObj = map.get("total_app_notification_sent");
 		if(total_app_notification_sentObj != null)
 			total_app_notification_sent = new Integer(total_app_notification_sentObj.toString());
+
+		Object messageTypeObj = map.get("messageType");
+		if(messageTypeObj != null)
+			messageType = messageTypeObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2593,6 +2609,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_app_notification_sent() {
 		this.total_app_notification_sent = null;
+	}
+
+	public String getMessageType() {
+		return messageType;
+	}
+
+	public String getMessageTypeEx() {
+		return messageType != null ? messageType : "";
+	}
+
+	public void setMessageType(String messageType) {
+		this.messageType = messageType;
+	}
+
+	public void unSetMessageType() {
+		this.messageType = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
