@@ -250,6 +250,18 @@
 			{
 				'type': 'Double'
 			},
+			'total_days':
+			{
+				'type': 'Double'
+			},
+			'total_present':
+			{
+				'type': 'Double'
+			},
+			'total_precentage':
+			{
+				'type': 'Double'
+			},
 			'total_items':
 			{
 				'type': 'long'
