@@ -9,9 +9,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.List;
-import java.util.Map;
 
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
 import platform.util.security.SecurityUtil;
 
 public class HttpClient {
@@ -22,7 +22,7 @@ public class HttpClient {
 	}
 	
 	
-	public  static String sendGetRequest(String urlString, String session_id) throws IOException {
+	public  static String sendGetRequest(String urlString, String session_id) throws IOException, ApplicationException {
 		System.out.println( "REQUEST-URL :: " + urlString);
 
 		InputStream is = null;
@@ -42,20 +42,9 @@ public class HttpClient {
 			if (response == 200) {
 				is = conn.getInputStream();
 				return readIt(is);
-			}
-			Map<String, List<String>> headerFields = conn.getHeaderFields();
-			List<String> cookiesHeader = headerFields.get("Set-Cookie");
-
-			if(cookiesHeader != null)
-			{
-			    for (String _cookie : cookiesHeader) 
-			    {
-			      System.out.println("\n\n"+_cookie+"\n\n");
-			    }               
-			}
+			} 
 			System.out.println( "SERVER RESPONSE CODE :: " + response);
-			return null;
-
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Error code : "+response);
 		} finally {
 			if (is != null) {
 				is.close();
@@ -63,12 +52,12 @@ public class HttpClient {
 		}
 	}
 	
-	public  static String sendGetByIdRequest(String serverURL, String namespace, String session_id, String resourceName, String id) throws IOException {
+	public  static String sendGetByIdRequest(String serverURL, String namespace, String session_id, String resourceName, String id) throws IOException, ApplicationException {
 		String url =serverURL+"/"+namespace+"/"+resourceName+"?id="+id;
 		return sendGetRequest(url,session_id);
 	}
 	
-	public  static String sendGetRequest(String serverURL, String namespace, String session_id, String resourceName, String queryId, String args) throws IOException {
+	public  static String sendGetRequest(String serverURL, String namespace, String session_id, String resourceName, String queryId, String args) throws IOException,ApplicationException {
 		String url =serverURL+"/"+namespace+"/"+resourceName+"?queryId="+queryId
 				+"&args="+ URLEncoder.encode(args,"UTF-8");
 		return sendGetRequest(url,session_id);
