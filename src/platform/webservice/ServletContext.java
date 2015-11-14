@@ -56,6 +56,7 @@ public class ServletContext {
 	
 	
 	public void setUserId(String userId) {
+		_session.setUser_id(userId);
 		session __session = new session(_session.getId());
 		__session.setUser_id(userId);
 		try {
@@ -68,6 +69,7 @@ public class ServletContext {
 	}
 	
 	public void setSuperUser(String superUser) {
+		_session.setSuper_user(superUser);
 		session __session = new session(_session.getId());
 		__session.setSuper_user(superUser);
 		try {
@@ -81,6 +83,7 @@ public class ServletContext {
 	
 
 	public void setUserName(String userName) {
+		_session.setUser_name(userName);
 		session __session = new session(_session.getId());
 		__session.setUser_name(userName);
 		try {
@@ -92,6 +95,7 @@ public class ServletContext {
 	}
 	
 	public void setUserType(String type) {
+		_session.setUser_type(type);
 		session __session = new session(_session.getId());
 		__session.setUser_type(type);
 		try {
@@ -112,6 +116,7 @@ public class ServletContext {
 	}
 	
 	public void setCustomerId(String customerId) {
+		_session.setCustomer_id(customerId);
 		session __session = new session(_session.getId());
 		__session.setCustomer_id(customerId);
 		try {
