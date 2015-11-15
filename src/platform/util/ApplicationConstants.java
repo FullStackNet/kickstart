@@ -10,6 +10,7 @@ public class ApplicationConstants {
 	public static String V3_CONFIGURATION_FILE = "v3";
 	public static String C4T_CONFIGURATION_FILE = "c4t";
 	public static String MQTT_CONFIGURATION_FILE = "mqtt";
+	public static String MQTT_SANTOSH_CONFIGURATION_FILE = "mqtt_santosh";
 	public static String V3TRACKER_CONFIGURATION_FILE = "v3tracker";
 	public static String CISTRACKER_CONFIGURATION_FILE = "cistracker";
 	public static String NETVOX_CONFIGURATION_FILE = "netvox";

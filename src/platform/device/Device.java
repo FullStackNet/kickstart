@@ -25,6 +25,7 @@ public class Device {
 	public static String DEVICE_MANAGER_V3 = "V3";
 	public static String DEVICE_MANAGER_C4T = "C4T";
 	public static String DEVICE_MANAGER_MQTT = "MQTT";
+	public static String DEVICE_MANAGER_MQTT_SANTOSH = "MQTT_SANTOSH";
 	public static String DEVICE_MANAGER_V3TRACKER = "V3TRACKER";
 	public static String DEVICE_MANAGER_CISTRACKER = "CISTRACKER";
 	public static String DEVICE_MANAGER_ACPTRACKER = "ACPTRACKER";
@@ -77,6 +78,7 @@ public class Device {
 				DEVICE_MANAGER_ACPREADER,
 				DEVICE_MANAGER_JMNTRACKER,
 				DEVICE_MANAGER_MQTT,
+				DEVICE_MANAGER_MQTT_SANTOSH,
 				DEVICE_MANAGER_BTMREADER,
 				DEVICE_MANAGER_KPP1
 		};
