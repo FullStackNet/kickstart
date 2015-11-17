@@ -28,8 +28,8 @@ public class ApplicationMQTTManager {
 		connector.start();
 	}
 	
-	public void sendMessage(String target,Message message) {
-		ClientMessageQueue.getInstance().addMessage(ApplicationConstants.APPLICATION_NAME_APPLICATION_SERVER,target,message);
+	public void sendMessage(String target,BaseSimpleMessage message) {
+		connector.sendMessage(target, message.getSender(), message);
 	}
 	
 	public void disconnect() {
