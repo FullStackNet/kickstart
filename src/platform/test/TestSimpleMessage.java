@@ -1,5 +1,6 @@
 package platform.test;
 
+import platform.manager.ApplicationMQTTManager;
 import platform.manager.SimpleMessageManager;
 import platform.message.BaseSimpleMessage;
 
@@ -34,6 +35,8 @@ public class TestSimpleMessage extends BaseSimpleMessage {
 		System.out.println("Message String : " + messageString);	
 		TestSimpleMessage message1 = (TestSimpleMessage) SimpleMessageManager.getInstance().convertString2Message(messageString);
 		System.out.println("Additional Data : " + message1.getTesting());	
+		//sending message
+		ApplicationMQTTManager.getInstance().sendMessage("1", message1);
 		
 	}
 }	
