@@ -1,11 +1,9 @@
 package platform.manager;
 
-import platform.communication.ClientMessageQueue;
 import platform.communication.MQTTConnector;
 import platform.communication.MQTTMessageHandler;
 import platform.config.Reader;
 import platform.message.BaseSimpleMessage;
-import platform.message.Message;
 import platform.util.ApplicationConstants;
 import platform.util.ApplicationException;
 

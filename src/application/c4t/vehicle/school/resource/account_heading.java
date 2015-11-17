@@ -2,7 +2,6 @@ package application.c4t.vehicle.school.resource;
 
 import platform.util.Util;
 import application.c4t.vehicle.school.defined.resource.Baseaccount_heading;
-import application.c4t.vehicle.school.defined.resource.Baseaccount_year;
 
 public class account_heading extends Baseaccount_heading {
 

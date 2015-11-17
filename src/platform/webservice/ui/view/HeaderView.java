@@ -2,9 +2,7 @@ package platform.webservice.ui.view;
 
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.component.BaseView;
-import platform.webservice.ui.html.A;
 import platform.webservice.ui.html.Div;
-import platform.webservice.ui.html.H2;
 import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.MenuItem;
 import platform.webservice.ui.html.UL;
