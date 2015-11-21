@@ -9,14 +9,10 @@
 
 package platform.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -123,6 +119,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private Integer notification_communication = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
+	private String owner_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -225,6 +222,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_NOTIFICATION_COMMUNICATION = "notification_communication";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
+	public static String FIELD_OWNER_ID = "owner_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -624,6 +622,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field updation_timeField = new Field("updation_time", "timestamp");
 		metaData.addField(updation_timeField);
 
+		Field owner_idField = new Field("owner_id", "String");
+		owner_idField.setLength(128);
+		metaData.addField(owner_idField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -737,6 +739,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.notification_communication = obj.notification_communication;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
+		this.owner_id = obj.owner_id;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -946,6 +949,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
 			map.put("updation_time", updation_time);
+		if(owner_id != null)
+			map.put("owner_id", owner_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1153,6 +1158,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
 			map.put("updation_time", updation_time);
+		if(owner_id != null)
+			map.put("owner_id", owner_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1265,6 +1272,7 @@ public abstract class Basec4t_object extends BaseResource {
 		notification_communication = (Integer) map.get("notification_communication");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
+		owner_id = (String) map.get("owner_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1669,6 +1677,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object updation_timeObj = map.get("updation_time");
 		if(updation_timeObj != null)
 			updation_time = (Long) updation_timeObj;
+
+		Object owner_idObj = map.get("owner_id");
+		if(owner_idObj != null)
+			owner_id = owner_idObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -3338,6 +3350,22 @@ public abstract class Basec4t_object extends BaseResource {
 		this.updation_time = updation_time;
 	}
 
+
+	public String getOwner_id() {
+		return owner_id;
+	}
+
+	public String getOwner_idEx() {
+		return owner_id != null ? owner_id : "";
+	}
+
+	public void setOwner_id(String owner_id) {
+		this.owner_id = owner_id;
+	}
+
+	public void unSetOwner_id() {
+		this.owner_id = null;
+	}
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;
