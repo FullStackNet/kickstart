@@ -296,6 +296,21 @@
 				'type':'String',
 				'length': 1
 			},
+			'account_manager_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'account_manager_no':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'feature_send_account_manager_sms':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_order_sms':
 			{
 				'type':'String',
