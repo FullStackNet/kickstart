@@ -514,6 +514,11 @@
 			'updation_time':
 			{
 				'type':'timestamp'
+			},
+			'owner_id':
+			{
+				'type':'String',
+				'length': 128
 			} 			
 		}
 	}
