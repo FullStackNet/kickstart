@@ -306,6 +306,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'feature_sms_order':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_send_account_manager_sms':
 			{
 				'type':'String',

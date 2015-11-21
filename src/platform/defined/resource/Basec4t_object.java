@@ -77,6 +77,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_printer = null;
 	private String account_manager_name = null;
 	private String account_manager_no = null;
+	private String feature_sms_order = null;
 	private String feature_send_account_manager_sms = null;
 	private String feature_order_sms = null;
 	private Double mrp_price = null;
@@ -183,6 +184,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_PRINTER = "feature_printer";
 	public static String FIELD_ACCOUNT_MANAGER_NAME = "account_manager_name";
 	public static String FIELD_ACCOUNT_MANAGER_NO = "account_manager_no";
+	public static String FIELD_FEATURE_SMS_ORDER = "feature_sms_order";
 	public static String FIELD_FEATURE_SEND_ACCOUNT_MANAGER_SMS = "feature_send_account_manager_sms";
 	public static String FIELD_FEATURE_ORDER_SMS = "feature_order_sms";
 	public static String FIELD_MRP_PRICE = "mrp_price";
@@ -478,6 +480,10 @@ public abstract class Basec4t_object extends BaseResource {
 		account_manager_noField.setLength(128);
 		metaData.addField(account_manager_noField);
 
+		Field feature_sms_orderField = new Field("feature_sms_order", "String");
+		feature_sms_orderField.setLength(1);
+		metaData.addField(feature_sms_orderField);
+
 		Field feature_send_account_manager_smsField = new Field("feature_send_account_manager_sms", "String");
 		feature_send_account_manager_smsField.setLength(1);
 		metaData.addField(feature_send_account_manager_smsField);
@@ -715,6 +721,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_printer = obj.feature_printer;
 		this.account_manager_name = obj.account_manager_name;
 		this.account_manager_no = obj.account_manager_no;
+		this.feature_sms_order = obj.feature_sms_order;
 		this.feature_send_account_manager_sms = obj.feature_send_account_manager_sms;
 		this.feature_order_sms = obj.feature_order_sms;
 		this.mrp_price = obj.mrp_price;
@@ -886,6 +893,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("account_manager_name", account_manager_name);
 		if(account_manager_no != null)
 			map.put("account_manager_no", account_manager_no);
+		if(feature_sms_order != null)
+			map.put("feature_sms_order", feature_sms_order);
 		if(feature_send_account_manager_sms != null)
 			map.put("feature_send_account_manager_sms", feature_send_account_manager_sms);
 		if(feature_order_sms != null)
@@ -1101,6 +1110,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("account_manager_name", account_manager_name);
 		if(account_manager_no != null)
 			map.put("account_manager_no", account_manager_no);
+		if(feature_sms_order != null)
+			map.put("feature_sms_order", feature_sms_order);
 		if(feature_send_account_manager_sms != null)
 			map.put("feature_send_account_manager_sms", feature_send_account_manager_sms);
 		if(feature_order_sms != null)
@@ -1263,6 +1274,7 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_printer = (String) map.get("feature_printer");
 		account_manager_name = (String) map.get("account_manager_name");
 		account_manager_no = (String) map.get("account_manager_no");
+		feature_sms_order = (String) map.get("feature_sms_order");
 		feature_send_account_manager_sms = (String) map.get("feature_send_account_manager_sms");
 		feature_order_sms = (String) map.get("feature_order_sms");
 		mrp_price = (Double) map.get("mrp_price");
@@ -1545,6 +1557,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object account_manager_noObj = map.get("account_manager_no");
 		if(account_manager_noObj != null)
 			account_manager_no = account_manager_noObj.toString();
+
+		Object feature_sms_orderObj = map.get("feature_sms_order");
+		if(feature_sms_orderObj != null)
+			feature_sms_order = feature_sms_orderObj.toString();
 
 		Object feature_send_account_manager_smsObj = map.get("feature_send_account_manager_sms");
 		if(feature_send_account_manager_smsObj != null)
@@ -2675,6 +2691,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetAccount_manager_no() {
 		this.account_manager_no = null;
+	}
+
+	public String getFeature_sms_order() {
+		return feature_sms_order;
+	}
+
+	public String getFeature_sms_orderEx() {
+		return feature_sms_order != null ? feature_sms_order : "";
+	}
+
+	public void setFeature_sms_order(String feature_sms_order) {
+		this.feature_sms_order = feature_sms_order;
+	}
+
+	public void unSetFeature_sms_order() {
+		this.feature_sms_order = null;
 	}
 
 	public String getFeature_send_account_manager_sms() {
