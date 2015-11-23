@@ -49,6 +49,65 @@
 				'length': 128,
 				'type':'String'
 			},
+			'blood_group':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'physically_challenged':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'caste':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'religion':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'nationality':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_tongue':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'place_of_birth':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'family_size':
+			{
+				'type':'int'
+			},
+			'use_hand':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'table_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'food_habit':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dorm_bed_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'license_no':
 			{
 				'length': 128,

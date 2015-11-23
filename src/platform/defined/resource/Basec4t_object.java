@@ -27,6 +27,18 @@ public abstract class Basec4t_object extends BaseResource {
 	private String short_name = null;
 	private String password = null;
 	private String school_id = null;
+	private String blood_group = null;
+	private String physically_challenged = null;
+	private String caste = null;
+	private String religion = null;
+	private String nationality = null;
+	private String mother_tongue = null;
+	private String place_of_birth = null;
+	private Integer family_size = null;
+	private String use_hand = null;
+	private String table_no = null;
+	private String food_habit = null;
+	private String dorm_bed_no = null;
 	private String license_no = null;
 	private String url = null;
 	private String brand_id = null;
@@ -134,6 +146,18 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_SHORT_NAME = "short_name";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_BLOOD_GROUP = "blood_group";
+	public static String FIELD_PHYSICALLY_CHALLENGED = "physically_challenged";
+	public static String FIELD_CASTE = "caste";
+	public static String FIELD_RELIGION = "religion";
+	public static String FIELD_NATIONALITY = "nationality";
+	public static String FIELD_MOTHER_TONGUE = "mother_tongue";
+	public static String FIELD_PLACE_OF_BIRTH = "place_of_birth";
+	public static String FIELD_FAMILY_SIZE = "family_size";
+	public static String FIELD_USE_HAND = "use_hand";
+	public static String FIELD_TABLE_NO = "table_no";
+	public static String FIELD_FOOD_HABIT = "food_habit";
+	public static String FIELD_DORM_BED_NO = "dorm_bed_no";
 	public static String FIELD_LICENSE_NO = "license_no";
 	public static String FIELD_URL = "url";
 	public static String FIELD_BRAND_ID = "brand_id";
@@ -275,6 +299,53 @@ public abstract class Basec4t_object extends BaseResource {
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
+
+		Field blood_groupField = new Field("blood_group", "String");
+		blood_groupField.setLength(128);
+		metaData.addField(blood_groupField);
+
+		Field physically_challengedField = new Field("physically_challenged", "String");
+		physically_challengedField.setLength(128);
+		metaData.addField(physically_challengedField);
+
+		Field casteField = new Field("caste", "String");
+		casteField.setLength(128);
+		metaData.addField(casteField);
+
+		Field religionField = new Field("religion", "String");
+		religionField.setLength(128);
+		metaData.addField(religionField);
+
+		Field nationalityField = new Field("nationality", "String");
+		nationalityField.setLength(128);
+		metaData.addField(nationalityField);
+
+		Field mother_tongueField = new Field("mother_tongue", "String");
+		mother_tongueField.setLength(128);
+		metaData.addField(mother_tongueField);
+
+		Field place_of_birthField = new Field("place_of_birth", "String");
+		place_of_birthField.setLength(128);
+		metaData.addField(place_of_birthField);
+
+		Field family_sizeField = new Field("family_size", "int");
+		metaData.addField(family_sizeField);
+
+		Field use_handField = new Field("use_hand", "String");
+		use_handField.setLength(128);
+		metaData.addField(use_handField);
+
+		Field table_noField = new Field("table_no", "String");
+		table_noField.setLength(128);
+		metaData.addField(table_noField);
+
+		Field food_habitField = new Field("food_habit", "String");
+		food_habitField.setLength(128);
+		metaData.addField(food_habitField);
+
+		Field dorm_bed_noField = new Field("dorm_bed_no", "String");
+		dorm_bed_noField.setLength(128);
+		metaData.addField(dorm_bed_noField);
 
 		Field license_noField = new Field("license_no", "String");
 		license_noField.setLength(128);
@@ -671,6 +742,18 @@ public abstract class Basec4t_object extends BaseResource {
 		this.short_name = obj.short_name;
 		this.password = obj.password;
 		this.school_id = obj.school_id;
+		this.blood_group = obj.blood_group;
+		this.physically_challenged = obj.physically_challenged;
+		this.caste = obj.caste;
+		this.religion = obj.religion;
+		this.nationality = obj.nationality;
+		this.mother_tongue = obj.mother_tongue;
+		this.place_of_birth = obj.place_of_birth;
+		this.family_size = obj.family_size;
+		this.use_hand = obj.use_hand;
+		this.table_no = obj.table_no;
+		this.food_habit = obj.food_habit;
+		this.dorm_bed_no = obj.dorm_bed_no;
 		this.license_no = obj.license_no;
 		this.url = obj.url;
 		this.brand_id = obj.brand_id;
@@ -793,6 +876,30 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("password", password);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(blood_group != null)
+			map.put("blood_group", blood_group);
+		if(physically_challenged != null)
+			map.put("physically_challenged", physically_challenged);
+		if(caste != null)
+			map.put("caste", caste);
+		if(religion != null)
+			map.put("religion", religion);
+		if(nationality != null)
+			map.put("nationality", nationality);
+		if(mother_tongue != null)
+			map.put("mother_tongue", mother_tongue);
+		if(place_of_birth != null)
+			map.put("place_of_birth", place_of_birth);
+		if(family_size != null)
+			map.put("family_size", family_size);
+		if(use_hand != null)
+			map.put("use_hand", use_hand);
+		if(table_no != null)
+			map.put("table_no", table_no);
+		if(food_habit != null)
+			map.put("food_habit", food_habit);
+		if(dorm_bed_no != null)
+			map.put("dorm_bed_no", dorm_bed_no);
 		if(license_no != null)
 			map.put("license_no", license_no);
 		if(url != null)
@@ -1010,6 +1117,30 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("password", password);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(blood_group != null)
+			map.put("blood_group", blood_group);
+		if(physically_challenged != null)
+			map.put("physically_challenged", physically_challenged);
+		if(caste != null)
+			map.put("caste", caste);
+		if(religion != null)
+			map.put("religion", religion);
+		if(nationality != null)
+			map.put("nationality", nationality);
+		if(mother_tongue != null)
+			map.put("mother_tongue", mother_tongue);
+		if(place_of_birth != null)
+			map.put("place_of_birth", place_of_birth);
+		if(family_size != null)
+			map.put("family_size", family_size);
+		if(use_hand != null)
+			map.put("use_hand", use_hand);
+		if(table_no != null)
+			map.put("table_no", table_no);
+		if(food_habit != null)
+			map.put("food_habit", food_habit);
+		if(dorm_bed_no != null)
+			map.put("dorm_bed_no", dorm_bed_no);
 		if(license_no != null)
 			map.put("license_no", license_no);
 		if(url != null)
@@ -1224,6 +1355,18 @@ public abstract class Basec4t_object extends BaseResource {
 		short_name = (String) map.get("short_name");
 		password = (String) map.get("password");
 		school_id = (String) map.get("school_id");
+		blood_group = (String) map.get("blood_group");
+		physically_challenged = (String) map.get("physically_challenged");
+		caste = (String) map.get("caste");
+		religion = (String) map.get("religion");
+		nationality = (String) map.get("nationality");
+		mother_tongue = (String) map.get("mother_tongue");
+		place_of_birth = (String) map.get("place_of_birth");
+		family_size = (Integer) map.get("family_size");
+		use_hand = (String) map.get("use_hand");
+		table_no = (String) map.get("table_no");
+		food_habit = (String) map.get("food_habit");
+		dorm_bed_no = (String) map.get("dorm_bed_no");
 		license_no = (String) map.get("license_no");
 		url = (String) map.get("url");
 		brand_id = (String) map.get("brand_id");
@@ -1357,6 +1500,54 @@ public abstract class Basec4t_object extends BaseResource {
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
+
+		Object blood_groupObj = map.get("blood_group");
+		if(blood_groupObj != null)
+			blood_group = blood_groupObj.toString();
+
+		Object physically_challengedObj = map.get("physically_challenged");
+		if(physically_challengedObj != null)
+			physically_challenged = physically_challengedObj.toString();
+
+		Object casteObj = map.get("caste");
+		if(casteObj != null)
+			caste = casteObj.toString();
+
+		Object religionObj = map.get("religion");
+		if(religionObj != null)
+			religion = religionObj.toString();
+
+		Object nationalityObj = map.get("nationality");
+		if(nationalityObj != null)
+			nationality = nationalityObj.toString();
+
+		Object mother_tongueObj = map.get("mother_tongue");
+		if(mother_tongueObj != null)
+			mother_tongue = mother_tongueObj.toString();
+
+		Object place_of_birthObj = map.get("place_of_birth");
+		if(place_of_birthObj != null)
+			place_of_birth = place_of_birthObj.toString();
+
+		Object family_sizeObj = map.get("family_size");
+		if(family_sizeObj != null)
+			family_size = new Integer(family_sizeObj.toString());
+
+		Object use_handObj = map.get("use_hand");
+		if(use_handObj != null)
+			use_hand = use_handObj.toString();
+
+		Object table_noObj = map.get("table_no");
+		if(table_noObj != null)
+			table_no = table_noObj.toString();
+
+		Object food_habitObj = map.get("food_habit");
+		if(food_habitObj != null)
+			food_habit = food_habitObj.toString();
+
+		Object dorm_bed_noObj = map.get("dorm_bed_no");
+		if(dorm_bed_noObj != null)
+			dorm_bed_no = dorm_bed_noObj.toString();
 
 		Object license_noObj = map.get("license_no");
 		if(license_noObj != null)
@@ -1887,6 +2078,202 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetSchool_id() {
 		this.school_id = null;
+	}
+
+	public String getBlood_group() {
+		return blood_group;
+	}
+
+	public String getBlood_groupEx() {
+		return blood_group != null ? blood_group : "";
+	}
+
+	public void setBlood_group(String blood_group) {
+		this.blood_group = blood_group;
+	}
+
+	public void unSetBlood_group() {
+		this.blood_group = null;
+	}
+
+	public String getPhysically_challenged() {
+		return physically_challenged;
+	}
+
+	public String getPhysically_challengedEx() {
+		return physically_challenged != null ? physically_challenged : "";
+	}
+
+	public void setPhysically_challenged(String physically_challenged) {
+		this.physically_challenged = physically_challenged;
+	}
+
+	public void unSetPhysically_challenged() {
+		this.physically_challenged = null;
+	}
+
+	public String getCaste() {
+		return caste;
+	}
+
+	public String getCasteEx() {
+		return caste != null ? caste : "";
+	}
+
+	public void setCaste(String caste) {
+		this.caste = caste;
+	}
+
+	public void unSetCaste() {
+		this.caste = null;
+	}
+
+	public String getReligion() {
+		return religion;
+	}
+
+	public String getReligionEx() {
+		return religion != null ? religion : "";
+	}
+
+	public void setReligion(String religion) {
+		this.religion = religion;
+	}
+
+	public void unSetReligion() {
+		this.religion = null;
+	}
+
+	public String getNationality() {
+		return nationality;
+	}
+
+	public String getNationalityEx() {
+		return nationality != null ? nationality : "";
+	}
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+
+	public void unSetNationality() {
+		this.nationality = null;
+	}
+
+	public String getMother_tongue() {
+		return mother_tongue;
+	}
+
+	public String getMother_tongueEx() {
+		return mother_tongue != null ? mother_tongue : "";
+	}
+
+	public void setMother_tongue(String mother_tongue) {
+		this.mother_tongue = mother_tongue;
+	}
+
+	public void unSetMother_tongue() {
+		this.mother_tongue = null;
+	}
+
+	public String getPlace_of_birth() {
+		return place_of_birth;
+	}
+
+	public String getPlace_of_birthEx() {
+		return place_of_birth != null ? place_of_birth : "";
+	}
+
+	public void setPlace_of_birth(String place_of_birth) {
+		this.place_of_birth = place_of_birth;
+	}
+
+	public void unSetPlace_of_birth() {
+		this.place_of_birth = null;
+	}
+
+	public Integer getFamily_size() {
+		return family_size;
+	}
+
+	public int getFamily_sizeEx() {
+		return family_size != null ? family_size : 0;
+	}
+
+	public void setFamily_size(int family_size) {
+		this.family_size = family_size;
+	}
+
+	public void setFamily_size(Integer family_size) {
+		this.family_size = family_size;
+	}
+
+	public void unSetFamily_size() {
+		this.family_size = null;
+	}
+
+	public String getUse_hand() {
+		return use_hand;
+	}
+
+	public String getUse_handEx() {
+		return use_hand != null ? use_hand : "";
+	}
+
+	public void setUse_hand(String use_hand) {
+		this.use_hand = use_hand;
+	}
+
+	public void unSetUse_hand() {
+		this.use_hand = null;
+	}
+
+	public String getTable_no() {
+		return table_no;
+	}
+
+	public String getTable_noEx() {
+		return table_no != null ? table_no : "";
+	}
+
+	public void setTable_no(String table_no) {
+		this.table_no = table_no;
+	}
+
+	public void unSetTable_no() {
+		this.table_no = null;
+	}
+
+	public String getFood_habit() {
+		return food_habit;
+	}
+
+	public String getFood_habitEx() {
+		return food_habit != null ? food_habit : "";
+	}
+
+	public void setFood_habit(String food_habit) {
+		this.food_habit = food_habit;
+	}
+
+	public void unSetFood_habit() {
+		this.food_habit = null;
+	}
+
+	public String getDorm_bed_no() {
+		return dorm_bed_no;
+	}
+
+	public String getDorm_bed_noEx() {
+		return dorm_bed_no != null ? dorm_bed_no : "";
+	}
+
+	public void setDorm_bed_no(String dorm_bed_no) {
+		this.dorm_bed_no = dorm_bed_no;
+	}
+
+	public void unSetDorm_bed_no() {
+		this.dorm_bed_no = null;
 	}
 
 	public String getLicense_no() {
