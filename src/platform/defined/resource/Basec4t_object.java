@@ -41,6 +41,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String dorm_bed_no = null;
 	private String license_no = null;
 	private String url = null;
+	private String school_url = null;
 	private String brand_id = null;
 	private String brand_name = null;
 	private String parent_id = null;
@@ -160,6 +161,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_DORM_BED_NO = "dorm_bed_no";
 	public static String FIELD_LICENSE_NO = "license_no";
 	public static String FIELD_URL = "url";
+	public static String FIELD_SCHOOL_URL = "school_url";
 	public static String FIELD_BRAND_ID = "brand_id";
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_PARENT_ID = "parent_id";
@@ -354,6 +356,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field urlField = new Field("url", "String");
 		urlField.setLength(128);
 		metaData.addField(urlField);
+
+		Field school_urlField = new Field("school_url", "String");
+		school_urlField.setLength(128);
+		metaData.addField(school_urlField);
 
 		Field brand_idField = new Field("brand_id", "String");
 		brand_idField.setLength(128);
@@ -756,6 +762,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.dorm_bed_no = obj.dorm_bed_no;
 		this.license_no = obj.license_no;
 		this.url = obj.url;
+		this.school_url = obj.school_url;
 		this.brand_id = obj.brand_id;
 		this.brand_name = obj.brand_name;
 		this.parent_id = obj.parent_id;
@@ -904,6 +911,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("license_no", license_no);
 		if(url != null)
 			map.put("url", url);
+		if(school_url != null)
+			map.put("school_url", school_url);
 		if(brand_id != null)
 			map.put("brand_id", brand_id);
 		if(brand_name != null)
@@ -1145,6 +1154,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("license_no", license_no);
 		if(url != null)
 			map.put("url", url);
+		if(school_url != null)
+			map.put("school_url", school_url);
 		if(brand_id != null)
 			map.put("brand_id", brand_id);
 		if(brand_name != null)
@@ -1369,6 +1380,7 @@ public abstract class Basec4t_object extends BaseResource {
 		dorm_bed_no = (String) map.get("dorm_bed_no");
 		license_no = (String) map.get("license_no");
 		url = (String) map.get("url");
+		school_url = (String) map.get("school_url");
 		brand_id = (String) map.get("brand_id");
 		brand_name = (String) map.get("brand_name");
 		parent_id = (String) map.get("parent_id");
@@ -1556,6 +1568,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object urlObj = map.get("url");
 		if(urlObj != null)
 			url = urlObj.toString();
+
+		Object school_urlObj = map.get("school_url");
+		if(school_urlObj != null)
+			school_url = school_urlObj.toString();
 
 		Object brand_idObj = map.get("brand_id");
 		if(brand_idObj != null)
@@ -2306,6 +2322,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetUrl() {
 		this.url = null;
+	}
+
+	public String getSchool_url() {
+		return school_url;
+	}
+
+	public String getSchool_urlEx() {
+		return school_url != null ? school_url : "";
+	}
+
+	public void setSchool_url(String school_url) {
+		this.school_url = school_url;
+	}
+
+	public void unSetSchool_url() {
+		this.school_url = null;
 	}
 
 	public String getBrand_id() {
