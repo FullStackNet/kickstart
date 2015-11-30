@@ -67,7 +67,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private Double total_vat = null;
 	private Double total_days = null;
 	private Double total_present = null;
-	private Double total_precentage = null;
+	private Double total_percentage = null;
 	private Long total_items = null;
 	private Double total_service_tax = null;
 	private Double total_service_charge = null;
@@ -152,7 +152,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_VAT = "total_vat";
 	public static String FIELD_TOTAL_DAYS = "total_days";
 	public static String FIELD_TOTAL_PRESENT = "total_present";
-	public static String FIELD_TOTAL_PRECENTAGE = "total_precentage";
+	public static String FIELD_TOTAL_PERCENTAGE = "total_percentage";
 	public static String FIELD_TOTAL_ITEMS = "total_items";
 	public static String FIELD_TOTAL_SERVICE_TAX = "total_service_tax";
 	public static String FIELD_TOTAL_SERVICE_CHARGE = "total_service_charge";
@@ -392,8 +392,8 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_presentField = new Field("total_present", "Double");
 		metaData.addField(total_presentField);
 
-		Field total_precentageField = new Field("total_precentage", "Double");
-		metaData.addField(total_precentageField);
+		Field total_percentageField = new Field("total_percentage", "Double");
+		metaData.addField(total_percentageField);
 
 		Field total_itemsField = new Field("total_items", "long");
 		metaData.addField(total_itemsField);
@@ -573,7 +573,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_vat = obj.total_vat;
 		this.total_days = obj.total_days;
 		this.total_present = obj.total_present;
-		this.total_precentage = obj.total_precentage;
+		this.total_percentage = obj.total_percentage;
 		this.total_items = obj.total_items;
 		this.total_service_tax = obj.total_service_tax;
 		this.total_service_charge = obj.total_service_charge;
@@ -722,8 +722,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_days", total_days);
 		if(total_present != null)
 			map.put("total_present", total_present);
-		if(total_precentage != null)
-			map.put("total_precentage", total_precentage);
+		if(total_percentage != null)
+			map.put("total_percentage", total_percentage);
 		if(total_items != null)
 			map.put("total_items", total_items);
 		if(total_service_tax != null)
@@ -898,8 +898,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_days", total_days);
 		if(total_present != null)
 			map.put("total_present", total_present);
-		if(total_precentage != null)
-			map.put("total_precentage", total_precentage);
+		if(total_percentage != null)
+			map.put("total_percentage", total_percentage);
 		if(total_items != null)
 			map.put("total_items", total_items);
 		if(total_service_tax != null)
@@ -1028,7 +1028,7 @@ public abstract class Basec4t_record extends BaseResource {
 		total_vat = (Double) map.get("total_vat");
 		total_days = (Double) map.get("total_days");
 		total_present = (Double) map.get("total_present");
-		total_precentage = (Double) map.get("total_precentage");
+		total_percentage = (Double) map.get("total_percentage");
 		total_items = (Long) map.get("total_items");
 		total_service_tax = (Double) map.get("total_service_tax");
 		total_service_charge = (Double) map.get("total_service_charge");
@@ -1260,9 +1260,9 @@ public abstract class Basec4t_record extends BaseResource {
 		if(total_presentObj != null)
 			total_present = new Double(total_presentObj.toString());
 
-		Object total_precentageObj = map.get("total_precentage");
-		if(total_precentageObj != null)
-			total_precentage = new Double(total_precentageObj.toString());
+		Object total_percentageObj = map.get("total_percentage");
+		if(total_percentageObj != null)
+			total_percentage = new Double(total_percentageObj.toString());
 
 		Object total_itemsObj = map.get("total_items");
 		if(total_itemsObj != null)
@@ -2167,16 +2167,16 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_present = null;
 	}
 
-	public Double getTotal_precentage() {
-		return total_precentage;
+	public Double getTotal_percentage() {
+		return total_percentage;
 	}
 
-	public void setTotal_precentage(Double total_precentage) {
-		this.total_precentage = total_precentage;
+	public void setTotal_percentage(Double total_percentage) {
+		this.total_percentage = total_percentage;
 	}
 
-	public void unSetTotal_precentage() {
-		this.total_precentage = null;
+	public void unSetTotal_percentage() {
+		this.total_percentage = null;
 	}
 
 	public Long getTotal_items() {
