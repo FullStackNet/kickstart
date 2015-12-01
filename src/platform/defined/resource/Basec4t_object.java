@@ -25,6 +25,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String last_name = null;
 	private String description = null;
 	private String short_name = null;
+	private String role_number = null;
 	private String password = null;
 	private String school_id = null;
 	private String blood_group = null;
@@ -145,6 +146,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_LAST_NAME = "last_name";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_SHORT_NAME = "short_name";
+	public static String FIELD_ROLE_NUMBER = "role_number";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_BLOOD_GROUP = "blood_group";
@@ -293,6 +295,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field short_nameField = new Field("short_name", "String");
 		short_nameField.setLength(128);
 		metaData.addField(short_nameField);
+
+		Field role_numberField = new Field("role_number", "String");
+		role_numberField.setLength(128);
+		metaData.addField(role_numberField);
 
 		Field passwordField = new Field("password", "String");
 		passwordField.setLength(128);
@@ -746,6 +752,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.last_name = obj.last_name;
 		this.description = obj.description;
 		this.short_name = obj.short_name;
+		this.role_number = obj.role_number;
 		this.password = obj.password;
 		this.school_id = obj.school_id;
 		this.blood_group = obj.blood_group;
@@ -879,6 +886,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("description", description);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(role_number != null)
+			map.put("role_number", role_number);
 		if(password != null)
 			map.put("password", password);
 		if(school_id != null)
@@ -1122,6 +1131,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("description", description);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(role_number != null)
+			map.put("role_number", role_number);
 		if(password != null)
 			map.put("password", password);
 		if(school_id != null)
@@ -1364,6 +1375,7 @@ public abstract class Basec4t_object extends BaseResource {
 		last_name = (String) map.get("last_name");
 		description = (String) map.get("description");
 		short_name = (String) map.get("short_name");
+		role_number = (String) map.get("role_number");
 		password = (String) map.get("password");
 		school_id = (String) map.get("school_id");
 		blood_group = (String) map.get("blood_group");
@@ -1504,6 +1516,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object short_nameObj = map.get("short_name");
 		if(short_nameObj != null)
 			short_name = short_nameObj.toString();
+
+		Object role_numberObj = map.get("role_number");
+		if(role_numberObj != null)
+			role_number = role_numberObj.toString();
 
 		Object passwordObj = map.get("password");
 		if(passwordObj != null)
@@ -2062,6 +2078,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetShort_name() {
 		this.short_name = null;
+	}
+
+	public String getRole_number() {
+		return role_number;
+	}
+
+	public String getRole_numberEx() {
+		return role_number != null ? role_number : "";
+	}
+
+	public void setRole_number(String role_number) {
+		this.role_number = role_number;
+	}
+
+	public void unSetRole_number() {
+		this.role_number = null;
 	}
 
 	public String getPassword() {

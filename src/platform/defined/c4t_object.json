@@ -39,6 +39,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'role_number':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'password':
 			{
 				'length': 128,
