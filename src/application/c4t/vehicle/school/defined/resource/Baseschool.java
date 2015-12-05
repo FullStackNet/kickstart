@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Baseschool extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String photo_upload_url = null;
 	private String app_branding = null;
 	private String brand_name = null;
 	private String short_name = null;
@@ -99,6 +100,7 @@ public abstract class Baseschool extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_PHOTO_UPLOAD_URL = "photo_upload_url";
 	public static String FIELD_APP_BRANDING = "app_branding";
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_SHORT_NAME = "short_name";
@@ -189,6 +191,10 @@ public abstract class Baseschool extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field photo_upload_urlField = new Field("photo_upload_url", "String");
+		photo_upload_urlField.setLength(128);
+		metaData.addField(photo_upload_urlField);
 
 		Field app_brandingField = new Field("app_branding", "String");
 		app_brandingField.setDefaultValue("N");
@@ -554,6 +560,7 @@ public abstract class Baseschool extends BaseResource {
 	public Baseschool(Baseschool obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.photo_upload_url = obj.photo_upload_url;
 		this.app_branding = obj.app_branding;
 		this.brand_name = obj.brand_name;
 		this.short_name = obj.short_name;
@@ -756,6 +763,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(photo_upload_url != null)
+			map.put("photo_upload_url", photo_upload_url);
 		if(app_branding != null)
 			map.put("app_branding", app_branding);
 		if(brand_name != null)
@@ -918,6 +927,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(photo_upload_url != null)
+			map.put("photo_upload_url", photo_upload_url);
 		if(app_branding != null)
 			map.put("app_branding", app_branding);
 		if(brand_name != null)
@@ -1080,6 +1091,7 @@ public abstract class Baseschool extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		photo_upload_url = (String) map.get("photo_upload_url");
 		app_branding = (String) map.get("app_branding");
 		brand_name = (String) map.get("brand_name");
 		short_name = (String) map.get("short_name");
@@ -1166,6 +1178,10 @@ public abstract class Baseschool extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object photo_upload_urlObj = map.get("photo_upload_url");
+		if(photo_upload_urlObj != null)
+			photo_upload_url = photo_upload_urlObj.toString();
 
 		Object app_brandingObj = map.get("app_branding");
 		if(app_brandingObj != null)
@@ -1508,6 +1524,22 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getPhoto_upload_url() {
+		return photo_upload_url;
+	}
+
+	public String getPhoto_upload_urlEx() {
+		return photo_upload_url != null ? photo_upload_url : "";
+	}
+
+	public void setPhoto_upload_url(String photo_upload_url) {
+		this.photo_upload_url = photo_upload_url;
+	}
+
+	public void unSetPhoto_upload_url() {
+		this.photo_upload_url = null;
 	}
 
 	public String getApp_branding() {
