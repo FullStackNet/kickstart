@@ -28,6 +28,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String location_type = null;
 	private String title = null;
 	private String attachment = null;
+	private String attachment_name = null;
 	private String has_attachment = null;
 	private String bay_id = null;
 	private String from_date = null;
@@ -113,6 +114,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_LOCATION_TYPE = "location_type";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_ATTACHMENT = "attachment";
+	public static String FIELD_ATTACHMENT_NAME = "attachment_name";
 	public static String FIELD_HAS_ATTACHMENT = "has_attachment";
 	public static String FIELD_BAY_ID = "bay_id";
 	public static String FIELD_FROM_DATE = "from_date";
@@ -234,6 +236,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Field attachmentField = new Field("attachment", "String");
 		attachmentField.setLength(128);
 		metaData.addField(attachmentField);
+
+		Field attachment_nameField = new Field("attachment_name", "String");
+		attachment_nameField.setLength(128);
+		metaData.addField(attachment_nameField);
 
 		Field has_attachmentField = new Field("has_attachment", "String");
 		has_attachmentField.setLength(128);
@@ -534,6 +540,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.location_type = obj.location_type;
 		this.title = obj.title;
 		this.attachment = obj.attachment;
+		this.attachment_name = obj.attachment_name;
 		this.has_attachment = obj.has_attachment;
 		this.bay_id = obj.bay_id;
 		this.from_date = obj.from_date;
@@ -644,6 +651,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("title", title);
 		if(attachment != null)
 			map.put("attachment", attachment);
+		if(attachment_name != null)
+			map.put("attachment_name", attachment_name);
 		if(has_attachment != null)
 			map.put("has_attachment", has_attachment);
 		if(bay_id != null)
@@ -820,6 +829,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("title", title);
 		if(attachment != null)
 			map.put("attachment", attachment);
+		if(attachment_name != null)
+			map.put("attachment_name", attachment_name);
 		if(has_attachment != null)
 			map.put("has_attachment", has_attachment);
 		if(bay_id != null)
@@ -989,6 +1000,7 @@ public abstract class Basec4t_record extends BaseResource {
 		location_type = (String) map.get("location_type");
 		title = (String) map.get("title");
 		attachment = (String) map.get("attachment");
+		attachment_name = (String) map.get("attachment_name");
 		has_attachment = (String) map.get("has_attachment");
 		bay_id = (String) map.get("bay_id");
 		from_date = (String) map.get("from_date");
@@ -1103,6 +1115,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object attachmentObj = map.get("attachment");
 		if(attachmentObj != null)
 			attachment = attachmentObj.toString();
+
+		Object attachment_nameObj = map.get("attachment_name");
+		if(attachment_nameObj != null)
+			attachment_name = attachment_nameObj.toString();
 
 		Object has_attachmentObj = map.get("has_attachment");
 		if(has_attachmentObj != null)
@@ -1557,6 +1573,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetAttachment() {
 		this.attachment = null;
+	}
+
+	public String getAttachment_name() {
+		return attachment_name;
+	}
+
+	public String getAttachment_nameEx() {
+		return attachment_name != null ? attachment_name : "";
+	}
+
+	public void setAttachment_name(String attachment_name) {
+		this.attachment_name = attachment_name;
+	}
+
+	public void unSetAttachment_name() {
+		this.attachment_name = null;
 	}
 
 	public String getHas_attachment() {
