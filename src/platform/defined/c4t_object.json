@@ -138,6 +138,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'tin':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'parent_id':
 			{
 				'length': 128,
