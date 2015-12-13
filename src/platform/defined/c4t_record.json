@@ -368,6 +368,16 @@
 				'length' : 1,
 				'default' : "N"
 			},
+			'enable_chat': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "Y"
+			},
+			'send_sms_app_user': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "Y"
+			},
 			'send_sms': {
 				'type': 'String',
 				'length' : 1,

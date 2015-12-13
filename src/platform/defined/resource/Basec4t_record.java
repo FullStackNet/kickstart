@@ -95,6 +95,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private Long sent_time = null;
 	private Long creation_time = null;
 	private String sent = null;
+	private String enable_chat = null;
+	private String send_sms_app_user = null;
 	private String send_sms = null;
 	private String send_email = null;
 	private Integer total_sent = null;
@@ -181,6 +183,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_SENT_TIME = "sent_time";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_SENT = "sent";
+	public static String FIELD_ENABLE_CHAT = "enable_chat";
+	public static String FIELD_SEND_SMS_APP_USER = "send_sms_app_user";
 	public static String FIELD_SEND_SMS = "send_sms";
 	public static String FIELD_SEND_EMAIL = "send_email";
 	public static String FIELD_TOTAL_SENT = "total_sent";
@@ -489,6 +493,16 @@ public abstract class Basec4t_record extends BaseResource {
 		sentField.setLength(1);
 		metaData.addField(sentField);
 
+		Field enable_chatField = new Field("enable_chat", "String");
+		enable_chatField.setDefaultValue("Y");
+		enable_chatField.setLength(1);
+		metaData.addField(enable_chatField);
+
+		Field send_sms_app_userField = new Field("send_sms_app_user", "String");
+		send_sms_app_userField.setDefaultValue("Y");
+		send_sms_app_userField.setLength(1);
+		metaData.addField(send_sms_app_userField);
+
 		Field send_smsField = new Field("send_sms", "String");
 		send_smsField.setDefaultValue("N");
 		send_smsField.setLength(1);
@@ -607,6 +621,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.sent_time = obj.sent_time;
 		this.creation_time = obj.creation_time;
 		this.sent = obj.sent;
+		this.enable_chat = obj.enable_chat;
+		this.send_sms_app_user = obj.send_sms_app_user;
 		this.send_sms = obj.send_sms;
 		this.send_email = obj.send_email;
 		this.total_sent = obj.total_sent;
@@ -625,6 +641,10 @@ public abstract class Basec4t_record extends BaseResource {
 	private void setDefaultValues() {
 		if(sent == null)
 			sent = "N";
+		if(enable_chat == null)
+			enable_chat = "Y";
+		if(send_sms_app_user == null)
+			send_sms_app_user = "Y";
 		if(send_sms == null)
 			send_sms = "N";
 		if(send_email == null)
@@ -785,6 +805,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(sent != null)
 			map.put("sent", sent);
+		if(enable_chat != null)
+			map.put("enable_chat", enable_chat);
+		if(send_sms_app_user != null)
+			map.put("send_sms_app_user", send_sms_app_user);
 		if(send_sms != null)
 			map.put("send_sms", send_sms);
 		if(send_email != null)
@@ -963,6 +987,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(sent != null)
 			map.put("sent", sent);
+		if(enable_chat != null)
+			map.put("enable_chat", enable_chat);
+		if(send_sms_app_user != null)
+			map.put("send_sms_app_user", send_sms_app_user);
 		if(send_sms != null)
 			map.put("send_sms", send_sms);
 		if(send_email != null)
@@ -1067,6 +1095,8 @@ public abstract class Basec4t_record extends BaseResource {
 		sent_time = (Long) map.get("sent_time");
 		creation_time = (Long) map.get("creation_time");
 		sent = (String) map.get("sent");
+		enable_chat = (String) map.get("enable_chat");
+		send_sms_app_user = (String) map.get("send_sms_app_user");
 		send_sms = (String) map.get("send_sms");
 		send_email = (String) map.get("send_email");
 		total_sent = (Integer) map.get("total_sent");
@@ -1383,6 +1413,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object sentObj = map.get("sent");
 		if(sentObj != null)
 			sent = sentObj.toString();
+
+		Object enable_chatObj = map.get("enable_chat");
+		if(enable_chatObj != null)
+			enable_chat = enable_chatObj.toString();
+
+		Object send_sms_app_userObj = map.get("send_sms_app_user");
+		if(send_sms_app_userObj != null)
+			send_sms_app_user = send_sms_app_userObj.toString();
 
 		Object send_smsObj = map.get("send_sms");
 		if(send_smsObj != null)
@@ -2598,6 +2636,30 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetSent() {
 		this.sent = "N";
+	}
+
+	public String getEnable_chat() {
+		return enable_chat != null ? enable_chat : "Y";
+	}
+
+	public void setEnable_chat(String enable_chat) {
+		this.enable_chat = enable_chat;
+	}
+
+	public void unSetEnable_chat() {
+		this.enable_chat = "Y";
+	}
+
+	public String getSend_sms_app_user() {
+		return send_sms_app_user != null ? send_sms_app_user : "Y";
+	}
+
+	public void setSend_sms_app_user(String send_sms_app_user) {
+		this.send_sms_app_user = send_sms_app_user;
+	}
+
+	public void unSetSend_sms_app_user() {
+		this.send_sms_app_user = "Y";
 	}
 
 	public String getSend_sms() {
