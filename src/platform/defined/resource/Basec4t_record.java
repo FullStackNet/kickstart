@@ -32,6 +32,11 @@ public abstract class Basec4t_record extends BaseResource {
 	private String has_attachment = null;
 	private String bay_id = null;
 	private String from_date = null;
+	private String priority = null;
+	private String created_by_id = null;
+	private String created_by_name = null;
+	private String assign_to_id = null;
+	private String assign_to_name = null;
 	private String reference_id = null;
 	private String to_date = null;
 	private String start_time = null;
@@ -120,6 +125,11 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_HAS_ATTACHMENT = "has_attachment";
 	public static String FIELD_BAY_ID = "bay_id";
 	public static String FIELD_FROM_DATE = "from_date";
+	public static String FIELD_PRIORITY = "priority";
+	public static String FIELD_CREATED_BY_ID = "created_by_id";
+	public static String FIELD_CREATED_BY_NAME = "created_by_name";
+	public static String FIELD_ASSIGN_TO_ID = "assign_to_id";
+	public static String FIELD_ASSIGN_TO_NAME = "assign_to_name";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_TO_DATE = "to_date";
 	public static String FIELD_START_TIME = "start_time";
@@ -257,6 +267,26 @@ public abstract class Basec4t_record extends BaseResource {
 		Field from_dateField = new Field("from_date", "String");
 		from_dateField.setLength(128);
 		metaData.addField(from_dateField);
+
+		Field priorityField = new Field("priority", "String");
+		priorityField.setLength(128);
+		metaData.addField(priorityField);
+
+		Field created_by_idField = new Field("created_by_id", "String");
+		created_by_idField.setLength(128);
+		metaData.addField(created_by_idField);
+
+		Field created_by_nameField = new Field("created_by_name", "String");
+		created_by_nameField.setLength(128);
+		metaData.addField(created_by_nameField);
+
+		Field assign_to_idField = new Field("assign_to_id", "String");
+		assign_to_idField.setLength(128);
+		metaData.addField(assign_to_idField);
+
+		Field assign_to_nameField = new Field("assign_to_name", "String");
+		assign_to_nameField.setLength(128);
+		metaData.addField(assign_to_nameField);
 
 		Field reference_idField = new Field("reference_id", "String");
 		reference_idField.setLength(128);
@@ -558,6 +588,11 @@ public abstract class Basec4t_record extends BaseResource {
 		this.has_attachment = obj.has_attachment;
 		this.bay_id = obj.bay_id;
 		this.from_date = obj.from_date;
+		this.priority = obj.priority;
+		this.created_by_id = obj.created_by_id;
+		this.created_by_name = obj.created_by_name;
+		this.assign_to_id = obj.assign_to_id;
+		this.assign_to_name = obj.assign_to_name;
 		this.reference_id = obj.reference_id;
 		this.to_date = obj.to_date;
 		this.start_time = obj.start_time;
@@ -679,6 +714,16 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("bay_id", bay_id);
 		if(from_date != null)
 			map.put("from_date", from_date);
+		if(priority != null)
+			map.put("priority", priority);
+		if(created_by_id != null)
+			map.put("created_by_id", created_by_id);
+		if(created_by_name != null)
+			map.put("created_by_name", created_by_name);
+		if(assign_to_id != null)
+			map.put("assign_to_id", assign_to_id);
+		if(assign_to_name != null)
+			map.put("assign_to_name", assign_to_name);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
 		if(to_date != null)
@@ -861,6 +906,16 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("bay_id", bay_id);
 		if(from_date != null)
 			map.put("from_date", from_date);
+		if(priority != null)
+			map.put("priority", priority);
+		if(created_by_id != null)
+			map.put("created_by_id", created_by_id);
+		if(created_by_name != null)
+			map.put("created_by_name", created_by_name);
+		if(assign_to_id != null)
+			map.put("assign_to_id", assign_to_id);
+		if(assign_to_name != null)
+			map.put("assign_to_name", assign_to_name);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
 		if(to_date != null)
@@ -1032,6 +1087,11 @@ public abstract class Basec4t_record extends BaseResource {
 		has_attachment = (String) map.get("has_attachment");
 		bay_id = (String) map.get("bay_id");
 		from_date = (String) map.get("from_date");
+		priority = (String) map.get("priority");
+		created_by_id = (String) map.get("created_by_id");
+		created_by_name = (String) map.get("created_by_name");
+		assign_to_id = (String) map.get("assign_to_id");
+		assign_to_name = (String) map.get("assign_to_name");
 		reference_id = (String) map.get("reference_id");
 		to_date = (String) map.get("to_date");
 		start_time = (String) map.get("start_time");
@@ -1161,6 +1221,26 @@ public abstract class Basec4t_record extends BaseResource {
 		Object from_dateObj = map.get("from_date");
 		if(from_dateObj != null)
 			from_date = from_dateObj.toString();
+
+		Object priorityObj = map.get("priority");
+		if(priorityObj != null)
+			priority = priorityObj.toString();
+
+		Object created_by_idObj = map.get("created_by_id");
+		if(created_by_idObj != null)
+			created_by_id = created_by_idObj.toString();
+
+		Object created_by_nameObj = map.get("created_by_name");
+		if(created_by_nameObj != null)
+			created_by_name = created_by_nameObj.toString();
+
+		Object assign_to_idObj = map.get("assign_to_id");
+		if(assign_to_idObj != null)
+			assign_to_id = assign_to_idObj.toString();
+
+		Object assign_to_nameObj = map.get("assign_to_name");
+		if(assign_to_nameObj != null)
+			assign_to_name = assign_to_nameObj.toString();
 
 		Object reference_idObj = map.get("reference_id");
 		if(reference_idObj != null)
@@ -1675,6 +1755,86 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetFrom_date() {
 		this.from_date = null;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public String getPriorityEx() {
+		return priority != null ? priority : "";
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
+	public void unSetPriority() {
+		this.priority = null;
+	}
+
+	public String getCreated_by_id() {
+		return created_by_id;
+	}
+
+	public String getCreated_by_idEx() {
+		return created_by_id != null ? created_by_id : "";
+	}
+
+	public void setCreated_by_id(String created_by_id) {
+		this.created_by_id = created_by_id;
+	}
+
+	public void unSetCreated_by_id() {
+		this.created_by_id = null;
+	}
+
+	public String getCreated_by_name() {
+		return created_by_name;
+	}
+
+	public String getCreated_by_nameEx() {
+		return created_by_name != null ? created_by_name : "";
+	}
+
+	public void setCreated_by_name(String created_by_name) {
+		this.created_by_name = created_by_name;
+	}
+
+	public void unSetCreated_by_name() {
+		this.created_by_name = null;
+	}
+
+	public String getAssign_to_id() {
+		return assign_to_id;
+	}
+
+	public String getAssign_to_idEx() {
+		return assign_to_id != null ? assign_to_id : "";
+	}
+
+	public void setAssign_to_id(String assign_to_id) {
+		this.assign_to_id = assign_to_id;
+	}
+
+	public void unSetAssign_to_id() {
+		this.assign_to_id = null;
+	}
+
+	public String getAssign_to_name() {
+		return assign_to_name;
+	}
+
+	public String getAssign_to_nameEx() {
+		return assign_to_name != null ? assign_to_name : "";
+	}
+
+	public void setAssign_to_name(String assign_to_name) {
+		this.assign_to_name = assign_to_name;
+	}
+
+	public void unSetAssign_to_name() {
+		this.assign_to_name = null;
 	}
 
 	public String getReference_id() {

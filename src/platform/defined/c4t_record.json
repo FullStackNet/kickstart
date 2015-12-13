@@ -78,6 +78,31 @@
 				'length': 128,
 				'type':'String'
 			},
+			'priority':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'created_by_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'created_by_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'assign_to_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'assign_to_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'reference_id':
 			{
 				'length': 128,
