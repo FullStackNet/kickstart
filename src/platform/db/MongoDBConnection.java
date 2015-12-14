@@ -788,8 +788,11 @@ public class MongoDBConnection extends DbConnection {
 	@Override
 	public List<Map<String, Object>> getById(ResourceMetaData metaData,
 			String[] ids,String[] orderBy, Expression expression) throws Exception {
-
+		if (ids == null) {
+			return null;
+		}
 		BasicDBList list = new  BasicDBList();
+		
 		for(int i = 0 ; i < ids.length ; i++ )
 			list.add(ids[i]);
 		Expression e1 = new Expression("_id", REL_OP.IN, list);
