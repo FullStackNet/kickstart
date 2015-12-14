@@ -83,6 +83,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'photo_url':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'created_by_id':
 			{
 				'length': 128,

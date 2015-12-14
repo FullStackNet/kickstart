@@ -33,6 +33,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String bay_id = null;
 	private String from_date = null;
 	private String priority = null;
+	private String photo_url = null;
 	private String created_by_id = null;
 	private String created_by_name = null;
 	private String assign_to_id = null;
@@ -126,6 +127,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_BAY_ID = "bay_id";
 	public static String FIELD_FROM_DATE = "from_date";
 	public static String FIELD_PRIORITY = "priority";
+	public static String FIELD_PHOTO_URL = "photo_url";
 	public static String FIELD_CREATED_BY_ID = "created_by_id";
 	public static String FIELD_CREATED_BY_NAME = "created_by_name";
 	public static String FIELD_ASSIGN_TO_ID = "assign_to_id";
@@ -271,6 +273,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Field priorityField = new Field("priority", "String");
 		priorityField.setLength(128);
 		metaData.addField(priorityField);
+
+		Field photo_urlField = new Field("photo_url", "String");
+		photo_urlField.setLength(128);
+		metaData.addField(photo_urlField);
 
 		Field created_by_idField = new Field("created_by_id", "String");
 		created_by_idField.setLength(128);
@@ -589,6 +595,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.bay_id = obj.bay_id;
 		this.from_date = obj.from_date;
 		this.priority = obj.priority;
+		this.photo_url = obj.photo_url;
 		this.created_by_id = obj.created_by_id;
 		this.created_by_name = obj.created_by_name;
 		this.assign_to_id = obj.assign_to_id;
@@ -716,6 +723,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("from_date", from_date);
 		if(priority != null)
 			map.put("priority", priority);
+		if(photo_url != null)
+			map.put("photo_url", photo_url);
 		if(created_by_id != null)
 			map.put("created_by_id", created_by_id);
 		if(created_by_name != null)
@@ -908,6 +917,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("from_date", from_date);
 		if(priority != null)
 			map.put("priority", priority);
+		if(photo_url != null)
+			map.put("photo_url", photo_url);
 		if(created_by_id != null)
 			map.put("created_by_id", created_by_id);
 		if(created_by_name != null)
@@ -1088,6 +1099,7 @@ public abstract class Basec4t_record extends BaseResource {
 		bay_id = (String) map.get("bay_id");
 		from_date = (String) map.get("from_date");
 		priority = (String) map.get("priority");
+		photo_url = (String) map.get("photo_url");
 		created_by_id = (String) map.get("created_by_id");
 		created_by_name = (String) map.get("created_by_name");
 		assign_to_id = (String) map.get("assign_to_id");
@@ -1225,6 +1237,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object priorityObj = map.get("priority");
 		if(priorityObj != null)
 			priority = priorityObj.toString();
+
+		Object photo_urlObj = map.get("photo_url");
+		if(photo_urlObj != null)
+			photo_url = photo_urlObj.toString();
 
 		Object created_by_idObj = map.get("created_by_id");
 		if(created_by_idObj != null)
@@ -1771,6 +1787,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetPriority() {
 		this.priority = null;
+	}
+
+	public String getPhoto_url() {
+		return photo_url;
+	}
+
+	public String getPhoto_urlEx() {
+		return photo_url != null ? photo_url : "";
+	}
+
+	public void setPhoto_url(String photo_url) {
+		this.photo_url = photo_url;
+	}
+
+	public void unSetPhoto_url() {
+		this.photo_url = null;
 	}
 
 	public String getCreated_by_id() {
