@@ -78,11 +78,7 @@
 				'length': 128,
 				'type':'String'
 			},
-			'priority':
-			{
-				'length': 128,
-				'type':'String'
-			},
+			
 			'photo_url':
 			{
 				'length': 128,
@@ -437,6 +433,84 @@
 			{
 				'length': 128,
 				'type': 'String'
+			},
+			'project_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'project_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'meeting_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'mom_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'parent_project_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'parent_project_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'meeting_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'description':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'release':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'priority':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'assign_to_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'assign_to_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'assign_date_str':
+			{
+				'type':'String',
+				'length': 16
+			},
+			'assign_date':
+			{
+				'type':'long'
+			},
+			'completion_date_str':
+			{
+				'type':'String',
+				'length': 16
+			},
+			'completion_date':
+			{
+				'type':'long'
 			}			
 		}					
 	}

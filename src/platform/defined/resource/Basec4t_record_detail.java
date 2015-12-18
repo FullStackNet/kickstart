@@ -28,6 +28,9 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String message = null;
 	private String product_id = null;
 	private String product_name = null;
+	private String title = null;
+	private String description = null;
+	private String mom_id = null;
 	private String remark = null;
 	private String product_unit = null;
 	private Double quantity = null;
@@ -49,6 +52,9 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_MESSAGE = "message";
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
+	public static String FIELD_TITLE = "title";
+	public static String FIELD_DESCRIPTION = "description";
+	public static String FIELD_MOM_ID = "mom_id";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_PRODUCT_UNIT = "product_unit";
 	public static String FIELD_QUANTITY = "quantity";
@@ -107,6 +113,18 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		product_nameField.setLength(512);
 		metaData.addField(product_nameField);
 
+		Field titleField = new Field("title", "String");
+		titleField.setLength(512);
+		metaData.addField(titleField);
+
+		Field descriptionField = new Field("description", "String");
+		descriptionField.setLength(512);
+		metaData.addField(descriptionField);
+
+		Field mom_idField = new Field("mom_id", "String");
+		mom_idField.setLength(512);
+		metaData.addField(mom_idField);
+
 		Field remarkField = new Field("remark", "String");
 		remarkField.setLength(512);
 		metaData.addField(remarkField);
@@ -163,6 +181,9 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.message = obj.message;
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
+		this.title = obj.title;
+		this.description = obj.description;
+		this.mom_id = obj.mom_id;
 		this.remark = obj.remark;
 		this.product_unit = obj.product_unit;
 		this.quantity = obj.quantity;
@@ -200,6 +221,12 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(title != null)
+			map.put("title", title);
+		if(description != null)
+			map.put("description", description);
+		if(mom_id != null)
+			map.put("mom_id", mom_id);
 		if(remark != null)
 			map.put("remark", remark);
 		if(product_unit != null)
@@ -245,6 +272,12 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(title != null)
+			map.put("title", title);
+		if(description != null)
+			map.put("description", description);
+		if(mom_id != null)
+			map.put("mom_id", mom_id);
 		if(remark != null)
 			map.put("remark", remark);
 		if(product_unit != null)
@@ -286,6 +319,9 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		message = (String) map.get("message");
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
+		title = (String) map.get("title");
+		description = (String) map.get("description");
+		mom_id = (String) map.get("mom_id");
 		remark = (String) map.get("remark");
 		product_unit = (String) map.get("product_unit");
 		quantity = (Double) map.get("quantity");
@@ -336,6 +372,18 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object product_nameObj = map.get("product_name");
 		if(product_nameObj != null)
 			product_name = product_nameObj.toString();
+
+		Object titleObj = map.get("title");
+		if(titleObj != null)
+			title = titleObj.toString();
+
+		Object descriptionObj = map.get("description");
+		if(descriptionObj != null)
+			description = descriptionObj.toString();
+
+		Object mom_idObj = map.get("mom_id");
+		if(mom_idObj != null)
+			mom_id = mom_idObj.toString();
 
 		Object remarkObj = map.get("remark");
 		if(remarkObj != null)
@@ -534,6 +582,54 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetProduct_name() {
 		this.product_name = null;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public String getTitleEx() {
+		return title != null ? title : "";
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void unSetTitle() {
+		this.title = null;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getDescriptionEx() {
+		return description != null ? description : "";
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void unSetDescription() {
+		this.description = null;
+	}
+
+	public String getMom_id() {
+		return mom_id;
+	}
+
+	public String getMom_idEx() {
+		return mom_id != null ? mom_id : "";
+	}
+
+	public void setMom_id(String mom_id) {
+		this.mom_id = mom_id;
+	}
+
+	public void unSetMom_id() {
+		this.mom_id = null;
 	}
 
 	public String getRemark() {
