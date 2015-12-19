@@ -72,7 +72,42 @@
 				'index' : true
 			},
 	
-	
+			'release_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'release_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'component_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'component_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'sprint_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'sprint_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'from_date':
 			{
 				'length': 128,

@@ -31,6 +31,12 @@ public abstract class Basec4t_record extends BaseResource {
 	private String attachment_name = null;
 	private String has_attachment = null;
 	private String bay_id = null;
+	private String release_id = null;
+	private String release_name = null;
+	private String component_id = null;
+	private String component_name = null;
+	private String sprint_id = null;
+	private String sprint_name = null;
 	private String from_date = null;
 	private String priority = null;
 	private String photo_url = null;
@@ -125,6 +131,12 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_ATTACHMENT_NAME = "attachment_name";
 	public static String FIELD_HAS_ATTACHMENT = "has_attachment";
 	public static String FIELD_BAY_ID = "bay_id";
+	public static String FIELD_RELEASE_ID = "release_id";
+	public static String FIELD_RELEASE_NAME = "release_name";
+	public static String FIELD_COMPONENT_ID = "component_id";
+	public static String FIELD_COMPONENT_NAME = "component_name";
+	public static String FIELD_SPRINT_ID = "sprint_id";
+	public static String FIELD_SPRINT_NAME = "sprint_name";
 	public static String FIELD_FROM_DATE = "from_date";
 	public static String FIELD_PRIORITY = "priority";
 	public static String FIELD_PHOTO_URL = "photo_url";
@@ -265,6 +277,36 @@ public abstract class Basec4t_record extends BaseResource {
 		bay_idField.setIndexed(true);
 		bay_idField.setLength(128);
 		metaData.addField(bay_idField);
+
+		Field release_idField = new Field("release_id", "String");
+		release_idField.setIndexed(true);
+		release_idField.setLength(128);
+		metaData.addField(release_idField);
+
+		Field release_nameField = new Field("release_name", "String");
+		release_nameField.setIndexed(true);
+		release_nameField.setLength(128);
+		metaData.addField(release_nameField);
+
+		Field component_idField = new Field("component_id", "String");
+		component_idField.setIndexed(true);
+		component_idField.setLength(128);
+		metaData.addField(component_idField);
+
+		Field component_nameField = new Field("component_name", "String");
+		component_nameField.setIndexed(true);
+		component_nameField.setLength(128);
+		metaData.addField(component_nameField);
+
+		Field sprint_idField = new Field("sprint_id", "String");
+		sprint_idField.setIndexed(true);
+		sprint_idField.setLength(128);
+		metaData.addField(sprint_idField);
+
+		Field sprint_nameField = new Field("sprint_name", "String");
+		sprint_nameField.setIndexed(true);
+		sprint_nameField.setLength(128);
+		metaData.addField(sprint_nameField);
 
 		Field from_dateField = new Field("from_date", "String");
 		from_dateField.setLength(128);
@@ -593,6 +635,12 @@ public abstract class Basec4t_record extends BaseResource {
 		this.attachment_name = obj.attachment_name;
 		this.has_attachment = obj.has_attachment;
 		this.bay_id = obj.bay_id;
+		this.release_id = obj.release_id;
+		this.release_name = obj.release_name;
+		this.component_id = obj.component_id;
+		this.component_name = obj.component_name;
+		this.sprint_id = obj.sprint_id;
+		this.sprint_name = obj.sprint_name;
 		this.from_date = obj.from_date;
 		this.priority = obj.priority;
 		this.photo_url = obj.photo_url;
@@ -719,6 +767,18 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("has_attachment", has_attachment);
 		if(bay_id != null)
 			map.put("bay_id", bay_id);
+		if(release_id != null)
+			map.put("release_id", release_id);
+		if(release_name != null)
+			map.put("release_name", release_name);
+		if(component_id != null)
+			map.put("component_id", component_id);
+		if(component_name != null)
+			map.put("component_name", component_name);
+		if(sprint_id != null)
+			map.put("sprint_id", sprint_id);
+		if(sprint_name != null)
+			map.put("sprint_name", sprint_name);
 		if(from_date != null)
 			map.put("from_date", from_date);
 		if(priority != null)
@@ -913,6 +973,18 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("has_attachment", has_attachment);
 		if(bay_id != null)
 			map.put("bay_id", bay_id);
+		if(release_id != null)
+			map.put("release_id", release_id);
+		if(release_name != null)
+			map.put("release_name", release_name);
+		if(component_id != null)
+			map.put("component_id", component_id);
+		if(component_name != null)
+			map.put("component_name", component_name);
+		if(sprint_id != null)
+			map.put("sprint_id", sprint_id);
+		if(sprint_name != null)
+			map.put("sprint_name", sprint_name);
 		if(from_date != null)
 			map.put("from_date", from_date);
 		if(priority != null)
@@ -1097,6 +1169,12 @@ public abstract class Basec4t_record extends BaseResource {
 		attachment_name = (String) map.get("attachment_name");
 		has_attachment = (String) map.get("has_attachment");
 		bay_id = (String) map.get("bay_id");
+		release_id = (String) map.get("release_id");
+		release_name = (String) map.get("release_name");
+		component_id = (String) map.get("component_id");
+		component_name = (String) map.get("component_name");
+		sprint_id = (String) map.get("sprint_id");
+		sprint_name = (String) map.get("sprint_name");
 		from_date = (String) map.get("from_date");
 		priority = (String) map.get("priority");
 		photo_url = (String) map.get("photo_url");
@@ -1229,6 +1307,30 @@ public abstract class Basec4t_record extends BaseResource {
 		Object bay_idObj = map.get("bay_id");
 		if(bay_idObj != null)
 			bay_id = bay_idObj.toString();
+
+		Object release_idObj = map.get("release_id");
+		if(release_idObj != null)
+			release_id = release_idObj.toString();
+
+		Object release_nameObj = map.get("release_name");
+		if(release_nameObj != null)
+			release_name = release_nameObj.toString();
+
+		Object component_idObj = map.get("component_id");
+		if(component_idObj != null)
+			component_id = component_idObj.toString();
+
+		Object component_nameObj = map.get("component_name");
+		if(component_nameObj != null)
+			component_name = component_nameObj.toString();
+
+		Object sprint_idObj = map.get("sprint_id");
+		if(sprint_idObj != null)
+			sprint_id = sprint_idObj.toString();
+
+		Object sprint_nameObj = map.get("sprint_name");
+		if(sprint_nameObj != null)
+			sprint_name = sprint_nameObj.toString();
 
 		Object from_dateObj = map.get("from_date");
 		if(from_dateObj != null)
@@ -1755,6 +1857,102 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetBay_id() {
 		this.bay_id = null;
+	}
+
+	public String getRelease_id() {
+		return release_id;
+	}
+
+	public String getRelease_idEx() {
+		return release_id != null ? release_id : "";
+	}
+
+	public void setRelease_id(String release_id) {
+		this.release_id = release_id;
+	}
+
+	public void unSetRelease_id() {
+		this.release_id = null;
+	}
+
+	public String getRelease_name() {
+		return release_name;
+	}
+
+	public String getRelease_nameEx() {
+		return release_name != null ? release_name : "";
+	}
+
+	public void setRelease_name(String release_name) {
+		this.release_name = release_name;
+	}
+
+	public void unSetRelease_name() {
+		this.release_name = null;
+	}
+
+	public String getComponent_id() {
+		return component_id;
+	}
+
+	public String getComponent_idEx() {
+		return component_id != null ? component_id : "";
+	}
+
+	public void setComponent_id(String component_id) {
+		this.component_id = component_id;
+	}
+
+	public void unSetComponent_id() {
+		this.component_id = null;
+	}
+
+	public String getComponent_name() {
+		return component_name;
+	}
+
+	public String getComponent_nameEx() {
+		return component_name != null ? component_name : "";
+	}
+
+	public void setComponent_name(String component_name) {
+		this.component_name = component_name;
+	}
+
+	public void unSetComponent_name() {
+		this.component_name = null;
+	}
+
+	public String getSprint_id() {
+		return sprint_id;
+	}
+
+	public String getSprint_idEx() {
+		return sprint_id != null ? sprint_id : "";
+	}
+
+	public void setSprint_id(String sprint_id) {
+		this.sprint_id = sprint_id;
+	}
+
+	public void unSetSprint_id() {
+		this.sprint_id = null;
+	}
+
+	public String getSprint_name() {
+		return sprint_name;
+	}
+
+	public String getSprint_nameEx() {
+		return sprint_name != null ? sprint_name : "";
+	}
+
+	public void setSprint_name(String sprint_name) {
+		this.sprint_name = sprint_name;
+	}
+
+	public void unSetSprint_name() {
+		this.sprint_name = null;
 	}
 
 	public String getFrom_date() {
