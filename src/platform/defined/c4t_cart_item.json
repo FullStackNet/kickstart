@@ -33,6 +33,10 @@
 			{
 				'type':'double'
 			},
+			'free_quantity':
+			{
+				'type':'double'
+			},
 			'rate':
 			{
 				'type':'Double'
