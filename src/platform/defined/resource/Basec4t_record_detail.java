@@ -34,6 +34,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String remark = null;
 	private String product_unit = null;
 	private Double quantity = null;
+	private Double free_quantity = null;
 	private Double rate = null;
 	private Double service_tax = null;
 	private Double vat = null;
@@ -58,6 +59,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_PRODUCT_UNIT = "product_unit";
 	public static String FIELD_QUANTITY = "quantity";
+	public static String FIELD_FREE_QUANTITY = "free_quantity";
 	public static String FIELD_RATE = "rate";
 	public static String FIELD_SERVICE_TAX = "service_tax";
 	public static String FIELD_VAT = "vat";
@@ -136,6 +138,9 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Field quantityField = new Field("quantity", "Double");
 		metaData.addField(quantityField);
 
+		Field free_quantityField = new Field("free_quantity", "Double");
+		metaData.addField(free_quantityField);
+
 		Field rateField = new Field("rate", "Double");
 		metaData.addField(rateField);
 
@@ -187,6 +192,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.remark = obj.remark;
 		this.product_unit = obj.product_unit;
 		this.quantity = obj.quantity;
+		this.free_quantity = obj.free_quantity;
 		this.rate = obj.rate;
 		this.service_tax = obj.service_tax;
 		this.vat = obj.vat;
@@ -233,6 +239,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("product_unit", product_unit);
 		if(quantity != null)
 			map.put("quantity", quantity);
+		if(free_quantity != null)
+			map.put("free_quantity", free_quantity);
 		if(rate != null)
 			map.put("rate", rate);
 		if(service_tax != null)
@@ -284,6 +292,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("product_unit", product_unit);
 		if(quantity != null)
 			map.put("quantity", quantity);
+		if(free_quantity != null)
+			map.put("free_quantity", free_quantity);
 		if(rate != null)
 			map.put("rate", rate);
 		if(service_tax != null)
@@ -325,6 +335,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		remark = (String) map.get("remark");
 		product_unit = (String) map.get("product_unit");
 		quantity = (Double) map.get("quantity");
+		free_quantity = (Double) map.get("free_quantity");
 		rate = (Double) map.get("rate");
 		service_tax = (Double) map.get("service_tax");
 		vat = (Double) map.get("vat");
@@ -396,6 +407,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object quantityObj = map.get("quantity");
 		if(quantityObj != null)
 			quantity = new Double(quantityObj.toString());
+
+		Object free_quantityObj = map.get("free_quantity");
+		if(free_quantityObj != null)
+			free_quantity = new Double(free_quantityObj.toString());
 
 		Object rateObj = map.get("rate");
 		if(rateObj != null)
@@ -674,6 +689,18 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetQuantity() {
 		this.quantity = null;
+	}
+
+	public Double getFree_quantity() {
+		return free_quantity;
+	}
+
+	public void setFree_quantity(Double free_quantity) {
+		this.free_quantity = free_quantity;
+	}
+
+	public void unSetFree_quantity() {
+		this.free_quantity = null;
 	}
 
 	public Double getRate() {
