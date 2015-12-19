@@ -55,6 +55,21 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'title':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'description':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'mom_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'remark':
 			{
 				'length': 512,

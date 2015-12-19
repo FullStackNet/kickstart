@@ -38,7 +38,6 @@ public abstract class Basec4t_record extends BaseResource {
 	private String sprint_id = null;
 	private String sprint_name = null;
 	private String from_date = null;
-	private String priority = null;
 	private String photo_url = null;
 	private String created_by_id = null;
 	private String created_by_name = null;
@@ -117,6 +116,19 @@ public abstract class Basec4t_record extends BaseResource {
 	private Integer total_email_sent = null;
 	private Integer total_app_notification_sent = null;
 	private String messageType = null;
+	private String project_id = null;
+	private String project_name = null;
+	private String meeting_id = null;
+	private String mom_id = null;
+	private String parent_project_id = null;
+	private String parent_project_name = null;
+	private String meeting_name = null;
+	private String release = null;
+	private String priority = null;
+	private String assign_date_str = null;
+	private Long assign_date = null;
+	private String completion_date_str = null;
+	private Long completion_date = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -138,7 +150,6 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_SPRINT_ID = "sprint_id";
 	public static String FIELD_SPRINT_NAME = "sprint_name";
 	public static String FIELD_FROM_DATE = "from_date";
-	public static String FIELD_PRIORITY = "priority";
 	public static String FIELD_PHOTO_URL = "photo_url";
 	public static String FIELD_CREATED_BY_ID = "created_by_id";
 	public static String FIELD_CREATED_BY_NAME = "created_by_name";
@@ -217,6 +228,19 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_EMAIL_SENT = "total_email_sent";
 	public static String FIELD_TOTAL_APP_NOTIFICATION_SENT = "total_app_notification_sent";
 	public static String FIELD_MESSAGETYPE = "messageType";
+	public static String FIELD_PROJECT_ID = "project_id";
+	public static String FIELD_PROJECT_NAME = "project_name";
+	public static String FIELD_MEETING_ID = "meeting_id";
+	public static String FIELD_MOM_ID = "mom_id";
+	public static String FIELD_PARENT_PROJECT_ID = "parent_project_id";
+	public static String FIELD_PARENT_PROJECT_NAME = "parent_project_name";
+	public static String FIELD_MEETING_NAME = "meeting_name";
+	public static String FIELD_RELEASE = "release";
+	public static String FIELD_PRIORITY = "priority";
+	public static String FIELD_ASSIGN_DATE_STR = "assign_date_str";
+	public static String FIELD_ASSIGN_DATE = "assign_date";
+	public static String FIELD_COMPLETION_DATE_STR = "completion_date_str";
+	public static String FIELD_COMPLETION_DATE = "completion_date";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -311,10 +335,6 @@ public abstract class Basec4t_record extends BaseResource {
 		Field from_dateField = new Field("from_date", "String");
 		from_dateField.setLength(128);
 		metaData.addField(from_dateField);
-
-		Field priorityField = new Field("priority", "String");
-		priorityField.setLength(128);
-		metaData.addField(priorityField);
 
 		Field photo_urlField = new Field("photo_url", "String");
 		photo_urlField.setLength(128);
@@ -521,7 +541,7 @@ public abstract class Basec4t_record extends BaseResource {
 		metaData.addField(recipientsField);
 
 		Field descriptionField = new Field("description", "String");
-		descriptionField.setLength(4096);
+		descriptionField.setLength(128);
 		metaData.addField(descriptionField);
 
 		Field remarkField = new Field("remark", "String");
@@ -610,6 +630,56 @@ public abstract class Basec4t_record extends BaseResource {
 		messageTypeField.setLength(128);
 		metaData.addField(messageTypeField);
 
+		Field project_idField = new Field("project_id", "String");
+		project_idField.setLength(128);
+		metaData.addField(project_idField);
+
+		Field project_nameField = new Field("project_name", "String");
+		project_nameField.setLength(128);
+		metaData.addField(project_nameField);
+
+		Field meeting_idField = new Field("meeting_id", "String");
+		meeting_idField.setLength(128);
+		metaData.addField(meeting_idField);
+
+		Field mom_idField = new Field("mom_id", "String");
+		mom_idField.setLength(128);
+		metaData.addField(mom_idField);
+
+		Field parent_project_idField = new Field("parent_project_id", "String");
+		parent_project_idField.setLength(128);
+		metaData.addField(parent_project_idField);
+
+		Field parent_project_nameField = new Field("parent_project_name", "String");
+		parent_project_nameField.setLength(128);
+		metaData.addField(parent_project_nameField);
+
+		Field meeting_nameField = new Field("meeting_name", "String");
+		meeting_nameField.setLength(128);
+		metaData.addField(meeting_nameField);
+
+		Field releaseField = new Field("release", "String");
+		releaseField.setLength(128);
+		metaData.addField(releaseField);
+
+		Field priorityField = new Field("priority", "String");
+		priorityField.setLength(128);
+		metaData.addField(priorityField);
+
+		Field assign_date_strField = new Field("assign_date_str", "String");
+		assign_date_strField.setLength(16);
+		metaData.addField(assign_date_strField);
+
+		Field assign_dateField = new Field("assign_date", "long");
+		metaData.addField(assign_dateField);
+
+		Field completion_date_strField = new Field("completion_date_str", "String");
+		completion_date_strField.setLength(16);
+		metaData.addField(completion_date_strField);
+
+		Field completion_dateField = new Field("completion_date", "long");
+		metaData.addField(completion_dateField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -642,7 +712,6 @@ public abstract class Basec4t_record extends BaseResource {
 		this.sprint_id = obj.sprint_id;
 		this.sprint_name = obj.sprint_name;
 		this.from_date = obj.from_date;
-		this.priority = obj.priority;
 		this.photo_url = obj.photo_url;
 		this.created_by_id = obj.created_by_id;
 		this.created_by_name = obj.created_by_name;
@@ -721,6 +790,19 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_email_sent = obj.total_email_sent;
 		this.total_app_notification_sent = obj.total_app_notification_sent;
 		this.messageType = obj.messageType;
+		this.project_id = obj.project_id;
+		this.project_name = obj.project_name;
+		this.meeting_id = obj.meeting_id;
+		this.mom_id = obj.mom_id;
+		this.parent_project_id = obj.parent_project_id;
+		this.parent_project_name = obj.parent_project_name;
+		this.meeting_name = obj.meeting_name;
+		this.release = obj.release;
+		this.priority = obj.priority;
+		this.assign_date_str = obj.assign_date_str;
+		this.assign_date = obj.assign_date;
+		this.completion_date_str = obj.completion_date_str;
+		this.completion_date = obj.completion_date;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -781,8 +863,6 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("sprint_name", sprint_name);
 		if(from_date != null)
 			map.put("from_date", from_date);
-		if(priority != null)
-			map.put("priority", priority);
 		if(photo_url != null)
 			map.put("photo_url", photo_url);
 		if(created_by_id != null)
@@ -939,6 +1019,32 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_app_notification_sent", total_app_notification_sent);
 		if(messageType != null)
 			map.put("messageType", messageType);
+		if(project_id != null)
+			map.put("project_id", project_id);
+		if(project_name != null)
+			map.put("project_name", project_name);
+		if(meeting_id != null)
+			map.put("meeting_id", meeting_id);
+		if(mom_id != null)
+			map.put("mom_id", mom_id);
+		if(parent_project_id != null)
+			map.put("parent_project_id", parent_project_id);
+		if(parent_project_name != null)
+			map.put("parent_project_name", parent_project_name);
+		if(meeting_name != null)
+			map.put("meeting_name", meeting_name);
+		if(release != null)
+			map.put("release", release);
+		if(priority != null)
+			map.put("priority", priority);
+		if(assign_date_str != null)
+			map.put("assign_date_str", assign_date_str);
+		if(assign_date != null)
+			map.put("assign_date", assign_date);
+		if(completion_date_str != null)
+			map.put("completion_date_str", completion_date_str);
+		if(completion_date != null)
+			map.put("completion_date", completion_date);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -987,8 +1093,6 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("sprint_name", sprint_name);
 		if(from_date != null)
 			map.put("from_date", from_date);
-		if(priority != null)
-			map.put("priority", priority);
 		if(photo_url != null)
 			map.put("photo_url", photo_url);
 		if(created_by_id != null)
@@ -1145,6 +1249,32 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_app_notification_sent", total_app_notification_sent);
 		if(messageType != null)
 			map.put("messageType", messageType);
+		if(project_id != null)
+			map.put("project_id", project_id);
+		if(project_name != null)
+			map.put("project_name", project_name);
+		if(meeting_id != null)
+			map.put("meeting_id", meeting_id);
+		if(mom_id != null)
+			map.put("mom_id", mom_id);
+		if(parent_project_id != null)
+			map.put("parent_project_id", parent_project_id);
+		if(parent_project_name != null)
+			map.put("parent_project_name", parent_project_name);
+		if(meeting_name != null)
+			map.put("meeting_name", meeting_name);
+		if(release != null)
+			map.put("release", release);
+		if(priority != null)
+			map.put("priority", priority);
+		if(assign_date_str != null)
+			map.put("assign_date_str", assign_date_str);
+		if(assign_date != null)
+			map.put("assign_date", assign_date);
+		if(completion_date_str != null)
+			map.put("completion_date_str", completion_date_str);
+		if(completion_date != null)
+			map.put("completion_date", completion_date);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1176,7 +1306,6 @@ public abstract class Basec4t_record extends BaseResource {
 		sprint_id = (String) map.get("sprint_id");
 		sprint_name = (String) map.get("sprint_name");
 		from_date = (String) map.get("from_date");
-		priority = (String) map.get("priority");
 		photo_url = (String) map.get("photo_url");
 		created_by_id = (String) map.get("created_by_id");
 		created_by_name = (String) map.get("created_by_name");
@@ -1255,6 +1384,19 @@ public abstract class Basec4t_record extends BaseResource {
 		total_email_sent = (Integer) map.get("total_email_sent");
 		total_app_notification_sent = (Integer) map.get("total_app_notification_sent");
 		messageType = (String) map.get("messageType");
+		project_id = (String) map.get("project_id");
+		project_name = (String) map.get("project_name");
+		meeting_id = (String) map.get("meeting_id");
+		mom_id = (String) map.get("mom_id");
+		parent_project_id = (String) map.get("parent_project_id");
+		parent_project_name = (String) map.get("parent_project_name");
+		meeting_name = (String) map.get("meeting_name");
+		release = (String) map.get("release");
+		priority = (String) map.get("priority");
+		assign_date_str = (String) map.get("assign_date_str");
+		assign_date = (Long) map.get("assign_date");
+		completion_date_str = (String) map.get("completion_date_str");
+		completion_date = (Long) map.get("completion_date");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1335,10 +1477,6 @@ public abstract class Basec4t_record extends BaseResource {
 		Object from_dateObj = map.get("from_date");
 		if(from_dateObj != null)
 			from_date = from_dateObj.toString();
-
-		Object priorityObj = map.get("priority");
-		if(priorityObj != null)
-			priority = priorityObj.toString();
 
 		Object photo_urlObj = map.get("photo_url");
 		if(photo_urlObj != null)
@@ -1651,6 +1789,58 @@ public abstract class Basec4t_record extends BaseResource {
 		Object messageTypeObj = map.get("messageType");
 		if(messageTypeObj != null)
 			messageType = messageTypeObj.toString();
+
+		Object project_idObj = map.get("project_id");
+		if(project_idObj != null)
+			project_id = project_idObj.toString();
+
+		Object project_nameObj = map.get("project_name");
+		if(project_nameObj != null)
+			project_name = project_nameObj.toString();
+
+		Object meeting_idObj = map.get("meeting_id");
+		if(meeting_idObj != null)
+			meeting_id = meeting_idObj.toString();
+
+		Object mom_idObj = map.get("mom_id");
+		if(mom_idObj != null)
+			mom_id = mom_idObj.toString();
+
+		Object parent_project_idObj = map.get("parent_project_id");
+		if(parent_project_idObj != null)
+			parent_project_id = parent_project_idObj.toString();
+
+		Object parent_project_nameObj = map.get("parent_project_name");
+		if(parent_project_nameObj != null)
+			parent_project_name = parent_project_nameObj.toString();
+
+		Object meeting_nameObj = map.get("meeting_name");
+		if(meeting_nameObj != null)
+			meeting_name = meeting_nameObj.toString();
+
+		Object releaseObj = map.get("release");
+		if(releaseObj != null)
+			release = releaseObj.toString();
+
+		Object priorityObj = map.get("priority");
+		if(priorityObj != null)
+			priority = priorityObj.toString();
+
+		Object assign_date_strObj = map.get("assign_date_str");
+		if(assign_date_strObj != null)
+			assign_date_str = assign_date_strObj.toString();
+
+		Object assign_dateObj = map.get("assign_date");
+		if(assign_dateObj != null)
+			assign_date = new Long(assign_dateObj.toString());
+
+		Object completion_date_strObj = map.get("completion_date_str");
+		if(completion_date_strObj != null)
+			completion_date_str = completion_date_strObj.toString();
+
+		Object completion_dateObj = map.get("completion_date");
+		if(completion_dateObj != null)
+			completion_date = new Long(completion_dateObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1969,22 +2159,6 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetFrom_date() {
 		this.from_date = null;
-	}
-
-	public String getPriority() {
-		return priority;
-	}
-
-	public String getPriorityEx() {
-		return priority != null ? priority : "";
-	}
-
-	public void setPriority(String priority) {
-		this.priority = priority;
-	}
-
-	public void unSetPriority() {
-		this.priority = null;
 	}
 
 	public String getPhoto_url() {
@@ -3190,6 +3364,222 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetMessageType() {
 		this.messageType = null;
+	}
+
+	public String getProject_id() {
+		return project_id;
+	}
+
+	public String getProject_idEx() {
+		return project_id != null ? project_id : "";
+	}
+
+	public void setProject_id(String project_id) {
+		this.project_id = project_id;
+	}
+
+	public void unSetProject_id() {
+		this.project_id = null;
+	}
+
+	public String getProject_name() {
+		return project_name;
+	}
+
+	public String getProject_nameEx() {
+		return project_name != null ? project_name : "";
+	}
+
+	public void setProject_name(String project_name) {
+		this.project_name = project_name;
+	}
+
+	public void unSetProject_name() {
+		this.project_name = null;
+	}
+
+	public String getMeeting_id() {
+		return meeting_id;
+	}
+
+	public String getMeeting_idEx() {
+		return meeting_id != null ? meeting_id : "";
+	}
+
+	public void setMeeting_id(String meeting_id) {
+		this.meeting_id = meeting_id;
+	}
+
+	public void unSetMeeting_id() {
+		this.meeting_id = null;
+	}
+
+	public String getMom_id() {
+		return mom_id;
+	}
+
+	public String getMom_idEx() {
+		return mom_id != null ? mom_id : "";
+	}
+
+	public void setMom_id(String mom_id) {
+		this.mom_id = mom_id;
+	}
+
+	public void unSetMom_id() {
+		this.mom_id = null;
+	}
+
+	public String getParent_project_id() {
+		return parent_project_id;
+	}
+
+	public String getParent_project_idEx() {
+		return parent_project_id != null ? parent_project_id : "";
+	}
+
+	public void setParent_project_id(String parent_project_id) {
+		this.parent_project_id = parent_project_id;
+	}
+
+	public void unSetParent_project_id() {
+		this.parent_project_id = null;
+	}
+
+	public String getParent_project_name() {
+		return parent_project_name;
+	}
+
+	public String getParent_project_nameEx() {
+		return parent_project_name != null ? parent_project_name : "";
+	}
+
+	public void setParent_project_name(String parent_project_name) {
+		this.parent_project_name = parent_project_name;
+	}
+
+	public void unSetParent_project_name() {
+		this.parent_project_name = null;
+	}
+
+	public String getMeeting_name() {
+		return meeting_name;
+	}
+
+	public String getMeeting_nameEx() {
+		return meeting_name != null ? meeting_name : "";
+	}
+
+	public void setMeeting_name(String meeting_name) {
+		this.meeting_name = meeting_name;
+	}
+
+	public void unSetMeeting_name() {
+		this.meeting_name = null;
+	}
+
+	public String getRelease() {
+		return release;
+	}
+
+	public String getReleaseEx() {
+		return release != null ? release : "";
+	}
+
+	public void setRelease(String release) {
+		this.release = release;
+	}
+
+	public void unSetRelease() {
+		this.release = null;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public String getPriorityEx() {
+		return priority != null ? priority : "";
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
+	public void unSetPriority() {
+		this.priority = null;
+	}
+
+	public String getAssign_date_str() {
+		return assign_date_str;
+	}
+
+	public String getAssign_date_strEx() {
+		return assign_date_str != null ? assign_date_str : "";
+	}
+
+	public void setAssign_date_str(String assign_date_str) {
+		this.assign_date_str = assign_date_str;
+	}
+
+	public void unSetAssign_date_str() {
+		this.assign_date_str = null;
+	}
+
+	public Long getAssign_date() {
+		return assign_date;
+	}
+
+	public long getAssign_dateEx() {
+		return assign_date != null ? assign_date : 0L;
+	}
+
+	public void setAssign_date(long assign_date) {
+		this.assign_date = assign_date;
+	}
+
+	public void setAssign_date(Long assign_date) {
+		this.assign_date = assign_date;
+	}
+
+	public void unSetAssign_date() {
+		this.assign_date = null;
+	}
+
+	public String getCompletion_date_str() {
+		return completion_date_str;
+	}
+
+	public String getCompletion_date_strEx() {
+		return completion_date_str != null ? completion_date_str : "";
+	}
+
+	public void setCompletion_date_str(String completion_date_str) {
+		this.completion_date_str = completion_date_str;
+	}
+
+	public void unSetCompletion_date_str() {
+		this.completion_date_str = null;
+	}
+
+	public Long getCompletion_date() {
+		return completion_date;
+	}
+
+	public long getCompletion_dateEx() {
+		return completion_date != null ? completion_date : 0L;
+	}
+
+	public void setCompletion_date(long completion_date) {
+		this.completion_date = completion_date;
+	}
+
+	public void setCompletion_date(Long completion_date) {
+		this.completion_date = completion_date;
+	}
+
+	public void unSetCompletion_date() {
+		this.completion_date = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
