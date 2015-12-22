@@ -320,6 +320,56 @@
 				'type':'String',
 				'length': 128
 			},
+			'processor':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'harddisk':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'ram':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'graphics':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'os':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'display':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'adp':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'keyboard':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'bag':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'color':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'company_id':
 			{
 				'type':'String',

@@ -80,6 +80,16 @@ public abstract class Basec4t_object extends BaseResource {
 	private String block_id = null;
 	private String profession = null;
 	private String company_name = null;
+	private String processor = null;
+	private String harddisk = null;
+	private String ram = null;
+	private String graphics = null;
+	private String os = null;
+	private String display = null;
+	private String adp = null;
+	private String keyboard = null;
+	private String bag = null;
+	private String color = null;
 	private String company_id = null;
 	private String domain = null;
 	private String scheme_available = null;
@@ -202,6 +212,16 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_BLOCK_ID = "block_id";
 	public static String FIELD_PROFESSION = "profession";
 	public static String FIELD_COMPANY_NAME = "company_name";
+	public static String FIELD_PROCESSOR = "processor";
+	public static String FIELD_HARDDISK = "harddisk";
+	public static String FIELD_RAM = "ram";
+	public static String FIELD_GRAPHICS = "graphics";
+	public static String FIELD_OS = "os";
+	public static String FIELD_DISPLAY = "display";
+	public static String FIELD_ADP = "adp";
+	public static String FIELD_KEYBOARD = "keyboard";
+	public static String FIELD_BAG = "bag";
+	public static String FIELD_COLOR = "color";
 	public static String FIELD_COMPANY_ID = "company_id";
 	public static String FIELD_DOMAIN = "domain";
 	public static String FIELD_SCHEME_AVAILABLE = "scheme_available";
@@ -521,6 +541,46 @@ public abstract class Basec4t_object extends BaseResource {
 		company_nameField.setLength(128);
 		metaData.addField(company_nameField);
 
+		Field processorField = new Field("processor", "String");
+		processorField.setLength(128);
+		metaData.addField(processorField);
+
+		Field harddiskField = new Field("harddisk", "String");
+		harddiskField.setLength(128);
+		metaData.addField(harddiskField);
+
+		Field ramField = new Field("ram", "String");
+		ramField.setLength(128);
+		metaData.addField(ramField);
+
+		Field graphicsField = new Field("graphics", "String");
+		graphicsField.setLength(128);
+		metaData.addField(graphicsField);
+
+		Field osField = new Field("os", "String");
+		osField.setLength(128);
+		metaData.addField(osField);
+
+		Field displayField = new Field("display", "String");
+		displayField.setLength(128);
+		metaData.addField(displayField);
+
+		Field adpField = new Field("adp", "String");
+		adpField.setLength(128);
+		metaData.addField(adpField);
+
+		Field keyboardField = new Field("keyboard", "String");
+		keyboardField.setLength(128);
+		metaData.addField(keyboardField);
+
+		Field bagField = new Field("bag", "String");
+		bagField.setLength(128);
+		metaData.addField(bagField);
+
+		Field colorField = new Field("color", "String");
+		colorField.setLength(128);
+		metaData.addField(colorField);
+
 		Field company_idField = new Field("company_id", "String");
 		company_idField.setLength(128);
 		metaData.addField(company_idField);
@@ -813,6 +873,16 @@ public abstract class Basec4t_object extends BaseResource {
 		this.block_id = obj.block_id;
 		this.profession = obj.profession;
 		this.company_name = obj.company_name;
+		this.processor = obj.processor;
+		this.harddisk = obj.harddisk;
+		this.ram = obj.ram;
+		this.graphics = obj.graphics;
+		this.os = obj.os;
+		this.display = obj.display;
+		this.adp = obj.adp;
+		this.keyboard = obj.keyboard;
+		this.bag = obj.bag;
+		this.color = obj.color;
 		this.company_id = obj.company_id;
 		this.domain = obj.domain;
 		this.scheme_available = obj.scheme_available;
@@ -1003,6 +1073,26 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("profession", profession);
 		if(company_name != null)
 			map.put("company_name", company_name);
+		if(processor != null)
+			map.put("processor", processor);
+		if(harddisk != null)
+			map.put("harddisk", harddisk);
+		if(ram != null)
+			map.put("ram", ram);
+		if(graphics != null)
+			map.put("graphics", graphics);
+		if(os != null)
+			map.put("os", os);
+		if(display != null)
+			map.put("display", display);
+		if(adp != null)
+			map.put("adp", adp);
+		if(keyboard != null)
+			map.put("keyboard", keyboard);
+		if(bag != null)
+			map.put("bag", bag);
+		if(color != null)
+			map.put("color", color);
 		if(company_id != null)
 			map.put("company_id", company_id);
 		if(domain != null)
@@ -1250,6 +1340,26 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("profession", profession);
 		if(company_name != null)
 			map.put("company_name", company_name);
+		if(processor != null)
+			map.put("processor", processor);
+		if(harddisk != null)
+			map.put("harddisk", harddisk);
+		if(ram != null)
+			map.put("ram", ram);
+		if(graphics != null)
+			map.put("graphics", graphics);
+		if(os != null)
+			map.put("os", os);
+		if(display != null)
+			map.put("display", display);
+		if(adp != null)
+			map.put("adp", adp);
+		if(keyboard != null)
+			map.put("keyboard", keyboard);
+		if(bag != null)
+			map.put("bag", bag);
+		if(color != null)
+			map.put("color", color);
 		if(company_id != null)
 			map.put("company_id", company_id);
 		if(domain != null)
@@ -1441,6 +1551,16 @@ public abstract class Basec4t_object extends BaseResource {
 		block_id = (String) map.get("block_id");
 		profession = (String) map.get("profession");
 		company_name = (String) map.get("company_name");
+		processor = (String) map.get("processor");
+		harddisk = (String) map.get("harddisk");
+		ram = (String) map.get("ram");
+		graphics = (String) map.get("graphics");
+		os = (String) map.get("os");
+		display = (String) map.get("display");
+		adp = (String) map.get("adp");
+		keyboard = (String) map.get("keyboard");
+		bag = (String) map.get("bag");
+		color = (String) map.get("color");
 		company_id = (String) map.get("company_id");
 		domain = (String) map.get("domain");
 		scheme_available = (String) map.get("scheme_available");
@@ -1748,6 +1868,46 @@ public abstract class Basec4t_object extends BaseResource {
 		Object company_nameObj = map.get("company_name");
 		if(company_nameObj != null)
 			company_name = company_nameObj.toString();
+
+		Object processorObj = map.get("processor");
+		if(processorObj != null)
+			processor = processorObj.toString();
+
+		Object harddiskObj = map.get("harddisk");
+		if(harddiskObj != null)
+			harddisk = harddiskObj.toString();
+
+		Object ramObj = map.get("ram");
+		if(ramObj != null)
+			ram = ramObj.toString();
+
+		Object graphicsObj = map.get("graphics");
+		if(graphicsObj != null)
+			graphics = graphicsObj.toString();
+
+		Object osObj = map.get("os");
+		if(osObj != null)
+			os = osObj.toString();
+
+		Object displayObj = map.get("display");
+		if(displayObj != null)
+			display = displayObj.toString();
+
+		Object adpObj = map.get("adp");
+		if(adpObj != null)
+			adp = adpObj.toString();
+
+		Object keyboardObj = map.get("keyboard");
+		if(keyboardObj != null)
+			keyboard = keyboardObj.toString();
+
+		Object bagObj = map.get("bag");
+		if(bagObj != null)
+			bag = bagObj.toString();
+
+		Object colorObj = map.get("color");
+		if(colorObj != null)
+			color = colorObj.toString();
 
 		Object company_idObj = map.get("company_id");
 		if(company_idObj != null)
@@ -2982,6 +3142,166 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetCompany_name() {
 		this.company_name = null;
+	}
+
+	public String getProcessor() {
+		return processor;
+	}
+
+	public String getProcessorEx() {
+		return processor != null ? processor : "";
+	}
+
+	public void setProcessor(String processor) {
+		this.processor = processor;
+	}
+
+	public void unSetProcessor() {
+		this.processor = null;
+	}
+
+	public String getHarddisk() {
+		return harddisk;
+	}
+
+	public String getHarddiskEx() {
+		return harddisk != null ? harddisk : "";
+	}
+
+	public void setHarddisk(String harddisk) {
+		this.harddisk = harddisk;
+	}
+
+	public void unSetHarddisk() {
+		this.harddisk = null;
+	}
+
+	public String getRam() {
+		return ram;
+	}
+
+	public String getRamEx() {
+		return ram != null ? ram : "";
+	}
+
+	public void setRam(String ram) {
+		this.ram = ram;
+	}
+
+	public void unSetRam() {
+		this.ram = null;
+	}
+
+	public String getGraphics() {
+		return graphics;
+	}
+
+	public String getGraphicsEx() {
+		return graphics != null ? graphics : "";
+	}
+
+	public void setGraphics(String graphics) {
+		this.graphics = graphics;
+	}
+
+	public void unSetGraphics() {
+		this.graphics = null;
+	}
+
+	public String getOs() {
+		return os;
+	}
+
+	public String getOsEx() {
+		return os != null ? os : "";
+	}
+
+	public void setOs(String os) {
+		this.os = os;
+	}
+
+	public void unSetOs() {
+		this.os = null;
+	}
+
+	public String getDisplay() {
+		return display;
+	}
+
+	public String getDisplayEx() {
+		return display != null ? display : "";
+	}
+
+	public void setDisplay(String display) {
+		this.display = display;
+	}
+
+	public void unSetDisplay() {
+		this.display = null;
+	}
+
+	public String getAdp() {
+		return adp;
+	}
+
+	public String getAdpEx() {
+		return adp != null ? adp : "";
+	}
+
+	public void setAdp(String adp) {
+		this.adp = adp;
+	}
+
+	public void unSetAdp() {
+		this.adp = null;
+	}
+
+	public String getKeyboard() {
+		return keyboard;
+	}
+
+	public String getKeyboardEx() {
+		return keyboard != null ? keyboard : "";
+	}
+
+	public void setKeyboard(String keyboard) {
+		this.keyboard = keyboard;
+	}
+
+	public void unSetKeyboard() {
+		this.keyboard = null;
+	}
+
+	public String getBag() {
+		return bag;
+	}
+
+	public String getBagEx() {
+		return bag != null ? bag : "";
+	}
+
+	public void setBag(String bag) {
+		this.bag = bag;
+	}
+
+	public void unSetBag() {
+		this.bag = null;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public String getColorEx() {
+		return color != null ? color : "";
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void unSetColor() {
+		this.color = null;
 	}
 
 	public String getCompany_id() {
