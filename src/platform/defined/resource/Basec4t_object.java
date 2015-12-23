@@ -41,6 +41,11 @@ public abstract class Basec4t_object extends BaseResource {
 	private String food_habit = null;
 	private String dorm_bed_no = null;
 	private String license_no = null;
+	private String product_thumbnail_url = null;
+	private String product_url1 = null;
+	private String product_url2 = null;
+	private String product_url3 = null;
+	private String product_url4 = null;
 	private String url = null;
 	private String school_url = null;
 	private String brand_id = null;
@@ -173,6 +178,11 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FOOD_HABIT = "food_habit";
 	public static String FIELD_DORM_BED_NO = "dorm_bed_no";
 	public static String FIELD_LICENSE_NO = "license_no";
+	public static String FIELD_PRODUCT_THUMBNAIL_URL = "product_thumbnail_url";
+	public static String FIELD_PRODUCT_URL1 = "product_url1";
+	public static String FIELD_PRODUCT_URL2 = "product_url2";
+	public static String FIELD_PRODUCT_URL3 = "product_url3";
+	public static String FIELD_PRODUCT_URL4 = "product_url4";
 	public static String FIELD_URL = "url";
 	public static String FIELD_SCHOOL_URL = "school_url";
 	public static String FIELD_BRAND_ID = "brand_id";
@@ -380,6 +390,26 @@ public abstract class Basec4t_object extends BaseResource {
 		Field license_noField = new Field("license_no", "String");
 		license_noField.setLength(128);
 		metaData.addField(license_noField);
+
+		Field product_thumbnail_urlField = new Field("product_thumbnail_url", "String");
+		product_thumbnail_urlField.setLength(128);
+		metaData.addField(product_thumbnail_urlField);
+
+		Field product_url1Field = new Field("product_url1", "String");
+		product_url1Field.setLength(128);
+		metaData.addField(product_url1Field);
+
+		Field product_url2Field = new Field("product_url2", "String");
+		product_url2Field.setLength(128);
+		metaData.addField(product_url2Field);
+
+		Field product_url3Field = new Field("product_url3", "String");
+		product_url3Field.setLength(128);
+		metaData.addField(product_url3Field);
+
+		Field product_url4Field = new Field("product_url4", "String");
+		product_url4Field.setLength(128);
+		metaData.addField(product_url4Field);
 
 		Field urlField = new Field("url", "String");
 		urlField.setLength(128);
@@ -834,6 +864,11 @@ public abstract class Basec4t_object extends BaseResource {
 		this.food_habit = obj.food_habit;
 		this.dorm_bed_no = obj.dorm_bed_no;
 		this.license_no = obj.license_no;
+		this.product_thumbnail_url = obj.product_thumbnail_url;
+		this.product_url1 = obj.product_url1;
+		this.product_url2 = obj.product_url2;
+		this.product_url3 = obj.product_url3;
+		this.product_url4 = obj.product_url4;
 		this.url = obj.url;
 		this.school_url = obj.school_url;
 		this.brand_id = obj.brand_id;
@@ -995,6 +1030,16 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("dorm_bed_no", dorm_bed_no);
 		if(license_no != null)
 			map.put("license_no", license_no);
+		if(product_thumbnail_url != null)
+			map.put("product_thumbnail_url", product_thumbnail_url);
+		if(product_url1 != null)
+			map.put("product_url1", product_url1);
+		if(product_url2 != null)
+			map.put("product_url2", product_url2);
+		if(product_url3 != null)
+			map.put("product_url3", product_url3);
+		if(product_url4 != null)
+			map.put("product_url4", product_url4);
 		if(url != null)
 			map.put("url", url);
 		if(school_url != null)
@@ -1262,6 +1307,16 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("dorm_bed_no", dorm_bed_no);
 		if(license_no != null)
 			map.put("license_no", license_no);
+		if(product_thumbnail_url != null)
+			map.put("product_thumbnail_url", product_thumbnail_url);
+		if(product_url1 != null)
+			map.put("product_url1", product_url1);
+		if(product_url2 != null)
+			map.put("product_url2", product_url2);
+		if(product_url3 != null)
+			map.put("product_url3", product_url3);
+		if(product_url4 != null)
+			map.put("product_url4", product_url4);
 		if(url != null)
 			map.put("url", url);
 		if(school_url != null)
@@ -1512,6 +1567,11 @@ public abstract class Basec4t_object extends BaseResource {
 		food_habit = (String) map.get("food_habit");
 		dorm_bed_no = (String) map.get("dorm_bed_no");
 		license_no = (String) map.get("license_no");
+		product_thumbnail_url = (String) map.get("product_thumbnail_url");
+		product_url1 = (String) map.get("product_url1");
+		product_url2 = (String) map.get("product_url2");
+		product_url3 = (String) map.get("product_url3");
+		product_url4 = (String) map.get("product_url4");
 		url = (String) map.get("url");
 		school_url = (String) map.get("school_url");
 		brand_id = (String) map.get("brand_id");
@@ -1712,6 +1772,26 @@ public abstract class Basec4t_object extends BaseResource {
 		Object license_noObj = map.get("license_no");
 		if(license_noObj != null)
 			license_no = license_noObj.toString();
+
+		Object product_thumbnail_urlObj = map.get("product_thumbnail_url");
+		if(product_thumbnail_urlObj != null)
+			product_thumbnail_url = product_thumbnail_urlObj.toString();
+
+		Object product_url1Obj = map.get("product_url1");
+		if(product_url1Obj != null)
+			product_url1 = product_url1Obj.toString();
+
+		Object product_url2Obj = map.get("product_url2");
+		if(product_url2Obj != null)
+			product_url2 = product_url2Obj.toString();
+
+		Object product_url3Obj = map.get("product_url3");
+		if(product_url3Obj != null)
+			product_url3 = product_url3Obj.toString();
+
+		Object product_url4Obj = map.get("product_url4");
+		if(product_url4Obj != null)
+			product_url4 = product_url4Obj.toString();
 
 		Object urlObj = map.get("url");
 		if(urlObj != null)
@@ -2514,6 +2594,86 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetLicense_no() {
 		this.license_no = null;
+	}
+
+	public String getProduct_thumbnail_url() {
+		return product_thumbnail_url;
+	}
+
+	public String getProduct_thumbnail_urlEx() {
+		return product_thumbnail_url != null ? product_thumbnail_url : "";
+	}
+
+	public void setProduct_thumbnail_url(String product_thumbnail_url) {
+		this.product_thumbnail_url = product_thumbnail_url;
+	}
+
+	public void unSetProduct_thumbnail_url() {
+		this.product_thumbnail_url = null;
+	}
+
+	public String getProduct_url1() {
+		return product_url1;
+	}
+
+	public String getProduct_url1Ex() {
+		return product_url1 != null ? product_url1 : "";
+	}
+
+	public void setProduct_url1(String product_url1) {
+		this.product_url1 = product_url1;
+	}
+
+	public void unSetProduct_url1() {
+		this.product_url1 = null;
+	}
+
+	public String getProduct_url2() {
+		return product_url2;
+	}
+
+	public String getProduct_url2Ex() {
+		return product_url2 != null ? product_url2 : "";
+	}
+
+	public void setProduct_url2(String product_url2) {
+		this.product_url2 = product_url2;
+	}
+
+	public void unSetProduct_url2() {
+		this.product_url2 = null;
+	}
+
+	public String getProduct_url3() {
+		return product_url3;
+	}
+
+	public String getProduct_url3Ex() {
+		return product_url3 != null ? product_url3 : "";
+	}
+
+	public void setProduct_url3(String product_url3) {
+		this.product_url3 = product_url3;
+	}
+
+	public void unSetProduct_url3() {
+		this.product_url3 = null;
+	}
+
+	public String getProduct_url4() {
+		return product_url4;
+	}
+
+	public String getProduct_url4Ex() {
+		return product_url4 != null ? product_url4 : "";
+	}
+
+	public void setProduct_url4(String product_url4) {
+		this.product_url4 = product_url4;
+	}
+
+	public void unSetProduct_url4() {
+		this.product_url4 = null;
 	}
 
 	public String getUrl() {
