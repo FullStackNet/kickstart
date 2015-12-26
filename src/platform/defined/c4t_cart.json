@@ -11,6 +11,12 @@
 				'type':'String',
 				"remark" : "from id and relation type"
 			},
+			'company_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
 			'community_id':
 			{
 				'length': 128,

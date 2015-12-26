@@ -20,6 +20,7 @@ import java.util.*;
  */
 public abstract class Basec4t_cart extends BaseResource {
 	private String id = null;
+	private String company_id = null;
 	private String community_id = null;
 	private String name = null;
 	private String photo_url = null;
@@ -47,6 +48,7 @@ public abstract class Basec4t_cart extends BaseResource {
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_COMPANY_ID = "company_id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_PHOTO_URL = "photo_url";
@@ -83,6 +85,11 @@ public abstract class Basec4t_cart extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field company_idField = new Field("company_id", "String");
+		company_idField.setRequired(true);
+		company_idField.setLength(128);
+		metaData.addField(company_idField);
 
 		Field community_idField = new Field("community_id", "String");
 		community_idField.setRequired(true);
@@ -188,6 +195,7 @@ public abstract class Basec4t_cart extends BaseResource {
 
 	public Basec4t_cart(Basec4t_cart obj) {
 		this.id = obj.id;
+		this.company_id = obj.company_id;
 		this.community_id = obj.community_id;
 		this.name = obj.name;
 		this.photo_url = obj.photo_url;
@@ -223,6 +231,8 @@ public abstract class Basec4t_cart extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(company_id != null)
+			map.put("company_id", company_id);
 		if(community_id != null)
 			map.put("community_id", community_id);
 		if(name != null)
@@ -280,6 +290,8 @@ public abstract class Basec4t_cart extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(validateCompany_id(add))
+			map.put("company_id", company_id);
 		if(validateCommunity_id(add))
 			map.put("community_id", community_id);
 		if(name != null)
@@ -341,6 +353,7 @@ public abstract class Basec4t_cart extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		company_id = (String) map.get("company_id");
 		community_id = (String) map.get("community_id");
 		name = (String) map.get("name");
 		photo_url = (String) map.get("photo_url");
@@ -373,6 +386,10 @@ public abstract class Basec4t_cart extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object company_idObj = map.get("company_id");
+		if(company_idObj != null)
+			company_id = company_idObj.toString();
 
 		Object community_idObj = map.get("community_id");
 		if(community_idObj != null)
@@ -496,6 +513,28 @@ public abstract class Basec4t_cart extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getCompany_id() {
+		return company_id;
+	}
+
+	public String getCompany_idEx() {
+		return company_id != null ? company_id : "";
+	}
+
+	public void setCompany_id(String company_id) {
+		this.company_id = company_id;
+	}
+
+	public void unSetCompany_id() {
+		this.company_id = null;
+	}
+
+	public boolean validateCompany_id(boolean add) throws ApplicationException {
+		if(add && company_id == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[company_id]");
+		return company_id != null;
 	}
 
 	public String getCommunity_id() {
