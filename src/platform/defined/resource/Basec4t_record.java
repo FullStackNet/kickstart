@@ -71,6 +71,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String zip_code = null;
 	private String land_mark = null;
 	private String company_name = null;
+	private String company_short_name = null;
 	private String all = null;
 	private String record_status = null;
 	private String designation = null;
@@ -183,6 +184,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_ZIP_CODE = "zip_code";
 	public static String FIELD_LAND_MARK = "land_mark";
 	public static String FIELD_COMPANY_NAME = "company_name";
+	public static String FIELD_COMPANY_SHORT_NAME = "company_short_name";
 	public static String FIELD_ALL = "all";
 	public static String FIELD_RECORD_STATUS = "record_status";
 	public static String FIELD_DESIGNATION = "designation";
@@ -472,6 +474,10 @@ public abstract class Basec4t_record extends BaseResource {
 		company_nameField.setLength(128);
 		metaData.addField(company_nameField);
 
+		Field company_short_nameField = new Field("company_short_name", "String");
+		company_short_nameField.setLength(128);
+		metaData.addField(company_short_nameField);
+
 		Field allField = new Field("all", "String");
 		allField.setLength(1);
 		metaData.addField(allField);
@@ -745,6 +751,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.zip_code = obj.zip_code;
 		this.land_mark = obj.land_mark;
 		this.company_name = obj.company_name;
+		this.company_short_name = obj.company_short_name;
 		this.all = obj.all;
 		this.record_status = obj.record_status;
 		this.designation = obj.designation;
@@ -929,6 +936,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("land_mark", land_mark);
 		if(company_name != null)
 			map.put("company_name", company_name);
+		if(company_short_name != null)
+			map.put("company_short_name", company_short_name);
 		if(all != null)
 			map.put("all", all);
 		if(record_status != null)
@@ -1159,6 +1168,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("land_mark", land_mark);
 		if(company_name != null)
 			map.put("company_name", company_name);
+		if(company_short_name != null)
+			map.put("company_short_name", company_short_name);
 		if(all != null)
 			map.put("all", all);
 		if(record_status != null)
@@ -1339,6 +1350,7 @@ public abstract class Basec4t_record extends BaseResource {
 		zip_code = (String) map.get("zip_code");
 		land_mark = (String) map.get("land_mark");
 		company_name = (String) map.get("company_name");
+		company_short_name = (String) map.get("company_short_name");
 		all = (String) map.get("all");
 		record_status = (String) map.get("record_status");
 		designation = (String) map.get("designation");
@@ -1609,6 +1621,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object company_nameObj = map.get("company_name");
 		if(company_nameObj != null)
 			company_name = company_nameObj.toString();
+
+		Object company_short_nameObj = map.get("company_short_name");
+		if(company_short_nameObj != null)
+			company_short_name = company_short_nameObj.toString();
 
 		Object allObj = map.get("all");
 		if(allObj != null)
@@ -2687,6 +2703,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetCompany_name() {
 		this.company_name = null;
+	}
+
+	public String getCompany_short_name() {
+		return company_short_name;
+	}
+
+	public String getCompany_short_nameEx() {
+		return company_short_name != null ? company_short_name : "";
+	}
+
+	public void setCompany_short_name(String company_short_name) {
+		this.company_short_name = company_short_name;
+	}
+
+	public void unSetCompany_short_name() {
+		this.company_short_name = null;
 	}
 
 	public String getAll() {

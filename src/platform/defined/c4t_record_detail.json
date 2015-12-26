@@ -55,6 +55,11 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'product_short_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'title':
 			{
 				'length': 512,

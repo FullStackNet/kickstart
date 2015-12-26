@@ -28,6 +28,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String message = null;
 	private String product_id = null;
 	private String product_name = null;
+	private String product_short_name = null;
 	private String title = null;
 	private String description = null;
 	private String mom_id = null;
@@ -53,6 +54,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_MESSAGE = "message";
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
+	public static String FIELD_PRODUCT_SHORT_NAME = "product_short_name";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_MOM_ID = "mom_id";
@@ -114,6 +116,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Field product_nameField = new Field("product_name", "String");
 		product_nameField.setLength(512);
 		metaData.addField(product_nameField);
+
+		Field product_short_nameField = new Field("product_short_name", "String");
+		product_short_nameField.setLength(512);
+		metaData.addField(product_short_nameField);
 
 		Field titleField = new Field("title", "String");
 		titleField.setLength(512);
@@ -186,6 +192,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.message = obj.message;
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
+		this.product_short_name = obj.product_short_name;
 		this.title = obj.title;
 		this.description = obj.description;
 		this.mom_id = obj.mom_id;
@@ -227,6 +234,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(product_short_name != null)
+			map.put("product_short_name", product_short_name);
 		if(title != null)
 			map.put("title", title);
 		if(description != null)
@@ -280,6 +289,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(product_short_name != null)
+			map.put("product_short_name", product_short_name);
 		if(title != null)
 			map.put("title", title);
 		if(description != null)
@@ -329,6 +340,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		message = (String) map.get("message");
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
+		product_short_name = (String) map.get("product_short_name");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
 		mom_id = (String) map.get("mom_id");
@@ -383,6 +395,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object product_nameObj = map.get("product_name");
 		if(product_nameObj != null)
 			product_name = product_nameObj.toString();
+
+		Object product_short_nameObj = map.get("product_short_name");
+		if(product_short_nameObj != null)
+			product_short_name = product_short_nameObj.toString();
 
 		Object titleObj = map.get("title");
 		if(titleObj != null)
@@ -597,6 +613,22 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetProduct_name() {
 		this.product_name = null;
+	}
+
+	public String getProduct_short_name() {
+		return product_short_name;
+	}
+
+	public String getProduct_short_nameEx() {
+		return product_short_name != null ? product_short_name : "";
+	}
+
+	public void setProduct_short_name(String product_short_name) {
+		this.product_short_name = product_short_name;
+	}
+
+	public void unSetProduct_short_name() {
+		this.product_short_name = null;
 	}
 
 	public String getTitle() {
