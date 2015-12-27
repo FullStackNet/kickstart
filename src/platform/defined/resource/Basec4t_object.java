@@ -83,6 +83,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_dealer_management = null;
 	private Integer no_of_flats = null;
 	private String block_id = null;
+	private String mentor = null;
+	private String mentor_id = null;
 	private String profession = null;
 	private String company_name = null;
 	private String processor = null;
@@ -220,6 +222,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_DEALER_MANAGEMENT = "feature_dealer_management";
 	public static String FIELD_NO_OF_FLATS = "no_of_flats";
 	public static String FIELD_BLOCK_ID = "block_id";
+	public static String FIELD_MENTOR = "mentor";
+	public static String FIELD_MENTOR_ID = "mentor_id";
 	public static String FIELD_PROFESSION = "profession";
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_PROCESSOR = "processor";
@@ -562,6 +566,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Field block_idField = new Field("block_id", "String");
 		block_idField.setLength(80);
 		metaData.addField(block_idField);
+
+		Field mentorField = new Field("mentor", "String");
+		mentorField.setLength(1);
+		metaData.addField(mentorField);
+
+		Field mentor_idField = new Field("mentor_id", "String");
+		mentor_idField.setLength(1);
+		metaData.addField(mentor_idField);
 
 		Field professionField = new Field("profession", "String");
 		professionField.setLength(80);
@@ -906,6 +918,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_dealer_management = obj.feature_dealer_management;
 		this.no_of_flats = obj.no_of_flats;
 		this.block_id = obj.block_id;
+		this.mentor = obj.mentor;
+		this.mentor_id = obj.mentor_id;
 		this.profession = obj.profession;
 		this.company_name = obj.company_name;
 		this.processor = obj.processor;
@@ -1114,6 +1128,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("no_of_flats", no_of_flats);
 		if(block_id != null)
 			map.put("block_id", block_id);
+		if(mentor != null)
+			map.put("mentor", mentor);
+		if(mentor_id != null)
+			map.put("mentor_id", mentor_id);
 		if(profession != null)
 			map.put("profession", profession);
 		if(company_name != null)
@@ -1391,6 +1409,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("no_of_flats", no_of_flats);
 		if(block_id != null)
 			map.put("block_id", block_id);
+		if(mentor != null)
+			map.put("mentor", mentor);
+		if(mentor_id != null)
+			map.put("mentor_id", mentor_id);
 		if(profession != null)
 			map.put("profession", profession);
 		if(company_name != null)
@@ -1609,6 +1631,8 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_dealer_management = (String) map.get("feature_dealer_management");
 		no_of_flats = (Integer) map.get("no_of_flats");
 		block_id = (String) map.get("block_id");
+		mentor = (String) map.get("mentor");
+		mentor_id = (String) map.get("mentor_id");
 		profession = (String) map.get("profession");
 		company_name = (String) map.get("company_name");
 		processor = (String) map.get("processor");
@@ -1940,6 +1964,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object block_idObj = map.get("block_id");
 		if(block_idObj != null)
 			block_id = block_idObj.toString();
+
+		Object mentorObj = map.get("mentor");
+		if(mentorObj != null)
+			mentor = mentorObj.toString();
+
+		Object mentor_idObj = map.get("mentor_id");
+		if(mentor_idObj != null)
+			mentor_id = mentor_idObj.toString();
 
 		Object professionObj = map.get("profession");
 		if(professionObj != null)
@@ -3270,6 +3302,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetBlock_id() {
 		this.block_id = null;
+	}
+
+	public String getMentor() {
+		return mentor;
+	}
+
+	public String getMentorEx() {
+		return mentor != null ? mentor : "";
+	}
+
+	public void setMentor(String mentor) {
+		this.mentor = mentor;
+	}
+
+	public void unSetMentor() {
+		this.mentor = null;
+	}
+
+	public String getMentor_id() {
+		return mentor_id;
+	}
+
+	public String getMentor_idEx() {
+		return mentor_id != null ? mentor_id : "";
+	}
+
+	public void setMentor_id(String mentor_id) {
+		this.mentor_id = mentor_id;
+	}
+
+	public void unSetMentor_id() {
+		this.mentor_id = null;
 	}
 
 	public String getProfession() {

@@ -335,6 +335,16 @@
 				'type':'String',
 				'length': 80
 			},
+			'mentor':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'mentor_id':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'profession':
 			{
 				'type':'String',
