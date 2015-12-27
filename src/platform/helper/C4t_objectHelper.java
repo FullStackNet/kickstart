@@ -62,6 +62,15 @@ public class C4t_objectHelper extends BaseHelper {
 		return getByExpression(e,orderby);
 	}
 	
+	public BaseResource[] getMentors(String community_id, String[] orderby) {
+		Expression e1 = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, "COMMUNITY_MEMBER");
+		Expression e2 = new Expression(c4t_object.FIELD_COMMUNITY_ID, REL_OP.EQ, community_id);
+		Expression e3 = new Expression(c4t_object.FIELD_MENTOR, REL_OP.EQ, "Y");
+		Expression e4 = new Expression(e1, LOG_OP.AND, e2);
+		Expression e = new Expression(e3, LOG_OP.AND, e4);
+		return getByExpression(e,orderby);
+	}
+	
 	public BaseResource[] getByRelation(String[] from_ids, String relation_type) {
 		String[] ids = C4t_relationHelper.getInstance().getByRelationMap(from_ids, relation_type);
 		if (Util.isEmpty(ids)) {

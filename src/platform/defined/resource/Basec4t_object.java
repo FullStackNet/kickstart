@@ -85,6 +85,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String block_id = null;
 	private String mentor = null;
 	private String mentor_id = null;
+	private String mentor_name = null;
 	private String profession = null;
 	private String company_name = null;
 	private String processor = null;
@@ -224,6 +225,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_BLOCK_ID = "block_id";
 	public static String FIELD_MENTOR = "mentor";
 	public static String FIELD_MENTOR_ID = "mentor_id";
+	public static String FIELD_MENTOR_NAME = "mentor_name";
 	public static String FIELD_PROFESSION = "profession";
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_PROCESSOR = "processor";
@@ -575,6 +577,10 @@ public abstract class Basec4t_object extends BaseResource {
 		mentor_idField.setLength(1);
 		metaData.addField(mentor_idField);
 
+		Field mentor_nameField = new Field("mentor_name", "String");
+		mentor_nameField.setLength(1);
+		metaData.addField(mentor_nameField);
+
 		Field professionField = new Field("profession", "String");
 		professionField.setLength(80);
 		metaData.addField(professionField);
@@ -920,6 +926,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.block_id = obj.block_id;
 		this.mentor = obj.mentor;
 		this.mentor_id = obj.mentor_id;
+		this.mentor_name = obj.mentor_name;
 		this.profession = obj.profession;
 		this.company_name = obj.company_name;
 		this.processor = obj.processor;
@@ -1132,6 +1139,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("mentor", mentor);
 		if(mentor_id != null)
 			map.put("mentor_id", mentor_id);
+		if(mentor_name != null)
+			map.put("mentor_name", mentor_name);
 		if(profession != null)
 			map.put("profession", profession);
 		if(company_name != null)
@@ -1413,6 +1422,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("mentor", mentor);
 		if(mentor_id != null)
 			map.put("mentor_id", mentor_id);
+		if(mentor_name != null)
+			map.put("mentor_name", mentor_name);
 		if(profession != null)
 			map.put("profession", profession);
 		if(company_name != null)
@@ -1633,6 +1644,7 @@ public abstract class Basec4t_object extends BaseResource {
 		block_id = (String) map.get("block_id");
 		mentor = (String) map.get("mentor");
 		mentor_id = (String) map.get("mentor_id");
+		mentor_name = (String) map.get("mentor_name");
 		profession = (String) map.get("profession");
 		company_name = (String) map.get("company_name");
 		processor = (String) map.get("processor");
@@ -1972,6 +1984,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object mentor_idObj = map.get("mentor_id");
 		if(mentor_idObj != null)
 			mentor_id = mentor_idObj.toString();
+
+		Object mentor_nameObj = map.get("mentor_name");
+		if(mentor_nameObj != null)
+			mentor_name = mentor_nameObj.toString();
 
 		Object professionObj = map.get("profession");
 		if(professionObj != null)
@@ -3334,6 +3350,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetMentor_id() {
 		this.mentor_id = null;
+	}
+
+	public String getMentor_name() {
+		return mentor_name;
+	}
+
+	public String getMentor_nameEx() {
+		return mentor_name != null ? mentor_name : "";
+	}
+
+	public void setMentor_name(String mentor_name) {
+		this.mentor_name = mentor_name;
+	}
+
+	public void unSetMentor_name() {
+		this.mentor_name = null;
 	}
 
 	public String getProfession() {

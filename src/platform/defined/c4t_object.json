@@ -345,6 +345,11 @@
 				'type':'String',
 				'length': 1
 			},
+			'mentor_name':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'profession':
 			{
 				'type':'String',
