@@ -98,7 +98,16 @@ public class InviteService extends BaseService{
 		if (_invite.getMobile_no() != null) {
 			SendSMS smsMessage = new SendSMS();
 			smsMessage.setMobile_no(_invite.getMobile_no());
-			smsMessage.setType(ApplicationConstants.SMS_TYPE_COMMUNITY_INVITE);
+			if (_community.getType().equals("BUSINESS")) {
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_COMMUNITY_INVITE_BUSINESS);
+			} else 	if (_community.getType().equals("SOCIAL")) {
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_COMMUNITY_INVITE_SOCIAL);
+			} else 	if (_community.getType().equals("SPIRITUAL")) {
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_COMMUNITY_INVITE_SPIRITUAL);
+			} else {
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_COMMUNITY_INVITE);
+			}
+			
 			Map<String, String> smsMap = new HashMap<String, String>();
 			smsMap.put("NAME", _invite.getName());
 			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
