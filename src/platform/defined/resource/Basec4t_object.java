@@ -113,6 +113,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_sms_order = null;
 	private String feature_send_account_manager_sms = null;
 	private String feature_order_sms = null;
+	private Double current_stock = null;
 	private Double mrp_price = null;
 	private Double service_tax = null;
 	private Double service_charges = null;
@@ -253,6 +254,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_SMS_ORDER = "feature_sms_order";
 	public static String FIELD_FEATURE_SEND_ACCOUNT_MANAGER_SMS = "feature_send_account_manager_sms";
 	public static String FIELD_FEATURE_ORDER_SMS = "feature_order_sms";
+	public static String FIELD_CURRENT_STOCK = "current_stock";
 	public static String FIELD_MRP_PRICE = "mrp_price";
 	public static String FIELD_SERVICE_TAX = "service_tax";
 	public static String FIELD_SERVICE_CHARGES = "service_charges";
@@ -689,6 +691,9 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_order_smsField.setLength(1);
 		metaData.addField(feature_order_smsField);
 
+		Field current_stockField = new Field("current_stock", "double");
+		metaData.addField(current_stockField);
+
 		Field mrp_priceField = new Field("mrp_price", "double");
 		metaData.addField(mrp_priceField);
 
@@ -954,6 +959,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_sms_order = obj.feature_sms_order;
 		this.feature_send_account_manager_sms = obj.feature_send_account_manager_sms;
 		this.feature_order_sms = obj.feature_order_sms;
+		this.current_stock = obj.current_stock;
 		this.mrp_price = obj.mrp_price;
 		this.service_tax = obj.service_tax;
 		this.service_charges = obj.service_charges;
@@ -1195,6 +1201,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_account_manager_sms", feature_send_account_manager_sms);
 		if(feature_order_sms != null)
 			map.put("feature_order_sms", feature_order_sms);
+		if(current_stock != null)
+			map.put("current_stock", current_stock);
 		if(mrp_price != null)
 			map.put("mrp_price", mrp_price);
 		if(service_tax != null)
@@ -1478,6 +1486,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_account_manager_sms", feature_send_account_manager_sms);
 		if(feature_order_sms != null)
 			map.put("feature_order_sms", feature_order_sms);
+		if(current_stock != null)
+			map.put("current_stock", current_stock);
 		if(mrp_price != null)
 			map.put("mrp_price", mrp_price);
 		if(service_tax != null)
@@ -1672,6 +1682,7 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_sms_order = (String) map.get("feature_sms_order");
 		feature_send_account_manager_sms = (String) map.get("feature_send_account_manager_sms");
 		feature_order_sms = (String) map.get("feature_order_sms");
+		current_stock = (Double) map.get("current_stock");
 		mrp_price = (Double) map.get("mrp_price");
 		service_tax = (Double) map.get("service_tax");
 		service_charges = (Double) map.get("service_charges");
@@ -2096,6 +2107,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_order_smsObj = map.get("feature_order_sms");
 		if(feature_order_smsObj != null)
 			feature_order_sms = feature_order_smsObj.toString();
+
+		Object current_stockObj = map.get("current_stock");
+		if(current_stockObj != null)
+			current_stock = new Double(current_stockObj.toString());
 
 		Object mrp_priceObj = map.get("mrp_price");
 		if(mrp_priceObj != null)
@@ -3798,6 +3813,26 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_order_sms() {
 		this.feature_order_sms = null;
+	}
+
+	public Double getCurrent_stock() {
+		return current_stock;
+	}
+
+	public double getCurrent_stockEx() {
+		return current_stock != null ? current_stock : 0;
+	}
+
+	public void setCurrent_stock(double current_stock) {
+		this.current_stock = current_stock;
+	}
+
+	public void setCurrent_stock(Double current_stock) {
+		this.current_stock = current_stock;
+	}
+
+	public void unSetCurrent_stock() {
+		this.current_stock = null;
 	}
 
 	public Double getMrp_price() {

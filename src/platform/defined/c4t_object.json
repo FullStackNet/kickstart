@@ -485,6 +485,10 @@
 				'type':'String',
 				'length': 1
 			},
+			'current_stock':
+			{
+				'type':'double'
+			},
 			'mrp_price':
 			{
 				'type':'double'
