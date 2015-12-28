@@ -62,6 +62,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_COMMUNITY_ADMIN_USERNAME = "community_admin_username";
 	public static String PROPERTY_COMMUNITY_ADMIN_PASSWORD = "community_admin_password";
 	public static String PROPERTY_COMMUNITY_SERVER_URL = "community_server_url";
+	public static String PROPERTY_COMMUNITY_PRINT_FORMAT = "print_format";
 	public static String PROPERTY_PRINT = "print";
 	public static String PROPERTY_PRINT_RECORD_COUNT = "print_record_count";
 	public static String PROPERTY_USERNAME = "username";

@@ -19,7 +19,7 @@ public class GlobalDataManager {
 	String power_priority;
 	String id;
 	
-
+	
 	boolean ready;
 	boolean registered;
 	boolean connected;
