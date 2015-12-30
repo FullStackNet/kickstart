@@ -108,6 +108,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_send_sms = null;
 	private String feature_send_email = null;
 	private String feature_printer = null;
+	private String feature_direct_print = null;
 	private String account_manager_name = null;
 	private String account_manager_no = null;
 	private String feature_sms_order = null;
@@ -249,6 +250,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_SEND_SMS = "feature_send_sms";
 	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
 	public static String FIELD_FEATURE_PRINTER = "feature_printer";
+	public static String FIELD_FEATURE_DIRECT_PRINT = "feature_direct_print";
 	public static String FIELD_ACCOUNT_MANAGER_NAME = "account_manager_name";
 	public static String FIELD_ACCOUNT_MANAGER_NO = "account_manager_no";
 	public static String FIELD_FEATURE_SMS_ORDER = "feature_sms_order";
@@ -671,6 +673,10 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_printerField.setLength(1);
 		metaData.addField(feature_printerField);
 
+		Field feature_direct_printField = new Field("feature_direct_print", "String");
+		feature_direct_printField.setLength(1);
+		metaData.addField(feature_direct_printField);
+
 		Field account_manager_nameField = new Field("account_manager_name", "String");
 		account_manager_nameField.setLength(128);
 		metaData.addField(account_manager_nameField);
@@ -954,6 +960,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_send_sms = obj.feature_send_sms;
 		this.feature_send_email = obj.feature_send_email;
 		this.feature_printer = obj.feature_printer;
+		this.feature_direct_print = obj.feature_direct_print;
 		this.account_manager_name = obj.account_manager_name;
 		this.account_manager_no = obj.account_manager_no;
 		this.feature_sms_order = obj.feature_sms_order;
@@ -1191,6 +1198,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_email", feature_send_email);
 		if(feature_printer != null)
 			map.put("feature_printer", feature_printer);
+		if(feature_direct_print != null)
+			map.put("feature_direct_print", feature_direct_print);
 		if(account_manager_name != null)
 			map.put("account_manager_name", account_manager_name);
 		if(account_manager_no != null)
@@ -1476,6 +1485,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_email", feature_send_email);
 		if(feature_printer != null)
 			map.put("feature_printer", feature_printer);
+		if(feature_direct_print != null)
+			map.put("feature_direct_print", feature_direct_print);
 		if(account_manager_name != null)
 			map.put("account_manager_name", account_manager_name);
 		if(account_manager_no != null)
@@ -1677,6 +1688,7 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_send_sms = (String) map.get("feature_send_sms");
 		feature_send_email = (String) map.get("feature_send_email");
 		feature_printer = (String) map.get("feature_printer");
+		feature_direct_print = (String) map.get("feature_direct_print");
 		account_manager_name = (String) map.get("account_manager_name");
 		account_manager_no = (String) map.get("account_manager_no");
 		feature_sms_order = (String) map.get("feature_sms_order");
@@ -2087,6 +2099,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_printerObj = map.get("feature_printer");
 		if(feature_printerObj != null)
 			feature_printer = feature_printerObj.toString();
+
+		Object feature_direct_printObj = map.get("feature_direct_print");
+		if(feature_direct_printObj != null)
+			feature_direct_print = feature_direct_printObj.toString();
 
 		Object account_manager_nameObj = map.get("account_manager_name");
 		if(account_manager_nameObj != null)
@@ -3733,6 +3749,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_printer() {
 		this.feature_printer = null;
+	}
+
+	public String getFeature_direct_print() {
+		return feature_direct_print;
+	}
+
+	public String getFeature_direct_printEx() {
+		return feature_direct_print != null ? feature_direct_print : "";
+	}
+
+	public void setFeature_direct_print(String feature_direct_print) {
+		this.feature_direct_print = feature_direct_print;
+	}
+
+	public void unSetFeature_direct_print() {
+		this.feature_direct_print = null;
 	}
 
 	public String getAccount_manager_name() {

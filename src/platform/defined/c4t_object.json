@@ -460,6 +460,11 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_direct_print':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'account_manager_name':
 			{
 				'type':'String',
