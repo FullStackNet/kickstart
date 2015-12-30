@@ -1,5 +1,9 @@
 package platform.printer;
 
+import java.awt.print.PageFormat;
+import java.awt.print.Paper;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,6 +19,8 @@ import javax.print.SimpleDoc;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.Copies;
+import javax.print.attribute.standard.MediaSizeName;
+import javax.print.attribute.standard.OrientationRequested;
 import javax.print.event.PrintJobAdapter;
 import javax.print.event.PrintJobEvent;
 
@@ -23,8 +29,18 @@ import platform.log.ApplicationLogger;
 public class PrinterManager {
 	
 	private static PrinterManager instance ;
-	
 
+
+	private  PageFormat definePageFormat(PrinterJob printJob) {
+	        PageFormat pageFormat = printJob.defaultPage();
+	        Paper paper = pageFormat.getPaper();
+	        pageFormat.setOrientation(PageFormat.PORTRAIT);
+	        paper.setSize(8.5 * 72, 11 * 72);
+	        paper.setImageableArea(0.875 * 72, 0.625 * 72, 6.75 * 72, 9.75 * 72);
+	        pageFormat.setPaper(paper);
+	        return pageFormat;
+	 }
+	 
 	public PrinterManager() {
 	}
 
@@ -39,8 +55,42 @@ public class PrinterManager {
 	void initPrinter() {
 	
 	}	
+	public void printLaserTextFilePrint(String filename) {
+		PrinterJob job = PrinterJob.getPrinterJob();
+
+        // Get the page format:
+        PageFormat format = definePageFormat(job);
+        
+        // Default attributes to printer:
+        PrintRequestAttributeSet attributes = new HashPrintRequestAttributeSet();
+        attributes.add(OrientationRequested.PORTRAIT);
+        attributes.add(MediaSizeName.NA_LETTER);
+
+        // Create our PageableText object, and tell the PrinterJob about it
+        try {
+            job.setPageable(new PageableText(new File(filename), format));
+        } catch (IOException ex) {
+        	ex.printStackTrace();
+            System.out.println("Cannot load file to print");
+        }
+
+        // Ask the user to select a printer, etc., and if not canceled, print pages:
+        try {
+                job.print();
+        } catch (PrinterException e) {
+        	e.printStackTrace();
+            System.out.println("Cannot Select Printer");
+        }
+	}
 	
-	public void printTextFile(String filename) {
+	public void printTextFile(String printerType,String filename) {
+		if ("DOT_MATRIX".equalsIgnoreCase(printerType)) {
+			printDotMatrixTextFilePrint(filename);
+		} else {
+			printLaserTextFilePrint(filename);
+		}
+	}
+	public void printDotMatrixTextFilePrint(String filename) {
 		PrintService service = null;
 		DocFlavor flavor;
 		PrintRequestAttributeSet aset;
