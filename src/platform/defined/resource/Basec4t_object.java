@@ -134,6 +134,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String release = null;
 	private String priority = null;
 	private String user_id = null;
+	private String user_name = null;
 	private String verified = null;
 	private String reference_name_1 = null;
 	private String reference_name_2 = null;
@@ -276,6 +277,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_RELEASE = "release";
 	public static String FIELD_PRIORITY = "priority";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_VERIFIED = "verified";
 	public static String FIELD_REFERENCE_NAME_1 = "reference_name_1";
 	public static String FIELD_REFERENCE_NAME_2 = "reference_name_2";
@@ -766,6 +768,10 @@ public abstract class Basec4t_object extends BaseResource {
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
 
+		Field user_nameField = new Field("user_name", "String");
+		user_nameField.setLength(128);
+		metaData.addField(user_nameField);
+
 		Field verifiedField = new Field("verified", "String");
 		verifiedField.setLength(1);
 		metaData.addField(verifiedField);
@@ -986,6 +992,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.release = obj.release;
 		this.priority = obj.priority;
 		this.user_id = obj.user_id;
+		this.user_name = obj.user_name;
 		this.verified = obj.verified;
 		this.reference_name_1 = obj.reference_name_1;
 		this.reference_name_2 = obj.reference_name_2;
@@ -1250,6 +1257,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("priority", priority);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
 		if(verified != null)
 			map.put("verified", verified);
 		if(reference_name_1 != null)
@@ -1537,6 +1546,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("priority", priority);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
 		if(verified != null)
 			map.put("verified", verified);
 		if(reference_name_1 != null)
@@ -1714,6 +1725,7 @@ public abstract class Basec4t_object extends BaseResource {
 		release = (String) map.get("release");
 		priority = (String) map.get("priority");
 		user_id = (String) map.get("user_id");
+		user_name = (String) map.get("user_name");
 		verified = (String) map.get("verified");
 		reference_name_1 = (String) map.get("reference_name_1");
 		reference_name_2 = (String) map.get("reference_name_2");
@@ -2203,6 +2215,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
+
+		Object user_nameObj = map.get("user_name");
+		if(user_nameObj != null)
+			user_name = user_nameObj.toString();
 
 		Object verifiedObj = map.get("verified");
 		if(verifiedObj != null)
@@ -4209,6 +4225,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetUser_id() {
 		this.user_id = null;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public String getUser_nameEx() {
+		return user_name != null ? user_name : "";
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public void unSetUser_name() {
+		this.user_name = null;
 	}
 
 	public String getVerified() {
