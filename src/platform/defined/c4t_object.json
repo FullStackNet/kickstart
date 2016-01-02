@@ -284,6 +284,16 @@
 				'type':'String',
 				'length': 128
 			},
+			'size':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'pattern':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'country':
 			{
 				'type':'String',
