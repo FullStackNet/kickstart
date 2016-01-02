@@ -73,6 +73,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String area = null;
 	private String city = null;
 	private String state = null;
+	private String size = null;
+	private String pattern = null;
 	private String country = null;
 	private String feature_show_sales_price = null;
 	private String feature_show_mrp_price = null;
@@ -216,6 +218,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_AREA = "area";
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
+	public static String FIELD_SIZE = "size";
+	public static String FIELD_PATTERN = "pattern";
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_FEATURE_SHOW_SALES_PRICE = "feature_show_sales_price";
 	public static String FIELD_FEATURE_SHOW_MRP_PRICE = "feature_show_mrp_price";
@@ -535,6 +539,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Field stateField = new Field("state", "String");
 		stateField.setLength(128);
 		metaData.addField(stateField);
+
+		Field sizeField = new Field("size", "String");
+		sizeField.setLength(128);
+		metaData.addField(sizeField);
+
+		Field patternField = new Field("pattern", "String");
+		patternField.setLength(128);
+		metaData.addField(patternField);
 
 		Field countryField = new Field("country", "String");
 		countryField.setLength(128);
@@ -931,6 +943,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.area = obj.area;
 		this.city = obj.city;
 		this.state = obj.state;
+		this.size = obj.size;
+		this.pattern = obj.pattern;
 		this.country = obj.country;
 		this.feature_show_sales_price = obj.feature_show_sales_price;
 		this.feature_show_mrp_price = obj.feature_show_mrp_price;
@@ -1135,6 +1149,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("city", city);
 		if(state != null)
 			map.put("state", state);
+		if(size != null)
+			map.put("size", size);
+		if(pattern != null)
+			map.put("pattern", pattern);
 		if(country != null)
 			map.put("country", country);
 		if(feature_show_sales_price != null)
@@ -1424,6 +1442,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("city", city);
 		if(state != null)
 			map.put("state", state);
+		if(size != null)
+			map.put("size", size);
+		if(pattern != null)
+			map.put("pattern", pattern);
 		if(country != null)
 			map.put("country", country);
 		if(feature_show_sales_price != null)
@@ -1664,6 +1686,8 @@ public abstract class Basec4t_object extends BaseResource {
 		area = (String) map.get("area");
 		city = (String) map.get("city");
 		state = (String) map.get("state");
+		size = (String) map.get("size");
+		pattern = (String) map.get("pattern");
 		country = (String) map.get("country");
 		feature_show_sales_price = (String) map.get("feature_show_sales_price");
 		feature_show_mrp_price = (String) map.get("feature_show_mrp_price");
@@ -1971,6 +1995,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object stateObj = map.get("state");
 		if(stateObj != null)
 			state = stateObj.toString();
+
+		Object sizeObj = map.get("size");
+		if(sizeObj != null)
+			size = sizeObj.toString();
+
+		Object patternObj = map.get("pattern");
+		if(patternObj != null)
+			pattern = patternObj.toString();
 
 		Object countryObj = map.get("country");
 		if(countryObj != null)
@@ -3201,6 +3233,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetState() {
 		this.state = null;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public String getSizeEx() {
+		return size != null ? size : "";
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public void unSetSize() {
+		this.size = null;
+	}
+
+	public String getPattern() {
+		return pattern;
+	}
+
+	public String getPatternEx() {
+		return pattern != null ? pattern : "";
+	}
+
+	public void setPattern(String pattern) {
+		this.pattern = pattern;
+	}
+
+	public void unSetPattern() {
+		this.pattern = null;
 	}
 
 	public String getCountry() {
