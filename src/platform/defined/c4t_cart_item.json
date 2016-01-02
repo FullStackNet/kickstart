@@ -17,12 +17,7 @@
 				'required': true,
 				'type':'String'
 			},
-			'product_id':
-			{
-				'length': 128,
-				'required': true,
-				'type':'String'
-			},
+			
 			'unit':
 			{
 				'length': 128,
@@ -40,6 +35,16 @@
 			'rate':
 			{
 				'type':'Double'
+			},
+			'size':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'pattern':
+			{
+				'length': 128,
+				'type': 'String'
 			},
 			'amount':
 			{

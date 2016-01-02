@@ -28,6 +28,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String message = null;
 	private String product_id = null;
 	private String product_name = null;
+	private String size = null;
+	private String pattern = null;
 	private String product_short_name = null;
 	private String title = null;
 	private String description = null;
@@ -54,6 +56,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_MESSAGE = "message";
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
+	public static String FIELD_SIZE = "size";
+	public static String FIELD_PATTERN = "pattern";
 	public static String FIELD_PRODUCT_SHORT_NAME = "product_short_name";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
@@ -116,6 +120,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Field product_nameField = new Field("product_name", "String");
 		product_nameField.setLength(512);
 		metaData.addField(product_nameField);
+
+		Field sizeField = new Field("size", "String");
+		sizeField.setLength(128);
+		metaData.addField(sizeField);
+
+		Field patternField = new Field("pattern", "String");
+		patternField.setLength(128);
+		metaData.addField(patternField);
 
 		Field product_short_nameField = new Field("product_short_name", "String");
 		product_short_nameField.setLength(512);
@@ -192,6 +204,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.message = obj.message;
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
+		this.size = obj.size;
+		this.pattern = obj.pattern;
 		this.product_short_name = obj.product_short_name;
 		this.title = obj.title;
 		this.description = obj.description;
@@ -234,6 +248,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(size != null)
+			map.put("size", size);
+		if(pattern != null)
+			map.put("pattern", pattern);
 		if(product_short_name != null)
 			map.put("product_short_name", product_short_name);
 		if(title != null)
@@ -289,6 +307,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("product_id", product_id);
 		if(product_name != null)
 			map.put("product_name", product_name);
+		if(size != null)
+			map.put("size", size);
+		if(pattern != null)
+			map.put("pattern", pattern);
 		if(product_short_name != null)
 			map.put("product_short_name", product_short_name);
 		if(title != null)
@@ -340,6 +362,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		message = (String) map.get("message");
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
+		size = (String) map.get("size");
+		pattern = (String) map.get("pattern");
 		product_short_name = (String) map.get("product_short_name");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
@@ -395,6 +419,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object product_nameObj = map.get("product_name");
 		if(product_nameObj != null)
 			product_name = product_nameObj.toString();
+
+		Object sizeObj = map.get("size");
+		if(sizeObj != null)
+			size = sizeObj.toString();
+
+		Object patternObj = map.get("pattern");
+		if(patternObj != null)
+			pattern = patternObj.toString();
 
 		Object product_short_nameObj = map.get("product_short_name");
 		if(product_short_nameObj != null)
@@ -613,6 +645,38 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetProduct_name() {
 		this.product_name = null;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public String getSizeEx() {
+		return size != null ? size : "";
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public void unSetSize() {
+		this.size = null;
+	}
+
+	public String getPattern() {
+		return pattern;
+	}
+
+	public String getPatternEx() {
+		return pattern != null ? pattern : "";
+	}
+
+	public void setPattern(String pattern) {
+		this.pattern = pattern;
+	}
+
+	public void unSetPattern() {
+		this.pattern = null;
 	}
 
 	public String getProduct_short_name() {
