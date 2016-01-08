@@ -162,6 +162,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private String owner_id = null;
+	private String chemist_community_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -307,6 +308,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_OWNER_ID = "owner_id";
+	public static String FIELD_CHEMIST_COMMUNITY_ID = "chemist_community_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -876,6 +878,10 @@ public abstract class Basec4t_object extends BaseResource {
 		owner_idField.setLength(128);
 		metaData.addField(owner_idField);
 
+		Field chemist_community_idField = new Field("chemist_community_id", "String");
+		chemist_community_idField.setLength(128);
+		metaData.addField(chemist_community_idField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -1032,6 +1038,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
 		this.owner_id = obj.owner_id;
+		this.chemist_community_id = obj.chemist_community_id;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -1327,6 +1334,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("updation_time", updation_time);
 		if(owner_id != null)
 			map.put("owner_id", owner_id);
+		if(chemist_community_id != null)
+			map.put("chemist_community_id", chemist_community_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1620,6 +1629,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("updation_time", updation_time);
 		if(owner_id != null)
 			map.put("owner_id", owner_id);
+		if(chemist_community_id != null)
+			map.put("chemist_community_id", chemist_community_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1775,6 +1786,7 @@ public abstract class Basec4t_object extends BaseResource {
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		owner_id = (String) map.get("owner_id");
+		chemist_community_id = (String) map.get("chemist_community_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -2351,6 +2363,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object owner_idObj = map.get("owner_id");
 		if(owner_idObj != null)
 			owner_id = owner_idObj.toString();
+
+		Object chemist_community_idObj = map.get("chemist_community_id");
+		if(chemist_community_idObj != null)
+			chemist_community_id = chemist_community_idObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -4715,6 +4731,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetOwner_id() {
 		this.owner_id = null;
+	}
+
+	public String getChemist_community_id() {
+		return chemist_community_id;
+	}
+
+	public String getChemist_community_idEx() {
+		return chemist_community_id != null ? chemist_community_id : "";
+	}
+
+	public void setChemist_community_id(String chemist_community_id) {
+		this.chemist_community_id = chemist_community_id;
+	}
+
+	public void unSetChemist_community_id() {
+		this.chemist_community_id = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

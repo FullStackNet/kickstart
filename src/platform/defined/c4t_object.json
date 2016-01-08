@@ -712,7 +712,12 @@
 			{
 				'type':'String',
 				'length': 128
-			} 			
+			},
+			'chemist_community_id':
+			{
+				'type':'String',
+				'length': 128
+			} 	 			
 		}
 	}
 }
