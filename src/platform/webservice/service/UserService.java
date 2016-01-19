@@ -65,6 +65,8 @@ public class UserService extends BaseService{
 				_invite.setFleetService(_resource.getFleetService());
 				_invite.setGameService(_resource.getGameService());
 				_invite.setSchoolTrackerService(_resource.getSchoolTrackerService());
+				_invite.setCommunityService(_resource.getCommunityService());
+						
 				InviteHelper.getInstance().add(_invite);
 				sendInvite(_invite,_resource);
 			}
