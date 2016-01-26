@@ -38,8 +38,7 @@ public class BaseFileServlet extends HttpServlet {
 		
 	}
 	
-	protected void setResponseParameters(HttpServletResponse response)
-	{
+	protected void setResponseParameters(HttpServletResponse response) {
 		if(response == null)
 			return;
 
@@ -49,7 +48,8 @@ public class BaseFileServlet extends HttpServlet {
 		response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
 	}
 	
-	protected void saveFile(String id,Map<String, Object> map,String extention) {
+	
+	protected void saveFile(String id,Map<String, Object> map,String extention)  {
 		return;
 	}
 	
