@@ -33,6 +33,10 @@ public abstract class Basec4t_record extends BaseResource {
 	private String bay_id = null;
 	private String release_id = null;
 	private String release_name = null;
+	private String name = null;
+	private Double total_amount = null;
+	private Integer count = null;
+	private String parent_id = null;
 	private String component_id = null;
 	private String component_name = null;
 	private String sprint_id = null;
@@ -84,7 +88,6 @@ public abstract class Basec4t_record extends BaseResource {
 	private Long total_items = null;
 	private Double total_service_tax = null;
 	private Double total_service_charge = null;
-	private Double total_amount = null;
 	private Long total_products = null;
 	private Long total_ready = null;
 	private Long total_not_available = null;
@@ -146,6 +149,10 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_BAY_ID = "bay_id";
 	public static String FIELD_RELEASE_ID = "release_id";
 	public static String FIELD_RELEASE_NAME = "release_name";
+	public static String FIELD_NAME = "name";
+	public static String FIELD_TOTAL_AMOUNT = "total_amount";
+	public static String FIELD_COUNT = "count";
+	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_COMPONENT_ID = "component_id";
 	public static String FIELD_COMPONENT_NAME = "component_name";
 	public static String FIELD_SPRINT_ID = "sprint_id";
@@ -197,7 +204,6 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_ITEMS = "total_items";
 	public static String FIELD_TOTAL_SERVICE_TAX = "total_service_tax";
 	public static String FIELD_TOTAL_SERVICE_CHARGE = "total_service_charge";
-	public static String FIELD_TOTAL_AMOUNT = "total_amount";
 	public static String FIELD_TOTAL_PRODUCTS = "total_products";
 	public static String FIELD_TOTAL_READY = "total_ready";
 	public static String FIELD_TOTAL_NOT_AVAILABLE = "total_not_available";
@@ -313,6 +319,22 @@ public abstract class Basec4t_record extends BaseResource {
 		release_nameField.setIndexed(true);
 		release_nameField.setLength(128);
 		metaData.addField(release_nameField);
+
+		Field nameField = new Field("name", "String");
+		nameField.setIndexed(true);
+		nameField.setLength(128);
+		metaData.addField(nameField);
+
+		Field total_amountField = new Field("total_amount", "Double");
+		metaData.addField(total_amountField);
+
+		Field countField = new Field("count", "int");
+		metaData.addField(countField);
+
+		Field parent_idField = new Field("parent_id", "String");
+		parent_idField.setIndexed(true);
+		parent_idField.setLength(128);
+		metaData.addField(parent_idField);
 
 		Field component_idField = new Field("component_id", "String");
 		component_idField.setIndexed(true);
@@ -518,9 +540,6 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_service_chargeField = new Field("total_service_charge", "Double");
 		metaData.addField(total_service_chargeField);
 
-		Field total_amountField = new Field("total_amount", "Double");
-		metaData.addField(total_amountField);
-
 		Field total_productsField = new Field("total_products", "long");
 		metaData.addField(total_productsField);
 
@@ -713,6 +732,10 @@ public abstract class Basec4t_record extends BaseResource {
 		this.bay_id = obj.bay_id;
 		this.release_id = obj.release_id;
 		this.release_name = obj.release_name;
+		this.name = obj.name;
+		this.total_amount = obj.total_amount;
+		this.count = obj.count;
+		this.parent_id = obj.parent_id;
 		this.component_id = obj.component_id;
 		this.component_name = obj.component_name;
 		this.sprint_id = obj.sprint_id;
@@ -764,7 +787,6 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_items = obj.total_items;
 		this.total_service_tax = obj.total_service_tax;
 		this.total_service_charge = obj.total_service_charge;
-		this.total_amount = obj.total_amount;
 		this.total_products = obj.total_products;
 		this.total_ready = obj.total_ready;
 		this.total_not_available = obj.total_not_available;
@@ -860,6 +882,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("release_id", release_id);
 		if(release_name != null)
 			map.put("release_name", release_name);
+		if(name != null)
+			map.put("name", name);
+		if(total_amount != null)
+			map.put("total_amount", total_amount);
+		if(count != null)
+			map.put("count", count);
+		if(parent_id != null)
+			map.put("parent_id", parent_id);
 		if(component_id != null)
 			map.put("component_id", component_id);
 		if(component_name != null)
@@ -962,8 +992,6 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_service_tax", total_service_tax);
 		if(total_service_charge != null)
 			map.put("total_service_charge", total_service_charge);
-		if(total_amount != null)
-			map.put("total_amount", total_amount);
 		if(total_products != null)
 			map.put("total_products", total_products);
 		if(total_ready != null)
@@ -1092,6 +1120,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("release_id", release_id);
 		if(release_name != null)
 			map.put("release_name", release_name);
+		if(name != null)
+			map.put("name", name);
+		if(total_amount != null)
+			map.put("total_amount", total_amount);
+		if(count != null)
+			map.put("count", count);
+		if(parent_id != null)
+			map.put("parent_id", parent_id);
 		if(component_id != null)
 			map.put("component_id", component_id);
 		if(component_name != null)
@@ -1194,8 +1230,6 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_service_tax", total_service_tax);
 		if(total_service_charge != null)
 			map.put("total_service_charge", total_service_charge);
-		if(total_amount != null)
-			map.put("total_amount", total_amount);
 		if(total_products != null)
 			map.put("total_products", total_products);
 		if(total_ready != null)
@@ -1312,6 +1346,10 @@ public abstract class Basec4t_record extends BaseResource {
 		bay_id = (String) map.get("bay_id");
 		release_id = (String) map.get("release_id");
 		release_name = (String) map.get("release_name");
+		name = (String) map.get("name");
+		total_amount = (Double) map.get("total_amount");
+		count = (Integer) map.get("count");
+		parent_id = (String) map.get("parent_id");
 		component_id = (String) map.get("component_id");
 		component_name = (String) map.get("component_name");
 		sprint_id = (String) map.get("sprint_id");
@@ -1363,7 +1401,6 @@ public abstract class Basec4t_record extends BaseResource {
 		total_items = (Long) map.get("total_items");
 		total_service_tax = (Double) map.get("total_service_tax");
 		total_service_charge = (Double) map.get("total_service_charge");
-		total_amount = (Double) map.get("total_amount");
 		total_products = (Long) map.get("total_products");
 		total_ready = (Long) map.get("total_ready");
 		total_not_available = (Long) map.get("total_not_available");
@@ -1469,6 +1506,22 @@ public abstract class Basec4t_record extends BaseResource {
 		Object release_nameObj = map.get("release_name");
 		if(release_nameObj != null)
 			release_name = release_nameObj.toString();
+
+		Object nameObj = map.get("name");
+		if(nameObj != null)
+			name = nameObj.toString();
+
+		Object total_amountObj = map.get("total_amount");
+		if(total_amountObj != null)
+			total_amount = new Double(total_amountObj.toString());
+
+		Object countObj = map.get("count");
+		if(countObj != null)
+			count = new Integer(countObj.toString());
+
+		Object parent_idObj = map.get("parent_id");
+		if(parent_idObj != null)
+			parent_id = parent_idObj.toString();
 
 		Object component_idObj = map.get("component_id");
 		if(component_idObj != null)
@@ -1673,10 +1726,6 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_service_chargeObj = map.get("total_service_charge");
 		if(total_service_chargeObj != null)
 			total_service_charge = new Double(total_service_chargeObj.toString());
-
-		Object total_amountObj = map.get("total_amount");
-		if(total_amountObj != null)
-			total_amount = new Double(total_amountObj.toString());
 
 		Object total_productsObj = map.get("total_products");
 		if(total_productsObj != null)
@@ -2095,6 +2144,70 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetRelease_name() {
 		this.release_name = null;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getNameEx() {
+		return name != null ? name : "";
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void unSetName() {
+		this.name = null;
+	}
+
+	public Double getTotal_amount() {
+		return total_amount;
+	}
+
+	public void setTotal_amount(Double total_amount) {
+		this.total_amount = total_amount;
+	}
+
+	public void unSetTotal_amount() {
+		this.total_amount = null;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public int getCountEx() {
+		return count != null ? count : 0;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	public void unSetCount() {
+		this.count = null;
+	}
+
+	public String getParent_id() {
+		return parent_id;
+	}
+
+	public String getParent_idEx() {
+		return parent_id != null ? parent_id : "";
+	}
+
+	public void setParent_id(String parent_id) {
+		this.parent_id = parent_id;
+	}
+
+	public void unSetParent_id() {
+		this.parent_id = null;
 	}
 
 	public String getComponent_id() {
@@ -2887,18 +3000,6 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_service_charge() {
 		this.total_service_charge = null;
-	}
-
-	public Double getTotal_amount() {
-		return total_amount;
-	}
-
-	public void setTotal_amount(Double total_amount) {
-		this.total_amount = total_amount;
-	}
-
-	public void unSetTotal_amount() {
-		this.total_amount = null;
 	}
 
 	public Long getTotal_products() {
