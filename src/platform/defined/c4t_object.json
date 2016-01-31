@@ -123,7 +123,12 @@
 				'length': 128,
 				'type':'String'
 			},
-			'product_url1':
+			'longitude':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'latitude':
 			{
 				'length': 128,
 				'type':'String'

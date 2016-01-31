@@ -42,7 +42,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String dorm_bed_no = null;
 	private String license_no = null;
 	private String product_thumbnail_url = null;
-	private String product_url1 = null;
+	private String longitude = null;
+	private String latitude = null;
 	private String product_url2 = null;
 	private String product_url3 = null;
 	private String product_url4 = null;
@@ -188,7 +189,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_DORM_BED_NO = "dorm_bed_no";
 	public static String FIELD_LICENSE_NO = "license_no";
 	public static String FIELD_PRODUCT_THUMBNAIL_URL = "product_thumbnail_url";
-	public static String FIELD_PRODUCT_URL1 = "product_url1";
+	public static String FIELD_LONGITUDE = "longitude";
+	public static String FIELD_LATITUDE = "latitude";
 	public static String FIELD_PRODUCT_URL2 = "product_url2";
 	public static String FIELD_PRODUCT_URL3 = "product_url3";
 	public static String FIELD_PRODUCT_URL4 = "product_url4";
@@ -413,9 +415,13 @@ public abstract class Basec4t_object extends BaseResource {
 		product_thumbnail_urlField.setLength(128);
 		metaData.addField(product_thumbnail_urlField);
 
-		Field product_url1Field = new Field("product_url1", "String");
-		product_url1Field.setLength(128);
-		metaData.addField(product_url1Field);
+		Field longitudeField = new Field("longitude", "String");
+		longitudeField.setLength(128);
+		metaData.addField(longitudeField);
+
+		Field latitudeField = new Field("latitude", "String");
+		latitudeField.setLength(128);
+		metaData.addField(latitudeField);
 
 		Field product_url2Field = new Field("product_url2", "String");
 		product_url2Field.setLength(128);
@@ -918,7 +924,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.dorm_bed_no = obj.dorm_bed_no;
 		this.license_no = obj.license_no;
 		this.product_thumbnail_url = obj.product_thumbnail_url;
-		this.product_url1 = obj.product_url1;
+		this.longitude = obj.longitude;
+		this.latitude = obj.latitude;
 		this.product_url2 = obj.product_url2;
 		this.product_url3 = obj.product_url3;
 		this.product_url4 = obj.product_url4;
@@ -1094,8 +1101,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("license_no", license_no);
 		if(product_thumbnail_url != null)
 			map.put("product_thumbnail_url", product_thumbnail_url);
-		if(product_url1 != null)
-			map.put("product_url1", product_url1);
+		if(longitude != null)
+			map.put("longitude", longitude);
+		if(latitude != null)
+			map.put("latitude", latitude);
 		if(product_url2 != null)
 			map.put("product_url2", product_url2);
 		if(product_url3 != null)
@@ -1389,8 +1398,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("license_no", license_no);
 		if(product_thumbnail_url != null)
 			map.put("product_thumbnail_url", product_thumbnail_url);
-		if(product_url1 != null)
-			map.put("product_url1", product_url1);
+		if(longitude != null)
+			map.put("longitude", longitude);
+		if(latitude != null)
+			map.put("latitude", latitude);
 		if(product_url2 != null)
 			map.put("product_url2", product_url2);
 		if(product_url3 != null)
@@ -1666,7 +1677,8 @@ public abstract class Basec4t_object extends BaseResource {
 		dorm_bed_no = (String) map.get("dorm_bed_no");
 		license_no = (String) map.get("license_no");
 		product_thumbnail_url = (String) map.get("product_thumbnail_url");
-		product_url1 = (String) map.get("product_url1");
+		longitude = (String) map.get("longitude");
+		latitude = (String) map.get("latitude");
 		product_url2 = (String) map.get("product_url2");
 		product_url3 = (String) map.get("product_url3");
 		product_url4 = (String) map.get("product_url4");
@@ -1884,9 +1896,13 @@ public abstract class Basec4t_object extends BaseResource {
 		if(product_thumbnail_urlObj != null)
 			product_thumbnail_url = product_thumbnail_urlObj.toString();
 
-		Object product_url1Obj = map.get("product_url1");
-		if(product_url1Obj != null)
-			product_url1 = product_url1Obj.toString();
+		Object longitudeObj = map.get("longitude");
+		if(longitudeObj != null)
+			longitude = longitudeObj.toString();
+
+		Object latitudeObj = map.get("latitude");
+		if(latitudeObj != null)
+			latitude = latitudeObj.toString();
 
 		Object product_url2Obj = map.get("product_url2");
 		if(product_url2Obj != null)
@@ -2755,20 +2771,36 @@ public abstract class Basec4t_object extends BaseResource {
 		this.product_thumbnail_url = null;
 	}
 
-	public String getProduct_url1() {
-		return product_url1;
+	public String getLongitude() {
+		return longitude;
 	}
 
-	public String getProduct_url1Ex() {
-		return product_url1 != null ? product_url1 : "";
+	public String getLongitudeEx() {
+		return longitude != null ? longitude : "";
 	}
 
-	public void setProduct_url1(String product_url1) {
-		this.product_url1 = product_url1;
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 
-	public void unSetProduct_url1() {
-		this.product_url1 = null;
+	public void unSetLongitude() {
+		this.longitude = null;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public String getLatitudeEx() {
+		return latitude != null ? latitude : "";
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public void unSetLatitude() {
+		this.latitude = null;
 	}
 
 	public String getProduct_url2() {
