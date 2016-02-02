@@ -124,6 +124,29 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'from_date':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'to_date':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'from_date_long':
+			{
+				'type': 'long'
+			},
+			'to_date_long':
+			{
+				'type': 'long'
+			},
+			'user_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'user_name':
 			{
 				'length': 512,
