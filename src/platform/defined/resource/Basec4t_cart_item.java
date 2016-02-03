@@ -26,6 +26,8 @@ public abstract class Basec4t_cart_item extends BaseResource {
 	private Double free_quantity = null;
 	private Double rate = null;
 	private String size = null;
+	private String from_date = null;
+	private String to_date = null;
 	private String pattern = null;
 	private Double amount = null;
 	private String remark = null;
@@ -39,6 +41,8 @@ public abstract class Basec4t_cart_item extends BaseResource {
 	public static String FIELD_FREE_QUANTITY = "free_quantity";
 	public static String FIELD_RATE = "rate";
 	public static String FIELD_SIZE = "size";
+	public static String FIELD_FROM_DATE = "from_date";
+	public static String FIELD_TO_DATE = "to_date";
 	public static String FIELD_PATTERN = "pattern";
 	public static String FIELD_AMOUNT = "amount";
 	public static String FIELD_REMARK = "remark";
@@ -79,6 +83,14 @@ public abstract class Basec4t_cart_item extends BaseResource {
 		sizeField.setLength(128);
 		metaData.addField(sizeField);
 
+		Field from_dateField = new Field("from_date", "String");
+		from_dateField.setLength(512);
+		metaData.addField(from_dateField);
+
+		Field to_dateField = new Field("to_date", "String");
+		to_dateField.setLength(512);
+		metaData.addField(to_dateField);
+
 		Field patternField = new Field("pattern", "String");
 		patternField.setLength(128);
 		metaData.addField(patternField);
@@ -114,6 +126,8 @@ public abstract class Basec4t_cart_item extends BaseResource {
 		this.free_quantity = obj.free_quantity;
 		this.rate = obj.rate;
 		this.size = obj.size;
+		this.from_date = obj.from_date;
+		this.to_date = obj.to_date;
 		this.pattern = obj.pattern;
 		this.amount = obj.amount;
 		this.remark = obj.remark;
@@ -141,6 +155,10 @@ public abstract class Basec4t_cart_item extends BaseResource {
 			map.put("rate", rate);
 		if(size != null)
 			map.put("size", size);
+		if(from_date != null)
+			map.put("from_date", from_date);
+		if(to_date != null)
+			map.put("to_date", to_date);
 		if(pattern != null)
 			map.put("pattern", pattern);
 		if(amount != null)
@@ -170,6 +188,10 @@ public abstract class Basec4t_cart_item extends BaseResource {
 			map.put("rate", rate);
 		if(size != null)
 			map.put("size", size);
+		if(from_date != null)
+			map.put("from_date", from_date);
+		if(to_date != null)
+			map.put("to_date", to_date);
 		if(pattern != null)
 			map.put("pattern", pattern);
 		if(amount != null)
@@ -197,6 +219,8 @@ public abstract class Basec4t_cart_item extends BaseResource {
 		free_quantity = (Double) map.get("free_quantity");
 		rate = (Double) map.get("rate");
 		size = (String) map.get("size");
+		from_date = (String) map.get("from_date");
+		to_date = (String) map.get("to_date");
 		pattern = (String) map.get("pattern");
 		amount = (Double) map.get("amount");
 		remark = (String) map.get("remark");
@@ -233,6 +257,14 @@ public abstract class Basec4t_cart_item extends BaseResource {
 		Object sizeObj = map.get("size");
 		if(sizeObj != null)
 			size = sizeObj.toString();
+
+		Object from_dateObj = map.get("from_date");
+		if(from_dateObj != null)
+			from_date = from_dateObj.toString();
+
+		Object to_dateObj = map.get("to_date");
+		if(to_dateObj != null)
+			to_date = to_dateObj.toString();
 
 		Object patternObj = map.get("pattern");
 		if(patternObj != null)
@@ -391,6 +423,38 @@ public abstract class Basec4t_cart_item extends BaseResource {
 
 	public void unSetSize() {
 		this.size = null;
+	}
+
+	public String getFrom_date() {
+		return from_date;
+	}
+
+	public String getFrom_dateEx() {
+		return from_date != null ? from_date : "";
+	}
+
+	public void setFrom_date(String from_date) {
+		this.from_date = from_date;
+	}
+
+	public void unSetFrom_date() {
+		this.from_date = null;
+	}
+
+	public String getTo_date() {
+		return to_date;
+	}
+
+	public String getTo_dateEx() {
+		return to_date != null ? to_date : "";
+	}
+
+	public void setTo_date(String to_date) {
+		this.to_date = to_date;
+	}
+
+	public void unSetTo_date() {
+		this.to_date = null;
 	}
 
 	public String getPattern() {

@@ -41,6 +41,16 @@
 				'length': 128,
 				'type': 'String'
 			},
+			'from_date':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'to_date':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'pattern':
 			{
 				'length': 128,

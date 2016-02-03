@@ -43,10 +43,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private Double vat = null;
 	private Double amount = null;
 	private String user_id = null;
-	private String from_date = null;
-	private String to_date = null;
-	private Long from_date_long = null;
-	private Long to_date_long = null;
+	private String from_date_str = null;
+	private String to_date_str = null;
+	private Long from_date = null;
+	private Long to_date = null;
 	private String user_name = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -75,10 +75,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_VAT = "vat";
 	public static String FIELD_AMOUNT = "amount";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_FROM_DATE_STR = "from_date_str";
+	public static String FIELD_TO_DATE_STR = "to_date_str";
 	public static String FIELD_FROM_DATE = "from_date";
 	public static String FIELD_TO_DATE = "to_date";
-	public static String FIELD_FROM_DATE_LONG = "from_date_long";
-	public static String FIELD_TO_DATE_LONG = "to_date_long";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -183,19 +183,19 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		user_idField.setLength(512);
 		metaData.addField(user_idField);
 
-		Field from_dateField = new Field("from_date", "String");
-		from_dateField.setLength(512);
+		Field from_date_strField = new Field("from_date_str", "String");
+		from_date_strField.setLength(512);
+		metaData.addField(from_date_strField);
+
+		Field to_date_strField = new Field("to_date_str", "String");
+		to_date_strField.setLength(512);
+		metaData.addField(to_date_strField);
+
+		Field from_dateField = new Field("from_date", "long");
 		metaData.addField(from_dateField);
 
-		Field to_dateField = new Field("to_date", "String");
-		to_dateField.setLength(512);
+		Field to_dateField = new Field("to_date", "long");
 		metaData.addField(to_dateField);
-
-		Field from_date_longField = new Field("from_date_long", "long");
-		metaData.addField(from_date_longField);
-
-		Field to_date_longField = new Field("to_date_long", "long");
-		metaData.addField(to_date_longField);
 
 		Field user_nameField = new Field("user_name", "String");
 		user_nameField.setLength(512);
@@ -241,10 +241,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.vat = obj.vat;
 		this.amount = obj.amount;
 		this.user_id = obj.user_id;
+		this.from_date_str = obj.from_date_str;
+		this.to_date_str = obj.to_date_str;
 		this.from_date = obj.from_date;
 		this.to_date = obj.to_date;
-		this.from_date_long = obj.from_date_long;
-		this.to_date_long = obj.to_date_long;
 		this.user_name = obj.user_name;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -304,14 +304,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("amount", amount);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(from_date_str != null)
+			map.put("from_date_str", from_date_str);
+		if(to_date_str != null)
+			map.put("to_date_str", to_date_str);
 		if(from_date != null)
 			map.put("from_date", from_date);
 		if(to_date != null)
 			map.put("to_date", to_date);
-		if(from_date_long != null)
-			map.put("from_date_long", from_date_long);
-		if(to_date_long != null)
-			map.put("to_date_long", to_date_long);
 		if(user_name != null)
 			map.put("user_name", user_name);
 		if(creation_time != null)
@@ -371,14 +371,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("amount", amount);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(from_date_str != null)
+			map.put("from_date_str", from_date_str);
+		if(to_date_str != null)
+			map.put("to_date_str", to_date_str);
 		if(from_date != null)
 			map.put("from_date", from_date);
 		if(to_date != null)
 			map.put("to_date", to_date);
-		if(from_date_long != null)
-			map.put("from_date_long", from_date_long);
-		if(to_date_long != null)
-			map.put("to_date_long", to_date_long);
 		if(user_name != null)
 			map.put("user_name", user_name);
 		if(creation_time != null)
@@ -419,10 +419,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		vat = (Double) map.get("vat");
 		amount = (Double) map.get("amount");
 		user_id = (String) map.get("user_id");
-		from_date = (String) map.get("from_date");
-		to_date = (String) map.get("to_date");
-		from_date_long = (Long) map.get("from_date_long");
-		to_date_long = (Long) map.get("to_date_long");
+		from_date_str = (String) map.get("from_date_str");
+		to_date_str = (String) map.get("to_date_str");
+		from_date = (Long) map.get("from_date");
+		to_date = (Long) map.get("to_date");
 		user_name = (String) map.get("user_name");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -526,21 +526,21 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
 
+		Object from_date_strObj = map.get("from_date_str");
+		if(from_date_strObj != null)
+			from_date_str = from_date_strObj.toString();
+
+		Object to_date_strObj = map.get("to_date_str");
+		if(to_date_strObj != null)
+			to_date_str = to_date_strObj.toString();
+
 		Object from_dateObj = map.get("from_date");
 		if(from_dateObj != null)
-			from_date = from_dateObj.toString();
+			from_date = new Long(from_dateObj.toString());
 
 		Object to_dateObj = map.get("to_date");
 		if(to_dateObj != null)
-			to_date = to_dateObj.toString();
-
-		Object from_date_longObj = map.get("from_date_long");
-		if(from_date_longObj != null)
-			from_date_long = new Long(from_date_longObj.toString());
-
-		Object to_date_longObj = map.get("to_date_long");
-		if(to_date_longObj != null)
-			to_date_long = new Long(to_date_longObj.toString());
+			to_date = new Long(to_dateObj.toString());
 
 		Object user_nameObj = map.get("user_name");
 		if(user_nameObj != null)
@@ -925,15 +925,51 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.user_id = null;
 	}
 
-	public String getFrom_date() {
+	public String getFrom_date_str() {
+		return from_date_str;
+	}
+
+	public String getFrom_date_strEx() {
+		return from_date_str != null ? from_date_str : "";
+	}
+
+	public void setFrom_date_str(String from_date_str) {
+		this.from_date_str = from_date_str;
+	}
+
+	public void unSetFrom_date_str() {
+		this.from_date_str = null;
+	}
+
+	public String getTo_date_str() {
+		return to_date_str;
+	}
+
+	public String getTo_date_strEx() {
+		return to_date_str != null ? to_date_str : "";
+	}
+
+	public void setTo_date_str(String to_date_str) {
+		this.to_date_str = to_date_str;
+	}
+
+	public void unSetTo_date_str() {
+		this.to_date_str = null;
+	}
+
+	public Long getFrom_date() {
 		return from_date;
 	}
 
-	public String getFrom_dateEx() {
-		return from_date != null ? from_date : "";
+	public long getFrom_dateEx() {
+		return from_date != null ? from_date : 0L;
 	}
 
-	public void setFrom_date(String from_date) {
+	public void setFrom_date(long from_date) {
+		this.from_date = from_date;
+	}
+
+	public void setFrom_date(Long from_date) {
 		this.from_date = from_date;
 	}
 
@@ -941,60 +977,24 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.from_date = null;
 	}
 
-	public String getTo_date() {
+	public Long getTo_date() {
 		return to_date;
 	}
 
-	public String getTo_dateEx() {
-		return to_date != null ? to_date : "";
+	public long getTo_dateEx() {
+		return to_date != null ? to_date : 0L;
 	}
 
-	public void setTo_date(String to_date) {
+	public void setTo_date(long to_date) {
+		this.to_date = to_date;
+	}
+
+	public void setTo_date(Long to_date) {
 		this.to_date = to_date;
 	}
 
 	public void unSetTo_date() {
 		this.to_date = null;
-	}
-
-	public Long getFrom_date_long() {
-		return from_date_long;
-	}
-
-	public long getFrom_date_longEx() {
-		return from_date_long != null ? from_date_long : 0L;
-	}
-
-	public void setFrom_date_long(long from_date_long) {
-		this.from_date_long = from_date_long;
-	}
-
-	public void setFrom_date_long(Long from_date_long) {
-		this.from_date_long = from_date_long;
-	}
-
-	public void unSetFrom_date_long() {
-		this.from_date_long = null;
-	}
-
-	public Long getTo_date_long() {
-		return to_date_long;
-	}
-
-	public long getTo_date_longEx() {
-		return to_date_long != null ? to_date_long : 0L;
-	}
-
-	public void setTo_date_long(long to_date_long) {
-		this.to_date_long = to_date_long;
-	}
-
-	public void setTo_date_long(Long to_date_long) {
-		this.to_date_long = to_date_long;
-	}
-
-	public void unSetTo_date_long() {
-		this.to_date_long = null;
 	}
 
 	public String getUser_name() {
