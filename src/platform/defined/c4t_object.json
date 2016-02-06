@@ -575,6 +575,16 @@
 				'length': 32
 				
 			},
+			'category_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'category_id':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'reference_id':
 			{
 				'type':'String',

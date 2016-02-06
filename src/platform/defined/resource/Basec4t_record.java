@@ -22,6 +22,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String id = null;
 	private String community_id = null;
 	private String community_name = null;
+	private String severity = null;
 	private String customer_id = null;
 	private String record_type = null;
 	private String record_sub_type = null;
@@ -138,6 +139,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_COMMUNITY_NAME = "community_name";
+	public static String FIELD_SEVERITY = "severity";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_RECORD_SUB_TYPE = "record_sub_type";
@@ -271,6 +273,10 @@ public abstract class Basec4t_record extends BaseResource {
 		community_nameField.setIndexed(true);
 		community_nameField.setLength(128);
 		metaData.addField(community_nameField);
+
+		Field severityField = new Field("severity", "String");
+		severityField.setLength(16);
+		metaData.addField(severityField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setIndexed(true);
@@ -721,6 +727,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.id = obj.id;
 		this.community_id = obj.community_id;
 		this.community_name = obj.community_name;
+		this.severity = obj.severity;
 		this.customer_id = obj.customer_id;
 		this.record_type = obj.record_type;
 		this.record_sub_type = obj.record_sub_type;
@@ -860,6 +867,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(severity != null)
+			map.put("severity", severity);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(record_type != null)
@@ -1098,6 +1107,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(severity != null)
+			map.put("severity", severity);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(record_type != null)
@@ -1335,6 +1346,7 @@ public abstract class Basec4t_record extends BaseResource {
 		id = (String) map.get("id");
 		community_id = (String) map.get("community_id");
 		community_name = (String) map.get("community_name");
+		severity = (String) map.get("severity");
 		customer_id = (String) map.get("customer_id");
 		record_type = (String) map.get("record_type");
 		record_sub_type = (String) map.get("record_sub_type");
@@ -1462,6 +1474,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object community_nameObj = map.get("community_name");
 		if(community_nameObj != null)
 			community_name = community_nameObj.toString();
+
+		Object severityObj = map.get("severity");
+		if(severityObj != null)
+			severity = severityObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -1968,6 +1984,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetCommunity_name() {
 		this.community_name = null;
+	}
+
+	public String getSeverity() {
+		return severity;
+	}
+
+	public String getSeverityEx() {
+		return severity != null ? severity : "";
+	}
+
+	public void setSeverity(String severity) {
+		this.severity = severity;
+	}
+
+	public void unSetSeverity() {
+		this.severity = null;
 	}
 
 	public String getCustomer_id() {

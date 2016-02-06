@@ -133,6 +133,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private Double dealer_price = null;
 	private Double customer_price = null;
 	private String unit = null;
+	private String category_name = null;
+	private String category_id = null;
 	private String reference_id = null;
 	private String reference_name = null;
 	private String release = null;
@@ -281,6 +283,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_DEALER_PRICE = "dealer_price";
 	public static String FIELD_CUSTOMER_PRICE = "customer_price";
 	public static String FIELD_UNIT = "unit";
+	public static String FIELD_CATEGORY_NAME = "category_name";
+	public static String FIELD_CATEGORY_ID = "category_id";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_REFERENCE_NAME = "reference_name";
 	public static String FIELD_RELEASE = "release";
@@ -774,6 +778,14 @@ public abstract class Basec4t_object extends BaseResource {
 		unitField.setLength(32);
 		metaData.addField(unitField);
 
+		Field category_nameField = new Field("category_name", "String");
+		category_nameField.setLength(128);
+		metaData.addField(category_nameField);
+
+		Field category_idField = new Field("category_id", "String");
+		category_idField.setLength(128);
+		metaData.addField(category_idField);
+
 		Field reference_idField = new Field("reference_id", "String");
 		reference_idField.setLength(128);
 		metaData.addField(reference_idField);
@@ -1021,6 +1033,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.dealer_price = obj.dealer_price;
 		this.customer_price = obj.customer_price;
 		this.unit = obj.unit;
+		this.category_name = obj.category_name;
+		this.category_id = obj.category_id;
 		this.reference_id = obj.reference_id;
 		this.reference_name = obj.reference_name;
 		this.release = obj.release;
@@ -1290,6 +1304,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("customer_price", customer_price);
 		if(unit != null)
 			map.put("unit", unit);
+		if(category_name != null)
+			map.put("category_name", category_name);
+		if(category_id != null)
+			map.put("category_id", category_id);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
 		if(reference_name != null)
@@ -1589,6 +1607,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("customer_price", customer_price);
 		if(unit != null)
 			map.put("unit", unit);
+		if(category_name != null)
+			map.put("category_name", category_name);
+		if(category_id != null)
+			map.put("category_id", category_id);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
 		if(reference_name != null)
@@ -1779,6 +1801,8 @@ public abstract class Basec4t_object extends BaseResource {
 		dealer_price = (Double) map.get("dealer_price");
 		customer_price = (Double) map.get("customer_price");
 		unit = (String) map.get("unit");
+		category_name = (String) map.get("category_name");
+		category_id = (String) map.get("category_id");
 		reference_id = (String) map.get("reference_id");
 		reference_name = (String) map.get("reference_name");
 		release = (String) map.get("release");
@@ -2271,6 +2295,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object unitObj = map.get("unit");
 		if(unitObj != null)
 			unit = unitObj.toString();
+
+		Object category_nameObj = map.get("category_name");
+		if(category_nameObj != null)
+			category_name = category_nameObj.toString();
+
+		Object category_idObj = map.get("category_id");
+		if(category_idObj != null)
+			category_id = category_idObj.toString();
 
 		Object reference_idObj = map.get("reference_id");
 		if(reference_idObj != null)
@@ -4289,6 +4321,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetUnit() {
 		this.unit = null;
+	}
+
+	public String getCategory_name() {
+		return category_name;
+	}
+
+	public String getCategory_nameEx() {
+		return category_name != null ? category_name : "";
+	}
+
+	public void setCategory_name(String category_name) {
+		this.category_name = category_name;
+	}
+
+	public void unSetCategory_name() {
+		this.category_name = null;
+	}
+
+	public String getCategory_id() {
+		return category_id;
+	}
+
+	public String getCategory_idEx() {
+		return category_id != null ? category_id : "";
+	}
+
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
+	}
+
+	public void unSetCategory_id() {
+		this.category_id = null;
 	}
 
 	public String getReference_id() {
