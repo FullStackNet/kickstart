@@ -113,6 +113,23 @@ public class C4t_relationHelper extends BaseHelper {
 		}
 	}	
 	
+	public void removeRelationMap(String from_id, String relation_type) {
+		String id = c4t_relation.getMapId(from_id, relation_type);
+		String[] referIds = getByRelationMap(from_id,relation_type);
+		C4t_relationHelper.getInstance().deleteById(id);
+		for(String referId : referIds) {
+			String refer_id = c4t_relation.getMapId(referId, relation_type);
+			c4t_relation relation = new c4t_relation(refer_id);
+			relation.addObject_map(from_id);
+			try {
+				C4t_relationHelper.getInstance().unset(relation);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}	
+	
 	public void removeRelationMap(String from_id,String to_id, String relation_type) {
 		String id = c4t_relation.getMapId(from_id, relation_type);
 		c4t_relation relation = new c4t_relation(id);
