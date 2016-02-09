@@ -116,6 +116,8 @@ public class C4t_relationHelper extends BaseHelper {
 	public void removeRelationMap(String from_id, String relation_type) {
 		String id = c4t_relation.getMapId(from_id, relation_type);
 		String[] referIds = getByRelationMap(from_id,relation_type);
+		if (Util.isEmpty(referIds))
+			return;
 		C4t_relationHelper.getInstance().deleteById(id);
 		for(String referId : referIds) {
 			String refer_id = c4t_relation.getMapId(referId, relation_type);
