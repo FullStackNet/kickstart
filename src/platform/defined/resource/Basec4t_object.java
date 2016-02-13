@@ -110,6 +110,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String zip_code = null;
 	private String last_scheme = null;
 	private String feature_send_sms = null;
+	private String feature_home_delivery = null;
+	private String feature_takeaway = null;
 	private String feature_send_email = null;
 	private String feature_printer = null;
 	private String feature_direct_print = null;
@@ -260,6 +262,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ZIP_CODE = "zip_code";
 	public static String FIELD_LAST_SCHEME = "last_scheme";
 	public static String FIELD_FEATURE_SEND_SMS = "feature_send_sms";
+	public static String FIELD_FEATURE_HOME_DELIVERY = "feature_home_delivery";
+	public static String FIELD_FEATURE_TAKEAWAY = "feature_takeaway";
 	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
 	public static String FIELD_FEATURE_PRINTER = "feature_printer";
 	public static String FIELD_FEATURE_DIRECT_PRINT = "feature_direct_print";
@@ -697,6 +701,14 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_send_smsField.setLength(1);
 		metaData.addField(feature_send_smsField);
 
+		Field feature_home_deliveryField = new Field("feature_home_delivery", "String");
+		feature_home_deliveryField.setLength(1);
+		metaData.addField(feature_home_deliveryField);
+
+		Field feature_takeawayField = new Field("feature_takeaway", "String");
+		feature_takeawayField.setLength(1);
+		metaData.addField(feature_takeawayField);
+
 		Field feature_send_emailField = new Field("feature_send_email", "String");
 		feature_send_emailField.setLength(1);
 		metaData.addField(feature_send_emailField);
@@ -1010,6 +1022,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.zip_code = obj.zip_code;
 		this.last_scheme = obj.last_scheme;
 		this.feature_send_sms = obj.feature_send_sms;
+		this.feature_home_delivery = obj.feature_home_delivery;
+		this.feature_takeaway = obj.feature_takeaway;
 		this.feature_send_email = obj.feature_send_email;
 		this.feature_printer = obj.feature_printer;
 		this.feature_direct_print = obj.feature_direct_print;
@@ -1258,6 +1272,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("last_scheme", last_scheme);
 		if(feature_send_sms != null)
 			map.put("feature_send_sms", feature_send_sms);
+		if(feature_home_delivery != null)
+			map.put("feature_home_delivery", feature_home_delivery);
+		if(feature_takeaway != null)
+			map.put("feature_takeaway", feature_takeaway);
 		if(feature_send_email != null)
 			map.put("feature_send_email", feature_send_email);
 		if(feature_printer != null)
@@ -1561,6 +1579,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("last_scheme", last_scheme);
 		if(feature_send_sms != null)
 			map.put("feature_send_sms", feature_send_sms);
+		if(feature_home_delivery != null)
+			map.put("feature_home_delivery", feature_home_delivery);
+		if(feature_takeaway != null)
+			map.put("feature_takeaway", feature_takeaway);
 		if(feature_send_email != null)
 			map.put("feature_send_email", feature_send_email);
 		if(feature_printer != null)
@@ -1778,6 +1800,8 @@ public abstract class Basec4t_object extends BaseResource {
 		zip_code = (String) map.get("zip_code");
 		last_scheme = (String) map.get("last_scheme");
 		feature_send_sms = (String) map.get("feature_send_sms");
+		feature_home_delivery = (String) map.get("feature_home_delivery");
+		feature_takeaway = (String) map.get("feature_takeaway");
 		feature_send_email = (String) map.get("feature_send_email");
 		feature_printer = (String) map.get("feature_printer");
 		feature_direct_print = (String) map.get("feature_direct_print");
@@ -2203,6 +2227,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_send_smsObj = map.get("feature_send_sms");
 		if(feature_send_smsObj != null)
 			feature_send_sms = feature_send_smsObj.toString();
+
+		Object feature_home_deliveryObj = map.get("feature_home_delivery");
+		if(feature_home_deliveryObj != null)
+			feature_home_delivery = feature_home_deliveryObj.toString();
+
+		Object feature_takeawayObj = map.get("feature_takeaway");
+		if(feature_takeawayObj != null)
+			feature_takeaway = feature_takeawayObj.toString();
 
 		Object feature_send_emailObj = map.get("feature_send_email");
 		if(feature_send_emailObj != null)
@@ -3909,6 +3941,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_send_sms() {
 		this.feature_send_sms = null;
+	}
+
+	public String getFeature_home_delivery() {
+		return feature_home_delivery;
+	}
+
+	public String getFeature_home_deliveryEx() {
+		return feature_home_delivery != null ? feature_home_delivery : "";
+	}
+
+	public void setFeature_home_delivery(String feature_home_delivery) {
+		this.feature_home_delivery = feature_home_delivery;
+	}
+
+	public void unSetFeature_home_delivery() {
+		this.feature_home_delivery = null;
+	}
+
+	public String getFeature_takeaway() {
+		return feature_takeaway;
+	}
+
+	public String getFeature_takeawayEx() {
+		return feature_takeaway != null ? feature_takeaway : "";
+	}
+
+	public void setFeature_takeaway(String feature_takeaway) {
+		this.feature_takeaway = feature_takeaway;
+	}
+
+	public void unSetFeature_takeaway() {
+		this.feature_takeaway = null;
 	}
 
 	public String getFeature_send_email() {

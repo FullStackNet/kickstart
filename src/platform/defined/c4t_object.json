@@ -470,6 +470,16 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_home_delivery':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_takeaway':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_send_email':
 			{
 				'type':'String',
