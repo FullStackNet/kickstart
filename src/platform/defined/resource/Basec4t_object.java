@@ -111,6 +111,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String last_scheme = null;
 	private String feature_send_sms = null;
 	private String feature_home_delivery = null;
+	private String feature_ontable = null;
 	private String feature_takeaway = null;
 	private String feature_send_email = null;
 	private String feature_printer = null;
@@ -263,6 +264,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_LAST_SCHEME = "last_scheme";
 	public static String FIELD_FEATURE_SEND_SMS = "feature_send_sms";
 	public static String FIELD_FEATURE_HOME_DELIVERY = "feature_home_delivery";
+	public static String FIELD_FEATURE_ONTABLE = "feature_ontable";
 	public static String FIELD_FEATURE_TAKEAWAY = "feature_takeaway";
 	public static String FIELD_FEATURE_SEND_EMAIL = "feature_send_email";
 	public static String FIELD_FEATURE_PRINTER = "feature_printer";
@@ -705,6 +707,10 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_home_deliveryField.setLength(1);
 		metaData.addField(feature_home_deliveryField);
 
+		Field feature_ontableField = new Field("feature_ontable", "String");
+		feature_ontableField.setLength(1);
+		metaData.addField(feature_ontableField);
+
 		Field feature_takeawayField = new Field("feature_takeaway", "String");
 		feature_takeawayField.setLength(1);
 		metaData.addField(feature_takeawayField);
@@ -1023,6 +1029,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.last_scheme = obj.last_scheme;
 		this.feature_send_sms = obj.feature_send_sms;
 		this.feature_home_delivery = obj.feature_home_delivery;
+		this.feature_ontable = obj.feature_ontable;
 		this.feature_takeaway = obj.feature_takeaway;
 		this.feature_send_email = obj.feature_send_email;
 		this.feature_printer = obj.feature_printer;
@@ -1274,6 +1281,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_sms", feature_send_sms);
 		if(feature_home_delivery != null)
 			map.put("feature_home_delivery", feature_home_delivery);
+		if(feature_ontable != null)
+			map.put("feature_ontable", feature_ontable);
 		if(feature_takeaway != null)
 			map.put("feature_takeaway", feature_takeaway);
 		if(feature_send_email != null)
@@ -1581,6 +1590,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_send_sms", feature_send_sms);
 		if(feature_home_delivery != null)
 			map.put("feature_home_delivery", feature_home_delivery);
+		if(feature_ontable != null)
+			map.put("feature_ontable", feature_ontable);
 		if(feature_takeaway != null)
 			map.put("feature_takeaway", feature_takeaway);
 		if(feature_send_email != null)
@@ -1801,6 +1812,7 @@ public abstract class Basec4t_object extends BaseResource {
 		last_scheme = (String) map.get("last_scheme");
 		feature_send_sms = (String) map.get("feature_send_sms");
 		feature_home_delivery = (String) map.get("feature_home_delivery");
+		feature_ontable = (String) map.get("feature_ontable");
 		feature_takeaway = (String) map.get("feature_takeaway");
 		feature_send_email = (String) map.get("feature_send_email");
 		feature_printer = (String) map.get("feature_printer");
@@ -2231,6 +2243,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_home_deliveryObj = map.get("feature_home_delivery");
 		if(feature_home_deliveryObj != null)
 			feature_home_delivery = feature_home_deliveryObj.toString();
+
+		Object feature_ontableObj = map.get("feature_ontable");
+		if(feature_ontableObj != null)
+			feature_ontable = feature_ontableObj.toString();
 
 		Object feature_takeawayObj = map.get("feature_takeaway");
 		if(feature_takeawayObj != null)
@@ -3957,6 +3973,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_home_delivery() {
 		this.feature_home_delivery = null;
+	}
+
+	public String getFeature_ontable() {
+		return feature_ontable;
+	}
+
+	public String getFeature_ontableEx() {
+		return feature_ontable != null ? feature_ontable : "";
+	}
+
+	public void setFeature_ontable(String feature_ontable) {
+		this.feature_ontable = feature_ontable;
+	}
+
+	public void unSetFeature_ontable() {
+		this.feature_ontable = null;
 	}
 
 	public String getFeature_takeaway() {

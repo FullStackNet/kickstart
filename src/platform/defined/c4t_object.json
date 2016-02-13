@@ -475,6 +475,11 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_ontable':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_takeaway':
 			{
 				'type':'String',
