@@ -44,6 +44,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String product_thumbnail_url = null;
 	private String longitude = null;
 	private String latitude = null;
+	private String product_video_url1 = null;
+	private String product_video_url2 = null;
 	private String product_url1 = null;
 	private String product_url2 = null;
 	private String product_url3 = null;
@@ -197,6 +199,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_PRODUCT_THUMBNAIL_URL = "product_thumbnail_url";
 	public static String FIELD_LONGITUDE = "longitude";
 	public static String FIELD_LATITUDE = "latitude";
+	public static String FIELD_PRODUCT_VIDEO_URL1 = "product_video_url1";
+	public static String FIELD_PRODUCT_VIDEO_URL2 = "product_video_url2";
 	public static String FIELD_PRODUCT_URL1 = "product_url1";
 	public static String FIELD_PRODUCT_URL2 = "product_url2";
 	public static String FIELD_PRODUCT_URL3 = "product_url3";
@@ -434,6 +438,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Field latitudeField = new Field("latitude", "String");
 		latitudeField.setLength(128);
 		metaData.addField(latitudeField);
+
+		Field product_video_url1Field = new Field("product_video_url1", "String");
+		product_video_url1Field.setLength(128);
+		metaData.addField(product_video_url1Field);
+
+		Field product_video_url2Field = new Field("product_video_url2", "String");
+		product_video_url2Field.setLength(128);
+		metaData.addField(product_video_url2Field);
 
 		Field product_url1Field = new Field("product_url1", "String");
 		product_url1Field.setLength(128);
@@ -962,6 +974,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.product_thumbnail_url = obj.product_thumbnail_url;
 		this.longitude = obj.longitude;
 		this.latitude = obj.latitude;
+		this.product_video_url1 = obj.product_video_url1;
+		this.product_video_url2 = obj.product_video_url2;
 		this.product_url1 = obj.product_url1;
 		this.product_url2 = obj.product_url2;
 		this.product_url3 = obj.product_url3;
@@ -1147,6 +1161,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("longitude", longitude);
 		if(latitude != null)
 			map.put("latitude", latitude);
+		if(product_video_url1 != null)
+			map.put("product_video_url1", product_video_url1);
+		if(product_video_url2 != null)
+			map.put("product_video_url2", product_video_url2);
 		if(product_url1 != null)
 			map.put("product_url1", product_url1);
 		if(product_url2 != null)
@@ -1456,6 +1474,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("longitude", longitude);
 		if(latitude != null)
 			map.put("latitude", latitude);
+		if(product_video_url1 != null)
+			map.put("product_video_url1", product_video_url1);
+		if(product_video_url2 != null)
+			map.put("product_video_url2", product_video_url2);
 		if(product_url1 != null)
 			map.put("product_url1", product_url1);
 		if(product_url2 != null)
@@ -1745,6 +1767,8 @@ public abstract class Basec4t_object extends BaseResource {
 		product_thumbnail_url = (String) map.get("product_thumbnail_url");
 		longitude = (String) map.get("longitude");
 		latitude = (String) map.get("latitude");
+		product_video_url1 = (String) map.get("product_video_url1");
+		product_video_url2 = (String) map.get("product_video_url2");
 		product_url1 = (String) map.get("product_url1");
 		product_url2 = (String) map.get("product_url2");
 		product_url3 = (String) map.get("product_url3");
@@ -1975,6 +1999,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object latitudeObj = map.get("latitude");
 		if(latitudeObj != null)
 			latitude = latitudeObj.toString();
+
+		Object product_video_url1Obj = map.get("product_video_url1");
+		if(product_video_url1Obj != null)
+			product_video_url1 = product_video_url1Obj.toString();
+
+		Object product_video_url2Obj = map.get("product_video_url2");
+		if(product_video_url2Obj != null)
+			product_video_url2 = product_video_url2Obj.toString();
 
 		Object product_url1Obj = map.get("product_url1");
 		if(product_url1Obj != null)
@@ -2897,6 +2929,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetLatitude() {
 		this.latitude = null;
+	}
+
+	public String getProduct_video_url1() {
+		return product_video_url1;
+	}
+
+	public String getProduct_video_url1Ex() {
+		return product_video_url1 != null ? product_video_url1 : "";
+	}
+
+	public void setProduct_video_url1(String product_video_url1) {
+		this.product_video_url1 = product_video_url1;
+	}
+
+	public void unSetProduct_video_url1() {
+		this.product_video_url1 = null;
+	}
+
+	public String getProduct_video_url2() {
+		return product_video_url2;
+	}
+
+	public String getProduct_video_url2Ex() {
+		return product_video_url2 != null ? product_video_url2 : "";
+	}
+
+	public void setProduct_video_url2(String product_video_url2) {
+		this.product_video_url2 = product_video_url2;
+	}
+
+	public void unSetProduct_video_url2() {
+		this.product_video_url2 = null;
 	}
 
 	public String getProduct_url1() {

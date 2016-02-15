@@ -133,6 +133,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'product_video_url1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'product_video_url2':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'product_url1':
 			{
 				'length': 128,
