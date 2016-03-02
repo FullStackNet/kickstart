@@ -87,6 +87,16 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_active = null;
 	private String feature_distributer_management = null;
 	private String feature_dealer_management = null;
+	private String feature_communication = null;
+	private String feature_discussion = null;
+	private String feature_helprequest = null;
+	private String feature_askdoubt = null;
+	private String feature_business = null;
+	private String feature_project_task = null;
+	private String feature_opinion = null;
+	private String feature_poll = null;
+	private String feature_event = null;
+	private String feature_survey = null;
 	private Integer no_of_flats = null;
 	private String block_id = null;
 	private String mentor = null;
@@ -242,6 +252,16 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_ACTIVE = "feature_active";
 	public static String FIELD_FEATURE_DISTRIBUTER_MANAGEMENT = "feature_distributer_management";
 	public static String FIELD_FEATURE_DEALER_MANAGEMENT = "feature_dealer_management";
+	public static String FIELD_FEATURE_COMMUNICATION = "feature_communication";
+	public static String FIELD_FEATURE_DISCUSSION = "feature_discussion";
+	public static String FIELD_FEATURE_HELPREQUEST = "feature_helprequest";
+	public static String FIELD_FEATURE_ASKDOUBT = "feature_askdoubt";
+	public static String FIELD_FEATURE_BUSINESS = "feature_business";
+	public static String FIELD_FEATURE_PROJECT_TASK = "feature_project_task";
+	public static String FIELD_FEATURE_OPINION = "feature_opinion";
+	public static String FIELD_FEATURE_POLL = "feature_poll";
+	public static String FIELD_FEATURE_EVENT = "feature_event";
+	public static String FIELD_FEATURE_SURVEY = "feature_survey";
 	public static String FIELD_NO_OF_FLATS = "no_of_flats";
 	public static String FIELD_BLOCK_ID = "block_id";
 	public static String FIELD_MENTOR = "mentor";
@@ -615,6 +635,46 @@ public abstract class Basec4t_object extends BaseResource {
 		Field feature_dealer_managementField = new Field("feature_dealer_management", "String");
 		feature_dealer_managementField.setLength(1);
 		metaData.addField(feature_dealer_managementField);
+
+		Field feature_communicationField = new Field("feature_communication", "String");
+		feature_communicationField.setLength(1);
+		metaData.addField(feature_communicationField);
+
+		Field feature_discussionField = new Field("feature_discussion", "String");
+		feature_discussionField.setLength(1);
+		metaData.addField(feature_discussionField);
+
+		Field feature_helprequestField = new Field("feature_helprequest", "String");
+		feature_helprequestField.setLength(1);
+		metaData.addField(feature_helprequestField);
+
+		Field feature_askdoubtField = new Field("feature_askdoubt", "String");
+		feature_askdoubtField.setLength(1);
+		metaData.addField(feature_askdoubtField);
+
+		Field feature_businessField = new Field("feature_business", "String");
+		feature_businessField.setLength(1);
+		metaData.addField(feature_businessField);
+
+		Field feature_project_taskField = new Field("feature_project_task", "String");
+		feature_project_taskField.setLength(1);
+		metaData.addField(feature_project_taskField);
+
+		Field feature_opinionField = new Field("feature_opinion", "String");
+		feature_opinionField.setLength(1);
+		metaData.addField(feature_opinionField);
+
+		Field feature_pollField = new Field("feature_poll", "String");
+		feature_pollField.setLength(1);
+		metaData.addField(feature_pollField);
+
+		Field feature_eventField = new Field("feature_event", "String");
+		feature_eventField.setLength(1);
+		metaData.addField(feature_eventField);
+
+		Field feature_surveyField = new Field("feature_survey", "String");
+		feature_surveyField.setLength(1);
+		metaData.addField(feature_surveyField);
 
 		Field no_of_flatsField = new Field("no_of_flats", "int");
 		metaData.addField(no_of_flatsField);
@@ -1017,6 +1077,16 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_active = obj.feature_active;
 		this.feature_distributer_management = obj.feature_distributer_management;
 		this.feature_dealer_management = obj.feature_dealer_management;
+		this.feature_communication = obj.feature_communication;
+		this.feature_discussion = obj.feature_discussion;
+		this.feature_helprequest = obj.feature_helprequest;
+		this.feature_askdoubt = obj.feature_askdoubt;
+		this.feature_business = obj.feature_business;
+		this.feature_project_task = obj.feature_project_task;
+		this.feature_opinion = obj.feature_opinion;
+		this.feature_poll = obj.feature_poll;
+		this.feature_event = obj.feature_event;
+		this.feature_survey = obj.feature_survey;
 		this.no_of_flats = obj.no_of_flats;
 		this.block_id = obj.block_id;
 		this.mentor = obj.mentor;
@@ -1247,6 +1317,26 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_distributer_management", feature_distributer_management);
 		if(feature_dealer_management != null)
 			map.put("feature_dealer_management", feature_dealer_management);
+		if(feature_communication != null)
+			map.put("feature_communication", feature_communication);
+		if(feature_discussion != null)
+			map.put("feature_discussion", feature_discussion);
+		if(feature_helprequest != null)
+			map.put("feature_helprequest", feature_helprequest);
+		if(feature_askdoubt != null)
+			map.put("feature_askdoubt", feature_askdoubt);
+		if(feature_business != null)
+			map.put("feature_business", feature_business);
+		if(feature_project_task != null)
+			map.put("feature_project_task", feature_project_task);
+		if(feature_opinion != null)
+			map.put("feature_opinion", feature_opinion);
+		if(feature_poll != null)
+			map.put("feature_poll", feature_poll);
+		if(feature_event != null)
+			map.put("feature_event", feature_event);
+		if(feature_survey != null)
+			map.put("feature_survey", feature_survey);
 		if(no_of_flats != null)
 			map.put("no_of_flats", no_of_flats);
 		if(block_id != null)
@@ -1560,6 +1650,26 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_distributer_management", feature_distributer_management);
 		if(feature_dealer_management != null)
 			map.put("feature_dealer_management", feature_dealer_management);
+		if(feature_communication != null)
+			map.put("feature_communication", feature_communication);
+		if(feature_discussion != null)
+			map.put("feature_discussion", feature_discussion);
+		if(feature_helprequest != null)
+			map.put("feature_helprequest", feature_helprequest);
+		if(feature_askdoubt != null)
+			map.put("feature_askdoubt", feature_askdoubt);
+		if(feature_business != null)
+			map.put("feature_business", feature_business);
+		if(feature_project_task != null)
+			map.put("feature_project_task", feature_project_task);
+		if(feature_opinion != null)
+			map.put("feature_opinion", feature_opinion);
+		if(feature_poll != null)
+			map.put("feature_poll", feature_poll);
+		if(feature_event != null)
+			map.put("feature_event", feature_event);
+		if(feature_survey != null)
+			map.put("feature_survey", feature_survey);
 		if(no_of_flats != null)
 			map.put("no_of_flats", no_of_flats);
 		if(block_id != null)
@@ -1810,6 +1920,16 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_active = (String) map.get("feature_active");
 		feature_distributer_management = (String) map.get("feature_distributer_management");
 		feature_dealer_management = (String) map.get("feature_dealer_management");
+		feature_communication = (String) map.get("feature_communication");
+		feature_discussion = (String) map.get("feature_discussion");
+		feature_helprequest = (String) map.get("feature_helprequest");
+		feature_askdoubt = (String) map.get("feature_askdoubt");
+		feature_business = (String) map.get("feature_business");
+		feature_project_task = (String) map.get("feature_project_task");
+		feature_opinion = (String) map.get("feature_opinion");
+		feature_poll = (String) map.get("feature_poll");
+		feature_event = (String) map.get("feature_event");
+		feature_survey = (String) map.get("feature_survey");
 		no_of_flats = (Integer) map.get("no_of_flats");
 		block_id = (String) map.get("block_id");
 		mentor = (String) map.get("mentor");
@@ -2171,6 +2291,46 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_dealer_managementObj = map.get("feature_dealer_management");
 		if(feature_dealer_managementObj != null)
 			feature_dealer_management = feature_dealer_managementObj.toString();
+
+		Object feature_communicationObj = map.get("feature_communication");
+		if(feature_communicationObj != null)
+			feature_communication = feature_communicationObj.toString();
+
+		Object feature_discussionObj = map.get("feature_discussion");
+		if(feature_discussionObj != null)
+			feature_discussion = feature_discussionObj.toString();
+
+		Object feature_helprequestObj = map.get("feature_helprequest");
+		if(feature_helprequestObj != null)
+			feature_helprequest = feature_helprequestObj.toString();
+
+		Object feature_askdoubtObj = map.get("feature_askdoubt");
+		if(feature_askdoubtObj != null)
+			feature_askdoubt = feature_askdoubtObj.toString();
+
+		Object feature_businessObj = map.get("feature_business");
+		if(feature_businessObj != null)
+			feature_business = feature_businessObj.toString();
+
+		Object feature_project_taskObj = map.get("feature_project_task");
+		if(feature_project_taskObj != null)
+			feature_project_task = feature_project_taskObj.toString();
+
+		Object feature_opinionObj = map.get("feature_opinion");
+		if(feature_opinionObj != null)
+			feature_opinion = feature_opinionObj.toString();
+
+		Object feature_pollObj = map.get("feature_poll");
+		if(feature_pollObj != null)
+			feature_poll = feature_pollObj.toString();
+
+		Object feature_eventObj = map.get("feature_event");
+		if(feature_eventObj != null)
+			feature_event = feature_eventObj.toString();
+
+		Object feature_surveyObj = map.get("feature_survey");
+		if(feature_surveyObj != null)
+			feature_survey = feature_surveyObj.toString();
 
 		Object no_of_flatsObj = map.get("no_of_flats");
 		if(no_of_flatsObj != null)
@@ -3617,6 +3777,166 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_dealer_management() {
 		this.feature_dealer_management = null;
+	}
+
+	public String getFeature_communication() {
+		return feature_communication;
+	}
+
+	public String getFeature_communicationEx() {
+		return feature_communication != null ? feature_communication : "";
+	}
+
+	public void setFeature_communication(String feature_communication) {
+		this.feature_communication = feature_communication;
+	}
+
+	public void unSetFeature_communication() {
+		this.feature_communication = null;
+	}
+
+	public String getFeature_discussion() {
+		return feature_discussion;
+	}
+
+	public String getFeature_discussionEx() {
+		return feature_discussion != null ? feature_discussion : "";
+	}
+
+	public void setFeature_discussion(String feature_discussion) {
+		this.feature_discussion = feature_discussion;
+	}
+
+	public void unSetFeature_discussion() {
+		this.feature_discussion = null;
+	}
+
+	public String getFeature_helprequest() {
+		return feature_helprequest;
+	}
+
+	public String getFeature_helprequestEx() {
+		return feature_helprequest != null ? feature_helprequest : "";
+	}
+
+	public void setFeature_helprequest(String feature_helprequest) {
+		this.feature_helprequest = feature_helprequest;
+	}
+
+	public void unSetFeature_helprequest() {
+		this.feature_helprequest = null;
+	}
+
+	public String getFeature_askdoubt() {
+		return feature_askdoubt;
+	}
+
+	public String getFeature_askdoubtEx() {
+		return feature_askdoubt != null ? feature_askdoubt : "";
+	}
+
+	public void setFeature_askdoubt(String feature_askdoubt) {
+		this.feature_askdoubt = feature_askdoubt;
+	}
+
+	public void unSetFeature_askdoubt() {
+		this.feature_askdoubt = null;
+	}
+
+	public String getFeature_business() {
+		return feature_business;
+	}
+
+	public String getFeature_businessEx() {
+		return feature_business != null ? feature_business : "";
+	}
+
+	public void setFeature_business(String feature_business) {
+		this.feature_business = feature_business;
+	}
+
+	public void unSetFeature_business() {
+		this.feature_business = null;
+	}
+
+	public String getFeature_project_task() {
+		return feature_project_task;
+	}
+
+	public String getFeature_project_taskEx() {
+		return feature_project_task != null ? feature_project_task : "";
+	}
+
+	public void setFeature_project_task(String feature_project_task) {
+		this.feature_project_task = feature_project_task;
+	}
+
+	public void unSetFeature_project_task() {
+		this.feature_project_task = null;
+	}
+
+	public String getFeature_opinion() {
+		return feature_opinion;
+	}
+
+	public String getFeature_opinionEx() {
+		return feature_opinion != null ? feature_opinion : "";
+	}
+
+	public void setFeature_opinion(String feature_opinion) {
+		this.feature_opinion = feature_opinion;
+	}
+
+	public void unSetFeature_opinion() {
+		this.feature_opinion = null;
+	}
+
+	public String getFeature_poll() {
+		return feature_poll;
+	}
+
+	public String getFeature_pollEx() {
+		return feature_poll != null ? feature_poll : "";
+	}
+
+	public void setFeature_poll(String feature_poll) {
+		this.feature_poll = feature_poll;
+	}
+
+	public void unSetFeature_poll() {
+		this.feature_poll = null;
+	}
+
+	public String getFeature_event() {
+		return feature_event;
+	}
+
+	public String getFeature_eventEx() {
+		return feature_event != null ? feature_event : "";
+	}
+
+	public void setFeature_event(String feature_event) {
+		this.feature_event = feature_event;
+	}
+
+	public void unSetFeature_event() {
+		this.feature_event = null;
+	}
+
+	public String getFeature_survey() {
+		return feature_survey;
+	}
+
+	public String getFeature_surveyEx() {
+		return feature_survey != null ? feature_survey : "";
+	}
+
+	public void setFeature_survey(String feature_survey) {
+		this.feature_survey = feature_survey;
+	}
+
+	public void unSetFeature_survey() {
+		this.feature_survey = null;
 	}
 
 	public Integer getNo_of_flats() {

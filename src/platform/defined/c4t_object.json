@@ -356,6 +356,56 @@
 				'length': 1,
 				'remark' : "only for business communities"
 			},
+			'feature_communication':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_discussion':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_helprequest':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_askdoubt':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_business':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_project_task':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_opinion':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_poll':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_event':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_survey':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'no_of_flats':
 			{
 				'type':'int'
