@@ -25,6 +25,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private String severity = null;
 	private String customer_id = null;
 	private String record_type = null;
+	private String record_no = null;
+	private String vehicle_no = null;
 	private String record_sub_type = null;
 	private String location_type = null;
 	private String title = null;
@@ -142,6 +144,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_SEVERITY = "severity";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_RECORD_TYPE = "record_type";
+	public static String FIELD_RECORD_NO = "record_no";
+	public static String FIELD_VEHICLE_NO = "vehicle_no";
 	public static String FIELD_RECORD_SUB_TYPE = "record_sub_type";
 	public static String FIELD_LOCATION_TYPE = "location_type";
 	public static String FIELD_TITLE = "title";
@@ -286,6 +290,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Field record_typeField = new Field("record_type", "String");
 		record_typeField.setLength(512);
 		metaData.addField(record_typeField);
+
+		Field record_noField = new Field("record_no", "String");
+		record_noField.setLength(512);
+		metaData.addField(record_noField);
+
+		Field vehicle_noField = new Field("vehicle_no", "String");
+		vehicle_noField.setLength(512);
+		metaData.addField(vehicle_noField);
 
 		Field record_sub_typeField = new Field("record_sub_type", "String");
 		record_sub_typeField.setLength(512);
@@ -730,6 +742,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.severity = obj.severity;
 		this.customer_id = obj.customer_id;
 		this.record_type = obj.record_type;
+		this.record_no = obj.record_no;
+		this.vehicle_no = obj.vehicle_no;
 		this.record_sub_type = obj.record_sub_type;
 		this.location_type = obj.location_type;
 		this.title = obj.title;
@@ -873,6 +887,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(record_type != null)
 			map.put("record_type", record_type);
+		if(record_no != null)
+			map.put("record_no", record_no);
+		if(vehicle_no != null)
+			map.put("vehicle_no", vehicle_no);
 		if(record_sub_type != null)
 			map.put("record_sub_type", record_sub_type);
 		if(location_type != null)
@@ -1113,6 +1131,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(record_type != null)
 			map.put("record_type", record_type);
+		if(record_no != null)
+			map.put("record_no", record_no);
+		if(vehicle_no != null)
+			map.put("vehicle_no", vehicle_no);
 		if(record_sub_type != null)
 			map.put("record_sub_type", record_sub_type);
 		if(location_type != null)
@@ -1349,6 +1371,8 @@ public abstract class Basec4t_record extends BaseResource {
 		severity = (String) map.get("severity");
 		customer_id = (String) map.get("customer_id");
 		record_type = (String) map.get("record_type");
+		record_no = (String) map.get("record_no");
+		vehicle_no = (String) map.get("vehicle_no");
 		record_sub_type = (String) map.get("record_sub_type");
 		location_type = (String) map.get("location_type");
 		title = (String) map.get("title");
@@ -1486,6 +1510,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object record_typeObj = map.get("record_type");
 		if(record_typeObj != null)
 			record_type = record_typeObj.toString();
+
+		Object record_noObj = map.get("record_no");
+		if(record_noObj != null)
+			record_no = record_noObj.toString();
+
+		Object vehicle_noObj = map.get("vehicle_no");
+		if(vehicle_noObj != null)
+			vehicle_no = vehicle_noObj.toString();
 
 		Object record_sub_typeObj = map.get("record_sub_type");
 		if(record_sub_typeObj != null)
@@ -2032,6 +2064,38 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetRecord_type() {
 		this.record_type = null;
+	}
+
+	public String getRecord_no() {
+		return record_no;
+	}
+
+	public String getRecord_noEx() {
+		return record_no != null ? record_no : "";
+	}
+
+	public void setRecord_no(String record_no) {
+		this.record_no = record_no;
+	}
+
+	public void unSetRecord_no() {
+		this.record_no = null;
+	}
+
+	public String getVehicle_no() {
+		return vehicle_no;
+	}
+
+	public String getVehicle_noEx() {
+		return vehicle_no != null ? vehicle_no : "";
+	}
+
+	public void setVehicle_no(String vehicle_no) {
+		this.vehicle_no = vehicle_no;
+	}
+
+	public void unSetVehicle_no() {
+		this.vehicle_no = null;
 	}
 
 	public String getRecord_sub_type() {

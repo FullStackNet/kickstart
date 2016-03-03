@@ -40,6 +40,16 @@
 				'type': 'String',
 				'remark' : "COMMUNICATION,PERSONAL_COMMUNICATION"
 			},
+			'record_no':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'vehicle_no':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'record_sub_type':
 			{
 				'length': 512,
