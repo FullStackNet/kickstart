@@ -98,6 +98,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_event = null;
 	private String feature_meeting = null;
 	private String feature_news = null;
+	private String feature_matrimonial = null;
 	private String feature_survey = null;
 	private Integer no_of_flats = null;
 	private String block_id = null;
@@ -265,6 +266,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_EVENT = "feature_event";
 	public static String FIELD_FEATURE_MEETING = "feature_meeting";
 	public static String FIELD_FEATURE_NEWS = "feature_news";
+	public static String FIELD_FEATURE_MATRIMONIAL = "feature_matrimonial";
 	public static String FIELD_FEATURE_SURVEY = "feature_survey";
 	public static String FIELD_NO_OF_FLATS = "no_of_flats";
 	public static String FIELD_BLOCK_ID = "block_id";
@@ -684,6 +686,10 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_newsField.setLength(1);
 		metaData.addField(feature_newsField);
 
+		Field feature_matrimonialField = new Field("feature_matrimonial", "String");
+		feature_matrimonialField.setLength(1);
+		metaData.addField(feature_matrimonialField);
+
 		Field feature_surveyField = new Field("feature_survey", "String");
 		feature_surveyField.setLength(1);
 		metaData.addField(feature_surveyField);
@@ -1100,6 +1106,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_event = obj.feature_event;
 		this.feature_meeting = obj.feature_meeting;
 		this.feature_news = obj.feature_news;
+		this.feature_matrimonial = obj.feature_matrimonial;
 		this.feature_survey = obj.feature_survey;
 		this.no_of_flats = obj.no_of_flats;
 		this.block_id = obj.block_id;
@@ -1353,6 +1360,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_meeting", feature_meeting);
 		if(feature_news != null)
 			map.put("feature_news", feature_news);
+		if(feature_matrimonial != null)
+			map.put("feature_matrimonial", feature_matrimonial);
 		if(feature_survey != null)
 			map.put("feature_survey", feature_survey);
 		if(no_of_flats != null)
@@ -1690,6 +1699,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_meeting", feature_meeting);
 		if(feature_news != null)
 			map.put("feature_news", feature_news);
+		if(feature_matrimonial != null)
+			map.put("feature_matrimonial", feature_matrimonial);
 		if(feature_survey != null)
 			map.put("feature_survey", feature_survey);
 		if(no_of_flats != null)
@@ -1953,6 +1964,7 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_event = (String) map.get("feature_event");
 		feature_meeting = (String) map.get("feature_meeting");
 		feature_news = (String) map.get("feature_news");
+		feature_matrimonial = (String) map.get("feature_matrimonial");
 		feature_survey = (String) map.get("feature_survey");
 		no_of_flats = (Integer) map.get("no_of_flats");
 		block_id = (String) map.get("block_id");
@@ -2359,6 +2371,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_newsObj = map.get("feature_news");
 		if(feature_newsObj != null)
 			feature_news = feature_newsObj.toString();
+
+		Object feature_matrimonialObj = map.get("feature_matrimonial");
+		if(feature_matrimonialObj != null)
+			feature_matrimonial = feature_matrimonialObj.toString();
 
 		Object feature_surveyObj = map.get("feature_survey");
 		if(feature_surveyObj != null)
@@ -3985,6 +4001,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_news() {
 		this.feature_news = null;
+	}
+
+	public String getFeature_matrimonial() {
+		return feature_matrimonial;
+	}
+
+	public String getFeature_matrimonialEx() {
+		return feature_matrimonial != null ? feature_matrimonial : "";
+	}
+
+	public void setFeature_matrimonial(String feature_matrimonial) {
+		this.feature_matrimonial = feature_matrimonial;
+	}
+
+	public void unSetFeature_matrimonial() {
+		this.feature_matrimonial = null;
 	}
 
 	public String getFeature_survey() {

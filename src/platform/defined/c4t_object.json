@@ -411,6 +411,11 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_matrimonial':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_survey':
 			{
 				'type':'String',
