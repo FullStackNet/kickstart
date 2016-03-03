@@ -26,9 +26,17 @@ public class TableDefinition {
 	boolean monthlyTotal;
 	long width;
 	boolean displayTitles;
+	boolean displayCommunityName;
+	
 	private ArrayList<JoinField> joinFields;
 	boolean dateWiseFilter; 
 	
+	public boolean isDisplayCommunityName() {
+		return displayCommunityName;
+	}
+	public void setDisplayCommunityName(boolean displayCommunityName) {
+		this.displayCommunityName = displayCommunityName;
+	}
 	public long getAutoRefreshInterval() {
 		return autoRefreshInterval;
 	}
@@ -49,6 +57,7 @@ public class TableDefinition {
 		modifyButton = true;
 		deleteButton = false;
 		displayTitles = true;
+		displayCommunityName = true;
 	}
 
 	public void addJoinField(JoinField field) {

@@ -130,7 +130,9 @@ public abstract class BaseTableView extends BaseView {
 		td.addAttribute("style","text-align:center;padding:0;");
 		String title = mDefinition.getTitle();
 		if (getContext().getContextName() != null) {
-			title = title +" ["+getContext().getContextName()+"]";
+			if (getDefinition().isDisplayCommunityName()) {
+				title = title +" ["+getContext().getContextName()+"]";
+			}
 		}
 		td.addChild(new H4(title));
 		row.addChild(td);

@@ -401,6 +401,16 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_meeting':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_news':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_survey':
 			{
 				'type':'String',
