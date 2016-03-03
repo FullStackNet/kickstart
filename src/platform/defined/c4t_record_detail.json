@@ -99,6 +99,10 @@
 			{
 				'type': 'Double'
 			},
+			'allocation':
+			{
+				'type': 'Double'
+			},
 			'free_quantity':
 			{
 				'type': 'Double'

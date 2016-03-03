@@ -98,6 +98,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private Long total_cancelled = null;
 	private Long total_delivered = null;
 	private Double total_quantity = null;
+	private Double total_allocation = null;
 	private String recipients = null;
 	private String description = null;
 	private String remark = null;
@@ -217,6 +218,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_CANCELLED = "total_cancelled";
 	public static String FIELD_TOTAL_DELIVERED = "total_delivered";
 	public static String FIELD_TOTAL_QUANTITY = "total_quantity";
+	public static String FIELD_TOTAL_ALLOCATION = "total_allocation";
 	public static String FIELD_RECIPIENTS = "recipients";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_REMARK = "remark";
@@ -579,6 +581,9 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_quantityField = new Field("total_quantity", "Double");
 		metaData.addField(total_quantityField);
 
+		Field total_allocationField = new Field("total_allocation", "Double");
+		metaData.addField(total_allocationField);
+
 		Field recipientsField = new Field("recipients", "String");
 		recipientsField.setLength(512);
 		metaData.addField(recipientsField);
@@ -815,6 +820,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_cancelled = obj.total_cancelled;
 		this.total_delivered = obj.total_delivered;
 		this.total_quantity = obj.total_quantity;
+		this.total_allocation = obj.total_allocation;
 		this.recipients = obj.recipients;
 		this.description = obj.description;
 		this.remark = obj.remark;
@@ -1033,6 +1039,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_delivered", total_delivered);
 		if(total_quantity != null)
 			map.put("total_quantity", total_quantity);
+		if(total_allocation != null)
+			map.put("total_allocation", total_allocation);
 		if(recipients != null)
 			map.put("recipients", recipients);
 		if(description != null)
@@ -1277,6 +1285,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_delivered", total_delivered);
 		if(total_quantity != null)
 			map.put("total_quantity", total_quantity);
+		if(total_allocation != null)
+			map.put("total_allocation", total_allocation);
 		if(recipients != null)
 			map.put("recipients", recipients);
 		if(description != null)
@@ -1444,6 +1454,7 @@ public abstract class Basec4t_record extends BaseResource {
 		total_cancelled = (Long) map.get("total_cancelled");
 		total_delivered = (Long) map.get("total_delivered");
 		total_quantity = (Double) map.get("total_quantity");
+		total_allocation = (Double) map.get("total_allocation");
 		recipients = (String) map.get("recipients");
 		description = (String) map.get("description");
 		remark = (String) map.get("remark");
@@ -1802,6 +1813,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_quantityObj = map.get("total_quantity");
 		if(total_quantityObj != null)
 			total_quantity = new Double(total_quantityObj.toString());
+
+		Object total_allocationObj = map.get("total_allocation");
+		if(total_allocationObj != null)
+			total_allocation = new Double(total_allocationObj.toString());
 
 		Object recipientsObj = map.get("recipients");
 		if(recipientsObj != null)
@@ -3228,6 +3243,18 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_quantity() {
 		this.total_quantity = null;
+	}
+
+	public Double getTotal_allocation() {
+		return total_allocation;
+	}
+
+	public void setTotal_allocation(Double total_allocation) {
+		this.total_allocation = total_allocation;
+	}
+
+	public void unSetTotal_allocation() {
+		this.total_allocation = null;
 	}
 
 	public String getRecipients() {

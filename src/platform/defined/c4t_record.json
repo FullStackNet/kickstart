@@ -412,6 +412,10 @@
 			{
 				'type': 'Double'
 			},
+			'total_allocation':
+			{
+				'type': 'Double'
+			},
 			'recipients':
 			{
 				'length': 512,
