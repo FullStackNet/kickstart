@@ -45,6 +45,16 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'grade_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'grade_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'product_id':
 			{
 				'length': 512,

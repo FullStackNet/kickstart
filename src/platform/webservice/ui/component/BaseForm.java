@@ -281,6 +281,7 @@ public abstract class BaseForm extends BaseView {
 					}
 					if (field.isReadOnly()) {
 						textEdit.addAttribute("readonly", "true");
+						textEdit.addStyle("background-color", "silver");
 					}
 					if ((field.getMaxLength() != null) && field.getMaxLength() > 0) {
 						textEdit.addAttribute("maxlength", ""+field.getMaxLength());

@@ -26,6 +26,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String record_type = null;
 	private String record_status = null;
 	private String message = null;
+	private String grade_id = null;
+	private String grade_name = null;
 	private String product_id = null;
 	private String product_name = null;
 	private String size = null;
@@ -63,6 +65,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_RECORD_STATUS = "record_status";
 	public static String FIELD_MESSAGE = "message";
+	public static String FIELD_GRADE_ID = "grade_id";
+	public static String FIELD_GRADE_NAME = "grade_name";
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
 	public static String FIELD_SIZE = "size";
@@ -130,6 +134,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Field messageField = new Field("message", "String");
 		messageField.setLength(512);
 		metaData.addField(messageField);
+
+		Field grade_idField = new Field("grade_id", "String");
+		grade_idField.setLength(512);
+		metaData.addField(grade_idField);
+
+		Field grade_nameField = new Field("grade_name", "String");
+		grade_nameField.setLength(512);
+		metaData.addField(grade_nameField);
 
 		Field product_idField = new Field("product_id", "String");
 		product_idField.setLength(512);
@@ -253,6 +265,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.record_type = obj.record_type;
 		this.record_status = obj.record_status;
 		this.message = obj.message;
+		this.grade_id = obj.grade_id;
+		this.grade_name = obj.grade_name;
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
 		this.size = obj.size;
@@ -304,6 +318,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("record_status", record_status);
 		if(message != null)
 			map.put("message", message);
+		if(grade_id != null)
+			map.put("grade_id", grade_id);
+		if(grade_name != null)
+			map.put("grade_name", grade_name);
 		if(product_id != null)
 			map.put("product_id", product_id);
 		if(product_name != null)
@@ -381,6 +399,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("record_status", record_status);
 		if(message != null)
 			map.put("message", message);
+		if(grade_id != null)
+			map.put("grade_id", grade_id);
+		if(grade_name != null)
+			map.put("grade_name", grade_name);
 		if(product_id != null)
 			map.put("product_id", product_id);
 		if(product_name != null)
@@ -456,6 +478,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		record_type = (String) map.get("record_type");
 		record_status = (String) map.get("record_status");
 		message = (String) map.get("message");
+		grade_id = (String) map.get("grade_id");
+		grade_name = (String) map.get("grade_name");
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
 		size = (String) map.get("size");
@@ -516,6 +540,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object messageObj = map.get("message");
 		if(messageObj != null)
 			message = messageObj.toString();
+
+		Object grade_idObj = map.get("grade_id");
+		if(grade_idObj != null)
+			grade_id = grade_idObj.toString();
+
+		Object grade_nameObj = map.get("grade_name");
+		if(grade_nameObj != null)
+			grade_name = grade_nameObj.toString();
 
 		Object product_idObj = map.get("product_id");
 		if(product_idObj != null)
@@ -754,6 +786,38 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetMessage() {
 		this.message = null;
+	}
+
+	public String getGrade_id() {
+		return grade_id;
+	}
+
+	public String getGrade_idEx() {
+		return grade_id != null ? grade_id : "";
+	}
+
+	public void setGrade_id(String grade_id) {
+		this.grade_id = grade_id;
+	}
+
+	public void unSetGrade_id() {
+		this.grade_id = null;
+	}
+
+	public String getGrade_name() {
+		return grade_name;
+	}
+
+	public String getGrade_nameEx() {
+		return grade_name != null ? grade_name : "";
+	}
+
+	public void setGrade_name(String grade_name) {
+		this.grade_name = grade_name;
+	}
+
+	public void unSetGrade_name() {
+		this.grade_name = null;
 	}
 
 	public String getProduct_id() {

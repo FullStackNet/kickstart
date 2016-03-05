@@ -62,6 +62,13 @@ public class C4t_objectHelper extends BaseHelper {
 		return getByExpression(e,orderby);
 	}
 	
+	public BaseResource[] getByCommunityId(String community_id,String object_type, String[] orderby) {
+		Expression e1 = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, object_type);
+		Expression e2 = new Expression(c4t_object.FIELD_COMMUNITY_ID, REL_OP.EQ, community_id);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e,orderby);
+	}
+	
 	public BaseResource[] getProducts(String community_id, String[] orderby) {
 		Expression e1 = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, "COMMUNITY_PRODUCT");
 		Expression e2 = new Expression(c4t_object.FIELD_COMMUNITY_ID, REL_OP.EQ, community_id);
