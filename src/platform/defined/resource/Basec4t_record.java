@@ -94,6 +94,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private Long total_products = null;
 	private Long total_ready = null;
 	private Long total_not_available = null;
+	private Double total_farmer_allocation = null;
 	private Long total_pending = null;
 	private Long total_cancelled = null;
 	private Long total_delivered = null;
@@ -214,6 +215,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_PRODUCTS = "total_products";
 	public static String FIELD_TOTAL_READY = "total_ready";
 	public static String FIELD_TOTAL_NOT_AVAILABLE = "total_not_available";
+	public static String FIELD_TOTAL_FARMER_ALLOCATION = "total_farmer_allocation";
 	public static String FIELD_TOTAL_PENDING = "total_pending";
 	public static String FIELD_TOTAL_CANCELLED = "total_cancelled";
 	public static String FIELD_TOTAL_DELIVERED = "total_delivered";
@@ -569,6 +571,9 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_not_availableField = new Field("total_not_available", "long");
 		metaData.addField(total_not_availableField);
 
+		Field total_farmer_allocationField = new Field("total_farmer_allocation", "Double");
+		metaData.addField(total_farmer_allocationField);
+
 		Field total_pendingField = new Field("total_pending", "long");
 		metaData.addField(total_pendingField);
 
@@ -816,6 +821,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_products = obj.total_products;
 		this.total_ready = obj.total_ready;
 		this.total_not_available = obj.total_not_available;
+		this.total_farmer_allocation = obj.total_farmer_allocation;
 		this.total_pending = obj.total_pending;
 		this.total_cancelled = obj.total_cancelled;
 		this.total_delivered = obj.total_delivered;
@@ -1031,6 +1037,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_ready", total_ready);
 		if(total_not_available != null)
 			map.put("total_not_available", total_not_available);
+		if(total_farmer_allocation != null)
+			map.put("total_farmer_allocation", total_farmer_allocation);
 		if(total_pending != null)
 			map.put("total_pending", total_pending);
 		if(total_cancelled != null)
@@ -1277,6 +1285,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_ready", total_ready);
 		if(total_not_available != null)
 			map.put("total_not_available", total_not_available);
+		if(total_farmer_allocation != null)
+			map.put("total_farmer_allocation", total_farmer_allocation);
 		if(total_pending != null)
 			map.put("total_pending", total_pending);
 		if(total_cancelled != null)
@@ -1450,6 +1460,7 @@ public abstract class Basec4t_record extends BaseResource {
 		total_products = (Long) map.get("total_products");
 		total_ready = (Long) map.get("total_ready");
 		total_not_available = (Long) map.get("total_not_available");
+		total_farmer_allocation = (Double) map.get("total_farmer_allocation");
 		total_pending = (Long) map.get("total_pending");
 		total_cancelled = (Long) map.get("total_cancelled");
 		total_delivered = (Long) map.get("total_delivered");
@@ -1797,6 +1808,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_not_availableObj = map.get("total_not_available");
 		if(total_not_availableObj != null)
 			total_not_available = new Long(total_not_availableObj.toString());
+
+		Object total_farmer_allocationObj = map.get("total_farmer_allocation");
+		if(total_farmer_allocationObj != null)
+			total_farmer_allocation = new Double(total_farmer_allocationObj.toString());
 
 		Object total_pendingObj = map.get("total_pending");
 		if(total_pendingObj != null)
@@ -3171,6 +3186,18 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_not_available() {
 		this.total_not_available = null;
+	}
+
+	public Double getTotal_farmer_allocation() {
+		return total_farmer_allocation;
+	}
+
+	public void setTotal_farmer_allocation(Double total_farmer_allocation) {
+		this.total_farmer_allocation = total_farmer_allocation;
+	}
+
+	public void unSetTotal_farmer_allocation() {
+		this.total_farmer_allocation = null;
 	}
 
 	public Long getTotal_pending() {
