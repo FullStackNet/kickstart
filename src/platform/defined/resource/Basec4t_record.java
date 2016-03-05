@@ -94,7 +94,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private Long total_products = null;
 	private Long total_ready = null;
 	private Long total_not_available = null;
-	private Long total_farmer_allocation = null;
+	private Double total_farmer_allocation = null;
 	private Long total_pending = null;
 	private Long total_cancelled = null;
 	private Long total_delivered = null;
@@ -571,7 +571,7 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_not_availableField = new Field("total_not_available", "long");
 		metaData.addField(total_not_availableField);
 
-		Field total_farmer_allocationField = new Field("total_farmer_allocation", "long");
+		Field total_farmer_allocationField = new Field("total_farmer_allocation", "Double");
 		metaData.addField(total_farmer_allocationField);
 
 		Field total_pendingField = new Field("total_pending", "long");
@@ -1460,7 +1460,7 @@ public abstract class Basec4t_record extends BaseResource {
 		total_products = (Long) map.get("total_products");
 		total_ready = (Long) map.get("total_ready");
 		total_not_available = (Long) map.get("total_not_available");
-		total_farmer_allocation = (Long) map.get("total_farmer_allocation");
+		total_farmer_allocation = (Double) map.get("total_farmer_allocation");
 		total_pending = (Long) map.get("total_pending");
 		total_cancelled = (Long) map.get("total_cancelled");
 		total_delivered = (Long) map.get("total_delivered");
@@ -1811,7 +1811,7 @@ public abstract class Basec4t_record extends BaseResource {
 
 		Object total_farmer_allocationObj = map.get("total_farmer_allocation");
 		if(total_farmer_allocationObj != null)
-			total_farmer_allocation = new Long(total_farmer_allocationObj.toString());
+			total_farmer_allocation = new Double(total_farmer_allocationObj.toString());
 
 		Object total_pendingObj = map.get("total_pending");
 		if(total_pendingObj != null)
@@ -3188,19 +3188,11 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_not_available = null;
 	}
 
-	public Long getTotal_farmer_allocation() {
+	public Double getTotal_farmer_allocation() {
 		return total_farmer_allocation;
 	}
 
-	public long getTotal_farmer_allocationEx() {
-		return total_farmer_allocation != null ? total_farmer_allocation : 0L;
-	}
-
-	public void setTotal_farmer_allocation(long total_farmer_allocation) {
-		this.total_farmer_allocation = total_farmer_allocation;
-	}
-
-	public void setTotal_farmer_allocation(Long total_farmer_allocation) {
+	public void setTotal_farmer_allocation(Double total_farmer_allocation) {
 		this.total_farmer_allocation = total_farmer_allocation;
 	}
 

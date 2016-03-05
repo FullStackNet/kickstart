@@ -398,7 +398,7 @@
 			},
 			'total_farmer_allocation':
 			{
-				'type': 'long'
+				'type': 'Double'
 			},
 			'total_pending':
 			{
