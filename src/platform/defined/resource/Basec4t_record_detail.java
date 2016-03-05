@@ -30,6 +30,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String product_name = null;
 	private String size = null;
 	private String pattern = null;
+	private String reference_id = null;
+	private String reference_no = null;
+	private String farmer_id = null;
+	private String farmer_name = null;
 	private String product_short_name = null;
 	private String title = null;
 	private String description = null;
@@ -63,6 +67,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_PRODUCT_NAME = "product_name";
 	public static String FIELD_SIZE = "size";
 	public static String FIELD_PATTERN = "pattern";
+	public static String FIELD_REFERENCE_ID = "reference_id";
+	public static String FIELD_REFERENCE_NO = "reference_no";
+	public static String FIELD_FARMER_ID = "farmer_id";
+	public static String FIELD_FARMER_NAME = "farmer_name";
 	public static String FIELD_PRODUCT_SHORT_NAME = "product_short_name";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
@@ -138,6 +146,22 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Field patternField = new Field("pattern", "String");
 		patternField.setLength(128);
 		metaData.addField(patternField);
+
+		Field reference_idField = new Field("reference_id", "String");
+		reference_idField.setLength(512);
+		metaData.addField(reference_idField);
+
+		Field reference_noField = new Field("reference_no", "String");
+		reference_noField.setLength(512);
+		metaData.addField(reference_noField);
+
+		Field farmer_idField = new Field("farmer_id", "String");
+		farmer_idField.setLength(512);
+		metaData.addField(farmer_idField);
+
+		Field farmer_nameField = new Field("farmer_name", "String");
+		farmer_nameField.setLength(512);
+		metaData.addField(farmer_nameField);
 
 		Field product_short_nameField = new Field("product_short_name", "String");
 		product_short_nameField.setLength(512);
@@ -233,6 +257,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.product_name = obj.product_name;
 		this.size = obj.size;
 		this.pattern = obj.pattern;
+		this.reference_id = obj.reference_id;
+		this.reference_no = obj.reference_no;
+		this.farmer_id = obj.farmer_id;
+		this.farmer_name = obj.farmer_name;
 		this.product_short_name = obj.product_short_name;
 		this.title = obj.title;
 		this.description = obj.description;
@@ -284,6 +312,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("size", size);
 		if(pattern != null)
 			map.put("pattern", pattern);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
+		if(reference_no != null)
+			map.put("reference_no", reference_no);
+		if(farmer_id != null)
+			map.put("farmer_id", farmer_id);
+		if(farmer_name != null)
+			map.put("farmer_name", farmer_name);
 		if(product_short_name != null)
 			map.put("product_short_name", product_short_name);
 		if(title != null)
@@ -353,6 +389,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("size", size);
 		if(pattern != null)
 			map.put("pattern", pattern);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
+		if(reference_no != null)
+			map.put("reference_no", reference_no);
+		if(farmer_id != null)
+			map.put("farmer_id", farmer_id);
+		if(farmer_name != null)
+			map.put("farmer_name", farmer_name);
 		if(product_short_name != null)
 			map.put("product_short_name", product_short_name);
 		if(title != null)
@@ -416,6 +460,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		product_name = (String) map.get("product_name");
 		size = (String) map.get("size");
 		pattern = (String) map.get("pattern");
+		reference_id = (String) map.get("reference_id");
+		reference_no = (String) map.get("reference_no");
+		farmer_id = (String) map.get("farmer_id");
+		farmer_name = (String) map.get("farmer_name");
 		product_short_name = (String) map.get("product_short_name");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
@@ -484,6 +532,22 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object patternObj = map.get("pattern");
 		if(patternObj != null)
 			pattern = patternObj.toString();
+
+		Object reference_idObj = map.get("reference_id");
+		if(reference_idObj != null)
+			reference_id = reference_idObj.toString();
+
+		Object reference_noObj = map.get("reference_no");
+		if(reference_noObj != null)
+			reference_no = reference_noObj.toString();
+
+		Object farmer_idObj = map.get("farmer_id");
+		if(farmer_idObj != null)
+			farmer_id = farmer_idObj.toString();
+
+		Object farmer_nameObj = map.get("farmer_name");
+		if(farmer_nameObj != null)
+			farmer_name = farmer_nameObj.toString();
 
 		Object product_short_nameObj = map.get("product_short_name");
 		if(product_short_nameObj != null)
@@ -754,6 +818,70 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetPattern() {
 		this.pattern = null;
+	}
+
+	public String getReference_id() {
+		return reference_id;
+	}
+
+	public String getReference_idEx() {
+		return reference_id != null ? reference_id : "";
+	}
+
+	public void setReference_id(String reference_id) {
+		this.reference_id = reference_id;
+	}
+
+	public void unSetReference_id() {
+		this.reference_id = null;
+	}
+
+	public String getReference_no() {
+		return reference_no;
+	}
+
+	public String getReference_noEx() {
+		return reference_no != null ? reference_no : "";
+	}
+
+	public void setReference_no(String reference_no) {
+		this.reference_no = reference_no;
+	}
+
+	public void unSetReference_no() {
+		this.reference_no = null;
+	}
+
+	public String getFarmer_id() {
+		return farmer_id;
+	}
+
+	public String getFarmer_idEx() {
+		return farmer_id != null ? farmer_id : "";
+	}
+
+	public void setFarmer_id(String farmer_id) {
+		this.farmer_id = farmer_id;
+	}
+
+	public void unSetFarmer_id() {
+		this.farmer_id = null;
+	}
+
+	public String getFarmer_name() {
+		return farmer_name;
+	}
+
+	public String getFarmer_nameEx() {
+		return farmer_name != null ? farmer_name : "";
+	}
+
+	public void setFarmer_name(String farmer_name) {
+		this.farmer_name = farmer_name;
+	}
+
+	public void unSetFarmer_name() {
+		this.farmer_name = null;
 	}
 
 	public String getProduct_short_name() {
