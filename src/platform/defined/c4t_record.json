@@ -396,6 +396,10 @@
 			{
 				'type': 'long'
 			},
+			'total_farmer_allocation':
+			{
+				'type': 'long'
+			},
 			'total_pending':
 			{
 				'type': 'long'
