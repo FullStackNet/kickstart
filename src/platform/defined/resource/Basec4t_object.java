@@ -149,6 +149,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String attribute_name = null;
 	private String attribute_value = null;
 	private Double dealer_price = null;
+	private Double muc = null;
+	private Double commision = null;
 	private Double customer_price = null;
 	private String unit = null;
 	private String category_name = null;
@@ -317,6 +319,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ATTRIBUTE_NAME = "attribute_name";
 	public static String FIELD_ATTRIBUTE_VALUE = "attribute_value";
 	public static String FIELD_DEALER_PRICE = "dealer_price";
+	public static String FIELD_MUC = "muc";
+	public static String FIELD_COMMISION = "commision";
 	public static String FIELD_CUSTOMER_PRICE = "customer_price";
 	public static String FIELD_UNIT = "unit";
 	public static String FIELD_CATEGORY_NAME = "category_name";
@@ -879,6 +883,12 @@ public abstract class Basec4t_object extends BaseResource {
 		Field dealer_priceField = new Field("dealer_price", "double");
 		metaData.addField(dealer_priceField);
 
+		Field mucField = new Field("muc", "double");
+		metaData.addField(mucField);
+
+		Field commisionField = new Field("commision", "double");
+		metaData.addField(commisionField);
+
 		Field customer_priceField = new Field("customer_price", "double");
 		metaData.addField(customer_priceField);
 
@@ -1157,6 +1167,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.attribute_name = obj.attribute_name;
 		this.attribute_value = obj.attribute_value;
 		this.dealer_price = obj.dealer_price;
+		this.muc = obj.muc;
+		this.commision = obj.commision;
 		this.customer_price = obj.customer_price;
 		this.unit = obj.unit;
 		this.category_name = obj.category_name;
@@ -1462,6 +1474,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("attribute_value", attribute_value);
 		if(dealer_price != null)
 			map.put("dealer_price", dealer_price);
+		if(muc != null)
+			map.put("muc", muc);
+		if(commision != null)
+			map.put("commision", commision);
 		if(customer_price != null)
 			map.put("customer_price", customer_price);
 		if(unit != null)
@@ -1801,6 +1817,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("attribute_value", attribute_value);
 		if(dealer_price != null)
 			map.put("dealer_price", dealer_price);
+		if(muc != null)
+			map.put("muc", muc);
+		if(commision != null)
+			map.put("commision", commision);
 		if(customer_price != null)
 			map.put("customer_price", customer_price);
 		if(unit != null)
@@ -2015,6 +2035,8 @@ public abstract class Basec4t_object extends BaseResource {
 		attribute_name = (String) map.get("attribute_name");
 		attribute_value = (String) map.get("attribute_value");
 		dealer_price = (Double) map.get("dealer_price");
+		muc = (Double) map.get("muc");
+		commision = (Double) map.get("commision");
 		customer_price = (Double) map.get("customer_price");
 		unit = (String) map.get("unit");
 		category_name = (String) map.get("category_name");
@@ -2575,6 +2597,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object dealer_priceObj = map.get("dealer_price");
 		if(dealer_priceObj != null)
 			dealer_price = new Double(dealer_priceObj.toString());
+
+		Object mucObj = map.get("muc");
+		if(mucObj != null)
+			muc = new Double(mucObj.toString());
+
+		Object commisionObj = map.get("commision");
+		if(commisionObj != null)
+			commision = new Double(commisionObj.toString());
 
 		Object customer_priceObj = map.get("customer_price");
 		if(customer_priceObj != null)
@@ -4861,6 +4891,46 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetDealer_price() {
 		this.dealer_price = null;
+	}
+
+	public Double getMuc() {
+		return muc;
+	}
+
+	public double getMucEx() {
+		return muc != null ? muc : 0;
+	}
+
+	public void setMuc(double muc) {
+		this.muc = muc;
+	}
+
+	public void setMuc(Double muc) {
+		this.muc = muc;
+	}
+
+	public void unSetMuc() {
+		this.muc = null;
+	}
+
+	public Double getCommision() {
+		return commision;
+	}
+
+	public double getCommisionEx() {
+		return commision != null ? commision : 0;
+	}
+
+	public void setCommision(double commision) {
+		this.commision = commision;
+	}
+
+	public void setCommision(Double commision) {
+		this.commision = commision;
+	}
+
+	public void unSetCommision() {
+		this.commision = null;
 	}
 
 	public Double getCustomer_price() {
