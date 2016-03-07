@@ -34,6 +34,12 @@
 				'type':'String',
 				'index' : true
 			},
+			'customer_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'record_type':
 			{
 				'length': 512,
@@ -381,6 +387,18 @@
 				'type': 'Double'
 			},
 			'total_amount':
+			{
+				'type': 'Double'
+			},
+			'net_amount':
+			{
+				'type': 'Double'
+			},
+			'total_muc':
+			{
+				'type': 'Double'
+			},
+			'total_commission':
 			{
 				'type': 'Double'
 			},

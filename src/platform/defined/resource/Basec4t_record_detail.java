@@ -44,8 +44,15 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String product_unit = null;
 	private Double quantity = null;
 	private Double allocation = null;
+	private Double pending_billing = null;
 	private Double free_quantity = null;
+	private Double weight = null;
+	private Double rate_weight = null;
 	private Double rate = null;
+	private Double muc_percentage = null;
+	private Double muc_amount = null;
+	private Double commission_percentage = null;
+	private Double commission = null;
 	private Double service_tax = null;
 	private Double vat = null;
 	private Double amount = null;
@@ -83,8 +90,15 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_PRODUCT_UNIT = "product_unit";
 	public static String FIELD_QUANTITY = "quantity";
 	public static String FIELD_ALLOCATION = "allocation";
+	public static String FIELD_PENDING_BILLING = "pending_billing";
 	public static String FIELD_FREE_QUANTITY = "free_quantity";
+	public static String FIELD_WEIGHT = "weight";
+	public static String FIELD_RATE_WEIGHT = "rate_weight";
 	public static String FIELD_RATE = "rate";
+	public static String FIELD_MUC_PERCENTAGE = "muc_percentage";
+	public static String FIELD_MUC_AMOUNT = "muc_amount";
+	public static String FIELD_COMMISSION_PERCENTAGE = "commission_percentage";
+	public static String FIELD_COMMISSION = "commission";
 	public static String FIELD_SERVICE_TAX = "service_tax";
 	public static String FIELD_VAT = "vat";
 	public static String FIELD_AMOUNT = "amount";
@@ -205,11 +219,32 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Field allocationField = new Field("allocation", "Double");
 		metaData.addField(allocationField);
 
+		Field pending_billingField = new Field("pending_billing", "Double");
+		metaData.addField(pending_billingField);
+
 		Field free_quantityField = new Field("free_quantity", "Double");
 		metaData.addField(free_quantityField);
 
+		Field weightField = new Field("weight", "Double");
+		metaData.addField(weightField);
+
+		Field rate_weightField = new Field("rate_weight", "Double");
+		metaData.addField(rate_weightField);
+
 		Field rateField = new Field("rate", "Double");
 		metaData.addField(rateField);
+
+		Field muc_percentageField = new Field("muc_percentage", "Double");
+		metaData.addField(muc_percentageField);
+
+		Field muc_amountField = new Field("muc_amount", "Double");
+		metaData.addField(muc_amountField);
+
+		Field commission_percentageField = new Field("commission_percentage", "Double");
+		metaData.addField(commission_percentageField);
+
+		Field commissionField = new Field("commission", "Double");
+		metaData.addField(commissionField);
 
 		Field service_taxField = new Field("service_tax", "Double");
 		metaData.addField(service_taxField);
@@ -283,8 +318,15 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.product_unit = obj.product_unit;
 		this.quantity = obj.quantity;
 		this.allocation = obj.allocation;
+		this.pending_billing = obj.pending_billing;
 		this.free_quantity = obj.free_quantity;
+		this.weight = obj.weight;
+		this.rate_weight = obj.rate_weight;
 		this.rate = obj.rate;
+		this.muc_percentage = obj.muc_percentage;
+		this.muc_amount = obj.muc_amount;
+		this.commission_percentage = obj.commission_percentage;
+		this.commission = obj.commission;
 		this.service_tax = obj.service_tax;
 		this.vat = obj.vat;
 		this.amount = obj.amount;
@@ -354,10 +396,24 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("quantity", quantity);
 		if(allocation != null)
 			map.put("allocation", allocation);
+		if(pending_billing != null)
+			map.put("pending_billing", pending_billing);
 		if(free_quantity != null)
 			map.put("free_quantity", free_quantity);
+		if(weight != null)
+			map.put("weight", weight);
+		if(rate_weight != null)
+			map.put("rate_weight", rate_weight);
 		if(rate != null)
 			map.put("rate", rate);
+		if(muc_percentage != null)
+			map.put("muc_percentage", muc_percentage);
+		if(muc_amount != null)
+			map.put("muc_amount", muc_amount);
+		if(commission_percentage != null)
+			map.put("commission_percentage", commission_percentage);
+		if(commission != null)
+			map.put("commission", commission);
 		if(service_tax != null)
 			map.put("service_tax", service_tax);
 		if(vat != null)
@@ -435,10 +491,24 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("quantity", quantity);
 		if(allocation != null)
 			map.put("allocation", allocation);
+		if(pending_billing != null)
+			map.put("pending_billing", pending_billing);
 		if(free_quantity != null)
 			map.put("free_quantity", free_quantity);
+		if(weight != null)
+			map.put("weight", weight);
+		if(rate_weight != null)
+			map.put("rate_weight", rate_weight);
 		if(rate != null)
 			map.put("rate", rate);
+		if(muc_percentage != null)
+			map.put("muc_percentage", muc_percentage);
+		if(muc_amount != null)
+			map.put("muc_amount", muc_amount);
+		if(commission_percentage != null)
+			map.put("commission_percentage", commission_percentage);
+		if(commission != null)
+			map.put("commission", commission);
 		if(service_tax != null)
 			map.put("service_tax", service_tax);
 		if(vat != null)
@@ -496,8 +566,15 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		product_unit = (String) map.get("product_unit");
 		quantity = (Double) map.get("quantity");
 		allocation = (Double) map.get("allocation");
+		pending_billing = (Double) map.get("pending_billing");
 		free_quantity = (Double) map.get("free_quantity");
+		weight = (Double) map.get("weight");
+		rate_weight = (Double) map.get("rate_weight");
 		rate = (Double) map.get("rate");
+		muc_percentage = (Double) map.get("muc_percentage");
+		muc_amount = (Double) map.get("muc_amount");
+		commission_percentage = (Double) map.get("commission_percentage");
+		commission = (Double) map.get("commission");
 		service_tax = (Double) map.get("service_tax");
 		vat = (Double) map.get("vat");
 		amount = (Double) map.get("amount");
@@ -613,13 +690,41 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		if(allocationObj != null)
 			allocation = new Double(allocationObj.toString());
 
+		Object pending_billingObj = map.get("pending_billing");
+		if(pending_billingObj != null)
+			pending_billing = new Double(pending_billingObj.toString());
+
 		Object free_quantityObj = map.get("free_quantity");
 		if(free_quantityObj != null)
 			free_quantity = new Double(free_quantityObj.toString());
 
+		Object weightObj = map.get("weight");
+		if(weightObj != null)
+			weight = new Double(weightObj.toString());
+
+		Object rate_weightObj = map.get("rate_weight");
+		if(rate_weightObj != null)
+			rate_weight = new Double(rate_weightObj.toString());
+
 		Object rateObj = map.get("rate");
 		if(rateObj != null)
 			rate = new Double(rateObj.toString());
+
+		Object muc_percentageObj = map.get("muc_percentage");
+		if(muc_percentageObj != null)
+			muc_percentage = new Double(muc_percentageObj.toString());
+
+		Object muc_amountObj = map.get("muc_amount");
+		if(muc_amountObj != null)
+			muc_amount = new Double(muc_amountObj.toString());
+
+		Object commission_percentageObj = map.get("commission_percentage");
+		if(commission_percentageObj != null)
+			commission_percentage = new Double(commission_percentageObj.toString());
+
+		Object commissionObj = map.get("commission");
+		if(commissionObj != null)
+			commission = new Double(commissionObj.toString());
 
 		Object service_taxObj = map.get("service_tax");
 		if(service_taxObj != null)
@@ -1068,6 +1173,18 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.allocation = null;
 	}
 
+	public Double getPending_billing() {
+		return pending_billing;
+	}
+
+	public void setPending_billing(Double pending_billing) {
+		this.pending_billing = pending_billing;
+	}
+
+	public void unSetPending_billing() {
+		this.pending_billing = null;
+	}
+
 	public Double getFree_quantity() {
 		return free_quantity;
 	}
@@ -1080,6 +1197,30 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.free_quantity = null;
 	}
 
+	public Double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(Double weight) {
+		this.weight = weight;
+	}
+
+	public void unSetWeight() {
+		this.weight = null;
+	}
+
+	public Double getRate_weight() {
+		return rate_weight;
+	}
+
+	public void setRate_weight(Double rate_weight) {
+		this.rate_weight = rate_weight;
+	}
+
+	public void unSetRate_weight() {
+		this.rate_weight = null;
+	}
+
 	public Double getRate() {
 		return rate;
 	}
@@ -1090,6 +1231,54 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetRate() {
 		this.rate = null;
+	}
+
+	public Double getMuc_percentage() {
+		return muc_percentage;
+	}
+
+	public void setMuc_percentage(Double muc_percentage) {
+		this.muc_percentage = muc_percentage;
+	}
+
+	public void unSetMuc_percentage() {
+		this.muc_percentage = null;
+	}
+
+	public Double getMuc_amount() {
+		return muc_amount;
+	}
+
+	public void setMuc_amount(Double muc_amount) {
+		this.muc_amount = muc_amount;
+	}
+
+	public void unSetMuc_amount() {
+		this.muc_amount = null;
+	}
+
+	public Double getCommission_percentage() {
+		return commission_percentage;
+	}
+
+	public void setCommission_percentage(Double commission_percentage) {
+		this.commission_percentage = commission_percentage;
+	}
+
+	public void unSetCommission_percentage() {
+		this.commission_percentage = null;
+	}
+
+	public Double getCommission() {
+		return commission;
+	}
+
+	public void setCommission(Double commission) {
+		this.commission = commission;
+	}
+
+	public void unSetCommission() {
+		this.commission = null;
 	}
 
 	public Double getService_tax() {

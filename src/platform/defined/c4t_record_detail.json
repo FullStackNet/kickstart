@@ -133,11 +133,39 @@
 			{
 				'type': 'Double'
 			},
+			'pending_billing':
+			{
+				'type': 'Double'
+			},
 			'free_quantity':
 			{
 				'type': 'Double'
 			},
+			'weight':
+			{
+				'type': 'Double'
+			},
+			'rate_weight':
+			{
+				'type': 'Double'
+			},
 			'rate':
+			{
+				'type': 'Double'
+			},
+			'muc_percentage':
+			{
+				'type': 'Double'
+			},
+			'muc_amount':
+			{
+				'type': 'Double'
+			},
+			'commission_percentage':
+			{
+				'type': 'Double'
+			},
+			'commission':
 			{
 				'type': 'Double'
 			},

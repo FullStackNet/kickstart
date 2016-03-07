@@ -24,6 +24,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String community_name = null;
 	private String severity = null;
 	private String customer_id = null;
+	private String customer_name = null;
 	private String record_type = null;
 	private String record_no = null;
 	private String vehicle_no = null;
@@ -91,6 +92,9 @@ public abstract class Basec4t_record extends BaseResource {
 	private Long total_items = null;
 	private Double total_service_tax = null;
 	private Double total_service_charge = null;
+	private Double net_amount = null;
+	private Double total_muc = null;
+	private Double total_commission = null;
 	private Long total_products = null;
 	private Long total_ready = null;
 	private Long total_not_available = null;
@@ -145,6 +149,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_COMMUNITY_NAME = "community_name";
 	public static String FIELD_SEVERITY = "severity";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_CUSTOMER_NAME = "customer_name";
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_RECORD_NO = "record_no";
 	public static String FIELD_VEHICLE_NO = "vehicle_no";
@@ -212,6 +217,9 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_ITEMS = "total_items";
 	public static String FIELD_TOTAL_SERVICE_TAX = "total_service_tax";
 	public static String FIELD_TOTAL_SERVICE_CHARGE = "total_service_charge";
+	public static String FIELD_NET_AMOUNT = "net_amount";
+	public static String FIELD_TOTAL_MUC = "total_muc";
+	public static String FIELD_TOTAL_COMMISSION = "total_commission";
 	public static String FIELD_TOTAL_PRODUCTS = "total_products";
 	public static String FIELD_TOTAL_READY = "total_ready";
 	public static String FIELD_TOTAL_NOT_AVAILABLE = "total_not_available";
@@ -290,6 +298,11 @@ public abstract class Basec4t_record extends BaseResource {
 		customer_idField.setIndexed(true);
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
+
+		Field customer_nameField = new Field("customer_name", "String");
+		customer_nameField.setIndexed(true);
+		customer_nameField.setLength(128);
+		metaData.addField(customer_nameField);
 
 		Field record_typeField = new Field("record_type", "String");
 		record_typeField.setLength(512);
@@ -562,6 +575,15 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_service_chargeField = new Field("total_service_charge", "Double");
 		metaData.addField(total_service_chargeField);
 
+		Field net_amountField = new Field("net_amount", "Double");
+		metaData.addField(net_amountField);
+
+		Field total_mucField = new Field("total_muc", "Double");
+		metaData.addField(total_mucField);
+
+		Field total_commissionField = new Field("total_commission", "Double");
+		metaData.addField(total_commissionField);
+
 		Field total_productsField = new Field("total_products", "long");
 		metaData.addField(total_productsField);
 
@@ -751,6 +773,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.community_name = obj.community_name;
 		this.severity = obj.severity;
 		this.customer_id = obj.customer_id;
+		this.customer_name = obj.customer_name;
 		this.record_type = obj.record_type;
 		this.record_no = obj.record_no;
 		this.vehicle_no = obj.vehicle_no;
@@ -818,6 +841,9 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_items = obj.total_items;
 		this.total_service_tax = obj.total_service_tax;
 		this.total_service_charge = obj.total_service_charge;
+		this.net_amount = obj.net_amount;
+		this.total_muc = obj.total_muc;
+		this.total_commission = obj.total_commission;
 		this.total_products = obj.total_products;
 		this.total_ready = obj.total_ready;
 		this.total_not_available = obj.total_not_available;
@@ -897,6 +923,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("severity", severity);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(customer_name != null)
+			map.put("customer_name", customer_name);
 		if(record_type != null)
 			map.put("record_type", record_type);
 		if(record_no != null)
@@ -1031,6 +1059,12 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_service_tax", total_service_tax);
 		if(total_service_charge != null)
 			map.put("total_service_charge", total_service_charge);
+		if(net_amount != null)
+			map.put("net_amount", net_amount);
+		if(total_muc != null)
+			map.put("total_muc", total_muc);
+		if(total_commission != null)
+			map.put("total_commission", total_commission);
 		if(total_products != null)
 			map.put("total_products", total_products);
 		if(total_ready != null)
@@ -1145,6 +1179,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("severity", severity);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(customer_name != null)
+			map.put("customer_name", customer_name);
 		if(record_type != null)
 			map.put("record_type", record_type);
 		if(record_no != null)
@@ -1279,6 +1315,12 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_service_tax", total_service_tax);
 		if(total_service_charge != null)
 			map.put("total_service_charge", total_service_charge);
+		if(net_amount != null)
+			map.put("net_amount", net_amount);
+		if(total_muc != null)
+			map.put("total_muc", total_muc);
+		if(total_commission != null)
+			map.put("total_commission", total_commission);
 		if(total_products != null)
 			map.put("total_products", total_products);
 		if(total_ready != null)
@@ -1390,6 +1432,7 @@ public abstract class Basec4t_record extends BaseResource {
 		community_name = (String) map.get("community_name");
 		severity = (String) map.get("severity");
 		customer_id = (String) map.get("customer_id");
+		customer_name = (String) map.get("customer_name");
 		record_type = (String) map.get("record_type");
 		record_no = (String) map.get("record_no");
 		vehicle_no = (String) map.get("vehicle_no");
@@ -1457,6 +1500,9 @@ public abstract class Basec4t_record extends BaseResource {
 		total_items = (Long) map.get("total_items");
 		total_service_tax = (Double) map.get("total_service_tax");
 		total_service_charge = (Double) map.get("total_service_charge");
+		net_amount = (Double) map.get("net_amount");
+		total_muc = (Double) map.get("total_muc");
+		total_commission = (Double) map.get("total_commission");
 		total_products = (Long) map.get("total_products");
 		total_ready = (Long) map.get("total_ready");
 		total_not_available = (Long) map.get("total_not_available");
@@ -1528,6 +1574,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object customer_nameObj = map.get("customer_name");
+		if(customer_nameObj != null)
+			customer_name = customer_nameObj.toString();
 
 		Object record_typeObj = map.get("record_type");
 		if(record_typeObj != null)
@@ -1796,6 +1846,18 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_service_chargeObj = map.get("total_service_charge");
 		if(total_service_chargeObj != null)
 			total_service_charge = new Double(total_service_chargeObj.toString());
+
+		Object net_amountObj = map.get("net_amount");
+		if(net_amountObj != null)
+			net_amount = new Double(net_amountObj.toString());
+
+		Object total_mucObj = map.get("total_muc");
+		if(total_mucObj != null)
+			total_muc = new Double(total_mucObj.toString());
+
+		Object total_commissionObj = map.get("total_commission");
+		if(total_commissionObj != null)
+			total_commission = new Double(total_commissionObj.toString());
 
 		Object total_productsObj = map.get("total_products");
 		if(total_productsObj != null)
@@ -2078,6 +2140,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public String getCustomer_name() {
+		return customer_name;
+	}
+
+	public String getCustomer_nameEx() {
+		return customer_name != null ? customer_name : "";
+	}
+
+	public void setCustomer_name(String customer_name) {
+		this.customer_name = customer_name;
+	}
+
+	public void unSetCustomer_name() {
+		this.customer_name = null;
 	}
 
 	public String getRecord_type() {
@@ -3126,6 +3204,42 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_service_charge() {
 		this.total_service_charge = null;
+	}
+
+	public Double getNet_amount() {
+		return net_amount;
+	}
+
+	public void setNet_amount(Double net_amount) {
+		this.net_amount = net_amount;
+	}
+
+	public void unSetNet_amount() {
+		this.net_amount = null;
+	}
+
+	public Double getTotal_muc() {
+		return total_muc;
+	}
+
+	public void setTotal_muc(Double total_muc) {
+		this.total_muc = total_muc;
+	}
+
+	public void unSetTotal_muc() {
+		this.total_muc = null;
+	}
+
+	public Double getTotal_commission() {
+		return total_commission;
+	}
+
+	public void setTotal_commission(Double total_commission) {
+		this.total_commission = total_commission;
+	}
+
+	public void unSetTotal_commission() {
+		this.total_commission = null;
 	}
 
 	public Long getTotal_products() {
