@@ -249,6 +249,19 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'cheque_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'cheque_date': {
+				'type': 'timestamp',
+				index : true
+			},
+			'cheque_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
 			'user_name':
 			{
 				'length': 512,

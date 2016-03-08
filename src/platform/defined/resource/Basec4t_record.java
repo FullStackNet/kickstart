@@ -64,6 +64,9 @@ public abstract class Basec4t_record extends BaseResource {
 	private String flat_id = null;
 	private String flat_no = null;
 	private String user_id = null;
+	private String cheque_no = null;
+	private Long cheque_date = null;
+	private String cheque_date_str = null;
 	private String user_name = null;
 	private String product_id = null;
 	private String product_name = null;
@@ -189,6 +192,9 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_FLAT_ID = "flat_id";
 	public static String FIELD_FLAT_NO = "flat_no";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_CHEQUE_NO = "cheque_no";
+	public static String FIELD_CHEQUE_DATE = "cheque_date";
+	public static String FIELD_CHEQUE_DATE_STR = "cheque_date_str";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
@@ -470,6 +476,18 @@ public abstract class Basec4t_record extends BaseResource {
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(512);
 		metaData.addField(user_idField);
+
+		Field cheque_noField = new Field("cheque_no", "String");
+		cheque_noField.setLength(128);
+		metaData.addField(cheque_noField);
+
+		Field cheque_dateField = new Field("cheque_date", "timestamp");
+		cheque_dateField.setIndexed(true);
+		metaData.addField(cheque_dateField);
+
+		Field cheque_date_strField = new Field("cheque_date_str", "String");
+		cheque_date_strField.setLength(32);
+		metaData.addField(cheque_date_strField);
 
 		Field user_nameField = new Field("user_name", "String");
 		user_nameField.setLength(512);
@@ -813,6 +831,9 @@ public abstract class Basec4t_record extends BaseResource {
 		this.flat_id = obj.flat_id;
 		this.flat_no = obj.flat_no;
 		this.user_id = obj.user_id;
+		this.cheque_no = obj.cheque_no;
+		this.cheque_date = obj.cheque_date;
+		this.cheque_date_str = obj.cheque_date_str;
 		this.user_name = obj.user_name;
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
@@ -1003,6 +1024,12 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("flat_no", flat_no);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(cheque_no != null)
+			map.put("cheque_no", cheque_no);
+		if(cheque_date != null)
+			map.put("cheque_date", cheque_date);
+		if(cheque_date_str != null)
+			map.put("cheque_date_str", cheque_date_str);
 		if(user_name != null)
 			map.put("user_name", user_name);
 		if(product_id != null)
@@ -1259,6 +1286,12 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("flat_no", flat_no);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(cheque_no != null)
+			map.put("cheque_no", cheque_no);
+		if(cheque_date != null)
+			map.put("cheque_date", cheque_date);
+		if(cheque_date_str != null)
+			map.put("cheque_date_str", cheque_date_str);
 		if(user_name != null)
 			map.put("user_name", user_name);
 		if(product_id != null)
@@ -1472,6 +1505,9 @@ public abstract class Basec4t_record extends BaseResource {
 		flat_id = (String) map.get("flat_id");
 		flat_no = (String) map.get("flat_no");
 		user_id = (String) map.get("user_id");
+		cheque_no = (String) map.get("cheque_no");
+		cheque_date = (Long) map.get("cheque_date");
+		cheque_date_str = (String) map.get("cheque_date_str");
 		user_name = (String) map.get("user_name");
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
@@ -1734,6 +1770,18 @@ public abstract class Basec4t_record extends BaseResource {
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
+
+		Object cheque_noObj = map.get("cheque_no");
+		if(cheque_noObj != null)
+			cheque_no = cheque_noObj.toString();
+
+		Object cheque_dateObj = map.get("cheque_date");
+		if(cheque_dateObj != null)
+			cheque_date = (Long) cheque_dateObj;
+
+		Object cheque_date_strObj = map.get("cheque_date_str");
+		if(cheque_date_strObj != null)
+			cheque_date_str = cheque_date_strObj.toString();
 
 		Object user_nameObj = map.get("user_name");
 		if(user_nameObj != null)
@@ -2780,6 +2828,47 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetUser_id() {
 		this.user_id = null;
+	}
+
+	public String getCheque_no() {
+		return cheque_no;
+	}
+
+	public String getCheque_noEx() {
+		return cheque_no != null ? cheque_no : "";
+	}
+
+	public void setCheque_no(String cheque_no) {
+		this.cheque_no = cheque_no;
+	}
+
+	public void unSetCheque_no() {
+		this.cheque_no = null;
+	}
+
+	public Long getCheque_date() {
+		return cheque_date;
+	}
+
+	public void setCheque_date(Long cheque_date) {
+		this.cheque_date = cheque_date;
+	}
+
+
+	public String getCheque_date_str() {
+		return cheque_date_str;
+	}
+
+	public String getCheque_date_strEx() {
+		return cheque_date_str != null ? cheque_date_str : "";
+	}
+
+	public void setCheque_date_str(String cheque_date_str) {
+		this.cheque_date_str = cheque_date_str;
+	}
+
+	public void unSetCheque_date_str() {
+		this.cheque_date_str = null;
 	}
 
 	public String getUser_name() {
