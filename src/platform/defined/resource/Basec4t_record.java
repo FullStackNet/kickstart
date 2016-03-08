@@ -25,6 +25,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private String severity = null;
 	private String customer_id = null;
 	private String customer_name = null;
+	private String member_id = null;
+	private String member_name = null;
 	private String record_type = null;
 	private String record_no = null;
 	private String vehicle_no = null;
@@ -153,6 +155,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_SEVERITY = "severity";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CUSTOMER_NAME = "customer_name";
+	public static String FIELD_MEMBER_ID = "member_id";
+	public static String FIELD_MEMBER_NAME = "member_name";
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_RECORD_NO = "record_no";
 	public static String FIELD_VEHICLE_NO = "vehicle_no";
@@ -309,6 +313,15 @@ public abstract class Basec4t_record extends BaseResource {
 		customer_nameField.setIndexed(true);
 		customer_nameField.setLength(128);
 		metaData.addField(customer_nameField);
+
+		Field member_idField = new Field("member_id", "String");
+		member_idField.setIndexed(true);
+		member_idField.setLength(128);
+		metaData.addField(member_idField);
+
+		Field member_nameField = new Field("member_name", "String");
+		member_nameField.setLength(128);
+		metaData.addField(member_nameField);
 
 		Field record_typeField = new Field("record_type", "String");
 		record_typeField.setLength(512);
@@ -792,6 +805,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.severity = obj.severity;
 		this.customer_id = obj.customer_id;
 		this.customer_name = obj.customer_name;
+		this.member_id = obj.member_id;
+		this.member_name = obj.member_name;
 		this.record_type = obj.record_type;
 		this.record_no = obj.record_no;
 		this.vehicle_no = obj.vehicle_no;
@@ -946,6 +961,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(customer_name != null)
 			map.put("customer_name", customer_name);
+		if(member_id != null)
+			map.put("member_id", member_id);
+		if(member_name != null)
+			map.put("member_name", member_name);
 		if(record_type != null)
 			map.put("record_type", record_type);
 		if(record_no != null)
@@ -1208,6 +1227,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(customer_name != null)
 			map.put("customer_name", customer_name);
+		if(member_id != null)
+			map.put("member_id", member_id);
+		if(member_name != null)
+			map.put("member_name", member_name);
 		if(record_type != null)
 			map.put("record_type", record_type);
 		if(record_no != null)
@@ -1466,6 +1489,8 @@ public abstract class Basec4t_record extends BaseResource {
 		severity = (String) map.get("severity");
 		customer_id = (String) map.get("customer_id");
 		customer_name = (String) map.get("customer_name");
+		member_id = (String) map.get("member_id");
+		member_name = (String) map.get("member_name");
 		record_type = (String) map.get("record_type");
 		record_no = (String) map.get("record_no");
 		vehicle_no = (String) map.get("vehicle_no");
@@ -1614,6 +1639,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object customer_nameObj = map.get("customer_name");
 		if(customer_nameObj != null)
 			customer_name = customer_nameObj.toString();
+
+		Object member_idObj = map.get("member_id");
+		if(member_idObj != null)
+			member_id = member_idObj.toString();
+
+		Object member_nameObj = map.get("member_name");
+		if(member_nameObj != null)
+			member_name = member_nameObj.toString();
 
 		Object record_typeObj = map.get("record_type");
 		if(record_typeObj != null)
@@ -2204,6 +2237,38 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetCustomer_name() {
 		this.customer_name = null;
+	}
+
+	public String getMember_id() {
+		return member_id;
+	}
+
+	public String getMember_idEx() {
+		return member_id != null ? member_id : "";
+	}
+
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
+
+	public void unSetMember_id() {
+		this.member_id = null;
+	}
+
+	public String getMember_name() {
+		return member_name;
+	}
+
+	public String getMember_nameEx() {
+		return member_name != null ? member_name : "";
+	}
+
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
+
+	public void unSetMember_name() {
+		this.member_name = null;
 	}
 
 	public String getRecord_type() {

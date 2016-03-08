@@ -40,6 +40,17 @@
 				'type':'String',
 				'index' : true
 			},
+			'member_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'member_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'record_type':
 			{
 				'length': 512,
