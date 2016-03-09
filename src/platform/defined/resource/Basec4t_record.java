@@ -41,6 +41,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String release_name = null;
 	private String name = null;
 	private Double total_amount = null;
+	private Double total_adjusted_amount = null;
 	private Integer count = null;
 	private String parent_id = null;
 	private String component_id = null;
@@ -173,6 +174,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_RELEASE_NAME = "release_name";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_TOTAL_AMOUNT = "total_amount";
+	public static String FIELD_TOTAL_ADJUSTED_AMOUNT = "total_adjusted_amount";
 	public static String FIELD_COUNT = "count";
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_COMPONENT_ID = "component_id";
@@ -385,6 +387,9 @@ public abstract class Basec4t_record extends BaseResource {
 
 		Field total_amountField = new Field("total_amount", "Double");
 		metaData.addField(total_amountField);
+
+		Field total_adjusted_amountField = new Field("total_adjusted_amount", "Double");
+		metaData.addField(total_adjusted_amountField);
 
 		Field countField = new Field("count", "int");
 		metaData.addField(countField);
@@ -831,6 +836,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.release_name = obj.release_name;
 		this.name = obj.name;
 		this.total_amount = obj.total_amount;
+		this.total_adjusted_amount = obj.total_adjusted_amount;
 		this.count = obj.count;
 		this.parent_id = obj.parent_id;
 		this.component_id = obj.component_id;
@@ -1005,6 +1011,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("name", name);
 		if(total_amount != null)
 			map.put("total_amount", total_amount);
+		if(total_adjusted_amount != null)
+			map.put("total_adjusted_amount", total_adjusted_amount);
 		if(count != null)
 			map.put("count", count);
 		if(parent_id != null)
@@ -1275,6 +1283,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("name", name);
 		if(total_amount != null)
 			map.put("total_amount", total_amount);
+		if(total_adjusted_amount != null)
+			map.put("total_adjusted_amount", total_adjusted_amount);
 		if(count != null)
 			map.put("count", count);
 		if(parent_id != null)
@@ -1525,6 +1535,7 @@ public abstract class Basec4t_record extends BaseResource {
 		release_name = (String) map.get("release_name");
 		name = (String) map.get("name");
 		total_amount = (Double) map.get("total_amount");
+		total_adjusted_amount = (Double) map.get("total_adjusted_amount");
 		count = (Integer) map.get("count");
 		parent_id = (String) map.get("parent_id");
 		component_id = (String) map.get("component_id");
@@ -1725,6 +1736,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_amountObj = map.get("total_amount");
 		if(total_amountObj != null)
 			total_amount = new Double(total_amountObj.toString());
+
+		Object total_adjusted_amountObj = map.get("total_adjusted_amount");
+		if(total_adjusted_amountObj != null)
+			total_adjusted_amount = new Double(total_adjusted_amountObj.toString());
 
 		Object countObj = map.get("count");
 		if(countObj != null)
@@ -2519,6 +2534,18 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_amount() {
 		this.total_amount = null;
+	}
+
+	public Double getTotal_adjusted_amount() {
+		return total_adjusted_amount;
+	}
+
+	public void setTotal_adjusted_amount(Double total_adjusted_amount) {
+		this.total_adjusted_amount = total_adjusted_amount;
+	}
+
+	public void unSetTotal_adjusted_amount() {
+		this.total_adjusted_amount = null;
 	}
 
 	public Integer getCount() {

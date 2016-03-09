@@ -126,6 +126,10 @@
 			{
 				'type':'Double'
 			},
+			'total_adjusted_amount':
+			{
+				'type':'Double'
+			},
 			'count':
 			{
 				'type':'int'
