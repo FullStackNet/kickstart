@@ -33,6 +33,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String size = null;
 	private String pattern = null;
 	private String reference_id = null;
+	private Long reference_date = null;
+	private String reference_date_str = null;
 	private String reference_no = null;
 	private String farmer_id = null;
 	private String farmer_name = null;
@@ -79,6 +81,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_SIZE = "size";
 	public static String FIELD_PATTERN = "pattern";
 	public static String FIELD_REFERENCE_ID = "reference_id";
+	public static String FIELD_REFERENCE_DATE = "reference_date";
+	public static String FIELD_REFERENCE_DATE_STR = "reference_date_str";
 	public static String FIELD_REFERENCE_NO = "reference_no";
 	public static String FIELD_FARMER_ID = "farmer_id";
 	public static String FIELD_FARMER_NAME = "farmer_name";
@@ -176,6 +180,13 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Field reference_idField = new Field("reference_id", "String");
 		reference_idField.setLength(512);
 		metaData.addField(reference_idField);
+
+		Field reference_dateField = new Field("reference_date", "timestamp");
+		metaData.addField(reference_dateField);
+
+		Field reference_date_strField = new Field("reference_date_str", "String");
+		reference_date_strField.setLength(512);
+		metaData.addField(reference_date_strField);
 
 		Field reference_noField = new Field("reference_no", "String");
 		reference_noField.setLength(512);
@@ -307,6 +318,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.size = obj.size;
 		this.pattern = obj.pattern;
 		this.reference_id = obj.reference_id;
+		this.reference_date = obj.reference_date;
+		this.reference_date_str = obj.reference_date_str;
 		this.reference_no = obj.reference_no;
 		this.farmer_id = obj.farmer_id;
 		this.farmer_name = obj.farmer_name;
@@ -374,6 +387,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("pattern", pattern);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
+		if(reference_date != null)
+			map.put("reference_date", reference_date);
+		if(reference_date_str != null)
+			map.put("reference_date_str", reference_date_str);
 		if(reference_no != null)
 			map.put("reference_no", reference_no);
 		if(farmer_id != null)
@@ -469,6 +486,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("pattern", pattern);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
+		if(reference_date != null)
+			map.put("reference_date", reference_date);
+		if(reference_date_str != null)
+			map.put("reference_date_str", reference_date_str);
 		if(reference_no != null)
 			map.put("reference_no", reference_no);
 		if(farmer_id != null)
@@ -555,6 +576,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		size = (String) map.get("size");
 		pattern = (String) map.get("pattern");
 		reference_id = (String) map.get("reference_id");
+		reference_date = (Long) map.get("reference_date");
+		reference_date_str = (String) map.get("reference_date_str");
 		reference_no = (String) map.get("reference_no");
 		farmer_id = (String) map.get("farmer_id");
 		farmer_name = (String) map.get("farmer_name");
@@ -645,6 +668,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object reference_idObj = map.get("reference_id");
 		if(reference_idObj != null)
 			reference_id = reference_idObj.toString();
+
+		Object reference_dateObj = map.get("reference_date");
+		if(reference_dateObj != null)
+			reference_date = (Long) reference_dateObj;
+
+		Object reference_date_strObj = map.get("reference_date_str");
+		if(reference_date_strObj != null)
+			reference_date_str = reference_date_strObj.toString();
 
 		Object reference_noObj = map.get("reference_no");
 		if(reference_noObj != null)
@@ -1003,6 +1034,31 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetReference_id() {
 		this.reference_id = null;
+	}
+
+	public Long getReference_date() {
+		return reference_date;
+	}
+
+	public void setReference_date(Long reference_date) {
+		this.reference_date = reference_date;
+	}
+
+
+	public String getReference_date_str() {
+		return reference_date_str;
+	}
+
+	public String getReference_date_strEx() {
+		return reference_date_str != null ? reference_date_str : "";
+	}
+
+	public void setReference_date_str(String reference_date_str) {
+		this.reference_date_str = reference_date_str;
+	}
+
+	public void unSetReference_date_str() {
+		this.reference_date_str = null;
 	}
 
 	public String getReference_no() {

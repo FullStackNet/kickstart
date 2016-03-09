@@ -80,6 +80,15 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'reference_date':
+			{
+				'type': 'timestamp'
+			},
+			'reference_date_str':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'reference_no':
 			{
 				'length': 512,
