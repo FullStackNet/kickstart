@@ -442,6 +442,14 @@
 			{
 				'type': 'Double'
 			},
+			'total_paid_amount':
+			{
+				'type': 'Double'
+			},
+			'total_pending_amount':
+			{
+				'type': 'Double'
+			},
 			'total_pending':
 			{
 				'type': 'long'

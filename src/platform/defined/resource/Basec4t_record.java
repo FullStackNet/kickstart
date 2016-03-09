@@ -104,6 +104,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private Long total_ready = null;
 	private Long total_not_available = null;
 	private Double total_farmer_allocation = null;
+	private Double total_paid_amount = null;
+	private Double total_pending_amount = null;
 	private Long total_pending = null;
 	private Long total_cancelled = null;
 	private Long total_delivered = null;
@@ -234,6 +236,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_READY = "total_ready";
 	public static String FIELD_TOTAL_NOT_AVAILABLE = "total_not_available";
 	public static String FIELD_TOTAL_FARMER_ALLOCATION = "total_farmer_allocation";
+	public static String FIELD_TOTAL_PAID_AMOUNT = "total_paid_amount";
+	public static String FIELD_TOTAL_PENDING_AMOUNT = "total_pending_amount";
 	public static String FIELD_TOTAL_PENDING = "total_pending";
 	public static String FIELD_TOTAL_CANCELLED = "total_cancelled";
 	public static String FIELD_TOTAL_DELIVERED = "total_delivered";
@@ -627,6 +631,12 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_farmer_allocationField = new Field("total_farmer_allocation", "Double");
 		metaData.addField(total_farmer_allocationField);
 
+		Field total_paid_amountField = new Field("total_paid_amount", "Double");
+		metaData.addField(total_paid_amountField);
+
+		Field total_pending_amountField = new Field("total_pending_amount", "Double");
+		metaData.addField(total_pending_amountField);
+
 		Field total_pendingField = new Field("total_pending", "long");
 		metaData.addField(total_pendingField);
 
@@ -884,6 +894,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_ready = obj.total_ready;
 		this.total_not_available = obj.total_not_available;
 		this.total_farmer_allocation = obj.total_farmer_allocation;
+		this.total_paid_amount = obj.total_paid_amount;
+		this.total_pending_amount = obj.total_pending_amount;
 		this.total_pending = obj.total_pending;
 		this.total_cancelled = obj.total_cancelled;
 		this.total_delivered = obj.total_delivered;
@@ -1119,6 +1131,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_not_available", total_not_available);
 		if(total_farmer_allocation != null)
 			map.put("total_farmer_allocation", total_farmer_allocation);
+		if(total_paid_amount != null)
+			map.put("total_paid_amount", total_paid_amount);
+		if(total_pending_amount != null)
+			map.put("total_pending_amount", total_pending_amount);
 		if(total_pending != null)
 			map.put("total_pending", total_pending);
 		if(total_cancelled != null)
@@ -1385,6 +1401,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_not_available", total_not_available);
 		if(total_farmer_allocation != null)
 			map.put("total_farmer_allocation", total_farmer_allocation);
+		if(total_paid_amount != null)
+			map.put("total_paid_amount", total_paid_amount);
+		if(total_pending_amount != null)
+			map.put("total_pending_amount", total_pending_amount);
 		if(total_pending != null)
 			map.put("total_pending", total_pending);
 		if(total_cancelled != null)
@@ -1568,6 +1588,8 @@ public abstract class Basec4t_record extends BaseResource {
 		total_ready = (Long) map.get("total_ready");
 		total_not_available = (Long) map.get("total_not_available");
 		total_farmer_allocation = (Double) map.get("total_farmer_allocation");
+		total_paid_amount = (Double) map.get("total_paid_amount");
+		total_pending_amount = (Double) map.get("total_pending_amount");
 		total_pending = (Long) map.get("total_pending");
 		total_cancelled = (Long) map.get("total_cancelled");
 		total_delivered = (Long) map.get("total_delivered");
@@ -1955,6 +1977,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_farmer_allocationObj = map.get("total_farmer_allocation");
 		if(total_farmer_allocationObj != null)
 			total_farmer_allocation = new Double(total_farmer_allocationObj.toString());
+
+		Object total_paid_amountObj = map.get("total_paid_amount");
+		if(total_paid_amountObj != null)
+			total_paid_amount = new Double(total_paid_amountObj.toString());
+
+		Object total_pending_amountObj = map.get("total_pending_amount");
+		if(total_pending_amountObj != null)
+			total_pending_amount = new Double(total_pending_amountObj.toString());
 
 		Object total_pendingObj = map.get("total_pending");
 		if(total_pendingObj != null)
@@ -3466,6 +3496,30 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_farmer_allocation() {
 		this.total_farmer_allocation = null;
+	}
+
+	public Double getTotal_paid_amount() {
+		return total_paid_amount;
+	}
+
+	public void setTotal_paid_amount(Double total_paid_amount) {
+		this.total_paid_amount = total_paid_amount;
+	}
+
+	public void unSetTotal_paid_amount() {
+		this.total_paid_amount = null;
+	}
+
+	public Double getTotal_pending_amount() {
+		return total_pending_amount;
+	}
+
+	public void setTotal_pending_amount(Double total_pending_amount) {
+		this.total_pending_amount = total_pending_amount;
+	}
+
+	public void unSetTotal_pending_amount() {
+		this.total_pending_amount = null;
 	}
 
 	public Long getTotal_pending() {
