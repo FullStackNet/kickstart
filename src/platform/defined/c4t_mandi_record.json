@@ -1,0 +1,169 @@
+{
+	"c4t_mandi_record" :
+	{
+		"cluster": "DB_RECORD",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'event_date': {
+				'type': 'timestamp',
+				index : true
+			},
+			'event_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'community_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'community_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'record_type':
+			{
+				'length': 512,
+				'type': 'String',
+				'remark' : "COMMUNICATION,PERSONAL_COMMUNICATION"
+			},
+			'record_no':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'vehicle_no':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'product_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'product_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'total_quantity':
+			{
+				'type': 'Double'
+			},
+			
+			'creation_time': {
+				'type': 'timestamp'
+			},
+			'farmer1':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_1_1':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_1_2':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_1_3':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_1_4':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_1_5':
+			{
+				'type': 'Double'
+			},
+			'farmer2':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_2_1':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_2_2':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_2_3':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_2_4':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_2_5':
+			{
+				'type': 'Double'
+			},
+			'farmer3':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_3_1':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_3_2':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_3_3':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_3_4':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_3_5':
+			{
+				'type': 'Double'
+			},
+			'farmer4':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_4_1':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_4_2':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_4_3':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_4_4':
+			{
+				'type': 'Double'
+			},
+			'grade_quantity_4_5':
+			{
+				'type': 'Double'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}					
+	}
+}
