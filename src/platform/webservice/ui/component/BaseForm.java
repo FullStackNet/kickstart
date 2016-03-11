@@ -202,7 +202,9 @@ public abstract class BaseForm extends BaseView {
 			TABLE table = new TABLE(block.getId(), "form_table");
 			table.addAttribute(new Attribute("cellspacing", "4"));
 			table.addAttribute(new Attribute("cellpadding", "4"));
-
+			TR row1 = new TR();
+			TR row2 = new TR();
+			int coulmn_count = 0;
 			for(int j=0; j < block.getFields().size(); j++) {
 				Field field = block.getFields().get(j);
 				if (field.isAddOnly()) {
@@ -267,9 +269,15 @@ public abstract class BaseForm extends BaseView {
 				}else {
 					column.addAttribute("width","150px");
 					column.setText(field.getLabel());
-					row.addChild(column);
+					if (block.isHorizontalDisplay()) {
+						row1.addChild(column);
+					} else {
+						row.addChild(column);
+					}
+					
 					column = new TD();
 					column.addAttribute("style","padding-left:10px;padding-top:10px;padding-bottom:10px;");
+					
 				}
 				if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTINPUT) {
 					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
@@ -288,6 +296,13 @@ public abstract class BaseForm extends BaseView {
 					}
 					if (field.getHint() != null) {
 						textEdit.addAttribute("placeholder", ""+field.getHint());
+					}
+					if (block.isHorizontalDisplay()) {
+							if (field.getWidth() > 0) {
+								textEdit.addStyle("width", field.getWidth()+"px");
+							} else {
+								textEdit.addStyle("width", "auto");
+							}
 					}
 					column.addChild(textEdit);
 					if (field.isShowCount()) {
@@ -309,6 +324,13 @@ public abstract class BaseForm extends BaseView {
 				}	else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_DATEPICKER) {
 				
 					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
+					if (block.isHorizontalDisplay()) {
+						if (field.getWidth() > 0) {
+							textEdit.addStyle("width", field.getWidth()+"px");
+						} else {
+							textEdit.addStyle("width", "auto");
+						}
+					}
 					column.addChild(textEdit);
 					String dateJS  = "<script>\n" +
 							"$(function() {\n" +
@@ -350,7 +372,15 @@ public abstract class BaseForm extends BaseView {
 						continue;
 					} else {
 						COMBO combo = new COMBO(field.getName(), null,field.getDatasource().getData(),value);
+						if (block.isHorizontalDisplay()) {
+							if (field.getWidth() > 0) {
+								combo.getView().addStyle("width", field.getWidth()+"px");
+							} else {
+								combo.getView().addStyle("width", "auto");
+							}
+					}
 						column.addChild(combo.getView());
+						
 					}
 
 				}  else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_LABEL) {
@@ -386,9 +416,24 @@ public abstract class BaseForm extends BaseView {
 						column.setText("-");
 					}	
 				}
-				row.addChild(column);
-				table.addChild(row);
+				if (block.isHorizontalDisplay()) {
+					row2.addChild(column);
+					coulmn_count ++;
+					if (coulmn_count == block.getColumns()) {
+						table.addChild(row1);
+						table.addChild(row2);
+						
+						row1 = new TR();
+						row2 = new TR();
+						coulmn_count = 0;
+					}
+				} else {
+					row.addChild(column);
+					table.addChild(row);
+				}
 			}
+			table.addChild(row1);
+			table.addChild(row2);
 			blockdiv.addChild(table);
 			spacer = new VerticleSpacer(20);
 			blockdiv.addChild(spacer.getView());

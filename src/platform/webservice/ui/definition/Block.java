@@ -4,10 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Block {
+	public static int DISPLAY_HORIZONTAL;
+	public static int DISPLAY_VERTICAL;
+	
 	String title;
 	String id;
 	String className;
+	int display;
+	int columns;
 	
+	
+	public boolean isHorizontalDisplay() {
+		if (display == DISPLAY_HORIZONTAL) {
+			return true;
+		}
+		return false;
+	}
+	
+	public int getDisplay() {
+		return display;
+	}
+
+	public void setDisplay(int display) {
+		this.display = display;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -21,8 +42,18 @@ public class Block {
 	public Block(String title) {
 		this.title = title;
 		fields = new ArrayList<Field>();
+		display = DISPLAY_VERTICAL;
+		columns = 3;
 	}
 	
+	public int getColumns() {
+		return columns;
+	}
+
+	public void setColumns(int columns) {
+		this.columns = columns;
+	}
+
 	public void addField(Field field) {
 		fields.add(field);
 	}
