@@ -34,25 +34,25 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 	private String product_name = null;
 	private Double total_quantity = null;
 	private Long creation_time = null;
-	private Double farmer1 = null;
+	private String farmer1 = null;
 	private Double grade_quantity_1_1 = null;
 	private Double grade_quantity_1_2 = null;
 	private Double grade_quantity_1_3 = null;
 	private Double grade_quantity_1_4 = null;
 	private Double grade_quantity_1_5 = null;
-	private Double farmer2 = null;
+	private String farmer2 = null;
 	private Double grade_quantity_2_1 = null;
 	private Double grade_quantity_2_2 = null;
 	private Double grade_quantity_2_3 = null;
 	private Double grade_quantity_2_4 = null;
 	private Double grade_quantity_2_5 = null;
-	private Double farmer3 = null;
+	private String farmer3 = null;
 	private Double grade_quantity_3_1 = null;
 	private Double grade_quantity_3_2 = null;
 	private Double grade_quantity_3_3 = null;
 	private Double grade_quantity_3_4 = null;
 	private Double grade_quantity_3_5 = null;
-	private Double farmer4 = null;
+	private String farmer4 = null;
 	private Double grade_quantity_4_1 = null;
 	private Double grade_quantity_4_2 = null;
 	private Double grade_quantity_4_3 = null;
@@ -168,7 +168,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
-		Field farmer1Field = new Field("farmer1", "Double");
+		Field farmer1Field = new Field("farmer1", "String");
+		farmer1Field.setLength(512);
 		metaData.addField(farmer1Field);
 
 		Field grade_quantity_1_1Field = new Field("grade_quantity_1_1", "Double");
@@ -186,7 +187,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		Field grade_quantity_1_5Field = new Field("grade_quantity_1_5", "Double");
 		metaData.addField(grade_quantity_1_5Field);
 
-		Field farmer2Field = new Field("farmer2", "Double");
+		Field farmer2Field = new Field("farmer2", "String");
+		farmer2Field.setLength(512);
 		metaData.addField(farmer2Field);
 
 		Field grade_quantity_2_1Field = new Field("grade_quantity_2_1", "Double");
@@ -204,7 +206,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		Field grade_quantity_2_5Field = new Field("grade_quantity_2_5", "Double");
 		metaData.addField(grade_quantity_2_5Field);
 
-		Field farmer3Field = new Field("farmer3", "Double");
+		Field farmer3Field = new Field("farmer3", "String");
+		farmer3Field.setLength(512);
 		metaData.addField(farmer3Field);
 
 		Field grade_quantity_3_1Field = new Field("grade_quantity_3_1", "Double");
@@ -222,7 +225,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		Field grade_quantity_3_5Field = new Field("grade_quantity_3_5", "Double");
 		metaData.addField(grade_quantity_3_5Field);
 
-		Field farmer4Field = new Field("farmer4", "Double");
+		Field farmer4Field = new Field("farmer4", "String");
+		farmer4Field.setLength(512);
 		metaData.addField(farmer4Field);
 
 		Field grade_quantity_4_1Field = new Field("grade_quantity_4_1", "Double");
@@ -491,25 +495,25 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		product_name = (String) map.get("product_name");
 		total_quantity = (Double) map.get("total_quantity");
 		creation_time = (Long) map.get("creation_time");
-		farmer1 = (Double) map.get("farmer1");
+		farmer1 = (String) map.get("farmer1");
 		grade_quantity_1_1 = (Double) map.get("grade_quantity_1_1");
 		grade_quantity_1_2 = (Double) map.get("grade_quantity_1_2");
 		grade_quantity_1_3 = (Double) map.get("grade_quantity_1_3");
 		grade_quantity_1_4 = (Double) map.get("grade_quantity_1_4");
 		grade_quantity_1_5 = (Double) map.get("grade_quantity_1_5");
-		farmer2 = (Double) map.get("farmer2");
+		farmer2 = (String) map.get("farmer2");
 		grade_quantity_2_1 = (Double) map.get("grade_quantity_2_1");
 		grade_quantity_2_2 = (Double) map.get("grade_quantity_2_2");
 		grade_quantity_2_3 = (Double) map.get("grade_quantity_2_3");
 		grade_quantity_2_4 = (Double) map.get("grade_quantity_2_4");
 		grade_quantity_2_5 = (Double) map.get("grade_quantity_2_5");
-		farmer3 = (Double) map.get("farmer3");
+		farmer3 = (String) map.get("farmer3");
 		grade_quantity_3_1 = (Double) map.get("grade_quantity_3_1");
 		grade_quantity_3_2 = (Double) map.get("grade_quantity_3_2");
 		grade_quantity_3_3 = (Double) map.get("grade_quantity_3_3");
 		grade_quantity_3_4 = (Double) map.get("grade_quantity_3_4");
 		grade_quantity_3_5 = (Double) map.get("grade_quantity_3_5");
-		farmer4 = (Double) map.get("farmer4");
+		farmer4 = (String) map.get("farmer4");
 		grade_quantity_4_1 = (Double) map.get("grade_quantity_4_1");
 		grade_quantity_4_2 = (Double) map.get("grade_quantity_4_2");
 		grade_quantity_4_3 = (Double) map.get("grade_quantity_4_3");
@@ -582,7 +586,7 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 		Object farmer1Obj = map.get("farmer1");
 		if(farmer1Obj != null)
-			farmer1 = new Double(farmer1Obj.toString());
+			farmer1 = farmer1Obj.toString();
 
 		Object grade_quantity_1_1Obj = map.get("grade_quantity_1_1");
 		if(grade_quantity_1_1Obj != null)
@@ -606,7 +610,7 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 		Object farmer2Obj = map.get("farmer2");
 		if(farmer2Obj != null)
-			farmer2 = new Double(farmer2Obj.toString());
+			farmer2 = farmer2Obj.toString();
 
 		Object grade_quantity_2_1Obj = map.get("grade_quantity_2_1");
 		if(grade_quantity_2_1Obj != null)
@@ -630,7 +634,7 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 		Object farmer3Obj = map.get("farmer3");
 		if(farmer3Obj != null)
-			farmer3 = new Double(farmer3Obj.toString());
+			farmer3 = farmer3Obj.toString();
 
 		Object grade_quantity_3_1Obj = map.get("grade_quantity_3_1");
 		if(grade_quantity_3_1Obj != null)
@@ -654,7 +658,7 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 		Object farmer4Obj = map.get("farmer4");
 		if(farmer4Obj != null)
-			farmer4 = new Double(farmer4Obj.toString());
+			farmer4 = farmer4Obj.toString();
 
 		Object grade_quantity_4_1Obj = map.get("grade_quantity_4_1");
 		if(grade_quantity_4_1Obj != null)
@@ -913,11 +917,15 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 	}
 
 
-	public Double getFarmer1() {
+	public String getFarmer1() {
 		return farmer1;
 	}
 
-	public void setFarmer1(Double farmer1) {
+	public String getFarmer1Ex() {
+		return farmer1 != null ? farmer1 : "";
+	}
+
+	public void setFarmer1(String farmer1) {
 		this.farmer1 = farmer1;
 	}
 
@@ -985,11 +993,15 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		this.grade_quantity_1_5 = null;
 	}
 
-	public Double getFarmer2() {
+	public String getFarmer2() {
 		return farmer2;
 	}
 
-	public void setFarmer2(Double farmer2) {
+	public String getFarmer2Ex() {
+		return farmer2 != null ? farmer2 : "";
+	}
+
+	public void setFarmer2(String farmer2) {
 		this.farmer2 = farmer2;
 	}
 
@@ -1057,11 +1069,15 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		this.grade_quantity_2_5 = null;
 	}
 
-	public Double getFarmer3() {
+	public String getFarmer3() {
 		return farmer3;
 	}
 
-	public void setFarmer3(Double farmer3) {
+	public String getFarmer3Ex() {
+		return farmer3 != null ? farmer3 : "";
+	}
+
+	public void setFarmer3(String farmer3) {
 		this.farmer3 = farmer3;
 	}
 
@@ -1129,11 +1145,15 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		this.grade_quantity_3_5 = null;
 	}
 
-	public Double getFarmer4() {
+	public String getFarmer4() {
 		return farmer4;
 	}
 
-	public void setFarmer4(Double farmer4) {
+	public String getFarmer4Ex() {
+		return farmer4 != null ? farmer4 : "";
+	}
+
+	public void setFarmer4(String farmer4) {
 		this.farmer4 = farmer4;
 	}
 

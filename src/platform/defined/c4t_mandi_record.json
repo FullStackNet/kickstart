@@ -82,7 +82,8 @@
 			},
 			'farmer1':
 			{
-				'type': 'Double'
+				'length': 512,
+				'type': 'String'
 			},
 			'grade_quantity_1_1':
 			{
@@ -106,7 +107,8 @@
 			},
 			'farmer2':
 			{
-				'type': 'Double'
+				'length': 512,
+				'type': 'String'
 			},
 			'grade_quantity_2_1':
 			{
@@ -130,7 +132,8 @@
 			},
 			'farmer3':
 			{
-				'type': 'Double'
+				'length': 512,
+				'type': 'String'
 			},
 			'grade_quantity_3_1':
 			{
@@ -154,7 +157,8 @@
 			},
 			'farmer4':
 			{
-				'type': 'Double'
+				'length': 512,
+				'type': 'String'
 			},
 			'grade_quantity_4_1':
 			{

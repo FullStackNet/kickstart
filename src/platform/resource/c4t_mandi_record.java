@@ -27,5 +27,8 @@ public class c4t_mandi_record extends Basec4t_mandi_record {
 		return null;
 	}
 	
+	public void setId(String id,String communityId) {
+		this.setId(id+"^"+communityId);
+	}	
 	
 }

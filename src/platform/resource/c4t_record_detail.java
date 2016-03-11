@@ -24,5 +24,8 @@ public class c4t_record_detail extends Basec4t_record_detail {
 		return null;
 	}
 	
+	public void setId(String id,String communityId) {
+		this.setId(id+"^"+communityId);
+	}	
 	
 }
