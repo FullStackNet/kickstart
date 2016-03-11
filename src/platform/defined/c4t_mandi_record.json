@@ -31,6 +31,21 @@
 				'type':'String',
 				'index' : true
 			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'record_type':
 			{
 				'length': 512,
