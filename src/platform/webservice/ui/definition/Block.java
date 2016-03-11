@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Block {
-	public static int DISPLAY_HORIZONTAL;
-	public static int DISPLAY_VERTICAL;
+	public static int DISPLAY_HORIZONTAL = 1;
+	public static int DISPLAY_VERTICAL = 2;
 	
 	String title;
 	String id;
