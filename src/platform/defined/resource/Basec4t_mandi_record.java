@@ -26,6 +26,7 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 	private String community_name = null;
 	private String customer_id = null;
 	private String user_id = null;
+	private String city = null;
 	private String user_name = null;
 	private String record_type = null;
 	private String record_no = null;
@@ -67,6 +68,7 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 	public static String FIELD_COMMUNITY_NAME = "community_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_CITY = "city";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_RECORD_NO = "record_no";
@@ -137,6 +139,10 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
+
+		Field cityField = new Field("city", "String");
+		cityField.setLength(128);
+		metaData.addField(cityField);
 
 		Field user_nameField = new Field("user_name", "String");
 		user_nameField.setLength(128);
@@ -264,6 +270,7 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		this.community_name = obj.community_name;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
+		this.city = obj.city;
 		this.user_name = obj.user_name;
 		this.record_type = obj.record_type;
 		this.record_no = obj.record_no;
@@ -319,6 +326,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(city != null)
+			map.put("city", city);
 		if(user_name != null)
 			map.put("user_name", user_name);
 		if(record_type != null)
@@ -404,6 +413,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(city != null)
+			map.put("city", city);
 		if(user_name != null)
 			map.put("user_name", user_name);
 		if(record_type != null)
@@ -487,6 +498,7 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		community_name = (String) map.get("community_name");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
+		city = (String) map.get("city");
 		user_name = (String) map.get("user_name");
 		record_type = (String) map.get("record_type");
 		record_no = (String) map.get("record_no");
@@ -551,6 +563,10 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
+
+		Object cityObj = map.get("city");
+		if(cityObj != null)
+			city = cityObj.toString();
 
 		Object user_nameObj = map.get("user_name");
 		if(user_nameObj != null)
@@ -798,6 +814,22 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 	public void unSetUser_id() {
 		this.user_id = null;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public String getCityEx() {
+		return city != null ? city : "";
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void unSetCity() {
+		this.city = null;
 	}
 
 	public String getUser_name() {

@@ -41,6 +41,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'city':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'user_name':
 			{
 				'length': 128,
