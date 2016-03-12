@@ -112,6 +112,10 @@ public class UIServletContext {
 		return _session.getUser_name();
 	}
 	
+	public String getRole() {
+		return _session.getRole();
+	}
+	
 	public void setStudentId(String studentId) {
 		session __session = new session(sessionId);
 		__session.setStudent_id(studentId);
@@ -146,6 +150,18 @@ public class UIServletContext {
 			e.printStackTrace();
 		}
 		_session.setContext_name(contextName);
+	}
+	
+	public void setRole(String role) {
+		session __session = new session(sessionId);
+		__session.setRole(role);
+		try {
+			SessionHelper.getInstance().update(__session);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		_session.setRole(role);
 	}
 	
 	public void setUserId(String userId) {

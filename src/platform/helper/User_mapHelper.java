@@ -340,6 +340,18 @@ public class User_mapHelper extends BaseHelper {
 				new String[]{location.FIELD_NAME});
 	}
 	
+	public boolean isCommunityAdmin(String user_id,String communityId) {
+		user_map _map = (user_map)getSelectedFieldsById(user_id,
+				user_map.FIELD_COMMUNITIES);
+		if ((_map == null) || (_map.getCommunities() == null))
+			return false;
+		for(Object _communityId : _map.getCommunities()) {
+			if (communityId.equals(_communityId))
+				return true;
+		}
+		return false;
+	}
+	
 	public BaseResource[] getCommunities(String user_id) {
 		user_map _map = (user_map)getSelectedFieldsById(user_id,
 				user_map.FIELD_COMMUNITIES);

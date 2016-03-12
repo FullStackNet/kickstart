@@ -53,6 +53,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'role':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'readonly_user':
 			{
 				'length': 1,

@@ -28,6 +28,7 @@ public abstract class Basesession extends BaseResource {
 	private String user_type = null;
 	private String user_name = null;
 	private String super_user = null;
+	private String role = null;
 	private String readonly_user = null;
 	private Map<String, Object> extra_data = null;
 
@@ -40,6 +41,7 @@ public abstract class Basesession extends BaseResource {
 	public static String FIELD_USER_TYPE = "user_type";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_SUPER_USER = "super_user";
+	public static String FIELD_ROLE = "role";
 	public static String FIELD_READONLY_USER = "readonly_user";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -87,6 +89,11 @@ public abstract class Basesession extends BaseResource {
 		super_userField.setLength(1);
 		metaData.addField(super_userField);
 
+		Field roleField = new Field("role", "String");
+		roleField.setDefaultValue("N");
+		roleField.setLength(1);
+		metaData.addField(roleField);
+
 		Field readonly_userField = new Field("readonly_user", "String");
 		readonly_userField.setDefaultValue("N");
 		readonly_userField.setLength(1);
@@ -114,6 +121,7 @@ public abstract class Basesession extends BaseResource {
 		this.user_type = obj.user_type;
 		this.user_name = obj.user_name;
 		this.super_user = obj.super_user;
+		this.role = obj.role;
 		this.readonly_user = obj.readonly_user;
 		this.extra_data = obj.extra_data;
 	}
@@ -125,6 +133,8 @@ public abstract class Basesession extends BaseResource {
 	private void setDefaultValues() {
 		if(super_user == null)
 			super_user = "N";
+		if(role == null)
+			role = "N";
 		if(readonly_user == null)
 			readonly_user = "N";
 	}
@@ -149,6 +159,8 @@ public abstract class Basesession extends BaseResource {
 			map.put("user_name", user_name);
 		if(super_user != null)
 			map.put("super_user", super_user);
+		if(role != null)
+			map.put("role", role);
 		if(readonly_user != null)
 			map.put("readonly_user", readonly_user);
 		if(extra_data != null)
@@ -179,6 +191,8 @@ public abstract class Basesession extends BaseResource {
 			map.put("user_name", user_name);
 		if(super_user != null)
 			map.put("super_user", super_user);
+		if(role != null)
+			map.put("role", role);
 		if(readonly_user != null)
 			map.put("readonly_user", readonly_user);
 		if(extra_data != null)
@@ -202,6 +216,7 @@ public abstract class Basesession extends BaseResource {
 		user_type = (String) map.get("user_type");
 		user_name = (String) map.get("user_name");
 		super_user = (String) map.get("super_user");
+		role = (String) map.get("role");
 		readonly_user = (String) map.get("readonly_user");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -243,6 +258,10 @@ public abstract class Basesession extends BaseResource {
 		Object super_userObj = map.get("super_user");
 		if(super_userObj != null)
 			super_user = super_userObj.toString();
+
+		Object roleObj = map.get("role");
+		if(roleObj != null)
+			role = roleObj.toString();
 
 		Object readonly_userObj = map.get("readonly_user");
 		if(readonly_userObj != null)
@@ -401,6 +420,18 @@ public abstract class Basesession extends BaseResource {
 
 	public void unSetSuper_user() {
 		this.super_user = "N";
+	}
+
+	public String getRole() {
+		return role != null ? role : "N";
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public void unSetRole() {
+		this.role = "N";
 	}
 
 	public String getReadonly_user() {
