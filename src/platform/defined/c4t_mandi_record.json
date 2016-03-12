@@ -79,7 +79,11 @@
 			},
 			'total_quantity':
 			{
-				'type': 'Double'
+				'type': 'double'
+			},
+			'total_product_quantity':
+			{
+				'type': 'double'
 			},
 			
 			'creation_time': {
@@ -90,100 +94,145 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'farmer_quantity_1':
+			{
+				'type': 'double'
+			},
 			'grade_quantity_1_1':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_1_2':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_1_3':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_1_4':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_1_5':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'farmer2':
 			{
 				'length': 512,
 				'type': 'String'
 			},
+			'farmer_quantity_2':
+			{
+				'type': 'double'
+			},
 			'grade_quantity_2_1':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_2_2':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_2_3':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_2_4':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_2_5':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'farmer3':
 			{
 				'length': 512,
 				'type': 'String'
 			},
+			'farmer_quantity_3':
+			{
+				'type': 'double'
+			},
 			'grade_quantity_3_1':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_3_2':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_3_3':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_3_4':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_3_5':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'farmer4':
 			{
 				'length': 512,
 				'type': 'String'
 			},
+			'farmer_quantity_4':
+			{
+				'type': 'double'
+			},
 			'grade_quantity_4_1':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_4_2':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_4_3':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_4_4':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'grade_quantity_4_5':
 			{
-				'type': 'Double'
+				'type': 'double'
+			},
+			'farmer5':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'farmer_quantity_5':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_5_1':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_5_2':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_5_3':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_5_4':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_5_5':
+			{
+				'type': 'double'
 			},
 			'creation_time': {
 				'type': 'timestamp'

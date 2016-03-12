@@ -285,6 +285,9 @@ public abstract class BaseForm extends BaseView {
 						textEdit.addStyle("text-transform", "uppercase");
 					}
 					if (value != null) {
+						if (UIConstants.DATA_TYPE_INT.equals(field.getType())) {
+							value = ""+Math.round(Double.parseDouble(value.toString()));
+						}
 						textEdit.setValue(value.toString());
 					}
 					if (field.isReadOnly()) {

@@ -34,31 +34,43 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 	private String product_id = null;
 	private String product_name = null;
 	private Double total_quantity = null;
+	private Double total_product_quantity = null;
 	private Long creation_time = null;
 	private String farmer1 = null;
+	private Double farmer_quantity_1 = null;
 	private Double grade_quantity_1_1 = null;
 	private Double grade_quantity_1_2 = null;
 	private Double grade_quantity_1_3 = null;
 	private Double grade_quantity_1_4 = null;
 	private Double grade_quantity_1_5 = null;
 	private String farmer2 = null;
+	private Double farmer_quantity_2 = null;
 	private Double grade_quantity_2_1 = null;
 	private Double grade_quantity_2_2 = null;
 	private Double grade_quantity_2_3 = null;
 	private Double grade_quantity_2_4 = null;
 	private Double grade_quantity_2_5 = null;
 	private String farmer3 = null;
+	private Double farmer_quantity_3 = null;
 	private Double grade_quantity_3_1 = null;
 	private Double grade_quantity_3_2 = null;
 	private Double grade_quantity_3_3 = null;
 	private Double grade_quantity_3_4 = null;
 	private Double grade_quantity_3_5 = null;
 	private String farmer4 = null;
+	private Double farmer_quantity_4 = null;
 	private Double grade_quantity_4_1 = null;
 	private Double grade_quantity_4_2 = null;
 	private Double grade_quantity_4_3 = null;
 	private Double grade_quantity_4_4 = null;
 	private Double grade_quantity_4_5 = null;
+	private String farmer5 = null;
+	private Double farmer_quantity_5 = null;
+	private Double grade_quantity_5_1 = null;
+	private Double grade_quantity_5_2 = null;
+	private Double grade_quantity_5_3 = null;
+	private Double grade_quantity_5_4 = null;
+	private Double grade_quantity_5_5 = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -76,31 +88,43 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 	public static String FIELD_PRODUCT_ID = "product_id";
 	public static String FIELD_PRODUCT_NAME = "product_name";
 	public static String FIELD_TOTAL_QUANTITY = "total_quantity";
+	public static String FIELD_TOTAL_PRODUCT_QUANTITY = "total_product_quantity";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_FARMER1 = "farmer1";
+	public static String FIELD_FARMER_QUANTITY_1 = "farmer_quantity_1";
 	public static String FIELD_GRADE_QUANTITY_1_1 = "grade_quantity_1_1";
 	public static String FIELD_GRADE_QUANTITY_1_2 = "grade_quantity_1_2";
 	public static String FIELD_GRADE_QUANTITY_1_3 = "grade_quantity_1_3";
 	public static String FIELD_GRADE_QUANTITY_1_4 = "grade_quantity_1_4";
 	public static String FIELD_GRADE_QUANTITY_1_5 = "grade_quantity_1_5";
 	public static String FIELD_FARMER2 = "farmer2";
+	public static String FIELD_FARMER_QUANTITY_2 = "farmer_quantity_2";
 	public static String FIELD_GRADE_QUANTITY_2_1 = "grade_quantity_2_1";
 	public static String FIELD_GRADE_QUANTITY_2_2 = "grade_quantity_2_2";
 	public static String FIELD_GRADE_QUANTITY_2_3 = "grade_quantity_2_3";
 	public static String FIELD_GRADE_QUANTITY_2_4 = "grade_quantity_2_4";
 	public static String FIELD_GRADE_QUANTITY_2_5 = "grade_quantity_2_5";
 	public static String FIELD_FARMER3 = "farmer3";
+	public static String FIELD_FARMER_QUANTITY_3 = "farmer_quantity_3";
 	public static String FIELD_GRADE_QUANTITY_3_1 = "grade_quantity_3_1";
 	public static String FIELD_GRADE_QUANTITY_3_2 = "grade_quantity_3_2";
 	public static String FIELD_GRADE_QUANTITY_3_3 = "grade_quantity_3_3";
 	public static String FIELD_GRADE_QUANTITY_3_4 = "grade_quantity_3_4";
 	public static String FIELD_GRADE_QUANTITY_3_5 = "grade_quantity_3_5";
 	public static String FIELD_FARMER4 = "farmer4";
+	public static String FIELD_FARMER_QUANTITY_4 = "farmer_quantity_4";
 	public static String FIELD_GRADE_QUANTITY_4_1 = "grade_quantity_4_1";
 	public static String FIELD_GRADE_QUANTITY_4_2 = "grade_quantity_4_2";
 	public static String FIELD_GRADE_QUANTITY_4_3 = "grade_quantity_4_3";
 	public static String FIELD_GRADE_QUANTITY_4_4 = "grade_quantity_4_4";
 	public static String FIELD_GRADE_QUANTITY_4_5 = "grade_quantity_4_5";
+	public static String FIELD_FARMER5 = "farmer5";
+	public static String FIELD_FARMER_QUANTITY_5 = "farmer_quantity_5";
+	public static String FIELD_GRADE_QUANTITY_5_1 = "grade_quantity_5_1";
+	public static String FIELD_GRADE_QUANTITY_5_2 = "grade_quantity_5_2";
+	public static String FIELD_GRADE_QUANTITY_5_3 = "grade_quantity_5_3";
+	public static String FIELD_GRADE_QUANTITY_5_4 = "grade_quantity_5_4";
+	public static String FIELD_GRADE_QUANTITY_5_5 = "grade_quantity_5_5";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -168,8 +192,11 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		product_nameField.setLength(512);
 		metaData.addField(product_nameField);
 
-		Field total_quantityField = new Field("total_quantity", "Double");
+		Field total_quantityField = new Field("total_quantity", "double");
 		metaData.addField(total_quantityField);
+
+		Field total_product_quantityField = new Field("total_product_quantity", "double");
+		metaData.addField(total_product_quantityField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -178,77 +205,111 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		farmer1Field.setLength(512);
 		metaData.addField(farmer1Field);
 
-		Field grade_quantity_1_1Field = new Field("grade_quantity_1_1", "Double");
+		Field farmer_quantity_1Field = new Field("farmer_quantity_1", "double");
+		metaData.addField(farmer_quantity_1Field);
+
+		Field grade_quantity_1_1Field = new Field("grade_quantity_1_1", "double");
 		metaData.addField(grade_quantity_1_1Field);
 
-		Field grade_quantity_1_2Field = new Field("grade_quantity_1_2", "Double");
+		Field grade_quantity_1_2Field = new Field("grade_quantity_1_2", "double");
 		metaData.addField(grade_quantity_1_2Field);
 
-		Field grade_quantity_1_3Field = new Field("grade_quantity_1_3", "Double");
+		Field grade_quantity_1_3Field = new Field("grade_quantity_1_3", "double");
 		metaData.addField(grade_quantity_1_3Field);
 
-		Field grade_quantity_1_4Field = new Field("grade_quantity_1_4", "Double");
+		Field grade_quantity_1_4Field = new Field("grade_quantity_1_4", "double");
 		metaData.addField(grade_quantity_1_4Field);
 
-		Field grade_quantity_1_5Field = new Field("grade_quantity_1_5", "Double");
+		Field grade_quantity_1_5Field = new Field("grade_quantity_1_5", "double");
 		metaData.addField(grade_quantity_1_5Field);
 
 		Field farmer2Field = new Field("farmer2", "String");
 		farmer2Field.setLength(512);
 		metaData.addField(farmer2Field);
 
-		Field grade_quantity_2_1Field = new Field("grade_quantity_2_1", "Double");
+		Field farmer_quantity_2Field = new Field("farmer_quantity_2", "double");
+		metaData.addField(farmer_quantity_2Field);
+
+		Field grade_quantity_2_1Field = new Field("grade_quantity_2_1", "double");
 		metaData.addField(grade_quantity_2_1Field);
 
-		Field grade_quantity_2_2Field = new Field("grade_quantity_2_2", "Double");
+		Field grade_quantity_2_2Field = new Field("grade_quantity_2_2", "double");
 		metaData.addField(grade_quantity_2_2Field);
 
-		Field grade_quantity_2_3Field = new Field("grade_quantity_2_3", "Double");
+		Field grade_quantity_2_3Field = new Field("grade_quantity_2_3", "double");
 		metaData.addField(grade_quantity_2_3Field);
 
-		Field grade_quantity_2_4Field = new Field("grade_quantity_2_4", "Double");
+		Field grade_quantity_2_4Field = new Field("grade_quantity_2_4", "double");
 		metaData.addField(grade_quantity_2_4Field);
 
-		Field grade_quantity_2_5Field = new Field("grade_quantity_2_5", "Double");
+		Field grade_quantity_2_5Field = new Field("grade_quantity_2_5", "double");
 		metaData.addField(grade_quantity_2_5Field);
 
 		Field farmer3Field = new Field("farmer3", "String");
 		farmer3Field.setLength(512);
 		metaData.addField(farmer3Field);
 
-		Field grade_quantity_3_1Field = new Field("grade_quantity_3_1", "Double");
+		Field farmer_quantity_3Field = new Field("farmer_quantity_3", "double");
+		metaData.addField(farmer_quantity_3Field);
+
+		Field grade_quantity_3_1Field = new Field("grade_quantity_3_1", "double");
 		metaData.addField(grade_quantity_3_1Field);
 
-		Field grade_quantity_3_2Field = new Field("grade_quantity_3_2", "Double");
+		Field grade_quantity_3_2Field = new Field("grade_quantity_3_2", "double");
 		metaData.addField(grade_quantity_3_2Field);
 
-		Field grade_quantity_3_3Field = new Field("grade_quantity_3_3", "Double");
+		Field grade_quantity_3_3Field = new Field("grade_quantity_3_3", "double");
 		metaData.addField(grade_quantity_3_3Field);
 
-		Field grade_quantity_3_4Field = new Field("grade_quantity_3_4", "Double");
+		Field grade_quantity_3_4Field = new Field("grade_quantity_3_4", "double");
 		metaData.addField(grade_quantity_3_4Field);
 
-		Field grade_quantity_3_5Field = new Field("grade_quantity_3_5", "Double");
+		Field grade_quantity_3_5Field = new Field("grade_quantity_3_5", "double");
 		metaData.addField(grade_quantity_3_5Field);
 
 		Field farmer4Field = new Field("farmer4", "String");
 		farmer4Field.setLength(512);
 		metaData.addField(farmer4Field);
 
-		Field grade_quantity_4_1Field = new Field("grade_quantity_4_1", "Double");
+		Field farmer_quantity_4Field = new Field("farmer_quantity_4", "double");
+		metaData.addField(farmer_quantity_4Field);
+
+		Field grade_quantity_4_1Field = new Field("grade_quantity_4_1", "double");
 		metaData.addField(grade_quantity_4_1Field);
 
-		Field grade_quantity_4_2Field = new Field("grade_quantity_4_2", "Double");
+		Field grade_quantity_4_2Field = new Field("grade_quantity_4_2", "double");
 		metaData.addField(grade_quantity_4_2Field);
 
-		Field grade_quantity_4_3Field = new Field("grade_quantity_4_3", "Double");
+		Field grade_quantity_4_3Field = new Field("grade_quantity_4_3", "double");
 		metaData.addField(grade_quantity_4_3Field);
 
-		Field grade_quantity_4_4Field = new Field("grade_quantity_4_4", "Double");
+		Field grade_quantity_4_4Field = new Field("grade_quantity_4_4", "double");
 		metaData.addField(grade_quantity_4_4Field);
 
-		Field grade_quantity_4_5Field = new Field("grade_quantity_4_5", "Double");
+		Field grade_quantity_4_5Field = new Field("grade_quantity_4_5", "double");
 		metaData.addField(grade_quantity_4_5Field);
+
+		Field farmer5Field = new Field("farmer5", "String");
+		farmer5Field.setLength(512);
+		metaData.addField(farmer5Field);
+
+		Field farmer_quantity_5Field = new Field("farmer_quantity_5", "double");
+		metaData.addField(farmer_quantity_5Field);
+
+		Field grade_quantity_5_1Field = new Field("grade_quantity_5_1", "double");
+		metaData.addField(grade_quantity_5_1Field);
+
+		Field grade_quantity_5_2Field = new Field("grade_quantity_5_2", "double");
+		metaData.addField(grade_quantity_5_2Field);
+
+		Field grade_quantity_5_3Field = new Field("grade_quantity_5_3", "double");
+		metaData.addField(grade_quantity_5_3Field);
+
+		Field grade_quantity_5_4Field = new Field("grade_quantity_5_4", "double");
+		metaData.addField(grade_quantity_5_4Field);
+
+		Field grade_quantity_5_5Field = new Field("grade_quantity_5_5", "double");
+		metaData.addField(grade_quantity_5_5Field);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -278,31 +339,43 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		this.product_id = obj.product_id;
 		this.product_name = obj.product_name;
 		this.total_quantity = obj.total_quantity;
+		this.total_product_quantity = obj.total_product_quantity;
 		this.creation_time = obj.creation_time;
 		this.farmer1 = obj.farmer1;
+		this.farmer_quantity_1 = obj.farmer_quantity_1;
 		this.grade_quantity_1_1 = obj.grade_quantity_1_1;
 		this.grade_quantity_1_2 = obj.grade_quantity_1_2;
 		this.grade_quantity_1_3 = obj.grade_quantity_1_3;
 		this.grade_quantity_1_4 = obj.grade_quantity_1_4;
 		this.grade_quantity_1_5 = obj.grade_quantity_1_5;
 		this.farmer2 = obj.farmer2;
+		this.farmer_quantity_2 = obj.farmer_quantity_2;
 		this.grade_quantity_2_1 = obj.grade_quantity_2_1;
 		this.grade_quantity_2_2 = obj.grade_quantity_2_2;
 		this.grade_quantity_2_3 = obj.grade_quantity_2_3;
 		this.grade_quantity_2_4 = obj.grade_quantity_2_4;
 		this.grade_quantity_2_5 = obj.grade_quantity_2_5;
 		this.farmer3 = obj.farmer3;
+		this.farmer_quantity_3 = obj.farmer_quantity_3;
 		this.grade_quantity_3_1 = obj.grade_quantity_3_1;
 		this.grade_quantity_3_2 = obj.grade_quantity_3_2;
 		this.grade_quantity_3_3 = obj.grade_quantity_3_3;
 		this.grade_quantity_3_4 = obj.grade_quantity_3_4;
 		this.grade_quantity_3_5 = obj.grade_quantity_3_5;
 		this.farmer4 = obj.farmer4;
+		this.farmer_quantity_4 = obj.farmer_quantity_4;
 		this.grade_quantity_4_1 = obj.grade_quantity_4_1;
 		this.grade_quantity_4_2 = obj.grade_quantity_4_2;
 		this.grade_quantity_4_3 = obj.grade_quantity_4_3;
 		this.grade_quantity_4_4 = obj.grade_quantity_4_4;
 		this.grade_quantity_4_5 = obj.grade_quantity_4_5;
+		this.farmer5 = obj.farmer5;
+		this.farmer_quantity_5 = obj.farmer_quantity_5;
+		this.grade_quantity_5_1 = obj.grade_quantity_5_1;
+		this.grade_quantity_5_2 = obj.grade_quantity_5_2;
+		this.grade_quantity_5_3 = obj.grade_quantity_5_3;
+		this.grade_quantity_5_4 = obj.grade_quantity_5_4;
+		this.grade_quantity_5_5 = obj.grade_quantity_5_5;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -342,10 +415,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("product_name", product_name);
 		if(total_quantity != null)
 			map.put("total_quantity", total_quantity);
+		if(total_product_quantity != null)
+			map.put("total_product_quantity", total_product_quantity);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(farmer1 != null)
 			map.put("farmer1", farmer1);
+		if(farmer_quantity_1 != null)
+			map.put("farmer_quantity_1", farmer_quantity_1);
 		if(grade_quantity_1_1 != null)
 			map.put("grade_quantity_1_1", grade_quantity_1_1);
 		if(grade_quantity_1_2 != null)
@@ -358,6 +435,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("grade_quantity_1_5", grade_quantity_1_5);
 		if(farmer2 != null)
 			map.put("farmer2", farmer2);
+		if(farmer_quantity_2 != null)
+			map.put("farmer_quantity_2", farmer_quantity_2);
 		if(grade_quantity_2_1 != null)
 			map.put("grade_quantity_2_1", grade_quantity_2_1);
 		if(grade_quantity_2_2 != null)
@@ -370,6 +449,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("grade_quantity_2_5", grade_quantity_2_5);
 		if(farmer3 != null)
 			map.put("farmer3", farmer3);
+		if(farmer_quantity_3 != null)
+			map.put("farmer_quantity_3", farmer_quantity_3);
 		if(grade_quantity_3_1 != null)
 			map.put("grade_quantity_3_1", grade_quantity_3_1);
 		if(grade_quantity_3_2 != null)
@@ -382,6 +463,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("grade_quantity_3_5", grade_quantity_3_5);
 		if(farmer4 != null)
 			map.put("farmer4", farmer4);
+		if(farmer_quantity_4 != null)
+			map.put("farmer_quantity_4", farmer_quantity_4);
 		if(grade_quantity_4_1 != null)
 			map.put("grade_quantity_4_1", grade_quantity_4_1);
 		if(grade_quantity_4_2 != null)
@@ -392,6 +475,20 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("grade_quantity_4_4", grade_quantity_4_4);
 		if(grade_quantity_4_5 != null)
 			map.put("grade_quantity_4_5", grade_quantity_4_5);
+		if(farmer5 != null)
+			map.put("farmer5", farmer5);
+		if(farmer_quantity_5 != null)
+			map.put("farmer_quantity_5", farmer_quantity_5);
+		if(grade_quantity_5_1 != null)
+			map.put("grade_quantity_5_1", grade_quantity_5_1);
+		if(grade_quantity_5_2 != null)
+			map.put("grade_quantity_5_2", grade_quantity_5_2);
+		if(grade_quantity_5_3 != null)
+			map.put("grade_quantity_5_3", grade_quantity_5_3);
+		if(grade_quantity_5_4 != null)
+			map.put("grade_quantity_5_4", grade_quantity_5_4);
+		if(grade_quantity_5_5 != null)
+			map.put("grade_quantity_5_5", grade_quantity_5_5);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -429,10 +526,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("product_name", product_name);
 		if(total_quantity != null)
 			map.put("total_quantity", total_quantity);
+		if(total_product_quantity != null)
+			map.put("total_product_quantity", total_product_quantity);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(farmer1 != null)
 			map.put("farmer1", farmer1);
+		if(farmer_quantity_1 != null)
+			map.put("farmer_quantity_1", farmer_quantity_1);
 		if(grade_quantity_1_1 != null)
 			map.put("grade_quantity_1_1", grade_quantity_1_1);
 		if(grade_quantity_1_2 != null)
@@ -445,6 +546,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("grade_quantity_1_5", grade_quantity_1_5);
 		if(farmer2 != null)
 			map.put("farmer2", farmer2);
+		if(farmer_quantity_2 != null)
+			map.put("farmer_quantity_2", farmer_quantity_2);
 		if(grade_quantity_2_1 != null)
 			map.put("grade_quantity_2_1", grade_quantity_2_1);
 		if(grade_quantity_2_2 != null)
@@ -457,6 +560,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("grade_quantity_2_5", grade_quantity_2_5);
 		if(farmer3 != null)
 			map.put("farmer3", farmer3);
+		if(farmer_quantity_3 != null)
+			map.put("farmer_quantity_3", farmer_quantity_3);
 		if(grade_quantity_3_1 != null)
 			map.put("grade_quantity_3_1", grade_quantity_3_1);
 		if(grade_quantity_3_2 != null)
@@ -469,6 +574,8 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("grade_quantity_3_5", grade_quantity_3_5);
 		if(farmer4 != null)
 			map.put("farmer4", farmer4);
+		if(farmer_quantity_4 != null)
+			map.put("farmer_quantity_4", farmer_quantity_4);
 		if(grade_quantity_4_1 != null)
 			map.put("grade_quantity_4_1", grade_quantity_4_1);
 		if(grade_quantity_4_2 != null)
@@ -479,6 +586,20 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 			map.put("grade_quantity_4_4", grade_quantity_4_4);
 		if(grade_quantity_4_5 != null)
 			map.put("grade_quantity_4_5", grade_quantity_4_5);
+		if(farmer5 != null)
+			map.put("farmer5", farmer5);
+		if(farmer_quantity_5 != null)
+			map.put("farmer_quantity_5", farmer_quantity_5);
+		if(grade_quantity_5_1 != null)
+			map.put("grade_quantity_5_1", grade_quantity_5_1);
+		if(grade_quantity_5_2 != null)
+			map.put("grade_quantity_5_2", grade_quantity_5_2);
+		if(grade_quantity_5_3 != null)
+			map.put("grade_quantity_5_3", grade_quantity_5_3);
+		if(grade_quantity_5_4 != null)
+			map.put("grade_quantity_5_4", grade_quantity_5_4);
+		if(grade_quantity_5_5 != null)
+			map.put("grade_quantity_5_5", grade_quantity_5_5);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -506,31 +627,43 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		product_id = (String) map.get("product_id");
 		product_name = (String) map.get("product_name");
 		total_quantity = (Double) map.get("total_quantity");
+		total_product_quantity = (Double) map.get("total_product_quantity");
 		creation_time = (Long) map.get("creation_time");
 		farmer1 = (String) map.get("farmer1");
+		farmer_quantity_1 = (Double) map.get("farmer_quantity_1");
 		grade_quantity_1_1 = (Double) map.get("grade_quantity_1_1");
 		grade_quantity_1_2 = (Double) map.get("grade_quantity_1_2");
 		grade_quantity_1_3 = (Double) map.get("grade_quantity_1_3");
 		grade_quantity_1_4 = (Double) map.get("grade_quantity_1_4");
 		grade_quantity_1_5 = (Double) map.get("grade_quantity_1_5");
 		farmer2 = (String) map.get("farmer2");
+		farmer_quantity_2 = (Double) map.get("farmer_quantity_2");
 		grade_quantity_2_1 = (Double) map.get("grade_quantity_2_1");
 		grade_quantity_2_2 = (Double) map.get("grade_quantity_2_2");
 		grade_quantity_2_3 = (Double) map.get("grade_quantity_2_3");
 		grade_quantity_2_4 = (Double) map.get("grade_quantity_2_4");
 		grade_quantity_2_5 = (Double) map.get("grade_quantity_2_5");
 		farmer3 = (String) map.get("farmer3");
+		farmer_quantity_3 = (Double) map.get("farmer_quantity_3");
 		grade_quantity_3_1 = (Double) map.get("grade_quantity_3_1");
 		grade_quantity_3_2 = (Double) map.get("grade_quantity_3_2");
 		grade_quantity_3_3 = (Double) map.get("grade_quantity_3_3");
 		grade_quantity_3_4 = (Double) map.get("grade_quantity_3_4");
 		grade_quantity_3_5 = (Double) map.get("grade_quantity_3_5");
 		farmer4 = (String) map.get("farmer4");
+		farmer_quantity_4 = (Double) map.get("farmer_quantity_4");
 		grade_quantity_4_1 = (Double) map.get("grade_quantity_4_1");
 		grade_quantity_4_2 = (Double) map.get("grade_quantity_4_2");
 		grade_quantity_4_3 = (Double) map.get("grade_quantity_4_3");
 		grade_quantity_4_4 = (Double) map.get("grade_quantity_4_4");
 		grade_quantity_4_5 = (Double) map.get("grade_quantity_4_5");
+		farmer5 = (String) map.get("farmer5");
+		farmer_quantity_5 = (Double) map.get("farmer_quantity_5");
+		grade_quantity_5_1 = (Double) map.get("grade_quantity_5_1");
+		grade_quantity_5_2 = (Double) map.get("grade_quantity_5_2");
+		grade_quantity_5_3 = (Double) map.get("grade_quantity_5_3");
+		grade_quantity_5_4 = (Double) map.get("grade_quantity_5_4");
+		grade_quantity_5_5 = (Double) map.get("grade_quantity_5_5");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -596,6 +729,10 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		if(total_quantityObj != null)
 			total_quantity = new Double(total_quantityObj.toString());
 
+		Object total_product_quantityObj = map.get("total_product_quantity");
+		if(total_product_quantityObj != null)
+			total_product_quantity = new Double(total_product_quantityObj.toString());
+
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
@@ -603,6 +740,10 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		Object farmer1Obj = map.get("farmer1");
 		if(farmer1Obj != null)
 			farmer1 = farmer1Obj.toString();
+
+		Object farmer_quantity_1Obj = map.get("farmer_quantity_1");
+		if(farmer_quantity_1Obj != null)
+			farmer_quantity_1 = new Double(farmer_quantity_1Obj.toString());
 
 		Object grade_quantity_1_1Obj = map.get("grade_quantity_1_1");
 		if(grade_quantity_1_1Obj != null)
@@ -628,6 +769,10 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		if(farmer2Obj != null)
 			farmer2 = farmer2Obj.toString();
 
+		Object farmer_quantity_2Obj = map.get("farmer_quantity_2");
+		if(farmer_quantity_2Obj != null)
+			farmer_quantity_2 = new Double(farmer_quantity_2Obj.toString());
+
 		Object grade_quantity_2_1Obj = map.get("grade_quantity_2_1");
 		if(grade_quantity_2_1Obj != null)
 			grade_quantity_2_1 = new Double(grade_quantity_2_1Obj.toString());
@@ -651,6 +796,10 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		Object farmer3Obj = map.get("farmer3");
 		if(farmer3Obj != null)
 			farmer3 = farmer3Obj.toString();
+
+		Object farmer_quantity_3Obj = map.get("farmer_quantity_3");
+		if(farmer_quantity_3Obj != null)
+			farmer_quantity_3 = new Double(farmer_quantity_3Obj.toString());
 
 		Object grade_quantity_3_1Obj = map.get("grade_quantity_3_1");
 		if(grade_quantity_3_1Obj != null)
@@ -676,6 +825,10 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		if(farmer4Obj != null)
 			farmer4 = farmer4Obj.toString();
 
+		Object farmer_quantity_4Obj = map.get("farmer_quantity_4");
+		if(farmer_quantity_4Obj != null)
+			farmer_quantity_4 = new Double(farmer_quantity_4Obj.toString());
+
 		Object grade_quantity_4_1Obj = map.get("grade_quantity_4_1");
 		if(grade_quantity_4_1Obj != null)
 			grade_quantity_4_1 = new Double(grade_quantity_4_1Obj.toString());
@@ -695,6 +848,34 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		Object grade_quantity_4_5Obj = map.get("grade_quantity_4_5");
 		if(grade_quantity_4_5Obj != null)
 			grade_quantity_4_5 = new Double(grade_quantity_4_5Obj.toString());
+
+		Object farmer5Obj = map.get("farmer5");
+		if(farmer5Obj != null)
+			farmer5 = farmer5Obj.toString();
+
+		Object farmer_quantity_5Obj = map.get("farmer_quantity_5");
+		if(farmer_quantity_5Obj != null)
+			farmer_quantity_5 = new Double(farmer_quantity_5Obj.toString());
+
+		Object grade_quantity_5_1Obj = map.get("grade_quantity_5_1");
+		if(grade_quantity_5_1Obj != null)
+			grade_quantity_5_1 = new Double(grade_quantity_5_1Obj.toString());
+
+		Object grade_quantity_5_2Obj = map.get("grade_quantity_5_2");
+		if(grade_quantity_5_2Obj != null)
+			grade_quantity_5_2 = new Double(grade_quantity_5_2Obj.toString());
+
+		Object grade_quantity_5_3Obj = map.get("grade_quantity_5_3");
+		if(grade_quantity_5_3Obj != null)
+			grade_quantity_5_3 = new Double(grade_quantity_5_3Obj.toString());
+
+		Object grade_quantity_5_4Obj = map.get("grade_quantity_5_4");
+		if(grade_quantity_5_4Obj != null)
+			grade_quantity_5_4 = new Double(grade_quantity_5_4Obj.toString());
+
+		Object grade_quantity_5_5Obj = map.get("grade_quantity_5_5");
+		if(grade_quantity_5_5Obj != null)
+			grade_quantity_5_5 = new Double(grade_quantity_5_5Obj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -932,12 +1113,40 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		return total_quantity;
 	}
 
+	public double getTotal_quantityEx() {
+		return total_quantity != null ? total_quantity : 0;
+	}
+
+	public void setTotal_quantity(double total_quantity) {
+		this.total_quantity = total_quantity;
+	}
+
 	public void setTotal_quantity(Double total_quantity) {
 		this.total_quantity = total_quantity;
 	}
 
 	public void unSetTotal_quantity() {
 		this.total_quantity = null;
+	}
+
+	public Double getTotal_product_quantity() {
+		return total_product_quantity;
+	}
+
+	public double getTotal_product_quantityEx() {
+		return total_product_quantity != null ? total_product_quantity : 0;
+	}
+
+	public void setTotal_product_quantity(double total_product_quantity) {
+		this.total_product_quantity = total_product_quantity;
+	}
+
+	public void setTotal_product_quantity(Double total_product_quantity) {
+		this.total_product_quantity = total_product_quantity;
+	}
+
+	public void unSetTotal_product_quantity() {
+		this.total_product_quantity = null;
 	}
 
 	public Long getCreation_time() {
@@ -965,8 +1174,36 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		this.farmer1 = null;
 	}
 
+	public Double getFarmer_quantity_1() {
+		return farmer_quantity_1;
+	}
+
+	public double getFarmer_quantity_1Ex() {
+		return farmer_quantity_1 != null ? farmer_quantity_1 : 0;
+	}
+
+	public void setFarmer_quantity_1(double farmer_quantity_1) {
+		this.farmer_quantity_1 = farmer_quantity_1;
+	}
+
+	public void setFarmer_quantity_1(Double farmer_quantity_1) {
+		this.farmer_quantity_1 = farmer_quantity_1;
+	}
+
+	public void unSetFarmer_quantity_1() {
+		this.farmer_quantity_1 = null;
+	}
+
 	public Double getGrade_quantity_1_1() {
 		return grade_quantity_1_1;
+	}
+
+	public double getGrade_quantity_1_1Ex() {
+		return grade_quantity_1_1 != null ? grade_quantity_1_1 : 0;
+	}
+
+	public void setGrade_quantity_1_1(double grade_quantity_1_1) {
+		this.grade_quantity_1_1 = grade_quantity_1_1;
 	}
 
 	public void setGrade_quantity_1_1(Double grade_quantity_1_1) {
@@ -981,6 +1218,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		return grade_quantity_1_2;
 	}
 
+	public double getGrade_quantity_1_2Ex() {
+		return grade_quantity_1_2 != null ? grade_quantity_1_2 : 0;
+	}
+
+	public void setGrade_quantity_1_2(double grade_quantity_1_2) {
+		this.grade_quantity_1_2 = grade_quantity_1_2;
+	}
+
 	public void setGrade_quantity_1_2(Double grade_quantity_1_2) {
 		this.grade_quantity_1_2 = grade_quantity_1_2;
 	}
@@ -991,6 +1236,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 	public Double getGrade_quantity_1_3() {
 		return grade_quantity_1_3;
+	}
+
+	public double getGrade_quantity_1_3Ex() {
+		return grade_quantity_1_3 != null ? grade_quantity_1_3 : 0;
+	}
+
+	public void setGrade_quantity_1_3(double grade_quantity_1_3) {
+		this.grade_quantity_1_3 = grade_quantity_1_3;
 	}
 
 	public void setGrade_quantity_1_3(Double grade_quantity_1_3) {
@@ -1005,6 +1258,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		return grade_quantity_1_4;
 	}
 
+	public double getGrade_quantity_1_4Ex() {
+		return grade_quantity_1_4 != null ? grade_quantity_1_4 : 0;
+	}
+
+	public void setGrade_quantity_1_4(double grade_quantity_1_4) {
+		this.grade_quantity_1_4 = grade_quantity_1_4;
+	}
+
 	public void setGrade_quantity_1_4(Double grade_quantity_1_4) {
 		this.grade_quantity_1_4 = grade_quantity_1_4;
 	}
@@ -1015,6 +1276,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 	public Double getGrade_quantity_1_5() {
 		return grade_quantity_1_5;
+	}
+
+	public double getGrade_quantity_1_5Ex() {
+		return grade_quantity_1_5 != null ? grade_quantity_1_5 : 0;
+	}
+
+	public void setGrade_quantity_1_5(double grade_quantity_1_5) {
+		this.grade_quantity_1_5 = grade_quantity_1_5;
 	}
 
 	public void setGrade_quantity_1_5(Double grade_quantity_1_5) {
@@ -1041,8 +1310,36 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		this.farmer2 = null;
 	}
 
+	public Double getFarmer_quantity_2() {
+		return farmer_quantity_2;
+	}
+
+	public double getFarmer_quantity_2Ex() {
+		return farmer_quantity_2 != null ? farmer_quantity_2 : 0;
+	}
+
+	public void setFarmer_quantity_2(double farmer_quantity_2) {
+		this.farmer_quantity_2 = farmer_quantity_2;
+	}
+
+	public void setFarmer_quantity_2(Double farmer_quantity_2) {
+		this.farmer_quantity_2 = farmer_quantity_2;
+	}
+
+	public void unSetFarmer_quantity_2() {
+		this.farmer_quantity_2 = null;
+	}
+
 	public Double getGrade_quantity_2_1() {
 		return grade_quantity_2_1;
+	}
+
+	public double getGrade_quantity_2_1Ex() {
+		return grade_quantity_2_1 != null ? grade_quantity_2_1 : 0;
+	}
+
+	public void setGrade_quantity_2_1(double grade_quantity_2_1) {
+		this.grade_quantity_2_1 = grade_quantity_2_1;
 	}
 
 	public void setGrade_quantity_2_1(Double grade_quantity_2_1) {
@@ -1057,6 +1354,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		return grade_quantity_2_2;
 	}
 
+	public double getGrade_quantity_2_2Ex() {
+		return grade_quantity_2_2 != null ? grade_quantity_2_2 : 0;
+	}
+
+	public void setGrade_quantity_2_2(double grade_quantity_2_2) {
+		this.grade_quantity_2_2 = grade_quantity_2_2;
+	}
+
 	public void setGrade_quantity_2_2(Double grade_quantity_2_2) {
 		this.grade_quantity_2_2 = grade_quantity_2_2;
 	}
@@ -1067,6 +1372,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 	public Double getGrade_quantity_2_3() {
 		return grade_quantity_2_3;
+	}
+
+	public double getGrade_quantity_2_3Ex() {
+		return grade_quantity_2_3 != null ? grade_quantity_2_3 : 0;
+	}
+
+	public void setGrade_quantity_2_3(double grade_quantity_2_3) {
+		this.grade_quantity_2_3 = grade_quantity_2_3;
 	}
 
 	public void setGrade_quantity_2_3(Double grade_quantity_2_3) {
@@ -1081,6 +1394,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		return grade_quantity_2_4;
 	}
 
+	public double getGrade_quantity_2_4Ex() {
+		return grade_quantity_2_4 != null ? grade_quantity_2_4 : 0;
+	}
+
+	public void setGrade_quantity_2_4(double grade_quantity_2_4) {
+		this.grade_quantity_2_4 = grade_quantity_2_4;
+	}
+
 	public void setGrade_quantity_2_4(Double grade_quantity_2_4) {
 		this.grade_quantity_2_4 = grade_quantity_2_4;
 	}
@@ -1091,6 +1412,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 	public Double getGrade_quantity_2_5() {
 		return grade_quantity_2_5;
+	}
+
+	public double getGrade_quantity_2_5Ex() {
+		return grade_quantity_2_5 != null ? grade_quantity_2_5 : 0;
+	}
+
+	public void setGrade_quantity_2_5(double grade_quantity_2_5) {
+		this.grade_quantity_2_5 = grade_quantity_2_5;
 	}
 
 	public void setGrade_quantity_2_5(Double grade_quantity_2_5) {
@@ -1117,8 +1446,36 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		this.farmer3 = null;
 	}
 
+	public Double getFarmer_quantity_3() {
+		return farmer_quantity_3;
+	}
+
+	public double getFarmer_quantity_3Ex() {
+		return farmer_quantity_3 != null ? farmer_quantity_3 : 0;
+	}
+
+	public void setFarmer_quantity_3(double farmer_quantity_3) {
+		this.farmer_quantity_3 = farmer_quantity_3;
+	}
+
+	public void setFarmer_quantity_3(Double farmer_quantity_3) {
+		this.farmer_quantity_3 = farmer_quantity_3;
+	}
+
+	public void unSetFarmer_quantity_3() {
+		this.farmer_quantity_3 = null;
+	}
+
 	public Double getGrade_quantity_3_1() {
 		return grade_quantity_3_1;
+	}
+
+	public double getGrade_quantity_3_1Ex() {
+		return grade_quantity_3_1 != null ? grade_quantity_3_1 : 0;
+	}
+
+	public void setGrade_quantity_3_1(double grade_quantity_3_1) {
+		this.grade_quantity_3_1 = grade_quantity_3_1;
 	}
 
 	public void setGrade_quantity_3_1(Double grade_quantity_3_1) {
@@ -1133,6 +1490,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		return grade_quantity_3_2;
 	}
 
+	public double getGrade_quantity_3_2Ex() {
+		return grade_quantity_3_2 != null ? grade_quantity_3_2 : 0;
+	}
+
+	public void setGrade_quantity_3_2(double grade_quantity_3_2) {
+		this.grade_quantity_3_2 = grade_quantity_3_2;
+	}
+
 	public void setGrade_quantity_3_2(Double grade_quantity_3_2) {
 		this.grade_quantity_3_2 = grade_quantity_3_2;
 	}
@@ -1143,6 +1508,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 	public Double getGrade_quantity_3_3() {
 		return grade_quantity_3_3;
+	}
+
+	public double getGrade_quantity_3_3Ex() {
+		return grade_quantity_3_3 != null ? grade_quantity_3_3 : 0;
+	}
+
+	public void setGrade_quantity_3_3(double grade_quantity_3_3) {
+		this.grade_quantity_3_3 = grade_quantity_3_3;
 	}
 
 	public void setGrade_quantity_3_3(Double grade_quantity_3_3) {
@@ -1157,6 +1530,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		return grade_quantity_3_4;
 	}
 
+	public double getGrade_quantity_3_4Ex() {
+		return grade_quantity_3_4 != null ? grade_quantity_3_4 : 0;
+	}
+
+	public void setGrade_quantity_3_4(double grade_quantity_3_4) {
+		this.grade_quantity_3_4 = grade_quantity_3_4;
+	}
+
 	public void setGrade_quantity_3_4(Double grade_quantity_3_4) {
 		this.grade_quantity_3_4 = grade_quantity_3_4;
 	}
@@ -1167,6 +1548,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 	public Double getGrade_quantity_3_5() {
 		return grade_quantity_3_5;
+	}
+
+	public double getGrade_quantity_3_5Ex() {
+		return grade_quantity_3_5 != null ? grade_quantity_3_5 : 0;
+	}
+
+	public void setGrade_quantity_3_5(double grade_quantity_3_5) {
+		this.grade_quantity_3_5 = grade_quantity_3_5;
 	}
 
 	public void setGrade_quantity_3_5(Double grade_quantity_3_5) {
@@ -1193,8 +1582,36 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		this.farmer4 = null;
 	}
 
+	public Double getFarmer_quantity_4() {
+		return farmer_quantity_4;
+	}
+
+	public double getFarmer_quantity_4Ex() {
+		return farmer_quantity_4 != null ? farmer_quantity_4 : 0;
+	}
+
+	public void setFarmer_quantity_4(double farmer_quantity_4) {
+		this.farmer_quantity_4 = farmer_quantity_4;
+	}
+
+	public void setFarmer_quantity_4(Double farmer_quantity_4) {
+		this.farmer_quantity_4 = farmer_quantity_4;
+	}
+
+	public void unSetFarmer_quantity_4() {
+		this.farmer_quantity_4 = null;
+	}
+
 	public Double getGrade_quantity_4_1() {
 		return grade_quantity_4_1;
+	}
+
+	public double getGrade_quantity_4_1Ex() {
+		return grade_quantity_4_1 != null ? grade_quantity_4_1 : 0;
+	}
+
+	public void setGrade_quantity_4_1(double grade_quantity_4_1) {
+		this.grade_quantity_4_1 = grade_quantity_4_1;
 	}
 
 	public void setGrade_quantity_4_1(Double grade_quantity_4_1) {
@@ -1209,6 +1626,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		return grade_quantity_4_2;
 	}
 
+	public double getGrade_quantity_4_2Ex() {
+		return grade_quantity_4_2 != null ? grade_quantity_4_2 : 0;
+	}
+
+	public void setGrade_quantity_4_2(double grade_quantity_4_2) {
+		this.grade_quantity_4_2 = grade_quantity_4_2;
+	}
+
 	public void setGrade_quantity_4_2(Double grade_quantity_4_2) {
 		this.grade_quantity_4_2 = grade_quantity_4_2;
 	}
@@ -1219,6 +1644,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 	public Double getGrade_quantity_4_3() {
 		return grade_quantity_4_3;
+	}
+
+	public double getGrade_quantity_4_3Ex() {
+		return grade_quantity_4_3 != null ? grade_quantity_4_3 : 0;
+	}
+
+	public void setGrade_quantity_4_3(double grade_quantity_4_3) {
+		this.grade_quantity_4_3 = grade_quantity_4_3;
 	}
 
 	public void setGrade_quantity_4_3(Double grade_quantity_4_3) {
@@ -1233,6 +1666,14 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		return grade_quantity_4_4;
 	}
 
+	public double getGrade_quantity_4_4Ex() {
+		return grade_quantity_4_4 != null ? grade_quantity_4_4 : 0;
+	}
+
+	public void setGrade_quantity_4_4(double grade_quantity_4_4) {
+		this.grade_quantity_4_4 = grade_quantity_4_4;
+	}
+
 	public void setGrade_quantity_4_4(Double grade_quantity_4_4) {
 		this.grade_quantity_4_4 = grade_quantity_4_4;
 	}
@@ -1245,12 +1686,156 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 		return grade_quantity_4_5;
 	}
 
+	public double getGrade_quantity_4_5Ex() {
+		return grade_quantity_4_5 != null ? grade_quantity_4_5 : 0;
+	}
+
+	public void setGrade_quantity_4_5(double grade_quantity_4_5) {
+		this.grade_quantity_4_5 = grade_quantity_4_5;
+	}
+
 	public void setGrade_quantity_4_5(Double grade_quantity_4_5) {
 		this.grade_quantity_4_5 = grade_quantity_4_5;
 	}
 
 	public void unSetGrade_quantity_4_5() {
 		this.grade_quantity_4_5 = null;
+	}
+
+	public String getFarmer5() {
+		return farmer5;
+	}
+
+	public String getFarmer5Ex() {
+		return farmer5 != null ? farmer5 : "";
+	}
+
+	public void setFarmer5(String farmer5) {
+		this.farmer5 = farmer5;
+	}
+
+	public void unSetFarmer5() {
+		this.farmer5 = null;
+	}
+
+	public Double getFarmer_quantity_5() {
+		return farmer_quantity_5;
+	}
+
+	public double getFarmer_quantity_5Ex() {
+		return farmer_quantity_5 != null ? farmer_quantity_5 : 0;
+	}
+
+	public void setFarmer_quantity_5(double farmer_quantity_5) {
+		this.farmer_quantity_5 = farmer_quantity_5;
+	}
+
+	public void setFarmer_quantity_5(Double farmer_quantity_5) {
+		this.farmer_quantity_5 = farmer_quantity_5;
+	}
+
+	public void unSetFarmer_quantity_5() {
+		this.farmer_quantity_5 = null;
+	}
+
+	public Double getGrade_quantity_5_1() {
+		return grade_quantity_5_1;
+	}
+
+	public double getGrade_quantity_5_1Ex() {
+		return grade_quantity_5_1 != null ? grade_quantity_5_1 : 0;
+	}
+
+	public void setGrade_quantity_5_1(double grade_quantity_5_1) {
+		this.grade_quantity_5_1 = grade_quantity_5_1;
+	}
+
+	public void setGrade_quantity_5_1(Double grade_quantity_5_1) {
+		this.grade_quantity_5_1 = grade_quantity_5_1;
+	}
+
+	public void unSetGrade_quantity_5_1() {
+		this.grade_quantity_5_1 = null;
+	}
+
+	public Double getGrade_quantity_5_2() {
+		return grade_quantity_5_2;
+	}
+
+	public double getGrade_quantity_5_2Ex() {
+		return grade_quantity_5_2 != null ? grade_quantity_5_2 : 0;
+	}
+
+	public void setGrade_quantity_5_2(double grade_quantity_5_2) {
+		this.grade_quantity_5_2 = grade_quantity_5_2;
+	}
+
+	public void setGrade_quantity_5_2(Double grade_quantity_5_2) {
+		this.grade_quantity_5_2 = grade_quantity_5_2;
+	}
+
+	public void unSetGrade_quantity_5_2() {
+		this.grade_quantity_5_2 = null;
+	}
+
+	public Double getGrade_quantity_5_3() {
+		return grade_quantity_5_3;
+	}
+
+	public double getGrade_quantity_5_3Ex() {
+		return grade_quantity_5_3 != null ? grade_quantity_5_3 : 0;
+	}
+
+	public void setGrade_quantity_5_3(double grade_quantity_5_3) {
+		this.grade_quantity_5_3 = grade_quantity_5_3;
+	}
+
+	public void setGrade_quantity_5_3(Double grade_quantity_5_3) {
+		this.grade_quantity_5_3 = grade_quantity_5_3;
+	}
+
+	public void unSetGrade_quantity_5_3() {
+		this.grade_quantity_5_3 = null;
+	}
+
+	public Double getGrade_quantity_5_4() {
+		return grade_quantity_5_4;
+	}
+
+	public double getGrade_quantity_5_4Ex() {
+		return grade_quantity_5_4 != null ? grade_quantity_5_4 : 0;
+	}
+
+	public void setGrade_quantity_5_4(double grade_quantity_5_4) {
+		this.grade_quantity_5_4 = grade_quantity_5_4;
+	}
+
+	public void setGrade_quantity_5_4(Double grade_quantity_5_4) {
+		this.grade_quantity_5_4 = grade_quantity_5_4;
+	}
+
+	public void unSetGrade_quantity_5_4() {
+		this.grade_quantity_5_4 = null;
+	}
+
+	public Double getGrade_quantity_5_5() {
+		return grade_quantity_5_5;
+	}
+
+	public double getGrade_quantity_5_5Ex() {
+		return grade_quantity_5_5 != null ? grade_quantity_5_5 : 0;
+	}
+
+	public void setGrade_quantity_5_5(double grade_quantity_5_5) {
+		this.grade_quantity_5_5 = grade_quantity_5_5;
+	}
+
+	public void setGrade_quantity_5_5(Double grade_quantity_5_5) {
+		this.grade_quantity_5_5 = grade_quantity_5_5;
+	}
+
+	public void unSetGrade_quantity_5_5() {
+		this.grade_quantity_5_5 = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
