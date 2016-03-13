@@ -142,7 +142,7 @@ public class UserService extends BaseService{
 	}
 	
 	void notifyForgotPassword(user _user) {
-		if (_user.getMobile_no() != null) {
+		if (!Util.isEmpty(_user.getMobile_no())) {
 			SendSMS sms = new SendSMS();
 			sms.setMobile_no(_user.getMobile_no());
 			sms.setType(ApplicationConstants.SMS_TYPE_FORGOT_PASSWORD);
@@ -153,7 +153,7 @@ public class UserService extends BaseService{
 			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
 					sms);
 		}
-		if (_user.getEmail_id() != null) {
+		if (!Util.isEmpty(_user.getEmail_id())) {
 			SendEmail mail = new SendEmail();
 			mail.setSubject(ApplicationConstants.MAIL_SUBJECT_FORGOT_PASSWORD);
 			mail.setTo(_user.getEmail_id());
