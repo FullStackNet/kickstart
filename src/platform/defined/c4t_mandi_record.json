@@ -118,6 +118,22 @@
 			{
 				'type': 'double'
 			},
+			'grade_quantity_1_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_1_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_1_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_1_9':
+			{
+				'type': 'double'
+			},
 			'farmer2':
 			{
 				'length': 512,
@@ -144,6 +160,22 @@
 				'type': 'double'
 			},
 			'grade_quantity_2_5':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_2_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_2_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_2_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_2_9':
 			{
 				'type': 'double'
 			},
@@ -176,6 +208,22 @@
 			{
 				'type': 'double'
 			},
+			'grade_quantity_3_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_3_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_3_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_3_9':
+			{
+				'type': 'double'
+			},
 			'farmer4':
 			{
 				'length': 512,
@@ -205,6 +253,22 @@
 			{
 				'type': 'double'
 			},
+			'grade_quantity_4_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_4_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_4_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_4_9':
+			{
+				'type': 'double'
+			},
 			'farmer5':
 			{
 				'length': 512,
@@ -231,6 +295,247 @@
 				'type': 'double'
 			},
 			'grade_quantity_5_5':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_5_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_5_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_5_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_5_9':
+			{
+				'type': 'double'
+			},
+			'farmer6':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'farmer_quantity_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_6_1':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_6_2':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_6_3':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_6_4':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_6_5':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_6_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_6_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_6_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_6_9':
+			{
+				'type': 'double'
+			},
+			'farmer7':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'farmer_quantity_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_7_1':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_7_2':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_7_3':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_7_4':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_7_5':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_7_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_7_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_7_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_7_9':
+			{
+				'type': 'double'
+			},
+			'farmer8':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'farmer_quantity_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_8_1':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_8_2':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_8_3':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_8_4':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_8_5':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_8_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_8_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_8_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_8_9':
+			{
+				'type': 'double'
+			},
+			'farmer9':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'farmer_quantity_9':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_9_1':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_9_2':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_9_3':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_9_4':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_9_5':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_9_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_9_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_9_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_9_9':
+			{
+				'type': 'double'
+			},
+			'farmer10':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'farmer_quantity_10':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_10_1':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_10_2':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_10_3':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_10_4':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_10_5':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_10_6':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_10_7':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_10_8':
+			{
+				'type': 'double'
+			},
+			'grade_quantity_10_9':
 			{
 				'type': 'double'
 			},

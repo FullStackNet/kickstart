@@ -62,6 +62,12 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'payment_type':
+			{
+				'length': 512,
+				'type': 'String',
+				'index' : true
+			},
 			'vehicle_no':
 			{
 				'length': 512,
@@ -121,6 +127,14 @@
 				'length': 128,
 				'type':'String',
 				'index' : true
+			},
+			'total_farmers':
+			{
+				'type':'Double'
+			},
+			'max_items':
+			{
+				'type':'Double'
 			},
 			'total_amount':
 			{

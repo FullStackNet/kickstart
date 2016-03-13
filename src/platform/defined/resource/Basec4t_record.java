@@ -29,6 +29,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String member_name = null;
 	private String record_type = null;
 	private String record_no = null;
+	private String payment_type = null;
 	private String vehicle_no = null;
 	private String record_sub_type = null;
 	private String location_type = null;
@@ -40,6 +41,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private String release_id = null;
 	private String release_name = null;
 	private String name = null;
+	private Double total_farmers = null;
+	private Double max_items = null;
 	private Double total_amount = null;
 	private Double total_adjusted_amount = null;
 	private Integer count = null;
@@ -162,6 +165,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_MEMBER_NAME = "member_name";
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_RECORD_NO = "record_no";
+	public static String FIELD_PAYMENT_TYPE = "payment_type";
 	public static String FIELD_VEHICLE_NO = "vehicle_no";
 	public static String FIELD_RECORD_SUB_TYPE = "record_sub_type";
 	public static String FIELD_LOCATION_TYPE = "location_type";
@@ -173,6 +177,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_RELEASE_ID = "release_id";
 	public static String FIELD_RELEASE_NAME = "release_name";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_TOTAL_FARMERS = "total_farmers";
+	public static String FIELD_MAX_ITEMS = "max_items";
 	public static String FIELD_TOTAL_AMOUNT = "total_amount";
 	public static String FIELD_TOTAL_ADJUSTED_AMOUNT = "total_adjusted_amount";
 	public static String FIELD_COUNT = "count";
@@ -337,6 +343,11 @@ public abstract class Basec4t_record extends BaseResource {
 		record_noField.setLength(512);
 		metaData.addField(record_noField);
 
+		Field payment_typeField = new Field("payment_type", "String");
+		payment_typeField.setIndexed(true);
+		payment_typeField.setLength(512);
+		metaData.addField(payment_typeField);
+
 		Field vehicle_noField = new Field("vehicle_no", "String");
 		vehicle_noField.setLength(512);
 		metaData.addField(vehicle_noField);
@@ -384,6 +395,12 @@ public abstract class Basec4t_record extends BaseResource {
 		nameField.setIndexed(true);
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field total_farmersField = new Field("total_farmers", "Double");
+		metaData.addField(total_farmersField);
+
+		Field max_itemsField = new Field("max_items", "Double");
+		metaData.addField(max_itemsField);
 
 		Field total_amountField = new Field("total_amount", "Double");
 		metaData.addField(total_amountField);
@@ -824,6 +841,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.member_name = obj.member_name;
 		this.record_type = obj.record_type;
 		this.record_no = obj.record_no;
+		this.payment_type = obj.payment_type;
 		this.vehicle_no = obj.vehicle_no;
 		this.record_sub_type = obj.record_sub_type;
 		this.location_type = obj.location_type;
@@ -835,6 +853,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.release_id = obj.release_id;
 		this.release_name = obj.release_name;
 		this.name = obj.name;
+		this.total_farmers = obj.total_farmers;
+		this.max_items = obj.max_items;
 		this.total_amount = obj.total_amount;
 		this.total_adjusted_amount = obj.total_adjusted_amount;
 		this.count = obj.count;
@@ -987,6 +1007,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("record_type", record_type);
 		if(record_no != null)
 			map.put("record_no", record_no);
+		if(payment_type != null)
+			map.put("payment_type", payment_type);
 		if(vehicle_no != null)
 			map.put("vehicle_no", vehicle_no);
 		if(record_sub_type != null)
@@ -1009,6 +1031,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("release_name", release_name);
 		if(name != null)
 			map.put("name", name);
+		if(total_farmers != null)
+			map.put("total_farmers", total_farmers);
+		if(max_items != null)
+			map.put("max_items", max_items);
 		if(total_amount != null)
 			map.put("total_amount", total_amount);
 		if(total_adjusted_amount != null)
@@ -1259,6 +1285,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("record_type", record_type);
 		if(record_no != null)
 			map.put("record_no", record_no);
+		if(payment_type != null)
+			map.put("payment_type", payment_type);
 		if(vehicle_no != null)
 			map.put("vehicle_no", vehicle_no);
 		if(record_sub_type != null)
@@ -1281,6 +1309,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("release_name", release_name);
 		if(name != null)
 			map.put("name", name);
+		if(total_farmers != null)
+			map.put("total_farmers", total_farmers);
+		if(max_items != null)
+			map.put("max_items", max_items);
 		if(total_amount != null)
 			map.put("total_amount", total_amount);
 		if(total_adjusted_amount != null)
@@ -1523,6 +1555,7 @@ public abstract class Basec4t_record extends BaseResource {
 		member_name = (String) map.get("member_name");
 		record_type = (String) map.get("record_type");
 		record_no = (String) map.get("record_no");
+		payment_type = (String) map.get("payment_type");
 		vehicle_no = (String) map.get("vehicle_no");
 		record_sub_type = (String) map.get("record_sub_type");
 		location_type = (String) map.get("location_type");
@@ -1534,6 +1567,8 @@ public abstract class Basec4t_record extends BaseResource {
 		release_id = (String) map.get("release_id");
 		release_name = (String) map.get("release_name");
 		name = (String) map.get("name");
+		total_farmers = (Double) map.get("total_farmers");
+		max_items = (Double) map.get("max_items");
 		total_amount = (Double) map.get("total_amount");
 		total_adjusted_amount = (Double) map.get("total_adjusted_amount");
 		count = (Integer) map.get("count");
@@ -1689,6 +1724,10 @@ public abstract class Basec4t_record extends BaseResource {
 		if(record_noObj != null)
 			record_no = record_noObj.toString();
 
+		Object payment_typeObj = map.get("payment_type");
+		if(payment_typeObj != null)
+			payment_type = payment_typeObj.toString();
+
 		Object vehicle_noObj = map.get("vehicle_no");
 		if(vehicle_noObj != null)
 			vehicle_no = vehicle_noObj.toString();
@@ -1732,6 +1771,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object total_farmersObj = map.get("total_farmers");
+		if(total_farmersObj != null)
+			total_farmers = new Double(total_farmersObj.toString());
+
+		Object max_itemsObj = map.get("max_items");
+		if(max_itemsObj != null)
+			max_items = new Double(max_itemsObj.toString());
 
 		Object total_amountObj = map.get("total_amount");
 		if(total_amountObj != null)
@@ -2348,6 +2395,22 @@ public abstract class Basec4t_record extends BaseResource {
 		this.record_no = null;
 	}
 
+	public String getPayment_type() {
+		return payment_type;
+	}
+
+	public String getPayment_typeEx() {
+		return payment_type != null ? payment_type : "";
+	}
+
+	public void setPayment_type(String payment_type) {
+		this.payment_type = payment_type;
+	}
+
+	public void unSetPayment_type() {
+		this.payment_type = null;
+	}
+
 	public String getVehicle_no() {
 		return vehicle_no;
 	}
@@ -2522,6 +2585,30 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public Double getTotal_farmers() {
+		return total_farmers;
+	}
+
+	public void setTotal_farmers(Double total_farmers) {
+		this.total_farmers = total_farmers;
+	}
+
+	public void unSetTotal_farmers() {
+		this.total_farmers = null;
+	}
+
+	public Double getMax_items() {
+		return max_items;
+	}
+
+	public void setMax_items(Double max_items) {
+		this.max_items = max_items;
+	}
+
+	public void unSetMax_items() {
+		this.max_items = null;
 	}
 
 	public Double getTotal_amount() {
