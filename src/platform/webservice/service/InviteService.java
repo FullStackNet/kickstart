@@ -83,7 +83,15 @@ public class InviteService extends BaseService{
 			SendEmail resendMail = new SendEmail();
 			resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_COMMUNITY_ACTIVATE_ACCOUNT);
 			resendMail.setTo(_invite.getEmail_id());
-			resendMail.setType(ApplicationConstants.MAIL_SUBJECT_INVITE_COMMUNITY_ACTIVATE_ACCOUNT);
+			if (_community.getType().equals("BUSINESS")) {
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_COMMUNITY_INVITE_BUSINESS);
+			} else 	if (_community.getType().equals("SOCIAL")) {
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_COMMUNITY_INVITE_SOCIAL);
+			} else 	if (_community.getType().equals("SPIRITUAL")) {
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_COMMUNITY_INVITE_SPIRITUAL);
+			} else {
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_COMMUNITY_INVITE);
+			}
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("NAME", _invite.getName());
 			map.put("ACTIVATION_TOKEN", _invite.getKey());
