@@ -27,6 +27,16 @@ public class FormDefinition {
 	boolean uploadFileForm;
 	String title;
 	String submitURLAdd;
+	String summary;
+	
+	
+	public String getSummary() {
+		return summary;
+	}
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+	
 	
 	public FormDefinition() {
 		blocks = new ArrayList<Block>();
