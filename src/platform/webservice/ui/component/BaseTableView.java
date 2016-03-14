@@ -337,6 +337,12 @@ public abstract class BaseTableView extends BaseView {
 		if (mDefinition.isModifyButton() && (url != null)) {
 			A _editlink = new A();
 			_editlink.setHref(url);
+			_editlink.addStyle("background-color", "#99ffd6");
+			_editlink.addStyle("padding-left", "10px");
+			_editlink.addStyle("padding-right", "10px");
+			_editlink.addStyle("padding-top", "4px");
+			_editlink.addStyle("padding-bottom", "4px");
+				
 			_editlink.setText("Edit");
 			actiontd.addChild(_editlink);
 			requiredSeperator = true;
@@ -349,6 +355,7 @@ public abstract class BaseTableView extends BaseView {
 			if (requiredSeperator) {
 				SPAN span = new SPAN();
 				span.setText("&nbsp;&nbsp;");
+				
 				actiontd.addChild(span);
 			}
 			String id = (String)data.get("id");
@@ -356,6 +363,11 @@ public abstract class BaseTableView extends BaseView {
 			_link.setHref("#");
 			_link.addAttribute("onClick","ActionHandler.callDelete('"+deleteUrl+"','"+id+"')");
 			_link.setText("Delete");
+			_link.addStyle("background-color", "#ff9980");
+			_link.addStyle("padding-left", "10px");
+			_link.addStyle("padding-right", "10px");
+			_link.addStyle("padding-top", "4px");
+			_link.addStyle("padding-bottom", "4px");
 			actiontd.addChild(_link);
 		}
 		row.addChild(actiontd);
