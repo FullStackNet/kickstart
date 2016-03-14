@@ -338,6 +338,9 @@ public abstract class BaseTableView extends BaseView {
 			A _editlink = new A();
 			_editlink.setHref(url);
 			_editlink.addStyle("background-color", "#99ffd6");
+			_editlink.addStyle("border-color", "silver");
+			_editlink.addStyle("border-style", "solid");
+			_editlink.addStyle("border-width", "1px");
 			_editlink.addStyle("padding-left", "10px");
 			_editlink.addStyle("padding-right", "10px");
 			_editlink.addStyle("padding-top", "4px");
@@ -364,6 +367,9 @@ public abstract class BaseTableView extends BaseView {
 			_link.addAttribute("onClick","ActionHandler.callDelete('"+deleteUrl+"','"+id+"')");
 			_link.setText("Delete");
 			_link.addStyle("background-color", "#ff9980");
+			_link.addStyle("border-color", "silver");
+			_link.addStyle("border-style", "solid");
+			_link.addStyle("border-width", "1px");
 			_link.addStyle("padding-left", "10px");
 			_link.addStyle("padding-right", "10px");
 			_link.addStyle("padding-top", "4px");

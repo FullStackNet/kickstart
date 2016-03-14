@@ -28,6 +28,7 @@ public class UIConstants {
 	public final static String COMPONENT_TYPE_LINK = "LINK";
 	public final static String COMPONENT_TYPE_DATE = "DATE";
 	public final static String COMPONENT_TYPE_COMBO = "COMBO";
+	public final static String COMPONENT_TYPE_AUTOCOMPLETE = "AUTOCOMPLETE";
 	public final static String COMPONENT_TYPE_LABEL = "LABEL";
 	public final static IdValue[] YES_NO_ENUM = {new IdValue("Y","Yes"), new IdValue("N", "No")};
 	public final static IdValue[] ENABLE_DISABLE_ENUM = {new IdValue("E","Enable"), new IdValue("D", "Disable")};

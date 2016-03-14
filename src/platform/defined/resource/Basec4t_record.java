@@ -107,6 +107,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private Double total_service_charge = null;
 	private Double net_amount = null;
 	private Double total_muc = null;
+	private Double discount_percentage = null;
+	private Double total_discount = null;
 	private Double total_commission = null;
 	private Long total_products = null;
 	private Long total_ready = null;
@@ -247,6 +249,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_SERVICE_CHARGE = "total_service_charge";
 	public static String FIELD_NET_AMOUNT = "net_amount";
 	public static String FIELD_TOTAL_MUC = "total_muc";
+	public static String FIELD_DISCOUNT_PERCENTAGE = "discount_percentage";
+	public static String FIELD_TOTAL_DISCOUNT = "total_discount";
 	public static String FIELD_TOTAL_COMMISSION = "total_commission";
 	public static String FIELD_TOTAL_PRODUCTS = "total_products";
 	public static String FIELD_TOTAL_READY = "total_ready";
@@ -662,6 +666,12 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_mucField = new Field("total_muc", "Double");
 		metaData.addField(total_mucField);
 
+		Field discount_percentageField = new Field("discount_percentage", "double");
+		metaData.addField(discount_percentageField);
+
+		Field total_discountField = new Field("total_discount", "double");
+		metaData.addField(total_discountField);
+
 		Field total_commissionField = new Field("total_commission", "Double");
 		metaData.addField(total_commissionField);
 
@@ -943,6 +953,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_service_charge = obj.total_service_charge;
 		this.net_amount = obj.net_amount;
 		this.total_muc = obj.total_muc;
+		this.discount_percentage = obj.discount_percentage;
+		this.total_discount = obj.total_discount;
 		this.total_commission = obj.total_commission;
 		this.total_products = obj.total_products;
 		this.total_ready = obj.total_ready;
@@ -1191,6 +1203,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("net_amount", net_amount);
 		if(total_muc != null)
 			map.put("total_muc", total_muc);
+		if(discount_percentage != null)
+			map.put("discount_percentage", discount_percentage);
+		if(total_discount != null)
+			map.put("total_discount", total_discount);
 		if(total_commission != null)
 			map.put("total_commission", total_commission);
 		if(total_products != null)
@@ -1477,6 +1493,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("net_amount", net_amount);
 		if(total_muc != null)
 			map.put("total_muc", total_muc);
+		if(discount_percentage != null)
+			map.put("discount_percentage", discount_percentage);
+		if(total_discount != null)
+			map.put("total_discount", total_discount);
 		if(total_commission != null)
 			map.put("total_commission", total_commission);
 		if(total_products != null)
@@ -1677,6 +1697,8 @@ public abstract class Basec4t_record extends BaseResource {
 		total_service_charge = (Double) map.get("total_service_charge");
 		net_amount = (Double) map.get("net_amount");
 		total_muc = (Double) map.get("total_muc");
+		discount_percentage = (Double) map.get("discount_percentage");
+		total_discount = (Double) map.get("total_discount");
 		total_commission = (Double) map.get("total_commission");
 		total_products = (Long) map.get("total_products");
 		total_ready = (Long) map.get("total_ready");
@@ -2083,6 +2105,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_mucObj = map.get("total_muc");
 		if(total_mucObj != null)
 			total_muc = new Double(total_mucObj.toString());
+
+		Object discount_percentageObj = map.get("discount_percentage");
+		if(discount_percentageObj != null)
+			discount_percentage = new Double(discount_percentageObj.toString());
+
+		Object total_discountObj = map.get("total_discount");
+		if(total_discountObj != null)
+			total_discount = new Double(total_discountObj.toString());
 
 		Object total_commissionObj = map.get("total_commission");
 		if(total_commissionObj != null)
@@ -3654,6 +3684,46 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_muc() {
 		this.total_muc = null;
+	}
+
+	public Double getDiscount_percentage() {
+		return discount_percentage;
+	}
+
+	public double getDiscount_percentageEx() {
+		return discount_percentage != null ? discount_percentage : 0;
+	}
+
+	public void setDiscount_percentage(double discount_percentage) {
+		this.discount_percentage = discount_percentage;
+	}
+
+	public void setDiscount_percentage(Double discount_percentage) {
+		this.discount_percentage = discount_percentage;
+	}
+
+	public void unSetDiscount_percentage() {
+		this.discount_percentage = null;
+	}
+
+	public Double getTotal_discount() {
+		return total_discount;
+	}
+
+	public double getTotal_discountEx() {
+		return total_discount != null ? total_discount : 0;
+	}
+
+	public void setTotal_discount(double total_discount) {
+		this.total_discount = total_discount;
+	}
+
+	public void setTotal_discount(Double total_discount) {
+		this.total_discount = total_discount;
+	}
+
+	public void unSetTotal_discount() {
+		this.total_discount = null;
 	}
 
 	public Double getTotal_commission() {

@@ -460,6 +460,14 @@
 			{
 				'type': 'Double'
 			},
+			'discount_percentage':
+			{
+				'type': 'double'
+			},
+			'total_discount':
+			{
+				'type': 'double'
+			},
 			'total_commission':
 			{
 				'type': 'Double'

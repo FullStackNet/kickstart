@@ -18,6 +18,7 @@ import platform.webservice.ui.html.FORM;
 import platform.webservice.ui.html.H2;
 import platform.webservice.ui.html.HIDDEN;
 import platform.webservice.ui.html.IMG;
+import platform.webservice.ui.html.INPUT;
 import platform.webservice.ui.html.JS;
 import platform.webservice.ui.html.PASSWORD;
 import platform.webservice.ui.html.SPAN;
@@ -84,7 +85,7 @@ public abstract class BaseForm extends BaseView {
 	protected String getImageSource(Field field, Map<String, Object> data) {
 		return "#";
 	}
-	 void buildUI(String op, Map<String, Object> data) {
+	void buildUI(String op, Map<String, Object> data) {
 		this.dataMap = data;
 		// TODO Auto-generated method stub
 		if (op != null)
@@ -258,7 +259,7 @@ public abstract class BaseForm extends BaseView {
 					row.addChild(column);
 					column = new TD();
 					column.addAttribute("style","padding-left:10px;padding-top:10px;padding-bottom:10px;");
-					
+
 				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PHOTO) { 
 					IMG img = new IMG();
 					img.setSRC(getImageSource(field,dataMap));
@@ -274,10 +275,10 @@ public abstract class BaseForm extends BaseView {
 					} else {
 						row.addChild(column);
 					}
-					
+
 					column = new TD();
 					column.addAttribute("style","padding-left:10px;padding-top:10px;padding-bottom:10px;");
-					
+
 				}
 				if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTINPUT) {
 					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
@@ -301,11 +302,11 @@ public abstract class BaseForm extends BaseView {
 						textEdit.addAttribute("placeholder", ""+field.getHint());
 					}
 					if (block.isHorizontalDisplay()) {
-							if (field.getWidth() > 0) {
-								textEdit.addStyle("width", field.getWidth()+"px");
-							} else {
-								textEdit.addStyle("width", "auto");
-							}
+						if (field.getWidth() > 0) {
+							textEdit.addStyle("width", field.getWidth()+"px");
+						} else {
+							textEdit.addStyle("width", "auto");
+						}
 					}
 					column.addChild(textEdit);
 					if (field.isShowCount()) {
@@ -314,18 +315,18 @@ public abstract class BaseForm extends BaseView {
 						div.addAttribute("id", "input_"+field.getName()+"_div");
 						div.addAttribute("style", "margin-top:10px");
 						column.addChild(div);
-						
+
 					}
 				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_FILEUPLOAD) {
-						FILEINPUT fileInput = new FILEINPUT(field.getName(),null);
-						fileInput.addAttribute("name", field.getName());
-						column.addChild(fileInput);
+					FILEINPUT fileInput = new FILEINPUT(field.getName(),null);
+					fileInput.addAttribute("name", field.getName());
+					column.addChild(fileInput);
 				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PHOTOUPLOAD) {
 					FILEINPUT fileInput = new FILEINPUT(field.getName(),null);
 					fileInput.addAttribute("name", field.getName());
 					column.addChild(fileInput);
 				}	else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_DATEPICKER) {
-				
+
 					TEXTEDIT textEdit = new TEXTEDIT(field.getName(),null);
 					if (block.isHorizontalDisplay()) {
 						if (field.getWidth() > 0) {
@@ -375,16 +376,59 @@ public abstract class BaseForm extends BaseView {
 						continue;
 					} else {
 						COMBO combo = new COMBO(field.getName(), null,field.getDatasource().getData(),value);
+						
 						if (block.isHorizontalDisplay()) {
 							if (field.getWidth() > 0) {
 								combo.getView().addStyle("width", field.getWidth()+"px");
 							} else {
 								combo.getView().addStyle("width", "auto");
 							}
-					}
+						}
 						column.addChild(combo.getView());
-						
+
 					}
+
+				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_AUTOCOMPLETE) {
+					ArrayList<IdValue> list = field.getDatasource().getData();
+					String js  = "<script>\n" ;
+					js = js +" var "+ field.getName()+"_autocomplete_data = [";
+					if (list.size() > 0) {
+						for (int ii =0; ii < list.size(); ii++) {
+							js = js +" {label :\""+list.get(ii).getValue()+"\",value : "+"\""+list.get(ii).getId()+"\"}";
+							if (i < (list.size()-1)) {
+								js = js+",";
+							}
+							js = js+"\n";
+						}
+					}
+					js = js +" ];\n";
+					
+					js = js +"$(function() {\n" +
+								"$(\"#"+field.getName()+"_label\").autocomplete({source : "+field.getName()+"_autocomplete_data,"+
+								 "focus: function( event, ui ) {\n" +
+								 	"$(\"#"+field.getName()+"\").val( ui.item.label );\n" +
+								 		"return false;\n"+
+			               			"},\n"+
+			               			"select: function( event, ui ) {\n"+
+								              "$(\"#"+field.getName()+"_label\").val(ui.item.label );\n"+
+								               "$(\"#"+field.getName()+"\" ).val( ui.item.value );\n"+
+								               "return false;\n"+
+								            "}\n"+
+							"});\n" ;
+					js = js + "});\n"+
+							"</script>\n";
+					column.addChild(new TEXT(js));
+					HIDDEN hidden = new HIDDEN(field.getName(),value);
+					column.addChild(hidden);
+					INPUT combo = new INPUT(field.getName()+"_label", null);
+					if (block.isHorizontalDisplay()) {
+						if (field.getWidth() > 0) {
+							combo.addStyle("width", field.getWidth()+"px");
+						} else {
+							combo.addStyle("width", "auto");
+						}
+					}
+					column.addChild(combo);
 
 				}  else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_LABEL) {
 					if ((data != null) && 
@@ -425,7 +469,7 @@ public abstract class BaseForm extends BaseView {
 					if (coulmn_count == block.getColumns()) {
 						table.addChild(row1);
 						table.addChild(row2);
-						
+
 						row1 = new TR();
 						row2 = new TR();
 						coulmn_count = 0;
@@ -448,7 +492,7 @@ public abstract class BaseForm extends BaseView {
 			formHeaderDiv.addChild(new H2(mDefinition.getTitle()));
 			getView().addChild(formHeaderDiv);
 		}
-		
+
 		if (mDefinition.getButtonList().size() > 0) {
 			Div formFooterDiv = new Div(null,"form_footer"); 
 			formFooterDiv.addAttribute("style", ""+"width:"+mDefinition.getWidth()+"px");
@@ -468,7 +512,7 @@ public abstract class BaseForm extends BaseView {
 			}
 			mForm.addChild(formFooterDiv);
 		}
-		
+
 		getView().addChild(mForm);
 	}
 	public Map<String, Object> getDataMap() {
