@@ -105,6 +105,12 @@ public abstract class Basec4t_record extends BaseResource {
 	private Long total_items = null;
 	private Double total_service_tax = null;
 	private Double total_service_charge = null;
+	private Double transport_unit_charge = null;
+	private Double total_transport_charge = null;
+	private Double unloading_unit_charge = null;
+	private Double hidden_charge_percentage = null;
+	private Double total_hidden_charges = null;
+	private Double total_unloading_charge = null;
 	private Double net_amount = null;
 	private Double total_muc = null;
 	private Double discount_percentage = null;
@@ -247,6 +253,12 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_ITEMS = "total_items";
 	public static String FIELD_TOTAL_SERVICE_TAX = "total_service_tax";
 	public static String FIELD_TOTAL_SERVICE_CHARGE = "total_service_charge";
+	public static String FIELD_TRANSPORT_UNIT_CHARGE = "transport_unit_charge";
+	public static String FIELD_TOTAL_TRANSPORT_CHARGE = "total_transport_charge";
+	public static String FIELD_UNLOADING_UNIT_CHARGE = "unloading_unit_charge";
+	public static String FIELD_HIDDEN_CHARGE_PERCENTAGE = "hidden_charge_percentage";
+	public static String FIELD_TOTAL_HIDDEN_CHARGES = "total_hidden_charges";
+	public static String FIELD_TOTAL_UNLOADING_CHARGE = "total_unloading_charge";
 	public static String FIELD_NET_AMOUNT = "net_amount";
 	public static String FIELD_TOTAL_MUC = "total_muc";
 	public static String FIELD_DISCOUNT_PERCENTAGE = "discount_percentage";
@@ -660,6 +672,24 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_service_chargeField = new Field("total_service_charge", "Double");
 		metaData.addField(total_service_chargeField);
 
+		Field transport_unit_chargeField = new Field("transport_unit_charge", "Double");
+		metaData.addField(transport_unit_chargeField);
+
+		Field total_transport_chargeField = new Field("total_transport_charge", "Double");
+		metaData.addField(total_transport_chargeField);
+
+		Field unloading_unit_chargeField = new Field("unloading_unit_charge", "Double");
+		metaData.addField(unloading_unit_chargeField);
+
+		Field hidden_charge_percentageField = new Field("hidden_charge_percentage", "Double");
+		metaData.addField(hidden_charge_percentageField);
+
+		Field total_hidden_chargesField = new Field("total_hidden_charges", "Double");
+		metaData.addField(total_hidden_chargesField);
+
+		Field total_unloading_chargeField = new Field("total_unloading_charge", "Double");
+		metaData.addField(total_unloading_chargeField);
+
 		Field net_amountField = new Field("net_amount", "Double");
 		metaData.addField(net_amountField);
 
@@ -951,6 +981,12 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_items = obj.total_items;
 		this.total_service_tax = obj.total_service_tax;
 		this.total_service_charge = obj.total_service_charge;
+		this.transport_unit_charge = obj.transport_unit_charge;
+		this.total_transport_charge = obj.total_transport_charge;
+		this.unloading_unit_charge = obj.unloading_unit_charge;
+		this.hidden_charge_percentage = obj.hidden_charge_percentage;
+		this.total_hidden_charges = obj.total_hidden_charges;
+		this.total_unloading_charge = obj.total_unloading_charge;
 		this.net_amount = obj.net_amount;
 		this.total_muc = obj.total_muc;
 		this.discount_percentage = obj.discount_percentage;
@@ -1199,6 +1235,18 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_service_tax", total_service_tax);
 		if(total_service_charge != null)
 			map.put("total_service_charge", total_service_charge);
+		if(transport_unit_charge != null)
+			map.put("transport_unit_charge", transport_unit_charge);
+		if(total_transport_charge != null)
+			map.put("total_transport_charge", total_transport_charge);
+		if(unloading_unit_charge != null)
+			map.put("unloading_unit_charge", unloading_unit_charge);
+		if(hidden_charge_percentage != null)
+			map.put("hidden_charge_percentage", hidden_charge_percentage);
+		if(total_hidden_charges != null)
+			map.put("total_hidden_charges", total_hidden_charges);
+		if(total_unloading_charge != null)
+			map.put("total_unloading_charge", total_unloading_charge);
 		if(net_amount != null)
 			map.put("net_amount", net_amount);
 		if(total_muc != null)
@@ -1489,6 +1537,18 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_service_tax", total_service_tax);
 		if(total_service_charge != null)
 			map.put("total_service_charge", total_service_charge);
+		if(transport_unit_charge != null)
+			map.put("transport_unit_charge", transport_unit_charge);
+		if(total_transport_charge != null)
+			map.put("total_transport_charge", total_transport_charge);
+		if(unloading_unit_charge != null)
+			map.put("unloading_unit_charge", unloading_unit_charge);
+		if(hidden_charge_percentage != null)
+			map.put("hidden_charge_percentage", hidden_charge_percentage);
+		if(total_hidden_charges != null)
+			map.put("total_hidden_charges", total_hidden_charges);
+		if(total_unloading_charge != null)
+			map.put("total_unloading_charge", total_unloading_charge);
 		if(net_amount != null)
 			map.put("net_amount", net_amount);
 		if(total_muc != null)
@@ -1695,6 +1755,12 @@ public abstract class Basec4t_record extends BaseResource {
 		total_items = (Long) map.get("total_items");
 		total_service_tax = (Double) map.get("total_service_tax");
 		total_service_charge = (Double) map.get("total_service_charge");
+		transport_unit_charge = (Double) map.get("transport_unit_charge");
+		total_transport_charge = (Double) map.get("total_transport_charge");
+		unloading_unit_charge = (Double) map.get("unloading_unit_charge");
+		hidden_charge_percentage = (Double) map.get("hidden_charge_percentage");
+		total_hidden_charges = (Double) map.get("total_hidden_charges");
+		total_unloading_charge = (Double) map.get("total_unloading_charge");
 		net_amount = (Double) map.get("net_amount");
 		total_muc = (Double) map.get("total_muc");
 		discount_percentage = (Double) map.get("discount_percentage");
@@ -2097,6 +2163,30 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_service_chargeObj = map.get("total_service_charge");
 		if(total_service_chargeObj != null)
 			total_service_charge = new Double(total_service_chargeObj.toString());
+
+		Object transport_unit_chargeObj = map.get("transport_unit_charge");
+		if(transport_unit_chargeObj != null)
+			transport_unit_charge = new Double(transport_unit_chargeObj.toString());
+
+		Object total_transport_chargeObj = map.get("total_transport_charge");
+		if(total_transport_chargeObj != null)
+			total_transport_charge = new Double(total_transport_chargeObj.toString());
+
+		Object unloading_unit_chargeObj = map.get("unloading_unit_charge");
+		if(unloading_unit_chargeObj != null)
+			unloading_unit_charge = new Double(unloading_unit_chargeObj.toString());
+
+		Object hidden_charge_percentageObj = map.get("hidden_charge_percentage");
+		if(hidden_charge_percentageObj != null)
+			hidden_charge_percentage = new Double(hidden_charge_percentageObj.toString());
+
+		Object total_hidden_chargesObj = map.get("total_hidden_charges");
+		if(total_hidden_chargesObj != null)
+			total_hidden_charges = new Double(total_hidden_chargesObj.toString());
+
+		Object total_unloading_chargeObj = map.get("total_unloading_charge");
+		if(total_unloading_chargeObj != null)
+			total_unloading_charge = new Double(total_unloading_chargeObj.toString());
 
 		Object net_amountObj = map.get("net_amount");
 		if(net_amountObj != null)
@@ -3660,6 +3750,78 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_service_charge() {
 		this.total_service_charge = null;
+	}
+
+	public Double getTransport_unit_charge() {
+		return transport_unit_charge;
+	}
+
+	public void setTransport_unit_charge(Double transport_unit_charge) {
+		this.transport_unit_charge = transport_unit_charge;
+	}
+
+	public void unSetTransport_unit_charge() {
+		this.transport_unit_charge = null;
+	}
+
+	public Double getTotal_transport_charge() {
+		return total_transport_charge;
+	}
+
+	public void setTotal_transport_charge(Double total_transport_charge) {
+		this.total_transport_charge = total_transport_charge;
+	}
+
+	public void unSetTotal_transport_charge() {
+		this.total_transport_charge = null;
+	}
+
+	public Double getUnloading_unit_charge() {
+		return unloading_unit_charge;
+	}
+
+	public void setUnloading_unit_charge(Double unloading_unit_charge) {
+		this.unloading_unit_charge = unloading_unit_charge;
+	}
+
+	public void unSetUnloading_unit_charge() {
+		this.unloading_unit_charge = null;
+	}
+
+	public Double getHidden_charge_percentage() {
+		return hidden_charge_percentage;
+	}
+
+	public void setHidden_charge_percentage(Double hidden_charge_percentage) {
+		this.hidden_charge_percentage = hidden_charge_percentage;
+	}
+
+	public void unSetHidden_charge_percentage() {
+		this.hidden_charge_percentage = null;
+	}
+
+	public Double getTotal_hidden_charges() {
+		return total_hidden_charges;
+	}
+
+	public void setTotal_hidden_charges(Double total_hidden_charges) {
+		this.total_hidden_charges = total_hidden_charges;
+	}
+
+	public void unSetTotal_hidden_charges() {
+		this.total_hidden_charges = null;
+	}
+
+	public Double getTotal_unloading_charge() {
+		return total_unloading_charge;
+	}
+
+	public void setTotal_unloading_charge(Double total_unloading_charge) {
+		this.total_unloading_charge = total_unloading_charge;
+	}
+
+	public void unSetTotal_unloading_charge() {
+		this.total_unloading_charge = null;
 	}
 
 	public Double getNet_amount() {
