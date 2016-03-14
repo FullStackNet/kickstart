@@ -22,6 +22,10 @@ public abstract class Basec4t_record extends BaseResource {
 	private String id = null;
 	private String community_id = null;
 	private String community_name = null;
+	private String summary = null;
+	private String book_name = null;
+	private String author_name = null;
+	private String publication_name = null;
 	private String severity = null;
 	private String customer_id = null;
 	private String customer_name = null;
@@ -158,6 +162,10 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_COMMUNITY_NAME = "community_name";
+	public static String FIELD_SUMMARY = "summary";
+	public static String FIELD_BOOK_NAME = "book_name";
+	public static String FIELD_AUTHOR_NAME = "author_name";
+	public static String FIELD_PUBLICATION_NAME = "publication_name";
 	public static String FIELD_SEVERITY = "severity";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CUSTOMER_NAME = "customer_name";
@@ -311,6 +319,22 @@ public abstract class Basec4t_record extends BaseResource {
 		community_nameField.setIndexed(true);
 		community_nameField.setLength(128);
 		metaData.addField(community_nameField);
+
+		Field summaryField = new Field("summary", "String");
+		summaryField.setLength(16);
+		metaData.addField(summaryField);
+
+		Field book_nameField = new Field("book_name", "String");
+		book_nameField.setLength(16);
+		metaData.addField(book_nameField);
+
+		Field author_nameField = new Field("author_name", "String");
+		author_nameField.setLength(16);
+		metaData.addField(author_nameField);
+
+		Field publication_nameField = new Field("publication_name", "String");
+		publication_nameField.setLength(16);
+		metaData.addField(publication_nameField);
 
 		Field severityField = new Field("severity", "String");
 		severityField.setLength(16);
@@ -834,6 +858,10 @@ public abstract class Basec4t_record extends BaseResource {
 		this.id = obj.id;
 		this.community_id = obj.community_id;
 		this.community_name = obj.community_name;
+		this.summary = obj.summary;
+		this.book_name = obj.book_name;
+		this.author_name = obj.author_name;
+		this.publication_name = obj.publication_name;
 		this.severity = obj.severity;
 		this.customer_id = obj.customer_id;
 		this.customer_name = obj.customer_name;
@@ -993,6 +1021,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(summary != null)
+			map.put("summary", summary);
+		if(book_name != null)
+			map.put("book_name", book_name);
+		if(author_name != null)
+			map.put("author_name", author_name);
+		if(publication_name != null)
+			map.put("publication_name", publication_name);
 		if(severity != null)
 			map.put("severity", severity);
 		if(customer_id != null)
@@ -1271,6 +1307,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(summary != null)
+			map.put("summary", summary);
+		if(book_name != null)
+			map.put("book_name", book_name);
+		if(author_name != null)
+			map.put("author_name", author_name);
+		if(publication_name != null)
+			map.put("publication_name", publication_name);
 		if(severity != null)
 			map.put("severity", severity);
 		if(customer_id != null)
@@ -1548,6 +1592,10 @@ public abstract class Basec4t_record extends BaseResource {
 		id = (String) map.get("id");
 		community_id = (String) map.get("community_id");
 		community_name = (String) map.get("community_name");
+		summary = (String) map.get("summary");
+		book_name = (String) map.get("book_name");
+		author_name = (String) map.get("author_name");
+		publication_name = (String) map.get("publication_name");
 		severity = (String) map.get("severity");
 		customer_id = (String) map.get("customer_id");
 		customer_name = (String) map.get("customer_name");
@@ -1695,6 +1743,22 @@ public abstract class Basec4t_record extends BaseResource {
 		Object community_nameObj = map.get("community_name");
 		if(community_nameObj != null)
 			community_name = community_nameObj.toString();
+
+		Object summaryObj = map.get("summary");
+		if(summaryObj != null)
+			summary = summaryObj.toString();
+
+		Object book_nameObj = map.get("book_name");
+		if(book_nameObj != null)
+			book_name = book_nameObj.toString();
+
+		Object author_nameObj = map.get("author_name");
+		if(author_nameObj != null)
+			author_name = author_nameObj.toString();
+
+		Object publication_nameObj = map.get("publication_name");
+		if(publication_nameObj != null)
+			publication_name = publication_nameObj.toString();
 
 		Object severityObj = map.get("severity");
 		if(severityObj != null)
@@ -2281,6 +2345,70 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetCommunity_name() {
 		this.community_name = null;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public String getSummaryEx() {
+		return summary != null ? summary : "";
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public void unSetSummary() {
+		this.summary = null;
+	}
+
+	public String getBook_name() {
+		return book_name;
+	}
+
+	public String getBook_nameEx() {
+		return book_name != null ? book_name : "";
+	}
+
+	public void setBook_name(String book_name) {
+		this.book_name = book_name;
+	}
+
+	public void unSetBook_name() {
+		this.book_name = null;
+	}
+
+	public String getAuthor_name() {
+		return author_name;
+	}
+
+	public String getAuthor_nameEx() {
+		return author_name != null ? author_name : "";
+	}
+
+	public void setAuthor_name(String author_name) {
+		this.author_name = author_name;
+	}
+
+	public void unSetAuthor_name() {
+		this.author_name = null;
+	}
+
+	public String getPublication_name() {
+		return publication_name;
+	}
+
+	public String getPublication_nameEx() {
+		return publication_name != null ? publication_name : "";
+	}
+
+	public void setPublication_name(String publication_name) {
+		this.publication_name = publication_name;
+	}
+
+	public void unSetPublication_name() {
+		this.publication_name = null;
 	}
 
 	public String getSeverity() {

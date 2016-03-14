@@ -23,6 +23,26 @@
 				'type':'String',
 				'index' : true
 			},
+			'summary':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'book_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'author_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'publication_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
 			'severity':
 			{
 				'length': 16,
