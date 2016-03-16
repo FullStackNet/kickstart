@@ -454,31 +454,31 @@
 			},
 			'transport_unit_charge':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'total_transport_charge':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'unloading_unit_charge':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'hidden_charge_percentage':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'total_hidden_charges':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'total_unloading_charge':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'total_transport_charge':
 			{
-				'type': 'Double'
+				'type': 'double'
 			},
 			'net_amount':
 			{
