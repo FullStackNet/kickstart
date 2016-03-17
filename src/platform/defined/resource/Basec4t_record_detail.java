@@ -63,6 +63,11 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String to_date_str = null;
 	private Long from_date = null;
 	private Long to_date = null;
+	private Long payment_id = null;
+	private Long payment_date = null;
+	private Long payment_date_str = null;
+	private Long pending_amount = null;
+	private Long payment_amount = null;
 	private String user_name = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -111,6 +116,11 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_TO_DATE_STR = "to_date_str";
 	public static String FIELD_FROM_DATE = "from_date";
 	public static String FIELD_TO_DATE = "to_date";
+	public static String FIELD_PAYMENT_ID = "payment_id";
+	public static String FIELD_PAYMENT_DATE = "payment_date";
+	public static String FIELD_PAYMENT_DATE_STR = "payment_date_str";
+	public static String FIELD_PENDING_AMOUNT = "pending_amount";
+	public static String FIELD_PAYMENT_AMOUNT = "payment_amount";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -284,6 +294,21 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Field to_dateField = new Field("to_date", "long");
 		metaData.addField(to_dateField);
 
+		Field payment_idField = new Field("payment_id", "long");
+		metaData.addField(payment_idField);
+
+		Field payment_dateField = new Field("payment_date", "long");
+		metaData.addField(payment_dateField);
+
+		Field payment_date_strField = new Field("payment_date_str", "long");
+		metaData.addField(payment_date_strField);
+
+		Field pending_amountField = new Field("pending_amount", "long");
+		metaData.addField(pending_amountField);
+
+		Field payment_amountField = new Field("payment_amount", "long");
+		metaData.addField(payment_amountField);
+
 		Field user_nameField = new Field("user_name", "String");
 		user_nameField.setLength(512);
 		metaData.addField(user_nameField);
@@ -348,6 +373,11 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.to_date_str = obj.to_date_str;
 		this.from_date = obj.from_date;
 		this.to_date = obj.to_date;
+		this.payment_id = obj.payment_id;
+		this.payment_date = obj.payment_date;
+		this.payment_date_str = obj.payment_date_str;
+		this.pending_amount = obj.pending_amount;
+		this.payment_amount = obj.payment_amount;
 		this.user_name = obj.user_name;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -447,6 +477,16 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("from_date", from_date);
 		if(to_date != null)
 			map.put("to_date", to_date);
+		if(payment_id != null)
+			map.put("payment_id", payment_id);
+		if(payment_date != null)
+			map.put("payment_date", payment_date);
+		if(payment_date_str != null)
+			map.put("payment_date_str", payment_date_str);
+		if(pending_amount != null)
+			map.put("pending_amount", pending_amount);
+		if(payment_amount != null)
+			map.put("payment_amount", payment_amount);
 		if(user_name != null)
 			map.put("user_name", user_name);
 		if(creation_time != null)
@@ -546,6 +586,16 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("from_date", from_date);
 		if(to_date != null)
 			map.put("to_date", to_date);
+		if(payment_id != null)
+			map.put("payment_id", payment_id);
+		if(payment_date != null)
+			map.put("payment_date", payment_date);
+		if(payment_date_str != null)
+			map.put("payment_date_str", payment_date_str);
+		if(pending_amount != null)
+			map.put("pending_amount", pending_amount);
+		if(payment_amount != null)
+			map.put("payment_amount", payment_amount);
 		if(user_name != null)
 			map.put("user_name", user_name);
 		if(creation_time != null)
@@ -606,6 +656,11 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		to_date_str = (String) map.get("to_date_str");
 		from_date = (Long) map.get("from_date");
 		to_date = (Long) map.get("to_date");
+		payment_id = (Long) map.get("payment_id");
+		payment_date = (Long) map.get("payment_date");
+		payment_date_str = (Long) map.get("payment_date_str");
+		pending_amount = (Long) map.get("pending_amount");
+		payment_amount = (Long) map.get("payment_amount");
 		user_name = (String) map.get("user_name");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -788,6 +843,26 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object to_dateObj = map.get("to_date");
 		if(to_dateObj != null)
 			to_date = new Long(to_dateObj.toString());
+
+		Object payment_idObj = map.get("payment_id");
+		if(payment_idObj != null)
+			payment_id = new Long(payment_idObj.toString());
+
+		Object payment_dateObj = map.get("payment_date");
+		if(payment_dateObj != null)
+			payment_date = new Long(payment_dateObj.toString());
+
+		Object payment_date_strObj = map.get("payment_date_str");
+		if(payment_date_strObj != null)
+			payment_date_str = new Long(payment_date_strObj.toString());
+
+		Object pending_amountObj = map.get("pending_amount");
+		if(pending_amountObj != null)
+			pending_amount = new Long(pending_amountObj.toString());
+
+		Object payment_amountObj = map.get("payment_amount");
+		if(payment_amountObj != null)
+			payment_amount = new Long(payment_amountObj.toString());
 
 		Object user_nameObj = map.get("user_name");
 		if(user_nameObj != null)
@@ -1459,6 +1534,106 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetTo_date() {
 		this.to_date = null;
+	}
+
+	public Long getPayment_id() {
+		return payment_id;
+	}
+
+	public long getPayment_idEx() {
+		return payment_id != null ? payment_id : 0L;
+	}
+
+	public void setPayment_id(long payment_id) {
+		this.payment_id = payment_id;
+	}
+
+	public void setPayment_id(Long payment_id) {
+		this.payment_id = payment_id;
+	}
+
+	public void unSetPayment_id() {
+		this.payment_id = null;
+	}
+
+	public Long getPayment_date() {
+		return payment_date;
+	}
+
+	public long getPayment_dateEx() {
+		return payment_date != null ? payment_date : 0L;
+	}
+
+	public void setPayment_date(long payment_date) {
+		this.payment_date = payment_date;
+	}
+
+	public void setPayment_date(Long payment_date) {
+		this.payment_date = payment_date;
+	}
+
+	public void unSetPayment_date() {
+		this.payment_date = null;
+	}
+
+	public Long getPayment_date_str() {
+		return payment_date_str;
+	}
+
+	public long getPayment_date_strEx() {
+		return payment_date_str != null ? payment_date_str : 0L;
+	}
+
+	public void setPayment_date_str(long payment_date_str) {
+		this.payment_date_str = payment_date_str;
+	}
+
+	public void setPayment_date_str(Long payment_date_str) {
+		this.payment_date_str = payment_date_str;
+	}
+
+	public void unSetPayment_date_str() {
+		this.payment_date_str = null;
+	}
+
+	public Long getPending_amount() {
+		return pending_amount;
+	}
+
+	public long getPending_amountEx() {
+		return pending_amount != null ? pending_amount : 0L;
+	}
+
+	public void setPending_amount(long pending_amount) {
+		this.pending_amount = pending_amount;
+	}
+
+	public void setPending_amount(Long pending_amount) {
+		this.pending_amount = pending_amount;
+	}
+
+	public void unSetPending_amount() {
+		this.pending_amount = null;
+	}
+
+	public Long getPayment_amount() {
+		return payment_amount;
+	}
+
+	public long getPayment_amountEx() {
+		return payment_amount != null ? payment_amount : 0L;
+	}
+
+	public void setPayment_amount(long payment_amount) {
+		this.payment_amount = payment_amount;
+	}
+
+	public void setPayment_amount(Long payment_amount) {
+		this.payment_amount = payment_amount;
+	}
+
+	public void unSetPayment_amount() {
+		this.payment_amount = null;
 	}
 
 	public String getUser_name() {
