@@ -213,6 +213,30 @@
 			{
 				'type': 'long'
 			},
+			'payment_id':
+			{
+				'type': 'long'
+			},
+			'payment_date':
+			{
+				'type': 'long'
+			},
+			'payment_date_str':
+			{
+				'type': 'long'
+			},
+			'pending_amount':
+			{
+				'type': 'long'
+			},
+			'payment_amount':
+			{
+				'type': 'long'
+			},
+			'payment_date':
+			{
+				'type': 'long'
+			},
 			'user_name':
 			{
 				'length': 512,

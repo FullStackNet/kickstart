@@ -22,6 +22,10 @@ public abstract class Basec4t_record extends BaseResource {
 	private String id = null;
 	private String community_id = null;
 	private String community_name = null;
+	private String summary = null;
+	private String book_name = null;
+	private String author_name = null;
+	private String publication_name = null;
 	private String severity = null;
 	private String customer_id = null;
 	private String customer_name = null;
@@ -101,8 +105,16 @@ public abstract class Basec4t_record extends BaseResource {
 	private Long total_items = null;
 	private Double total_service_tax = null;
 	private Double total_service_charge = null;
+	private Double transport_unit_charge = null;
+	private Double total_transport_charge = null;
+	private Double unloading_unit_charge = null;
+	private Double hidden_charge_percentage = null;
+	private Double total_hidden_charges = null;
+	private Double total_unloading_charge = null;
 	private Double net_amount = null;
 	private Double total_muc = null;
+	private Double discount_percentage = null;
+	private Double total_discount = null;
 	private Double total_commission = null;
 	private Long total_products = null;
 	private Long total_ready = null;
@@ -158,6 +170,10 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_COMMUNITY_NAME = "community_name";
+	public static String FIELD_SUMMARY = "summary";
+	public static String FIELD_BOOK_NAME = "book_name";
+	public static String FIELD_AUTHOR_NAME = "author_name";
+	public static String FIELD_PUBLICATION_NAME = "publication_name";
 	public static String FIELD_SEVERITY = "severity";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CUSTOMER_NAME = "customer_name";
@@ -237,8 +253,16 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_TOTAL_ITEMS = "total_items";
 	public static String FIELD_TOTAL_SERVICE_TAX = "total_service_tax";
 	public static String FIELD_TOTAL_SERVICE_CHARGE = "total_service_charge";
+	public static String FIELD_TRANSPORT_UNIT_CHARGE = "transport_unit_charge";
+	public static String FIELD_TOTAL_TRANSPORT_CHARGE = "total_transport_charge";
+	public static String FIELD_UNLOADING_UNIT_CHARGE = "unloading_unit_charge";
+	public static String FIELD_HIDDEN_CHARGE_PERCENTAGE = "hidden_charge_percentage";
+	public static String FIELD_TOTAL_HIDDEN_CHARGES = "total_hidden_charges";
+	public static String FIELD_TOTAL_UNLOADING_CHARGE = "total_unloading_charge";
 	public static String FIELD_NET_AMOUNT = "net_amount";
 	public static String FIELD_TOTAL_MUC = "total_muc";
+	public static String FIELD_DISCOUNT_PERCENTAGE = "discount_percentage";
+	public static String FIELD_TOTAL_DISCOUNT = "total_discount";
 	public static String FIELD_TOTAL_COMMISSION = "total_commission";
 	public static String FIELD_TOTAL_PRODUCTS = "total_products";
 	public static String FIELD_TOTAL_READY = "total_ready";
@@ -311,6 +335,22 @@ public abstract class Basec4t_record extends BaseResource {
 		community_nameField.setIndexed(true);
 		community_nameField.setLength(128);
 		metaData.addField(community_nameField);
+
+		Field summaryField = new Field("summary", "String");
+		summaryField.setLength(16);
+		metaData.addField(summaryField);
+
+		Field book_nameField = new Field("book_name", "String");
+		book_nameField.setLength(16);
+		metaData.addField(book_nameField);
+
+		Field author_nameField = new Field("author_name", "String");
+		author_nameField.setLength(16);
+		metaData.addField(author_nameField);
+
+		Field publication_nameField = new Field("publication_name", "String");
+		publication_nameField.setLength(16);
+		metaData.addField(publication_nameField);
 
 		Field severityField = new Field("severity", "String");
 		severityField.setLength(16);
@@ -632,11 +672,35 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_service_chargeField = new Field("total_service_charge", "Double");
 		metaData.addField(total_service_chargeField);
 
+		Field transport_unit_chargeField = new Field("transport_unit_charge", "double");
+		metaData.addField(transport_unit_chargeField);
+
+		Field total_transport_chargeField = new Field("total_transport_charge", "double");
+		metaData.addField(total_transport_chargeField);
+
+		Field unloading_unit_chargeField = new Field("unloading_unit_charge", "double");
+		metaData.addField(unloading_unit_chargeField);
+
+		Field hidden_charge_percentageField = new Field("hidden_charge_percentage", "double");
+		metaData.addField(hidden_charge_percentageField);
+
+		Field total_hidden_chargesField = new Field("total_hidden_charges", "double");
+		metaData.addField(total_hidden_chargesField);
+
+		Field total_unloading_chargeField = new Field("total_unloading_charge", "double");
+		metaData.addField(total_unloading_chargeField);
+
 		Field net_amountField = new Field("net_amount", "Double");
 		metaData.addField(net_amountField);
 
 		Field total_mucField = new Field("total_muc", "Double");
 		metaData.addField(total_mucField);
+
+		Field discount_percentageField = new Field("discount_percentage", "double");
+		metaData.addField(discount_percentageField);
+
+		Field total_discountField = new Field("total_discount", "double");
+		metaData.addField(total_discountField);
 
 		Field total_commissionField = new Field("total_commission", "Double");
 		metaData.addField(total_commissionField);
@@ -834,6 +898,10 @@ public abstract class Basec4t_record extends BaseResource {
 		this.id = obj.id;
 		this.community_id = obj.community_id;
 		this.community_name = obj.community_name;
+		this.summary = obj.summary;
+		this.book_name = obj.book_name;
+		this.author_name = obj.author_name;
+		this.publication_name = obj.publication_name;
 		this.severity = obj.severity;
 		this.customer_id = obj.customer_id;
 		this.customer_name = obj.customer_name;
@@ -913,8 +981,16 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_items = obj.total_items;
 		this.total_service_tax = obj.total_service_tax;
 		this.total_service_charge = obj.total_service_charge;
+		this.transport_unit_charge = obj.transport_unit_charge;
+		this.total_transport_charge = obj.total_transport_charge;
+		this.unloading_unit_charge = obj.unloading_unit_charge;
+		this.hidden_charge_percentage = obj.hidden_charge_percentage;
+		this.total_hidden_charges = obj.total_hidden_charges;
+		this.total_unloading_charge = obj.total_unloading_charge;
 		this.net_amount = obj.net_amount;
 		this.total_muc = obj.total_muc;
+		this.discount_percentage = obj.discount_percentage;
+		this.total_discount = obj.total_discount;
 		this.total_commission = obj.total_commission;
 		this.total_products = obj.total_products;
 		this.total_ready = obj.total_ready;
@@ -993,6 +1069,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(summary != null)
+			map.put("summary", summary);
+		if(book_name != null)
+			map.put("book_name", book_name);
+		if(author_name != null)
+			map.put("author_name", author_name);
+		if(publication_name != null)
+			map.put("publication_name", publication_name);
 		if(severity != null)
 			map.put("severity", severity);
 		if(customer_id != null)
@@ -1151,10 +1235,26 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_service_tax", total_service_tax);
 		if(total_service_charge != null)
 			map.put("total_service_charge", total_service_charge);
+		if(transport_unit_charge != null)
+			map.put("transport_unit_charge", transport_unit_charge);
+		if(total_transport_charge != null)
+			map.put("total_transport_charge", total_transport_charge);
+		if(unloading_unit_charge != null)
+			map.put("unloading_unit_charge", unloading_unit_charge);
+		if(hidden_charge_percentage != null)
+			map.put("hidden_charge_percentage", hidden_charge_percentage);
+		if(total_hidden_charges != null)
+			map.put("total_hidden_charges", total_hidden_charges);
+		if(total_unloading_charge != null)
+			map.put("total_unloading_charge", total_unloading_charge);
 		if(net_amount != null)
 			map.put("net_amount", net_amount);
 		if(total_muc != null)
 			map.put("total_muc", total_muc);
+		if(discount_percentage != null)
+			map.put("discount_percentage", discount_percentage);
+		if(total_discount != null)
+			map.put("total_discount", total_discount);
 		if(total_commission != null)
 			map.put("total_commission", total_commission);
 		if(total_products != null)
@@ -1271,6 +1371,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(summary != null)
+			map.put("summary", summary);
+		if(book_name != null)
+			map.put("book_name", book_name);
+		if(author_name != null)
+			map.put("author_name", author_name);
+		if(publication_name != null)
+			map.put("publication_name", publication_name);
 		if(severity != null)
 			map.put("severity", severity);
 		if(customer_id != null)
@@ -1429,10 +1537,26 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("total_service_tax", total_service_tax);
 		if(total_service_charge != null)
 			map.put("total_service_charge", total_service_charge);
+		if(transport_unit_charge != null)
+			map.put("transport_unit_charge", transport_unit_charge);
+		if(total_transport_charge != null)
+			map.put("total_transport_charge", total_transport_charge);
+		if(unloading_unit_charge != null)
+			map.put("unloading_unit_charge", unloading_unit_charge);
+		if(hidden_charge_percentage != null)
+			map.put("hidden_charge_percentage", hidden_charge_percentage);
+		if(total_hidden_charges != null)
+			map.put("total_hidden_charges", total_hidden_charges);
+		if(total_unloading_charge != null)
+			map.put("total_unloading_charge", total_unloading_charge);
 		if(net_amount != null)
 			map.put("net_amount", net_amount);
 		if(total_muc != null)
 			map.put("total_muc", total_muc);
+		if(discount_percentage != null)
+			map.put("discount_percentage", discount_percentage);
+		if(total_discount != null)
+			map.put("total_discount", total_discount);
 		if(total_commission != null)
 			map.put("total_commission", total_commission);
 		if(total_products != null)
@@ -1548,6 +1672,10 @@ public abstract class Basec4t_record extends BaseResource {
 		id = (String) map.get("id");
 		community_id = (String) map.get("community_id");
 		community_name = (String) map.get("community_name");
+		summary = (String) map.get("summary");
+		book_name = (String) map.get("book_name");
+		author_name = (String) map.get("author_name");
+		publication_name = (String) map.get("publication_name");
 		severity = (String) map.get("severity");
 		customer_id = (String) map.get("customer_id");
 		customer_name = (String) map.get("customer_name");
@@ -1627,8 +1755,16 @@ public abstract class Basec4t_record extends BaseResource {
 		total_items = (Long) map.get("total_items");
 		total_service_tax = (Double) map.get("total_service_tax");
 		total_service_charge = (Double) map.get("total_service_charge");
+		transport_unit_charge = (Double) map.get("transport_unit_charge");
+		total_transport_charge = (Double) map.get("total_transport_charge");
+		unloading_unit_charge = (Double) map.get("unloading_unit_charge");
+		hidden_charge_percentage = (Double) map.get("hidden_charge_percentage");
+		total_hidden_charges = (Double) map.get("total_hidden_charges");
+		total_unloading_charge = (Double) map.get("total_unloading_charge");
 		net_amount = (Double) map.get("net_amount");
 		total_muc = (Double) map.get("total_muc");
+		discount_percentage = (Double) map.get("discount_percentage");
+		total_discount = (Double) map.get("total_discount");
 		total_commission = (Double) map.get("total_commission");
 		total_products = (Long) map.get("total_products");
 		total_ready = (Long) map.get("total_ready");
@@ -1695,6 +1831,22 @@ public abstract class Basec4t_record extends BaseResource {
 		Object community_nameObj = map.get("community_name");
 		if(community_nameObj != null)
 			community_name = community_nameObj.toString();
+
+		Object summaryObj = map.get("summary");
+		if(summaryObj != null)
+			summary = summaryObj.toString();
+
+		Object book_nameObj = map.get("book_name");
+		if(book_nameObj != null)
+			book_name = book_nameObj.toString();
+
+		Object author_nameObj = map.get("author_name");
+		if(author_nameObj != null)
+			author_name = author_nameObj.toString();
+
+		Object publication_nameObj = map.get("publication_name");
+		if(publication_nameObj != null)
+			publication_name = publication_nameObj.toString();
 
 		Object severityObj = map.get("severity");
 		if(severityObj != null)
@@ -2012,6 +2164,30 @@ public abstract class Basec4t_record extends BaseResource {
 		if(total_service_chargeObj != null)
 			total_service_charge = new Double(total_service_chargeObj.toString());
 
+		Object transport_unit_chargeObj = map.get("transport_unit_charge");
+		if(transport_unit_chargeObj != null)
+			transport_unit_charge = new Double(transport_unit_chargeObj.toString());
+
+		Object total_transport_chargeObj = map.get("total_transport_charge");
+		if(total_transport_chargeObj != null)
+			total_transport_charge = new Double(total_transport_chargeObj.toString());
+
+		Object unloading_unit_chargeObj = map.get("unloading_unit_charge");
+		if(unloading_unit_chargeObj != null)
+			unloading_unit_charge = new Double(unloading_unit_chargeObj.toString());
+
+		Object hidden_charge_percentageObj = map.get("hidden_charge_percentage");
+		if(hidden_charge_percentageObj != null)
+			hidden_charge_percentage = new Double(hidden_charge_percentageObj.toString());
+
+		Object total_hidden_chargesObj = map.get("total_hidden_charges");
+		if(total_hidden_chargesObj != null)
+			total_hidden_charges = new Double(total_hidden_chargesObj.toString());
+
+		Object total_unloading_chargeObj = map.get("total_unloading_charge");
+		if(total_unloading_chargeObj != null)
+			total_unloading_charge = new Double(total_unloading_chargeObj.toString());
+
 		Object net_amountObj = map.get("net_amount");
 		if(net_amountObj != null)
 			net_amount = new Double(net_amountObj.toString());
@@ -2019,6 +2195,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object total_mucObj = map.get("total_muc");
 		if(total_mucObj != null)
 			total_muc = new Double(total_mucObj.toString());
+
+		Object discount_percentageObj = map.get("discount_percentage");
+		if(discount_percentageObj != null)
+			discount_percentage = new Double(discount_percentageObj.toString());
+
+		Object total_discountObj = map.get("total_discount");
+		if(total_discountObj != null)
+			total_discount = new Double(total_discountObj.toString());
 
 		Object total_commissionObj = map.get("total_commission");
 		if(total_commissionObj != null)
@@ -2281,6 +2465,70 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetCommunity_name() {
 		this.community_name = null;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public String getSummaryEx() {
+		return summary != null ? summary : "";
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public void unSetSummary() {
+		this.summary = null;
+	}
+
+	public String getBook_name() {
+		return book_name;
+	}
+
+	public String getBook_nameEx() {
+		return book_name != null ? book_name : "";
+	}
+
+	public void setBook_name(String book_name) {
+		this.book_name = book_name;
+	}
+
+	public void unSetBook_name() {
+		this.book_name = null;
+	}
+
+	public String getAuthor_name() {
+		return author_name;
+	}
+
+	public String getAuthor_nameEx() {
+		return author_name != null ? author_name : "";
+	}
+
+	public void setAuthor_name(String author_name) {
+		this.author_name = author_name;
+	}
+
+	public void unSetAuthor_name() {
+		this.author_name = null;
+	}
+
+	public String getPublication_name() {
+		return publication_name;
+	}
+
+	public String getPublication_nameEx() {
+		return publication_name != null ? publication_name : "";
+	}
+
+	public void setPublication_name(String publication_name) {
+		this.publication_name = publication_name;
+	}
+
+	public void unSetPublication_name() {
+		this.publication_name = null;
 	}
 
 	public String getSeverity() {
@@ -3504,6 +3752,126 @@ public abstract class Basec4t_record extends BaseResource {
 		this.total_service_charge = null;
 	}
 
+	public Double getTransport_unit_charge() {
+		return transport_unit_charge;
+	}
+
+	public double getTransport_unit_chargeEx() {
+		return transport_unit_charge != null ? transport_unit_charge : 0;
+	}
+
+	public void setTransport_unit_charge(double transport_unit_charge) {
+		this.transport_unit_charge = transport_unit_charge;
+	}
+
+	public void setTransport_unit_charge(Double transport_unit_charge) {
+		this.transport_unit_charge = transport_unit_charge;
+	}
+
+	public void unSetTransport_unit_charge() {
+		this.transport_unit_charge = null;
+	}
+
+	public Double getTotal_transport_charge() {
+		return total_transport_charge;
+	}
+
+	public double getTotal_transport_chargeEx() {
+		return total_transport_charge != null ? total_transport_charge : 0;
+	}
+
+	public void setTotal_transport_charge(double total_transport_charge) {
+		this.total_transport_charge = total_transport_charge;
+	}
+
+	public void setTotal_transport_charge(Double total_transport_charge) {
+		this.total_transport_charge = total_transport_charge;
+	}
+
+	public void unSetTotal_transport_charge() {
+		this.total_transport_charge = null;
+	}
+
+	public Double getUnloading_unit_charge() {
+		return unloading_unit_charge;
+	}
+
+	public double getUnloading_unit_chargeEx() {
+		return unloading_unit_charge != null ? unloading_unit_charge : 0;
+	}
+
+	public void setUnloading_unit_charge(double unloading_unit_charge) {
+		this.unloading_unit_charge = unloading_unit_charge;
+	}
+
+	public void setUnloading_unit_charge(Double unloading_unit_charge) {
+		this.unloading_unit_charge = unloading_unit_charge;
+	}
+
+	public void unSetUnloading_unit_charge() {
+		this.unloading_unit_charge = null;
+	}
+
+	public Double getHidden_charge_percentage() {
+		return hidden_charge_percentage;
+	}
+
+	public double getHidden_charge_percentageEx() {
+		return hidden_charge_percentage != null ? hidden_charge_percentage : 0;
+	}
+
+	public void setHidden_charge_percentage(double hidden_charge_percentage) {
+		this.hidden_charge_percentage = hidden_charge_percentage;
+	}
+
+	public void setHidden_charge_percentage(Double hidden_charge_percentage) {
+		this.hidden_charge_percentage = hidden_charge_percentage;
+	}
+
+	public void unSetHidden_charge_percentage() {
+		this.hidden_charge_percentage = null;
+	}
+
+	public Double getTotal_hidden_charges() {
+		return total_hidden_charges;
+	}
+
+	public double getTotal_hidden_chargesEx() {
+		return total_hidden_charges != null ? total_hidden_charges : 0;
+	}
+
+	public void setTotal_hidden_charges(double total_hidden_charges) {
+		this.total_hidden_charges = total_hidden_charges;
+	}
+
+	public void setTotal_hidden_charges(Double total_hidden_charges) {
+		this.total_hidden_charges = total_hidden_charges;
+	}
+
+	public void unSetTotal_hidden_charges() {
+		this.total_hidden_charges = null;
+	}
+
+	public Double getTotal_unloading_charge() {
+		return total_unloading_charge;
+	}
+
+	public double getTotal_unloading_chargeEx() {
+		return total_unloading_charge != null ? total_unloading_charge : 0;
+	}
+
+	public void setTotal_unloading_charge(double total_unloading_charge) {
+		this.total_unloading_charge = total_unloading_charge;
+	}
+
+	public void setTotal_unloading_charge(Double total_unloading_charge) {
+		this.total_unloading_charge = total_unloading_charge;
+	}
+
+	public void unSetTotal_unloading_charge() {
+		this.total_unloading_charge = null;
+	}
+
 	public Double getNet_amount() {
 		return net_amount;
 	}
@@ -3526,6 +3894,46 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_muc() {
 		this.total_muc = null;
+	}
+
+	public Double getDiscount_percentage() {
+		return discount_percentage;
+	}
+
+	public double getDiscount_percentageEx() {
+		return discount_percentage != null ? discount_percentage : 0;
+	}
+
+	public void setDiscount_percentage(double discount_percentage) {
+		this.discount_percentage = discount_percentage;
+	}
+
+	public void setDiscount_percentage(Double discount_percentage) {
+		this.discount_percentage = discount_percentage;
+	}
+
+	public void unSetDiscount_percentage() {
+		this.discount_percentage = null;
+	}
+
+	public Double getTotal_discount() {
+		return total_discount;
+	}
+
+	public double getTotal_discountEx() {
+		return total_discount != null ? total_discount : 0;
+	}
+
+	public void setTotal_discount(double total_discount) {
+		this.total_discount = total_discount;
+	}
+
+	public void setTotal_discount(Double total_discount) {
+		this.total_discount = total_discount;
+	}
+
+	public void unSetTotal_discount() {
+		this.total_discount = null;
 	}
 
 	public Double getTotal_commission() {

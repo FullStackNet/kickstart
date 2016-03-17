@@ -23,6 +23,26 @@
 				'type':'String',
 				'index' : true
 			},
+			'summary':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'book_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'author_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'publication_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
 			'severity':
 			{
 				'length': 16,
@@ -432,6 +452,34 @@
 			{
 				'type': 'Double'
 			},
+			'transport_unit_charge':
+			{
+				'type': 'double'
+			},
+			'total_transport_charge':
+			{
+				'type': 'double'
+			},
+			'unloading_unit_charge':
+			{
+				'type': 'double'
+			},
+			'hidden_charge_percentage':
+			{
+				'type': 'double'
+			},
+			'total_hidden_charges':
+			{
+				'type': 'double'
+			},
+			'total_unloading_charge':
+			{
+				'type': 'double'
+			},
+			'total_transport_charge':
+			{
+				'type': 'double'
+			},
 			'net_amount':
 			{
 				'type': 'Double'
@@ -439,6 +487,14 @@
 			'total_muc':
 			{
 				'type': 'Double'
+			},
+			'discount_percentage':
+			{
+				'type': 'double'
+			},
+			'total_discount':
+			{
+				'type': 'double'
 			},
 			'total_commission':
 			{
