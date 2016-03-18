@@ -815,6 +815,10 @@
 			{
 				'type':'long'
 			},
+			'server_url':
+			{
+				'type':'long'
+			},
 			'notification_orders':
 			{
 				'type':'int'

@@ -182,6 +182,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String flat_id = null;
 	private String flat_no = null;
 	private Long dob = null;
+	private Long server_url = null;
 	private Integer notification_orders = null;
 	private Integer notification_offers = null;
 	private Integer notification_communication = null;
@@ -354,6 +355,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FLAT_ID = "flat_id";
 	public static String FIELD_FLAT_NO = "flat_no";
 	public static String FIELD_DOB = "dob";
+	public static String FIELD_SERVER_URL = "server_url";
 	public static String FIELD_NOTIFICATION_ORDERS = "notification_orders";
 	public static String FIELD_NOTIFICATION_OFFERS = "notification_offers";
 	public static String FIELD_NOTIFICATION_COMMUNICATION = "notification_communication";
@@ -1013,6 +1015,9 @@ public abstract class Basec4t_object extends BaseResource {
 		Field dobField = new Field("dob", "long");
 		metaData.addField(dobField);
 
+		Field server_urlField = new Field("server_url", "long");
+		metaData.addField(server_urlField);
+
 		Field notification_ordersField = new Field("notification_orders", "int");
 		metaData.addField(notification_ordersField);
 
@@ -1212,6 +1217,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.flat_id = obj.flat_id;
 		this.flat_no = obj.flat_no;
 		this.dob = obj.dob;
+		this.server_url = obj.server_url;
 		this.notification_orders = obj.notification_orders;
 		this.notification_offers = obj.notification_offers;
 		this.notification_communication = obj.notification_communication;
@@ -1554,6 +1560,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("flat_no", flat_no);
 		if(dob != null)
 			map.put("dob", dob);
+		if(server_url != null)
+			map.put("server_url", server_url);
 		if(notification_orders != null)
 			map.put("notification_orders", notification_orders);
 		if(notification_offers != null)
@@ -1901,6 +1909,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("flat_no", flat_no);
 		if(dob != null)
 			map.put("dob", dob);
+		if(server_url != null)
+			map.put("server_url", server_url);
 		if(notification_orders != null)
 			map.put("notification_orders", notification_orders);
 		if(notification_offers != null)
@@ -2090,6 +2100,7 @@ public abstract class Basec4t_object extends BaseResource {
 		flat_id = (String) map.get("flat_id");
 		flat_no = (String) map.get("flat_no");
 		dob = (Long) map.get("dob");
+		server_url = (Long) map.get("server_url");
 		notification_orders = (Integer) map.get("notification_orders");
 		notification_offers = (Integer) map.get("notification_offers");
 		notification_communication = (Integer) map.get("notification_communication");
@@ -2753,6 +2764,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object dobObj = map.get("dob");
 		if(dobObj != null)
 			dob = new Long(dobObj.toString());
+
+		Object server_urlObj = map.get("server_url");
+		if(server_urlObj != null)
+			server_url = new Long(server_urlObj.toString());
 
 		Object notification_ordersObj = map.get("notification_orders");
 		if(notification_ordersObj != null)
@@ -5475,6 +5490,26 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetDob() {
 		this.dob = null;
+	}
+
+	public Long getServer_url() {
+		return server_url;
+	}
+
+	public long getServer_urlEx() {
+		return server_url != null ? server_url : 0L;
+	}
+
+	public void setServer_url(long server_url) {
+		this.server_url = server_url;
+	}
+
+	public void setServer_url(Long server_url) {
+		this.server_url = server_url;
+	}
+
+	public void unSetServer_url() {
+		this.server_url = null;
 	}
 
 	public Integer getNotification_orders() {
