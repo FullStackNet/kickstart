@@ -396,6 +396,16 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_article':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_video':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_event':
 			{
 				'type':'String',

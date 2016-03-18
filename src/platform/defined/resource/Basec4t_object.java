@@ -95,6 +95,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_project_task = null;
 	private String feature_opinion = null;
 	private String feature_poll = null;
+	private String feature_article = null;
+	private String feature_video = null;
 	private String feature_event = null;
 	private String feature_meeting = null;
 	private String feature_news = null;
@@ -265,6 +267,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_PROJECT_TASK = "feature_project_task";
 	public static String FIELD_FEATURE_OPINION = "feature_opinion";
 	public static String FIELD_FEATURE_POLL = "feature_poll";
+	public static String FIELD_FEATURE_ARTICLE = "feature_article";
+	public static String FIELD_FEATURE_VIDEO = "feature_video";
 	public static String FIELD_FEATURE_EVENT = "feature_event";
 	public static String FIELD_FEATURE_MEETING = "feature_meeting";
 	public static String FIELD_FEATURE_NEWS = "feature_news";
@@ -677,6 +681,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Field feature_pollField = new Field("feature_poll", "String");
 		feature_pollField.setLength(1);
 		metaData.addField(feature_pollField);
+
+		Field feature_articleField = new Field("feature_article", "String");
+		feature_articleField.setLength(1);
+		metaData.addField(feature_articleField);
+
+		Field feature_videoField = new Field("feature_video", "String");
+		feature_videoField.setLength(1);
+		metaData.addField(feature_videoField);
 
 		Field feature_eventField = new Field("feature_event", "String");
 		feature_eventField.setLength(1);
@@ -1113,6 +1125,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_project_task = obj.feature_project_task;
 		this.feature_opinion = obj.feature_opinion;
 		this.feature_poll = obj.feature_poll;
+		this.feature_article = obj.feature_article;
+		this.feature_video = obj.feature_video;
 		this.feature_event = obj.feature_event;
 		this.feature_meeting = obj.feature_meeting;
 		this.feature_news = obj.feature_news;
@@ -1366,6 +1380,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_opinion", feature_opinion);
 		if(feature_poll != null)
 			map.put("feature_poll", feature_poll);
+		if(feature_article != null)
+			map.put("feature_article", feature_article);
+		if(feature_video != null)
+			map.put("feature_video", feature_video);
 		if(feature_event != null)
 			map.put("feature_event", feature_event);
 		if(feature_meeting != null)
@@ -1709,6 +1727,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_opinion", feature_opinion);
 		if(feature_poll != null)
 			map.put("feature_poll", feature_poll);
+		if(feature_article != null)
+			map.put("feature_article", feature_article);
+		if(feature_video != null)
+			map.put("feature_video", feature_video);
 		if(feature_event != null)
 			map.put("feature_event", feature_event);
 		if(feature_meeting != null)
@@ -1981,6 +2003,8 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_project_task = (String) map.get("feature_project_task");
 		feature_opinion = (String) map.get("feature_opinion");
 		feature_poll = (String) map.get("feature_poll");
+		feature_article = (String) map.get("feature_article");
+		feature_video = (String) map.get("feature_video");
 		feature_event = (String) map.get("feature_event");
 		feature_meeting = (String) map.get("feature_meeting");
 		feature_news = (String) map.get("feature_news");
@@ -2381,6 +2405,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_pollObj = map.get("feature_poll");
 		if(feature_pollObj != null)
 			feature_poll = feature_pollObj.toString();
+
+		Object feature_articleObj = map.get("feature_article");
+		if(feature_articleObj != null)
+			feature_article = feature_articleObj.toString();
+
+		Object feature_videoObj = map.get("feature_video");
+		if(feature_videoObj != null)
+			feature_video = feature_videoObj.toString();
 
 		Object feature_eventObj = map.get("feature_event");
 		if(feature_eventObj != null)
@@ -3983,6 +4015,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_poll() {
 		this.feature_poll = null;
+	}
+
+	public String getFeature_article() {
+		return feature_article;
+	}
+
+	public String getFeature_articleEx() {
+		return feature_article != null ? feature_article : "";
+	}
+
+	public void setFeature_article(String feature_article) {
+		this.feature_article = feature_article;
+	}
+
+	public void unSetFeature_article() {
+		this.feature_article = null;
+	}
+
+	public String getFeature_video() {
+		return feature_video;
+	}
+
+	public String getFeature_videoEx() {
+		return feature_video != null ? feature_video : "";
+	}
+
+	public void setFeature_video(String feature_video) {
+		this.feature_video = feature_video;
+	}
+
+	public void unSetFeature_video() {
+		this.feature_video = null;
 	}
 
 	public String getFeature_event() {
