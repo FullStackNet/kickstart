@@ -3,11 +3,14 @@ package platform.webservice.service;
 import java.util.Map;
 
 import platform.exception.ExceptionEnum;
+import platform.helper.C4t_objectHelper;
 import platform.helper.CustomerHelper;
 import platform.resource.BaseResource;
+import platform.resource.c4t_object;
 import platform.resource.customer;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
+import platform.util.Json;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 
@@ -17,7 +20,12 @@ public class SyncService extends BaseService{
 	}
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
-		getHelper().add(resource);
+		c4t_object _object = (c4t_object) resource;
+		
+		if (_object.getType().equalsIgnoreCase("c4t_object")) {
+			c4t_object _obj = (c4t_object)Json.stringToResource(_object.getDescription(), c4t_object.class);
+			C4t_objectHelper.getInstance().AddOrUpdate(_obj);
+		}
 	}
 
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
