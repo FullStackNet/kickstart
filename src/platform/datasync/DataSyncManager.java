@@ -3,6 +3,7 @@ package platform.datasync;
 import platform.communication.HttpClient;
 import platform.defined.resource.Baseresult;
 import platform.resource.BaseResource;
+import platform.resource.SyncResult;
 import platform.resource.c4t_object;
 import platform.util.ApplicationException;
 import platform.util.Json;
@@ -28,10 +29,14 @@ public class DataSyncManager {
 			c4t_object _object = new c4t_object();
 			_object.setType(_resource.getMetaData().getName());
 			_object.setDescription(json_string);
+			
+			json_string = Json.resourcetoString(_object);
 			String resultString = HttpClient.sendPostRequest("http://"+message.getTargetServer(), "/c4t", "DATA_SYNC@admin@cloud4things",
 					"sync", json_string, null);
+			System.out.println(resultString);
 			try {
-				Baseresult result = (Baseresult)Json.stringToBaseResult(resultString, Baseresult.class);
+				SyncResult result = (SyncResult)Json.stringToBaseResult(resultString, SyncResult.class);
+				System.out.println("Code :"+result.getErrCode()+", Message : "+result.getMessage());
 			} catch (ApplicationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
