@@ -33,6 +33,7 @@ public abstract class BaseService {
 			helper.add(BaseResource);
 	}
 	
+	
 	public void add(ServletContext ctx, String jsonString) throws ApplicationException {
 		throw new ApplicationException(ExceptionSeverity.ERROR, "Not Supported");
 	}

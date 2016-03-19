@@ -817,7 +817,13 @@
 			},
 			'server_url':
 			{
-				'type':'long'
+				'type':'String',
+				length : 1024
+			},
+			'authentication_server_url':
+			{
+				'type':'String',
+				length : 1024
 			},
 			'notification_orders':
 			{

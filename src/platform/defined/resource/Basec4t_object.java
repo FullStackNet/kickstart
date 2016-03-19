@@ -182,7 +182,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String flat_id = null;
 	private String flat_no = null;
 	private Long dob = null;
-	private Long server_url = null;
+	private String server_url = null;
+	private String authentication_server_url = null;
 	private Integer notification_orders = null;
 	private Integer notification_offers = null;
 	private Integer notification_communication = null;
@@ -356,6 +357,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FLAT_NO = "flat_no";
 	public static String FIELD_DOB = "dob";
 	public static String FIELD_SERVER_URL = "server_url";
+	public static String FIELD_AUTHENTICATION_SERVER_URL = "authentication_server_url";
 	public static String FIELD_NOTIFICATION_ORDERS = "notification_orders";
 	public static String FIELD_NOTIFICATION_OFFERS = "notification_offers";
 	public static String FIELD_NOTIFICATION_COMMUNICATION = "notification_communication";
@@ -1015,8 +1017,13 @@ public abstract class Basec4t_object extends BaseResource {
 		Field dobField = new Field("dob", "long");
 		metaData.addField(dobField);
 
-		Field server_urlField = new Field("server_url", "long");
+		Field server_urlField = new Field("server_url", "String");
+		server_urlField.setLength(1024);
 		metaData.addField(server_urlField);
+
+		Field authentication_server_urlField = new Field("authentication_server_url", "String");
+		authentication_server_urlField.setLength(1024);
+		metaData.addField(authentication_server_urlField);
 
 		Field notification_ordersField = new Field("notification_orders", "int");
 		metaData.addField(notification_ordersField);
@@ -1218,6 +1225,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.flat_no = obj.flat_no;
 		this.dob = obj.dob;
 		this.server_url = obj.server_url;
+		this.authentication_server_url = obj.authentication_server_url;
 		this.notification_orders = obj.notification_orders;
 		this.notification_offers = obj.notification_offers;
 		this.notification_communication = obj.notification_communication;
@@ -1562,6 +1570,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("dob", dob);
 		if(server_url != null)
 			map.put("server_url", server_url);
+		if(authentication_server_url != null)
+			map.put("authentication_server_url", authentication_server_url);
 		if(notification_orders != null)
 			map.put("notification_orders", notification_orders);
 		if(notification_offers != null)
@@ -1911,6 +1921,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("dob", dob);
 		if(server_url != null)
 			map.put("server_url", server_url);
+		if(authentication_server_url != null)
+			map.put("authentication_server_url", authentication_server_url);
 		if(notification_orders != null)
 			map.put("notification_orders", notification_orders);
 		if(notification_offers != null)
@@ -2100,7 +2112,8 @@ public abstract class Basec4t_object extends BaseResource {
 		flat_id = (String) map.get("flat_id");
 		flat_no = (String) map.get("flat_no");
 		dob = (Long) map.get("dob");
-		server_url = (Long) map.get("server_url");
+		server_url = (String) map.get("server_url");
+		authentication_server_url = (String) map.get("authentication_server_url");
 		notification_orders = (Integer) map.get("notification_orders");
 		notification_offers = (Integer) map.get("notification_offers");
 		notification_communication = (Integer) map.get("notification_communication");
@@ -2767,7 +2780,11 @@ public abstract class Basec4t_object extends BaseResource {
 
 		Object server_urlObj = map.get("server_url");
 		if(server_urlObj != null)
-			server_url = new Long(server_urlObj.toString());
+			server_url = server_urlObj.toString();
+
+		Object authentication_server_urlObj = map.get("authentication_server_url");
+		if(authentication_server_urlObj != null)
+			authentication_server_url = authentication_server_urlObj.toString();
 
 		Object notification_ordersObj = map.get("notification_orders");
 		if(notification_ordersObj != null)
@@ -5492,24 +5509,36 @@ public abstract class Basec4t_object extends BaseResource {
 		this.dob = null;
 	}
 
-	public Long getServer_url() {
+	public String getServer_url() {
 		return server_url;
 	}
 
-	public long getServer_urlEx() {
-		return server_url != null ? server_url : 0L;
+	public String getServer_urlEx() {
+		return server_url != null ? server_url : "";
 	}
 
-	public void setServer_url(long server_url) {
-		this.server_url = server_url;
-	}
-
-	public void setServer_url(Long server_url) {
+	public void setServer_url(String server_url) {
 		this.server_url = server_url;
 	}
 
 	public void unSetServer_url() {
 		this.server_url = null;
+	}
+
+	public String getAuthentication_server_url() {
+		return authentication_server_url;
+	}
+
+	public String getAuthentication_server_urlEx() {
+		return authentication_server_url != null ? authentication_server_url : "";
+	}
+
+	public void setAuthentication_server_url(String authentication_server_url) {
+		this.authentication_server_url = authentication_server_url;
+	}
+
+	public void unSetAuthentication_server_url() {
+		this.authentication_server_url = null;
 	}
 
 	public Integer getNotification_orders() {
