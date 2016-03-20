@@ -204,6 +204,8 @@ public class HttpClient {
 			if (action != null) {
 				data = data+"&action="+action;
 			}
+			System.out.println( "URL Actual Data:: " + serverUrl);
+			System.out.println( "Actual Data:: " + data);
 			return sendPostRequest(serverUrl, session_id, data);
 		} catch (Exception e) {
 			e.printStackTrace();

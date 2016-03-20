@@ -465,13 +465,13 @@ public class MongoDBConnection extends DbConnection {
 				Field field =   entry.getValue();
 				if (field.getType().equals("Array")) {
 					@SuppressWarnings("unchecked")
-					ArrayList<Object> list =  (ArrayList<Object>)dataMap.get(columnName);
+					List list =  (List)dataMap.get(columnName);
 					if (list == null) continue;
 					BasicDBObject searchDoc = new BasicDBObject();
 					searchDoc.put("_id", resource.getId());
 					for(int i=0; i < list.size(); i++) {
 						doc = new BasicDBObject();
-						doc.put(columnName, list.get(i));
+						doc.put(columnName, list.get(i).toString());
 						BasicDBObject updateObject = new BasicDBObject();
 						updateObject.append("$addToSet", doc);
 						table.update(searchDoc, updateObject);
@@ -567,13 +567,13 @@ public class MongoDBConnection extends DbConnection {
 				Field field =   entry.getValue();
 				if (field.getType().equals("Array")) {
 					@SuppressWarnings("unchecked")
-					ArrayList<Object> list =  (ArrayList<Object>)dataMap.get(columnName);
+					List list =  (List)dataMap.get(columnName);
 					if (list == null) continue;
 					BasicDBObject searchDoc = new BasicDBObject();
 					searchDoc.put("_id", resource.getId());
 					for(int i=0; i < list.size(); i++) {
 						doc = new BasicDBObject();
-						doc.put(columnName, list.get(i));
+						doc.put(columnName, list.get(i).toString());
 						BasicDBObject updateObject = new BasicDBObject();
 						updateObject.append("$addToSet", doc);
 						table.update(searchDoc, updateObject);
