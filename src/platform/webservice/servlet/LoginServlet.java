@@ -83,8 +83,15 @@ public class LoginServlet extends BaseServlet {
 					if (_object == null)
 						continue;
 					c4t_object _community = C4t_objectHelper.getInstance().getById(_object.getParent_id());
+					if (_community == null)
+						_community = C4t_objectHelper.getInstance().getById(_object.getCommunity_id());
+					if (_community == null)
+						continue;	
+					String server_url = _community.getServer_url(); 
+					if (Util.isEmpty(server_url))
+						continue;
 					if (Util.isDataSyncNeed(_community)) {
-						if (map.get(_community.getServer_url())) {
+						if (map.get(server_url) == null) {
 							DataSyncMessage message = new DataSyncMessage(_community.getServer_url(), SessionHelper.getInstance(), ctx.getSessionId());
 							DataSyncManager.getInstance().send(message);
 						}
