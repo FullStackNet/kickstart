@@ -44,6 +44,7 @@ import net.coobird.thumbnailator.geometry.Positions;
 import org.imgscalr.Scalr;
 
 import platform.log.ApplicationLogger;
+import platform.resource.c4t_object;
 
 import com.eaio.uuid.UUID;
 
@@ -145,6 +146,22 @@ public class Util {
 		}
 	}
 
+	public static boolean isDataSyncNeed(c4t_object _community) {
+		if (_community == null) 
+			return false;
+		
+		if (Util.isEmpty(_community.getServer_url())) {
+			return false;
+		}
+		if (Util.isEmpty(_community.getAuthentication_server_url())) {
+			return false;
+		}
+		if (!_community.getServer_url().equals(_community.getAuthentication_server_url())) {
+			return true;
+		}
+		return false;
+	}
+	
 	public static short getShort(byte[] packet, int index) {
 		int data;
 		data = (short) (packet[index + 1] & 0xff);

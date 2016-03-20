@@ -1,13 +1,25 @@
 package platform.webservice.servlet;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import platform.datasync.DataSyncManager;
+import platform.datasync.DataSyncMessage;
+import platform.db.Expression;
+import platform.db.LOG_OP;
+import platform.db.REL_OP;
+import platform.helper.C4t_objectHelper;
+import platform.helper.SessionHelper;
 import platform.helper.UserHelper;
 import platform.resource.BaseResource;
+import platform.resource.c4t_object;
 import platform.resource.login;
 import platform.resource.user;
 import platform.util.ApplicationException;
+import platform.util.Util;
 import platform.version.VersionManager;
 import platform.webservice.BaseServlet;
 import platform.webservice.service.LoginService;
@@ -57,6 +69,28 @@ public class LoginServlet extends BaseServlet {
 				_student_parent.setLast_login(new java.util.Date().getTime());
 				_student_parent.setInstalled_app("Y");
 				Student_parentHelper.getInstance().update(_student_parent);
+			}
+			// copy the session in the other m/c
+			String user_id = ctx.getUserId();
+			Expression e1 = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, "COMMUNITY_USER");
+			Expression e2 = new Expression(c4t_object.FIELD_USER_ID, REL_OP.EQ, user_id);
+			Expression e = new Expression(e1, LOG_OP.AND, e2);
+			BaseResource[] resources =  C4t_objectHelper.getInstance().getByExpression(e,new String[]{c4t_object.FIELD_NAME});
+			if (!Util.isEmpty(resources)) {
+				Map<String, Boolean> map = new HashMap<String, Boolean>();
+				for(int i=0; i < resources.length ; i++) {
+					c4t_object _object = (c4t_object)resources[i];
+					if (_object == null)
+						continue;
+					c4t_object _community = C4t_objectHelper.getInstance().getById(_object.getParent_id());
+					if (Util.isDataSyncNeed(_community)) {
+						if (map.get(_community.getServer_url())) {
+							DataSyncMessage message = new DataSyncMessage(_community.getServer_url(), SessionHelper.getInstance(), ctx.getSessionId());
+							DataSyncManager.getInstance().send(message);
+						}
+						map.put(_community.getServer_url(), true);
+					}
+				}
 			}
 		}
 		
