@@ -250,7 +250,6 @@ public class InviteHelper extends BaseHelper {
 				 String key = _user.getId()+"^"+_community.getId();
 				 C4t_relationHelper.getInstance().addRelationMap(key, _fetched_resource.getReference_id(), _fetched_resource.getRelation());
 				 if (Util.isDataSyncNeed(_community)) {
-					 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), InviteHelper.getInstance(), _fetched_resource.getId()));
 					 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), C4t_objectHelper.getInstance(),_object.getId()));
 					 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), C4t_relationHelper.getInstance(),c4t_relation.getMapId(key,_fetched_resource.getRelation())));					 
 					 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), C4t_relationHelper.getInstance(),c4t_relation.getMapId(_fetched_resource.getReference_id(),_fetched_resource.getRelation())));					 
@@ -268,6 +267,7 @@ public class InviteHelper extends BaseHelper {
 		updateStatus(_invite.getId(), invite.INVITE_STATUS_JOINED);
 		if (invite.INVITE_TYPE_JOIN_COMMUNITY.equals(_fetched_resource.getInvite_type())) {
 			if (Util.isDataSyncNeed(_community)) {
+				 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), InviteHelper.getInstance(), _invite.getId()));
 				 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), UserHelper.getInstance(), _user.getId()));
 			}
 		}
