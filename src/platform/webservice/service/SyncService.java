@@ -6,6 +6,7 @@ import platform.exception.ExceptionEnum;
 import platform.helper.C4t_objectHelper;
 import platform.helper.C4t_relationHelper;
 import platform.helper.CustomerHelper;
+import platform.helper.InviteHelper;
 import platform.helper.SessionHelper;
 import platform.helper.UserHelper;
 import platform.helper.User_mapHelper;
@@ -13,6 +14,7 @@ import platform.resource.BaseResource;
 import platform.resource.c4t_object;
 import platform.resource.c4t_relation;
 import platform.resource.customer;
+import platform.resource.invite;
 import platform.resource.session;
 import platform.resource.user;
 import platform.resource.user_map;
@@ -45,6 +47,9 @@ public class SyncService extends BaseService{
 		}  else if (_object.getType().equalsIgnoreCase("user_map")) {
 			user_map _obj = (user_map)Json.stringToResource(_object.getDescription(), user_map.class);
 			User_mapHelper.getInstance().AddOrUpdate(_obj);
+		}  else if (_object.getType().equalsIgnoreCase("invite")) {
+			invite _obj = (invite)Json.stringToResource(_object.getDescription(), invite.class);
+			InviteHelper.getInstance().AddOrUpdate(_obj);
 		}  else if (_object.getType().equalsIgnoreCase("c4t_relation")) {
 			c4t_relation _obj = (c4t_relation)Json.stringToResource(_object.getDescription(), c4t_relation.class);
 			C4t_relationHelper.getInstance().AddOrUpdate(_obj);
