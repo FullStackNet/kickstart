@@ -24,7 +24,7 @@ public abstract class Basec4t_relation extends BaseResource {
 	private String to_id = null;
 	private String relation_type = null;
 	private String role = null;
-	private List<Object> object_map = null;
+	private List<String> object_map = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -155,7 +155,7 @@ public abstract class Basec4t_relation extends BaseResource {
 		to_id = (String) map.get("to_id");
 		relation_type = (String) map.get("relation_type");
 		role = (String) map.get("role");
-		object_map = (List<Object>) map.get("object_map");
+		object_map = (List<String>) map.get("object_map");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -182,7 +182,7 @@ public abstract class Basec4t_relation extends BaseResource {
 		if(roleObj != null)
 			role = roleObj.toString();
 
-		object_map = (List<Object>) map.get("object_map");
+		object_map = (List<String>) map.get("object_map");
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
@@ -306,16 +306,16 @@ public abstract class Basec4t_relation extends BaseResource {
 		return role != null;
 	}
 
-	public List<Object> getObject_map() {
+	public List<String> getObject_map() {
 		return object_map;
 	}
 
 
-	public void setObject_map(List<Object> object_map) {
+	public void setObject_map(List<String> object_map) {
 		this.object_map = object_map;
 	}
 
-	public void addObject_map(Object value) {
+	public void addObject_map(String value) {
 		if(object_map == null)
 			object_map = new ArrayList<>();
 		object_map.add(value);

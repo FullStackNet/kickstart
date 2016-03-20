@@ -39,7 +39,7 @@
 			'object_map':
 			{
 				'type':'Array',
-				'valueType':'Object'
+				'valueType':'String'
 			},
 			'creation_time':
 			{

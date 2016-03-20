@@ -20,51 +20,51 @@
 			{
 				'name':'appliances',
 				'type':'Array',
-				'valueType' : 'Object' 
+				'valueType' : 'String' 
 			},
 			'devices':
 			{
 				'name':'devices',
 				'type':'Array',
-				'valueType' : 'Object' 
+				'valueType' : 'String' 
 			},
 			'alerts':
 			{
 				'name':'alerts',
 				'type':'Array',
-				'valueType' : 'Object' 
+				'valueType' : 'String' 
 			},
 			'notifications':
 			{
 				'name':'notifications',
 				'type':'Array',
-				'valueType' : 'Object' 
+				'valueType' : 'String' 
 			},
 			'recent_notifications':
 			{
 				'type':'Array',
-				'valueType' : 'Object' 
+				'valueType' : 'String' 
 			},
 			'recent_alerts':
 			{
 				'type':'Array',
-				'valueType' : 'Object' 
+				'valueType' : 'String' 
 			},
 			'invites':
 			{
 				'name':'invites',
 				'type':'Array',
-				'valueType' : 'Object' 
+				'valueType' : 'String' 
 			},
 			'locations':
 			{
 				'type':'Array',
-				'valueType' : 'Object' 
+				'valueType' : 'String' 
 			},
 			'communities':
 			{
 				'type':'Array',
-				'valueType' : 'Object' 
+				'valueType' : 'String' 
 			}
 		}
 	}

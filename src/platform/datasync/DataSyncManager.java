@@ -15,6 +15,7 @@ public class DataSyncManager {
 	ApplicationThreadPool threadPool;
 	private DataSyncManager() {
 		threadPool = new ApplicationThreadPool("DataSync Thread Pool",20, 2000);
+		threadPool.start();
 	}
 	
 	public static DataSyncManager getInstance() {

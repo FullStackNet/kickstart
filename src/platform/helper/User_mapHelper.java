@@ -101,7 +101,7 @@ public class User_mapHelper extends BaseHelper {
 			return;
 		user_map __user_map = new user_map();
 		__user_map.setId(userId);
-		__user_map.addRecent_alerts(_user_map.getRecent_alerts());
+		__user_map.setRecent_alerts(_user_map.getRecent_alerts());
 		unset(__user_map);
 	}
 	
