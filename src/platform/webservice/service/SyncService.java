@@ -34,6 +34,11 @@ public class SyncService extends BaseService{
 		
 		if (_object.getType().equalsIgnoreCase("c4t_object")) {
 			c4t_object _obj = (c4t_object)Json.stringToResource(_object.getDescription(), c4t_object.class);
+			if ("COMMUNITY_USER".equals(_obj.getObject_type())) {
+				c4t_object _member = new c4t_object(_obj.getReference_id());
+				_member.setUser_id(_obj.getUser_id());
+				C4t_objectHelper.getInstance().update(_member);
+			}
 			C4t_objectHelper.getInstance().AddOrUpdate(_obj);
 		} else if (_object.getType().equalsIgnoreCase("customer")) {
 			customer _obj = (customer)Json.stringToResource(_object.getDescription(), customer.class);

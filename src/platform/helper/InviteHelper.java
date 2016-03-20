@@ -3,6 +3,8 @@ package platform.helper;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.datasync.DataSyncManager;
+import platform.datasync.DataSyncMessage;
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
@@ -11,6 +13,7 @@ import platform.message.SendEmail;
 import platform.message.SendSMS;
 import platform.resource.BaseResource;
 import platform.resource.c4t_object;
+import platform.resource.c4t_relation;
 import platform.resource.invite;
 import platform.resource.user;
 import platform.util.ApplicationConstants;
@@ -202,6 +205,7 @@ public class InviteHelper extends BaseHelper {
 	}
 	
 	public void acceptInvite(invite _invite) throws ApplicationException {
+		c4t_object _community = null;
 		invite _fetched_resource = (invite)getById(_invite.getId());
 		user _user = UserHelper.getInstance().getByMobileOrEmailId(_fetched_resource.getMobile_no(), _fetched_resource.getEmail_id());
 		if (_user == null) {
@@ -226,7 +230,7 @@ public class InviteHelper extends BaseHelper {
 			InviteHelper.getInstance().parentInviteAccepted(_fetched_resource, _user.getId());
 		}
 		if (invite.INVITE_TYPE_JOIN_COMMUNITY.equals(_fetched_resource.getInvite_type())) {
-			 	 c4t_object _community = C4t_objectHelper.getInstance().getById(_fetched_resource.getCommunity_id());
+			 	 _community = C4t_objectHelper.getInstance().getById(_fetched_resource.getCommunity_id());
 				 c4t_object _object = new c4t_object(_user.getId()+"^"+_fetched_resource.getRelation()+"^"+_fetched_resource.getCommunity_id());
 				 _object.setObject_type("COMMUNITY_USER");
 				 _object.setUser_id(_user.getId());
@@ -243,9 +247,16 @@ public class InviteHelper extends BaseHelper {
 				 _object.setMobile_no(_fetched_resource.getMobile_no());
 				 _object.setEmail_id(_fetched_resource.getEmail_id());
 				 C4t_objectHelper.getInstance().AddOrUpdate(_object);
-				 C4t_objectHelper.getInstance().updateUserId(_fetched_resource.getReference_id(),_user.getId());
 				 String key = _user.getId()+"^"+_community.getId();
 				 C4t_relationHelper.getInstance().addRelationMap(key, _fetched_resource.getReference_id(), _fetched_resource.getRelation());
+				 if (Util.isDataSyncNeed(_community)) {
+					 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), InviteHelper.getInstance(), _fetched_resource.getId()));
+					 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), C4t_objectHelper.getInstance(),_object.getId()));
+					 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), C4t_relationHelper.getInstance(),c4t_relation.getMapId(key,_fetched_resource.getRelation())));					 
+					 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), C4t_relationHelper.getInstance(),c4t_relation.getMapId(_fetched_resource.getReference_id(),_fetched_resource.getRelation())));					 
+				 } else {
+					 C4t_objectHelper.getInstance().updateUserId(_fetched_resource.getReference_id(),_user.getId());
+				 }
 		}
 		if (invite.INVITE_TYPE_JOIN_TEACHER.equals(_fetched_resource.getInvite_type())) {
 			// check the user if exists
@@ -255,6 +266,11 @@ public class InviteHelper extends BaseHelper {
 		}
 		UserHelper.getInstance().AddOrUpdate(_user);
 		updateStatus(_invite.getId(), invite.INVITE_STATUS_JOINED);
+		if (invite.INVITE_TYPE_JOIN_COMMUNITY.equals(_fetched_resource.getInvite_type())) {
+			if (Util.isDataSyncNeed(_community)) {
+				 DataSyncManager.getInstance().send(new DataSyncMessage(_community.getServer_url(), UserHelper.getInstance(), _user.getId()));
+			}
+		}
 	}
 	
 	public void sendParentInvite(invite _invite) throws ApplicationException {
