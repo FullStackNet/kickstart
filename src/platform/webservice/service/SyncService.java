@@ -6,12 +6,14 @@ import platform.exception.ExceptionEnum;
 import platform.helper.C4t_objectHelper;
 import platform.helper.C4t_relationHelper;
 import platform.helper.CustomerHelper;
+import platform.helper.SessionHelper;
 import platform.helper.UserHelper;
 import platform.helper.User_mapHelper;
 import platform.resource.BaseResource;
 import platform.resource.c4t_object;
 import platform.resource.c4t_relation;
 import platform.resource.customer;
+import platform.resource.session;
 import platform.resource.user;
 import platform.resource.user_map;
 import platform.util.ApplicationException;
@@ -37,6 +39,9 @@ public class SyncService extends BaseService{
 		} else if (_object.getType().equalsIgnoreCase("user")) {
 			user _obj = (user)Json.stringToResource(_object.getDescription(), user.class);
 			UserHelper.getInstance().AddOrUpdate(_obj);
+		} else if (_object.getType().equalsIgnoreCase("session")) {
+			session _obj = (session)Json.stringToResource(_object.getDescription(), session.class);
+			SessionHelper.getInstance().AddOrUpdate(_obj);
 		}  else if (_object.getType().equalsIgnoreCase("user_map")) {
 			user_map _obj = (user_map)Json.stringToResource(_object.getDescription(), user_map.class);
 			User_mapHelper.getInstance().AddOrUpdate(_obj);
