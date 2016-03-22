@@ -1,5 +1,7 @@
 package platform.webservice.ui.layout;
 
+import platform.helper.C4t_objectHelper;
+import platform.resource.c4t_object;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.html.A;
 import platform.webservice.ui.html.BR;
@@ -24,8 +26,16 @@ public class TwoColumnLayout extends BaseLayout {
 		mLayoutContainer.addAttribute(new Attribute("id", "container"));
 		
 		mLayoutHeader = new Div();
-		mLayoutHeader.addAttribute(new Attribute("id", "header"));
-		mLayoutContainer.addChild(mLayoutHeader);		
+		c4t_object _community = C4t_objectHelper.getInstance().getById(ctx.getContextId());
+		if (_community == null) {
+			mLayoutHeader.addAttribute(new Attribute("id", "header"));
+			mLayoutContainer.addChild(mLayoutHeader);		
+		} else {
+			mLayoutHeader = new Div();
+			mLayoutHeader.addStyle("height", "40px");
+			mLayoutHeader.addStyle("background-color", "#FFA500");
+			mLayoutContainer.addChild(mLayoutHeader);		
+		}
 		
 		Div content_container  = new Div();
 		content_container.addAttribute(new Attribute("id", "content-container"));

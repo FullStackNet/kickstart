@@ -1,5 +1,7 @@
 package platform.webservice.ui.layout;
 
+import platform.helper.C4t_objectHelper;
+import platform.resource.c4t_object;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.CSS;
@@ -20,18 +22,18 @@ public class ThreeColumnLayout extends BaseLayout {
 		ctx.getPageBuilder().addCSS(new CSS("3c_layout.css","/ui/css"));
 		mLayoutContainer =  new Div();
 		mLayoutContainer.addAttribute(new Attribute("id", "container"));
-		
 		mLayoutHeader = new Div();
-		mLayoutHeader.addAttribute(new Attribute("id", "header"));
-		mLayoutContainer.addChild(mLayoutHeader);
 		
-		
-		Div div = new Div();
-		div.addAttribute(new Attribute("id", "navigation"));
-		mLayoutContainer.addChild(div);
-		mLayoutMenu = new UL();
-		div.addChild(mLayoutMenu);
-		
+		c4t_object _community = C4t_objectHelper.getInstance().getById(ctx.getContextId());
+		if (_community == null) {
+			mLayoutHeader.addAttribute(new Attribute("id", "header"));
+			mLayoutContainer.addChild(mLayoutHeader);
+			Div div = new Div();
+			div.addAttribute(new Attribute("id", "navigation"));
+			mLayoutContainer.addChild(div);
+			mLayoutMenu = new UL();
+			div.addChild(mLayoutMenu);
+		}
 		Div content_container  = new Div();
 		content_container.addAttribute(new Attribute("id", "content-container"));
 		mLayoutContainer.addChild(content_container);
