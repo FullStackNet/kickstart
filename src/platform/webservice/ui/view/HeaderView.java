@@ -91,7 +91,7 @@ public class HeaderView extends BaseView {
 			a.addAttribute("class","green_header_button");
 			a.addStyle("margin-right", "10px");
 			a.setText("Material Entry");
-			a.setHref("/ui/entry?op=add");
+			a.setHref("/ui/entry?farmers=3&items=5&op=add");
 			headerDiv.addChild(a);
 			
 			a = new A();
