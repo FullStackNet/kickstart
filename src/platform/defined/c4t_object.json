@@ -314,6 +314,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'scheme':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'country':
 			{
 				'type':'String',

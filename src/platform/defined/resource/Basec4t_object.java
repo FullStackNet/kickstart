@@ -9,14 +9,10 @@
 
 package platform.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -83,6 +79,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String state = null;
 	private String size = null;
 	private String pattern = null;
+	private String scheme = null;
 	private String country = null;
 	private String feature_show_sales_price = null;
 	private String feature_show_mrp_price = null;
@@ -257,6 +254,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_STATE = "state";
 	public static String FIELD_SIZE = "size";
 	public static String FIELD_PATTERN = "pattern";
+	public static String FIELD_SCHEME = "scheme";
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_FEATURE_SHOW_SALES_PRICE = "feature_show_sales_price";
 	public static String FIELD_FEATURE_SHOW_MRP_PRICE = "feature_show_mrp_price";
@@ -625,6 +623,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field patternField = new Field("pattern", "String");
 		patternField.setLength(128);
 		metaData.addField(patternField);
+
+		Field schemeField = new Field("scheme", "String");
+		schemeField.setLength(128);
+		metaData.addField(schemeField);
 
 		Field countryField = new Field("country", "String");
 		countryField.setLength(128);
@@ -1125,6 +1127,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.state = obj.state;
 		this.size = obj.size;
 		this.pattern = obj.pattern;
+		this.scheme = obj.scheme;
 		this.country = obj.country;
 		this.feature_show_sales_price = obj.feature_show_sales_price;
 		this.feature_show_mrp_price = obj.feature_show_mrp_price;
@@ -1366,6 +1369,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("size", size);
 		if(pattern != null)
 			map.put("pattern", pattern);
+		if(scheme != null)
+			map.put("scheme", scheme);
 		if(country != null)
 			map.put("country", country);
 		if(feature_show_sales_price != null)
@@ -1717,6 +1722,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("size", size);
 		if(pattern != null)
 			map.put("pattern", pattern);
+		if(scheme != null)
+			map.put("scheme", scheme);
 		if(country != null)
 			map.put("country", country);
 		if(feature_show_sales_price != null)
@@ -2013,6 +2020,7 @@ public abstract class Basec4t_object extends BaseResource {
 		state = (String) map.get("state");
 		size = (String) map.get("size");
 		pattern = (String) map.get("pattern");
+		scheme = (String) map.get("scheme");
 		country = (String) map.get("country");
 		feature_show_sales_price = (String) map.get("feature_show_sales_price");
 		feature_show_mrp_price = (String) map.get("feature_show_mrp_price");
@@ -2369,6 +2377,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object patternObj = map.get("pattern");
 		if(patternObj != null)
 			pattern = patternObj.toString();
+
+		Object schemeObj = map.get("scheme");
+		if(schemeObj != null)
+			scheme = schemeObj.toString();
 
 		Object countryObj = map.get("country");
 		if(countryObj != null)
@@ -3795,6 +3807,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetPattern() {
 		this.pattern = null;
+	}
+
+	public String getScheme() {
+		return scheme;
+	}
+
+	public String getSchemeEx() {
+		return scheme != null ? scheme : "";
+	}
+
+	public void setScheme(String scheme) {
+		this.scheme = scheme;
+	}
+
+	public void unSetScheme() {
+		this.scheme = null;
 	}
 
 	public String getCountry() {
