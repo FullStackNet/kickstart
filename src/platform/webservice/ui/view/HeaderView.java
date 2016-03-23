@@ -125,7 +125,15 @@ public class HeaderView extends BaseView {
 			headerDiv.addAttribute("align", "right");
 			headerDiv.addStyle("padding-top", "10px");
 			headerDiv.addStyle("padding-right", "10px");
-		
+			headerDiv.addStyle("padding-left", "20px");
+			Div titleDiv = new Div();
+			SPAN s = new SPAN();
+			s.addStyle("font-size", "18px");
+			s.addStyle("font-weight", "bold");
+			s.setText(_community.getName()+" - "+_community.getShort_name() );
+			titleDiv.addChild(s);
+			titleDiv.addStyle("float", "left");
+			headerDiv.addChild(titleDiv);
 			A a = new A();
 			a.addAttribute("class","green_header_button");
 			a.setText("Home");
