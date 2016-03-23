@@ -96,6 +96,68 @@ public class C4t_recordHelper extends BaseHelper {
 		
 	}
 	
+	public ArrayList<Map<String, Object>> getByListMapCommunityIdForDateByUserId(String communityId,String userId,String record_type,
+			String[] order,long from_time, long to_time, Expression expression) {
+			ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+			HelperFactory.getInstance().register(this);
+			Expression e1 = new Expression(c4t_record.FIELD_RECORD_TYPE, REL_OP.EQ, record_type);
+			Expression e2 = new Expression(c4t_record.FIELD_COMMUNITY_ID, REL_OP.EQ, communityId);
+			Expression e3 = new Expression(e1, LOG_OP.AND, e2);
+			Expression e4 = new Expression(c4t_record.FIELD_EVENT_DATE, REL_OP.GTEQ, from_time);
+			Expression e5 = new Expression(c4t_record.FIELD_EVENT_DATE, REL_OP.LT, to_time);
+			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
+			Expression e7 = new Expression(e3, LOG_OP.AND, e6);
+			Expression e8 = new Expression(c4t_record.FIELD_USER_ID, REL_OP.EQ, userId);
+			Expression e9 = new Expression(e7, LOG_OP.AND, e8);
+			Expression e = e9;
+			if (expression != null) {
+				e = new Expression(e9, LOG_OP.AND, expression);
+			}
+				
+			ArrayList<JoinField> joinList = new ArrayList<>();
+			JoinField jfield = new JoinField("c4t_object", c4t_record.FIELD_COMMUNITY_ID, "community_name");
+			joinList.add(jfield);
+			try {
+				list =  getByJoining(e,joinList,order);
+				return list;
+			} catch (ApplicationException exp1) {
+				// TODO Auto-generated catch block
+				exp1.printStackTrace();
+			}
+			return list;
+			
+	}
+	
+	public ArrayList<Map<String, Object>> getByListMapCommunityIdForDate(String communityId,String record_type,
+			String[] order,long from_time, long to_time, Expression expression) {
+			ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+			HelperFactory.getInstance().register(this);
+			Expression e1 = new Expression(c4t_record.FIELD_RECORD_TYPE, REL_OP.EQ, record_type);
+			Expression e2 = new Expression(c4t_record.FIELD_COMMUNITY_ID, REL_OP.EQ, communityId);
+			Expression e3 = new Expression(e1, LOG_OP.AND, e2);
+			Expression e4 = new Expression(c4t_record.FIELD_EVENT_DATE, REL_OP.GTEQ, from_time);
+			Expression e5 = new Expression(c4t_record.FIELD_EVENT_DATE, REL_OP.LT, to_time);
+			Expression e6 = new Expression(e4, LOG_OP.AND, e5);
+			Expression e7 = new Expression(e3, LOG_OP.AND, e6);
+			Expression e = e7;
+			if (expression != null) {
+				e = new Expression(e7, LOG_OP.AND, expression);
+			}
+				
+			ArrayList<JoinField> joinList = new ArrayList<>();
+			JoinField jfield = new JoinField("c4t_object", c4t_record.FIELD_COMMUNITY_ID, "community_name");
+			joinList.add(jfield);
+			try {
+				list =  getByJoining(e,joinList,order);
+				return list;
+			} catch (ApplicationException exp1) {
+				// TODO Auto-generated catch block
+				exp1.printStackTrace();
+			}
+			return list;
+			
+	}
+	
 	
 	public ArrayList<Map<String, Object>> getByListMapUserIdWithCommunityName(String userId,String record_type,
 			String[] order,long from_time, long to_time, Expression expression) {
