@@ -324,6 +324,7 @@
 				'type':'String',
 				'length': 128
 			},
+			
 			'feature_show_sales_price':
 			{
 				'type':'String',
@@ -632,6 +633,14 @@
 				'type':'double'
 			},
 			'service_charges_home_delivery':
+			{
+				'type':'double'
+			},
+			'home_delivery_free_threshold':
+			{
+				'type':'double'
+			},
+			'home_delivery_min_value':
 			{
 				'type':'double'
 			},

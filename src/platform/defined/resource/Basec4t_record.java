@@ -31,6 +31,8 @@ public abstract class Basec4t_record extends BaseResource {
 	private String customer_name = null;
 	private String member_id = null;
 	private String member_name = null;
+	private String devilvery_boy_id = null;
+	private String devilvery_boy_name = null;
 	private String record_type = null;
 	private String record_no = null;
 	private String payment_type = null;
@@ -179,6 +181,8 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_CUSTOMER_NAME = "customer_name";
 	public static String FIELD_MEMBER_ID = "member_id";
 	public static String FIELD_MEMBER_NAME = "member_name";
+	public static String FIELD_DEVILVERY_BOY_ID = "devilvery_boy_id";
+	public static String FIELD_DEVILVERY_BOY_NAME = "devilvery_boy_name";
 	public static String FIELD_RECORD_TYPE = "record_type";
 	public static String FIELD_RECORD_NO = "record_no";
 	public static String FIELD_PAYMENT_TYPE = "payment_type";
@@ -374,6 +378,16 @@ public abstract class Basec4t_record extends BaseResource {
 		Field member_nameField = new Field("member_name", "String");
 		member_nameField.setLength(128);
 		metaData.addField(member_nameField);
+
+		Field devilvery_boy_idField = new Field("devilvery_boy_id", "String");
+		devilvery_boy_idField.setIndexed(true);
+		devilvery_boy_idField.setLength(128);
+		metaData.addField(devilvery_boy_idField);
+
+		Field devilvery_boy_nameField = new Field("devilvery_boy_name", "String");
+		devilvery_boy_nameField.setIndexed(true);
+		devilvery_boy_nameField.setLength(128);
+		metaData.addField(devilvery_boy_nameField);
 
 		Field record_typeField = new Field("record_type", "String");
 		record_typeField.setLength(512);
@@ -907,6 +921,8 @@ public abstract class Basec4t_record extends BaseResource {
 		this.customer_name = obj.customer_name;
 		this.member_id = obj.member_id;
 		this.member_name = obj.member_name;
+		this.devilvery_boy_id = obj.devilvery_boy_id;
+		this.devilvery_boy_name = obj.devilvery_boy_name;
 		this.record_type = obj.record_type;
 		this.record_no = obj.record_no;
 		this.payment_type = obj.payment_type;
@@ -1087,6 +1103,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("member_id", member_id);
 		if(member_name != null)
 			map.put("member_name", member_name);
+		if(devilvery_boy_id != null)
+			map.put("devilvery_boy_id", devilvery_boy_id);
+		if(devilvery_boy_name != null)
+			map.put("devilvery_boy_name", devilvery_boy_name);
 		if(record_type != null)
 			map.put("record_type", record_type);
 		if(record_no != null)
@@ -1389,6 +1409,10 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("member_id", member_id);
 		if(member_name != null)
 			map.put("member_name", member_name);
+		if(devilvery_boy_id != null)
+			map.put("devilvery_boy_id", devilvery_boy_id);
+		if(devilvery_boy_name != null)
+			map.put("devilvery_boy_name", devilvery_boy_name);
 		if(record_type != null)
 			map.put("record_type", record_type);
 		if(record_no != null)
@@ -1681,6 +1705,8 @@ public abstract class Basec4t_record extends BaseResource {
 		customer_name = (String) map.get("customer_name");
 		member_id = (String) map.get("member_id");
 		member_name = (String) map.get("member_name");
+		devilvery_boy_id = (String) map.get("devilvery_boy_id");
+		devilvery_boy_name = (String) map.get("devilvery_boy_name");
 		record_type = (String) map.get("record_type");
 		record_no = (String) map.get("record_no");
 		payment_type = (String) map.get("payment_type");
@@ -1867,6 +1893,14 @@ public abstract class Basec4t_record extends BaseResource {
 		Object member_nameObj = map.get("member_name");
 		if(member_nameObj != null)
 			member_name = member_nameObj.toString();
+
+		Object devilvery_boy_idObj = map.get("devilvery_boy_id");
+		if(devilvery_boy_idObj != null)
+			devilvery_boy_id = devilvery_boy_idObj.toString();
+
+		Object devilvery_boy_nameObj = map.get("devilvery_boy_name");
+		if(devilvery_boy_nameObj != null)
+			devilvery_boy_name = devilvery_boy_nameObj.toString();
 
 		Object record_typeObj = map.get("record_type");
 		if(record_typeObj != null)
@@ -2609,6 +2643,38 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetMember_name() {
 		this.member_name = null;
+	}
+
+	public String getDevilvery_boy_id() {
+		return devilvery_boy_id;
+	}
+
+	public String getDevilvery_boy_idEx() {
+		return devilvery_boy_id != null ? devilvery_boy_id : "";
+	}
+
+	public void setDevilvery_boy_id(String devilvery_boy_id) {
+		this.devilvery_boy_id = devilvery_boy_id;
+	}
+
+	public void unSetDevilvery_boy_id() {
+		this.devilvery_boy_id = null;
+	}
+
+	public String getDevilvery_boy_name() {
+		return devilvery_boy_name;
+	}
+
+	public String getDevilvery_boy_nameEx() {
+		return devilvery_boy_name != null ? devilvery_boy_name : "";
+	}
+
+	public void setDevilvery_boy_name(String devilvery_boy_name) {
+		this.devilvery_boy_name = devilvery_boy_name;
+	}
+
+	public void unSetDevilvery_boy_name() {
+		this.devilvery_boy_name = null;
 	}
 
 	public String getRecord_type() {

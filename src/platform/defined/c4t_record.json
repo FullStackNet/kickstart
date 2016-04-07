@@ -71,6 +71,23 @@
 				'length': 128,
 				'type':'String'
 			},
+			'devilvery_boy_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'devilvery_boy_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'member_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'record_type':
 			{
 				'length': 512,

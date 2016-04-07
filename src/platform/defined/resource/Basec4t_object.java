@@ -144,6 +144,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private Double service_tax = null;
 	private Double service_charges = null;
 	private Double service_charges_home_delivery = null;
+	private Double home_delivery_free_threshold = null;
+	private Double home_delivery_min_value = null;
 	private Double service_charges_takeaway = null;
 	private Double service_charges_on_table = null;
 	private String delivery_time = null;
@@ -319,6 +321,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_SERVICE_TAX = "service_tax";
 	public static String FIELD_SERVICE_CHARGES = "service_charges";
 	public static String FIELD_SERVICE_CHARGES_HOME_DELIVERY = "service_charges_home_delivery";
+	public static String FIELD_HOME_DELIVERY_FREE_THRESHOLD = "home_delivery_free_threshold";
+	public static String FIELD_HOME_DELIVERY_MIN_VALUE = "home_delivery_min_value";
 	public static String FIELD_SERVICE_CHARGES_TAKEAWAY = "service_charges_takeaway";
 	public static String FIELD_SERVICE_CHARGES_ON_TABLE = "service_charges_on_table";
 	public static String FIELD_DELIVERY_TIME = "delivery_time";
@@ -878,6 +882,12 @@ public abstract class Basec4t_object extends BaseResource {
 		Field service_charges_home_deliveryField = new Field("service_charges_home_delivery", "double");
 		metaData.addField(service_charges_home_deliveryField);
 
+		Field home_delivery_free_thresholdField = new Field("home_delivery_free_threshold", "double");
+		metaData.addField(home_delivery_free_thresholdField);
+
+		Field home_delivery_min_valueField = new Field("home_delivery_min_value", "double");
+		metaData.addField(home_delivery_min_valueField);
+
 		Field service_charges_takeawayField = new Field("service_charges_takeaway", "double");
 		metaData.addField(service_charges_takeawayField);
 
@@ -1192,6 +1202,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.service_tax = obj.service_tax;
 		this.service_charges = obj.service_charges;
 		this.service_charges_home_delivery = obj.service_charges_home_delivery;
+		this.home_delivery_free_threshold = obj.home_delivery_free_threshold;
+		this.home_delivery_min_value = obj.home_delivery_min_value;
 		this.service_charges_takeaway = obj.service_charges_takeaway;
 		this.service_charges_on_table = obj.service_charges_on_table;
 		this.delivery_time = obj.delivery_time;
@@ -1499,6 +1511,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("service_charges", service_charges);
 		if(service_charges_home_delivery != null)
 			map.put("service_charges_home_delivery", service_charges_home_delivery);
+		if(home_delivery_free_threshold != null)
+			map.put("home_delivery_free_threshold", home_delivery_free_threshold);
+		if(home_delivery_min_value != null)
+			map.put("home_delivery_min_value", home_delivery_min_value);
 		if(service_charges_takeaway != null)
 			map.put("service_charges_takeaway", service_charges_takeaway);
 		if(service_charges_on_table != null)
@@ -1852,6 +1868,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("service_charges", service_charges);
 		if(service_charges_home_delivery != null)
 			map.put("service_charges_home_delivery", service_charges_home_delivery);
+		if(home_delivery_free_threshold != null)
+			map.put("home_delivery_free_threshold", home_delivery_free_threshold);
+		if(home_delivery_min_value != null)
+			map.put("home_delivery_min_value", home_delivery_min_value);
 		if(service_charges_takeaway != null)
 			map.put("service_charges_takeaway", service_charges_takeaway);
 		if(service_charges_on_table != null)
@@ -2085,6 +2105,8 @@ public abstract class Basec4t_object extends BaseResource {
 		service_tax = (Double) map.get("service_tax");
 		service_charges = (Double) map.get("service_charges");
 		service_charges_home_delivery = (Double) map.get("service_charges_home_delivery");
+		home_delivery_free_threshold = (Double) map.get("home_delivery_free_threshold");
+		home_delivery_min_value = (Double) map.get("home_delivery_min_value");
 		service_charges_takeaway = (Double) map.get("service_charges_takeaway");
 		service_charges_on_table = (Double) map.get("service_charges_on_table");
 		delivery_time = (String) map.get("delivery_time");
@@ -2637,6 +2659,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object service_charges_home_deliveryObj = map.get("service_charges_home_delivery");
 		if(service_charges_home_deliveryObj != null)
 			service_charges_home_delivery = new Double(service_charges_home_deliveryObj.toString());
+
+		Object home_delivery_free_thresholdObj = map.get("home_delivery_free_threshold");
+		if(home_delivery_free_thresholdObj != null)
+			home_delivery_free_threshold = new Double(home_delivery_free_thresholdObj.toString());
+
+		Object home_delivery_min_valueObj = map.get("home_delivery_min_value");
+		if(home_delivery_min_valueObj != null)
+			home_delivery_min_value = new Double(home_delivery_min_valueObj.toString());
 
 		Object service_charges_takeawayObj = map.get("service_charges_takeaway");
 		if(service_charges_takeawayObj != null)
@@ -4871,6 +4901,46 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetService_charges_home_delivery() {
 		this.service_charges_home_delivery = null;
+	}
+
+	public Double getHome_delivery_free_threshold() {
+		return home_delivery_free_threshold;
+	}
+
+	public double getHome_delivery_free_thresholdEx() {
+		return home_delivery_free_threshold != null ? home_delivery_free_threshold : 0;
+	}
+
+	public void setHome_delivery_free_threshold(double home_delivery_free_threshold) {
+		this.home_delivery_free_threshold = home_delivery_free_threshold;
+	}
+
+	public void setHome_delivery_free_threshold(Double home_delivery_free_threshold) {
+		this.home_delivery_free_threshold = home_delivery_free_threshold;
+	}
+
+	public void unSetHome_delivery_free_threshold() {
+		this.home_delivery_free_threshold = null;
+	}
+
+	public Double getHome_delivery_min_value() {
+		return home_delivery_min_value;
+	}
+
+	public double getHome_delivery_min_valueEx() {
+		return home_delivery_min_value != null ? home_delivery_min_value : 0;
+	}
+
+	public void setHome_delivery_min_value(double home_delivery_min_value) {
+		this.home_delivery_min_value = home_delivery_min_value;
+	}
+
+	public void setHome_delivery_min_value(Double home_delivery_min_value) {
+		this.home_delivery_min_value = home_delivery_min_value;
+	}
+
+	public void unSetHome_delivery_min_value() {
+		this.home_delivery_min_value = null;
 	}
 
 	public Double getService_charges_takeaway() {
