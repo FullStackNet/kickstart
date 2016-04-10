@@ -110,7 +110,13 @@ public class SMSDispatcher {
 	}
 
 	String getURLFromAccount(sms_account _account,String mobile_no,String message) {
-		String url = _account.getUrl()+"?"+_account.getUsername_fieldname()+"="+_account.getUsername();
+		String baseurl = _account.getUrl();
+		if (!baseurl.contains("?")) {
+			baseurl += "?";
+		} else {
+			baseurl += "&";
+		}
+		String url = baseurl+_account.getUsername_fieldname()+"="+_account.getUsername();
 		url = url + "&"+_account.getPassword_fieldname()+"="+_account.getPassword();
 		url = url + "&"+_account.getMobile_fieldname()+"=91"+mobile_no;
 		url = url + "&"+_account.getMessage_fieldname()+"="+message;
