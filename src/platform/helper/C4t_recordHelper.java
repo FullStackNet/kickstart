@@ -37,6 +37,15 @@ public class C4t_recordHelper extends BaseHelper {
 		update(_record);
 	}
 	
+	public BaseResource[] getByRelationMap(String from_id, String relation_type,String[] orderby) {
+		String[] ids = C4t_record_mapHelper.getInstance().getByRelationMap(from_id, relation_type);
+		if (Util.isEmpty(ids)) {
+			return null;
+		}
+		Expression e = new Expression(c4t_object.FIELD_ID, REL_OP.IN, ids);
+		return C4t_recordHelper.getInstance().getByExpression(e,orderby);
+	}	
+	
 	public BaseResource[] getByRelationMap(String from_id, Expression condition, String relation_type,String[] orderby) {
 		String[] ids = C4t_record_mapHelper.getInstance().getByRelationMap(from_id, relation_type);
 		if (Util.isEmpty(ids)) {
