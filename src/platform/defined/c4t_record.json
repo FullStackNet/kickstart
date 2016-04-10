@@ -23,6 +23,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'url':
+			{
+				'length': 512,
+				'type':'String'
+			},
 			'summary':
 			{
 				'length': 16,

@@ -22,6 +22,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String id = null;
 	private String community_id = null;
 	private String community_name = null;
+	private String url = null;
 	private String summary = null;
 	private String book_name = null;
 	private String author_name = null;
@@ -172,6 +173,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_COMMUNITY_NAME = "community_name";
+	public static String FIELD_URL = "url";
 	public static String FIELD_SUMMARY = "summary";
 	public static String FIELD_BOOK_NAME = "book_name";
 	public static String FIELD_AUTHOR_NAME = "author_name";
@@ -339,6 +341,10 @@ public abstract class Basec4t_record extends BaseResource {
 		community_nameField.setIndexed(true);
 		community_nameField.setLength(128);
 		metaData.addField(community_nameField);
+
+		Field urlField = new Field("url", "String");
+		urlField.setLength(512);
+		metaData.addField(urlField);
 
 		Field summaryField = new Field("summary", "String");
 		summaryField.setLength(16);
@@ -912,6 +918,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.id = obj.id;
 		this.community_id = obj.community_id;
 		this.community_name = obj.community_name;
+		this.url = obj.url;
 		this.summary = obj.summary;
 		this.book_name = obj.book_name;
 		this.author_name = obj.author_name;
@@ -1085,6 +1092,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(url != null)
+			map.put("url", url);
 		if(summary != null)
 			map.put("summary", summary);
 		if(book_name != null)
@@ -1391,6 +1400,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(url != null)
+			map.put("url", url);
 		if(summary != null)
 			map.put("summary", summary);
 		if(book_name != null)
@@ -1696,6 +1707,7 @@ public abstract class Basec4t_record extends BaseResource {
 		id = (String) map.get("id");
 		community_id = (String) map.get("community_id");
 		community_name = (String) map.get("community_name");
+		url = (String) map.get("url");
 		summary = (String) map.get("summary");
 		book_name = (String) map.get("book_name");
 		author_name = (String) map.get("author_name");
@@ -1857,6 +1869,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object community_nameObj = map.get("community_name");
 		if(community_nameObj != null)
 			community_name = community_nameObj.toString();
+
+		Object urlObj = map.get("url");
+		if(urlObj != null)
+			url = urlObj.toString();
 
 		Object summaryObj = map.get("summary");
 		if(summaryObj != null)
@@ -2499,6 +2515,22 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetCommunity_name() {
 		this.community_name = null;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public String getUrlEx() {
+		return url != null ? url : "";
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public void unSetUrl() {
+		this.url = null;
 	}
 
 	public String getSummary() {
