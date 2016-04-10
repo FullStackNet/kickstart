@@ -33,7 +33,8 @@ public class C4t_record_mapHelper extends BaseHelper {
 	
 	public String[] getByRelationMap(String from_ids[], String relation_type) {
 		ArrayList<String> list = new ArrayList<>();
-		
+		if (Util.isEmpty(from_ids))
+			return null;
 		String[] ids = new String[from_ids.length];
 		for(int i =0; i < from_ids.length; i++) {
 			ids[i] = c4t_record_map.getMapId(from_ids[i], relation_type);
