@@ -231,6 +231,15 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'skill_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'rating':
+			{
+				'type': 'double'
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}

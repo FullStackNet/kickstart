@@ -66,6 +66,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private Long payment_pending_amount = null;
 	private Long payment_amount = null;
 	private String user_name = null;
+	private String skill_id = null;
+	private Double rating = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -116,6 +118,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_PAYMENT_PENDING_AMOUNT = "payment_pending_amount";
 	public static String FIELD_PAYMENT_AMOUNT = "payment_amount";
 	public static String FIELD_USER_NAME = "user_name";
+	public static String FIELD_SKILL_ID = "skill_id";
+	public static String FIELD_RATING = "rating";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -298,6 +302,13 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		user_nameField.setLength(512);
 		metaData.addField(user_nameField);
 
+		Field skill_idField = new Field("skill_id", "String");
+		skill_idField.setLength(512);
+		metaData.addField(skill_idField);
+
+		Field ratingField = new Field("rating", "double");
+		metaData.addField(ratingField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -361,6 +372,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.payment_pending_amount = obj.payment_pending_amount;
 		this.payment_amount = obj.payment_amount;
 		this.user_name = obj.user_name;
+		this.skill_id = obj.skill_id;
+		this.rating = obj.rating;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -465,6 +478,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("payment_amount", payment_amount);
 		if(user_name != null)
 			map.put("user_name", user_name);
+		if(skill_id != null)
+			map.put("skill_id", skill_id);
+		if(rating != null)
+			map.put("rating", rating);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -568,6 +585,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("payment_amount", payment_amount);
 		if(user_name != null)
 			map.put("user_name", user_name);
+		if(skill_id != null)
+			map.put("skill_id", skill_id);
+		if(rating != null)
+			map.put("rating", rating);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -629,6 +650,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		payment_pending_amount = (Long) map.get("payment_pending_amount");
 		payment_amount = (Long) map.get("payment_amount");
 		user_name = (String) map.get("user_name");
+		skill_id = (String) map.get("skill_id");
+		rating = (Double) map.get("rating");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -822,6 +845,14 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object user_nameObj = map.get("user_name");
 		if(user_nameObj != null)
 			user_name = user_nameObj.toString();
+
+		Object skill_idObj = map.get("skill_id");
+		if(skill_idObj != null)
+			skill_id = skill_idObj.toString();
+
+		Object ratingObj = map.get("rating");
+		if(ratingObj != null)
+			rating = new Double(ratingObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -1545,6 +1576,42 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetUser_name() {
 		this.user_name = null;
+	}
+
+	public String getSkill_id() {
+		return skill_id;
+	}
+
+	public String getSkill_idEx() {
+		return skill_id != null ? skill_id : "";
+	}
+
+	public void setSkill_id(String skill_id) {
+		this.skill_id = skill_id;
+	}
+
+	public void unSetSkill_id() {
+		this.skill_id = null;
+	}
+
+	public Double getRating() {
+		return rating;
+	}
+
+	public double getRatingEx() {
+		return rating != null ? rating : 0;
+	}
+
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
+
+	public void unSetRating() {
+		this.rating = null;
 	}
 
 	public Long getCreation_time() {

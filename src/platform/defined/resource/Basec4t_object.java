@@ -194,6 +194,14 @@ public abstract class Basec4t_object extends BaseResource {
 	private Long updation_time = null;
 	private String owner_id = null;
 	private String chemist_community_id = null;
+	private String college_name = null;
+	private String degree_name = null;
+	private String skill_id = null;
+	private Double min_rating = null;
+	private Double max_rating = null;
+	private Double average_rating = null;
+	private String day = null;
+	private String available_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -371,6 +379,14 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_OWNER_ID = "owner_id";
 	public static String FIELD_CHEMIST_COMMUNITY_ID = "chemist_community_id";
+	public static String FIELD_COLLEGE_NAME = "college_name";
+	public static String FIELD_DEGREE_NAME = "degree_name";
+	public static String FIELD_SKILL_ID = "skill_id";
+	public static String FIELD_MIN_RATING = "min_rating";
+	public static String FIELD_MAX_RATING = "max_rating";
+	public static String FIELD_AVERAGE_RATING = "average_rating";
+	public static String FIELD_DAY = "day";
+	public static String FIELD_AVAILABLE_TIME = "available_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -1064,6 +1080,35 @@ public abstract class Basec4t_object extends BaseResource {
 		chemist_community_idField.setLength(128);
 		metaData.addField(chemist_community_idField);
 
+		Field college_nameField = new Field("college_name", "String");
+		college_nameField.setLength(128);
+		metaData.addField(college_nameField);
+
+		Field degree_nameField = new Field("degree_name", "String");
+		degree_nameField.setLength(128);
+		metaData.addField(degree_nameField);
+
+		Field skill_idField = new Field("skill_id", "String");
+		skill_idField.setLength(128);
+		metaData.addField(skill_idField);
+
+		Field min_ratingField = new Field("min_rating", "double");
+		metaData.addField(min_ratingField);
+
+		Field max_ratingField = new Field("max_rating", "double");
+		metaData.addField(max_ratingField);
+
+		Field average_ratingField = new Field("average_rating", "double");
+		metaData.addField(average_ratingField);
+
+		Field dayField = new Field("day", "String");
+		dayField.setLength(128);
+		metaData.addField(dayField);
+
+		Field available_timeField = new Field("available_time", "String");
+		available_timeField.setLength(128);
+		metaData.addField(available_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -1252,6 +1297,14 @@ public abstract class Basec4t_object extends BaseResource {
 		this.updation_time = obj.updation_time;
 		this.owner_id = obj.owner_id;
 		this.chemist_community_id = obj.chemist_community_id;
+		this.college_name = obj.college_name;
+		this.degree_name = obj.degree_name;
+		this.skill_id = obj.skill_id;
+		this.min_rating = obj.min_rating;
+		this.max_rating = obj.max_rating;
+		this.average_rating = obj.average_rating;
+		this.day = obj.day;
+		this.available_time = obj.available_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -1611,6 +1664,22 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("owner_id", owner_id);
 		if(chemist_community_id != null)
 			map.put("chemist_community_id", chemist_community_id);
+		if(college_name != null)
+			map.put("college_name", college_name);
+		if(degree_name != null)
+			map.put("degree_name", degree_name);
+		if(skill_id != null)
+			map.put("skill_id", skill_id);
+		if(min_rating != null)
+			map.put("min_rating", min_rating);
+		if(max_rating != null)
+			map.put("max_rating", max_rating);
+		if(average_rating != null)
+			map.put("average_rating", average_rating);
+		if(day != null)
+			map.put("day", day);
+		if(available_time != null)
+			map.put("available_time", available_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1968,6 +2037,22 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("owner_id", owner_id);
 		if(chemist_community_id != null)
 			map.put("chemist_community_id", chemist_community_id);
+		if(college_name != null)
+			map.put("college_name", college_name);
+		if(degree_name != null)
+			map.put("degree_name", degree_name);
+		if(skill_id != null)
+			map.put("skill_id", skill_id);
+		if(min_rating != null)
+			map.put("min_rating", min_rating);
+		if(max_rating != null)
+			map.put("max_rating", max_rating);
+		if(average_rating != null)
+			map.put("average_rating", average_rating);
+		if(day != null)
+			map.put("day", day);
+		if(available_time != null)
+			map.put("available_time", available_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -2155,6 +2240,14 @@ public abstract class Basec4t_object extends BaseResource {
 		updation_time = (Long) map.get("updation_time");
 		owner_id = (String) map.get("owner_id");
 		chemist_community_id = (String) map.get("chemist_community_id");
+		college_name = (String) map.get("college_name");
+		degree_name = (String) map.get("degree_name");
+		skill_id = (String) map.get("skill_id");
+		min_rating = (Double) map.get("min_rating");
+		max_rating = (Double) map.get("max_rating");
+		average_rating = (Double) map.get("average_rating");
+		day = (String) map.get("day");
+		available_time = (String) map.get("available_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -2859,6 +2952,38 @@ public abstract class Basec4t_object extends BaseResource {
 		Object chemist_community_idObj = map.get("chemist_community_id");
 		if(chemist_community_idObj != null)
 			chemist_community_id = chemist_community_idObj.toString();
+
+		Object college_nameObj = map.get("college_name");
+		if(college_nameObj != null)
+			college_name = college_nameObj.toString();
+
+		Object degree_nameObj = map.get("degree_name");
+		if(degree_nameObj != null)
+			degree_name = degree_nameObj.toString();
+
+		Object skill_idObj = map.get("skill_id");
+		if(skill_idObj != null)
+			skill_id = skill_idObj.toString();
+
+		Object min_ratingObj = map.get("min_rating");
+		if(min_ratingObj != null)
+			min_rating = new Double(min_ratingObj.toString());
+
+		Object max_ratingObj = map.get("max_rating");
+		if(max_ratingObj != null)
+			max_rating = new Double(max_ratingObj.toString());
+
+		Object average_ratingObj = map.get("average_rating");
+		if(average_ratingObj != null)
+			average_rating = new Double(average_ratingObj.toString());
+
+		Object dayObj = map.get("day");
+		if(dayObj != null)
+			day = dayObj.toString();
+
+		Object available_timeObj = map.get("available_time");
+		if(available_timeObj != null)
+			available_time = available_timeObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -5751,6 +5876,146 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetChemist_community_id() {
 		this.chemist_community_id = null;
+	}
+
+	public String getCollege_name() {
+		return college_name;
+	}
+
+	public String getCollege_nameEx() {
+		return college_name != null ? college_name : "";
+	}
+
+	public void setCollege_name(String college_name) {
+		this.college_name = college_name;
+	}
+
+	public void unSetCollege_name() {
+		this.college_name = null;
+	}
+
+	public String getDegree_name() {
+		return degree_name;
+	}
+
+	public String getDegree_nameEx() {
+		return degree_name != null ? degree_name : "";
+	}
+
+	public void setDegree_name(String degree_name) {
+		this.degree_name = degree_name;
+	}
+
+	public void unSetDegree_name() {
+		this.degree_name = null;
+	}
+
+	public String getSkill_id() {
+		return skill_id;
+	}
+
+	public String getSkill_idEx() {
+		return skill_id != null ? skill_id : "";
+	}
+
+	public void setSkill_id(String skill_id) {
+		this.skill_id = skill_id;
+	}
+
+	public void unSetSkill_id() {
+		this.skill_id = null;
+	}
+
+	public Double getMin_rating() {
+		return min_rating;
+	}
+
+	public double getMin_ratingEx() {
+		return min_rating != null ? min_rating : 0;
+	}
+
+	public void setMin_rating(double min_rating) {
+		this.min_rating = min_rating;
+	}
+
+	public void setMin_rating(Double min_rating) {
+		this.min_rating = min_rating;
+	}
+
+	public void unSetMin_rating() {
+		this.min_rating = null;
+	}
+
+	public Double getMax_rating() {
+		return max_rating;
+	}
+
+	public double getMax_ratingEx() {
+		return max_rating != null ? max_rating : 0;
+	}
+
+	public void setMax_rating(double max_rating) {
+		this.max_rating = max_rating;
+	}
+
+	public void setMax_rating(Double max_rating) {
+		this.max_rating = max_rating;
+	}
+
+	public void unSetMax_rating() {
+		this.max_rating = null;
+	}
+
+	public Double getAverage_rating() {
+		return average_rating;
+	}
+
+	public double getAverage_ratingEx() {
+		return average_rating != null ? average_rating : 0;
+	}
+
+	public void setAverage_rating(double average_rating) {
+		this.average_rating = average_rating;
+	}
+
+	public void setAverage_rating(Double average_rating) {
+		this.average_rating = average_rating;
+	}
+
+	public void unSetAverage_rating() {
+		this.average_rating = null;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public String getDayEx() {
+		return day != null ? day : "";
+	}
+
+	public void setDay(String day) {
+		this.day = day;
+	}
+
+	public void unSetDay() {
+		this.day = null;
+	}
+
+	public String getAvailable_time() {
+		return available_time;
+	}
+
+	public String getAvailable_timeEx() {
+		return available_time != null ? available_time : "";
+	}
+
+	public void setAvailable_time(String available_time) {
+		this.available_time = available_time;
+	}
+
+	public void unSetAvailable_time() {
+		this.available_time = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

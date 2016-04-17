@@ -869,7 +869,44 @@
 			{
 				'type':'String',
 				'length': 128
-			} 	 			
+			},
+			'college_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'degree_name':
+			{
+				'type':'String',
+				'length': 128
+			} ,
+			'skill_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'min_rating':
+			{
+				'type':'double'
+			},
+			'max_rating':
+			{
+				'type':'double'
+			},
+			'average_rating':
+			{
+				'type':'double'
+			},
+			'day':
+			{
+				'type':'String',
+				'length': 128
+			} , 
+			'available_time':
+			{
+				'type':'String',
+				'length': 128
+			}		 	 			
 		}
 	}
 }

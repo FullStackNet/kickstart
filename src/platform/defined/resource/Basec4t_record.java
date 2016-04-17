@@ -134,6 +134,10 @@ public abstract class Basec4t_record extends BaseResource {
 	private String description = null;
 	private String remark = null;
 	private Long event_date = null;
+	private String candidate_id = null;
+	private String candidate_name = null;
+	private String inetrviewer_id = null;
+	private String inetrviewer_name = null;
 	private String event_date_str = null;
 	private Long expiry_date = null;
 	private String expiry_date_str = null;
@@ -285,6 +289,10 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_EVENT_DATE = "event_date";
+	public static String FIELD_CANDIDATE_ID = "candidate_id";
+	public static String FIELD_CANDIDATE_NAME = "candidate_name";
+	public static String FIELD_INETRVIEWER_ID = "inetrviewer_id";
+	public static String FIELD_INETRVIEWER_NAME = "inetrviewer_name";
 	public static String FIELD_EVENT_DATE_STR = "event_date_str";
 	public static String FIELD_EXPIRY_DATE = "expiry_date";
 	public static String FIELD_EXPIRY_DATE_STR = "expiry_date_str";
@@ -774,6 +782,22 @@ public abstract class Basec4t_record extends BaseResource {
 		event_dateField.setIndexed(true);
 		metaData.addField(event_dateField);
 
+		Field candidate_idField = new Field("candidate_id", "String");
+		candidate_idField.setLength(32);
+		metaData.addField(candidate_idField);
+
+		Field candidate_nameField = new Field("candidate_name", "String");
+		candidate_nameField.setLength(32);
+		metaData.addField(candidate_nameField);
+
+		Field inetrviewer_idField = new Field("inetrviewer_id", "String");
+		inetrviewer_idField.setLength(32);
+		metaData.addField(inetrviewer_idField);
+
+		Field inetrviewer_nameField = new Field("inetrviewer_name", "String");
+		inetrviewer_nameField.setLength(32);
+		metaData.addField(inetrviewer_nameField);
+
 		Field event_date_strField = new Field("event_date_str", "String");
 		event_date_strField.setLength(32);
 		metaData.addField(event_date_strField);
@@ -1030,6 +1054,10 @@ public abstract class Basec4t_record extends BaseResource {
 		this.description = obj.description;
 		this.remark = obj.remark;
 		this.event_date = obj.event_date;
+		this.candidate_id = obj.candidate_id;
+		this.candidate_name = obj.candidate_name;
+		this.inetrviewer_id = obj.inetrviewer_id;
+		this.inetrviewer_name = obj.inetrviewer_name;
 		this.event_date_str = obj.event_date_str;
 		this.expiry_date = obj.expiry_date;
 		this.expiry_date_str = obj.expiry_date_str;
@@ -1316,6 +1344,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("remark", remark);
 		if(event_date != null)
 			map.put("event_date", event_date);
+		if(candidate_id != null)
+			map.put("candidate_id", candidate_id);
+		if(candidate_name != null)
+			map.put("candidate_name", candidate_name);
+		if(inetrviewer_id != null)
+			map.put("inetrviewer_id", inetrviewer_id);
+		if(inetrviewer_name != null)
+			map.put("inetrviewer_name", inetrviewer_name);
 		if(event_date_str != null)
 			map.put("event_date_str", event_date_str);
 		if(expiry_date != null)
@@ -1624,6 +1660,14 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("remark", remark);
 		if(event_date != null)
 			map.put("event_date", event_date);
+		if(candidate_id != null)
+			map.put("candidate_id", candidate_id);
+		if(candidate_name != null)
+			map.put("candidate_name", candidate_name);
+		if(inetrviewer_id != null)
+			map.put("inetrviewer_id", inetrviewer_id);
+		if(inetrviewer_name != null)
+			map.put("inetrviewer_name", inetrviewer_name);
 		if(event_date_str != null)
 			map.put("event_date_str", event_date_str);
 		if(expiry_date != null)
@@ -1819,6 +1863,10 @@ public abstract class Basec4t_record extends BaseResource {
 		description = (String) map.get("description");
 		remark = (String) map.get("remark");
 		event_date = (Long) map.get("event_date");
+		candidate_id = (String) map.get("candidate_id");
+		candidate_name = (String) map.get("candidate_name");
+		inetrviewer_id = (String) map.get("inetrviewer_id");
+		inetrviewer_name = (String) map.get("inetrviewer_name");
 		event_date_str = (String) map.get("event_date_str");
 		expiry_date = (Long) map.get("expiry_date");
 		expiry_date_str = (String) map.get("expiry_date_str");
@@ -2317,6 +2365,22 @@ public abstract class Basec4t_record extends BaseResource {
 		Object event_dateObj = map.get("event_date");
 		if(event_dateObj != null)
 			event_date = (Long) event_dateObj;
+
+		Object candidate_idObj = map.get("candidate_id");
+		if(candidate_idObj != null)
+			candidate_id = candidate_idObj.toString();
+
+		Object candidate_nameObj = map.get("candidate_name");
+		if(candidate_nameObj != null)
+			candidate_name = candidate_nameObj.toString();
+
+		Object inetrviewer_idObj = map.get("inetrviewer_id");
+		if(inetrviewer_idObj != null)
+			inetrviewer_id = inetrviewer_idObj.toString();
+
+		Object inetrviewer_nameObj = map.get("inetrviewer_name");
+		if(inetrviewer_nameObj != null)
+			inetrviewer_name = inetrviewer_nameObj.toString();
 
 		Object event_date_strObj = map.get("event_date_str");
 		if(event_date_strObj != null)
@@ -4282,6 +4346,70 @@ public abstract class Basec4t_record extends BaseResource {
 		this.event_date = event_date;
 	}
 
+
+	public String getCandidate_id() {
+		return candidate_id;
+	}
+
+	public String getCandidate_idEx() {
+		return candidate_id != null ? candidate_id : "";
+	}
+
+	public void setCandidate_id(String candidate_id) {
+		this.candidate_id = candidate_id;
+	}
+
+	public void unSetCandidate_id() {
+		this.candidate_id = null;
+	}
+
+	public String getCandidate_name() {
+		return candidate_name;
+	}
+
+	public String getCandidate_nameEx() {
+		return candidate_name != null ? candidate_name : "";
+	}
+
+	public void setCandidate_name(String candidate_name) {
+		this.candidate_name = candidate_name;
+	}
+
+	public void unSetCandidate_name() {
+		this.candidate_name = null;
+	}
+
+	public String getInetrviewer_id() {
+		return inetrviewer_id;
+	}
+
+	public String getInetrviewer_idEx() {
+		return inetrviewer_id != null ? inetrviewer_id : "";
+	}
+
+	public void setInetrviewer_id(String inetrviewer_id) {
+		this.inetrviewer_id = inetrviewer_id;
+	}
+
+	public void unSetInetrviewer_id() {
+		this.inetrviewer_id = null;
+	}
+
+	public String getInetrviewer_name() {
+		return inetrviewer_name;
+	}
+
+	public String getInetrviewer_nameEx() {
+		return inetrviewer_name != null ? inetrviewer_name : "";
+	}
+
+	public void setInetrviewer_name(String inetrviewer_name) {
+		this.inetrviewer_name = inetrviewer_name;
+	}
+
+	public void unSetInetrviewer_name() {
+		this.inetrviewer_name = null;
+	}
 
 	public String getEvent_date_str() {
 		return event_date_str;

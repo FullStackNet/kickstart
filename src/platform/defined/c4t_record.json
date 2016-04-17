@@ -584,6 +584,22 @@
 				'type': 'timestamp',
 				index : true
 			},
+			'candidate_id': {
+				'type': 'String',
+				'length' : 32
+			},
+			'candidate_name': {
+				'type': 'String',
+				'length' : 32
+			},
+			'inetrviewer_id': {
+				'type': 'String',
+				'length' : 32
+			},
+			'inetrviewer_name': {
+				'type': 'String',
+				'length' : 32
+			},
 			'event_date_str': {
 				'type': 'String',
 				'length' : 32
