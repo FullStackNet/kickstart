@@ -64,7 +64,7 @@ public class ApplianceHelper extends BaseHelper {
 	}
 	
 	public BaseResource[] getCommunityAppliance(String communityId) {
-		Expression e = new Expression(appliance.FIELD_COMMUNITY_ID, REL_OP.IN, communityId);
+		Expression e = new Expression(appliance.FIELD_COMMUNITY_ID, REL_OP.EQ, communityId);
 		BaseResource[] appliances = getByExpression(e, new String[]{appliance.FIELD_NAME});
 		if (Util.isEmpty(appliances)) 
 			return null;

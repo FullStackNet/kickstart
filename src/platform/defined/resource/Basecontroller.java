@@ -23,6 +23,9 @@ public abstract class Basecontroller extends BaseResource {
 	private String name = null;
 	private String hardware_vendor_id = null;
 	private String appliance_id = null;
+	private String appliance_name = null;
+	private String community_id = null;
+	private String community_name = null;
 	private String mfg_date = null;
 	private String model = null;
 	private String manager = null;
@@ -91,6 +94,9 @@ public abstract class Basecontroller extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_HARDWARE_VENDOR_ID = "hardware_vendor_id";
 	public static String FIELD_APPLIANCE_ID = "appliance_id";
+	public static String FIELD_APPLIANCE_NAME = "appliance_name";
+	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_COMMUNITY_NAME = "community_name";
 	public static String FIELD_MFG_DATE = "mfg_date";
 	public static String FIELD_MODEL = "model";
 	public static String FIELD_MANAGER = "manager";
@@ -178,6 +184,18 @@ public abstract class Basecontroller extends BaseResource {
 		Field appliance_idField = new Field("appliance_id", "String");
 		appliance_idField.setLength(128);
 		metaData.addField(appliance_idField);
+
+		Field appliance_nameField = new Field("appliance_name", "String");
+		appliance_nameField.setLength(128);
+		metaData.addField(appliance_nameField);
+
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
+
+		Field community_nameField = new Field("community_name", "String");
+		community_nameField.setLength(128);
+		metaData.addField(community_nameField);
 
 		Field mfg_dateField = new Field("mfg_date", "String");
 		mfg_dateField.setLength(20);
@@ -453,6 +471,9 @@ public abstract class Basecontroller extends BaseResource {
 		this.name = obj.name;
 		this.hardware_vendor_id = obj.hardware_vendor_id;
 		this.appliance_id = obj.appliance_id;
+		this.appliance_name = obj.appliance_name;
+		this.community_id = obj.community_id;
+		this.community_name = obj.community_name;
 		this.mfg_date = obj.mfg_date;
 		this.model = obj.model;
 		this.manager = obj.manager;
@@ -575,6 +596,12 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("hardware_vendor_id", hardware_vendor_id);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
+		if(appliance_name != null)
+			map.put("appliance_name", appliance_name);
+		if(community_id != null)
+			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
 		if(mfg_date != null)
 			map.put("mfg_date", mfg_date);
 		if(model != null)
@@ -717,6 +744,12 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("hardware_vendor_id", hardware_vendor_id);
 		if(appliance_id != null)
 			map.put("appliance_id", appliance_id);
+		if(appliance_name != null)
+			map.put("appliance_name", appliance_name);
+		if(community_id != null)
+			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
 		if(mfg_date != null)
 			map.put("mfg_date", mfg_date);
 		if(model != null)
@@ -857,6 +890,9 @@ public abstract class Basecontroller extends BaseResource {
 		name = (String) map.get("name");
 		hardware_vendor_id = (String) map.get("hardware_vendor_id");
 		appliance_id = (String) map.get("appliance_id");
+		appliance_name = (String) map.get("appliance_name");
+		community_id = (String) map.get("community_id");
+		community_name = (String) map.get("community_name");
 		mfg_date = (String) map.get("mfg_date");
 		model = (String) map.get("model");
 		manager = (String) map.get("manager");
@@ -939,6 +975,18 @@ public abstract class Basecontroller extends BaseResource {
 		Object appliance_idObj = map.get("appliance_id");
 		if(appliance_idObj != null)
 			appliance_id = appliance_idObj.toString();
+
+		Object appliance_nameObj = map.get("appliance_name");
+		if(appliance_nameObj != null)
+			appliance_name = appliance_nameObj.toString();
+
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
+
+		Object community_nameObj = map.get("community_name");
+		if(community_nameObj != null)
+			community_name = community_nameObj.toString();
 
 		Object mfg_dateObj = map.get("mfg_date");
 		if(mfg_dateObj != null)
@@ -1271,6 +1319,54 @@ public abstract class Basecontroller extends BaseResource {
 
 	public void unSetAppliance_id() {
 		this.appliance_id = null;
+	}
+
+	public String getAppliance_name() {
+		return appliance_name;
+	}
+
+	public String getAppliance_nameEx() {
+		return appliance_name != null ? appliance_name : "";
+	}
+
+	public void setAppliance_name(String appliance_name) {
+		this.appliance_name = appliance_name;
+	}
+
+	public void unSetAppliance_name() {
+		this.appliance_name = null;
+	}
+
+	public String getCommunity_id() {
+		return community_id;
+	}
+
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
+	}
+
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
+	}
+
+	public void unSetCommunity_id() {
+		this.community_id = null;
+	}
+
+	public String getCommunity_name() {
+		return community_name;
+	}
+
+	public String getCommunity_nameEx() {
+		return community_name != null ? community_name : "";
+	}
+
+	public void setCommunity_name(String community_name) {
+		this.community_name = community_name;
+	}
+
+	public void unSetCommunity_name() {
+		this.community_name = null;
 	}
 
 	public String getMfg_date() {

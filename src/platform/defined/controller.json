@@ -29,6 +29,24 @@
 				'length': 128,
 				'type':'String'
 			},
+			'appliance_name':
+			{
+				'name':'appliance_name',
+				'length': 128,
+				'type':'String'
+			},
+			'community_id':
+			{
+				'name':'community_id',
+				'length': 128,
+				'type':'String'
+			},
+			'community_name':
+			{
+				'name':'community_name',
+				'length': 128,
+				'type':'String'
+			},
 			'mfg_date':
 			{
 				'name':'mfg_date',
