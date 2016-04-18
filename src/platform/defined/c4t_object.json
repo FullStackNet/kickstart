@@ -335,6 +335,11 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_appliance_management':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_non_veg':
 			{
 				'type':'String',
