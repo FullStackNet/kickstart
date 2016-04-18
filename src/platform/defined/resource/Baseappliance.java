@@ -74,6 +74,8 @@ public abstract class Baseappliance extends BaseResource {
 	private String tenent_id = null;
 	private String customer_id = null;
 	private String user_id = null;
+	private String community_id = null;
+	private String community_name = null;
 	private String ex_type = null;
 	private String interface_type = null;
 	private Integer battery_number = null;
@@ -248,6 +250,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_TENENT_ID = "tenent_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_COMMUNITY_NAME = "community_name";
 	public static String FIELD_EX_TYPE = "ex_type";
 	public static String FIELD_INTERFACE_TYPE = "interface_type";
 	public static String FIELD_BATTERY_NUMBER = "battery_number";
@@ -618,6 +622,14 @@ public abstract class Baseappliance extends BaseResource {
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
+
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
+
+		Field community_nameField = new Field("community_name", "String");
+		community_nameField.setLength(128);
+		metaData.addField(community_nameField);
 
 		Field ex_typeField = new Field("ex_type", "String");
 		ex_typeField.setDefaultValue("ENABLED");
@@ -1235,6 +1247,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.tenent_id = obj.tenent_id;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
+		this.community_id = obj.community_id;
+		this.community_name = obj.community_name;
 		this.ex_type = obj.ex_type;
 		this.interface_type = obj.interface_type;
 		this.battery_number = obj.battery_number;
@@ -1682,6 +1696,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(community_id != null)
+			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
 		if(ex_type != null)
 			map.put("ex_type", ex_type);
 		if(interface_type != null)
@@ -2036,6 +2054,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(user_id != null)
 			map.put("user_id", user_id);
+		if(community_id != null)
+			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
 		if(ex_type != null)
 			map.put("ex_type", ex_type);
 		if(interface_type != null)
@@ -2334,6 +2356,8 @@ public abstract class Baseappliance extends BaseResource {
 		tenent_id = (String) map.get("tenent_id");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
+		community_id = (String) map.get("community_id");
+		community_name = (String) map.get("community_name");
 		ex_type = (String) map.get("ex_type");
 		interface_type = (String) map.get("interface_type");
 		battery_number = (Integer) map.get("battery_number");
@@ -2659,6 +2683,14 @@ public abstract class Baseappliance extends BaseResource {
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
 			user_id = user_idObj.toString();
+
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
+
+		Object community_nameObj = map.get("community_name");
+		if(community_nameObj != null)
+			community_name = community_nameObj.toString();
 
 		Object ex_typeObj = map.get("ex_type");
 		if(ex_typeObj != null)
@@ -3937,6 +3969,38 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetUser_id() {
 		this.user_id = null;
+	}
+
+	public String getCommunity_id() {
+		return community_id;
+	}
+
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
+	}
+
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
+	}
+
+	public void unSetCommunity_id() {
+		this.community_id = null;
+	}
+
+	public String getCommunity_name() {
+		return community_name;
+	}
+
+	public String getCommunity_nameEx() {
+		return community_name != null ? community_name : "";
+	}
+
+	public void setCommunity_name(String community_name) {
+		this.community_name = community_name;
+	}
+
+	public void unSetCommunity_name() {
+		this.community_name = null;
 	}
 
 	public String getEx_type() {
