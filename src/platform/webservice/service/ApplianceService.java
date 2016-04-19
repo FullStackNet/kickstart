@@ -227,7 +227,9 @@ public class ApplianceService extends BaseService{
 		QUERY_GET_BY_ROUTE_ID,
 		QUERY_APPLIANCE_HOME_AUTOMATION,
 		QUERY_USER_VEHICLE_SUMMARY,
-		QUERY_USER_VEHICLE_LOCATION
+		QUERY_USER_VEHICLE_LOCATION,
+		QUERY_GET_BY_ID,
+		
 	};
 
 	public BaseResource get(ServletContext ctx, String uid) {
@@ -242,6 +244,14 @@ public class ApplianceService extends BaseService{
 		else if(QueryTypes.QUERY_USER_VEHICLE_LOCATION.toString().equals(queryId)) {
 			String appliance_id = (String)map.get("id");
 			BaseResource appliance = ApplianceHelper.getInstance().getApplianceLocation(appliance_id);
+			if (appliance == null)
+				return null;
+			BaseResource[] resources = new appliance[1];
+			resources[0] = appliance;
+			return resources;
+		}  else if(QueryTypes.QUERY_GET_BY_ID.toString().equals(queryId)) {
+			String appliance_id = (String)map.get("id");
+			BaseResource appliance = ApplianceHelper.getInstance().getById(appliance_id);
 			if (appliance == null)
 				return null;
 			BaseResource[] resources = new appliance[1];

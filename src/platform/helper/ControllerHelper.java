@@ -2,12 +2,15 @@ package platform.helper;
 
 import java.util.Date;
 
+import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
+import platform.resource.appliance;
 import platform.resource.controller;
 import platform.resource.gateway;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
+import platform.util.Util;
 
 
 public class ControllerHelper extends BaseHelper {
@@ -60,6 +63,14 @@ public class ControllerHelper extends BaseHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public BaseResource[] getCommunityControllers(String communityId) {
+		Expression e = new Expression(appliance.FIELD_COMMUNITY_ID, REL_OP.EQ, communityId);
+		BaseResource[] _controllers = getByExpression(e, new String[]{appliance.FIELD_NAME});
+		if (Util.isEmpty(_controllers)) 
+			return null;
+		return _controllers;
 	}
 	
 	public int getControllerCountByGatewayId(String gatewayId) {
