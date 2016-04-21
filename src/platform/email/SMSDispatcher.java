@@ -10,6 +10,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.InflaterInputStream;
 
@@ -29,15 +31,50 @@ import platform.util.Util;
 public class SMSDispatcher {
 	private static SMSDispatcher instance;
 	Map<String, sms_account> accountMap;
+	BlockingQueue<SMSMessage> failedMessage;
 
+	class SMSMessage {
+		String mobile_no;
+		String templete;
+		Map<String, String> params;
+		public SMSMessage(String mobile_no,String templete,Map<String, String> params) {
+			this.mobile_no = mobile_no;
+			this.templete = templete;
+			this.params = params;
+		}
+	}
+	
 	public static SMSDispatcher getInstance() {
 		if (instance == null)
 			instance = new SMSDispatcher();
 		return instance;
 	}
-
+	
 	SMSDispatcher() {
 		accountMap = new HashMap<String, sms_account>();
+		failedMessage = new ArrayBlockingQueue<SMSMessage>(10000);
+		Thread thread = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				while (true) {
+					try {
+						SMSMessage message = failedMessage.take();
+						try {
+							sendSMS(message.mobile_no, message.templete, message.params);
+						} catch (ApplicationException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		thread.start();
 	}
 
 	public  boolean isReachable() {
@@ -51,11 +88,11 @@ public class SMSDispatcher {
 		return !Util.isEmpty(e.getMessage()) && (e.getMessage().contains("Unknown SMTP host") ||
 				e.getMessage().contains("Could not connect to SMTP host"));
 	}
-	void sendHTTPMessage(String urlstr){
+	void sendHTTPMessage(SMSMessage _smsMessage,String urlstr){
 		int count = 0;
 		while (count < 3) {
 			try {
-				_sendHTTPMessage(urlstr);
+				_sendHTTPMessage(_smsMessage,urlstr);
 				return; 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -70,9 +107,10 @@ public class SMSDispatcher {
 			}
 			
 		}
+		failedMessage.add(_smsMessage);
 	}
 	
-	void _sendHTTPMessage(String urlstr) throws Exception {
+	void _sendHTTPMessage(SMSMessage _smsMessage,String urlstr) throws Exception {
 		HttpURLConnection httpURLConnection = null;
 		InputStream input = null;
 		StringBuilder responseStr = new StringBuilder();
@@ -156,6 +194,8 @@ public class SMSDispatcher {
 
 	public void sendSMS(String mobile_no,String templete,Map<String, String> params) throws ApplicationException 
 	{
+		SMSMessage _smsMessage = new SMSMessage(mobile_no,templete,params);
+		
 		sms_account _account = null;
 		if (mobile_no.startsWith("91")) {
 			if (mobile_no.length() > 10) {
@@ -208,10 +248,10 @@ public class SMSDispatcher {
 					}
 					if (_account != null) {
 						String url = getURLFromAccount(_account,mobile_no,message);
-						sendHTTPMessage(url);
+						sendHTTPMessage(_smsMessage,url);
 					} else {
 						String url = "http://luna.a2wi.co.in:7501/failsafe/HttpLink?aid=516180&pin=cfy@1&mnumber=91"+mobile_no+"&message="+message;
-						sendHTTPMessage(url);
+						sendHTTPMessage(_smsMessage,url);
 					}
 					if (params != null) {
 						String logId = params.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_LOG_ID);
