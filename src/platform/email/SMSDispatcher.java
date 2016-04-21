@@ -51,8 +51,30 @@ public class SMSDispatcher {
 		return !Util.isEmpty(e.getMessage()) && (e.getMessage().contains("Unknown SMTP host") ||
 				e.getMessage().contains("Could not connect to SMTP host"));
 	}
-	void sendHTTPMessage(String urlstr) {
-		HttpURLConnection httpURLConnection;
+	void sendHTTPMessage(String urlstr){
+		int count = 0;
+		while (count < 3) {
+			try {
+				_sendHTTPMessage(urlstr);
+				return; 
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			count++;
+			try {
+				Thread.sleep(2000L);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	}
+	
+	void _sendHTTPMessage(String urlstr) throws Exception {
+		HttpURLConnection httpURLConnection = null;
+		InputStream input = null;
 		StringBuilder responseStr = new StringBuilder();
 		try {
 			URL url = new URL(urlstr);
@@ -71,7 +93,7 @@ public class SMSDispatcher {
 			ouput.flush();
 			ouput.close();
 
-			InputStream input = httpURLConnection.getInputStream();
+			input = httpURLConnection.getInputStream();
 			String contentEncoding = httpURLConnection.getContentEncoding();
 			// get correct input stream for compressed data:
 			if (contentEncoding != null) {
@@ -89,14 +111,18 @@ public class SMSDispatcher {
 				responseStr.append(new String(buffer, 0, numOfTotalBytesRead));
 			}
 			System.out.println(responseStr);
-			httpURLConnection.disconnect();
-			input.close();
+			
 		} catch (MalformedURLException mue) {
 			System.err.println("Invalid URL");
 		} catch (IOException ioe) {
 			System.err.println("I/O Error - " + ioe);
 		} catch (Exception e) {
 			System.err.println("Error - " + e);
+		} finally {
+			if (httpURLConnection != null)
+				httpURLConnection.disconnect();
+			if (input != null)
+				input.close();
 		}
 	}
 
