@@ -66,6 +66,7 @@ public class SMSDispatcher {
 						} catch (ApplicationException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
+							Thread.sleep(10000L);
 						}
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
