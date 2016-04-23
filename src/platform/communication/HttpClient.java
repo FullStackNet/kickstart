@@ -21,6 +21,34 @@ public class HttpClient {
 	public HttpClient() {
 	}
 	
+	public  static String get(String urlString) throws IOException, ApplicationException {
+		System.out.println( "REQUEST-URL :: " + urlString);
+
+		InputStream is = null;
+		try {
+			URL url = new URL(urlString);
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+			conn.setReadTimeout(CONNECTION_TIMEOUT);
+			conn.setConnectTimeout(CONNECTION_TIMEOUT);
+			conn.setRequestMethod("GET");
+			conn.setDoInput(true);
+			conn.connect();
+			int response = conn.getResponseCode();
+
+			if (response == 200) {
+				is = conn.getInputStream();
+				return readIt(is);
+			} 
+			System.out.println( "SERVER RESPONSE CODE :: " + response);
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Error code : "+response);
+		} finally {
+			if (is != null) {
+				is.close();
+			}
+		}
+	}
+	
 	
 	public  static String sendGetRequest(String urlString, String session_id) throws IOException, ApplicationException {
 		System.out.println( "REQUEST-URL :: " + urlString);
