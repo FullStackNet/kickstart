@@ -52,6 +52,14 @@ public class Util {
 	public static Long uniqueNumber = new Long(0); 
 
 
+	public static void pause(long mSecs) {
+		try {
+			Thread.sleep(mSecs);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	private static final Random generator = new Random();  
 
 	public static long nextNumber() {
