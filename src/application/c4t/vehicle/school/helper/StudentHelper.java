@@ -7,11 +7,15 @@ import platform.db.Expression;
 import platform.db.JoinField;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
+import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
+import platform.resource.appliance;
 import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.Util;
+import application.c4t.vehicle.helper.RouteHelper;
+import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
 
@@ -374,6 +378,28 @@ public class StudentHelper extends BaseHelper {
 			list.addAll(users);
 		}
 		return list.toArray(new user[list.size()]);
+	}
+	
+	public BaseResource getStudentLocation(String studentId,String routeType) {
+		student _student = (student)StudentHelper.getInstance().getById(studentId);
+		appliance _bus = null;
+		appliance _appliance = null;
+		if (_student == null) 
+			return null;
+		if (route.ROUTE_TYPE_PICKUP.equals(routeType)) {
+			route _route = (route)RouteHelper.getInstance().getById(_student.getPickup_route_id());
+			if (_route == null) {
+				return null;
+			}
+			_appliance = (appliance)ApplianceHelper.getInstance().getById(_route.getAppliance_id());
+		} else if (route.ROUTE_TYPE_DROP.equals(routeType)) {
+			route _route = (route)RouteHelper.getInstance().getById(_student.getPickup_route_id());
+			if (_route == null) {
+				return null;
+			}
+			_appliance = (appliance)ApplianceHelper.getInstance().getById(_route.getAppliance_id());
+		}		
+		return _appliance;
 	}
 
 	public BaseResource[] getUserBySectionName(String school_id,String class_name,String section_name) {
