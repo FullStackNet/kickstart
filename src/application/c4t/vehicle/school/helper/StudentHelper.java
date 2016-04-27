@@ -383,7 +383,6 @@ public class StudentHelper extends BaseHelper {
 	public BaseResource getStudentLocation(String studentId,String routeType) {
 		student _student = (student)StudentHelper.getInstance().getById(studentId);
 		appliance _bus = null;
-		appliance _appliance = null;
 		if (_student == null) 
 			return null;
 		if (route.ROUTE_TYPE_PICKUP.equals(routeType)) {
@@ -391,15 +390,15 @@ public class StudentHelper extends BaseHelper {
 			if (_route == null) {
 				return null;
 			}
-			_appliance = (appliance)ApplianceHelper.getInstance().getById(_route.getAppliance_id());
+			_bus = (appliance)ApplianceHelper.getInstance().getById(_route.getAppliance_id());
 		} else if (route.ROUTE_TYPE_DROP.equals(routeType)) {
-			route _route = (route)RouteHelper.getInstance().getById(_student.getPickup_route_id());
+			route _route = (route)RouteHelper.getInstance().getById(_student.getDropped_route_id());
 			if (_route == null) {
 				return null;
 			}
-			_appliance = (appliance)ApplianceHelper.getInstance().getById(_route.getAppliance_id());
+			_bus = (appliance)ApplianceHelper.getInstance().getById(_route.getAppliance_id());
 		}		
-		return _appliance;
+		return _bus;
 	}
 
 	public BaseResource[] getUserBySectionName(String school_id,String class_name,String section_name) {
