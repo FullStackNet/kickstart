@@ -104,6 +104,11 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'place':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'product_short_name':
 			{
 				'length': 512,

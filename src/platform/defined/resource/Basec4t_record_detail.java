@@ -38,6 +38,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	private String reference_no = null;
 	private String farmer_id = null;
 	private String farmer_name = null;
+	private String place = null;
 	private String product_short_name = null;
 	private String title = null;
 	private String description = null;
@@ -90,6 +91,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 	public static String FIELD_REFERENCE_NO = "reference_no";
 	public static String FIELD_FARMER_ID = "farmer_id";
 	public static String FIELD_FARMER_NAME = "farmer_name";
+	public static String FIELD_PLACE = "place";
 	public static String FIELD_PRODUCT_SHORT_NAME = "product_short_name";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
@@ -207,6 +209,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Field farmer_nameField = new Field("farmer_name", "String");
 		farmer_nameField.setLength(512);
 		metaData.addField(farmer_nameField);
+
+		Field placeField = new Field("place", "String");
+		placeField.setLength(512);
+		metaData.addField(placeField);
 
 		Field product_short_nameField = new Field("product_short_name", "String");
 		product_short_nameField.setLength(512);
@@ -344,6 +350,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		this.reference_no = obj.reference_no;
 		this.farmer_id = obj.farmer_id;
 		this.farmer_name = obj.farmer_name;
+		this.place = obj.place;
 		this.product_short_name = obj.product_short_name;
 		this.title = obj.title;
 		this.description = obj.description;
@@ -422,6 +429,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("farmer_id", farmer_id);
 		if(farmer_name != null)
 			map.put("farmer_name", farmer_name);
+		if(place != null)
+			map.put("place", place);
 		if(product_short_name != null)
 			map.put("product_short_name", product_short_name);
 		if(title != null)
@@ -529,6 +538,8 @@ public abstract class Basec4t_record_detail extends BaseResource {
 			map.put("farmer_id", farmer_id);
 		if(farmer_name != null)
 			map.put("farmer_name", farmer_name);
+		if(place != null)
+			map.put("place", place);
 		if(product_short_name != null)
 			map.put("product_short_name", product_short_name);
 		if(title != null)
@@ -622,6 +633,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		reference_no = (String) map.get("reference_no");
 		farmer_id = (String) map.get("farmer_id");
 		farmer_name = (String) map.get("farmer_name");
+		place = (String) map.get("place");
 		product_short_name = (String) map.get("product_short_name");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
@@ -733,6 +745,10 @@ public abstract class Basec4t_record_detail extends BaseResource {
 		Object farmer_nameObj = map.get("farmer_name");
 		if(farmer_nameObj != null)
 			farmer_name = farmer_nameObj.toString();
+
+		Object placeObj = map.get("place");
+		if(placeObj != null)
+			place = placeObj.toString();
 
 		Object product_short_nameObj = map.get("product_short_name");
 		if(product_short_nameObj != null)
@@ -1168,6 +1184,22 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 	public void unSetFarmer_name() {
 		this.farmer_name = null;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public String getPlaceEx() {
+		return place != null ? place : "";
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public void unSetPlace() {
+		this.place = null;
 	}
 
 	public String getProduct_short_name() {
