@@ -282,6 +282,9 @@ public class MongoDBConnection extends DbConnection {
 		case IN:
 			object.put(variable, new BasicDBObject("$in", expressionValueObj));
 			break;
+		case NIN:
+			object.put(variable, new BasicDBObject("$nin", expressionValueObj));
+			break;	
 		case EACH_ELEMENT_IN:
 			object.put(variable, new BasicDBObject("$elemMatch", new BasicDBObject("$in", expressionValueObj)));
 			break;	
