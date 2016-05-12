@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -58,6 +54,10 @@ public abstract class Basefee_breakup extends BaseResource {
 		Field heading_idField = new Field("heading_id", "String");
 		heading_idField.setLength(32);
 		metaData.addField(heading_idField);
+
+		Field heading_nameField = new Field("heading_name", "String");
+		heading_nameField.setLength(128);
+		metaData.addField(heading_nameField);
 
 		Field feesField = new Field("fees", "double");
 		metaData.addField(feesField);
@@ -139,6 +139,7 @@ public abstract class Basefee_breakup extends BaseResource {
 		id = (String) map.get("id");
 		parent_id = (String) map.get("parent_id");
 		heading_id = (String) map.get("heading_id");
+		heading_name = (String) map.get("heading_name");
 		fees = (Double) map.get("fees");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -157,6 +158,10 @@ public abstract class Basefee_breakup extends BaseResource {
 		Object heading_idObj = map.get("heading_id");
 		if(heading_idObj != null)
 			heading_id = heading_idObj.toString();
+
+		Object heading_nameObj = map.get("heading_name");
+		if(heading_nameObj != null)
+			heading_name = heading_nameObj.toString();
 
 		Object feesObj = map.get("fees");
 		if(feesObj != null)
