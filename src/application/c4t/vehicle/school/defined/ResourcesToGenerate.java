@@ -100,6 +100,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("fee_breakup", "application.c4t.vehicle.school.resource.fee_breakup"),	
 		new ResourceMap("fee_additional_charge", "application.c4t.vehicle.school.resource.fee_additional_charge"),	
 		new ResourceMap("timetable", "application.c4t.vehicle.school.resource.timetable"),	
+		new ResourceMap("timetable_interface", "application.c4t.vehicle.school.resource.timetable_interface"),	
 		new ResourceMap("fee_receipt", "application.c4t.vehicle.school.resource.fee_receipt"),	
 		new ResourceMap("fee_discount", "application.c4t.vehicle.school.resource.fee_discount"),	
 		new ResourceMap("holiday", "application.c4t.vehicle.school.resource.holiday"),	
