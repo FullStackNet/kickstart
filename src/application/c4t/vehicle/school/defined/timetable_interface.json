@@ -1,0 +1,524 @@
+{
+	"timetable_interface" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			
+			'section_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'days':
+			{
+				'type':'int'
+			},
+			'periods':
+			{
+				'type':'int'
+			},
+			
+			'teacher_id1_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id1_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id1_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id1_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id1_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id1_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id1_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id1_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id1_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id1_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id1_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id1_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id1_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id1_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id1_9':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id1_10':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			
+			'teacher_id2_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id2_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id2_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id2_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id2_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id2_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id2_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id2_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id2_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id2_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id2_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id2_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id2_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id2_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id2_9':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id2_10':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			
+			'teacher_id3_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id3_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id3_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id3_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id3_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id3_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id3_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id3_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id3_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id3_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id3_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id3_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id3_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id3_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id3_9':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id3_10':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			
+			'teacher_id4_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id4_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id4_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id4_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id4_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id4_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id4_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id4_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id4_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id4_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id4_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id4_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id4_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id4_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id4_9':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id4_10':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			
+			'teacher_id5_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id5_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id5_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id5_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id5_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id5_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id5_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id5_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id5_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id5_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id5_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id5_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id5_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id5_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id5_9':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id5_10':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			
+			'teacher_id6_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id6_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id6_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id6_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id6_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id6_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id6_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id6_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id6_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id6_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id6_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id6_6':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id6_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id6_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id6_9':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_id6_10':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}			
+		}
+	}
+}
