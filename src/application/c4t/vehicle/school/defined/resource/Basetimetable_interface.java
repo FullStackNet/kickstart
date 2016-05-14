@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Basetimetable_interface extends BaseResource {
 	private String id = null;
 	private String class_name = null;
+	private String school_id = null;
 	private String section_name = null;
 	private Integer days = null;
 	private Integer periods = null;
@@ -137,6 +138,7 @@ public abstract class Basetimetable_interface extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_CLASS_NAME = "class_name";
+	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_DAYS = "days";
 	public static String FIELD_PERIODS = "periods";
@@ -265,6 +267,10 @@ public abstract class Basetimetable_interface extends BaseResource {
 		Field class_nameField = new Field("class_name", "String");
 		class_nameField.setLength(32);
 		metaData.addField(class_nameField);
+
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
 
 		Field section_nameField = new Field("section_name", "String");
 		section_nameField.setLength(32);
@@ -726,6 +732,7 @@ public abstract class Basetimetable_interface extends BaseResource {
 	public Basetimetable_interface(Basetimetable_interface obj) {
 		this.id = obj.id;
 		this.class_name = obj.class_name;
+		this.school_id = obj.school_id;
 		this.section_name = obj.section_name;
 		this.days = obj.days;
 		this.periods = obj.periods;
@@ -851,6 +858,8 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("id", id);
 		if(class_name != null)
 			map.put("class_name", class_name);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(section_name != null)
 			map.put("section_name", section_name);
 		if(days != null)
@@ -1086,6 +1095,8 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("id", id);
 		if(class_name != null)
 			map.put("class_name", class_name);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(section_name != null)
 			map.put("section_name", section_name);
 		if(days != null)
@@ -1324,6 +1335,7 @@ public abstract class Basetimetable_interface extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		class_name = (String) map.get("class_name");
+		school_id = (String) map.get("school_id");
 		section_name = (String) map.get("section_name");
 		days = (Integer) map.get("days");
 		periods = (Integer) map.get("periods");
@@ -1448,6 +1460,10 @@ public abstract class Basetimetable_interface extends BaseResource {
 		Object class_nameObj = map.get("class_name");
 		if(class_nameObj != null)
 			class_name = class_nameObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
 
 		Object section_nameObj = map.get("section_name");
 		if(section_nameObj != null)
@@ -1942,6 +1958,22 @@ public abstract class Basetimetable_interface extends BaseResource {
 
 	public void unSetClass_name() {
 		this.class_name = null;
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
 	}
 
 	public String getSection_name() {
