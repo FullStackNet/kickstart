@@ -25,6 +25,7 @@ public abstract class Basedaily_activity_calender extends BaseResource {
 	private String class_section_name = null;
 	private String school_id = null;
 	private String customer_id = null;
+	private String type = null;
 	private String title = null;
 	private String description = null;
 	private Long creation_time = null;
@@ -42,6 +43,7 @@ public abstract class Basedaily_activity_calender extends BaseResource {
 	public static String FIELD_CLASS_SECTION_NAME = "class_section_name";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_TYPE = "type";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -85,6 +87,10 @@ public abstract class Basedaily_activity_calender extends BaseResource {
 		customer_idField.setIndexed(true);
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
+
+		Field typeField = new Field("type", "String");
+		typeField.setLength(512);
+		metaData.addField(typeField);
 
 		Field titleField = new Field("title", "String");
 		titleField.setLength(512);
@@ -141,6 +147,7 @@ public abstract class Basedaily_activity_calender extends BaseResource {
 		this.class_section_name = obj.class_section_name;
 		this.school_id = obj.school_id;
 		this.customer_id = obj.customer_id;
+		this.type = obj.type;
 		this.title = obj.title;
 		this.description = obj.description;
 		this.creation_time = obj.creation_time;
@@ -180,6 +187,8 @@ public abstract class Basedaily_activity_calender extends BaseResource {
 			map.put("school_id", school_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(type != null)
+			map.put("type", type);
 		if(title != null)
 			map.put("title", title);
 		if(description != null)
@@ -220,6 +229,8 @@ public abstract class Basedaily_activity_calender extends BaseResource {
 			map.put("school_id", school_id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(type != null)
+			map.put("type", type);
 		if(title != null)
 			map.put("title", title);
 		if(description != null)
@@ -256,6 +267,7 @@ public abstract class Basedaily_activity_calender extends BaseResource {
 		class_section_name = (String) map.get("class_section_name");
 		school_id = (String) map.get("school_id");
 		customer_id = (String) map.get("customer_id");
+		type = (String) map.get("type");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
 		creation_time = (Long) map.get("creation_time");
@@ -293,6 +305,10 @@ public abstract class Basedaily_activity_calender extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object typeObj = map.get("type");
+		if(typeObj != null)
+			type = typeObj.toString();
 
 		Object titleObj = map.get("title");
 		if(titleObj != null)
@@ -436,6 +452,22 @@ public abstract class Basedaily_activity_calender extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public String getTypeEx() {
+		return type != null ? type : "";
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void unSetType() {
+		this.type = null;
 	}
 
 	public String getTitle() {

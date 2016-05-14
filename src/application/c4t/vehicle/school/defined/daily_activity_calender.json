@@ -38,6 +38,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'type':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'title':
 			{
 				'length': 512,
