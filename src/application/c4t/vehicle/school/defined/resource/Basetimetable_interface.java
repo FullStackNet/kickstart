@@ -37,9 +37,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	private String teacher_id1_6 = null;
 	private String subject_id1_6 = null;
 	private String teacher_id1_7 = null;
+	private String subject_id1_7 = null;
+	private String teacher_id1_8 = null;
 	private String subject_id1_8 = null;
 	private String teacher_id1_9 = null;
-	private String subject_id1_10 = null;
+	private String subject_id1_9 = null;
 	private String teacher_id2_1 = null;
 	private String subject_id2_1 = null;
 	private String teacher_id2_2 = null;
@@ -53,9 +55,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	private String teacher_id2_6 = null;
 	private String subject_id2_6 = null;
 	private String teacher_id2_7 = null;
+	private String subject_id2_7 = null;
+	private String teacher_id2_8 = null;
 	private String subject_id2_8 = null;
 	private String teacher_id2_9 = null;
-	private String subject_id2_10 = null;
+	private String subject_id2_9 = null;
 	private String teacher_id3_1 = null;
 	private String subject_id3_1 = null;
 	private String teacher_id3_2 = null;
@@ -69,9 +73,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	private String teacher_id3_6 = null;
 	private String subject_id3_6 = null;
 	private String teacher_id3_7 = null;
+	private String subject_id3_7 = null;
+	private String teacher_id3_8 = null;
 	private String subject_id3_8 = null;
 	private String teacher_id3_9 = null;
-	private String subject_id3_10 = null;
+	private String subject_id3_9 = null;
 	private String teacher_id4_1 = null;
 	private String subject_id4_1 = null;
 	private String teacher_id4_2 = null;
@@ -85,9 +91,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	private String teacher_id4_6 = null;
 	private String subject_id4_6 = null;
 	private String teacher_id4_7 = null;
+	private String subject_id4_7 = null;
+	private String teacher_id4_8 = null;
 	private String subject_id4_8 = null;
 	private String teacher_id4_9 = null;
-	private String subject_id4_10 = null;
+	private String subject_id4_9 = null;
 	private String teacher_id5_1 = null;
 	private String subject_id5_1 = null;
 	private String teacher_id5_2 = null;
@@ -101,9 +109,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	private String teacher_id5_6 = null;
 	private String subject_id5_6 = null;
 	private String teacher_id5_7 = null;
+	private String subject_id5_7 = null;
+	private String teacher_id5_8 = null;
 	private String subject_id5_8 = null;
 	private String teacher_id5_9 = null;
-	private String subject_id5_10 = null;
+	private String subject_id5_9 = null;
 	private String teacher_id6_1 = null;
 	private String subject_id6_1 = null;
 	private String teacher_id6_2 = null;
@@ -117,9 +127,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	private String teacher_id6_6 = null;
 	private String subject_id6_6 = null;
 	private String teacher_id6_7 = null;
+	private String subject_id6_7 = null;
+	private String teacher_id6_8 = null;
 	private String subject_id6_8 = null;
 	private String teacher_id6_9 = null;
-	private String subject_id6_10 = null;
+	private String subject_id6_9 = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -141,9 +153,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	public static String FIELD_TEACHER_ID1_6 = "teacher_id1_6";
 	public static String FIELD_SUBJECT_ID1_6 = "subject_id1_6";
 	public static String FIELD_TEACHER_ID1_7 = "teacher_id1_7";
+	public static String FIELD_SUBJECT_ID1_7 = "subject_id1_7";
+	public static String FIELD_TEACHER_ID1_8 = "teacher_id1_8";
 	public static String FIELD_SUBJECT_ID1_8 = "subject_id1_8";
 	public static String FIELD_TEACHER_ID1_9 = "teacher_id1_9";
-	public static String FIELD_SUBJECT_ID1_10 = "subject_id1_10";
+	public static String FIELD_SUBJECT_ID1_9 = "subject_id1_9";
 	public static String FIELD_TEACHER_ID2_1 = "teacher_id2_1";
 	public static String FIELD_SUBJECT_ID2_1 = "subject_id2_1";
 	public static String FIELD_TEACHER_ID2_2 = "teacher_id2_2";
@@ -157,9 +171,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	public static String FIELD_TEACHER_ID2_6 = "teacher_id2_6";
 	public static String FIELD_SUBJECT_ID2_6 = "subject_id2_6";
 	public static String FIELD_TEACHER_ID2_7 = "teacher_id2_7";
+	public static String FIELD_SUBJECT_ID2_7 = "subject_id2_7";
+	public static String FIELD_TEACHER_ID2_8 = "teacher_id2_8";
 	public static String FIELD_SUBJECT_ID2_8 = "subject_id2_8";
 	public static String FIELD_TEACHER_ID2_9 = "teacher_id2_9";
-	public static String FIELD_SUBJECT_ID2_10 = "subject_id2_10";
+	public static String FIELD_SUBJECT_ID2_9 = "subject_id2_9";
 	public static String FIELD_TEACHER_ID3_1 = "teacher_id3_1";
 	public static String FIELD_SUBJECT_ID3_1 = "subject_id3_1";
 	public static String FIELD_TEACHER_ID3_2 = "teacher_id3_2";
@@ -173,9 +189,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	public static String FIELD_TEACHER_ID3_6 = "teacher_id3_6";
 	public static String FIELD_SUBJECT_ID3_6 = "subject_id3_6";
 	public static String FIELD_TEACHER_ID3_7 = "teacher_id3_7";
+	public static String FIELD_SUBJECT_ID3_7 = "subject_id3_7";
+	public static String FIELD_TEACHER_ID3_8 = "teacher_id3_8";
 	public static String FIELD_SUBJECT_ID3_8 = "subject_id3_8";
 	public static String FIELD_TEACHER_ID3_9 = "teacher_id3_9";
-	public static String FIELD_SUBJECT_ID3_10 = "subject_id3_10";
+	public static String FIELD_SUBJECT_ID3_9 = "subject_id3_9";
 	public static String FIELD_TEACHER_ID4_1 = "teacher_id4_1";
 	public static String FIELD_SUBJECT_ID4_1 = "subject_id4_1";
 	public static String FIELD_TEACHER_ID4_2 = "teacher_id4_2";
@@ -189,9 +207,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	public static String FIELD_TEACHER_ID4_6 = "teacher_id4_6";
 	public static String FIELD_SUBJECT_ID4_6 = "subject_id4_6";
 	public static String FIELD_TEACHER_ID4_7 = "teacher_id4_7";
+	public static String FIELD_SUBJECT_ID4_7 = "subject_id4_7";
+	public static String FIELD_TEACHER_ID4_8 = "teacher_id4_8";
 	public static String FIELD_SUBJECT_ID4_8 = "subject_id4_8";
 	public static String FIELD_TEACHER_ID4_9 = "teacher_id4_9";
-	public static String FIELD_SUBJECT_ID4_10 = "subject_id4_10";
+	public static String FIELD_SUBJECT_ID4_9 = "subject_id4_9";
 	public static String FIELD_TEACHER_ID5_1 = "teacher_id5_1";
 	public static String FIELD_SUBJECT_ID5_1 = "subject_id5_1";
 	public static String FIELD_TEACHER_ID5_2 = "teacher_id5_2";
@@ -205,9 +225,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	public static String FIELD_TEACHER_ID5_6 = "teacher_id5_6";
 	public static String FIELD_SUBJECT_ID5_6 = "subject_id5_6";
 	public static String FIELD_TEACHER_ID5_7 = "teacher_id5_7";
+	public static String FIELD_SUBJECT_ID5_7 = "subject_id5_7";
+	public static String FIELD_TEACHER_ID5_8 = "teacher_id5_8";
 	public static String FIELD_SUBJECT_ID5_8 = "subject_id5_8";
 	public static String FIELD_TEACHER_ID5_9 = "teacher_id5_9";
-	public static String FIELD_SUBJECT_ID5_10 = "subject_id5_10";
+	public static String FIELD_SUBJECT_ID5_9 = "subject_id5_9";
 	public static String FIELD_TEACHER_ID6_1 = "teacher_id6_1";
 	public static String FIELD_SUBJECT_ID6_1 = "subject_id6_1";
 	public static String FIELD_TEACHER_ID6_2 = "teacher_id6_2";
@@ -221,9 +243,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 	public static String FIELD_TEACHER_ID6_6 = "teacher_id6_6";
 	public static String FIELD_SUBJECT_ID6_6 = "subject_id6_6";
 	public static String FIELD_TEACHER_ID6_7 = "teacher_id6_7";
+	public static String FIELD_SUBJECT_ID6_7 = "subject_id6_7";
+	public static String FIELD_TEACHER_ID6_8 = "teacher_id6_8";
 	public static String FIELD_SUBJECT_ID6_8 = "subject_id6_8";
 	public static String FIELD_TEACHER_ID6_9 = "teacher_id6_9";
-	public static String FIELD_SUBJECT_ID6_10 = "subject_id6_10";
+	public static String FIELD_SUBJECT_ID6_9 = "subject_id6_9";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -304,6 +328,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id1_7Field.setLength(128);
 		metaData.addField(teacher_id1_7Field);
 
+		Field subject_id1_7Field = new Field("subject_id1_7", "String");
+		subject_id1_7Field.setLength(128);
+		metaData.addField(subject_id1_7Field);
+
+		Field teacher_id1_8Field = new Field("teacher_id1_8", "String");
+		teacher_id1_8Field.setLength(128);
+		metaData.addField(teacher_id1_8Field);
+
 		Field subject_id1_8Field = new Field("subject_id1_8", "String");
 		subject_id1_8Field.setLength(128);
 		metaData.addField(subject_id1_8Field);
@@ -312,9 +344,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id1_9Field.setLength(128);
 		metaData.addField(teacher_id1_9Field);
 
-		Field subject_id1_10Field = new Field("subject_id1_10", "String");
-		subject_id1_10Field.setLength(128);
-		metaData.addField(subject_id1_10Field);
+		Field subject_id1_9Field = new Field("subject_id1_9", "String");
+		subject_id1_9Field.setLength(128);
+		metaData.addField(subject_id1_9Field);
 
 		Field teacher_id2_1Field = new Field("teacher_id2_1", "String");
 		teacher_id2_1Field.setLength(128);
@@ -368,6 +400,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id2_7Field.setLength(128);
 		metaData.addField(teacher_id2_7Field);
 
+		Field subject_id2_7Field = new Field("subject_id2_7", "String");
+		subject_id2_7Field.setLength(128);
+		metaData.addField(subject_id2_7Field);
+
+		Field teacher_id2_8Field = new Field("teacher_id2_8", "String");
+		teacher_id2_8Field.setLength(128);
+		metaData.addField(teacher_id2_8Field);
+
 		Field subject_id2_8Field = new Field("subject_id2_8", "String");
 		subject_id2_8Field.setLength(128);
 		metaData.addField(subject_id2_8Field);
@@ -376,9 +416,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id2_9Field.setLength(128);
 		metaData.addField(teacher_id2_9Field);
 
-		Field subject_id2_10Field = new Field("subject_id2_10", "String");
-		subject_id2_10Field.setLength(128);
-		metaData.addField(subject_id2_10Field);
+		Field subject_id2_9Field = new Field("subject_id2_9", "String");
+		subject_id2_9Field.setLength(128);
+		metaData.addField(subject_id2_9Field);
 
 		Field teacher_id3_1Field = new Field("teacher_id3_1", "String");
 		teacher_id3_1Field.setLength(128);
@@ -432,6 +472,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id3_7Field.setLength(128);
 		metaData.addField(teacher_id3_7Field);
 
+		Field subject_id3_7Field = new Field("subject_id3_7", "String");
+		subject_id3_7Field.setLength(128);
+		metaData.addField(subject_id3_7Field);
+
+		Field teacher_id3_8Field = new Field("teacher_id3_8", "String");
+		teacher_id3_8Field.setLength(128);
+		metaData.addField(teacher_id3_8Field);
+
 		Field subject_id3_8Field = new Field("subject_id3_8", "String");
 		subject_id3_8Field.setLength(128);
 		metaData.addField(subject_id3_8Field);
@@ -440,9 +488,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id3_9Field.setLength(128);
 		metaData.addField(teacher_id3_9Field);
 
-		Field subject_id3_10Field = new Field("subject_id3_10", "String");
-		subject_id3_10Field.setLength(128);
-		metaData.addField(subject_id3_10Field);
+		Field subject_id3_9Field = new Field("subject_id3_9", "String");
+		subject_id3_9Field.setLength(128);
+		metaData.addField(subject_id3_9Field);
 
 		Field teacher_id4_1Field = new Field("teacher_id4_1", "String");
 		teacher_id4_1Field.setLength(128);
@@ -496,6 +544,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id4_7Field.setLength(128);
 		metaData.addField(teacher_id4_7Field);
 
+		Field subject_id4_7Field = new Field("subject_id4_7", "String");
+		subject_id4_7Field.setLength(128);
+		metaData.addField(subject_id4_7Field);
+
+		Field teacher_id4_8Field = new Field("teacher_id4_8", "String");
+		teacher_id4_8Field.setLength(128);
+		metaData.addField(teacher_id4_8Field);
+
 		Field subject_id4_8Field = new Field("subject_id4_8", "String");
 		subject_id4_8Field.setLength(128);
 		metaData.addField(subject_id4_8Field);
@@ -504,9 +560,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id4_9Field.setLength(128);
 		metaData.addField(teacher_id4_9Field);
 
-		Field subject_id4_10Field = new Field("subject_id4_10", "String");
-		subject_id4_10Field.setLength(128);
-		metaData.addField(subject_id4_10Field);
+		Field subject_id4_9Field = new Field("subject_id4_9", "String");
+		subject_id4_9Field.setLength(128);
+		metaData.addField(subject_id4_9Field);
 
 		Field teacher_id5_1Field = new Field("teacher_id5_1", "String");
 		teacher_id5_1Field.setLength(128);
@@ -560,6 +616,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id5_7Field.setLength(128);
 		metaData.addField(teacher_id5_7Field);
 
+		Field subject_id5_7Field = new Field("subject_id5_7", "String");
+		subject_id5_7Field.setLength(128);
+		metaData.addField(subject_id5_7Field);
+
+		Field teacher_id5_8Field = new Field("teacher_id5_8", "String");
+		teacher_id5_8Field.setLength(128);
+		metaData.addField(teacher_id5_8Field);
+
 		Field subject_id5_8Field = new Field("subject_id5_8", "String");
 		subject_id5_8Field.setLength(128);
 		metaData.addField(subject_id5_8Field);
@@ -568,9 +632,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id5_9Field.setLength(128);
 		metaData.addField(teacher_id5_9Field);
 
-		Field subject_id5_10Field = new Field("subject_id5_10", "String");
-		subject_id5_10Field.setLength(128);
-		metaData.addField(subject_id5_10Field);
+		Field subject_id5_9Field = new Field("subject_id5_9", "String");
+		subject_id5_9Field.setLength(128);
+		metaData.addField(subject_id5_9Field);
 
 		Field teacher_id6_1Field = new Field("teacher_id6_1", "String");
 		teacher_id6_1Field.setLength(128);
@@ -624,6 +688,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id6_7Field.setLength(128);
 		metaData.addField(teacher_id6_7Field);
 
+		Field subject_id6_7Field = new Field("subject_id6_7", "String");
+		subject_id6_7Field.setLength(128);
+		metaData.addField(subject_id6_7Field);
+
+		Field teacher_id6_8Field = new Field("teacher_id6_8", "String");
+		teacher_id6_8Field.setLength(128);
+		metaData.addField(teacher_id6_8Field);
+
 		Field subject_id6_8Field = new Field("subject_id6_8", "String");
 		subject_id6_8Field.setLength(128);
 		metaData.addField(subject_id6_8Field);
@@ -632,9 +704,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id6_9Field.setLength(128);
 		metaData.addField(teacher_id6_9Field);
 
-		Field subject_id6_10Field = new Field("subject_id6_10", "String");
-		subject_id6_10Field.setLength(128);
-		metaData.addField(subject_id6_10Field);
+		Field subject_id6_9Field = new Field("subject_id6_9", "String");
+		subject_id6_9Field.setLength(128);
+		metaData.addField(subject_id6_9Field);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -670,9 +742,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id1_6 = obj.teacher_id1_6;
 		this.subject_id1_6 = obj.subject_id1_6;
 		this.teacher_id1_7 = obj.teacher_id1_7;
+		this.subject_id1_7 = obj.subject_id1_7;
+		this.teacher_id1_8 = obj.teacher_id1_8;
 		this.subject_id1_8 = obj.subject_id1_8;
 		this.teacher_id1_9 = obj.teacher_id1_9;
-		this.subject_id1_10 = obj.subject_id1_10;
+		this.subject_id1_9 = obj.subject_id1_9;
 		this.teacher_id2_1 = obj.teacher_id2_1;
 		this.subject_id2_1 = obj.subject_id2_1;
 		this.teacher_id2_2 = obj.teacher_id2_2;
@@ -686,9 +760,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id2_6 = obj.teacher_id2_6;
 		this.subject_id2_6 = obj.subject_id2_6;
 		this.teacher_id2_7 = obj.teacher_id2_7;
+		this.subject_id2_7 = obj.subject_id2_7;
+		this.teacher_id2_8 = obj.teacher_id2_8;
 		this.subject_id2_8 = obj.subject_id2_8;
 		this.teacher_id2_9 = obj.teacher_id2_9;
-		this.subject_id2_10 = obj.subject_id2_10;
+		this.subject_id2_9 = obj.subject_id2_9;
 		this.teacher_id3_1 = obj.teacher_id3_1;
 		this.subject_id3_1 = obj.subject_id3_1;
 		this.teacher_id3_2 = obj.teacher_id3_2;
@@ -702,9 +778,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id3_6 = obj.teacher_id3_6;
 		this.subject_id3_6 = obj.subject_id3_6;
 		this.teacher_id3_7 = obj.teacher_id3_7;
+		this.subject_id3_7 = obj.subject_id3_7;
+		this.teacher_id3_8 = obj.teacher_id3_8;
 		this.subject_id3_8 = obj.subject_id3_8;
 		this.teacher_id3_9 = obj.teacher_id3_9;
-		this.subject_id3_10 = obj.subject_id3_10;
+		this.subject_id3_9 = obj.subject_id3_9;
 		this.teacher_id4_1 = obj.teacher_id4_1;
 		this.subject_id4_1 = obj.subject_id4_1;
 		this.teacher_id4_2 = obj.teacher_id4_2;
@@ -718,9 +796,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id4_6 = obj.teacher_id4_6;
 		this.subject_id4_6 = obj.subject_id4_6;
 		this.teacher_id4_7 = obj.teacher_id4_7;
+		this.subject_id4_7 = obj.subject_id4_7;
+		this.teacher_id4_8 = obj.teacher_id4_8;
 		this.subject_id4_8 = obj.subject_id4_8;
 		this.teacher_id4_9 = obj.teacher_id4_9;
-		this.subject_id4_10 = obj.subject_id4_10;
+		this.subject_id4_9 = obj.subject_id4_9;
 		this.teacher_id5_1 = obj.teacher_id5_1;
 		this.subject_id5_1 = obj.subject_id5_1;
 		this.teacher_id5_2 = obj.teacher_id5_2;
@@ -734,9 +814,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id5_6 = obj.teacher_id5_6;
 		this.subject_id5_6 = obj.subject_id5_6;
 		this.teacher_id5_7 = obj.teacher_id5_7;
+		this.subject_id5_7 = obj.subject_id5_7;
+		this.teacher_id5_8 = obj.teacher_id5_8;
 		this.subject_id5_8 = obj.subject_id5_8;
 		this.teacher_id5_9 = obj.teacher_id5_9;
-		this.subject_id5_10 = obj.subject_id5_10;
+		this.subject_id5_9 = obj.subject_id5_9;
 		this.teacher_id6_1 = obj.teacher_id6_1;
 		this.subject_id6_1 = obj.subject_id6_1;
 		this.teacher_id6_2 = obj.teacher_id6_2;
@@ -750,9 +832,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id6_6 = obj.teacher_id6_6;
 		this.subject_id6_6 = obj.subject_id6_6;
 		this.teacher_id6_7 = obj.teacher_id6_7;
+		this.subject_id6_7 = obj.subject_id6_7;
+		this.teacher_id6_8 = obj.teacher_id6_8;
 		this.subject_id6_8 = obj.subject_id6_8;
 		this.teacher_id6_9 = obj.teacher_id6_9;
-		this.subject_id6_10 = obj.subject_id6_10;
+		this.subject_id6_9 = obj.subject_id6_9;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -799,12 +883,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id1_6", subject_id1_6);
 		if(teacher_id1_7 != null)
 			map.put("teacher_id1_7", teacher_id1_7);
+		if(subject_id1_7 != null)
+			map.put("subject_id1_7", subject_id1_7);
+		if(teacher_id1_8 != null)
+			map.put("teacher_id1_8", teacher_id1_8);
 		if(subject_id1_8 != null)
 			map.put("subject_id1_8", subject_id1_8);
 		if(teacher_id1_9 != null)
 			map.put("teacher_id1_9", teacher_id1_9);
-		if(subject_id1_10 != null)
-			map.put("subject_id1_10", subject_id1_10);
+		if(subject_id1_9 != null)
+			map.put("subject_id1_9", subject_id1_9);
 		if(teacher_id2_1 != null)
 			map.put("teacher_id2_1", teacher_id2_1);
 		if(subject_id2_1 != null)
@@ -831,12 +919,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id2_6", subject_id2_6);
 		if(teacher_id2_7 != null)
 			map.put("teacher_id2_7", teacher_id2_7);
+		if(subject_id2_7 != null)
+			map.put("subject_id2_7", subject_id2_7);
+		if(teacher_id2_8 != null)
+			map.put("teacher_id2_8", teacher_id2_8);
 		if(subject_id2_8 != null)
 			map.put("subject_id2_8", subject_id2_8);
 		if(teacher_id2_9 != null)
 			map.put("teacher_id2_9", teacher_id2_9);
-		if(subject_id2_10 != null)
-			map.put("subject_id2_10", subject_id2_10);
+		if(subject_id2_9 != null)
+			map.put("subject_id2_9", subject_id2_9);
 		if(teacher_id3_1 != null)
 			map.put("teacher_id3_1", teacher_id3_1);
 		if(subject_id3_1 != null)
@@ -863,12 +955,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id3_6", subject_id3_6);
 		if(teacher_id3_7 != null)
 			map.put("teacher_id3_7", teacher_id3_7);
+		if(subject_id3_7 != null)
+			map.put("subject_id3_7", subject_id3_7);
+		if(teacher_id3_8 != null)
+			map.put("teacher_id3_8", teacher_id3_8);
 		if(subject_id3_8 != null)
 			map.put("subject_id3_8", subject_id3_8);
 		if(teacher_id3_9 != null)
 			map.put("teacher_id3_9", teacher_id3_9);
-		if(subject_id3_10 != null)
-			map.put("subject_id3_10", subject_id3_10);
+		if(subject_id3_9 != null)
+			map.put("subject_id3_9", subject_id3_9);
 		if(teacher_id4_1 != null)
 			map.put("teacher_id4_1", teacher_id4_1);
 		if(subject_id4_1 != null)
@@ -895,12 +991,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id4_6", subject_id4_6);
 		if(teacher_id4_7 != null)
 			map.put("teacher_id4_7", teacher_id4_7);
+		if(subject_id4_7 != null)
+			map.put("subject_id4_7", subject_id4_7);
+		if(teacher_id4_8 != null)
+			map.put("teacher_id4_8", teacher_id4_8);
 		if(subject_id4_8 != null)
 			map.put("subject_id4_8", subject_id4_8);
 		if(teacher_id4_9 != null)
 			map.put("teacher_id4_9", teacher_id4_9);
-		if(subject_id4_10 != null)
-			map.put("subject_id4_10", subject_id4_10);
+		if(subject_id4_9 != null)
+			map.put("subject_id4_9", subject_id4_9);
 		if(teacher_id5_1 != null)
 			map.put("teacher_id5_1", teacher_id5_1);
 		if(subject_id5_1 != null)
@@ -927,12 +1027,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id5_6", subject_id5_6);
 		if(teacher_id5_7 != null)
 			map.put("teacher_id5_7", teacher_id5_7);
+		if(subject_id5_7 != null)
+			map.put("subject_id5_7", subject_id5_7);
+		if(teacher_id5_8 != null)
+			map.put("teacher_id5_8", teacher_id5_8);
 		if(subject_id5_8 != null)
 			map.put("subject_id5_8", subject_id5_8);
 		if(teacher_id5_9 != null)
 			map.put("teacher_id5_9", teacher_id5_9);
-		if(subject_id5_10 != null)
-			map.put("subject_id5_10", subject_id5_10);
+		if(subject_id5_9 != null)
+			map.put("subject_id5_9", subject_id5_9);
 		if(teacher_id6_1 != null)
 			map.put("teacher_id6_1", teacher_id6_1);
 		if(subject_id6_1 != null)
@@ -959,12 +1063,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id6_6", subject_id6_6);
 		if(teacher_id6_7 != null)
 			map.put("teacher_id6_7", teacher_id6_7);
+		if(subject_id6_7 != null)
+			map.put("subject_id6_7", subject_id6_7);
+		if(teacher_id6_8 != null)
+			map.put("teacher_id6_8", teacher_id6_8);
 		if(subject_id6_8 != null)
 			map.put("subject_id6_8", subject_id6_8);
 		if(teacher_id6_9 != null)
 			map.put("teacher_id6_9", teacher_id6_9);
-		if(subject_id6_10 != null)
-			map.put("subject_id6_10", subject_id6_10);
+		if(subject_id6_9 != null)
+			map.put("subject_id6_9", subject_id6_9);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -1010,12 +1118,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id1_6", subject_id1_6);
 		if(teacher_id1_7 != null)
 			map.put("teacher_id1_7", teacher_id1_7);
+		if(subject_id1_7 != null)
+			map.put("subject_id1_7", subject_id1_7);
+		if(teacher_id1_8 != null)
+			map.put("teacher_id1_8", teacher_id1_8);
 		if(subject_id1_8 != null)
 			map.put("subject_id1_8", subject_id1_8);
 		if(teacher_id1_9 != null)
 			map.put("teacher_id1_9", teacher_id1_9);
-		if(subject_id1_10 != null)
-			map.put("subject_id1_10", subject_id1_10);
+		if(subject_id1_9 != null)
+			map.put("subject_id1_9", subject_id1_9);
 		if(teacher_id2_1 != null)
 			map.put("teacher_id2_1", teacher_id2_1);
 		if(subject_id2_1 != null)
@@ -1042,12 +1154,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id2_6", subject_id2_6);
 		if(teacher_id2_7 != null)
 			map.put("teacher_id2_7", teacher_id2_7);
+		if(subject_id2_7 != null)
+			map.put("subject_id2_7", subject_id2_7);
+		if(teacher_id2_8 != null)
+			map.put("teacher_id2_8", teacher_id2_8);
 		if(subject_id2_8 != null)
 			map.put("subject_id2_8", subject_id2_8);
 		if(teacher_id2_9 != null)
 			map.put("teacher_id2_9", teacher_id2_9);
-		if(subject_id2_10 != null)
-			map.put("subject_id2_10", subject_id2_10);
+		if(subject_id2_9 != null)
+			map.put("subject_id2_9", subject_id2_9);
 		if(teacher_id3_1 != null)
 			map.put("teacher_id3_1", teacher_id3_1);
 		if(subject_id3_1 != null)
@@ -1074,12 +1190,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id3_6", subject_id3_6);
 		if(teacher_id3_7 != null)
 			map.put("teacher_id3_7", teacher_id3_7);
+		if(subject_id3_7 != null)
+			map.put("subject_id3_7", subject_id3_7);
+		if(teacher_id3_8 != null)
+			map.put("teacher_id3_8", teacher_id3_8);
 		if(subject_id3_8 != null)
 			map.put("subject_id3_8", subject_id3_8);
 		if(teacher_id3_9 != null)
 			map.put("teacher_id3_9", teacher_id3_9);
-		if(subject_id3_10 != null)
-			map.put("subject_id3_10", subject_id3_10);
+		if(subject_id3_9 != null)
+			map.put("subject_id3_9", subject_id3_9);
 		if(teacher_id4_1 != null)
 			map.put("teacher_id4_1", teacher_id4_1);
 		if(subject_id4_1 != null)
@@ -1106,12 +1226,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id4_6", subject_id4_6);
 		if(teacher_id4_7 != null)
 			map.put("teacher_id4_7", teacher_id4_7);
+		if(subject_id4_7 != null)
+			map.put("subject_id4_7", subject_id4_7);
+		if(teacher_id4_8 != null)
+			map.put("teacher_id4_8", teacher_id4_8);
 		if(subject_id4_8 != null)
 			map.put("subject_id4_8", subject_id4_8);
 		if(teacher_id4_9 != null)
 			map.put("teacher_id4_9", teacher_id4_9);
-		if(subject_id4_10 != null)
-			map.put("subject_id4_10", subject_id4_10);
+		if(subject_id4_9 != null)
+			map.put("subject_id4_9", subject_id4_9);
 		if(teacher_id5_1 != null)
 			map.put("teacher_id5_1", teacher_id5_1);
 		if(subject_id5_1 != null)
@@ -1138,12 +1262,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id5_6", subject_id5_6);
 		if(teacher_id5_7 != null)
 			map.put("teacher_id5_7", teacher_id5_7);
+		if(subject_id5_7 != null)
+			map.put("subject_id5_7", subject_id5_7);
+		if(teacher_id5_8 != null)
+			map.put("teacher_id5_8", teacher_id5_8);
 		if(subject_id5_8 != null)
 			map.put("subject_id5_8", subject_id5_8);
 		if(teacher_id5_9 != null)
 			map.put("teacher_id5_9", teacher_id5_9);
-		if(subject_id5_10 != null)
-			map.put("subject_id5_10", subject_id5_10);
+		if(subject_id5_9 != null)
+			map.put("subject_id5_9", subject_id5_9);
 		if(teacher_id6_1 != null)
 			map.put("teacher_id6_1", teacher_id6_1);
 		if(subject_id6_1 != null)
@@ -1170,12 +1298,16 @@ public abstract class Basetimetable_interface extends BaseResource {
 			map.put("subject_id6_6", subject_id6_6);
 		if(teacher_id6_7 != null)
 			map.put("teacher_id6_7", teacher_id6_7);
+		if(subject_id6_7 != null)
+			map.put("subject_id6_7", subject_id6_7);
+		if(teacher_id6_8 != null)
+			map.put("teacher_id6_8", teacher_id6_8);
 		if(subject_id6_8 != null)
 			map.put("subject_id6_8", subject_id6_8);
 		if(teacher_id6_9 != null)
 			map.put("teacher_id6_9", teacher_id6_9);
-		if(subject_id6_10 != null)
-			map.put("subject_id6_10", subject_id6_10);
+		if(subject_id6_9 != null)
+			map.put("subject_id6_9", subject_id6_9);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -1208,9 +1340,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id1_6 = (String) map.get("teacher_id1_6");
 		subject_id1_6 = (String) map.get("subject_id1_6");
 		teacher_id1_7 = (String) map.get("teacher_id1_7");
+		subject_id1_7 = (String) map.get("subject_id1_7");
+		teacher_id1_8 = (String) map.get("teacher_id1_8");
 		subject_id1_8 = (String) map.get("subject_id1_8");
 		teacher_id1_9 = (String) map.get("teacher_id1_9");
-		subject_id1_10 = (String) map.get("subject_id1_10");
+		subject_id1_9 = (String) map.get("subject_id1_9");
 		teacher_id2_1 = (String) map.get("teacher_id2_1");
 		subject_id2_1 = (String) map.get("subject_id2_1");
 		teacher_id2_2 = (String) map.get("teacher_id2_2");
@@ -1224,9 +1358,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id2_6 = (String) map.get("teacher_id2_6");
 		subject_id2_6 = (String) map.get("subject_id2_6");
 		teacher_id2_7 = (String) map.get("teacher_id2_7");
+		subject_id2_7 = (String) map.get("subject_id2_7");
+		teacher_id2_8 = (String) map.get("teacher_id2_8");
 		subject_id2_8 = (String) map.get("subject_id2_8");
 		teacher_id2_9 = (String) map.get("teacher_id2_9");
-		subject_id2_10 = (String) map.get("subject_id2_10");
+		subject_id2_9 = (String) map.get("subject_id2_9");
 		teacher_id3_1 = (String) map.get("teacher_id3_1");
 		subject_id3_1 = (String) map.get("subject_id3_1");
 		teacher_id3_2 = (String) map.get("teacher_id3_2");
@@ -1240,9 +1376,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id3_6 = (String) map.get("teacher_id3_6");
 		subject_id3_6 = (String) map.get("subject_id3_6");
 		teacher_id3_7 = (String) map.get("teacher_id3_7");
+		subject_id3_7 = (String) map.get("subject_id3_7");
+		teacher_id3_8 = (String) map.get("teacher_id3_8");
 		subject_id3_8 = (String) map.get("subject_id3_8");
 		teacher_id3_9 = (String) map.get("teacher_id3_9");
-		subject_id3_10 = (String) map.get("subject_id3_10");
+		subject_id3_9 = (String) map.get("subject_id3_9");
 		teacher_id4_1 = (String) map.get("teacher_id4_1");
 		subject_id4_1 = (String) map.get("subject_id4_1");
 		teacher_id4_2 = (String) map.get("teacher_id4_2");
@@ -1256,9 +1394,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id4_6 = (String) map.get("teacher_id4_6");
 		subject_id4_6 = (String) map.get("subject_id4_6");
 		teacher_id4_7 = (String) map.get("teacher_id4_7");
+		subject_id4_7 = (String) map.get("subject_id4_7");
+		teacher_id4_8 = (String) map.get("teacher_id4_8");
 		subject_id4_8 = (String) map.get("subject_id4_8");
 		teacher_id4_9 = (String) map.get("teacher_id4_9");
-		subject_id4_10 = (String) map.get("subject_id4_10");
+		subject_id4_9 = (String) map.get("subject_id4_9");
 		teacher_id5_1 = (String) map.get("teacher_id5_1");
 		subject_id5_1 = (String) map.get("subject_id5_1");
 		teacher_id5_2 = (String) map.get("teacher_id5_2");
@@ -1272,9 +1412,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id5_6 = (String) map.get("teacher_id5_6");
 		subject_id5_6 = (String) map.get("subject_id5_6");
 		teacher_id5_7 = (String) map.get("teacher_id5_7");
+		subject_id5_7 = (String) map.get("subject_id5_7");
+		teacher_id5_8 = (String) map.get("teacher_id5_8");
 		subject_id5_8 = (String) map.get("subject_id5_8");
 		teacher_id5_9 = (String) map.get("teacher_id5_9");
-		subject_id5_10 = (String) map.get("subject_id5_10");
+		subject_id5_9 = (String) map.get("subject_id5_9");
 		teacher_id6_1 = (String) map.get("teacher_id6_1");
 		subject_id6_1 = (String) map.get("subject_id6_1");
 		teacher_id6_2 = (String) map.get("teacher_id6_2");
@@ -1288,9 +1430,11 @@ public abstract class Basetimetable_interface extends BaseResource {
 		teacher_id6_6 = (String) map.get("teacher_id6_6");
 		subject_id6_6 = (String) map.get("subject_id6_6");
 		teacher_id6_7 = (String) map.get("teacher_id6_7");
+		subject_id6_7 = (String) map.get("subject_id6_7");
+		teacher_id6_8 = (String) map.get("teacher_id6_8");
 		subject_id6_8 = (String) map.get("subject_id6_8");
 		teacher_id6_9 = (String) map.get("teacher_id6_9");
-		subject_id6_10 = (String) map.get("subject_id6_10");
+		subject_id6_9 = (String) map.get("subject_id6_9");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1369,6 +1513,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id1_7Obj != null)
 			teacher_id1_7 = teacher_id1_7Obj.toString();
 
+		Object subject_id1_7Obj = map.get("subject_id1_7");
+		if(subject_id1_7Obj != null)
+			subject_id1_7 = subject_id1_7Obj.toString();
+
+		Object teacher_id1_8Obj = map.get("teacher_id1_8");
+		if(teacher_id1_8Obj != null)
+			teacher_id1_8 = teacher_id1_8Obj.toString();
+
 		Object subject_id1_8Obj = map.get("subject_id1_8");
 		if(subject_id1_8Obj != null)
 			subject_id1_8 = subject_id1_8Obj.toString();
@@ -1377,9 +1529,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id1_9Obj != null)
 			teacher_id1_9 = teacher_id1_9Obj.toString();
 
-		Object subject_id1_10Obj = map.get("subject_id1_10");
-		if(subject_id1_10Obj != null)
-			subject_id1_10 = subject_id1_10Obj.toString();
+		Object subject_id1_9Obj = map.get("subject_id1_9");
+		if(subject_id1_9Obj != null)
+			subject_id1_9 = subject_id1_9Obj.toString();
 
 		Object teacher_id2_1Obj = map.get("teacher_id2_1");
 		if(teacher_id2_1Obj != null)
@@ -1433,6 +1585,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id2_7Obj != null)
 			teacher_id2_7 = teacher_id2_7Obj.toString();
 
+		Object subject_id2_7Obj = map.get("subject_id2_7");
+		if(subject_id2_7Obj != null)
+			subject_id2_7 = subject_id2_7Obj.toString();
+
+		Object teacher_id2_8Obj = map.get("teacher_id2_8");
+		if(teacher_id2_8Obj != null)
+			teacher_id2_8 = teacher_id2_8Obj.toString();
+
 		Object subject_id2_8Obj = map.get("subject_id2_8");
 		if(subject_id2_8Obj != null)
 			subject_id2_8 = subject_id2_8Obj.toString();
@@ -1441,9 +1601,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id2_9Obj != null)
 			teacher_id2_9 = teacher_id2_9Obj.toString();
 
-		Object subject_id2_10Obj = map.get("subject_id2_10");
-		if(subject_id2_10Obj != null)
-			subject_id2_10 = subject_id2_10Obj.toString();
+		Object subject_id2_9Obj = map.get("subject_id2_9");
+		if(subject_id2_9Obj != null)
+			subject_id2_9 = subject_id2_9Obj.toString();
 
 		Object teacher_id3_1Obj = map.get("teacher_id3_1");
 		if(teacher_id3_1Obj != null)
@@ -1497,6 +1657,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id3_7Obj != null)
 			teacher_id3_7 = teacher_id3_7Obj.toString();
 
+		Object subject_id3_7Obj = map.get("subject_id3_7");
+		if(subject_id3_7Obj != null)
+			subject_id3_7 = subject_id3_7Obj.toString();
+
+		Object teacher_id3_8Obj = map.get("teacher_id3_8");
+		if(teacher_id3_8Obj != null)
+			teacher_id3_8 = teacher_id3_8Obj.toString();
+
 		Object subject_id3_8Obj = map.get("subject_id3_8");
 		if(subject_id3_8Obj != null)
 			subject_id3_8 = subject_id3_8Obj.toString();
@@ -1505,9 +1673,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id3_9Obj != null)
 			teacher_id3_9 = teacher_id3_9Obj.toString();
 
-		Object subject_id3_10Obj = map.get("subject_id3_10");
-		if(subject_id3_10Obj != null)
-			subject_id3_10 = subject_id3_10Obj.toString();
+		Object subject_id3_9Obj = map.get("subject_id3_9");
+		if(subject_id3_9Obj != null)
+			subject_id3_9 = subject_id3_9Obj.toString();
 
 		Object teacher_id4_1Obj = map.get("teacher_id4_1");
 		if(teacher_id4_1Obj != null)
@@ -1561,6 +1729,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id4_7Obj != null)
 			teacher_id4_7 = teacher_id4_7Obj.toString();
 
+		Object subject_id4_7Obj = map.get("subject_id4_7");
+		if(subject_id4_7Obj != null)
+			subject_id4_7 = subject_id4_7Obj.toString();
+
+		Object teacher_id4_8Obj = map.get("teacher_id4_8");
+		if(teacher_id4_8Obj != null)
+			teacher_id4_8 = teacher_id4_8Obj.toString();
+
 		Object subject_id4_8Obj = map.get("subject_id4_8");
 		if(subject_id4_8Obj != null)
 			subject_id4_8 = subject_id4_8Obj.toString();
@@ -1569,9 +1745,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id4_9Obj != null)
 			teacher_id4_9 = teacher_id4_9Obj.toString();
 
-		Object subject_id4_10Obj = map.get("subject_id4_10");
-		if(subject_id4_10Obj != null)
-			subject_id4_10 = subject_id4_10Obj.toString();
+		Object subject_id4_9Obj = map.get("subject_id4_9");
+		if(subject_id4_9Obj != null)
+			subject_id4_9 = subject_id4_9Obj.toString();
 
 		Object teacher_id5_1Obj = map.get("teacher_id5_1");
 		if(teacher_id5_1Obj != null)
@@ -1625,6 +1801,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id5_7Obj != null)
 			teacher_id5_7 = teacher_id5_7Obj.toString();
 
+		Object subject_id5_7Obj = map.get("subject_id5_7");
+		if(subject_id5_7Obj != null)
+			subject_id5_7 = subject_id5_7Obj.toString();
+
+		Object teacher_id5_8Obj = map.get("teacher_id5_8");
+		if(teacher_id5_8Obj != null)
+			teacher_id5_8 = teacher_id5_8Obj.toString();
+
 		Object subject_id5_8Obj = map.get("subject_id5_8");
 		if(subject_id5_8Obj != null)
 			subject_id5_8 = subject_id5_8Obj.toString();
@@ -1633,9 +1817,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id5_9Obj != null)
 			teacher_id5_9 = teacher_id5_9Obj.toString();
 
-		Object subject_id5_10Obj = map.get("subject_id5_10");
-		if(subject_id5_10Obj != null)
-			subject_id5_10 = subject_id5_10Obj.toString();
+		Object subject_id5_9Obj = map.get("subject_id5_9");
+		if(subject_id5_9Obj != null)
+			subject_id5_9 = subject_id5_9Obj.toString();
 
 		Object teacher_id6_1Obj = map.get("teacher_id6_1");
 		if(teacher_id6_1Obj != null)
@@ -1689,6 +1873,14 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id6_7Obj != null)
 			teacher_id6_7 = teacher_id6_7Obj.toString();
 
+		Object subject_id6_7Obj = map.get("subject_id6_7");
+		if(subject_id6_7Obj != null)
+			subject_id6_7 = subject_id6_7Obj.toString();
+
+		Object teacher_id6_8Obj = map.get("teacher_id6_8");
+		if(teacher_id6_8Obj != null)
+			teacher_id6_8 = teacher_id6_8Obj.toString();
+
 		Object subject_id6_8Obj = map.get("subject_id6_8");
 		if(subject_id6_8Obj != null)
 			subject_id6_8 = subject_id6_8Obj.toString();
@@ -1697,9 +1889,9 @@ public abstract class Basetimetable_interface extends BaseResource {
 		if(teacher_id6_9Obj != null)
 			teacher_id6_9 = teacher_id6_9Obj.toString();
 
-		Object subject_id6_10Obj = map.get("subject_id6_10");
-		if(subject_id6_10Obj != null)
-			subject_id6_10 = subject_id6_10Obj.toString();
+		Object subject_id6_9Obj = map.get("subject_id6_9");
+		if(subject_id6_9Obj != null)
+			subject_id6_9 = subject_id6_9Obj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -2016,6 +2208,38 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id1_7 = null;
 	}
 
+	public String getSubject_id1_7() {
+		return subject_id1_7;
+	}
+
+	public String getSubject_id1_7Ex() {
+		return subject_id1_7 != null ? subject_id1_7 : "";
+	}
+
+	public void setSubject_id1_7(String subject_id1_7) {
+		this.subject_id1_7 = subject_id1_7;
+	}
+
+	public void unSetSubject_id1_7() {
+		this.subject_id1_7 = null;
+	}
+
+	public String getTeacher_id1_8() {
+		return teacher_id1_8;
+	}
+
+	public String getTeacher_id1_8Ex() {
+		return teacher_id1_8 != null ? teacher_id1_8 : "";
+	}
+
+	public void setTeacher_id1_8(String teacher_id1_8) {
+		this.teacher_id1_8 = teacher_id1_8;
+	}
+
+	public void unSetTeacher_id1_8() {
+		this.teacher_id1_8 = null;
+	}
+
 	public String getSubject_id1_8() {
 		return subject_id1_8;
 	}
@@ -2048,20 +2272,20 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id1_9 = null;
 	}
 
-	public String getSubject_id1_10() {
-		return subject_id1_10;
+	public String getSubject_id1_9() {
+		return subject_id1_9;
 	}
 
-	public String getSubject_id1_10Ex() {
-		return subject_id1_10 != null ? subject_id1_10 : "";
+	public String getSubject_id1_9Ex() {
+		return subject_id1_9 != null ? subject_id1_9 : "";
 	}
 
-	public void setSubject_id1_10(String subject_id1_10) {
-		this.subject_id1_10 = subject_id1_10;
+	public void setSubject_id1_9(String subject_id1_9) {
+		this.subject_id1_9 = subject_id1_9;
 	}
 
-	public void unSetSubject_id1_10() {
-		this.subject_id1_10 = null;
+	public void unSetSubject_id1_9() {
+		this.subject_id1_9 = null;
 	}
 
 	public String getTeacher_id2_1() {
@@ -2272,6 +2496,38 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id2_7 = null;
 	}
 
+	public String getSubject_id2_7() {
+		return subject_id2_7;
+	}
+
+	public String getSubject_id2_7Ex() {
+		return subject_id2_7 != null ? subject_id2_7 : "";
+	}
+
+	public void setSubject_id2_7(String subject_id2_7) {
+		this.subject_id2_7 = subject_id2_7;
+	}
+
+	public void unSetSubject_id2_7() {
+		this.subject_id2_7 = null;
+	}
+
+	public String getTeacher_id2_8() {
+		return teacher_id2_8;
+	}
+
+	public String getTeacher_id2_8Ex() {
+		return teacher_id2_8 != null ? teacher_id2_8 : "";
+	}
+
+	public void setTeacher_id2_8(String teacher_id2_8) {
+		this.teacher_id2_8 = teacher_id2_8;
+	}
+
+	public void unSetTeacher_id2_8() {
+		this.teacher_id2_8 = null;
+	}
+
 	public String getSubject_id2_8() {
 		return subject_id2_8;
 	}
@@ -2304,20 +2560,20 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id2_9 = null;
 	}
 
-	public String getSubject_id2_10() {
-		return subject_id2_10;
+	public String getSubject_id2_9() {
+		return subject_id2_9;
 	}
 
-	public String getSubject_id2_10Ex() {
-		return subject_id2_10 != null ? subject_id2_10 : "";
+	public String getSubject_id2_9Ex() {
+		return subject_id2_9 != null ? subject_id2_9 : "";
 	}
 
-	public void setSubject_id2_10(String subject_id2_10) {
-		this.subject_id2_10 = subject_id2_10;
+	public void setSubject_id2_9(String subject_id2_9) {
+		this.subject_id2_9 = subject_id2_9;
 	}
 
-	public void unSetSubject_id2_10() {
-		this.subject_id2_10 = null;
+	public void unSetSubject_id2_9() {
+		this.subject_id2_9 = null;
 	}
 
 	public String getTeacher_id3_1() {
@@ -2528,6 +2784,38 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id3_7 = null;
 	}
 
+	public String getSubject_id3_7() {
+		return subject_id3_7;
+	}
+
+	public String getSubject_id3_7Ex() {
+		return subject_id3_7 != null ? subject_id3_7 : "";
+	}
+
+	public void setSubject_id3_7(String subject_id3_7) {
+		this.subject_id3_7 = subject_id3_7;
+	}
+
+	public void unSetSubject_id3_7() {
+		this.subject_id3_7 = null;
+	}
+
+	public String getTeacher_id3_8() {
+		return teacher_id3_8;
+	}
+
+	public String getTeacher_id3_8Ex() {
+		return teacher_id3_8 != null ? teacher_id3_8 : "";
+	}
+
+	public void setTeacher_id3_8(String teacher_id3_8) {
+		this.teacher_id3_8 = teacher_id3_8;
+	}
+
+	public void unSetTeacher_id3_8() {
+		this.teacher_id3_8 = null;
+	}
+
 	public String getSubject_id3_8() {
 		return subject_id3_8;
 	}
@@ -2560,20 +2848,20 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id3_9 = null;
 	}
 
-	public String getSubject_id3_10() {
-		return subject_id3_10;
+	public String getSubject_id3_9() {
+		return subject_id3_9;
 	}
 
-	public String getSubject_id3_10Ex() {
-		return subject_id3_10 != null ? subject_id3_10 : "";
+	public String getSubject_id3_9Ex() {
+		return subject_id3_9 != null ? subject_id3_9 : "";
 	}
 
-	public void setSubject_id3_10(String subject_id3_10) {
-		this.subject_id3_10 = subject_id3_10;
+	public void setSubject_id3_9(String subject_id3_9) {
+		this.subject_id3_9 = subject_id3_9;
 	}
 
-	public void unSetSubject_id3_10() {
-		this.subject_id3_10 = null;
+	public void unSetSubject_id3_9() {
+		this.subject_id3_9 = null;
 	}
 
 	public String getTeacher_id4_1() {
@@ -2784,6 +3072,38 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id4_7 = null;
 	}
 
+	public String getSubject_id4_7() {
+		return subject_id4_7;
+	}
+
+	public String getSubject_id4_7Ex() {
+		return subject_id4_7 != null ? subject_id4_7 : "";
+	}
+
+	public void setSubject_id4_7(String subject_id4_7) {
+		this.subject_id4_7 = subject_id4_7;
+	}
+
+	public void unSetSubject_id4_7() {
+		this.subject_id4_7 = null;
+	}
+
+	public String getTeacher_id4_8() {
+		return teacher_id4_8;
+	}
+
+	public String getTeacher_id4_8Ex() {
+		return teacher_id4_8 != null ? teacher_id4_8 : "";
+	}
+
+	public void setTeacher_id4_8(String teacher_id4_8) {
+		this.teacher_id4_8 = teacher_id4_8;
+	}
+
+	public void unSetTeacher_id4_8() {
+		this.teacher_id4_8 = null;
+	}
+
 	public String getSubject_id4_8() {
 		return subject_id4_8;
 	}
@@ -2816,20 +3136,20 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id4_9 = null;
 	}
 
-	public String getSubject_id4_10() {
-		return subject_id4_10;
+	public String getSubject_id4_9() {
+		return subject_id4_9;
 	}
 
-	public String getSubject_id4_10Ex() {
-		return subject_id4_10 != null ? subject_id4_10 : "";
+	public String getSubject_id4_9Ex() {
+		return subject_id4_9 != null ? subject_id4_9 : "";
 	}
 
-	public void setSubject_id4_10(String subject_id4_10) {
-		this.subject_id4_10 = subject_id4_10;
+	public void setSubject_id4_9(String subject_id4_9) {
+		this.subject_id4_9 = subject_id4_9;
 	}
 
-	public void unSetSubject_id4_10() {
-		this.subject_id4_10 = null;
+	public void unSetSubject_id4_9() {
+		this.subject_id4_9 = null;
 	}
 
 	public String getTeacher_id5_1() {
@@ -3040,6 +3360,38 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id5_7 = null;
 	}
 
+	public String getSubject_id5_7() {
+		return subject_id5_7;
+	}
+
+	public String getSubject_id5_7Ex() {
+		return subject_id5_7 != null ? subject_id5_7 : "";
+	}
+
+	public void setSubject_id5_7(String subject_id5_7) {
+		this.subject_id5_7 = subject_id5_7;
+	}
+
+	public void unSetSubject_id5_7() {
+		this.subject_id5_7 = null;
+	}
+
+	public String getTeacher_id5_8() {
+		return teacher_id5_8;
+	}
+
+	public String getTeacher_id5_8Ex() {
+		return teacher_id5_8 != null ? teacher_id5_8 : "";
+	}
+
+	public void setTeacher_id5_8(String teacher_id5_8) {
+		this.teacher_id5_8 = teacher_id5_8;
+	}
+
+	public void unSetTeacher_id5_8() {
+		this.teacher_id5_8 = null;
+	}
+
 	public String getSubject_id5_8() {
 		return subject_id5_8;
 	}
@@ -3072,20 +3424,20 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id5_9 = null;
 	}
 
-	public String getSubject_id5_10() {
-		return subject_id5_10;
+	public String getSubject_id5_9() {
+		return subject_id5_9;
 	}
 
-	public String getSubject_id5_10Ex() {
-		return subject_id5_10 != null ? subject_id5_10 : "";
+	public String getSubject_id5_9Ex() {
+		return subject_id5_9 != null ? subject_id5_9 : "";
 	}
 
-	public void setSubject_id5_10(String subject_id5_10) {
-		this.subject_id5_10 = subject_id5_10;
+	public void setSubject_id5_9(String subject_id5_9) {
+		this.subject_id5_9 = subject_id5_9;
 	}
 
-	public void unSetSubject_id5_10() {
-		this.subject_id5_10 = null;
+	public void unSetSubject_id5_9() {
+		this.subject_id5_9 = null;
 	}
 
 	public String getTeacher_id6_1() {
@@ -3296,6 +3648,38 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id6_7 = null;
 	}
 
+	public String getSubject_id6_7() {
+		return subject_id6_7;
+	}
+
+	public String getSubject_id6_7Ex() {
+		return subject_id6_7 != null ? subject_id6_7 : "";
+	}
+
+	public void setSubject_id6_7(String subject_id6_7) {
+		this.subject_id6_7 = subject_id6_7;
+	}
+
+	public void unSetSubject_id6_7() {
+		this.subject_id6_7 = null;
+	}
+
+	public String getTeacher_id6_8() {
+		return teacher_id6_8;
+	}
+
+	public String getTeacher_id6_8Ex() {
+		return teacher_id6_8 != null ? teacher_id6_8 : "";
+	}
+
+	public void setTeacher_id6_8(String teacher_id6_8) {
+		this.teacher_id6_8 = teacher_id6_8;
+	}
+
+	public void unSetTeacher_id6_8() {
+		this.teacher_id6_8 = null;
+	}
+
 	public String getSubject_id6_8() {
 		return subject_id6_8;
 	}
@@ -3328,20 +3712,20 @@ public abstract class Basetimetable_interface extends BaseResource {
 		this.teacher_id6_9 = null;
 	}
 
-	public String getSubject_id6_10() {
-		return subject_id6_10;
+	public String getSubject_id6_9() {
+		return subject_id6_9;
 	}
 
-	public String getSubject_id6_10Ex() {
-		return subject_id6_10 != null ? subject_id6_10 : "";
+	public String getSubject_id6_9Ex() {
+		return subject_id6_9 != null ? subject_id6_9 : "";
 	}
 
-	public void setSubject_id6_10(String subject_id6_10) {
-		this.subject_id6_10 = subject_id6_10;
+	public void setSubject_id6_9(String subject_id6_9) {
+		this.subject_id6_9 = subject_id6_9;
 	}
 
-	public void unSetSubject_id6_10() {
-		this.subject_id6_10 = null;
+	public void unSetSubject_id6_9() {
+		this.subject_id6_9 = null;
 	}
 
 	public Long getCreation_time() {

@@ -96,6 +96,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'subject_id1_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id1_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'subject_id1_8':
 			{
 				'length': 128,
@@ -106,7 +116,7 @@
 				'length': 128,
 				'type':'String'
 			},
-			'subject_id1_10':
+			'subject_id1_9':
 			{
 				'length': 128,
 				'type':'String'
@@ -177,6 +187,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'subject_id2_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id2_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'subject_id2_8':
 			{
 				'length': 128,
@@ -187,7 +207,7 @@
 				'length': 128,
 				'type':'String'
 			},
-			'subject_id2_10':
+			'subject_id2_9':
 			{
 				'length': 128,
 				'type':'String'
@@ -258,6 +278,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'subject_id3_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id3_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'subject_id3_8':
 			{
 				'length': 128,
@@ -268,11 +298,12 @@
 				'length': 128,
 				'type':'String'
 			},
-			'subject_id3_10':
+			'subject_id3_9':
 			{
 				'length': 128,
 				'type':'String'
 			},
+
 			
 			'teacher_id4_1':
 			{
@@ -339,6 +370,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'subject_id4_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id4_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'subject_id4_8':
 			{
 				'length': 128,
@@ -349,7 +390,7 @@
 				'length': 128,
 				'type':'String'
 			},
-			'subject_id4_10':
+			'subject_id4_9':
 			{
 				'length': 128,
 				'type':'String'
@@ -420,6 +461,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'subject_id5_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id5_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'subject_id5_8':
 			{
 				'length': 128,
@@ -430,11 +481,12 @@
 				'length': 128,
 				'type':'String'
 			},
-			'subject_id5_10':
+			'subject_id5_9':
 			{
 				'length': 128,
 				'type':'String'
 			},
+
 			
 			'teacher_id6_1':
 			{
@@ -501,6 +553,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'subject_id6_7':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id6_8':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'subject_id6_8':
 			{
 				'length': 128,
@@ -511,11 +573,12 @@
 				'length': 128,
 				'type':'String'
 			},
-			'subject_id6_10':
+			'subject_id6_9':
 			{
 				'length': 128,
 				'type':'String'
 			},
+
 			'creation_time': {
 				'type': 'timestamp'
 			}			

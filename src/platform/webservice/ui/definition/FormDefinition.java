@@ -28,14 +28,7 @@ public class FormDefinition {
 	String title;
 	String submitURLAdd;
 	String summary;
-	
-	
-	public String getSummary() {
-		return summary;
-	}
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
+	boolean ajaxSubmit;
 	
 	
 	public FormDefinition() {
@@ -45,6 +38,7 @@ public class FormDefinition {
 		width = 600;
 		timeZone = "IST";
 		uploadFileForm = false;
+		ajaxSubmit = true;
 		
 	}
 	public FormDefinition(String id, String name,String className) {
@@ -57,6 +51,22 @@ public class FormDefinition {
 
 	}
 
+
+	public String getSummary() {
+		return summary;
+	}
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+	
+	
+	public boolean isAjaxSubmit() {
+		return ajaxSubmit;
+	}
+	public void setAjaxSubmit(boolean ajaxSubmit) {
+		this.ajaxSubmit = ajaxSubmit;
+	}
+	
 	public int getHeight() {
 		return height;
 	}
