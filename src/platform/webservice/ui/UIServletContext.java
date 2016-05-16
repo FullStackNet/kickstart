@@ -14,6 +14,8 @@ import platform.webservice.ui.util.PageBuilder;
 
 
 public class UIServletContext {
+	String currentURL;
+	
 	String domainName;
 	private session _session;
 	String sessionId;
@@ -23,6 +25,14 @@ public class UIServletContext {
 	Map<String , String> params;
 	HttpServletResponse response;
 	String path;
+	
+	public String getCurrentURL() {
+		return currentURL;
+	}
+
+	public void setCurrentURL(String currentURL) {
+		this.currentURL = currentURL;
+	}
 	
 	public void setServletPath(String path) {
 		this.path= path;
