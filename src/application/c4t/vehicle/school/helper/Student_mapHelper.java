@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.db.Expression;
+import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.helper.UserHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.notice;
+import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student_map;
 import application.c4t.vehicle.school.resource.student_photo;
 
@@ -89,11 +92,12 @@ public class Student_mapHelper extends BaseHelper {
 		return UserHelper.getInstance().getListById(_map.getUsers().toArray(new String[_map.getUsers().size()]));
 	}
 
-	public BaseResource[] getNotices(String studentId) {
+	public BaseResource[] getNotices(String studentId,school _school) {
 		student_map _map = (student_map)getById(studentId);
 		if ((_map == null) || (_map.getNotices() == null))
 			return null;
-		return NoticeHelper.getInstance().getById(_map.getNotices().toArray(new String[_map.getNotices().size()]),new String[]{notice.FIELD_NOTICE_DATE + " desc"});
+		Expression e = new Expression(notice.FIELD_NOTICE_DATE, REL_OP.GT, _school.getFee_starting_date());
+		return NoticeHelper.getInstance().getArrayById(_map.getNotices().toArray(new String[_map.getNotices().size()]),new String[]{notice.FIELD_NOTICE_DATE + " desc"},e);
 	}
 
 	public Map<String,BaseResource> getUsersMap(String studentId) {
