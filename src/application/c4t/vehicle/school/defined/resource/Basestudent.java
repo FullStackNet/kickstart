@@ -108,6 +108,10 @@ public abstract class Basestudent extends BaseResource {
 	private String left_reason = null;
 	private String student_email_id = null;
 	private String student_mobile_no = null;
+	private String class_teacher_id = null;
+	private String class_teacher_name = null;
+	private String second_language = null;
+	private String third_language = null;
 	private String card_not_working = null;
 	private String card_not_working_reason = null;
 	private String card_not_working_date_str = null;
@@ -217,6 +221,10 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_LEFT_REASON = "left_reason";
 	public static String FIELD_STUDENT_EMAIL_ID = "student_email_id";
 	public static String FIELD_STUDENT_MOBILE_NO = "student_mobile_no";
+	public static String FIELD_CLASS_TEACHER_ID = "class_teacher_id";
+	public static String FIELD_CLASS_TEACHER_NAME = "class_teacher_name";
+	public static String FIELD_SECOND_LANGUAGE = "second_language";
+	public static String FIELD_THIRD_LANGUAGE = "third_language";
 	public static String FIELD_CARD_NOT_WORKING = "card_not_working";
 	public static String FIELD_CARD_NOT_WORKING_REASON = "card_not_working_reason";
 	public static String FIELD_CARD_NOT_WORKING_DATE_STR = "card_not_working_date_str";
@@ -626,6 +634,22 @@ public abstract class Basestudent extends BaseResource {
 		student_mobile_noField.setLength(128);
 		metaData.addField(student_mobile_noField);
 
+		Field class_teacher_idField = new Field("class_teacher_id", "String");
+		class_teacher_idField.setLength(128);
+		metaData.addField(class_teacher_idField);
+
+		Field class_teacher_nameField = new Field("class_teacher_name", "String");
+		class_teacher_nameField.setLength(128);
+		metaData.addField(class_teacher_nameField);
+
+		Field second_languageField = new Field("second_language", "String");
+		second_languageField.setLength(128);
+		metaData.addField(second_languageField);
+
+		Field third_languageField = new Field("third_language", "String");
+		third_languageField.setLength(128);
+		metaData.addField(third_languageField);
+
 		Field card_not_workingField = new Field("card_not_working", "String");
 		card_not_workingField.setDefaultValue("N");
 		card_not_workingField.setLength(128);
@@ -800,6 +824,10 @@ public abstract class Basestudent extends BaseResource {
 		this.left_reason = obj.left_reason;
 		this.student_email_id = obj.student_email_id;
 		this.student_mobile_no = obj.student_mobile_no;
+		this.class_teacher_id = obj.class_teacher_id;
+		this.class_teacher_name = obj.class_teacher_name;
+		this.second_language = obj.second_language;
+		this.third_language = obj.third_language;
 		this.card_not_working = obj.card_not_working;
 		this.card_not_working_reason = obj.card_not_working_reason;
 		this.card_not_working_date_str = obj.card_not_working_date_str;
@@ -1072,6 +1100,14 @@ public abstract class Basestudent extends BaseResource {
 			map.put("student_email_id", student_email_id);
 		if(student_mobile_no != null)
 			map.put("student_mobile_no", student_mobile_no);
+		if(class_teacher_id != null)
+			map.put("class_teacher_id", class_teacher_id);
+		if(class_teacher_name != null)
+			map.put("class_teacher_name", class_teacher_name);
+		if(second_language != null)
+			map.put("second_language", second_language);
+		if(third_language != null)
+			map.put("third_language", third_language);
 		if(card_not_working != null)
 			map.put("card_not_working", card_not_working);
 		if(card_not_working_reason != null)
@@ -1296,6 +1332,14 @@ public abstract class Basestudent extends BaseResource {
 			map.put("student_email_id", student_email_id);
 		if(student_mobile_no != null)
 			map.put("student_mobile_no", student_mobile_no);
+		if(class_teacher_id != null)
+			map.put("class_teacher_id", class_teacher_id);
+		if(class_teacher_name != null)
+			map.put("class_teacher_name", class_teacher_name);
+		if(second_language != null)
+			map.put("second_language", second_language);
+		if(third_language != null)
+			map.put("third_language", third_language);
 		if(card_not_working != null)
 			map.put("card_not_working", card_not_working);
 		if(card_not_working_reason != null)
@@ -1433,6 +1477,10 @@ public abstract class Basestudent extends BaseResource {
 		left_reason = (String) map.get("left_reason");
 		student_email_id = (String) map.get("student_email_id");
 		student_mobile_no = (String) map.get("student_mobile_no");
+		class_teacher_id = (String) map.get("class_teacher_id");
+		class_teacher_name = (String) map.get("class_teacher_name");
+		second_language = (String) map.get("second_language");
+		third_language = (String) map.get("third_language");
 		card_not_working = (String) map.get("card_not_working");
 		card_not_working_reason = (String) map.get("card_not_working_reason");
 		card_not_working_date_str = (String) map.get("card_not_working_date_str");
@@ -1811,6 +1859,22 @@ public abstract class Basestudent extends BaseResource {
 		Object student_mobile_noObj = map.get("student_mobile_no");
 		if(student_mobile_noObj != null)
 			student_mobile_no = student_mobile_noObj.toString();
+
+		Object class_teacher_idObj = map.get("class_teacher_id");
+		if(class_teacher_idObj != null)
+			class_teacher_id = class_teacher_idObj.toString();
+
+		Object class_teacher_nameObj = map.get("class_teacher_name");
+		if(class_teacher_nameObj != null)
+			class_teacher_name = class_teacher_nameObj.toString();
+
+		Object second_languageObj = map.get("second_language");
+		if(second_languageObj != null)
+			second_language = second_languageObj.toString();
+
+		Object third_languageObj = map.get("third_language");
+		if(third_languageObj != null)
+			third_language = third_languageObj.toString();
 
 		Object card_not_workingObj = map.get("card_not_working");
 		if(card_not_workingObj != null)
@@ -3249,6 +3313,70 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetStudent_mobile_no() {
 		this.student_mobile_no = null;
+	}
+
+	public String getClass_teacher_id() {
+		return class_teacher_id;
+	}
+
+	public String getClass_teacher_idEx() {
+		return class_teacher_id != null ? class_teacher_id : "";
+	}
+
+	public void setClass_teacher_id(String class_teacher_id) {
+		this.class_teacher_id = class_teacher_id;
+	}
+
+	public void unSetClass_teacher_id() {
+		this.class_teacher_id = null;
+	}
+
+	public String getClass_teacher_name() {
+		return class_teacher_name;
+	}
+
+	public String getClass_teacher_nameEx() {
+		return class_teacher_name != null ? class_teacher_name : "";
+	}
+
+	public void setClass_teacher_name(String class_teacher_name) {
+		this.class_teacher_name = class_teacher_name;
+	}
+
+	public void unSetClass_teacher_name() {
+		this.class_teacher_name = null;
+	}
+
+	public String getSecond_language() {
+		return second_language;
+	}
+
+	public String getSecond_languageEx() {
+		return second_language != null ? second_language : "";
+	}
+
+	public void setSecond_language(String second_language) {
+		this.second_language = second_language;
+	}
+
+	public void unSetSecond_language() {
+		this.second_language = null;
+	}
+
+	public String getThird_language() {
+		return third_language;
+	}
+
+	public String getThird_languageEx() {
+		return third_language != null ? third_language : "";
+	}
+
+	public void setThird_language(String third_language) {
+		this.third_language = third_language;
+	}
+
+	public void unSetThird_language() {
+		this.third_language = null;
 	}
 
 	public String getCard_not_working() {

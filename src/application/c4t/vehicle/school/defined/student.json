@@ -489,6 +489,26 @@
 				'type':'String',
 				length : 128
 			},
+			'class_teacher_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'class_teacher_name':
+			{
+				'type':'String',
+				length : 128
+			},
+			'second_language':
+			{
+				'type':'String',
+				length : 128
+			},
+			'third_language':
+			{
+				'type':'String',
+				length : 128
+			},
 			'card_not_working':
 			{
 				'type':'String',
