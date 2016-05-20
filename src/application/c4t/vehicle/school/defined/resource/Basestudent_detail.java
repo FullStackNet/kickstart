@@ -20,6 +20,7 @@ import java.util.*;
  */
 public abstract class Basestudent_detail extends BaseResource {
 	private String id = null;
+	private String community_id = null;
 	private String school_id = null;
 	private String school_brand_name = null;
 	private String name = null;
@@ -98,6 +99,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_SCHOOL_BRAND_NAME = "school_brand_name";
 	public static String FIELD_NAME = "name";
@@ -185,6 +187,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
 
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(128);
@@ -524,6 +530,7 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public Basestudent_detail(Basestudent_detail obj) {
 		this.id = obj.id;
+		this.community_id = obj.community_id;
 		this.school_id = obj.school_id;
 		this.school_brand_name = obj.school_brand_name;
 		this.name = obj.name;
@@ -689,6 +696,8 @@ public abstract class Basestudent_detail extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(school_brand_name != null)
@@ -851,6 +860,8 @@ public abstract class Basestudent_detail extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(school_brand_name != null)
@@ -1014,6 +1025,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		community_id = (String) map.get("community_id");
 		school_id = (String) map.get("school_id");
 		school_brand_name = (String) map.get("school_brand_name");
 		name = (String) map.get("name");
@@ -1097,6 +1109,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -1427,6 +1443,22 @@ public abstract class Basestudent_detail extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getCommunity_id() {
+		return community_id;
+	}
+
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
+	}
+
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
+	}
+
+	public void unSetCommunity_id() {
+		this.community_id = null;
 	}
 
 	public String getSchool_id() {

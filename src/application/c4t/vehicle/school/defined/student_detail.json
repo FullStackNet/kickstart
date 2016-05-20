@@ -11,6 +11,12 @@
 				'required': true,
 				'type':'String'
 			},
+			'community_id':
+			{
+				'name':'school_id',
+				'length': 128,
+				'type':'String'
+			},
 			'school_id':
 			{
 				'name':'school_id',
