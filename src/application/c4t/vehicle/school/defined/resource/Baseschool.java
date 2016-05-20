@@ -22,6 +22,7 @@ public abstract class Baseschool extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String photo_upload_url = null;
+	private String community_id = null;
 	private String app_branding = null;
 	private String brand_name = null;
 	private String short_name = null;
@@ -101,6 +102,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_PHOTO_UPLOAD_URL = "photo_upload_url";
+	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_APP_BRANDING = "app_branding";
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_SHORT_NAME = "short_name";
@@ -195,6 +197,10 @@ public abstract class Baseschool extends BaseResource {
 		Field photo_upload_urlField = new Field("photo_upload_url", "String");
 		photo_upload_urlField.setLength(128);
 		metaData.addField(photo_upload_urlField);
+
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
 
 		Field app_brandingField = new Field("app_branding", "String");
 		app_brandingField.setDefaultValue("N");
@@ -561,6 +567,7 @@ public abstract class Baseschool extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.photo_upload_url = obj.photo_upload_url;
+		this.community_id = obj.community_id;
 		this.app_branding = obj.app_branding;
 		this.brand_name = obj.brand_name;
 		this.short_name = obj.short_name;
@@ -765,6 +772,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("name", name);
 		if(photo_upload_url != null)
 			map.put("photo_upload_url", photo_upload_url);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(app_branding != null)
 			map.put("app_branding", app_branding);
 		if(brand_name != null)
@@ -929,6 +938,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("name", name);
 		if(photo_upload_url != null)
 			map.put("photo_upload_url", photo_upload_url);
+		if(community_id != null)
+			map.put("community_id", community_id);
 		if(app_branding != null)
 			map.put("app_branding", app_branding);
 		if(brand_name != null)
@@ -1092,6 +1103,7 @@ public abstract class Baseschool extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		photo_upload_url = (String) map.get("photo_upload_url");
+		community_id = (String) map.get("community_id");
 		app_branding = (String) map.get("app_branding");
 		brand_name = (String) map.get("brand_name");
 		short_name = (String) map.get("short_name");
@@ -1182,6 +1194,10 @@ public abstract class Baseschool extends BaseResource {
 		Object photo_upload_urlObj = map.get("photo_upload_url");
 		if(photo_upload_urlObj != null)
 			photo_upload_url = photo_upload_urlObj.toString();
+
+		Object community_idObj = map.get("community_id");
+		if(community_idObj != null)
+			community_id = community_idObj.toString();
 
 		Object app_brandingObj = map.get("app_branding");
 		if(app_brandingObj != null)
@@ -1540,6 +1556,22 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetPhoto_upload_url() {
 		this.photo_upload_url = null;
+	}
+
+	public String getCommunity_id() {
+		return community_id;
+	}
+
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
+	}
+
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
+	}
+
+	public void unSetCommunity_id() {
+		this.community_id = null;
 	}
 
 	public String getApp_branding() {

@@ -22,6 +22,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'community_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'app_branding':
 			{
 				'length': 1,
