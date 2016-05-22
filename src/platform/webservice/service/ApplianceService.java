@@ -1,15 +1,18 @@
 package platform.webservice.service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import platform.appliances.Appliance;
 import platform.appliances.ApplianceConstants;
+import platform.communication.HttpClient;
 import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.exception.ExceptionEnum;
 import platform.helper.ApplianceHelper;
 import platform.helper.Appliance_mapHelper;
+import platform.helper.C4t_objectHelper;
 import platform.helper.ControllerHelper;
 import platform.helper.UserHelper;
 import platform.helper.User_mapHelper;
@@ -18,6 +21,7 @@ import platform.message.DeviceAction;
 import platform.message.DeviceConfiguration;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
+import platform.resource.c4t_object;
 import platform.resource.controller;
 import platform.resource.user;
 import platform.util.ApplicationException;
@@ -229,6 +233,7 @@ public class ApplianceService extends BaseService{
 		QUERY_USER_VEHICLE_SUMMARY,
 		QUERY_USER_VEHICLE_LOCATION,
 		QUERY_GET_BY_ID,
+		QUERY_APPLIANCE_METER_CURRENT_DATA,
 		
 	};
 
@@ -240,6 +245,20 @@ public class ApplianceService extends BaseService{
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
 		if(QueryTypes.QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN.toString().equals(queryId)) {
 			return ApplianceHelper.getInstance().getSchoolBusAdminDetail(ctx.getCustomerId(),null);
+		}
+		else if(QueryTypes.QUERY_APPLIANCE_METER_CURRENT_DATA.toString().equals(queryId)) {
+			String communityId = (String)map.get("community_id");
+			String flatNo = (String)map.get("flat_no");
+			c4t_object _community  = C4t_objectHelper.getInstance().getById(communityId);
+			c4t_object _flat  = C4t_objectHelper.getInstance().getById(flatNo);
+			
+			try {
+				String value = HttpClient.get("http://myxenius.com/thirdparty/api/meter_reading?login_id="+_community.getEnergy_management_user_nameEx()+"&password="+_community.getEnergy_management_passwordEx()+"&location_id="+_flat.getReference_no_1());
+				System.out.println(value);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if(QueryTypes.QUERY_USER_VEHICLE_LOCATION.toString().equals(queryId)) {
 			String appliance_id = (String)map.get("id");
