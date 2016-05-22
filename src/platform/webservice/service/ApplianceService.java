@@ -20,12 +20,15 @@ import platform.manager.ApplicationManager;
 import platform.message.DeviceAction;
 import platform.message.DeviceConfiguration;
 import platform.resource.BaseResource;
+import platform.resource.MeterDataResult;
 import platform.resource.appliance;
 import platform.resource.c4t_object;
+import platform.resource.c4t_record;
 import platform.resource.controller;
 import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
+import platform.util.Json;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 import platform.webservice.WebServiceContants;
@@ -241,26 +244,10 @@ public class ApplianceService extends BaseService{
 		String userId = ctx.getUserId();
 		return User_mapHelper.getInstance().getApplianace(userId, uid);
 	}
-
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
 		if(QueryTypes.QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN.toString().equals(queryId)) {
 			return ApplianceHelper.getInstance().getSchoolBusAdminDetail(ctx.getCustomerId(),null);
-		}
-		else if(QueryTypes.QUERY_APPLIANCE_METER_CURRENT_DATA.toString().equals(queryId)) {
-			String communityId = (String)map.get("community_id");
-			String flatNo = (String)map.get("flat_no");
-			c4t_object _community  = C4t_objectHelper.getInstance().getById(communityId);
-			c4t_object _flat  = C4t_objectHelper.getInstance().getById(flatNo);
-			
-			try {
-				String value = HttpClient.get("http://myxenius.com/thirdparty/api/meter_reading?login_id="+_community.getEnergy_management_user_nameEx()+"&password="+_community.getEnergy_management_passwordEx()+"&location_id="+_flat.getReference_no_1());
-				System.out.println(value);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else if(QueryTypes.QUERY_USER_VEHICLE_LOCATION.toString().equals(queryId)) {
+		} else if(QueryTypes.QUERY_USER_VEHICLE_LOCATION.toString().equals(queryId)) {
 			String appliance_id = (String)map.get("id");
 			BaseResource appliance = ApplianceHelper.getInstance().getApplianceLocation(appliance_id);
 			if (appliance == null)

@@ -201,6 +201,19 @@ public abstract class Basec4t_object extends BaseResource {
 	private String energy_management_vendor_id = null;
 	private String energy_management_user_name = null;
 	private String energy_management_password = null;
+	private Double dg_reading = null;
+	private Double grid_reading = null;
+	private Double balance_amount = null;
+	private String last_coupan_no = null;
+	private Double last_recharge_amount = null;
+	private String last_recharge_time = null;
+	private String last_update_time = null;
+	private Double current_grid_reading = null;
+	private Double current_dg_reading = null;
+	private Double current_month_dg_consumption = null;
+	private Double current_month_grid_consumption = null;
+	private Double current_day_dg_consumption = null;
+	private Double current_day_grid_consumption = null;
 	private Double min_rating = null;
 	private Double max_rating = null;
 	private Double average_rating = null;
@@ -390,6 +403,19 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ENERGY_MANAGEMENT_VENDOR_ID = "energy_management_vendor_id";
 	public static String FIELD_ENERGY_MANAGEMENT_USER_NAME = "energy_management_user_name";
 	public static String FIELD_ENERGY_MANAGEMENT_PASSWORD = "energy_management_password";
+	public static String FIELD_DG_READING = "dg_reading";
+	public static String FIELD_GRID_READING = "grid_reading";
+	public static String FIELD_BALANCE_AMOUNT = "balance_amount";
+	public static String FIELD_LAST_COUPAN_NO = "last_coupan_no";
+	public static String FIELD_LAST_RECHARGE_AMOUNT = "last_recharge_amount";
+	public static String FIELD_LAST_RECHARGE_TIME = "last_recharge_time";
+	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
+	public static String FIELD_CURRENT_GRID_READING = "current_grid_reading";
+	public static String FIELD_CURRENT_DG_READING = "current_dg_reading";
+	public static String FIELD_CURRENT_MONTH_DG_CONSUMPTION = "current_month_dg_consumption";
+	public static String FIELD_CURRENT_MONTH_GRID_CONSUMPTION = "current_month_grid_consumption";
+	public static String FIELD_CURRENT_DAY_DG_CONSUMPTION = "current_day_dg_consumption";
+	public static String FIELD_CURRENT_DAY_GRID_CONSUMPTION = "current_day_grid_consumption";
 	public static String FIELD_MIN_RATING = "min_rating";
 	public static String FIELD_MAX_RATING = "max_rating";
 	public static String FIELD_AVERAGE_RATING = "average_rating";
@@ -1116,6 +1142,48 @@ public abstract class Basec4t_object extends BaseResource {
 		energy_management_passwordField.setLength(128);
 		metaData.addField(energy_management_passwordField);
 
+		Field dg_readingField = new Field("dg_reading", "Double");
+		metaData.addField(dg_readingField);
+
+		Field grid_readingField = new Field("grid_reading", "Double");
+		metaData.addField(grid_readingField);
+
+		Field balance_amountField = new Field("balance_amount", "Double");
+		metaData.addField(balance_amountField);
+
+		Field last_coupan_noField = new Field("last_coupan_no", "String");
+		last_coupan_noField.setLength(128);
+		metaData.addField(last_coupan_noField);
+
+		Field last_recharge_amountField = new Field("last_recharge_amount", "Double");
+		metaData.addField(last_recharge_amountField);
+
+		Field last_recharge_timeField = new Field("last_recharge_time", "String");
+		last_recharge_timeField.setLength(128);
+		metaData.addField(last_recharge_timeField);
+
+		Field last_update_timeField = new Field("last_update_time", "String");
+		last_update_timeField.setLength(128);
+		metaData.addField(last_update_timeField);
+
+		Field current_grid_readingField = new Field("current_grid_reading", "Double");
+		metaData.addField(current_grid_readingField);
+
+		Field current_dg_readingField = new Field("current_dg_reading", "Double");
+		metaData.addField(current_dg_readingField);
+
+		Field current_month_dg_consumptionField = new Field("current_month_dg_consumption", "Double");
+		metaData.addField(current_month_dg_consumptionField);
+
+		Field current_month_grid_consumptionField = new Field("current_month_grid_consumption", "Double");
+		metaData.addField(current_month_grid_consumptionField);
+
+		Field current_day_dg_consumptionField = new Field("current_day_dg_consumption", "Double");
+		metaData.addField(current_day_dg_consumptionField);
+
+		Field current_day_grid_consumptionField = new Field("current_day_grid_consumption", "Double");
+		metaData.addField(current_day_grid_consumptionField);
+
 		Field min_ratingField = new Field("min_rating", "double");
 		metaData.addField(min_ratingField);
 
@@ -1328,6 +1396,19 @@ public abstract class Basec4t_object extends BaseResource {
 		this.energy_management_vendor_id = obj.energy_management_vendor_id;
 		this.energy_management_user_name = obj.energy_management_user_name;
 		this.energy_management_password = obj.energy_management_password;
+		this.dg_reading = obj.dg_reading;
+		this.grid_reading = obj.grid_reading;
+		this.balance_amount = obj.balance_amount;
+		this.last_coupan_no = obj.last_coupan_no;
+		this.last_recharge_amount = obj.last_recharge_amount;
+		this.last_recharge_time = obj.last_recharge_time;
+		this.last_update_time = obj.last_update_time;
+		this.current_grid_reading = obj.current_grid_reading;
+		this.current_dg_reading = obj.current_dg_reading;
+		this.current_month_dg_consumption = obj.current_month_dg_consumption;
+		this.current_month_grid_consumption = obj.current_month_grid_consumption;
+		this.current_day_dg_consumption = obj.current_day_dg_consumption;
+		this.current_day_grid_consumption = obj.current_day_grid_consumption;
 		this.min_rating = obj.min_rating;
 		this.max_rating = obj.max_rating;
 		this.average_rating = obj.average_rating;
@@ -1706,6 +1787,32 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("energy_management_user_name", energy_management_user_name);
 		if(energy_management_password != null)
 			map.put("energy_management_password", energy_management_password);
+		if(dg_reading != null)
+			map.put("dg_reading", dg_reading);
+		if(grid_reading != null)
+			map.put("grid_reading", grid_reading);
+		if(balance_amount != null)
+			map.put("balance_amount", balance_amount);
+		if(last_coupan_no != null)
+			map.put("last_coupan_no", last_coupan_no);
+		if(last_recharge_amount != null)
+			map.put("last_recharge_amount", last_recharge_amount);
+		if(last_recharge_time != null)
+			map.put("last_recharge_time", last_recharge_time);
+		if(last_update_time != null)
+			map.put("last_update_time", last_update_time);
+		if(current_grid_reading != null)
+			map.put("current_grid_reading", current_grid_reading);
+		if(current_dg_reading != null)
+			map.put("current_dg_reading", current_dg_reading);
+		if(current_month_dg_consumption != null)
+			map.put("current_month_dg_consumption", current_month_dg_consumption);
+		if(current_month_grid_consumption != null)
+			map.put("current_month_grid_consumption", current_month_grid_consumption);
+		if(current_day_dg_consumption != null)
+			map.put("current_day_dg_consumption", current_day_dg_consumption);
+		if(current_day_grid_consumption != null)
+			map.put("current_day_grid_consumption", current_day_grid_consumption);
 		if(min_rating != null)
 			map.put("min_rating", min_rating);
 		if(max_rating != null)
@@ -2087,6 +2194,32 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("energy_management_user_name", energy_management_user_name);
 		if(energy_management_password != null)
 			map.put("energy_management_password", energy_management_password);
+		if(dg_reading != null)
+			map.put("dg_reading", dg_reading);
+		if(grid_reading != null)
+			map.put("grid_reading", grid_reading);
+		if(balance_amount != null)
+			map.put("balance_amount", balance_amount);
+		if(last_coupan_no != null)
+			map.put("last_coupan_no", last_coupan_no);
+		if(last_recharge_amount != null)
+			map.put("last_recharge_amount", last_recharge_amount);
+		if(last_recharge_time != null)
+			map.put("last_recharge_time", last_recharge_time);
+		if(last_update_time != null)
+			map.put("last_update_time", last_update_time);
+		if(current_grid_reading != null)
+			map.put("current_grid_reading", current_grid_reading);
+		if(current_dg_reading != null)
+			map.put("current_dg_reading", current_dg_reading);
+		if(current_month_dg_consumption != null)
+			map.put("current_month_dg_consumption", current_month_dg_consumption);
+		if(current_month_grid_consumption != null)
+			map.put("current_month_grid_consumption", current_month_grid_consumption);
+		if(current_day_dg_consumption != null)
+			map.put("current_day_dg_consumption", current_day_dg_consumption);
+		if(current_day_grid_consumption != null)
+			map.put("current_day_grid_consumption", current_day_grid_consumption);
 		if(min_rating != null)
 			map.put("min_rating", min_rating);
 		if(max_rating != null)
@@ -2291,6 +2424,19 @@ public abstract class Basec4t_object extends BaseResource {
 		energy_management_vendor_id = (String) map.get("energy_management_vendor_id");
 		energy_management_user_name = (String) map.get("energy_management_user_name");
 		energy_management_password = (String) map.get("energy_management_password");
+		dg_reading = (Double) map.get("dg_reading");
+		grid_reading = (Double) map.get("grid_reading");
+		balance_amount = (Double) map.get("balance_amount");
+		last_coupan_no = (String) map.get("last_coupan_no");
+		last_recharge_amount = (Double) map.get("last_recharge_amount");
+		last_recharge_time = (String) map.get("last_recharge_time");
+		last_update_time = (String) map.get("last_update_time");
+		current_grid_reading = (Double) map.get("current_grid_reading");
+		current_dg_reading = (Double) map.get("current_dg_reading");
+		current_month_dg_consumption = (Double) map.get("current_month_dg_consumption");
+		current_month_grid_consumption = (Double) map.get("current_month_grid_consumption");
+		current_day_dg_consumption = (Double) map.get("current_day_dg_consumption");
+		current_day_grid_consumption = (Double) map.get("current_day_grid_consumption");
 		min_rating = (Double) map.get("min_rating");
 		max_rating = (Double) map.get("max_rating");
 		average_rating = (Double) map.get("average_rating");
@@ -3028,6 +3174,58 @@ public abstract class Basec4t_object extends BaseResource {
 		Object energy_management_passwordObj = map.get("energy_management_password");
 		if(energy_management_passwordObj != null)
 			energy_management_password = energy_management_passwordObj.toString();
+
+		Object dg_readingObj = map.get("dg_reading");
+		if(dg_readingObj != null)
+			dg_reading = new Double(dg_readingObj.toString());
+
+		Object grid_readingObj = map.get("grid_reading");
+		if(grid_readingObj != null)
+			grid_reading = new Double(grid_readingObj.toString());
+
+		Object balance_amountObj = map.get("balance_amount");
+		if(balance_amountObj != null)
+			balance_amount = new Double(balance_amountObj.toString());
+
+		Object last_coupan_noObj = map.get("last_coupan_no");
+		if(last_coupan_noObj != null)
+			last_coupan_no = last_coupan_noObj.toString();
+
+		Object last_recharge_amountObj = map.get("last_recharge_amount");
+		if(last_recharge_amountObj != null)
+			last_recharge_amount = new Double(last_recharge_amountObj.toString());
+
+		Object last_recharge_timeObj = map.get("last_recharge_time");
+		if(last_recharge_timeObj != null)
+			last_recharge_time = last_recharge_timeObj.toString();
+
+		Object last_update_timeObj = map.get("last_update_time");
+		if(last_update_timeObj != null)
+			last_update_time = last_update_timeObj.toString();
+
+		Object current_grid_readingObj = map.get("current_grid_reading");
+		if(current_grid_readingObj != null)
+			current_grid_reading = new Double(current_grid_readingObj.toString());
+
+		Object current_dg_readingObj = map.get("current_dg_reading");
+		if(current_dg_readingObj != null)
+			current_dg_reading = new Double(current_dg_readingObj.toString());
+
+		Object current_month_dg_consumptionObj = map.get("current_month_dg_consumption");
+		if(current_month_dg_consumptionObj != null)
+			current_month_dg_consumption = new Double(current_month_dg_consumptionObj.toString());
+
+		Object current_month_grid_consumptionObj = map.get("current_month_grid_consumption");
+		if(current_month_grid_consumptionObj != null)
+			current_month_grid_consumption = new Double(current_month_grid_consumptionObj.toString());
+
+		Object current_day_dg_consumptionObj = map.get("current_day_dg_consumption");
+		if(current_day_dg_consumptionObj != null)
+			current_day_dg_consumption = new Double(current_day_dg_consumptionObj.toString());
+
+		Object current_day_grid_consumptionObj = map.get("current_day_grid_consumption");
+		if(current_day_grid_consumptionObj != null)
+			current_day_grid_consumption = new Double(current_day_grid_consumptionObj.toString());
 
 		Object min_ratingObj = map.get("min_rating");
 		if(min_ratingObj != null)
@@ -6052,6 +6250,174 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetEnergy_management_password() {
 		this.energy_management_password = null;
+	}
+
+	public Double getDg_reading() {
+		return dg_reading;
+	}
+
+	public void setDg_reading(Double dg_reading) {
+		this.dg_reading = dg_reading;
+	}
+
+	public void unSetDg_reading() {
+		this.dg_reading = null;
+	}
+
+	public Double getGrid_reading() {
+		return grid_reading;
+	}
+
+	public void setGrid_reading(Double grid_reading) {
+		this.grid_reading = grid_reading;
+	}
+
+	public void unSetGrid_reading() {
+		this.grid_reading = null;
+	}
+
+	public Double getBalance_amount() {
+		return balance_amount;
+	}
+
+	public void setBalance_amount(Double balance_amount) {
+		this.balance_amount = balance_amount;
+	}
+
+	public void unSetBalance_amount() {
+		this.balance_amount = null;
+	}
+
+	public String getLast_coupan_no() {
+		return last_coupan_no;
+	}
+
+	public String getLast_coupan_noEx() {
+		return last_coupan_no != null ? last_coupan_no : "";
+	}
+
+	public void setLast_coupan_no(String last_coupan_no) {
+		this.last_coupan_no = last_coupan_no;
+	}
+
+	public void unSetLast_coupan_no() {
+		this.last_coupan_no = null;
+	}
+
+	public Double getLast_recharge_amount() {
+		return last_recharge_amount;
+	}
+
+	public void setLast_recharge_amount(Double last_recharge_amount) {
+		this.last_recharge_amount = last_recharge_amount;
+	}
+
+	public void unSetLast_recharge_amount() {
+		this.last_recharge_amount = null;
+	}
+
+	public String getLast_recharge_time() {
+		return last_recharge_time;
+	}
+
+	public String getLast_recharge_timeEx() {
+		return last_recharge_time != null ? last_recharge_time : "";
+	}
+
+	public void setLast_recharge_time(String last_recharge_time) {
+		this.last_recharge_time = last_recharge_time;
+	}
+
+	public void unSetLast_recharge_time() {
+		this.last_recharge_time = null;
+	}
+
+	public String getLast_update_time() {
+		return last_update_time;
+	}
+
+	public String getLast_update_timeEx() {
+		return last_update_time != null ? last_update_time : "";
+	}
+
+	public void setLast_update_time(String last_update_time) {
+		this.last_update_time = last_update_time;
+	}
+
+	public void unSetLast_update_time() {
+		this.last_update_time = null;
+	}
+
+	public Double getCurrent_grid_reading() {
+		return current_grid_reading;
+	}
+
+	public void setCurrent_grid_reading(Double current_grid_reading) {
+		this.current_grid_reading = current_grid_reading;
+	}
+
+	public void unSetCurrent_grid_reading() {
+		this.current_grid_reading = null;
+	}
+
+	public Double getCurrent_dg_reading() {
+		return current_dg_reading;
+	}
+
+	public void setCurrent_dg_reading(Double current_dg_reading) {
+		this.current_dg_reading = current_dg_reading;
+	}
+
+	public void unSetCurrent_dg_reading() {
+		this.current_dg_reading = null;
+	}
+
+	public Double getCurrent_month_dg_consumption() {
+		return current_month_dg_consumption;
+	}
+
+	public void setCurrent_month_dg_consumption(Double current_month_dg_consumption) {
+		this.current_month_dg_consumption = current_month_dg_consumption;
+	}
+
+	public void unSetCurrent_month_dg_consumption() {
+		this.current_month_dg_consumption = null;
+	}
+
+	public Double getCurrent_month_grid_consumption() {
+		return current_month_grid_consumption;
+	}
+
+	public void setCurrent_month_grid_consumption(Double current_month_grid_consumption) {
+		this.current_month_grid_consumption = current_month_grid_consumption;
+	}
+
+	public void unSetCurrent_month_grid_consumption() {
+		this.current_month_grid_consumption = null;
+	}
+
+	public Double getCurrent_day_dg_consumption() {
+		return current_day_dg_consumption;
+	}
+
+	public void setCurrent_day_dg_consumption(Double current_day_dg_consumption) {
+		this.current_day_dg_consumption = current_day_dg_consumption;
+	}
+
+	public void unSetCurrent_day_dg_consumption() {
+		this.current_day_dg_consumption = null;
+	}
+
+	public Double getCurrent_day_grid_consumption() {
+		return current_day_grid_consumption;
+	}
+
+	public void setCurrent_day_grid_consumption(Double current_day_grid_consumption) {
+		this.current_day_grid_consumption = current_day_grid_consumption;
+	}
+
+	public void unSetCurrent_day_grid_consumption() {
+		this.current_day_grid_consumption = null;
 	}
 
 	public Double getMin_rating() {

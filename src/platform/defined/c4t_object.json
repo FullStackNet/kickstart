@@ -905,6 +905,61 @@
 				'type':'String',
 				'length': 128
 			},
+			'dg_reading':
+			{
+				'type':'Double'
+			},
+			'grid_reading':
+			{
+				'type':'Double'
+			},
+			'balance_amount':
+			{
+				'type':'Double'
+			},
+			'last_coupan_no':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'last_recharge_amount':
+			{
+				'type':'Double'
+			},
+			'last_recharge_time':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'last_update_time':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'current_grid_reading':
+			{
+				'type':'Double'
+			},
+			'current_dg_reading':
+			{
+				'type':'Double'
+			},
+			'current_month_dg_consumption':
+			{
+				'type':'Double'
+			},
+			'current_month_grid_consumption':
+			{
+				'type':'Double'
+			},
+			'current_day_dg_consumption':
+			{
+				'type':'Double'
+			},
+			'current_day_grid_consumption':
+			{
+				'type':'Double'
+			},
 			'min_rating':
 			{
 				'type':'double'
