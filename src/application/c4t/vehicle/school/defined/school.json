@@ -125,6 +125,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_collabrotive_study':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_teacher2parent_chat':
 			{
 				'length': 1,

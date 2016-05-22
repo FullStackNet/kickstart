@@ -890,6 +890,16 @@
 				'type':'String',
 				'length': 128
 			},
+			'energy_management_user_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'energy_management_password':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'min_rating':
 			{
 				'type':'double'

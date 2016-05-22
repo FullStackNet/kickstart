@@ -198,6 +198,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String college_name = null;
 	private String degree_name = null;
 	private String skill_id = null;
+	private String energy_management_user_name = null;
+	private String energy_management_password = null;
 	private Double min_rating = null;
 	private Double max_rating = null;
 	private Double average_rating = null;
@@ -384,6 +386,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_COLLEGE_NAME = "college_name";
 	public static String FIELD_DEGREE_NAME = "degree_name";
 	public static String FIELD_SKILL_ID = "skill_id";
+	public static String FIELD_ENERGY_MANAGEMENT_USER_NAME = "energy_management_user_name";
+	public static String FIELD_ENERGY_MANAGEMENT_PASSWORD = "energy_management_password";
 	public static String FIELD_MIN_RATING = "min_rating";
 	public static String FIELD_MAX_RATING = "max_rating";
 	public static String FIELD_AVERAGE_RATING = "average_rating";
@@ -1098,6 +1102,14 @@ public abstract class Basec4t_object extends BaseResource {
 		skill_idField.setLength(128);
 		metaData.addField(skill_idField);
 
+		Field energy_management_user_nameField = new Field("energy_management_user_name", "String");
+		energy_management_user_nameField.setLength(128);
+		metaData.addField(energy_management_user_nameField);
+
+		Field energy_management_passwordField = new Field("energy_management_password", "String");
+		energy_management_passwordField.setLength(128);
+		metaData.addField(energy_management_passwordField);
+
 		Field min_ratingField = new Field("min_rating", "double");
 		metaData.addField(min_ratingField);
 
@@ -1307,6 +1319,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.college_name = obj.college_name;
 		this.degree_name = obj.degree_name;
 		this.skill_id = obj.skill_id;
+		this.energy_management_user_name = obj.energy_management_user_name;
+		this.energy_management_password = obj.energy_management_password;
 		this.min_rating = obj.min_rating;
 		this.max_rating = obj.max_rating;
 		this.average_rating = obj.average_rating;
@@ -1679,6 +1693,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("degree_name", degree_name);
 		if(skill_id != null)
 			map.put("skill_id", skill_id);
+		if(energy_management_user_name != null)
+			map.put("energy_management_user_name", energy_management_user_name);
+		if(energy_management_password != null)
+			map.put("energy_management_password", energy_management_password);
 		if(min_rating != null)
 			map.put("min_rating", min_rating);
 		if(max_rating != null)
@@ -2054,6 +2072,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("degree_name", degree_name);
 		if(skill_id != null)
 			map.put("skill_id", skill_id);
+		if(energy_management_user_name != null)
+			map.put("energy_management_user_name", energy_management_user_name);
+		if(energy_management_password != null)
+			map.put("energy_management_password", energy_management_password);
 		if(min_rating != null)
 			map.put("min_rating", min_rating);
 		if(max_rating != null)
@@ -2255,6 +2277,8 @@ public abstract class Basec4t_object extends BaseResource {
 		college_name = (String) map.get("college_name");
 		degree_name = (String) map.get("degree_name");
 		skill_id = (String) map.get("skill_id");
+		energy_management_user_name = (String) map.get("energy_management_user_name");
+		energy_management_password = (String) map.get("energy_management_password");
 		min_rating = (Double) map.get("min_rating");
 		max_rating = (Double) map.get("max_rating");
 		average_rating = (Double) map.get("average_rating");
@@ -2980,6 +3004,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object skill_idObj = map.get("skill_id");
 		if(skill_idObj != null)
 			skill_id = skill_idObj.toString();
+
+		Object energy_management_user_nameObj = map.get("energy_management_user_name");
+		if(energy_management_user_nameObj != null)
+			energy_management_user_name = energy_management_user_nameObj.toString();
+
+		Object energy_management_passwordObj = map.get("energy_management_password");
+		if(energy_management_passwordObj != null)
+			energy_management_password = energy_management_passwordObj.toString();
 
 		Object min_ratingObj = map.get("min_rating");
 		if(min_ratingObj != null)
@@ -5956,6 +5988,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetSkill_id() {
 		this.skill_id = null;
+	}
+
+	public String getEnergy_management_user_name() {
+		return energy_management_user_name;
+	}
+
+	public String getEnergy_management_user_nameEx() {
+		return energy_management_user_name != null ? energy_management_user_name : "";
+	}
+
+	public void setEnergy_management_user_name(String energy_management_user_name) {
+		this.energy_management_user_name = energy_management_user_name;
+	}
+
+	public void unSetEnergy_management_user_name() {
+		this.energy_management_user_name = null;
+	}
+
+	public String getEnergy_management_password() {
+		return energy_management_password;
+	}
+
+	public String getEnergy_management_passwordEx() {
+		return energy_management_password != null ? energy_management_password : "";
+	}
+
+	public void setEnergy_management_password(String energy_management_password) {
+		this.energy_management_password = energy_management_password;
+	}
+
+	public void unSetEnergy_management_password() {
+		this.energy_management_password = null;
 	}
 
 	public Double getMin_rating() {

@@ -222,6 +222,12 @@
 				'type':'String',
 				'default' :"N"
 			},
+			'feature_collabrotive_study':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_parent2parent_chat':
 			{
 				'length': 1,

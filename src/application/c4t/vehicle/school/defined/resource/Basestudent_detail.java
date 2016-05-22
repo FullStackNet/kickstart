@@ -61,6 +61,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String stopage_alert_sms = null;
 	private String stopage_alert_mobile_app = null;
 	private String stopage_alert_email = null;
+	private String feature_collabrotive_study = null;
 	private String feature_parent2parent_chat = null;
 	private String feature_homework = null;
 	private String feature_daily_activity = null;
@@ -140,6 +141,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_STOPAGE_ALERT_SMS = "stopage_alert_sms";
 	public static String FIELD_STOPAGE_ALERT_MOBILE_APP = "stopage_alert_mobile_app";
 	public static String FIELD_STOPAGE_ALERT_EMAIL = "stopage_alert_email";
+	public static String FIELD_FEATURE_COLLABROTIVE_STUDY = "feature_collabrotive_study";
 	public static String FIELD_FEATURE_PARENT2PARENT_CHAT = "feature_parent2parent_chat";
 	public static String FIELD_FEATURE_HOMEWORK = "feature_homework";
 	public static String FIELD_FEATURE_DAILY_ACTIVITY = "feature_daily_activity";
@@ -353,6 +355,11 @@ public abstract class Basestudent_detail extends BaseResource {
 		stopage_alert_emailField.setDefaultValue("N");
 		stopage_alert_emailField.setLength(1);
 		metaData.addField(stopage_alert_emailField);
+
+		Field feature_collabrotive_studyField = new Field("feature_collabrotive_study", "String");
+		feature_collabrotive_studyField.setDefaultValue("N");
+		feature_collabrotive_studyField.setLength(1);
+		metaData.addField(feature_collabrotive_studyField);
 
 		Field feature_parent2parent_chatField = new Field("feature_parent2parent_chat", "String");
 		feature_parent2parent_chatField.setDefaultValue("N");
@@ -571,6 +578,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.stopage_alert_sms = obj.stopage_alert_sms;
 		this.stopage_alert_mobile_app = obj.stopage_alert_mobile_app;
 		this.stopage_alert_email = obj.stopage_alert_email;
+		this.feature_collabrotive_study = obj.feature_collabrotive_study;
 		this.feature_parent2parent_chat = obj.feature_parent2parent_chat;
 		this.feature_homework = obj.feature_homework;
 		this.feature_daily_activity = obj.feature_daily_activity;
@@ -622,6 +630,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			stopage_alert_mobile_app = "Y";
 		if(stopage_alert_email == null)
 			stopage_alert_email = "N";
+		if(feature_collabrotive_study == null)
+			feature_collabrotive_study = "N";
 		if(feature_parent2parent_chat == null)
 			feature_parent2parent_chat = "N";
 		if(feature_homework == null)
@@ -778,6 +788,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
 		if(stopage_alert_email != null)
 			map.put("stopage_alert_email", stopage_alert_email);
+		if(feature_collabrotive_study != null)
+			map.put("feature_collabrotive_study", feature_collabrotive_study);
 		if(feature_parent2parent_chat != null)
 			map.put("feature_parent2parent_chat", feature_parent2parent_chat);
 		if(feature_homework != null)
@@ -942,6 +954,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
 		if(stopage_alert_email != null)
 			map.put("stopage_alert_email", stopage_alert_email);
+		if(feature_collabrotive_study != null)
+			map.put("feature_collabrotive_study", feature_collabrotive_study);
 		if(feature_parent2parent_chat != null)
 			map.put("feature_parent2parent_chat", feature_parent2parent_chat);
 		if(feature_homework != null)
@@ -1066,6 +1080,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		stopage_alert_sms = (String) map.get("stopage_alert_sms");
 		stopage_alert_mobile_app = (String) map.get("stopage_alert_mobile_app");
 		stopage_alert_email = (String) map.get("stopage_alert_email");
+		feature_collabrotive_study = (String) map.get("feature_collabrotive_study");
 		feature_parent2parent_chat = (String) map.get("feature_parent2parent_chat");
 		feature_homework = (String) map.get("feature_homework");
 		feature_daily_activity = (String) map.get("feature_daily_activity");
@@ -1273,6 +1288,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object stopage_alert_emailObj = map.get("stopage_alert_email");
 		if(stopage_alert_emailObj != null)
 			stopage_alert_email = stopage_alert_emailObj.toString();
+
+		Object feature_collabrotive_studyObj = map.get("feature_collabrotive_study");
+		if(feature_collabrotive_studyObj != null)
+			feature_collabrotive_study = feature_collabrotive_studyObj.toString();
 
 		Object feature_parent2parent_chatObj = map.get("feature_parent2parent_chat");
 		if(feature_parent2parent_chatObj != null)
@@ -2091,6 +2110,18 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetStopage_alert_email() {
 		this.stopage_alert_email = "N";
+	}
+
+	public String getFeature_collabrotive_study() {
+		return feature_collabrotive_study != null ? feature_collabrotive_study : "N";
+	}
+
+	public void setFeature_collabrotive_study(String feature_collabrotive_study) {
+		this.feature_collabrotive_study = feature_collabrotive_study;
+	}
+
+	public void unSetFeature_collabrotive_study() {
+		this.feature_collabrotive_study = "N";
 	}
 
 	public String getFeature_parent2parent_chat() {
