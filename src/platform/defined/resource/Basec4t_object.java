@@ -198,6 +198,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String college_name = null;
 	private String degree_name = null;
 	private String skill_id = null;
+	private String energy_management_vendor_id = null;
 	private String energy_management_user_name = null;
 	private String energy_management_password = null;
 	private Double min_rating = null;
@@ -386,6 +387,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_COLLEGE_NAME = "college_name";
 	public static String FIELD_DEGREE_NAME = "degree_name";
 	public static String FIELD_SKILL_ID = "skill_id";
+	public static String FIELD_ENERGY_MANAGEMENT_VENDOR_ID = "energy_management_vendor_id";
 	public static String FIELD_ENERGY_MANAGEMENT_USER_NAME = "energy_management_user_name";
 	public static String FIELD_ENERGY_MANAGEMENT_PASSWORD = "energy_management_password";
 	public static String FIELD_MIN_RATING = "min_rating";
@@ -1102,6 +1104,10 @@ public abstract class Basec4t_object extends BaseResource {
 		skill_idField.setLength(128);
 		metaData.addField(skill_idField);
 
+		Field energy_management_vendor_idField = new Field("energy_management_vendor_id", "String");
+		energy_management_vendor_idField.setLength(128);
+		metaData.addField(energy_management_vendor_idField);
+
 		Field energy_management_user_nameField = new Field("energy_management_user_name", "String");
 		energy_management_user_nameField.setLength(128);
 		metaData.addField(energy_management_user_nameField);
@@ -1319,6 +1325,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.college_name = obj.college_name;
 		this.degree_name = obj.degree_name;
 		this.skill_id = obj.skill_id;
+		this.energy_management_vendor_id = obj.energy_management_vendor_id;
 		this.energy_management_user_name = obj.energy_management_user_name;
 		this.energy_management_password = obj.energy_management_password;
 		this.min_rating = obj.min_rating;
@@ -1693,6 +1700,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("degree_name", degree_name);
 		if(skill_id != null)
 			map.put("skill_id", skill_id);
+		if(energy_management_vendor_id != null)
+			map.put("energy_management_vendor_id", energy_management_vendor_id);
 		if(energy_management_user_name != null)
 			map.put("energy_management_user_name", energy_management_user_name);
 		if(energy_management_password != null)
@@ -2072,6 +2081,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("degree_name", degree_name);
 		if(skill_id != null)
 			map.put("skill_id", skill_id);
+		if(energy_management_vendor_id != null)
+			map.put("energy_management_vendor_id", energy_management_vendor_id);
 		if(energy_management_user_name != null)
 			map.put("energy_management_user_name", energy_management_user_name);
 		if(energy_management_password != null)
@@ -2277,6 +2288,7 @@ public abstract class Basec4t_object extends BaseResource {
 		college_name = (String) map.get("college_name");
 		degree_name = (String) map.get("degree_name");
 		skill_id = (String) map.get("skill_id");
+		energy_management_vendor_id = (String) map.get("energy_management_vendor_id");
 		energy_management_user_name = (String) map.get("energy_management_user_name");
 		energy_management_password = (String) map.get("energy_management_password");
 		min_rating = (Double) map.get("min_rating");
@@ -3004,6 +3016,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object skill_idObj = map.get("skill_id");
 		if(skill_idObj != null)
 			skill_id = skill_idObj.toString();
+
+		Object energy_management_vendor_idObj = map.get("energy_management_vendor_id");
+		if(energy_management_vendor_idObj != null)
+			energy_management_vendor_id = energy_management_vendor_idObj.toString();
 
 		Object energy_management_user_nameObj = map.get("energy_management_user_name");
 		if(energy_management_user_nameObj != null)
@@ -5988,6 +6004,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetSkill_id() {
 		this.skill_id = null;
+	}
+
+	public String getEnergy_management_vendor_id() {
+		return energy_management_vendor_id;
+	}
+
+	public String getEnergy_management_vendor_idEx() {
+		return energy_management_vendor_id != null ? energy_management_vendor_id : "";
+	}
+
+	public void setEnergy_management_vendor_id(String energy_management_vendor_id) {
+		this.energy_management_vendor_id = energy_management_vendor_id;
+	}
+
+	public void unSetEnergy_management_vendor_id() {
+		this.energy_management_vendor_id = null;
 	}
 
 	public String getEnergy_management_user_name() {

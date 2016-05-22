@@ -890,6 +890,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'energy_management_vendor_id':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'energy_management_user_name':
 			{
 				'type':'String',
