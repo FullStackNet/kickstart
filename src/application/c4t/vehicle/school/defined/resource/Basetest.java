@@ -26,6 +26,7 @@ public abstract class Basetest extends BaseResource {
 	private String instruction_hindi = null;
 	private String subject_id = null;
 	private String course_id = null;
+	private String course_name = null;
 	private String subject_name = null;
 	private Long total_questions = null;
 	private Long total_marks = null;
@@ -42,6 +43,7 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_INSTRUCTION_HINDI = "instruction_hindi";
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_COURSE_ID = "course_id";
+	public static String FIELD_COURSE_NAME = "course_name";
 	public static String FIELD_SUBJECT_NAME = "subject_name";
 	public static String FIELD_TOTAL_QUESTIONS = "total_questions";
 	public static String FIELD_TOTAL_MARKS = "total_marks";
@@ -85,6 +87,10 @@ public abstract class Basetest extends BaseResource {
 		Field course_idField = new Field("course_id", "String");
 		course_idField.setLength(128);
 		metaData.addField(course_idField);
+
+		Field course_nameField = new Field("course_name", "String");
+		course_nameField.setLength(128);
+		metaData.addField(course_nameField);
 
 		Field subject_nameField = new Field("subject_name", "String");
 		subject_nameField.setLength(128);
@@ -131,6 +137,7 @@ public abstract class Basetest extends BaseResource {
 		this.instruction_hindi = obj.instruction_hindi;
 		this.subject_id = obj.subject_id;
 		this.course_id = obj.course_id;
+		this.course_name = obj.course_name;
 		this.subject_name = obj.subject_name;
 		this.total_questions = obj.total_questions;
 		this.total_marks = obj.total_marks;
@@ -161,6 +168,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("subject_id", subject_id);
 		if(course_id != null)
 			map.put("course_id", course_id);
+		if(course_name != null)
+			map.put("course_name", course_name);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
 		if(total_questions != null)
@@ -196,6 +205,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("subject_id", subject_id);
 		if(course_id != null)
 			map.put("course_id", course_id);
+		if(course_name != null)
+			map.put("course_name", course_name);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
 		if(total_questions != null)
@@ -229,6 +240,7 @@ public abstract class Basetest extends BaseResource {
 		instruction_hindi = (String) map.get("instruction_hindi");
 		subject_id = (String) map.get("subject_id");
 		course_id = (String) map.get("course_id");
+		course_name = (String) map.get("course_name");
 		subject_name = (String) map.get("subject_name");
 		total_questions = (Long) map.get("total_questions");
 		total_marks = (Long) map.get("total_marks");
@@ -268,6 +280,10 @@ public abstract class Basetest extends BaseResource {
 		Object course_idObj = map.get("course_id");
 		if(course_idObj != null)
 			course_id = course_idObj.toString();
+
+		Object course_nameObj = map.get("course_name");
+		if(course_nameObj != null)
+			course_name = course_nameObj.toString();
 
 		Object subject_nameObj = map.get("subject_name");
 		if(subject_nameObj != null)
@@ -422,6 +438,22 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetCourse_id() {
 		this.course_id = null;
+	}
+
+	public String getCourse_name() {
+		return course_name;
+	}
+
+	public String getCourse_nameEx() {
+		return course_name != null ? course_name : "";
+	}
+
+	public void setCourse_name(String course_name) {
+		this.course_name = course_name;
+	}
+
+	public void unSetCourse_name() {
+		this.course_name = null;
 	}
 
 	public String getSubject_name() {

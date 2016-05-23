@@ -42,6 +42,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'course_name':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'subject_name':
 			{
 				'type':'String',
