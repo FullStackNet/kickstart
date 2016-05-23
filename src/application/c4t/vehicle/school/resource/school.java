@@ -1,6 +1,7 @@
 package application.c4t.vehicle.school.resource;
 
 import platform.util.Util;
+import platform.webservice.ui.definition.IdValue;
 import application.c4t.vehicle.school.defined.resource.Baseschool;
 
 public class school extends Baseschool {
@@ -127,5 +128,16 @@ public class school extends Baseschool {
 			return true;
 		}
 		return false;
+	}
+	
+	public static String SCHOOL_TYPE_PRESCHOOL = "PRESCHOOL";
+	public static String SCHOOL_TYPE_COMPTATIVE_EXAM_COACHING = "COMPTATIVE_EXAM_COACHING";
+	
+	
+	public static IdValue[] getTypeOption() {
+		IdValue[] options = {new IdValue(SCHOOL_TYPE_PRESCHOOL, "Pre School"), 
+				new IdValue(SCHOOL_TYPE_COMPTATIVE_EXAM_COACHING, "COMPTATIVE EXAMS COACHING"),
+				new IdValue("SCHOOL", "SCHOOL")};
+		return options;
 	}
 }

@@ -17,6 +17,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'type':
+			{
+				'name':'String',
+				'length': 128
+			},
 			'photo_upload_url':
 			{
 				'length': 128,
