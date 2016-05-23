@@ -20,6 +20,11 @@
 				'length': 32,
 				'type':'String'
 			},
+			'description_hindi':
+			{
+				'length': 32,
+				'type':'String'
+			},
 			'tutorial_id':
 			{
 				'length': 128,
@@ -60,6 +65,32 @@
 				'length': 128,
 				'type':'String'
 			},
+			
+			'option_hindi_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'option_hindi_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'option_hindi_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'option_hindi_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'option_hindi_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'answer':
 			{
 				'length': 128,
@@ -90,6 +121,11 @@
 				'default' : "N"
 			},
 			'answer_explanation':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'answer_explanation_hindi':
 			{
 				'length': 128,
 				'type':'String'

@@ -22,6 +22,7 @@ public abstract class Baseobjective_question extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String description = null;
+	private String description_hindi = null;
 	private String tutorial_id = null;
 	private String subject_id = null;
 	private String class_name = null;
@@ -30,18 +31,25 @@ public abstract class Baseobjective_question extends BaseResource {
 	private String option_3 = null;
 	private String option_4 = null;
 	private String option_5 = null;
+	private String option_hindi_1 = null;
+	private String option_hindi_2 = null;
+	private String option_hindi_3 = null;
+	private String option_hindi_4 = null;
+	private String option_hindi_5 = null;
 	private String answer = null;
 	private String answer_1 = null;
 	private String answer_2 = null;
 	private String answer_3 = null;
 	private String answer_4 = null;
 	private String answer_explanation = null;
+	private String answer_explanation_hindi = null;
 	private String mutiple_options = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_DESCRIPTION = "description";
+	public static String FIELD_DESCRIPTION_HINDI = "description_hindi";
 	public static String FIELD_TUTORIAL_ID = "tutorial_id";
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_CLASS_NAME = "class_name";
@@ -50,12 +58,18 @@ public abstract class Baseobjective_question extends BaseResource {
 	public static String FIELD_OPTION_3 = "option_3";
 	public static String FIELD_OPTION_4 = "option_4";
 	public static String FIELD_OPTION_5 = "option_5";
+	public static String FIELD_OPTION_HINDI_1 = "option_hindi_1";
+	public static String FIELD_OPTION_HINDI_2 = "option_hindi_2";
+	public static String FIELD_OPTION_HINDI_3 = "option_hindi_3";
+	public static String FIELD_OPTION_HINDI_4 = "option_hindi_4";
+	public static String FIELD_OPTION_HINDI_5 = "option_hindi_5";
 	public static String FIELD_ANSWER = "answer";
 	public static String FIELD_ANSWER_1 = "answer_1";
 	public static String FIELD_ANSWER_2 = "answer_2";
 	public static String FIELD_ANSWER_3 = "answer_3";
 	public static String FIELD_ANSWER_4 = "answer_4";
 	public static String FIELD_ANSWER_EXPLANATION = "answer_explanation";
+	public static String FIELD_ANSWER_EXPLANATION_HINDI = "answer_explanation_hindi";
 	public static String FIELD_MUTIPLE_OPTIONS = "mutiple_options";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -77,6 +91,10 @@ public abstract class Baseobjective_question extends BaseResource {
 		Field descriptionField = new Field("description", "String");
 		descriptionField.setLength(32);
 		metaData.addField(descriptionField);
+
+		Field description_hindiField = new Field("description_hindi", "String");
+		description_hindiField.setLength(32);
+		metaData.addField(description_hindiField);
 
 		Field tutorial_idField = new Field("tutorial_id", "String");
 		tutorial_idField.setLength(128);
@@ -110,6 +128,26 @@ public abstract class Baseobjective_question extends BaseResource {
 		option_5Field.setLength(128);
 		metaData.addField(option_5Field);
 
+		Field option_hindi_1Field = new Field("option_hindi_1", "String");
+		option_hindi_1Field.setLength(128);
+		metaData.addField(option_hindi_1Field);
+
+		Field option_hindi_2Field = new Field("option_hindi_2", "String");
+		option_hindi_2Field.setLength(128);
+		metaData.addField(option_hindi_2Field);
+
+		Field option_hindi_3Field = new Field("option_hindi_3", "String");
+		option_hindi_3Field.setLength(128);
+		metaData.addField(option_hindi_3Field);
+
+		Field option_hindi_4Field = new Field("option_hindi_4", "String");
+		option_hindi_4Field.setLength(128);
+		metaData.addField(option_hindi_4Field);
+
+		Field option_hindi_5Field = new Field("option_hindi_5", "String");
+		option_hindi_5Field.setLength(128);
+		metaData.addField(option_hindi_5Field);
+
 		Field answerField = new Field("answer", "String");
 		answerField.setLength(128);
 		metaData.addField(answerField);
@@ -138,6 +176,10 @@ public abstract class Baseobjective_question extends BaseResource {
 		answer_explanationField.setLength(128);
 		metaData.addField(answer_explanationField);
 
+		Field answer_explanation_hindiField = new Field("answer_explanation_hindi", "String");
+		answer_explanation_hindiField.setLength(128);
+		metaData.addField(answer_explanation_hindiField);
+
 		Field mutiple_optionsField = new Field("mutiple_options", "String");
 		mutiple_optionsField.setDefaultValue("N");
 		mutiple_optionsField.setLength(1);
@@ -159,6 +201,7 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.description = obj.description;
+		this.description_hindi = obj.description_hindi;
 		this.tutorial_id = obj.tutorial_id;
 		this.subject_id = obj.subject_id;
 		this.class_name = obj.class_name;
@@ -167,12 +210,18 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.option_3 = obj.option_3;
 		this.option_4 = obj.option_4;
 		this.option_5 = obj.option_5;
+		this.option_hindi_1 = obj.option_hindi_1;
+		this.option_hindi_2 = obj.option_hindi_2;
+		this.option_hindi_3 = obj.option_hindi_3;
+		this.option_hindi_4 = obj.option_hindi_4;
+		this.option_hindi_5 = obj.option_hindi_5;
 		this.answer = obj.answer;
 		this.answer_1 = obj.answer_1;
 		this.answer_2 = obj.answer_2;
 		this.answer_3 = obj.answer_3;
 		this.answer_4 = obj.answer_4;
 		this.answer_explanation = obj.answer_explanation;
+		this.answer_explanation_hindi = obj.answer_explanation_hindi;
 		this.mutiple_options = obj.mutiple_options;
 		this.extra_data = obj.extra_data;
 	}
@@ -202,6 +251,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("name", name);
 		if(description != null)
 			map.put("description", description);
+		if(description_hindi != null)
+			map.put("description_hindi", description_hindi);
 		if(tutorial_id != null)
 			map.put("tutorial_id", tutorial_id);
 		if(subject_id != null)
@@ -218,6 +269,16 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("option_4", option_4);
 		if(option_5 != null)
 			map.put("option_5", option_5);
+		if(option_hindi_1 != null)
+			map.put("option_hindi_1", option_hindi_1);
+		if(option_hindi_2 != null)
+			map.put("option_hindi_2", option_hindi_2);
+		if(option_hindi_3 != null)
+			map.put("option_hindi_3", option_hindi_3);
+		if(option_hindi_4 != null)
+			map.put("option_hindi_4", option_hindi_4);
+		if(option_hindi_5 != null)
+			map.put("option_hindi_5", option_hindi_5);
 		if(answer != null)
 			map.put("answer", answer);
 		if(answer_1 != null)
@@ -230,6 +291,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("answer_4", answer_4);
 		if(answer_explanation != null)
 			map.put("answer_explanation", answer_explanation);
+		if(answer_explanation_hindi != null)
+			map.put("answer_explanation_hindi", answer_explanation_hindi);
 		if(mutiple_options != null)
 			map.put("mutiple_options", mutiple_options);
 		if(extra_data != null)
@@ -248,6 +311,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("name", name);
 		if(description != null)
 			map.put("description", description);
+		if(description_hindi != null)
+			map.put("description_hindi", description_hindi);
 		if(tutorial_id != null)
 			map.put("tutorial_id", tutorial_id);
 		if(subject_id != null)
@@ -264,6 +329,16 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("option_4", option_4);
 		if(option_5 != null)
 			map.put("option_5", option_5);
+		if(option_hindi_1 != null)
+			map.put("option_hindi_1", option_hindi_1);
+		if(option_hindi_2 != null)
+			map.put("option_hindi_2", option_hindi_2);
+		if(option_hindi_3 != null)
+			map.put("option_hindi_3", option_hindi_3);
+		if(option_hindi_4 != null)
+			map.put("option_hindi_4", option_hindi_4);
+		if(option_hindi_5 != null)
+			map.put("option_hindi_5", option_hindi_5);
 		if(answer != null)
 			map.put("answer", answer);
 		if(answer_1 != null)
@@ -276,6 +351,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("answer_4", answer_4);
 		if(answer_explanation != null)
 			map.put("answer_explanation", answer_explanation);
+		if(answer_explanation_hindi != null)
+			map.put("answer_explanation_hindi", answer_explanation_hindi);
 		if(mutiple_options != null)
 			map.put("mutiple_options", mutiple_options);
 		if(extra_data != null)
@@ -293,6 +370,7 @@ public abstract class Baseobjective_question extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		description = (String) map.get("description");
+		description_hindi = (String) map.get("description_hindi");
 		tutorial_id = (String) map.get("tutorial_id");
 		subject_id = (String) map.get("subject_id");
 		class_name = (String) map.get("class_name");
@@ -301,12 +379,18 @@ public abstract class Baseobjective_question extends BaseResource {
 		option_3 = (String) map.get("option_3");
 		option_4 = (String) map.get("option_4");
 		option_5 = (String) map.get("option_5");
+		option_hindi_1 = (String) map.get("option_hindi_1");
+		option_hindi_2 = (String) map.get("option_hindi_2");
+		option_hindi_3 = (String) map.get("option_hindi_3");
+		option_hindi_4 = (String) map.get("option_hindi_4");
+		option_hindi_5 = (String) map.get("option_hindi_5");
 		answer = (String) map.get("answer");
 		answer_1 = (String) map.get("answer_1");
 		answer_2 = (String) map.get("answer_2");
 		answer_3 = (String) map.get("answer_3");
 		answer_4 = (String) map.get("answer_4");
 		answer_explanation = (String) map.get("answer_explanation");
+		answer_explanation_hindi = (String) map.get("answer_explanation_hindi");
 		mutiple_options = (String) map.get("mutiple_options");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -324,6 +408,10 @@ public abstract class Baseobjective_question extends BaseResource {
 		Object descriptionObj = map.get("description");
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
+
+		Object description_hindiObj = map.get("description_hindi");
+		if(description_hindiObj != null)
+			description_hindi = description_hindiObj.toString();
 
 		Object tutorial_idObj = map.get("tutorial_id");
 		if(tutorial_idObj != null)
@@ -357,6 +445,26 @@ public abstract class Baseobjective_question extends BaseResource {
 		if(option_5Obj != null)
 			option_5 = option_5Obj.toString();
 
+		Object option_hindi_1Obj = map.get("option_hindi_1");
+		if(option_hindi_1Obj != null)
+			option_hindi_1 = option_hindi_1Obj.toString();
+
+		Object option_hindi_2Obj = map.get("option_hindi_2");
+		if(option_hindi_2Obj != null)
+			option_hindi_2 = option_hindi_2Obj.toString();
+
+		Object option_hindi_3Obj = map.get("option_hindi_3");
+		if(option_hindi_3Obj != null)
+			option_hindi_3 = option_hindi_3Obj.toString();
+
+		Object option_hindi_4Obj = map.get("option_hindi_4");
+		if(option_hindi_4Obj != null)
+			option_hindi_4 = option_hindi_4Obj.toString();
+
+		Object option_hindi_5Obj = map.get("option_hindi_5");
+		if(option_hindi_5Obj != null)
+			option_hindi_5 = option_hindi_5Obj.toString();
+
 		Object answerObj = map.get("answer");
 		if(answerObj != null)
 			answer = answerObj.toString();
@@ -380,6 +488,10 @@ public abstract class Baseobjective_question extends BaseResource {
 		Object answer_explanationObj = map.get("answer_explanation");
 		if(answer_explanationObj != null)
 			answer_explanation = answer_explanationObj.toString();
+
+		Object answer_explanation_hindiObj = map.get("answer_explanation_hindi");
+		if(answer_explanation_hindiObj != null)
+			answer_explanation_hindi = answer_explanation_hindiObj.toString();
 
 		Object mutiple_optionsObj = map.get("mutiple_options");
 		if(mutiple_optionsObj != null)
@@ -446,6 +558,22 @@ public abstract class Baseobjective_question extends BaseResource {
 
 	public void unSetDescription() {
 		this.description = null;
+	}
+
+	public String getDescription_hindi() {
+		return description_hindi;
+	}
+
+	public String getDescription_hindiEx() {
+		return description_hindi != null ? description_hindi : "";
+	}
+
+	public void setDescription_hindi(String description_hindi) {
+		this.description_hindi = description_hindi;
+	}
+
+	public void unSetDescription_hindi() {
+		this.description_hindi = null;
 	}
 
 	public String getTutorial_id() {
@@ -576,6 +704,86 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.option_5 = null;
 	}
 
+	public String getOption_hindi_1() {
+		return option_hindi_1;
+	}
+
+	public String getOption_hindi_1Ex() {
+		return option_hindi_1 != null ? option_hindi_1 : "";
+	}
+
+	public void setOption_hindi_1(String option_hindi_1) {
+		this.option_hindi_1 = option_hindi_1;
+	}
+
+	public void unSetOption_hindi_1() {
+		this.option_hindi_1 = null;
+	}
+
+	public String getOption_hindi_2() {
+		return option_hindi_2;
+	}
+
+	public String getOption_hindi_2Ex() {
+		return option_hindi_2 != null ? option_hindi_2 : "";
+	}
+
+	public void setOption_hindi_2(String option_hindi_2) {
+		this.option_hindi_2 = option_hindi_2;
+	}
+
+	public void unSetOption_hindi_2() {
+		this.option_hindi_2 = null;
+	}
+
+	public String getOption_hindi_3() {
+		return option_hindi_3;
+	}
+
+	public String getOption_hindi_3Ex() {
+		return option_hindi_3 != null ? option_hindi_3 : "";
+	}
+
+	public void setOption_hindi_3(String option_hindi_3) {
+		this.option_hindi_3 = option_hindi_3;
+	}
+
+	public void unSetOption_hindi_3() {
+		this.option_hindi_3 = null;
+	}
+
+	public String getOption_hindi_4() {
+		return option_hindi_4;
+	}
+
+	public String getOption_hindi_4Ex() {
+		return option_hindi_4 != null ? option_hindi_4 : "";
+	}
+
+	public void setOption_hindi_4(String option_hindi_4) {
+		this.option_hindi_4 = option_hindi_4;
+	}
+
+	public void unSetOption_hindi_4() {
+		this.option_hindi_4 = null;
+	}
+
+	public String getOption_hindi_5() {
+		return option_hindi_5;
+	}
+
+	public String getOption_hindi_5Ex() {
+		return option_hindi_5 != null ? option_hindi_5 : "";
+	}
+
+	public void setOption_hindi_5(String option_hindi_5) {
+		this.option_hindi_5 = option_hindi_5;
+	}
+
+	public void unSetOption_hindi_5() {
+		this.option_hindi_5 = null;
+	}
+
 	public String getAnswer() {
 		return answer;
 	}
@@ -654,6 +862,22 @@ public abstract class Baseobjective_question extends BaseResource {
 
 	public void unSetAnswer_explanation() {
 		this.answer_explanation = null;
+	}
+
+	public String getAnswer_explanation_hindi() {
+		return answer_explanation_hindi;
+	}
+
+	public String getAnswer_explanation_hindiEx() {
+		return answer_explanation_hindi != null ? answer_explanation_hindi : "";
+	}
+
+	public void setAnswer_explanation_hindi(String answer_explanation_hindi) {
+		this.answer_explanation_hindi = answer_explanation_hindi;
+	}
+
+	public void unSetAnswer_explanation_hindi() {
+		this.answer_explanation_hindi = null;
 	}
 
 	public String getMutiple_options() {
