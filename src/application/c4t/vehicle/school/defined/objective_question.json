@@ -15,6 +15,7 @@
 				'length': 128,
 				'type':'String'
 			},
+			
 			'description':
 			{
 				'length': 32,
@@ -23,6 +24,31 @@
 			'description_hindi':
 			{
 				'length': 32,
+				'type':'String'
+			},
+			'question':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'question_hindi':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'test_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'length': 128,
 				'type':'String'
 			},
 			'tutorial_id':

@@ -23,6 +23,11 @@ public abstract class Baseobjective_question extends BaseResource {
 	private String name = null;
 	private String description = null;
 	private String description_hindi = null;
+	private String question = null;
+	private String question_hindi = null;
+	private String test_id = null;
+	private String customer_id = null;
+	private String user_id = null;
 	private String tutorial_id = null;
 	private String subject_id = null;
 	private String class_name = null;
@@ -50,6 +55,11 @@ public abstract class Baseobjective_question extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_DESCRIPTION_HINDI = "description_hindi";
+	public static String FIELD_QUESTION = "question";
+	public static String FIELD_QUESTION_HINDI = "question_hindi";
+	public static String FIELD_TEST_ID = "test_id";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_TUTORIAL_ID = "tutorial_id";
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_CLASS_NAME = "class_name";
@@ -95,6 +105,26 @@ public abstract class Baseobjective_question extends BaseResource {
 		Field description_hindiField = new Field("description_hindi", "String");
 		description_hindiField.setLength(32);
 		metaData.addField(description_hindiField);
+
+		Field questionField = new Field("question", "String");
+		questionField.setLength(32);
+		metaData.addField(questionField);
+
+		Field question_hindiField = new Field("question_hindi", "String");
+		question_hindiField.setLength(32);
+		metaData.addField(question_hindiField);
+
+		Field test_idField = new Field("test_id", "String");
+		test_idField.setLength(128);
+		metaData.addField(test_idField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
+
+		Field user_idField = new Field("user_id", "String");
+		user_idField.setLength(128);
+		metaData.addField(user_idField);
 
 		Field tutorial_idField = new Field("tutorial_id", "String");
 		tutorial_idField.setLength(128);
@@ -202,6 +232,11 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.name = obj.name;
 		this.description = obj.description;
 		this.description_hindi = obj.description_hindi;
+		this.question = obj.question;
+		this.question_hindi = obj.question_hindi;
+		this.test_id = obj.test_id;
+		this.customer_id = obj.customer_id;
+		this.user_id = obj.user_id;
 		this.tutorial_id = obj.tutorial_id;
 		this.subject_id = obj.subject_id;
 		this.class_name = obj.class_name;
@@ -253,6 +288,16 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("description", description);
 		if(description_hindi != null)
 			map.put("description_hindi", description_hindi);
+		if(question != null)
+			map.put("question", question);
+		if(question_hindi != null)
+			map.put("question_hindi", question_hindi);
+		if(test_id != null)
+			map.put("test_id", test_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
+		if(user_id != null)
+			map.put("user_id", user_id);
 		if(tutorial_id != null)
 			map.put("tutorial_id", tutorial_id);
 		if(subject_id != null)
@@ -313,6 +358,16 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("description", description);
 		if(description_hindi != null)
 			map.put("description_hindi", description_hindi);
+		if(question != null)
+			map.put("question", question);
+		if(question_hindi != null)
+			map.put("question_hindi", question_hindi);
+		if(test_id != null)
+			map.put("test_id", test_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
+		if(user_id != null)
+			map.put("user_id", user_id);
 		if(tutorial_id != null)
 			map.put("tutorial_id", tutorial_id);
 		if(subject_id != null)
@@ -371,6 +426,11 @@ public abstract class Baseobjective_question extends BaseResource {
 		name = (String) map.get("name");
 		description = (String) map.get("description");
 		description_hindi = (String) map.get("description_hindi");
+		question = (String) map.get("question");
+		question_hindi = (String) map.get("question_hindi");
+		test_id = (String) map.get("test_id");
+		customer_id = (String) map.get("customer_id");
+		user_id = (String) map.get("user_id");
 		tutorial_id = (String) map.get("tutorial_id");
 		subject_id = (String) map.get("subject_id");
 		class_name = (String) map.get("class_name");
@@ -412,6 +472,26 @@ public abstract class Baseobjective_question extends BaseResource {
 		Object description_hindiObj = map.get("description_hindi");
 		if(description_hindiObj != null)
 			description_hindi = description_hindiObj.toString();
+
+		Object questionObj = map.get("question");
+		if(questionObj != null)
+			question = questionObj.toString();
+
+		Object question_hindiObj = map.get("question_hindi");
+		if(question_hindiObj != null)
+			question_hindi = question_hindiObj.toString();
+
+		Object test_idObj = map.get("test_id");
+		if(test_idObj != null)
+			test_id = test_idObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
+
+		Object user_idObj = map.get("user_id");
+		if(user_idObj != null)
+			user_id = user_idObj.toString();
 
 		Object tutorial_idObj = map.get("tutorial_id");
 		if(tutorial_idObj != null)
@@ -574,6 +654,86 @@ public abstract class Baseobjective_question extends BaseResource {
 
 	public void unSetDescription_hindi() {
 		this.description_hindi = null;
+	}
+
+	public String getQuestion() {
+		return question;
+	}
+
+	public String getQuestionEx() {
+		return question != null ? question : "";
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	public void unSetQuestion() {
+		this.question = null;
+	}
+
+	public String getQuestion_hindi() {
+		return question_hindi;
+	}
+
+	public String getQuestion_hindiEx() {
+		return question_hindi != null ? question_hindi : "";
+	}
+
+	public void setQuestion_hindi(String question_hindi) {
+		this.question_hindi = question_hindi;
+	}
+
+	public void unSetQuestion_hindi() {
+		this.question_hindi = null;
+	}
+
+	public String getTest_id() {
+		return test_id;
+	}
+
+	public String getTest_idEx() {
+		return test_id != null ? test_id : "";
+	}
+
+	public void setTest_id(String test_id) {
+		this.test_id = test_id;
+	}
+
+	public void unSetTest_id() {
+		this.test_id = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public String getUser_idEx() {
+		return user_id != null ? user_id : "";
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public void unSetUser_id() {
+		this.user_id = null;
 	}
 
 	public String getTutorial_id() {

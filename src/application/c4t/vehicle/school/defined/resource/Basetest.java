@@ -124,7 +124,7 @@ public abstract class Basetest extends BaseResource {
 
 		metaData.setTableName("test");
 
-		metaData.setCluster("DB_CONFIG");
+		metaData.setCluster("DB_SCHOOL");
 	}
 
 	public Basetest() {}
@@ -602,7 +602,7 @@ public abstract class Basetest extends BaseResource {
 		this.extra_data = null;
 	}
 	public String getCluster() {
-		return "DB_CONFIG";
+		return "DB_SCHOOL";
 	}
 	public String getClusterType() {
 		return "REPLICATED";

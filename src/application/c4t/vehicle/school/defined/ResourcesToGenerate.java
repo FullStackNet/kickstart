@@ -109,7 +109,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("account_year", "application.c4t.vehicle.school.resource.account_year"),	
 		new ResourceMap("account_transaction", "application.c4t.vehicle.school.resource.account_transaction"),	
 		new ResourceMap("student_photo", "application.c4t.vehicle.school.resource.student_photo"),	
-		new ResourceMap("test", "application.c4t.vehicle.school.resource.test"),			
+		new ResourceMap("test", "application.c4t.vehicle.school.resource.test"),	
+		new ResourceMap("test_question", "application.c4t.vehicle.school.resource.test_question"),	
 
 	};
 }

@@ -32,6 +32,22 @@ public class C4t_relationHelper extends BaseHelper {
 		return getByExpression(e);	
 	}
 	
+	public String[] getByRelation(String from_id, String relation_type, String[] order) {
+		Expression e1 = new Expression(c4t_relation.FIELD_FROM_ID, REL_OP.EQ, from_id);
+		Expression e2 = new Expression(c4t_relation.FIELD_RELATION_TYPE, REL_OP.EQ, relation_type);
+		Expression e = new Expression(e1, LOG_OP.AND,e2);
+		
+		BaseResource[] resources = C4t_relationHelper.getInstance().getByExpression(e,order);
+		if (Util.isEmpty(resources))
+			return null;
+		
+		java.util.List<String> list = new ArrayList<>();
+		for(int i=0; i < resources.length; i++) {
+			list.add(((c4t_relation)resources[i]).getTo_id());
+		}
+		return list.toArray(new String[list.size()]);
+	}
+	
 	public String[] getByRelationMap(String from_id, String relation_type) {
 		String id =  c4t_relation.getMapId(from_id, relation_type);
 		c4t_relation _relation = (c4t_relation)C4t_relationHelper.getInstance().getById(id);

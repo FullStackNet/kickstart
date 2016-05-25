@@ -35,7 +35,10 @@
 				'required': true,
 				'type':'String'
 			},
-			
+			'order':
+			{
+				type':'long'
+			},
 			'object_map':
 			{
 				'type':'Array',

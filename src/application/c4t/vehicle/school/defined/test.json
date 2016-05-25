@@ -1,7 +1,7 @@
 {
 	"test" :
 	{
-		"cluster": "DB_CONFIG",
+		"cluster": "DB_SCHOOL",
 		"fields":
 		{
 			'id':
