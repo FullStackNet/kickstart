@@ -3,10 +3,8 @@ package application.c4t.vehicle.school.helper;
 import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
-import platform.helper.HelperUtils;
 import platform.resource.BaseResource;
 import application.c4t.vehicle.school.resource.objective_question;
-import application.c4t.vehicle.school.resource.test_question;
 
 
 public class Objective_questionHelper extends BaseHelper {
@@ -28,9 +26,8 @@ public class Objective_questionHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 	
-	public BaseResource[] getByTest(String testId) {
-		BaseResource[]  resources = Test_questionHelper.getInstance().getByTestId(testId);
-		String[] questionIds = HelperUtils.convertResource2IdArray(resources, test_question.FIELD_QUESTION_ID);
-		return Objective_questionHelper.getInstance().getById(questionIds);
+	public BaseResource[] getByTestId(String testId) {
+		Expression e = new Expression(objective_question.FIELD_TEST_ID,REL_OP.EQ, testId);
+		return getByExpression(e, new String[]{objective_question.FIELD_ORDER});
 	}
 }

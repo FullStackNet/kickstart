@@ -162,11 +162,11 @@
 			},
 			'positive_mark':
 			{
-				'type':'long'
+				'type':'Double'
 			},
 			'negative_mark':
 			{
-				'type':'long'
+				'type':'Double'
 			},
 			'mutiple_options':
 			{
