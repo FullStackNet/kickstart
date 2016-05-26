@@ -74,6 +74,14 @@
 				'length': 128,
 				'type':'String'
 			},
+			'positive_mark':
+			{
+				'type':'long'
+			},
+			'negative_mark':
+			{
+				'type':'long'
+			},
 			'customer_id':
 			{
 				'type':'String',

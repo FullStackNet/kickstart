@@ -24,7 +24,8 @@ public abstract class Basetest_question extends BaseResource {
 	private String question_id = null;
 	private String test_id = null;
 	private Long order = null;
-	private Double marks = null;
+	private Long positive_mark = null;
+	private Long negative_mark = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -32,7 +33,8 @@ public abstract class Basetest_question extends BaseResource {
 	public static String FIELD_QUESTION_ID = "question_id";
 	public static String FIELD_TEST_ID = "test_id";
 	public static String FIELD_ORDER = "order";
-	public static String FIELD_MARKS = "marks";
+	public static String FIELD_POSITIVE_MARK = "positive_mark";
+	public static String FIELD_NEGATIVE_MARK = "negative_mark";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -62,9 +64,11 @@ public abstract class Basetest_question extends BaseResource {
 		orderField.setLength(128);
 		metaData.addField(orderField);
 
-		Field marksField = new Field("marks", "Double");
-		marksField.setLength(128);
-		metaData.addField(marksField);
+		Field positive_markField = new Field("positive_mark", "long");
+		metaData.addField(positive_markField);
+
+		Field negative_markField = new Field("negative_mark", "long");
+		metaData.addField(negative_markField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -84,7 +88,8 @@ public abstract class Basetest_question extends BaseResource {
 		this.question_id = obj.question_id;
 		this.test_id = obj.test_id;
 		this.order = obj.order;
-		this.marks = obj.marks;
+		this.positive_mark = obj.positive_mark;
+		this.negative_mark = obj.negative_mark;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -104,8 +109,10 @@ public abstract class Basetest_question extends BaseResource {
 			map.put("test_id", test_id);
 		if(order != null)
 			map.put("order", order);
-		if(marks != null)
-			map.put("marks", marks);
+		if(positive_mark != null)
+			map.put("positive_mark", positive_mark);
+		if(negative_mark != null)
+			map.put("negative_mark", negative_mark);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -123,8 +130,10 @@ public abstract class Basetest_question extends BaseResource {
 			map.put("test_id", test_id);
 		if(order != null)
 			map.put("order", order);
-		if(marks != null)
-			map.put("marks", marks);
+		if(positive_mark != null)
+			map.put("positive_mark", positive_mark);
+		if(negative_mark != null)
+			map.put("negative_mark", negative_mark);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -142,7 +151,8 @@ public abstract class Basetest_question extends BaseResource {
 		question_id = (String) map.get("question_id");
 		test_id = (String) map.get("test_id");
 		order = (Long) map.get("order");
-		marks = (Double) map.get("marks");
+		positive_mark = (Long) map.get("positive_mark");
+		negative_mark = (Long) map.get("negative_mark");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -168,9 +178,13 @@ public abstract class Basetest_question extends BaseResource {
 		if(orderObj != null)
 			order = new Long(orderObj.toString());
 
-		Object marksObj = map.get("marks");
-		if(marksObj != null)
-			marks = new Double(marksObj.toString());
+		Object positive_markObj = map.get("positive_mark");
+		if(positive_markObj != null)
+			positive_mark = new Long(positive_markObj.toString());
+
+		Object negative_markObj = map.get("negative_mark");
+		if(negative_markObj != null)
+			negative_mark = new Long(negative_markObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -271,16 +285,44 @@ public abstract class Basetest_question extends BaseResource {
 		this.order = null;
 	}
 
-	public Double getMarks() {
-		return marks;
+	public Long getPositive_mark() {
+		return positive_mark;
 	}
 
-	public void setMarks(Double marks) {
-		this.marks = marks;
+	public long getPositive_markEx() {
+		return positive_mark != null ? positive_mark : 0L;
 	}
 
-	public void unSetMarks() {
-		this.marks = null;
+	public void setPositive_mark(long positive_mark) {
+		this.positive_mark = positive_mark;
+	}
+
+	public void setPositive_mark(Long positive_mark) {
+		this.positive_mark = positive_mark;
+	}
+
+	public void unSetPositive_mark() {
+		this.positive_mark = null;
+	}
+
+	public Long getNegative_mark() {
+		return negative_mark;
+	}
+
+	public long getNegative_markEx() {
+		return negative_mark != null ? negative_mark : 0L;
+	}
+
+	public void setNegative_mark(long negative_mark) {
+		this.negative_mark = negative_mark;
+	}
+
+	public void setNegative_mark(Long negative_mark) {
+		this.negative_mark = negative_mark;
+	}
+
+	public void unSetNegative_mark() {
+		this.negative_mark = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

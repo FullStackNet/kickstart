@@ -48,6 +48,9 @@ public abstract class Baseobjective_question extends BaseResource {
 	private String answer_4 = null;
 	private String answer_explanation = null;
 	private String answer_explanation_hindi = null;
+	private Long order = null;
+	private Long positive_mark = null;
+	private Long negative_mark = null;
 	private String mutiple_options = null;
 	private Map<String, Object> extra_data = null;
 
@@ -80,6 +83,9 @@ public abstract class Baseobjective_question extends BaseResource {
 	public static String FIELD_ANSWER_4 = "answer_4";
 	public static String FIELD_ANSWER_EXPLANATION = "answer_explanation";
 	public static String FIELD_ANSWER_EXPLANATION_HINDI = "answer_explanation_hindi";
+	public static String FIELD_ORDER = "order";
+	public static String FIELD_POSITIVE_MARK = "positive_mark";
+	public static String FIELD_NEGATIVE_MARK = "negative_mark";
 	public static String FIELD_MUTIPLE_OPTIONS = "mutiple_options";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -210,6 +216,15 @@ public abstract class Baseobjective_question extends BaseResource {
 		answer_explanation_hindiField.setLength(128);
 		metaData.addField(answer_explanation_hindiField);
 
+		Field orderField = new Field("order", "long");
+		metaData.addField(orderField);
+
+		Field positive_markField = new Field("positive_mark", "long");
+		metaData.addField(positive_markField);
+
+		Field negative_markField = new Field("negative_mark", "long");
+		metaData.addField(negative_markField);
+
 		Field mutiple_optionsField = new Field("mutiple_options", "String");
 		mutiple_optionsField.setDefaultValue("N");
 		mutiple_optionsField.setLength(1);
@@ -257,6 +272,9 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.answer_4 = obj.answer_4;
 		this.answer_explanation = obj.answer_explanation;
 		this.answer_explanation_hindi = obj.answer_explanation_hindi;
+		this.order = obj.order;
+		this.positive_mark = obj.positive_mark;
+		this.negative_mark = obj.negative_mark;
 		this.mutiple_options = obj.mutiple_options;
 		this.extra_data = obj.extra_data;
 	}
@@ -338,6 +356,12 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("answer_explanation", answer_explanation);
 		if(answer_explanation_hindi != null)
 			map.put("answer_explanation_hindi", answer_explanation_hindi);
+		if(order != null)
+			map.put("order", order);
+		if(positive_mark != null)
+			map.put("positive_mark", positive_mark);
+		if(negative_mark != null)
+			map.put("negative_mark", negative_mark);
 		if(mutiple_options != null)
 			map.put("mutiple_options", mutiple_options);
 		if(extra_data != null)
@@ -408,6 +432,12 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("answer_explanation", answer_explanation);
 		if(answer_explanation_hindi != null)
 			map.put("answer_explanation_hindi", answer_explanation_hindi);
+		if(order != null)
+			map.put("order", order);
+		if(positive_mark != null)
+			map.put("positive_mark", positive_mark);
+		if(negative_mark != null)
+			map.put("negative_mark", negative_mark);
 		if(mutiple_options != null)
 			map.put("mutiple_options", mutiple_options);
 		if(extra_data != null)
@@ -451,6 +481,9 @@ public abstract class Baseobjective_question extends BaseResource {
 		answer_4 = (String) map.get("answer_4");
 		answer_explanation = (String) map.get("answer_explanation");
 		answer_explanation_hindi = (String) map.get("answer_explanation_hindi");
+		order = (Long) map.get("order");
+		positive_mark = (Long) map.get("positive_mark");
+		negative_mark = (Long) map.get("negative_mark");
 		mutiple_options = (String) map.get("mutiple_options");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -572,6 +605,18 @@ public abstract class Baseobjective_question extends BaseResource {
 		Object answer_explanation_hindiObj = map.get("answer_explanation_hindi");
 		if(answer_explanation_hindiObj != null)
 			answer_explanation_hindi = answer_explanation_hindiObj.toString();
+
+		Object orderObj = map.get("order");
+		if(orderObj != null)
+			order = new Long(orderObj.toString());
+
+		Object positive_markObj = map.get("positive_mark");
+		if(positive_markObj != null)
+			positive_mark = new Long(positive_markObj.toString());
+
+		Object negative_markObj = map.get("negative_mark");
+		if(negative_markObj != null)
+			negative_mark = new Long(negative_markObj.toString());
 
 		Object mutiple_optionsObj = map.get("mutiple_options");
 		if(mutiple_optionsObj != null)
@@ -1038,6 +1083,66 @@ public abstract class Baseobjective_question extends BaseResource {
 
 	public void unSetAnswer_explanation_hindi() {
 		this.answer_explanation_hindi = null;
+	}
+
+	public Long getOrder() {
+		return order;
+	}
+
+	public long getOrderEx() {
+		return order != null ? order : 0L;
+	}
+
+	public void setOrder(long order) {
+		this.order = order;
+	}
+
+	public void setOrder(Long order) {
+		this.order = order;
+	}
+
+	public void unSetOrder() {
+		this.order = null;
+	}
+
+	public Long getPositive_mark() {
+		return positive_mark;
+	}
+
+	public long getPositive_markEx() {
+		return positive_mark != null ? positive_mark : 0L;
+	}
+
+	public void setPositive_mark(long positive_mark) {
+		this.positive_mark = positive_mark;
+	}
+
+	public void setPositive_mark(Long positive_mark) {
+		this.positive_mark = positive_mark;
+	}
+
+	public void unSetPositive_mark() {
+		this.positive_mark = null;
+	}
+
+	public Long getNegative_mark() {
+		return negative_mark;
+	}
+
+	public long getNegative_markEx() {
+		return negative_mark != null ? negative_mark : 0L;
+	}
+
+	public void setNegative_mark(long negative_mark) {
+		this.negative_mark = negative_mark;
+	}
+
+	public void setNegative_mark(Long negative_mark) {
+		this.negative_mark = negative_mark;
+	}
+
+	public void unSetNegative_mark() {
+		this.negative_mark = null;
 	}
 
 	public String getMutiple_options() {

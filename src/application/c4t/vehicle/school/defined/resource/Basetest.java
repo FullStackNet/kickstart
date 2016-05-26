@@ -33,6 +33,8 @@ public abstract class Basetest extends BaseResource {
 	private Long total_timeInMin = null;
 	private String test_hindi = null;
 	private String test_english = null;
+	private Long positive_mark = null;
+	private Long negative_mark = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -50,6 +52,8 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_TOTAL_TIMEINMIN = "total_timeInMin";
 	public static String FIELD_TEST_HINDI = "test_hindi";
 	public static String FIELD_TEST_ENGLISH = "test_english";
+	public static String FIELD_POSITIVE_MARK = "positive_mark";
+	public static String FIELD_NEGATIVE_MARK = "negative_mark";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -113,6 +117,12 @@ public abstract class Basetest extends BaseResource {
 		test_englishField.setLength(128);
 		metaData.addField(test_englishField);
 
+		Field positive_markField = new Field("positive_mark", "long");
+		metaData.addField(positive_markField);
+
+		Field negative_markField = new Field("negative_mark", "long");
+		metaData.addField(negative_markField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
@@ -144,6 +154,8 @@ public abstract class Basetest extends BaseResource {
 		this.total_timeInMin = obj.total_timeInMin;
 		this.test_hindi = obj.test_hindi;
 		this.test_english = obj.test_english;
+		this.positive_mark = obj.positive_mark;
+		this.negative_mark = obj.negative_mark;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -182,6 +194,10 @@ public abstract class Basetest extends BaseResource {
 			map.put("test_hindi", test_hindi);
 		if(test_english != null)
 			map.put("test_english", test_english);
+		if(positive_mark != null)
+			map.put("positive_mark", positive_mark);
+		if(negative_mark != null)
+			map.put("negative_mark", negative_mark);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -219,6 +235,10 @@ public abstract class Basetest extends BaseResource {
 			map.put("test_hindi", test_hindi);
 		if(test_english != null)
 			map.put("test_english", test_english);
+		if(positive_mark != null)
+			map.put("positive_mark", positive_mark);
+		if(negative_mark != null)
+			map.put("negative_mark", negative_mark);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -247,6 +267,8 @@ public abstract class Basetest extends BaseResource {
 		total_timeInMin = (Long) map.get("total_timeInMin");
 		test_hindi = (String) map.get("test_hindi");
 		test_english = (String) map.get("test_english");
+		positive_mark = (Long) map.get("positive_mark");
+		negative_mark = (Long) map.get("negative_mark");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -308,6 +330,14 @@ public abstract class Basetest extends BaseResource {
 		Object test_englishObj = map.get("test_english");
 		if(test_englishObj != null)
 			test_english = test_englishObj.toString();
+
+		Object positive_markObj = map.get("positive_mark");
+		if(positive_markObj != null)
+			positive_mark = new Long(positive_markObj.toString());
+
+		Object negative_markObj = map.get("negative_mark");
+		if(negative_markObj != null)
+			negative_mark = new Long(negative_markObj.toString());
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -562,6 +592,46 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetTest_english() {
 		this.test_english = null;
+	}
+
+	public Long getPositive_mark() {
+		return positive_mark;
+	}
+
+	public long getPositive_markEx() {
+		return positive_mark != null ? positive_mark : 0L;
+	}
+
+	public void setPositive_mark(long positive_mark) {
+		this.positive_mark = positive_mark;
+	}
+
+	public void setPositive_mark(Long positive_mark) {
+		this.positive_mark = positive_mark;
+	}
+
+	public void unSetPositive_mark() {
+		this.positive_mark = null;
+	}
+
+	public Long getNegative_mark() {
+		return negative_mark;
+	}
+
+	public long getNegative_markEx() {
+		return negative_mark != null ? negative_mark : 0L;
+	}
+
+	public void setNegative_mark(long negative_mark) {
+		this.negative_mark = negative_mark;
+	}
+
+	public void setNegative_mark(Long negative_mark) {
+		this.negative_mark = negative_mark;
+	}
+
+	public void unSetNegative_mark() {
+		this.negative_mark = null;
 	}
 
 	public String getCustomer_id() {

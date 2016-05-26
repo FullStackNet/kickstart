@@ -156,6 +156,18 @@
 				'length': 128,
 				'type':'String'
 			},
+			'order':
+			{
+				'type':'long'
+			},
+			'positive_mark':
+			{
+				'type':'long'
+			},
+			'negative_mark':
+			{
+				'type':'long'
+			},
 			'mutiple_options':
 			{
 				'length': 1,

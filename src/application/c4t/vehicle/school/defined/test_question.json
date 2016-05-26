@@ -31,11 +31,14 @@
 				'type':'long',
 				'length': 128
 			},
-			'marks':
+			'positive_mark':
 			{
-				'type':'Double',
-				'length': 128
-			}	
+				'type':'long'
+			},
+			'negative_mark':
+			{
+				'type':'long'
+			}
 		}
 	}
 }
