@@ -58,7 +58,7 @@
 			},
 			'total_marks':
 			{
-				'type':'long'
+				'type':'Double'
 			},
 			'total_timeInMin':
 			{
@@ -76,11 +76,16 @@
 			},
 			'positive_mark':
 			{
-				'type':'long'
+				'type':'Double'
 			},
 			'negative_mark':
 			{
-				'type':'long'
+				'type':'Double'
+			},
+			'immediate_result':
+			{
+				'type':'String',
+				'length': 1
 			},
 			'customer_id':
 			{

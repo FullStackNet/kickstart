@@ -48,7 +48,7 @@ public abstract class Baseobjective_question extends BaseResource {
 	private String answer_4 = null;
 	private String answer_explanation = null;
 	private String answer_explanation_hindi = null;
-	private Long order = null;
+	private Long order_no = null;
 	private Double positive_mark = null;
 	private Double negative_mark = null;
 	private String mutiple_options = null;
@@ -83,7 +83,7 @@ public abstract class Baseobjective_question extends BaseResource {
 	public static String FIELD_ANSWER_4 = "answer_4";
 	public static String FIELD_ANSWER_EXPLANATION = "answer_explanation";
 	public static String FIELD_ANSWER_EXPLANATION_HINDI = "answer_explanation_hindi";
-	public static String FIELD_ORDER = "order";
+	public static String FIELD_ORDER_NO = "order_no";
 	public static String FIELD_POSITIVE_MARK = "positive_mark";
 	public static String FIELD_NEGATIVE_MARK = "negative_mark";
 	public static String FIELD_MUTIPLE_OPTIONS = "mutiple_options";
@@ -216,8 +216,8 @@ public abstract class Baseobjective_question extends BaseResource {
 		answer_explanation_hindiField.setLength(128);
 		metaData.addField(answer_explanation_hindiField);
 
-		Field orderField = new Field("order", "long");
-		metaData.addField(orderField);
+		Field order_noField = new Field("order_no", "long");
+		metaData.addField(order_noField);
 
 		Field positive_markField = new Field("positive_mark", "Double");
 		metaData.addField(positive_markField);
@@ -272,7 +272,7 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.answer_4 = obj.answer_4;
 		this.answer_explanation = obj.answer_explanation;
 		this.answer_explanation_hindi = obj.answer_explanation_hindi;
-		this.order = obj.order;
+		this.order_no = obj.order_no;
 		this.positive_mark = obj.positive_mark;
 		this.negative_mark = obj.negative_mark;
 		this.mutiple_options = obj.mutiple_options;
@@ -356,8 +356,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("answer_explanation", answer_explanation);
 		if(answer_explanation_hindi != null)
 			map.put("answer_explanation_hindi", answer_explanation_hindi);
-		if(order != null)
-			map.put("order", order);
+		if(order_no != null)
+			map.put("order_no", order_no);
 		if(positive_mark != null)
 			map.put("positive_mark", positive_mark);
 		if(negative_mark != null)
@@ -432,8 +432,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("answer_explanation", answer_explanation);
 		if(answer_explanation_hindi != null)
 			map.put("answer_explanation_hindi", answer_explanation_hindi);
-		if(order != null)
-			map.put("order", order);
+		if(order_no != null)
+			map.put("order_no", order_no);
 		if(positive_mark != null)
 			map.put("positive_mark", positive_mark);
 		if(negative_mark != null)
@@ -481,7 +481,7 @@ public abstract class Baseobjective_question extends BaseResource {
 		answer_4 = (String) map.get("answer_4");
 		answer_explanation = (String) map.get("answer_explanation");
 		answer_explanation_hindi = (String) map.get("answer_explanation_hindi");
-		order = (Long) map.get("order");
+		order_no = (Long) map.get("order_no");
 		positive_mark = (Double) map.get("positive_mark");
 		negative_mark = (Double) map.get("negative_mark");
 		mutiple_options = (String) map.get("mutiple_options");
@@ -606,9 +606,9 @@ public abstract class Baseobjective_question extends BaseResource {
 		if(answer_explanation_hindiObj != null)
 			answer_explanation_hindi = answer_explanation_hindiObj.toString();
 
-		Object orderObj = map.get("order");
-		if(orderObj != null)
-			order = new Long(orderObj.toString());
+		Object order_noObj = map.get("order_no");
+		if(order_noObj != null)
+			order_no = new Long(order_noObj.toString());
 
 		Object positive_markObj = map.get("positive_mark");
 		if(positive_markObj != null)
@@ -1085,24 +1085,24 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.answer_explanation_hindi = null;
 	}
 
-	public Long getOrder() {
-		return order;
+	public Long getOrder_no() {
+		return order_no;
 	}
 
-	public long getOrderEx() {
-		return order != null ? order : 0L;
+	public long getOrder_noEx() {
+		return order_no != null ? order_no : 0L;
 	}
 
-	public void setOrder(long order) {
-		this.order = order;
+	public void setOrder_no(long order_no) {
+		this.order_no = order_no;
 	}
 
-	public void setOrder(Long order) {
-		this.order = order;
+	public void setOrder_no(Long order_no) {
+		this.order_no = order_no;
 	}
 
-	public void unSetOrder() {
-		this.order = null;
+	public void unSetOrder_no() {
+		this.order_no = null;
 	}
 
 	public Double getPositive_mark() {

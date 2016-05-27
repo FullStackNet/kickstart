@@ -156,7 +156,7 @@
 				'length': 128,
 				'type':'String'
 			},
-			'order':
+			'order_no':
 			{
 				'type':'long'
 			},
