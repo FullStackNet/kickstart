@@ -65,6 +65,12 @@ public class HelperUtils {
 	}
 	
 	
+	public static BaseResource[] convertResource2Array(BaseResource resource) {
+		BaseResource[] resources = new BaseResource[1];
+		resources[0] = resource;
+		return resources;
+	}
+	
 	public static String[] convertResource2IdArray(BaseResource[] resources) {
 		String[] ids = new String[resources.length];
 		int count = 0;

@@ -694,6 +694,11 @@ public class Util {
 		String directory = "context/root/templete/";
 		try {
 			String file = directory+template + ".html";
+			File _file = new File(file);
+			if (!_file.exists()) {
+				directory = "templete/";
+				file = directory+template + ".html";
+			}	
 			FileInputStream fstream = new FileInputStream(file);
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
