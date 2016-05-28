@@ -1,5 +1,5 @@
 {
-	"test_allocation" :
+	"test_user_allocation" :
 	{
 		"cluster": "DB_SCHOOL",
 		"fields":
@@ -11,6 +11,11 @@
 				'required': true,
 				'type':'String'
 			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'test_id':
 			{
 				'length': 128,
@@ -20,6 +25,16 @@
 			{
 				'length': 128,
 				'type':'String'
+			},
+			'student_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'student_name':
+			{
+				'type':'String',
+				'length': 128
 			},
 			'subject_id':
 			{
@@ -41,6 +56,11 @@
 				'type':'String',
 				'length': 128
 			},	
+			'immediate_result':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'start_date': {
 				'type': 'timestamp'
 			},
@@ -60,11 +80,6 @@
 			'end_date_str': {
 				'type': 'String',
 				'length' : 32
-			},	
-			'immediate_result':
-			{
-				'type':'String',
-				'length': 1
 			},
 			'customer_id':
 			{
