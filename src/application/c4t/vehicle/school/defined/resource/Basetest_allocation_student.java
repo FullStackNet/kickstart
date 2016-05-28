@@ -18,7 +18,7 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Basetest_user_allocation extends BaseResource {
+public abstract class Basetest_allocation_student extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String test_id = null;
@@ -60,7 +60,7 @@ public abstract class Basetest_user_allocation extends BaseResource {
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("test_user_allocation");
+	private final static ResourceMetaData metaData = new ResourceMetaData("test_allocation_student");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -139,14 +139,14 @@ public abstract class Basetest_user_allocation extends BaseResource {
 		metaData.addField(extra_dataField);
 
 
-		metaData.setTableName("test_user_allocation");
+		metaData.setTableName("test_allocation_student");
 
 		metaData.setCluster("DB_SCHOOL");
 	}
 
-	public Basetest_user_allocation() {}
+	public Basetest_allocation_student() {}
 
-	public Basetest_user_allocation(Basetest_user_allocation obj) {
+	public Basetest_allocation_student(Basetest_allocation_student obj) {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.test_id = obj.test_id;

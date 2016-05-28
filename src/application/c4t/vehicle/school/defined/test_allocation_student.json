@@ -1,5 +1,5 @@
 {
-	"test_user_allocation" :
+	"test_allocation_student" :
 	{
 		"cluster": "DB_SCHOOL",
 		"fields":

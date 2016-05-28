@@ -1,20 +1,20 @@
 package application.c4t.vehicle.school.resource;
 
 import platform.util.Util;
-import application.c4t.vehicle.school.defined.resource.Basetest_user_allocation;
+import application.c4t.vehicle.school.defined.resource.Basetest_allocation_student;
 
-public class test_user_allocation extends Basetest_user_allocation {
+public class test_allocation_student extends Basetest_allocation_student {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public test_user_allocation() {
+	public test_allocation_student() {
 		this.setId(Util.getUniqueId());
 	}
 	
-	public test_user_allocation(String id) {
+	public test_allocation_student(String id) {
 		this.setId(id);
 	}	
 	
