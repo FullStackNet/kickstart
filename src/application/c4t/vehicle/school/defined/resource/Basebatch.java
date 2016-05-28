@@ -21,6 +21,8 @@ import java.util.*;
 public abstract class Basebatch extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String course_id = null;
+	private String course_name = null;
 	private String school_id = null;
 	private String customer_id = null;
 	private Long start_date = null;
@@ -31,6 +33,8 @@ public abstract class Basebatch extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_COURSE_ID = "course_id";
+	public static String FIELD_COURSE_NAME = "course_name";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_START_DATE = "start_date";
@@ -53,6 +57,14 @@ public abstract class Basebatch extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field course_idField = new Field("course_id", "String");
+		course_idField.setLength(128);
+		metaData.addField(course_idField);
+
+		Field course_nameField = new Field("course_name", "String");
+		course_nameField.setLength(128);
+		metaData.addField(course_nameField);
 
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(128);
@@ -91,6 +103,8 @@ public abstract class Basebatch extends BaseResource {
 	public Basebatch(Basebatch obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.course_id = obj.course_id;
+		this.course_name = obj.course_name;
 		this.school_id = obj.school_id;
 		this.customer_id = obj.customer_id;
 		this.start_date = obj.start_date;
@@ -110,6 +124,10 @@ public abstract class Basebatch extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(course_id != null)
+			map.put("course_id", course_id);
+		if(course_name != null)
+			map.put("course_name", course_name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(customer_id != null)
@@ -133,6 +151,10 @@ public abstract class Basebatch extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(course_id != null)
+			map.put("course_id", course_id);
+		if(course_name != null)
+			map.put("course_name", course_name);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(customer_id != null)
@@ -159,6 +181,8 @@ public abstract class Basebatch extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		course_id = (String) map.get("course_id");
+		course_name = (String) map.get("course_name");
 		school_id = (String) map.get("school_id");
 		customer_id = (String) map.get("customer_id");
 		start_date = (Long) map.get("start_date");
@@ -177,6 +201,14 @@ public abstract class Basebatch extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object course_idObj = map.get("course_id");
+		if(course_idObj != null)
+			course_id = course_idObj.toString();
+
+		Object course_nameObj = map.get("course_name");
+		if(course_nameObj != null)
+			course_name = course_nameObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -247,6 +279,38 @@ public abstract class Basebatch extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getCourse_id() {
+		return course_id;
+	}
+
+	public String getCourse_idEx() {
+		return course_id != null ? course_id : "";
+	}
+
+	public void setCourse_id(String course_id) {
+		this.course_id = course_id;
+	}
+
+	public void unSetCourse_id() {
+		this.course_id = null;
+	}
+
+	public String getCourse_name() {
+		return course_name;
+	}
+
+	public String getCourse_nameEx() {
+		return course_name != null ? course_name : "";
+	}
+
+	public void setCourse_name(String course_name) {
+		this.course_name = course_name;
+	}
+
+	public void unSetCourse_name() {
+		this.course_name = null;
 	}
 
 	public String getSchool_id() {

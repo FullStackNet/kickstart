@@ -29,6 +29,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String course_id = null;
 	private String course_name = null;
 	private String subject_name = null;
+	private String allocation_type = null;
 	private String immediate_result = null;
 	private Long start_date = null;
 	private String start_time_s = null;
@@ -49,6 +50,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_COURSE_ID = "course_id";
 	public static String FIELD_COURSE_NAME = "course_name";
 	public static String FIELD_SUBJECT_NAME = "subject_name";
+	public static String FIELD_ALLOCATION_TYPE = "allocation_type";
 	public static String FIELD_IMMEDIATE_RESULT = "immediate_result";
 	public static String FIELD_START_DATE = "start_date";
 	public static String FIELD_START_TIME_S = "start_time_s";
@@ -106,6 +108,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		subject_nameField.setLength(128);
 		metaData.addField(subject_nameField);
 
+		Field allocation_typeField = new Field("allocation_type", "String");
+		allocation_typeField.setLength(1);
+		metaData.addField(allocation_typeField);
+
 		Field immediate_resultField = new Field("immediate_result", "String");
 		immediate_resultField.setLength(1);
 		metaData.addField(immediate_resultField);
@@ -157,6 +163,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.course_id = obj.course_id;
 		this.course_name = obj.course_name;
 		this.subject_name = obj.subject_name;
+		this.allocation_type = obj.allocation_type;
 		this.immediate_result = obj.immediate_result;
 		this.start_date = obj.start_date;
 		this.start_time_s = obj.start_time_s;
@@ -194,6 +201,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("course_name", course_name);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
+		if(allocation_type != null)
+			map.put("allocation_type", allocation_type);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
 		if(start_date != null)
@@ -237,6 +246,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("course_name", course_name);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
+		if(allocation_type != null)
+			map.put("allocation_type", allocation_type);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
 		if(start_date != null)
@@ -275,6 +286,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		course_id = (String) map.get("course_id");
 		course_name = (String) map.get("course_name");
 		subject_name = (String) map.get("subject_name");
+		allocation_type = (String) map.get("allocation_type");
 		immediate_result = (String) map.get("immediate_result");
 		start_date = (Long) map.get("start_date");
 		start_time_s = (String) map.get("start_time_s");
@@ -327,6 +339,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object subject_nameObj = map.get("subject_name");
 		if(subject_nameObj != null)
 			subject_name = subject_nameObj.toString();
+
+		Object allocation_typeObj = map.get("allocation_type");
+		if(allocation_typeObj != null)
+			allocation_type = allocation_typeObj.toString();
 
 		Object immediate_resultObj = map.get("immediate_result");
 		if(immediate_resultObj != null)
@@ -533,6 +549,22 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetSubject_name() {
 		this.subject_name = null;
+	}
+
+	public String getAllocation_type() {
+		return allocation_type;
+	}
+
+	public String getAllocation_typeEx() {
+		return allocation_type != null ? allocation_type : "";
+	}
+
+	public void setAllocation_type(String allocation_type) {
+		this.allocation_type = allocation_type;
+	}
+
+	public void unSetAllocation_type() {
+		this.allocation_type = null;
 	}
 
 	public String getImmediate_result() {

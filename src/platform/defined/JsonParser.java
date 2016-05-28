@@ -130,6 +130,14 @@ public class JsonParser {
 				field.setEncrypt(jsonElement.getAsBoolean());
 			else if(key.equals("counter"))
 				field.setCounter(jsonElement.getAsBoolean());
+			else if(key.equals("self_key"))
+				field.setSelf_key(jsonElement.getAsString());
+			else if(key.equals("reference_table"))
+				field.setReference_table(jsonElement.getAsString());
+			else if(key.equals("reference_key"))
+				field.setReference_key(jsonElement.getAsString());
+			else if(key.equals("reference_name"))
+				field.setReference_name(jsonElement.getAsString());
 		}
 		resourceMetaData.addField(field);
 		if(field.isFile()) {

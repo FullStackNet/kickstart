@@ -55,6 +55,11 @@
 			{
 				'type':'String',
 				'length': 128
+			},
+			'allocation_type':
+			{
+				'type':'String',
+				'length': 1
 			},	
 			'immediate_result':
 			{

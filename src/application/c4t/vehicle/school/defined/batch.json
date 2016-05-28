@@ -17,6 +17,22 @@
 				'length': 128,
 				'type':'String'
 			},
+			'course_id':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'course_name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String',
+				'self_key' : 'course_id',
+				'reference_table' : 'course',
+				'reference_key' : 'id',
+				'reference_name' : 'name'
+			},
 			'school_id':
 			{
 				'name':'name',

@@ -74,8 +74,43 @@ public class Field {
 	public static final String VALUE_TYPE_DATE = "date";
 	public static final String VALUE_TYPE_NUMBER = "Number";
 	public static final String VALUE_TYPE_TIMESTAMP = "timestamp";
-	
-	
+	private String self_key;
+	private String reference_table;
+	private String reference_key;
+	private String reference_name;
+			
+	public String getSelf_key() {
+		return self_key;
+	}
+
+	public void setSelf_key(String self_key) {
+		this.self_key = self_key;
+	}
+
+	public String getReference_table() {
+		return reference_table;
+	}
+
+	public void setReference_table(String reference_table) {
+		this.reference_table = reference_table;
+	}
+
+	public String getReference_key() {
+		return reference_key;
+	}
+
+	public void setReference_key(String reference_key) {
+		this.reference_key = reference_key;
+	}
+
+	public String getReference_name() {
+		return reference_name;
+	}
+
+	public void setReference_name(String reference_name) {
+		this.reference_name = reference_name;
+	}
+
 	public Field(String name) {
 		this(name, "String");
 	}
