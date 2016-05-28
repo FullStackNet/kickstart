@@ -111,6 +111,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("student_photo", "application.c4t.vehicle.school.resource.student_photo"),	
 		new ResourceMap("test", "application.c4t.vehicle.school.resource.test"),	
 		new ResourceMap("test_question", "application.c4t.vehicle.school.resource.test_question"),	
+		new ResourceMap("batch", "application.c4t.vehicle.school.resource.batch"),	
 
 	};
 }
