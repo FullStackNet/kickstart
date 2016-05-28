@@ -23,6 +23,8 @@ public abstract class Basestudent extends BaseResource {
 	private String admission_no = null;
 	private String admission_date_str = null;
 	private String school_id = null;
+	private String batch_id = null;
+	private String batch_name = null;
 	private String house_id = null;
 	private String name = null;
 	private String short_name = null;
@@ -136,6 +138,8 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_ADMISSION_NO = "admission_no";
 	public static String FIELD_ADMISSION_DATE_STR = "admission_date_str";
 	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_BATCH_ID = "batch_id";
+	public static String FIELD_BATCH_NAME = "batch_name";
 	public static String FIELD_HOUSE_ID = "house_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_SHORT_NAME = "short_name";
@@ -269,6 +273,16 @@ public abstract class Basestudent extends BaseResource {
 		school_idField.setIndexed(true);
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
+
+		Field batch_idField = new Field("batch_id", "String");
+		batch_idField.setIndexed(true);
+		batch_idField.setLength(128);
+		metaData.addField(batch_idField);
+
+		Field batch_nameField = new Field("batch_name", "String");
+		batch_nameField.setIndexed(true);
+		batch_nameField.setLength(128);
+		metaData.addField(batch_nameField);
 
 		Field house_idField = new Field("house_id", "String");
 		house_idField.setIndexed(true);
@@ -739,6 +753,8 @@ public abstract class Basestudent extends BaseResource {
 		this.admission_no = obj.admission_no;
 		this.admission_date_str = obj.admission_date_str;
 		this.school_id = obj.school_id;
+		this.batch_id = obj.batch_id;
+		this.batch_name = obj.batch_name;
 		this.house_id = obj.house_id;
 		this.name = obj.name;
 		this.short_name = obj.short_name;
@@ -930,6 +946,10 @@ public abstract class Basestudent extends BaseResource {
 			map.put("admission_date_str", admission_date_str);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(batch_id != null)
+			map.put("batch_id", batch_id);
+		if(batch_name != null)
+			map.put("batch_name", batch_name);
 		if(house_id != null)
 			map.put("house_id", house_id);
 		if(name != null)
@@ -1162,6 +1182,10 @@ public abstract class Basestudent extends BaseResource {
 			map.put("admission_date_str", admission_date_str);
 		if(school_id != null)
 			map.put("school_id", school_id);
+		if(batch_id != null)
+			map.put("batch_id", batch_id);
+		if(batch_name != null)
+			map.put("batch_name", batch_name);
 		if(house_id != null)
 			map.put("house_id", house_id);
 		if(name != null)
@@ -1392,6 +1416,8 @@ public abstract class Basestudent extends BaseResource {
 		admission_no = (String) map.get("admission_no");
 		admission_date_str = (String) map.get("admission_date_str");
 		school_id = (String) map.get("school_id");
+		batch_id = (String) map.get("batch_id");
+		batch_name = (String) map.get("batch_name");
 		house_id = (String) map.get("house_id");
 		name = (String) map.get("name");
 		short_name = (String) map.get("short_name");
@@ -1519,6 +1545,14 @@ public abstract class Basestudent extends BaseResource {
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
+
+		Object batch_idObj = map.get("batch_id");
+		if(batch_idObj != null)
+			batch_id = batch_idObj.toString();
+
+		Object batch_nameObj = map.get("batch_name");
+		if(batch_nameObj != null)
+			batch_name = batch_nameObj.toString();
 
 		Object house_idObj = map.get("house_id");
 		if(house_idObj != null)
@@ -2025,6 +2059,38 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetSchool_id() {
 		this.school_id = null;
+	}
+
+	public String getBatch_id() {
+		return batch_id;
+	}
+
+	public String getBatch_idEx() {
+		return batch_id != null ? batch_id : "";
+	}
+
+	public void setBatch_id(String batch_id) {
+		this.batch_id = batch_id;
+	}
+
+	public void unSetBatch_id() {
+		this.batch_id = null;
+	}
+
+	public String getBatch_name() {
+		return batch_name;
+	}
+
+	public String getBatch_nameEx() {
+		return batch_name != null ? batch_name : "";
+	}
+
+	public void setBatch_name(String batch_name) {
+		this.batch_name = batch_name;
+	}
+
+	public void unSetBatch_name() {
+		this.batch_name = null;
 	}
 
 	public String getHouse_id() {

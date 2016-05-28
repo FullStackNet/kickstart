@@ -29,6 +29,18 @@
 				'type':'String',
 				'index' : true
 			},
+			'batch_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'batch_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'house_id':
 			{
 				'length': 128,
