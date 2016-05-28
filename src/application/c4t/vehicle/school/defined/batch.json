@@ -59,7 +59,13 @@
 			'end_date_str': {
 				'type': 'String',
 				'length' : 32
+			},
+			'status': {
+				'type': 'String',
+				'length' : 32,
+				'comment' : "Active/Deactive"
 			}		
+				
 		}
 	}
 }
