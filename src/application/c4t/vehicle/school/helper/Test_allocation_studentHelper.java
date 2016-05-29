@@ -25,4 +25,9 @@ public class Test_allocation_studentHelper extends BaseHelper {
 		Expression e = new Expression(test_allocation_student.FIELD_TEST_ALLOCATION_ID, REL_OP.EQ, allocation_id);
 		return getByExpression(e, new String[]{test_allocation_student.FIELD_STUDENT_NAME});
 	}
+	
+	public BaseResource[] getByStudentId(String[] studentIds) {
+		Expression e = new Expression(test_allocation_student.FIELD_STUDENT_ID, REL_OP.IN, studentIds);
+		return getByExpression(e, new String[]{test_allocation_student.FIELD_START_DATE});
+	}
 }
