@@ -193,6 +193,9 @@ public abstract class BaseForm extends BaseView {
 			mForm.addChild(blockdiv);
 			if (block.getTitle() != null) {
 				Div blockTitlediv = new Div(null,"form_title"); 
+				if (block.getId() != null) {
+					blockTitlediv.addAttribute("id",block.getId());					
+				}
 				blockTitlediv.addAttribute("style", ""+"width:"+mDefinition.getWidth()+"px");
 				blockTitlediv.addAttribute(new Attribute("align","center"));
 				blockTitlediv.setText(block.getTitle());

@@ -108,10 +108,12 @@ public class PageBuilder {
 		}
 	
 		for(int i=0; i<jsFileList.size();i++) {
-			if (jsFileList.get(i).getName() == null) {
-				mHead.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()));
-			} else {
-				mHead.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()+"/"+jsFileList.get(i).getName()));
+			if (jsFileList.get(i).isHeader()) {
+				if (jsFileList.get(i).getName() == null) {
+					mHead.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()));
+				} else {
+					mHead.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()+"/"+jsFileList.get(i).getName()));
+				}
 			}
 		}
 		
@@ -131,9 +133,19 @@ public class PageBuilder {
 				+ "</script>";
 		if (!mContext.getDomainName().contains("localhost"))
 			mBody.addChild(new TEXT(purechat)); */
+		for(int i=0; i<jsFileList.size();i++) {
+			if (!jsFileList.get(i).isHeader()) {
+				if (jsFileList.get(i).getName() == null) {
+					mBody.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()));
+				} else {
+					mBody.addChild(new SCRIPT("text/javascript", jsFileList.get(i).getPath()+"/"+jsFileList.get(i).getName()));
+				}
+			}
+		}
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
 		buffer.append(mHtml.getContent(0));
+		
 		
 		return buffer.toString();
 	}

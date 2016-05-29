@@ -38,7 +38,10 @@ public class Block {
 	public List<Field> getFields() {
 		return fields;
 	}
-
+	public Block(String id,String title) {
+		this(title);
+		this.id = id;
+	}
 	public Block(String title) {
 		this.title = title;
 		fields = new ArrayList<Field>();
