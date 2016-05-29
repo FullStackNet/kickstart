@@ -22,16 +22,18 @@ public abstract class Basetest_allocation extends BaseResource {
 	private String id = null;
 	private String test_id = null;
 	private String test_name = null;
-	private String subject_id = null;
 	private String course_id = null;
+	private String batch_id = null;
+	private String batch_name = null;
 	private String course_name = null;
-	private String subject_name = null;
 	private Long start_date = null;
 	private String start_time_s = null;
 	private String start_date_str = null;
 	private String end_time_s = null;
 	private Long end_date = null;
 	private String end_date_str = null;
+	private String resuffle_question = null;
+	private String resuffle_option = null;
 	private String immediate_result = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
@@ -39,16 +41,18 @@ public abstract class Basetest_allocation extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_TEST_ID = "test_id";
 	public static String FIELD_TEST_NAME = "test_name";
-	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_COURSE_ID = "course_id";
+	public static String FIELD_BATCH_ID = "batch_id";
+	public static String FIELD_BATCH_NAME = "batch_name";
 	public static String FIELD_COURSE_NAME = "course_name";
-	public static String FIELD_SUBJECT_NAME = "subject_name";
 	public static String FIELD_START_DATE = "start_date";
 	public static String FIELD_START_TIME_S = "start_time_s";
 	public static String FIELD_START_DATE_STR = "start_date_str";
 	public static String FIELD_END_TIME_S = "end_time_s";
 	public static String FIELD_END_DATE = "end_date";
 	public static String FIELD_END_DATE_STR = "end_date_str";
+	public static String FIELD_RESUFFLE_QUESTION = "resuffle_question";
+	public static String FIELD_RESUFFLE_OPTION = "resuffle_option";
 	public static String FIELD_IMMEDIATE_RESULT = "immediate_result";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -72,21 +76,21 @@ public abstract class Basetest_allocation extends BaseResource {
 		test_nameField.setLength(128);
 		metaData.addField(test_nameField);
 
-		Field subject_idField = new Field("subject_id", "String");
-		subject_idField.setLength(128);
-		metaData.addField(subject_idField);
-
 		Field course_idField = new Field("course_id", "String");
 		course_idField.setLength(128);
 		metaData.addField(course_idField);
 
+		Field batch_idField = new Field("batch_id", "String");
+		batch_idField.setLength(128);
+		metaData.addField(batch_idField);
+
+		Field batch_nameField = new Field("batch_name", "String");
+		batch_nameField.setLength(128);
+		metaData.addField(batch_nameField);
+
 		Field course_nameField = new Field("course_name", "String");
 		course_nameField.setLength(128);
 		metaData.addField(course_nameField);
-
-		Field subject_nameField = new Field("subject_name", "String");
-		subject_nameField.setLength(128);
-		metaData.addField(subject_nameField);
 
 		Field start_dateField = new Field("start_date", "timestamp");
 		metaData.addField(start_dateField);
@@ -107,6 +111,14 @@ public abstract class Basetest_allocation extends BaseResource {
 		Field end_date_strField = new Field("end_date_str", "String");
 		end_date_strField.setLength(32);
 		metaData.addField(end_date_strField);
+
+		Field resuffle_questionField = new Field("resuffle_question", "String");
+		resuffle_questionField.setLength(1);
+		metaData.addField(resuffle_questionField);
+
+		Field resuffle_optionField = new Field("resuffle_option", "String");
+		resuffle_optionField.setLength(1);
+		metaData.addField(resuffle_optionField);
 
 		Field immediate_resultField = new Field("immediate_result", "String");
 		immediate_resultField.setLength(1);
@@ -132,16 +144,18 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.id = obj.id;
 		this.test_id = obj.test_id;
 		this.test_name = obj.test_name;
-		this.subject_id = obj.subject_id;
 		this.course_id = obj.course_id;
+		this.batch_id = obj.batch_id;
+		this.batch_name = obj.batch_name;
 		this.course_name = obj.course_name;
-		this.subject_name = obj.subject_name;
 		this.start_date = obj.start_date;
 		this.start_time_s = obj.start_time_s;
 		this.start_date_str = obj.start_date_str;
 		this.end_time_s = obj.end_time_s;
 		this.end_date = obj.end_date;
 		this.end_date_str = obj.end_date_str;
+		this.resuffle_question = obj.resuffle_question;
+		this.resuffle_option = obj.resuffle_option;
 		this.immediate_result = obj.immediate_result;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
@@ -159,14 +173,14 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("test_id", test_id);
 		if(test_name != null)
 			map.put("test_name", test_name);
-		if(subject_id != null)
-			map.put("subject_id", subject_id);
 		if(course_id != null)
 			map.put("course_id", course_id);
+		if(batch_id != null)
+			map.put("batch_id", batch_id);
+		if(batch_name != null)
+			map.put("batch_name", batch_name);
 		if(course_name != null)
 			map.put("course_name", course_name);
-		if(subject_name != null)
-			map.put("subject_name", subject_name);
 		if(start_date != null)
 			map.put("start_date", start_date);
 		if(start_time_s != null)
@@ -179,6 +193,10 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if(resuffle_question != null)
+			map.put("resuffle_question", resuffle_question);
+		if(resuffle_option != null)
+			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
 		if(customer_id != null)
@@ -196,14 +214,14 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("test_id", test_id);
 		if(test_name != null)
 			map.put("test_name", test_name);
-		if(subject_id != null)
-			map.put("subject_id", subject_id);
 		if(course_id != null)
 			map.put("course_id", course_id);
+		if(batch_id != null)
+			map.put("batch_id", batch_id);
+		if(batch_name != null)
+			map.put("batch_name", batch_name);
 		if(course_name != null)
 			map.put("course_name", course_name);
-		if(subject_name != null)
-			map.put("subject_name", subject_name);
 		if(start_date != null)
 			map.put("start_date", start_date);
 		if(start_time_s != null)
@@ -216,6 +234,10 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if(resuffle_question != null)
+			map.put("resuffle_question", resuffle_question);
+		if(resuffle_option != null)
+			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
 		if(customer_id != null)
@@ -235,16 +257,18 @@ public abstract class Basetest_allocation extends BaseResource {
 		id = (String) map.get("id");
 		test_id = (String) map.get("test_id");
 		test_name = (String) map.get("test_name");
-		subject_id = (String) map.get("subject_id");
 		course_id = (String) map.get("course_id");
+		batch_id = (String) map.get("batch_id");
+		batch_name = (String) map.get("batch_name");
 		course_name = (String) map.get("course_name");
-		subject_name = (String) map.get("subject_name");
 		start_date = (Long) map.get("start_date");
 		start_time_s = (String) map.get("start_time_s");
 		start_date_str = (String) map.get("start_date_str");
 		end_time_s = (String) map.get("end_time_s");
 		end_date = (Long) map.get("end_date");
 		end_date_str = (String) map.get("end_date_str");
+		resuffle_question = (String) map.get("resuffle_question");
+		resuffle_option = (String) map.get("resuffle_option");
 		immediate_result = (String) map.get("immediate_result");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -264,21 +288,21 @@ public abstract class Basetest_allocation extends BaseResource {
 		if(test_nameObj != null)
 			test_name = test_nameObj.toString();
 
-		Object subject_idObj = map.get("subject_id");
-		if(subject_idObj != null)
-			subject_id = subject_idObj.toString();
-
 		Object course_idObj = map.get("course_id");
 		if(course_idObj != null)
 			course_id = course_idObj.toString();
 
+		Object batch_idObj = map.get("batch_id");
+		if(batch_idObj != null)
+			batch_id = batch_idObj.toString();
+
+		Object batch_nameObj = map.get("batch_name");
+		if(batch_nameObj != null)
+			batch_name = batch_nameObj.toString();
+
 		Object course_nameObj = map.get("course_name");
 		if(course_nameObj != null)
 			course_name = course_nameObj.toString();
-
-		Object subject_nameObj = map.get("subject_name");
-		if(subject_nameObj != null)
-			subject_name = subject_nameObj.toString();
 
 		Object start_dateObj = map.get("start_date");
 		if(start_dateObj != null)
@@ -303,6 +327,14 @@ public abstract class Basetest_allocation extends BaseResource {
 		Object end_date_strObj = map.get("end_date_str");
 		if(end_date_strObj != null)
 			end_date_str = end_date_strObj.toString();
+
+		Object resuffle_questionObj = map.get("resuffle_question");
+		if(resuffle_questionObj != null)
+			resuffle_question = resuffle_questionObj.toString();
+
+		Object resuffle_optionObj = map.get("resuffle_option");
+		if(resuffle_optionObj != null)
+			resuffle_option = resuffle_optionObj.toString();
 
 		Object immediate_resultObj = map.get("immediate_result");
 		if(immediate_resultObj != null)
@@ -375,22 +407,6 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.test_name = null;
 	}
 
-	public String getSubject_id() {
-		return subject_id;
-	}
-
-	public String getSubject_idEx() {
-		return subject_id != null ? subject_id : "";
-	}
-
-	public void setSubject_id(String subject_id) {
-		this.subject_id = subject_id;
-	}
-
-	public void unSetSubject_id() {
-		this.subject_id = null;
-	}
-
 	public String getCourse_id() {
 		return course_id;
 	}
@@ -407,6 +423,38 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.course_id = null;
 	}
 
+	public String getBatch_id() {
+		return batch_id;
+	}
+
+	public String getBatch_idEx() {
+		return batch_id != null ? batch_id : "";
+	}
+
+	public void setBatch_id(String batch_id) {
+		this.batch_id = batch_id;
+	}
+
+	public void unSetBatch_id() {
+		this.batch_id = null;
+	}
+
+	public String getBatch_name() {
+		return batch_name;
+	}
+
+	public String getBatch_nameEx() {
+		return batch_name != null ? batch_name : "";
+	}
+
+	public void setBatch_name(String batch_name) {
+		this.batch_name = batch_name;
+	}
+
+	public void unSetBatch_name() {
+		this.batch_name = null;
+	}
+
 	public String getCourse_name() {
 		return course_name;
 	}
@@ -421,22 +469,6 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetCourse_name() {
 		this.course_name = null;
-	}
-
-	public String getSubject_name() {
-		return subject_name;
-	}
-
-	public String getSubject_nameEx() {
-		return subject_name != null ? subject_name : "";
-	}
-
-	public void setSubject_name(String subject_name) {
-		this.subject_name = subject_name;
-	}
-
-	public void unSetSubject_name() {
-		this.subject_name = null;
 	}
 
 	public Long getStart_date() {
@@ -519,6 +551,38 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetEnd_date_str() {
 		this.end_date_str = null;
+	}
+
+	public String getResuffle_question() {
+		return resuffle_question;
+	}
+
+	public String getResuffle_questionEx() {
+		return resuffle_question != null ? resuffle_question : "";
+	}
+
+	public void setResuffle_question(String resuffle_question) {
+		this.resuffle_question = resuffle_question;
+	}
+
+	public void unSetResuffle_question() {
+		this.resuffle_question = null;
+	}
+
+	public String getResuffle_option() {
+		return resuffle_option;
+	}
+
+	public String getResuffle_optionEx() {
+		return resuffle_option != null ? resuffle_option : "";
+	}
+
+	public void setResuffle_option(String resuffle_option) {
+		this.resuffle_option = resuffle_option;
+	}
+
+	public void unSetResuffle_option() {
+		this.resuffle_option = null;
 	}
 
 	public String getImmediate_result() {

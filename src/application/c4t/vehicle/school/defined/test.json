@@ -11,6 +11,11 @@
 				'required': true,
 				'type':'String'
 			},
+			'code':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'title':
 			{
 				'length': 128,

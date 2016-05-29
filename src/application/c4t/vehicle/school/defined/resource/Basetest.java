@@ -20,6 +20,7 @@ import java.util.*;
  */
 public abstract class Basetest extends BaseResource {
 	private String id = null;
+	private String code = null;
 	private String title = null;
 	private String title_hindi = null;
 	private String instruction = null;
@@ -40,6 +41,7 @@ public abstract class Basetest extends BaseResource {
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_CODE = "code";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_TITLE_HINDI = "title_hindi";
 	public static String FIELD_INSTRUCTION = "instruction";
@@ -69,6 +71,10 @@ public abstract class Basetest extends BaseResource {
 		idField.setRequired(true);
 		idField.setLength(128);
 		metaData.addField(idField);
+
+		Field codeField = new Field("code", "String");
+		codeField.setLength(128);
+		metaData.addField(codeField);
 
 		Field titleField = new Field("title", "String");
 		titleField.setLength(128);
@@ -147,6 +153,7 @@ public abstract class Basetest extends BaseResource {
 
 	public Basetest(Basetest obj) {
 		this.id = obj.id;
+		this.code = obj.code;
 		this.title = obj.title;
 		this.title_hindi = obj.title_hindi;
 		this.instruction = obj.instruction;
@@ -175,6 +182,8 @@ public abstract class Basetest extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(code != null)
+			map.put("code", code);
 		if(title != null)
 			map.put("title", title);
 		if(title_hindi != null)
@@ -218,6 +227,8 @@ public abstract class Basetest extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(code != null)
+			map.put("code", code);
 		if(title != null)
 			map.put("title", title);
 		if(title_hindi != null)
@@ -265,6 +276,7 @@ public abstract class Basetest extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		code = (String) map.get("code");
 		title = (String) map.get("title");
 		title_hindi = (String) map.get("title_hindi");
 		instruction = (String) map.get("instruction");
@@ -290,6 +302,10 @@ public abstract class Basetest extends BaseResource {
 		Object idObj = map.get("id");
 		if(idObj != null)
 			id = idObj.toString();
+
+		Object codeObj = map.get("code");
+		if(codeObj != null)
+			code = codeObj.toString();
 
 		Object titleObj = map.get("title");
 		if(titleObj != null)
@@ -388,6 +404,22 @@ public abstract class Basetest extends BaseResource {
 		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public String getCodeEx() {
+		return code != null ? code : "";
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public void unSetCode() {
+		this.code = null;
 	}
 
 	public String getTitle() {

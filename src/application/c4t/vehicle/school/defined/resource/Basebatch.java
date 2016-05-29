@@ -30,6 +30,7 @@ public abstract class Basebatch extends BaseResource {
 	private String start_date_str = null;
 	private Long end_date = null;
 	private String end_date_str = null;
+	private String status = null; //Active/Deactive
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -43,6 +44,7 @@ public abstract class Basebatch extends BaseResource {
 	public static String FIELD_START_DATE_STR = "start_date_str";
 	public static String FIELD_END_DATE = "end_date";
 	public static String FIELD_END_DATE_STR = "end_date_str";
+	public static String FIELD_STATUS = "status";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -94,6 +96,10 @@ public abstract class Basebatch extends BaseResource {
 		end_date_strField.setLength(32);
 		metaData.addField(end_date_strField);
 
+		Field statusField = new Field("status", "String");
+		statusField.setLength(32);
+		metaData.addField(statusField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -118,6 +124,7 @@ public abstract class Basebatch extends BaseResource {
 		this.start_date_str = obj.start_date_str;
 		this.end_date = obj.end_date;
 		this.end_date_str = obj.end_date_str;
+		this.status = obj.status;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -149,6 +156,8 @@ public abstract class Basebatch extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if(status != null)
+			map.put("status", status);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -178,6 +187,8 @@ public abstract class Basebatch extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if(status != null)
+			map.put("status", status);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -201,6 +212,7 @@ public abstract class Basebatch extends BaseResource {
 		start_date_str = (String) map.get("start_date_str");
 		end_date = (Long) map.get("end_date");
 		end_date_str = (String) map.get("end_date_str");
+		status = (String) map.get("status");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -249,6 +261,10 @@ public abstract class Basebatch extends BaseResource {
 		Object end_date_strObj = map.get("end_date_str");
 		if(end_date_strObj != null)
 			end_date_str = end_date_strObj.toString();
+
+		Object statusObj = map.get("status");
+		if(statusObj != null)
+			status = statusObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -425,6 +441,22 @@ public abstract class Basebatch extends BaseResource {
 
 	public void unSetEnd_date_str() {
 		this.end_date_str = null;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public String getStatusEx() {
+		return status != null ? status : "";
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public void unSetStatus() {
+		this.status = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
