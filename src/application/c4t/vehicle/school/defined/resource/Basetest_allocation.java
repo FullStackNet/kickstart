@@ -20,8 +20,10 @@ import java.util.*;
  */
 public abstract class Basetest_allocation extends BaseResource {
 	private String id = null;
+	private String allocation_type = null;
 	private String test_id = null;
 	private String test_name = null;
+	private String test_code = null;
 	private String course_id = null;
 	private String batch_id = null;
 	private String batch_name = null;
@@ -35,12 +37,15 @@ public abstract class Basetest_allocation extends BaseResource {
 	private String resuffle_question = null;
 	private String resuffle_option = null;
 	private String immediate_result = null;
+	private String allocated = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
+	public static String FIELD_ALLOCATION_TYPE = "allocation_type";
 	public static String FIELD_TEST_ID = "test_id";
 	public static String FIELD_TEST_NAME = "test_name";
+	public static String FIELD_TEST_CODE = "test_code";
 	public static String FIELD_COURSE_ID = "course_id";
 	public static String FIELD_BATCH_ID = "batch_id";
 	public static String FIELD_BATCH_NAME = "batch_name";
@@ -54,6 +59,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	public static String FIELD_RESUFFLE_QUESTION = "resuffle_question";
 	public static String FIELD_RESUFFLE_OPTION = "resuffle_option";
 	public static String FIELD_IMMEDIATE_RESULT = "immediate_result";
+	public static String FIELD_ALLOCATED = "allocated";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -68,6 +74,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		idField.setLength(128);
 		metaData.addField(idField);
 
+		Field allocation_typeField = new Field("allocation_type", "String");
+		allocation_typeField.setLength(128);
+		metaData.addField(allocation_typeField);
+
 		Field test_idField = new Field("test_id", "String");
 		test_idField.setLength(128);
 		metaData.addField(test_idField);
@@ -75,6 +85,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		Field test_nameField = new Field("test_name", "String");
 		test_nameField.setLength(128);
 		metaData.addField(test_nameField);
+
+		Field test_codeField = new Field("test_code", "String");
+		test_codeField.setLength(128);
+		metaData.addField(test_codeField);
 
 		Field course_idField = new Field("course_id", "String");
 		course_idField.setLength(128);
@@ -124,6 +138,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		immediate_resultField.setLength(1);
 		metaData.addField(immediate_resultField);
 
+		Field allocatedField = new Field("allocated", "String");
+		allocatedField.setLength(1);
+		metaData.addField(allocatedField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
@@ -142,8 +160,10 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public Basetest_allocation(Basetest_allocation obj) {
 		this.id = obj.id;
+		this.allocation_type = obj.allocation_type;
 		this.test_id = obj.test_id;
 		this.test_name = obj.test_name;
+		this.test_code = obj.test_code;
 		this.course_id = obj.course_id;
 		this.batch_id = obj.batch_id;
 		this.batch_name = obj.batch_name;
@@ -157,6 +177,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.resuffle_question = obj.resuffle_question;
 		this.resuffle_option = obj.resuffle_option;
 		this.immediate_result = obj.immediate_result;
+		this.allocated = obj.allocated;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -169,10 +190,14 @@ public abstract class Basetest_allocation extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
+		if(allocation_type != null)
+			map.put("allocation_type", allocation_type);
 		if(test_id != null)
 			map.put("test_id", test_id);
 		if(test_name != null)
 			map.put("test_name", test_name);
+		if(test_code != null)
+			map.put("test_code", test_code);
 		if(course_id != null)
 			map.put("course_id", course_id);
 		if(batch_id != null)
@@ -199,6 +224,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
+		if(allocated != null)
+			map.put("allocated", allocated);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -210,10 +237,14 @@ public abstract class Basetest_allocation extends BaseResource {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
+		if(allocation_type != null)
+			map.put("allocation_type", allocation_type);
 		if(test_id != null)
 			map.put("test_id", test_id);
 		if(test_name != null)
 			map.put("test_name", test_name);
+		if(test_code != null)
+			map.put("test_code", test_code);
 		if(course_id != null)
 			map.put("course_id", course_id);
 		if(batch_id != null)
@@ -240,6 +271,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
+		if(allocated != null)
+			map.put("allocated", allocated);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -255,8 +288,10 @@ public abstract class Basetest_allocation extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
+		allocation_type = (String) map.get("allocation_type");
 		test_id = (String) map.get("test_id");
 		test_name = (String) map.get("test_name");
+		test_code = (String) map.get("test_code");
 		course_id = (String) map.get("course_id");
 		batch_id = (String) map.get("batch_id");
 		batch_name = (String) map.get("batch_name");
@@ -270,6 +305,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		resuffle_question = (String) map.get("resuffle_question");
 		resuffle_option = (String) map.get("resuffle_option");
 		immediate_result = (String) map.get("immediate_result");
+		allocated = (String) map.get("allocated");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -280,6 +316,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
+		Object allocation_typeObj = map.get("allocation_type");
+		if(allocation_typeObj != null)
+			allocation_type = allocation_typeObj.toString();
+
 		Object test_idObj = map.get("test_id");
 		if(test_idObj != null)
 			test_id = test_idObj.toString();
@@ -287,6 +327,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		Object test_nameObj = map.get("test_name");
 		if(test_nameObj != null)
 			test_name = test_nameObj.toString();
+
+		Object test_codeObj = map.get("test_code");
+		if(test_codeObj != null)
+			test_code = test_codeObj.toString();
 
 		Object course_idObj = map.get("course_id");
 		if(course_idObj != null)
@@ -340,6 +384,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		if(immediate_resultObj != null)
 			immediate_result = immediate_resultObj.toString();
 
+		Object allocatedObj = map.get("allocated");
+		if(allocatedObj != null)
+			allocated = allocatedObj.toString();
+
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
@@ -375,6 +423,22 @@ public abstract class Basetest_allocation extends BaseResource {
 		return id != null;
 	}
 
+	public String getAllocation_type() {
+		return allocation_type;
+	}
+
+	public String getAllocation_typeEx() {
+		return allocation_type != null ? allocation_type : "";
+	}
+
+	public void setAllocation_type(String allocation_type) {
+		this.allocation_type = allocation_type;
+	}
+
+	public void unSetAllocation_type() {
+		this.allocation_type = null;
+	}
+
 	public String getTest_id() {
 		return test_id;
 	}
@@ -405,6 +469,22 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetTest_name() {
 		this.test_name = null;
+	}
+
+	public String getTest_code() {
+		return test_code;
+	}
+
+	public String getTest_codeEx() {
+		return test_code != null ? test_code : "";
+	}
+
+	public void setTest_code(String test_code) {
+		this.test_code = test_code;
+	}
+
+	public void unSetTest_code() {
+		this.test_code = null;
 	}
 
 	public String getCourse_id() {
@@ -599,6 +679,22 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetImmediate_result() {
 		this.immediate_result = null;
+	}
+
+	public String getAllocated() {
+		return allocated;
+	}
+
+	public String getAllocatedEx() {
+		return allocated != null ? allocated : "";
+	}
+
+	public void setAllocated(String allocated) {
+		this.allocated = allocated;
+	}
+
+	public void unSetAllocated() {
+		this.allocated = null;
 	}
 
 	public String getCustomer_id() {

@@ -218,6 +218,13 @@ public class StudentHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 
+	public BaseResource[] getByBatchAndCourse(String courseId, String batchId) {
+		Expression e1 = new Expression(student.FIELD_BATCH_ID, REL_OP.EQ, batchId);
+		Expression e2 = new Expression(student.FIELD_COURSE_ID, REL_OP.EQ, courseId);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
+	
 	public student getByAdmissionNoBySchool(String school_id, String admission_no) {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.EQ, school_id);
 		Expression e2 = new Expression(student.FIELD_ADMISSION_NO, REL_OP.EQ, admission_no);

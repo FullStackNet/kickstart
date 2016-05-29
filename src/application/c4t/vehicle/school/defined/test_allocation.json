@@ -11,12 +11,22 @@
 				'required': true,
 				'type':'String'
 			},
+			'allocation_type':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'test_id':
 			{
 				'length': 128,
 				'type':'String'
 			},
 			'test_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_code':
 			{
 				'length': 128,
 				'type':'String'
@@ -76,6 +86,11 @@
 				'type':'String',
 				'length': 1
 			},
+			'allocated':
+			{
+				'type':'String',
+				'length': 1
+			},	
 			'customer_id':
 			{
 				'type':'String',

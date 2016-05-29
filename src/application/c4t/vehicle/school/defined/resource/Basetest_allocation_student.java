@@ -21,8 +21,10 @@ import java.util.*;
 public abstract class Basetest_allocation_student extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String test_allocation_id = null;
 	private String test_id = null;
 	private String test_name = null;
+	private String test_code = null;
 	private String student_id = null;
 	private String student_name = null;
 	private String subject_id = null;
@@ -37,13 +39,18 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String end_time_s = null;
 	private Long end_date = null;
 	private String end_date_str = null;
+	private String resuffle_question = null;
+	private String resuffle_option = null;
+	private String status = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_TEST_ALLOCATION_ID = "test_allocation_id";
 	public static String FIELD_TEST_ID = "test_id";
 	public static String FIELD_TEST_NAME = "test_name";
+	public static String FIELD_TEST_CODE = "test_code";
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_SUBJECT_ID = "subject_id";
@@ -58,6 +65,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_END_TIME_S = "end_time_s";
 	public static String FIELD_END_DATE = "end_date";
 	public static String FIELD_END_DATE_STR = "end_date_str";
+	public static String FIELD_RESUFFLE_QUESTION = "resuffle_question";
+	public static String FIELD_RESUFFLE_OPTION = "resuffle_option";
+	public static String FIELD_STATUS = "status";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -76,6 +86,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		nameField.setLength(128);
 		metaData.addField(nameField);
 
+		Field test_allocation_idField = new Field("test_allocation_id", "String");
+		test_allocation_idField.setLength(128);
+		metaData.addField(test_allocation_idField);
+
 		Field test_idField = new Field("test_id", "String");
 		test_idField.setLength(128);
 		metaData.addField(test_idField);
@@ -83,6 +97,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Field test_nameField = new Field("test_name", "String");
 		test_nameField.setLength(128);
 		metaData.addField(test_nameField);
+
+		Field test_codeField = new Field("test_code", "String");
+		test_codeField.setLength(128);
+		metaData.addField(test_codeField);
 
 		Field student_idField = new Field("student_id", "String");
 		student_idField.setLength(128);
@@ -136,6 +154,18 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		end_date_strField.setLength(32);
 		metaData.addField(end_date_strField);
 
+		Field resuffle_questionField = new Field("resuffle_question", "String");
+		resuffle_questionField.setLength(1);
+		metaData.addField(resuffle_questionField);
+
+		Field resuffle_optionField = new Field("resuffle_option", "String");
+		resuffle_optionField.setLength(1);
+		metaData.addField(resuffle_optionField);
+
+		Field statusField = new Field("status", "String");
+		statusField.setLength(1);
+		metaData.addField(statusField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
@@ -155,8 +185,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public Basetest_allocation_student(Basetest_allocation_student obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.test_allocation_id = obj.test_allocation_id;
 		this.test_id = obj.test_id;
 		this.test_name = obj.test_name;
+		this.test_code = obj.test_code;
 		this.student_id = obj.student_id;
 		this.student_name = obj.student_name;
 		this.subject_id = obj.subject_id;
@@ -171,6 +203,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.end_time_s = obj.end_time_s;
 		this.end_date = obj.end_date;
 		this.end_date_str = obj.end_date_str;
+		this.resuffle_question = obj.resuffle_question;
+		this.resuffle_option = obj.resuffle_option;
+		this.status = obj.status;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -185,10 +220,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(test_allocation_id != null)
+			map.put("test_allocation_id", test_allocation_id);
 		if(test_id != null)
 			map.put("test_id", test_id);
 		if(test_name != null)
 			map.put("test_name", test_name);
+		if(test_code != null)
+			map.put("test_code", test_code);
 		if(student_id != null)
 			map.put("student_id", student_id);
 		if(student_name != null)
@@ -217,6 +256,12 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if(resuffle_question != null)
+			map.put("resuffle_question", resuffle_question);
+		if(resuffle_option != null)
+			map.put("resuffle_option", resuffle_option);
+		if(status != null)
+			map.put("status", status);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -230,10 +275,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(test_allocation_id != null)
+			map.put("test_allocation_id", test_allocation_id);
 		if(test_id != null)
 			map.put("test_id", test_id);
 		if(test_name != null)
 			map.put("test_name", test_name);
+		if(test_code != null)
+			map.put("test_code", test_code);
 		if(student_id != null)
 			map.put("student_id", student_id);
 		if(student_name != null)
@@ -262,6 +311,12 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if(resuffle_question != null)
+			map.put("resuffle_question", resuffle_question);
+		if(resuffle_option != null)
+			map.put("resuffle_option", resuffle_option);
+		if(status != null)
+			map.put("status", status);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -278,8 +333,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		test_allocation_id = (String) map.get("test_allocation_id");
 		test_id = (String) map.get("test_id");
 		test_name = (String) map.get("test_name");
+		test_code = (String) map.get("test_code");
 		student_id = (String) map.get("student_id");
 		student_name = (String) map.get("student_name");
 		subject_id = (String) map.get("subject_id");
@@ -294,6 +351,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		end_time_s = (String) map.get("end_time_s");
 		end_date = (Long) map.get("end_date");
 		end_date_str = (String) map.get("end_date_str");
+		resuffle_question = (String) map.get("resuffle_question");
+		resuffle_option = (String) map.get("resuffle_option");
+		status = (String) map.get("status");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -308,6 +368,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		if(nameObj != null)
 			name = nameObj.toString();
 
+		Object test_allocation_idObj = map.get("test_allocation_id");
+		if(test_allocation_idObj != null)
+			test_allocation_id = test_allocation_idObj.toString();
+
 		Object test_idObj = map.get("test_id");
 		if(test_idObj != null)
 			test_id = test_idObj.toString();
@@ -315,6 +379,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object test_nameObj = map.get("test_name");
 		if(test_nameObj != null)
 			test_name = test_nameObj.toString();
+
+		Object test_codeObj = map.get("test_code");
+		if(test_codeObj != null)
+			test_code = test_codeObj.toString();
 
 		Object student_idObj = map.get("student_id");
 		if(student_idObj != null)
@@ -372,6 +440,18 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		if(end_date_strObj != null)
 			end_date_str = end_date_strObj.toString();
 
+		Object resuffle_questionObj = map.get("resuffle_question");
+		if(resuffle_questionObj != null)
+			resuffle_question = resuffle_questionObj.toString();
+
+		Object resuffle_optionObj = map.get("resuffle_option");
+		if(resuffle_optionObj != null)
+			resuffle_option = resuffle_optionObj.toString();
+
+		Object statusObj = map.get("status");
+		if(statusObj != null)
+			status = statusObj.toString();
+
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
@@ -423,6 +503,22 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.name = null;
 	}
 
+	public String getTest_allocation_id() {
+		return test_allocation_id;
+	}
+
+	public String getTest_allocation_idEx() {
+		return test_allocation_id != null ? test_allocation_id : "";
+	}
+
+	public void setTest_allocation_id(String test_allocation_id) {
+		this.test_allocation_id = test_allocation_id;
+	}
+
+	public void unSetTest_allocation_id() {
+		this.test_allocation_id = null;
+	}
+
 	public String getTest_id() {
 		return test_id;
 	}
@@ -453,6 +549,22 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetTest_name() {
 		this.test_name = null;
+	}
+
+	public String getTest_code() {
+		return test_code;
+	}
+
+	public String getTest_codeEx() {
+		return test_code != null ? test_code : "";
+	}
+
+	public void setTest_code(String test_code) {
+		this.test_code = test_code;
+	}
+
+	public void unSetTest_code() {
+		this.test_code = null;
 	}
 
 	public String getStudent_id() {
@@ -663,6 +775,54 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetEnd_date_str() {
 		this.end_date_str = null;
+	}
+
+	public String getResuffle_question() {
+		return resuffle_question;
+	}
+
+	public String getResuffle_questionEx() {
+		return resuffle_question != null ? resuffle_question : "";
+	}
+
+	public void setResuffle_question(String resuffle_question) {
+		this.resuffle_question = resuffle_question;
+	}
+
+	public void unSetResuffle_question() {
+		this.resuffle_question = null;
+	}
+
+	public String getResuffle_option() {
+		return resuffle_option;
+	}
+
+	public String getResuffle_optionEx() {
+		return resuffle_option != null ? resuffle_option : "";
+	}
+
+	public void setResuffle_option(String resuffle_option) {
+		this.resuffle_option = resuffle_option;
+	}
+
+	public void unSetResuffle_option() {
+		this.resuffle_option = null;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public String getStatusEx() {
+		return status != null ? status : "";
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public void unSetStatus() {
+		this.status = null;
 	}
 
 	public String getCustomer_id() {

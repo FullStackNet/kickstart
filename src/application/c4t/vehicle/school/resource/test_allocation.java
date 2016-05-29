@@ -1,6 +1,7 @@
 package application.c4t.vehicle.school.resource;
 
 import platform.util.Util;
+import platform.webservice.ui.definition.IdValue;
 import application.c4t.vehicle.school.defined.resource.Basetest_allocation;
 
 public class test_allocation extends Basetest_allocation {
@@ -23,5 +24,9 @@ public class test_allocation extends Basetest_allocation {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	public static String ALLOCATION_TYPE_BATCH_WISE = "BATCH_WISE";
+	
+	public final static IdValue[] ALLOCATION_TYPE_ENUM = new IdValue[] {
+		new IdValue(ALLOCATION_TYPE_BATCH_WISE, "Batch wise"),
+	};
 }

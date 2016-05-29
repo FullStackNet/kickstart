@@ -16,12 +16,22 @@
 				'length': 128,
 				'type':'String'
 			},
+			'test_allocation_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'test_id':
 			{
 				'length': 128,
 				'type':'String'
 			},
 			'test_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_code':
 			{
 				'length': 128,
 				'type':'String'
@@ -85,6 +95,26 @@
 			'end_date_str': {
 				'type': 'String',
 				'length' : 32
+			},
+			'resuffle_question':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'resuffle_option':
+			{
+				'type':'String',
+				'length': 1
+			},	
+			'immediate_result':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'status':
+			{
+				'type':'String',
+				'length': 1
 			},
 			'customer_id':
 			{
