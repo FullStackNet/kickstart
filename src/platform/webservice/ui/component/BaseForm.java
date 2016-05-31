@@ -11,12 +11,14 @@ import platform.webservice.ui.definition.FormDefinition;
 import platform.webservice.ui.definition.IdValue;
 import platform.webservice.ui.html.BUTTON;
 import platform.webservice.ui.html.BaseHTMLComponent;
+import platform.webservice.ui.html.CHECKBOX;
 import platform.webservice.ui.html.COMBO;
 import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.FILEINPUT;
 import platform.webservice.ui.html.FORM;
 import platform.webservice.ui.html.H2;
 import platform.webservice.ui.html.HIDDEN;
+import platform.webservice.ui.html.HR;
 import platform.webservice.ui.html.IMG;
 import platform.webservice.ui.html.INPUT;
 import platform.webservice.ui.html.JS;
@@ -270,7 +272,22 @@ public abstract class BaseForm extends BaseView {
 					row.addChild(column);
 					column = new TD();
 					column.addAttribute("style","padding-left:10px;padding-top:10px;padding-bottom:10px;");
-				}else {
+				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_CHECKBOX) {
+					column.addAttribute("colspan","2");
+					CHECKBOX checkbox = new CHECKBOX(field.getName(),null);
+					checkbox.setText(field.getLabel().trim());
+					checkbox.addStyle("width", "30px");
+					checkbox.setCheckedValue(field.getDefaultValue().toString());
+					if (value != null) {
+						checkbox.setValue(value.toString());
+					}
+					column.addChild(checkbox);
+					
+				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_HR) {
+					column.addAttribute("colspan","2");
+					HR hr = new HR();
+					column.addChild(hr);
+				} else {
 					column.addAttribute("width","150px");
 					column.setText(field.getLabel());
 					if (block.isHorizontalDisplay()) {
@@ -355,7 +372,11 @@ public abstract class BaseForm extends BaseView {
 					if (field.isFullWidth()) {
 						column.addChild(new TEXT(field.getLabel()+":"));
 					}
-					TEXTAREA textArea = new TEXTAREA(field.getName(),null,field.isFullWidth());
+					
+					TEXTAREA textArea = new TEXTAREA(field.getName(),null,field.isFullWidth());;
+					if (field.getHeight() > 0) {
+						textArea = new TEXTAREA(field.getName(),null,field.isFullWidth(),field.getHeight());
+					} 					
 					if (value != null) {
 						textArea.setText(value.toString());
 					}
@@ -465,8 +486,8 @@ public abstract class BaseForm extends BaseView {
 					else {
 						column.setText("-");
 					}	
-				}
-				if (block.isHorizontalDisplay()) {
+			} 
+			if (block.isHorizontalDisplay()) {
 					row2.addChild(column);
 					coulmn_count ++;
 					if (coulmn_count == block.getColumns()) {

@@ -33,6 +33,15 @@ public class Field {
 	String timeZone;
 	Link link;
 	int width;
+	int height;
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
 	boolean hideOnSingleEntry;
 	boolean fullWidth;
 	private boolean isUpperCase;

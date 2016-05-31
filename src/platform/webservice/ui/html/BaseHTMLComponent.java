@@ -12,6 +12,16 @@ public abstract class BaseHTMLComponent {
 	Map<String,String> styleMap;
 	String text;
 	boolean readonly;
+	boolean checked;
+	
+	public boolean isChecked() {
+		return checked;
+	}
+
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
+
 	public boolean isReadonly() {
 		return readonly;
 	}
@@ -94,15 +104,22 @@ public abstract class BaseHTMLComponent {
 					buffer.append(" "+attrList.get(i).getName()+"=\""+attrList.get(i).getValue()+"\"");
 			}
 		}
+		
 		if ((getTag() != null) && selfClosing() && (getText() == null) && (childList.size() == 0)) {
 			buffer.append(" /> \n");
 			return buffer.toString();
 		}
 		if ((getTag() != null))
-			buffer.append(">\n");
+			if ("input".equals(getTag())) {
+				buffer.append(">");
+			} else {
+				buffer.append(">\n");
+			}
 	
 		if (getText() != null) {
 			if ("textarea".equals(getTag())) {
+				buffer.append(getText());
+			} else if ("input".equals(getTag())) {
 				buffer.append(getText());
 			} else
 				buffer.append(space+"\t"+getText()+"\n");
@@ -110,6 +127,9 @@ public abstract class BaseHTMLComponent {
 		for(int i=0; i < childList.size(); i++) {
 			if (childList.get(i) == null) continue;
 			buffer.append(childList.get(i).getContent(index+1));
+		}
+		if (checked) {
+			buffer.append(" checked ");
 		}
 		if (getTag() != null) {
 			buffer.append(space+"</"+getTag());

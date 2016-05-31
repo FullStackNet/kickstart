@@ -17,6 +17,7 @@ public class UIConstants {
 	public final static String COMPONENT_TYPE_HEADING = "HEADING";
 	public final static String COMPONENT_TYPE_TEXTINPUT = "TEXTINPUT";
 	public final static String COMPONENT_TYPE_DATEPICKER = "DATEPICKER";
+	public final static String COMPONENT_TYPE_HR = "HR";
 	public final static String COMPONENT_TYPE_TEXTAREA = "TEXTAREA";
 	public final static String COMPONENT_TYPE_BUTTON = "BUTTON";
 	public final static String COMPONENT_TYPE_HIDDEN = "HIDDEN";
@@ -28,6 +29,7 @@ public class UIConstants {
 	public final static String COMPONENT_TYPE_LINK = "LINK";
 	public final static String COMPONENT_TYPE_DATE = "DATE";
 	public final static String COMPONENT_TYPE_COMBO = "COMBO";
+	public final static String COMPONENT_TYPE_CHECKBOX = "CHECKBOX";
 	public final static String COMPONENT_TYPE_AUTOCOMPLETE = "AUTOCOMPLETE";
 	public final static String COMPONENT_TYPE_LABEL = "LABEL";
 	public final static IdValue[] YES_NO_ENUM = {new IdValue("Y","Yes"), new IdValue("N", "No")};
