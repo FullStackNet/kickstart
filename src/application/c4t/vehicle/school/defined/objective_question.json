@@ -146,6 +146,12 @@
 				'type':'String',
 				'default' : "N"
 			},
+			'answer_5':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'answer_explanation':
 			{
 				'length': 128,

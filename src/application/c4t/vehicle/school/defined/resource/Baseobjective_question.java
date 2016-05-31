@@ -46,6 +46,7 @@ public abstract class Baseobjective_question extends BaseResource {
 	private String answer_2 = null;
 	private String answer_3 = null;
 	private String answer_4 = null;
+	private String answer_5 = null;
 	private String answer_explanation = null;
 	private String answer_explanation_hindi = null;
 	private Long order_no = null;
@@ -81,6 +82,7 @@ public abstract class Baseobjective_question extends BaseResource {
 	public static String FIELD_ANSWER_2 = "answer_2";
 	public static String FIELD_ANSWER_3 = "answer_3";
 	public static String FIELD_ANSWER_4 = "answer_4";
+	public static String FIELD_ANSWER_5 = "answer_5";
 	public static String FIELD_ANSWER_EXPLANATION = "answer_explanation";
 	public static String FIELD_ANSWER_EXPLANATION_HINDI = "answer_explanation_hindi";
 	public static String FIELD_ORDER_NO = "order_no";
@@ -208,6 +210,11 @@ public abstract class Baseobjective_question extends BaseResource {
 		answer_4Field.setLength(1);
 		metaData.addField(answer_4Field);
 
+		Field answer_5Field = new Field("answer_5", "String");
+		answer_5Field.setDefaultValue("N");
+		answer_5Field.setLength(1);
+		metaData.addField(answer_5Field);
+
 		Field answer_explanationField = new Field("answer_explanation", "String");
 		answer_explanationField.setLength(128);
 		metaData.addField(answer_explanationField);
@@ -270,6 +277,7 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.answer_2 = obj.answer_2;
 		this.answer_3 = obj.answer_3;
 		this.answer_4 = obj.answer_4;
+		this.answer_5 = obj.answer_5;
 		this.answer_explanation = obj.answer_explanation;
 		this.answer_explanation_hindi = obj.answer_explanation_hindi;
 		this.order_no = obj.order_no;
@@ -292,6 +300,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			answer_3 = "N";
 		if(answer_4 == null)
 			answer_4 = "N";
+		if(answer_5 == null)
+			answer_5 = "N";
 		if(mutiple_options == null)
 			mutiple_options = "N";
 	}
@@ -352,6 +362,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("answer_3", answer_3);
 		if(answer_4 != null)
 			map.put("answer_4", answer_4);
+		if(answer_5 != null)
+			map.put("answer_5", answer_5);
 		if(answer_explanation != null)
 			map.put("answer_explanation", answer_explanation);
 		if(answer_explanation_hindi != null)
@@ -428,6 +440,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("answer_3", answer_3);
 		if(answer_4 != null)
 			map.put("answer_4", answer_4);
+		if(answer_5 != null)
+			map.put("answer_5", answer_5);
 		if(answer_explanation != null)
 			map.put("answer_explanation", answer_explanation);
 		if(answer_explanation_hindi != null)
@@ -479,6 +493,7 @@ public abstract class Baseobjective_question extends BaseResource {
 		answer_2 = (String) map.get("answer_2");
 		answer_3 = (String) map.get("answer_3");
 		answer_4 = (String) map.get("answer_4");
+		answer_5 = (String) map.get("answer_5");
 		answer_explanation = (String) map.get("answer_explanation");
 		answer_explanation_hindi = (String) map.get("answer_explanation_hindi");
 		order_no = (Long) map.get("order_no");
@@ -597,6 +612,10 @@ public abstract class Baseobjective_question extends BaseResource {
 		Object answer_4Obj = map.get("answer_4");
 		if(answer_4Obj != null)
 			answer_4 = answer_4Obj.toString();
+
+		Object answer_5Obj = map.get("answer_5");
+		if(answer_5Obj != null)
+			answer_5 = answer_5Obj.toString();
 
 		Object answer_explanationObj = map.get("answer_explanation");
 		if(answer_explanationObj != null)
@@ -1051,6 +1070,18 @@ public abstract class Baseobjective_question extends BaseResource {
 
 	public void unSetAnswer_4() {
 		this.answer_4 = "N";
+	}
+
+	public String getAnswer_5() {
+		return answer_5 != null ? answer_5 : "N";
+	}
+
+	public void setAnswer_5(String answer_5) {
+		this.answer_5 = answer_5;
+	}
+
+	public void unSetAnswer_5() {
+		this.answer_5 = "N";
 	}
 
 	public String getAnswer_explanation() {
