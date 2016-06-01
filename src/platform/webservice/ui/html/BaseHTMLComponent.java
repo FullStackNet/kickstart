@@ -89,6 +89,9 @@ public abstract class BaseHTMLComponent {
 		if (isReadonly()) {
 			buffer.append(" readonly ");
 		}
+		if (checked) {
+			buffer.append(" checked ");
+		}
 		if (styleMap.size() > 0) {
 			String style = "";
 			for (Map.Entry<String, String> entry : styleMap.entrySet()) {
@@ -124,13 +127,12 @@ public abstract class BaseHTMLComponent {
 			} else
 				buffer.append(space+"\t"+getText()+"\n");
 		}
+		
 		for(int i=0; i < childList.size(); i++) {
 			if (childList.get(i) == null) continue;
 			buffer.append(childList.get(i).getContent(index+1));
 		}
-		if (checked) {
-			buffer.append(" checked ");
-		}
+		
 		if (getTag() != null) {
 			buffer.append(space+"</"+getTag());
 			buffer.append("> \n");

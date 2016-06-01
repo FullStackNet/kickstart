@@ -1,7 +1,7 @@
 {
 	"objective_question_answers" :
 	{
-		"cluster": "DB_SCHOLL",
+		"cluster": "DB_SCHOOL",
 		"fields":
 		{
 			'id':
@@ -19,7 +19,7 @@
 			'answers':
 			{
 				'type': 'Array',
-				'valueType' : "application.c4t.vehicle.school.resource.objective_question"
+				'valueType' : "application.c4t.vehicle.school.resource.objective_question_answer"
 			}
 		}
 	}

@@ -41,6 +41,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String end_date_str = null;
 	private String resuffle_question = null;
 	private String resuffle_option = null;
+	private Double total_marks = null;
+	private Double total_marks_got = null;
+	private Double total_questions = null;
+	private Long total_correct_answers = null;
 	private String status = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
@@ -67,6 +71,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_END_DATE_STR = "end_date_str";
 	public static String FIELD_RESUFFLE_QUESTION = "resuffle_question";
 	public static String FIELD_RESUFFLE_OPTION = "resuffle_option";
+	public static String FIELD_TOTAL_MARKS = "total_marks";
+	public static String FIELD_TOTAL_MARKS_GOT = "total_marks_got";
+	public static String FIELD_TOTAL_QUESTIONS = "total_questions";
+	public static String FIELD_TOTAL_CORRECT_ANSWERS = "total_correct_answers";
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -162,6 +170,18 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		resuffle_optionField.setLength(1);
 		metaData.addField(resuffle_optionField);
 
+		Field total_marksField = new Field("total_marks", "double");
+		metaData.addField(total_marksField);
+
+		Field total_marks_gotField = new Field("total_marks_got", "double");
+		metaData.addField(total_marks_gotField);
+
+		Field total_questionsField = new Field("total_questions", "double");
+		metaData.addField(total_questionsField);
+
+		Field total_correct_answersField = new Field("total_correct_answers", "long");
+		metaData.addField(total_correct_answersField);
+
 		Field statusField = new Field("status", "String");
 		statusField.setLength(1);
 		metaData.addField(statusField);
@@ -205,6 +225,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.end_date_str = obj.end_date_str;
 		this.resuffle_question = obj.resuffle_question;
 		this.resuffle_option = obj.resuffle_option;
+		this.total_marks = obj.total_marks;
+		this.total_marks_got = obj.total_marks_got;
+		this.total_questions = obj.total_questions;
+		this.total_correct_answers = obj.total_correct_answers;
 		this.status = obj.status;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
@@ -260,6 +284,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("resuffle_question", resuffle_question);
 		if(resuffle_option != null)
 			map.put("resuffle_option", resuffle_option);
+		if(total_marks != null)
+			map.put("total_marks", total_marks);
+		if(total_marks_got != null)
+			map.put("total_marks_got", total_marks_got);
+		if(total_questions != null)
+			map.put("total_questions", total_questions);
+		if(total_correct_answers != null)
+			map.put("total_correct_answers", total_correct_answers);
 		if(status != null)
 			map.put("status", status);
 		if(customer_id != null)
@@ -315,6 +347,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("resuffle_question", resuffle_question);
 		if(resuffle_option != null)
 			map.put("resuffle_option", resuffle_option);
+		if(total_marks != null)
+			map.put("total_marks", total_marks);
+		if(total_marks_got != null)
+			map.put("total_marks_got", total_marks_got);
+		if(total_questions != null)
+			map.put("total_questions", total_questions);
+		if(total_correct_answers != null)
+			map.put("total_correct_answers", total_correct_answers);
 		if(status != null)
 			map.put("status", status);
 		if(customer_id != null)
@@ -353,6 +393,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		end_date_str = (String) map.get("end_date_str");
 		resuffle_question = (String) map.get("resuffle_question");
 		resuffle_option = (String) map.get("resuffle_option");
+		total_marks = (Double) map.get("total_marks");
+		total_marks_got = (Double) map.get("total_marks_got");
+		total_questions = (Double) map.get("total_questions");
+		total_correct_answers = (Long) map.get("total_correct_answers");
 		status = (String) map.get("status");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -447,6 +491,22 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object resuffle_optionObj = map.get("resuffle_option");
 		if(resuffle_optionObj != null)
 			resuffle_option = resuffle_optionObj.toString();
+
+		Object total_marksObj = map.get("total_marks");
+		if(total_marksObj != null)
+			total_marks = new Double(total_marksObj.toString());
+
+		Object total_marks_gotObj = map.get("total_marks_got");
+		if(total_marks_gotObj != null)
+			total_marks_got = new Double(total_marks_gotObj.toString());
+
+		Object total_questionsObj = map.get("total_questions");
+		if(total_questionsObj != null)
+			total_questions = new Double(total_questionsObj.toString());
+
+		Object total_correct_answersObj = map.get("total_correct_answers");
+		if(total_correct_answersObj != null)
+			total_correct_answers = new Long(total_correct_answersObj.toString());
 
 		Object statusObj = map.get("status");
 		if(statusObj != null)
@@ -807,6 +867,86 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetResuffle_option() {
 		this.resuffle_option = null;
+	}
+
+	public Double getTotal_marks() {
+		return total_marks;
+	}
+
+	public double getTotal_marksEx() {
+		return total_marks != null ? total_marks : 0;
+	}
+
+	public void setTotal_marks(double total_marks) {
+		this.total_marks = total_marks;
+	}
+
+	public void setTotal_marks(Double total_marks) {
+		this.total_marks = total_marks;
+	}
+
+	public void unSetTotal_marks() {
+		this.total_marks = null;
+	}
+
+	public Double getTotal_marks_got() {
+		return total_marks_got;
+	}
+
+	public double getTotal_marks_gotEx() {
+		return total_marks_got != null ? total_marks_got : 0;
+	}
+
+	public void setTotal_marks_got(double total_marks_got) {
+		this.total_marks_got = total_marks_got;
+	}
+
+	public void setTotal_marks_got(Double total_marks_got) {
+		this.total_marks_got = total_marks_got;
+	}
+
+	public void unSetTotal_marks_got() {
+		this.total_marks_got = null;
+	}
+
+	public Double getTotal_questions() {
+		return total_questions;
+	}
+
+	public double getTotal_questionsEx() {
+		return total_questions != null ? total_questions : 0;
+	}
+
+	public void setTotal_questions(double total_questions) {
+		this.total_questions = total_questions;
+	}
+
+	public void setTotal_questions(Double total_questions) {
+		this.total_questions = total_questions;
+	}
+
+	public void unSetTotal_questions() {
+		this.total_questions = null;
+	}
+
+	public Long getTotal_correct_answers() {
+		return total_correct_answers;
+	}
+
+	public long getTotal_correct_answersEx() {
+		return total_correct_answers != null ? total_correct_answers : 0L;
+	}
+
+	public void setTotal_correct_answers(long total_correct_answers) {
+		this.total_correct_answers = total_correct_answers;
+	}
+
+	public void setTotal_correct_answers(Long total_correct_answers) {
+		this.total_correct_answers = total_correct_answers;
+	}
+
+	public void unSetTotal_correct_answers() {
+		this.total_correct_answers = null;
 	}
 
 	public String getStatus() {

@@ -23,5 +23,13 @@ public class test_allocation_student extends Basetest_allocation_student {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public static String TEST_STATUS_NOT_STARTED = "NOT_STARTED";	
+	public static String TEST_STATUS_STARTED = "STARTED";
+	public static String TEST_STATUS_COMPLETED = "COMPLETED";
+	public static String TEST_STATUS_RESULT_DECLARE = "RESULT_DECLARED";
+	
+	
+	
 
 }

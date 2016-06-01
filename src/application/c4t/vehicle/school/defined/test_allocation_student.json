@@ -111,6 +111,26 @@
 				'type':'String',
 				'length': 1
 			},
+			'total_marks':
+			{
+				'type':'double'
+			},
+			'total_marks_got':
+			{
+				'type':'double'
+			},
+			'total_marks':
+			{
+				'type':'double'
+			},
+			'total_questions':
+			{
+				'type':'double'
+			},
+			'total_correct_answers':
+			{
+				'type':'long'
+			},
 			'status':
 			{
 				'type':'String',

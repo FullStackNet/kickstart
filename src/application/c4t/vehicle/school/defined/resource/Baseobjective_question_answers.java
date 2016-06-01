@@ -21,7 +21,7 @@ import java.util.*;
 public abstract class Baseobjective_question_answers extends BaseResource {
 	private String id = null;
 	private String allocated_test_id = null;
-	private List<application.c4t.vehicle.school.resource.objective_question> answers = null;
+	private List<application.c4t.vehicle.school.resource.objective_question_answer> answers = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -54,7 +54,7 @@ public abstract class Baseobjective_question_answers extends BaseResource {
 
 		metaData.setTableName("objective_question_answers");
 
-		metaData.setCluster("DB_SCHOLL");
+		metaData.setCluster("DB_SCHOOL");
 	}
 
 	public Baseobjective_question_answers() {}
@@ -105,7 +105,7 @@ public abstract class Baseobjective_question_answers extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		allocated_test_id = (String) map.get("allocated_test_id");
-		answers = (List<application.c4t.vehicle.school.resource.objective_question>) map.get("answers");
+		answers = (List<application.c4t.vehicle.school.resource.objective_question_answer>) map.get("answers");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -119,7 +119,7 @@ public abstract class Baseobjective_question_answers extends BaseResource {
 		if(allocated_test_idObj != null)
 			allocated_test_id = allocated_test_idObj.toString();
 
-		answers = (List<application.c4t.vehicle.school.resource.objective_question>) map.get("answers");
+		answers = (List<application.c4t.vehicle.school.resource.objective_question_answer>) map.get("answers");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -167,16 +167,16 @@ public abstract class Baseobjective_question_answers extends BaseResource {
 		this.allocated_test_id = null;
 	}
 
-	public List<application.c4t.vehicle.school.resource.objective_question> getAnswers() {
+	public List<application.c4t.vehicle.school.resource.objective_question_answer> getAnswers() {
 		return answers;
 	}
 
 
-	public void setAnswers(List<application.c4t.vehicle.school.resource.objective_question> answers) {
+	public void setAnswers(List<application.c4t.vehicle.school.resource.objective_question_answer> answers) {
 		this.answers = answers;
 	}
 
-	public void addAnswers(application.c4t.vehicle.school.resource.objective_question value) {
+	public void addAnswers(application.c4t.vehicle.school.resource.objective_question_answer value) {
 		if(answers == null)
 			answers = new ArrayList<>();
 		answers.add(value);
@@ -208,7 +208,7 @@ public abstract class Baseobjective_question_answers extends BaseResource {
 		this.extra_data = null;
 	}
 	public String getCluster() {
-		return "DB_SCHOLL";
+		return "DB_SCHOOL";
 	}
 	public String getClusterType() {
 		return "REPLICATED";
