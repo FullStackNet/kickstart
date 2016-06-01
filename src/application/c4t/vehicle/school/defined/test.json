@@ -87,11 +87,6 @@
 			{
 				'type':'Double'
 			},
-			'immediate_result':
-			{
-				'type':'String',
-				'length': 1
-			},
 			'customer_id':
 			{
 				'type':'String',

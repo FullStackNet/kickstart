@@ -36,7 +36,6 @@ public abstract class Basetest extends BaseResource {
 	private String test_english = null;
 	private Double positive_mark = null;
 	private Double negative_mark = null;
-	private String immediate_result = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -57,7 +56,6 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_TEST_ENGLISH = "test_english";
 	public static String FIELD_POSITIVE_MARK = "positive_mark";
 	public static String FIELD_NEGATIVE_MARK = "negative_mark";
-	public static String FIELD_IMMEDIATE_RESULT = "immediate_result";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -131,10 +129,6 @@ public abstract class Basetest extends BaseResource {
 		Field negative_markField = new Field("negative_mark", "Double");
 		metaData.addField(negative_markField);
 
-		Field immediate_resultField = new Field("immediate_result", "String");
-		immediate_resultField.setLength(1);
-		metaData.addField(immediate_resultField);
-
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
@@ -169,7 +163,6 @@ public abstract class Basetest extends BaseResource {
 		this.test_english = obj.test_english;
 		this.positive_mark = obj.positive_mark;
 		this.negative_mark = obj.negative_mark;
-		this.immediate_result = obj.immediate_result;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -214,8 +207,6 @@ public abstract class Basetest extends BaseResource {
 			map.put("positive_mark", positive_mark);
 		if(negative_mark != null)
 			map.put("negative_mark", negative_mark);
-		if(immediate_result != null)
-			map.put("immediate_result", immediate_result);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -259,8 +250,6 @@ public abstract class Basetest extends BaseResource {
 			map.put("positive_mark", positive_mark);
 		if(negative_mark != null)
 			map.put("negative_mark", negative_mark);
-		if(immediate_result != null)
-			map.put("immediate_result", immediate_result);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -292,7 +281,6 @@ public abstract class Basetest extends BaseResource {
 		test_english = (String) map.get("test_english");
 		positive_mark = (Double) map.get("positive_mark");
 		negative_mark = (Double) map.get("negative_mark");
-		immediate_result = (String) map.get("immediate_result");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -366,10 +354,6 @@ public abstract class Basetest extends BaseResource {
 		Object negative_markObj = map.get("negative_mark");
 		if(negative_markObj != null)
 			negative_mark = new Double(negative_markObj.toString());
-
-		Object immediate_resultObj = map.get("immediate_result");
-		if(immediate_resultObj != null)
-			immediate_result = immediate_resultObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -656,22 +640,6 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetNegative_mark() {
 		this.negative_mark = null;
-	}
-
-	public String getImmediate_result() {
-		return immediate_result;
-	}
-
-	public String getImmediate_resultEx() {
-		return immediate_result != null ? immediate_result : "";
-	}
-
-	public void setImmediate_result(String immediate_result) {
-		this.immediate_result = immediate_result;
-	}
-
-	public void unSetImmediate_result() {
-		this.immediate_result = null;
 	}
 
 	public String getCustomer_id() {

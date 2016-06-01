@@ -136,6 +136,10 @@
 				'type':'String',
 				'length': 1
 			},
+			'total_timeInMin':
+			{
+				'type':'long'
+			},
 			'customer_id':
 			{
 				'type':'String',

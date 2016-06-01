@@ -46,6 +46,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private Double total_questions = null;
 	private Long total_correct_answers = null;
 	private String status = null;
+	private Long total_timeInMin = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -76,6 +77,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_TOTAL_QUESTIONS = "total_questions";
 	public static String FIELD_TOTAL_CORRECT_ANSWERS = "total_correct_answers";
 	public static String FIELD_STATUS = "status";
+	public static String FIELD_TOTAL_TIMEINMIN = "total_timeInMin";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -186,6 +188,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		statusField.setLength(1);
 		metaData.addField(statusField);
 
+		Field total_timeInMinField = new Field("total_timeInMin", "long");
+		metaData.addField(total_timeInMinField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
@@ -230,6 +235,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.total_questions = obj.total_questions;
 		this.total_correct_answers = obj.total_correct_answers;
 		this.status = obj.status;
+		this.total_timeInMin = obj.total_timeInMin;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -294,6 +300,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("total_correct_answers", total_correct_answers);
 		if(status != null)
 			map.put("status", status);
+		if(total_timeInMin != null)
+			map.put("total_timeInMin", total_timeInMin);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -357,6 +365,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("total_correct_answers", total_correct_answers);
 		if(status != null)
 			map.put("status", status);
+		if(total_timeInMin != null)
+			map.put("total_timeInMin", total_timeInMin);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -398,6 +408,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		total_questions = (Double) map.get("total_questions");
 		total_correct_answers = (Long) map.get("total_correct_answers");
 		status = (String) map.get("status");
+		total_timeInMin = (Long) map.get("total_timeInMin");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -511,6 +522,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object statusObj = map.get("status");
 		if(statusObj != null)
 			status = statusObj.toString();
+
+		Object total_timeInMinObj = map.get("total_timeInMin");
+		if(total_timeInMinObj != null)
+			total_timeInMin = new Long(total_timeInMinObj.toString());
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -963,6 +978,26 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetStatus() {
 		this.status = null;
+	}
+
+	public Long getTotal_timeInMin() {
+		return total_timeInMin;
+	}
+
+	public long getTotal_timeInMinEx() {
+		return total_timeInMin != null ? total_timeInMin : 0L;
+	}
+
+	public void setTotal_timeInMin(long total_timeInMin) {
+		this.total_timeInMin = total_timeInMin;
+	}
+
+	public void setTotal_timeInMin(Long total_timeInMin) {
+		this.total_timeInMin = total_timeInMin;
+	}
+
+	public void unSetTotal_timeInMin() {
+		this.total_timeInMin = null;
 	}
 
 	public String getCustomer_id() {
