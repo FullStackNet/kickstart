@@ -112,6 +112,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("test", "application.c4t.vehicle.school.resource.test"),	
 		new ResourceMap("test_question", "application.c4t.vehicle.school.resource.test_question"),	
 		new ResourceMap("batch", "application.c4t.vehicle.school.resource.batch"),
+		new ResourceMap("objective_question_answers", "application.c4t.vehicle.school.resource.objective_question_answers"),
+		
 		new ResourceMap("test_allocation", "application.c4t.vehicle.school.resource.test_allocation"),
 		new ResourceMap("test_allocation_student", "application.c4t.vehicle.school.resource.test_allocation_student"),
 

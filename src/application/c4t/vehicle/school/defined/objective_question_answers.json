@@ -1,0 +1,26 @@
+{
+	"objective_question_answers" :
+	{
+		"cluster": "DB_SCHOLL",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				"remark" : "from id and relation type"
+			},
+			'allocated_test_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'answers':
+			{
+				'type': 'Array',
+				'valueType' : "application.c4t.vehicle.school.resource.objective_question"
+			}
+		}
+	}
+}
