@@ -47,6 +47,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private Long total_correct_answers = null;
 	private String status = null;
 	private Long total_timeInMin = null;
+	private Long result_date = null;
+	private String result_date_s = null;
+	private String result_time_s = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -78,6 +81,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_TOTAL_CORRECT_ANSWERS = "total_correct_answers";
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_TOTAL_TIMEINMIN = "total_timeInMin";
+	public static String FIELD_RESULT_DATE = "result_date";
+	public static String FIELD_RESULT_DATE_S = "result_date_s";
+	public static String FIELD_RESULT_TIME_S = "result_time_s";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -191,6 +197,15 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Field total_timeInMinField = new Field("total_timeInMin", "long");
 		metaData.addField(total_timeInMinField);
 
+		Field result_dateField = new Field("result_date", "timestamp");
+		metaData.addField(result_dateField);
+
+		Field result_date_sField = new Field("result_date_s", "String");
+		metaData.addField(result_date_sField);
+
+		Field result_time_sField = new Field("result_time_s", "String");
+		metaData.addField(result_time_sField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
@@ -236,6 +251,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.total_correct_answers = obj.total_correct_answers;
 		this.status = obj.status;
 		this.total_timeInMin = obj.total_timeInMin;
+		this.result_date = obj.result_date;
+		this.result_date_s = obj.result_date_s;
+		this.result_time_s = obj.result_time_s;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -302,6 +320,12 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("status", status);
 		if(total_timeInMin != null)
 			map.put("total_timeInMin", total_timeInMin);
+		if(result_date != null)
+			map.put("result_date", result_date);
+		if(result_date_s != null)
+			map.put("result_date_s", result_date_s);
+		if(result_time_s != null)
+			map.put("result_time_s", result_time_s);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -367,6 +391,12 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("status", status);
 		if(total_timeInMin != null)
 			map.put("total_timeInMin", total_timeInMin);
+		if(result_date != null)
+			map.put("result_date", result_date);
+		if(result_date_s != null)
+			map.put("result_date_s", result_date_s);
+		if(result_time_s != null)
+			map.put("result_time_s", result_time_s);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -409,6 +439,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		total_correct_answers = (Long) map.get("total_correct_answers");
 		status = (String) map.get("status");
 		total_timeInMin = (Long) map.get("total_timeInMin");
+		result_date = (Long) map.get("result_date");
+		result_date_s = (String) map.get("result_date_s");
+		result_time_s = (String) map.get("result_time_s");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -526,6 +559,18 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object total_timeInMinObj = map.get("total_timeInMin");
 		if(total_timeInMinObj != null)
 			total_timeInMin = new Long(total_timeInMinObj.toString());
+
+		Object result_dateObj = map.get("result_date");
+		if(result_dateObj != null)
+			result_date = (Long) result_dateObj;
+
+		Object result_date_sObj = map.get("result_date_s");
+		if(result_date_sObj != null)
+			result_date_s = result_date_sObj.toString();
+
+		Object result_time_sObj = map.get("result_time_s");
+		if(result_time_sObj != null)
+			result_time_s = result_time_sObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -998,6 +1043,47 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetTotal_timeInMin() {
 		this.total_timeInMin = null;
+	}
+
+	public Long getResult_date() {
+		return result_date;
+	}
+
+	public void setResult_date(Long result_date) {
+		this.result_date = result_date;
+	}
+
+
+	public String getResult_date_s() {
+		return result_date_s;
+	}
+
+	public String getResult_date_sEx() {
+		return result_date_s != null ? result_date_s : "";
+	}
+
+	public void setResult_date_s(String result_date_s) {
+		this.result_date_s = result_date_s;
+	}
+
+	public void unSetResult_date_s() {
+		this.result_date_s = null;
+	}
+
+	public String getResult_time_s() {
+		return result_time_s;
+	}
+
+	public String getResult_time_sEx() {
+		return result_time_s != null ? result_time_s : "";
+	}
+
+	public void setResult_time_s(String result_time_s) {
+		this.result_time_s = result_time_s;
+	}
+
+	public void unSetResult_time_s() {
+		this.result_time_s = null;
 	}
 
 	public String getCustomer_id() {

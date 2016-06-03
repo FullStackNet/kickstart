@@ -37,6 +37,9 @@ public abstract class Basetest_allocation extends BaseResource {
 	private String resuffle_question = null;
 	private String resuffle_option = null;
 	private String immediate_result = null;
+	private Long result_date = null;
+	private String result_date_s = null;
+	private String result_time_s = null;
 	private Long total_timeInMin = null;
 	private String allocated = null;
 	private String customer_id = null;
@@ -60,6 +63,9 @@ public abstract class Basetest_allocation extends BaseResource {
 	public static String FIELD_RESUFFLE_QUESTION = "resuffle_question";
 	public static String FIELD_RESUFFLE_OPTION = "resuffle_option";
 	public static String FIELD_IMMEDIATE_RESULT = "immediate_result";
+	public static String FIELD_RESULT_DATE = "result_date";
+	public static String FIELD_RESULT_DATE_S = "result_date_s";
+	public static String FIELD_RESULT_TIME_S = "result_time_s";
 	public static String FIELD_TOTAL_TIMEINMIN = "total_timeInMin";
 	public static String FIELD_ALLOCATED = "allocated";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
@@ -140,6 +146,15 @@ public abstract class Basetest_allocation extends BaseResource {
 		immediate_resultField.setLength(1);
 		metaData.addField(immediate_resultField);
 
+		Field result_dateField = new Field("result_date", "timestamp");
+		metaData.addField(result_dateField);
+
+		Field result_date_sField = new Field("result_date_s", "String");
+		metaData.addField(result_date_sField);
+
+		Field result_time_sField = new Field("result_time_s", "String");
+		metaData.addField(result_time_sField);
+
 		Field total_timeInMinField = new Field("total_timeInMin", "long");
 		metaData.addField(total_timeInMinField);
 
@@ -182,6 +197,9 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.resuffle_question = obj.resuffle_question;
 		this.resuffle_option = obj.resuffle_option;
 		this.immediate_result = obj.immediate_result;
+		this.result_date = obj.result_date;
+		this.result_date_s = obj.result_date_s;
+		this.result_time_s = obj.result_time_s;
 		this.total_timeInMin = obj.total_timeInMin;
 		this.allocated = obj.allocated;
 		this.customer_id = obj.customer_id;
@@ -230,6 +248,12 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
+		if(result_date != null)
+			map.put("result_date", result_date);
+		if(result_date_s != null)
+			map.put("result_date_s", result_date_s);
+		if(result_time_s != null)
+			map.put("result_time_s", result_time_s);
 		if(total_timeInMin != null)
 			map.put("total_timeInMin", total_timeInMin);
 		if(allocated != null)
@@ -279,6 +303,12 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
+		if(result_date != null)
+			map.put("result_date", result_date);
+		if(result_date_s != null)
+			map.put("result_date_s", result_date_s);
+		if(result_time_s != null)
+			map.put("result_time_s", result_time_s);
 		if(total_timeInMin != null)
 			map.put("total_timeInMin", total_timeInMin);
 		if(allocated != null)
@@ -315,6 +345,9 @@ public abstract class Basetest_allocation extends BaseResource {
 		resuffle_question = (String) map.get("resuffle_question");
 		resuffle_option = (String) map.get("resuffle_option");
 		immediate_result = (String) map.get("immediate_result");
+		result_date = (Long) map.get("result_date");
+		result_date_s = (String) map.get("result_date_s");
+		result_time_s = (String) map.get("result_time_s");
 		total_timeInMin = (Long) map.get("total_timeInMin");
 		allocated = (String) map.get("allocated");
 		customer_id = (String) map.get("customer_id");
@@ -394,6 +427,18 @@ public abstract class Basetest_allocation extends BaseResource {
 		Object immediate_resultObj = map.get("immediate_result");
 		if(immediate_resultObj != null)
 			immediate_result = immediate_resultObj.toString();
+
+		Object result_dateObj = map.get("result_date");
+		if(result_dateObj != null)
+			result_date = (Long) result_dateObj;
+
+		Object result_date_sObj = map.get("result_date_s");
+		if(result_date_sObj != null)
+			result_date_s = result_date_sObj.toString();
+
+		Object result_time_sObj = map.get("result_time_s");
+		if(result_time_sObj != null)
+			result_time_s = result_time_sObj.toString();
 
 		Object total_timeInMinObj = map.get("total_timeInMin");
 		if(total_timeInMinObj != null)
@@ -694,6 +739,47 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetImmediate_result() {
 		this.immediate_result = null;
+	}
+
+	public Long getResult_date() {
+		return result_date;
+	}
+
+	public void setResult_date(Long result_date) {
+		this.result_date = result_date;
+	}
+
+
+	public String getResult_date_s() {
+		return result_date_s;
+	}
+
+	public String getResult_date_sEx() {
+		return result_date_s != null ? result_date_s : "";
+	}
+
+	public void setResult_date_s(String result_date_s) {
+		this.result_date_s = result_date_s;
+	}
+
+	public void unSetResult_date_s() {
+		this.result_date_s = null;
+	}
+
+	public String getResult_time_s() {
+		return result_time_s;
+	}
+
+	public String getResult_time_sEx() {
+		return result_time_s != null ? result_time_s : "";
+	}
+
+	public void setResult_time_s(String result_time_s) {
+		this.result_time_s = result_time_s;
+	}
+
+	public void unSetResult_time_s() {
+		this.result_time_s = null;
 	}
 
 	public Long getTotal_timeInMin() {

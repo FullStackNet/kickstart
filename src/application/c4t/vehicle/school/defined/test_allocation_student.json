@@ -140,6 +140,15 @@
 			{
 				'type':'long'
 			},
+			'result_date': {
+				'type': 'timestamp'
+			},
+			'result_date_s': {
+				'type': 'String'
+			},
+			'result_time_s': {
+				'type': 'String'
+			},
 			'customer_id':
 			{
 				'type':'String',
