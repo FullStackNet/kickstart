@@ -51,6 +51,16 @@
 				'type':'String',
 				'length': 128
 			},
+			'test_hindi':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_english':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'course_id':
 			{
 				'type':'String',

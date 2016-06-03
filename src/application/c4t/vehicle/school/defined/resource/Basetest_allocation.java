@@ -35,6 +35,8 @@ public abstract class Basetest_allocation extends BaseResource {
 	private Long end_date = null;
 	private String end_date_str = null;
 	private String resuffle_question = null;
+	private String test_hindi = null;
+	private String test_english = null;
 	private String resuffle_option = null;
 	private String immediate_result = null;
 	private Long result_date = null;
@@ -61,6 +63,8 @@ public abstract class Basetest_allocation extends BaseResource {
 	public static String FIELD_END_DATE = "end_date";
 	public static String FIELD_END_DATE_STR = "end_date_str";
 	public static String FIELD_RESUFFLE_QUESTION = "resuffle_question";
+	public static String FIELD_TEST_HINDI = "test_hindi";
+	public static String FIELD_TEST_ENGLISH = "test_english";
 	public static String FIELD_RESUFFLE_OPTION = "resuffle_option";
 	public static String FIELD_IMMEDIATE_RESULT = "immediate_result";
 	public static String FIELD_RESULT_DATE = "result_date";
@@ -138,6 +142,14 @@ public abstract class Basetest_allocation extends BaseResource {
 		resuffle_questionField.setLength(1);
 		metaData.addField(resuffle_questionField);
 
+		Field test_hindiField = new Field("test_hindi", "String");
+		test_hindiField.setLength(128);
+		metaData.addField(test_hindiField);
+
+		Field test_englishField = new Field("test_english", "String");
+		test_englishField.setLength(128);
+		metaData.addField(test_englishField);
+
 		Field resuffle_optionField = new Field("resuffle_option", "String");
 		resuffle_optionField.setLength(1);
 		metaData.addField(resuffle_optionField);
@@ -195,6 +207,8 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.end_date = obj.end_date;
 		this.end_date_str = obj.end_date_str;
 		this.resuffle_question = obj.resuffle_question;
+		this.test_hindi = obj.test_hindi;
+		this.test_english = obj.test_english;
 		this.resuffle_option = obj.resuffle_option;
 		this.immediate_result = obj.immediate_result;
 		this.result_date = obj.result_date;
@@ -244,6 +258,10 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("end_date_str", end_date_str);
 		if(resuffle_question != null)
 			map.put("resuffle_question", resuffle_question);
+		if(test_hindi != null)
+			map.put("test_hindi", test_hindi);
+		if(test_english != null)
+			map.put("test_english", test_english);
 		if(resuffle_option != null)
 			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
@@ -299,6 +317,10 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("end_date_str", end_date_str);
 		if(resuffle_question != null)
 			map.put("resuffle_question", resuffle_question);
+		if(test_hindi != null)
+			map.put("test_hindi", test_hindi);
+		if(test_english != null)
+			map.put("test_english", test_english);
 		if(resuffle_option != null)
 			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
@@ -343,6 +365,8 @@ public abstract class Basetest_allocation extends BaseResource {
 		end_date = (Long) map.get("end_date");
 		end_date_str = (String) map.get("end_date_str");
 		resuffle_question = (String) map.get("resuffle_question");
+		test_hindi = (String) map.get("test_hindi");
+		test_english = (String) map.get("test_english");
 		resuffle_option = (String) map.get("resuffle_option");
 		immediate_result = (String) map.get("immediate_result");
 		result_date = (Long) map.get("result_date");
@@ -419,6 +443,14 @@ public abstract class Basetest_allocation extends BaseResource {
 		Object resuffle_questionObj = map.get("resuffle_question");
 		if(resuffle_questionObj != null)
 			resuffle_question = resuffle_questionObj.toString();
+
+		Object test_hindiObj = map.get("test_hindi");
+		if(test_hindiObj != null)
+			test_hindi = test_hindiObj.toString();
+
+		Object test_englishObj = map.get("test_english");
+		if(test_englishObj != null)
+			test_english = test_englishObj.toString();
 
 		Object resuffle_optionObj = map.get("resuffle_option");
 		if(resuffle_optionObj != null)
@@ -707,6 +739,38 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetResuffle_question() {
 		this.resuffle_question = null;
+	}
+
+	public String getTest_hindi() {
+		return test_hindi;
+	}
+
+	public String getTest_hindiEx() {
+		return test_hindi != null ? test_hindi : "";
+	}
+
+	public void setTest_hindi(String test_hindi) {
+		this.test_hindi = test_hindi;
+	}
+
+	public void unSetTest_hindi() {
+		this.test_hindi = null;
+	}
+
+	public String getTest_english() {
+		return test_english;
+	}
+
+	public String getTest_englishEx() {
+		return test_english != null ? test_english : "";
+	}
+
+	public void setTest_english(String test_english) {
+		this.test_english = test_english;
+	}
+
+	public void unSetTest_english() {
+		this.test_english = null;
 	}
 
 	public String getResuffle_option() {

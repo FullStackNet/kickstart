@@ -76,6 +76,16 @@
 				'type':'String',
 				'length': 1
 			},
+			'test_hindi':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_english':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'resuffle_option':
 			{
 				'type':'String',

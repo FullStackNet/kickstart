@@ -28,6 +28,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String student_id = null;
 	private String student_name = null;
 	private String subject_id = null;
+	private String test_hindi = null;
+	private String test_english = null;
 	private String course_id = null;
 	private String course_name = null;
 	private String subject_name = null;
@@ -62,6 +64,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_SUBJECT_ID = "subject_id";
+	public static String FIELD_TEST_HINDI = "test_hindi";
+	public static String FIELD_TEST_ENGLISH = "test_english";
 	public static String FIELD_COURSE_ID = "course_id";
 	public static String FIELD_COURSE_NAME = "course_name";
 	public static String FIELD_SUBJECT_NAME = "subject_name";
@@ -129,6 +133,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Field subject_idField = new Field("subject_id", "String");
 		subject_idField.setLength(128);
 		metaData.addField(subject_idField);
+
+		Field test_hindiField = new Field("test_hindi", "String");
+		test_hindiField.setLength(128);
+		metaData.addField(test_hindiField);
+
+		Field test_englishField = new Field("test_english", "String");
+		test_englishField.setLength(128);
+		metaData.addField(test_englishField);
 
 		Field course_idField = new Field("course_id", "String");
 		course_idField.setLength(128);
@@ -232,6 +244,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.student_id = obj.student_id;
 		this.student_name = obj.student_name;
 		this.subject_id = obj.subject_id;
+		this.test_hindi = obj.test_hindi;
+		this.test_english = obj.test_english;
 		this.course_id = obj.course_id;
 		this.course_name = obj.course_name;
 		this.subject_name = obj.subject_name;
@@ -282,6 +296,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("student_name", student_name);
 		if(subject_id != null)
 			map.put("subject_id", subject_id);
+		if(test_hindi != null)
+			map.put("test_hindi", test_hindi);
+		if(test_english != null)
+			map.put("test_english", test_english);
 		if(course_id != null)
 			map.put("course_id", course_id);
 		if(course_name != null)
@@ -353,6 +371,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("student_name", student_name);
 		if(subject_id != null)
 			map.put("subject_id", subject_id);
+		if(test_hindi != null)
+			map.put("test_hindi", test_hindi);
+		if(test_english != null)
+			map.put("test_english", test_english);
 		if(course_id != null)
 			map.put("course_id", course_id);
 		if(course_name != null)
@@ -420,6 +442,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		student_id = (String) map.get("student_id");
 		student_name = (String) map.get("student_name");
 		subject_id = (String) map.get("subject_id");
+		test_hindi = (String) map.get("test_hindi");
+		test_english = (String) map.get("test_english");
 		course_id = (String) map.get("course_id");
 		course_name = (String) map.get("course_name");
 		subject_name = (String) map.get("subject_name");
@@ -483,6 +507,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object subject_idObj = map.get("subject_id");
 		if(subject_idObj != null)
 			subject_id = subject_idObj.toString();
+
+		Object test_hindiObj = map.get("test_hindi");
+		if(test_hindiObj != null)
+			test_hindi = test_hindiObj.toString();
+
+		Object test_englishObj = map.get("test_english");
+		if(test_englishObj != null)
+			test_english = test_englishObj.toString();
 
 		Object course_idObj = map.get("course_id");
 		if(course_idObj != null)
@@ -733,6 +765,38 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetSubject_id() {
 		this.subject_id = null;
+	}
+
+	public String getTest_hindi() {
+		return test_hindi;
+	}
+
+	public String getTest_hindiEx() {
+		return test_hindi != null ? test_hindi : "";
+	}
+
+	public void setTest_hindi(String test_hindi) {
+		this.test_hindi = test_hindi;
+	}
+
+	public void unSetTest_hindi() {
+		this.test_hindi = null;
+	}
+
+	public String getTest_english() {
+		return test_english;
+	}
+
+	public String getTest_englishEx() {
+		return test_english != null ? test_english : "";
+	}
+
+	public void setTest_english(String test_english) {
+		this.test_english = test_english;
+	}
+
+	public void unSetTest_english() {
+		this.test_english = null;
 	}
 
 	public String getCourse_id() {
