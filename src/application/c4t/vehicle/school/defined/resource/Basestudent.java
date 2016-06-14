@@ -24,6 +24,7 @@ public abstract class Basestudent extends BaseResource {
 	private String admission_date_str = null;
 	private String school_id = null;
 	private String batch_id = null;
+	private String fees_master_id = null;
 	private String batch_name = null;
 	private String house_id = null;
 	private String name = null;
@@ -139,6 +140,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_ADMISSION_DATE_STR = "admission_date_str";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_BATCH_ID = "batch_id";
+	public static String FIELD_FEES_MASTER_ID = "fees_master_id";
 	public static String FIELD_BATCH_NAME = "batch_name";
 	public static String FIELD_HOUSE_ID = "house_id";
 	public static String FIELD_NAME = "name";
@@ -278,6 +280,11 @@ public abstract class Basestudent extends BaseResource {
 		batch_idField.setIndexed(true);
 		batch_idField.setLength(128);
 		metaData.addField(batch_idField);
+
+		Field fees_master_idField = new Field("fees_master_id", "String");
+		fees_master_idField.setIndexed(true);
+		fees_master_idField.setLength(128);
+		metaData.addField(fees_master_idField);
 
 		Field batch_nameField = new Field("batch_name", "String");
 		batch_nameField.setIndexed(true);
@@ -754,6 +761,7 @@ public abstract class Basestudent extends BaseResource {
 		this.admission_date_str = obj.admission_date_str;
 		this.school_id = obj.school_id;
 		this.batch_id = obj.batch_id;
+		this.fees_master_id = obj.fees_master_id;
 		this.batch_name = obj.batch_name;
 		this.house_id = obj.house_id;
 		this.name = obj.name;
@@ -948,6 +956,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("school_id", school_id);
 		if(batch_id != null)
 			map.put("batch_id", batch_id);
+		if(fees_master_id != null)
+			map.put("fees_master_id", fees_master_id);
 		if(batch_name != null)
 			map.put("batch_name", batch_name);
 		if(house_id != null)
@@ -1184,6 +1194,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("school_id", school_id);
 		if(batch_id != null)
 			map.put("batch_id", batch_id);
+		if(fees_master_id != null)
+			map.put("fees_master_id", fees_master_id);
 		if(batch_name != null)
 			map.put("batch_name", batch_name);
 		if(house_id != null)
@@ -1417,6 +1429,7 @@ public abstract class Basestudent extends BaseResource {
 		admission_date_str = (String) map.get("admission_date_str");
 		school_id = (String) map.get("school_id");
 		batch_id = (String) map.get("batch_id");
+		fees_master_id = (String) map.get("fees_master_id");
 		batch_name = (String) map.get("batch_name");
 		house_id = (String) map.get("house_id");
 		name = (String) map.get("name");
@@ -1549,6 +1562,10 @@ public abstract class Basestudent extends BaseResource {
 		Object batch_idObj = map.get("batch_id");
 		if(batch_idObj != null)
 			batch_id = batch_idObj.toString();
+
+		Object fees_master_idObj = map.get("fees_master_id");
+		if(fees_master_idObj != null)
+			fees_master_id = fees_master_idObj.toString();
 
 		Object batch_nameObj = map.get("batch_name");
 		if(batch_nameObj != null)
@@ -2075,6 +2092,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetBatch_id() {
 		this.batch_id = null;
+	}
+
+	public String getFees_master_id() {
+		return fees_master_id;
+	}
+
+	public String getFees_master_idEx() {
+		return fees_master_id != null ? fees_master_id : "";
+	}
+
+	public void setFees_master_id(String fees_master_id) {
+		this.fees_master_id = fees_master_id;
+	}
+
+	public void unSetFees_master_id() {
+		this.fees_master_id = null;
 	}
 
 	public String getBatch_name() {
