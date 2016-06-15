@@ -25,6 +25,7 @@ public abstract class Basestudent_map extends BaseResource {
 	private List<Object> pickup_alert_stopages = null;
 	private List<Object> drop_alert_stopages = null;
 	private List<Object> notices = null;
+	private List<Object> courses = null;
 	private List<Object> photos = null;
 	private Map<String, Object> extra_data = null;
 
@@ -34,6 +35,7 @@ public abstract class Basestudent_map extends BaseResource {
 	public static String FIELD_PICKUP_ALERT_STOPAGES = "pickup_alert_stopages";
 	public static String FIELD_DROP_ALERT_STOPAGES = "drop_alert_stopages";
 	public static String FIELD_NOTICES = "notices";
+	public static String FIELD_COURSES = "courses";
 	public static String FIELD_PHOTOS = "photos";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -63,6 +65,9 @@ public abstract class Basestudent_map extends BaseResource {
 		Field noticesField = new Field("notices", "Array");
 		metaData.addField(noticesField);
 
+		Field coursesField = new Field("courses", "Array");
+		metaData.addField(coursesField);
+
 		Field photosField = new Field("photos", "Array");
 		metaData.addField(photosField);
 
@@ -85,6 +90,7 @@ public abstract class Basestudent_map extends BaseResource {
 		this.pickup_alert_stopages = obj.pickup_alert_stopages;
 		this.drop_alert_stopages = obj.drop_alert_stopages;
 		this.notices = obj.notices;
+		this.courses = obj.courses;
 		this.photos = obj.photos;
 		this.extra_data = obj.extra_data;
 	}
@@ -107,6 +113,8 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("drop_alert_stopages", drop_alert_stopages);
 		if(notices != null)
 			map.put("notices", notices);
+		if(courses != null)
+			map.put("courses", courses);
 		if(photos != null)
 			map.put("photos", photos);
 		if(extra_data != null)
@@ -128,6 +136,8 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("drop_alert_stopages", drop_alert_stopages);
 		if(notices != null)
 			map.put("notices", notices);
+		if(courses != null)
+			map.put("courses", courses);
 		if(photos != null)
 			map.put("photos", photos);
 		if(extra_data != null)
@@ -148,6 +158,7 @@ public abstract class Basestudent_map extends BaseResource {
 		pickup_alert_stopages = (List<Object>) map.get("pickup_alert_stopages");
 		drop_alert_stopages = (List<Object>) map.get("drop_alert_stopages");
 		notices = (List<Object>) map.get("notices");
+		courses = (List<Object>) map.get("courses");
 		photos = (List<Object>) map.get("photos");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -163,6 +174,7 @@ public abstract class Basestudent_map extends BaseResource {
 		pickup_alert_stopages = (List<Object>) map.get("pickup_alert_stopages");
 		drop_alert_stopages = (List<Object>) map.get("drop_alert_stopages");
 		notices = (List<Object>) map.get("notices");
+		courses = (List<Object>) map.get("courses");
 		photos = (List<Object>) map.get("photos");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -288,6 +300,25 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void unSetNotices() {
 		this.notices = null;
+	}
+
+	public List<Object> getCourses() {
+		return courses;
+	}
+
+
+	public void setCourses(List<Object> courses) {
+		this.courses = courses;
+	}
+
+	public void addCourses(Object value) {
+		if(courses == null)
+			courses = new ArrayList<>();
+		courses.add(value);
+	}
+
+	public void unSetCourses() {
+		this.courses = null;
 	}
 
 	public List<Object> getPhotos() {
