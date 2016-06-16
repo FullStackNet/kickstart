@@ -65,10 +65,6 @@
 			{
 				'type':'Double'
 			},
-			'total_timeInMin':
-			{
-				'type':'long'
-			},
 			'test_hindi':
 			{
 				'length': 128,

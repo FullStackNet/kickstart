@@ -31,7 +31,6 @@ public abstract class Basetest extends BaseResource {
 	private String subject_name = null;
 	private Long total_questions = null;
 	private Double total_marks = null;
-	private Long total_timeInMin = null;
 	private String test_hindi = null;
 	private String test_english = null;
 	private Double positive_mark = null;
@@ -51,7 +50,6 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_SUBJECT_NAME = "subject_name";
 	public static String FIELD_TOTAL_QUESTIONS = "total_questions";
 	public static String FIELD_TOTAL_MARKS = "total_marks";
-	public static String FIELD_TOTAL_TIMEINMIN = "total_timeInMin";
 	public static String FIELD_TEST_HINDI = "test_hindi";
 	public static String FIELD_TEST_ENGLISH = "test_english";
 	public static String FIELD_POSITIVE_MARK = "positive_mark";
@@ -112,9 +110,6 @@ public abstract class Basetest extends BaseResource {
 		Field total_marksField = new Field("total_marks", "Double");
 		metaData.addField(total_marksField);
 
-		Field total_timeInMinField = new Field("total_timeInMin", "long");
-		metaData.addField(total_timeInMinField);
-
 		Field test_hindiField = new Field("test_hindi", "String");
 		test_hindiField.setLength(128);
 		metaData.addField(test_hindiField);
@@ -158,7 +153,6 @@ public abstract class Basetest extends BaseResource {
 		this.subject_name = obj.subject_name;
 		this.total_questions = obj.total_questions;
 		this.total_marks = obj.total_marks;
-		this.total_timeInMin = obj.total_timeInMin;
 		this.test_hindi = obj.test_hindi;
 		this.test_english = obj.test_english;
 		this.positive_mark = obj.positive_mark;
@@ -197,8 +191,6 @@ public abstract class Basetest extends BaseResource {
 			map.put("total_questions", total_questions);
 		if(total_marks != null)
 			map.put("total_marks", total_marks);
-		if(total_timeInMin != null)
-			map.put("total_timeInMin", total_timeInMin);
 		if(test_hindi != null)
 			map.put("test_hindi", test_hindi);
 		if(test_english != null)
@@ -240,8 +232,6 @@ public abstract class Basetest extends BaseResource {
 			map.put("total_questions", total_questions);
 		if(total_marks != null)
 			map.put("total_marks", total_marks);
-		if(total_timeInMin != null)
-			map.put("total_timeInMin", total_timeInMin);
 		if(test_hindi != null)
 			map.put("test_hindi", test_hindi);
 		if(test_english != null)
@@ -276,7 +266,6 @@ public abstract class Basetest extends BaseResource {
 		subject_name = (String) map.get("subject_name");
 		total_questions = (Long) map.get("total_questions");
 		total_marks = (Double) map.get("total_marks");
-		total_timeInMin = (Long) map.get("total_timeInMin");
 		test_hindi = (String) map.get("test_hindi");
 		test_english = (String) map.get("test_english");
 		positive_mark = (Double) map.get("positive_mark");
@@ -334,10 +323,6 @@ public abstract class Basetest extends BaseResource {
 		Object total_marksObj = map.get("total_marks");
 		if(total_marksObj != null)
 			total_marks = new Double(total_marksObj.toString());
-
-		Object total_timeInMinObj = map.get("total_timeInMin");
-		if(total_timeInMinObj != null)
-			total_timeInMin = new Long(total_timeInMinObj.toString());
 
 		Object test_hindiObj = map.get("test_hindi");
 		if(test_hindiObj != null)
@@ -564,26 +549,6 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetTotal_marks() {
 		this.total_marks = null;
-	}
-
-	public Long getTotal_timeInMin() {
-		return total_timeInMin;
-	}
-
-	public long getTotal_timeInMinEx() {
-		return total_timeInMin != null ? total_timeInMin : 0L;
-	}
-
-	public void setTotal_timeInMin(long total_timeInMin) {
-		this.total_timeInMin = total_timeInMin;
-	}
-
-	public void setTotal_timeInMin(Long total_timeInMin) {
-		this.total_timeInMin = total_timeInMin;
-	}
-
-	public void unSetTotal_timeInMin() {
-		this.total_timeInMin = null;
 	}
 
 	public String getTest_hindi() {
