@@ -37,6 +37,13 @@ public class ScheduleHelper extends BaseHelper {
 		ScheduleHelper.getInstance().deleteByExpression(e);
 	}
 	
+	public void deleteResultDeclareSchedule(String id) {
+		Expression e1 = new Expression(schedule.FIELD_REFERENCE_ID, REL_OP.EQ, id);
+		Expression e2 = new Expression(schedule.FIELD_TYPE, REL_OP.EQ, ScheduleFactory.RESULT_DECLARE);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		ScheduleHelper.getInstance().deleteByExpression(e);
+	}
+	
 	public void createBirthdaySchedule(student _student) {
 		deleteBirthdaySchedule(_student.getId());
 		if (Util.isEmpty(_student.getDob())) return;
@@ -59,6 +66,36 @@ public class ScheduleHelper extends BaseHelper {
 		_schedule.setCustomer_id(_student.getCustomer_id());
 		_schedule.setSchool_id(_student.getSchool_id());	
 		_schedule.setReference_date(_student.getDob());
+		try {
+			ScheduleHelper.getInstance().add(_schedule);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	}
+	
+	public void createResultDeclareSchedule(String allocationId,String schoolId,String customerId, String date, String timestamp) {
+		deleteBirthdaySchedule(allocationId);
+		if (Util.isEmpty(date)) return;
+		schedule _schedule = new schedule();
+		_schedule.setName(ScheduleFactory.RESULT_DECLARE+" of " + allocationId);
+		_schedule.setType(ScheduleFactory.RESULT_DECLARE);
+		_schedule.setReference_id(allocationId);
+		_schedule.setFrequency(schedule.FRQUENCY_ONCE);
+		_schedule.setReference_name(allocationId);
+		long time = TimeUtil.getTimeFromDateStringWithCurrentYear(null, date,timestamp);
+		long currentTime =  new Date().getTime();
+		if (time < currentTime) {
+			time = TimeUtil.addYear(time,1);
+		}
+		_schedule.setDate_str(TimeUtil.getDisplayDateString(null,time));
+		_schedule.setDate(TimeUtil.getTimeFromDateString(_schedule.getDate_str(), null));
+		_schedule.setTime(timestamp);
+		_schedule.setSchedule_time(time);
+		_schedule.setSchedule_status(schedule.STATUS_NOT_SCHEDULED);
+		_schedule.setCustomer_id(customerId);
+		_schedule.setSchool_id(schoolId);	
+		_schedule.setReference_date(date);
 		try {
 			ScheduleHelper.getInstance().add(_schedule);
 		} catch (ApplicationException e) {
