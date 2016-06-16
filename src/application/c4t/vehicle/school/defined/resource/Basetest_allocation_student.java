@@ -49,6 +49,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private Long total_correct_answers = null;
 	private String status = null;
 	private Long total_timeInMin = null;
+	private String show_result = null;
 	private Long result_date = null;
 	private String result_date_s = null;
 	private String result_time_s = null;
@@ -85,6 +86,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_TOTAL_CORRECT_ANSWERS = "total_correct_answers";
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_TOTAL_TIMEINMIN = "total_timeInMin";
+	public static String FIELD_SHOW_RESULT = "show_result";
 	public static String FIELD_RESULT_DATE = "result_date";
 	public static String FIELD_RESULT_DATE_S = "result_date_s";
 	public static String FIELD_RESULT_TIME_S = "result_time_s";
@@ -209,6 +211,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Field total_timeInMinField = new Field("total_timeInMin", "long");
 		metaData.addField(total_timeInMinField);
 
+		Field show_resultField = new Field("show_result", "String");
+		show_resultField.setLength(1);
+		metaData.addField(show_resultField);
+
 		Field result_dateField = new Field("result_date", "timestamp");
 		metaData.addField(result_dateField);
 
@@ -265,6 +271,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.total_correct_answers = obj.total_correct_answers;
 		this.status = obj.status;
 		this.total_timeInMin = obj.total_timeInMin;
+		this.show_result = obj.show_result;
 		this.result_date = obj.result_date;
 		this.result_date_s = obj.result_date_s;
 		this.result_time_s = obj.result_time_s;
@@ -338,6 +345,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("status", status);
 		if(total_timeInMin != null)
 			map.put("total_timeInMin", total_timeInMin);
+		if(show_result != null)
+			map.put("show_result", show_result);
 		if(result_date != null)
 			map.put("result_date", result_date);
 		if(result_date_s != null)
@@ -413,6 +422,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("status", status);
 		if(total_timeInMin != null)
 			map.put("total_timeInMin", total_timeInMin);
+		if(show_result != null)
+			map.put("show_result", show_result);
 		if(result_date != null)
 			map.put("result_date", result_date);
 		if(result_date_s != null)
@@ -463,6 +474,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		total_correct_answers = (Long) map.get("total_correct_answers");
 		status = (String) map.get("status");
 		total_timeInMin = (Long) map.get("total_timeInMin");
+		show_result = (String) map.get("show_result");
 		result_date = (Long) map.get("result_date");
 		result_date_s = (String) map.get("result_date_s");
 		result_time_s = (String) map.get("result_time_s");
@@ -591,6 +603,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object total_timeInMinObj = map.get("total_timeInMin");
 		if(total_timeInMinObj != null)
 			total_timeInMin = new Long(total_timeInMinObj.toString());
+
+		Object show_resultObj = map.get("show_result");
+		if(show_resultObj != null)
+			show_result = show_resultObj.toString();
 
 		Object result_dateObj = map.get("result_date");
 		if(result_dateObj != null)
@@ -1107,6 +1123,22 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetTotal_timeInMin() {
 		this.total_timeInMin = null;
+	}
+
+	public String getShow_result() {
+		return show_result;
+	}
+
+	public String getShow_resultEx() {
+		return show_result != null ? show_result : "";
+	}
+
+	public void setShow_result(String show_result) {
+		this.show_result = show_result;
+	}
+
+	public void unSetShow_result() {
+		this.show_result = null;
 	}
 
 	public Long getResult_date() {
