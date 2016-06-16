@@ -1416,7 +1416,7 @@ public class Util {
 	public static String[] getDayTimeArray() {
 		ArrayList<String> list  = new ArrayList<String>();
 		int hrs = 0; 
-		while(hrs < 23) {
+		while(hrs < 24) {
 			int min = 0;
 			while (min < 60) {
 				list.add(String.format("%02d:%02d", hrs,min));
