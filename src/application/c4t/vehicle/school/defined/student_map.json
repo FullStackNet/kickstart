@@ -37,6 +37,11 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
+			'courses':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
 			'photos':
 			{
 				'type':'Array',
