@@ -228,6 +228,11 @@ public class InviteHelper extends BaseHelper {
 			} else
 				_user.setParentService("Y");
 			InviteHelper.getInstance().parentInviteAccepted(_fetched_resource, _user.getId());
+			if ("STUDENT".equals(_fetched_resource.getRelation())) {
+				c4t_object _member = new c4t_object(_fetched_resource.getReference_id());
+				_member.setUser_id(_user.getId());
+				C4t_objectHelper.getInstance().AddOrUpdate(_member);
+			}
 		}
 		if (invite.INVITE_TYPE_JOIN_COMMUNITY.equals(_fetched_resource.getInvite_type())) {
 			 	 _community = C4t_objectHelper.getInstance().getById(_fetched_resource.getCommunity_id());
