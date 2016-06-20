@@ -10,6 +10,7 @@ import platform.helper.BaseHelper;
 import platform.helper.UserHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
+import application.c4t.vehicle.school.resource.batch;
 import application.c4t.vehicle.school.resource.course;
 import application.c4t.vehicle.school.resource.notice;
 import application.c4t.vehicle.school.resource.school;
@@ -50,6 +51,24 @@ public class Student_mapHelper extends BaseHelper {
 		AddOrUpdate(_map);
 	}
 
+	public void addBatch(String studentId,String batchId) throws ApplicationException {
+		if (studentId == null) return;
+		if (batchId == null) return;
+		student_map _map = new student_map();
+		_map.setId(studentId);
+		_map.addBatches(batchId);
+		AddOrUpdate(_map);
+	}
+
+	public void batchCourse(String studentId,String batchId) throws ApplicationException {
+		if (studentId == null) return;
+		if (batchId == null) return;
+		student_map _map = new student_map();
+		_map.setId(studentId);
+		_map.addBatches(batchId);
+		unset(_map);
+	}
+	
 	public void removeCourse(String studentId,String courseId) throws ApplicationException {
 		if (studentId == null) return;
 		if (courseId == null) return;
@@ -148,4 +167,11 @@ public class Student_mapHelper extends BaseHelper {
 			return null;	
 		return CourseHelper.getInstance().getById(_map.getCourses().toArray(new String[_map.getCourses().size()]), new String[]{course.FIELD_NAME});
 	}
+	public BaseResource[] getBatches(String studentId) {
+		student_map _map = (student_map)getById(studentId);
+		if ((_map == null) || (_map.getBatches() == null))
+			return null;	
+		return BatchHelper.getInstance().getById(_map.getBatches().toArray(new String[_map.getBatches().size()]), new String[]{batch.FIELD_NAME});
+	}
+
 }
