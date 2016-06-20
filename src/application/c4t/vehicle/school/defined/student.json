@@ -585,6 +585,27 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'notes_issued':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'notes_issued_date_str':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'notes_issued_date':
+			{
+				'type':'long'
+			},
+			'notes_issued_remark':
+			{
+				'length': 128,
+				'type':'String'
+			},
+		
 			'total_fees':
 			{
 				'type':'double'

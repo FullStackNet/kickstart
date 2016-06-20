@@ -48,6 +48,11 @@
 				'length':  128,
 				index : true			
 			},
+			'teacher_name': {
+				'type':'String',
+				'length':  128,
+				index : true			
+			},
 			'student_name': {
 				'type':'String',
 				'length':  128

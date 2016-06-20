@@ -125,6 +125,10 @@ public abstract class Basestudent extends BaseResource {
 	private String feature_school_entry_sms = null;
 	private String feature_school_exit_sms = null;
 	private String application_processed = null;
+	private String notes_issued = null;
+	private String notes_issued_date_str = null;
+	private Long notes_issued_date = null;
+	private String notes_issued_remark = null;
 	private Double total_fees = null;
 	private Double total_additional_charges = null;
 	private Double total_fees_paid = null;
@@ -241,6 +245,10 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_FEATURE_SCHOOL_ENTRY_SMS = "feature_school_entry_sms";
 	public static String FIELD_FEATURE_SCHOOL_EXIT_SMS = "feature_school_exit_sms";
 	public static String FIELD_APPLICATION_PROCESSED = "application_processed";
+	public static String FIELD_NOTES_ISSUED = "notes_issued";
+	public static String FIELD_NOTES_ISSUED_DATE_STR = "notes_issued_date_str";
+	public static String FIELD_NOTES_ISSUED_DATE = "notes_issued_date";
+	public static String FIELD_NOTES_ISSUED_REMARK = "notes_issued_remark";
 	public static String FIELD_TOTAL_FEES = "total_fees";
 	public static String FIELD_TOTAL_ADDITIONAL_CHARGES = "total_additional_charges";
 	public static String FIELD_TOTAL_FEES_PAID = "total_fees_paid";
@@ -719,6 +727,22 @@ public abstract class Basestudent extends BaseResource {
 		application_processedField.setLength(1);
 		metaData.addField(application_processedField);
 
+		Field notes_issuedField = new Field("notes_issued", "String");
+		notes_issuedField.setDefaultValue("Y");
+		notes_issuedField.setLength(1);
+		metaData.addField(notes_issuedField);
+
+		Field notes_issued_date_strField = new Field("notes_issued_date_str", "String");
+		notes_issued_date_strField.setLength(32);
+		metaData.addField(notes_issued_date_strField);
+
+		Field notes_issued_dateField = new Field("notes_issued_date", "long");
+		metaData.addField(notes_issued_dateField);
+
+		Field notes_issued_remarkField = new Field("notes_issued_remark", "String");
+		notes_issued_remarkField.setLength(128);
+		metaData.addField(notes_issued_remarkField);
+
 		Field total_feesField = new Field("total_fees", "double");
 		metaData.addField(total_feesField);
 
@@ -862,6 +886,10 @@ public abstract class Basestudent extends BaseResource {
 		this.feature_school_entry_sms = obj.feature_school_entry_sms;
 		this.feature_school_exit_sms = obj.feature_school_exit_sms;
 		this.application_processed = obj.application_processed;
+		this.notes_issued = obj.notes_issued;
+		this.notes_issued_date_str = obj.notes_issued_date_str;
+		this.notes_issued_date = obj.notes_issued_date;
+		this.notes_issued_remark = obj.notes_issued_remark;
 		this.total_fees = obj.total_fees;
 		this.total_additional_charges = obj.total_additional_charges;
 		this.total_fees_paid = obj.total_fees_paid;
@@ -942,6 +970,8 @@ public abstract class Basestudent extends BaseResource {
 			feature_school_exit_sms = "Y";
 		if(application_processed == null)
 			application_processed = "N";
+		if(notes_issued == null)
+			notes_issued = "Y";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -1158,6 +1188,14 @@ public abstract class Basestudent extends BaseResource {
 			map.put("feature_school_exit_sms", feature_school_exit_sms);
 		if(application_processed != null)
 			map.put("application_processed", application_processed);
+		if(notes_issued != null)
+			map.put("notes_issued", notes_issued);
+		if(notes_issued_date_str != null)
+			map.put("notes_issued_date_str", notes_issued_date_str);
+		if(notes_issued_date != null)
+			map.put("notes_issued_date", notes_issued_date);
+		if(notes_issued_remark != null)
+			map.put("notes_issued_remark", notes_issued_remark);
 		if(total_fees != null)
 			map.put("total_fees", total_fees);
 		if(total_additional_charges != null)
@@ -1396,6 +1434,14 @@ public abstract class Basestudent extends BaseResource {
 			map.put("feature_school_exit_sms", feature_school_exit_sms);
 		if(application_processed != null)
 			map.put("application_processed", application_processed);
+		if(notes_issued != null)
+			map.put("notes_issued", notes_issued);
+		if(notes_issued_date_str != null)
+			map.put("notes_issued_date_str", notes_issued_date_str);
+		if(notes_issued_date != null)
+			map.put("notes_issued_date", notes_issued_date);
+		if(notes_issued_remark != null)
+			map.put("notes_issued_remark", notes_issued_remark);
 		if(total_fees != null)
 			map.put("total_fees", total_fees);
 		if(total_additional_charges != null)
@@ -1530,6 +1576,10 @@ public abstract class Basestudent extends BaseResource {
 		feature_school_entry_sms = (String) map.get("feature_school_entry_sms");
 		feature_school_exit_sms = (String) map.get("feature_school_exit_sms");
 		application_processed = (String) map.get("application_processed");
+		notes_issued = (String) map.get("notes_issued");
+		notes_issued_date_str = (String) map.get("notes_issued_date_str");
+		notes_issued_date = (Long) map.get("notes_issued_date");
+		notes_issued_remark = (String) map.get("notes_issued_remark");
 		total_fees = (Double) map.get("total_fees");
 		total_additional_charges = (Double) map.get("total_additional_charges");
 		total_fees_paid = (Double) map.get("total_fees_paid");
@@ -1966,6 +2016,22 @@ public abstract class Basestudent extends BaseResource {
 		Object application_processedObj = map.get("application_processed");
 		if(application_processedObj != null)
 			application_processed = application_processedObj.toString();
+
+		Object notes_issuedObj = map.get("notes_issued");
+		if(notes_issuedObj != null)
+			notes_issued = notes_issuedObj.toString();
+
+		Object notes_issued_date_strObj = map.get("notes_issued_date_str");
+		if(notes_issued_date_strObj != null)
+			notes_issued_date_str = notes_issued_date_strObj.toString();
+
+		Object notes_issued_dateObj = map.get("notes_issued_date");
+		if(notes_issued_dateObj != null)
+			notes_issued_date = new Long(notes_issued_dateObj.toString());
+
+		Object notes_issued_remarkObj = map.get("notes_issued_remark");
+		if(notes_issued_remarkObj != null)
+			notes_issued_remark = notes_issued_remarkObj.toString();
 
 		Object total_feesObj = map.get("total_fees");
 		if(total_feesObj != null)
@@ -3604,6 +3670,70 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetApplication_processed() {
 		this.application_processed = "N";
+	}
+
+	public String getNotes_issued() {
+		return notes_issued != null ? notes_issued : "Y";
+	}
+
+	public void setNotes_issued(String notes_issued) {
+		this.notes_issued = notes_issued;
+	}
+
+	public void unSetNotes_issued() {
+		this.notes_issued = "Y";
+	}
+
+	public String getNotes_issued_date_str() {
+		return notes_issued_date_str;
+	}
+
+	public String getNotes_issued_date_strEx() {
+		return notes_issued_date_str != null ? notes_issued_date_str : "";
+	}
+
+	public void setNotes_issued_date_str(String notes_issued_date_str) {
+		this.notes_issued_date_str = notes_issued_date_str;
+	}
+
+	public void unSetNotes_issued_date_str() {
+		this.notes_issued_date_str = null;
+	}
+
+	public Long getNotes_issued_date() {
+		return notes_issued_date;
+	}
+
+	public long getNotes_issued_dateEx() {
+		return notes_issued_date != null ? notes_issued_date : 0L;
+	}
+
+	public void setNotes_issued_date(long notes_issued_date) {
+		this.notes_issued_date = notes_issued_date;
+	}
+
+	public void setNotes_issued_date(Long notes_issued_date) {
+		this.notes_issued_date = notes_issued_date;
+	}
+
+	public void unSetNotes_issued_date() {
+		this.notes_issued_date = null;
+	}
+
+	public String getNotes_issued_remark() {
+		return notes_issued_remark;
+	}
+
+	public String getNotes_issued_remarkEx() {
+		return notes_issued_remark != null ? notes_issued_remark : "";
+	}
+
+	public void setNotes_issued_remark(String notes_issued_remark) {
+		this.notes_issued_remark = notes_issued_remark;
+	}
+
+	public void unSetNotes_issued_remark() {
+		this.notes_issued_remark = null;
 	}
 
 	public Double getTotal_fees() {

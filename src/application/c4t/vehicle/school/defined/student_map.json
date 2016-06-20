@@ -42,6 +42,11 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
+			'batches':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
 			'photos':
 			{
 				'type':'Array',

@@ -40,6 +40,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'fees_master_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'customer_id':
 			{
 				'name':'name',

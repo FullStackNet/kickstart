@@ -26,6 +26,7 @@ public abstract class Basestudent_map extends BaseResource {
 	private List<Object> drop_alert_stopages = null;
 	private List<Object> notices = null;
 	private List<Object> courses = null;
+	private List<Object> batches = null;
 	private List<Object> photos = null;
 	private Map<String, Object> extra_data = null;
 
@@ -36,6 +37,7 @@ public abstract class Basestudent_map extends BaseResource {
 	public static String FIELD_DROP_ALERT_STOPAGES = "drop_alert_stopages";
 	public static String FIELD_NOTICES = "notices";
 	public static String FIELD_COURSES = "courses";
+	public static String FIELD_BATCHES = "batches";
 	public static String FIELD_PHOTOS = "photos";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -68,6 +70,9 @@ public abstract class Basestudent_map extends BaseResource {
 		Field coursesField = new Field("courses", "Array");
 		metaData.addField(coursesField);
 
+		Field batchesField = new Field("batches", "Array");
+		metaData.addField(batchesField);
+
 		Field photosField = new Field("photos", "Array");
 		metaData.addField(photosField);
 
@@ -91,6 +96,7 @@ public abstract class Basestudent_map extends BaseResource {
 		this.drop_alert_stopages = obj.drop_alert_stopages;
 		this.notices = obj.notices;
 		this.courses = obj.courses;
+		this.batches = obj.batches;
 		this.photos = obj.photos;
 		this.extra_data = obj.extra_data;
 	}
@@ -115,6 +121,8 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("notices", notices);
 		if(courses != null)
 			map.put("courses", courses);
+		if(batches != null)
+			map.put("batches", batches);
 		if(photos != null)
 			map.put("photos", photos);
 		if(extra_data != null)
@@ -138,6 +146,8 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("notices", notices);
 		if(courses != null)
 			map.put("courses", courses);
+		if(batches != null)
+			map.put("batches", batches);
 		if(photos != null)
 			map.put("photos", photos);
 		if(extra_data != null)
@@ -159,6 +169,7 @@ public abstract class Basestudent_map extends BaseResource {
 		drop_alert_stopages = (List<Object>) map.get("drop_alert_stopages");
 		notices = (List<Object>) map.get("notices");
 		courses = (List<Object>) map.get("courses");
+		batches = (List<Object>) map.get("batches");
 		photos = (List<Object>) map.get("photos");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -175,6 +186,7 @@ public abstract class Basestudent_map extends BaseResource {
 		drop_alert_stopages = (List<Object>) map.get("drop_alert_stopages");
 		notices = (List<Object>) map.get("notices");
 		courses = (List<Object>) map.get("courses");
+		batches = (List<Object>) map.get("batches");
 		photos = (List<Object>) map.get("photos");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -319,6 +331,25 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void unSetCourses() {
 		this.courses = null;
+	}
+
+	public List<Object> getBatches() {
+		return batches;
+	}
+
+
+	public void setBatches(List<Object> batches) {
+		this.batches = batches;
+	}
+
+	public void addBatches(Object value) {
+		if(batches == null)
+			batches = new ArrayList<>();
+		batches.add(value);
+	}
+
+	public void unSetBatches() {
+		this.batches = null;
 	}
 
 	public List<Object> getPhotos() {

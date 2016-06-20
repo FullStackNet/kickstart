@@ -28,6 +28,7 @@ public abstract class Basemessage2school extends BaseResource {
 	private String user_name = null;
 	private String student_id = null;
 	private String teacher_id = null;
+	private String teacher_name = null;
 	private String student_name = null;
 	private Long last_updated = null;
 	private String last_updated_id = null;
@@ -44,6 +45,7 @@ public abstract class Basemessage2school extends BaseResource {
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_TEACHER_ID = "teacher_id";
+	public static String FIELD_TEACHER_NAME = "teacher_name";
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_LAST_UPDATED = "last_updated";
 	public static String FIELD_LAST_UPDATED_ID = "last_updated_id";
@@ -98,6 +100,11 @@ public abstract class Basemessage2school extends BaseResource {
 		teacher_idField.setLength(128);
 		metaData.addField(teacher_idField);
 
+		Field teacher_nameField = new Field("teacher_name", "String");
+		teacher_nameField.setIndexed(true);
+		teacher_nameField.setLength(128);
+		metaData.addField(teacher_nameField);
+
 		Field student_nameField = new Field("student_name", "String");
 		student_nameField.setLength(128);
 		metaData.addField(student_nameField);
@@ -139,6 +146,7 @@ public abstract class Basemessage2school extends BaseResource {
 		this.user_name = obj.user_name;
 		this.student_id = obj.student_id;
 		this.teacher_id = obj.teacher_id;
+		this.teacher_name = obj.teacher_name;
 		this.student_name = obj.student_name;
 		this.last_updated = obj.last_updated;
 		this.last_updated_id = obj.last_updated_id;
@@ -171,6 +179,8 @@ public abstract class Basemessage2school extends BaseResource {
 			map.put("student_id", student_id);
 		if(teacher_id != null)
 			map.put("teacher_id", teacher_id);
+		if(teacher_name != null)
+			map.put("teacher_name", teacher_name);
 		if(student_name != null)
 			map.put("student_name", student_name);
 		if(last_updated != null)
@@ -206,6 +216,8 @@ public abstract class Basemessage2school extends BaseResource {
 			map.put("student_id", student_id);
 		if(teacher_id != null)
 			map.put("teacher_id", teacher_id);
+		if(teacher_name != null)
+			map.put("teacher_name", teacher_name);
 		if(student_name != null)
 			map.put("student_name", student_name);
 		if(last_updated != null)
@@ -237,6 +249,7 @@ public abstract class Basemessage2school extends BaseResource {
 		user_name = (String) map.get("user_name");
 		student_id = (String) map.get("student_id");
 		teacher_id = (String) map.get("teacher_id");
+		teacher_name = (String) map.get("teacher_name");
 		student_name = (String) map.get("student_name");
 		last_updated = (Long) map.get("last_updated");
 		last_updated_id = (String) map.get("last_updated_id");
@@ -282,6 +295,10 @@ public abstract class Basemessage2school extends BaseResource {
 		Object teacher_idObj = map.get("teacher_id");
 		if(teacher_idObj != null)
 			teacher_id = teacher_idObj.toString();
+
+		Object teacher_nameObj = map.get("teacher_name");
+		if(teacher_nameObj != null)
+			teacher_name = teacher_nameObj.toString();
 
 		Object student_nameObj = map.get("student_name");
 		if(student_nameObj != null)
@@ -453,6 +470,22 @@ public abstract class Basemessage2school extends BaseResource {
 
 	public void unSetTeacher_id() {
 		this.teacher_id = null;
+	}
+
+	public String getTeacher_name() {
+		return teacher_name;
+	}
+
+	public String getTeacher_nameEx() {
+		return teacher_name != null ? teacher_name : "";
+	}
+
+	public void setTeacher_name(String teacher_name) {
+		this.teacher_name = teacher_name;
+	}
+
+	public void unSetTeacher_name() {
+		this.teacher_name = null;
 	}
 
 	public String getStudent_name() {
