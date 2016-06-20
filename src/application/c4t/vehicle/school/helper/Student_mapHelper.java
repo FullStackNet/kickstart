@@ -60,7 +60,7 @@ public class Student_mapHelper extends BaseHelper {
 		AddOrUpdate(_map);
 	}
 
-	public void removebatch(String studentId,String batchId) throws ApplicationException {
+	public void removeBatch(String studentId,String batchId) throws ApplicationException {
 		if (studentId == null) return;
 		if (batchId == null) return;
 		student_map _map = new student_map();
