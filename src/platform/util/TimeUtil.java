@@ -626,6 +626,18 @@ public class TimeUtil {
 		return addDay(new Date(time),day);
 	}
 	
+	public static long getTimeforCurrentDate(String timezone) {
+		if (timezone == null)
+			timezone = "IST";
+		
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
+	}
+	
 	public static long getCurrentDay(String timezone) {
 		if (timezone == null)
 			timezone = "IST";
