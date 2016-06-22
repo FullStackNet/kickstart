@@ -213,6 +213,13 @@ public class StudentHelper extends BaseHelper {
 		return getByExpression(e,order);
 	}
 
+	public BaseResource[] getSchoolCurrentStudent(String[] school_ids)  {
+		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
+		Expression e2 = new Expression(student.FIELD_LEFT, REL_OP.NEQ, "Y");
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		return getByExpression(e);
+	}
+	
 	public BaseResource[] getSchoolStudent(String[] school_ids)  {
 		Expression e = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		return getByExpression(e);
