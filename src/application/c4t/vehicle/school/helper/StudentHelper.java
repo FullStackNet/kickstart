@@ -11,6 +11,7 @@ import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
+import platform.resource.c4t_object;
 import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.Util;
@@ -213,11 +214,12 @@ public class StudentHelper extends BaseHelper {
 		return getByExpression(e,order);
 	}
 
-	public BaseResource[] getSchoolCurrentStudent(String[] school_ids)  {
+	
+	public BaseResource[] getSchoolCurrentStudent(String[] school_ids,int page_no,int record_count)  {
 		Expression e1 = new Expression(student.FIELD_SCHOOL_ID, REL_OP.IN, school_ids);
 		Expression e2 = new Expression(student.FIELD_LEFT, REL_OP.NEQ, "Y");
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
-		return getByExpression(e);
+		return getPage(e,new String[]{c4t_object.FIELD_NAME},page_no,record_count);
 	}
 	
 	public BaseResource[] getSchoolStudent(String[] school_ids)  {
