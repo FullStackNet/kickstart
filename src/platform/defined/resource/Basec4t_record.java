@@ -21,6 +21,14 @@ import java.util.*;
 public abstract class Basec4t_record extends BaseResource {
 	private String id = null;
 	private String community_id = null;
+	private String batch_id = null;
+	private String batch_name = null;
+	private String school_id = null;
+	private String school_name = null;
+	private String student_id = null;
+	private String student_name = null;
+	private String course_id = null;
+	private String course_name = null;
 	private String community_name = null;
 	private String url = null;
 	private String summary = null;
@@ -176,6 +184,14 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_BATCH_ID = "batch_id";
+	public static String FIELD_BATCH_NAME = "batch_name";
+	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_SCHOOL_NAME = "school_name";
+	public static String FIELD_STUDENT_ID = "student_id";
+	public static String FIELD_STUDENT_NAME = "student_name";
+	public static String FIELD_COURSE_ID = "course_id";
+	public static String FIELD_COURSE_NAME = "course_name";
 	public static String FIELD_COMMUNITY_NAME = "community_name";
 	public static String FIELD_URL = "url";
 	public static String FIELD_SUMMARY = "summary";
@@ -344,6 +360,45 @@ public abstract class Basec4t_record extends BaseResource {
 		community_idField.setIndexed(true);
 		community_idField.setLength(128);
 		metaData.addField(community_idField);
+
+		Field batch_idField = new Field("batch_id", "String");
+		batch_idField.setIndexed(true);
+		batch_idField.setLength(128);
+		metaData.addField(batch_idField);
+
+		Field batch_nameField = new Field("batch_name", "String");
+		batch_nameField.setIndexed(true);
+		batch_nameField.setLength(128);
+		metaData.addField(batch_nameField);
+
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setIndexed(true);
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
+
+		Field school_nameField = new Field("school_name", "String");
+		school_nameField.setIndexed(true);
+		school_nameField.setLength(128);
+		metaData.addField(school_nameField);
+
+		Field student_idField = new Field("student_id", "String");
+		student_idField.setIndexed(true);
+		student_idField.setLength(128);
+		metaData.addField(student_idField);
+
+		Field student_nameField = new Field("student_name", "String");
+		student_nameField.setIndexed(true);
+		student_nameField.setLength(128);
+		metaData.addField(student_nameField);
+
+		Field course_idField = new Field("course_id", "String");
+		course_idField.setIndexed(true);
+		course_idField.setLength(128);
+		metaData.addField(course_idField);
+
+		Field course_nameField = new Field("course_name", "String");
+		course_nameField.setLength(128);
+		metaData.addField(course_nameField);
 
 		Field community_nameField = new Field("community_name", "String");
 		community_nameField.setIndexed(true);
@@ -941,6 +996,14 @@ public abstract class Basec4t_record extends BaseResource {
 	public Basec4t_record(Basec4t_record obj) {
 		this.id = obj.id;
 		this.community_id = obj.community_id;
+		this.batch_id = obj.batch_id;
+		this.batch_name = obj.batch_name;
+		this.school_id = obj.school_id;
+		this.school_name = obj.school_name;
+		this.student_id = obj.student_id;
+		this.student_name = obj.student_name;
+		this.course_id = obj.course_id;
+		this.course_name = obj.course_name;
 		this.community_name = obj.community_name;
 		this.url = obj.url;
 		this.summary = obj.summary;
@@ -1118,6 +1181,22 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("id", id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(batch_id != null)
+			map.put("batch_id", batch_id);
+		if(batch_name != null)
+			map.put("batch_name", batch_name);
+		if(school_id != null)
+			map.put("school_id", school_id);
+		if(school_name != null)
+			map.put("school_name", school_name);
+		if(student_id != null)
+			map.put("student_id", student_id);
+		if(student_name != null)
+			map.put("student_name", student_name);
+		if(course_id != null)
+			map.put("course_id", course_id);
+		if(course_name != null)
+			map.put("course_name", course_name);
 		if(community_name != null)
 			map.put("community_name", community_name);
 		if(url != null)
@@ -1434,6 +1513,22 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("id", id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(batch_id != null)
+			map.put("batch_id", batch_id);
+		if(batch_name != null)
+			map.put("batch_name", batch_name);
+		if(school_id != null)
+			map.put("school_id", school_id);
+		if(school_name != null)
+			map.put("school_name", school_name);
+		if(student_id != null)
+			map.put("student_id", student_id);
+		if(student_name != null)
+			map.put("student_name", student_name);
+		if(course_id != null)
+			map.put("course_id", course_id);
+		if(course_name != null)
+			map.put("course_name", course_name);
 		if(community_name != null)
 			map.put("community_name", community_name);
 		if(url != null)
@@ -1750,6 +1845,14 @@ public abstract class Basec4t_record extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		community_id = (String) map.get("community_id");
+		batch_id = (String) map.get("batch_id");
+		batch_name = (String) map.get("batch_name");
+		school_id = (String) map.get("school_id");
+		school_name = (String) map.get("school_name");
+		student_id = (String) map.get("student_id");
+		student_name = (String) map.get("student_name");
+		course_id = (String) map.get("course_id");
+		course_name = (String) map.get("course_name");
 		community_name = (String) map.get("community_name");
 		url = (String) map.get("url");
 		summary = (String) map.get("summary");
@@ -1913,6 +2016,38 @@ public abstract class Basec4t_record extends BaseResource {
 		Object community_idObj = map.get("community_id");
 		if(community_idObj != null)
 			community_id = community_idObj.toString();
+
+		Object batch_idObj = map.get("batch_id");
+		if(batch_idObj != null)
+			batch_id = batch_idObj.toString();
+
+		Object batch_nameObj = map.get("batch_name");
+		if(batch_nameObj != null)
+			batch_name = batch_nameObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
+
+		Object school_nameObj = map.get("school_name");
+		if(school_nameObj != null)
+			school_name = school_nameObj.toString();
+
+		Object student_idObj = map.get("student_id");
+		if(student_idObj != null)
+			student_id = student_idObj.toString();
+
+		Object student_nameObj = map.get("student_name");
+		if(student_nameObj != null)
+			student_name = student_nameObj.toString();
+
+		Object course_idObj = map.get("course_id");
+		if(course_idObj != null)
+			course_id = course_idObj.toString();
+
+		Object course_nameObj = map.get("course_name");
+		if(course_nameObj != null)
+			course_name = course_nameObj.toString();
 
 		Object community_nameObj = map.get("community_name");
 		if(community_nameObj != null)
@@ -2563,6 +2698,134 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetCommunity_id() {
 		this.community_id = null;
+	}
+
+	public String getBatch_id() {
+		return batch_id;
+	}
+
+	public String getBatch_idEx() {
+		return batch_id != null ? batch_id : "";
+	}
+
+	public void setBatch_id(String batch_id) {
+		this.batch_id = batch_id;
+	}
+
+	public void unSetBatch_id() {
+		this.batch_id = null;
+	}
+
+	public String getBatch_name() {
+		return batch_name;
+	}
+
+	public String getBatch_nameEx() {
+		return batch_name != null ? batch_name : "";
+	}
+
+	public void setBatch_name(String batch_name) {
+		this.batch_name = batch_name;
+	}
+
+	public void unSetBatch_name() {
+		this.batch_name = null;
+	}
+
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
+	}
+
+	public String getSchool_name() {
+		return school_name;
+	}
+
+	public String getSchool_nameEx() {
+		return school_name != null ? school_name : "";
+	}
+
+	public void setSchool_name(String school_name) {
+		this.school_name = school_name;
+	}
+
+	public void unSetSchool_name() {
+		this.school_name = null;
+	}
+
+	public String getStudent_id() {
+		return student_id;
+	}
+
+	public String getStudent_idEx() {
+		return student_id != null ? student_id : "";
+	}
+
+	public void setStudent_id(String student_id) {
+		this.student_id = student_id;
+	}
+
+	public void unSetStudent_id() {
+		this.student_id = null;
+	}
+
+	public String getStudent_name() {
+		return student_name;
+	}
+
+	public String getStudent_nameEx() {
+		return student_name != null ? student_name : "";
+	}
+
+	public void setStudent_name(String student_name) {
+		this.student_name = student_name;
+	}
+
+	public void unSetStudent_name() {
+		this.student_name = null;
+	}
+
+	public String getCourse_id() {
+		return course_id;
+	}
+
+	public String getCourse_idEx() {
+		return course_id != null ? course_id : "";
+	}
+
+	public void setCourse_id(String course_id) {
+		this.course_id = course_id;
+	}
+
+	public void unSetCourse_id() {
+		this.course_id = null;
+	}
+
+	public String getCourse_name() {
+		return course_name;
+	}
+
+	public String getCourse_nameEx() {
+		return course_name != null ? course_name : "";
+	}
+
+	public void setCourse_name(String course_name) {
+		this.course_name = course_name;
+	}
+
+	public void unSetCourse_name() {
+		this.course_name = null;
 	}
 
 	public String getCommunity_name() {

@@ -17,6 +17,53 @@
 				'type':'String',
 				'index' : true
 			},
+			'batch_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'batch_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'school_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'student_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'course_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'course_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'community_name':
 			{
 				'length': 128,
