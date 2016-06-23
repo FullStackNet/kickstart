@@ -21,6 +21,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'batch_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'schools':
 			{
 				'type':'Array',

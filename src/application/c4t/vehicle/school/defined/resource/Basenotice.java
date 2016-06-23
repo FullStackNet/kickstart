@@ -22,6 +22,7 @@ public abstract class Basenotice extends BaseResource {
 	private String id = null;
 	private String school_id = null;
 	private String student_id = null;
+	private String batch_id = null;
 	private List<String> schools = null;
 	private List<String> students = null;
 	private String customer_id = null;
@@ -47,6 +48,7 @@ public abstract class Basenotice extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_STUDENT_ID = "student_id";
+	public static String FIELD_BATCH_ID = "batch_id";
 	public static String FIELD_SCHOOLS = "schools";
 	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
@@ -87,6 +89,10 @@ public abstract class Basenotice extends BaseResource {
 		Field student_idField = new Field("student_id", "String");
 		student_idField.setLength(128);
 		metaData.addField(student_idField);
+
+		Field batch_idField = new Field("batch_id", "String");
+		batch_idField.setLength(128);
+		metaData.addField(batch_idField);
 
 		Field schoolsField = new Field("schools", "Array");
 		metaData.addField(schoolsField);
@@ -180,6 +186,7 @@ public abstract class Basenotice extends BaseResource {
 		this.id = obj.id;
 		this.school_id = obj.school_id;
 		this.student_id = obj.student_id;
+		this.batch_id = obj.batch_id;
 		this.schools = obj.schools;
 		this.students = obj.students;
 		this.customer_id = obj.customer_id;
@@ -226,6 +233,8 @@ public abstract class Basenotice extends BaseResource {
 			map.put("school_id", school_id);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(batch_id != null)
+			map.put("batch_id", batch_id);
 		if(schools != null)
 			map.put("schools", schools);
 		if(students != null)
@@ -282,6 +291,8 @@ public abstract class Basenotice extends BaseResource {
 			map.put("school_id", school_id);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(batch_id != null)
+			map.put("batch_id", batch_id);
 		if(schools != null)
 			map.put("schools", schools);
 		if(students != null)
@@ -337,6 +348,7 @@ public abstract class Basenotice extends BaseResource {
 		id = (String) map.get("id");
 		school_id = (String) map.get("school_id");
 		student_id = (String) map.get("student_id");
+		batch_id = (String) map.get("batch_id");
 		schools = (List<String>) map.get("schools");
 		students = (List<String>) map.get("students");
 		customer_id = (String) map.get("customer_id");
@@ -373,6 +385,10 @@ public abstract class Basenotice extends BaseResource {
 		Object student_idObj = map.get("student_id");
 		if(student_idObj != null)
 			student_id = student_idObj.toString();
+
+		Object batch_idObj = map.get("batch_id");
+		if(batch_idObj != null)
+			batch_id = batch_idObj.toString();
 
 		schools = (List<String>) map.get("schools");
 		students = (List<String>) map.get("students");
@@ -509,6 +525,22 @@ public abstract class Basenotice extends BaseResource {
 
 	public void unSetStudent_id() {
 		this.student_id = null;
+	}
+
+	public String getBatch_id() {
+		return batch_id;
+	}
+
+	public String getBatch_idEx() {
+		return batch_id != null ? batch_id : "";
+	}
+
+	public void setBatch_id(String batch_id) {
+		this.batch_id = batch_id;
+	}
+
+	public void unSetBatch_id() {
+		this.batch_id = null;
 	}
 
 	public List<String> getSchools() {
