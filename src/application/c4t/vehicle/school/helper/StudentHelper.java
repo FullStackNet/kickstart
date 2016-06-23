@@ -9,6 +9,7 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.ApplianceHelper;
 import platform.helper.BaseHelper;
+import platform.helper.HelperUtils;
 import platform.resource.BaseResource;
 import platform.resource.appliance;
 import platform.resource.c4t_object;
@@ -19,6 +20,7 @@ import application.c4t.vehicle.helper.RouteHelper;
 import application.c4t.vehicle.resource.route;
 import application.c4t.vehicle.school.resource.school;
 import application.c4t.vehicle.school.resource.student;
+import application.c4t.vehicle.school.resource.student_map;
 
 
 public class StudentHelper extends BaseHelper {
@@ -227,11 +229,11 @@ public class StudentHelper extends BaseHelper {
 		return getByExpression(e);
 	}
 
-	public BaseResource[] getByBatchAndCourse(String courseId, String batchId) {
-		Expression e1 = new Expression(student.FIELD_BATCH_ID, REL_OP.EQ, batchId);
-		Expression e2 = new Expression(student.FIELD_COURSE_ID, REL_OP.EQ, courseId);
-		Expression e = new Expression(e1, LOG_OP.AND, e2);
-		return getByExpression(e);
+	public BaseResource[] getByBatch(String batchId) {
+		Expression e = new Expression(student_map.FIELD_BATCHES, REL_OP.EACH_ELEMENT_IN, new String[]{batchId});
+		BaseResource[] resources = Student_mapHelper.getInstance().getByExpression(e);
+		String[] ids = HelperUtils.convertResource2IdArray(resources);
+		return StudentHelper.getInstance().getById(ids);
 	}
 	
 	public student getByAdmissionNoBySchool(String school_id, String admission_no) {
