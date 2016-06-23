@@ -34,6 +34,8 @@ public abstract class Baseteacher extends BaseResource {
 	private String alert_dropped_route_stopage_id = null;
 	private String mobile_no = null;
 	private String email_id = null;
+	private String class_teacher_class = null;
+	private String class_teacher_section = null;
 	private String customer_id = null;
 	private String user_id = null;
 	private String remark = null;
@@ -57,6 +59,8 @@ public abstract class Baseteacher extends BaseResource {
 	public static String FIELD_ALERT_DROPPED_ROUTE_STOPAGE_ID = "alert_dropped_route_stopage_id";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_EMAIL_ID = "email_id";
+	public static String FIELD_CLASS_TEACHER_CLASS = "class_teacher_class";
+	public static String FIELD_CLASS_TEACHER_SECTION = "class_teacher_section";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_REMARK = "remark";
@@ -133,6 +137,14 @@ public abstract class Baseteacher extends BaseResource {
 		email_idField.setLength(128);
 		metaData.addField(email_idField);
 
+		Field class_teacher_classField = new Field("class_teacher_class", "String");
+		class_teacher_classField.setLength(128);
+		metaData.addField(class_teacher_classField);
+
+		Field class_teacher_sectionField = new Field("class_teacher_section", "String");
+		class_teacher_sectionField.setLength(128);
+		metaData.addField(class_teacher_sectionField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setIndexed(true);
 		customer_idField.setRequired(true);
@@ -191,6 +203,8 @@ public abstract class Baseteacher extends BaseResource {
 		this.alert_dropped_route_stopage_id = obj.alert_dropped_route_stopage_id;
 		this.mobile_no = obj.mobile_no;
 		this.email_id = obj.email_id;
+		this.class_teacher_class = obj.class_teacher_class;
+		this.class_teacher_section = obj.class_teacher_section;
 		this.customer_id = obj.customer_id;
 		this.user_id = obj.user_id;
 		this.remark = obj.remark;
@@ -245,6 +259,10 @@ public abstract class Baseteacher extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(email_id != null)
 			map.put("email_id", email_id);
+		if(class_teacher_class != null)
+			map.put("class_teacher_class", class_teacher_class);
+		if(class_teacher_section != null)
+			map.put("class_teacher_section", class_teacher_section);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(user_id != null)
@@ -297,6 +315,10 @@ public abstract class Baseteacher extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(email_id != null)
 			map.put("email_id", email_id);
+		if(class_teacher_class != null)
+			map.put("class_teacher_class", class_teacher_class);
+		if(class_teacher_section != null)
+			map.put("class_teacher_section", class_teacher_section);
 		if(validateCustomer_id(add))
 			map.put("customer_id", customer_id);
 		if(validateUser_id(add))
@@ -336,6 +358,8 @@ public abstract class Baseteacher extends BaseResource {
 		alert_dropped_route_stopage_id = (String) map.get("alert_dropped_route_stopage_id");
 		mobile_no = (String) map.get("mobile_no");
 		email_id = (String) map.get("email_id");
+		class_teacher_class = (String) map.get("class_teacher_class");
+		class_teacher_section = (String) map.get("class_teacher_section");
 		customer_id = (String) map.get("customer_id");
 		user_id = (String) map.get("user_id");
 		remark = (String) map.get("remark");
@@ -406,6 +430,14 @@ public abstract class Baseteacher extends BaseResource {
 		Object email_idObj = map.get("email_id");
 		if(email_idObj != null)
 			email_id = email_idObj.toString();
+
+		Object class_teacher_classObj = map.get("class_teacher_class");
+		if(class_teacher_classObj != null)
+			class_teacher_class = class_teacher_classObj.toString();
+
+		Object class_teacher_sectionObj = map.get("class_teacher_section");
+		if(class_teacher_sectionObj != null)
+			class_teacher_section = class_teacher_sectionObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -684,6 +716,38 @@ public abstract class Baseteacher extends BaseResource {
 
 	public void unSetEmail_id() {
 		this.email_id = null;
+	}
+
+	public String getClass_teacher_class() {
+		return class_teacher_class;
+	}
+
+	public String getClass_teacher_classEx() {
+		return class_teacher_class != null ? class_teacher_class : "";
+	}
+
+	public void setClass_teacher_class(String class_teacher_class) {
+		this.class_teacher_class = class_teacher_class;
+	}
+
+	public void unSetClass_teacher_class() {
+		this.class_teacher_class = null;
+	}
+
+	public String getClass_teacher_section() {
+		return class_teacher_section;
+	}
+
+	public String getClass_teacher_sectionEx() {
+		return class_teacher_section != null ? class_teacher_section : "";
+	}
+
+	public void setClass_teacher_section(String class_teacher_section) {
+		this.class_teacher_section = class_teacher_section;
+	}
+
+	public void unSetClass_teacher_section() {
+		this.class_teacher_section = null;
 	}
 
 	public String getCustomer_id() {
