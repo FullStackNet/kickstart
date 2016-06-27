@@ -294,7 +294,7 @@ public class MongoDBConnection extends DbConnection {
 			object.put(variable, java.util.regex.Pattern.compile("^.*"+expressionValueObj+".*$",Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE));
 			break;	
 		case STARTWITH:
-			object.put(variable, java.util.regex.Pattern.compile(expressionValueObj+".*$",Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE));
+			object.put(variable, new BasicDBObject(variable, new BasicDBObject("$regex", java.util.regex.Pattern.compile(expressionValueObj+".*$",Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE))));
 			break;	
 	
 		default:
