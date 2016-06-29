@@ -17,6 +17,7 @@ public class ApplicationConstants {
 	public static String ACPTRACKER_CONFIGURATION_FILE = "acptracker";
 	public static String JMNTRACKER_CONFIGURATION_FILE = "jmntracker";
 	public static String TALLY_CONFIGURATION_FILE = "tally";
+	public static String MANDI_CONFIGURATION_FILE = "mandi";
 	public static String C2C_CONFIGURATION_FILE = "c2c";
 	public static String KPP1_CONFIGURATION_FILE = "kpp1";
 	
@@ -39,7 +40,8 @@ public class ApplicationConstants {
 	public static String PROPERTY_CUSTOMER_ID = "customer_id";
 	public static String PROPERTY_DATA_READ_INTERVAL = "data_read_interval";
 	public static String PROPERTY_ODBC = "odbc";
-	
+	public static String PROPERTY_MANDI = "mandi";
+	public static String PROPERTY_MANDI_ODBC = "mandi_odbc";
 	public static String PROPERTY_CONTROLLER_USB_PORT = "controller_port";
 	public static String PROPERTY_CONTROLER_BUADRATE = "controller_buadrate";
 	public static String PROPERTY_CONTROLLER_IP = "controller_ip";

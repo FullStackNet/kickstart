@@ -627,7 +627,6 @@ public class BaseServlet extends HttpServlet
 					ro = new ResourceOrder(Integer.parseInt(pagesize),
 							Integer.parseInt(pageno));
 				}
-
 				// fire get all
 				resources = svc.getAll(ctx, e, ro);
 				result.setErrCode(0);

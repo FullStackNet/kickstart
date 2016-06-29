@@ -1,0 +1,96 @@
+{
+	"mandi_auction" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'bags':
+			{
+				'type':'int'
+			},
+			'balance':
+			{
+				'type':'int'
+			},
+			'no_of_auction':
+			{
+				'type':'int'
+			},
+			'upload_time':
+			{
+				'type':'long'
+			},
+			'download_time':
+			{
+				'type':'long'
+			},
+			'update_time':
+			{
+				'type':'long'
+			},
+			'weight':
+			{
+				'type':'double'
+			},
+			'rate':
+			{
+				'type':'double'
+			},
+			'upload_status':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'download_status':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'update_status':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'party':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'entry_date':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'community_id':
+			{
+				'length': 128,
+				'type':'String'
+			}		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}
