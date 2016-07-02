@@ -23,6 +23,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	private String name = null;
 	private String user_id = null;
 	private String user_name = null;
+	private String remark = null;
 	private Integer bags = null;
 	private Integer balance = null;
 	private Integer no_of_auction = null;
@@ -46,6 +47,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_USER_NAME = "user_name";
+	public static String FIELD_REMARK = "remark";
 	public static String FIELD_BAGS = "bags";
 	public static String FIELD_BALANCE = "balance";
 	public static String FIELD_NO_OF_AUCTION = "no_of_auction";
@@ -87,6 +89,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Field user_nameField = new Field("user_name", "String");
 		user_nameField.setLength(128);
 		metaData.addField(user_nameField);
+
+		Field remarkField = new Field("remark", "String");
+		remarkField.setLength(128);
+		metaData.addField(remarkField);
 
 		Field bagsField = new Field("bags", "int");
 		metaData.addField(bagsField);
@@ -166,6 +172,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.name = obj.name;
 		this.user_id = obj.user_id;
 		this.user_name = obj.user_name;
+		this.remark = obj.remark;
 		this.bags = obj.bags;
 		this.balance = obj.balance;
 		this.no_of_auction = obj.no_of_auction;
@@ -203,6 +210,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("user_id", user_id);
 		if(user_name != null)
 			map.put("user_name", user_name);
+		if(remark != null)
+			map.put("remark", remark);
 		if(bags != null)
 			map.put("bags", bags);
 		if(balance != null)
@@ -255,6 +264,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("user_id", user_id);
 		if(user_name != null)
 			map.put("user_name", user_name);
+		if(remark != null)
+			map.put("remark", remark);
 		if(bags != null)
 			map.put("bags", bags);
 		if(balance != null)
@@ -305,6 +316,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		name = (String) map.get("name");
 		user_id = (String) map.get("user_id");
 		user_name = (String) map.get("user_name");
+		remark = (String) map.get("remark");
 		bags = (Integer) map.get("bags");
 		balance = (Integer) map.get("balance");
 		no_of_auction = (Integer) map.get("no_of_auction");
@@ -342,6 +354,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Object user_nameObj = map.get("user_name");
 		if(user_nameObj != null)
 			user_name = user_nameObj.toString();
+
+		Object remarkObj = map.get("remark");
+		if(remarkObj != null)
+			remark = remarkObj.toString();
 
 		Object bagsObj = map.get("bags");
 		if(bagsObj != null)
@@ -488,6 +504,22 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetUser_name() {
 		this.user_name = null;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public String getRemarkEx() {
+		return remark != null ? remark : "";
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public void unSetRemark() {
+		this.remark = null;
 	}
 
 	public Integer getBags() {

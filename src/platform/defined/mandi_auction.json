@@ -26,6 +26,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'remark':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'bags':
 			{
 				'type':'int'
