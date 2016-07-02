@@ -35,6 +35,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	private String download_status = null;
 	private String update_status = null;
 	private String party = null;
+	private String bill_status = null;
 	private String entry_date = null;
 	private String community_id = null;
 	private Long creation_time = null;
@@ -56,6 +57,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_DOWNLOAD_STATUS = "download_status";
 	public static String FIELD_UPDATE_STATUS = "update_status";
 	public static String FIELD_PARTY = "party";
+	public static String FIELD_BILL_STATUS = "bill_status";
 	public static String FIELD_ENTRY_DATE = "entry_date";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -124,6 +126,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		partyField.setLength(128);
 		metaData.addField(partyField);
 
+		Field bill_statusField = new Field("bill_status", "String");
+		bill_statusField.setLength(128);
+		metaData.addField(bill_statusField);
+
 		Field entry_dateField = new Field("entry_date", "String");
 		entry_dateField.setLength(128);
 		metaData.addField(entry_dateField);
@@ -166,6 +172,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.download_status = obj.download_status;
 		this.update_status = obj.update_status;
 		this.party = obj.party;
+		this.bill_status = obj.bill_status;
 		this.entry_date = obj.entry_date;
 		this.community_id = obj.community_id;
 		this.creation_time = obj.creation_time;
@@ -213,6 +220,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("update_status", update_status);
 		if(party != null)
 			map.put("party", party);
+		if(bill_status != null)
+			map.put("bill_status", bill_status);
 		if(entry_date != null)
 			map.put("entry_date", entry_date);
 		if(community_id != null)
@@ -261,6 +270,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("update_status", update_status);
 		if(party != null)
 			map.put("party", party);
+		if(bill_status != null)
+			map.put("bill_status", bill_status);
 		if(entry_date != null)
 			map.put("entry_date", entry_date);
 		if(community_id != null)
@@ -295,6 +306,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		download_status = (String) map.get("download_status");
 		update_status = (String) map.get("update_status");
 		party = (String) map.get("party");
+		bill_status = (String) map.get("bill_status");
 		entry_date = (String) map.get("entry_date");
 		community_id = (String) map.get("community_id");
 		creation_time = (Long) map.get("creation_time");
@@ -366,6 +378,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Object partyObj = map.get("party");
 		if(partyObj != null)
 			party = partyObj.toString();
+
+		Object bill_statusObj = map.get("bill_status");
+		if(bill_statusObj != null)
+			bill_status = bill_statusObj.toString();
 
 		Object entry_dateObj = map.get("entry_date");
 		if(entry_dateObj != null)
@@ -680,6 +696,22 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetParty() {
 		this.party = null;
+	}
+
+	public String getBill_status() {
+		return bill_status;
+	}
+
+	public String getBill_statusEx() {
+		return bill_status != null ? bill_status : "";
+	}
+
+	public void setBill_status(String bill_status) {
+		this.bill_status = bill_status;
+	}
+
+	public void unSetBill_status() {
+		this.bill_status = null;
 	}
 
 	public String getEntry_date() {
