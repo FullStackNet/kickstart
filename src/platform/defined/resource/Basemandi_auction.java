@@ -30,6 +30,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	private Long download_time = null;
 	private Long update_time = null;
 	private Double weight = null;
+	private String weight_status = null;
 	private Double rate = null;
 	private String upload_status = null;
 	private String download_status = null;
@@ -52,6 +53,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_DOWNLOAD_TIME = "download_time";
 	public static String FIELD_UPDATE_TIME = "update_time";
 	public static String FIELD_WEIGHT = "weight";
+	public static String FIELD_WEIGHT_STATUS = "weight_status";
 	public static String FIELD_RATE = "rate";
 	public static String FIELD_UPLOAD_STATUS = "upload_status";
 	public static String FIELD_DOWNLOAD_STATUS = "download_status";
@@ -106,6 +108,10 @@ public abstract class Basemandi_auction extends BaseResource {
 
 		Field weightField = new Field("weight", "double");
 		metaData.addField(weightField);
+
+		Field weight_statusField = new Field("weight_status", "String");
+		weight_statusField.setLength(1);
+		metaData.addField(weight_statusField);
 
 		Field rateField = new Field("rate", "double");
 		metaData.addField(rateField);
@@ -167,6 +173,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.download_time = obj.download_time;
 		this.update_time = obj.update_time;
 		this.weight = obj.weight;
+		this.weight_status = obj.weight_status;
 		this.rate = obj.rate;
 		this.upload_status = obj.upload_status;
 		this.download_status = obj.download_status;
@@ -210,6 +217,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("update_time", update_time);
 		if(weight != null)
 			map.put("weight", weight);
+		if(weight_status != null)
+			map.put("weight_status", weight_status);
 		if(rate != null)
 			map.put("rate", rate);
 		if(upload_status != null)
@@ -260,6 +269,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("update_time", update_time);
 		if(weight != null)
 			map.put("weight", weight);
+		if(weight_status != null)
+			map.put("weight_status", weight_status);
 		if(rate != null)
 			map.put("rate", rate);
 		if(upload_status != null)
@@ -301,6 +312,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		download_time = (Long) map.get("download_time");
 		update_time = (Long) map.get("update_time");
 		weight = (Double) map.get("weight");
+		weight_status = (String) map.get("weight_status");
 		rate = (Double) map.get("rate");
 		upload_status = (String) map.get("upload_status");
 		download_status = (String) map.get("download_status");
@@ -358,6 +370,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Object weightObj = map.get("weight");
 		if(weightObj != null)
 			weight = new Double(weightObj.toString());
+
+		Object weight_statusObj = map.get("weight_status");
+		if(weight_statusObj != null)
+			weight_status = weight_statusObj.toString();
 
 		Object rateObj = map.get("rate");
 		if(rateObj != null)
@@ -612,6 +628,22 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetWeight() {
 		this.weight = null;
+	}
+
+	public String getWeight_status() {
+		return weight_status;
+	}
+
+	public String getWeight_statusEx() {
+		return weight_status != null ? weight_status : "";
+	}
+
+	public void setWeight_status(String weight_status) {
+		this.weight_status = weight_status;
+	}
+
+	public void unSetWeight_status() {
+		this.weight_status = null;
 	}
 
 	public Double getRate() {

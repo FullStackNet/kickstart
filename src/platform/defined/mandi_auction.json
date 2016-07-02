@@ -54,6 +54,11 @@
 			{
 				'type':'double'
 			},
+			'weight_status':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'rate':
 			{
 				'type':'double'
