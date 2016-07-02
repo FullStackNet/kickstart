@@ -21,6 +21,8 @@ import java.util.*;
 public abstract class Basemandi_auction extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String user_id = null;
+	private String user_name = null;
 	private Integer bags = null;
 	private Integer balance = null;
 	private Integer no_of_auction = null;
@@ -35,10 +37,13 @@ public abstract class Basemandi_auction extends BaseResource {
 	private String party = null;
 	private String entry_date = null;
 	private String community_id = null;
+	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_BAGS = "bags";
 	public static String FIELD_BALANCE = "balance";
 	public static String FIELD_NO_OF_AUCTION = "no_of_auction";
@@ -53,6 +58,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_PARTY = "party";
 	public static String FIELD_ENTRY_DATE = "entry_date";
 	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -69,6 +75,14 @@ public abstract class Basemandi_auction extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field user_idField = new Field("user_id", "String");
+		user_idField.setLength(128);
+		metaData.addField(user_idField);
+
+		Field user_nameField = new Field("user_name", "String");
+		user_nameField.setLength(128);
+		metaData.addField(user_nameField);
 
 		Field bagsField = new Field("bags", "int");
 		metaData.addField(bagsField);
@@ -118,6 +132,11 @@ public abstract class Basemandi_auction extends BaseResource {
 		community_idField.setLength(128);
 		metaData.addField(community_idField);
 
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		creation_timeField.setRequired(true);
+		creation_timeField.setDefaultValue("CURRENT_TIMESTAMP");
+		metaData.addField(creation_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -133,6 +152,8 @@ public abstract class Basemandi_auction extends BaseResource {
 	public Basemandi_auction(Basemandi_auction obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.user_id = obj.user_id;
+		this.user_name = obj.user_name;
 		this.bags = obj.bags;
 		this.balance = obj.balance;
 		this.no_of_auction = obj.no_of_auction;
@@ -147,11 +168,15 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.party = obj.party;
 		this.entry_date = obj.entry_date;
 		this.community_id = obj.community_id;
+		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
+	}
+
+	private void setDefaultValues() {
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -160,6 +185,10 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(user_id != null)
+			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
 		if(bags != null)
 			map.put("bags", bags);
 		if(balance != null)
@@ -188,17 +217,26 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("entry_date", entry_date);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
+		if(add)
+			setDefaultValues();
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(validateId(add))
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(user_id != null)
+			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
 		if(bags != null)
 			map.put("bags", bags);
 		if(balance != null)
@@ -227,6 +265,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("entry_date", entry_date);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(validateCreation_time(add))
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -241,6 +281,8 @@ public abstract class Basemandi_auction extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		user_id = (String) map.get("user_id");
+		user_name = (String) map.get("user_name");
 		bags = (Integer) map.get("bags");
 		balance = (Integer) map.get("balance");
 		no_of_auction = (Integer) map.get("no_of_auction");
@@ -255,6 +297,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		party = (String) map.get("party");
 		entry_date = (String) map.get("entry_date");
 		community_id = (String) map.get("community_id");
+		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -267,6 +310,14 @@ public abstract class Basemandi_auction extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object user_idObj = map.get("user_id");
+		if(user_idObj != null)
+			user_id = user_idObj.toString();
+
+		Object user_nameObj = map.get("user_name");
+		if(user_nameObj != null)
+			user_name = user_nameObj.toString();
 
 		Object bagsObj = map.get("bags");
 		if(bagsObj != null)
@@ -324,6 +375,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		if(community_idObj != null)
 			community_id = community_idObj.toString();
 
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
+
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -369,6 +424,38 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public String getUser_idEx() {
+		return user_id != null ? user_id : "";
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public void unSetUser_id() {
+		this.user_id = null;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public String getUser_nameEx() {
+		return user_name != null ? user_name : "";
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public void unSetUser_name() {
+		this.user_name = null;
 	}
 
 	public Integer getBags() {
@@ -625,6 +712,21 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetCommunity_id() {
 		this.community_id = null;
+	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
+
+	public boolean validateCreation_time(boolean add) throws ApplicationException {
+		if(add && creation_time == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[creation_time]");
+		return creation_time != null;
 	}
 
 	public Map<String, Object> getExtra_data() {
