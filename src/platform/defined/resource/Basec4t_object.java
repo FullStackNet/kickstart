@@ -218,6 +218,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private Double max_rating = null;
 	private Double average_rating = null;
 	private String day = null;
+	private String valid_imie = null;
 	private String available_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -420,6 +421,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_MAX_RATING = "max_rating";
 	public static String FIELD_AVERAGE_RATING = "average_rating";
 	public static String FIELD_DAY = "day";
+	public static String FIELD_VALID_IMIE = "valid_imie";
 	public static String FIELD_AVAILABLE_TIME = "available_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -1197,6 +1199,10 @@ public abstract class Basec4t_object extends BaseResource {
 		dayField.setLength(128);
 		metaData.addField(dayField);
 
+		Field valid_imieField = new Field("valid_imie", "String");
+		valid_imieField.setLength(128);
+		metaData.addField(valid_imieField);
+
 		Field available_timeField = new Field("available_time", "String");
 		available_timeField.setLength(128);
 		metaData.addField(available_timeField);
@@ -1413,6 +1419,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.max_rating = obj.max_rating;
 		this.average_rating = obj.average_rating;
 		this.day = obj.day;
+		this.valid_imie = obj.valid_imie;
 		this.available_time = obj.available_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -1821,6 +1828,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("average_rating", average_rating);
 		if(day != null)
 			map.put("day", day);
+		if(valid_imie != null)
+			map.put("valid_imie", valid_imie);
 		if(available_time != null)
 			map.put("available_time", available_time);
 		if(extra_data != null)
@@ -2228,6 +2237,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("average_rating", average_rating);
 		if(day != null)
 			map.put("day", day);
+		if(valid_imie != null)
+			map.put("valid_imie", valid_imie);
 		if(available_time != null)
 			map.put("available_time", available_time);
 		if(extra_data != null)
@@ -2441,6 +2452,7 @@ public abstract class Basec4t_object extends BaseResource {
 		max_rating = (Double) map.get("max_rating");
 		average_rating = (Double) map.get("average_rating");
 		day = (String) map.get("day");
+		valid_imie = (String) map.get("valid_imie");
 		available_time = (String) map.get("available_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -3242,6 +3254,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object dayObj = map.get("day");
 		if(dayObj != null)
 			day = dayObj.toString();
+
+		Object valid_imieObj = map.get("valid_imie");
+		if(valid_imieObj != null)
+			valid_imie = valid_imieObj.toString();
 
 		Object available_timeObj = map.get("available_time");
 		if(available_timeObj != null)
@@ -6494,6 +6510,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetDay() {
 		this.day = null;
+	}
+
+	public String getValid_imie() {
+		return valid_imie;
+	}
+
+	public String getValid_imieEx() {
+		return valid_imie != null ? valid_imie : "";
+	}
+
+	public void setValid_imie(String valid_imie) {
+		this.valid_imie = valid_imie;
+	}
+
+	public void unSetValid_imie() {
+		this.valid_imie = null;
 	}
 
 	public String getAvailable_time() {

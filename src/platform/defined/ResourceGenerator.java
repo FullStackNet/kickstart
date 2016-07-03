@@ -693,7 +693,7 @@ public class ResourceGenerator {
 			JsonParser parser = new JsonParser(definedPath, resourceMap.getName());
 			parser.parse();
 			ResourceMetaData resourceMetaData = parser.getResourceMetaData();
-			if (resourceMetaData.getFields().size() > 200) {
+			if (resourceMetaData.getFields().size() > 250) {
 				throw new Exception("Number of column ["+resourceMetaData.getFields().size()+"] is more than limit "+200+ " for Column Family "+resourceMap.getName());
 			}
 			populateDefaultValues(resourceMetaData.getFields());

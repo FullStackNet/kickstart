@@ -977,6 +977,11 @@
 				'type':'String',
 				'length': 128
 			} , 
+			'valid_imie':
+			{
+				'type':'String',
+				'length': 128
+			} , 
 			'available_time':
 			{
 				'type':'String',
