@@ -253,6 +253,8 @@ public abstract class BaseForm extends BaseView {
 					continue;
 				}
 				TR row = new TR();
+				row.addAttribute("id", field.getName()+"_row");
+				row.addAttribute("name", field.getName()+"_row");
 				TD column = new TD();
 				column.addAttribute("style","padding-left:10px;padding-top:10px;padding-bottom:10px;");
 				if (field.isFullWidth() && UIConstants.COMPONENT_TYPE_TEXTAREA.equals(field.getCompomentType())) {
