@@ -41,6 +41,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	private String entry_date = null;
 	private String community_id = null;
 	private Long creation_time = null;
+	private Long last_update_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -65,6 +66,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_ENTRY_DATE = "entry_date";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -155,6 +157,9 @@ public abstract class Basemandi_auction extends BaseResource {
 		creation_timeField.setDefaultValue("CURRENT_TIMESTAMP");
 		metaData.addField(creation_timeField);
 
+		Field last_update_timeField = new Field("last_update_time", "long");
+		metaData.addField(last_update_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -190,6 +195,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.entry_date = obj.entry_date;
 		this.community_id = obj.community_id;
 		this.creation_time = obj.creation_time;
+		this.last_update_time = obj.last_update_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -246,6 +252,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("community_id", community_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -300,6 +308,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("community_id", community_id);
 		if(validateCreation_time(add))
 			map.put("creation_time", creation_time);
+		if(last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -334,6 +344,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		entry_date = (String) map.get("entry_date");
 		community_id = (String) map.get("community_id");
 		creation_time = (Long) map.get("creation_time");
+		last_update_time = (Long) map.get("last_update_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -426,6 +437,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
+
+		Object last_update_timeObj = map.get("last_update_time");
+		if(last_update_timeObj != null)
+			last_update_time = new Long(last_update_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -823,6 +838,26 @@ public abstract class Basemandi_auction extends BaseResource {
 		if(add && creation_time == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[creation_time]");
 		return creation_time != null;
+	}
+
+	public Long getLast_update_time() {
+		return last_update_time;
+	}
+
+	public long getLast_update_timeEx() {
+		return last_update_time != null ? last_update_time : 0L;
+	}
+
+	public void setLast_update_time(long last_update_time) {
+		this.last_update_time = last_update_time;
+	}
+
+	public void setLast_update_time(Long last_update_time) {
+		this.last_update_time = last_update_time;
+	}
+
+	public void unSetLast_update_time() {
+		this.last_update_time = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

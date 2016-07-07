@@ -108,7 +108,11 @@
 				'default':'CURRENT_TIMESTAMP',
 				'required': true,
 				'type':'timestamp'
-			}	
+			},
+			'last_update_time':
+			{
+				'type':'long'
+			}		
 		}
 		
 		
