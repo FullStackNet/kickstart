@@ -115,8 +115,7 @@
 			},
 			'weights':
 			{
-				'type': 'Array',
-				'valueType' : "platform.resource.mandi_auction_weight"
+				'type': 'String'
 			}	
 		}
 		

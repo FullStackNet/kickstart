@@ -42,7 +42,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	private String community_id = null;
 	private Long creation_time = null;
 	private Long last_update_time = null;
-	private List<platform.resource.mandi_auction_weight> weights = null;
+	private String weights = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -162,7 +162,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		Field last_update_timeField = new Field("last_update_time", "long");
 		metaData.addField(last_update_timeField);
 
-		Field weightsField = new Field("weights", "Array");
+		Field weightsField = new Field("weights", "String");
 		metaData.addField(weightsField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
@@ -355,7 +355,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		community_id = (String) map.get("community_id");
 		creation_time = (Long) map.get("creation_time");
 		last_update_time = (Long) map.get("last_update_time");
-		weights = (List<platform.resource.mandi_auction_weight>) map.get("weights");
+		weights = (String) map.get("weights");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -453,7 +453,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		if(last_update_timeObj != null)
 			last_update_time = new Long(last_update_timeObj.toString());
 
-		weights = (List<platform.resource.mandi_auction_weight>) map.get("weights");
+		Object weightsObj = map.get("weights");
+		if(weightsObj != null)
+			weights = weightsObj.toString();
+
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -872,19 +875,16 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.last_update_time = null;
 	}
 
-	public List<platform.resource.mandi_auction_weight> getWeights() {
+	public String getWeights() {
 		return weights;
 	}
 
-
-	public void setWeights(List<platform.resource.mandi_auction_weight> weights) {
-		this.weights = weights;
+	public String getWeightsEx() {
+		return weights != null ? weights : "";
 	}
 
-	public void addWeights(platform.resource.mandi_auction_weight value) {
-		if(weights == null)
-			weights = new ArrayList<>();
-		weights.add(value);
+	public void setWeights(String weights) {
+		this.weights = weights;
 	}
 
 	public void unSetWeights() {
