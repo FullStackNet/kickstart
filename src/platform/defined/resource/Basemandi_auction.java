@@ -42,6 +42,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	private String community_id = null;
 	private Long creation_time = null;
 	private Long last_update_time = null;
+	private List<platform.resource.mandi_auction_weight> weights = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -67,6 +68,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
+	public static String FIELD_WEIGHTS = "weights";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -160,6 +162,9 @@ public abstract class Basemandi_auction extends BaseResource {
 		Field last_update_timeField = new Field("last_update_time", "long");
 		metaData.addField(last_update_timeField);
 
+		Field weightsField = new Field("weights", "Array");
+		metaData.addField(weightsField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -196,6 +201,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.community_id = obj.community_id;
 		this.creation_time = obj.creation_time;
 		this.last_update_time = obj.last_update_time;
+		this.weights = obj.weights;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -254,6 +260,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
+		if(weights != null)
+			map.put("weights", weights);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -310,6 +318,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
+		if(weights != null)
+			map.put("weights", weights);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -345,6 +355,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		community_id = (String) map.get("community_id");
 		creation_time = (Long) map.get("creation_time");
 		last_update_time = (Long) map.get("last_update_time");
+		weights = (List<platform.resource.mandi_auction_weight>) map.get("weights");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -442,6 +453,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		if(last_update_timeObj != null)
 			last_update_time = new Long(last_update_timeObj.toString());
 
+		weights = (List<platform.resource.mandi_auction_weight>) map.get("weights");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -858,6 +870,25 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetLast_update_time() {
 		this.last_update_time = null;
+	}
+
+	public List<platform.resource.mandi_auction_weight> getWeights() {
+		return weights;
+	}
+
+
+	public void setWeights(List<platform.resource.mandi_auction_weight> weights) {
+		this.weights = weights;
+	}
+
+	public void addWeights(platform.resource.mandi_auction_weight value) {
+		if(weights == null)
+			weights = new ArrayList<>();
+		weights.add(value);
+	}
+
+	public void unSetWeights() {
+		this.weights = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

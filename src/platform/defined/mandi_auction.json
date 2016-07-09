@@ -112,7 +112,12 @@
 			'last_update_time':
 			{
 				'type':'long'
-			}		
+			},
+			'weights':
+			{
+				'type': 'Array',
+				'valueType' : "platform.resource.mandi_auction_weight"
+			}	
 		}
 		
 		

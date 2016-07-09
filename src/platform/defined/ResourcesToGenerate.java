@@ -82,6 +82,6 @@ public class ResourcesToGenerate {
 		new ResourceMap("c4t_cart_item", "platform.resource.c4t_cart_item"),	
 		new ResourceMap("c4t_cart", "platform.resource.c4t_cart"),
 		new ResourceMap("mandi_auction", "platform.resource.mandi_auction"),
-		
+		new ResourceMap("mandi_auction_weight", "platform.resource.mandi_auction_weight"),
 	};
 }
