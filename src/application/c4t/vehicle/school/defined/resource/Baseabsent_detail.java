@@ -26,6 +26,7 @@ public abstract class Baseabsent_detail extends BaseResource {
 	private Long date = null;
 	private String date_str = null;
 	private String student_id = null;
+	private String student_name = null;
 	private String leave_apply = null;
 	private String remark = null;
 	private Map<String, Object> extra_data = null;
@@ -37,6 +38,7 @@ public abstract class Baseabsent_detail extends BaseResource {
 	public static String FIELD_DATE = "date";
 	public static String FIELD_DATE_STR = "date_str";
 	public static String FIELD_STUDENT_ID = "student_id";
+	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_LEAVE_APPLY = "leave_apply";
 	public static String FIELD_REMARK = "remark";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -78,6 +80,10 @@ public abstract class Baseabsent_detail extends BaseResource {
 		student_idField.setLength(128);
 		metaData.addField(student_idField);
 
+		Field student_nameField = new Field("student_name", "String");
+		student_nameField.setLength(128);
+		metaData.addField(student_nameField);
+
 		Field leave_applyField = new Field("leave_apply", "String");
 		leave_applyField.setDefaultValue("N");
 		leave_applyField.setLength(1);
@@ -107,6 +113,7 @@ public abstract class Baseabsent_detail extends BaseResource {
 		this.date = obj.date;
 		this.date_str = obj.date_str;
 		this.student_id = obj.student_id;
+		this.student_name = obj.student_name;
 		this.leave_apply = obj.leave_apply;
 		this.remark = obj.remark;
 		this.extra_data = obj.extra_data;
@@ -137,6 +144,8 @@ public abstract class Baseabsent_detail extends BaseResource {
 			map.put("date_str", date_str);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(student_name != null)
+			map.put("student_name", student_name);
 		if(leave_apply != null)
 			map.put("leave_apply", leave_apply);
 		if(remark != null)
@@ -165,6 +174,8 @@ public abstract class Baseabsent_detail extends BaseResource {
 			map.put("date_str", date_str);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(student_name != null)
+			map.put("student_name", student_name);
 		if(leave_apply != null)
 			map.put("leave_apply", leave_apply);
 		if(remark != null)
@@ -188,6 +199,7 @@ public abstract class Baseabsent_detail extends BaseResource {
 		date = (Long) map.get("date");
 		date_str = (String) map.get("date_str");
 		student_id = (String) map.get("student_id");
+		student_name = (String) map.get("student_name");
 		leave_apply = (String) map.get("leave_apply");
 		remark = (String) map.get("remark");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -222,6 +234,10 @@ public abstract class Baseabsent_detail extends BaseResource {
 		Object student_idObj = map.get("student_id");
 		if(student_idObj != null)
 			student_id = student_idObj.toString();
+
+		Object student_nameObj = map.get("student_name");
+		if(student_nameObj != null)
+			student_name = student_nameObj.toString();
 
 		Object leave_applyObj = map.get("leave_apply");
 		if(leave_applyObj != null)
@@ -355,6 +371,22 @@ public abstract class Baseabsent_detail extends BaseResource {
 
 	public void unSetStudent_id() {
 		this.student_id = null;
+	}
+
+	public String getStudent_name() {
+		return student_name;
+	}
+
+	public String getStudent_nameEx() {
+		return student_name != null ? student_name : "";
+	}
+
+	public void setStudent_name(String student_name) {
+		this.student_name = student_name;
+	}
+
+	public void unSetStudent_name() {
+		this.student_name = null;
 	}
 
 	public String getLeave_apply() {

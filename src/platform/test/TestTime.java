@@ -21,5 +21,11 @@ public class TestTime {
 		System.out.println(new Date(time)  + " -> " +dayOfWeek);
 
 		
+		 Date now = new Date();
+        int year = now.getYear()+1900;
+        int month = now.getMonth()+1;
+        int day = now.getDate();
+        System.out.println(year+" - " + month+ " - " + day);
+        
 	}
 }	

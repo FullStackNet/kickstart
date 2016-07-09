@@ -44,6 +44,11 @@
 				'type':'String',
 				length : 128
 			},
+			'student_name':
+			{
+				'type':'String',
+				length : 128
+			},
 			'leave_apply':
 			{
 				'type':'String',
