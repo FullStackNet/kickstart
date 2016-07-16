@@ -70,6 +70,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String feature_parent2teacher_chat = null;
 	private String feature_teacher2parent_chat = null;
 	private String feature_absent_report = null;
+	private String feature_test = null;
 	private String feature_timetable = null;
 	private String feature_present_report = null;
 	private String feature_pick_drop = null;
@@ -150,6 +151,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_FEATURE_PARENT2TEACHER_CHAT = "feature_parent2teacher_chat";
 	public static String FIELD_FEATURE_TEACHER2PARENT_CHAT = "feature_teacher2parent_chat";
 	public static String FIELD_FEATURE_ABSENT_REPORT = "feature_absent_report";
+	public static String FIELD_FEATURE_TEST = "feature_test";
 	public static String FIELD_FEATURE_TIMETABLE = "feature_timetable";
 	public static String FIELD_FEATURE_PRESENT_REPORT = "feature_present_report";
 	public static String FIELD_FEATURE_PICK_DROP = "feature_pick_drop";
@@ -401,6 +403,11 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_absent_reportField.setLength(1);
 		metaData.addField(feature_absent_reportField);
 
+		Field feature_testField = new Field("feature_test", "String");
+		feature_testField.setDefaultValue("N");
+		feature_testField.setLength(1);
+		metaData.addField(feature_testField);
+
 		Field feature_timetableField = new Field("feature_timetable", "String");
 		feature_timetableField.setDefaultValue("N");
 		feature_timetableField.setLength(1);
@@ -587,6 +594,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.feature_parent2teacher_chat = obj.feature_parent2teacher_chat;
 		this.feature_teacher2parent_chat = obj.feature_teacher2parent_chat;
 		this.feature_absent_report = obj.feature_absent_report;
+		this.feature_test = obj.feature_test;
 		this.feature_timetable = obj.feature_timetable;
 		this.feature_present_report = obj.feature_present_report;
 		this.feature_pick_drop = obj.feature_pick_drop;
@@ -648,6 +656,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			feature_teacher2parent_chat = "N";
 		if(feature_absent_report == null)
 			feature_absent_report = "N";
+		if(feature_test == null)
+			feature_test = "N";
 		if(feature_timetable == null)
 			feature_timetable = "N";
 		if(feature_present_report == null)
@@ -806,6 +816,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		if(feature_absent_report != null)
 			map.put("feature_absent_report", feature_absent_report);
+		if(feature_test != null)
+			map.put("feature_test", feature_test);
 		if(feature_timetable != null)
 			map.put("feature_timetable", feature_timetable);
 		if(feature_present_report != null)
@@ -972,6 +984,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		if(feature_absent_report != null)
 			map.put("feature_absent_report", feature_absent_report);
+		if(feature_test != null)
+			map.put("feature_test", feature_test);
 		if(feature_timetable != null)
 			map.put("feature_timetable", feature_timetable);
 		if(feature_present_report != null)
@@ -1089,6 +1103,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		feature_parent2teacher_chat = (String) map.get("feature_parent2teacher_chat");
 		feature_teacher2parent_chat = (String) map.get("feature_teacher2parent_chat");
 		feature_absent_report = (String) map.get("feature_absent_report");
+		feature_test = (String) map.get("feature_test");
 		feature_timetable = (String) map.get("feature_timetable");
 		feature_present_report = (String) map.get("feature_present_report");
 		feature_pick_drop = (String) map.get("feature_pick_drop");
@@ -1324,6 +1339,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object feature_absent_reportObj = map.get("feature_absent_report");
 		if(feature_absent_reportObj != null)
 			feature_absent_report = feature_absent_reportObj.toString();
+
+		Object feature_testObj = map.get("feature_test");
+		if(feature_testObj != null)
+			feature_test = feature_testObj.toString();
 
 		Object feature_timetableObj = map.get("feature_timetable");
 		if(feature_timetableObj != null)
@@ -2218,6 +2237,18 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetFeature_absent_report() {
 		this.feature_absent_report = "N";
+	}
+
+	public String getFeature_test() {
+		return feature_test != null ? feature_test : "N";
+	}
+
+	public void setFeature_test(String feature_test) {
+		this.feature_test = feature_test;
+	}
+
+	public void unSetFeature_test() {
+		this.feature_test = "N";
 	}
 
 	public String getFeature_timetable() {

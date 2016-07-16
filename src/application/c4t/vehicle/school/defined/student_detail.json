@@ -276,6 +276,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_test':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_timetable':
 			{
 				'length': 1,

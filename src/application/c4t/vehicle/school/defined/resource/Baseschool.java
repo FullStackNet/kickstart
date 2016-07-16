@@ -42,6 +42,7 @@ public abstract class Baseschool extends BaseResource {
 	private String feature_home_practice = null;
 	private String feature_notice = null;
 	private String feature_collabrotive_study = null;
+	private String feature_test = null;
 	private String feature_teacher2parent_chat = null;
 	private String feature_admin2parent_chat = null;
 	private String feature_absent_report = null;
@@ -124,6 +125,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEATURE_HOME_PRACTICE = "feature_home_practice";
 	public static String FIELD_FEATURE_NOTICE = "feature_notice";
 	public static String FIELD_FEATURE_COLLABROTIVE_STUDY = "feature_collabrotive_study";
+	public static String FIELD_FEATURE_TEST = "feature_test";
 	public static String FIELD_FEATURE_TEACHER2PARENT_CHAT = "feature_teacher2parent_chat";
 	public static String FIELD_FEATURE_ADMIN2PARENT_CHAT = "feature_admin2parent_chat";
 	public static String FIELD_FEATURE_ABSENT_REPORT = "feature_absent_report";
@@ -288,6 +290,11 @@ public abstract class Baseschool extends BaseResource {
 		feature_collabrotive_studyField.setDefaultValue("N");
 		feature_collabrotive_studyField.setLength(1);
 		metaData.addField(feature_collabrotive_studyField);
+
+		Field feature_testField = new Field("feature_test", "String");
+		feature_testField.setDefaultValue("N");
+		feature_testField.setLength(1);
+		metaData.addField(feature_testField);
 
 		Field feature_teacher2parent_chatField = new Field("feature_teacher2parent_chat", "String");
 		feature_teacher2parent_chatField.setDefaultValue("N");
@@ -600,6 +607,7 @@ public abstract class Baseschool extends BaseResource {
 		this.feature_home_practice = obj.feature_home_practice;
 		this.feature_notice = obj.feature_notice;
 		this.feature_collabrotive_study = obj.feature_collabrotive_study;
+		this.feature_test = obj.feature_test;
 		this.feature_teacher2parent_chat = obj.feature_teacher2parent_chat;
 		this.feature_admin2parent_chat = obj.feature_admin2parent_chat;
 		this.feature_absent_report = obj.feature_absent_report;
@@ -679,6 +687,8 @@ public abstract class Baseschool extends BaseResource {
 			feature_notice = "N";
 		if(feature_collabrotive_study == null)
 			feature_collabrotive_study = "N";
+		if(feature_test == null)
+			feature_test = "N";
 		if(feature_teacher2parent_chat == null)
 			feature_teacher2parent_chat = "N";
 		if(feature_admin2parent_chat == null)
@@ -829,6 +839,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_notice", feature_notice);
 		if(feature_collabrotive_study != null)
 			map.put("feature_collabrotive_study", feature_collabrotive_study);
+		if(feature_test != null)
+			map.put("feature_test", feature_test);
 		if(feature_teacher2parent_chat != null)
 			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		if(feature_admin2parent_chat != null)
@@ -999,6 +1011,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("feature_notice", feature_notice);
 		if(feature_collabrotive_study != null)
 			map.put("feature_collabrotive_study", feature_collabrotive_study);
+		if(feature_test != null)
+			map.put("feature_test", feature_test);
 		if(feature_teacher2parent_chat != null)
 			map.put("feature_teacher2parent_chat", feature_teacher2parent_chat);
 		if(feature_admin2parent_chat != null)
@@ -1148,6 +1162,7 @@ public abstract class Baseschool extends BaseResource {
 		feature_home_practice = (String) map.get("feature_home_practice");
 		feature_notice = (String) map.get("feature_notice");
 		feature_collabrotive_study = (String) map.get("feature_collabrotive_study");
+		feature_test = (String) map.get("feature_test");
 		feature_teacher2parent_chat = (String) map.get("feature_teacher2parent_chat");
 		feature_admin2parent_chat = (String) map.get("feature_admin2parent_chat");
 		feature_absent_report = (String) map.get("feature_absent_report");
@@ -1301,6 +1316,10 @@ public abstract class Baseschool extends BaseResource {
 		Object feature_collabrotive_studyObj = map.get("feature_collabrotive_study");
 		if(feature_collabrotive_studyObj != null)
 			feature_collabrotive_study = feature_collabrotive_studyObj.toString();
+
+		Object feature_testObj = map.get("feature_test");
+		if(feature_testObj != null)
+			feature_test = feature_testObj.toString();
 
 		Object feature_teacher2parent_chatObj = map.get("feature_teacher2parent_chat");
 		if(feature_teacher2parent_chatObj != null)
@@ -1883,6 +1902,18 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetFeature_collabrotive_study() {
 		this.feature_collabrotive_study = "N";
+	}
+
+	public String getFeature_test() {
+		return feature_test != null ? feature_test : "N";
+	}
+
+	public void setFeature_test(String feature_test) {
+		this.feature_test = feature_test;
+	}
+
+	public void unSetFeature_test() {
+		this.feature_test = "N";
 	}
 
 	public String getFeature_teacher2parent_chat() {
