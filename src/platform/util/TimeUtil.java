@@ -445,8 +445,10 @@ public class TimeUtil {
 		String[] timeTokens = timeHHMMSS.split(":");
 		int hh = Integer.parseInt(timeTokens[0]);
 		int  mm = Integer.parseInt(timeTokens[1]);
-		int  ss = Integer.parseInt(timeTokens[2]);
-		
+		int  ss = 0;
+		if (timeTokens.length > 2) {
+			ss = Integer.parseInt(timeTokens[2]);
+		}
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
 		
 		cal.set(Calendar.YEAR, getCurrentYear());
