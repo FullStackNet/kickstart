@@ -31,6 +31,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'subject_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'subject_name':
+			{
+				'type':'String',
+				'length': 128
+			},	
 			'course_id':
 			{
 				'type':'String',

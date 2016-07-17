@@ -24,6 +24,8 @@ public abstract class Basetest_allocation extends BaseResource {
 	private String test_id = null;
 	private String test_name = null;
 	private String test_code = null;
+	private String subject_id = null;
+	private String subject_name = null;
 	private String course_id = null;
 	private String batch_id = null;
 	private String batch_name = null;
@@ -52,6 +54,8 @@ public abstract class Basetest_allocation extends BaseResource {
 	public static String FIELD_TEST_ID = "test_id";
 	public static String FIELD_TEST_NAME = "test_name";
 	public static String FIELD_TEST_CODE = "test_code";
+	public static String FIELD_SUBJECT_ID = "subject_id";
+	public static String FIELD_SUBJECT_NAME = "subject_name";
 	public static String FIELD_COURSE_ID = "course_id";
 	public static String FIELD_BATCH_ID = "batch_id";
 	public static String FIELD_BATCH_NAME = "batch_name";
@@ -101,6 +105,14 @@ public abstract class Basetest_allocation extends BaseResource {
 		Field test_codeField = new Field("test_code", "String");
 		test_codeField.setLength(128);
 		metaData.addField(test_codeField);
+
+		Field subject_idField = new Field("subject_id", "String");
+		subject_idField.setLength(128);
+		metaData.addField(subject_idField);
+
+		Field subject_nameField = new Field("subject_name", "String");
+		subject_nameField.setLength(128);
+		metaData.addField(subject_nameField);
 
 		Field course_idField = new Field("course_id", "String");
 		course_idField.setLength(128);
@@ -196,6 +208,8 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.test_id = obj.test_id;
 		this.test_name = obj.test_name;
 		this.test_code = obj.test_code;
+		this.subject_id = obj.subject_id;
+		this.subject_name = obj.subject_name;
 		this.course_id = obj.course_id;
 		this.batch_id = obj.batch_id;
 		this.batch_name = obj.batch_name;
@@ -236,6 +250,10 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("test_name", test_name);
 		if(test_code != null)
 			map.put("test_code", test_code);
+		if(subject_id != null)
+			map.put("subject_id", subject_id);
+		if(subject_name != null)
+			map.put("subject_name", subject_name);
 		if(course_id != null)
 			map.put("course_id", course_id);
 		if(batch_id != null)
@@ -295,6 +313,10 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("test_name", test_name);
 		if(test_code != null)
 			map.put("test_code", test_code);
+		if(subject_id != null)
+			map.put("subject_id", subject_id);
+		if(subject_name != null)
+			map.put("subject_name", subject_name);
 		if(course_id != null)
 			map.put("course_id", course_id);
 		if(batch_id != null)
@@ -354,6 +376,8 @@ public abstract class Basetest_allocation extends BaseResource {
 		test_id = (String) map.get("test_id");
 		test_name = (String) map.get("test_name");
 		test_code = (String) map.get("test_code");
+		subject_id = (String) map.get("subject_id");
+		subject_name = (String) map.get("subject_name");
 		course_id = (String) map.get("course_id");
 		batch_id = (String) map.get("batch_id");
 		batch_name = (String) map.get("batch_name");
@@ -399,6 +423,14 @@ public abstract class Basetest_allocation extends BaseResource {
 		Object test_codeObj = map.get("test_code");
 		if(test_codeObj != null)
 			test_code = test_codeObj.toString();
+
+		Object subject_idObj = map.get("subject_id");
+		if(subject_idObj != null)
+			subject_id = subject_idObj.toString();
+
+		Object subject_nameObj = map.get("subject_name");
+		if(subject_nameObj != null)
+			subject_name = subject_nameObj.toString();
 
 		Object course_idObj = map.get("course_id");
 		if(course_idObj != null)
@@ -577,6 +609,38 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetTest_code() {
 		this.test_code = null;
+	}
+
+	public String getSubject_id() {
+		return subject_id;
+	}
+
+	public String getSubject_idEx() {
+		return subject_id != null ? subject_id : "";
+	}
+
+	public void setSubject_id(String subject_id) {
+		this.subject_id = subject_id;
+	}
+
+	public void unSetSubject_id() {
+		this.subject_id = null;
+	}
+
+	public String getSubject_name() {
+		return subject_name;
+	}
+
+	public String getSubject_nameEx() {
+		return subject_name != null ? subject_name : "";
+	}
+
+	public void setSubject_name(String subject_name) {
+		this.subject_name = subject_name;
+	}
+
+	public void unSetSubject_name() {
+		this.subject_name = null;
 	}
 
 	public String getCourse_id() {
