@@ -29,6 +29,7 @@ public abstract class Basebatch extends BaseResource {
 	private String customer_id = null;
 	private Long start_date = null;
 	private String start_date_str = null;
+	private String online = null;
 	private Long end_date = null;
 	private String end_date_str = null;
 	private String status = null; //Active/Deactive
@@ -44,6 +45,7 @@ public abstract class Basebatch extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_START_DATE = "start_date";
 	public static String FIELD_START_DATE_STR = "start_date_str";
+	public static String FIELD_ONLINE = "online";
 	public static String FIELD_END_DATE = "end_date";
 	public static String FIELD_END_DATE_STR = "end_date_str";
 	public static String FIELD_STATUS = "status";
@@ -95,6 +97,10 @@ public abstract class Basebatch extends BaseResource {
 		start_date_strField.setLength(32);
 		metaData.addField(start_date_strField);
 
+		Field onlineField = new Field("online", "String");
+		onlineField.setLength(1);
+		metaData.addField(onlineField);
+
 		Field end_dateField = new Field("end_date", "timestamp");
 		metaData.addField(end_dateField);
 
@@ -129,6 +135,7 @@ public abstract class Basebatch extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.start_date = obj.start_date;
 		this.start_date_str = obj.start_date_str;
+		this.online = obj.online;
 		this.end_date = obj.end_date;
 		this.end_date_str = obj.end_date_str;
 		this.status = obj.status;
@@ -161,6 +168,8 @@ public abstract class Basebatch extends BaseResource {
 			map.put("start_date", start_date);
 		if(start_date_str != null)
 			map.put("start_date_str", start_date_str);
+		if(online != null)
+			map.put("online", online);
 		if(end_date != null)
 			map.put("end_date", end_date);
 		if(end_date_str != null)
@@ -194,6 +203,8 @@ public abstract class Basebatch extends BaseResource {
 			map.put("start_date", start_date);
 		if(start_date_str != null)
 			map.put("start_date_str", start_date_str);
+		if(online != null)
+			map.put("online", online);
 		if(end_date != null)
 			map.put("end_date", end_date);
 		if(end_date_str != null)
@@ -222,6 +233,7 @@ public abstract class Basebatch extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		start_date = (Long) map.get("start_date");
 		start_date_str = (String) map.get("start_date_str");
+		online = (String) map.get("online");
 		end_date = (Long) map.get("end_date");
 		end_date_str = (String) map.get("end_date_str");
 		status = (String) map.get("status");
@@ -269,6 +281,10 @@ public abstract class Basebatch extends BaseResource {
 		Object start_date_strObj = map.get("start_date_str");
 		if(start_date_strObj != null)
 			start_date_str = start_date_strObj.toString();
+
+		Object onlineObj = map.get("online");
+		if(onlineObj != null)
+			online = onlineObj.toString();
 
 		Object end_dateObj = map.get("end_date");
 		if(end_dateObj != null)
@@ -448,6 +464,22 @@ public abstract class Basebatch extends BaseResource {
 
 	public void unSetStart_date_str() {
 		this.start_date_str = null;
+	}
+
+	public String getOnline() {
+		return online;
+	}
+
+	public String getOnlineEx() {
+		return online != null ? online : "";
+	}
+
+	public void setOnline(String online) {
+		this.online = online;
+	}
+
+	public void unSetOnline() {
+		this.online = null;
 	}
 
 	public Long getEnd_date() {

@@ -57,6 +57,10 @@
 			'start_date_str': {
 				'type': 'String',
 				'length' : 32
+			},
+			'online': {
+				'type': 'String',
+				'length' : 1
 			},	
 			'end_date': {
 				'type': 'timestamp'
