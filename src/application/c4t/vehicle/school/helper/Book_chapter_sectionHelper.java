@@ -17,5 +17,4 @@ public class Book_chapter_sectionHelper extends BaseHelper {
 			instance = new Book_chapter_sectionHelper();
 		return instance;
 	}
-	
 }
