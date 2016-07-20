@@ -116,6 +116,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("objective_question_answer", "application.c4t.vehicle.school.resource.objective_question_answer"),
 		new ResourceMap("test_allocation", "application.c4t.vehicle.school.resource.test_allocation"),
 		new ResourceMap("test_allocation_student", "application.c4t.vehicle.school.resource.test_allocation_student"),
-		new ResourceMap("book", "application.c4t.vehicle.school.resource.book")
+		new ResourceMap("book", "application.c4t.vehicle.school.resource.book"),
+		new ResourceMap("book_chapter", "application.c4t.vehicle.school.resource.book_chapter"),
+		new ResourceMap("book_chapter_section", "application.c4t.vehicle.school.resource.book_chapter_section")		
 	};
 }

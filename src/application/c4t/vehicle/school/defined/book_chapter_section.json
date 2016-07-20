@@ -1,5 +1,5 @@
 {
-	"book" :
+	"book_chapter_section" :
 	{
 		"cluster": "DB_SCHOOL",
 		"fields":
@@ -15,12 +15,32 @@
 			{
 				'length': 32,
 				'type':'String'
-			},
+			},	
+			'order' : {
+				'type':'long'
+			 },
 			'summary':
 			{
 				'length': 32,
 				'type':'String'
 			},	
+			'content':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'book_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'chapter_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
 			'customer_id':
 			{
 				'length': 128,
