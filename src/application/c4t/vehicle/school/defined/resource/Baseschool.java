@@ -99,6 +99,7 @@ public abstract class Baseschool extends BaseResource {
 	private Long fee_starting_date = null;
 	private String fee_starting_date_str = null;
 	private String house_id = null;
+	private String neet_no_enabled = null;
 	private String timezone = null;
 	private Map<String, Object> extra_data = null;
 
@@ -182,6 +183,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_FEE_STARTING_DATE = "fee_starting_date";
 	public static String FIELD_FEE_STARTING_DATE_STR = "fee_starting_date_str";
 	public static String FIELD_HOUSE_ID = "house_id";
+	public static String FIELD_NEET_NO_ENABLED = "neet_no_enabled";
 	public static String FIELD_TIMEZONE = "timezone";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -566,6 +568,10 @@ public abstract class Baseschool extends BaseResource {
 		house_idField.setLength(128);
 		metaData.addField(house_idField);
 
+		Field neet_no_enabledField = new Field("neet_no_enabled", "String");
+		neet_no_enabledField.setLength(128);
+		metaData.addField(neet_no_enabledField);
+
 		Field timezoneField = new Field("timezone", "String");
 		timezoneField.setDefaultValue("IST");
 		timezoneField.setLength(32);
@@ -664,6 +670,7 @@ public abstract class Baseschool extends BaseResource {
 		this.fee_starting_date = obj.fee_starting_date;
 		this.fee_starting_date_str = obj.fee_starting_date_str;
 		this.house_id = obj.house_id;
+		this.neet_no_enabled = obj.neet_no_enabled;
 		this.timezone = obj.timezone;
 		this.extra_data = obj.extra_data;
 	}
@@ -953,6 +960,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("fee_starting_date_str", fee_starting_date_str);
 		if(house_id != null)
 			map.put("house_id", house_id);
+		if(neet_no_enabled != null)
+			map.put("neet_no_enabled", neet_no_enabled);
 		if(timezone != null)
 			map.put("timezone", timezone);
 		if(extra_data != null)
@@ -1125,6 +1134,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("fee_starting_date_str", fee_starting_date_str);
 		if(house_id != null)
 			map.put("house_id", house_id);
+		if(neet_no_enabled != null)
+			map.put("neet_no_enabled", neet_no_enabled);
 		if(timezone != null)
 			map.put("timezone", timezone);
 		if(extra_data != null)
@@ -1219,6 +1230,7 @@ public abstract class Baseschool extends BaseResource {
 		fee_starting_date = (Long) map.get("fee_starting_date");
 		fee_starting_date_str = (String) map.get("fee_starting_date_str");
 		house_id = (String) map.get("house_id");
+		neet_no_enabled = (String) map.get("neet_no_enabled");
 		timezone = (String) map.get("timezone");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1544,6 +1556,10 @@ public abstract class Baseschool extends BaseResource {
 		Object house_idObj = map.get("house_id");
 		if(house_idObj != null)
 			house_id = house_idObj.toString();
+
+		Object neet_no_enabledObj = map.get("neet_no_enabled");
+		if(neet_no_enabledObj != null)
+			neet_no_enabled = neet_no_enabledObj.toString();
 
 		Object timezoneObj = map.get("timezone");
 		if(timezoneObj != null)
@@ -2626,6 +2642,22 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetHouse_id() {
 		this.house_id = null;
+	}
+
+	public String getNeet_no_enabled() {
+		return neet_no_enabled;
+	}
+
+	public String getNeet_no_enabledEx() {
+		return neet_no_enabled != null ? neet_no_enabled : "";
+	}
+
+	public void setNeet_no_enabled(String neet_no_enabled) {
+		this.neet_no_enabled = neet_no_enabled;
+	}
+
+	public void unSetNeet_no_enabled() {
+		this.neet_no_enabled = null;
 	}
 
 	public String getTimezone() {
