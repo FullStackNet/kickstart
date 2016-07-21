@@ -84,6 +84,7 @@ public abstract class Basestudent extends BaseResource {
 	private String overspeed_alert_sms = null;
 	private String overspeed_alert_mobile_app = null;
 	private String overspeed_alert_email = null;
+	private String neet_no = null;
 	private String card_no = null;
 	private String card_swipe_pickup_pick = null;
 	private Long card_swipe_pickup_pick_time = null;
@@ -204,6 +205,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_OVERSPEED_ALERT_SMS = "overspeed_alert_sms";
 	public static String FIELD_OVERSPEED_ALERT_MOBILE_APP = "overspeed_alert_mobile_app";
 	public static String FIELD_OVERSPEED_ALERT_EMAIL = "overspeed_alert_email";
+	public static String FIELD_NEET_NO = "neet_no";
 	public static String FIELD_CARD_NO = "card_no";
 	public static String FIELD_CARD_SWIPE_PICKUP_PICK = "card_swipe_pickup_pick";
 	public static String FIELD_CARD_SWIPE_PICKUP_PICK_TIME = "card_swipe_pickup_pick_time";
@@ -553,6 +555,10 @@ public abstract class Basestudent extends BaseResource {
 		overspeed_alert_emailField.setLength(1);
 		metaData.addField(overspeed_alert_emailField);
 
+		Field neet_noField = new Field("neet_no", "String");
+		neet_noField.setLength(128);
+		metaData.addField(neet_noField);
+
 		Field card_noField = new Field("card_no", "String");
 		card_noField.setLength(128);
 		metaData.addField(card_noField);
@@ -845,6 +851,7 @@ public abstract class Basestudent extends BaseResource {
 		this.overspeed_alert_sms = obj.overspeed_alert_sms;
 		this.overspeed_alert_mobile_app = obj.overspeed_alert_mobile_app;
 		this.overspeed_alert_email = obj.overspeed_alert_email;
+		this.neet_no = obj.neet_no;
 		this.card_no = obj.card_no;
 		this.card_swipe_pickup_pick = obj.card_swipe_pickup_pick;
 		this.card_swipe_pickup_pick_time = obj.card_swipe_pickup_pick_time;
@@ -1106,6 +1113,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("overspeed_alert_mobile_app", overspeed_alert_mobile_app);
 		if(overspeed_alert_email != null)
 			map.put("overspeed_alert_email", overspeed_alert_email);
+		if(neet_no != null)
+			map.put("neet_no", neet_no);
 		if(card_no != null)
 			map.put("card_no", card_no);
 		if(card_swipe_pickup_pick != null)
@@ -1352,6 +1361,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("overspeed_alert_mobile_app", overspeed_alert_mobile_app);
 		if(overspeed_alert_email != null)
 			map.put("overspeed_alert_email", overspeed_alert_email);
+		if(neet_no != null)
+			map.put("neet_no", neet_no);
 		if(card_no != null)
 			map.put("card_no", card_no);
 		if(card_swipe_pickup_pick != null)
@@ -1535,6 +1546,7 @@ public abstract class Basestudent extends BaseResource {
 		overspeed_alert_sms = (String) map.get("overspeed_alert_sms");
 		overspeed_alert_mobile_app = (String) map.get("overspeed_alert_mobile_app");
 		overspeed_alert_email = (String) map.get("overspeed_alert_email");
+		neet_no = (String) map.get("neet_no");
 		card_no = (String) map.get("card_no");
 		card_swipe_pickup_pick = (String) map.get("card_swipe_pickup_pick");
 		card_swipe_pickup_pick_time = (Long) map.get("card_swipe_pickup_pick_time");
@@ -1852,6 +1864,10 @@ public abstract class Basestudent extends BaseResource {
 		Object overspeed_alert_emailObj = map.get("overspeed_alert_email");
 		if(overspeed_alert_emailObj != null)
 			overspeed_alert_email = overspeed_alert_emailObj.toString();
+
+		Object neet_noObj = map.get("neet_no");
+		if(neet_noObj != null)
+			neet_no = neet_noObj.toString();
 
 		Object card_noObj = map.get("card_no");
 		if(card_noObj != null)
@@ -3102,6 +3118,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetOverspeed_alert_email() {
 		this.overspeed_alert_email = "N";
+	}
+
+	public String getNeet_no() {
+		return neet_no;
+	}
+
+	public String getNeet_noEx() {
+		return neet_no != null ? neet_no : "";
+	}
+
+	public void setNeet_no(String neet_no) {
+		this.neet_no = neet_no;
+	}
+
+	public void unSetNeet_no() {
+		this.neet_no = null;
 	}
 
 	public String getCard_no() {

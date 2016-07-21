@@ -370,6 +370,11 @@
 				'type':'String',
 				'default' :"N"
 			},
+			'neet_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'card_no':
 			{
 				'length': 128,
