@@ -33,8 +33,8 @@ public class MandiDailyReportScheduleTask extends ScheduleTask {
 			resendMail.setTo(_community.getEmail_id());
 			resendMail.setType(ApplicationConstants.MAIL_TYPE_SEND_MANDI_DAILY_REPORT);
 			Map<String, String> map = new HashMap<String, String>();
-			long fromTime = TimeUtil.getTimeFromString(date, "IST");
-			long toTime = TimeUtil.getTimeFromString(date, "IST")+24*60*60*1000L;
+			long fromTime = TimeUtil.getTimeFromString(date, "GMT");
+			long toTime = TimeUtil.getTimeFromString(date, "GMT")+24*60*60*1000L;
 		
 			Expression e1 = new Expression(notice.FIELD_NOTICE_DATE, REL_OP.GTEQ, fromTime);
 			Expression e2 = new Expression(notice.FIELD_NOTICE_DATE, REL_OP.LT, toTime);
