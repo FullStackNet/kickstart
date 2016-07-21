@@ -44,6 +44,15 @@ public class MandiDailyReportScheduleTask extends ScheduleTask {
 			BaseResource[] resources = Mandi_auctionHelper.getInstance().getByExpression(e,new String[]{mandi_auction.FIELD_PARTY,mandi_auction.FIELD_CREATION_TIME+" desc"}); 
 			
 			StringBuilder builder = new StringBuilder();
+			builder.append("<tr>");
+			builder.append("<td>Party </td>");
+			builder.append("<td>Lot no. </td>");
+			builder.append("<td>Bags </td>");
+			builder.append("<td>Rate </td>");
+			builder.append("<td>Weight </td>");	
+			builder.append("<td>Advance </td>");	
+			builder.append("</tr>");
+			
 			
 			for(BaseResource resource : resources) {
 				builder.append("<tr>");
@@ -69,9 +78,7 @@ public class MandiDailyReportScheduleTask extends ScheduleTask {
 				}
 				builder.append("</tr>");	
 				builder.append("<tr>");
-				builder.append("<td colspan=\"6\">");
-				builder.append("<td>"+_auction.getWeights()+"</td>");
-				builder.append("</td>");
+				builder.append("<td colspan=\"6\">"+_auction.getWeights()+"</td>");
 				builder.append("</tr>");	
 			}
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_COMMUNITY_ID, _community.getId());
