@@ -125,6 +125,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String domain = null;
 	private String scheme_available = null;
 	private String designation = null;
+	private String feature_daily_report = null;
+	private String daily_report_time = null;
 	private String resident = null;
 	private String zip_code = null;
 	private String last_scheme = null;
@@ -328,6 +330,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_DOMAIN = "domain";
 	public static String FIELD_SCHEME_AVAILABLE = "scheme_available";
 	public static String FIELD_DESIGNATION = "designation";
+	public static String FIELD_FEATURE_DAILY_REPORT = "feature_daily_report";
+	public static String FIELD_DAILY_REPORT_TIME = "daily_report_time";
 	public static String FIELD_RESIDENT = "resident";
 	public static String FIELD_ZIP_CODE = "zip_code";
 	public static String FIELD_LAST_SCHEME = "last_scheme";
@@ -863,6 +867,14 @@ public abstract class Basec4t_object extends BaseResource {
 		designationField.setLength(128);
 		metaData.addField(designationField);
 
+		Field feature_daily_reportField = new Field("feature_daily_report", "String");
+		feature_daily_reportField.setLength(128);
+		metaData.addField(feature_daily_reportField);
+
+		Field daily_report_timeField = new Field("daily_report_time", "String");
+		daily_report_timeField.setLength(10);
+		metaData.addField(daily_report_timeField);
+
 		Field residentField = new Field("resident", "String");
 		residentField.setLength(1);
 		metaData.addField(residentField);
@@ -1326,6 +1338,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.domain = obj.domain;
 		this.scheme_available = obj.scheme_available;
 		this.designation = obj.designation;
+		this.feature_daily_report = obj.feature_daily_report;
+		this.daily_report_time = obj.daily_report_time;
 		this.resident = obj.resident;
 		this.zip_code = obj.zip_code;
 		this.last_scheme = obj.last_scheme;
@@ -1642,6 +1656,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("scheme_available", scheme_available);
 		if(designation != null)
 			map.put("designation", designation);
+		if(feature_daily_report != null)
+			map.put("feature_daily_report", feature_daily_report);
+		if(daily_report_time != null)
+			map.put("daily_report_time", daily_report_time);
 		if(resident != null)
 			map.put("resident", resident);
 		if(zip_code != null)
@@ -2051,6 +2069,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("scheme_available", scheme_available);
 		if(designation != null)
 			map.put("designation", designation);
+		if(feature_daily_report != null)
+			map.put("feature_daily_report", feature_daily_report);
+		if(daily_report_time != null)
+			map.put("daily_report_time", daily_report_time);
 		if(resident != null)
 			map.put("resident", resident);
 		if(zip_code != null)
@@ -2359,6 +2381,8 @@ public abstract class Basec4t_object extends BaseResource {
 		domain = (String) map.get("domain");
 		scheme_available = (String) map.get("scheme_available");
 		designation = (String) map.get("designation");
+		feature_daily_report = (String) map.get("feature_daily_report");
+		daily_report_time = (String) map.get("daily_report_time");
 		resident = (String) map.get("resident");
 		zip_code = (String) map.get("zip_code");
 		last_scheme = (String) map.get("last_scheme");
@@ -2882,6 +2906,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object designationObj = map.get("designation");
 		if(designationObj != null)
 			designation = designationObj.toString();
+
+		Object feature_daily_reportObj = map.get("feature_daily_report");
+		if(feature_daily_reportObj != null)
+			feature_daily_report = feature_daily_reportObj.toString();
+
+		Object daily_report_timeObj = map.get("daily_report_time");
+		if(daily_report_timeObj != null)
+			daily_report_time = daily_report_timeObj.toString();
 
 		Object residentObj = map.get("resident");
 		if(residentObj != null)
@@ -4980,6 +5012,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetDesignation() {
 		this.designation = null;
+	}
+
+	public String getFeature_daily_report() {
+		return feature_daily_report;
+	}
+
+	public String getFeature_daily_reportEx() {
+		return feature_daily_report != null ? feature_daily_report : "";
+	}
+
+	public void setFeature_daily_report(String feature_daily_report) {
+		this.feature_daily_report = feature_daily_report;
+	}
+
+	public void unSetFeature_daily_report() {
+		this.feature_daily_report = null;
+	}
+
+	public String getDaily_report_time() {
+		return daily_report_time;
+	}
+
+	public String getDaily_report_timeEx() {
+		return daily_report_time != null ? daily_report_time : "";
+	}
+
+	public void setDaily_report_time(String daily_report_time) {
+		this.daily_report_time = daily_report_time;
+	}
+
+	public void unSetDaily_report_time() {
+		this.daily_report_time = null;
 	}
 
 	public String getResident() {

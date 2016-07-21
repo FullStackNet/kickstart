@@ -170,6 +170,7 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_COMMUNITY_COMMUNICATION = "COMMUNITY_COMMUNICATION";
 	public static String MAIL_TYPE_MESSAGE2PARENT = "MESSAGE2PARENT";
 	public static String MAIL_TYPE_SEND_BUS_ENTRY = "BUS_ENTRY";
+	public static String MAIL_TYPE_SEND_MANDI_DAILY_REPORT = "MANDI_DAILY_REPORT";
 	public static String MAIL_TYPE_SEND_BUS_EXIT = "BUS_EXIT";
 	public static String MAIL_TYPE_SEND_SCHOOL_ENTRY = "SCHOOL_ENTRY";
 	public static String MAIL_TYPE_SEND_SCHOOL_EXIT = "SCHOOL_EXIT";

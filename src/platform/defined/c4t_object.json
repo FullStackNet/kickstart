@@ -546,6 +546,16 @@
 				'type':'String',
 				'length': 128
 			},
+			'feature_daily_report':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'daily_report_time':
+			{
+				'type':'String',
+				'length': 10
+			},
 			'resident':
 			{
 				'type':'String',

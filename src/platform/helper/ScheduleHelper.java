@@ -8,6 +8,7 @@ import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.resource.BaseResource;
+import platform.resource.c4t_object;
 import platform.resource.schedule;
 import platform.schedule.ScheduleFactory;
 import platform.util.ApplicationException;
@@ -33,6 +34,12 @@ public class ScheduleHelper extends BaseHelper {
 	public void deleteBirthdaySchedule(String id) {
 		Expression e1 = new Expression(schedule.FIELD_REFERENCE_ID, REL_OP.EQ, id);
 		Expression e2 = new Expression(schedule.FIELD_TYPE, REL_OP.EQ, ScheduleFactory.BIRTHDAY);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		ScheduleHelper.getInstance().deleteByExpression(e);
+	}
+	public void deleteDailyReportSchedule(String id) {
+		Expression e1 = new Expression(schedule.FIELD_REFERENCE_ID, REL_OP.EQ, id);
+		Expression e2 = new Expression(schedule.FIELD_TYPE, REL_OP.EQ, ScheduleFactory.MANDI_DAILY_REPORT);
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		ScheduleHelper.getInstance().deleteByExpression(e);
 	}
@@ -66,6 +73,31 @@ public class ScheduleHelper extends BaseHelper {
 		_schedule.setCustomer_id(_student.getCustomer_id());
 		_schedule.setSchool_id(_student.getSchool_id());	
 		_schedule.setReference_date(_student.getDob());
+		try {
+			ScheduleHelper.getInstance().add(_schedule);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	}
+	public void createMandiDailyReportSchedule(c4t_object _community) {
+		deleteDailyReportSchedule(_community.getId());
+		if (!"Y".equals(_community.getFeature_daily_report()))
+			return;
+		schedule _schedule = new schedule();
+		_schedule.setName(ScheduleFactory.MANDI_DAILY_REPORT+" of " + _community.getName());
+		_schedule.setType(ScheduleFactory.MANDI_DAILY_REPORT);
+		_schedule.setReference_id(_community.getId());
+		_schedule.setFrequency(schedule.FRQUENCY_DAILY);
+		_schedule.setReference_name(_community.getName());		
+		long time = TimeUtil.getTimeFromDateString(null, new Date().getTime(),_community.getDaily_report_time());
+		_schedule.setDate_str(TimeUtil.getDisplayDateString(null,time));
+		_schedule.setDate(TimeUtil.getTimeFromDateString(_schedule.getDate_str(), null));
+		_schedule.setTime(_community.getDaily_report_time());
+		_schedule.setSchedule_time(time);
+		_schedule.setSchedule_status(schedule.STATUS_NOT_SCHEDULED);
+		_schedule.setReference_id(_community.getId());
+		_schedule.setReference_date(TimeUtil.getDateString("IST", new Date().getTime()));
 		try {
 			ScheduleHelper.getInstance().add(_schedule);
 		} catch (ApplicationException e) {

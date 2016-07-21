@@ -427,6 +427,25 @@ public class TimeUtil {
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTimeInMillis();
 	}
+	public static Long getTimeFromDateString(String timeZone,long time,String timeHHMMSS) {
+		if (timeZone == null)
+			timeZone = "IST";
+		
+		String[] timeTokens = timeHHMMSS.split(":");
+		int hh = Integer.parseInt(timeTokens[0]);
+		int  mm = Integer.parseInt(timeTokens[1]);
+		int  ss = 0;
+		if (timeTokens.length > 2) {
+			ss = Integer.parseInt(timeTokens[2]);
+		}
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		cal.setTime(new Date(time));
+		cal.set(Calendar.HOUR_OF_DAY, hh);
+		cal.set(Calendar.MINUTE, mm);
+		cal.set(Calendar.SECOND, ss);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
+	}
 	
 	public static Long getTimeFromDateStringWithCurrentYear(String timeZone,String date,String timeHHMMSS) {
 		if (Util.isEmpty(date)) {
