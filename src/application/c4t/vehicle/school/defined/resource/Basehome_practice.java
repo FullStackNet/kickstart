@@ -9,10 +9,16 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
 
 /*
  ********** This is a generated class **********

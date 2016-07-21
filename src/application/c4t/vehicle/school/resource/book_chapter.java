@@ -1,7 +1,6 @@
 package application.c4t.vehicle.school.resource;
 
 import platform.util.Util;
-import application.c4t.vehicle.school.defined.resource.Basebook;
 import application.c4t.vehicle.school.defined.resource.Basebook_chapter;
 
 public class book_chapter extends Basebook_chapter {

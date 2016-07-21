@@ -18,7 +18,6 @@ import platform.resource.schedule;
 import platform.util.ApplicationConstants;
 import platform.util.Json;
 import platform.util.TimeUtil;
-import application.c4t.vehicle.school.helper.StudentHelper;
 import application.c4t.vehicle.school.resource.notice;
 
 public class MandiDailyReportScheduleTask extends ScheduleTask {
@@ -30,7 +29,7 @@ public class MandiDailyReportScheduleTask extends ScheduleTask {
 	
 	void sendEmail(c4t_object _community, String date) {
 			SendEmail resendMail = new SendEmail();
-			resendMail.setSubject("Daily Report for " + _community.getName() + date);
+			resendMail.setSubject("Daily Report for " + _community.getName()+" "+date);
 			resendMail.setTo(_community.getEmail_id());
 			resendMail.setType(ApplicationConstants.MAIL_TYPE_SEND_MANDI_DAILY_REPORT);
 			Map<String, String> map = new HashMap<String, String>();

@@ -1,18 +1,15 @@
 package platform.webservice.service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import platform.appliances.Appliance;
 import platform.appliances.ApplianceConstants;
-import platform.communication.HttpClient;
 import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.exception.ExceptionEnum;
 import platform.helper.ApplianceHelper;
 import platform.helper.Appliance_mapHelper;
-import platform.helper.C4t_objectHelper;
 import platform.helper.ControllerHelper;
 import platform.helper.UserHelper;
 import platform.helper.User_mapHelper;
@@ -20,15 +17,11 @@ import platform.manager.ApplicationManager;
 import platform.message.DeviceAction;
 import platform.message.DeviceConfiguration;
 import platform.resource.BaseResource;
-import platform.resource.MeterDataResult;
 import platform.resource.appliance;
-import platform.resource.c4t_object;
-import platform.resource.c4t_record;
 import platform.resource.controller;
 import platform.resource.user;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
-import platform.util.Json;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 import platform.webservice.WebServiceContants;

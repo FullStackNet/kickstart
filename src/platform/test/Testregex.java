@@ -1,7 +1,5 @@
 package platform.test;
 
-import com.hazelcast.core.Cluster;
-
 import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.helper.ClusterHelper;

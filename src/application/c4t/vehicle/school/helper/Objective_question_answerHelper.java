@@ -5,8 +5,6 @@ import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import application.c4t.vehicle.school.resource.objective_question_answer;
-import application.c4t.vehicle.school.resource.test_allocation;
-import application.c4t.vehicle.school.resource.test_allocation_student;
 
 
 public class Objective_question_answerHelper extends BaseHelper {

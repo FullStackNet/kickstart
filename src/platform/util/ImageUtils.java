@@ -7,11 +7,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import org.imgscalr.Scalr;
-
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.filters.Canvas;
 import net.coobird.thumbnailator.geometry.Positions;
+
+import org.imgscalr.Scalr;
 
 public class ImageUtils {
 	private static BufferedImage resizeImage(BufferedImage image, int width, int height) throws IOException {

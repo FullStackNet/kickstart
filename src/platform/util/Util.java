@@ -33,10 +33,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
-import com.eaio.uuid.UUID;
-
 import platform.log.ApplicationLogger;
 import platform.resource.c4t_object;
+
+import com.eaio.uuid.UUID;
 
 public class Util {
 	public static Long uniqueNumber = new Long(0); 

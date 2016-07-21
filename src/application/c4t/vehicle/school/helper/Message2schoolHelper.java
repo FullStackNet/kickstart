@@ -3,9 +3,6 @@ package application.c4t.vehicle.school.helper;
 import java.util.ArrayList;
 import java.util.Map;
 
-import application.c4t.vehicle.school.resource.daily_activity;
-import application.c4t.vehicle.school.resource.message2parent;
-import application.c4t.vehicle.school.resource.message2school;
 import platform.db.Expression;
 import platform.db.JoinField;
 import platform.db.REL_OP;
@@ -13,6 +10,9 @@ import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
+import application.c4t.vehicle.school.resource.daily_activity;
+import application.c4t.vehicle.school.resource.message2parent;
+import application.c4t.vehicle.school.resource.message2school;
 
 
 public class Message2schoolHelper extends BaseHelper {
