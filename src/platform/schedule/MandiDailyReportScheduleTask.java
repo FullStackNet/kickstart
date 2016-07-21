@@ -6,6 +6,7 @@ import java.util.Map;
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
+import platform.helper.C4t_objectHelper;
 import platform.helper.Mandi_auctionHelper;
 import platform.manager.ApplicationManager;
 import platform.message.SendEmail;
@@ -89,7 +90,7 @@ public class MandiDailyReportScheduleTask extends ScheduleTask {
 			String community_id = _schedule.getReference_id();
 			String reference_date = _schedule.getReference_date();
 			
-			c4t_object _c4t_object = (c4t_object)StudentHelper.getInstance().getById(community_id);
+			c4t_object _c4t_object = (c4t_object)C4t_objectHelper.getInstance().getById(community_id);
 			if (_c4t_object == null) {
 				System.out.println("Invalid community Id " + _c4t_object.getId() + " for schedule date "+ reference_date);
 				return;
