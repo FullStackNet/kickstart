@@ -90,8 +90,10 @@ public class MandiDailyReportScheduleTask extends ScheduleTask {
 			String reference_date = _schedule.getReference_date();
 			
 			c4t_object _c4t_object = (c4t_object)StudentHelper.getInstance().getById(community_id);
-			if (_c4t_object == null)
-					return;
+			if (_c4t_object == null) {
+				System.out.println("Invalid community Id " + _c4t_object.getId());
+				return;
+			}
 			sendEmail(_c4t_object,reference_date);
 	}
 
