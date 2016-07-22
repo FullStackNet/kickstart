@@ -50,7 +50,7 @@ public class MandiDailyReportScheduleTask extends ScheduleTask {
 			builder.append("<td>Bags </td>");
 			builder.append("<td>Rate </td>");
 			builder.append("<td>Weight </td>");	
-			builder.append("<td>Advance </td>");	
+			builder.append("<td>Weights </td>");	
 			builder.append("</tr>");
 			
 			
@@ -72,14 +72,11 @@ public class MandiDailyReportScheduleTask extends ScheduleTask {
 					builder.append("<td>-</td>");
 				}
 				if (_auction.getRemark() != null) {
-					builder.append("<td>"+_auction.getRemark()+"</td>");
+					builder.append("<td>"+_auction.getWeights()+"</td>");
 				} else {
 					builder.append("<td>-</td>");
 				}
-				builder.append("</tr>");	
-				builder.append("<tr>");
-				builder.append("<td colspan=\"6\">"+_auction.getWeights()+"</td>");
-				builder.append("</tr>");	
+				builder.append("</tr>");					
 			}
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_COMMUNITY_ID, _community.getId());
 			map.put(NotificationFactory.NOTIFICATION_DATA_PARAMETER_COMMUNITY_NAME, _community.getName());
