@@ -309,19 +309,35 @@ public class InviteHelper extends BaseHelper {
 					resendMail);
 		}
 		if (_invite.getMobile_no() != null) {
-			SendSMS smsMessage = new SendSMS();
-			smsMessage.setMobile_no(_invite.getMobile_no());
-			smsMessage.setType(ApplicationConstants.SMS_TYPE_INVITE_PARENT);
-			Map<String, String> smsMap = new HashMap<String, String>();
-			smsMap.put("STUDENT_NAME", _invite.getReference_name());
-			smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
-			smsMap.put("SCHOOL_NAME", _school.getBrand_name());
-			smsMap.put("BRAND_NAME", _school.getBrand_name());
-			smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
-			String params = Json.maptoString(smsMap);
-			smsMessage.setParams(params);
-			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
-					smsMessage);
+			if (school.SCHOOL_TYPE_COMPTATIVE_EXAM_COACHING.equals(_school.getType())) {
+				SendSMS smsMessage = new SendSMS();
+				smsMessage.setMobile_no(_invite.getMobile_no());
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_INVITE_STUDENT_COACHING_INSTITUTE);
+				Map<String, String> smsMap = new HashMap<String, String>();
+				smsMap.put("STUDENT_NAME", _invite.getReference_name());
+				smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
+				smsMap.put("SCHOOL_NAME", _school.getBrand_name());
+				smsMap.put("BRAND_NAME", _school.getBrand_name());
+				smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
+				String params = Json.maptoString(smsMap);
+				smsMessage.setParams(params);
+				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
+						smsMessage);
+			} else {
+				SendSMS smsMessage = new SendSMS();
+				smsMessage.setMobile_no(_invite.getMobile_no());
+				smsMessage.setType(ApplicationConstants.SMS_TYPE_INVITE_PARENT);
+				Map<String, String> smsMap = new HashMap<String, String>();
+				smsMap.put("STUDENT_NAME", _invite.getReference_name());
+				smsMap.put("ACTIVATION_TOKEN", _invite.getKey());
+				smsMap.put("SCHOOL_NAME", _school.getBrand_name());
+				smsMap.put("BRAND_NAME", _school.getBrand_name());
+				smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
+				String params = Json.maptoString(smsMap);
+				smsMessage.setParams(params);
+				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
+						smsMessage);
+			}
 		}
 	}
 }

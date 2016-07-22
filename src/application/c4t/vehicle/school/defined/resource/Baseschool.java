@@ -31,6 +31,7 @@ public abstract class Baseschool extends BaseResource {
 	private String app_branding = null;
 	private String brand_name = null;
 	private String short_name = null;
+	private String app_download_link = null;
 	private String address1 = null;
 	private String address2 = null;
 	private String address3 = null;
@@ -115,6 +116,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_APP_BRANDING = "app_branding";
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_SHORT_NAME = "short_name";
+	public static String FIELD_APP_DOWNLOAD_LINK = "app_download_link";
 	public static String FIELD_ADDRESS1 = "address1";
 	public static String FIELD_ADDRESS2 = "address2";
 	public static String FIELD_ADDRESS3 = "address3";
@@ -230,6 +232,10 @@ public abstract class Baseschool extends BaseResource {
 		Field short_nameField = new Field("short_name", "String");
 		short_nameField.setLength(32);
 		metaData.addField(short_nameField);
+
+		Field app_download_linkField = new Field("app_download_link", "String");
+		app_download_linkField.setLength(32);
+		metaData.addField(app_download_linkField);
 
 		Field address1Field = new Field("address1", "String");
 		address1Field.setLength(128);
@@ -602,6 +608,7 @@ public abstract class Baseschool extends BaseResource {
 		this.app_branding = obj.app_branding;
 		this.brand_name = obj.brand_name;
 		this.short_name = obj.short_name;
+		this.app_download_link = obj.app_download_link;
 		this.address1 = obj.address1;
 		this.address2 = obj.address2;
 		this.address3 = obj.address3;
@@ -820,6 +827,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("brand_name", brand_name);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(app_download_link != null)
+			map.put("app_download_link", app_download_link);
 		if(address1 != null)
 			map.put("address1", address1);
 		if(address2 != null)
@@ -994,6 +1003,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("brand_name", brand_name);
 		if(short_name != null)
 			map.put("short_name", short_name);
+		if(app_download_link != null)
+			map.put("app_download_link", app_download_link);
 		if(address1 != null)
 			map.put("address1", address1);
 		if(address2 != null)
@@ -1162,6 +1173,7 @@ public abstract class Baseschool extends BaseResource {
 		app_branding = (String) map.get("app_branding");
 		brand_name = (String) map.get("brand_name");
 		short_name = (String) map.get("short_name");
+		app_download_link = (String) map.get("app_download_link");
 		address1 = (String) map.get("address1");
 		address2 = (String) map.get("address2");
 		address3 = (String) map.get("address3");
@@ -1272,6 +1284,10 @@ public abstract class Baseschool extends BaseResource {
 		Object short_nameObj = map.get("short_name");
 		if(short_nameObj != null)
 			short_name = short_nameObj.toString();
+
+		Object app_download_linkObj = map.get("app_download_link");
+		if(app_download_linkObj != null)
+			app_download_link = app_download_linkObj.toString();
 
 		Object address1Obj = map.get("address1");
 		if(address1Obj != null)
@@ -1706,6 +1722,22 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetShort_name() {
 		this.short_name = null;
+	}
+
+	public String getApp_download_link() {
+		return app_download_link;
+	}
+
+	public String getApp_download_linkEx() {
+		return app_download_link != null ? app_download_link : "";
+	}
+
+	public void setApp_download_link(String app_download_link) {
+		this.app_download_link = app_download_link;
+	}
+
+	public void unSetApp_download_link() {
+		this.app_download_link = null;
 	}
 
 	public String getAddress1() {

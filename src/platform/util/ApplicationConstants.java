@@ -208,6 +208,7 @@ public class ApplicationConstants {
 	public static String MAIL_SUBJECT_INVITE_CUSTOMER_ADMIN = "Activate your customer admin account";
 	
 	public static String SMS_TYPE_INVITE_PARENT = "INVITE_PARENT";
+	public static String SMS_TYPE_INVITE_STUDENT_COACHING_INSTITUTE = "INVITE_STUDENT_COACHING_INSTITUTE";
 	public static String SMS_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";
 	public static String SMS_TYPE_INVITE_TEACHER = "INVITE_TEACHER";
 	public static String SMS_TYPE_COMMUNITY_INVITE = "COMMUNITY_INVITE";
