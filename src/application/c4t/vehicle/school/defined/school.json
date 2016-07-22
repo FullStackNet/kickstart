@@ -50,6 +50,12 @@
 				'length': 32,
 				'type':'String'
 			},
+			'app_download_link':
+			{
+				'name':'short_name',
+				'length': 32,
+				'type':'String'
+			},
 			'address1':
 			{
 				'name':'address1',

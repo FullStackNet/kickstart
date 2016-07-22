@@ -160,6 +160,7 @@ public class ApplicationConstants {
 	public static double STOPAGE_RADIUS_KM = 0.100;
 
 	public static String MAIL_TYPE_INVITE_PARENT = "INVITE_PARENT";
+	public static String MAIL_TYPE_INVITE_STUDENT_COACHING_INSTITUTE = "INVITE_STUDENT_COACHING_INSTITUTE";
 	public static String MAIL_TYPE_INVITE_TEACHER = "INVITE_TEACHER";
 	public static String MAIL_TYPE_FORGOT_PASSWORD = "FORGOT_PASSWORD";
 	public static String MAIL_TYPE_STOPAGE_REACHED = "STOPAGE_REACHED";
@@ -192,6 +193,7 @@ public class ApplicationConstants {
 	public static String MAIL_TYPE_COMMUNITY_INVITE = "COMMUNITY_INVITE";
 	
 	public static String MAIL_SUBJECT_INVITE_PARENT = "Activate connect2parent account";
+	public static String MAIL_SUBJECT_INVITE_STUDENT_COACHING_INSTITUTE = "Activate account for coaching institute";
 	public static String MAIL_SUBJECT_HOMEWORK = "Homework notification";
 	public static String MAIL_SUBJECT_HOME_PRACTICE = "Home practice notification";
 	public static String MAIL_SUBJECT_NOTICE = "Notice";
@@ -208,6 +210,7 @@ public class ApplicationConstants {
 	public static String MAIL_SUBJECT_INVITE_CUSTOMER_ADMIN = "Activate your customer admin account";
 	
 	public static String SMS_TYPE_INVITE_PARENT = "INVITE_PARENT";
+	public static String SMS_TYPE_INVITE_STUDENT_COACHING_INSTITUTE = "INVITE_STUDENT_COACHING_INSTITUTE";
 	public static String SMS_TYPE_INVITE_TO_JOIN_PARENT_CONNECT = "INVITE_TO_JOIN_PARENT_CONNECT";
 	public static String SMS_TYPE_INVITE_TEACHER = "INVITE_TEACHER";
 	public static String SMS_TYPE_COMMUNITY_INVITE = "COMMUNITY_INVITE";
