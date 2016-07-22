@@ -321,7 +321,6 @@ public class InviteHelper extends BaseHelper {
 				map.put("SCHOOL_NAME", _school.getBrand_name());
 				map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
 				map.put("CUSTOMER_ID",_invite.getCustomer_id());
-				map.put("APP_DOWNALOD_URL",_school.getApp_download_link());
 				map.put("BRAND_NAME",_school.getBrand_name());
 				
 				String params = Json.maptoString(map);
@@ -341,6 +340,7 @@ public class InviteHelper extends BaseHelper {
 				smsMap.put("SCHOOL_NAME", _school.getBrand_name());
 				smsMap.put("BRAND_NAME", _school.getBrand_name());
 				smsMap.put("CUSTOMER_ID",_invite.getCustomer_id());
+				smsMap.put("APP_DOWNALOD_URL",_school.getApp_download_link());
 				String params = Json.maptoString(smsMap);
 				smsMessage.setParams(params);
 				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_SMS_MANAGER, 
