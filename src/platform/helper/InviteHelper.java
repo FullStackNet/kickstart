@@ -290,23 +290,45 @@ public class InviteHelper extends BaseHelper {
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Invalid School Reference");
 		
 		if (_invite.getEmail_id() != null) {
-			SendEmail resendMail = new SendEmail();
-			resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_PARENT);
-			resendMail.setTo(_invite.getEmail_id());
-			resendMail.setType(ApplicationConstants.MAIL_TYPE_INVITE_PARENT);
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("NAME", _invite.getName());
-			map.put("STUDENT_NAME", _invite.getReference_name());
-			map.put("ACTIVATION_TOKEN", _invite.getKey());
-			map.put("SCHOOL_NAME", _school.getBrand_name());
-			map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
-			map.put("CUSTOMER_ID",_invite.getCustomer_id());
-			map.put("BRAND_NAME",_school.getBrand_name());
-			
-			String params = Json.maptoString(map);
-			resendMail.setParams(params);
-			ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
-					resendMail);
+			if (school.SCHOOL_TYPE_COMPTATIVE_EXAM_COACHING.equals(_school.getType())) {
+				SendEmail resendMail = new SendEmail();
+				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_STUDENT_COACHING_INSTITUTE);
+				resendMail.setTo(_invite.getEmail_id());
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_INVITE_STUDENT_COACHING_INSTITUTE);
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("NAME", _invite.getName());
+				map.put("STUDENT_NAME", _invite.getReference_name());
+				map.put("ACTIVATION_TOKEN", _invite.getKey());
+				map.put("SCHOOL_NAME", _school.getBrand_name());
+				map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+				map.put("CUSTOMER_ID",_invite.getCustomer_id());
+				map.put("BRAND_NAME",_school.getBrand_name());
+				
+				String params = Json.maptoString(map);
+				resendMail.setParams(params);
+				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+						resendMail);
+				
+			} else {
+				SendEmail resendMail = new SendEmail();
+				resendMail.setSubject(ApplicationConstants.MAIL_SUBJECT_INVITE_PARENT);
+				resendMail.setTo(_invite.getEmail_id());
+				resendMail.setType(ApplicationConstants.MAIL_TYPE_INVITE_PARENT);
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("NAME", _invite.getName());
+				map.put("STUDENT_NAME", _invite.getReference_name());
+				map.put("ACTIVATION_TOKEN", _invite.getKey());
+				map.put("SCHOOL_NAME", _school.getBrand_name());
+				map.put("ACTIVATE_URL", "ui/confirm_invite?action=CONFIRM&id="+_invite.getId()+"&key="+_invite.getKey());
+				map.put("CUSTOMER_ID",_invite.getCustomer_id());
+				map.put("APP_DOWNALOD_URL",_school.getApp_download_link());
+				map.put("BRAND_NAME",_school.getBrand_name());
+				
+				String params = Json.maptoString(map);
+				resendMail.setParams(params);
+				ApplicationManager.getInstance().sendMessage(ApplicationConstants.APPLICATION_NAME_EMAIL_MANAGER, 
+						resendMail);
+				}
 		}
 		if (_invite.getMobile_no() != null) {
 			if (school.SCHOOL_TYPE_COMPTATIVE_EXAM_COACHING.equals(_school.getType())) {
