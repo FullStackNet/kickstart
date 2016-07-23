@@ -113,6 +113,9 @@ public abstract class BaseHTMLComponent {
 			return buffer.toString();
 		}
 		if ((getTag() != null))
+			if ("textarea".equals(getTag())) {
+				buffer.append(">");
+			} else 
 			if ("input".equals(getTag())) {
 				buffer.append(">");
 			} else {
@@ -135,7 +138,7 @@ public abstract class BaseHTMLComponent {
 		
 		if (getTag() != null) {
 			if ("textarea".equals(getTag())) {
-				buffer.append("</"+getTag());
+				buffer.append("</"+getTag()+">\n");
 			} else {
 				buffer.append(space+"</"+getTag());
 				buffer.append("> \n");
