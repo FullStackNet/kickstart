@@ -134,8 +134,12 @@ public abstract class BaseHTMLComponent {
 		}
 		
 		if (getTag() != null) {
-			buffer.append(space+"</"+getTag());
-			buffer.append("> \n");
+			if ("textarea".equals(getTag())) {
+				buffer.append("</"+getTag());
+			} else {
+				buffer.append(space+"</"+getTag());
+				buffer.append("> \n");
+			}
 		}
 		return buffer.toString();
 	}
