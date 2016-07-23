@@ -43,7 +43,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	private Long creation_time = null;
 	private Long last_update_time = null;
 	private Double amount = null;
-	private Double net_amount = null;
+	private Double final_amount = null;
 	private Double mandi_fee_prct = null;
 	private Double mandi_fee_amount = null;
 	private Double commission_prct = null;
@@ -75,7 +75,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_AMOUNT = "amount";
-	public static String FIELD_NET_AMOUNT = "net_amount";
+	public static String FIELD_FINAL_AMOUNT = "final_amount";
 	public static String FIELD_MANDI_FEE_PRCT = "mandi_fee_prct";
 	public static String FIELD_MANDI_FEE_AMOUNT = "mandi_fee_amount";
 	public static String FIELD_COMMISSION_PRCT = "commission_prct";
@@ -177,8 +177,8 @@ public abstract class Basemandi_auction extends BaseResource {
 		Field amountField = new Field("amount", "double");
 		metaData.addField(amountField);
 
-		Field net_amountField = new Field("net_amount", "double");
-		metaData.addField(net_amountField);
+		Field final_amountField = new Field("final_amount", "double");
+		metaData.addField(final_amountField);
 
 		Field mandi_fee_prctField = new Field("mandi_fee_prct", "double");
 		metaData.addField(mandi_fee_prctField);
@@ -232,7 +232,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.creation_time = obj.creation_time;
 		this.last_update_time = obj.last_update_time;
 		this.amount = obj.amount;
-		this.net_amount = obj.net_amount;
+		this.final_amount = obj.final_amount;
 		this.mandi_fee_prct = obj.mandi_fee_prct;
 		this.mandi_fee_amount = obj.mandi_fee_amount;
 		this.commission_prct = obj.commission_prct;
@@ -298,8 +298,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("last_update_time", last_update_time);
 		if(amount != null)
 			map.put("amount", amount);
-		if(net_amount != null)
-			map.put("net_amount", net_amount);
+		if(final_amount != null)
+			map.put("final_amount", final_amount);
 		if(mandi_fee_prct != null)
 			map.put("mandi_fee_prct", mandi_fee_prct);
 		if(mandi_fee_amount != null)
@@ -368,8 +368,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("last_update_time", last_update_time);
 		if(amount != null)
 			map.put("amount", amount);
-		if(net_amount != null)
-			map.put("net_amount", net_amount);
+		if(final_amount != null)
+			map.put("final_amount", final_amount);
 		if(mandi_fee_prct != null)
 			map.put("mandi_fee_prct", mandi_fee_prct);
 		if(mandi_fee_amount != null)
@@ -416,7 +416,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		creation_time = (Long) map.get("creation_time");
 		last_update_time = (Long) map.get("last_update_time");
 		amount = (Double) map.get("amount");
-		net_amount = (Double) map.get("net_amount");
+		final_amount = (Double) map.get("final_amount");
 		mandi_fee_prct = (Double) map.get("mandi_fee_prct");
 		mandi_fee_amount = (Double) map.get("mandi_fee_amount");
 		commission_prct = (Double) map.get("commission_prct");
@@ -523,9 +523,9 @@ public abstract class Basemandi_auction extends BaseResource {
 		if(amountObj != null)
 			amount = new Double(amountObj.toString());
 
-		Object net_amountObj = map.get("net_amount");
-		if(net_amountObj != null)
-			net_amount = new Double(net_amountObj.toString());
+		Object final_amountObj = map.get("final_amount");
+		if(final_amountObj != null)
+			final_amount = new Double(final_amountObj.toString());
 
 		Object mandi_fee_prctObj = map.get("mandi_fee_prct");
 		if(mandi_fee_prctObj != null)
@@ -985,24 +985,24 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.amount = null;
 	}
 
-	public Double getNet_amount() {
-		return net_amount;
+	public Double getFinal_amount() {
+		return final_amount;
 	}
 
-	public double getNet_amountEx() {
-		return net_amount != null ? net_amount : 0;
+	public double getFinal_amountEx() {
+		return final_amount != null ? final_amount : 0;
 	}
 
-	public void setNet_amount(double net_amount) {
-		this.net_amount = net_amount;
+	public void setFinal_amount(double final_amount) {
+		this.final_amount = final_amount;
 	}
 
-	public void setNet_amount(Double net_amount) {
-		this.net_amount = net_amount;
+	public void setFinal_amount(Double final_amount) {
+		this.final_amount = final_amount;
 	}
 
-	public void unSetNet_amount() {
-		this.net_amount = null;
+	public void unSetFinal_amount() {
+		this.final_amount = null;
 	}
 
 	public Double getMandi_fee_prct() {

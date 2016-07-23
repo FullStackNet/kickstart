@@ -117,7 +117,7 @@
 			{
 				'type':'double'
 			},
-			'net_amount':
+			'final_amount':
 			{
 				'type':'double'
 			},
