@@ -113,6 +113,30 @@
 			{
 				'type':'long'
 			},
+			'amount':
+			{
+				'type':'double'
+			},
+			'net_amount':
+			{
+				'type':'double'
+			},
+			'mandi_fee_prct':
+			{
+				'type':'double'
+			},
+			'mandi_fee_amount':
+			{
+				'type':'double'
+			},
+			'commission_prct':
+			{
+				'type':'double'
+			},
+			'commission_amount':
+			{
+				'type':'double'
+			},
 			'weights':
 			{
 				'type': 'String'
