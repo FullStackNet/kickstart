@@ -19,6 +19,10 @@
 			'order' : {
 				'type':'long'
 			 },
+			 'free_access' : {
+				'type':'String',
+				'length': 1
+			 },
 			'summary':
 			{
 				'length': 32,

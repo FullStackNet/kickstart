@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -26,6 +22,7 @@ public abstract class Basebook_chapter extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private Long order = null;
+	private String free_access = null;
 	private String summary = null;
 	private String book_id = null;
 	private String customer_id = null;
@@ -35,6 +32,7 @@ public abstract class Basebook_chapter extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_ORDER = "order";
+	public static String FIELD_FREE_ACCESS = "free_access";
 	public static String FIELD_SUMMARY = "summary";
 	public static String FIELD_BOOK_ID = "book_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
@@ -58,6 +56,10 @@ public abstract class Basebook_chapter extends BaseResource {
 
 		Field orderField = new Field("order", "long");
 		metaData.addField(orderField);
+
+		Field free_accessField = new Field("free_access", "String");
+		free_accessField.setLength(1);
+		metaData.addField(free_accessField);
 
 		Field summaryField = new Field("summary", "String");
 		summaryField.setLength(32);
@@ -92,6 +94,7 @@ public abstract class Basebook_chapter extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.order = obj.order;
+		this.free_access = obj.free_access;
 		this.summary = obj.summary;
 		this.book_id = obj.book_id;
 		this.customer_id = obj.customer_id;
@@ -111,6 +114,8 @@ public abstract class Basebook_chapter extends BaseResource {
 			map.put("name", name);
 		if(order != null)
 			map.put("order", order);
+		if(free_access != null)
+			map.put("free_access", free_access);
 		if(summary != null)
 			map.put("summary", summary);
 		if(book_id != null)
@@ -132,6 +137,8 @@ public abstract class Basebook_chapter extends BaseResource {
 			map.put("name", name);
 		if(order != null)
 			map.put("order", order);
+		if(free_access != null)
+			map.put("free_access", free_access);
 		if(summary != null)
 			map.put("summary", summary);
 		if(book_id != null)
@@ -155,6 +162,7 @@ public abstract class Basebook_chapter extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		order = (Long) map.get("order");
+		free_access = (String) map.get("free_access");
 		summary = (String) map.get("summary");
 		book_id = (String) map.get("book_id");
 		customer_id = (String) map.get("customer_id");
@@ -175,6 +183,10 @@ public abstract class Basebook_chapter extends BaseResource {
 		Object orderObj = map.get("order");
 		if(orderObj != null)
 			order = new Long(orderObj.toString());
+
+		Object free_accessObj = map.get("free_access");
+		if(free_accessObj != null)
+			free_access = free_accessObj.toString();
 
 		Object summaryObj = map.get("summary");
 		if(summaryObj != null)
@@ -257,6 +269,22 @@ public abstract class Basebook_chapter extends BaseResource {
 
 	public void unSetOrder() {
 		this.order = null;
+	}
+
+	public String getFree_access() {
+		return free_access;
+	}
+
+	public String getFree_accessEx() {
+		return free_access != null ? free_access : "";
+	}
+
+	public void setFree_access(String free_access) {
+		this.free_access = free_access;
+	}
+
+	public void unSetFree_access() {
+		this.free_access = null;
 	}
 
 	public String getSummary() {
