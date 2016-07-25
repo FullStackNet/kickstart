@@ -93,6 +93,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'patti_status':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'entry_date':
 			{
 				'length': 128,
