@@ -282,6 +282,12 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'feature_book':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
 			'feature_timetable':
 			{
 				'length': 1,
