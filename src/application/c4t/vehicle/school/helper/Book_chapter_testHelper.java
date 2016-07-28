@@ -23,7 +23,7 @@ public class Book_chapter_testHelper extends BaseHelper {
 	}
 	
 	public BaseResource[] getTestByChapterId(String chapterId) {
-		Expression e = new Expression("chapterId", REL_OP.EQ, chapterId);
+		Expression e = new Expression(book_chapter_test.FIELD_CHAPTER_ID, REL_OP.EQ, chapterId);
 		return getByExpression(e, new String[]{"order"});
 	}
 }
