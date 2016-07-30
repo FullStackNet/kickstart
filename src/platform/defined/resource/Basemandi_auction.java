@@ -49,6 +49,8 @@ public abstract class Basemandi_auction extends BaseResource {
 	private Double mandi_fee_amount = null;
 	private Double commission_prct = null;
 	private Double commission_amount = null;
+	private Double extra_charge_per_bag = null;
+	private Double extra_charge_amount = null;
 	private String weights = null;
 	private Map<String, Object> extra_data = null;
 
@@ -82,6 +84,8 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_MANDI_FEE_AMOUNT = "mandi_fee_amount";
 	public static String FIELD_COMMISSION_PRCT = "commission_prct";
 	public static String FIELD_COMMISSION_AMOUNT = "commission_amount";
+	public static String FIELD_EXTRA_CHARGE_PER_BAG = "extra_charge_per_bag";
+	public static String FIELD_EXTRA_CHARGE_AMOUNT = "extra_charge_amount";
 	public static String FIELD_WEIGHTS = "weights";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -198,6 +202,12 @@ public abstract class Basemandi_auction extends BaseResource {
 		Field commission_amountField = new Field("commission_amount", "double");
 		metaData.addField(commission_amountField);
 
+		Field extra_charge_per_bagField = new Field("extra_charge_per_bag", "double");
+		metaData.addField(extra_charge_per_bagField);
+
+		Field extra_charge_amountField = new Field("extra_charge_amount", "double");
+		metaData.addField(extra_charge_amountField);
+
 		Field weightsField = new Field("weights", "String");
 		metaData.addField(weightsField);
 
@@ -244,6 +254,8 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.mandi_fee_amount = obj.mandi_fee_amount;
 		this.commission_prct = obj.commission_prct;
 		this.commission_amount = obj.commission_amount;
+		this.extra_charge_per_bag = obj.extra_charge_per_bag;
+		this.extra_charge_amount = obj.extra_charge_amount;
 		this.weights = obj.weights;
 		this.extra_data = obj.extra_data;
 	}
@@ -317,6 +329,10 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("commission_prct", commission_prct);
 		if(commission_amount != null)
 			map.put("commission_amount", commission_amount);
+		if(extra_charge_per_bag != null)
+			map.put("extra_charge_per_bag", extra_charge_per_bag);
+		if(extra_charge_amount != null)
+			map.put("extra_charge_amount", extra_charge_amount);
 		if(weights != null)
 			map.put("weights", weights);
 		if(extra_data != null)
@@ -389,6 +405,10 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("commission_prct", commission_prct);
 		if(commission_amount != null)
 			map.put("commission_amount", commission_amount);
+		if(extra_charge_per_bag != null)
+			map.put("extra_charge_per_bag", extra_charge_per_bag);
+		if(extra_charge_amount != null)
+			map.put("extra_charge_amount", extra_charge_amount);
 		if(weights != null)
 			map.put("weights", weights);
 		if(extra_data != null)
@@ -433,6 +453,8 @@ public abstract class Basemandi_auction extends BaseResource {
 		mandi_fee_amount = (Double) map.get("mandi_fee_amount");
 		commission_prct = (Double) map.get("commission_prct");
 		commission_amount = (Double) map.get("commission_amount");
+		extra_charge_per_bag = (Double) map.get("extra_charge_per_bag");
+		extra_charge_amount = (Double) map.get("extra_charge_amount");
 		weights = (String) map.get("weights");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -558,6 +580,14 @@ public abstract class Basemandi_auction extends BaseResource {
 		Object commission_amountObj = map.get("commission_amount");
 		if(commission_amountObj != null)
 			commission_amount = new Double(commission_amountObj.toString());
+
+		Object extra_charge_per_bagObj = map.get("extra_charge_per_bag");
+		if(extra_charge_per_bagObj != null)
+			extra_charge_per_bag = new Double(extra_charge_per_bagObj.toString());
+
+		Object extra_charge_amountObj = map.get("extra_charge_amount");
+		if(extra_charge_amountObj != null)
+			extra_charge_amount = new Double(extra_charge_amountObj.toString());
 
 		Object weightsObj = map.get("weights");
 		if(weightsObj != null)
@@ -1115,6 +1145,46 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetCommission_amount() {
 		this.commission_amount = null;
+	}
+
+	public Double getExtra_charge_per_bag() {
+		return extra_charge_per_bag;
+	}
+
+	public double getExtra_charge_per_bagEx() {
+		return extra_charge_per_bag != null ? extra_charge_per_bag : 0;
+	}
+
+	public void setExtra_charge_per_bag(double extra_charge_per_bag) {
+		this.extra_charge_per_bag = extra_charge_per_bag;
+	}
+
+	public void setExtra_charge_per_bag(Double extra_charge_per_bag) {
+		this.extra_charge_per_bag = extra_charge_per_bag;
+	}
+
+	public void unSetExtra_charge_per_bag() {
+		this.extra_charge_per_bag = null;
+	}
+
+	public Double getExtra_charge_amount() {
+		return extra_charge_amount;
+	}
+
+	public double getExtra_charge_amountEx() {
+		return extra_charge_amount != null ? extra_charge_amount : 0;
+	}
+
+	public void setExtra_charge_amount(double extra_charge_amount) {
+		this.extra_charge_amount = extra_charge_amount;
+	}
+
+	public void setExtra_charge_amount(Double extra_charge_amount) {
+		this.extra_charge_amount = extra_charge_amount;
+	}
+
+	public void unSetExtra_charge_amount() {
+		this.extra_charge_amount = null;
 	}
 
 	public String getWeights() {
