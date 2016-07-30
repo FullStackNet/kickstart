@@ -1,0 +1,59 @@
+{
+	"book_chapter_test" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'chapter_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'chapter_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'test_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'test_code':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'test_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'order' : {
+				'type':'long'
+			 },
+			'book_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}			
+		}
+	}
+}
