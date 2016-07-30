@@ -83,6 +83,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'deleted':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'party':
 			{
 				'length': 128,
