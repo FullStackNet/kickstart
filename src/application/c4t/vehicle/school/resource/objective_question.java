@@ -10,6 +10,14 @@ public class objective_question extends Baseobjective_question {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	public static String QUESTION_TYPE_OBJECTIVE = "OBJECTIVE";
+	public static String QUESTION_TYPE_SUBJECTIVE = "SUBJECTIVE";
+	
+	public final static String[] QUESTION_TYPE_ENUM = new String[] {
+		QUESTION_TYPE_OBJECTIVE,
+		QUESTION_TYPE_SUBJECTIVE
+	};
+	
 	public objective_question() {
 		this.setId(Util.getUniqueId());
 	}
