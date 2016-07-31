@@ -21,6 +21,18 @@
 				'length': 32,
 				'type':'String'
 			},
+			'question_type':
+			{
+				'length': 32,
+				'type':'String',
+				'remark' : "Objective/Subjective"
+			},
+			'photo_upload':
+			{
+				'length': 1,
+				'type':'String',
+				'remark' : "Y/N"
+			},
 			'description_hindi':
 			{
 				'length': 32,

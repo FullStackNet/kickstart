@@ -22,6 +22,8 @@ public abstract class Baseobjective_question extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String description = null;
+	private String question_type = null;
+	private String photo_upload = null;
 	private String description_hindi = null;
 	private String question = null;
 	private String question_hindi = null;
@@ -58,6 +60,8 @@ public abstract class Baseobjective_question extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_DESCRIPTION = "description";
+	public static String FIELD_QUESTION_TYPE = "question_type";
+	public static String FIELD_PHOTO_UPLOAD = "photo_upload";
 	public static String FIELD_DESCRIPTION_HINDI = "description_hindi";
 	public static String FIELD_QUESTION = "question";
 	public static String FIELD_QUESTION_HINDI = "question_hindi";
@@ -109,6 +113,14 @@ public abstract class Baseobjective_question extends BaseResource {
 		Field descriptionField = new Field("description", "String");
 		descriptionField.setLength(32);
 		metaData.addField(descriptionField);
+
+		Field question_typeField = new Field("question_type", "String");
+		question_typeField.setLength(32);
+		metaData.addField(question_typeField);
+
+		Field photo_uploadField = new Field("photo_upload", "String");
+		photo_uploadField.setLength(1);
+		metaData.addField(photo_uploadField);
 
 		Field description_hindiField = new Field("description_hindi", "String");
 		description_hindiField.setLength(32);
@@ -253,6 +265,8 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.description = obj.description;
+		this.question_type = obj.question_type;
+		this.photo_upload = obj.photo_upload;
 		this.description_hindi = obj.description_hindi;
 		this.question = obj.question;
 		this.question_hindi = obj.question_hindi;
@@ -314,6 +328,10 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("name", name);
 		if(description != null)
 			map.put("description", description);
+		if(question_type != null)
+			map.put("question_type", question_type);
+		if(photo_upload != null)
+			map.put("photo_upload", photo_upload);
 		if(description_hindi != null)
 			map.put("description_hindi", description_hindi);
 		if(question != null)
@@ -392,6 +410,10 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("name", name);
 		if(description != null)
 			map.put("description", description);
+		if(question_type != null)
+			map.put("question_type", question_type);
+		if(photo_upload != null)
+			map.put("photo_upload", photo_upload);
 		if(description_hindi != null)
 			map.put("description_hindi", description_hindi);
 		if(question != null)
@@ -469,6 +491,8 @@ public abstract class Baseobjective_question extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		description = (String) map.get("description");
+		question_type = (String) map.get("question_type");
+		photo_upload = (String) map.get("photo_upload");
 		description_hindi = (String) map.get("description_hindi");
 		question = (String) map.get("question");
 		question_hindi = (String) map.get("question_hindi");
@@ -516,6 +540,14 @@ public abstract class Baseobjective_question extends BaseResource {
 		Object descriptionObj = map.get("description");
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
+
+		Object question_typeObj = map.get("question_type");
+		if(question_typeObj != null)
+			question_type = question_typeObj.toString();
+
+		Object photo_uploadObj = map.get("photo_upload");
+		if(photo_uploadObj != null)
+			photo_upload = photo_uploadObj.toString();
 
 		Object description_hindiObj = map.get("description_hindi");
 		if(description_hindiObj != null)
@@ -702,6 +734,38 @@ public abstract class Baseobjective_question extends BaseResource {
 
 	public void unSetDescription() {
 		this.description = null;
+	}
+
+	public String getQuestion_type() {
+		return question_type;
+	}
+
+	public String getQuestion_typeEx() {
+		return question_type != null ? question_type : "";
+	}
+
+	public void setQuestion_type(String question_type) {
+		this.question_type = question_type;
+	}
+
+	public void unSetQuestion_type() {
+		this.question_type = null;
+	}
+
+	public String getPhoto_upload() {
+		return photo_upload;
+	}
+
+	public String getPhoto_uploadEx() {
+		return photo_upload != null ? photo_upload : "";
+	}
+
+	public void setPhoto_upload(String photo_upload) {
+		this.photo_upload = photo_upload;
+	}
+
+	public void unSetPhoto_upload() {
+		this.photo_upload = null;
 	}
 
 	public String getDescription_hindi() {
