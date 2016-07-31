@@ -54,6 +54,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String result_date_s = null;
 	private String result_time_s = null;
 	private String customer_id = null;
+	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -91,6 +92,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_RESULT_DATE_S = "result_date_s";
 	public static String FIELD_RESULT_TIME_S = "result_time_s";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -228,6 +230,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -276,6 +281,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.result_date_s = obj.result_date_s;
 		this.result_time_s = obj.result_time_s;
 		this.customer_id = obj.customer_id;
+		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -355,6 +361,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("result_time_s", result_time_s);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -432,6 +440,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("result_time_s", result_time_s);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -479,6 +489,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		result_date_s = (String) map.get("result_date_s");
 		result_time_s = (String) map.get("result_time_s");
 		customer_id = (String) map.get("customer_id");
+		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -623,6 +634,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1197,6 +1212,15 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public void unSetCustomer_id() {
 		this.customer_id = null;
 	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

@@ -38,6 +38,9 @@
 			'negative_mark':
 			{
 				'type':'long'
+			},
+			'creation_time': {
+				'type': 'timestamp'
 			}
 		}
 	}
