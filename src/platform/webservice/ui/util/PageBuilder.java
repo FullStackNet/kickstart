@@ -75,10 +75,11 @@ public class PageBuilder {
 			cssFileList.add(new CSS("jquery.mobile-1.4.0.min.css", "http://code.jquery.com/mobile/1.4.0/"));
 			jsFileList.add(new JS("jquery-1.11.3.min.js", "/ui/js"));
 			jsFileList.add(new JS("jquery.mobile-1.4.0.min.js", "http://code.jquery.com/mobile/1.4.0"));
+			jsFileList.add(new JS("bootstrap.min.js", "/ui/js"));
 			jsFileList.add(new JS("function.js", "/ui/js"));
 			jsFileList.add(new JS("DataHandler.js", "/ui/js"));
 			jsFileList.add(new JS("json.js", "/ui/js"));
-			jsFileList.add(new JS("bootstrap.min.js", "/ui/js"));
+			jsFileList.add(new JS("base64.js", "/ui/js"));
 		} else {
 			cssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
 			cssFileList.add(new CSS("bootstrap-theme.min.css", "/ui/css"));
