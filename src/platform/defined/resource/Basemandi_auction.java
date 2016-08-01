@@ -43,6 +43,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	private String patti_status = null;
 	private String entry_date = null;
 	private String community_id = null;
+	private String backup_id = null;
 	private Long creation_time = null;
 	private Long last_update_time = null;
 	private Double amount = null;
@@ -80,6 +81,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_PATTI_STATUS = "patti_status";
 	public static String FIELD_ENTRY_DATE = "entry_date";
 	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_BACKUP_ID = "backup_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_AMOUNT = "amount";
@@ -188,6 +190,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		community_idField.setLength(128);
 		metaData.addField(community_idField);
 
+		Field backup_idField = new Field("backup_id", "String");
+		backup_idField.setLength(128);
+		metaData.addField(backup_idField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		creation_timeField.setRequired(true);
 		creation_timeField.setDefaultValue("CURRENT_TIMESTAMP");
@@ -260,6 +266,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.patti_status = obj.patti_status;
 		this.entry_date = obj.entry_date;
 		this.community_id = obj.community_id;
+		this.backup_id = obj.backup_id;
 		this.creation_time = obj.creation_time;
 		this.last_update_time = obj.last_update_time;
 		this.amount = obj.amount;
@@ -331,6 +338,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("entry_date", entry_date);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(backup_id != null)
+			map.put("backup_id", backup_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(last_update_time != null)
@@ -411,6 +420,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("entry_date", entry_date);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(backup_id != null)
+			map.put("backup_id", backup_id);
 		if(validateCreation_time(add))
 			map.put("creation_time", creation_time);
 		if(last_update_time != null)
@@ -469,6 +480,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		patti_status = (String) map.get("patti_status");
 		entry_date = (String) map.get("entry_date");
 		community_id = (String) map.get("community_id");
+		backup_id = (String) map.get("backup_id");
 		creation_time = (Long) map.get("creation_time");
 		last_update_time = (Long) map.get("last_update_time");
 		amount = (Double) map.get("amount");
@@ -580,6 +592,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Object community_idObj = map.get("community_id");
 		if(community_idObj != null)
 			community_id = community_idObj.toString();
+
+		Object backup_idObj = map.get("backup_id");
+		if(backup_idObj != null)
+			backup_id = backup_idObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -1054,6 +1070,22 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetCommunity_id() {
 		this.community_id = null;
+	}
+
+	public String getBackup_id() {
+		return backup_id;
+	}
+
+	public String getBackup_idEx() {
+		return backup_id != null ? backup_id : "";
+	}
+
+	public void setBackup_id(String backup_id) {
+		this.backup_id = backup_id;
+	}
+
+	public void unSetBackup_id() {
+		this.backup_id = null;
 	}
 
 	public Long getCreation_time() {
