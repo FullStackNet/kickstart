@@ -38,6 +38,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	private String update_status = null;
 	private String deleted = null;
 	private String backup = null;
+	private String backup_patti = null;
 	private String backup_sent = null;
 	private String party = null;
 	private String bill_status = null;
@@ -77,6 +78,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_UPDATE_STATUS = "update_status";
 	public static String FIELD_DELETED = "deleted";
 	public static String FIELD_BACKUP = "backup";
+	public static String FIELD_BACKUP_PATTI = "backup_patti";
 	public static String FIELD_BACKUP_SENT = "backup_sent";
 	public static String FIELD_PARTY = "party";
 	public static String FIELD_BILL_STATUS = "bill_status";
@@ -171,6 +173,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Field backupField = new Field("backup", "String");
 		backupField.setLength(128);
 		metaData.addField(backupField);
+
+		Field backup_pattiField = new Field("backup_patti", "String");
+		backup_pattiField.setLength(128);
+		metaData.addField(backup_pattiField);
 
 		Field backup_sentField = new Field("backup_sent", "String");
 		backup_sentField.setLength(128);
@@ -267,6 +273,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.update_status = obj.update_status;
 		this.deleted = obj.deleted;
 		this.backup = obj.backup;
+		this.backup_patti = obj.backup_patti;
 		this.backup_sent = obj.backup_sent;
 		this.party = obj.party;
 		this.bill_status = obj.bill_status;
@@ -335,6 +342,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("deleted", deleted);
 		if(backup != null)
 			map.put("backup", backup);
+		if(backup_patti != null)
+			map.put("backup_patti", backup_patti);
 		if(backup_sent != null)
 			map.put("backup_sent", backup_sent);
 		if(party != null)
@@ -419,6 +428,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("deleted", deleted);
 		if(backup != null)
 			map.put("backup", backup);
+		if(backup_patti != null)
+			map.put("backup_patti", backup_patti);
 		if(backup_sent != null)
 			map.put("backup_sent", backup_sent);
 		if(party != null)
@@ -486,6 +497,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		update_status = (String) map.get("update_status");
 		deleted = (String) map.get("deleted");
 		backup = (String) map.get("backup");
+		backup_patti = (String) map.get("backup_patti");
 		backup_sent = (String) map.get("backup_sent");
 		party = (String) map.get("party");
 		bill_status = (String) map.get("bill_status");
@@ -584,6 +596,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Object backupObj = map.get("backup");
 		if(backupObj != null)
 			backup = backupObj.toString();
+
+		Object backup_pattiObj = map.get("backup_patti");
+		if(backup_pattiObj != null)
+			backup_patti = backup_pattiObj.toString();
 
 		Object backup_sentObj = map.get("backup_sent");
 		if(backup_sentObj != null)
@@ -1006,6 +1022,22 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetBackup() {
 		this.backup = null;
+	}
+
+	public String getBackup_patti() {
+		return backup_patti;
+	}
+
+	public String getBackup_pattiEx() {
+		return backup_patti != null ? backup_patti : "";
+	}
+
+	public void setBackup_patti(String backup_patti) {
+		this.backup_patti = backup_patti;
+	}
+
+	public void unSetBackup_patti() {
+		this.backup_patti = null;
 	}
 
 	public String getBackup_sent() {
