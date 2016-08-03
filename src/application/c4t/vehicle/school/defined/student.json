@@ -22,6 +22,11 @@
 				'length': 32,
 				'type':'String'
 			},
+			'emrgency_no':
+			{
+				'length': 32,
+				'type':'String'
+			},
 			'school_id':
 			{
 				'name':'school_id',
@@ -42,6 +47,12 @@
 				'index' : true
 			},
 			'batch_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'emergency_no':
 			{
 				'length': 128,
 				'type':'String',
