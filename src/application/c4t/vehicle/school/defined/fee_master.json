@@ -39,6 +39,16 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'batch_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'batch_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
 			'total_fees':
 			{
 				'type': 'double'

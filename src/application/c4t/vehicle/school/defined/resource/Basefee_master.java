@@ -25,6 +25,8 @@ public abstract class Basefee_master extends BaseResource {
 	private String customer_id = null;
 	private String class_name = null;
 	private String course_id = null;
+	private String batch_id = null;
+	private String batch_name = null;
 	private Double total_fees = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -35,6 +37,8 @@ public abstract class Basefee_master extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_COURSE_ID = "course_id";
+	public static String FIELD_BATCH_ID = "batch_id";
+	public static String FIELD_BATCH_NAME = "batch_name";
 	public static String FIELD_TOTAL_FEES = "total_fees";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -73,6 +77,14 @@ public abstract class Basefee_master extends BaseResource {
 		course_idField.setLength(512);
 		metaData.addField(course_idField);
 
+		Field batch_idField = new Field("batch_id", "String");
+		batch_idField.setLength(512);
+		metaData.addField(batch_idField);
+
+		Field batch_nameField = new Field("batch_name", "String");
+		batch_nameField.setLength(512);
+		metaData.addField(batch_nameField);
+
 		Field total_feesField = new Field("total_fees", "double");
 		metaData.addField(total_feesField);
 
@@ -98,6 +110,8 @@ public abstract class Basefee_master extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.class_name = obj.class_name;
 		this.course_id = obj.course_id;
+		this.batch_id = obj.batch_id;
+		this.batch_name = obj.batch_name;
 		this.total_fees = obj.total_fees;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -121,6 +135,10 @@ public abstract class Basefee_master extends BaseResource {
 			map.put("class_name", class_name);
 		if(course_id != null)
 			map.put("course_id", course_id);
+		if(batch_id != null)
+			map.put("batch_id", batch_id);
+		if(batch_name != null)
+			map.put("batch_name", batch_name);
 		if(total_fees != null)
 			map.put("total_fees", total_fees);
 		if(creation_time != null)
@@ -144,6 +162,10 @@ public abstract class Basefee_master extends BaseResource {
 			map.put("class_name", class_name);
 		if(course_id != null)
 			map.put("course_id", course_id);
+		if(batch_id != null)
+			map.put("batch_id", batch_id);
+		if(batch_name != null)
+			map.put("batch_name", batch_name);
 		if(total_fees != null)
 			map.put("total_fees", total_fees);
 		if(creation_time != null)
@@ -166,6 +188,8 @@ public abstract class Basefee_master extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		class_name = (String) map.get("class_name");
 		course_id = (String) map.get("course_id");
+		batch_id = (String) map.get("batch_id");
+		batch_name = (String) map.get("batch_name");
 		total_fees = (Double) map.get("total_fees");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -196,6 +220,14 @@ public abstract class Basefee_master extends BaseResource {
 		Object course_idObj = map.get("course_id");
 		if(course_idObj != null)
 			course_id = course_idObj.toString();
+
+		Object batch_idObj = map.get("batch_id");
+		if(batch_idObj != null)
+			batch_id = batch_idObj.toString();
+
+		Object batch_nameObj = map.get("batch_name");
+		if(batch_nameObj != null)
+			batch_name = batch_nameObj.toString();
 
 		Object total_feesObj = map.get("total_fees");
 		if(total_feesObj != null)
@@ -314,6 +346,38 @@ public abstract class Basefee_master extends BaseResource {
 
 	public void unSetCourse_id() {
 		this.course_id = null;
+	}
+
+	public String getBatch_id() {
+		return batch_id;
+	}
+
+	public String getBatch_idEx() {
+		return batch_id != null ? batch_id : "";
+	}
+
+	public void setBatch_id(String batch_id) {
+		this.batch_id = batch_id;
+	}
+
+	public void unSetBatch_id() {
+		this.batch_id = null;
+	}
+
+	public String getBatch_name() {
+		return batch_name;
+	}
+
+	public String getBatch_nameEx() {
+		return batch_name != null ? batch_name : "";
+	}
+
+	public void setBatch_name(String batch_name) {
+		this.batch_name = batch_name;
+	}
+
+	public void unSetBatch_name() {
+		this.batch_name = null;
 	}
 
 	public Double getTotal_fees() {
