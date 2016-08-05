@@ -113,6 +113,15 @@
 				'length': 128,
 				'type':'String'
 			},
+			'license_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'expiry_date':
+			{
+				'type':'long'
+			},
 			'license_no':
 			{
 				'length': 128,

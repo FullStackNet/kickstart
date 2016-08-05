@@ -40,6 +40,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String table_no = null;
 	private String food_habit = null;
 	private String dorm_bed_no = null;
+	private String license_type = null;
+	private Long expiry_date = null;
 	private String license_no = null;
 	private String product_thumbnail_url = null;
 	private String longitude = null;
@@ -245,6 +247,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_TABLE_NO = "table_no";
 	public static String FIELD_FOOD_HABIT = "food_habit";
 	public static String FIELD_DORM_BED_NO = "dorm_bed_no";
+	public static String FIELD_LICENSE_TYPE = "license_type";
+	public static String FIELD_EXPIRY_DATE = "expiry_date";
 	public static String FIELD_LICENSE_NO = "license_no";
 	public static String FIELD_PRODUCT_THUMBNAIL_URL = "product_thumbnail_url";
 	public static String FIELD_LONGITUDE = "longitude";
@@ -522,6 +526,13 @@ public abstract class Basec4t_object extends BaseResource {
 		Field dorm_bed_noField = new Field("dorm_bed_no", "String");
 		dorm_bed_noField.setLength(128);
 		metaData.addField(dorm_bed_noField);
+
+		Field license_typeField = new Field("license_type", "String");
+		license_typeField.setLength(128);
+		metaData.addField(license_typeField);
+
+		Field expiry_dateField = new Field("expiry_date", "long");
+		metaData.addField(expiry_dateField);
 
 		Field license_noField = new Field("license_no", "String");
 		license_noField.setLength(128);
@@ -1253,6 +1264,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.table_no = obj.table_no;
 		this.food_habit = obj.food_habit;
 		this.dorm_bed_no = obj.dorm_bed_no;
+		this.license_type = obj.license_type;
+		this.expiry_date = obj.expiry_date;
 		this.license_no = obj.license_no;
 		this.product_thumbnail_url = obj.product_thumbnail_url;
 		this.longitude = obj.longitude;
@@ -1486,6 +1499,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("food_habit", food_habit);
 		if(dorm_bed_no != null)
 			map.put("dorm_bed_no", dorm_bed_no);
+		if(license_type != null)
+			map.put("license_type", license_type);
+		if(expiry_date != null)
+			map.put("expiry_date", expiry_date);
 		if(license_no != null)
 			map.put("license_no", license_no);
 		if(product_thumbnail_url != null)
@@ -1899,6 +1916,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("food_habit", food_habit);
 		if(dorm_bed_no != null)
 			map.put("dorm_bed_no", dorm_bed_no);
+		if(license_type != null)
+			map.put("license_type", license_type);
+		if(expiry_date != null)
+			map.put("expiry_date", expiry_date);
 		if(license_no != null)
 			map.put("license_no", license_no);
 		if(product_thumbnail_url != null)
@@ -2296,6 +2317,8 @@ public abstract class Basec4t_object extends BaseResource {
 		table_no = (String) map.get("table_no");
 		food_habit = (String) map.get("food_habit");
 		dorm_bed_no = (String) map.get("dorm_bed_no");
+		license_type = (String) map.get("license_type");
+		expiry_date = (Long) map.get("expiry_date");
 		license_no = (String) map.get("license_no");
 		product_thumbnail_url = (String) map.get("product_thumbnail_url");
 		longitude = (String) map.get("longitude");
@@ -2566,6 +2589,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object dorm_bed_noObj = map.get("dorm_bed_no");
 		if(dorm_bed_noObj != null)
 			dorm_bed_no = dorm_bed_noObj.toString();
+
+		Object license_typeObj = map.get("license_type");
+		if(license_typeObj != null)
+			license_type = license_typeObj.toString();
+
+		Object expiry_dateObj = map.get("expiry_date");
+		if(expiry_dateObj != null)
+			expiry_date = new Long(expiry_dateObj.toString());
 
 		Object license_noObj = map.get("license_no");
 		if(license_noObj != null)
@@ -3648,6 +3679,42 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetDorm_bed_no() {
 		this.dorm_bed_no = null;
+	}
+
+	public String getLicense_type() {
+		return license_type;
+	}
+
+	public String getLicense_typeEx() {
+		return license_type != null ? license_type : "";
+	}
+
+	public void setLicense_type(String license_type) {
+		this.license_type = license_type;
+	}
+
+	public void unSetLicense_type() {
+		this.license_type = null;
+	}
+
+	public Long getExpiry_date() {
+		return expiry_date;
+	}
+
+	public long getExpiry_dateEx() {
+		return expiry_date != null ? expiry_date : 0L;
+	}
+
+	public void setExpiry_date(long expiry_date) {
+		this.expiry_date = expiry_date;
+	}
+
+	public void setExpiry_date(Long expiry_date) {
+		this.expiry_date = expiry_date;
+	}
+
+	public void unSetExpiry_date() {
+		this.expiry_date = null;
 	}
 
 	public String getLicense_no() {
