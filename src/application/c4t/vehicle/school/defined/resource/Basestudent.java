@@ -22,10 +22,12 @@ public abstract class Basestudent extends BaseResource {
 	private String id = null;
 	private String admission_no = null;
 	private String admission_date_str = null;
+	private String emrgency_no = null;
 	private String school_id = null;
 	private String batch_id = null;
 	private String fees_master_id = null;
 	private String batch_name = null;
+	private String emergency_no = null;
 	private String house_id = null;
 	private String name = null;
 	private String short_name = null;
@@ -143,10 +145,12 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_ADMISSION_NO = "admission_no";
 	public static String FIELD_ADMISSION_DATE_STR = "admission_date_str";
+	public static String FIELD_EMRGENCY_NO = "emrgency_no";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_BATCH_ID = "batch_id";
 	public static String FIELD_FEES_MASTER_ID = "fees_master_id";
 	public static String FIELD_BATCH_NAME = "batch_name";
+	public static String FIELD_EMERGENCY_NO = "emergency_no";
 	public static String FIELD_HOUSE_ID = "house_id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_SHORT_NAME = "short_name";
@@ -281,6 +285,10 @@ public abstract class Basestudent extends BaseResource {
 		admission_date_strField.setLength(32);
 		metaData.addField(admission_date_strField);
 
+		Field emrgency_noField = new Field("emrgency_no", "String");
+		emrgency_noField.setLength(32);
+		metaData.addField(emrgency_noField);
+
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setIndexed(true);
 		school_idField.setLength(128);
@@ -300,6 +308,11 @@ public abstract class Basestudent extends BaseResource {
 		batch_nameField.setIndexed(true);
 		batch_nameField.setLength(128);
 		metaData.addField(batch_nameField);
+
+		Field emergency_noField = new Field("emergency_no", "String");
+		emergency_noField.setIndexed(true);
+		emergency_noField.setLength(128);
+		metaData.addField(emergency_noField);
 
 		Field house_idField = new Field("house_id", "String");
 		house_idField.setIndexed(true);
@@ -789,10 +802,12 @@ public abstract class Basestudent extends BaseResource {
 		this.id = obj.id;
 		this.admission_no = obj.admission_no;
 		this.admission_date_str = obj.admission_date_str;
+		this.emrgency_no = obj.emrgency_no;
 		this.school_id = obj.school_id;
 		this.batch_id = obj.batch_id;
 		this.fees_master_id = obj.fees_master_id;
 		this.batch_name = obj.batch_name;
+		this.emergency_no = obj.emergency_no;
 		this.house_id = obj.house_id;
 		this.name = obj.name;
 		this.short_name = obj.short_name;
@@ -989,6 +1004,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("admission_no", admission_no);
 		if(admission_date_str != null)
 			map.put("admission_date_str", admission_date_str);
+		if(emrgency_no != null)
+			map.put("emrgency_no", emrgency_no);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(batch_id != null)
@@ -997,6 +1014,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("fees_master_id", fees_master_id);
 		if(batch_name != null)
 			map.put("batch_name", batch_name);
+		if(emergency_no != null)
+			map.put("emergency_no", emergency_no);
 		if(house_id != null)
 			map.put("house_id", house_id);
 		if(name != null)
@@ -1237,6 +1256,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("admission_no", admission_no);
 		if(admission_date_str != null)
 			map.put("admission_date_str", admission_date_str);
+		if(emrgency_no != null)
+			map.put("emrgency_no", emrgency_no);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(batch_id != null)
@@ -1245,6 +1266,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("fees_master_id", fees_master_id);
 		if(batch_name != null)
 			map.put("batch_name", batch_name);
+		if(emergency_no != null)
+			map.put("emergency_no", emergency_no);
 		if(house_id != null)
 			map.put("house_id", house_id);
 		if(name != null)
@@ -1484,10 +1507,12 @@ public abstract class Basestudent extends BaseResource {
 		id = (String) map.get("id");
 		admission_no = (String) map.get("admission_no");
 		admission_date_str = (String) map.get("admission_date_str");
+		emrgency_no = (String) map.get("emrgency_no");
 		school_id = (String) map.get("school_id");
 		batch_id = (String) map.get("batch_id");
 		fees_master_id = (String) map.get("fees_master_id");
 		batch_name = (String) map.get("batch_name");
+		emergency_no = (String) map.get("emergency_no");
 		house_id = (String) map.get("house_id");
 		name = (String) map.get("name");
 		short_name = (String) map.get("short_name");
@@ -1617,6 +1642,10 @@ public abstract class Basestudent extends BaseResource {
 		if(admission_date_strObj != null)
 			admission_date_str = admission_date_strObj.toString();
 
+		Object emrgency_noObj = map.get("emrgency_no");
+		if(emrgency_noObj != null)
+			emrgency_no = emrgency_noObj.toString();
+
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
 			school_id = school_idObj.toString();
@@ -1632,6 +1661,10 @@ public abstract class Basestudent extends BaseResource {
 		Object batch_nameObj = map.get("batch_name");
 		if(batch_nameObj != null)
 			batch_name = batch_nameObj.toString();
+
+		Object emergency_noObj = map.get("emergency_no");
+		if(emergency_noObj != null)
+			emergency_no = emergency_noObj.toString();
 
 		Object house_idObj = map.get("house_id");
 		if(house_idObj != null)
@@ -2144,6 +2177,22 @@ public abstract class Basestudent extends BaseResource {
 		this.admission_date_str = null;
 	}
 
+	public String getEmrgency_no() {
+		return emrgency_no;
+	}
+
+	public String getEmrgency_noEx() {
+		return emrgency_no != null ? emrgency_no : "";
+	}
+
+	public void setEmrgency_no(String emrgency_no) {
+		this.emrgency_no = emrgency_no;
+	}
+
+	public void unSetEmrgency_no() {
+		this.emrgency_no = null;
+	}
+
 	public String getSchool_id() {
 		return school_id;
 	}
@@ -2206,6 +2255,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetBatch_name() {
 		this.batch_name = null;
+	}
+
+	public String getEmergency_no() {
+		return emergency_no;
+	}
+
+	public String getEmergency_noEx() {
+		return emergency_no != null ? emergency_no : "";
+	}
+
+	public void setEmergency_no(String emergency_no) {
+		this.emergency_no = emergency_no;
+	}
+
+	public void unSetEmergency_no() {
+		this.emergency_no = null;
 	}
 
 	public String getHouse_id() {
