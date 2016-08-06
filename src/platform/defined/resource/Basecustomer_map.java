@@ -194,7 +194,7 @@ public abstract class Basecustomer_map extends BaseResource {
 
 	public void addSensors(Object value) {
 		if(sensors == null)
-			sensors = new ArrayList<>();
+			sensors = new ArrayList<Object>();
 		sensors.add(value);
 	}
 
@@ -213,7 +213,7 @@ public abstract class Basecustomer_map extends BaseResource {
 
 	public void addJoin(Object value) {
 		if(join == null)
-			join = new ArrayList<>();
+			join = new ArrayList<Object>();
 		join.add(value);
 	}
 
@@ -232,7 +232,7 @@ public abstract class Basecustomer_map extends BaseResource {
 
 	public void addControllers(Object value) {
 		if(controllers == null)
-			controllers = new ArrayList<>();
+			controllers = new ArrayList<Object>();
 		controllers.add(value);
 	}
 
@@ -251,7 +251,7 @@ public abstract class Basecustomer_map extends BaseResource {
 
 	public void addLocations(Object value) {
 		if(locations == null)
-			locations = new ArrayList<>();
+			locations = new ArrayList<Object>();
 		locations.add(value);
 	}
 
@@ -270,7 +270,7 @@ public abstract class Basecustomer_map extends BaseResource {
 
 	public void addClasses(String value) {
 		if(classes == null)
-			classes = new ArrayList<>();
+			classes = new ArrayList<String>();
 		classes.add(value);
 	}
 

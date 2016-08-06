@@ -182,7 +182,7 @@ public abstract class Baseappliance_map extends BaseResource {
 
 	public void addAdmins(Object value) {
 		if(admins == null)
-			admins = new ArrayList<>();
+			admins = new ArrayList<Object>();
 		admins.add(value);
 	}
 
@@ -201,7 +201,7 @@ public abstract class Baseappliance_map extends BaseResource {
 
 	public void addUsers(Object value) {
 		if(users == null)
-			users = new ArrayList<>();
+			users = new ArrayList<Object>();
 		users.add(value);
 	}
 
@@ -220,7 +220,7 @@ public abstract class Baseappliance_map extends BaseResource {
 
 	public void addAlerts(Object value) {
 		if(alerts == null)
-			alerts = new ArrayList<>();
+			alerts = new ArrayList<Object>();
 		alerts.add(value);
 	}
 
@@ -239,7 +239,7 @@ public abstract class Baseappliance_map extends BaseResource {
 
 	public void addNotifications(Object value) {
 		if(notifications == null)
-			notifications = new ArrayList<>();
+			notifications = new ArrayList<Object>();
 		notifications.add(value);
 	}
 

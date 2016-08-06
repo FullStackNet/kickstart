@@ -348,7 +348,7 @@ public abstract class Basec4t_relation extends BaseResource {
 
 	public void addObject_map(String value) {
 		if(object_map == null)
-			object_map = new ArrayList<>();
+			object_map = new ArrayList<String>();
 		object_map.add(value);
 	}
 

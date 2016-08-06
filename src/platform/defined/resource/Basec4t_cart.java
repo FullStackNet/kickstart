@@ -936,7 +936,7 @@ public abstract class Basec4t_cart extends BaseResource {
 
 	public void addCart_items(platform.resource.c4t_cart_item value) {
 		if(cart_items == null)
-			cart_items = new ArrayList<>();
+			cart_items = new ArrayList<platform.resource.c4t_cart_item>();
 		cart_items.add(value);
 	}
 

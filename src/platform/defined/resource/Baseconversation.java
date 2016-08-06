@@ -242,7 +242,7 @@ public abstract class Baseconversation extends BaseResource {
 
 	public void addMessages(Object value) {
 		if(messages == null)
-			messages = new ArrayList<>();
+			messages = new ArrayList<Object>();
 		messages.add(value);
 	}
 

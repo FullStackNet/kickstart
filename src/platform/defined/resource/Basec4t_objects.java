@@ -178,7 +178,7 @@ public abstract class Basec4t_objects extends BaseResource {
 
 	public void addObjects(platform.resource.c4t_object value) {
 		if(objects == null)
-			objects = new ArrayList<>();
+			objects = new ArrayList<platform.resource.c4t_object>();
 		objects.add(value);
 	}
 

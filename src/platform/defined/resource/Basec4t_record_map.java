@@ -233,7 +233,7 @@ public abstract class Basec4t_record_map extends BaseResource {
 
 	public void addRecord_map(Object value) {
 		if(record_map == null)
-			record_map = new ArrayList<>();
+			record_map = new ArrayList<Object>();
 		record_map.add(value);
 	}
 

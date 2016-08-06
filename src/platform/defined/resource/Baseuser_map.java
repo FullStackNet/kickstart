@@ -277,7 +277,7 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void addAppliances(String value) {
 		if(appliances == null)
-			appliances = new ArrayList<>();
+			appliances = new ArrayList<String>();
 		appliances.add(value);
 	}
 
@@ -296,7 +296,7 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void addDevices(String value) {
 		if(devices == null)
-			devices = new ArrayList<>();
+			devices = new ArrayList<String>();
 		devices.add(value);
 	}
 
@@ -315,7 +315,7 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void addAlerts(String value) {
 		if(alerts == null)
-			alerts = new ArrayList<>();
+			alerts = new ArrayList<String>();
 		alerts.add(value);
 	}
 
@@ -334,7 +334,7 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void addNotifications(String value) {
 		if(notifications == null)
-			notifications = new ArrayList<>();
+			notifications = new ArrayList<String>();
 		notifications.add(value);
 	}
 
@@ -353,7 +353,7 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void addRecent_notifications(String value) {
 		if(recent_notifications == null)
-			recent_notifications = new ArrayList<>();
+			recent_notifications = new ArrayList<String>();
 		recent_notifications.add(value);
 	}
 
@@ -372,7 +372,7 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void addRecent_alerts(String value) {
 		if(recent_alerts == null)
-			recent_alerts = new ArrayList<>();
+			recent_alerts = new ArrayList<String>();
 		recent_alerts.add(value);
 	}
 
@@ -391,7 +391,7 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void addInvites(String value) {
 		if(invites == null)
-			invites = new ArrayList<>();
+			invites = new ArrayList<String>();
 		invites.add(value);
 	}
 
@@ -410,7 +410,7 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void addLocations(String value) {
 		if(locations == null)
-			locations = new ArrayList<>();
+			locations = new ArrayList<String>();
 		locations.add(value);
 	}
 
@@ -429,7 +429,7 @@ public abstract class Baseuser_map extends BaseResource {
 
 	public void addCommunities(String value) {
 		if(communities == null)
-			communities = new ArrayList<>();
+			communities = new ArrayList<String>();
 		communities.add(value);
 	}
 

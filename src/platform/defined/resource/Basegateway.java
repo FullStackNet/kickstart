@@ -2274,7 +2274,7 @@ public abstract class Basegateway extends BaseResource {
 
 	public void addControllers(Object value) {
 		if(controllers == null)
-			controllers = new ArrayList<>();
+			controllers = new ArrayList<Object>();
 		controllers.add(value);
 	}
 

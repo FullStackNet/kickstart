@@ -163,7 +163,7 @@ public abstract class Baseemail_map extends BaseResource {
 
 	public void addInvites(Object value) {
 		if(invites == null)
-			invites = new ArrayList<>();
+			invites = new ArrayList<Object>();
 		invites.add(value);
 	}
 

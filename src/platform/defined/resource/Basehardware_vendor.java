@@ -224,7 +224,7 @@ public abstract class Basehardware_vendor extends BaseResource {
 
 	public void addDevices(Object value) {
 		if(devices == null)
-			devices = new ArrayList<>();
+			devices = new ArrayList<Object>();
 		devices.add(value);
 	}
 
