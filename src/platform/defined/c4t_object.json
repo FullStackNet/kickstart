@@ -1009,6 +1009,24 @@
 				'type':'String',
 				'length': 128
 			} , 
+			'mandi_main_price':
+			{
+				'type':'double'
+			} ,
+			'mandi_secondary_price':
+			{
+				'type':'double'
+			} ,
+			'valid_mandi_main_imie':
+			{
+				'type':'String',
+				'length': 128
+			} ,
+			'valid_mandi_secondary_imie':
+			{
+				'type':'String',
+				'length': 128
+			} , 
 			'available_time':
 			{
 				'type':'String',

@@ -225,6 +225,10 @@ public abstract class Basec4t_object extends BaseResource {
 	private Double average_rating = null;
 	private String day = null;
 	private String valid_imie = null;
+	private Double mandi_main_price = null;
+	private Double mandi_secondary_price = null;
+	private String valid_mandi_main_imie = null;
+	private String valid_mandi_secondary_imie = null;
 	private String available_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -434,6 +438,10 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_AVERAGE_RATING = "average_rating";
 	public static String FIELD_DAY = "day";
 	public static String FIELD_VALID_IMIE = "valid_imie";
+	public static String FIELD_MANDI_MAIN_PRICE = "mandi_main_price";
+	public static String FIELD_MANDI_SECONDARY_PRICE = "mandi_secondary_price";
+	public static String FIELD_VALID_MANDI_MAIN_IMIE = "valid_mandi_main_imie";
+	public static String FIELD_VALID_MANDI_SECONDARY_IMIE = "valid_mandi_secondary_imie";
 	public static String FIELD_AVAILABLE_TIME = "available_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -1236,6 +1244,20 @@ public abstract class Basec4t_object extends BaseResource {
 		valid_imieField.setLength(128);
 		metaData.addField(valid_imieField);
 
+		Field mandi_main_priceField = new Field("mandi_main_price", "double");
+		metaData.addField(mandi_main_priceField);
+
+		Field mandi_secondary_priceField = new Field("mandi_secondary_price", "double");
+		metaData.addField(mandi_secondary_priceField);
+
+		Field valid_mandi_main_imieField = new Field("valid_mandi_main_imie", "String");
+		valid_mandi_main_imieField.setLength(128);
+		metaData.addField(valid_mandi_main_imieField);
+
+		Field valid_mandi_secondary_imieField = new Field("valid_mandi_secondary_imie", "String");
+		valid_mandi_secondary_imieField.setLength(128);
+		metaData.addField(valid_mandi_secondary_imieField);
+
 		Field available_timeField = new Field("available_time", "String");
 		available_timeField.setLength(128);
 		metaData.addField(available_timeField);
@@ -1459,6 +1481,10 @@ public abstract class Basec4t_object extends BaseResource {
 		this.average_rating = obj.average_rating;
 		this.day = obj.day;
 		this.valid_imie = obj.valid_imie;
+		this.mandi_main_price = obj.mandi_main_price;
+		this.mandi_secondary_price = obj.mandi_secondary_price;
+		this.valid_mandi_main_imie = obj.valid_mandi_main_imie;
+		this.valid_mandi_secondary_imie = obj.valid_mandi_secondary_imie;
 		this.available_time = obj.available_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -1881,6 +1907,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("day", day);
 		if(valid_imie != null)
 			map.put("valid_imie", valid_imie);
+		if(mandi_main_price != null)
+			map.put("mandi_main_price", mandi_main_price);
+		if(mandi_secondary_price != null)
+			map.put("mandi_secondary_price", mandi_secondary_price);
+		if(valid_mandi_main_imie != null)
+			map.put("valid_mandi_main_imie", valid_mandi_main_imie);
+		if(valid_mandi_secondary_imie != null)
+			map.put("valid_mandi_secondary_imie", valid_mandi_secondary_imie);
 		if(available_time != null)
 			map.put("available_time", available_time);
 		if(extra_data != null)
@@ -2302,6 +2336,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("day", day);
 		if(valid_imie != null)
 			map.put("valid_imie", valid_imie);
+		if(mandi_main_price != null)
+			map.put("mandi_main_price", mandi_main_price);
+		if(mandi_secondary_price != null)
+			map.put("mandi_secondary_price", mandi_secondary_price);
+		if(valid_mandi_main_imie != null)
+			map.put("valid_mandi_main_imie", valid_mandi_main_imie);
+		if(valid_mandi_secondary_imie != null)
+			map.put("valid_mandi_secondary_imie", valid_mandi_secondary_imie);
 		if(available_time != null)
 			map.put("available_time", available_time);
 		if(extra_data != null)
@@ -2522,6 +2564,10 @@ public abstract class Basec4t_object extends BaseResource {
 		average_rating = (Double) map.get("average_rating");
 		day = (String) map.get("day");
 		valid_imie = (String) map.get("valid_imie");
+		mandi_main_price = (Double) map.get("mandi_main_price");
+		mandi_secondary_price = (Double) map.get("mandi_secondary_price");
+		valid_mandi_main_imie = (String) map.get("valid_mandi_main_imie");
+		valid_mandi_secondary_imie = (String) map.get("valid_mandi_secondary_imie");
 		available_time = (String) map.get("available_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -3351,6 +3397,22 @@ public abstract class Basec4t_object extends BaseResource {
 		Object valid_imieObj = map.get("valid_imie");
 		if(valid_imieObj != null)
 			valid_imie = valid_imieObj.toString();
+
+		Object mandi_main_priceObj = map.get("mandi_main_price");
+		if(mandi_main_priceObj != null)
+			mandi_main_price = new Double(mandi_main_priceObj.toString());
+
+		Object mandi_secondary_priceObj = map.get("mandi_secondary_price");
+		if(mandi_secondary_priceObj != null)
+			mandi_secondary_price = new Double(mandi_secondary_priceObj.toString());
+
+		Object valid_mandi_main_imieObj = map.get("valid_mandi_main_imie");
+		if(valid_mandi_main_imieObj != null)
+			valid_mandi_main_imie = valid_mandi_main_imieObj.toString();
+
+		Object valid_mandi_secondary_imieObj = map.get("valid_mandi_secondary_imie");
+		if(valid_mandi_secondary_imieObj != null)
+			valid_mandi_secondary_imie = valid_mandi_secondary_imieObj.toString();
 
 		Object available_timeObj = map.get("available_time");
 		if(available_timeObj != null)
@@ -6723,6 +6785,78 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetValid_imie() {
 		this.valid_imie = null;
+	}
+
+	public Double getMandi_main_price() {
+		return mandi_main_price;
+	}
+
+	public double getMandi_main_priceEx() {
+		return mandi_main_price != null ? mandi_main_price : 0;
+	}
+
+	public void setMandi_main_price(double mandi_main_price) {
+		this.mandi_main_price = mandi_main_price;
+	}
+
+	public void setMandi_main_price(Double mandi_main_price) {
+		this.mandi_main_price = mandi_main_price;
+	}
+
+	public void unSetMandi_main_price() {
+		this.mandi_main_price = null;
+	}
+
+	public Double getMandi_secondary_price() {
+		return mandi_secondary_price;
+	}
+
+	public double getMandi_secondary_priceEx() {
+		return mandi_secondary_price != null ? mandi_secondary_price : 0;
+	}
+
+	public void setMandi_secondary_price(double mandi_secondary_price) {
+		this.mandi_secondary_price = mandi_secondary_price;
+	}
+
+	public void setMandi_secondary_price(Double mandi_secondary_price) {
+		this.mandi_secondary_price = mandi_secondary_price;
+	}
+
+	public void unSetMandi_secondary_price() {
+		this.mandi_secondary_price = null;
+	}
+
+	public String getValid_mandi_main_imie() {
+		return valid_mandi_main_imie;
+	}
+
+	public String getValid_mandi_main_imieEx() {
+		return valid_mandi_main_imie != null ? valid_mandi_main_imie : "";
+	}
+
+	public void setValid_mandi_main_imie(String valid_mandi_main_imie) {
+		this.valid_mandi_main_imie = valid_mandi_main_imie;
+	}
+
+	public void unSetValid_mandi_main_imie() {
+		this.valid_mandi_main_imie = null;
+	}
+
+	public String getValid_mandi_secondary_imie() {
+		return valid_mandi_secondary_imie;
+	}
+
+	public String getValid_mandi_secondary_imieEx() {
+		return valid_mandi_secondary_imie != null ? valid_mandi_secondary_imie : "";
+	}
+
+	public void setValid_mandi_secondary_imie(String valid_mandi_secondary_imie) {
+		this.valid_mandi_secondary_imie = valid_mandi_secondary_imie;
+	}
+
+	public void unSetValid_mandi_secondary_imie() {
+		this.valid_mandi_secondary_imie = null;
 	}
 
 	public String getAvailable_time() {
