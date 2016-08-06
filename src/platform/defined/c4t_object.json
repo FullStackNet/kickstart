@@ -122,6 +122,14 @@
 			{
 				'type':'long'
 			},
+			'expiry_status':
+			{
+				'type':'String'
+			},
+			'last_payment_collected':
+			{
+				'type':'long'
+			},
 			'license_no':
 			{
 				'length': 128,

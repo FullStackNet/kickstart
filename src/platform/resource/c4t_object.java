@@ -8,6 +8,8 @@ public class c4t_object extends Basec4t_object {
 	 * 
 	 */
 	public static String OBJECT_TYPE_GAME = "GAME";
+	public static String LICENSE_TYPE_TRAIL = "Trail";
+	public static String OBJECT_TYPE_SUBSCRIBE = "Subscribe";
 	
 	private static final long serialVersionUID = 1L;
 	

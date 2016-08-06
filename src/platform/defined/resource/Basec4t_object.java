@@ -42,6 +42,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String dorm_bed_no = null;
 	private String license_type = null;
 	private Long expiry_date = null;
+	private String expiry_status = null;
+	private Long last_payment_collected = null;
 	private String license_no = null;
 	private String product_thumbnail_url = null;
 	private String longitude = null;
@@ -249,6 +251,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_DORM_BED_NO = "dorm_bed_no";
 	public static String FIELD_LICENSE_TYPE = "license_type";
 	public static String FIELD_EXPIRY_DATE = "expiry_date";
+	public static String FIELD_EXPIRY_STATUS = "expiry_status";
+	public static String FIELD_LAST_PAYMENT_COLLECTED = "last_payment_collected";
 	public static String FIELD_LICENSE_NO = "license_no";
 	public static String FIELD_PRODUCT_THUMBNAIL_URL = "product_thumbnail_url";
 	public static String FIELD_LONGITUDE = "longitude";
@@ -533,6 +537,12 @@ public abstract class Basec4t_object extends BaseResource {
 
 		Field expiry_dateField = new Field("expiry_date", "long");
 		metaData.addField(expiry_dateField);
+
+		Field expiry_statusField = new Field("expiry_status", "String");
+		metaData.addField(expiry_statusField);
+
+		Field last_payment_collectedField = new Field("last_payment_collected", "long");
+		metaData.addField(last_payment_collectedField);
 
 		Field license_noField = new Field("license_no", "String");
 		license_noField.setLength(128);
@@ -1266,6 +1276,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.dorm_bed_no = obj.dorm_bed_no;
 		this.license_type = obj.license_type;
 		this.expiry_date = obj.expiry_date;
+		this.expiry_status = obj.expiry_status;
+		this.last_payment_collected = obj.last_payment_collected;
 		this.license_no = obj.license_no;
 		this.product_thumbnail_url = obj.product_thumbnail_url;
 		this.longitude = obj.longitude;
@@ -1503,6 +1515,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("license_type", license_type);
 		if(expiry_date != null)
 			map.put("expiry_date", expiry_date);
+		if(expiry_status != null)
+			map.put("expiry_status", expiry_status);
+		if(last_payment_collected != null)
+			map.put("last_payment_collected", last_payment_collected);
 		if(license_no != null)
 			map.put("license_no", license_no);
 		if(product_thumbnail_url != null)
@@ -1920,6 +1936,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("license_type", license_type);
 		if(expiry_date != null)
 			map.put("expiry_date", expiry_date);
+		if(expiry_status != null)
+			map.put("expiry_status", expiry_status);
+		if(last_payment_collected != null)
+			map.put("last_payment_collected", last_payment_collected);
 		if(license_no != null)
 			map.put("license_no", license_no);
 		if(product_thumbnail_url != null)
@@ -2319,6 +2339,8 @@ public abstract class Basec4t_object extends BaseResource {
 		dorm_bed_no = (String) map.get("dorm_bed_no");
 		license_type = (String) map.get("license_type");
 		expiry_date = (Long) map.get("expiry_date");
+		expiry_status = (String) map.get("expiry_status");
+		last_payment_collected = (Long) map.get("last_payment_collected");
 		license_no = (String) map.get("license_no");
 		product_thumbnail_url = (String) map.get("product_thumbnail_url");
 		longitude = (String) map.get("longitude");
@@ -2597,6 +2619,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object expiry_dateObj = map.get("expiry_date");
 		if(expiry_dateObj != null)
 			expiry_date = new Long(expiry_dateObj.toString());
+
+		Object expiry_statusObj = map.get("expiry_status");
+		if(expiry_statusObj != null)
+			expiry_status = expiry_statusObj.toString();
+
+		Object last_payment_collectedObj = map.get("last_payment_collected");
+		if(last_payment_collectedObj != null)
+			last_payment_collected = new Long(last_payment_collectedObj.toString());
 
 		Object license_noObj = map.get("license_no");
 		if(license_noObj != null)
@@ -3715,6 +3745,42 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetExpiry_date() {
 		this.expiry_date = null;
+	}
+
+	public String getExpiry_status() {
+		return expiry_status;
+	}
+
+	public String getExpiry_statusEx() {
+		return expiry_status != null ? expiry_status : "";
+	}
+
+	public void setExpiry_status(String expiry_status) {
+		this.expiry_status = expiry_status;
+	}
+
+	public void unSetExpiry_status() {
+		this.expiry_status = null;
+	}
+
+	public Long getLast_payment_collected() {
+		return last_payment_collected;
+	}
+
+	public long getLast_payment_collectedEx() {
+		return last_payment_collected != null ? last_payment_collected : 0L;
+	}
+
+	public void setLast_payment_collected(long last_payment_collected) {
+		this.last_payment_collected = last_payment_collected;
+	}
+
+	public void setLast_payment_collected(Long last_payment_collected) {
+		this.last_payment_collected = last_payment_collected;
+	}
+
+	public void unSetLast_payment_collected() {
+		this.last_payment_collected = null;
 	}
 
 	public String getLicense_no() {
