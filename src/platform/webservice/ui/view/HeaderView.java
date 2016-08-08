@@ -31,7 +31,7 @@ public class HeaderView extends BaseView {
 		if (_community == null) {
 			if (mContext.getDomainName().contains("connect2parent.com")) {
 				Div logoImageDiv = new Div(null, "logo");
-				IMG logoImg = new IMG();
+				IMG logoImg = new IMG();		
 				if (mContext.getDomainName().contains("nirmanias")) {
 					logoImg.addAttribute("width","230px");
 					logoImg.addAttribute("height","130px");
@@ -69,6 +69,7 @@ public class HeaderView extends BaseView {
 	        menuContainer.addChild(item.getItem());
 	        headerMenuDiv.addChild(menuContainer);
 	        headerDiv.addChild(headerMenuDiv);
+	        headerDiv.addAttribute("domain",mContext.getDomainName());
 		} else if (_community.getType().equals("MANDI_AGENT")){
 			headerDiv.addAttribute("align", "right");
 			Div titleDiv = new Div();
