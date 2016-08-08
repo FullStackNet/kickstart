@@ -29,10 +29,16 @@ public class HeaderView extends BaseView {
 	public void buildUI() {
 		c4t_object _community = C4t_objectHelper.getInstance().getById(mContext.getContextId());
 		if (_community == null) {
-			if (mContext.getDomainName().equals("connect2parent.com") || mContext.getDomainName().equals("www.connect2parent.com")) {
+			if (mContext.getDomainName().contains("connect2parent.com")) {
 				Div logoImageDiv = new Div(null, "logo");
 				IMG logoImg = new IMG();
-		        logoImg.setSRC(ImageUtils.C2P_HEADER_LOGO);
+				if (mContext.getDomainName().contains("nirmanias")) {
+					logoImg.addAttribute("width","230px");
+					logoImg.addAttribute("height","130px");
+					logoImg.setSRC("http://www.nirmanias.com/images/logo.png");
+				} else {
+					logoImg.setSRC(ImageUtils.C2P_HEADER_LOGO);
+				}
 		        logoImageDiv.addChild(logoImg);
 		        headerDiv.addChild(logoImageDiv);
 			} else if (mContext.getDomainName().equals("connect2community.in") || mContext.getDomainName().equals("www.connect2community.in")) {
