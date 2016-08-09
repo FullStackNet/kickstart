@@ -230,7 +230,7 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void addUsers(Object value) {
 		if(users == null)
-			users = new ArrayList<>();
+			users = new ArrayList<Object>();
 		users.add(value);
 	}
 
@@ -249,7 +249,7 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void addParents(Object value) {
 		if(parents == null)
-			parents = new ArrayList<>();
+			parents = new ArrayList<Object>();
 		parents.add(value);
 	}
 
@@ -268,7 +268,7 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void addPickup_alert_stopages(Object value) {
 		if(pickup_alert_stopages == null)
-			pickup_alert_stopages = new ArrayList<>();
+			pickup_alert_stopages = new ArrayList<Object>();
 		pickup_alert_stopages.add(value);
 	}
 
@@ -287,7 +287,7 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void addDrop_alert_stopages(Object value) {
 		if(drop_alert_stopages == null)
-			drop_alert_stopages = new ArrayList<>();
+			drop_alert_stopages = new ArrayList<Object>();
 		drop_alert_stopages.add(value);
 	}
 
@@ -306,7 +306,7 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void addNotices(Object value) {
 		if(notices == null)
-			notices = new ArrayList<>();
+			notices = new ArrayList<Object>();
 		notices.add(value);
 	}
 
@@ -325,7 +325,7 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void addCourses(Object value) {
 		if(courses == null)
-			courses = new ArrayList<>();
+			courses = new ArrayList<Object>();
 		courses.add(value);
 	}
 
@@ -344,7 +344,7 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void addBatches(Object value) {
 		if(batches == null)
-			batches = new ArrayList<>();
+			batches = new ArrayList<Object>();
 		batches.add(value);
 	}
 
@@ -363,7 +363,7 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void addPhotos(Object value) {
 		if(photos == null)
-			photos = new ArrayList<>();
+			photos = new ArrayList<Object>();
 		photos.add(value);
 	}
 

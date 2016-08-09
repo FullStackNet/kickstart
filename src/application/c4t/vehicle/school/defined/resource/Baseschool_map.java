@@ -206,7 +206,7 @@ public abstract class Baseschool_map extends BaseResource {
 
 	public void addClasses(Object value) {
 		if(classes == null)
-			classes = new ArrayList<>();
+			classes = new ArrayList<Object>();
 		classes.add(value);
 	}
 
@@ -225,7 +225,7 @@ public abstract class Baseschool_map extends BaseResource {
 
 	public void addClass_sections(Object value) {
 		if(class_sections == null)
-			class_sections = new ArrayList<>();
+			class_sections = new ArrayList<Object>();
 		class_sections.add(value);
 	}
 
@@ -244,7 +244,7 @@ public abstract class Baseschool_map extends BaseResource {
 
 	public void addTeachers(Object value) {
 		if(teachers == null)
-			teachers = new ArrayList<>();
+			teachers = new ArrayList<Object>();
 		teachers.add(value);
 	}
 
@@ -263,7 +263,7 @@ public abstract class Baseschool_map extends BaseResource {
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<>();
+			students = new ArrayList<Object>();
 		students.add(value);
 	}
 
@@ -282,7 +282,7 @@ public abstract class Baseschool_map extends BaseResource {
 
 	public void addCard_readers(String value) {
 		if(card_readers == null)
-			card_readers = new ArrayList<>();
+			card_readers = new ArrayList<String>();
 		card_readers.add(value);
 	}
 
@@ -301,7 +301,7 @@ public abstract class Baseschool_map extends BaseResource {
 
 	public void addTrackers(String value) {
 		if(trackers == null)
-			trackers = new ArrayList<>();
+			trackers = new ArrayList<String>();
 		trackers.add(value);
 	}
 

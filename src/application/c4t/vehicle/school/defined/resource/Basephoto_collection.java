@@ -322,7 +322,7 @@ public abstract class Basephoto_collection extends BaseResource {
 
 	public void addSchools(String value) {
 		if(schools == null)
-			schools = new ArrayList<>();
+			schools = new ArrayList<String>();
 		schools.add(value);
 	}
 

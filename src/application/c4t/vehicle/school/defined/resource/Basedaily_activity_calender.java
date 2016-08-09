@@ -531,7 +531,7 @@ public abstract class Basedaily_activity_calender extends BaseResource {
 
 	public void addSchools(String value) {
 		if(schools == null)
-			schools = new ArrayList<>();
+			schools = new ArrayList<String>();
 		schools.add(value);
 	}
 

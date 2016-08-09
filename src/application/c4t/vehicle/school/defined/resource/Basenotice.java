@@ -554,7 +554,7 @@ public abstract class Basenotice extends BaseResource {
 
 	public void addSchools(String value) {
 		if(schools == null)
-			schools = new ArrayList<>();
+			schools = new ArrayList<String>();
 		schools.add(value);
 	}
 
@@ -573,7 +573,7 @@ public abstract class Basenotice extends BaseResource {
 
 	public void addStudents(String value) {
 		if(students == null)
-			students = new ArrayList<>();
+			students = new ArrayList<String>();
 		students.add(value);
 	}
 

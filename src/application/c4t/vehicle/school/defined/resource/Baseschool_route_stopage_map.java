@@ -170,7 +170,7 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<>();
+			students = new ArrayList<Object>();
 		students.add(value);
 	}
 
@@ -189,7 +189,7 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 
 	public void addTeachers(Object value) {
 		if(teachers == null)
-			teachers = new ArrayList<>();
+			teachers = new ArrayList<Object>();
 		teachers.add(value);
 	}
 
@@ -208,7 +208,7 @@ public abstract class Baseschool_route_stopage_map extends BaseResource {
 
 	public void addAlert_students(Object value) {
 		if(alert_students == null)
-			alert_students = new ArrayList<>();
+			alert_students = new ArrayList<Object>();
 		alert_students.add(value);
 	}
 

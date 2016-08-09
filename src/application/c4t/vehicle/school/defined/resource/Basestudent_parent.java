@@ -506,7 +506,7 @@ public abstract class Basestudent_parent extends BaseResource {
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<>();
+			students = new ArrayList<Object>();
 		students.add(value);
 	}
 

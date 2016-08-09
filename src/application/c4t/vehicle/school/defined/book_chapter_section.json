@@ -24,7 +24,7 @@
 				'length': 32,
 				'type':'String'
 			},	
-			'content':
+			'content_text':
 			{
 				'length': 32,
 				'type':'String'

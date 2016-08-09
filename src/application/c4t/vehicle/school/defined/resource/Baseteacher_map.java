@@ -158,7 +158,7 @@ public abstract class Baseteacher_map extends BaseResource {
 
 	public void addUsers(Object value) {
 		if(users == null)
-			users = new ArrayList<>();
+			users = new ArrayList<Object>();
 		users.add(value);
 	}
 
@@ -177,7 +177,7 @@ public abstract class Baseteacher_map extends BaseResource {
 
 	public void addClass_sections(Object value) {
 		if(class_sections == null)
-			class_sections = new ArrayList<>();
+			class_sections = new ArrayList<Object>();
 		class_sections.add(value);
 	}
 

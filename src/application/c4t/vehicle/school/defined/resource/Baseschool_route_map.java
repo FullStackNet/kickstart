@@ -146,7 +146,7 @@ public abstract class Baseschool_route_map extends BaseResource {
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<>();
+			students = new ArrayList<Object>();
 		students.add(value);
 	}
 

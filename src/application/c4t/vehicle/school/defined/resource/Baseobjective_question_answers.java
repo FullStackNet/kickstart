@@ -178,7 +178,7 @@ public abstract class Baseobjective_question_answers extends BaseResource {
 
 	public void addAnswers(application.c4t.vehicle.school.resource.objective_question_answer value) {
 		if(answers == null)
-			answers = new ArrayList<>();
+			answers = new ArrayList<application.c4t.vehicle.school.resource.objective_question_answer>();
 		answers.add(value);
 	}
 

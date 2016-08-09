@@ -23,7 +23,7 @@ public abstract class Basebook_chapter_section extends BaseResource {
 	private String name = null;
 	private Long order = null;
 	private String summary = null;
-	private String content = null;
+	private String content_text = null;
 	private String book_id = null;
 	private String chapter_id = null;
 	private String customer_id = null;
@@ -34,7 +34,7 @@ public abstract class Basebook_chapter_section extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_ORDER = "order";
 	public static String FIELD_SUMMARY = "summary";
-	public static String FIELD_CONTENT = "content";
+	public static String FIELD_CONTENT_TEXT = "content_text";
 	public static String FIELD_BOOK_ID = "book_id";
 	public static String FIELD_CHAPTER_ID = "chapter_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
@@ -63,9 +63,9 @@ public abstract class Basebook_chapter_section extends BaseResource {
 		summaryField.setLength(32);
 		metaData.addField(summaryField);
 
-		Field contentField = new Field("content", "String");
-		contentField.setLength(32);
-		metaData.addField(contentField);
+		Field content_textField = new Field("content_text", "String");
+		content_textField.setLength(32);
+		metaData.addField(content_textField);
 
 		Field book_idField = new Field("book_id", "String");
 		book_idField.setIndexed(true);
@@ -102,7 +102,7 @@ public abstract class Basebook_chapter_section extends BaseResource {
 		this.name = obj.name;
 		this.order = obj.order;
 		this.summary = obj.summary;
-		this.content = obj.content;
+		this.content_text = obj.content_text;
 		this.book_id = obj.book_id;
 		this.chapter_id = obj.chapter_id;
 		this.customer_id = obj.customer_id;
@@ -124,8 +124,8 @@ public abstract class Basebook_chapter_section extends BaseResource {
 			map.put("order", order);
 		if(summary != null)
 			map.put("summary", summary);
-		if(content != null)
-			map.put("content", content);
+		if(content_text != null)
+			map.put("content_text", content_text);
 		if(book_id != null)
 			map.put("book_id", book_id);
 		if(chapter_id != null)
@@ -149,8 +149,8 @@ public abstract class Basebook_chapter_section extends BaseResource {
 			map.put("order", order);
 		if(summary != null)
 			map.put("summary", summary);
-		if(content != null)
-			map.put("content", content);
+		if(content_text != null)
+			map.put("content_text", content_text);
 		if(book_id != null)
 			map.put("book_id", book_id);
 		if(chapter_id != null)
@@ -175,7 +175,7 @@ public abstract class Basebook_chapter_section extends BaseResource {
 		name = (String) map.get("name");
 		order = (Long) map.get("order");
 		summary = (String) map.get("summary");
-		content = (String) map.get("content");
+		content_text = (String) map.get("content_text");
 		book_id = (String) map.get("book_id");
 		chapter_id = (String) map.get("chapter_id");
 		customer_id = (String) map.get("customer_id");
@@ -201,9 +201,9 @@ public abstract class Basebook_chapter_section extends BaseResource {
 		if(summaryObj != null)
 			summary = summaryObj.toString();
 
-		Object contentObj = map.get("content");
-		if(contentObj != null)
-			content = contentObj.toString();
+		Object content_textObj = map.get("content_text");
+		if(content_textObj != null)
+			content_text = content_textObj.toString();
 
 		Object book_idObj = map.get("book_id");
 		if(book_idObj != null)
@@ -304,20 +304,20 @@ public abstract class Basebook_chapter_section extends BaseResource {
 		this.summary = null;
 	}
 
-	public String getContent() {
-		return content;
+	public String getContent_text() {
+		return content_text;
 	}
 
-	public String getContentEx() {
-		return content != null ? content : "";
+	public String getContent_textEx() {
+		return content_text != null ? content_text : "";
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setContent_text(String content_text) {
+		this.content_text = content_text;
 	}
 
-	public void unSetContent() {
-		this.content = null;
+	public void unSetContent_text() {
+		this.content_text = null;
 	}
 
 	public String getBook_id() {

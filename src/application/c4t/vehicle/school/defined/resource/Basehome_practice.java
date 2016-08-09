@@ -369,7 +369,7 @@ public abstract class Basehome_practice extends BaseResource {
 
 	public void addSchools(String value) {
 		if(schools == null)
-			schools = new ArrayList<>();
+			schools = new ArrayList<String>();
 		schools.add(value);
 	}
 

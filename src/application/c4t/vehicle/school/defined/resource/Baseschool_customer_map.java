@@ -158,7 +158,7 @@ public abstract class Baseschool_customer_map extends BaseResource {
 
 	public void addSchools(Object value) {
 		if(schools == null)
-			schools = new ArrayList<>();
+			schools = new ArrayList<Object>();
 		schools.add(value);
 	}
 
@@ -177,7 +177,7 @@ public abstract class Baseschool_customer_map extends BaseResource {
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<>();
+			students = new ArrayList<Object>();
 		students.add(value);
 	}
 

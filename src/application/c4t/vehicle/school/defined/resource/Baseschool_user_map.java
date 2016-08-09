@@ -206,7 +206,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 
 	public void addStudents(Object value) {
 		if(students == null)
-			students = new ArrayList<>();
+			students = new ArrayList<Object>();
 		students.add(value);
 	}
 
@@ -225,7 +225,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 
 	public void addTeachers(Object value) {
 		if(teachers == null)
-			teachers = new ArrayList<>();
+			teachers = new ArrayList<Object>();
 		teachers.add(value);
 	}
 
@@ -244,7 +244,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 
 	public void addSchools(Object value) {
 		if(schools == null)
-			schools = new ArrayList<>();
+			schools = new ArrayList<Object>();
 		schools.add(value);
 	}
 
@@ -263,7 +263,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 
 	public void addAppliances(Object value) {
 		if(appliances == null)
-			appliances = new ArrayList<>();
+			appliances = new ArrayList<Object>();
 		appliances.add(value);
 	}
 
@@ -282,7 +282,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 
 	public void addMessageaFromSchool(Object value) {
 		if(messageaFromSchool == null)
-			messageaFromSchool = new ArrayList<>();
+			messageaFromSchool = new ArrayList<Object>();
 		messageaFromSchool.add(value);
 	}
 
@@ -301,7 +301,7 @@ public abstract class Baseschool_user_map extends BaseResource {
 
 	public void addMessageaFromTeacher(Object value) {
 		if(messageaFromTeacher == null)
-			messageaFromTeacher = new ArrayList<>();
+			messageaFromTeacher = new ArrayList<Object>();
 		messageaFromTeacher.add(value);
 	}
 
