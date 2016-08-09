@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Basemandi_auction extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String description = null;
 	private String user_id = null;
 	private String user_name = null;
 	private String remark = null;
@@ -61,6 +62,7 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_DESCRIPTION = "description";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_REMARK = "remark";
@@ -113,6 +115,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field descriptionField = new Field("description", "String");
+		descriptionField.setLength(128);
+		metaData.addField(descriptionField);
 
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(128);
@@ -256,6 +262,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public Basemandi_auction(Basemandi_auction obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.description = obj.description;
 		this.user_id = obj.user_id;
 		this.user_name = obj.user_name;
 		this.remark = obj.remark;
@@ -308,6 +315,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(description != null)
+			map.put("description", description);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(user_name != null)
@@ -394,6 +403,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(description != null)
+			map.put("description", description);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(user_name != null)
@@ -480,6 +491,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		description = (String) map.get("description");
 		user_id = (String) map.get("user_id");
 		user_name = (String) map.get("user_name");
 		remark = (String) map.get("remark");
@@ -528,6 +540,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object descriptionObj = map.get("description");
+		if(descriptionObj != null)
+			description = descriptionObj.toString();
 
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
@@ -718,6 +734,22 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getDescriptionEx() {
+		return description != null ? description : "";
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void unSetDescription() {
+		this.description = null;
 	}
 
 	public String getUser_id() {
