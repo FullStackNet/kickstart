@@ -32,6 +32,7 @@ public abstract class Basebatch extends BaseResource {
 	private String online = null;
 	private Long end_date = null;
 	private String end_date_str = null;
+	private Long students = null;
 	private String status = null; //Active/Deactive
 	private Map<String, Object> extra_data = null;
 
@@ -48,6 +49,7 @@ public abstract class Basebatch extends BaseResource {
 	public static String FIELD_ONLINE = "online";
 	public static String FIELD_END_DATE = "end_date";
 	public static String FIELD_END_DATE_STR = "end_date_str";
+	public static String FIELD_STUDENTS = "students";
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -108,6 +110,9 @@ public abstract class Basebatch extends BaseResource {
 		end_date_strField.setLength(32);
 		metaData.addField(end_date_strField);
 
+		Field studentsField = new Field("students", "long");
+		metaData.addField(studentsField);
+
 		Field statusField = new Field("status", "String");
 		statusField.setLength(32);
 		metaData.addField(statusField);
@@ -138,6 +143,7 @@ public abstract class Basebatch extends BaseResource {
 		this.online = obj.online;
 		this.end_date = obj.end_date;
 		this.end_date_str = obj.end_date_str;
+		this.students = obj.students;
 		this.status = obj.status;
 		this.extra_data = obj.extra_data;
 	}
@@ -174,6 +180,8 @@ public abstract class Basebatch extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if(students != null)
+			map.put("students", students);
 		if(status != null)
 			map.put("status", status);
 		if(extra_data != null)
@@ -209,6 +217,8 @@ public abstract class Basebatch extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if(students != null)
+			map.put("students", students);
 		if(status != null)
 			map.put("status", status);
 		if(extra_data != null)
@@ -236,6 +246,7 @@ public abstract class Basebatch extends BaseResource {
 		online = (String) map.get("online");
 		end_date = (Long) map.get("end_date");
 		end_date_str = (String) map.get("end_date_str");
+		students = (Long) map.get("students");
 		status = (String) map.get("status");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -293,6 +304,10 @@ public abstract class Basebatch extends BaseResource {
 		Object end_date_strObj = map.get("end_date_str");
 		if(end_date_strObj != null)
 			end_date_str = end_date_strObj.toString();
+
+		Object studentsObj = map.get("students");
+		if(studentsObj != null)
+			students = new Long(studentsObj.toString());
 
 		Object statusObj = map.get("status");
 		if(statusObj != null)
@@ -505,6 +520,26 @@ public abstract class Basebatch extends BaseResource {
 
 	public void unSetEnd_date_str() {
 		this.end_date_str = null;
+	}
+
+	public Long getStudents() {
+		return students;
+	}
+
+	public long getStudentsEx() {
+		return students != null ? students : 0L;
+	}
+
+	public void setStudents(long students) {
+		this.students = students;
+	}
+
+	public void setStudents(Long students) {
+		this.students = students;
+	}
+
+	public void unSetStudents() {
+		this.students = null;
 	}
 
 	public String getStatus() {
