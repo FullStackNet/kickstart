@@ -32,7 +32,7 @@ public abstract class Basebatch extends BaseResource {
 	private String online = null;
 	private Long end_date = null;
 	private String end_date_str = null;
-	private Long students = null;
+	private Long total_student = null;
 	private String status = null; //Active/Deactive
 	private Map<String, Object> extra_data = null;
 
@@ -49,7 +49,7 @@ public abstract class Basebatch extends BaseResource {
 	public static String FIELD_ONLINE = "online";
 	public static String FIELD_END_DATE = "end_date";
 	public static String FIELD_END_DATE_STR = "end_date_str";
-	public static String FIELD_STUDENTS = "students";
+	public static String FIELD_TOTAL_STUDENT = "total_student";
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -110,8 +110,8 @@ public abstract class Basebatch extends BaseResource {
 		end_date_strField.setLength(32);
 		metaData.addField(end_date_strField);
 
-		Field studentsField = new Field("students", "long");
-		metaData.addField(studentsField);
+		Field total_studentField = new Field("total_student", "long");
+		metaData.addField(total_studentField);
 
 		Field statusField = new Field("status", "String");
 		statusField.setLength(32);
@@ -143,7 +143,7 @@ public abstract class Basebatch extends BaseResource {
 		this.online = obj.online;
 		this.end_date = obj.end_date;
 		this.end_date_str = obj.end_date_str;
-		this.students = obj.students;
+		this.total_student = obj.total_student;
 		this.status = obj.status;
 		this.extra_data = obj.extra_data;
 	}
@@ -180,8 +180,8 @@ public abstract class Basebatch extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
-		if(students != null)
-			map.put("students", students);
+		if(total_student != null)
+			map.put("total_student", total_student);
 		if(status != null)
 			map.put("status", status);
 		if(extra_data != null)
@@ -217,8 +217,8 @@ public abstract class Basebatch extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
-		if(students != null)
-			map.put("students", students);
+		if(total_student != null)
+			map.put("total_student", total_student);
 		if(status != null)
 			map.put("status", status);
 		if(extra_data != null)
@@ -246,7 +246,7 @@ public abstract class Basebatch extends BaseResource {
 		online = (String) map.get("online");
 		end_date = (Long) map.get("end_date");
 		end_date_str = (String) map.get("end_date_str");
-		students = (Long) map.get("students");
+		total_student = (Long) map.get("total_student");
 		status = (String) map.get("status");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -305,9 +305,9 @@ public abstract class Basebatch extends BaseResource {
 		if(end_date_strObj != null)
 			end_date_str = end_date_strObj.toString();
 
-		Object studentsObj = map.get("students");
-		if(studentsObj != null)
-			students = new Long(studentsObj.toString());
+		Object total_studentObj = map.get("total_student");
+		if(total_studentObj != null)
+			total_student = new Long(total_studentObj.toString());
 
 		Object statusObj = map.get("status");
 		if(statusObj != null)
@@ -522,24 +522,24 @@ public abstract class Basebatch extends BaseResource {
 		this.end_date_str = null;
 	}
 
-	public Long getStudents() {
-		return students;
+	public Long getTotal_student() {
+		return total_student;
 	}
 
-	public long getStudentsEx() {
-		return students != null ? students : 0L;
+	public long getTotal_studentEx() {
+		return total_student != null ? total_student : 0L;
 	}
 
-	public void setStudents(long students) {
-		this.students = students;
+	public void setTotal_student(long total_student) {
+		this.total_student = total_student;
 	}
 
-	public void setStudents(Long students) {
-		this.students = students;
+	public void setTotal_student(Long total_student) {
+		this.total_student = total_student;
 	}
 
-	public void unSetStudents() {
-		this.students = null;
+	public void unSetTotal_student() {
+		this.total_student = null;
 	}
 
 	public String getStatus() {

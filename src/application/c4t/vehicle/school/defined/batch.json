@@ -69,7 +69,7 @@
 				'type': 'String',
 				'length' : 32
 			},
-			'students': {
+			'total_student': {
 				'type': 'long'
 			},
 			'status': {
