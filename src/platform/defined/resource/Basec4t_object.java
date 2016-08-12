@@ -86,6 +86,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String scheme = null;
 	private String country = null;
 	private String feature_show_sales_price = null;
+	private String feature_mandi_auction = null;
+	private String feature_mandi_billing = null;
 	private String feature_show_mrp_price = null;
 	private String feature_appliance_management = null;
 	private String feature_non_veg = null;
@@ -299,6 +301,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_SCHEME = "scheme";
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_FEATURE_SHOW_SALES_PRICE = "feature_show_sales_price";
+	public static String FIELD_FEATURE_MANDI_AUCTION = "feature_mandi_auction";
+	public static String FIELD_FEATURE_MANDI_BILLING = "feature_mandi_billing";
 	public static String FIELD_FEATURE_SHOW_MRP_PRICE = "feature_show_mrp_price";
 	public static String FIELD_FEATURE_APPLIANCE_MANAGEMENT = "feature_appliance_management";
 	public static String FIELD_FEATURE_NON_VEG = "feature_non_veg";
@@ -724,6 +728,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Field feature_show_sales_priceField = new Field("feature_show_sales_price", "String");
 		feature_show_sales_priceField.setLength(1);
 		metaData.addField(feature_show_sales_priceField);
+
+		Field feature_mandi_auctionField = new Field("feature_mandi_auction", "String");
+		feature_mandi_auctionField.setLength(1);
+		metaData.addField(feature_mandi_auctionField);
+
+		Field feature_mandi_billingField = new Field("feature_mandi_billing", "String");
+		feature_mandi_billingField.setLength(1);
+		metaData.addField(feature_mandi_billingField);
 
 		Field feature_show_mrp_priceField = new Field("feature_show_mrp_price", "String");
 		feature_show_mrp_priceField.setLength(1);
@@ -1342,6 +1354,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.scheme = obj.scheme;
 		this.country = obj.country;
 		this.feature_show_sales_price = obj.feature_show_sales_price;
+		this.feature_mandi_auction = obj.feature_mandi_auction;
+		this.feature_mandi_billing = obj.feature_mandi_billing;
 		this.feature_show_mrp_price = obj.feature_show_mrp_price;
 		this.feature_appliance_management = obj.feature_appliance_management;
 		this.feature_non_veg = obj.feature_non_veg;
@@ -1629,6 +1643,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("country", country);
 		if(feature_show_sales_price != null)
 			map.put("feature_show_sales_price", feature_show_sales_price);
+		if(feature_mandi_auction != null)
+			map.put("feature_mandi_auction", feature_mandi_auction);
+		if(feature_mandi_billing != null)
+			map.put("feature_mandi_billing", feature_mandi_billing);
 		if(feature_show_mrp_price != null)
 			map.put("feature_show_mrp_price", feature_show_mrp_price);
 		if(feature_appliance_management != null)
@@ -2058,6 +2076,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("country", country);
 		if(feature_show_sales_price != null)
 			map.put("feature_show_sales_price", feature_show_sales_price);
+		if(feature_mandi_auction != null)
+			map.put("feature_mandi_auction", feature_mandi_auction);
+		if(feature_mandi_billing != null)
+			map.put("feature_mandi_billing", feature_mandi_billing);
 		if(feature_show_mrp_price != null)
 			map.put("feature_show_mrp_price", feature_show_mrp_price);
 		if(feature_appliance_management != null)
@@ -2425,6 +2447,8 @@ public abstract class Basec4t_object extends BaseResource {
 		scheme = (String) map.get("scheme");
 		country = (String) map.get("country");
 		feature_show_sales_price = (String) map.get("feature_show_sales_price");
+		feature_mandi_auction = (String) map.get("feature_mandi_auction");
+		feature_mandi_billing = (String) map.get("feature_mandi_billing");
 		feature_show_mrp_price = (String) map.get("feature_show_mrp_price");
 		feature_appliance_management = (String) map.get("feature_appliance_management");
 		feature_non_veg = (String) map.get("feature_non_veg");
@@ -2841,6 +2865,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_show_sales_priceObj = map.get("feature_show_sales_price");
 		if(feature_show_sales_priceObj != null)
 			feature_show_sales_price = feature_show_sales_priceObj.toString();
+
+		Object feature_mandi_auctionObj = map.get("feature_mandi_auction");
+		if(feature_mandi_auctionObj != null)
+			feature_mandi_auction = feature_mandi_auctionObj.toString();
+
+		Object feature_mandi_billingObj = map.get("feature_mandi_billing");
+		if(feature_mandi_billingObj != null)
+			feature_mandi_billing = feature_mandi_billingObj.toString();
 
 		Object feature_show_mrp_priceObj = map.get("feature_show_mrp_price");
 		if(feature_show_mrp_priceObj != null)
@@ -4515,6 +4547,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_show_sales_price() {
 		this.feature_show_sales_price = null;
+	}
+
+	public String getFeature_mandi_auction() {
+		return feature_mandi_auction;
+	}
+
+	public String getFeature_mandi_auctionEx() {
+		return feature_mandi_auction != null ? feature_mandi_auction : "";
+	}
+
+	public void setFeature_mandi_auction(String feature_mandi_auction) {
+		this.feature_mandi_auction = feature_mandi_auction;
+	}
+
+	public void unSetFeature_mandi_auction() {
+		this.feature_mandi_auction = null;
+	}
+
+	public String getFeature_mandi_billing() {
+		return feature_mandi_billing;
+	}
+
+	public String getFeature_mandi_billingEx() {
+		return feature_mandi_billing != null ? feature_mandi_billing : "";
+	}
+
+	public void setFeature_mandi_billing(String feature_mandi_billing) {
+		this.feature_mandi_billing = feature_mandi_billing;
+	}
+
+	public void unSetFeature_mandi_billing() {
+		this.feature_mandi_billing = null;
 	}
 
 	public String getFeature_show_mrp_price() {

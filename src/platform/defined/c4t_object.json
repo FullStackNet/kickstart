@@ -347,6 +347,16 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_mandi_auction':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'feature_mandi_billing':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'feature_show_mrp_price':
 			{
 				'type':'String',
