@@ -117,6 +117,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String mentor_name = null;
 	private String profession = null;
 	private String company_name = null;
+	private String test_account = null;
 	private String processor = null;
 	private String harddisk = null;
 	private String ram = null;
@@ -332,6 +333,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_MENTOR_NAME = "mentor_name";
 	public static String FIELD_PROFESSION = "profession";
 	public static String FIELD_COMPANY_NAME = "company_name";
+	public static String FIELD_TEST_ACCOUNT = "test_account";
 	public static String FIELD_PROCESSOR = "processor";
 	public static String FIELD_HARDDISK = "harddisk";
 	public static String FIELD_RAM = "ram";
@@ -851,6 +853,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field company_nameField = new Field("company_name", "String");
 		company_nameField.setLength(128);
 		metaData.addField(company_nameField);
+
+		Field test_accountField = new Field("test_account", "String");
+		test_accountField.setLength(1);
+		metaData.addField(test_accountField);
 
 		Field processorField = new Field("processor", "String");
 		processorField.setLength(128);
@@ -1385,6 +1391,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.mentor_name = obj.mentor_name;
 		this.profession = obj.profession;
 		this.company_name = obj.company_name;
+		this.test_account = obj.test_account;
 		this.processor = obj.processor;
 		this.harddisk = obj.harddisk;
 		this.ram = obj.ram;
@@ -1705,6 +1712,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("profession", profession);
 		if(company_name != null)
 			map.put("company_name", company_name);
+		if(test_account != null)
+			map.put("test_account", test_account);
 		if(processor != null)
 			map.put("processor", processor);
 		if(harddisk != null)
@@ -2138,6 +2147,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("profession", profession);
 		if(company_name != null)
 			map.put("company_name", company_name);
+		if(test_account != null)
+			map.put("test_account", test_account);
 		if(processor != null)
 			map.put("processor", processor);
 		if(harddisk != null)
@@ -2478,6 +2489,7 @@ public abstract class Basec4t_object extends BaseResource {
 		mentor_name = (String) map.get("mentor_name");
 		profession = (String) map.get("profession");
 		company_name = (String) map.get("company_name");
+		test_account = (String) map.get("test_account");
 		processor = (String) map.get("processor");
 		harddisk = (String) map.get("harddisk");
 		ram = (String) map.get("ram");
@@ -2989,6 +3001,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object company_nameObj = map.get("company_name");
 		if(company_nameObj != null)
 			company_name = company_nameObj.toString();
+
+		Object test_accountObj = map.get("test_account");
+		if(test_accountObj != null)
+			test_account = test_accountObj.toString();
 
 		Object processorObj = map.get("processor");
 		if(processorObj != null)
@@ -5047,6 +5063,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetCompany_name() {
 		this.company_name = null;
+	}
+
+	public String getTest_account() {
+		return test_account;
+	}
+
+	public String getTest_accountEx() {
+		return test_account != null ? test_account : "";
+	}
+
+	public void setTest_account(String test_account) {
+		this.test_account = test_account;
+	}
+
+	public void unSetTest_account() {
+		this.test_account = null;
 	}
 
 	public String getProcessor() {

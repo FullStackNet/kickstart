@@ -503,6 +503,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'test_account':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'processor':
 			{
 				'type':'String',
