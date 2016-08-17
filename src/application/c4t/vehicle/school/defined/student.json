@@ -612,6 +612,21 @@
 				'length': 32,
 				'type':'String'
 			},
+			'fee_remark_str':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'due_date_str':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'due_date':
+			{
+				'type':'long'
+			},
+			
 			'notes_issued_date':
 			{
 				'type':'long'
