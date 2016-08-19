@@ -35,6 +35,11 @@ public class HeaderView extends BaseView {
 		headerDiv = header;
 	}
 	
+	public HeaderView(UIServletContext context, Div header,String logo) {
+		mContext = context;
+		headerDiv = header;
+	}
+	
 	public void buildUI() {
 		c4t_object _community = C4t_objectHelper.getInstance().getById(mContext.getContextId());
 		if (_community == null) {
