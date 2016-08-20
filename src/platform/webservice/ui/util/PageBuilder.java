@@ -88,6 +88,7 @@ public class PageBuilder {
 			jsFileList.add(new JS("jquery-1.11.3.min.js", "http://code.jquery.com"));
 			jsFileList.add(new JS("jquery-ui.min.js", "http://code.jquery.com/ui/1.11.4"));
 			jsFileList.add(new JS("function.js", "/ui/js"));
+			jsFileList.add(new JS("jExpand.js", "/ui/js"));
 			jsFileList.add(new JS("DataHandler.js", "/ui/js"));
 			jsFileList.add(new JS("json.js", "/ui/js"));
 			jsFileList.add(new JS("base64.js", "/ui/js"));
