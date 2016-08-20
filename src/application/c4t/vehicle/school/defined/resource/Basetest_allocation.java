@@ -30,6 +30,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	private String batch_id = null;
 	private String batch_name = null;
 	private String course_name = null;
+	private String duplicate_allocation = null;
 	private Long start_date = null;
 	private String start_time_s = null;
 	private String start_date_str = null;
@@ -61,6 +62,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	public static String FIELD_BATCH_ID = "batch_id";
 	public static String FIELD_BATCH_NAME = "batch_name";
 	public static String FIELD_COURSE_NAME = "course_name";
+	public static String FIELD_DUPLICATE_ALLOCATION = "duplicate_allocation";
 	public static String FIELD_START_DATE = "start_date";
 	public static String FIELD_START_TIME_S = "start_time_s";
 	public static String FIELD_START_DATE_STR = "start_date_str";
@@ -131,6 +133,9 @@ public abstract class Basetest_allocation extends BaseResource {
 		Field course_nameField = new Field("course_name", "String");
 		course_nameField.setLength(128);
 		metaData.addField(course_nameField);
+
+		Field duplicate_allocationField = new Field("duplicate_allocation", "String");
+		metaData.addField(duplicate_allocationField);
 
 		Field start_dateField = new Field("start_date", "timestamp");
 		metaData.addField(start_dateField);
@@ -219,6 +224,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.batch_id = obj.batch_id;
 		this.batch_name = obj.batch_name;
 		this.course_name = obj.course_name;
+		this.duplicate_allocation = obj.duplicate_allocation;
 		this.start_date = obj.start_date;
 		this.start_time_s = obj.start_time_s;
 		this.start_date_str = obj.start_date_str;
@@ -268,6 +274,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("batch_name", batch_name);
 		if(course_name != null)
 			map.put("course_name", course_name);
+		if(duplicate_allocation != null)
+			map.put("duplicate_allocation", duplicate_allocation);
 		if(start_date != null)
 			map.put("start_date", start_date);
 		if(start_time_s != null)
@@ -333,6 +341,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("batch_name", batch_name);
 		if(course_name != null)
 			map.put("course_name", course_name);
+		if(duplicate_allocation != null)
+			map.put("duplicate_allocation", duplicate_allocation);
 		if(start_date != null)
 			map.put("start_date", start_date);
 		if(start_time_s != null)
@@ -392,6 +402,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		batch_id = (String) map.get("batch_id");
 		batch_name = (String) map.get("batch_name");
 		course_name = (String) map.get("course_name");
+		duplicate_allocation = (String) map.get("duplicate_allocation");
 		start_date = (Long) map.get("start_date");
 		start_time_s = (String) map.get("start_time_s");
 		start_date_str = (String) map.get("start_date_str");
@@ -458,6 +469,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		Object course_nameObj = map.get("course_name");
 		if(course_nameObj != null)
 			course_name = course_nameObj.toString();
+
+		Object duplicate_allocationObj = map.get("duplicate_allocation");
+		if(duplicate_allocationObj != null)
+			duplicate_allocation = duplicate_allocationObj.toString();
 
 		Object start_dateObj = map.get("start_date");
 		if(start_dateObj != null)
@@ -720,6 +735,22 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetCourse_name() {
 		this.course_name = null;
+	}
+
+	public String getDuplicate_allocation() {
+		return duplicate_allocation;
+	}
+
+	public String getDuplicate_allocationEx() {
+		return duplicate_allocation != null ? duplicate_allocation : "";
+	}
+
+	public void setDuplicate_allocation(String duplicate_allocation) {
+		this.duplicate_allocation = duplicate_allocation;
+	}
+
+	public void unSetDuplicate_allocation() {
+		this.duplicate_allocation = null;
 	}
 
 	public Long getStart_date() {
