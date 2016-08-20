@@ -137,6 +137,10 @@
 			{
 				'type':'double'
 			},
+			'rank':
+			{
+				'type':'int'
+			},
 			'total_correct_answers':
 			{
 				'type':'long'

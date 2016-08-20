@@ -46,6 +46,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private Double total_marks = null;
 	private Double total_marks_got = null;
 	private Double total_questions = null;
+	private Integer rank = null;
 	private Long total_correct_answers = null;
 	private String status = null;
 	private Long total_timeInMin = null;
@@ -84,6 +85,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_TOTAL_MARKS = "total_marks";
 	public static String FIELD_TOTAL_MARKS_GOT = "total_marks_got";
 	public static String FIELD_TOTAL_QUESTIONS = "total_questions";
+	public static String FIELD_RANK = "rank";
 	public static String FIELD_TOTAL_CORRECT_ANSWERS = "total_correct_answers";
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_TOTAL_TIMEINMIN = "total_timeInMin";
@@ -203,6 +205,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Field total_questionsField = new Field("total_questions", "double");
 		metaData.addField(total_questionsField);
 
+		Field rankField = new Field("rank", "int");
+		metaData.addField(rankField);
+
 		Field total_correct_answersField = new Field("total_correct_answers", "long");
 		metaData.addField(total_correct_answersField);
 
@@ -273,6 +278,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.total_marks = obj.total_marks;
 		this.total_marks_got = obj.total_marks_got;
 		this.total_questions = obj.total_questions;
+		this.rank = obj.rank;
 		this.total_correct_answers = obj.total_correct_answers;
 		this.status = obj.status;
 		this.total_timeInMin = obj.total_timeInMin;
@@ -345,6 +351,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("total_marks_got", total_marks_got);
 		if(total_questions != null)
 			map.put("total_questions", total_questions);
+		if(rank != null)
+			map.put("rank", rank);
 		if(total_correct_answers != null)
 			map.put("total_correct_answers", total_correct_answers);
 		if(status != null)
@@ -424,6 +432,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("total_marks_got", total_marks_got);
 		if(total_questions != null)
 			map.put("total_questions", total_questions);
+		if(rank != null)
+			map.put("rank", rank);
 		if(total_correct_answers != null)
 			map.put("total_correct_answers", total_correct_answers);
 		if(status != null)
@@ -481,6 +491,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		total_marks = (Double) map.get("total_marks");
 		total_marks_got = (Double) map.get("total_marks_got");
 		total_questions = (Double) map.get("total_questions");
+		rank = (Integer) map.get("rank");
 		total_correct_answers = (Long) map.get("total_correct_answers");
 		status = (String) map.get("status");
 		total_timeInMin = (Long) map.get("total_timeInMin");
@@ -602,6 +613,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object total_questionsObj = map.get("total_questions");
 		if(total_questionsObj != null)
 			total_questions = new Double(total_questionsObj.toString());
+
+		Object rankObj = map.get("rank");
+		if(rankObj != null)
+			rank = new Integer(rankObj.toString());
 
 		Object total_correct_answersObj = map.get("total_correct_answers");
 		if(total_correct_answersObj != null)
@@ -1082,6 +1097,26 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetTotal_questions() {
 		this.total_questions = null;
+	}
+
+	public Integer getRank() {
+		return rank;
+	}
+
+	public int getRankEx() {
+		return rank != null ? rank : 0;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
+
+	public void setRank(Integer rank) {
+		this.rank = rank;
+	}
+
+	public void unSetRank() {
+		this.rank = null;
 	}
 
 	public Long getTotal_correct_answers() {
