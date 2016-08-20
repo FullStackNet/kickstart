@@ -6,6 +6,7 @@ import platform.util.Util;
 public class user extends Baseuser {
 	
 	public static String USER_TYPE_C4T_ADMIN = "C4T_ADMIN";
+	public static String USER_TYPE_BS_CONTRIBUTER = "BS_CONTRIBUTER";
 	public static String USER_TYPE_ACCOUNT_MANAGER = "ACCOUNT_MANAGER";
 	public static String USER_TYPE_CUSTOMER_ADMIN = "CUSTOMER_ADMIN";
 	public static String USER_TYPE_FLEET_MANAGER = "FLEET_MANAGER";
