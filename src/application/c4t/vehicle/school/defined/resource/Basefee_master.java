@@ -25,6 +25,8 @@ public abstract class Basefee_master extends BaseResource {
 	private String customer_id = null;
 	private String class_name = null;
 	private String course_id = null;
+	private String due_date_str = null;
+	private Long due_date = null;
 	private String batch_id = null;
 	private String batch_name = null;
 	private Double total_fees = null;
@@ -37,6 +39,8 @@ public abstract class Basefee_master extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_COURSE_ID = "course_id";
+	public static String FIELD_DUE_DATE_STR = "due_date_str";
+	public static String FIELD_DUE_DATE = "due_date";
 	public static String FIELD_BATCH_ID = "batch_id";
 	public static String FIELD_BATCH_NAME = "batch_name";
 	public static String FIELD_TOTAL_FEES = "total_fees";
@@ -77,6 +81,13 @@ public abstract class Basefee_master extends BaseResource {
 		course_idField.setLength(512);
 		metaData.addField(course_idField);
 
+		Field due_date_strField = new Field("due_date_str", "String");
+		due_date_strField.setLength(32);
+		metaData.addField(due_date_strField);
+
+		Field due_dateField = new Field("due_date", "long");
+		metaData.addField(due_dateField);
+
 		Field batch_idField = new Field("batch_id", "String");
 		batch_idField.setLength(512);
 		metaData.addField(batch_idField);
@@ -110,6 +121,8 @@ public abstract class Basefee_master extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.class_name = obj.class_name;
 		this.course_id = obj.course_id;
+		this.due_date_str = obj.due_date_str;
+		this.due_date = obj.due_date;
 		this.batch_id = obj.batch_id;
 		this.batch_name = obj.batch_name;
 		this.total_fees = obj.total_fees;
@@ -135,6 +148,10 @@ public abstract class Basefee_master extends BaseResource {
 			map.put("class_name", class_name);
 		if(course_id != null)
 			map.put("course_id", course_id);
+		if(due_date_str != null)
+			map.put("due_date_str", due_date_str);
+		if(due_date != null)
+			map.put("due_date", due_date);
 		if(batch_id != null)
 			map.put("batch_id", batch_id);
 		if(batch_name != null)
@@ -162,6 +179,10 @@ public abstract class Basefee_master extends BaseResource {
 			map.put("class_name", class_name);
 		if(course_id != null)
 			map.put("course_id", course_id);
+		if(due_date_str != null)
+			map.put("due_date_str", due_date_str);
+		if(due_date != null)
+			map.put("due_date", due_date);
 		if(batch_id != null)
 			map.put("batch_id", batch_id);
 		if(batch_name != null)
@@ -188,6 +209,8 @@ public abstract class Basefee_master extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		class_name = (String) map.get("class_name");
 		course_id = (String) map.get("course_id");
+		due_date_str = (String) map.get("due_date_str");
+		due_date = (Long) map.get("due_date");
 		batch_id = (String) map.get("batch_id");
 		batch_name = (String) map.get("batch_name");
 		total_fees = (Double) map.get("total_fees");
@@ -220,6 +243,14 @@ public abstract class Basefee_master extends BaseResource {
 		Object course_idObj = map.get("course_id");
 		if(course_idObj != null)
 			course_id = course_idObj.toString();
+
+		Object due_date_strObj = map.get("due_date_str");
+		if(due_date_strObj != null)
+			due_date_str = due_date_strObj.toString();
+
+		Object due_dateObj = map.get("due_date");
+		if(due_dateObj != null)
+			due_date = new Long(due_dateObj.toString());
 
 		Object batch_idObj = map.get("batch_id");
 		if(batch_idObj != null)
@@ -346,6 +377,42 @@ public abstract class Basefee_master extends BaseResource {
 
 	public void unSetCourse_id() {
 		this.course_id = null;
+	}
+
+	public String getDue_date_str() {
+		return due_date_str;
+	}
+
+	public String getDue_date_strEx() {
+		return due_date_str != null ? due_date_str : "";
+	}
+
+	public void setDue_date_str(String due_date_str) {
+		this.due_date_str = due_date_str;
+	}
+
+	public void unSetDue_date_str() {
+		this.due_date_str = null;
+	}
+
+	public Long getDue_date() {
+		return due_date;
+	}
+
+	public long getDue_dateEx() {
+		return due_date != null ? due_date : 0L;
+	}
+
+	public void setDue_date(long due_date) {
+		this.due_date = due_date;
+	}
+
+	public void setDue_date(Long due_date) {
+		this.due_date = due_date;
+	}
+
+	public void unSetDue_date() {
+		this.due_date = null;
 	}
 
 	public String getBatch_id() {

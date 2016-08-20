@@ -130,6 +130,9 @@ public abstract class Basestudent extends BaseResource {
 	private String application_processed = null;
 	private String notes_issued = null;
 	private String notes_issued_date_str = null;
+	private String fee_remark_str = null;
+	private String due_date_str = null;
+	private Long due_date = null;
 	private Long notes_issued_date = null;
 	private String notes_issued_remark = null;
 	private Double total_fees = null;
@@ -253,6 +256,9 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_APPLICATION_PROCESSED = "application_processed";
 	public static String FIELD_NOTES_ISSUED = "notes_issued";
 	public static String FIELD_NOTES_ISSUED_DATE_STR = "notes_issued_date_str";
+	public static String FIELD_FEE_REMARK_STR = "fee_remark_str";
+	public static String FIELD_DUE_DATE_STR = "due_date_str";
+	public static String FIELD_DUE_DATE = "due_date";
 	public static String FIELD_NOTES_ISSUED_DATE = "notes_issued_date";
 	public static String FIELD_NOTES_ISSUED_REMARK = "notes_issued_remark";
 	public static String FIELD_TOTAL_FEES = "total_fees";
@@ -755,6 +761,17 @@ public abstract class Basestudent extends BaseResource {
 		notes_issued_date_strField.setLength(32);
 		metaData.addField(notes_issued_date_strField);
 
+		Field fee_remark_strField = new Field("fee_remark_str", "String");
+		fee_remark_strField.setLength(128);
+		metaData.addField(fee_remark_strField);
+
+		Field due_date_strField = new Field("due_date_str", "String");
+		due_date_strField.setLength(32);
+		metaData.addField(due_date_strField);
+
+		Field due_dateField = new Field("due_date", "long");
+		metaData.addField(due_dateField);
+
 		Field notes_issued_dateField = new Field("notes_issued_date", "long");
 		metaData.addField(notes_issued_dateField);
 
@@ -910,6 +927,9 @@ public abstract class Basestudent extends BaseResource {
 		this.application_processed = obj.application_processed;
 		this.notes_issued = obj.notes_issued;
 		this.notes_issued_date_str = obj.notes_issued_date_str;
+		this.fee_remark_str = obj.fee_remark_str;
+		this.due_date_str = obj.due_date_str;
+		this.due_date = obj.due_date;
 		this.notes_issued_date = obj.notes_issued_date;
 		this.notes_issued_remark = obj.notes_issued_remark;
 		this.total_fees = obj.total_fees;
@@ -1220,6 +1240,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("notes_issued", notes_issued);
 		if(notes_issued_date_str != null)
 			map.put("notes_issued_date_str", notes_issued_date_str);
+		if(fee_remark_str != null)
+			map.put("fee_remark_str", fee_remark_str);
+		if(due_date_str != null)
+			map.put("due_date_str", due_date_str);
+		if(due_date != null)
+			map.put("due_date", due_date);
 		if(notes_issued_date != null)
 			map.put("notes_issued_date", notes_issued_date);
 		if(notes_issued_remark != null)
@@ -1472,6 +1498,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("notes_issued", notes_issued);
 		if(notes_issued_date_str != null)
 			map.put("notes_issued_date_str", notes_issued_date_str);
+		if(fee_remark_str != null)
+			map.put("fee_remark_str", fee_remark_str);
+		if(due_date_str != null)
+			map.put("due_date_str", due_date_str);
+		if(due_date != null)
+			map.put("due_date", due_date);
 		if(notes_issued_date != null)
 			map.put("notes_issued_date", notes_issued_date);
 		if(notes_issued_remark != null)
@@ -1615,6 +1647,9 @@ public abstract class Basestudent extends BaseResource {
 		application_processed = (String) map.get("application_processed");
 		notes_issued = (String) map.get("notes_issued");
 		notes_issued_date_str = (String) map.get("notes_issued_date_str");
+		fee_remark_str = (String) map.get("fee_remark_str");
+		due_date_str = (String) map.get("due_date_str");
+		due_date = (Long) map.get("due_date");
 		notes_issued_date = (Long) map.get("notes_issued_date");
 		notes_issued_remark = (String) map.get("notes_issued_remark");
 		total_fees = (Double) map.get("total_fees");
@@ -2073,6 +2108,18 @@ public abstract class Basestudent extends BaseResource {
 		Object notes_issued_date_strObj = map.get("notes_issued_date_str");
 		if(notes_issued_date_strObj != null)
 			notes_issued_date_str = notes_issued_date_strObj.toString();
+
+		Object fee_remark_strObj = map.get("fee_remark_str");
+		if(fee_remark_strObj != null)
+			fee_remark_str = fee_remark_strObj.toString();
+
+		Object due_date_strObj = map.get("due_date_str");
+		if(due_date_strObj != null)
+			due_date_str = due_date_strObj.toString();
+
+		Object due_dateObj = map.get("due_date");
+		if(due_dateObj != null)
+			due_date = new Long(due_dateObj.toString());
 
 		Object notes_issued_dateObj = map.get("notes_issued_date");
 		if(notes_issued_dateObj != null)
@@ -3795,6 +3842,58 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetNotes_issued_date_str() {
 		this.notes_issued_date_str = null;
+	}
+
+	public String getFee_remark_str() {
+		return fee_remark_str;
+	}
+
+	public String getFee_remark_strEx() {
+		return fee_remark_str != null ? fee_remark_str : "";
+	}
+
+	public void setFee_remark_str(String fee_remark_str) {
+		this.fee_remark_str = fee_remark_str;
+	}
+
+	public void unSetFee_remark_str() {
+		this.fee_remark_str = null;
+	}
+
+	public String getDue_date_str() {
+		return due_date_str;
+	}
+
+	public String getDue_date_strEx() {
+		return due_date_str != null ? due_date_str : "";
+	}
+
+	public void setDue_date_str(String due_date_str) {
+		this.due_date_str = due_date_str;
+	}
+
+	public void unSetDue_date_str() {
+		this.due_date_str = null;
+	}
+
+	public Long getDue_date() {
+		return due_date;
+	}
+
+	public long getDue_dateEx() {
+		return due_date != null ? due_date : 0L;
+	}
+
+	public void setDue_date(long due_date) {
+		this.due_date = due_date;
+	}
+
+	public void setDue_date(Long due_date) {
+		this.due_date = due_date;
+	}
+
+	public void unSetDue_date() {
+		this.due_date = null;
 	}
 
 	public Long getNotes_issued_date() {

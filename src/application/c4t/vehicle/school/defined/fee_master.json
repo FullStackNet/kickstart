@@ -39,6 +39,15 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'due_date_str':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'due_date':
+			{
+				'type':'long'
+			},
 			'batch_id':
 			{
 				'length': 512,
@@ -49,6 +58,7 @@
 				'length': 512,
 				'type': 'String'
 			},
+			
 			'total_fees':
 			{
 				'type': 'double'

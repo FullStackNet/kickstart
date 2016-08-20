@@ -2,6 +2,7 @@ package platform.webservice.ui.view;
 
 import platform.helper.C4t_objectHelper;
 import platform.resource.c4t_object;
+import platform.util.Util;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.component.BaseView;
 import platform.webservice.ui.html.A;
@@ -15,13 +16,26 @@ import platform.webservice.ui.util.ImageUtils;
 public class HeaderView extends BaseView {
 	UIServletContext mContext;
 	Div headerDiv;
+	String logoFile;
 	
 	public HeaderView(UIServletContext context) {
 		mContext = context;
 		headerDiv = new Div();
 	}
 	
+	public HeaderView(UIServletContext context,String logo) {
+		mContext = context;
+		headerDiv = new Div();
+		logoFile = logo;
+	}
+	
+	
 	public HeaderView(UIServletContext context, Div header) {
+		mContext = context;
+		headerDiv = header;
+	}
+	
+	public HeaderView(UIServletContext context, Div header,String logo) {
 		mContext = context;
 		headerDiv = header;
 	}
@@ -32,12 +46,18 @@ public class HeaderView extends BaseView {
 			if (mContext.getDomainName().contains("connect2parent.com")) {
 				Div logoImageDiv = new Div(null, "logo");
 				IMG logoImg = new IMG();		
-				if (mContext.getDomainName().contains("nirmanias")) {
+				if (Util.isEmpty(logoFile)) {
+					if (mContext.getDomainName().contains("nirmanias")) {
+						logoImg.addAttribute("width","230px");
+						logoImg.addAttribute("height","130px");
+						logoImg.setSRC("http://www.nirmanias.com/images/logo.png");
+					} else {
+						logoImg.setSRC(ImageUtils.C2P_HEADER_LOGO);
+					}
+				} else {
 					logoImg.addAttribute("width","230px");
 					logoImg.addAttribute("height","130px");
-					logoImg.setSRC("http://www.nirmanias.com/images/logo.png");
-				} else {
-					logoImg.setSRC(ImageUtils.C2P_HEADER_LOGO);
+					logoImg.setSRC(logoFile);					
 				}
 		        logoImageDiv.addChild(logoImg);
 		        headerDiv.addChild(logoImageDiv);
@@ -54,21 +74,23 @@ public class HeaderView extends BaseView {
 		        logoImageDiv.addChild(logoImg);
 		        headerDiv.addChild(logoImageDiv);
 			}
-			Div headerMenuDiv = new Div(null, "menu");
-		    
-		    UL menuContainer = new UL();
-	        MenuItem item = new MenuItem(" ", "/ui/myarea", ImageUtils.TAB_MONITOR);
-	        menuContainer.addChild(item.getItem());
-	        item = new MenuItem(" ", "/ui/activity", ImageUtils.TAB_ACTIVITY);
-	        menuContainer.addChild(item.getItem());
-	        item = new MenuItem(" ", "/ui/report", ImageUtils.TAB_REPORTS);
-	        menuContainer.addChild(item.getItem());
-	        item = new MenuItem(" ", "/ui/configuration", ImageUtils.TAB_CONFIG);
-	        menuContainer.addChild(item.getItem());
-	        item = new MenuItem(" ", "/ui/logout", ImageUtils.TAB_LOGOUT);
-	        menuContainer.addChild(item.getItem());
-	        headerMenuDiv.addChild(menuContainer);
-	        headerDiv.addChild(headerMenuDiv);
+			if (!Util.isEmpty(mContext.getUserId())) {
+				Div headerMenuDiv = new Div(null, "menu");
+			    
+			    UL menuContainer = new UL();
+		        MenuItem item = new MenuItem(" ", "/ui/myarea", ImageUtils.TAB_MONITOR);
+		        menuContainer.addChild(item.getItem());
+		        item = new MenuItem(" ", "/ui/activity", ImageUtils.TAB_ACTIVITY);
+		        menuContainer.addChild(item.getItem());
+		        item = new MenuItem(" ", "/ui/report", ImageUtils.TAB_REPORTS);
+		        menuContainer.addChild(item.getItem());
+		        item = new MenuItem(" ", "/ui/configuration", ImageUtils.TAB_CONFIG);
+		        menuContainer.addChild(item.getItem());
+		        item = new MenuItem(" ", "/ui/logout", ImageUtils.TAB_LOGOUT);
+		        menuContainer.addChild(item.getItem());
+		        headerMenuDiv.addChild(menuContainer);
+		        headerDiv.addChild(headerMenuDiv);
+			}
 	        headerDiv.addAttribute("domain",mContext.getDomainName());
 		} else if (_community.getType().equals("MANDI_AGENT")){
 			headerDiv.addAttribute("align", "right");

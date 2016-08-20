@@ -22,6 +22,8 @@ public abstract class Baseschool extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String type = null;
+	private String web_logo_url = null;
+	private String web_right_side_url = null;
 	private String photo_upload_url = null;
 	private String community_id = null;
 	private String app_branding = null;
@@ -108,6 +110,8 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_TYPE = "type";
+	public static String FIELD_WEB_LOGO_URL = "web_logo_url";
+	public static String FIELD_WEB_RIGHT_SIDE_URL = "web_right_side_url";
 	public static String FIELD_PHOTO_UPLOAD_URL = "photo_upload_url";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_APP_BRANDING = "app_branding";
@@ -209,6 +213,14 @@ public abstract class Baseschool extends BaseResource {
 		Field typeField = new Field("type", "String");
 		typeField.setLength(128);
 		metaData.addField(typeField);
+
+		Field web_logo_urlField = new Field("web_logo_url", "String");
+		web_logo_urlField.setLength(128);
+		metaData.addField(web_logo_urlField);
+
+		Field web_right_side_urlField = new Field("web_right_side_url", "String");
+		web_right_side_urlField.setLength(128);
+		metaData.addField(web_right_side_urlField);
 
 		Field photo_upload_urlField = new Field("photo_upload_url", "String");
 		photo_upload_urlField.setLength(128);
@@ -606,6 +618,8 @@ public abstract class Baseschool extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.type = obj.type;
+		this.web_logo_url = obj.web_logo_url;
+		this.web_right_side_url = obj.web_right_side_url;
 		this.photo_upload_url = obj.photo_upload_url;
 		this.community_id = obj.community_id;
 		this.app_branding = obj.app_branding;
@@ -823,6 +837,10 @@ public abstract class Baseschool extends BaseResource {
 			map.put("name", name);
 		if(type != null)
 			map.put("type", type);
+		if(web_logo_url != null)
+			map.put("web_logo_url", web_logo_url);
+		if(web_right_side_url != null)
+			map.put("web_right_side_url", web_right_side_url);
 		if(photo_upload_url != null)
 			map.put("photo_upload_url", photo_upload_url);
 		if(community_id != null)
@@ -1001,6 +1019,10 @@ public abstract class Baseschool extends BaseResource {
 			map.put("name", name);
 		if(type != null)
 			map.put("type", type);
+		if(web_logo_url != null)
+			map.put("web_logo_url", web_logo_url);
+		if(web_right_side_url != null)
+			map.put("web_right_side_url", web_right_side_url);
 		if(photo_upload_url != null)
 			map.put("photo_upload_url", photo_upload_url);
 		if(community_id != null)
@@ -1178,6 +1200,8 @@ public abstract class Baseschool extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		type = (String) map.get("type");
+		web_logo_url = (String) map.get("web_logo_url");
+		web_right_side_url = (String) map.get("web_right_side_url");
 		photo_upload_url = (String) map.get("photo_upload_url");
 		community_id = (String) map.get("community_id");
 		app_branding = (String) map.get("app_branding");
@@ -1275,6 +1299,14 @@ public abstract class Baseschool extends BaseResource {
 		Object typeObj = map.get("type");
 		if(typeObj != null)
 			type = typeObj.toString();
+
+		Object web_logo_urlObj = map.get("web_logo_url");
+		if(web_logo_urlObj != null)
+			web_logo_url = web_logo_urlObj.toString();
+
+		Object web_right_side_urlObj = map.get("web_right_side_url");
+		if(web_right_side_urlObj != null)
+			web_right_side_url = web_right_side_urlObj.toString();
 
 		Object photo_upload_urlObj = map.get("photo_upload_url");
 		if(photo_upload_urlObj != null)
@@ -1661,6 +1693,38 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetType() {
 		this.type = null;
+	}
+
+	public String getWeb_logo_url() {
+		return web_logo_url;
+	}
+
+	public String getWeb_logo_urlEx() {
+		return web_logo_url != null ? web_logo_url : "";
+	}
+
+	public void setWeb_logo_url(String web_logo_url) {
+		this.web_logo_url = web_logo_url;
+	}
+
+	public void unSetWeb_logo_url() {
+		this.web_logo_url = null;
+	}
+
+	public String getWeb_right_side_url() {
+		return web_right_side_url;
+	}
+
+	public String getWeb_right_side_urlEx() {
+		return web_right_side_url != null ? web_right_side_url : "";
+	}
+
+	public void setWeb_right_side_url(String web_right_side_url) {
+		this.web_right_side_url = web_right_side_url;
+	}
+
+	public void unSetWeb_right_side_url() {
+		this.web_right_side_url = null;
 	}
 
 	public String getPhoto_upload_url() {
