@@ -119,6 +119,11 @@
 				'type':'String',
 				'length': 1
 			},
+			'allocate_again':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'result_date': {
 				'type': 'timestamp'
 			},

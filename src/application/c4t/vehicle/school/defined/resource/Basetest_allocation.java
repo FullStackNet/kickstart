@@ -44,6 +44,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	private String test_english = null;
 	private String resuffle_option = null;
 	private String immediate_result = null;
+	private String allocate_again = null;
 	private Long result_date = null;
 	private String result_date_s = null;
 	private String result_time_s = null;
@@ -78,6 +79,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	public static String FIELD_TEST_ENGLISH = "test_english";
 	public static String FIELD_RESUFFLE_OPTION = "resuffle_option";
 	public static String FIELD_IMMEDIATE_RESULT = "immediate_result";
+	public static String FIELD_ALLOCATE_AGAIN = "allocate_again";
 	public static String FIELD_RESULT_DATE = "result_date";
 	public static String FIELD_RESULT_DATE_S = "result_date_s";
 	public static String FIELD_RESULT_TIME_S = "result_time_s";
@@ -189,6 +191,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		immediate_resultField.setLength(1);
 		metaData.addField(immediate_resultField);
 
+		Field allocate_againField = new Field("allocate_again", "String");
+		allocate_againField.setLength(1);
+		metaData.addField(allocate_againField);
+
 		Field result_dateField = new Field("result_date", "timestamp");
 		metaData.addField(result_dateField);
 
@@ -250,6 +256,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.test_english = obj.test_english;
 		this.resuffle_option = obj.resuffle_option;
 		this.immediate_result = obj.immediate_result;
+		this.allocate_again = obj.allocate_again;
 		this.result_date = obj.result_date;
 		this.result_date_s = obj.result_date_s;
 		this.result_time_s = obj.result_time_s;
@@ -316,6 +323,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
+		if(allocate_again != null)
+			map.put("allocate_again", allocate_again);
 		if(result_date != null)
 			map.put("result_date", result_date);
 		if(result_date_s != null)
@@ -387,6 +396,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
+		if(allocate_again != null)
+			map.put("allocate_again", allocate_again);
 		if(result_date != null)
 			map.put("result_date", result_date);
 		if(result_date_s != null)
@@ -438,6 +449,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		test_english = (String) map.get("test_english");
 		resuffle_option = (String) map.get("resuffle_option");
 		immediate_result = (String) map.get("immediate_result");
+		allocate_again = (String) map.get("allocate_again");
 		result_date = (Long) map.get("result_date");
 		result_date_s = (String) map.get("result_date_s");
 		result_time_s = (String) map.get("result_time_s");
@@ -549,6 +561,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		Object immediate_resultObj = map.get("immediate_result");
 		if(immediate_resultObj != null)
 			immediate_result = immediate_resultObj.toString();
+
+		Object allocate_againObj = map.get("allocate_again");
+		if(allocate_againObj != null)
+			allocate_again = allocate_againObj.toString();
 
 		Object result_dateObj = map.get("result_date");
 		if(result_dateObj != null)
@@ -977,6 +993,22 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetImmediate_result() {
 		this.immediate_result = null;
+	}
+
+	public String getAllocate_again() {
+		return allocate_again;
+	}
+
+	public String getAllocate_againEx() {
+		return allocate_again != null ? allocate_again : "";
+	}
+
+	public void setAllocate_again(String allocate_again) {
+		this.allocate_again = allocate_again;
+	}
+
+	public void unSetAllocate_again() {
+		this.allocate_again = null;
 	}
 
 	public Long getResult_date() {
