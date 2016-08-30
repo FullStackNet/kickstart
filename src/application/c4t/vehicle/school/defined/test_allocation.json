@@ -16,6 +16,16 @@
 				'type':'String',
 				'length': 128
 			},
+			'teacher_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'test_id':
 			{
 				'length': 128,
