@@ -5,6 +5,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import application.c4t.vehicle.school.helper.NoticeHelper;
+import application.c4t.vehicle.school.helper.SchoolHelper;
+import application.c4t.vehicle.school.helper.StudentHelper;
+import application.c4t.vehicle.school.helper.Student_mapHelper;
+import application.c4t.vehicle.school.resource.notice;
+import application.c4t.vehicle.school.resource.school;
+import application.c4t.vehicle.school.resource.student;
 import platform.helper.Sms_logHelper;
 import platform.helper.User_mapHelper;
 import platform.log.ApplicationLogger;
@@ -23,13 +30,6 @@ import platform.util.ApplicationException;
 import platform.util.Json;
 import platform.util.TimeUtil;
 import platform.util.Util;
-import application.c4t.vehicle.school.helper.NoticeHelper;
-import application.c4t.vehicle.school.helper.SchoolHelper;
-import application.c4t.vehicle.school.helper.StudentHelper;
-import application.c4t.vehicle.school.helper.Student_mapHelper;
-import application.c4t.vehicle.school.resource.notice;
-import application.c4t.vehicle.school.resource.school;
-import application.c4t.vehicle.school.resource.student;
 
 public class NoticeNotificationTask extends NotificationTask {
 	public NoticeNotificationTask() {
@@ -143,6 +143,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			String type,
 			String class_name,
 			String class_section_name,
+			String batch_id,
 			String title,
 			String description,
 			String date,
@@ -167,6 +168,12 @@ public class NoticeNotificationTask extends NotificationTask {
 			}
 			String[] ids = activity.getSchools().toArray(new String[activity.getSchools().size()]);
 			students = StudentHelper.getInstance().getSectionStudent(ids,class_section_name);
+		}else if ("BATCH".equals(type)) {
+			if (Util.isEmpty(activity.getSchools())) {
+				return;
+			}
+			String[] ids = activity.getSchools().toArray(new String[activity.getSchools().size()]);
+			students = StudentHelper.getInstance().getByBatch(batch_id);
 		} else if ("PARENTS".equals(type)) {
 			if (Util.isEmpty(activity.getStudents())) {
 				return;
@@ -317,6 +324,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			String type = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_TYPE);
 			String class_name = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_CLASS_NAME);
 			String section_name = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_SECTION_NAME);
+			String batch_id = (String)data.get(NotificationFactory.NOTIFICATION_DATA_PARAMETER_BATCH_ID);
 			String class_section_name = class_name+" "+section_name;
 			String title = (String)data.get("TITLE");
 			String description = (String)data.get("DESCRIPTION");
@@ -330,7 +338,7 @@ public class NoticeNotificationTask extends NotificationTask {
 				return;
 			}
 			sendNotification(_notification,notice_id,type,class_name,
-					class_section_name, title,description,date,activity,customer_id);
+					class_section_name, batch_id,title,description,date,activity,customer_id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
