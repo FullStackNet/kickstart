@@ -902,7 +902,10 @@
 			{
 				'type':'timestamp'
 			},
-		
+			'last_used':
+			{
+				'type':'timestamp'
+			},
 			'updation_time':
 			{
 				'type':'timestamp'

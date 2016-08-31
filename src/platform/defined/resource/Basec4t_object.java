@@ -201,6 +201,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private Integer notification_offers = null;
 	private Integer notification_communication = null;
 	private Long creation_time = null;
+	private Long last_used = null;
 	private Long updation_time = null;
 	private String owner_id = null;
 	private String chemist_community_id = null;
@@ -417,6 +418,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_NOTIFICATION_OFFERS = "notification_offers";
 	public static String FIELD_NOTIFICATION_COMMUNICATION = "notification_communication";
 	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_LAST_USED = "last_used";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_OWNER_ID = "owner_id";
 	public static String FIELD_CHEMIST_COMMUNITY_ID = "chemist_community_id";
@@ -1168,6 +1170,9 @@ public abstract class Basec4t_object extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
+		Field last_usedField = new Field("last_used", "timestamp");
+		metaData.addField(last_usedField);
+
 		Field updation_timeField = new Field("updation_time", "timestamp");
 		metaData.addField(updation_timeField);
 
@@ -1475,6 +1480,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.notification_offers = obj.notification_offers;
 		this.notification_communication = obj.notification_communication;
 		this.creation_time = obj.creation_time;
+		this.last_used = obj.last_used;
 		this.updation_time = obj.updation_time;
 		this.owner_id = obj.owner_id;
 		this.chemist_community_id = obj.chemist_community_id;
@@ -1880,6 +1886,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("notification_communication", notification_communication);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(last_used != null)
+			map.put("last_used", last_used);
 		if(updation_time != null)
 			map.put("updation_time", updation_time);
 		if(owner_id != null)
@@ -2315,6 +2323,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("notification_communication", notification_communication);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(last_used != null)
+			map.put("last_used", last_used);
 		if(updation_time != null)
 			map.put("updation_time", updation_time);
 		if(owner_id != null)
@@ -2573,6 +2583,7 @@ public abstract class Basec4t_object extends BaseResource {
 		notification_offers = (Integer) map.get("notification_offers");
 		notification_communication = (Integer) map.get("notification_communication");
 		creation_time = (Long) map.get("creation_time");
+		last_used = (Long) map.get("last_used");
 		updation_time = (Long) map.get("updation_time");
 		owner_id = (String) map.get("owner_id");
 		chemist_community_id = (String) map.get("chemist_community_id");
@@ -3337,6 +3348,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
+
+		Object last_usedObj = map.get("last_used");
+		if(last_usedObj != null)
+			last_used = (Long) last_usedObj;
 
 		Object updation_timeObj = map.get("updation_time");
 		if(updation_timeObj != null)
@@ -6483,6 +6498,15 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void setCreation_time(Long creation_time) {
 		this.creation_time = creation_time;
+	}
+
+
+	public Long getLast_used() {
+		return last_used;
+	}
+
+	public void setLast_used(Long last_used) {
+		this.last_used = last_used;
 	}
 
 
