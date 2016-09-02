@@ -51,6 +51,10 @@ public abstract class BaseForm extends BaseView {
 		getView().addChild(mForm);
 	}
 
+	public void setDefinition(FormDefinition formDefinition) {
+		mDefinition = formDefinition;
+	}
+	
 	public FormDefinition getDefinition() {
 		if (mDefinition == null)
 			mDefinition= new FormDefinition();
