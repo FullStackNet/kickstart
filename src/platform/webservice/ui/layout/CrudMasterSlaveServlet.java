@@ -18,7 +18,7 @@ import platform.webservice.ui.view.table.CrudTable;
 
 public abstract class CrudMasterSlaveServlet extends TwoColumnDBApplicationServlet {
 	private static final long serialVersionUID = 1L;
-	private ArrayList<TableDefinition> slaves;
+	protected ArrayList<TableDefinition> slaves;
 	protected abstract FormDefinition getFormDefinition(UIServletContext context);
 	protected abstract TableDefinition getTableDefinition(UIServletContext context);
 	protected abstract BaseHelper getHelper();
@@ -35,9 +35,6 @@ public abstract class CrudMasterSlaveServlet extends TwoColumnDBApplicationServl
 	
 	
 	public ArrayList<TableDefinition> getSlaves() {
-		if (slaves == null) {
-			slaves = new ArrayList<TableDefinition>();
-		}
 		return slaves;
 	}
 	
@@ -61,6 +58,7 @@ public abstract class CrudMasterSlaveServlet extends TwoColumnDBApplicationServl
 	@Override
 	public BaseHTMLComponent getModifyView(UIServletContext context) {
 		// TODO Auto-generated method stub
+		slaves = new ArrayList<TableDefinition>();
 		addSlaves(context);
 		Div div = new Div();
 		div.addAttribute("style","width : 602px; margin-bottom:60px;");
