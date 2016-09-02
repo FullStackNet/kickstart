@@ -148,6 +148,7 @@ public class UIConstants {
 		new IdValue("SCHOOL", "Whole School"),
 		new IdValue("CLASS", "Whole class"),
 		new IdValue("SECTION", "Particluler Section"),
+		new IdValue("BATCH", "Particluler Batch"),
 		new IdValue("PARENTS", "Particluler Parents"),
 	};
 	

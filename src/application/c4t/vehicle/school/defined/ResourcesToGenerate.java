@@ -124,6 +124,10 @@ public class ResourcesToGenerate {
 		new ResourceMap("book_chapter_section", "application.c4t.vehicle.school.resource.book_chapter_section"),		
 		new ResourceMap("book_allocation", "application.c4t.vehicle.school.resource.book_allocation"),
 		new ResourceMap("book_allocation_student", "application.c4t.vehicle.school.resource.book_allocation_student"),
-		
+		new ResourceMap("homepage_current_affair", "application.c4t.vehicle.school.resource.homepage_current_affair"),
+		new ResourceMap("homepage_article", "application.c4t.vehicle.school.resource.homepage_article"),
+		new ResourceMap("homepage_link", "application.c4t.vehicle.school.resource.homepage_link"),
+		new ResourceMap("homepage_video", "application.c4t.vehicle.school.resource.homepage_video"),
+		new ResourceMap("homepage_rank_holder", "application.c4t.vehicle.school.resource.homepage_rank_holder")
 	};
 }

@@ -21,6 +21,8 @@ import java.util.*;
 public abstract class Basetest_allocation extends BaseResource {
 	private String id = null;
 	private String allocation_type = null;
+	private String teacher_id = null;
+	private String teacher_name = null;
 	private String test_id = null;
 	private String test_name = null;
 	private String test_code = null;
@@ -42,6 +44,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	private String test_english = null;
 	private String resuffle_option = null;
 	private String immediate_result = null;
+	private String allocate_again = null;
 	private Long result_date = null;
 	private String result_date_s = null;
 	private String result_time_s = null;
@@ -53,6 +56,8 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_ALLOCATION_TYPE = "allocation_type";
+	public static String FIELD_TEACHER_ID = "teacher_id";
+	public static String FIELD_TEACHER_NAME = "teacher_name";
 	public static String FIELD_TEST_ID = "test_id";
 	public static String FIELD_TEST_NAME = "test_name";
 	public static String FIELD_TEST_CODE = "test_code";
@@ -74,6 +79,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	public static String FIELD_TEST_ENGLISH = "test_english";
 	public static String FIELD_RESUFFLE_OPTION = "resuffle_option";
 	public static String FIELD_IMMEDIATE_RESULT = "immediate_result";
+	public static String FIELD_ALLOCATE_AGAIN = "allocate_again";
 	public static String FIELD_RESULT_DATE = "result_date";
 	public static String FIELD_RESULT_DATE_S = "result_date_s";
 	public static String FIELD_RESULT_TIME_S = "result_time_s";
@@ -97,6 +103,14 @@ public abstract class Basetest_allocation extends BaseResource {
 		Field allocation_typeField = new Field("allocation_type", "String");
 		allocation_typeField.setLength(128);
 		metaData.addField(allocation_typeField);
+
+		Field teacher_idField = new Field("teacher_id", "String");
+		teacher_idField.setLength(128);
+		metaData.addField(teacher_idField);
+
+		Field teacher_nameField = new Field("teacher_name", "String");
+		teacher_nameField.setLength(128);
+		metaData.addField(teacher_nameField);
 
 		Field test_idField = new Field("test_id", "String");
 		test_idField.setLength(128);
@@ -177,6 +191,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		immediate_resultField.setLength(1);
 		metaData.addField(immediate_resultField);
 
+		Field allocate_againField = new Field("allocate_again", "String");
+		allocate_againField.setLength(1);
+		metaData.addField(allocate_againField);
+
 		Field result_dateField = new Field("result_date", "timestamp");
 		metaData.addField(result_dateField);
 
@@ -215,6 +233,8 @@ public abstract class Basetest_allocation extends BaseResource {
 	public Basetest_allocation(Basetest_allocation obj) {
 		this.id = obj.id;
 		this.allocation_type = obj.allocation_type;
+		this.teacher_id = obj.teacher_id;
+		this.teacher_name = obj.teacher_name;
 		this.test_id = obj.test_id;
 		this.test_name = obj.test_name;
 		this.test_code = obj.test_code;
@@ -236,6 +256,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.test_english = obj.test_english;
 		this.resuffle_option = obj.resuffle_option;
 		this.immediate_result = obj.immediate_result;
+		this.allocate_again = obj.allocate_again;
 		this.result_date = obj.result_date;
 		this.result_date_s = obj.result_date_s;
 		this.result_time_s = obj.result_time_s;
@@ -256,6 +277,10 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("id", id);
 		if(allocation_type != null)
 			map.put("allocation_type", allocation_type);
+		if(teacher_id != null)
+			map.put("teacher_id", teacher_id);
+		if(teacher_name != null)
+			map.put("teacher_name", teacher_name);
 		if(test_id != null)
 			map.put("test_id", test_id);
 		if(test_name != null)
@@ -298,6 +323,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
+		if(allocate_again != null)
+			map.put("allocate_again", allocate_again);
 		if(result_date != null)
 			map.put("result_date", result_date);
 		if(result_date_s != null)
@@ -323,6 +350,10 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("id", id);
 		if(allocation_type != null)
 			map.put("allocation_type", allocation_type);
+		if(teacher_id != null)
+			map.put("teacher_id", teacher_id);
+		if(teacher_name != null)
+			map.put("teacher_name", teacher_name);
 		if(test_id != null)
 			map.put("test_id", test_id);
 		if(test_name != null)
@@ -365,6 +396,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("resuffle_option", resuffle_option);
 		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
+		if(allocate_again != null)
+			map.put("allocate_again", allocate_again);
 		if(result_date != null)
 			map.put("result_date", result_date);
 		if(result_date_s != null)
@@ -393,6 +426,8 @@ public abstract class Basetest_allocation extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		allocation_type = (String) map.get("allocation_type");
+		teacher_id = (String) map.get("teacher_id");
+		teacher_name = (String) map.get("teacher_name");
 		test_id = (String) map.get("test_id");
 		test_name = (String) map.get("test_name");
 		test_code = (String) map.get("test_code");
@@ -414,6 +449,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		test_english = (String) map.get("test_english");
 		resuffle_option = (String) map.get("resuffle_option");
 		immediate_result = (String) map.get("immediate_result");
+		allocate_again = (String) map.get("allocate_again");
 		result_date = (Long) map.get("result_date");
 		result_date_s = (String) map.get("result_date_s");
 		result_time_s = (String) map.get("result_time_s");
@@ -433,6 +469,14 @@ public abstract class Basetest_allocation extends BaseResource {
 		Object allocation_typeObj = map.get("allocation_type");
 		if(allocation_typeObj != null)
 			allocation_type = allocation_typeObj.toString();
+
+		Object teacher_idObj = map.get("teacher_id");
+		if(teacher_idObj != null)
+			teacher_id = teacher_idObj.toString();
+
+		Object teacher_nameObj = map.get("teacher_name");
+		if(teacher_nameObj != null)
+			teacher_name = teacher_nameObj.toString();
 
 		Object test_idObj = map.get("test_id");
 		if(test_idObj != null)
@@ -518,6 +562,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		if(immediate_resultObj != null)
 			immediate_result = immediate_resultObj.toString();
 
+		Object allocate_againObj = map.get("allocate_again");
+		if(allocate_againObj != null)
+			allocate_again = allocate_againObj.toString();
+
 		Object result_dateObj = map.get("result_date");
 		if(result_dateObj != null)
 			result_date = (Long) result_dateObj;
@@ -591,6 +639,38 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetAllocation_type() {
 		this.allocation_type = null;
+	}
+
+	public String getTeacher_id() {
+		return teacher_id;
+	}
+
+	public String getTeacher_idEx() {
+		return teacher_id != null ? teacher_id : "";
+	}
+
+	public void setTeacher_id(String teacher_id) {
+		this.teacher_id = teacher_id;
+	}
+
+	public void unSetTeacher_id() {
+		this.teacher_id = null;
+	}
+
+	public String getTeacher_name() {
+		return teacher_name;
+	}
+
+	public String getTeacher_nameEx() {
+		return teacher_name != null ? teacher_name : "";
+	}
+
+	public void setTeacher_name(String teacher_name) {
+		this.teacher_name = teacher_name;
+	}
+
+	public void unSetTeacher_name() {
+		this.teacher_name = null;
 	}
 
 	public String getTest_id() {
@@ -913,6 +993,22 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetImmediate_result() {
 		this.immediate_result = null;
+	}
+
+	public String getAllocate_again() {
+		return allocate_again;
+	}
+
+	public String getAllocate_againEx() {
+		return allocate_again != null ? allocate_again : "";
+	}
+
+	public void setAllocate_again(String allocate_again) {
+		this.allocate_again = allocate_again;
+	}
+
+	public void unSetAllocate_again() {
+		this.allocate_again = null;
 	}
 
 	public Long getResult_date() {

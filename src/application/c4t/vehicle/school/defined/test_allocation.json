@@ -16,6 +16,16 @@
 				'type':'String',
 				'length': 128
 			},
+			'teacher_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'test_id':
 			{
 				'length': 128,
@@ -105,6 +115,11 @@
 				'length': 1
 			},	
 			'immediate_result':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'allocate_again':
 			{
 				'type':'String',
 				'length': 1

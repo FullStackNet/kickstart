@@ -21,6 +21,8 @@ import java.util.*;
 public abstract class Basetest_allocation_student extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String teacher_id = null;
+	private String teacher_name = null;
 	private String test_allocation_id = null;
 	private String test_id = null;
 	private String test_name = null;
@@ -60,6 +62,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_TEACHER_ID = "teacher_id";
+	public static String FIELD_TEACHER_NAME = "teacher_name";
 	public static String FIELD_TEST_ALLOCATION_ID = "test_allocation_id";
 	public static String FIELD_TEST_ID = "test_id";
 	public static String FIELD_TEST_NAME = "test_name";
@@ -111,6 +115,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field teacher_idField = new Field("teacher_id", "String");
+		teacher_idField.setLength(128);
+		metaData.addField(teacher_idField);
+
+		Field teacher_nameField = new Field("teacher_name", "String");
+		teacher_nameField.setLength(128);
+		metaData.addField(teacher_nameField);
 
 		Field test_allocation_idField = new Field("test_allocation_id", "String");
 		test_allocation_idField.setLength(128);
@@ -253,6 +265,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public Basetest_allocation_student(Basetest_allocation_student obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.teacher_id = obj.teacher_id;
+		this.teacher_name = obj.teacher_name;
 		this.test_allocation_id = obj.test_allocation_id;
 		this.test_id = obj.test_id;
 		this.test_name = obj.test_name;
@@ -301,6 +315,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(teacher_id != null)
+			map.put("teacher_id", teacher_id);
+		if(teacher_name != null)
+			map.put("teacher_name", teacher_name);
 		if(test_allocation_id != null)
 			map.put("test_allocation_id", test_allocation_id);
 		if(test_id != null)
@@ -382,6 +400,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(teacher_id != null)
+			map.put("teacher_id", teacher_id);
+		if(teacher_name != null)
+			map.put("teacher_name", teacher_name);
 		if(test_allocation_id != null)
 			map.put("test_allocation_id", test_allocation_id);
 		if(test_id != null)
@@ -466,6 +488,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		teacher_id = (String) map.get("teacher_id");
+		teacher_name = (String) map.get("teacher_name");
 		test_allocation_id = (String) map.get("test_allocation_id");
 		test_id = (String) map.get("test_id");
 		test_name = (String) map.get("test_name");
@@ -513,6 +537,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object teacher_idObj = map.get("teacher_id");
+		if(teacher_idObj != null)
+			teacher_id = teacher_idObj.toString();
+
+		Object teacher_nameObj = map.get("teacher_name");
+		if(teacher_nameObj != null)
+			teacher_name = teacher_nameObj.toString();
 
 		Object test_allocation_idObj = map.get("test_allocation_id");
 		if(test_allocation_idObj != null)
@@ -699,6 +731,38 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getTeacher_id() {
+		return teacher_id;
+	}
+
+	public String getTeacher_idEx() {
+		return teacher_id != null ? teacher_id : "";
+	}
+
+	public void setTeacher_id(String teacher_id) {
+		this.teacher_id = teacher_id;
+	}
+
+	public void unSetTeacher_id() {
+		this.teacher_id = null;
+	}
+
+	public String getTeacher_name() {
+		return teacher_name;
+	}
+
+	public String getTeacher_nameEx() {
+		return teacher_name != null ? teacher_name : "";
+	}
+
+	public void setTeacher_name(String teacher_name) {
+		this.teacher_name = teacher_name;
+	}
+
+	public void unSetTeacher_name() {
+		this.teacher_name = null;
 	}
 
 	public String getTest_allocation_id() {
