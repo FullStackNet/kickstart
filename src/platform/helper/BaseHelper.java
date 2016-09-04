@@ -1087,6 +1087,12 @@ public class BaseHelper {
 		}
 		return list;
 	}
+	
+	public ArrayList<Map<String, Object>> getListMapByCustomerId(String customerId) {
+		Expression e = new Expression("customer_id", REL_OP.EQ, customerId);
+		BaseResource[] resoucres =  getByExpression(e,new String[]{"name"});
+		return HelperUtils.convertArray2ListMap(resoucres);
+	}
 
 	public ArrayList<Map<String, Object>> getListMapByCustomerId(String customerId,ArrayList<JoinField> joinFields, String[] order) {
 		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
