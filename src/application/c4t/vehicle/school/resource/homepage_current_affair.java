@@ -1,7 +1,7 @@
 package application.c4t.vehicle.school.resource;
 
-import application.c4t.vehicle.school.defined.resource.Basehomepage_current_affair;
 import platform.util.Util;
+import application.c4t.vehicle.school.defined.resource.Basehomepage_current_affair;
 
 public class homepage_current_affair extends Basehomepage_current_affair {
 

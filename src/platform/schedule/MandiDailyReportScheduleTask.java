@@ -18,7 +18,6 @@ import platform.resource.schedule;
 import platform.util.ApplicationConstants;
 import platform.util.Json;
 import platform.util.TimeUtil;
-import application.c4t.vehicle.school.resource.notice;
 
 public class MandiDailyReportScheduleTask extends ScheduleTask {
 

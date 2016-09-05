@@ -9,10 +9,13 @@
 
 package platform.defined.resource;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.Field;
 
 /*
  ********** This is a generated class **********

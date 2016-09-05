@@ -1,8 +1,7 @@
 package application.c4t.vehicle.school.resource;
 
-import application.c4t.vehicle.school.defined.resource.Basehomepage_article;
-import application.c4t.vehicle.school.defined.resource.Basehomepage_link;
 import platform.util.Util;
+import application.c4t.vehicle.school.defined.resource.Basehomepage_link;
 
 public class homepage_link extends Basehomepage_link {
 

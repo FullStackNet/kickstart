@@ -1,7 +1,7 @@
 package application.c4t.vehicle.school.helper;
 
-import application.c4t.vehicle.school.resource.homepage_video;
 import platform.helper.BaseHelper;
+import application.c4t.vehicle.school.resource.homepage_video;
 
 
 public class Homepage_videoHelper extends BaseHelper {

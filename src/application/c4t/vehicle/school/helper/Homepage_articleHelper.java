@@ -1,7 +1,7 @@
 package application.c4t.vehicle.school.helper;
 
-import application.c4t.vehicle.school.resource.homepage_article;
 import platform.helper.BaseHelper;
+import application.c4t.vehicle.school.resource.homepage_article;
 
 
 public class Homepage_articleHelper extends BaseHelper {

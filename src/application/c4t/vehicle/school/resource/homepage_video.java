@@ -1,7 +1,7 @@
 package application.c4t.vehicle.school.resource;
 
-import application.c4t.vehicle.school.defined.resource.Basehomepage_video;
 import platform.util.Util;
+import application.c4t.vehicle.school.defined.resource.Basehomepage_video;
 
 public class homepage_video extends Basehomepage_video {
 

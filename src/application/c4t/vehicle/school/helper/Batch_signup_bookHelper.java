@@ -1,10 +1,6 @@
 package application.c4t.vehicle.school.helper;
 
-import platform.db.Expression;
-import platform.db.LOG_OP;
-import platform.db.REL_OP;
 import platform.helper.BaseHelper;
-import platform.resource.BaseResource;
 import application.c4t.vehicle.school.resource.batch_signup_book;
 
 

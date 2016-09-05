@@ -1,7 +1,7 @@
 package application.c4t.vehicle.school.resource;
 
-import application.c4t.vehicle.school.defined.resource.Basehomepage_rank_holder;
 import platform.util.Util;
+import application.c4t.vehicle.school.defined.resource.Basehomepage_rank_holder;
 
 public class homepage_rank_holder extends Basehomepage_rank_holder {
 
