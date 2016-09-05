@@ -5,6 +5,7 @@ import java.util.Map;
 
 import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
+import platform.util.ApplicationException;
 import platform.util.Util;
 import platform.webservice.WebServiceContants;
 import platform.webservice.ui.UIServletContext;
@@ -14,6 +15,8 @@ import platform.webservice.ui.definition.TableDefinition;
 import platform.webservice.ui.html.BR;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.Div;
+import platform.webservice.ui.html.TAB;
+import platform.webservice.ui.html.TAB_CONTAINER;
 import platform.webservice.ui.view.form.CrudForm;
 import platform.webservice.ui.view.table.CrudTable;
 
@@ -71,20 +74,24 @@ public abstract class CrudMasterSlaveServlet extends TwoColumnDBApplicationServl
 	@Override
 	public BaseHTMLComponent getModifyView(UIServletContext context) {
 		// TODO Auto-generated method stub
+		TAB_CONTAINER tabs = new TAB_CONTAINER("master");
 		slaves = new ArrayList<TableDefinition>();
 		addSlaves(context);
-		Div div = new Div();
-		div.addAttribute("style","width : 602px; margin-bottom:60px;");
+		//Div div = new Div();
+		//div.addAttribute("style","width : 602px; margin-bottom:60px;");
 		String id = context.getParamValue("id");
-		CrudForm view = new CrudForm(context,getHelper(),getFormDefinition(context));
+		FormDefinition form = getFormDefinition(context);
+		CrudForm view = new CrudForm(context,getHelper(),form);
 		view.getDefinition().setSubmitURL(getAPIUrl());
 		view.getDefinition().setSuccessURL(getUIUrl());
 		view.getDefinition().addButton(new Button("save", "Save"));
 		view.buildUI(WebServiceContants.OPERATION_MODIFY, id);
-		div.addChild(view.getView());
-		div.addChild(new BR());
+		TAB mastrTab = new TAB("master", form.getBlocks().get(0).getTitle(), view.getView());
+		//div.addChild(new BR());
+		tabs.addTab(mastrTab);
 		if (!Util.isEmpty(slaves)) {
 			for(TableDefinition slave : slaves) {
+				
 				// TODO Auto-generated method stub
 				ArrayList<Map<String, Object>> data= getSlaveData(context,slave.getId());
 				CrudTable lisView = new CrudTable(context,slave,data);
@@ -93,10 +100,18 @@ public abstract class CrudMasterSlaveServlet extends TwoColumnDBApplicationServl
 				lisView.getDefinition().setModifyButton(isSlaveModifyButton(context, slave.getId()));
 				lisView.getDefinition().setModifyURL(getSlaveModifyUrl(context,slave.getId()));
 				lisView.buildUI();
-				div.addChild(lisView.getView());
+				//div.addChild(lisView.getView());
+				TAB tab = new TAB(slave.getId(), slave.getTitle(), lisView.getView());
+				tabs.addTab(tab);
 			}
 		} 
-		return div;
+		try {
+			tabs.buildUI();
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tabs.getView();
 	}
 
 	@Override
