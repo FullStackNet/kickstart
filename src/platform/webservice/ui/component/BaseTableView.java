@@ -346,9 +346,10 @@ public abstract class BaseTableView extends BaseView {
 		}
 		boolean requiredSeperator = false;
 		if (mDefinition.isModifyButton() && (url != null)) {
-			A _editlink = new A();
+			A _editlink = new A(null,"glyphicon glyphicon-pencil");
 			_editlink.setHref(url);
-			_editlink.addStyle("background-color", "#99ffd6");
+			_editlink.addStyle("color", "green");
+			/*_editlink.addStyle("background-color", "#99ffd6");
 			_editlink.addStyle("border-color", "silver");
 			_editlink.addStyle("border-style", "solid");
 			_editlink.addStyle("border-width", "1px");
@@ -356,8 +357,9 @@ public abstract class BaseTableView extends BaseView {
 			_editlink.addStyle("padding-right", "10px");
 			_editlink.addStyle("padding-top", "4px");
 			_editlink.addStyle("padding-bottom", "4px");
-				
-			_editlink.setText("Edit");
+			*/	
+			_editlink.setText("");
+			_editlink.addAttribute("title","Edit");
 			actiontd.addChild(_editlink);
 			requiredSeperator = true;
 		}
@@ -366,25 +368,23 @@ public abstract class BaseTableView extends BaseView {
 			deleteUrl = getDeleteURL((String)data.get("id"));
 		}
 		if (mDefinition.isDeleteButton() && (deleteUrl != null)) {
-			if (requiredSeperator) {
-				SPAN span = new SPAN();
-				span.setText("&nbsp;&nbsp;");
-				
-				actiontd.addChild(span);
-			}
+			SPAN span = new SPAN();
+			span.setText("&nbsp;&nbsp;");			
+			actiontd.addChild(span);
 			String id = (String)data.get("id");
-			A _link = new A();
+			 A _link = new A(null,"glyphicon glyphicon-remove-circle");
 			_link.setHref("#");
 			_link.addAttribute("onClick","ActionHandler.callDelete('"+deleteUrl+"','"+id+"')");
-			_link.setText("Delete");
-			_link.addStyle("background-color", "#ff9980");
+			_link.addAttribute("title","Delete");
+			_link.addStyle("color", "red");
+			/*_link.addStyle("background-color", "#ff9980");
 			_link.addStyle("border-color", "silver");
 			_link.addStyle("border-style", "solid");
 			_link.addStyle("border-width", "1px");
 			_link.addStyle("padding-left", "10px");
 			_link.addStyle("padding-right", "10px");
 			_link.addStyle("padding-top", "4px");
-			_link.addStyle("padding-bottom", "4px");
+			_link.addStyle("padding-bottom", "4px");*/
 			actiontd.addChild(_link);
 		}
 		row.addChild(actiontd);
