@@ -12,9 +12,7 @@ import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.definition.Button;
 import platform.webservice.ui.definition.FormDefinition;
 import platform.webservice.ui.definition.TableDefinition;
-import platform.webservice.ui.html.BR;
 import platform.webservice.ui.html.BaseHTMLComponent;
-import platform.webservice.ui.html.Div;
 import platform.webservice.ui.html.TAB;
 import platform.webservice.ui.html.TAB_CONTAINER;
 import platform.webservice.ui.view.form.CrudForm;
@@ -34,8 +32,10 @@ public abstract class CrudMasterSlaveServlet extends TwoColumnDBApplicationServl
 	protected abstract void addSlaves(UIServletContext context);	
 	protected abstract boolean isSlaveAddButton(UIServletContext context,String slaveType);	
 	protected abstract boolean isSlaveModifyButton(UIServletContext context,String slaveType);	
+	protected abstract boolean isSlaveDeleteButton(UIServletContext context,String slaveType);	
 	protected abstract String getSlaveAddUrl(UIServletContext context,String slaveType);	
 	protected abstract String getSlaveModifyUrl(UIServletContext context,String slaveType);
+	protected abstract String getSlaveDeleteUrl(UIServletContext context,String slaveType);
 	protected abstract FormDefinition getSlaveFormDefinition(UIServletContext context,String slaveType);
 	protected abstract BaseResource getSlaveFormData(UIServletContext context,String slaveType);
 
@@ -43,7 +43,6 @@ public abstract class CrudMasterSlaveServlet extends TwoColumnDBApplicationServl
 	public ArrayList<TableDefinition> getSlaves() {
 		return slaves;
 	}
-	
 	
 	@Override
 	public BaseHTMLComponent getWebLeftMenu(UIServletContext context) {
@@ -99,6 +98,8 @@ public abstract class CrudMasterSlaveServlet extends TwoColumnDBApplicationServl
 				lisView.getDefinition().setAddButtonURL(getSlaveAddUrl(context,  slave.getId()));
 				lisView.getDefinition().setModifyButton(isSlaveModifyButton(context, slave.getId()));
 				lisView.getDefinition().setModifyURL(getSlaveModifyUrl(context,slave.getId()));
+				lisView.getDefinition().setDeleteButton(isSlaveDeleteButton(context, slave.getId()));
+				lisView.getDefinition().setDeleteURL(getSlaveDeleteUrl(context,slave.getId()));
 				lisView.buildUI();
 				//div.addChild(lisView.getView());
 				TAB tab = new TAB(slave.getId(), slave.getTitle(), lisView.getView());

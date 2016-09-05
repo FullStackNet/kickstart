@@ -397,6 +397,7 @@ public abstract class BaseTableView extends BaseView {
 	}
 
 	public void buildUI() {
+		populateDefinition();
 		ArrayList<Map<String, Object>> list = getData();
 		buildUI(list);
 	}

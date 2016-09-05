@@ -9,7 +9,7 @@ import platform.webservice.ui.util.UIConstants;
 
 public class Field {
 	String label;
-	String hint;	
+	String hint;
 	String name;
 	String type;
 	String className;
