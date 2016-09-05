@@ -43,7 +43,7 @@ public abstract class BaseTableView extends BaseView {
 	protected String fromDatestring;
 	protected String toDatestring;
 	protected String timeZone;
-
+	boolean populated;
 
 	public  String getTodayURL() {
 		return null;
@@ -73,6 +73,7 @@ public abstract class BaseTableView extends BaseView {
 		toDatestring =  getContext().getParamValue("to_date");
 		prePopulateDefinition();
 		mDefinition = definition;
+		populated = false;
 	}
 	
 	public BaseTableView(UIServletContext ctx) {
@@ -83,6 +84,7 @@ public abstract class BaseTableView extends BaseView {
 		toDatestring =  getContext().getParamValue("to_date");
 		prePopulateDefinition();
 		populateDefinition();
+		populated = true;
 	}
 
 
@@ -348,7 +350,7 @@ public abstract class BaseTableView extends BaseView {
 		if (mDefinition.isModifyButton() && (url != null)) {
 			A _editlink = new A(null,"glyphicon glyphicon-pencil");
 			_editlink.setHref(url);
-			_editlink.addStyle("color", "green");
+			_editlink.addStyle("color", "#0092a9");
 			/*_editlink.addStyle("background-color", "#99ffd6");
 			_editlink.addStyle("border-color", "silver");
 			_editlink.addStyle("border-style", "solid");
@@ -397,7 +399,8 @@ public abstract class BaseTableView extends BaseView {
 	}
 
 	public void buildUI() {
-		populateDefinition();
+		if (!populated)
+			populateDefinition();
 		ArrayList<Map<String, Object>> list = getData();
 		buildUI(list);
 	}
