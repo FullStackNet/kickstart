@@ -632,6 +632,10 @@ public class TimeUtil {
 		return c.getTime().getTime();
 	}
 	
+	public static long addMonth(long time,long month) {
+		return addMonth(new Date(time),(int)month);
+	}
+	
 	public static long addMonth(long time,int month) {
 		return addMonth(new Date(time),month);
 	}
