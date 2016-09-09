@@ -22,18 +22,24 @@ public abstract class Basec4t_payment extends BaseResource {
 	private String id = null;
 	private String community_id = null;
 	private String community_name = null;
+	private String user_id = null;
+	private String user_name = null;
 	private Long payment_date = null;
 	private Double amount = null;
 	private Long number_of_month = null;
+	private String settled = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_COMMUNITY_NAME = "community_name";
+	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_PAYMENT_DATE = "payment_date";
 	public static String FIELD_AMOUNT = "amount";
 	public static String FIELD_NUMBER_OF_MONTH = "number_of_month";
+	public static String FIELD_SETTLED = "settled";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -56,6 +62,14 @@ public abstract class Basec4t_payment extends BaseResource {
 		community_nameField.setLength(128);
 		metaData.addField(community_nameField);
 
+		Field user_idField = new Field("user_id", "String");
+		user_idField.setLength(128);
+		metaData.addField(user_idField);
+
+		Field user_nameField = new Field("user_name", "String");
+		user_nameField.setLength(128);
+		metaData.addField(user_nameField);
+
 		Field payment_dateField = new Field("payment_date", "timestamp");
 		metaData.addField(payment_dateField);
 
@@ -64,6 +78,10 @@ public abstract class Basec4t_payment extends BaseResource {
 
 		Field number_of_monthField = new Field("number_of_month", "long");
 		metaData.addField(number_of_monthField);
+
+		Field settledField = new Field("settled", "String");
+		settledField.setLength(128);
+		metaData.addField(settledField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -84,9 +102,12 @@ public abstract class Basec4t_payment extends BaseResource {
 		this.id = obj.id;
 		this.community_id = obj.community_id;
 		this.community_name = obj.community_name;
+		this.user_id = obj.user_id;
+		this.user_name = obj.user_name;
 		this.payment_date = obj.payment_date;
 		this.amount = obj.amount;
 		this.number_of_month = obj.number_of_month;
+		this.settled = obj.settled;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -103,12 +124,18 @@ public abstract class Basec4t_payment extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(user_id != null)
+			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
 		if(payment_date != null)
 			map.put("payment_date", payment_date);
 		if(amount != null)
 			map.put("amount", amount);
 		if(number_of_month != null)
 			map.put("number_of_month", number_of_month);
+		if(settled != null)
+			map.put("settled", settled);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -124,12 +151,18 @@ public abstract class Basec4t_payment extends BaseResource {
 			map.put("community_id", community_id);
 		if(community_name != null)
 			map.put("community_name", community_name);
+		if(user_id != null)
+			map.put("user_id", user_id);
+		if(user_name != null)
+			map.put("user_name", user_name);
 		if(payment_date != null)
 			map.put("payment_date", payment_date);
 		if(amount != null)
 			map.put("amount", amount);
 		if(number_of_month != null)
 			map.put("number_of_month", number_of_month);
+		if(settled != null)
+			map.put("settled", settled);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -147,9 +180,12 @@ public abstract class Basec4t_payment extends BaseResource {
 		id = (String) map.get("id");
 		community_id = (String) map.get("community_id");
 		community_name = (String) map.get("community_name");
+		user_id = (String) map.get("user_id");
+		user_name = (String) map.get("user_name");
 		payment_date = (Long) map.get("payment_date");
 		amount = (Double) map.get("amount");
 		number_of_month = (Long) map.get("number_of_month");
+		settled = (String) map.get("settled");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -168,6 +204,14 @@ public abstract class Basec4t_payment extends BaseResource {
 		if(community_nameObj != null)
 			community_name = community_nameObj.toString();
 
+		Object user_idObj = map.get("user_id");
+		if(user_idObj != null)
+			user_id = user_idObj.toString();
+
+		Object user_nameObj = map.get("user_name");
+		if(user_nameObj != null)
+			user_name = user_nameObj.toString();
+
 		Object payment_dateObj = map.get("payment_date");
 		if(payment_dateObj != null)
 			payment_date = (Long) payment_dateObj;
@@ -179,6 +223,10 @@ public abstract class Basec4t_payment extends BaseResource {
 		Object number_of_monthObj = map.get("number_of_month");
 		if(number_of_monthObj != null)
 			number_of_month = new Long(number_of_monthObj.toString());
+
+		Object settledObj = map.get("settled");
+		if(settledObj != null)
+			settled = settledObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -247,6 +295,38 @@ public abstract class Basec4t_payment extends BaseResource {
 		this.community_name = null;
 	}
 
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public String getUser_idEx() {
+		return user_id != null ? user_id : "";
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public void unSetUser_id() {
+		this.user_id = null;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public String getUser_nameEx() {
+		return user_name != null ? user_name : "";
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public void unSetUser_name() {
+		this.user_name = null;
+	}
+
 	public Long getPayment_date() {
 		return payment_date;
 	}
@@ -294,6 +374,22 @@ public abstract class Basec4t_payment extends BaseResource {
 
 	public void unSetNumber_of_month() {
 		this.number_of_month = null;
+	}
+
+	public String getSettled() {
+		return settled;
+	}
+
+	public String getSettledEx() {
+		return settled != null ? settled : "";
+	}
+
+	public void setSettled(String settled) {
+		this.settled = settled;
+	}
+
+	public void unSetSettled() {
+		this.settled = null;
 	}
 
 	public Long getCreation_time() {
