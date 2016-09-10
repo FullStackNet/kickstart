@@ -145,11 +145,17 @@ public class UIConstants {
 };
 
 	public final static IdValue[] NOTICE_TYPE_ENUM = new IdValue[] {
-		new IdValue("SCHOOL", "Whole School"),
+		new IdValue("SCHOOL", "Whole Branch/Centre"),
 		new IdValue("CLASS", "Whole class"),
 		new IdValue("SECTION", "Particluler Section"),
 		new IdValue("BATCH", "Particluler Batch"),
 		new IdValue("PARENTS", "Particluler Parents"),
+	};
+	
+
+	public final static IdValue[] NOTICE_COACHING_TYPE_ENUM = new IdValue[] {
+		new IdValue("SCHOOL", "Whole Branch/Centre"),
+		new IdValue("BATCH", "Particluler Batch"),
 	};
 	
 	public final static IdValue[] NEWS_TYPE_ENUM = new IdValue[] {
