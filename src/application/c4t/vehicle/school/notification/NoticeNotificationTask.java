@@ -169,11 +169,7 @@ public class NoticeNotificationTask extends NotificationTask {
 			String[] ids = activity.getSchools().toArray(new String[activity.getSchools().size()]);
 			students = StudentHelper.getInstance().getSectionStudent(ids,class_section_name);
 		}else if ("BATCH".equals(type)) {
-			if (Util.isEmpty(activity.getSchools())) {
-				return;
-			}
-			String[] ids = activity.getSchools().toArray(new String[activity.getSchools().size()]);
-			students = StudentHelper.getInstance().getByBatch(batch_id);
+				students = StudentHelper.getInstance().getByBatch(batch_id);
 		} else if ("PARENTS".equals(type)) {
 			if (Util.isEmpty(activity.getStudents())) {
 				return;
