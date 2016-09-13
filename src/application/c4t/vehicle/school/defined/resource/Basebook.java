@@ -23,6 +23,7 @@ public abstract class Basebook extends BaseResource {
 	private String name = null;
 	private String summary = null;
 	private String customer_id = null;
+	private Long last_update_time = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -30,6 +31,7 @@ public abstract class Basebook extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_SUMMARY = "summary";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -57,6 +59,9 @@ public abstract class Basebook extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
+		Field last_update_timeField = new Field("last_update_time", "timestamp");
+		metaData.addField(last_update_timeField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -77,6 +82,7 @@ public abstract class Basebook extends BaseResource {
 		this.name = obj.name;
 		this.summary = obj.summary;
 		this.customer_id = obj.customer_id;
+		this.last_update_time = obj.last_update_time;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -95,6 +101,8 @@ public abstract class Basebook extends BaseResource {
 			map.put("summary", summary);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -112,6 +120,8 @@ public abstract class Basebook extends BaseResource {
 			map.put("summary", summary);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -130,6 +140,7 @@ public abstract class Basebook extends BaseResource {
 		name = (String) map.get("name");
 		summary = (String) map.get("summary");
 		customer_id = (String) map.get("customer_id");
+		last_update_time = (Long) map.get("last_update_time");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -151,6 +162,10 @@ public abstract class Basebook extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object last_update_timeObj = map.get("last_update_time");
+		if(last_update_timeObj != null)
+			last_update_time = (Long) last_update_timeObj;
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -234,6 +249,15 @@ public abstract class Basebook extends BaseResource {
 	public void unSetCustomer_id() {
 		this.customer_id = null;
 	}
+
+	public Long getLast_update_time() {
+		return last_update_time;
+	}
+
+	public void setLast_update_time(Long last_update_time) {
+		this.last_update_time = last_update_time;
+	}
+
 
 	public Long getCreation_time() {
 		return creation_time;

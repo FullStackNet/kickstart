@@ -53,7 +53,7 @@
 			},
 			'last_update_time': {
 				'type': 'timestamp'
-			}
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}			
