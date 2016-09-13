@@ -35,6 +35,9 @@
 				'length': 512,
 				'type': 'String'
 			},
+			'last_update_time': {
+				'type': 'timestamp'
+			}
 			'creation_time': {
 				'type': 'timestamp'
 			}			
