@@ -138,6 +138,7 @@ public class school extends Baseschool {
 	public static IdValue[] getTypeOption() {
 		IdValue[] options = {new IdValue(SCHOOL_TYPE_PRESCHOOL, "Pre School"), 
 				new IdValue(SCHOOL_TYPE_COMPTATIVE_EXAM_COACHING, "COMPTATIVE EXAMS COACHING"),
+				new IdValue(SCHOOL_TYPE_COPORATE_TEST, "Corporate Test"),
 				new IdValue("SCHOOL", "SCHOOL")};
 		return options;
 	}
