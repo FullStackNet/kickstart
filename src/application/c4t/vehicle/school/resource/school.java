@@ -132,6 +132,7 @@ public class school extends Baseschool {
 	
 	public static String SCHOOL_TYPE_PRESCHOOL = "PRESCHOOL";
 	public static String SCHOOL_TYPE_COMPTATIVE_EXAM_COACHING = "COMPTATIVE_EXAM_COACHING";
+	public static String SCHOOL_TYPE_COPORATE_TEST = "COPORATE_TEST";
 	
 	
 	public static IdValue[] getTypeOption() {
