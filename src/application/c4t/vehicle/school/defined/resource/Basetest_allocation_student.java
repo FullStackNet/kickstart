@@ -51,7 +51,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private Integer rank = null;
 	private Long total_correct_answers = null;
 	private String status = null;
-	private Long total_timeInMin = null;
+	private Long total_time_in_min = null;
 	private String show_result = null;
 	private Long result_date = null;
 	private String result_date_s = null;
@@ -93,7 +93,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_RANK = "rank";
 	public static String FIELD_TOTAL_CORRECT_ANSWERS = "total_correct_answers";
 	public static String FIELD_STATUS = "status";
-	public static String FIELD_TOTAL_TIMEINMIN = "total_timeInMin";
+	public static String FIELD_TOTAL_TIME_IN_MIN = "total_time_in_min";
 	public static String FIELD_SHOW_RESULT = "show_result";
 	public static String FIELD_RESULT_DATE = "result_date";
 	public static String FIELD_RESULT_DATE_S = "result_date_s";
@@ -229,8 +229,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		statusField.setLength(1);
 		metaData.addField(statusField);
 
-		Field total_timeInMinField = new Field("total_timeInMin", "long");
-		metaData.addField(total_timeInMinField);
+		Field total_time_in_minField = new Field("total_time_in_min", "long");
+		metaData.addField(total_time_in_minField);
 
 		Field show_resultField = new Field("show_result", "String");
 		show_resultField.setLength(1);
@@ -300,7 +300,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.rank = obj.rank;
 		this.total_correct_answers = obj.total_correct_answers;
 		this.status = obj.status;
-		this.total_timeInMin = obj.total_timeInMin;
+		this.total_time_in_min = obj.total_time_in_min;
 		this.show_result = obj.show_result;
 		this.result_date = obj.result_date;
 		this.result_date_s = obj.result_date_s;
@@ -381,8 +381,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("total_correct_answers", total_correct_answers);
 		if(status != null)
 			map.put("status", status);
-		if(total_timeInMin != null)
-			map.put("total_timeInMin", total_timeInMin);
+		if(total_time_in_min != null)
+			map.put("total_time_in_min", total_time_in_min);
 		if(show_result != null)
 			map.put("show_result", show_result);
 		if(result_date != null)
@@ -468,8 +468,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("total_correct_answers", total_correct_answers);
 		if(status != null)
 			map.put("status", status);
-		if(total_timeInMin != null)
-			map.put("total_timeInMin", total_timeInMin);
+		if(total_time_in_min != null)
+			map.put("total_time_in_min", total_time_in_min);
 		if(show_result != null)
 			map.put("show_result", show_result);
 		if(result_date != null)
@@ -528,7 +528,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		rank = (Integer) map.get("rank");
 		total_correct_answers = (Long) map.get("total_correct_answers");
 		status = (String) map.get("status");
-		total_timeInMin = (Long) map.get("total_timeInMin");
+		total_time_in_min = (Long) map.get("total_time_in_min");
 		show_result = (String) map.get("show_result");
 		result_date = (Long) map.get("result_date");
 		result_date_s = (String) map.get("result_date_s");
@@ -669,9 +669,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		if(statusObj != null)
 			status = statusObj.toString();
 
-		Object total_timeInMinObj = map.get("total_timeInMin");
-		if(total_timeInMinObj != null)
-			total_timeInMin = new Long(total_timeInMinObj.toString());
+		Object total_time_in_minObj = map.get("total_time_in_min");
+		if(total_time_in_minObj != null)
+			total_time_in_min = new Long(total_time_in_minObj.toString());
 
 		Object show_resultObj = map.get("show_result");
 		if(show_resultObj != null)
@@ -1234,24 +1234,24 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.status = null;
 	}
 
-	public Long getTotal_timeInMin() {
-		return total_timeInMin;
+	public Long getTotal_time_in_min() {
+		return total_time_in_min;
 	}
 
-	public long getTotal_timeInMinEx() {
-		return total_timeInMin != null ? total_timeInMin : 0L;
+	public long getTotal_time_in_minEx() {
+		return total_time_in_min != null ? total_time_in_min : 0L;
 	}
 
-	public void setTotal_timeInMin(long total_timeInMin) {
-		this.total_timeInMin = total_timeInMin;
+	public void setTotal_time_in_min(long total_time_in_min) {
+		this.total_time_in_min = total_time_in_min;
 	}
 
-	public void setTotal_timeInMin(Long total_timeInMin) {
-		this.total_timeInMin = total_timeInMin;
+	public void setTotal_time_in_min(Long total_time_in_min) {
+		this.total_time_in_min = total_time_in_min;
 	}
 
-	public void unSetTotal_timeInMin() {
-		this.total_timeInMin = null;
+	public void unSetTotal_time_in_min() {
+		this.total_time_in_min = null;
 	}
 
 	public String getShow_result() {

@@ -160,7 +160,7 @@
 				'type':'String',
 				'length': 1
 			},
-			'total_timeInMin':
+			'total_time_in_min':
 			{
 				'type':'long'
 			},

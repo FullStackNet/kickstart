@@ -48,7 +48,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	private Long result_date = null;
 	private String result_date_s = null;
 	private String result_time_s = null;
-	private Long total_timeInMin = null;
+	private Long total_time_in_min = null;
 	private String allocated = null;
 	private String customer_id = null;
 	private Long creation_time = null;
@@ -83,7 +83,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	public static String FIELD_RESULT_DATE = "result_date";
 	public static String FIELD_RESULT_DATE_S = "result_date_s";
 	public static String FIELD_RESULT_TIME_S = "result_time_s";
-	public static String FIELD_TOTAL_TIMEINMIN = "total_timeInMin";
+	public static String FIELD_TOTAL_TIME_IN_MIN = "total_time_in_min";
 	public static String FIELD_ALLOCATED = "allocated";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -204,8 +204,8 @@ public abstract class Basetest_allocation extends BaseResource {
 		Field result_time_sField = new Field("result_time_s", "String");
 		metaData.addField(result_time_sField);
 
-		Field total_timeInMinField = new Field("total_timeInMin", "long");
-		metaData.addField(total_timeInMinField);
+		Field total_time_in_minField = new Field("total_time_in_min", "long");
+		metaData.addField(total_time_in_minField);
 
 		Field allocatedField = new Field("allocated", "String");
 		allocatedField.setLength(1);
@@ -260,7 +260,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.result_date = obj.result_date;
 		this.result_date_s = obj.result_date_s;
 		this.result_time_s = obj.result_time_s;
-		this.total_timeInMin = obj.total_timeInMin;
+		this.total_time_in_min = obj.total_time_in_min;
 		this.allocated = obj.allocated;
 		this.customer_id = obj.customer_id;
 		this.creation_time = obj.creation_time;
@@ -331,8 +331,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("result_date_s", result_date_s);
 		if(result_time_s != null)
 			map.put("result_time_s", result_time_s);
-		if(total_timeInMin != null)
-			map.put("total_timeInMin", total_timeInMin);
+		if(total_time_in_min != null)
+			map.put("total_time_in_min", total_time_in_min);
 		if(allocated != null)
 			map.put("allocated", allocated);
 		if(customer_id != null)
@@ -404,8 +404,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("result_date_s", result_date_s);
 		if(result_time_s != null)
 			map.put("result_time_s", result_time_s);
-		if(total_timeInMin != null)
-			map.put("total_timeInMin", total_timeInMin);
+		if(total_time_in_min != null)
+			map.put("total_time_in_min", total_time_in_min);
 		if(allocated != null)
 			map.put("allocated", allocated);
 		if(customer_id != null)
@@ -453,7 +453,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		result_date = (Long) map.get("result_date");
 		result_date_s = (String) map.get("result_date_s");
 		result_time_s = (String) map.get("result_time_s");
-		total_timeInMin = (Long) map.get("total_timeInMin");
+		total_time_in_min = (Long) map.get("total_time_in_min");
 		allocated = (String) map.get("allocated");
 		customer_id = (String) map.get("customer_id");
 		creation_time = (Long) map.get("creation_time");
@@ -578,9 +578,9 @@ public abstract class Basetest_allocation extends BaseResource {
 		if(result_time_sObj != null)
 			result_time_s = result_time_sObj.toString();
 
-		Object total_timeInMinObj = map.get("total_timeInMin");
-		if(total_timeInMinObj != null)
-			total_timeInMin = new Long(total_timeInMinObj.toString());
+		Object total_time_in_minObj = map.get("total_time_in_min");
+		if(total_time_in_minObj != null)
+			total_time_in_min = new Long(total_time_in_minObj.toString());
 
 		Object allocatedObj = map.get("allocated");
 		if(allocatedObj != null)
@@ -1052,24 +1052,24 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.result_time_s = null;
 	}
 
-	public Long getTotal_timeInMin() {
-		return total_timeInMin;
+	public Long getTotal_time_in_min() {
+		return total_time_in_min;
 	}
 
-	public long getTotal_timeInMinEx() {
-		return total_timeInMin != null ? total_timeInMin : 0L;
+	public long getTotal_time_in_minEx() {
+		return total_time_in_min != null ? total_time_in_min : 0L;
 	}
 
-	public void setTotal_timeInMin(long total_timeInMin) {
-		this.total_timeInMin = total_timeInMin;
+	public void setTotal_time_in_min(long total_time_in_min) {
+		this.total_time_in_min = total_time_in_min;
 	}
 
-	public void setTotal_timeInMin(Long total_timeInMin) {
-		this.total_timeInMin = total_timeInMin;
+	public void setTotal_time_in_min(Long total_time_in_min) {
+		this.total_time_in_min = total_time_in_min;
 	}
 
-	public void unSetTotal_timeInMin() {
-		this.total_timeInMin = null;
+	public void unSetTotal_time_in_min() {
+		this.total_time_in_min = null;
 	}
 
 	public String getAllocated() {
