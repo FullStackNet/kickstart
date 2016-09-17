@@ -43,6 +43,16 @@ public class HeaderView extends BaseView {
 	public void buildUI() {
 		c4t_object _community = C4t_objectHelper.getInstance().getById(mContext.getContextId());
 		if (_community == null) {
+			if (mContext.getDomainName().contains("omep4ci.com")) {
+				Div logoImageDiv = new Div(null, "logo");
+				IMG logoImg = new IMG();		
+			
+				logoImg.addAttribute("width","230px");
+				logoImg.addAttribute("height","130px");
+				logoImg.setSRC("/ui/images/logo-header-omep4ci.png");					
+				logoImageDiv.addChild(logoImg);
+		        headerDiv.addChild(logoImageDiv);
+			}
 			if (mContext.getDomainName().contains("connect2parent.com")) {
 				Div logoImageDiv = new Div(null, "logo");
 				IMG logoImg = new IMG();		
