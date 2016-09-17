@@ -52,8 +52,7 @@ public class HeaderView extends BaseView {
 				logoImg.setSRC("/ui/images/logo-header-omep4ci.png");					
 				logoImageDiv.addChild(logoImg);
 		        headerDiv.addChild(logoImageDiv);
-			}
-			if (mContext.getDomainName().contains("connect2parent.com")) {
+			} else if (mContext.getDomainName().contains("connect2parent.com")) {
 				Div logoImageDiv = new Div(null, "logo");
 				IMG logoImg = new IMG();		
 				if (Util.isEmpty(logoFile)) {
