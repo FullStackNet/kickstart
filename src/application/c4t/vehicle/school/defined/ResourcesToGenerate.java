@@ -120,6 +120,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("test_allocation_student", "application.c4t.vehicle.school.resource.test_allocation_student"),
 		new ResourceMap("book", "application.c4t.vehicle.school.resource.book"),
 		new ResourceMap("book_chapter", "application.c4t.vehicle.school.resource.book_chapter"),
+		new ResourceMap("test_group", "application.c4t.vehicle.school.resource.test_group"),		
 		new ResourceMap("book_chapter_test", "application.c4t.vehicle.school.resource.book_chapter_test"),
 		new ResourceMap("book_chapter_section", "application.c4t.vehicle.school.resource.book_chapter_section"),		
 		new ResourceMap("book_allocation", "application.c4t.vehicle.school.resource.book_allocation"),
