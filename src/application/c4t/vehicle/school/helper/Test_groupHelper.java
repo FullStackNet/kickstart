@@ -1,11 +1,7 @@
 package application.c4t.vehicle.school.helper;
 
 import application.c4t.vehicle.school.resource.test_group;
-import platform.db.Expression;
-import platform.db.LOG_OP;
-import platform.db.REL_OP;
 import platform.helper.BaseHelper;
-import platform.resource.BaseResource;
 
 
 public class Test_groupHelper extends BaseHelper {
