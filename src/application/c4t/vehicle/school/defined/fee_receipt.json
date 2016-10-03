@@ -71,6 +71,11 @@
 			{
 				'type': 'long'
 			},
+			'payment_approval':
+			{
+				'type': 'String',
+				'length' : 1
+			},
 			'payment_method':
 			{
 				'type': 'String',

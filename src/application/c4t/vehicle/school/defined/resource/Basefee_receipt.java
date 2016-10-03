@@ -31,6 +31,7 @@ public abstract class Basefee_receipt extends BaseResource {
 	private Double amount = null;
 	private String payment_date_str = null;
 	private Long payment_date = null;
+	private String payment_approval = null;
 	private String payment_method = null;
 	private String bank_name = null;
 	private String cheque_no = null;
@@ -51,6 +52,7 @@ public abstract class Basefee_receipt extends BaseResource {
 	public static String FIELD_AMOUNT = "amount";
 	public static String FIELD_PAYMENT_DATE_STR = "payment_date_str";
 	public static String FIELD_PAYMENT_DATE = "payment_date";
+	public static String FIELD_PAYMENT_APPROVAL = "payment_approval";
 	public static String FIELD_PAYMENT_METHOD = "payment_method";
 	public static String FIELD_BANK_NAME = "bank_name";
 	public static String FIELD_CHEQUE_NO = "cheque_no";
@@ -119,6 +121,10 @@ public abstract class Basefee_receipt extends BaseResource {
 		Field payment_dateField = new Field("payment_date", "long");
 		metaData.addField(payment_dateField);
 
+		Field payment_approvalField = new Field("payment_approval", "String");
+		payment_approvalField.setLength(1);
+		metaData.addField(payment_approvalField);
+
 		Field payment_methodField = new Field("payment_method", "String");
 		payment_methodField.setLength(128);
 		metaData.addField(payment_methodField);
@@ -167,6 +173,7 @@ public abstract class Basefee_receipt extends BaseResource {
 		this.amount = obj.amount;
 		this.payment_date_str = obj.payment_date_str;
 		this.payment_date = obj.payment_date;
+		this.payment_approval = obj.payment_approval;
 		this.payment_method = obj.payment_method;
 		this.bank_name = obj.bank_name;
 		this.cheque_no = obj.cheque_no;
@@ -206,6 +213,8 @@ public abstract class Basefee_receipt extends BaseResource {
 			map.put("payment_date_str", payment_date_str);
 		if(payment_date != null)
 			map.put("payment_date", payment_date);
+		if(payment_approval != null)
+			map.put("payment_approval", payment_approval);
 		if(payment_method != null)
 			map.put("payment_method", payment_method);
 		if(bank_name != null)
@@ -249,6 +258,8 @@ public abstract class Basefee_receipt extends BaseResource {
 			map.put("payment_date_str", payment_date_str);
 		if(payment_date != null)
 			map.put("payment_date", payment_date);
+		if(payment_approval != null)
+			map.put("payment_approval", payment_approval);
 		if(payment_method != null)
 			map.put("payment_method", payment_method);
 		if(bank_name != null)
@@ -285,6 +296,7 @@ public abstract class Basefee_receipt extends BaseResource {
 		amount = (Double) map.get("amount");
 		payment_date_str = (String) map.get("payment_date_str");
 		payment_date = (Long) map.get("payment_date");
+		payment_approval = (String) map.get("payment_approval");
 		payment_method = (String) map.get("payment_method");
 		bank_name = (String) map.get("bank_name");
 		cheque_no = (String) map.get("cheque_no");
@@ -343,6 +355,10 @@ public abstract class Basefee_receipt extends BaseResource {
 		Object payment_dateObj = map.get("payment_date");
 		if(payment_dateObj != null)
 			payment_date = new Long(payment_dateObj.toString());
+
+		Object payment_approvalObj = map.get("payment_approval");
+		if(payment_approvalObj != null)
+			payment_approval = payment_approvalObj.toString();
 
 		Object payment_methodObj = map.get("payment_method");
 		if(payment_methodObj != null)
@@ -581,6 +597,22 @@ public abstract class Basefee_receipt extends BaseResource {
 
 	public void unSetPayment_date() {
 		this.payment_date = null;
+	}
+
+	public String getPayment_approval() {
+		return payment_approval;
+	}
+
+	public String getPayment_approvalEx() {
+		return payment_approval != null ? payment_approval : "";
+	}
+
+	public void setPayment_approval(String payment_approval) {
+		this.payment_approval = payment_approval;
+	}
+
+	public void unSetPayment_approval() {
+		this.payment_approval = null;
 	}
 
 	public String getPayment_method() {
