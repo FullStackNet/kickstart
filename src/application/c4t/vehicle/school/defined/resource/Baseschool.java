@@ -27,6 +27,8 @@ public abstract class Baseschool extends BaseResource {
 	private String photo_upload_url = null;
 	private String community_id = null;
 	private String app_branding = null;
+	private String fee_receipt_approval_admin_id = null;
+	private String fee_manual_approval_admin_id = null;
 	private String brand_name = null;
 	private String short_name = null;
 	private String app_download_link = null;
@@ -115,6 +117,8 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_PHOTO_UPLOAD_URL = "photo_upload_url";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_APP_BRANDING = "app_branding";
+	public static String FIELD_FEE_RECEIPT_APPROVAL_ADMIN_ID = "fee_receipt_approval_admin_id";
+	public static String FIELD_FEE_MANUAL_APPROVAL_ADMIN_ID = "fee_manual_approval_admin_id";
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_SHORT_NAME = "short_name";
 	public static String FIELD_APP_DOWNLOAD_LINK = "app_download_link";
@@ -234,6 +238,14 @@ public abstract class Baseschool extends BaseResource {
 		app_brandingField.setDefaultValue("N");
 		app_brandingField.setLength(1);
 		metaData.addField(app_brandingField);
+
+		Field fee_receipt_approval_admin_idField = new Field("fee_receipt_approval_admin_id", "String");
+		fee_receipt_approval_admin_idField.setLength(128);
+		metaData.addField(fee_receipt_approval_admin_idField);
+
+		Field fee_manual_approval_admin_idField = new Field("fee_manual_approval_admin_id", "String");
+		fee_manual_approval_admin_idField.setLength(128);
+		metaData.addField(fee_manual_approval_admin_idField);
 
 		Field brand_nameField = new Field("brand_name", "String");
 		brand_nameField.setLength(128);
@@ -623,6 +635,8 @@ public abstract class Baseschool extends BaseResource {
 		this.photo_upload_url = obj.photo_upload_url;
 		this.community_id = obj.community_id;
 		this.app_branding = obj.app_branding;
+		this.fee_receipt_approval_admin_id = obj.fee_receipt_approval_admin_id;
+		this.fee_manual_approval_admin_id = obj.fee_manual_approval_admin_id;
 		this.brand_name = obj.brand_name;
 		this.short_name = obj.short_name;
 		this.app_download_link = obj.app_download_link;
@@ -847,6 +861,10 @@ public abstract class Baseschool extends BaseResource {
 			map.put("community_id", community_id);
 		if(app_branding != null)
 			map.put("app_branding", app_branding);
+		if(fee_receipt_approval_admin_id != null)
+			map.put("fee_receipt_approval_admin_id", fee_receipt_approval_admin_id);
+		if(fee_manual_approval_admin_id != null)
+			map.put("fee_manual_approval_admin_id", fee_manual_approval_admin_id);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
 		if(short_name != null)
@@ -1029,6 +1047,10 @@ public abstract class Baseschool extends BaseResource {
 			map.put("community_id", community_id);
 		if(app_branding != null)
 			map.put("app_branding", app_branding);
+		if(fee_receipt_approval_admin_id != null)
+			map.put("fee_receipt_approval_admin_id", fee_receipt_approval_admin_id);
+		if(fee_manual_approval_admin_id != null)
+			map.put("fee_manual_approval_admin_id", fee_manual_approval_admin_id);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
 		if(short_name != null)
@@ -1205,6 +1227,8 @@ public abstract class Baseschool extends BaseResource {
 		photo_upload_url = (String) map.get("photo_upload_url");
 		community_id = (String) map.get("community_id");
 		app_branding = (String) map.get("app_branding");
+		fee_receipt_approval_admin_id = (String) map.get("fee_receipt_approval_admin_id");
+		fee_manual_approval_admin_id = (String) map.get("fee_manual_approval_admin_id");
 		brand_name = (String) map.get("brand_name");
 		short_name = (String) map.get("short_name");
 		app_download_link = (String) map.get("app_download_link");
@@ -1319,6 +1343,14 @@ public abstract class Baseschool extends BaseResource {
 		Object app_brandingObj = map.get("app_branding");
 		if(app_brandingObj != null)
 			app_branding = app_brandingObj.toString();
+
+		Object fee_receipt_approval_admin_idObj = map.get("fee_receipt_approval_admin_id");
+		if(fee_receipt_approval_admin_idObj != null)
+			fee_receipt_approval_admin_id = fee_receipt_approval_admin_idObj.toString();
+
+		Object fee_manual_approval_admin_idObj = map.get("fee_manual_approval_admin_id");
+		if(fee_manual_approval_admin_idObj != null)
+			fee_manual_approval_admin_id = fee_manual_approval_admin_idObj.toString();
 
 		Object brand_nameObj = map.get("brand_name");
 		if(brand_nameObj != null)
@@ -1769,6 +1801,38 @@ public abstract class Baseschool extends BaseResource {
 
 	public void unSetApp_branding() {
 		this.app_branding = "N";
+	}
+
+	public String getFee_receipt_approval_admin_id() {
+		return fee_receipt_approval_admin_id;
+	}
+
+	public String getFee_receipt_approval_admin_idEx() {
+		return fee_receipt_approval_admin_id != null ? fee_receipt_approval_admin_id : "";
+	}
+
+	public void setFee_receipt_approval_admin_id(String fee_receipt_approval_admin_id) {
+		this.fee_receipt_approval_admin_id = fee_receipt_approval_admin_id;
+	}
+
+	public void unSetFee_receipt_approval_admin_id() {
+		this.fee_receipt_approval_admin_id = null;
+	}
+
+	public String getFee_manual_approval_admin_id() {
+		return fee_manual_approval_admin_id;
+	}
+
+	public String getFee_manual_approval_admin_idEx() {
+		return fee_manual_approval_admin_id != null ? fee_manual_approval_admin_id : "";
+	}
+
+	public void setFee_manual_approval_admin_id(String fee_manual_approval_admin_id) {
+		this.fee_manual_approval_admin_id = fee_manual_approval_admin_id;
+	}
+
+	public void unSetFee_manual_approval_admin_id() {
+		this.fee_manual_approval_admin_id = null;
 	}
 
 	public String getBrand_name() {

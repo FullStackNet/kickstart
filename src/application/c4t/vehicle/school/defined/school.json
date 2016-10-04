@@ -49,6 +49,16 @@
 				'type':'String',
 				'default' : "N"
 			},
+			'fee_receipt_approval_admin_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'fee_manual_approval_admin_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'brand_name':
 			{
 				'length': 128,
