@@ -664,7 +664,7 @@
 			},
 			'total_next_schedule_date_str':
 			{
-				'type':'long'
+				'type':'String'
 			},
 			'manual_fees_approval':
 			{

@@ -141,7 +141,7 @@ public abstract class Basestudent extends BaseResource {
 	private Double total_fees_paid = null;
 	private Double total_next_schedule_pending = null;
 	private Long total_next_schedule_date = null;
-	private Long total_next_schedule_date_str = null;
+	private String total_next_schedule_date_str = null;
 	private String manual_fees_approval = null;
 	private Double discount = null;
 	private Double opening_balance = null;
@@ -808,7 +808,7 @@ public abstract class Basestudent extends BaseResource {
 		Field total_next_schedule_dateField = new Field("total_next_schedule_date", "long");
 		metaData.addField(total_next_schedule_dateField);
 
-		Field total_next_schedule_date_strField = new Field("total_next_schedule_date_str", "long");
+		Field total_next_schedule_date_strField = new Field("total_next_schedule_date_str", "String");
 		metaData.addField(total_next_schedule_date_strField);
 
 		Field manual_fees_approvalField = new Field("manual_fees_approval", "String");
@@ -1710,7 +1710,7 @@ public abstract class Basestudent extends BaseResource {
 		total_fees_paid = (Double) map.get("total_fees_paid");
 		total_next_schedule_pending = (Double) map.get("total_next_schedule_pending");
 		total_next_schedule_date = (Long) map.get("total_next_schedule_date");
-		total_next_schedule_date_str = (Long) map.get("total_next_schedule_date_str");
+		total_next_schedule_date_str = (String) map.get("total_next_schedule_date_str");
 		manual_fees_approval = (String) map.get("manual_fees_approval");
 		discount = (Double) map.get("discount");
 		opening_balance = (Double) map.get("opening_balance");
@@ -2212,7 +2212,7 @@ public abstract class Basestudent extends BaseResource {
 
 		Object total_next_schedule_date_strObj = map.get("total_next_schedule_date_str");
 		if(total_next_schedule_date_strObj != null)
-			total_next_schedule_date_str = new Long(total_next_schedule_date_strObj.toString());
+			total_next_schedule_date_str = total_next_schedule_date_strObj.toString();
 
 		Object manual_fees_approvalObj = map.get("manual_fees_approval");
 		if(manual_fees_approvalObj != null)
@@ -4125,19 +4125,15 @@ public abstract class Basestudent extends BaseResource {
 		this.total_next_schedule_date = null;
 	}
 
-	public Long getTotal_next_schedule_date_str() {
+	public String getTotal_next_schedule_date_str() {
 		return total_next_schedule_date_str;
 	}
 
-	public long getTotal_next_schedule_date_strEx() {
-		return total_next_schedule_date_str != null ? total_next_schedule_date_str : 0L;
+	public String getTotal_next_schedule_date_strEx() {
+		return total_next_schedule_date_str != null ? total_next_schedule_date_str : "";
 	}
 
-	public void setTotal_next_schedule_date_str(long total_next_schedule_date_str) {
-		this.total_next_schedule_date_str = total_next_schedule_date_str;
-	}
-
-	public void setTotal_next_schedule_date_str(Long total_next_schedule_date_str) {
+	public void setTotal_next_schedule_date_str(String total_next_schedule_date_str) {
 		this.total_next_schedule_date_str = total_next_schedule_date_str;
 	}
 
