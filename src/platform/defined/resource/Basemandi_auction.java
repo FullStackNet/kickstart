@@ -42,6 +42,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	private String backup_patti = null;
 	private String backup_sent = null;
 	private String party = null;
+	private String reference_id = null;
 	private String bill_status = null;
 	private String patti_status = null;
 	private String entry_date = null;
@@ -83,6 +84,7 @@ public abstract class Basemandi_auction extends BaseResource {
 	public static String FIELD_BACKUP_PATTI = "backup_patti";
 	public static String FIELD_BACKUP_SENT = "backup_sent";
 	public static String FIELD_PARTY = "party";
+	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_BILL_STATUS = "bill_status";
 	public static String FIELD_PATTI_STATUS = "patti_status";
 	public static String FIELD_ENTRY_DATE = "entry_date";
@@ -192,6 +194,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		partyField.setLength(128);
 		metaData.addField(partyField);
 
+		Field reference_idField = new Field("reference_id", "String");
+		reference_idField.setLength(128);
+		metaData.addField(reference_idField);
+
 		Field bill_statusField = new Field("bill_status", "String");
 		bill_statusField.setLength(128);
 		metaData.addField(bill_statusField);
@@ -283,6 +289,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		this.backup_patti = obj.backup_patti;
 		this.backup_sent = obj.backup_sent;
 		this.party = obj.party;
+		this.reference_id = obj.reference_id;
 		this.bill_status = obj.bill_status;
 		this.patti_status = obj.patti_status;
 		this.entry_date = obj.entry_date;
@@ -357,6 +364,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("backup_sent", backup_sent);
 		if(party != null)
 			map.put("party", party);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
 		if(bill_status != null)
 			map.put("bill_status", bill_status);
 		if(patti_status != null)
@@ -445,6 +454,8 @@ public abstract class Basemandi_auction extends BaseResource {
 			map.put("backup_sent", backup_sent);
 		if(party != null)
 			map.put("party", party);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
 		if(bill_status != null)
 			map.put("bill_status", bill_status);
 		if(patti_status != null)
@@ -512,6 +523,7 @@ public abstract class Basemandi_auction extends BaseResource {
 		backup_patti = (String) map.get("backup_patti");
 		backup_sent = (String) map.get("backup_sent");
 		party = (String) map.get("party");
+		reference_id = (String) map.get("reference_id");
 		bill_status = (String) map.get("bill_status");
 		patti_status = (String) map.get("patti_status");
 		entry_date = (String) map.get("entry_date");
@@ -624,6 +636,10 @@ public abstract class Basemandi_auction extends BaseResource {
 		Object partyObj = map.get("party");
 		if(partyObj != null)
 			party = partyObj.toString();
+
+		Object reference_idObj = map.get("reference_id");
+		if(reference_idObj != null)
+			reference_id = reference_idObj.toString();
 
 		Object bill_statusObj = map.get("bill_status");
 		if(bill_statusObj != null)
@@ -1102,6 +1118,22 @@ public abstract class Basemandi_auction extends BaseResource {
 
 	public void unSetParty() {
 		this.party = null;
+	}
+
+	public String getReference_id() {
+		return reference_id;
+	}
+
+	public String getReference_idEx() {
+		return reference_id != null ? reference_id : "";
+	}
+
+	public void setReference_id(String reference_id) {
+		this.reference_id = reference_id;
+	}
+
+	public void unSetReference_id() {
+		this.reference_id = null;
 	}
 
 	public String getBill_status() {
