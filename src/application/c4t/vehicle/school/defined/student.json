@@ -40,6 +40,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'fees_manual':
+			{
+				'length': 1,
+				'type':'String'
+			},
 			'fees_master_id':
 			{
 				'length': 128,
@@ -648,6 +653,23 @@
 			'total_fees_paid':
 			{
 				'type':'double'
+			},
+			'total_next_schedule_pending':
+			{
+				'type':'double'
+			},
+			'total_next_schedule_date':
+			{
+				'type':'long'
+			},
+			'total_next_schedule_date_str':
+			{
+				'type':'String'
+			},
+			'manual_fees_approval':
+			{
+				'type': 'String',
+				'length' : 1
 			},
 			'discount':
 			{

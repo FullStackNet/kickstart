@@ -25,6 +25,7 @@ public abstract class Basestudent extends BaseResource {
 	private String emrgency_no = null;
 	private String school_id = null;
 	private String batch_id = null;
+	private String fees_manual = null;
 	private String fees_master_id = null;
 	private String batch_name = null;
 	private String emergency_no = null;
@@ -138,6 +139,10 @@ public abstract class Basestudent extends BaseResource {
 	private Double total_fees = null;
 	private Double total_additional_charges = null;
 	private Double total_fees_paid = null;
+	private Double total_next_schedule_pending = null;
+	private Long total_next_schedule_date = null;
+	private String total_next_schedule_date_str = null;
+	private String manual_fees_approval = null;
 	private Double discount = null;
 	private Double opening_balance = null;
 	private Double total_debit = null;
@@ -151,6 +156,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_EMRGENCY_NO = "emrgency_no";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_BATCH_ID = "batch_id";
+	public static String FIELD_FEES_MANUAL = "fees_manual";
 	public static String FIELD_FEES_MASTER_ID = "fees_master_id";
 	public static String FIELD_BATCH_NAME = "batch_name";
 	public static String FIELD_EMERGENCY_NO = "emergency_no";
@@ -264,6 +270,10 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_TOTAL_FEES = "total_fees";
 	public static String FIELD_TOTAL_ADDITIONAL_CHARGES = "total_additional_charges";
 	public static String FIELD_TOTAL_FEES_PAID = "total_fees_paid";
+	public static String FIELD_TOTAL_NEXT_SCHEDULE_PENDING = "total_next_schedule_pending";
+	public static String FIELD_TOTAL_NEXT_SCHEDULE_DATE = "total_next_schedule_date";
+	public static String FIELD_TOTAL_NEXT_SCHEDULE_DATE_STR = "total_next_schedule_date_str";
+	public static String FIELD_MANUAL_FEES_APPROVAL = "manual_fees_approval";
 	public static String FIELD_DISCOUNT = "discount";
 	public static String FIELD_OPENING_BALANCE = "opening_balance";
 	public static String FIELD_TOTAL_DEBIT = "total_debit";
@@ -304,6 +314,10 @@ public abstract class Basestudent extends BaseResource {
 		batch_idField.setIndexed(true);
 		batch_idField.setLength(128);
 		metaData.addField(batch_idField);
+
+		Field fees_manualField = new Field("fees_manual", "String");
+		fees_manualField.setLength(1);
+		metaData.addField(fees_manualField);
 
 		Field fees_master_idField = new Field("fees_master_id", "String");
 		fees_master_idField.setIndexed(true);
@@ -788,6 +802,19 @@ public abstract class Basestudent extends BaseResource {
 		Field total_fees_paidField = new Field("total_fees_paid", "double");
 		metaData.addField(total_fees_paidField);
 
+		Field total_next_schedule_pendingField = new Field("total_next_schedule_pending", "double");
+		metaData.addField(total_next_schedule_pendingField);
+
+		Field total_next_schedule_dateField = new Field("total_next_schedule_date", "long");
+		metaData.addField(total_next_schedule_dateField);
+
+		Field total_next_schedule_date_strField = new Field("total_next_schedule_date_str", "String");
+		metaData.addField(total_next_schedule_date_strField);
+
+		Field manual_fees_approvalField = new Field("manual_fees_approval", "String");
+		manual_fees_approvalField.setLength(1);
+		metaData.addField(manual_fees_approvalField);
+
 		Field discountField = new Field("discount", "double");
 		metaData.addField(discountField);
 
@@ -822,6 +849,7 @@ public abstract class Basestudent extends BaseResource {
 		this.emrgency_no = obj.emrgency_no;
 		this.school_id = obj.school_id;
 		this.batch_id = obj.batch_id;
+		this.fees_manual = obj.fees_manual;
 		this.fees_master_id = obj.fees_master_id;
 		this.batch_name = obj.batch_name;
 		this.emergency_no = obj.emergency_no;
@@ -935,6 +963,10 @@ public abstract class Basestudent extends BaseResource {
 		this.total_fees = obj.total_fees;
 		this.total_additional_charges = obj.total_additional_charges;
 		this.total_fees_paid = obj.total_fees_paid;
+		this.total_next_schedule_pending = obj.total_next_schedule_pending;
+		this.total_next_schedule_date = obj.total_next_schedule_date;
+		this.total_next_schedule_date_str = obj.total_next_schedule_date_str;
+		this.manual_fees_approval = obj.manual_fees_approval;
 		this.discount = obj.discount;
 		this.opening_balance = obj.opening_balance;
 		this.total_debit = obj.total_debit;
@@ -1030,6 +1062,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("school_id", school_id);
 		if(batch_id != null)
 			map.put("batch_id", batch_id);
+		if(fees_manual != null)
+			map.put("fees_manual", fees_manual);
 		if(fees_master_id != null)
 			map.put("fees_master_id", fees_master_id);
 		if(batch_name != null)
@@ -1256,6 +1290,14 @@ public abstract class Basestudent extends BaseResource {
 			map.put("total_additional_charges", total_additional_charges);
 		if(total_fees_paid != null)
 			map.put("total_fees_paid", total_fees_paid);
+		if(total_next_schedule_pending != null)
+			map.put("total_next_schedule_pending", total_next_schedule_pending);
+		if(total_next_schedule_date != null)
+			map.put("total_next_schedule_date", total_next_schedule_date);
+		if(total_next_schedule_date_str != null)
+			map.put("total_next_schedule_date_str", total_next_schedule_date_str);
+		if(manual_fees_approval != null)
+			map.put("manual_fees_approval", manual_fees_approval);
 		if(discount != null)
 			map.put("discount", discount);
 		if(opening_balance != null)
@@ -1288,6 +1330,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("school_id", school_id);
 		if(batch_id != null)
 			map.put("batch_id", batch_id);
+		if(fees_manual != null)
+			map.put("fees_manual", fees_manual);
 		if(fees_master_id != null)
 			map.put("fees_master_id", fees_master_id);
 		if(batch_name != null)
@@ -1514,6 +1558,14 @@ public abstract class Basestudent extends BaseResource {
 			map.put("total_additional_charges", total_additional_charges);
 		if(total_fees_paid != null)
 			map.put("total_fees_paid", total_fees_paid);
+		if(total_next_schedule_pending != null)
+			map.put("total_next_schedule_pending", total_next_schedule_pending);
+		if(total_next_schedule_date != null)
+			map.put("total_next_schedule_date", total_next_schedule_date);
+		if(total_next_schedule_date_str != null)
+			map.put("total_next_schedule_date_str", total_next_schedule_date_str);
+		if(manual_fees_approval != null)
+			map.put("manual_fees_approval", manual_fees_approval);
 		if(discount != null)
 			map.put("discount", discount);
 		if(opening_balance != null)
@@ -1542,6 +1594,7 @@ public abstract class Basestudent extends BaseResource {
 		emrgency_no = (String) map.get("emrgency_no");
 		school_id = (String) map.get("school_id");
 		batch_id = (String) map.get("batch_id");
+		fees_manual = (String) map.get("fees_manual");
 		fees_master_id = (String) map.get("fees_master_id");
 		batch_name = (String) map.get("batch_name");
 		emergency_no = (String) map.get("emergency_no");
@@ -1655,6 +1708,10 @@ public abstract class Basestudent extends BaseResource {
 		total_fees = (Double) map.get("total_fees");
 		total_additional_charges = (Double) map.get("total_additional_charges");
 		total_fees_paid = (Double) map.get("total_fees_paid");
+		total_next_schedule_pending = (Double) map.get("total_next_schedule_pending");
+		total_next_schedule_date = (Long) map.get("total_next_schedule_date");
+		total_next_schedule_date_str = (String) map.get("total_next_schedule_date_str");
+		manual_fees_approval = (String) map.get("manual_fees_approval");
 		discount = (Double) map.get("discount");
 		opening_balance = (Double) map.get("opening_balance");
 		total_debit = (Double) map.get("total_debit");
@@ -1688,6 +1745,10 @@ public abstract class Basestudent extends BaseResource {
 		Object batch_idObj = map.get("batch_id");
 		if(batch_idObj != null)
 			batch_id = batch_idObj.toString();
+
+		Object fees_manualObj = map.get("fees_manual");
+		if(fees_manualObj != null)
+			fees_manual = fees_manualObj.toString();
 
 		Object fees_master_idObj = map.get("fees_master_id");
 		if(fees_master_idObj != null)
@@ -2141,6 +2202,22 @@ public abstract class Basestudent extends BaseResource {
 		if(total_fees_paidObj != null)
 			total_fees_paid = new Double(total_fees_paidObj.toString());
 
+		Object total_next_schedule_pendingObj = map.get("total_next_schedule_pending");
+		if(total_next_schedule_pendingObj != null)
+			total_next_schedule_pending = new Double(total_next_schedule_pendingObj.toString());
+
+		Object total_next_schedule_dateObj = map.get("total_next_schedule_date");
+		if(total_next_schedule_dateObj != null)
+			total_next_schedule_date = new Long(total_next_schedule_dateObj.toString());
+
+		Object total_next_schedule_date_strObj = map.get("total_next_schedule_date_str");
+		if(total_next_schedule_date_strObj != null)
+			total_next_schedule_date_str = total_next_schedule_date_strObj.toString();
+
+		Object manual_fees_approvalObj = map.get("manual_fees_approval");
+		if(manual_fees_approvalObj != null)
+			manual_fees_approval = manual_fees_approvalObj.toString();
+
 		Object discountObj = map.get("discount");
 		if(discountObj != null)
 			discount = new Double(discountObj.toString());
@@ -2270,6 +2347,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetBatch_id() {
 		this.batch_id = null;
+	}
+
+	public String getFees_manual() {
+		return fees_manual;
+	}
+
+	public String getFees_manualEx() {
+		return fees_manual != null ? fees_manual : "";
+	}
+
+	public void setFees_manual(String fees_manual) {
+		this.fees_manual = fees_manual;
+	}
+
+	public void unSetFees_manual() {
+		this.fees_manual = null;
 	}
 
 	public String getFees_master_id() {
@@ -3990,6 +4083,78 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetTotal_fees_paid() {
 		this.total_fees_paid = null;
+	}
+
+	public Double getTotal_next_schedule_pending() {
+		return total_next_schedule_pending;
+	}
+
+	public double getTotal_next_schedule_pendingEx() {
+		return total_next_schedule_pending != null ? total_next_schedule_pending : 0;
+	}
+
+	public void setTotal_next_schedule_pending(double total_next_schedule_pending) {
+		this.total_next_schedule_pending = total_next_schedule_pending;
+	}
+
+	public void setTotal_next_schedule_pending(Double total_next_schedule_pending) {
+		this.total_next_schedule_pending = total_next_schedule_pending;
+	}
+
+	public void unSetTotal_next_schedule_pending() {
+		this.total_next_schedule_pending = null;
+	}
+
+	public Long getTotal_next_schedule_date() {
+		return total_next_schedule_date;
+	}
+
+	public long getTotal_next_schedule_dateEx() {
+		return total_next_schedule_date != null ? total_next_schedule_date : 0L;
+	}
+
+	public void setTotal_next_schedule_date(long total_next_schedule_date) {
+		this.total_next_schedule_date = total_next_schedule_date;
+	}
+
+	public void setTotal_next_schedule_date(Long total_next_schedule_date) {
+		this.total_next_schedule_date = total_next_schedule_date;
+	}
+
+	public void unSetTotal_next_schedule_date() {
+		this.total_next_schedule_date = null;
+	}
+
+	public String getTotal_next_schedule_date_str() {
+		return total_next_schedule_date_str;
+	}
+
+	public String getTotal_next_schedule_date_strEx() {
+		return total_next_schedule_date_str != null ? total_next_schedule_date_str : "";
+	}
+
+	public void setTotal_next_schedule_date_str(String total_next_schedule_date_str) {
+		this.total_next_schedule_date_str = total_next_schedule_date_str;
+	}
+
+	public void unSetTotal_next_schedule_date_str() {
+		this.total_next_schedule_date_str = null;
+	}
+
+	public String getManual_fees_approval() {
+		return manual_fees_approval;
+	}
+
+	public String getManual_fees_approvalEx() {
+		return manual_fees_approval != null ? manual_fees_approval : "";
+	}
+
+	public void setManual_fees_approval(String manual_fees_approval) {
+		this.manual_fees_approval = manual_fees_approval;
+	}
+
+	public void unSetManual_fees_approval() {
+		this.manual_fees_approval = null;
 	}
 
 	public Double getDiscount() {
