@@ -68,11 +68,12 @@ public class PageBuilder {
 	public String getPageContent() {
 		mBody.removeAllChild();
 		mHead.removeAllChild();
+		ArrayList<CSS> fixCssFileList = new ArrayList<>();
 		if (mContext.isMobileRequest()) {
-			cssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
-			cssFileList.add(new CSS("bootstrap-theme.min.css", "/ui/css"));
-			cssFileList.add(new CSS("base.css", "/ui/css"));
-			cssFileList.add(new CSS("jquery-ui.css", "http://code.jquery.com/ui/1.11.0/themes/smoothness"));
+			fixCssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
+			fixCssFileList.add(new CSS("bootstrap-theme.min.css", "/ui/css"));
+			fixCssFileList.add(new CSS("base.css", "/ui/css"));
+			fixCssFileList.add(new CSS("jquery-ui.css", "http://code.jquery.com/ui/1.11.0/themes/smoothness"));
 			jsFileList.add(new JS("jquery-1.11.3.min.js", "http://code.jquery.com"));
 			jsFileList.add(new JS("jquery-ui.min.js", "http://code.jquery.com/ui/1.11.4"));
 			jsFileList.add(new JS("function.js", "/ui/js"));
@@ -81,10 +82,12 @@ public class PageBuilder {
 			jsFileList.add(new JS("base64.js", "/ui/js"));
 			jsFileList.add(new JS("bootstrap.min.js", "/ui/js"));
 		} else {
-			cssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
-			cssFileList.add(new CSS("bootstrap-theme.min.css", "/ui/css"));
-			cssFileList.add(new CSS("base.css", "/ui/css"));
-			cssFileList.add(new CSS("jquery-ui.css", "http://code.jquery.com/ui/1.11.0/themes/smoothness"));
+		//	fixCssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
+			fixCssFileList.add(new CSS("bootstrap-theme.min.css", "/ui/css"));
+			fixCssFileList.add(new CSS("base.css", "/ui/css"));
+			fixCssFileList.add(new CSS("jquery-ui.css", "http://code.jquery.com/ui/1.11.0/themes/smoothness"));
+			fixCssFileList.add(new CSS("font-awesome.min.css", "/ui/css"));
+			fixCssFileList.add(new CSS("ionicons.min.css?v=2.0.1", "/ui/css"));	      
 			jsFileList.add(new JS("jquery-1.11.3.min.js", "http://code.jquery.com"));
 			jsFileList.add(new JS("jquery-ui.min.js", "http://code.jquery.com/ui/1.11.4"));
 			jsFileList.add(new JS("function.js", "/ui/js"));
@@ -93,6 +96,7 @@ public class PageBuilder {
 			jsFileList.add(new JS("json.js", "/ui/js"));
 			jsFileList.add(new JS("base64.js", "/ui/js"));
 			jsFileList.add(new JS("bootstrap.min.js", "/ui/js"));
+			
 			if (isEditor()) {
 				jsFileList.add(new JS("nicEdit-latest.js", "http://js.nicedit.com"));
 			}
@@ -103,6 +107,11 @@ public class PageBuilder {
 			meta.addAttribute(new Attribute("name","viewport"));
 			meta.addAttribute(new Attribute("content","width=device-width, initial-scale=1.0"));
 			mHead.addChild(meta);
+			mHead.addChild(new TEXT("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">"));
+		}
+		for(int i=0; i< fixCssFileList.size();i++) {
+			LINK link = new LINK(fixCssFileList.get(i).getHref(), "stylesheet", "text/css");
+			mHead.addChild(link);
 		}
 		for(int i=0; i< cssFileList.size();i++) {
 			LINK link = new LINK(cssFileList.get(i).getHref(), "stylesheet", "text/css");
