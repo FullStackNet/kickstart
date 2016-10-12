@@ -37,7 +37,7 @@ public abstract class TwoColumnApplicationServlet extends BaseUIServlet {
 		layout.getContent().addChild(div);
 		layout.getContent().addChild(getWebContentView(context));
 		context.getPageBuilder().setLayout(layout);
-		return context.getPageBuilder().getPageContent();
+		return context.getPageBuilder().getCoachingPageContent();
 	}
 
 }

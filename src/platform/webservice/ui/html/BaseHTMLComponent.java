@@ -115,8 +115,9 @@ public abstract class BaseHTMLComponent {
 		if ((getTag() != null))
 			if ("textarea".equals(getTag())) {
 				buffer.append(">");
-			} else 
-			if ("input".equals(getTag())) {
+			} else if ("a".equals(getTag())) {
+				buffer.append(">");
+			} else if ("input".equals(getTag())) {
 				buffer.append(">");
 			} else {
 				buffer.append(">\n");
@@ -124,6 +125,8 @@ public abstract class BaseHTMLComponent {
 	
 		if (getText() != null) {
 			if ("textarea".equals(getTag())) {
+				buffer.append(getText());
+			} else if ("a".equals(getTag())) {
 				buffer.append(getText());
 			} else if ("input".equals(getTag())) {
 				buffer.append(getText());
@@ -138,6 +141,8 @@ public abstract class BaseHTMLComponent {
 		
 		if (getTag() != null) {
 			if ("textarea".equals(getTag())) {
+				buffer.append("</"+getTag()+">\n");
+			}else if ("a".equals(getTag())) {
 				buffer.append("</"+getTag()+">\n");
 			} else {
 				buffer.append(space+"</"+getTag());

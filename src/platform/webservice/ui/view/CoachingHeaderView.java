@@ -10,11 +10,11 @@ import platform.webservice.ui.html.UL;
 
 public class CoachingHeaderView extends BaseView {
 	UIServletContext mContext;
-	
 	public CoachingHeaderView(UIServletContext context) {
 		mContext = context;
 	}
 	
+
 	public void buildUI() {
 		/* <div class="">
          <nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
@@ -107,11 +107,11 @@ public class CoachingHeaderView extends BaseView {
             </div>
          </nav>
       </div>*/
-		CUSTOM nav = new CUSTOM("nav",null,"navbar navbar-inverse navbar-fixed-top app-navbar");
+		CUSTOM nav = new  CUSTOM("nav",null,"navbar navbar-inverse navbar-fixed-top app-navbar");
 		getView().addChild(nav);
-		Div container = new Div("","container no-padding-xs");
+		Div container = new Div(null,"container no-padding-xs");
 		nav.addChild(container);
-		Div navbar_header = new Div("","navbar-header");
+		Div navbar_header = new Div(null,"navbar-header");
 		container.addChild(navbar_header);	
 		A a = new A();
 		a.setText("Demo Coaching Institute");
@@ -119,7 +119,7 @@ public class CoachingHeaderView extends BaseView {
 		navbar_header.addChild(a);
 		Div navbarDiv = new Div("navbar",null);
 		container.addChild(navbarDiv);
-		UL ul = new UL("","nav navbar-nav navbar-right top_notif_menu text-right");
+		UL ul = new UL(null,"nav navbar-nav navbar-right top_notif_menu text-right");
 		navbarDiv.addChild(ul);
 		LI li = new LI();
 		ul.addChild(li);
@@ -128,9 +128,47 @@ public class CoachingHeaderView extends BaseView {
 		a.setText("Home");
 		li.addChild(a);
 		
+		li = new LI();
+		ul.addChild(li);
 		a = new A();	
 		a.setText("Profile");
-		li.addChild(a);
+		li.addChild(a);		
+		
+		li = new LI(null, "dropdown_custom");
+		ul.addChild(li);
+		a = new A();	
+		a.setText("<i class=\"fa fa-trophy\"></i><span class=\"label label-danger  hidden\" id=\"socket_notif\">0</span>");
+		li.addChild(a);		
+
+		li = new LI(null, "dropdown_custom");
+		ul.addChild(li);
+		a = new A();	
+		a.setText("Ajay<span class=\"caret\"></span>");
+		a.setText("<i class=\"fa fa-envelope\"></i><span class=\"label label-danger  hidden\" id=\"socket_notif\">0</span>");
+		li.addChild(a);		
+		
+		li = new LI(null, "dropdown_custom");
+		ul.addChild(li);
+		a = new A();	
+		
+		a.setText("<i class=\"fa fa-calendar\"></i><span class=\"label label-danger  hidden\" id=\"socket_notif\">0</span>");
+		li.addChild(a);		
+		
+		li = new LI(null, "dropdown_custom");
+		ul.addChild(li);
+		a = new A();	
+		a.setText("<i class=\"fa fa-user\"></i><span class=\"caret\"</span>");
+		li.addChild(a);		
+		
+		UL dropMenu = new UL(null, "dropdown_menu user_info_dropdown");
+		li.addChild(dropMenu);
+		Div div = new Div(null,"has_top_triangle bg-white ");
+		Div listGroup = new Div(null,"list-group inside-box quick-links");
+		dropMenu.addChild(div);
+		div.addChild(listGroup);
+		a = new A(null,"list-group-item");
+		a.setText("Change Password");
+		listGroup.addChild(a);
 		
 	}
 }
