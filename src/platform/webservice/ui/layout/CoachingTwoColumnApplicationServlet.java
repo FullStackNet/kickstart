@@ -16,11 +16,6 @@ public abstract class CoachingTwoColumnApplicationServlet extends BaseUIServlet 
 	public String getMobilePage(UIServletContext context) {
 		return getWebPage(context);
 	}
-	public  BaseHTMLComponent getMenuDisplay(UIServletContext context)  {
-		CoachingMenuView view = new CoachingMenuView(context);
-		view.buildUI();
-		return view.getView();
-	}
 	public abstract BaseHTMLComponent getWebLeftDisplay(UIServletContext context) ;
 	public abstract BaseHTMLComponent getWebRightDisplay(UIServletContext context) ;
 	public abstract BaseHTMLComponent getWebContentView(UIServletContext context);
@@ -32,15 +27,13 @@ public abstract class CoachingTwoColumnApplicationServlet extends BaseUIServlet 
 		CoachingHeaderView headerView = new CoachingHeaderView(context);
 		headerView.buildUI();
 		layout.getHeader().addChild(headerView.getView());
-		layout.getContent().addChild(getMenuDisplay(context));
+		CoachingMenuView menuView = new CoachingMenuView(context);
+		menuView.buildUI();
+		layout.getMenu().addChild(menuView.getView());
+		layout.getLeftColumn().addChild(getWebLeftDisplay(context));
+		layout.getContent().addChild(getWebContentView(context));
+		layout.getRightColumn().addChild(getWebRightDisplay(context));
 		context.getPageBuilder().setLayout(layout);
 		return context.getPageBuilder().getCoachingPageContent();
-		
-		 /*layout = new CoachingTwoColumnLayout(context);
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("CUSTOMER_NAME", "Nirman IAS");
-		String content = Util.readTempleteFileFromLocal("coaching", map);
-		return content;*/
 	}
-
 }

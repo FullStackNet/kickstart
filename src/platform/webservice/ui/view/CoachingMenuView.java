@@ -54,11 +54,9 @@ public class CoachingMenuView extends BaseView {
 	*/
 	public void buildUI() {
 		
-		getView().addAttribute("class","container-fluid bg-white text-center no-padding");
-		Div main_menu = new Div(null,"main_menu");
-		getView().addChild(main_menu);
+		getView().addAttribute("class","main_menu");
 		Div div = new Div(null,"container no-padding");
-		main_menu.addChild(div);
+		getView().addChild(div);
 		UL ul = new UL(null,"no-margin clearfix main_menu_ul");
 		div.addChild(ul);
 		
