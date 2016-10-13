@@ -82,7 +82,7 @@ public class PageBuilder {
 			jsFileList.add(new JS("base64.js", "/ui/js"));
 			jsFileList.add(new JS("bootstrap.min.js", "/ui/js"));
 		} else {
-		//	fixCssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
+			fixCssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
 			fixCssFileList.add(new CSS("bootstrap-theme.min.css", "/ui/css"));
 			fixCssFileList.add(new CSS("base.css", "/ui/css"));
 			fixCssFileList.add(new CSS("jquery-ui.css", "http://code.jquery.com/ui/1.11.0/themes/smoothness"));
