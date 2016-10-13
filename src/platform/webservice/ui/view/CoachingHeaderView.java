@@ -114,7 +114,7 @@ public class CoachingHeaderView extends BaseView {
 		Div navbar_header = new Div(null,"navbar-header");
 		container.addChild(navbar_header);	
 		A a = new A();
-		a.setText("Demo Coaching Institute");
+		a.setText(mContext.getCustomerName());
 		a.addAttribute("class","navbar-brand");
 		navbar_header.addChild(a);
 		Div navbarDiv = new Div("navbar",null);

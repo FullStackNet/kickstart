@@ -12,10 +12,12 @@ import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.C4t_objectHelper;
+import platform.helper.CustomerHelper;
 import platform.helper.SessionHelper;
 import platform.helper.UserHelper;
 import platform.resource.BaseResource;
 import platform.resource.c4t_object;
+import platform.resource.customer;
 import platform.resource.login;
 import platform.resource.user;
 import platform.util.ApplicationException;
@@ -54,7 +56,10 @@ public class LoginServlet extends BaseServlet {
 		ctx.setUserName(_user.getName());
 		ctx.setUserType(_user.getType());
 		ctx.setSuperUser(_user.getSuper_user());
-		
+		customer _customer = (customer)CustomerHelper.getInstance().getById(_user.getCustomer_id());
+		if (_customer != null) {
+			ctx.setCustomerName(_customer.getName());
+		}
 		// Add cookie for this session
 		_login.setSession_id(ctx.getSessionId());
 		_login.setApi_version(VersionManager.API_VERSION);

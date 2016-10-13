@@ -3,7 +3,9 @@ package platform.webservice;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.helper.CustomerHelper;
 import platform.helper.SessionHelper;
+import platform.resource.customer;
 import platform.resource.session;
 import platform.util.ApplicationException;
 
@@ -40,6 +42,17 @@ public class ServletContext {
 
 	public String getCustomerId() {
 		return _session.getCustomer_id();
+	}
+
+	public String getCustomerName() {
+		if (_session.getCustomer_name() == null) {
+			if (_session.getCustomer_id() != null) {
+			customer _customer = (customer)CustomerHelper.getInstance().getById(_session.getCustomer_id());
+			if (_customer != null)
+				setCustomerName(_customer.getName());
+			}
+		}
+		return _session.getCustomer_name();
 	}
 
 	public String getUserType() {
@@ -119,6 +132,18 @@ public class ServletContext {
 		_session.setCustomer_id(customerId);
 		session __session = new session(_session.getId());
 		__session.setCustomer_id(customerId);
+		try {
+			SessionHelper.getInstance().update(__session);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void setCustomerName(String customerName) {
+		_session.setCustomer_name(customerName);
+		session __session = new session(_session.getId());
+		__session.setCustomer_name(customerName);
 		try {
 			SessionHelper.getInstance().update(__session);
 		} catch (ApplicationException e) {

@@ -32,6 +32,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'customer_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'student_id':
 			{
 				'length': 128,

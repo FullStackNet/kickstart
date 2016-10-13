@@ -24,6 +24,7 @@ public abstract class Basesession extends BaseResource {
 	private String context_id = null;
 	private String context_name = null;
 	private String customer_id = null;
+	private String customer_name = null;
 	private String student_id = null;
 	private String user_type = null;
 	private String user_name = null;
@@ -37,6 +38,7 @@ public abstract class Basesession extends BaseResource {
 	public static String FIELD_CONTEXT_ID = "context_id";
 	public static String FIELD_CONTEXT_NAME = "context_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_CUSTOMER_NAME = "customer_name";
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_USER_TYPE = "user_type";
 	public static String FIELD_USER_NAME = "user_name";
@@ -71,6 +73,10 @@ public abstract class Basesession extends BaseResource {
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
+
+		Field customer_nameField = new Field("customer_name", "String");
+		customer_nameField.setLength(128);
+		metaData.addField(customer_nameField);
 
 		Field student_idField = new Field("student_id", "String");
 		student_idField.setLength(128);
@@ -117,6 +123,7 @@ public abstract class Basesession extends BaseResource {
 		this.context_id = obj.context_id;
 		this.context_name = obj.context_name;
 		this.customer_id = obj.customer_id;
+		this.customer_name = obj.customer_name;
 		this.student_id = obj.student_id;
 		this.user_type = obj.user_type;
 		this.user_name = obj.user_name;
@@ -151,6 +158,8 @@ public abstract class Basesession extends BaseResource {
 			map.put("context_name", context_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(customer_name != null)
+			map.put("customer_name", customer_name);
 		if(student_id != null)
 			map.put("student_id", student_id);
 		if(user_type != null)
@@ -183,6 +192,8 @@ public abstract class Basesession extends BaseResource {
 			map.put("context_name", context_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(customer_name != null)
+			map.put("customer_name", customer_name);
 		if(student_id != null)
 			map.put("student_id", student_id);
 		if(user_type != null)
@@ -212,6 +223,7 @@ public abstract class Basesession extends BaseResource {
 		context_id = (String) map.get("context_id");
 		context_name = (String) map.get("context_name");
 		customer_id = (String) map.get("customer_id");
+		customer_name = (String) map.get("customer_name");
 		student_id = (String) map.get("student_id");
 		user_type = (String) map.get("user_type");
 		user_name = (String) map.get("user_name");
@@ -242,6 +254,10 @@ public abstract class Basesession extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object customer_nameObj = map.get("customer_name");
+		if(customer_nameObj != null)
+			customer_name = customer_nameObj.toString();
 
 		Object student_idObj = map.get("student_id");
 		if(student_idObj != null)
@@ -360,6 +376,22 @@ public abstract class Basesession extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public String getCustomer_name() {
+		return customer_name;
+	}
+
+	public String getCustomer_nameEx() {
+		return customer_name != null ? customer_name : "";
+	}
+
+	public void setCustomer_name(String customer_name) {
+		this.customer_name = customer_name;
+	}
+
+	public void unSetCustomer_name() {
+		this.customer_name = null;
 	}
 
 	public String getStudent_id() {

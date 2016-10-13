@@ -109,6 +109,10 @@ public class UIServletContext {
 	public String getCustomerId() {
 		return _session.getCustomer_id();
 	}
+	
+	public String getCustomerName() {
+		return _session.getCustomer_name();
+	}
 
 	public String getStudentId() {
 		return _session.getCustomer_id();
@@ -237,6 +241,17 @@ public class UIServletContext {
 	public void setCustomerId(String customerId) {
 		session __session = new session(sessionId);
 		__session.setCustomer_id(customerId);
+		try {
+			SessionHelper.getInstance().update(__session);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void setCustomerName(String customerName) {
+		session __session = new session(sessionId);
+		__session.setCustomer_name(customerName);
 		try {
 			SessionHelper.getInstance().update(__session);
 		} catch (ApplicationException e) {
