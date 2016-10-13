@@ -9,6 +9,7 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.helper.BaseHelper;
 import platform.helper.HelperFactory;
+import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import application.c4t.vehicle.school.resource.notice;
 
@@ -132,5 +133,24 @@ public class NoticeHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 		return new ArrayList<Map<String, Object>>();		
+	}
+	
+	public BaseResource[] getResourcesForSchools(String[] schools,String[] order)   {
+		try {
+			HelperFactory.getInstance().register(SchoolHelper.getInstance());
+			HelperFactory.getInstance().register(NoticeHelper.getInstance());
+			ArrayList<JoinField> list = new ArrayList<JoinField>();
+			JoinField field = new JoinField("school", "school_id", "school_name");
+			list.add(field);
+			
+			Expression e2 = new Expression(notice.FIELD_SCHOOL_ID, REL_OP.IN, schools);
+			Expression e1 = new Expression(notice.FIELD_SCHOOLS, REL_OP.EACH_ELEMENT_IN, schools);
+			Expression e = new Expression(e1,LOG_OP.OR, e2);
+			return getByExpression(e,order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
 	}
 }
