@@ -16,6 +16,28 @@
 				'length': 128,
 				'type':'String'
 			},
+			'available_for_sale':
+			{
+				'type':'double'
+			},
+			'free':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'free_centre_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'price':
+			{
+				'type':'double'
+			},
+			'discount':
+			{
+				'type':'double'
+			},
 			'title':
 			{
 				'length': 128,
@@ -88,6 +110,21 @@
 				'type':'String',
 				'length': 128
 			},
+						'free':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'free_centre_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'price':
+			{
+				'type':'double'
+			},
+			
 			'last_update_time': {
 				'type': 'timestamp'
 			},	

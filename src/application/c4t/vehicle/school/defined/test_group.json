@@ -16,6 +16,20 @@
 				'length': 128,
 				'type':'String'
 			},
+			'free':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'free_centre_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'price':
+			{
+				'type':'double'
+			},
 			'tests':
 			{
 				'type':'Array',
