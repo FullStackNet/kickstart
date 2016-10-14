@@ -26,9 +26,17 @@
 				'length': 1,
 				'type':'String'
 			},
+			'available_for_sale':
+			{
+				'type':'double'
+			},
 			'price':
 			{
 				'type':'double'
+			},
+			'allowed_attempts':
+			{
+				'type':'long'
 			},
 			'tests':
 			{

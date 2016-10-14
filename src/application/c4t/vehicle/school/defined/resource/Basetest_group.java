@@ -21,6 +21,11 @@ import java.util.*;
 public abstract class Basetest_group extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String free = null;
+	private String free_centre_student = null;
+	private Double available_for_sale = null;
+	private Double price = null;
+	private Long allowed_attempts = null;
 	private List<String> tests = null;
 	private String customer_id = null;
 	private Long last_update_time = null;
@@ -29,6 +34,11 @@ public abstract class Basetest_group extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_FREE = "free";
+	public static String FIELD_FREE_CENTRE_STUDENT = "free_centre_student";
+	public static String FIELD_AVAILABLE_FOR_SALE = "available_for_sale";
+	public static String FIELD_PRICE = "price";
+	public static String FIELD_ALLOWED_ATTEMPTS = "allowed_attempts";
 	public static String FIELD_TESTS = "tests";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
@@ -49,6 +59,23 @@ public abstract class Basetest_group extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field freeField = new Field("free", "String");
+		freeField.setLength(1);
+		metaData.addField(freeField);
+
+		Field free_centre_studentField = new Field("free_centre_student", "String");
+		free_centre_studentField.setLength(1);
+		metaData.addField(free_centre_studentField);
+
+		Field available_for_saleField = new Field("available_for_sale", "double");
+		metaData.addField(available_for_saleField);
+
+		Field priceField = new Field("price", "double");
+		metaData.addField(priceField);
+
+		Field allowed_attemptsField = new Field("allowed_attempts", "long");
+		metaData.addField(allowed_attemptsField);
 
 		Field testsField = new Field("tests", "Array");
 		metaData.addField(testsField);
@@ -78,6 +105,11 @@ public abstract class Basetest_group extends BaseResource {
 	public Basetest_group(Basetest_group obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.free = obj.free;
+		this.free_centre_student = obj.free_centre_student;
+		this.available_for_sale = obj.available_for_sale;
+		this.price = obj.price;
+		this.allowed_attempts = obj.allowed_attempts;
 		this.tests = obj.tests;
 		this.customer_id = obj.customer_id;
 		this.last_update_time = obj.last_update_time;
@@ -95,6 +127,16 @@ public abstract class Basetest_group extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(free != null)
+			map.put("free", free);
+		if(free_centre_student != null)
+			map.put("free_centre_student", free_centre_student);
+		if(available_for_sale != null)
+			map.put("available_for_sale", available_for_sale);
+		if(price != null)
+			map.put("price", price);
+		if(allowed_attempts != null)
+			map.put("allowed_attempts", allowed_attempts);
 		if(tests != null)
 			map.put("tests", tests);
 		if(customer_id != null)
@@ -114,6 +156,16 @@ public abstract class Basetest_group extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(free != null)
+			map.put("free", free);
+		if(free_centre_student != null)
+			map.put("free_centre_student", free_centre_student);
+		if(available_for_sale != null)
+			map.put("available_for_sale", available_for_sale);
+		if(price != null)
+			map.put("price", price);
+		if(allowed_attempts != null)
+			map.put("allowed_attempts", allowed_attempts);
 		if(tests != null)
 			map.put("tests", tests);
 		if(customer_id != null)
@@ -136,6 +188,11 @@ public abstract class Basetest_group extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		free = (String) map.get("free");
+		free_centre_student = (String) map.get("free_centre_student");
+		available_for_sale = (Double) map.get("available_for_sale");
+		price = (Double) map.get("price");
+		allowed_attempts = (Long) map.get("allowed_attempts");
 		tests = (List<String>) map.get("tests");
 		customer_id = (String) map.get("customer_id");
 		last_update_time = (Long) map.get("last_update_time");
@@ -152,6 +209,26 @@ public abstract class Basetest_group extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object freeObj = map.get("free");
+		if(freeObj != null)
+			free = freeObj.toString();
+
+		Object free_centre_studentObj = map.get("free_centre_student");
+		if(free_centre_studentObj != null)
+			free_centre_student = free_centre_studentObj.toString();
+
+		Object available_for_saleObj = map.get("available_for_sale");
+		if(available_for_saleObj != null)
+			available_for_sale = new Double(available_for_saleObj.toString());
+
+		Object priceObj = map.get("price");
+		if(priceObj != null)
+			price = new Double(priceObj.toString());
+
+		Object allowed_attemptsObj = map.get("allowed_attempts");
+		if(allowed_attemptsObj != null)
+			allowed_attempts = new Long(allowed_attemptsObj.toString());
 
 		tests = (List<String>) map.get("tests");
 		Object customer_idObj = map.get("customer_id");
@@ -211,6 +288,98 @@ public abstract class Basetest_group extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getFree() {
+		return free;
+	}
+
+	public String getFreeEx() {
+		return free != null ? free : "";
+	}
+
+	public void setFree(String free) {
+		this.free = free;
+	}
+
+	public void unSetFree() {
+		this.free = null;
+	}
+
+	public String getFree_centre_student() {
+		return free_centre_student;
+	}
+
+	public String getFree_centre_studentEx() {
+		return free_centre_student != null ? free_centre_student : "";
+	}
+
+	public void setFree_centre_student(String free_centre_student) {
+		this.free_centre_student = free_centre_student;
+	}
+
+	public void unSetFree_centre_student() {
+		this.free_centre_student = null;
+	}
+
+	public Double getAvailable_for_sale() {
+		return available_for_sale;
+	}
+
+	public double getAvailable_for_saleEx() {
+		return available_for_sale != null ? available_for_sale : 0;
+	}
+
+	public void setAvailable_for_sale(double available_for_sale) {
+		this.available_for_sale = available_for_sale;
+	}
+
+	public void setAvailable_for_sale(Double available_for_sale) {
+		this.available_for_sale = available_for_sale;
+	}
+
+	public void unSetAvailable_for_sale() {
+		this.available_for_sale = null;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public double getPriceEx() {
+		return price != null ? price : 0;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public void unSetPrice() {
+		this.price = null;
+	}
+
+	public Long getAllowed_attempts() {
+		return allowed_attempts;
+	}
+
+	public long getAllowed_attemptsEx() {
+		return allowed_attempts != null ? allowed_attempts : 0L;
+	}
+
+	public void setAllowed_attempts(long allowed_attempts) {
+		this.allowed_attempts = allowed_attempts;
+	}
+
+	public void setAllowed_attempts(Long allowed_attempts) {
+		this.allowed_attempts = allowed_attempts;
+	}
+
+	public void unSetAllowed_attempts() {
+		this.allowed_attempts = null;
 	}
 
 	public List<String> getTests() {

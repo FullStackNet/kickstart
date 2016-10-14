@@ -21,6 +21,12 @@ import java.util.*;
 public abstract class Basetest extends BaseResource {
 	private String id = null;
 	private String code = null;
+	private Double available_for_sale = null;
+	private String free = null;
+	private String free_centre_student = null;
+	private Long allowed_attempts = null;
+	private Double price = null;
+	private Double discount = null;
 	private String title = null;
 	private String title_hindi = null;
 	private String instruction = null;
@@ -42,6 +48,12 @@ public abstract class Basetest extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_CODE = "code";
+	public static String FIELD_AVAILABLE_FOR_SALE = "available_for_sale";
+	public static String FIELD_FREE = "free";
+	public static String FIELD_FREE_CENTRE_STUDENT = "free_centre_student";
+	public static String FIELD_ALLOWED_ATTEMPTS = "allowed_attempts";
+	public static String FIELD_PRICE = "price";
+	public static String FIELD_DISCOUNT = "discount";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_TITLE_HINDI = "title_hindi";
 	public static String FIELD_INSTRUCTION = "instruction";
@@ -75,6 +87,26 @@ public abstract class Basetest extends BaseResource {
 		Field codeField = new Field("code", "String");
 		codeField.setLength(128);
 		metaData.addField(codeField);
+
+		Field available_for_saleField = new Field("available_for_sale", "double");
+		metaData.addField(available_for_saleField);
+
+		Field freeField = new Field("free", "String");
+		freeField.setLength(1);
+		metaData.addField(freeField);
+
+		Field free_centre_studentField = new Field("free_centre_student", "String");
+		free_centre_studentField.setLength(1);
+		metaData.addField(free_centre_studentField);
+
+		Field allowed_attemptsField = new Field("allowed_attempts", "long");
+		metaData.addField(allowed_attemptsField);
+
+		Field priceField = new Field("price", "double");
+		metaData.addField(priceField);
+
+		Field discountField = new Field("discount", "double");
+		metaData.addField(discountField);
 
 		Field titleField = new Field("title", "String");
 		titleField.setLength(128);
@@ -153,6 +185,12 @@ public abstract class Basetest extends BaseResource {
 	public Basetest(Basetest obj) {
 		this.id = obj.id;
 		this.code = obj.code;
+		this.available_for_sale = obj.available_for_sale;
+		this.free = obj.free;
+		this.free_centre_student = obj.free_centre_student;
+		this.allowed_attempts = obj.allowed_attempts;
+		this.price = obj.price;
+		this.discount = obj.discount;
 		this.title = obj.title;
 		this.title_hindi = obj.title_hindi;
 		this.instruction = obj.instruction;
@@ -183,6 +221,18 @@ public abstract class Basetest extends BaseResource {
 			map.put("id", id);
 		if(code != null)
 			map.put("code", code);
+		if(available_for_sale != null)
+			map.put("available_for_sale", available_for_sale);
+		if(free != null)
+			map.put("free", free);
+		if(free_centre_student != null)
+			map.put("free_centre_student", free_centre_student);
+		if(allowed_attempts != null)
+			map.put("allowed_attempts", allowed_attempts);
+		if(price != null)
+			map.put("price", price);
+		if(discount != null)
+			map.put("discount", discount);
 		if(title != null)
 			map.put("title", title);
 		if(title_hindi != null)
@@ -228,6 +278,18 @@ public abstract class Basetest extends BaseResource {
 			map.put("id", id);
 		if(code != null)
 			map.put("code", code);
+		if(available_for_sale != null)
+			map.put("available_for_sale", available_for_sale);
+		if(free != null)
+			map.put("free", free);
+		if(free_centre_student != null)
+			map.put("free_centre_student", free_centre_student);
+		if(allowed_attempts != null)
+			map.put("allowed_attempts", allowed_attempts);
+		if(price != null)
+			map.put("price", price);
+		if(discount != null)
+			map.put("discount", discount);
 		if(title != null)
 			map.put("title", title);
 		if(title_hindi != null)
@@ -276,6 +338,12 @@ public abstract class Basetest extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		code = (String) map.get("code");
+		available_for_sale = (Double) map.get("available_for_sale");
+		free = (String) map.get("free");
+		free_centre_student = (String) map.get("free_centre_student");
+		allowed_attempts = (Long) map.get("allowed_attempts");
+		price = (Double) map.get("price");
+		discount = (Double) map.get("discount");
 		title = (String) map.get("title");
 		title_hindi = (String) map.get("title_hindi");
 		instruction = (String) map.get("instruction");
@@ -305,6 +373,30 @@ public abstract class Basetest extends BaseResource {
 		Object codeObj = map.get("code");
 		if(codeObj != null)
 			code = codeObj.toString();
+
+		Object available_for_saleObj = map.get("available_for_sale");
+		if(available_for_saleObj != null)
+			available_for_sale = new Double(available_for_saleObj.toString());
+
+		Object freeObj = map.get("free");
+		if(freeObj != null)
+			free = freeObj.toString();
+
+		Object free_centre_studentObj = map.get("free_centre_student");
+		if(free_centre_studentObj != null)
+			free_centre_student = free_centre_studentObj.toString();
+
+		Object allowed_attemptsObj = map.get("allowed_attempts");
+		if(allowed_attemptsObj != null)
+			allowed_attempts = new Long(allowed_attemptsObj.toString());
+
+		Object priceObj = map.get("price");
+		if(priceObj != null)
+			price = new Double(priceObj.toString());
+
+		Object discountObj = map.get("discount");
+		if(discountObj != null)
+			discount = new Double(discountObj.toString());
 
 		Object titleObj = map.get("title");
 		if(titleObj != null)
@@ -419,6 +511,118 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetCode() {
 		this.code = null;
+	}
+
+	public Double getAvailable_for_sale() {
+		return available_for_sale;
+	}
+
+	public double getAvailable_for_saleEx() {
+		return available_for_sale != null ? available_for_sale : 0;
+	}
+
+	public void setAvailable_for_sale(double available_for_sale) {
+		this.available_for_sale = available_for_sale;
+	}
+
+	public void setAvailable_for_sale(Double available_for_sale) {
+		this.available_for_sale = available_for_sale;
+	}
+
+	public void unSetAvailable_for_sale() {
+		this.available_for_sale = null;
+	}
+
+	public String getFree() {
+		return free;
+	}
+
+	public String getFreeEx() {
+		return free != null ? free : "";
+	}
+
+	public void setFree(String free) {
+		this.free = free;
+	}
+
+	public void unSetFree() {
+		this.free = null;
+	}
+
+	public String getFree_centre_student() {
+		return free_centre_student;
+	}
+
+	public String getFree_centre_studentEx() {
+		return free_centre_student != null ? free_centre_student : "";
+	}
+
+	public void setFree_centre_student(String free_centre_student) {
+		this.free_centre_student = free_centre_student;
+	}
+
+	public void unSetFree_centre_student() {
+		this.free_centre_student = null;
+	}
+
+	public Long getAllowed_attempts() {
+		return allowed_attempts;
+	}
+
+	public long getAllowed_attemptsEx() {
+		return allowed_attempts != null ? allowed_attempts : 0L;
+	}
+
+	public void setAllowed_attempts(long allowed_attempts) {
+		this.allowed_attempts = allowed_attempts;
+	}
+
+	public void setAllowed_attempts(Long allowed_attempts) {
+		this.allowed_attempts = allowed_attempts;
+	}
+
+	public void unSetAllowed_attempts() {
+		this.allowed_attempts = null;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public double getPriceEx() {
+		return price != null ? price : 0;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public void unSetPrice() {
+		this.price = null;
+	}
+
+	public Double getDiscount() {
+		return discount;
+	}
+
+	public double getDiscountEx() {
+		return discount != null ? discount : 0;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+	public void setDiscount(Double discount) {
+		this.discount = discount;
+	}
+
+	public void unSetDiscount() {
+		this.discount = null;
 	}
 
 	public String getTitle() {

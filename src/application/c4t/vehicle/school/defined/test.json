@@ -30,6 +30,10 @@
 				'length': 1,
 				'type':'String'
 			},
+			'allowed_attempts':
+			{
+				'type':'long'
+			},
 			'price':
 			{
 				'type':'double'

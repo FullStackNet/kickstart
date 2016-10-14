@@ -67,6 +67,17 @@
 				'length': 4096,
 				'type': 'String'
 			},
+			'priority':{
+				'length': 128,
+				'type': 'String'
+			},
+			'expiry_date': {
+				'type': 'timestamp'
+			},
+			'expiry_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
 			'notice_date': {
 				'type': 'timestamp'
 			},

@@ -31,6 +31,9 @@ public abstract class Basenotice extends BaseResource {
 	private String section_name = null;
 	private String title = null;
 	private String description = null;
+	private String priority = null;
+	private Long expiry_date = null;
+	private String expiry_date_str = null;
 	private Long notice_date = null;
 	private String notice_date_str = null;
 	private Long creation_time = null;
@@ -57,6 +60,9 @@ public abstract class Basenotice extends BaseResource {
 	public static String FIELD_SECTION_NAME = "section_name";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_DESCRIPTION = "description";
+	public static String FIELD_PRIORITY = "priority";
+	public static String FIELD_EXPIRY_DATE = "expiry_date";
+	public static String FIELD_EXPIRY_DATE_STR = "expiry_date_str";
 	public static String FIELD_NOTICE_DATE = "notice_date";
 	public static String FIELD_NOTICE_DATE_STR = "notice_date_str";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -124,6 +130,17 @@ public abstract class Basenotice extends BaseResource {
 		Field descriptionField = new Field("description", "String");
 		descriptionField.setLength(4096);
 		metaData.addField(descriptionField);
+
+		Field priorityField = new Field("priority", "String");
+		priorityField.setLength(128);
+		metaData.addField(priorityField);
+
+		Field expiry_dateField = new Field("expiry_date", "timestamp");
+		metaData.addField(expiry_dateField);
+
+		Field expiry_date_strField = new Field("expiry_date_str", "String");
+		expiry_date_strField.setLength(32);
+		metaData.addField(expiry_date_strField);
 
 		Field notice_dateField = new Field("notice_date", "timestamp");
 		metaData.addField(notice_dateField);
@@ -195,6 +212,9 @@ public abstract class Basenotice extends BaseResource {
 		this.section_name = obj.section_name;
 		this.title = obj.title;
 		this.description = obj.description;
+		this.priority = obj.priority;
+		this.expiry_date = obj.expiry_date;
+		this.expiry_date_str = obj.expiry_date_str;
 		this.notice_date = obj.notice_date;
 		this.notice_date_str = obj.notice_date_str;
 		this.creation_time = obj.creation_time;
@@ -251,6 +271,12 @@ public abstract class Basenotice extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(priority != null)
+			map.put("priority", priority);
+		if(expiry_date != null)
+			map.put("expiry_date", expiry_date);
+		if(expiry_date_str != null)
+			map.put("expiry_date_str", expiry_date_str);
 		if(notice_date != null)
 			map.put("notice_date", notice_date);
 		if(notice_date_str != null)
@@ -309,6 +335,12 @@ public abstract class Basenotice extends BaseResource {
 			map.put("title", title);
 		if(description != null)
 			map.put("description", description);
+		if(priority != null)
+			map.put("priority", priority);
+		if(expiry_date != null)
+			map.put("expiry_date", expiry_date);
+		if(expiry_date_str != null)
+			map.put("expiry_date_str", expiry_date_str);
 		if(notice_date != null)
 			map.put("notice_date", notice_date);
 		if(notice_date_str != null)
@@ -357,6 +389,9 @@ public abstract class Basenotice extends BaseResource {
 		section_name = (String) map.get("section_name");
 		title = (String) map.get("title");
 		description = (String) map.get("description");
+		priority = (String) map.get("priority");
+		expiry_date = (Long) map.get("expiry_date");
+		expiry_date_str = (String) map.get("expiry_date_str");
 		notice_date = (Long) map.get("notice_date");
 		notice_date_str = (String) map.get("notice_date_str");
 		creation_time = (Long) map.get("creation_time");
@@ -415,6 +450,18 @@ public abstract class Basenotice extends BaseResource {
 		Object descriptionObj = map.get("description");
 		if(descriptionObj != null)
 			description = descriptionObj.toString();
+
+		Object priorityObj = map.get("priority");
+		if(priorityObj != null)
+			priority = priorityObj.toString();
+
+		Object expiry_dateObj = map.get("expiry_date");
+		if(expiry_dateObj != null)
+			expiry_date = (Long) expiry_dateObj;
+
+		Object expiry_date_strObj = map.get("expiry_date_str");
+		if(expiry_date_strObj != null)
+			expiry_date_str = expiry_date_strObj.toString();
 
 		Object notice_dateObj = map.get("notice_date");
 		if(notice_dateObj != null)
@@ -675,6 +722,47 @@ public abstract class Basenotice extends BaseResource {
 
 	public void unSetDescription() {
 		this.description = null;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public String getPriorityEx() {
+		return priority != null ? priority : "";
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
+	public void unSetPriority() {
+		this.priority = null;
+	}
+
+	public Long getExpiry_date() {
+		return expiry_date;
+	}
+
+	public void setExpiry_date(Long expiry_date) {
+		this.expiry_date = expiry_date;
+	}
+
+
+	public String getExpiry_date_str() {
+		return expiry_date_str;
+	}
+
+	public String getExpiry_date_strEx() {
+		return expiry_date_str != null ? expiry_date_str : "";
+	}
+
+	public void setExpiry_date_str(String expiry_date_str) {
+		this.expiry_date_str = expiry_date_str;
+	}
+
+	public void unSetExpiry_date_str() {
+		this.expiry_date_str = null;
 	}
 
 	public Long getNotice_date() {
