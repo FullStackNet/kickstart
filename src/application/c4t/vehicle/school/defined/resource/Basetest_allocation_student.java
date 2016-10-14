@@ -43,6 +43,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String end_time_s = null;
 	private Long end_date = null;
 	private String end_date_str = null;
+	private Long duration = null;
+	private Long attempted_date = null;
+	private String attempted_date_str = null;
 	private String resuffle_question = null;
 	private String resuffle_option = null;
 	private Double total_marks = null;
@@ -85,6 +88,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_END_TIME_S = "end_time_s";
 	public static String FIELD_END_DATE = "end_date";
 	public static String FIELD_END_DATE_STR = "end_date_str";
+	public static String FIELD_DURATION = "duration";
+	public static String FIELD_ATTEMPTED_DATE = "attempted_date";
+	public static String FIELD_ATTEMPTED_DATE_STR = "attempted_date_str";
 	public static String FIELD_RESUFFLE_QUESTION = "resuffle_question";
 	public static String FIELD_RESUFFLE_OPTION = "resuffle_option";
 	public static String FIELD_TOTAL_MARKS = "total_marks";
@@ -202,6 +208,16 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		end_date_strField.setLength(32);
 		metaData.addField(end_date_strField);
 
+		Field durationField = new Field("duration", "long");
+		metaData.addField(durationField);
+
+		Field attempted_dateField = new Field("attempted_date", "timestamp");
+		metaData.addField(attempted_dateField);
+
+		Field attempted_date_strField = new Field("attempted_date_str", "String");
+		attempted_date_strField.setLength(32);
+		metaData.addField(attempted_date_strField);
+
 		Field resuffle_questionField = new Field("resuffle_question", "String");
 		resuffle_questionField.setLength(1);
 		metaData.addField(resuffle_questionField);
@@ -292,6 +308,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.end_time_s = obj.end_time_s;
 		this.end_date = obj.end_date;
 		this.end_date_str = obj.end_date_str;
+		this.duration = obj.duration;
+		this.attempted_date = obj.attempted_date;
+		this.attempted_date_str = obj.attempted_date_str;
 		this.resuffle_question = obj.resuffle_question;
 		this.resuffle_option = obj.resuffle_option;
 		this.total_marks = obj.total_marks;
@@ -365,6 +384,12 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if(duration != null)
+			map.put("duration", duration);
+		if(attempted_date != null)
+			map.put("attempted_date", attempted_date);
+		if(attempted_date_str != null)
+			map.put("attempted_date_str", attempted_date_str);
 		if(resuffle_question != null)
 			map.put("resuffle_question", resuffle_question);
 		if(resuffle_option != null)
@@ -452,6 +477,12 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if(duration != null)
+			map.put("duration", duration);
+		if(attempted_date != null)
+			map.put("attempted_date", attempted_date);
+		if(attempted_date_str != null)
+			map.put("attempted_date_str", attempted_date_str);
 		if(resuffle_question != null)
 			map.put("resuffle_question", resuffle_question);
 		if(resuffle_option != null)
@@ -520,6 +551,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		end_time_s = (String) map.get("end_time_s");
 		end_date = (Long) map.get("end_date");
 		end_date_str = (String) map.get("end_date_str");
+		duration = (Long) map.get("duration");
+		attempted_date = (Long) map.get("attempted_date");
+		attempted_date_str = (String) map.get("attempted_date_str");
 		resuffle_question = (String) map.get("resuffle_question");
 		resuffle_option = (String) map.get("resuffle_option");
 		total_marks = (Double) map.get("total_marks");
@@ -636,6 +670,18 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object end_date_strObj = map.get("end_date_str");
 		if(end_date_strObj != null)
 			end_date_str = end_date_strObj.toString();
+
+		Object durationObj = map.get("duration");
+		if(durationObj != null)
+			duration = new Long(durationObj.toString());
+
+		Object attempted_dateObj = map.get("attempted_date");
+		if(attempted_dateObj != null)
+			attempted_date = (Long) attempted_dateObj;
+
+		Object attempted_date_strObj = map.get("attempted_date_str");
+		if(attempted_date_strObj != null)
+			attempted_date_str = attempted_date_strObj.toString();
 
 		Object resuffle_questionObj = map.get("resuffle_question");
 		if(resuffle_questionObj != null)
@@ -1084,6 +1130,51 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetEnd_date_str() {
 		this.end_date_str = null;
+	}
+
+	public Long getDuration() {
+		return duration;
+	}
+
+	public long getDurationEx() {
+		return duration != null ? duration : 0L;
+	}
+
+	public void setDuration(long duration) {
+		this.duration = duration;
+	}
+
+	public void setDuration(Long duration) {
+		this.duration = duration;
+	}
+
+	public void unSetDuration() {
+		this.duration = null;
+	}
+
+	public Long getAttempted_date() {
+		return attempted_date;
+	}
+
+	public void setAttempted_date(Long attempted_date) {
+		this.attempted_date = attempted_date;
+	}
+
+
+	public String getAttempted_date_str() {
+		return attempted_date_str;
+	}
+
+	public String getAttempted_date_strEx() {
+		return attempted_date_str != null ? attempted_date_str : "";
+	}
+
+	public void setAttempted_date_str(String attempted_date_str) {
+		this.attempted_date_str = attempted_date_str;
+	}
+
+	public void unSetAttempted_date_str() {
+		this.attempted_date_str = null;
 	}
 
 	public String getResuffle_question() {

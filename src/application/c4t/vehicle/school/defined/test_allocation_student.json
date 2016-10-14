@@ -116,6 +116,16 @@
 				'type': 'String',
 				'length' : 32
 			},
+			'duration': {
+				'type': 'long'
+			},
+			'attempted_date': {
+				'type': 'timestamp'
+			},
+			'attempted_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
 			'resuffle_question':
 			{
 				'type':'String',
