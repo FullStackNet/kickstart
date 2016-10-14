@@ -128,6 +128,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'institute_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
 			'course_id':
 			{
 				'length': 128,

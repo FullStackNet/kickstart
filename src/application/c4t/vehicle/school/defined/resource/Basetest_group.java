@@ -23,7 +23,7 @@ public abstract class Basetest_group extends BaseResource {
 	private String name = null;
 	private String free = null;
 	private String free_centre_student = null;
-	private Double available_for_sale = null;
+	private String available_for_sale = null;
 	private Double price = null;
 	private Long allowed_attempts = null;
 	private List<String> tests = null;
@@ -68,7 +68,7 @@ public abstract class Basetest_group extends BaseResource {
 		free_centre_studentField.setLength(1);
 		metaData.addField(free_centre_studentField);
 
-		Field available_for_saleField = new Field("available_for_sale", "double");
+		Field available_for_saleField = new Field("available_for_sale", "String");
 		metaData.addField(available_for_saleField);
 
 		Field priceField = new Field("price", "double");
@@ -190,7 +190,7 @@ public abstract class Basetest_group extends BaseResource {
 		name = (String) map.get("name");
 		free = (String) map.get("free");
 		free_centre_student = (String) map.get("free_centre_student");
-		available_for_sale = (Double) map.get("available_for_sale");
+		available_for_sale = (String) map.get("available_for_sale");
 		price = (Double) map.get("price");
 		allowed_attempts = (Long) map.get("allowed_attempts");
 		tests = (List<String>) map.get("tests");
@@ -220,7 +220,7 @@ public abstract class Basetest_group extends BaseResource {
 
 		Object available_for_saleObj = map.get("available_for_sale");
 		if(available_for_saleObj != null)
-			available_for_sale = new Double(available_for_saleObj.toString());
+			available_for_sale = available_for_saleObj.toString();
 
 		Object priceObj = map.get("price");
 		if(priceObj != null)
@@ -322,19 +322,15 @@ public abstract class Basetest_group extends BaseResource {
 		this.free_centre_student = null;
 	}
 
-	public Double getAvailable_for_sale() {
+	public String getAvailable_for_sale() {
 		return available_for_sale;
 	}
 
-	public double getAvailable_for_saleEx() {
-		return available_for_sale != null ? available_for_sale : 0;
+	public String getAvailable_for_saleEx() {
+		return available_for_sale != null ? available_for_sale : "";
 	}
 
-	public void setAvailable_for_sale(double available_for_sale) {
-		this.available_for_sale = available_for_sale;
-	}
-
-	public void setAvailable_for_sale(Double available_for_sale) {
+	public void setAvailable_for_sale(String available_for_sale) {
 		this.available_for_sale = available_for_sale;
 	}
 

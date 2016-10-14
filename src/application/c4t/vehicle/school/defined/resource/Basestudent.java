@@ -40,6 +40,7 @@ public abstract class Basestudent extends BaseResource {
 	private String state = null;
 	private String syllabus_type = null;
 	private String country = null;
+	private String institute_student = null;
 	private String course_id = null;
 	private String pickup_route_stopage_id = null;
 	private String pickup_route_id = null;
@@ -171,6 +172,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_STATE = "state";
 	public static String FIELD_SYLLABUS_TYPE = "syllabus_type";
 	public static String FIELD_COUNTRY = "country";
+	public static String FIELD_INSTITUTE_STUDENT = "institute_student";
 	public static String FIELD_COURSE_ID = "course_id";
 	public static String FIELD_PICKUP_ROUTE_STOPAGE_ID = "pickup_route_stopage_id";
 	public static String FIELD_PICKUP_ROUTE_ID = "pickup_route_id";
@@ -380,6 +382,10 @@ public abstract class Basestudent extends BaseResource {
 		Field countryField = new Field("country", "String");
 		countryField.setLength(128);
 		metaData.addField(countryField);
+
+		Field institute_studentField = new Field("institute_student", "String");
+		institute_studentField.setLength(1);
+		metaData.addField(institute_studentField);
 
 		Field course_idField = new Field("course_id", "String");
 		course_idField.setLength(128);
@@ -864,6 +870,7 @@ public abstract class Basestudent extends BaseResource {
 		this.state = obj.state;
 		this.syllabus_type = obj.syllabus_type;
 		this.country = obj.country;
+		this.institute_student = obj.institute_student;
 		this.course_id = obj.course_id;
 		this.pickup_route_stopage_id = obj.pickup_route_stopage_id;
 		this.pickup_route_id = obj.pickup_route_id;
@@ -1092,6 +1099,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("syllabus_type", syllabus_type);
 		if(country != null)
 			map.put("country", country);
+		if(institute_student != null)
+			map.put("institute_student", institute_student);
 		if(course_id != null)
 			map.put("course_id", course_id);
 		if(pickup_route_stopage_id != null)
@@ -1360,6 +1369,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("syllabus_type", syllabus_type);
 		if(country != null)
 			map.put("country", country);
+		if(institute_student != null)
+			map.put("institute_student", institute_student);
 		if(course_id != null)
 			map.put("course_id", course_id);
 		if(pickup_route_stopage_id != null)
@@ -1609,6 +1620,7 @@ public abstract class Basestudent extends BaseResource {
 		state = (String) map.get("state");
 		syllabus_type = (String) map.get("syllabus_type");
 		country = (String) map.get("country");
+		institute_student = (String) map.get("institute_student");
 		course_id = (String) map.get("course_id");
 		pickup_route_stopage_id = (String) map.get("pickup_route_stopage_id");
 		pickup_route_id = (String) map.get("pickup_route_id");
@@ -1805,6 +1817,10 @@ public abstract class Basestudent extends BaseResource {
 		Object countryObj = map.get("country");
 		if(countryObj != null)
 			country = countryObj.toString();
+
+		Object institute_studentObj = map.get("institute_student");
+		if(institute_studentObj != null)
+			institute_student = institute_studentObj.toString();
 
 		Object course_idObj = map.get("course_id");
 		if(course_idObj != null)
@@ -2587,6 +2603,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetCountry() {
 		this.country = null;
+	}
+
+	public String getInstitute_student() {
+		return institute_student;
+	}
+
+	public String getInstitute_studentEx() {
+		return institute_student != null ? institute_student : "";
+	}
+
+	public void setInstitute_student(String institute_student) {
+		this.institute_student = institute_student;
+	}
+
+	public void unSetInstitute_student() {
+		this.institute_student = null;
 	}
 
 	public String getCourse_id() {

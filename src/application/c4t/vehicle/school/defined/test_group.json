@@ -28,7 +28,7 @@
 			},
 			'available_for_sale':
 			{
-				'type':'double'
+				'type':'String'
 			},
 			'price':
 			{
