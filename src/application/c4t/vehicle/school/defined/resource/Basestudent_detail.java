@@ -59,6 +59,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	private String alert_pickup_stopage_name = null;
 	private String alert_dropped_stopage_name = null;
 	private String stopage_alert_sms = null;
+	private String institute_student = null;
 	private String stopage_alert_mobile_app = null;
 	private String stopage_alert_email = null;
 	private String feature_collabrotive_study = null;
@@ -141,6 +142,7 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_ALERT_PICKUP_STOPAGE_NAME = "alert_pickup_stopage_name";
 	public static String FIELD_ALERT_DROPPED_STOPAGE_NAME = "alert_dropped_stopage_name";
 	public static String FIELD_STOPAGE_ALERT_SMS = "stopage_alert_sms";
+	public static String FIELD_INSTITUTE_STUDENT = "institute_student";
 	public static String FIELD_STOPAGE_ALERT_MOBILE_APP = "stopage_alert_mobile_app";
 	public static String FIELD_STOPAGE_ALERT_EMAIL = "stopage_alert_email";
 	public static String FIELD_FEATURE_COLLABROTIVE_STUDY = "feature_collabrotive_study";
@@ -349,6 +351,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		stopage_alert_smsField.setDefaultValue("N");
 		stopage_alert_smsField.setLength(1);
 		metaData.addField(stopage_alert_smsField);
+
+		Field institute_studentField = new Field("institute_student", "String");
+		institute_studentField.setLength(1);
+		metaData.addField(institute_studentField);
 
 		Field stopage_alert_mobile_appField = new Field("stopage_alert_mobile_app", "String");
 		stopage_alert_mobile_appField.setDefaultValue("Y");
@@ -590,6 +596,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.alert_pickup_stopage_name = obj.alert_pickup_stopage_name;
 		this.alert_dropped_stopage_name = obj.alert_dropped_stopage_name;
 		this.stopage_alert_sms = obj.stopage_alert_sms;
+		this.institute_student = obj.institute_student;
 		this.stopage_alert_mobile_app = obj.stopage_alert_mobile_app;
 		this.stopage_alert_email = obj.stopage_alert_email;
 		this.feature_collabrotive_study = obj.feature_collabrotive_study;
@@ -804,6 +811,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("alert_dropped_stopage_name", alert_dropped_stopage_name);
 		if(stopage_alert_sms != null)
 			map.put("stopage_alert_sms", stopage_alert_sms);
+		if(institute_student != null)
+			map.put("institute_student", institute_student);
 		if(stopage_alert_mobile_app != null)
 			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
 		if(stopage_alert_email != null)
@@ -974,6 +983,8 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("alert_dropped_stopage_name", alert_dropped_stopage_name);
 		if(stopage_alert_sms != null)
 			map.put("stopage_alert_sms", stopage_alert_sms);
+		if(institute_student != null)
+			map.put("institute_student", institute_student);
 		if(stopage_alert_mobile_app != null)
 			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
 		if(stopage_alert_email != null)
@@ -1106,6 +1117,7 @@ public abstract class Basestudent_detail extends BaseResource {
 		alert_pickup_stopage_name = (String) map.get("alert_pickup_stopage_name");
 		alert_dropped_stopage_name = (String) map.get("alert_dropped_stopage_name");
 		stopage_alert_sms = (String) map.get("stopage_alert_sms");
+		institute_student = (String) map.get("institute_student");
 		stopage_alert_mobile_app = (String) map.get("stopage_alert_mobile_app");
 		stopage_alert_email = (String) map.get("stopage_alert_email");
 		feature_collabrotive_study = (String) map.get("feature_collabrotive_study");
@@ -1310,6 +1322,10 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object stopage_alert_smsObj = map.get("stopage_alert_sms");
 		if(stopage_alert_smsObj != null)
 			stopage_alert_sms = stopage_alert_smsObj.toString();
+
+		Object institute_studentObj = map.get("institute_student");
+		if(institute_studentObj != null)
+			institute_student = institute_studentObj.toString();
 
 		Object stopage_alert_mobile_appObj = map.get("stopage_alert_mobile_app");
 		if(stopage_alert_mobile_appObj != null)
@@ -2124,6 +2140,22 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetStopage_alert_sms() {
 		this.stopage_alert_sms = "N";
+	}
+
+	public String getInstitute_student() {
+		return institute_student;
+	}
+
+	public String getInstitute_studentEx() {
+		return institute_student != null ? institute_student : "";
+	}
+
+	public void setInstitute_student(String institute_student) {
+		this.institute_student = institute_student;
+	}
+
+	public void unSetInstitute_student() {
+		this.institute_student = null;
 	}
 
 	public String getStopage_alert_mobile_app() {

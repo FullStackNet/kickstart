@@ -210,6 +210,11 @@
 				'type':'String',
 				'default' :"N"
 			},
+			'institute_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
 			'stopage_alert_mobile_app':
 			{
 				'length': 1,
@@ -348,6 +353,7 @@
 				'default' : "N",
 				'type':'String'
 			},
+			
 			'feature_fees':
 			{
 				'length': 1,
