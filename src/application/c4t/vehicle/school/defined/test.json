@@ -42,6 +42,15 @@
 			{
 				'type':'double'
 			},
+			
+			'duration':
+			{
+				'type':'long'
+			},
+			'total_time_in_min':
+			{
+				'type':'long'
+			},
 			'title':
 			{
 				'length': 128,

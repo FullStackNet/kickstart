@@ -6,7 +6,7 @@ import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.view.CoachingHeaderView;
 import platform.webservice.ui.view.CoachingMenuView;
 
-public abstract class CoachingTwoColumnApplicationServlet extends BaseUIServlet {
+public abstract class CoachingSingleColumnApplicationServlet extends BaseUIServlet {
 	/**
 	 * 
 	 */
@@ -16,23 +16,19 @@ public abstract class CoachingTwoColumnApplicationServlet extends BaseUIServlet 
 	public String getMobilePage(UIServletContext context) {
 		return getWebPage(context);
 	}
-	public abstract BaseHTMLComponent getWebLeftDisplay(UIServletContext context) ;
-	public abstract BaseHTMLComponent getWebRightDisplay(UIServletContext context) ;
 	public abstract BaseHTMLComponent getWebContentView(UIServletContext context);
 	
 	@Override
 	public String getWebPage(UIServletContext context) {
 		// TODO Auto-generated method stub
-		CoachingTwoColumnLayout layout = new CoachingTwoColumnLayout(context);
+		CoachingSingleColumnLayout layout = new CoachingSingleColumnLayout(context);
 		CoachingHeaderView headerView = new CoachingHeaderView(context);
 		headerView.buildUI();
 		layout.getHeader().addChild(headerView.getView());
 		CoachingMenuView menuView = new CoachingMenuView(context);
 		menuView.buildUI();
 		layout.getMenu().addChild(menuView.getView());
-		layout.getLeftColumn().addChild(getWebLeftDisplay(context));
 		layout.getContent().addChild(getWebContentView(context));
-		layout.getRightColumn().addChild(getWebRightDisplay(context));
 		context.getPageBuilder().setLayout(layout);
 		return context.getPageBuilder().getCoachingPageContent();
 	}

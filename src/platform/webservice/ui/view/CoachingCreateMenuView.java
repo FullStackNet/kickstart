@@ -86,6 +86,7 @@ public class CoachingCreateMenuView extends BaseView {
 		LI li = new LI(null,"");
 		ul.addChild(li);
 		A a = new A();
+		a.setHref("/ui/create_test");
 		a.setText("<div><i class=\"fa fa-laptop\"></i></div><div>Create Test </div>");
 		li.addChild(a);
 		

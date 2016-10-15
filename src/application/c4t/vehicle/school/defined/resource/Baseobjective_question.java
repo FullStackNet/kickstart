@@ -32,6 +32,7 @@ public abstract class Baseobjective_question extends BaseResource {
 	private String user_id = null;
 	private String tutorial_id = null;
 	private String subject_id = null;
+	private String subject_name = null;
 	private String class_name = null;
 	private String option_1 = null;
 	private String option_2 = null;
@@ -70,6 +71,7 @@ public abstract class Baseobjective_question extends BaseResource {
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_TUTORIAL_ID = "tutorial_id";
 	public static String FIELD_SUBJECT_ID = "subject_id";
+	public static String FIELD_SUBJECT_NAME = "subject_name";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_OPTION_1 = "option_1";
 	public static String FIELD_OPTION_2 = "option_2";
@@ -153,6 +155,10 @@ public abstract class Baseobjective_question extends BaseResource {
 		Field subject_idField = new Field("subject_id", "String");
 		subject_idField.setLength(128);
 		metaData.addField(subject_idField);
+
+		Field subject_nameField = new Field("subject_name", "String");
+		subject_nameField.setLength(128);
+		metaData.addField(subject_nameField);
 
 		Field class_nameField = new Field("class_name", "String");
 		class_nameField.setLength(128);
@@ -275,6 +281,7 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.user_id = obj.user_id;
 		this.tutorial_id = obj.tutorial_id;
 		this.subject_id = obj.subject_id;
+		this.subject_name = obj.subject_name;
 		this.class_name = obj.class_name;
 		this.option_1 = obj.option_1;
 		this.option_2 = obj.option_2;
@@ -348,6 +355,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("tutorial_id", tutorial_id);
 		if(subject_id != null)
 			map.put("subject_id", subject_id);
+		if(subject_name != null)
+			map.put("subject_name", subject_name);
 		if(class_name != null)
 			map.put("class_name", class_name);
 		if(option_1 != null)
@@ -430,6 +439,8 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("tutorial_id", tutorial_id);
 		if(subject_id != null)
 			map.put("subject_id", subject_id);
+		if(subject_name != null)
+			map.put("subject_name", subject_name);
 		if(class_name != null)
 			map.put("class_name", class_name);
 		if(option_1 != null)
@@ -501,6 +512,7 @@ public abstract class Baseobjective_question extends BaseResource {
 		user_id = (String) map.get("user_id");
 		tutorial_id = (String) map.get("tutorial_id");
 		subject_id = (String) map.get("subject_id");
+		subject_name = (String) map.get("subject_name");
 		class_name = (String) map.get("class_name");
 		option_1 = (String) map.get("option_1");
 		option_2 = (String) map.get("option_2");
@@ -580,6 +592,10 @@ public abstract class Baseobjective_question extends BaseResource {
 		Object subject_idObj = map.get("subject_id");
 		if(subject_idObj != null)
 			subject_id = subject_idObj.toString();
+
+		Object subject_nameObj = map.get("subject_name");
+		if(subject_nameObj != null)
+			subject_name = subject_nameObj.toString();
 
 		Object class_nameObj = map.get("class_name");
 		if(class_nameObj != null)
@@ -894,6 +910,22 @@ public abstract class Baseobjective_question extends BaseResource {
 
 	public void unSetSubject_id() {
 		this.subject_id = null;
+	}
+
+	public String getSubject_name() {
+		return subject_name;
+	}
+
+	public String getSubject_nameEx() {
+		return subject_name != null ? subject_name : "";
+	}
+
+	public void setSubject_name(String subject_name) {
+		this.subject_name = subject_name;
+	}
+
+	public void unSetSubject_name() {
+		this.subject_name = null;
 	}
 
 	public String getClass_name() {

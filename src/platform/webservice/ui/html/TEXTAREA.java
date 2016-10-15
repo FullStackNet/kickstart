@@ -28,7 +28,7 @@ public class TEXTAREA extends INPUT {
 	
 	public TEXTAREA(String id, String name,String className, boolean fullWidth) {
 		super(id,name,className);
-		addAttribute(new Attribute("rows", "8"));
+		addAttribute(new Attribute("rows", "2"));
 		if (fullWidth) {
 			addAttribute(new Attribute("style", "width: 100%;"));
 		} else {

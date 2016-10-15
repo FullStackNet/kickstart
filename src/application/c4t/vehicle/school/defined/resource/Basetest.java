@@ -27,6 +27,8 @@ public abstract class Basetest extends BaseResource {
 	private Long allowed_attempts = null;
 	private Double price = null;
 	private Double discount = null;
+	private Long duration = null;
+	private Long total_time_in_min = null;
 	private String title = null;
 	private String title_hindi = null;
 	private String instruction = null;
@@ -54,6 +56,8 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_ALLOWED_ATTEMPTS = "allowed_attempts";
 	public static String FIELD_PRICE = "price";
 	public static String FIELD_DISCOUNT = "discount";
+	public static String FIELD_DURATION = "duration";
+	public static String FIELD_TOTAL_TIME_IN_MIN = "total_time_in_min";
 	public static String FIELD_TITLE = "title";
 	public static String FIELD_TITLE_HINDI = "title_hindi";
 	public static String FIELD_INSTRUCTION = "instruction";
@@ -107,6 +111,12 @@ public abstract class Basetest extends BaseResource {
 
 		Field discountField = new Field("discount", "double");
 		metaData.addField(discountField);
+
+		Field durationField = new Field("duration", "long");
+		metaData.addField(durationField);
+
+		Field total_time_in_minField = new Field("total_time_in_min", "long");
+		metaData.addField(total_time_in_minField);
 
 		Field titleField = new Field("title", "String");
 		titleField.setLength(128);
@@ -191,6 +201,8 @@ public abstract class Basetest extends BaseResource {
 		this.allowed_attempts = obj.allowed_attempts;
 		this.price = obj.price;
 		this.discount = obj.discount;
+		this.duration = obj.duration;
+		this.total_time_in_min = obj.total_time_in_min;
 		this.title = obj.title;
 		this.title_hindi = obj.title_hindi;
 		this.instruction = obj.instruction;
@@ -233,6 +245,10 @@ public abstract class Basetest extends BaseResource {
 			map.put("price", price);
 		if(discount != null)
 			map.put("discount", discount);
+		if(duration != null)
+			map.put("duration", duration);
+		if(total_time_in_min != null)
+			map.put("total_time_in_min", total_time_in_min);
 		if(title != null)
 			map.put("title", title);
 		if(title_hindi != null)
@@ -290,6 +306,10 @@ public abstract class Basetest extends BaseResource {
 			map.put("price", price);
 		if(discount != null)
 			map.put("discount", discount);
+		if(duration != null)
+			map.put("duration", duration);
+		if(total_time_in_min != null)
+			map.put("total_time_in_min", total_time_in_min);
 		if(title != null)
 			map.put("title", title);
 		if(title_hindi != null)
@@ -344,6 +364,8 @@ public abstract class Basetest extends BaseResource {
 		allowed_attempts = (Long) map.get("allowed_attempts");
 		price = (Double) map.get("price");
 		discount = (Double) map.get("discount");
+		duration = (Long) map.get("duration");
+		total_time_in_min = (Long) map.get("total_time_in_min");
 		title = (String) map.get("title");
 		title_hindi = (String) map.get("title_hindi");
 		instruction = (String) map.get("instruction");
@@ -397,6 +419,14 @@ public abstract class Basetest extends BaseResource {
 		Object discountObj = map.get("discount");
 		if(discountObj != null)
 			discount = new Double(discountObj.toString());
+
+		Object durationObj = map.get("duration");
+		if(durationObj != null)
+			duration = new Long(durationObj.toString());
+
+		Object total_time_in_minObj = map.get("total_time_in_min");
+		if(total_time_in_minObj != null)
+			total_time_in_min = new Long(total_time_in_minObj.toString());
 
 		Object titleObj = map.get("title");
 		if(titleObj != null)
@@ -619,6 +649,46 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetDiscount() {
 		this.discount = null;
+	}
+
+	public Long getDuration() {
+		return duration;
+	}
+
+	public long getDurationEx() {
+		return duration != null ? duration : 0L;
+	}
+
+	public void setDuration(long duration) {
+		this.duration = duration;
+	}
+
+	public void setDuration(Long duration) {
+		this.duration = duration;
+	}
+
+	public void unSetDuration() {
+		this.duration = null;
+	}
+
+	public Long getTotal_time_in_min() {
+		return total_time_in_min;
+	}
+
+	public long getTotal_time_in_minEx() {
+		return total_time_in_min != null ? total_time_in_min : 0L;
+	}
+
+	public void setTotal_time_in_min(long total_time_in_min) {
+		this.total_time_in_min = total_time_in_min;
+	}
+
+	public void setTotal_time_in_min(Long total_time_in_min) {
+		this.total_time_in_min = total_time_in_min;
+	}
+
+	public void unSetTotal_time_in_min() {
+		this.total_time_in_min = null;
 	}
 
 	public String getTitle() {

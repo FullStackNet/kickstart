@@ -32,6 +32,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String subject_id = null;
 	private String test_hindi = null;
 	private String test_english = null;
+	private String available_for_sale = null;
+	private String free = null;
+	private String free_centre_student = null;
+	private Long allowed_attempts = null;
+	private Double price = null;
+	private Double discount = null;
+	private Long duration = null;
+	private Long total_time_in_min = null;
 	private String course_id = null;
 	private String course_name = null;
 	private String subject_name = null;
@@ -43,7 +51,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String end_time_s = null;
 	private Long end_date = null;
 	private String end_date_str = null;
-	private Long duration = null;
 	private Long attempted_date = null;
 	private String attempted_date_str = null;
 	private String resuffle_question = null;
@@ -54,7 +61,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private Integer rank = null;
 	private Long total_correct_answers = null;
 	private String status = null;
-	private Long total_time_in_min = null;
 	private String show_result = null;
 	private Long result_date = null;
 	private String result_date_s = null;
@@ -77,6 +83,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_TEST_HINDI = "test_hindi";
 	public static String FIELD_TEST_ENGLISH = "test_english";
+	public static String FIELD_AVAILABLE_FOR_SALE = "available_for_sale";
+	public static String FIELD_FREE = "free";
+	public static String FIELD_FREE_CENTRE_STUDENT = "free_centre_student";
+	public static String FIELD_ALLOWED_ATTEMPTS = "allowed_attempts";
+	public static String FIELD_PRICE = "price";
+	public static String FIELD_DISCOUNT = "discount";
+	public static String FIELD_DURATION = "duration";
+	public static String FIELD_TOTAL_TIME_IN_MIN = "total_time_in_min";
 	public static String FIELD_COURSE_ID = "course_id";
 	public static String FIELD_COURSE_NAME = "course_name";
 	public static String FIELD_SUBJECT_NAME = "subject_name";
@@ -88,7 +102,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_END_TIME_S = "end_time_s";
 	public static String FIELD_END_DATE = "end_date";
 	public static String FIELD_END_DATE_STR = "end_date_str";
-	public static String FIELD_DURATION = "duration";
 	public static String FIELD_ATTEMPTED_DATE = "attempted_date";
 	public static String FIELD_ATTEMPTED_DATE_STR = "attempted_date_str";
 	public static String FIELD_RESUFFLE_QUESTION = "resuffle_question";
@@ -99,7 +112,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_RANK = "rank";
 	public static String FIELD_TOTAL_CORRECT_ANSWERS = "total_correct_answers";
 	public static String FIELD_STATUS = "status";
-	public static String FIELD_TOTAL_TIME_IN_MIN = "total_time_in_min";
 	public static String FIELD_SHOW_RESULT = "show_result";
 	public static String FIELD_RESULT_DATE = "result_date";
 	public static String FIELD_RESULT_DATE_S = "result_date_s";
@@ -168,6 +180,32 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		test_englishField.setLength(128);
 		metaData.addField(test_englishField);
 
+		Field available_for_saleField = new Field("available_for_sale", "String");
+		metaData.addField(available_for_saleField);
+
+		Field freeField = new Field("free", "String");
+		freeField.setLength(1);
+		metaData.addField(freeField);
+
+		Field free_centre_studentField = new Field("free_centre_student", "String");
+		free_centre_studentField.setLength(1);
+		metaData.addField(free_centre_studentField);
+
+		Field allowed_attemptsField = new Field("allowed_attempts", "long");
+		metaData.addField(allowed_attemptsField);
+
+		Field priceField = new Field("price", "double");
+		metaData.addField(priceField);
+
+		Field discountField = new Field("discount", "double");
+		metaData.addField(discountField);
+
+		Field durationField = new Field("duration", "long");
+		metaData.addField(durationField);
+
+		Field total_time_in_minField = new Field("total_time_in_min", "long");
+		metaData.addField(total_time_in_minField);
+
 		Field course_idField = new Field("course_id", "String");
 		course_idField.setLength(128);
 		metaData.addField(course_idField);
@@ -208,9 +246,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		end_date_strField.setLength(32);
 		metaData.addField(end_date_strField);
 
-		Field durationField = new Field("duration", "long");
-		metaData.addField(durationField);
-
 		Field attempted_dateField = new Field("attempted_date", "timestamp");
 		metaData.addField(attempted_dateField);
 
@@ -244,9 +279,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Field statusField = new Field("status", "String");
 		statusField.setLength(1);
 		metaData.addField(statusField);
-
-		Field total_time_in_minField = new Field("total_time_in_min", "long");
-		metaData.addField(total_time_in_minField);
 
 		Field show_resultField = new Field("show_result", "String");
 		show_resultField.setLength(1);
@@ -297,6 +329,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.subject_id = obj.subject_id;
 		this.test_hindi = obj.test_hindi;
 		this.test_english = obj.test_english;
+		this.available_for_sale = obj.available_for_sale;
+		this.free = obj.free;
+		this.free_centre_student = obj.free_centre_student;
+		this.allowed_attempts = obj.allowed_attempts;
+		this.price = obj.price;
+		this.discount = obj.discount;
+		this.duration = obj.duration;
+		this.total_time_in_min = obj.total_time_in_min;
 		this.course_id = obj.course_id;
 		this.course_name = obj.course_name;
 		this.subject_name = obj.subject_name;
@@ -308,7 +348,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.end_time_s = obj.end_time_s;
 		this.end_date = obj.end_date;
 		this.end_date_str = obj.end_date_str;
-		this.duration = obj.duration;
 		this.attempted_date = obj.attempted_date;
 		this.attempted_date_str = obj.attempted_date_str;
 		this.resuffle_question = obj.resuffle_question;
@@ -319,7 +358,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.rank = obj.rank;
 		this.total_correct_answers = obj.total_correct_answers;
 		this.status = obj.status;
-		this.total_time_in_min = obj.total_time_in_min;
 		this.show_result = obj.show_result;
 		this.result_date = obj.result_date;
 		this.result_date_s = obj.result_date_s;
@@ -362,6 +400,22 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("test_hindi", test_hindi);
 		if(test_english != null)
 			map.put("test_english", test_english);
+		if(available_for_sale != null)
+			map.put("available_for_sale", available_for_sale);
+		if(free != null)
+			map.put("free", free);
+		if(free_centre_student != null)
+			map.put("free_centre_student", free_centre_student);
+		if(allowed_attempts != null)
+			map.put("allowed_attempts", allowed_attempts);
+		if(price != null)
+			map.put("price", price);
+		if(discount != null)
+			map.put("discount", discount);
+		if(duration != null)
+			map.put("duration", duration);
+		if(total_time_in_min != null)
+			map.put("total_time_in_min", total_time_in_min);
 		if(course_id != null)
 			map.put("course_id", course_id);
 		if(course_name != null)
@@ -384,8 +438,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
-		if(duration != null)
-			map.put("duration", duration);
 		if(attempted_date != null)
 			map.put("attempted_date", attempted_date);
 		if(attempted_date_str != null)
@@ -406,8 +458,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("total_correct_answers", total_correct_answers);
 		if(status != null)
 			map.put("status", status);
-		if(total_time_in_min != null)
-			map.put("total_time_in_min", total_time_in_min);
 		if(show_result != null)
 			map.put("show_result", show_result);
 		if(result_date != null)
@@ -455,6 +505,22 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("test_hindi", test_hindi);
 		if(test_english != null)
 			map.put("test_english", test_english);
+		if(available_for_sale != null)
+			map.put("available_for_sale", available_for_sale);
+		if(free != null)
+			map.put("free", free);
+		if(free_centre_student != null)
+			map.put("free_centre_student", free_centre_student);
+		if(allowed_attempts != null)
+			map.put("allowed_attempts", allowed_attempts);
+		if(price != null)
+			map.put("price", price);
+		if(discount != null)
+			map.put("discount", discount);
+		if(duration != null)
+			map.put("duration", duration);
+		if(total_time_in_min != null)
+			map.put("total_time_in_min", total_time_in_min);
 		if(course_id != null)
 			map.put("course_id", course_id);
 		if(course_name != null)
@@ -477,8 +543,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("end_date", end_date);
 		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
-		if(duration != null)
-			map.put("duration", duration);
 		if(attempted_date != null)
 			map.put("attempted_date", attempted_date);
 		if(attempted_date_str != null)
@@ -499,8 +563,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("total_correct_answers", total_correct_answers);
 		if(status != null)
 			map.put("status", status);
-		if(total_time_in_min != null)
-			map.put("total_time_in_min", total_time_in_min);
 		if(show_result != null)
 			map.put("show_result", show_result);
 		if(result_date != null)
@@ -540,6 +602,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		subject_id = (String) map.get("subject_id");
 		test_hindi = (String) map.get("test_hindi");
 		test_english = (String) map.get("test_english");
+		available_for_sale = (String) map.get("available_for_sale");
+		free = (String) map.get("free");
+		free_centre_student = (String) map.get("free_centre_student");
+		allowed_attempts = (Long) map.get("allowed_attempts");
+		price = (Double) map.get("price");
+		discount = (Double) map.get("discount");
+		duration = (Long) map.get("duration");
+		total_time_in_min = (Long) map.get("total_time_in_min");
 		course_id = (String) map.get("course_id");
 		course_name = (String) map.get("course_name");
 		subject_name = (String) map.get("subject_name");
@@ -551,7 +621,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		end_time_s = (String) map.get("end_time_s");
 		end_date = (Long) map.get("end_date");
 		end_date_str = (String) map.get("end_date_str");
-		duration = (Long) map.get("duration");
 		attempted_date = (Long) map.get("attempted_date");
 		attempted_date_str = (String) map.get("attempted_date_str");
 		resuffle_question = (String) map.get("resuffle_question");
@@ -562,7 +631,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		rank = (Integer) map.get("rank");
 		total_correct_answers = (Long) map.get("total_correct_answers");
 		status = (String) map.get("status");
-		total_time_in_min = (Long) map.get("total_time_in_min");
 		show_result = (String) map.get("show_result");
 		result_date = (Long) map.get("result_date");
 		result_date_s = (String) map.get("result_date_s");
@@ -627,6 +695,38 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		if(test_englishObj != null)
 			test_english = test_englishObj.toString();
 
+		Object available_for_saleObj = map.get("available_for_sale");
+		if(available_for_saleObj != null)
+			available_for_sale = available_for_saleObj.toString();
+
+		Object freeObj = map.get("free");
+		if(freeObj != null)
+			free = freeObj.toString();
+
+		Object free_centre_studentObj = map.get("free_centre_student");
+		if(free_centre_studentObj != null)
+			free_centre_student = free_centre_studentObj.toString();
+
+		Object allowed_attemptsObj = map.get("allowed_attempts");
+		if(allowed_attemptsObj != null)
+			allowed_attempts = new Long(allowed_attemptsObj.toString());
+
+		Object priceObj = map.get("price");
+		if(priceObj != null)
+			price = new Double(priceObj.toString());
+
+		Object discountObj = map.get("discount");
+		if(discountObj != null)
+			discount = new Double(discountObj.toString());
+
+		Object durationObj = map.get("duration");
+		if(durationObj != null)
+			duration = new Long(durationObj.toString());
+
+		Object total_time_in_minObj = map.get("total_time_in_min");
+		if(total_time_in_minObj != null)
+			total_time_in_min = new Long(total_time_in_minObj.toString());
+
 		Object course_idObj = map.get("course_id");
 		if(course_idObj != null)
 			course_id = course_idObj.toString();
@@ -671,10 +771,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		if(end_date_strObj != null)
 			end_date_str = end_date_strObj.toString();
 
-		Object durationObj = map.get("duration");
-		if(durationObj != null)
-			duration = new Long(durationObj.toString());
-
 		Object attempted_dateObj = map.get("attempted_date");
 		if(attempted_dateObj != null)
 			attempted_date = (Long) attempted_dateObj;
@@ -714,10 +810,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object statusObj = map.get("status");
 		if(statusObj != null)
 			status = statusObj.toString();
-
-		Object total_time_in_minObj = map.get("total_time_in_min");
-		if(total_time_in_minObj != null)
-			total_time_in_min = new Long(total_time_in_minObj.toString());
 
 		Object show_resultObj = map.get("show_result");
 		if(show_resultObj != null)
@@ -970,6 +1062,154 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.test_english = null;
 	}
 
+	public String getAvailable_for_sale() {
+		return available_for_sale;
+	}
+
+	public String getAvailable_for_saleEx() {
+		return available_for_sale != null ? available_for_sale : "";
+	}
+
+	public void setAvailable_for_sale(String available_for_sale) {
+		this.available_for_sale = available_for_sale;
+	}
+
+	public void unSetAvailable_for_sale() {
+		this.available_for_sale = null;
+	}
+
+	public String getFree() {
+		return free;
+	}
+
+	public String getFreeEx() {
+		return free != null ? free : "";
+	}
+
+	public void setFree(String free) {
+		this.free = free;
+	}
+
+	public void unSetFree() {
+		this.free = null;
+	}
+
+	public String getFree_centre_student() {
+		return free_centre_student;
+	}
+
+	public String getFree_centre_studentEx() {
+		return free_centre_student != null ? free_centre_student : "";
+	}
+
+	public void setFree_centre_student(String free_centre_student) {
+		this.free_centre_student = free_centre_student;
+	}
+
+	public void unSetFree_centre_student() {
+		this.free_centre_student = null;
+	}
+
+	public Long getAllowed_attempts() {
+		return allowed_attempts;
+	}
+
+	public long getAllowed_attemptsEx() {
+		return allowed_attempts != null ? allowed_attempts : 0L;
+	}
+
+	public void setAllowed_attempts(long allowed_attempts) {
+		this.allowed_attempts = allowed_attempts;
+	}
+
+	public void setAllowed_attempts(Long allowed_attempts) {
+		this.allowed_attempts = allowed_attempts;
+	}
+
+	public void unSetAllowed_attempts() {
+		this.allowed_attempts = null;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public double getPriceEx() {
+		return price != null ? price : 0;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public void unSetPrice() {
+		this.price = null;
+	}
+
+	public Double getDiscount() {
+		return discount;
+	}
+
+	public double getDiscountEx() {
+		return discount != null ? discount : 0;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+	public void setDiscount(Double discount) {
+		this.discount = discount;
+	}
+
+	public void unSetDiscount() {
+		this.discount = null;
+	}
+
+	public Long getDuration() {
+		return duration;
+	}
+
+	public long getDurationEx() {
+		return duration != null ? duration : 0L;
+	}
+
+	public void setDuration(long duration) {
+		this.duration = duration;
+	}
+
+	public void setDuration(Long duration) {
+		this.duration = duration;
+	}
+
+	public void unSetDuration() {
+		this.duration = null;
+	}
+
+	public Long getTotal_time_in_min() {
+		return total_time_in_min;
+	}
+
+	public long getTotal_time_in_minEx() {
+		return total_time_in_min != null ? total_time_in_min : 0L;
+	}
+
+	public void setTotal_time_in_min(long total_time_in_min) {
+		this.total_time_in_min = total_time_in_min;
+	}
+
+	public void setTotal_time_in_min(Long total_time_in_min) {
+		this.total_time_in_min = total_time_in_min;
+	}
+
+	public void unSetTotal_time_in_min() {
+		this.total_time_in_min = null;
+	}
+
 	public String getCourse_id() {
 		return course_id;
 	}
@@ -1130,26 +1370,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetEnd_date_str() {
 		this.end_date_str = null;
-	}
-
-	public Long getDuration() {
-		return duration;
-	}
-
-	public long getDurationEx() {
-		return duration != null ? duration : 0L;
-	}
-
-	public void setDuration(long duration) {
-		this.duration = duration;
-	}
-
-	public void setDuration(Long duration) {
-		this.duration = duration;
-	}
-
-	public void unSetDuration() {
-		this.duration = null;
 	}
 
 	public Long getAttempted_date() {
@@ -1323,26 +1543,6 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetStatus() {
 		this.status = null;
-	}
-
-	public Long getTotal_time_in_min() {
-		return total_time_in_min;
-	}
-
-	public long getTotal_time_in_minEx() {
-		return total_time_in_min != null ? total_time_in_min : 0L;
-	}
-
-	public void setTotal_time_in_min(long total_time_in_min) {
-		this.total_time_in_min = total_time_in_min;
-	}
-
-	public void setTotal_time_in_min(Long total_time_in_min) {
-		this.total_time_in_min = total_time_in_min;
-	}
-
-	public void unSetTotal_time_in_min() {
-		this.total_time_in_min = null;
 	}
 
 	public String getShow_result() {

@@ -4,17 +4,15 @@ import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.html.BaseHTMLComponent;
 import platform.webservice.ui.html.Div;
 
-public class CoachingTwoColumnLayout extends BaseLayout {
+public class CoachingSingleColumnLayout extends BaseLayout {
 	Div mLayoutContainer;
 	Div mLayoutHeader;
-	Div mLayoutLeft;
-	Div mLayoutRight;
 	Div mLayoutFooter;
 	Div mLayoutContent;
 	Div mLayoutMainContent;
 	Div mLayoutMenuContent;
 	
-	public CoachingTwoColumnLayout(UIServletContext ctx) {
+	public CoachingSingleColumnLayout(UIServletContext ctx) {
 		mLayoutContainer =  new Div();
 		mLayoutHeader = new Div() ;
 		mLayoutContainer.addChild(mLayoutHeader);		
@@ -24,15 +22,8 @@ public class CoachingTwoColumnLayout extends BaseLayout {
 		mLayoutMainContent.addChild(mLayoutMenuContent);	
 		Div div = new Div(null,"container no-padding  margin-top-10");
 		mLayoutMainContent.addChild(div);
-		mLayoutLeft = new Div(null,"col-md-3 col-md-left");	
-		mLayoutContent = new Div(null,"col-md-6 col-sm-12 col-md-center");
-		mLayoutRight = new Div(null,"col-md-3 col-sm-4 col-md-right");
-		
-		div.addChild(mLayoutLeft);
+		mLayoutContent = new Div(null,"container padding-t-b-20");
 		div.addChild(mLayoutContent);
-		div.addChild(mLayoutRight);
-		
-		
 	}
 	
 	public BaseHTMLComponent getLayout() {
@@ -56,14 +47,6 @@ public class CoachingTwoColumnLayout extends BaseLayout {
 		return mLayoutMainContent;
 	}
 	
-	public Div getLeftColumn() {
-		return mLayoutLeft;
-	}
-	
-	public Div getRightColumn() {
-		return mLayoutRight;
-	}
-
 	public Div getContent() {
 		return mLayoutContent;
 	}

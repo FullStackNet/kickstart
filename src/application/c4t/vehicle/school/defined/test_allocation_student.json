@@ -71,6 +71,41 @@
 				'length': 128,
 				'type':'String'
 			},
+			'available_for_sale':
+			{
+				'type':'String'
+			},
+			'free':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'free_centre_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'allowed_attempts':
+			{
+				'type':'long'
+			},
+			'price':
+			{
+				'type':'double'
+			},
+			'discount':
+			{
+				'type':'double'
+			},
+			
+			'duration':
+			{
+				'type':'long'
+			},
+			'total_time_in_min':
+			{
+				'type':'long'
+			},
 			'course_id':
 			{
 				'type':'String',

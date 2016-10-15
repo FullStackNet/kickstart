@@ -29,8 +29,15 @@ public class FormDefinition {
 	String submitURLAdd;
 	String summary;
 	boolean ajaxSubmit;
+	boolean saveandproceed;
 	
 	
+	public boolean isSaveandproceed() {
+		return saveandproceed;
+	}
+	public void setSaveandproceed(boolean saveandproceed) {
+		this.saveandproceed = saveandproceed;
+	}
 	public FormDefinition() {
 		blocks = new ArrayList<Block>();
 		rules = new ArrayList<ValidationRule>();
