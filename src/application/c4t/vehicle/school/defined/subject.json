@@ -16,6 +16,11 @@
 				'length': 128,
 				'type':'String'
 			},
+			'interested':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'customer_id':
 			{
 				'type':'String',

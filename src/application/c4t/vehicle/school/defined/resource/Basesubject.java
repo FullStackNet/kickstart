@@ -21,11 +21,13 @@ import java.util.*;
 public abstract class Basesubject extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String interested = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_INTERESTED = "interested";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -43,6 +45,10 @@ public abstract class Basesubject extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field interestedField = new Field("interested", "String");
+		interestedField.setLength(128);
+		metaData.addField(interestedField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
@@ -63,6 +69,7 @@ public abstract class Basesubject extends BaseResource {
 	public Basesubject(Basesubject obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.interested = obj.interested;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -77,6 +84,8 @@ public abstract class Basesubject extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(interested != null)
+			map.put("interested", interested);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -90,6 +99,8 @@ public abstract class Basesubject extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(interested != null)
+			map.put("interested", interested);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -106,6 +117,7 @@ public abstract class Basesubject extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		interested = (String) map.get("interested");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -119,6 +131,10 @@ public abstract class Basesubject extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object interestedObj = map.get("interested");
+		if(interestedObj != null)
+			interested = interestedObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -169,6 +185,22 @@ public abstract class Basesubject extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getInterested() {
+		return interested;
+	}
+
+	public String getInterestedEx() {
+		return interested != null ? interested : "";
+	}
+
+	public void setInterested(String interested) {
+		this.interested = interested;
+	}
+
+	public void unSetInterested() {
+		this.interested = null;
 	}
 
 	public String getCustomer_id() {
