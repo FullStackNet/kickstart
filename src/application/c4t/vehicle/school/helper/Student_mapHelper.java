@@ -161,6 +161,25 @@ public class Student_mapHelper extends BaseHelper {
 		}
 		return resources;	
 	}
+	
+	public void addIntested_subject(String studentId,String subjectId) throws ApplicationException {
+		if (studentId == null) return;
+		if (subjectId == null) return;
+		student_map _map = new student_map();
+		_map.setId(studentId);
+		_map.addInterested_subjects(subjectId);
+		AddOrUpdate(_map);
+	}
+
+	public void removeIntested_subject(String studentId,String subjectId) throws ApplicationException {
+		if (studentId == null) return;
+		if (subjectId == null) return;
+		student_map _map = new student_map();
+		_map.setId(studentId);
+		_map.addInterested_subjects(subjectId);
+		unset(_map);
+	}
+	
 	public BaseResource[] getCourses(String studentId) {
 		student_map _map = (student_map)getById(studentId);
 		if ((_map == null) || (_map.getCourses() == null))

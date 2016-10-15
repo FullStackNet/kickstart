@@ -51,6 +51,11 @@
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
+			},
+			'interested_subjects':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
 			}
 		}
 	}

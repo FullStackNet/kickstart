@@ -28,6 +28,7 @@ public abstract class Basestudent_map extends BaseResource {
 	private List<Object> courses = null;
 	private List<Object> batches = null;
 	private List<Object> photos = null;
+	private List<Object> interested_subjects = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -39,6 +40,7 @@ public abstract class Basestudent_map extends BaseResource {
 	public static String FIELD_COURSES = "courses";
 	public static String FIELD_BATCHES = "batches";
 	public static String FIELD_PHOTOS = "photos";
+	public static String FIELD_INTERESTED_SUBJECTS = "interested_subjects";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -76,6 +78,9 @@ public abstract class Basestudent_map extends BaseResource {
 		Field photosField = new Field("photos", "Array");
 		metaData.addField(photosField);
 
+		Field interested_subjectsField = new Field("interested_subjects", "Array");
+		metaData.addField(interested_subjectsField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -98,6 +103,7 @@ public abstract class Basestudent_map extends BaseResource {
 		this.courses = obj.courses;
 		this.batches = obj.batches;
 		this.photos = obj.photos;
+		this.interested_subjects = obj.interested_subjects;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -125,6 +131,8 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("batches", batches);
 		if(photos != null)
 			map.put("photos", photos);
+		if(interested_subjects != null)
+			map.put("interested_subjects", interested_subjects);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -150,6 +158,8 @@ public abstract class Basestudent_map extends BaseResource {
 			map.put("batches", batches);
 		if(photos != null)
 			map.put("photos", photos);
+		if(interested_subjects != null)
+			map.put("interested_subjects", interested_subjects);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -171,6 +181,7 @@ public abstract class Basestudent_map extends BaseResource {
 		courses = (List<Object>) map.get("courses");
 		batches = (List<Object>) map.get("batches");
 		photos = (List<Object>) map.get("photos");
+		interested_subjects = (List<Object>) map.get("interested_subjects");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -188,6 +199,7 @@ public abstract class Basestudent_map extends BaseResource {
 		courses = (List<Object>) map.get("courses");
 		batches = (List<Object>) map.get("batches");
 		photos = (List<Object>) map.get("photos");
+		interested_subjects = (List<Object>) map.get("interested_subjects");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -369,6 +381,25 @@ public abstract class Basestudent_map extends BaseResource {
 
 	public void unSetPhotos() {
 		this.photos = null;
+	}
+
+	public List<Object> getInterested_subjects() {
+		return interested_subjects;
+	}
+
+
+	public void setInterested_subjects(List<Object> interested_subjects) {
+		this.interested_subjects = interested_subjects;
+	}
+
+	public void addInterested_subjects(Object value) {
+		if(interested_subjects == null)
+			interested_subjects = new ArrayList<Object>();
+		interested_subjects.add(value);
+	}
+
+	public void unSetInterested_subjects() {
+		this.interested_subjects = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
