@@ -129,6 +129,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("homepage_article", "application.c4t.vehicle.school.resource.homepage_article"),
 		new ResourceMap("homepage_link", "application.c4t.vehicle.school.resource.homepage_link"),
 		new ResourceMap("homepage_video", "application.c4t.vehicle.school.resource.homepage_video"),
+		new ResourceMap("recharge", "application.c4t.vehicle.school.resource.recharge"),
 		new ResourceMap("homepage_rank_holder", "application.c4t.vehicle.school.resource.homepage_rank_holder")
 	};
 }
