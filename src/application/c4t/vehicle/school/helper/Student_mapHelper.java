@@ -162,21 +162,21 @@ public class Student_mapHelper extends BaseHelper {
 		return resources;	
 	}
 	
-	public void addIntested_subject(String studentId,String subjectId) throws ApplicationException {
+	public void addIntested_subject(String studentId,String courseId) throws ApplicationException {
 		if (studentId == null) return;
-		if (subjectId == null) return;
+		if (courseId == null) return;
 		student_map _map = new student_map();
 		_map.setId(studentId);
-		_map.addInterested_subjects(subjectId);
+		_map.addInterested_courses(courseId);
 		AddOrUpdate(_map);
 	}
 
-	public void removeIntested_subject(String studentId,String subjectId) throws ApplicationException {
+	public void removeIntested_subject(String studentId,String courseId) throws ApplicationException {
 		if (studentId == null) return;
-		if (subjectId == null) return;
+		if (courseId == null) return;
 		student_map _map = new student_map();
 		_map.setId(studentId);
-		_map.addInterested_subjects(subjectId);
+		_map.addInterested_courses(courseId);
 		unset(_map);
 	}
 	

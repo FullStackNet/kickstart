@@ -52,7 +52,7 @@
 				'type':'Array',
 				'valueType' : 'Object' 
 			},
-			'interested_subjects':
+			'interested_courses':
 			{
 				'type':'Array',
 				'valueType' : 'Object' 
