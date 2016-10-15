@@ -695,6 +695,18 @@
 			'closing_balance':
 			{
 				'type':'double'
+			},
+			'balance':
+			{
+				'type':'double'
+			},
+			'last_recharge':
+			{
+				'type':'double'
+			},
+			'last_recharge_time':
+			{
+				'type':'long'
 			}
 		}
 	}
