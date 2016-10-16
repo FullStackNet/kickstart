@@ -18,14 +18,17 @@ import java.util.*;
  ********** This is a generated class **********
  * 
  */
-public abstract class Baserecharge extends BaseResource {
+public abstract class Basebuy_log extends BaseResource {
 	private String id = null;
 	private String school_id = null;
 	private String school_name = null;
 	private String student_id = null;
 	private String student_name = null;
 	private Long creation_time = null;
-	private Double recharge_amount = null;
+	private Double amount = null;
+	private String item_type = null;
+	private String item_id = null;
+	private String item_name = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -35,12 +38,15 @@ public abstract class Baserecharge extends BaseResource {
 	public static String FIELD_STUDENT_ID = "student_id";
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_CREATION_TIME = "creation_time";
-	public static String FIELD_RECHARGE_AMOUNT = "recharge_amount";
+	public static String FIELD_AMOUNT = "amount";
+	public static String FIELD_ITEM_TYPE = "item_type";
+	public static String FIELD_ITEM_ID = "item_id";
+	public static String FIELD_ITEM_NAME = "item_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("recharge");
+	private final static ResourceMetaData metaData = new ResourceMetaData("buy_log");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -69,8 +75,20 @@ public abstract class Baserecharge extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
-		Field recharge_amountField = new Field("recharge_amount", "double");
-		metaData.addField(recharge_amountField);
+		Field amountField = new Field("amount", "double");
+		metaData.addField(amountField);
+
+		Field item_typeField = new Field("item_type", "String");
+		item_typeField.setLength(128);
+		metaData.addField(item_typeField);
+
+		Field item_idField = new Field("item_id", "String");
+		item_idField.setLength(128);
+		metaData.addField(item_idField);
+
+		Field item_nameField = new Field("item_name", "String");
+		item_nameField.setLength(128);
+		metaData.addField(item_nameField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
@@ -81,21 +99,24 @@ public abstract class Baserecharge extends BaseResource {
 		metaData.addField(extra_dataField);
 
 
-		metaData.setTableName("recharge");
+		metaData.setTableName("buy_log");
 
 		metaData.setCluster("DB_LOG");
 	}
 
-	public Baserecharge() {}
+	public Basebuy_log() {}
 
-	public Baserecharge(Baserecharge obj) {
+	public Basebuy_log(Basebuy_log obj) {
 		this.id = obj.id;
 		this.school_id = obj.school_id;
 		this.school_name = obj.school_name;
 		this.student_id = obj.student_id;
 		this.student_name = obj.student_name;
 		this.creation_time = obj.creation_time;
-		this.recharge_amount = obj.recharge_amount;
+		this.amount = obj.amount;
+		this.item_type = obj.item_type;
+		this.item_id = obj.item_id;
+		this.item_name = obj.item_name;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -118,8 +139,14 @@ public abstract class Baserecharge extends BaseResource {
 			map.put("student_name", student_name);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if(recharge_amount != null)
-			map.put("recharge_amount", recharge_amount);
+		if(amount != null)
+			map.put("amount", amount);
+		if(item_type != null)
+			map.put("item_type", item_type);
+		if(item_id != null)
+			map.put("item_id", item_id);
+		if(item_name != null)
+			map.put("item_name", item_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -141,8 +168,14 @@ public abstract class Baserecharge extends BaseResource {
 			map.put("student_name", student_name);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if(recharge_amount != null)
-			map.put("recharge_amount", recharge_amount);
+		if(amount != null)
+			map.put("amount", amount);
+		if(item_type != null)
+			map.put("item_type", item_type);
+		if(item_id != null)
+			map.put("item_id", item_id);
+		if(item_name != null)
+			map.put("item_name", item_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -163,7 +196,10 @@ public abstract class Baserecharge extends BaseResource {
 		student_id = (String) map.get("student_id");
 		student_name = (String) map.get("student_name");
 		creation_time = (Long) map.get("creation_time");
-		recharge_amount = (Double) map.get("recharge_amount");
+		amount = (Double) map.get("amount");
+		item_type = (String) map.get("item_type");
+		item_id = (String) map.get("item_id");
+		item_name = (String) map.get("item_name");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -194,9 +230,21 @@ public abstract class Baserecharge extends BaseResource {
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
 
-		Object recharge_amountObj = map.get("recharge_amount");
-		if(recharge_amountObj != null)
-			recharge_amount = new Double(recharge_amountObj.toString());
+		Object amountObj = map.get("amount");
+		if(amountObj != null)
+			amount = new Double(amountObj.toString());
+
+		Object item_typeObj = map.get("item_type");
+		if(item_typeObj != null)
+			item_type = item_typeObj.toString();
+
+		Object item_idObj = map.get("item_id");
+		if(item_idObj != null)
+			item_id = item_idObj.toString();
+
+		Object item_nameObj = map.get("item_name");
+		if(item_nameObj != null)
+			item_name = item_nameObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -306,24 +354,72 @@ public abstract class Baserecharge extends BaseResource {
 	}
 
 
-	public Double getRecharge_amount() {
-		return recharge_amount;
+	public Double getAmount() {
+		return amount;
 	}
 
-	public double getRecharge_amountEx() {
-		return recharge_amount != null ? recharge_amount : 0;
+	public double getAmountEx() {
+		return amount != null ? amount : 0;
 	}
 
-	public void setRecharge_amount(double recharge_amount) {
-		this.recharge_amount = recharge_amount;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
-	public void setRecharge_amount(Double recharge_amount) {
-		this.recharge_amount = recharge_amount;
+	public void setAmount(Double amount) {
+		this.amount = amount;
 	}
 
-	public void unSetRecharge_amount() {
-		this.recharge_amount = null;
+	public void unSetAmount() {
+		this.amount = null;
+	}
+
+	public String getItem_type() {
+		return item_type;
+	}
+
+	public String getItem_typeEx() {
+		return item_type != null ? item_type : "";
+	}
+
+	public void setItem_type(String item_type) {
+		this.item_type = item_type;
+	}
+
+	public void unSetItem_type() {
+		this.item_type = null;
+	}
+
+	public String getItem_id() {
+		return item_id;
+	}
+
+	public String getItem_idEx() {
+		return item_id != null ? item_id : "";
+	}
+
+	public void setItem_id(String item_id) {
+		this.item_id = item_id;
+	}
+
+	public void unSetItem_id() {
+		this.item_id = null;
+	}
+
+	public String getItem_name() {
+		return item_name;
+	}
+
+	public String getItem_nameEx() {
+		return item_name != null ? item_name : "";
+	}
+
+	public void setItem_name(String item_name) {
+		this.item_name = item_name;
+	}
+
+	public void unSetItem_name() {
+		this.item_name = null;
 	}
 
 	public String getCustomer_id() {

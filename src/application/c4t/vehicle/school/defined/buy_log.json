@@ -1,5 +1,5 @@
 {
-	"recharge" :
+	"buy_log" :
 	{
 		"cluster": "DB_LOG",
 		"fields":
@@ -35,9 +35,24 @@
 			{
 				'type':'timestamp'
 			},
-			'recharge_amount':
+			'amount':
 			{
 				'type':'double'
+			},
+			'item_type':
+			{
+				'length': 128,
+				'type':'String'
+			},	
+			'item_id':
+			{
+				'length': 128,
+				'type':'String'
+			},	
+			'item_name':
+			{
+				'length': 128,
+				'type':'String'
 			},		
 			'customer_id':
 			{
