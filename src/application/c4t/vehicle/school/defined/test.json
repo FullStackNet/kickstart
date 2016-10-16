@@ -165,7 +165,7 @@
 			{
 				'type':'long'
 			},
-			'publish':
+			'published':
 			{
 				'type':'String',
 				'length': 1
