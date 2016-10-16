@@ -27,6 +27,11 @@
 				'type':'String',
 				'index' : true
 			},
+			'subjects':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}			

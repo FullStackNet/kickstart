@@ -23,6 +23,7 @@ public abstract class Basecourse extends BaseResource {
 	private String name = null;
 	private String interested = null;
 	private String customer_id = null;
+	private List<Object> subjects = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -30,6 +31,7 @@ public abstract class Basecourse extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_INTERESTED = "interested";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_SUBJECTS = "subjects";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -57,6 +59,9 @@ public abstract class Basecourse extends BaseResource {
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
 
+		Field subjectsField = new Field("subjects", "Array");
+		metaData.addField(subjectsField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -77,6 +82,7 @@ public abstract class Basecourse extends BaseResource {
 		this.name = obj.name;
 		this.interested = obj.interested;
 		this.customer_id = obj.customer_id;
+		this.subjects = obj.subjects;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -95,6 +101,8 @@ public abstract class Basecourse extends BaseResource {
 			map.put("interested", interested);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(subjects != null)
+			map.put("subjects", subjects);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -112,6 +120,8 @@ public abstract class Basecourse extends BaseResource {
 			map.put("interested", interested);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if(subjects != null)
+			map.put("subjects", subjects);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -130,6 +140,7 @@ public abstract class Basecourse extends BaseResource {
 		name = (String) map.get("name");
 		interested = (String) map.get("interested");
 		customer_id = (String) map.get("customer_id");
+		subjects = (List<Object>) map.get("subjects");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -152,6 +163,7 @@ public abstract class Basecourse extends BaseResource {
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
 
+		subjects = (List<Object>) map.get("subjects");
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = (Long) creation_timeObj;
@@ -233,6 +245,25 @@ public abstract class Basecourse extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public List<Object> getSubjects() {
+		return subjects;
+	}
+
+
+	public void setSubjects(List<Object> subjects) {
+		this.subjects = subjects;
+	}
+
+	public void addSubjects(Object value) {
+		if(subjects == null)
+			subjects = new ArrayList<Object>();
+		subjects.add(value);
+	}
+
+	public void unSetSubjects() {
+		this.subjects = null;
 	}
 
 	public Long getCreation_time() {
