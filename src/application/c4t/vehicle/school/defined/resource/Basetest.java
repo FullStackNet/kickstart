@@ -51,6 +51,7 @@ public abstract class Basetest extends BaseResource {
 	private Long average_marks = null;
 	private Long average_duration = null;
 	private Long min_duration = null;
+	private String publish = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -86,6 +87,7 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_AVERAGE_MARKS = "average_marks";
 	public static String FIELD_AVERAGE_DURATION = "average_duration";
 	public static String FIELD_MIN_DURATION = "min_duration";
+	public static String FIELD_PUBLISH = "publish";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -207,6 +209,10 @@ public abstract class Basetest extends BaseResource {
 		Field min_durationField = new Field("min_duration", "long");
 		metaData.addField(min_durationField);
 
+		Field publishField = new Field("publish", "String");
+		publishField.setLength(1);
+		metaData.addField(publishField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -255,6 +261,7 @@ public abstract class Basetest extends BaseResource {
 		this.average_marks = obj.average_marks;
 		this.average_duration = obj.average_duration;
 		this.min_duration = obj.min_duration;
+		this.publish = obj.publish;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -329,6 +336,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("average_duration", average_duration);
 		if(min_duration != null)
 			map.put("min_duration", min_duration);
+		if(publish != null)
+			map.put("publish", publish);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -402,6 +411,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("average_duration", average_duration);
 		if(min_duration != null)
 			map.put("min_duration", min_duration);
+		if(publish != null)
+			map.put("publish", publish);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -448,6 +459,7 @@ public abstract class Basetest extends BaseResource {
 		average_marks = (Long) map.get("average_marks");
 		average_duration = (Long) map.get("average_duration");
 		min_duration = (Long) map.get("min_duration");
+		publish = (String) map.get("publish");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -581,6 +593,10 @@ public abstract class Basetest extends BaseResource {
 		Object min_durationObj = map.get("min_duration");
 		if(min_durationObj != null)
 			min_duration = new Long(min_durationObj.toString());
+
+		Object publishObj = map.get("publish");
+		if(publishObj != null)
+			publish = publishObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -1140,6 +1156,22 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetMin_duration() {
 		this.min_duration = null;
+	}
+
+	public String getPublish() {
+		return publish;
+	}
+
+	public String getPublishEx() {
+		return publish != null ? publish : "";
+	}
+
+	public void setPublish(String publish) {
+		this.publish = publish;
+	}
+
+	public void unSetPublish() {
+		this.publish = null;
 	}
 
 	public Long getCreation_time() {
