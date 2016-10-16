@@ -75,6 +75,11 @@
 			{
 				'type':'String'
 			},
+			'paid':
+			{
+				'length': 1,
+				'type':'String'
+			},
 			'free':
 			{
 				'length': 1,

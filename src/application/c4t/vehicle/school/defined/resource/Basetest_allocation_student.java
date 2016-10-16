@@ -33,6 +33,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String test_hindi = null;
 	private String test_english = null;
 	private String available_for_sale = null;
+	private String paid = null;
 	private String free = null;
 	private String free_centre_student = null;
 	private Long allowed_attempts = null;
@@ -86,6 +87,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_TEST_HINDI = "test_hindi";
 	public static String FIELD_TEST_ENGLISH = "test_english";
 	public static String FIELD_AVAILABLE_FOR_SALE = "available_for_sale";
+	public static String FIELD_PAID = "paid";
 	public static String FIELD_FREE = "free";
 	public static String FIELD_FREE_CENTRE_STUDENT = "free_centre_student";
 	public static String FIELD_ALLOWED_ATTEMPTS = "allowed_attempts";
@@ -186,6 +188,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 		Field available_for_saleField = new Field("available_for_sale", "String");
 		metaData.addField(available_for_saleField);
+
+		Field paidField = new Field("paid", "String");
+		paidField.setLength(1);
+		metaData.addField(paidField);
 
 		Field freeField = new Field("free", "String");
 		freeField.setLength(1);
@@ -340,6 +346,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.test_hindi = obj.test_hindi;
 		this.test_english = obj.test_english;
 		this.available_for_sale = obj.available_for_sale;
+		this.paid = obj.paid;
 		this.free = obj.free;
 		this.free_centre_student = obj.free_centre_student;
 		this.allowed_attempts = obj.allowed_attempts;
@@ -414,6 +421,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("test_english", test_english);
 		if(available_for_sale != null)
 			map.put("available_for_sale", available_for_sale);
+		if(paid != null)
+			map.put("paid", paid);
 		if(free != null)
 			map.put("free", free);
 		if(free_centre_student != null)
@@ -523,6 +532,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("test_english", test_english);
 		if(available_for_sale != null)
 			map.put("available_for_sale", available_for_sale);
+		if(paid != null)
+			map.put("paid", paid);
 		if(free != null)
 			map.put("free", free);
 		if(free_centre_student != null)
@@ -623,6 +634,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		test_hindi = (String) map.get("test_hindi");
 		test_english = (String) map.get("test_english");
 		available_for_sale = (String) map.get("available_for_sale");
+		paid = (String) map.get("paid");
 		free = (String) map.get("free");
 		free_centre_student = (String) map.get("free_centre_student");
 		allowed_attempts = (Long) map.get("allowed_attempts");
@@ -720,6 +732,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object available_for_saleObj = map.get("available_for_sale");
 		if(available_for_saleObj != null)
 			available_for_sale = available_for_saleObj.toString();
+
+		Object paidObj = map.get("paid");
+		if(paidObj != null)
+			paid = paidObj.toString();
 
 		Object freeObj = map.get("free");
 		if(freeObj != null)
@@ -1106,6 +1122,22 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetAvailable_for_sale() {
 		this.available_for_sale = null;
+	}
+
+	public String getPaid() {
+		return paid;
+	}
+
+	public String getPaidEx() {
+		return paid != null ? paid : "";
+	}
+
+	public void setPaid(String paid) {
+		this.paid = paid;
+	}
+
+	public void unSetPaid() {
+		this.paid = null;
 	}
 
 	public String getFree() {

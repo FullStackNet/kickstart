@@ -27,6 +27,7 @@ public abstract class Basebuy_log extends BaseResource {
 	private Long creation_time = null;
 	private Double amount = null;
 	private String item_type = null;
+	private String reference_id = null;
 	private String item_id = null;
 	private String item_name = null;
 	private String customer_id = null;
@@ -40,6 +41,7 @@ public abstract class Basebuy_log extends BaseResource {
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_AMOUNT = "amount";
 	public static String FIELD_ITEM_TYPE = "item_type";
+	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_ITEM_ID = "item_id";
 	public static String FIELD_ITEM_NAME = "item_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
@@ -82,6 +84,10 @@ public abstract class Basebuy_log extends BaseResource {
 		item_typeField.setLength(128);
 		metaData.addField(item_typeField);
 
+		Field reference_idField = new Field("reference_id", "String");
+		reference_idField.setLength(128);
+		metaData.addField(reference_idField);
+
 		Field item_idField = new Field("item_id", "String");
 		item_idField.setLength(128);
 		metaData.addField(item_idField);
@@ -115,6 +121,7 @@ public abstract class Basebuy_log extends BaseResource {
 		this.creation_time = obj.creation_time;
 		this.amount = obj.amount;
 		this.item_type = obj.item_type;
+		this.reference_id = obj.reference_id;
 		this.item_id = obj.item_id;
 		this.item_name = obj.item_name;
 		this.customer_id = obj.customer_id;
@@ -143,6 +150,8 @@ public abstract class Basebuy_log extends BaseResource {
 			map.put("amount", amount);
 		if(item_type != null)
 			map.put("item_type", item_type);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
 		if(item_id != null)
 			map.put("item_id", item_id);
 		if(item_name != null)
@@ -172,6 +181,8 @@ public abstract class Basebuy_log extends BaseResource {
 			map.put("amount", amount);
 		if(item_type != null)
 			map.put("item_type", item_type);
+		if(reference_id != null)
+			map.put("reference_id", reference_id);
 		if(item_id != null)
 			map.put("item_id", item_id);
 		if(item_name != null)
@@ -198,6 +209,7 @@ public abstract class Basebuy_log extends BaseResource {
 		creation_time = (Long) map.get("creation_time");
 		amount = (Double) map.get("amount");
 		item_type = (String) map.get("item_type");
+		reference_id = (String) map.get("reference_id");
 		item_id = (String) map.get("item_id");
 		item_name = (String) map.get("item_name");
 		customer_id = (String) map.get("customer_id");
@@ -237,6 +249,10 @@ public abstract class Basebuy_log extends BaseResource {
 		Object item_typeObj = map.get("item_type");
 		if(item_typeObj != null)
 			item_type = item_typeObj.toString();
+
+		Object reference_idObj = map.get("reference_id");
+		if(reference_idObj != null)
+			reference_id = reference_idObj.toString();
 
 		Object item_idObj = map.get("item_id");
 		if(item_idObj != null)
@@ -388,6 +404,22 @@ public abstract class Basebuy_log extends BaseResource {
 
 	public void unSetItem_type() {
 		this.item_type = null;
+	}
+
+	public String getReference_id() {
+		return reference_id;
+	}
+
+	public String getReference_idEx() {
+		return reference_id != null ? reference_id : "";
+	}
+
+	public void setReference_id(String reference_id) {
+		this.reference_id = reference_id;
+	}
+
+	public void unSetReference_id() {
+		this.reference_id = null;
 	}
 
 	public String getItem_id() {

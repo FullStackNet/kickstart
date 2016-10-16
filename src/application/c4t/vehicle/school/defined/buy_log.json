@@ -44,6 +44,11 @@
 				'length': 128,
 				'type':'String'
 			},	
+			'reference_id':
+			{
+				'length': 128,
+				'type':'String'
+			},	
 			'item_id':
 			{
 				'length': 128,
