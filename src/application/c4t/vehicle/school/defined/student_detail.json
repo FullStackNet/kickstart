@@ -443,6 +443,18 @@
 			{
 				'type':'int',
 				default : 0
+			},
+			'balance':
+			{
+				'type':'double'
+			},
+			'last_recharge':
+			{
+				'type':'double'
+			},
+			'last_recharge_time':
+			{
+				'type':'long'
 			}
 		}
 	}

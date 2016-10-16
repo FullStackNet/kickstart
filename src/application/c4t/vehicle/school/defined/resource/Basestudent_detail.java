@@ -100,6 +100,9 @@ public abstract class Basestudent_detail extends BaseResource {
 	private Integer video_count = null;
 	private Integer fees_count = null;
 	private Integer proficiency_count = null;
+	private Double balance = null;
+	private Double last_recharge = null;
+	private Long last_recharge_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -183,6 +186,9 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_VIDEO_COUNT = "video_count";
 	public static String FIELD_FEES_COUNT = "fees_count";
 	public static String FIELD_PROFICIENCY_COUNT = "proficiency_count";
+	public static String FIELD_BALANCE = "balance";
+	public static String FIELD_LAST_RECHARGE = "last_recharge";
+	public static String FIELD_LAST_RECHARGE_TIME = "last_recharge_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -543,6 +549,15 @@ public abstract class Basestudent_detail extends BaseResource {
 		proficiency_countField.setDefaultValue(0);
 		metaData.addField(proficiency_countField);
 
+		Field balanceField = new Field("balance", "double");
+		metaData.addField(balanceField);
+
+		Field last_rechargeField = new Field("last_recharge", "double");
+		metaData.addField(last_rechargeField);
+
+		Field last_recharge_timeField = new Field("last_recharge_time", "long");
+		metaData.addField(last_recharge_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -637,6 +652,9 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.video_count = obj.video_count;
 		this.fees_count = obj.fees_count;
 		this.proficiency_count = obj.proficiency_count;
+		this.balance = obj.balance;
+		this.last_recharge = obj.last_recharge;
+		this.last_recharge_time = obj.last_recharge_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -893,6 +911,12 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("fees_count", fees_count);
 		if(proficiency_count != null)
 			map.put("proficiency_count", proficiency_count);
+		if(balance != null)
+			map.put("balance", balance);
+		if(last_recharge != null)
+			map.put("last_recharge", last_recharge);
+		if(last_recharge_time != null)
+			map.put("last_recharge_time", last_recharge_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1065,6 +1089,12 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("fees_count", fees_count);
 		if(proficiency_count != null)
 			map.put("proficiency_count", proficiency_count);
+		if(balance != null)
+			map.put("balance", balance);
+		if(last_recharge != null)
+			map.put("last_recharge", last_recharge);
+		if(last_recharge_time != null)
+			map.put("last_recharge_time", last_recharge_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1158,6 +1188,9 @@ public abstract class Basestudent_detail extends BaseResource {
 		video_count = (Integer) map.get("video_count");
 		fees_count = (Integer) map.get("fees_count");
 		proficiency_count = (Integer) map.get("proficiency_count");
+		balance = (Double) map.get("balance");
+		last_recharge = (Double) map.get("last_recharge");
+		last_recharge_time = (Long) map.get("last_recharge_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1486,6 +1519,18 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object proficiency_countObj = map.get("proficiency_count");
 		if(proficiency_countObj != null)
 			proficiency_count = new Integer(proficiency_countObj.toString());
+
+		Object balanceObj = map.get("balance");
+		if(balanceObj != null)
+			balance = new Double(balanceObj.toString());
+
+		Object last_rechargeObj = map.get("last_recharge");
+		if(last_rechargeObj != null)
+			last_recharge = new Double(last_rechargeObj.toString());
+
+		Object last_recharge_timeObj = map.get("last_recharge_time");
+		if(last_recharge_timeObj != null)
+			last_recharge_time = new Long(last_recharge_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2688,6 +2733,66 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetProficiency_count() {
 		this.proficiency_count = 0;
+	}
+
+	public Double getBalance() {
+		return balance;
+	}
+
+	public double getBalanceEx() {
+		return balance != null ? balance : 0;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
+
+	public void unSetBalance() {
+		this.balance = null;
+	}
+
+	public Double getLast_recharge() {
+		return last_recharge;
+	}
+
+	public double getLast_rechargeEx() {
+		return last_recharge != null ? last_recharge : 0;
+	}
+
+	public void setLast_recharge(double last_recharge) {
+		this.last_recharge = last_recharge;
+	}
+
+	public void setLast_recharge(Double last_recharge) {
+		this.last_recharge = last_recharge;
+	}
+
+	public void unSetLast_recharge() {
+		this.last_recharge = null;
+	}
+
+	public Long getLast_recharge_time() {
+		return last_recharge_time;
+	}
+
+	public long getLast_recharge_timeEx() {
+		return last_recharge_time != null ? last_recharge_time : 0L;
+	}
+
+	public void setLast_recharge_time(long last_recharge_time) {
+		this.last_recharge_time = last_recharge_time;
+	}
+
+	public void setLast_recharge_time(Long last_recharge_time) {
+		this.last_recharge_time = last_recharge_time;
+	}
+
+	public void unSetLast_recharge_time() {
+		this.last_recharge_time = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
