@@ -50,6 +50,8 @@ public abstract class Baseobjective_question extends BaseResource {
 	private String answer_3 = null;
 	private String answer_4 = null;
 	private String answer_5 = null;
+	private String answer_explanation_audio_url = null;
+	private String answer_explanation_video_url = null;
 	private String answer_explanation = null;
 	private String answer_explanation_hindi = null;
 	private Long order_no = null;
@@ -89,6 +91,8 @@ public abstract class Baseobjective_question extends BaseResource {
 	public static String FIELD_ANSWER_3 = "answer_3";
 	public static String FIELD_ANSWER_4 = "answer_4";
 	public static String FIELD_ANSWER_5 = "answer_5";
+	public static String FIELD_ANSWER_EXPLANATION_AUDIO_URL = "answer_explanation_audio_url";
+	public static String FIELD_ANSWER_EXPLANATION_VIDEO_URL = "answer_explanation_video_url";
 	public static String FIELD_ANSWER_EXPLANATION = "answer_explanation";
 	public static String FIELD_ANSWER_EXPLANATION_HINDI = "answer_explanation_hindi";
 	public static String FIELD_ORDER_NO = "order_no";
@@ -233,6 +237,14 @@ public abstract class Baseobjective_question extends BaseResource {
 		answer_5Field.setLength(1);
 		metaData.addField(answer_5Field);
 
+		Field answer_explanation_audio_urlField = new Field("answer_explanation_audio_url", "String");
+		answer_explanation_audio_urlField.setLength(128);
+		metaData.addField(answer_explanation_audio_urlField);
+
+		Field answer_explanation_video_urlField = new Field("answer_explanation_video_url", "String");
+		answer_explanation_video_urlField.setLength(128);
+		metaData.addField(answer_explanation_video_urlField);
+
 		Field answer_explanationField = new Field("answer_explanation", "String");
 		answer_explanationField.setLength(128);
 		metaData.addField(answer_explanationField);
@@ -299,6 +311,8 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.answer_3 = obj.answer_3;
 		this.answer_4 = obj.answer_4;
 		this.answer_5 = obj.answer_5;
+		this.answer_explanation_audio_url = obj.answer_explanation_audio_url;
+		this.answer_explanation_video_url = obj.answer_explanation_video_url;
 		this.answer_explanation = obj.answer_explanation;
 		this.answer_explanation_hindi = obj.answer_explanation_hindi;
 		this.order_no = obj.order_no;
@@ -391,6 +405,10 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("answer_4", answer_4);
 		if(answer_5 != null)
 			map.put("answer_5", answer_5);
+		if(answer_explanation_audio_url != null)
+			map.put("answer_explanation_audio_url", answer_explanation_audio_url);
+		if(answer_explanation_video_url != null)
+			map.put("answer_explanation_video_url", answer_explanation_video_url);
 		if(answer_explanation != null)
 			map.put("answer_explanation", answer_explanation);
 		if(answer_explanation_hindi != null)
@@ -475,6 +493,10 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("answer_4", answer_4);
 		if(answer_5 != null)
 			map.put("answer_5", answer_5);
+		if(answer_explanation_audio_url != null)
+			map.put("answer_explanation_audio_url", answer_explanation_audio_url);
+		if(answer_explanation_video_url != null)
+			map.put("answer_explanation_video_url", answer_explanation_video_url);
 		if(answer_explanation != null)
 			map.put("answer_explanation", answer_explanation);
 		if(answer_explanation_hindi != null)
@@ -530,6 +552,8 @@ public abstract class Baseobjective_question extends BaseResource {
 		answer_3 = (String) map.get("answer_3");
 		answer_4 = (String) map.get("answer_4");
 		answer_5 = (String) map.get("answer_5");
+		answer_explanation_audio_url = (String) map.get("answer_explanation_audio_url");
+		answer_explanation_video_url = (String) map.get("answer_explanation_video_url");
 		answer_explanation = (String) map.get("answer_explanation");
 		answer_explanation_hindi = (String) map.get("answer_explanation_hindi");
 		order_no = (Long) map.get("order_no");
@@ -664,6 +688,14 @@ public abstract class Baseobjective_question extends BaseResource {
 		Object answer_5Obj = map.get("answer_5");
 		if(answer_5Obj != null)
 			answer_5 = answer_5Obj.toString();
+
+		Object answer_explanation_audio_urlObj = map.get("answer_explanation_audio_url");
+		if(answer_explanation_audio_urlObj != null)
+			answer_explanation_audio_url = answer_explanation_audio_urlObj.toString();
+
+		Object answer_explanation_video_urlObj = map.get("answer_explanation_video_url");
+		if(answer_explanation_video_urlObj != null)
+			answer_explanation_video_url = answer_explanation_video_urlObj.toString();
 
 		Object answer_explanationObj = map.get("answer_explanation");
 		if(answer_explanationObj != null)
@@ -1178,6 +1210,38 @@ public abstract class Baseobjective_question extends BaseResource {
 
 	public void unSetAnswer_5() {
 		this.answer_5 = "N";
+	}
+
+	public String getAnswer_explanation_audio_url() {
+		return answer_explanation_audio_url;
+	}
+
+	public String getAnswer_explanation_audio_urlEx() {
+		return answer_explanation_audio_url != null ? answer_explanation_audio_url : "";
+	}
+
+	public void setAnswer_explanation_audio_url(String answer_explanation_audio_url) {
+		this.answer_explanation_audio_url = answer_explanation_audio_url;
+	}
+
+	public void unSetAnswer_explanation_audio_url() {
+		this.answer_explanation_audio_url = null;
+	}
+
+	public String getAnswer_explanation_video_url() {
+		return answer_explanation_video_url;
+	}
+
+	public String getAnswer_explanation_video_urlEx() {
+		return answer_explanation_video_url != null ? answer_explanation_video_url : "";
+	}
+
+	public void setAnswer_explanation_video_url(String answer_explanation_video_url) {
+		this.answer_explanation_video_url = answer_explanation_video_url;
+	}
+
+	public void unSetAnswer_explanation_video_url() {
+		this.answer_explanation_video_url = null;
 	}
 
 	public String getAnswer_explanation() {

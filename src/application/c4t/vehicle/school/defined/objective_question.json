@@ -169,6 +169,16 @@
 				'type':'String',
 				'default' : "N"
 			},
+			'answer_explanation_audio_url':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'answer_explanation_video_url':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'answer_explanation':
 			{
 				'length': 128,
