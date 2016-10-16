@@ -200,6 +200,14 @@
 			{
 				'type':'long'
 			},
+			'total_wrong_answers':
+			{
+				'type':'long'
+			},
+			'total_not_attended':
+			{
+				'type':'long'
+			},
 			'status':
 			{
 				'type':'String',

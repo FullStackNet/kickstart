@@ -60,6 +60,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private Double total_questions = null;
 	private Integer rank = null;
 	private Long total_correct_answers = null;
+	private Long total_wrong_answers = null;
+	private Long total_not_attended = null;
 	private String status = null;
 	private String show_result = null;
 	private Long result_date = null;
@@ -111,6 +113,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_TOTAL_QUESTIONS = "total_questions";
 	public static String FIELD_RANK = "rank";
 	public static String FIELD_TOTAL_CORRECT_ANSWERS = "total_correct_answers";
+	public static String FIELD_TOTAL_WRONG_ANSWERS = "total_wrong_answers";
+	public static String FIELD_TOTAL_NOT_ATTENDED = "total_not_attended";
 	public static String FIELD_STATUS = "status";
 	public static String FIELD_SHOW_RESULT = "show_result";
 	public static String FIELD_RESULT_DATE = "result_date";
@@ -276,6 +280,12 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Field total_correct_answersField = new Field("total_correct_answers", "long");
 		metaData.addField(total_correct_answersField);
 
+		Field total_wrong_answersField = new Field("total_wrong_answers", "long");
+		metaData.addField(total_wrong_answersField);
+
+		Field total_not_attendedField = new Field("total_not_attended", "long");
+		metaData.addField(total_not_attendedField);
+
 		Field statusField = new Field("status", "String");
 		statusField.setLength(1);
 		metaData.addField(statusField);
@@ -357,6 +367,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.total_questions = obj.total_questions;
 		this.rank = obj.rank;
 		this.total_correct_answers = obj.total_correct_answers;
+		this.total_wrong_answers = obj.total_wrong_answers;
+		this.total_not_attended = obj.total_not_attended;
 		this.status = obj.status;
 		this.show_result = obj.show_result;
 		this.result_date = obj.result_date;
@@ -456,6 +468,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("rank", rank);
 		if(total_correct_answers != null)
 			map.put("total_correct_answers", total_correct_answers);
+		if(total_wrong_answers != null)
+			map.put("total_wrong_answers", total_wrong_answers);
+		if(total_not_attended != null)
+			map.put("total_not_attended", total_not_attended);
 		if(status != null)
 			map.put("status", status);
 		if(show_result != null)
@@ -561,6 +577,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("rank", rank);
 		if(total_correct_answers != null)
 			map.put("total_correct_answers", total_correct_answers);
+		if(total_wrong_answers != null)
+			map.put("total_wrong_answers", total_wrong_answers);
+		if(total_not_attended != null)
+			map.put("total_not_attended", total_not_attended);
 		if(status != null)
 			map.put("status", status);
 		if(show_result != null)
@@ -630,6 +650,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		total_questions = (Double) map.get("total_questions");
 		rank = (Integer) map.get("rank");
 		total_correct_answers = (Long) map.get("total_correct_answers");
+		total_wrong_answers = (Long) map.get("total_wrong_answers");
+		total_not_attended = (Long) map.get("total_not_attended");
 		status = (String) map.get("status");
 		show_result = (String) map.get("show_result");
 		result_date = (Long) map.get("result_date");
@@ -806,6 +828,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object total_correct_answersObj = map.get("total_correct_answers");
 		if(total_correct_answersObj != null)
 			total_correct_answers = new Long(total_correct_answersObj.toString());
+
+		Object total_wrong_answersObj = map.get("total_wrong_answers");
+		if(total_wrong_answersObj != null)
+			total_wrong_answers = new Long(total_wrong_answersObj.toString());
+
+		Object total_not_attendedObj = map.get("total_not_attended");
+		if(total_not_attendedObj != null)
+			total_not_attended = new Long(total_not_attendedObj.toString());
 
 		Object statusObj = map.get("status");
 		if(statusObj != null)
@@ -1527,6 +1557,46 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetTotal_correct_answers() {
 		this.total_correct_answers = null;
+	}
+
+	public Long getTotal_wrong_answers() {
+		return total_wrong_answers;
+	}
+
+	public long getTotal_wrong_answersEx() {
+		return total_wrong_answers != null ? total_wrong_answers : 0L;
+	}
+
+	public void setTotal_wrong_answers(long total_wrong_answers) {
+		this.total_wrong_answers = total_wrong_answers;
+	}
+
+	public void setTotal_wrong_answers(Long total_wrong_answers) {
+		this.total_wrong_answers = total_wrong_answers;
+	}
+
+	public void unSetTotal_wrong_answers() {
+		this.total_wrong_answers = null;
+	}
+
+	public Long getTotal_not_attended() {
+		return total_not_attended;
+	}
+
+	public long getTotal_not_attendedEx() {
+		return total_not_attended != null ? total_not_attended : 0L;
+	}
+
+	public void setTotal_not_attended(long total_not_attended) {
+		this.total_not_attended = total_not_attended;
+	}
+
+	public void setTotal_not_attended(Long total_not_attended) {
+		this.total_not_attended = total_not_attended;
+	}
+
+	public void unSetTotal_not_attended() {
+		this.total_not_attended = null;
 	}
 
 	public String getStatus() {

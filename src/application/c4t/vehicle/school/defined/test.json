@@ -149,15 +149,19 @@
 			{
 				'type':'long'
 			},
-			'total_student_attempted':
-			{
-				'type':'long'
-			},
-			'higest_marks':
+			'highest_marks':
 			{
 				'type':'long'
 			},
 			'average_marks':
+			{
+				'type':'long'
+			},
+			'average_duration':
+			{
+				'type':'long'
+			},
+			'min_duration':
 			{
 				'type':'long'
 			},
