@@ -184,6 +184,16 @@
 				'length': 1,
 				'type':'String'
 			},
+			'student_email_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'student_mobile_no':
+			{
+				'type':'String',
+				length : 128
+			},
 			'alert_pickup_route_stopage_id':
 			{
 				'length': 128,

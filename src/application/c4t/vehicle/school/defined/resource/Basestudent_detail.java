@@ -54,6 +54,8 @@ public abstract class Basestudent_detail extends BaseResource {
 	private Long last_stopage_time = null;
 	private Long reaching_time = null;
 	private String reached = null;
+	private String student_email_id = null;
+	private String student_mobile_no = null;
 	private String alert_pickup_route_stopage_id = null;
 	private String alert_dropped_route_stopage_id = null;
 	private String alert_pickup_stopage_name = null;
@@ -140,6 +142,8 @@ public abstract class Basestudent_detail extends BaseResource {
 	public static String FIELD_LAST_STOPAGE_TIME = "last_stopage_time";
 	public static String FIELD_REACHING_TIME = "reaching_time";
 	public static String FIELD_REACHED = "reached";
+	public static String FIELD_STUDENT_EMAIL_ID = "student_email_id";
+	public static String FIELD_STUDENT_MOBILE_NO = "student_mobile_no";
 	public static String FIELD_ALERT_PICKUP_ROUTE_STOPAGE_ID = "alert_pickup_route_stopage_id";
 	public static String FIELD_ALERT_DROPPED_ROUTE_STOPAGE_ID = "alert_dropped_route_stopage_id";
 	public static String FIELD_ALERT_PICKUP_STOPAGE_NAME = "alert_pickup_stopage_name";
@@ -336,6 +340,14 @@ public abstract class Basestudent_detail extends BaseResource {
 		Field reachedField = new Field("reached", "String");
 		reachedField.setLength(1);
 		metaData.addField(reachedField);
+
+		Field student_email_idField = new Field("student_email_id", "String");
+		student_email_idField.setLength(128);
+		metaData.addField(student_email_idField);
+
+		Field student_mobile_noField = new Field("student_mobile_no", "String");
+		student_mobile_noField.setLength(128);
+		metaData.addField(student_mobile_noField);
 
 		Field alert_pickup_route_stopage_idField = new Field("alert_pickup_route_stopage_id", "String");
 		alert_pickup_route_stopage_idField.setLength(128);
@@ -606,6 +618,8 @@ public abstract class Basestudent_detail extends BaseResource {
 		this.last_stopage_time = obj.last_stopage_time;
 		this.reaching_time = obj.reaching_time;
 		this.reached = obj.reached;
+		this.student_email_id = obj.student_email_id;
+		this.student_mobile_no = obj.student_mobile_no;
 		this.alert_pickup_route_stopage_id = obj.alert_pickup_route_stopage_id;
 		this.alert_dropped_route_stopage_id = obj.alert_dropped_route_stopage_id;
 		this.alert_pickup_stopage_name = obj.alert_pickup_stopage_name;
@@ -819,6 +833,10 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("reaching_time", reaching_time);
 		if(reached != null)
 			map.put("reached", reached);
+		if(student_email_id != null)
+			map.put("student_email_id", student_email_id);
+		if(student_mobile_no != null)
+			map.put("student_mobile_no", student_mobile_no);
 		if(alert_pickup_route_stopage_id != null)
 			map.put("alert_pickup_route_stopage_id", alert_pickup_route_stopage_id);
 		if(alert_dropped_route_stopage_id != null)
@@ -997,6 +1015,10 @@ public abstract class Basestudent_detail extends BaseResource {
 			map.put("reaching_time", reaching_time);
 		if(reached != null)
 			map.put("reached", reached);
+		if(student_email_id != null)
+			map.put("student_email_id", student_email_id);
+		if(student_mobile_no != null)
+			map.put("student_mobile_no", student_mobile_no);
 		if(alert_pickup_route_stopage_id != null)
 			map.put("alert_pickup_route_stopage_id", alert_pickup_route_stopage_id);
 		if(alert_dropped_route_stopage_id != null)
@@ -1142,6 +1164,8 @@ public abstract class Basestudent_detail extends BaseResource {
 		last_stopage_time = (Long) map.get("last_stopage_time");
 		reaching_time = (Long) map.get("reaching_time");
 		reached = (String) map.get("reached");
+		student_email_id = (String) map.get("student_email_id");
+		student_mobile_no = (String) map.get("student_mobile_no");
 		alert_pickup_route_stopage_id = (String) map.get("alert_pickup_route_stopage_id");
 		alert_dropped_route_stopage_id = (String) map.get("alert_dropped_route_stopage_id");
 		alert_pickup_stopage_name = (String) map.get("alert_pickup_stopage_name");
@@ -1335,6 +1359,14 @@ public abstract class Basestudent_detail extends BaseResource {
 		Object reachedObj = map.get("reached");
 		if(reachedObj != null)
 			reached = reachedObj.toString();
+
+		Object student_email_idObj = map.get("student_email_id");
+		if(student_email_idObj != null)
+			student_email_id = student_email_idObj.toString();
+
+		Object student_mobile_noObj = map.get("student_mobile_no");
+		if(student_mobile_noObj != null)
+			student_mobile_no = student_mobile_noObj.toString();
 
 		Object alert_pickup_route_stopage_idObj = map.get("alert_pickup_route_stopage_id");
 		if(alert_pickup_route_stopage_idObj != null)
@@ -2109,6 +2141,38 @@ public abstract class Basestudent_detail extends BaseResource {
 
 	public void unSetReached() {
 		this.reached = null;
+	}
+
+	public String getStudent_email_id() {
+		return student_email_id;
+	}
+
+	public String getStudent_email_idEx() {
+		return student_email_id != null ? student_email_id : "";
+	}
+
+	public void setStudent_email_id(String student_email_id) {
+		this.student_email_id = student_email_id;
+	}
+
+	public void unSetStudent_email_id() {
+		this.student_email_id = null;
+	}
+
+	public String getStudent_mobile_no() {
+		return student_mobile_no;
+	}
+
+	public String getStudent_mobile_noEx() {
+		return student_mobile_no != null ? student_mobile_no : "";
+	}
+
+	public void setStudent_mobile_no(String student_mobile_no) {
+		this.student_mobile_no = student_mobile_no;
+	}
+
+	public void unSetStudent_mobile_no() {
+		this.student_mobile_no = null;
 	}
 
 	public String getAlert_pickup_route_stopage_id() {
