@@ -45,6 +45,10 @@ public abstract class Basetest extends BaseResource {
 	private Double negative_mark = null;
 	private String customer_id = null;
 	private Long last_update_time = null;
+	private Long total_student_allocations = null;
+	private Long total_student_attempted = null;
+	private Long higest_marks = null;
+	private Long average_marks = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -74,6 +78,10 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_NEGATIVE_MARK = "negative_mark";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
+	public static String FIELD_TOTAL_STUDENT_ALLOCATIONS = "total_student_allocations";
+	public static String FIELD_TOTAL_STUDENT_ATTEMPTED = "total_student_attempted";
+	public static String FIELD_HIGEST_MARKS = "higest_marks";
+	public static String FIELD_AVERAGE_MARKS = "average_marks";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -177,6 +185,18 @@ public abstract class Basetest extends BaseResource {
 		Field last_update_timeField = new Field("last_update_time", "timestamp");
 		metaData.addField(last_update_timeField);
 
+		Field total_student_allocationsField = new Field("total_student_allocations", "long");
+		metaData.addField(total_student_allocationsField);
+
+		Field total_student_attemptedField = new Field("total_student_attempted", "long");
+		metaData.addField(total_student_attemptedField);
+
+		Field higest_marksField = new Field("higest_marks", "long");
+		metaData.addField(higest_marksField);
+
+		Field average_marksField = new Field("average_marks", "long");
+		metaData.addField(average_marksField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -219,6 +239,10 @@ public abstract class Basetest extends BaseResource {
 		this.negative_mark = obj.negative_mark;
 		this.customer_id = obj.customer_id;
 		this.last_update_time = obj.last_update_time;
+		this.total_student_allocations = obj.total_student_allocations;
+		this.total_student_attempted = obj.total_student_attempted;
+		this.higest_marks = obj.higest_marks;
+		this.average_marks = obj.average_marks;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -281,6 +305,14 @@ public abstract class Basetest extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
+		if(total_student_allocations != null)
+			map.put("total_student_allocations", total_student_allocations);
+		if(total_student_attempted != null)
+			map.put("total_student_attempted", total_student_attempted);
+		if(higest_marks != null)
+			map.put("higest_marks", higest_marks);
+		if(average_marks != null)
+			map.put("average_marks", average_marks);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -342,6 +374,14 @@ public abstract class Basetest extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
+		if(total_student_allocations != null)
+			map.put("total_student_allocations", total_student_allocations);
+		if(total_student_attempted != null)
+			map.put("total_student_attempted", total_student_attempted);
+		if(higest_marks != null)
+			map.put("higest_marks", higest_marks);
+		if(average_marks != null)
+			map.put("average_marks", average_marks);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -382,6 +422,10 @@ public abstract class Basetest extends BaseResource {
 		negative_mark = (Double) map.get("negative_mark");
 		customer_id = (String) map.get("customer_id");
 		last_update_time = (Long) map.get("last_update_time");
+		total_student_allocations = (Long) map.get("total_student_allocations");
+		total_student_attempted = (Long) map.get("total_student_attempted");
+		higest_marks = (Long) map.get("higest_marks");
+		average_marks = (Long) map.get("average_marks");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -491,6 +535,22 @@ public abstract class Basetest extends BaseResource {
 		Object last_update_timeObj = map.get("last_update_time");
 		if(last_update_timeObj != null)
 			last_update_time = (Long) last_update_timeObj;
+
+		Object total_student_allocationsObj = map.get("total_student_allocations");
+		if(total_student_allocationsObj != null)
+			total_student_allocations = new Long(total_student_allocationsObj.toString());
+
+		Object total_student_attemptedObj = map.get("total_student_attempted");
+		if(total_student_attemptedObj != null)
+			total_student_attempted = new Long(total_student_attemptedObj.toString());
+
+		Object higest_marksObj = map.get("higest_marks");
+		if(higest_marksObj != null)
+			higest_marks = new Long(higest_marksObj.toString());
+
+		Object average_marksObj = map.get("average_marks");
+		if(average_marksObj != null)
+			average_marks = new Long(average_marksObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -931,6 +991,86 @@ public abstract class Basetest extends BaseResource {
 		this.last_update_time = last_update_time;
 	}
 
+
+	public Long getTotal_student_allocations() {
+		return total_student_allocations;
+	}
+
+	public long getTotal_student_allocationsEx() {
+		return total_student_allocations != null ? total_student_allocations : 0L;
+	}
+
+	public void setTotal_student_allocations(long total_student_allocations) {
+		this.total_student_allocations = total_student_allocations;
+	}
+
+	public void setTotal_student_allocations(Long total_student_allocations) {
+		this.total_student_allocations = total_student_allocations;
+	}
+
+	public void unSetTotal_student_allocations() {
+		this.total_student_allocations = null;
+	}
+
+	public Long getTotal_student_attempted() {
+		return total_student_attempted;
+	}
+
+	public long getTotal_student_attemptedEx() {
+		return total_student_attempted != null ? total_student_attempted : 0L;
+	}
+
+	public void setTotal_student_attempted(long total_student_attempted) {
+		this.total_student_attempted = total_student_attempted;
+	}
+
+	public void setTotal_student_attempted(Long total_student_attempted) {
+		this.total_student_attempted = total_student_attempted;
+	}
+
+	public void unSetTotal_student_attempted() {
+		this.total_student_attempted = null;
+	}
+
+	public Long getHigest_marks() {
+		return higest_marks;
+	}
+
+	public long getHigest_marksEx() {
+		return higest_marks != null ? higest_marks : 0L;
+	}
+
+	public void setHigest_marks(long higest_marks) {
+		this.higest_marks = higest_marks;
+	}
+
+	public void setHigest_marks(Long higest_marks) {
+		this.higest_marks = higest_marks;
+	}
+
+	public void unSetHigest_marks() {
+		this.higest_marks = null;
+	}
+
+	public Long getAverage_marks() {
+		return average_marks;
+	}
+
+	public long getAverage_marksEx() {
+		return average_marks != null ? average_marks : 0L;
+	}
+
+	public void setAverage_marks(long average_marks) {
+		this.average_marks = average_marks;
+	}
+
+	public void setAverage_marks(Long average_marks) {
+		this.average_marks = average_marks;
+	}
+
+	public void unSetAverage_marks() {
+		this.average_marks = null;
+	}
 
 	public Long getCreation_time() {
 		return creation_time;
