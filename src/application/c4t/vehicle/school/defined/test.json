@@ -141,6 +141,26 @@
 			'last_update_time': {
 				'type': 'timestamp'
 			},	
+			'total_student_allocations':
+			{
+				'type':'long'
+			},
+			'total_student_attempted':
+			{
+				'type':'long'
+			},
+			'total_student_attempted':
+			{
+				'type':'long'
+			},
+			'higest_marks':
+			{
+				'type':'long'
+			},
+			'average_marks':
+			{
+				'type':'long'
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}	
