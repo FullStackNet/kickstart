@@ -49,6 +49,7 @@ public abstract class Basetest extends BaseResource {
 	private Long total_student_attempted = null;
 	private Long highest_marks = null;
 	private Long average_marks = null;
+	private Long total_test_marks = null;
 	private Long average_duration = null;
 	private Long min_duration = null;
 	private String published = null;
@@ -85,6 +86,7 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_TOTAL_STUDENT_ATTEMPTED = "total_student_attempted";
 	public static String FIELD_HIGHEST_MARKS = "highest_marks";
 	public static String FIELD_AVERAGE_MARKS = "average_marks";
+	public static String FIELD_TOTAL_TEST_MARKS = "total_test_marks";
 	public static String FIELD_AVERAGE_DURATION = "average_duration";
 	public static String FIELD_MIN_DURATION = "min_duration";
 	public static String FIELD_PUBLISHED = "published";
@@ -203,6 +205,9 @@ public abstract class Basetest extends BaseResource {
 		Field average_marksField = new Field("average_marks", "long");
 		metaData.addField(average_marksField);
 
+		Field total_test_marksField = new Field("total_test_marks", "long");
+		metaData.addField(total_test_marksField);
+
 		Field average_durationField = new Field("average_duration", "long");
 		metaData.addField(average_durationField);
 
@@ -259,6 +264,7 @@ public abstract class Basetest extends BaseResource {
 		this.total_student_attempted = obj.total_student_attempted;
 		this.highest_marks = obj.highest_marks;
 		this.average_marks = obj.average_marks;
+		this.total_test_marks = obj.total_test_marks;
 		this.average_duration = obj.average_duration;
 		this.min_duration = obj.min_duration;
 		this.published = obj.published;
@@ -332,6 +338,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("highest_marks", highest_marks);
 		if(average_marks != null)
 			map.put("average_marks", average_marks);
+		if(total_test_marks != null)
+			map.put("total_test_marks", total_test_marks);
 		if(average_duration != null)
 			map.put("average_duration", average_duration);
 		if(min_duration != null)
@@ -407,6 +415,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("highest_marks", highest_marks);
 		if(average_marks != null)
 			map.put("average_marks", average_marks);
+		if(total_test_marks != null)
+			map.put("total_test_marks", total_test_marks);
 		if(average_duration != null)
 			map.put("average_duration", average_duration);
 		if(min_duration != null)
@@ -457,6 +467,7 @@ public abstract class Basetest extends BaseResource {
 		total_student_attempted = (Long) map.get("total_student_attempted");
 		highest_marks = (Long) map.get("highest_marks");
 		average_marks = (Long) map.get("average_marks");
+		total_test_marks = (Long) map.get("total_test_marks");
 		average_duration = (Long) map.get("average_duration");
 		min_duration = (Long) map.get("min_duration");
 		published = (String) map.get("published");
@@ -585,6 +596,10 @@ public abstract class Basetest extends BaseResource {
 		Object average_marksObj = map.get("average_marks");
 		if(average_marksObj != null)
 			average_marks = new Long(average_marksObj.toString());
+
+		Object total_test_marksObj = map.get("total_test_marks");
+		if(total_test_marksObj != null)
+			total_test_marks = new Long(total_test_marksObj.toString());
 
 		Object average_durationObj = map.get("average_duration");
 		if(average_durationObj != null)
@@ -1116,6 +1131,26 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetAverage_marks() {
 		this.average_marks = null;
+	}
+
+	public Long getTotal_test_marks() {
+		return total_test_marks;
+	}
+
+	public long getTotal_test_marksEx() {
+		return total_test_marks != null ? total_test_marks : 0L;
+	}
+
+	public void setTotal_test_marks(long total_test_marks) {
+		this.total_test_marks = total_test_marks;
+	}
+
+	public void setTotal_test_marks(Long total_test_marks) {
+		this.total_test_marks = total_test_marks;
+	}
+
+	public void unSetTotal_test_marks() {
+		this.total_test_marks = null;
 	}
 
 	public Long getAverage_duration() {

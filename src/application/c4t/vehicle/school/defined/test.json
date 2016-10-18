@@ -157,6 +157,10 @@
 			{
 				'type':'long'
 			},
+			'total_test_marks':
+			{
+				'type':'long'
+			},
 			'average_duration':
 			{
 				'type':'long'

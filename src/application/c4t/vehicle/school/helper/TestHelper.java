@@ -30,4 +30,19 @@ public class TestHelper extends BaseHelper {
 			e.printStackTrace();
 		}		
 	}
+	public void updateHighestMarks(String testId,Double marks) {
+		if (marks == null)
+			return;
+		test _test = (test)TestHelper.getInstance().getById(testId);
+		test __test = new test(testId);
+		try {
+			if (_test.getHighest_marksEx() < marks) {
+				__test.setHighest_marks(marks.longValue());	
+				TestHelper.getInstance().update(__test);
+			}
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
 }
