@@ -240,6 +240,18 @@
 				'type':'String',
 				'length': 128
 			},
+			'total_student_attempted':
+			{
+				'type':'long'
+			},
+			'highest_marks':
+			{
+				'type':'long'
+			},
+			'average_marks':
+			{
+				'type':'long'
+			},
 			'last_update_time': {
 				'type': 'timestamp'
 			},

@@ -19,27 +19,19 @@ public class TestHelper extends BaseHelper {
 		return instance;
 	}
 	
-	public void incrementAttempted(String testId) {
-		incrementAttempted(testId,1);
-	}
-	public void incrementAttempted(String testId,int increment) {
-		try {
-			TestHelper.getInstance().incrementCounter(testId, test.FIELD_TOTAL_STUDENT_ATTEMPTED, increment);
-		} catch (ApplicationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-	}
-	public void updateHighestMarks(String testId,Double marks) {
+	public void updateMarkStat(String testId,Double marks) {
 		if (marks == null)
 			return;
 		test _test = (test)TestHelper.getInstance().getById(testId);
 		test __test = new test(testId);
 		try {
+			__test.setTotal_student_attempted(_test.getTotal_student_attemptedEx()+1);
+			__test.setTotal_test_marks(_test.getTotal_test_marksEx()+marks.longValue());
+			__test.setAverage_marks(__test.getTotal_test_marksEx()/__test.getTotal_student_attempted());
 			if (_test.getHighest_marksEx() < marks) {
 				__test.setHighest_marks(marks.longValue());	
-				TestHelper.getInstance().update(__test);
 			}
+			TestHelper.getInstance().update(__test);
 		} catch (ApplicationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
