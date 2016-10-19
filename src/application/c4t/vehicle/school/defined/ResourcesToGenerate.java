@@ -94,7 +94,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("video", "application.c4t.vehicle.school.resource.video"),	
 		new ResourceMap("video_collection", "application.c4t.vehicle.school.resource.video_collection"),	
 		new ResourceMap("course", "application.c4t.vehicle.school.resource.course"),
-		new ResourceMap("course_catgeory", "application.c4t.vehicle.school.resource.course_catgeory"),
+		new ResourceMap("course_category", "application.c4t.vehicle.school.resource.course_category"),
 		new ResourceMap("fee_master", "application.c4t.vehicle.school.resource.fee_master"),	
 		new ResourceMap("fee_heading", "application.c4t.vehicle.school.resource.fee_heading"),	
 		new ResourceMap("fee_schedule", "application.c4t.vehicle.school.resource.fee_schedule"),	
