@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Basecourse extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String category_id = null;
 	private String interested = null;
 	private String customer_id = null;
 	private List<Object> subjects = null;
@@ -29,6 +30,7 @@ public abstract class Basecourse extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_CATEGORY_ID = "category_id";
 	public static String FIELD_INTERESTED = "interested";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_SUBJECTS = "subjects";
@@ -50,9 +52,9 @@ public abstract class Basecourse extends BaseResource {
 		nameField.setLength(32);
 		metaData.addField(nameField);
 
-		Field interestedField = new Field("interested", "String");
-		interestedField.setLength(1);
-		metaData.addField(interestedField);
+		Field category_idField = new Field("category_id", "String");
+		category_idField.setLength(128);
+		metaData.addField(category_idField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setIndexed(true);
@@ -80,6 +82,7 @@ public abstract class Basecourse extends BaseResource {
 	public Basecourse(Basecourse obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.category_id = obj.category_id;
 		this.interested = obj.interested;
 		this.customer_id = obj.customer_id;
 		this.subjects = obj.subjects;
@@ -97,6 +100,8 @@ public abstract class Basecourse extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(category_id != null)
+			map.put("category_id", category_id);
 		if(interested != null)
 			map.put("interested", interested);
 		if(customer_id != null)
@@ -116,6 +121,8 @@ public abstract class Basecourse extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(category_id != null)
+			map.put("category_id", category_id);
 		if(interested != null)
 			map.put("interested", interested);
 		if(customer_id != null)
@@ -138,7 +145,7 @@ public abstract class Basecourse extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
-		interested = (String) map.get("interested");
+		category_id = (String) map.get("category_id");
 		customer_id = (String) map.get("customer_id");
 		subjects = (List<Object>) map.get("subjects");
 		creation_time = (Long) map.get("creation_time");
@@ -155,9 +162,9 @@ public abstract class Basecourse extends BaseResource {
 		if(nameObj != null)
 			name = nameObj.toString();
 
-		Object interestedObj = map.get("interested");
-		if(interestedObj != null)
-			interested = interestedObj.toString();
+		Object category_idObj = map.get("category_id");
+		if(category_idObj != null)
+			category_id = category_idObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -213,6 +220,22 @@ public abstract class Basecourse extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getCategory_id() {
+		return category_id;
+	}
+
+	public String getCategory_idEx() {
+		return category_id != null ? category_id : "";
+	}
+
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
+	}
+
+	public void unSetCategory_id() {
+		this.category_id = null;
 	}
 
 	public String getInterested() {

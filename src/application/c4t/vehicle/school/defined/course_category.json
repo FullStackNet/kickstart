@@ -1,5 +1,5 @@
 {
-	"course" :
+	"course_category" :
 	{
 		"cluster": "DB_SCHOOL",
 		"fields":
@@ -11,21 +11,23 @@
 				'required': true,
 				'type':'String'
 			},
-			'name':
-			{
-				'length': 32,
-				'type':'String'
-			},
-			'category_id':
+			'parent_id':
 			{
 				'name':'id',
 				'length': 128,
+				'required': true,
 				'type':'String'
 			},
-			'interested':
+			'parent_name':
 			{
-				'length': 1,
-				'transient' : true,
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 32,
 				'type':'String'
 			},
 			'customer_id':
@@ -33,11 +35,6 @@
 				'length': 128,
 				'type':'String',
 				'index' : true
-			},
-			'subjects':
-			{
-				'type':'Array',
-				'valueType' : 'Object' 
 			},
 			'creation_time': {
 				'type': 'timestamp'
