@@ -33,6 +33,8 @@ public abstract class Baseobjective_question extends BaseResource {
 	private String tutorial_id = null;
 	private String subject_id = null;
 	private String subject_name = null;
+	private String subject_topic_id = null;
+	private String subject_topic_name = null;
 	private String class_name = null;
 	private String option_1 = null;
 	private String option_2 = null;
@@ -74,6 +76,8 @@ public abstract class Baseobjective_question extends BaseResource {
 	public static String FIELD_TUTORIAL_ID = "tutorial_id";
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_SUBJECT_NAME = "subject_name";
+	public static String FIELD_SUBJECT_TOPIC_ID = "subject_topic_id";
+	public static String FIELD_SUBJECT_TOPIC_NAME = "subject_topic_name";
 	public static String FIELD_CLASS_NAME = "class_name";
 	public static String FIELD_OPTION_1 = "option_1";
 	public static String FIELD_OPTION_2 = "option_2";
@@ -163,6 +167,14 @@ public abstract class Baseobjective_question extends BaseResource {
 		Field subject_nameField = new Field("subject_name", "String");
 		subject_nameField.setLength(128);
 		metaData.addField(subject_nameField);
+
+		Field subject_topic_idField = new Field("subject_topic_id", "String");
+		subject_topic_idField.setLength(128);
+		metaData.addField(subject_topic_idField);
+
+		Field subject_topic_nameField = new Field("subject_topic_name", "String");
+		subject_topic_nameField.setLength(128);
+		metaData.addField(subject_topic_nameField);
 
 		Field class_nameField = new Field("class_name", "String");
 		class_nameField.setLength(128);
@@ -294,6 +306,8 @@ public abstract class Baseobjective_question extends BaseResource {
 		this.tutorial_id = obj.tutorial_id;
 		this.subject_id = obj.subject_id;
 		this.subject_name = obj.subject_name;
+		this.subject_topic_id = obj.subject_topic_id;
+		this.subject_topic_name = obj.subject_topic_name;
 		this.class_name = obj.class_name;
 		this.option_1 = obj.option_1;
 		this.option_2 = obj.option_2;
@@ -371,6 +385,10 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("subject_id", subject_id);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
+		if(subject_topic_id != null)
+			map.put("subject_topic_id", subject_topic_id);
+		if(subject_topic_name != null)
+			map.put("subject_topic_name", subject_topic_name);
 		if(class_name != null)
 			map.put("class_name", class_name);
 		if(option_1 != null)
@@ -459,6 +477,10 @@ public abstract class Baseobjective_question extends BaseResource {
 			map.put("subject_id", subject_id);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
+		if(subject_topic_id != null)
+			map.put("subject_topic_id", subject_topic_id);
+		if(subject_topic_name != null)
+			map.put("subject_topic_name", subject_topic_name);
 		if(class_name != null)
 			map.put("class_name", class_name);
 		if(option_1 != null)
@@ -535,6 +557,8 @@ public abstract class Baseobjective_question extends BaseResource {
 		tutorial_id = (String) map.get("tutorial_id");
 		subject_id = (String) map.get("subject_id");
 		subject_name = (String) map.get("subject_name");
+		subject_topic_id = (String) map.get("subject_topic_id");
+		subject_topic_name = (String) map.get("subject_topic_name");
 		class_name = (String) map.get("class_name");
 		option_1 = (String) map.get("option_1");
 		option_2 = (String) map.get("option_2");
@@ -620,6 +644,14 @@ public abstract class Baseobjective_question extends BaseResource {
 		Object subject_nameObj = map.get("subject_name");
 		if(subject_nameObj != null)
 			subject_name = subject_nameObj.toString();
+
+		Object subject_topic_idObj = map.get("subject_topic_id");
+		if(subject_topic_idObj != null)
+			subject_topic_id = subject_topic_idObj.toString();
+
+		Object subject_topic_nameObj = map.get("subject_topic_name");
+		if(subject_topic_nameObj != null)
+			subject_topic_name = subject_topic_nameObj.toString();
 
 		Object class_nameObj = map.get("class_name");
 		if(class_nameObj != null)
@@ -958,6 +990,38 @@ public abstract class Baseobjective_question extends BaseResource {
 
 	public void unSetSubject_name() {
 		this.subject_name = null;
+	}
+
+	public String getSubject_topic_id() {
+		return subject_topic_id;
+	}
+
+	public String getSubject_topic_idEx() {
+		return subject_topic_id != null ? subject_topic_id : "";
+	}
+
+	public void setSubject_topic_id(String subject_topic_id) {
+		this.subject_topic_id = subject_topic_id;
+	}
+
+	public void unSetSubject_topic_id() {
+		this.subject_topic_id = null;
+	}
+
+	public String getSubject_topic_name() {
+		return subject_topic_name;
+	}
+
+	public String getSubject_topic_nameEx() {
+		return subject_topic_name != null ? subject_topic_name : "";
+	}
+
+	public void setSubject_topic_name(String subject_topic_name) {
+		this.subject_topic_name = subject_topic_name;
+	}
+
+	public void unSetSubject_topic_name() {
+		this.subject_topic_name = null;
 	}
 
 	public String getClass_name() {
