@@ -25,6 +25,11 @@
 				'required': true,
 				'type':'String'
 			},
+			'image_url':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'name':
 			{
 				'length': 32,

@@ -22,6 +22,7 @@ public abstract class Basecourse_category extends BaseResource {
 	private String id = null;
 	private String parent_id = null;
 	private String parent_name = null;
+	private String image_url = null;
 	private String name = null;
 	private String customer_id = null;
 	private Long creation_time = null;
@@ -30,6 +31,7 @@ public abstract class Basecourse_category extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_PARENT_NAME = "parent_name";
+	public static String FIELD_IMAGE_URL = "image_url";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -55,6 +57,10 @@ public abstract class Basecourse_category extends BaseResource {
 		parent_nameField.setRequired(true);
 		parent_nameField.setLength(128);
 		metaData.addField(parent_nameField);
+
+		Field image_urlField = new Field("image_url", "String");
+		image_urlField.setLength(128);
+		metaData.addField(image_urlField);
 
 		Field nameField = new Field("name", "String");
 		nameField.setLength(32);
@@ -84,6 +90,7 @@ public abstract class Basecourse_category extends BaseResource {
 		this.id = obj.id;
 		this.parent_id = obj.parent_id;
 		this.parent_name = obj.parent_name;
+		this.image_url = obj.image_url;
 		this.name = obj.name;
 		this.customer_id = obj.customer_id;
 		this.creation_time = obj.creation_time;
@@ -102,6 +109,8 @@ public abstract class Basecourse_category extends BaseResource {
 			map.put("parent_id", parent_id);
 		if(parent_name != null)
 			map.put("parent_name", parent_name);
+		if(image_url != null)
+			map.put("image_url", image_url);
 		if(name != null)
 			map.put("name", name);
 		if(customer_id != null)
@@ -121,6 +130,8 @@ public abstract class Basecourse_category extends BaseResource {
 			map.put("parent_id", parent_id);
 		if(validateParent_name(add))
 			map.put("parent_name", parent_name);
+		if(image_url != null)
+			map.put("image_url", image_url);
 		if(name != null)
 			map.put("name", name);
 		if(customer_id != null)
@@ -142,6 +153,7 @@ public abstract class Basecourse_category extends BaseResource {
 		id = (String) map.get("id");
 		parent_id = (String) map.get("parent_id");
 		parent_name = (String) map.get("parent_name");
+		image_url = (String) map.get("image_url");
 		name = (String) map.get("name");
 		customer_id = (String) map.get("customer_id");
 		creation_time = (Long) map.get("creation_time");
@@ -161,6 +173,10 @@ public abstract class Basecourse_category extends BaseResource {
 		Object parent_nameObj = map.get("parent_name");
 		if(parent_nameObj != null)
 			parent_name = parent_nameObj.toString();
+
+		Object image_urlObj = map.get("image_url");
+		if(image_urlObj != null)
+			image_url = image_urlObj.toString();
 
 		Object nameObj = map.get("name");
 		if(nameObj != null)
@@ -247,6 +263,22 @@ public abstract class Basecourse_category extends BaseResource {
 		if(add && parent_name == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[parent_name]");
 		return parent_name != null;
+	}
+
+	public String getImage_url() {
+		return image_url;
+	}
+
+	public String getImage_urlEx() {
+		return image_url != null ? image_url : "";
+	}
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
+	public void unSetImage_url() {
+		this.image_url = null;
 	}
 
 	public String getName() {
