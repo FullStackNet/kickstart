@@ -707,6 +707,9 @@
 			'last_recharge_time':
 			{
 				'type':'long'
+			},
+			'creation_time': {
+				'type': 'timestamp'
 			}
 		}
 	}

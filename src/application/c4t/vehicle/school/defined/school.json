@@ -515,6 +515,9 @@
 				'length': 32,
 				'default' : "IST",
 				'type':'String'
+			},
+			'creation_time': {
+				'type': 'timestamp'
 			}
 		}
 	}

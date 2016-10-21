@@ -139,6 +139,9 @@
 				'length': 1,
 				'type':'String',
 				'default' :"N"
+			},
+			'creation_time': {
+				'type': 'timestamp'
 			}
 		}
 	}

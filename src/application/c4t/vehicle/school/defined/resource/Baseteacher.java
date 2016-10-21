@@ -42,6 +42,7 @@ public abstract class Baseteacher extends BaseResource {
 	private String stopage_alert_sms = null;
 	private String stopage_alert_mobile_app = null;
 	private String stopage_alert_email = null;
+	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -67,6 +68,7 @@ public abstract class Baseteacher extends BaseResource {
 	public static String FIELD_STOPAGE_ALERT_SMS = "stopage_alert_sms";
 	public static String FIELD_STOPAGE_ALERT_MOBILE_APP = "stopage_alert_mobile_app";
 	public static String FIELD_STOPAGE_ALERT_EMAIL = "stopage_alert_email";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -175,6 +177,9 @@ public abstract class Baseteacher extends BaseResource {
 		stopage_alert_emailField.setLength(1);
 		metaData.addField(stopage_alert_emailField);
 
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -211,6 +216,7 @@ public abstract class Baseteacher extends BaseResource {
 		this.stopage_alert_sms = obj.stopage_alert_sms;
 		this.stopage_alert_mobile_app = obj.stopage_alert_mobile_app;
 		this.stopage_alert_email = obj.stopage_alert_email;
+		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -275,6 +281,8 @@ public abstract class Baseteacher extends BaseResource {
 			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
 		if(stopage_alert_email != null)
 			map.put("stopage_alert_email", stopage_alert_email);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -331,6 +339,8 @@ public abstract class Baseteacher extends BaseResource {
 			map.put("stopage_alert_mobile_app", stopage_alert_mobile_app);
 		if(stopage_alert_email != null)
 			map.put("stopage_alert_email", stopage_alert_email);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -366,6 +376,7 @@ public abstract class Baseteacher extends BaseResource {
 		stopage_alert_sms = (String) map.get("stopage_alert_sms");
 		stopage_alert_mobile_app = (String) map.get("stopage_alert_mobile_app");
 		stopage_alert_email = (String) map.get("stopage_alert_email");
+		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -462,6 +473,10 @@ public abstract class Baseteacher extends BaseResource {
 		Object stopage_alert_emailObj = map.get("stopage_alert_email");
 		if(stopage_alert_emailObj != null)
 			stopage_alert_email = stopage_alert_emailObj.toString();
+
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -845,6 +860,15 @@ public abstract class Baseteacher extends BaseResource {
 	public void unSetStopage_alert_email() {
 		this.stopage_alert_email = "N";
 	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

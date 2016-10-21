@@ -25,6 +25,9 @@
 			{
 				'type':'String',
 				'length': 128
+			},
+			'creation_time': {
+				'type': 'timestamp'
 			}	
 		}
 	}

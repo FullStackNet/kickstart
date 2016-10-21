@@ -107,6 +107,7 @@ public abstract class Baseschool extends BaseResource {
 	private String house_id = null;
 	private String neet_no_enabled = null;
 	private String timezone = null;
+	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -197,6 +198,7 @@ public abstract class Baseschool extends BaseResource {
 	public static String FIELD_HOUSE_ID = "house_id";
 	public static String FIELD_NEET_NO_ENABLED = "neet_no_enabled";
 	public static String FIELD_TIMEZONE = "timezone";
+	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -614,6 +616,9 @@ public abstract class Baseschool extends BaseResource {
 		timezoneField.setLength(32);
 		metaData.addField(timezoneField);
 
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -715,6 +720,7 @@ public abstract class Baseschool extends BaseResource {
 		this.house_id = obj.house_id;
 		this.neet_no_enabled = obj.neet_no_enabled;
 		this.timezone = obj.timezone;
+		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -1021,6 +1027,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("neet_no_enabled", neet_no_enabled);
 		if(timezone != null)
 			map.put("timezone", timezone);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1207,6 +1215,8 @@ public abstract class Baseschool extends BaseResource {
 			map.put("neet_no_enabled", neet_no_enabled);
 		if(timezone != null)
 			map.put("timezone", timezone);
+		if(creation_time != null)
+			map.put("creation_time", creation_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1307,6 +1317,7 @@ public abstract class Baseschool extends BaseResource {
 		house_id = (String) map.get("house_id");
 		neet_no_enabled = (String) map.get("neet_no_enabled");
 		timezone = (String) map.get("timezone");
+		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1663,6 +1674,10 @@ public abstract class Baseschool extends BaseResource {
 		Object timezoneObj = map.get("timezone");
 		if(timezoneObj != null)
 			timezone = timezoneObj.toString();
+
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = (Long) creation_timeObj;
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2862,6 +2877,15 @@ public abstract class Baseschool extends BaseResource {
 	public void unSetTimezone() {
 		this.timezone = "IST";
 	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;
