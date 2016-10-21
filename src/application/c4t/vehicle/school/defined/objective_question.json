@@ -78,6 +78,17 @@
 				'length': 128,
 				'type':'String'
 			},
+			'subject_topic_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'subject_topic_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			
 			'class_name':
 			{
 				'length': 128,
