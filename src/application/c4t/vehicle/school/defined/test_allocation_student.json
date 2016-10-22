@@ -85,6 +85,16 @@
 				'length': 1,
 				'type':'String'
 			},
+			'type':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'test_group_id':
+			{
+				'length': 1,
+				'type':'String'
+			},
 			'free_centre_student':
 			{
 				'length': 1,
