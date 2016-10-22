@@ -25,6 +25,10 @@
 				'required': true,
 				'type':'String'
 			},
+			'order':
+			{
+				'type':'long'
+			},
 			'image_url':
 			{
 				'length': 128,

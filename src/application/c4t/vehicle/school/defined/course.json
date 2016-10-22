@@ -16,6 +16,10 @@
 				'length': 32,
 				'type':'String'
 			},
+			'order':
+			{
+				'type':'long'
+			},
 			'category_id':
 			{
 				'name':'id',
