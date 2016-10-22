@@ -26,9 +26,15 @@ public abstract class Basetest_group extends BaseResource {
 	private String available_for_sale = null;
 	private Double price = null;
 	private Long allowed_attempts = null;
+	private Long total_tests = null;
 	private List<String> tests = null;
+	private String subject_id = null;
+	private String course_id = null;
+	private String course_name = null;
+	private String subject_name = null;
 	private String customer_id = null;
 	private Long last_update_time = null;
+	private String published = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -39,9 +45,15 @@ public abstract class Basetest_group extends BaseResource {
 	public static String FIELD_AVAILABLE_FOR_SALE = "available_for_sale";
 	public static String FIELD_PRICE = "price";
 	public static String FIELD_ALLOWED_ATTEMPTS = "allowed_attempts";
+	public static String FIELD_TOTAL_TESTS = "total_tests";
 	public static String FIELD_TESTS = "tests";
+	public static String FIELD_SUBJECT_ID = "subject_id";
+	public static String FIELD_COURSE_ID = "course_id";
+	public static String FIELD_COURSE_NAME = "course_name";
+	public static String FIELD_SUBJECT_NAME = "subject_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
+	public static String FIELD_PUBLISHED = "published";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -77,8 +89,27 @@ public abstract class Basetest_group extends BaseResource {
 		Field allowed_attemptsField = new Field("allowed_attempts", "long");
 		metaData.addField(allowed_attemptsField);
 
+		Field total_testsField = new Field("total_tests", "long");
+		metaData.addField(total_testsField);
+
 		Field testsField = new Field("tests", "Array");
 		metaData.addField(testsField);
+
+		Field subject_idField = new Field("subject_id", "String");
+		subject_idField.setLength(128);
+		metaData.addField(subject_idField);
+
+		Field course_idField = new Field("course_id", "String");
+		course_idField.setLength(128);
+		metaData.addField(course_idField);
+
+		Field course_nameField = new Field("course_name", "String");
+		course_nameField.setLength(128);
+		metaData.addField(course_nameField);
+
+		Field subject_nameField = new Field("subject_name", "String");
+		subject_nameField.setLength(128);
+		metaData.addField(subject_nameField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
@@ -86,6 +117,10 @@ public abstract class Basetest_group extends BaseResource {
 
 		Field last_update_timeField = new Field("last_update_time", "timestamp");
 		metaData.addField(last_update_timeField);
+
+		Field publishedField = new Field("published", "String");
+		publishedField.setLength(1);
+		metaData.addField(publishedField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
@@ -110,9 +145,15 @@ public abstract class Basetest_group extends BaseResource {
 		this.available_for_sale = obj.available_for_sale;
 		this.price = obj.price;
 		this.allowed_attempts = obj.allowed_attempts;
+		this.total_tests = obj.total_tests;
 		this.tests = obj.tests;
+		this.subject_id = obj.subject_id;
+		this.course_id = obj.course_id;
+		this.course_name = obj.course_name;
+		this.subject_name = obj.subject_name;
 		this.customer_id = obj.customer_id;
 		this.last_update_time = obj.last_update_time;
+		this.published = obj.published;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -137,12 +178,24 @@ public abstract class Basetest_group extends BaseResource {
 			map.put("price", price);
 		if(allowed_attempts != null)
 			map.put("allowed_attempts", allowed_attempts);
+		if(total_tests != null)
+			map.put("total_tests", total_tests);
 		if(tests != null)
 			map.put("tests", tests);
+		if(subject_id != null)
+			map.put("subject_id", subject_id);
+		if(course_id != null)
+			map.put("course_id", course_id);
+		if(course_name != null)
+			map.put("course_name", course_name);
+		if(subject_name != null)
+			map.put("subject_name", subject_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
+		if(published != null)
+			map.put("published", published);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -166,12 +219,24 @@ public abstract class Basetest_group extends BaseResource {
 			map.put("price", price);
 		if(allowed_attempts != null)
 			map.put("allowed_attempts", allowed_attempts);
+		if(total_tests != null)
+			map.put("total_tests", total_tests);
 		if(tests != null)
 			map.put("tests", tests);
+		if(subject_id != null)
+			map.put("subject_id", subject_id);
+		if(course_id != null)
+			map.put("course_id", course_id);
+		if(course_name != null)
+			map.put("course_name", course_name);
+		if(subject_name != null)
+			map.put("subject_name", subject_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
+		if(published != null)
+			map.put("published", published);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -193,9 +258,15 @@ public abstract class Basetest_group extends BaseResource {
 		available_for_sale = (String) map.get("available_for_sale");
 		price = (Double) map.get("price");
 		allowed_attempts = (Long) map.get("allowed_attempts");
+		total_tests = (Long) map.get("total_tests");
 		tests = (List<String>) map.get("tests");
+		subject_id = (String) map.get("subject_id");
+		course_id = (String) map.get("course_id");
+		course_name = (String) map.get("course_name");
+		subject_name = (String) map.get("subject_name");
 		customer_id = (String) map.get("customer_id");
 		last_update_time = (Long) map.get("last_update_time");
+		published = (String) map.get("published");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -230,7 +301,27 @@ public abstract class Basetest_group extends BaseResource {
 		if(allowed_attemptsObj != null)
 			allowed_attempts = new Long(allowed_attemptsObj.toString());
 
+		Object total_testsObj = map.get("total_tests");
+		if(total_testsObj != null)
+			total_tests = new Long(total_testsObj.toString());
+
 		tests = (List<String>) map.get("tests");
+		Object subject_idObj = map.get("subject_id");
+		if(subject_idObj != null)
+			subject_id = subject_idObj.toString();
+
+		Object course_idObj = map.get("course_id");
+		if(course_idObj != null)
+			course_id = course_idObj.toString();
+
+		Object course_nameObj = map.get("course_name");
+		if(course_nameObj != null)
+			course_name = course_nameObj.toString();
+
+		Object subject_nameObj = map.get("subject_name");
+		if(subject_nameObj != null)
+			subject_name = subject_nameObj.toString();
+
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
@@ -238,6 +329,10 @@ public abstract class Basetest_group extends BaseResource {
 		Object last_update_timeObj = map.get("last_update_time");
 		if(last_update_timeObj != null)
 			last_update_time = (Long) last_update_timeObj;
+
+		Object publishedObj = map.get("published");
+		if(publishedObj != null)
+			published = publishedObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -378,6 +473,26 @@ public abstract class Basetest_group extends BaseResource {
 		this.allowed_attempts = null;
 	}
 
+	public Long getTotal_tests() {
+		return total_tests;
+	}
+
+	public long getTotal_testsEx() {
+		return total_tests != null ? total_tests : 0L;
+	}
+
+	public void setTotal_tests(long total_tests) {
+		this.total_tests = total_tests;
+	}
+
+	public void setTotal_tests(Long total_tests) {
+		this.total_tests = total_tests;
+	}
+
+	public void unSetTotal_tests() {
+		this.total_tests = null;
+	}
+
 	public List<String> getTests() {
 		return tests;
 	}
@@ -395,6 +510,70 @@ public abstract class Basetest_group extends BaseResource {
 
 	public void unSetTests() {
 		this.tests = null;
+	}
+
+	public String getSubject_id() {
+		return subject_id;
+	}
+
+	public String getSubject_idEx() {
+		return subject_id != null ? subject_id : "";
+	}
+
+	public void setSubject_id(String subject_id) {
+		this.subject_id = subject_id;
+	}
+
+	public void unSetSubject_id() {
+		this.subject_id = null;
+	}
+
+	public String getCourse_id() {
+		return course_id;
+	}
+
+	public String getCourse_idEx() {
+		return course_id != null ? course_id : "";
+	}
+
+	public void setCourse_id(String course_id) {
+		this.course_id = course_id;
+	}
+
+	public void unSetCourse_id() {
+		this.course_id = null;
+	}
+
+	public String getCourse_name() {
+		return course_name;
+	}
+
+	public String getCourse_nameEx() {
+		return course_name != null ? course_name : "";
+	}
+
+	public void setCourse_name(String course_name) {
+		this.course_name = course_name;
+	}
+
+	public void unSetCourse_name() {
+		this.course_name = null;
+	}
+
+	public String getSubject_name() {
+		return subject_name;
+	}
+
+	public String getSubject_nameEx() {
+		return subject_name != null ? subject_name : "";
+	}
+
+	public void setSubject_name(String subject_name) {
+		this.subject_name = subject_name;
+	}
+
+	public void unSetSubject_name() {
+		this.subject_name = null;
 	}
 
 	public String getCustomer_id() {
@@ -421,6 +600,22 @@ public abstract class Basetest_group extends BaseResource {
 		this.last_update_time = last_update_time;
 	}
 
+
+	public String getPublished() {
+		return published;
+	}
+
+	public String getPublishedEx() {
+		return published != null ? published : "";
+	}
+
+	public void setPublished(String published) {
+		this.published = published;
+	}
+
+	public void unSetPublished() {
+		this.published = null;
+	}
 
 	public Long getCreation_time() {
 		return creation_time;

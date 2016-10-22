@@ -38,10 +38,35 @@
 			{
 				'type':'long'
 			},
+			
+			'total_tests':
+			{
+				'type':'long'
+			},
 			'tests':
 			{
 				'type':'Array',
 				'valueType' : 'String' 
+			},	
+			'subject_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'course_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'course_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'subject_name':
+			{
+				'type':'String',
+				'length': 128
 			},	
 			'customer_id':
 			{
@@ -51,6 +76,11 @@
 			'last_update_time': {
 				'type': 'timestamp'
 			},	
+				'published':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}	
