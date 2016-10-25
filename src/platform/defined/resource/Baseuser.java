@@ -82,6 +82,8 @@ public abstract class Baseuser extends BaseResource {
 	private String feature_practical_attendance = null;
 	private String feature_report_card = null;
 	private String feature_account = null;
+	private String feature_fees_approval = null;
+	private String feature_fees_report = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -147,6 +149,8 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_FEATURE_PRACTICAL_ATTENDANCE = "feature_practical_attendance";
 	public static String FIELD_FEATURE_REPORT_CARD = "feature_report_card";
 	public static String FIELD_FEATURE_ACCOUNT = "feature_account";
+	public static String FIELD_FEATURE_FEES_APPROVAL = "feature_fees_approval";
+	public static String FIELD_FEATURE_FEES_REPORT = "feature_fees_report";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -445,6 +449,16 @@ public abstract class Baseuser extends BaseResource {
 		feature_accountField.setLength(1);
 		metaData.addField(feature_accountField);
 
+		Field feature_fees_approvalField = new Field("feature_fees_approval", "String");
+		feature_fees_approvalField.setDefaultValue("N");
+		feature_fees_approvalField.setLength(1);
+		metaData.addField(feature_fees_approvalField);
+
+		Field feature_fees_reportField = new Field("feature_fees_report", "String");
+		feature_fees_reportField.setDefaultValue("N");
+		feature_fees_reportField.setLength(1);
+		metaData.addField(feature_fees_reportField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -521,6 +535,8 @@ public abstract class Baseuser extends BaseResource {
 		this.feature_practical_attendance = obj.feature_practical_attendance;
 		this.feature_report_card = obj.feature_report_card;
 		this.feature_account = obj.feature_account;
+		this.feature_fees_approval = obj.feature_fees_approval;
+		this.feature_fees_report = obj.feature_fees_report;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -617,6 +633,10 @@ public abstract class Baseuser extends BaseResource {
 			feature_report_card = "N";
 		if(feature_account == null)
 			feature_account = "N";
+		if(feature_fees_approval == null)
+			feature_fees_approval = "N";
+		if(feature_fees_report == null)
+			feature_fees_report = "N";
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -747,6 +767,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_report_card", feature_report_card);
 		if(feature_account != null)
 			map.put("feature_account", feature_account);
+		if(feature_fees_approval != null)
+			map.put("feature_fees_approval", feature_fees_approval);
+		if(feature_fees_report != null)
+			map.put("feature_fees_report", feature_fees_report);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -883,6 +907,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_report_card", feature_report_card);
 		if(feature_account != null)
 			map.put("feature_account", feature_account);
+		if(feature_fees_approval != null)
+			map.put("feature_fees_approval", feature_fees_approval);
+		if(feature_fees_report != null)
+			map.put("feature_fees_report", feature_fees_report);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -955,6 +983,8 @@ public abstract class Baseuser extends BaseResource {
 		feature_practical_attendance = (String) map.get("feature_practical_attendance");
 		feature_report_card = (String) map.get("feature_report_card");
 		feature_account = (String) map.get("feature_account");
+		feature_fees_approval = (String) map.get("feature_fees_approval");
+		feature_fees_report = (String) map.get("feature_fees_report");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1199,6 +1229,14 @@ public abstract class Baseuser extends BaseResource {
 		Object feature_accountObj = map.get("feature_account");
 		if(feature_accountObj != null)
 			feature_account = feature_accountObj.toString();
+
+		Object feature_fees_approvalObj = map.get("feature_fees_approval");
+		if(feature_fees_approvalObj != null)
+			feature_fees_approval = feature_fees_approvalObj.toString();
+
+		Object feature_fees_reportObj = map.get("feature_fees_report");
+		if(feature_fees_reportObj != null)
+			feature_fees_report = feature_fees_reportObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2062,6 +2100,30 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetFeature_account() {
 		this.feature_account = "N";
+	}
+
+	public String getFeature_fees_approval() {
+		return feature_fees_approval != null ? feature_fees_approval : "N";
+	}
+
+	public void setFeature_fees_approval(String feature_fees_approval) {
+		this.feature_fees_approval = feature_fees_approval;
+	}
+
+	public void unSetFeature_fees_approval() {
+		this.feature_fees_approval = "N";
+	}
+
+	public String getFeature_fees_report() {
+		return feature_fees_report != null ? feature_fees_report : "N";
+	}
+
+	public void setFeature_fees_report(String feature_fees_report) {
+		this.feature_fees_report = feature_fees_report;
+	}
+
+	public void unSetFeature_fees_report() {
+		this.feature_fees_report = "N";
 	}
 
 	public Map<String, Object> getExtra_data() {
