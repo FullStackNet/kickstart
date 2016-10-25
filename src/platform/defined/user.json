@@ -387,6 +387,18 @@
 				'length': 1,
 				'default' : "N",
 				'type':'String'
+			},
+			'feature_fees_approval':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_fees_report':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
 			}
 		}
 	}
