@@ -897,5 +897,12 @@ public class MySQLDBConnection extends DbConnection {
 		return null;
 	}
 
+	@Override
+	public long getByCountExpression(ResourceMetaData metaData,
+			Expression expression) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 }

@@ -1,0 +1,32 @@
+{
+	"app_summary" :
+	{
+		"cluster": "DB_OBJECT",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				"remark" : "from id and relation type"
+			},
+			'total_users':
+			{
+				'type':'long'
+			},
+			'total_tests':
+			{
+				'type':'long'
+			},
+			'total_test_series':
+			{
+				'type':'long'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			}						
+		}
+	}
+}

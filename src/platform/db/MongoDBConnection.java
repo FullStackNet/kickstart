@@ -1127,4 +1127,20 @@ public class MongoDBConnection extends DbConnection {
 		}
 		return getByExpression(metaData,e,orderBy,pageno,pagesize);
 	}
+
+	@Override
+	public long getByCountExpression(ResourceMetaData metaData,
+			Expression expression) {
+		// TODO Auto-generated method stub
+		checkAndReviveConnection();
+		if (conn == null) {
+			ApplicationException e = new ApplicationException(ExceptionSeverity.ERROR, "Unable to connect to database"); 
+			e.printStackTrace();
+			return 0;
+		}
+		DBCollection table = conn.getCollection(metaData.getTableName());
+		BasicDBObject condition = getCondition(metaData,expression);
+		//System.out.println(condition);
+		return table.count(condition);
+	}
 }

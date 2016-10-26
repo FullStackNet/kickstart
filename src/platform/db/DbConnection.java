@@ -83,6 +83,8 @@ public abstract class DbConnection {
 	 abstract public int incrementValue(BaseResource resource, String fieldName,double increment) throws Exception;
 	 abstract public int unset(BaseResource resource) throws Exception;
 	 abstract public int unset(BaseResource resource,String[] fieldnames) throws Exception;
+	 abstract public long getByCountExpression(ResourceMetaData metaData, Expression expression);
+		
 	 public Connection getConnection() {
 		 return null;
 	 }

@@ -825,4 +825,11 @@ public class HSQLDBConnection extends DbConnection {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public long getByCountExpression(ResourceMetaData metaData,
+			Expression expression) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

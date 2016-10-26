@@ -1106,7 +1106,6 @@ public class BaseHelper {
 		return list;
 	}
 	public ArrayList<Map<String, Object>> getListMap(ArrayList<JoinField> joinFields) {
-		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		return getByJoining(null,joinFields);
 	}
 	
@@ -1361,5 +1360,40 @@ public class BaseHelper {
 			}
 		}
 		return false;
+	}
+	
+	public long getCount(Expression expression) {
+		long count = 0;
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			count = connection.getByCountExpression(resource.getMetaData(),expression);
+			return count;
+
+		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return count;
+	}
+	
+	public long getCountByCustomer(String customerId) {
+		long count = 0;
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			Expression expression = new Expression(c4t_object.FIELD_CUSTOMER_ID, REL_OP.EQ, customerId);
+			count = connection.getByCountExpression(resource.getMetaData(),expression);
+			return count;
+
+		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return count;
 	}
 }
