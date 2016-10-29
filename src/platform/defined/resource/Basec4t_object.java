@@ -232,6 +232,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private Double mandi_main_price = null;
 	private Double mandi_secondary_price = null;
 	private Long arrivals = null;
+	private Long arrival_updated = null;
 	private String valid_mandi_main_imie = null;
 	private String valid_mandi_secondary_imie = null;
 	private String available_time = null;
@@ -450,6 +451,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_MANDI_MAIN_PRICE = "mandi_main_price";
 	public static String FIELD_MANDI_SECONDARY_PRICE = "mandi_secondary_price";
 	public static String FIELD_ARRIVALS = "arrivals";
+	public static String FIELD_ARRIVAL_UPDATED = "arrival_updated";
 	public static String FIELD_VALID_MANDI_MAIN_IMIE = "valid_mandi_main_imie";
 	public static String FIELD_VALID_MANDI_SECONDARY_IMIE = "valid_mandi_secondary_imie";
 	public static String FIELD_AVAILABLE_TIME = "available_time";
@@ -1278,6 +1280,9 @@ public abstract class Basec4t_object extends BaseResource {
 		Field arrivalsField = new Field("arrivals", "long");
 		metaData.addField(arrivalsField);
 
+		Field arrival_updatedField = new Field("arrival_updated", "long");
+		metaData.addField(arrival_updatedField);
+
 		Field valid_mandi_main_imieField = new Field("valid_mandi_main_imie", "String");
 		valid_mandi_main_imieField.setLength(128);
 		metaData.addField(valid_mandi_main_imieField);
@@ -1516,6 +1521,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.mandi_main_price = obj.mandi_main_price;
 		this.mandi_secondary_price = obj.mandi_secondary_price;
 		this.arrivals = obj.arrivals;
+		this.arrival_updated = obj.arrival_updated;
 		this.valid_mandi_main_imie = obj.valid_mandi_main_imie;
 		this.valid_mandi_secondary_imie = obj.valid_mandi_secondary_imie;
 		this.available_time = obj.available_time;
@@ -1954,6 +1960,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("mandi_secondary_price", mandi_secondary_price);
 		if(arrivals != null)
 			map.put("arrivals", arrivals);
+		if(arrival_updated != null)
+			map.put("arrival_updated", arrival_updated);
 		if(valid_mandi_main_imie != null)
 			map.put("valid_mandi_main_imie", valid_mandi_main_imie);
 		if(valid_mandi_secondary_imie != null)
@@ -2393,6 +2401,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("mandi_secondary_price", mandi_secondary_price);
 		if(arrivals != null)
 			map.put("arrivals", arrivals);
+		if(arrival_updated != null)
+			map.put("arrival_updated", arrival_updated);
 		if(valid_mandi_main_imie != null)
 			map.put("valid_mandi_main_imie", valid_mandi_main_imie);
 		if(valid_mandi_secondary_imie != null)
@@ -2624,6 +2634,7 @@ public abstract class Basec4t_object extends BaseResource {
 		mandi_main_price = (Double) map.get("mandi_main_price");
 		mandi_secondary_price = (Double) map.get("mandi_secondary_price");
 		arrivals = (Long) map.get("arrivals");
+		arrival_updated = (Long) map.get("arrival_updated");
 		valid_mandi_main_imie = (String) map.get("valid_mandi_main_imie");
 		valid_mandi_secondary_imie = (String) map.get("valid_mandi_secondary_imie");
 		available_time = (String) map.get("available_time");
@@ -3483,6 +3494,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object arrivalsObj = map.get("arrivals");
 		if(arrivalsObj != null)
 			arrivals = new Long(arrivalsObj.toString());
+
+		Object arrival_updatedObj = map.get("arrival_updated");
+		if(arrival_updatedObj != null)
+			arrival_updated = new Long(arrival_updatedObj.toString());
 
 		Object valid_mandi_main_imieObj = map.get("valid_mandi_main_imie");
 		if(valid_mandi_main_imieObj != null)
@@ -6980,6 +6995,26 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetArrivals() {
 		this.arrivals = null;
+	}
+
+	public Long getArrival_updated() {
+		return arrival_updated;
+	}
+
+	public long getArrival_updatedEx() {
+		return arrival_updated != null ? arrival_updated : 0L;
+	}
+
+	public void setArrival_updated(long arrival_updated) {
+		this.arrival_updated = arrival_updated;
+	}
+
+	public void setArrival_updated(Long arrival_updated) {
+		this.arrival_updated = arrival_updated;
+	}
+
+	public void unSetArrival_updated() {
+		this.arrival_updated = null;
 	}
 
 	public String getValid_mandi_main_imie() {

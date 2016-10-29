@@ -1039,6 +1039,10 @@
 			{
 				'type':'long'
 			},
+			'arrival_updated':
+			{
+				'type':'long'
+			},
 			'valid_mandi_main_imie':
 			{
 				'type':'String',
