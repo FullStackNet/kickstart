@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import platform.util.TimeUtil;
+import platform.util.Util;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.definition.Block;
 import platform.webservice.ui.definition.Field;
@@ -98,9 +99,14 @@ public abstract class BaseCoachingForm extends BaseView {
 			this.operation = op;
 		populateDefinition();
 		
+		if (mDefinition.getWidth() == 100) {
+			getView().addStyle("width","100%");
+		} else {
+			getView().addStyle("width",mDefinition.getWidth()+"px");
+		}
 		Div headerDiv =  new Div();
 		getView().addChild(headerDiv);
-		
+		 
 		H2 h2 = new H2(mDefinition.getTitle());
 		h2.addStyle("background-color", "silver");
 		h2.addStyle("padding", "6px");
@@ -227,7 +233,7 @@ public abstract class BaseCoachingForm extends BaseView {
 				blockdiv.addAttribute("style", ""+"width:"+mDefinition.getWidth()+"px");
 			}
 			formBody.addChild(blockdiv);
-			if (block.getTitle() != null) {
+			if (!Util.isEmpty(block.getTitle())) {
 				Div blockTitlediv = new Div(null,"form_title"); 
 				if (block.getId() != null) {
 					blockTitlediv.addAttribute("id",block.getId());					
@@ -295,9 +301,10 @@ public abstract class BaseCoachingForm extends BaseView {
 				row.addAttribute("name", field.getName()+"_row");
 				TD column = new TD();
 				column.addAttribute("class","col-sm-4");
-				column.addAttribute("style","align:left;padding-left:10px;padding-top:10px;padding-bottom:10px;");
+				
 				if (field.isFullWidth() && UIConstants.COMPONENT_TYPE_TEXTAREA.equals(field.getCompomentType())) {
 					column.addAttribute("colspan","2");
+					column.addAttribute("style","align:left;padding-right:30px;padding-left:10px;padding-top:10px;padding-bottom:10px;");
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PHOTOUPLOAD) { 
 					IMG img = new IMG();
 					img.setSRC(getImageSource(field,dataMap));
@@ -305,7 +312,7 @@ public abstract class BaseCoachingForm extends BaseView {
 					row.addChild(column);
 					column = new TD();
 					column.addAttribute("class","col-sm-8");
-					column.addAttribute("style","padding-left:10px;padding-top:10px;padding-bottom:10px;");
+					column.addAttribute("style","padding:10px");
 
 				}else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PHOTO) { 
 					IMG img = new IMG();
@@ -341,7 +348,7 @@ public abstract class BaseCoachingForm extends BaseView {
 
 					column = new TD();
 					column.addAttribute("class","col-sm-8");
-					column.addAttribute("style","padding-left:10px;padding-top:10px;padding-bottom:10px;");
+					column.addAttribute("style","padding-bottom:10px;padding-right:30px");
 
 				}
 				if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_TEXTINPUT) {
@@ -350,6 +357,7 @@ public abstract class BaseCoachingForm extends BaseView {
 					if (field.isUpperCase()) {
 						textEdit.addStyle("text-transform", "uppercase");
 					}
+					
 					if (value != null) {
 						if (UIConstants.DATA_TYPE_INT.equals(field.getType())) {
 							value = ""+Math.round(Double.parseDouble(value.toString()));
@@ -402,6 +410,7 @@ public abstract class BaseCoachingForm extends BaseView {
 						}
 					}
 					column.addChild(textEdit);
+					textEdit.addAttribute("style","padding:10px");
 					String dateJS  = "<script>\n" +
 							"$(function() {\n" +
 							"$(\"#"+field.getName()+"\").datepicker();\n" +
@@ -427,6 +436,7 @@ public abstract class BaseCoachingForm extends BaseView {
 					if (value != null) {
 						textArea.setText(value.toString());
 					}
+					textArea.addStyle("padding-right","30px");
 					column.addChild(textArea);
 				} else if (field.getCompomentType() == UIConstants.COMPONENT_TYPE_PASSWORD) {
 					PASSWORD password = new PASSWORD(field.getName(),null);

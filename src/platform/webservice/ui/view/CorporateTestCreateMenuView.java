@@ -86,7 +86,7 @@ public class CorporateTestCreateMenuView extends BaseView {
 		LI li = new LI(null,"");
 		ul.addChild(li);
 		A a = new A();
-		a.setHref("/ui/create_test");
+		a.setHref("/ui/corporate_test?op=add");
 		a.setText("<div><i class=\"fa fa-laptop\"></i></div><div>Create Test </div>");
 		li.addChild(a);
 		
@@ -95,20 +95,15 @@ public class CorporateTestCreateMenuView extends BaseView {
 		ul.addChild(li);
 		a = new A();
 		a.setText("<div><i class=\"fa fa-institution\"></i></div><div> Create New Branch</div>");
+		a.setHref("/ui/corporate_test_branch?op=add");
 		li.addChild(a);
 		
 		li = new LI(null,"");
 		ul.addChild(li);
 		a = new A();
 		a.setText("<div><i class=\"fa fa-users\"></i></div><div> Create New Position</div>");
+		a.setHref("/ui/corporate_test_position?op=add");
 		li.addChild(a);
-		
-		li = new LI(null,"");
-		ul.addChild(li);
-		a = new A();
-		a.setText("<div><i class=\"fa fa-user\"></i></div><div> Create Candidate</div>");
-		li.addChild(a);
-		
 		
 	}
 }
