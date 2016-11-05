@@ -233,7 +233,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private Double mandi_secondary_price = null;
 	private Long arrivals = null;
 	private Long arrival_updated = null;
-	private Long arrival_message = null;
+	private String arrival_message = null;
 	private Long arrival_message_updated = null;
 	private String valid_mandi_main_imie = null;
 	private String valid_mandi_secondary_imie = null;
@@ -1287,7 +1287,7 @@ public abstract class Basec4t_object extends BaseResource {
 		Field arrival_updatedField = new Field("arrival_updated", "long");
 		metaData.addField(arrival_updatedField);
 
-		Field arrival_messageField = new Field("arrival_message", "long");
+		Field arrival_messageField = new Field("arrival_message", "String");
 		metaData.addField(arrival_messageField);
 
 		Field arrival_message_updatedField = new Field("arrival_message_updated", "long");
@@ -2655,7 +2655,7 @@ public abstract class Basec4t_object extends BaseResource {
 		mandi_secondary_price = (Double) map.get("mandi_secondary_price");
 		arrivals = (Long) map.get("arrivals");
 		arrival_updated = (Long) map.get("arrival_updated");
-		arrival_message = (Long) map.get("arrival_message");
+		arrival_message = (String) map.get("arrival_message");
 		arrival_message_updated = (Long) map.get("arrival_message_updated");
 		valid_mandi_main_imie = (String) map.get("valid_mandi_main_imie");
 		valid_mandi_secondary_imie = (String) map.get("valid_mandi_secondary_imie");
@@ -3523,7 +3523,7 @@ public abstract class Basec4t_object extends BaseResource {
 
 		Object arrival_messageObj = map.get("arrival_message");
 		if(arrival_messageObj != null)
-			arrival_message = new Long(arrival_messageObj.toString());
+			arrival_message = arrival_messageObj.toString();
 
 		Object arrival_message_updatedObj = map.get("arrival_message_updated");
 		if(arrival_message_updatedObj != null)
@@ -7047,19 +7047,15 @@ public abstract class Basec4t_object extends BaseResource {
 		this.arrival_updated = null;
 	}
 
-	public Long getArrival_message() {
+	public String getArrival_message() {
 		return arrival_message;
 	}
 
-	public long getArrival_messageEx() {
-		return arrival_message != null ? arrival_message : 0L;
+	public String getArrival_messageEx() {
+		return arrival_message != null ? arrival_message : "";
 	}
 
-	public void setArrival_message(long arrival_message) {
-		this.arrival_message = arrival_message;
-	}
-
-	public void setArrival_message(Long arrival_message) {
+	public void setArrival_message(String arrival_message) {
 		this.arrival_message = arrival_message;
 	}
 

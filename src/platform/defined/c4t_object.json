@@ -1045,7 +1045,7 @@
 			},
 			'arrival_message':
 			{
-				'type':'long'
+				'type':'String'
 			},
 			'arrival_message_updated':
 			{
