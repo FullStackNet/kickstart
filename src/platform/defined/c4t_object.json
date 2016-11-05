@@ -1043,6 +1043,14 @@
 			{
 				'type':'long'
 			},
+			'arrival_message':
+			{
+				'type':'long'
+			},
+			'arrival_message_updated':
+			{
+				'type':'long'
+			},
 			'valid_mandi_main_imie':
 			{
 				'type':'String',
