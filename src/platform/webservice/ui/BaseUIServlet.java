@@ -127,7 +127,9 @@ public abstract class BaseUIServlet extends HttpServlet
 		try {
 			UIServletContext ctx = new UIServletContext(getSessionIdFromCookie(request));
 			ctx.setResponse(response);
+			
 			ctx.setDomainName(request.getServerName());
+			
 			String userAgent = request.getHeader("User-Agent");
 			String httpAccept = request.getHeader("Accept");
 			ctx.setServletPath(getServletContext().getRealPath("/"));
