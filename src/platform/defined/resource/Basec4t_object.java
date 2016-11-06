@@ -239,6 +239,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private Long arrival_updated = null;
 	private String arrival_message = null;
 	private Long arrival_message_updated = null;
+	private String potato_business = null;
+	private String onion_business = null;
 	private String valid_mandi_main_imie = null;
 	private String valid_mandi_secondary_imie = null;
 	private String available_time = null;
@@ -464,6 +466,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ARRIVAL_UPDATED = "arrival_updated";
 	public static String FIELD_ARRIVAL_MESSAGE = "arrival_message";
 	public static String FIELD_ARRIVAL_MESSAGE_UPDATED = "arrival_message_updated";
+	public static String FIELD_POTATO_BUSINESS = "potato_business";
+	public static String FIELD_ONION_BUSINESS = "onion_business";
 	public static String FIELD_VALID_MANDI_MAIN_IMIE = "valid_mandi_main_imie";
 	public static String FIELD_VALID_MANDI_SECONDARY_IMIE = "valid_mandi_secondary_imie";
 	public static String FIELD_AVAILABLE_TIME = "available_time";
@@ -1313,6 +1317,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Field arrival_message_updatedField = new Field("arrival_message_updated", "long");
 		metaData.addField(arrival_message_updatedField);
 
+		Field potato_businessField = new Field("potato_business", "String");
+		potato_businessField.setLength(1);
+		metaData.addField(potato_businessField);
+
+		Field onion_businessField = new Field("onion_business", "String");
+		onion_businessField.setLength(1);
+		metaData.addField(onion_businessField);
+
 		Field valid_mandi_main_imieField = new Field("valid_mandi_main_imie", "String");
 		valid_mandi_main_imieField.setLength(128);
 		metaData.addField(valid_mandi_main_imieField);
@@ -1558,6 +1570,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.arrival_updated = obj.arrival_updated;
 		this.arrival_message = obj.arrival_message;
 		this.arrival_message_updated = obj.arrival_message_updated;
+		this.potato_business = obj.potato_business;
+		this.onion_business = obj.onion_business;
 		this.valid_mandi_main_imie = obj.valid_mandi_main_imie;
 		this.valid_mandi_secondary_imie = obj.valid_mandi_secondary_imie;
 		this.available_time = obj.available_time;
@@ -2010,6 +2024,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("arrival_message", arrival_message);
 		if(arrival_message_updated != null)
 			map.put("arrival_message_updated", arrival_message_updated);
+		if(potato_business != null)
+			map.put("potato_business", potato_business);
+		if(onion_business != null)
+			map.put("onion_business", onion_business);
 		if(valid_mandi_main_imie != null)
 			map.put("valid_mandi_main_imie", valid_mandi_main_imie);
 		if(valid_mandi_secondary_imie != null)
@@ -2463,6 +2481,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("arrival_message", arrival_message);
 		if(arrival_message_updated != null)
 			map.put("arrival_message_updated", arrival_message_updated);
+		if(potato_business != null)
+			map.put("potato_business", potato_business);
+		if(onion_business != null)
+			map.put("onion_business", onion_business);
 		if(valid_mandi_main_imie != null)
 			map.put("valid_mandi_main_imie", valid_mandi_main_imie);
 		if(valid_mandi_secondary_imie != null)
@@ -2701,6 +2723,8 @@ public abstract class Basec4t_object extends BaseResource {
 		arrival_updated = (Long) map.get("arrival_updated");
 		arrival_message = (String) map.get("arrival_message");
 		arrival_message_updated = (Long) map.get("arrival_message_updated");
+		potato_business = (String) map.get("potato_business");
+		onion_business = (String) map.get("onion_business");
 		valid_mandi_main_imie = (String) map.get("valid_mandi_main_imie");
 		valid_mandi_secondary_imie = (String) map.get("valid_mandi_secondary_imie");
 		available_time = (String) map.get("available_time");
@@ -3588,6 +3612,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object arrival_message_updatedObj = map.get("arrival_message_updated");
 		if(arrival_message_updatedObj != null)
 			arrival_message_updated = new Long(arrival_message_updatedObj.toString());
+
+		Object potato_businessObj = map.get("potato_business");
+		if(potato_businessObj != null)
+			potato_business = potato_businessObj.toString();
+
+		Object onion_businessObj = map.get("onion_business");
+		if(onion_businessObj != null)
+			onion_business = onion_businessObj.toString();
 
 		Object valid_mandi_main_imieObj = map.get("valid_mandi_main_imie");
 		if(valid_mandi_main_imieObj != null)
@@ -7221,6 +7253,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetArrival_message_updated() {
 		this.arrival_message_updated = null;
+	}
+
+	public String getPotato_business() {
+		return potato_business;
+	}
+
+	public String getPotato_businessEx() {
+		return potato_business != null ? potato_business : "";
+	}
+
+	public void setPotato_business(String potato_business) {
+		this.potato_business = potato_business;
+	}
+
+	public void unSetPotato_business() {
+		this.potato_business = null;
+	}
+
+	public String getOnion_business() {
+		return onion_business;
+	}
+
+	public String getOnion_businessEx() {
+		return onion_business != null ? onion_business : "";
+	}
+
+	public void setOnion_business(String onion_business) {
+		this.onion_business = onion_business;
+	}
+
+	public void unSetOnion_business() {
+		this.onion_business = null;
 	}
 
 	public String getValid_mandi_main_imie() {

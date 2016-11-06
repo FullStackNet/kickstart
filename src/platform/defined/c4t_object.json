@@ -1067,6 +1067,16 @@
 			{
 				'type':'long'
 			},
+			'potato_business':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'onion_business':
+			{
+				'type':'String',
+				'length': 1
+			},
 			'valid_mandi_main_imie':
 			{
 				'type':'String',
