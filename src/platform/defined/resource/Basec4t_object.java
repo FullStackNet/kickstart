@@ -232,6 +232,10 @@ public abstract class Basec4t_object extends BaseResource {
 	private Double mandi_main_price = null;
 	private Double mandi_secondary_price = null;
 	private Long arrivals = null;
+	private Long potato_arrivals = null;
+	private Long potato_unsold = null;
+	private Long onion_arrivals = null;
+	private Long onion_unsold = null;
 	private Long arrival_updated = null;
 	private String arrival_message = null;
 	private Long arrival_message_updated = null;
@@ -453,6 +457,10 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_MANDI_MAIN_PRICE = "mandi_main_price";
 	public static String FIELD_MANDI_SECONDARY_PRICE = "mandi_secondary_price";
 	public static String FIELD_ARRIVALS = "arrivals";
+	public static String FIELD_POTATO_ARRIVALS = "potato_arrivals";
+	public static String FIELD_POTATO_UNSOLD = "potato_unsold";
+	public static String FIELD_ONION_ARRIVALS = "onion_arrivals";
+	public static String FIELD_ONION_UNSOLD = "onion_unsold";
 	public static String FIELD_ARRIVAL_UPDATED = "arrival_updated";
 	public static String FIELD_ARRIVAL_MESSAGE = "arrival_message";
 	public static String FIELD_ARRIVAL_MESSAGE_UPDATED = "arrival_message_updated";
@@ -1284,6 +1292,18 @@ public abstract class Basec4t_object extends BaseResource {
 		Field arrivalsField = new Field("arrivals", "long");
 		metaData.addField(arrivalsField);
 
+		Field potato_arrivalsField = new Field("potato_arrivals", "long");
+		metaData.addField(potato_arrivalsField);
+
+		Field potato_unsoldField = new Field("potato_unsold", "long");
+		metaData.addField(potato_unsoldField);
+
+		Field onion_arrivalsField = new Field("onion_arrivals", "long");
+		metaData.addField(onion_arrivalsField);
+
+		Field onion_unsoldField = new Field("onion_unsold", "long");
+		metaData.addField(onion_unsoldField);
+
 		Field arrival_updatedField = new Field("arrival_updated", "long");
 		metaData.addField(arrival_updatedField);
 
@@ -1531,6 +1551,10 @@ public abstract class Basec4t_object extends BaseResource {
 		this.mandi_main_price = obj.mandi_main_price;
 		this.mandi_secondary_price = obj.mandi_secondary_price;
 		this.arrivals = obj.arrivals;
+		this.potato_arrivals = obj.potato_arrivals;
+		this.potato_unsold = obj.potato_unsold;
+		this.onion_arrivals = obj.onion_arrivals;
+		this.onion_unsold = obj.onion_unsold;
 		this.arrival_updated = obj.arrival_updated;
 		this.arrival_message = obj.arrival_message;
 		this.arrival_message_updated = obj.arrival_message_updated;
@@ -1972,6 +1996,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("mandi_secondary_price", mandi_secondary_price);
 		if(arrivals != null)
 			map.put("arrivals", arrivals);
+		if(potato_arrivals != null)
+			map.put("potato_arrivals", potato_arrivals);
+		if(potato_unsold != null)
+			map.put("potato_unsold", potato_unsold);
+		if(onion_arrivals != null)
+			map.put("onion_arrivals", onion_arrivals);
+		if(onion_unsold != null)
+			map.put("onion_unsold", onion_unsold);
 		if(arrival_updated != null)
 			map.put("arrival_updated", arrival_updated);
 		if(arrival_message != null)
@@ -2417,6 +2449,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("mandi_secondary_price", mandi_secondary_price);
 		if(arrivals != null)
 			map.put("arrivals", arrivals);
+		if(potato_arrivals != null)
+			map.put("potato_arrivals", potato_arrivals);
+		if(potato_unsold != null)
+			map.put("potato_unsold", potato_unsold);
+		if(onion_arrivals != null)
+			map.put("onion_arrivals", onion_arrivals);
+		if(onion_unsold != null)
+			map.put("onion_unsold", onion_unsold);
 		if(arrival_updated != null)
 			map.put("arrival_updated", arrival_updated);
 		if(arrival_message != null)
@@ -2654,6 +2694,10 @@ public abstract class Basec4t_object extends BaseResource {
 		mandi_main_price = (Double) map.get("mandi_main_price");
 		mandi_secondary_price = (Double) map.get("mandi_secondary_price");
 		arrivals = (Long) map.get("arrivals");
+		potato_arrivals = (Long) map.get("potato_arrivals");
+		potato_unsold = (Long) map.get("potato_unsold");
+		onion_arrivals = (Long) map.get("onion_arrivals");
+		onion_unsold = (Long) map.get("onion_unsold");
 		arrival_updated = (Long) map.get("arrival_updated");
 		arrival_message = (String) map.get("arrival_message");
 		arrival_message_updated = (Long) map.get("arrival_message_updated");
@@ -3516,6 +3560,22 @@ public abstract class Basec4t_object extends BaseResource {
 		Object arrivalsObj = map.get("arrivals");
 		if(arrivalsObj != null)
 			arrivals = new Long(arrivalsObj.toString());
+
+		Object potato_arrivalsObj = map.get("potato_arrivals");
+		if(potato_arrivalsObj != null)
+			potato_arrivals = new Long(potato_arrivalsObj.toString());
+
+		Object potato_unsoldObj = map.get("potato_unsold");
+		if(potato_unsoldObj != null)
+			potato_unsold = new Long(potato_unsoldObj.toString());
+
+		Object onion_arrivalsObj = map.get("onion_arrivals");
+		if(onion_arrivalsObj != null)
+			onion_arrivals = new Long(onion_arrivalsObj.toString());
+
+		Object onion_unsoldObj = map.get("onion_unsold");
+		if(onion_unsoldObj != null)
+			onion_unsold = new Long(onion_unsoldObj.toString());
 
 		Object arrival_updatedObj = map.get("arrival_updated");
 		if(arrival_updatedObj != null)
@@ -7025,6 +7085,86 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetArrivals() {
 		this.arrivals = null;
+	}
+
+	public Long getPotato_arrivals() {
+		return potato_arrivals;
+	}
+
+	public long getPotato_arrivalsEx() {
+		return potato_arrivals != null ? potato_arrivals : 0L;
+	}
+
+	public void setPotato_arrivals(long potato_arrivals) {
+		this.potato_arrivals = potato_arrivals;
+	}
+
+	public void setPotato_arrivals(Long potato_arrivals) {
+		this.potato_arrivals = potato_arrivals;
+	}
+
+	public void unSetPotato_arrivals() {
+		this.potato_arrivals = null;
+	}
+
+	public Long getPotato_unsold() {
+		return potato_unsold;
+	}
+
+	public long getPotato_unsoldEx() {
+		return potato_unsold != null ? potato_unsold : 0L;
+	}
+
+	public void setPotato_unsold(long potato_unsold) {
+		this.potato_unsold = potato_unsold;
+	}
+
+	public void setPotato_unsold(Long potato_unsold) {
+		this.potato_unsold = potato_unsold;
+	}
+
+	public void unSetPotato_unsold() {
+		this.potato_unsold = null;
+	}
+
+	public Long getOnion_arrivals() {
+		return onion_arrivals;
+	}
+
+	public long getOnion_arrivalsEx() {
+		return onion_arrivals != null ? onion_arrivals : 0L;
+	}
+
+	public void setOnion_arrivals(long onion_arrivals) {
+		this.onion_arrivals = onion_arrivals;
+	}
+
+	public void setOnion_arrivals(Long onion_arrivals) {
+		this.onion_arrivals = onion_arrivals;
+	}
+
+	public void unSetOnion_arrivals() {
+		this.onion_arrivals = null;
+	}
+
+	public Long getOnion_unsold() {
+		return onion_unsold;
+	}
+
+	public long getOnion_unsoldEx() {
+		return onion_unsold != null ? onion_unsold : 0L;
+	}
+
+	public void setOnion_unsold(long onion_unsold) {
+		this.onion_unsold = onion_unsold;
+	}
+
+	public void setOnion_unsold(Long onion_unsold) {
+		this.onion_unsold = onion_unsold;
+	}
+
+	public void unSetOnion_unsold() {
+		this.onion_unsold = null;
 	}
 
 	public Long getArrival_updated() {

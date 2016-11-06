@@ -1039,6 +1039,22 @@
 			{
 				'type':'long'
 			},
+			'potato_arrivals':
+			{
+				'type':'long'
+			},
+			'potato_unsold':
+			{
+				'type':'long'
+			},
+			'onion_arrivals':
+			{
+				'type':'long'
+			},
+			'onion_unsold':
+			{
+				'type':'long'
+			},
 			'arrival_updated':
 			{
 				'type':'long'
