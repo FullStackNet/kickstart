@@ -28,7 +28,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String test_name = null;
 	private String test_code = null;
 	private String student_id = null;
+	private String school_id = null;
 	private String student_name = null;
+	private String student_mobile_no = null;
+	private String student_email_id = null;
 	private String subject_id = null;
 	private String test_hindi = null;
 	private String test_english = null;
@@ -87,7 +90,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_TEST_NAME = "test_name";
 	public static String FIELD_TEST_CODE = "test_code";
 	public static String FIELD_STUDENT_ID = "student_id";
+	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_STUDENT_NAME = "student_name";
+	public static String FIELD_STUDENT_MOBILE_NO = "student_mobile_no";
+	public static String FIELD_STUDENT_EMAIL_ID = "student_email_id";
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_TEST_HINDI = "test_hindi";
 	public static String FIELD_TEST_ENGLISH = "test_english";
@@ -180,9 +186,21 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		student_idField.setLength(128);
 		metaData.addField(student_idField);
 
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
+
 		Field student_nameField = new Field("student_name", "String");
 		student_nameField.setLength(128);
 		metaData.addField(student_nameField);
+
+		Field student_mobile_noField = new Field("student_mobile_no", "String");
+		student_mobile_noField.setLength(128);
+		metaData.addField(student_mobile_noField);
+
+		Field student_email_idField = new Field("student_email_id", "String");
+		student_email_idField.setLength(128);
+		metaData.addField(student_email_idField);
 
 		Field subject_idField = new Field("subject_id", "String");
 		subject_idField.setLength(128);
@@ -368,7 +386,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.test_name = obj.test_name;
 		this.test_code = obj.test_code;
 		this.student_id = obj.student_id;
+		this.school_id = obj.school_id;
 		this.student_name = obj.student_name;
+		this.student_mobile_no = obj.student_mobile_no;
+		this.student_email_id = obj.student_email_id;
 		this.subject_id = obj.subject_id;
 		this.test_hindi = obj.test_hindi;
 		this.test_english = obj.test_english;
@@ -443,8 +464,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("test_code", test_code);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(student_name != null)
 			map.put("student_name", student_name);
+		if(student_mobile_no != null)
+			map.put("student_mobile_no", student_mobile_no);
+		if(student_email_id != null)
+			map.put("student_email_id", student_email_id);
 		if(subject_id != null)
 			map.put("subject_id", subject_id);
 		if(test_hindi != null)
@@ -564,8 +591,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("test_code", test_code);
 		if(student_id != null)
 			map.put("student_id", student_id);
+		if(school_id != null)
+			map.put("school_id", school_id);
 		if(student_name != null)
 			map.put("student_name", student_name);
+		if(student_mobile_no != null)
+			map.put("student_mobile_no", student_mobile_no);
+		if(student_email_id != null)
+			map.put("student_email_id", student_email_id);
 		if(subject_id != null)
 			map.put("subject_id", subject_id);
 		if(test_hindi != null)
@@ -681,7 +714,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		test_name = (String) map.get("test_name");
 		test_code = (String) map.get("test_code");
 		student_id = (String) map.get("student_id");
+		school_id = (String) map.get("school_id");
 		student_name = (String) map.get("student_name");
+		student_mobile_no = (String) map.get("student_mobile_no");
+		student_email_id = (String) map.get("student_email_id");
 		subject_id = (String) map.get("subject_id");
 		test_hindi = (String) map.get("test_hindi");
 		test_english = (String) map.get("test_english");
@@ -770,9 +806,21 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		if(student_idObj != null)
 			student_id = student_idObj.toString();
 
+		Object school_idObj = map.get("school_id");
+		if(school_idObj != null)
+			school_id = school_idObj.toString();
+
 		Object student_nameObj = map.get("student_name");
 		if(student_nameObj != null)
 			student_name = student_nameObj.toString();
+
+		Object student_mobile_noObj = map.get("student_mobile_no");
+		if(student_mobile_noObj != null)
+			student_mobile_no = student_mobile_noObj.toString();
+
+		Object student_email_idObj = map.get("student_email_id");
+		if(student_email_idObj != null)
+			student_email_id = student_email_idObj.toString();
 
 		Object subject_idObj = map.get("subject_id");
 		if(subject_idObj != null)
@@ -1121,6 +1169,22 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.student_id = null;
 	}
 
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
+	}
+
 	public String getStudent_name() {
 		return student_name;
 	}
@@ -1135,6 +1199,38 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetStudent_name() {
 		this.student_name = null;
+	}
+
+	public String getStudent_mobile_no() {
+		return student_mobile_no;
+	}
+
+	public String getStudent_mobile_noEx() {
+		return student_mobile_no != null ? student_mobile_no : "";
+	}
+
+	public void setStudent_mobile_no(String student_mobile_no) {
+		this.student_mobile_no = student_mobile_no;
+	}
+
+	public void unSetStudent_mobile_no() {
+		this.student_mobile_no = null;
+	}
+
+	public String getStudent_email_id() {
+		return student_email_id;
+	}
+
+	public String getStudent_email_idEx() {
+		return student_email_id != null ? student_email_id : "";
+	}
+
+	public void setStudent_email_id(String student_email_id) {
+		this.student_email_id = student_email_id;
+	}
+
+	public void unSetStudent_email_id() {
+		this.student_email_id = null;
 	}
 
 	public String getSubject_id() {

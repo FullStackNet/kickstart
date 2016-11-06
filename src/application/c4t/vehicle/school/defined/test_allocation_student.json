@@ -51,7 +51,22 @@
 				'type':'String',
 				'length': 128
 			},
+			'school_id':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'student_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'student_mobile_no':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'student_email_id':
 			{
 				'type':'String',
 				'length': 128
