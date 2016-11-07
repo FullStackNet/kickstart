@@ -83,6 +83,7 @@ public abstract class Baseuser extends BaseResource {
 	private String feature_report_card = null;
 	private String feature_account = null;
 	private String feature_fees_approval = null;
+	private String request_category = null;
 	private String feature_fees_report = null;
 	private Map<String, Object> extra_data = null;
 
@@ -150,6 +151,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_FEATURE_REPORT_CARD = "feature_report_card";
 	public static String FIELD_FEATURE_ACCOUNT = "feature_account";
 	public static String FIELD_FEATURE_FEES_APPROVAL = "feature_fees_approval";
+	public static String FIELD_REQUEST_CATEGORY = "request_category";
 	public static String FIELD_FEATURE_FEES_REPORT = "feature_fees_report";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -454,6 +456,10 @@ public abstract class Baseuser extends BaseResource {
 		feature_fees_approvalField.setLength(1);
 		metaData.addField(feature_fees_approvalField);
 
+		Field request_categoryField = new Field("request_category", "String");
+		request_categoryField.setLength(128);
+		metaData.addField(request_categoryField);
+
 		Field feature_fees_reportField = new Field("feature_fees_report", "String");
 		feature_fees_reportField.setDefaultValue("N");
 		feature_fees_reportField.setLength(1);
@@ -536,6 +542,7 @@ public abstract class Baseuser extends BaseResource {
 		this.feature_report_card = obj.feature_report_card;
 		this.feature_account = obj.feature_account;
 		this.feature_fees_approval = obj.feature_fees_approval;
+		this.request_category = obj.request_category;
 		this.feature_fees_report = obj.feature_fees_report;
 		this.extra_data = obj.extra_data;
 	}
@@ -769,6 +776,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_account", feature_account);
 		if(feature_fees_approval != null)
 			map.put("feature_fees_approval", feature_fees_approval);
+		if(request_category != null)
+			map.put("request_category", request_category);
 		if(feature_fees_report != null)
 			map.put("feature_fees_report", feature_fees_report);
 		if(extra_data != null)
@@ -909,6 +918,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_account", feature_account);
 		if(feature_fees_approval != null)
 			map.put("feature_fees_approval", feature_fees_approval);
+		if(request_category != null)
+			map.put("request_category", request_category);
 		if(feature_fees_report != null)
 			map.put("feature_fees_report", feature_fees_report);
 		if(extra_data != null)
@@ -984,6 +995,7 @@ public abstract class Baseuser extends BaseResource {
 		feature_report_card = (String) map.get("feature_report_card");
 		feature_account = (String) map.get("feature_account");
 		feature_fees_approval = (String) map.get("feature_fees_approval");
+		request_category = (String) map.get("request_category");
 		feature_fees_report = (String) map.get("feature_fees_report");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1233,6 +1245,10 @@ public abstract class Baseuser extends BaseResource {
 		Object feature_fees_approvalObj = map.get("feature_fees_approval");
 		if(feature_fees_approvalObj != null)
 			feature_fees_approval = feature_fees_approvalObj.toString();
+
+		Object request_categoryObj = map.get("request_category");
+		if(request_categoryObj != null)
+			request_category = request_categoryObj.toString();
 
 		Object feature_fees_reportObj = map.get("feature_fees_report");
 		if(feature_fees_reportObj != null)
@@ -2112,6 +2128,22 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetFeature_fees_approval() {
 		this.feature_fees_approval = "N";
+	}
+
+	public String getRequest_category() {
+		return request_category;
+	}
+
+	public String getRequest_categoryEx() {
+		return request_category != null ? request_category : "";
+	}
+
+	public void setRequest_category(String request_category) {
+		this.request_category = request_category;
+	}
+
+	public void unSetRequest_category() {
+		this.request_category = null;
 	}
 
 	public String getFeature_fees_report() {

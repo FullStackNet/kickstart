@@ -394,6 +394,11 @@
 				'default' : "N",
 				'type':'String'
 			},
+			'request_category':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'feature_fees_report':
 			{
 				'length': 1,
