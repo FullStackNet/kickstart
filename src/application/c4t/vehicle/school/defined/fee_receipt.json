@@ -97,6 +97,11 @@
 				'type': 'String',
 				'length' : 128
 			},
+			'approval_date':
+			{
+				'type': 'String',
+				'length' : 128
+			},
 			'cheque_status':
 			{
 				'type': 'String',

@@ -36,6 +36,7 @@ public abstract class Basefee_receipt extends BaseResource {
 	private String bank_name = null;
 	private String cheque_no = null;
 	private String cheque_date = null;
+	private String approval_date = null;
 	private String cheque_status = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -57,6 +58,7 @@ public abstract class Basefee_receipt extends BaseResource {
 	public static String FIELD_BANK_NAME = "bank_name";
 	public static String FIELD_CHEQUE_NO = "cheque_no";
 	public static String FIELD_CHEQUE_DATE = "cheque_date";
+	public static String FIELD_APPROVAL_DATE = "approval_date";
 	public static String FIELD_CHEQUE_STATUS = "cheque_status";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -141,6 +143,10 @@ public abstract class Basefee_receipt extends BaseResource {
 		cheque_dateField.setLength(128);
 		metaData.addField(cheque_dateField);
 
+		Field approval_dateField = new Field("approval_date", "String");
+		approval_dateField.setLength(128);
+		metaData.addField(approval_dateField);
+
 		Field cheque_statusField = new Field("cheque_status", "String");
 		cheque_statusField.setLength(128);
 		metaData.addField(cheque_statusField);
@@ -178,6 +184,7 @@ public abstract class Basefee_receipt extends BaseResource {
 		this.bank_name = obj.bank_name;
 		this.cheque_no = obj.cheque_no;
 		this.cheque_date = obj.cheque_date;
+		this.approval_date = obj.approval_date;
 		this.cheque_status = obj.cheque_status;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -223,6 +230,8 @@ public abstract class Basefee_receipt extends BaseResource {
 			map.put("cheque_no", cheque_no);
 		if(cheque_date != null)
 			map.put("cheque_date", cheque_date);
+		if(approval_date != null)
+			map.put("approval_date", approval_date);
 		if(cheque_status != null)
 			map.put("cheque_status", cheque_status);
 		if(creation_time != null)
@@ -268,6 +277,8 @@ public abstract class Basefee_receipt extends BaseResource {
 			map.put("cheque_no", cheque_no);
 		if(cheque_date != null)
 			map.put("cheque_date", cheque_date);
+		if(approval_date != null)
+			map.put("approval_date", approval_date);
 		if(cheque_status != null)
 			map.put("cheque_status", cheque_status);
 		if(creation_time != null)
@@ -301,6 +312,7 @@ public abstract class Basefee_receipt extends BaseResource {
 		bank_name = (String) map.get("bank_name");
 		cheque_no = (String) map.get("cheque_no");
 		cheque_date = (String) map.get("cheque_date");
+		approval_date = (String) map.get("approval_date");
 		cheque_status = (String) map.get("cheque_status");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -375,6 +387,10 @@ public abstract class Basefee_receipt extends BaseResource {
 		Object cheque_dateObj = map.get("cheque_date");
 		if(cheque_dateObj != null)
 			cheque_date = cheque_dateObj.toString();
+
+		Object approval_dateObj = map.get("approval_date");
+		if(approval_dateObj != null)
+			approval_date = approval_dateObj.toString();
 
 		Object cheque_statusObj = map.get("cheque_status");
 		if(cheque_statusObj != null)
@@ -677,6 +693,22 @@ public abstract class Basefee_receipt extends BaseResource {
 
 	public void unSetCheque_date() {
 		this.cheque_date = null;
+	}
+
+	public String getApproval_date() {
+		return approval_date;
+	}
+
+	public String getApproval_dateEx() {
+		return approval_date != null ? approval_date : "";
+	}
+
+	public void setApproval_date(String approval_date) {
+		this.approval_date = approval_date;
+	}
+
+	public void unSetApproval_date() {
+		this.approval_date = null;
 	}
 
 	public String getCheque_status() {
