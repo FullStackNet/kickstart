@@ -52,6 +52,7 @@ public abstract class Basetest extends BaseResource {
 	private Long total_test_marks = null;
 	private Long average_duration = null;
 	private Long min_duration = null;
+	private String multi_choice = null;
 	private String published = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -89,6 +90,7 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_TOTAL_TEST_MARKS = "total_test_marks";
 	public static String FIELD_AVERAGE_DURATION = "average_duration";
 	public static String FIELD_MIN_DURATION = "min_duration";
+	public static String FIELD_MULTI_CHOICE = "multi_choice";
 	public static String FIELD_PUBLISHED = "published";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -214,6 +216,10 @@ public abstract class Basetest extends BaseResource {
 		Field min_durationField = new Field("min_duration", "long");
 		metaData.addField(min_durationField);
 
+		Field multi_choiceField = new Field("multi_choice", "String");
+		multi_choiceField.setLength(1);
+		metaData.addField(multi_choiceField);
+
 		Field publishedField = new Field("published", "String");
 		publishedField.setLength(1);
 		metaData.addField(publishedField);
@@ -267,6 +273,7 @@ public abstract class Basetest extends BaseResource {
 		this.total_test_marks = obj.total_test_marks;
 		this.average_duration = obj.average_duration;
 		this.min_duration = obj.min_duration;
+		this.multi_choice = obj.multi_choice;
 		this.published = obj.published;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -344,6 +351,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("average_duration", average_duration);
 		if(min_duration != null)
 			map.put("min_duration", min_duration);
+		if(multi_choice != null)
+			map.put("multi_choice", multi_choice);
 		if(published != null)
 			map.put("published", published);
 		if(creation_time != null)
@@ -421,6 +430,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("average_duration", average_duration);
 		if(min_duration != null)
 			map.put("min_duration", min_duration);
+		if(multi_choice != null)
+			map.put("multi_choice", multi_choice);
 		if(published != null)
 			map.put("published", published);
 		if(creation_time != null)
@@ -470,6 +481,7 @@ public abstract class Basetest extends BaseResource {
 		total_test_marks = (Long) map.get("total_test_marks");
 		average_duration = (Long) map.get("average_duration");
 		min_duration = (Long) map.get("min_duration");
+		multi_choice = (String) map.get("multi_choice");
 		published = (String) map.get("published");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -608,6 +620,10 @@ public abstract class Basetest extends BaseResource {
 		Object min_durationObj = map.get("min_duration");
 		if(min_durationObj != null)
 			min_duration = new Long(min_durationObj.toString());
+
+		Object multi_choiceObj = map.get("multi_choice");
+		if(multi_choiceObj != null)
+			multi_choice = multi_choiceObj.toString();
 
 		Object publishedObj = map.get("published");
 		if(publishedObj != null)
@@ -1191,6 +1207,22 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetMin_duration() {
 		this.min_duration = null;
+	}
+
+	public String getMulti_choice() {
+		return multi_choice;
+	}
+
+	public String getMulti_choiceEx() {
+		return multi_choice != null ? multi_choice : "";
+	}
+
+	public void setMulti_choice(String multi_choice) {
+		this.multi_choice = multi_choice;
+	}
+
+	public void unSetMulti_choice() {
+		this.multi_choice = null;
 	}
 
 	public String getPublished() {

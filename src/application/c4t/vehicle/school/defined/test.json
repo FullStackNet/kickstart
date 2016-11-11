@@ -169,6 +169,11 @@
 			{
 				'type':'long'
 			},
+			'multi_choice':
+			{
+				'type':'String',
+				'length': 1			
+			},
 			'published':
 			{
 				'type':'String',

@@ -69,6 +69,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private Long total_wrong_answers = null;
 	private Long total_not_attended = null;
 	private String status = null;
+	private String multi_choice = null;
 	private String show_result = null;
 	private Long result_date = null;
 	private String result_date_s = null;
@@ -131,6 +132,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_TOTAL_WRONG_ANSWERS = "total_wrong_answers";
 	public static String FIELD_TOTAL_NOT_ATTENDED = "total_not_attended";
 	public static String FIELD_STATUS = "status";
+	public static String FIELD_MULTI_CHOICE = "multi_choice";
 	public static String FIELD_SHOW_RESULT = "show_result";
 	public static String FIELD_RESULT_DATE = "result_date";
 	public static String FIELD_RESULT_DATE_S = "result_date_s";
@@ -332,6 +334,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		statusField.setLength(1);
 		metaData.addField(statusField);
 
+		Field multi_choiceField = new Field("multi_choice", "String");
+		multi_choiceField.setLength(1);
+		metaData.addField(multi_choiceField);
+
 		Field show_resultField = new Field("show_result", "String");
 		show_resultField.setLength(1);
 		metaData.addField(show_resultField);
@@ -427,6 +433,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.total_wrong_answers = obj.total_wrong_answers;
 		this.total_not_attended = obj.total_not_attended;
 		this.status = obj.status;
+		this.multi_choice = obj.multi_choice;
 		this.show_result = obj.show_result;
 		this.result_date = obj.result_date;
 		this.result_date_s = obj.result_date_s;
@@ -546,6 +553,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("total_not_attended", total_not_attended);
 		if(status != null)
 			map.put("status", status);
+		if(multi_choice != null)
+			map.put("multi_choice", multi_choice);
 		if(show_result != null)
 			map.put("show_result", show_result);
 		if(result_date != null)
@@ -673,6 +682,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("total_not_attended", total_not_attended);
 		if(status != null)
 			map.put("status", status);
+		if(multi_choice != null)
+			map.put("multi_choice", multi_choice);
 		if(show_result != null)
 			map.put("show_result", show_result);
 		if(result_date != null)
@@ -755,6 +766,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		total_wrong_answers = (Long) map.get("total_wrong_answers");
 		total_not_attended = (Long) map.get("total_not_attended");
 		status = (String) map.get("status");
+		multi_choice = (String) map.get("multi_choice");
 		show_result = (String) map.get("show_result");
 		result_date = (Long) map.get("result_date");
 		result_date_s = (String) map.get("result_date_s");
@@ -969,6 +981,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object statusObj = map.get("status");
 		if(statusObj != null)
 			status = statusObj.toString();
+
+		Object multi_choiceObj = map.get("multi_choice");
+		if(multi_choiceObj != null)
+			multi_choice = multi_choiceObj.toString();
 
 		Object show_resultObj = map.get("show_result");
 		if(show_resultObj != null)
@@ -1850,6 +1866,22 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetStatus() {
 		this.status = null;
+	}
+
+	public String getMulti_choice() {
+		return multi_choice;
+	}
+
+	public String getMulti_choiceEx() {
+		return multi_choice != null ? multi_choice : "";
+	}
+
+	public void setMulti_choice(String multi_choice) {
+		this.multi_choice = multi_choice;
+	}
+
+	public void unSetMulti_choice() {
+		this.multi_choice = null;
 	}
 
 	public String getShow_result() {

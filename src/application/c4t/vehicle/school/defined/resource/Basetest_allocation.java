@@ -22,6 +22,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	private String id = null;
 	private String allocation_type = null;
 	private String teacher_id = null;
+	private String multi_choice = null;
 	private String teacher_name = null;
 	private String test_id = null;
 	private String test_name = null;
@@ -57,6 +58,7 @@ public abstract class Basetest_allocation extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_ALLOCATION_TYPE = "allocation_type";
 	public static String FIELD_TEACHER_ID = "teacher_id";
+	public static String FIELD_MULTI_CHOICE = "multi_choice";
 	public static String FIELD_TEACHER_NAME = "teacher_name";
 	public static String FIELD_TEST_ID = "test_id";
 	public static String FIELD_TEST_NAME = "test_name";
@@ -107,6 +109,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		Field teacher_idField = new Field("teacher_id", "String");
 		teacher_idField.setLength(128);
 		metaData.addField(teacher_idField);
+
+		Field multi_choiceField = new Field("multi_choice", "String");
+		multi_choiceField.setLength(1);
+		metaData.addField(multi_choiceField);
 
 		Field teacher_nameField = new Field("teacher_name", "String");
 		teacher_nameField.setLength(128);
@@ -234,6 +240,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		this.id = obj.id;
 		this.allocation_type = obj.allocation_type;
 		this.teacher_id = obj.teacher_id;
+		this.multi_choice = obj.multi_choice;
 		this.teacher_name = obj.teacher_name;
 		this.test_id = obj.test_id;
 		this.test_name = obj.test_name;
@@ -279,6 +286,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("allocation_type", allocation_type);
 		if(teacher_id != null)
 			map.put("teacher_id", teacher_id);
+		if(multi_choice != null)
+			map.put("multi_choice", multi_choice);
 		if(teacher_name != null)
 			map.put("teacher_name", teacher_name);
 		if(test_id != null)
@@ -352,6 +361,8 @@ public abstract class Basetest_allocation extends BaseResource {
 			map.put("allocation_type", allocation_type);
 		if(teacher_id != null)
 			map.put("teacher_id", teacher_id);
+		if(multi_choice != null)
+			map.put("multi_choice", multi_choice);
 		if(teacher_name != null)
 			map.put("teacher_name", teacher_name);
 		if(test_id != null)
@@ -427,6 +438,7 @@ public abstract class Basetest_allocation extends BaseResource {
 		id = (String) map.get("id");
 		allocation_type = (String) map.get("allocation_type");
 		teacher_id = (String) map.get("teacher_id");
+		multi_choice = (String) map.get("multi_choice");
 		teacher_name = (String) map.get("teacher_name");
 		test_id = (String) map.get("test_id");
 		test_name = (String) map.get("test_name");
@@ -473,6 +485,10 @@ public abstract class Basetest_allocation extends BaseResource {
 		Object teacher_idObj = map.get("teacher_id");
 		if(teacher_idObj != null)
 			teacher_id = teacher_idObj.toString();
+
+		Object multi_choiceObj = map.get("multi_choice");
+		if(multi_choiceObj != null)
+			multi_choice = multi_choiceObj.toString();
 
 		Object teacher_nameObj = map.get("teacher_name");
 		if(teacher_nameObj != null)
@@ -655,6 +671,22 @@ public abstract class Basetest_allocation extends BaseResource {
 
 	public void unSetTeacher_id() {
 		this.teacher_id = null;
+	}
+
+	public String getMulti_choice() {
+		return multi_choice;
+	}
+
+	public String getMulti_choiceEx() {
+		return multi_choice != null ? multi_choice : "";
+	}
+
+	public void setMulti_choice(String multi_choice) {
+		this.multi_choice = multi_choice;
+	}
+
+	public void unSetMulti_choice() {
+		this.multi_choice = null;
 	}
 
 	public String getTeacher_name() {

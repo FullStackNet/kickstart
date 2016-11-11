@@ -243,6 +243,11 @@
 				'type':'String',
 				'length': 1
 			},
+			'multi_choice':
+			{
+				'type':'String',
+				'length': 1			
+			},
 			'total_time_in_min':
 			{
 				'type':'long'
