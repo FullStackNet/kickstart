@@ -774,6 +774,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'auction_status':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'user_id':
 			{
 				'type':'String',
