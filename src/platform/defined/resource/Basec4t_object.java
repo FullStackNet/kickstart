@@ -237,6 +237,10 @@ public abstract class Basec4t_object extends BaseResource {
 	private Long potato_unsold = null;
 	private Long onion_arrivals = null;
 	private Long onion_unsold = null;
+	private Double onion_min_rate = null;
+	private Double onion_max_rate = null;
+	private Double potato_min_rate = null;
+	private Double potato_max_rate = null;
 	private Long arrival_updated = null;
 	private String arrival_message = null;
 	private Long arrival_message_updated = null;
@@ -465,6 +469,10 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_POTATO_UNSOLD = "potato_unsold";
 	public static String FIELD_ONION_ARRIVALS = "onion_arrivals";
 	public static String FIELD_ONION_UNSOLD = "onion_unsold";
+	public static String FIELD_ONION_MIN_RATE = "onion_min_rate";
+	public static String FIELD_ONION_MAX_RATE = "onion_max_rate";
+	public static String FIELD_POTATO_MIN_RATE = "potato_min_rate";
+	public static String FIELD_POTATO_MAX_RATE = "potato_max_rate";
 	public static String FIELD_ARRIVAL_UPDATED = "arrival_updated";
 	public static String FIELD_ARRIVAL_MESSAGE = "arrival_message";
 	public static String FIELD_ARRIVAL_MESSAGE_UPDATED = "arrival_message_updated";
@@ -1314,6 +1322,18 @@ public abstract class Basec4t_object extends BaseResource {
 		Field onion_unsoldField = new Field("onion_unsold", "long");
 		metaData.addField(onion_unsoldField);
 
+		Field onion_min_rateField = new Field("onion_min_rate", "double");
+		metaData.addField(onion_min_rateField);
+
+		Field onion_max_rateField = new Field("onion_max_rate", "double");
+		metaData.addField(onion_max_rateField);
+
+		Field potato_min_rateField = new Field("potato_min_rate", "double");
+		metaData.addField(potato_min_rateField);
+
+		Field potato_max_rateField = new Field("potato_max_rate", "double");
+		metaData.addField(potato_max_rateField);
+
 		Field arrival_updatedField = new Field("arrival_updated", "long");
 		metaData.addField(arrival_updatedField);
 
@@ -1574,6 +1594,10 @@ public abstract class Basec4t_object extends BaseResource {
 		this.potato_unsold = obj.potato_unsold;
 		this.onion_arrivals = obj.onion_arrivals;
 		this.onion_unsold = obj.onion_unsold;
+		this.onion_min_rate = obj.onion_min_rate;
+		this.onion_max_rate = obj.onion_max_rate;
+		this.potato_min_rate = obj.potato_min_rate;
+		this.potato_max_rate = obj.potato_max_rate;
 		this.arrival_updated = obj.arrival_updated;
 		this.arrival_message = obj.arrival_message;
 		this.arrival_message_updated = obj.arrival_message_updated;
@@ -2027,6 +2051,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("onion_arrivals", onion_arrivals);
 		if(onion_unsold != null)
 			map.put("onion_unsold", onion_unsold);
+		if(onion_min_rate != null)
+			map.put("onion_min_rate", onion_min_rate);
+		if(onion_max_rate != null)
+			map.put("onion_max_rate", onion_max_rate);
+		if(potato_min_rate != null)
+			map.put("potato_min_rate", potato_min_rate);
+		if(potato_max_rate != null)
+			map.put("potato_max_rate", potato_max_rate);
 		if(arrival_updated != null)
 			map.put("arrival_updated", arrival_updated);
 		if(arrival_message != null)
@@ -2486,6 +2518,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("onion_arrivals", onion_arrivals);
 		if(onion_unsold != null)
 			map.put("onion_unsold", onion_unsold);
+		if(onion_min_rate != null)
+			map.put("onion_min_rate", onion_min_rate);
+		if(onion_max_rate != null)
+			map.put("onion_max_rate", onion_max_rate);
+		if(potato_min_rate != null)
+			map.put("potato_min_rate", potato_min_rate);
+		if(potato_max_rate != null)
+			map.put("potato_max_rate", potato_max_rate);
 		if(arrival_updated != null)
 			map.put("arrival_updated", arrival_updated);
 		if(arrival_message != null)
@@ -2732,6 +2772,10 @@ public abstract class Basec4t_object extends BaseResource {
 		potato_unsold = (Long) map.get("potato_unsold");
 		onion_arrivals = (Long) map.get("onion_arrivals");
 		onion_unsold = (Long) map.get("onion_unsold");
+		onion_min_rate = (Double) map.get("onion_min_rate");
+		onion_max_rate = (Double) map.get("onion_max_rate");
+		potato_min_rate = (Double) map.get("potato_min_rate");
+		potato_max_rate = (Double) map.get("potato_max_rate");
 		arrival_updated = (Long) map.get("arrival_updated");
 		arrival_message = (String) map.get("arrival_message");
 		arrival_message_updated = (Long) map.get("arrival_message_updated");
@@ -3616,6 +3660,22 @@ public abstract class Basec4t_object extends BaseResource {
 		Object onion_unsoldObj = map.get("onion_unsold");
 		if(onion_unsoldObj != null)
 			onion_unsold = new Long(onion_unsoldObj.toString());
+
+		Object onion_min_rateObj = map.get("onion_min_rate");
+		if(onion_min_rateObj != null)
+			onion_min_rate = new Double(onion_min_rateObj.toString());
+
+		Object onion_max_rateObj = map.get("onion_max_rate");
+		if(onion_max_rateObj != null)
+			onion_max_rate = new Double(onion_max_rateObj.toString());
+
+		Object potato_min_rateObj = map.get("potato_min_rate");
+		if(potato_min_rateObj != null)
+			potato_min_rate = new Double(potato_min_rateObj.toString());
+
+		Object potato_max_rateObj = map.get("potato_max_rate");
+		if(potato_max_rateObj != null)
+			potato_max_rate = new Double(potato_max_rateObj.toString());
 
 		Object arrival_updatedObj = map.get("arrival_updated");
 		if(arrival_updatedObj != null)
@@ -7229,6 +7289,86 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetOnion_unsold() {
 		this.onion_unsold = null;
+	}
+
+	public Double getOnion_min_rate() {
+		return onion_min_rate;
+	}
+
+	public double getOnion_min_rateEx() {
+		return onion_min_rate != null ? onion_min_rate : 0;
+	}
+
+	public void setOnion_min_rate(double onion_min_rate) {
+		this.onion_min_rate = onion_min_rate;
+	}
+
+	public void setOnion_min_rate(Double onion_min_rate) {
+		this.onion_min_rate = onion_min_rate;
+	}
+
+	public void unSetOnion_min_rate() {
+		this.onion_min_rate = null;
+	}
+
+	public Double getOnion_max_rate() {
+		return onion_max_rate;
+	}
+
+	public double getOnion_max_rateEx() {
+		return onion_max_rate != null ? onion_max_rate : 0;
+	}
+
+	public void setOnion_max_rate(double onion_max_rate) {
+		this.onion_max_rate = onion_max_rate;
+	}
+
+	public void setOnion_max_rate(Double onion_max_rate) {
+		this.onion_max_rate = onion_max_rate;
+	}
+
+	public void unSetOnion_max_rate() {
+		this.onion_max_rate = null;
+	}
+
+	public Double getPotato_min_rate() {
+		return potato_min_rate;
+	}
+
+	public double getPotato_min_rateEx() {
+		return potato_min_rate != null ? potato_min_rate : 0;
+	}
+
+	public void setPotato_min_rate(double potato_min_rate) {
+		this.potato_min_rate = potato_min_rate;
+	}
+
+	public void setPotato_min_rate(Double potato_min_rate) {
+		this.potato_min_rate = potato_min_rate;
+	}
+
+	public void unSetPotato_min_rate() {
+		this.potato_min_rate = null;
+	}
+
+	public Double getPotato_max_rate() {
+		return potato_max_rate;
+	}
+
+	public double getPotato_max_rateEx() {
+		return potato_max_rate != null ? potato_max_rate : 0;
+	}
+
+	public void setPotato_max_rate(double potato_max_rate) {
+		this.potato_max_rate = potato_max_rate;
+	}
+
+	public void setPotato_max_rate(Double potato_max_rate) {
+		this.potato_max_rate = potato_max_rate;
+	}
+
+	public void unSetPotato_max_rate() {
+		this.potato_max_rate = null;
 	}
 
 	public Long getArrival_updated() {

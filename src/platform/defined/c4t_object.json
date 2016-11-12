@@ -1060,6 +1060,22 @@
 			{
 				'type':'long'
 			},
+			'onion_min_rate':
+			{
+				'type':'double'
+			},
+			'onion_max_rate':
+			{
+				'type':'double'
+			},
+			'potato_min_rate':
+			{
+				'type':'double'
+			},
+			'potato_max_rate':
+			{
+				'type':'double'
+			},
 			'arrival_updated':
 			{
 				'type':'long'
