@@ -174,6 +174,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String reference_name = null;
 	private String release = null;
 	private String priority = null;
+	private String auction_status = null;
 	private String user_id = null;
 	private String user_name = null;
 	private String verified = null;
@@ -401,6 +402,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_REFERENCE_NAME = "reference_name";
 	public static String FIELD_RELEASE = "release";
 	public static String FIELD_PRIORITY = "priority";
+	public static String FIELD_AUCTION_STATUS = "auction_status";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_VERIFIED = "verified";
@@ -1089,6 +1091,10 @@ public abstract class Basec4t_object extends BaseResource {
 		priorityField.setLength(128);
 		metaData.addField(priorityField);
 
+		Field auction_statusField = new Field("auction_status", "String");
+		auction_statusField.setLength(128);
+		metaData.addField(auction_statusField);
+
 		Field user_idField = new Field("user_id", "String");
 		user_idField.setLength(128);
 		metaData.addField(user_idField);
@@ -1505,6 +1511,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.reference_name = obj.reference_name;
 		this.release = obj.release;
 		this.priority = obj.priority;
+		this.auction_status = obj.auction_status;
 		this.user_id = obj.user_id;
 		this.user_name = obj.user_name;
 		this.verified = obj.verified;
@@ -1894,6 +1901,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("release", release);
 		if(priority != null)
 			map.put("priority", priority);
+		if(auction_status != null)
+			map.put("auction_status", auction_status);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(user_name != null)
@@ -2351,6 +2360,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("release", release);
 		if(priority != null)
 			map.put("priority", priority);
+		if(auction_status != null)
+			map.put("auction_status", auction_status);
 		if(user_id != null)
 			map.put("user_id", user_id);
 		if(user_name != null)
@@ -2658,6 +2669,7 @@ public abstract class Basec4t_object extends BaseResource {
 		reference_name = (String) map.get("reference_name");
 		release = (String) map.get("release");
 		priority = (String) map.get("priority");
+		auction_status = (String) map.get("auction_status");
 		user_id = (String) map.get("user_id");
 		user_name = (String) map.get("user_name");
 		verified = (String) map.get("verified");
@@ -3352,6 +3364,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object priorityObj = map.get("priority");
 		if(priorityObj != null)
 			priority = priorityObj.toString();
+
+		Object auction_statusObj = map.get("auction_status");
+		if(auction_statusObj != null)
+			auction_status = auction_statusObj.toString();
 
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)
@@ -6202,6 +6218,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetPriority() {
 		this.priority = null;
+	}
+
+	public String getAuction_status() {
+		return auction_status;
+	}
+
+	public String getAuction_statusEx() {
+		return auction_status != null ? auction_status : "";
+	}
+
+	public void setAuction_status(String auction_status) {
+		this.auction_status = auction_status;
+	}
+
+	public void unSetAuction_status() {
+		this.auction_status = null;
 	}
 
 	public String getUser_id() {
