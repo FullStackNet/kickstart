@@ -91,13 +91,13 @@ public class CorporateTestCreateMenuView extends BaseView {
 		li.addChild(a);
 		
 		
-		li = new LI(null,"");
+		/*li = new LI(null,"");
 		ul.addChild(li);
 		a = new A();
 		a.setText("<div><i class=\"fa fa-institution\"></i></div><div> Create New Branch</div>");
 		a.setHref("/ui/corporate_test_branch?op=add");
 		li.addChild(a);
-		
+		*/
 		li = new LI(null,"");
 		ul.addChild(li);
 		a = new A();

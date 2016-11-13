@@ -1,5 +1,8 @@
 package platform.webservice.ui.view;
 
+import application.c4t.vehicle.school.helper.SchoolHelper;
+import application.c4t.vehicle.school.resource.school;
+import platform.resource.BaseResource;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.component.BaseView;
 import platform.webservice.ui.html.A;
@@ -60,12 +63,8 @@ public class CorporateTestMenuView extends BaseView {
 		UL ul = new UL(null,"no-margin clearfix main_menu_ul");
 		div.addChild(ul);
 		
-		LI li = new LI(null,"");
-		ul.addChild(li);
-		A a = new A();
-		a.setText("<i class=\"fa fa-institution\"></i> Branch");
-		a.setHref("/ui/corporate_test_branch");
-		li.addChild(a);
+		LI li;
+		A a;
 		
 		li = new LI(null,"");
 		ul.addChild(li);
@@ -81,5 +80,13 @@ public class CorporateTestMenuView extends BaseView {
 		a.setHref("/ui/corporate_test");
 		li.addChild(a);
 		
+		BaseResource[] resources = SchoolHelper.getInstance().getByCustomerId(mContext.getCustomerId(),new String[]{school.FIELD_NAME});
+		
+		li = new LI(null,"");
+		ul.addChild(li);
+		a = new A();
+		a.setText("<i class=\"fa fa-institution\"></i> Setting");
+		a.setHref("/ui/corporate_test_branch?op=modify&id="+resources[0].getId()+"&no_list=yes");
+		li.addChild(a);
 	}
 }
