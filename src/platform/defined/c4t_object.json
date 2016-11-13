@@ -1088,6 +1088,22 @@
 			{
 				'type':'long'
 			},
+			'onion_arrival_message':
+			{
+				'type':'String'
+			},
+			'onion_arrival_message_updated':
+			{
+				'type':'long'
+			},
+			'potato_arrival_message':
+			{
+				'type':'String'
+			},
+			'potato_arrival_message_updated':
+			{
+				'type':'long'
+			},
 			'potato_business':
 			{
 				'type':'String',

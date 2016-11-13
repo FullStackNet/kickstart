@@ -244,6 +244,10 @@ public abstract class Basec4t_object extends BaseResource {
 	private Long arrival_updated = null;
 	private String arrival_message = null;
 	private Long arrival_message_updated = null;
+	private String onion_arrival_message = null;
+	private Long onion_arrival_message_updated = null;
+	private String potato_arrival_message = null;
+	private Long potato_arrival_message_updated = null;
 	private String potato_business = null;
 	private String onion_business = null;
 	private String valid_mandi_main_imie = null;
@@ -476,6 +480,10 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ARRIVAL_UPDATED = "arrival_updated";
 	public static String FIELD_ARRIVAL_MESSAGE = "arrival_message";
 	public static String FIELD_ARRIVAL_MESSAGE_UPDATED = "arrival_message_updated";
+	public static String FIELD_ONION_ARRIVAL_MESSAGE = "onion_arrival_message";
+	public static String FIELD_ONION_ARRIVAL_MESSAGE_UPDATED = "onion_arrival_message_updated";
+	public static String FIELD_POTATO_ARRIVAL_MESSAGE = "potato_arrival_message";
+	public static String FIELD_POTATO_ARRIVAL_MESSAGE_UPDATED = "potato_arrival_message_updated";
 	public static String FIELD_POTATO_BUSINESS = "potato_business";
 	public static String FIELD_ONION_BUSINESS = "onion_business";
 	public static String FIELD_VALID_MANDI_MAIN_IMIE = "valid_mandi_main_imie";
@@ -1343,6 +1351,18 @@ public abstract class Basec4t_object extends BaseResource {
 		Field arrival_message_updatedField = new Field("arrival_message_updated", "long");
 		metaData.addField(arrival_message_updatedField);
 
+		Field onion_arrival_messageField = new Field("onion_arrival_message", "String");
+		metaData.addField(onion_arrival_messageField);
+
+		Field onion_arrival_message_updatedField = new Field("onion_arrival_message_updated", "long");
+		metaData.addField(onion_arrival_message_updatedField);
+
+		Field potato_arrival_messageField = new Field("potato_arrival_message", "String");
+		metaData.addField(potato_arrival_messageField);
+
+		Field potato_arrival_message_updatedField = new Field("potato_arrival_message_updated", "long");
+		metaData.addField(potato_arrival_message_updatedField);
+
 		Field potato_businessField = new Field("potato_business", "String");
 		potato_businessField.setLength(1);
 		metaData.addField(potato_businessField);
@@ -1601,6 +1621,10 @@ public abstract class Basec4t_object extends BaseResource {
 		this.arrival_updated = obj.arrival_updated;
 		this.arrival_message = obj.arrival_message;
 		this.arrival_message_updated = obj.arrival_message_updated;
+		this.onion_arrival_message = obj.onion_arrival_message;
+		this.onion_arrival_message_updated = obj.onion_arrival_message_updated;
+		this.potato_arrival_message = obj.potato_arrival_message;
+		this.potato_arrival_message_updated = obj.potato_arrival_message_updated;
 		this.potato_business = obj.potato_business;
 		this.onion_business = obj.onion_business;
 		this.valid_mandi_main_imie = obj.valid_mandi_main_imie;
@@ -2065,6 +2089,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("arrival_message", arrival_message);
 		if(arrival_message_updated != null)
 			map.put("arrival_message_updated", arrival_message_updated);
+		if(onion_arrival_message != null)
+			map.put("onion_arrival_message", onion_arrival_message);
+		if(onion_arrival_message_updated != null)
+			map.put("onion_arrival_message_updated", onion_arrival_message_updated);
+		if(potato_arrival_message != null)
+			map.put("potato_arrival_message", potato_arrival_message);
+		if(potato_arrival_message_updated != null)
+			map.put("potato_arrival_message_updated", potato_arrival_message_updated);
 		if(potato_business != null)
 			map.put("potato_business", potato_business);
 		if(onion_business != null)
@@ -2532,6 +2564,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("arrival_message", arrival_message);
 		if(arrival_message_updated != null)
 			map.put("arrival_message_updated", arrival_message_updated);
+		if(onion_arrival_message != null)
+			map.put("onion_arrival_message", onion_arrival_message);
+		if(onion_arrival_message_updated != null)
+			map.put("onion_arrival_message_updated", onion_arrival_message_updated);
+		if(potato_arrival_message != null)
+			map.put("potato_arrival_message", potato_arrival_message);
+		if(potato_arrival_message_updated != null)
+			map.put("potato_arrival_message_updated", potato_arrival_message_updated);
 		if(potato_business != null)
 			map.put("potato_business", potato_business);
 		if(onion_business != null)
@@ -2779,6 +2819,10 @@ public abstract class Basec4t_object extends BaseResource {
 		arrival_updated = (Long) map.get("arrival_updated");
 		arrival_message = (String) map.get("arrival_message");
 		arrival_message_updated = (Long) map.get("arrival_message_updated");
+		onion_arrival_message = (String) map.get("onion_arrival_message");
+		onion_arrival_message_updated = (Long) map.get("onion_arrival_message_updated");
+		potato_arrival_message = (String) map.get("potato_arrival_message");
+		potato_arrival_message_updated = (Long) map.get("potato_arrival_message_updated");
 		potato_business = (String) map.get("potato_business");
 		onion_business = (String) map.get("onion_business");
 		valid_mandi_main_imie = (String) map.get("valid_mandi_main_imie");
@@ -3688,6 +3732,22 @@ public abstract class Basec4t_object extends BaseResource {
 		Object arrival_message_updatedObj = map.get("arrival_message_updated");
 		if(arrival_message_updatedObj != null)
 			arrival_message_updated = new Long(arrival_message_updatedObj.toString());
+
+		Object onion_arrival_messageObj = map.get("onion_arrival_message");
+		if(onion_arrival_messageObj != null)
+			onion_arrival_message = onion_arrival_messageObj.toString();
+
+		Object onion_arrival_message_updatedObj = map.get("onion_arrival_message_updated");
+		if(onion_arrival_message_updatedObj != null)
+			onion_arrival_message_updated = new Long(onion_arrival_message_updatedObj.toString());
+
+		Object potato_arrival_messageObj = map.get("potato_arrival_message");
+		if(potato_arrival_messageObj != null)
+			potato_arrival_message = potato_arrival_messageObj.toString();
+
+		Object potato_arrival_message_updatedObj = map.get("potato_arrival_message_updated");
+		if(potato_arrival_message_updatedObj != null)
+			potato_arrival_message_updated = new Long(potato_arrival_message_updatedObj.toString());
 
 		Object potato_businessObj = map.get("potato_business");
 		if(potato_businessObj != null)
@@ -7425,6 +7485,78 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetArrival_message_updated() {
 		this.arrival_message_updated = null;
+	}
+
+	public String getOnion_arrival_message() {
+		return onion_arrival_message;
+	}
+
+	public String getOnion_arrival_messageEx() {
+		return onion_arrival_message != null ? onion_arrival_message : "";
+	}
+
+	public void setOnion_arrival_message(String onion_arrival_message) {
+		this.onion_arrival_message = onion_arrival_message;
+	}
+
+	public void unSetOnion_arrival_message() {
+		this.onion_arrival_message = null;
+	}
+
+	public Long getOnion_arrival_message_updated() {
+		return onion_arrival_message_updated;
+	}
+
+	public long getOnion_arrival_message_updatedEx() {
+		return onion_arrival_message_updated != null ? onion_arrival_message_updated : 0L;
+	}
+
+	public void setOnion_arrival_message_updated(long onion_arrival_message_updated) {
+		this.onion_arrival_message_updated = onion_arrival_message_updated;
+	}
+
+	public void setOnion_arrival_message_updated(Long onion_arrival_message_updated) {
+		this.onion_arrival_message_updated = onion_arrival_message_updated;
+	}
+
+	public void unSetOnion_arrival_message_updated() {
+		this.onion_arrival_message_updated = null;
+	}
+
+	public String getPotato_arrival_message() {
+		return potato_arrival_message;
+	}
+
+	public String getPotato_arrival_messageEx() {
+		return potato_arrival_message != null ? potato_arrival_message : "";
+	}
+
+	public void setPotato_arrival_message(String potato_arrival_message) {
+		this.potato_arrival_message = potato_arrival_message;
+	}
+
+	public void unSetPotato_arrival_message() {
+		this.potato_arrival_message = null;
+	}
+
+	public Long getPotato_arrival_message_updated() {
+		return potato_arrival_message_updated;
+	}
+
+	public long getPotato_arrival_message_updatedEx() {
+		return potato_arrival_message_updated != null ? potato_arrival_message_updated : 0L;
+	}
+
+	public void setPotato_arrival_message_updated(long potato_arrival_message_updated) {
+		this.potato_arrival_message_updated = potato_arrival_message_updated;
+	}
+
+	public void setPotato_arrival_message_updated(Long potato_arrival_message_updated) {
+		this.potato_arrival_message_updated = potato_arrival_message_updated;
+	}
+
+	public void unSetPotato_arrival_message_updated() {
+		this.potato_arrival_message_updated = null;
 	}
 
 	public String getPotato_business() {
