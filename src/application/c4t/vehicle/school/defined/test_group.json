@@ -81,6 +81,16 @@
 				'type':'String',
 				'length': 1
 			},
+			'provider_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'provider_name':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}	

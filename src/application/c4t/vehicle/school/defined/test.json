@@ -87,6 +87,16 @@
 				'type':'String',
 				'length': 128
 			},
+			'provider_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'provider_name':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'subject_name':
 			{
 				'type':'String',
