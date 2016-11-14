@@ -36,6 +36,8 @@ public abstract class Basetest extends BaseResource {
 	private String subject_id = null;
 	private String course_id = null;
 	private String course_name = null;
+	private String provider_id = null;
+	private String provider_name = null;
 	private String subject_name = null;
 	private Long total_questions = null;
 	private Double total_marks = null;
@@ -74,6 +76,8 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_SUBJECT_ID = "subject_id";
 	public static String FIELD_COURSE_ID = "course_id";
 	public static String FIELD_COURSE_NAME = "course_name";
+	public static String FIELD_PROVIDER_ID = "provider_id";
+	public static String FIELD_PROVIDER_NAME = "provider_name";
 	public static String FIELD_SUBJECT_NAME = "subject_name";
 	public static String FIELD_TOTAL_QUESTIONS = "total_questions";
 	public static String FIELD_TOTAL_MARKS = "total_marks";
@@ -163,6 +167,14 @@ public abstract class Basetest extends BaseResource {
 		Field course_nameField = new Field("course_name", "String");
 		course_nameField.setLength(128);
 		metaData.addField(course_nameField);
+
+		Field provider_idField = new Field("provider_id", "String");
+		provider_idField.setLength(128);
+		metaData.addField(provider_idField);
+
+		Field provider_nameField = new Field("provider_name", "String");
+		provider_nameField.setLength(128);
+		metaData.addField(provider_nameField);
 
 		Field subject_nameField = new Field("subject_name", "String");
 		subject_nameField.setLength(128);
@@ -257,6 +269,8 @@ public abstract class Basetest extends BaseResource {
 		this.subject_id = obj.subject_id;
 		this.course_id = obj.course_id;
 		this.course_name = obj.course_name;
+		this.provider_id = obj.provider_id;
+		this.provider_name = obj.provider_name;
 		this.subject_name = obj.subject_name;
 		this.total_questions = obj.total_questions;
 		this.total_marks = obj.total_marks;
@@ -319,6 +333,10 @@ public abstract class Basetest extends BaseResource {
 			map.put("course_id", course_id);
 		if(course_name != null)
 			map.put("course_name", course_name);
+		if(provider_id != null)
+			map.put("provider_id", provider_id);
+		if(provider_name != null)
+			map.put("provider_name", provider_name);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
 		if(total_questions != null)
@@ -398,6 +416,10 @@ public abstract class Basetest extends BaseResource {
 			map.put("course_id", course_id);
 		if(course_name != null)
 			map.put("course_name", course_name);
+		if(provider_id != null)
+			map.put("provider_id", provider_id);
+		if(provider_name != null)
+			map.put("provider_name", provider_name);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
 		if(total_questions != null)
@@ -465,6 +487,8 @@ public abstract class Basetest extends BaseResource {
 		subject_id = (String) map.get("subject_id");
 		course_id = (String) map.get("course_id");
 		course_name = (String) map.get("course_name");
+		provider_id = (String) map.get("provider_id");
+		provider_name = (String) map.get("provider_name");
 		subject_name = (String) map.get("subject_name");
 		total_questions = (Long) map.get("total_questions");
 		total_marks = (Double) map.get("total_marks");
@@ -556,6 +580,14 @@ public abstract class Basetest extends BaseResource {
 		Object course_nameObj = map.get("course_name");
 		if(course_nameObj != null)
 			course_name = course_nameObj.toString();
+
+		Object provider_idObj = map.get("provider_id");
+		if(provider_idObj != null)
+			provider_id = provider_idObj.toString();
+
+		Object provider_nameObj = map.get("provider_name");
+		if(provider_nameObj != null)
+			provider_name = provider_nameObj.toString();
 
 		Object subject_nameObj = map.get("subject_name");
 		if(subject_nameObj != null)
@@ -938,6 +970,38 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetCourse_name() {
 		this.course_name = null;
+	}
+
+	public String getProvider_id() {
+		return provider_id;
+	}
+
+	public String getProvider_idEx() {
+		return provider_id != null ? provider_id : "";
+	}
+
+	public void setProvider_id(String provider_id) {
+		this.provider_id = provider_id;
+	}
+
+	public void unSetProvider_id() {
+		this.provider_id = null;
+	}
+
+	public String getProvider_name() {
+		return provider_name;
+	}
+
+	public String getProvider_nameEx() {
+		return provider_name != null ? provider_name : "";
+	}
+
+	public void setProvider_name(String provider_name) {
+		this.provider_name = provider_name;
+	}
+
+	public void unSetProvider_name() {
+		this.provider_name = null;
 	}
 
 	public String getSubject_name() {

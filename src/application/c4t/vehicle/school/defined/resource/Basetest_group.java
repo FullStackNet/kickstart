@@ -35,6 +35,8 @@ public abstract class Basetest_group extends BaseResource {
 	private String customer_id = null;
 	private Long last_update_time = null;
 	private String published = null;
+	private String provider_id = null;
+	private String provider_name = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -54,6 +56,8 @@ public abstract class Basetest_group extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_PUBLISHED = "published";
+	public static String FIELD_PROVIDER_ID = "provider_id";
+	public static String FIELD_PROVIDER_NAME = "provider_name";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -122,6 +126,14 @@ public abstract class Basetest_group extends BaseResource {
 		publishedField.setLength(1);
 		metaData.addField(publishedField);
 
+		Field provider_idField = new Field("provider_id", "String");
+		provider_idField.setLength(128);
+		metaData.addField(provider_idField);
+
+		Field provider_nameField = new Field("provider_name", "String");
+		provider_nameField.setLength(128);
+		metaData.addField(provider_nameField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -154,6 +166,8 @@ public abstract class Basetest_group extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.last_update_time = obj.last_update_time;
 		this.published = obj.published;
+		this.provider_id = obj.provider_id;
+		this.provider_name = obj.provider_name;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -196,6 +210,10 @@ public abstract class Basetest_group extends BaseResource {
 			map.put("last_update_time", last_update_time);
 		if(published != null)
 			map.put("published", published);
+		if(provider_id != null)
+			map.put("provider_id", provider_id);
+		if(provider_name != null)
+			map.put("provider_name", provider_name);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -237,6 +255,10 @@ public abstract class Basetest_group extends BaseResource {
 			map.put("last_update_time", last_update_time);
 		if(published != null)
 			map.put("published", published);
+		if(provider_id != null)
+			map.put("provider_id", provider_id);
+		if(provider_name != null)
+			map.put("provider_name", provider_name);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -267,6 +289,8 @@ public abstract class Basetest_group extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		last_update_time = (Long) map.get("last_update_time");
 		published = (String) map.get("published");
+		provider_id = (String) map.get("provider_id");
+		provider_name = (String) map.get("provider_name");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -333,6 +357,14 @@ public abstract class Basetest_group extends BaseResource {
 		Object publishedObj = map.get("published");
 		if(publishedObj != null)
 			published = publishedObj.toString();
+
+		Object provider_idObj = map.get("provider_id");
+		if(provider_idObj != null)
+			provider_id = provider_idObj.toString();
+
+		Object provider_nameObj = map.get("provider_name");
+		if(provider_nameObj != null)
+			provider_name = provider_nameObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -615,6 +647,38 @@ public abstract class Basetest_group extends BaseResource {
 
 	public void unSetPublished() {
 		this.published = null;
+	}
+
+	public String getProvider_id() {
+		return provider_id;
+	}
+
+	public String getProvider_idEx() {
+		return provider_id != null ? provider_id : "";
+	}
+
+	public void setProvider_id(String provider_id) {
+		this.provider_id = provider_id;
+	}
+
+	public void unSetProvider_id() {
+		this.provider_id = null;
+	}
+
+	public String getProvider_name() {
+		return provider_name;
+	}
+
+	public String getProvider_nameEx() {
+		return provider_name != null ? provider_name : "";
+	}
+
+	public void setProvider_name(String provider_name) {
+		this.provider_name = provider_name;
+	}
+
+	public void unSetProvider_name() {
+		this.provider_name = null;
 	}
 
 	public Long getCreation_time() {
