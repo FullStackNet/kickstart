@@ -84,7 +84,7 @@ public class CorporateTestMenuView extends BaseView {
 		ul.addChild(li);
 		 a = new A();
 		a.setText("<i class=\"fa fa-laptop\"></i> Test Result");
-		a.setHref("/ui/corporate_test_my_area");
+		a.setHref("/ui/corporate_test_myarea");
 		li.addChild(a);
 		
 		BaseResource[] resources = SchoolHelper.getInstance().getByCustomerId(mContext.getCustomerId(),new String[]{school.FIELD_NAME});
