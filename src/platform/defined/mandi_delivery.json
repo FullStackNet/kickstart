@@ -1,0 +1,83 @@
+{
+	"mandi_delivery" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'remark':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'opening_bags':
+			{
+				'type':'int'
+			},
+			'bags':
+			{
+				'type':'int'
+			},
+			'balance':
+			{
+				'type':'int'
+			},
+			'deleted':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'party_code':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'agent_code':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'party_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'agent_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'community_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'default':'CURRENT_TIMESTAMP',
+				'required': true,
+				'type':'timestamp'
+			},
+			'last_update_time':
+			{
+				'type':'long'
+			}
+		}
+	}
+}
