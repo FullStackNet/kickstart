@@ -21,7 +21,12 @@
 				'length': 128,
 				'type':'String'
 			},
-			'remark':
+			'party_remark':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'agent_remark':
 			{
 				'length': 128,
 				'type':'String'
@@ -48,7 +53,7 @@
 				'length': 128,
 				'type':'String'
 			},
-			'agent_code':
+			'party_name':
 			{
 				'length': 128,
 				'type':'String'
@@ -59,6 +64,16 @@
 				'type':'String'
 			},
 			'agent_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'agent_code':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'agent_name':
 			{
 				'length': 128,
 				'type':'String'

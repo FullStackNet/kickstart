@@ -22,15 +22,18 @@ public abstract class Basemandi_delivery extends BaseResource {
 	private String id = null;
 	private String user_id = null;
 	private String user_name = null;
-	private String remark = null;
+	private String party_remark = null;
+	private String agent_remark = null;
 	private Integer opening_bags = null;
 	private Integer bags = null;
 	private Integer balance = null;
 	private String deleted = null;
 	private String party_code = null;
-	private String agent_code = null;
+	private String party_name = null;
 	private String party_id = null;
 	private String agent_id = null;
+	private String agent_code = null;
+	private String agent_name = null;
 	private String community_id = null;
 	private Long creation_time = null;
 	private Long last_update_time = null;
@@ -39,15 +42,18 @@ public abstract class Basemandi_delivery extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_USER_ID = "user_id";
 	public static String FIELD_USER_NAME = "user_name";
-	public static String FIELD_REMARK = "remark";
+	public static String FIELD_PARTY_REMARK = "party_remark";
+	public static String FIELD_AGENT_REMARK = "agent_remark";
 	public static String FIELD_OPENING_BAGS = "opening_bags";
 	public static String FIELD_BAGS = "bags";
 	public static String FIELD_BALANCE = "balance";
 	public static String FIELD_DELETED = "deleted";
 	public static String FIELD_PARTY_CODE = "party_code";
-	public static String FIELD_AGENT_CODE = "agent_code";
+	public static String FIELD_PARTY_NAME = "party_name";
 	public static String FIELD_PARTY_ID = "party_id";
 	public static String FIELD_AGENT_ID = "agent_id";
+	public static String FIELD_AGENT_CODE = "agent_code";
+	public static String FIELD_AGENT_NAME = "agent_name";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
@@ -72,9 +78,13 @@ public abstract class Basemandi_delivery extends BaseResource {
 		user_nameField.setLength(128);
 		metaData.addField(user_nameField);
 
-		Field remarkField = new Field("remark", "String");
-		remarkField.setLength(128);
-		metaData.addField(remarkField);
+		Field party_remarkField = new Field("party_remark", "String");
+		party_remarkField.setLength(128);
+		metaData.addField(party_remarkField);
+
+		Field agent_remarkField = new Field("agent_remark", "String");
+		agent_remarkField.setLength(128);
+		metaData.addField(agent_remarkField);
 
 		Field opening_bagsField = new Field("opening_bags", "int");
 		metaData.addField(opening_bagsField);
@@ -93,9 +103,9 @@ public abstract class Basemandi_delivery extends BaseResource {
 		party_codeField.setLength(128);
 		metaData.addField(party_codeField);
 
-		Field agent_codeField = new Field("agent_code", "String");
-		agent_codeField.setLength(128);
-		metaData.addField(agent_codeField);
+		Field party_nameField = new Field("party_name", "String");
+		party_nameField.setLength(128);
+		metaData.addField(party_nameField);
 
 		Field party_idField = new Field("party_id", "String");
 		party_idField.setLength(128);
@@ -104,6 +114,14 @@ public abstract class Basemandi_delivery extends BaseResource {
 		Field agent_idField = new Field("agent_id", "String");
 		agent_idField.setLength(128);
 		metaData.addField(agent_idField);
+
+		Field agent_codeField = new Field("agent_code", "String");
+		agent_codeField.setLength(128);
+		metaData.addField(agent_codeField);
+
+		Field agent_nameField = new Field("agent_name", "String");
+		agent_nameField.setLength(128);
+		metaData.addField(agent_nameField);
 
 		Field community_idField = new Field("community_id", "String");
 		community_idField.setLength(128);
@@ -133,15 +151,18 @@ public abstract class Basemandi_delivery extends BaseResource {
 		this.id = obj.id;
 		this.user_id = obj.user_id;
 		this.user_name = obj.user_name;
-		this.remark = obj.remark;
+		this.party_remark = obj.party_remark;
+		this.agent_remark = obj.agent_remark;
 		this.opening_bags = obj.opening_bags;
 		this.bags = obj.bags;
 		this.balance = obj.balance;
 		this.deleted = obj.deleted;
 		this.party_code = obj.party_code;
-		this.agent_code = obj.agent_code;
+		this.party_name = obj.party_name;
 		this.party_id = obj.party_id;
 		this.agent_id = obj.agent_id;
+		this.agent_code = obj.agent_code;
+		this.agent_name = obj.agent_name;
 		this.community_id = obj.community_id;
 		this.creation_time = obj.creation_time;
 		this.last_update_time = obj.last_update_time;
@@ -163,8 +184,10 @@ public abstract class Basemandi_delivery extends BaseResource {
 			map.put("user_id", user_id);
 		if(user_name != null)
 			map.put("user_name", user_name);
-		if(remark != null)
-			map.put("remark", remark);
+		if(party_remark != null)
+			map.put("party_remark", party_remark);
+		if(agent_remark != null)
+			map.put("agent_remark", agent_remark);
 		if(opening_bags != null)
 			map.put("opening_bags", opening_bags);
 		if(bags != null)
@@ -175,12 +198,16 @@ public abstract class Basemandi_delivery extends BaseResource {
 			map.put("deleted", deleted);
 		if(party_code != null)
 			map.put("party_code", party_code);
-		if(agent_code != null)
-			map.put("agent_code", agent_code);
+		if(party_name != null)
+			map.put("party_name", party_name);
 		if(party_id != null)
 			map.put("party_id", party_id);
 		if(agent_id != null)
 			map.put("agent_id", agent_id);
+		if(agent_code != null)
+			map.put("agent_code", agent_code);
+		if(agent_name != null)
+			map.put("agent_name", agent_name);
 		if(community_id != null)
 			map.put("community_id", community_id);
 		if(creation_time != null)
@@ -203,8 +230,10 @@ public abstract class Basemandi_delivery extends BaseResource {
 			map.put("user_id", user_id);
 		if(user_name != null)
 			map.put("user_name", user_name);
-		if(remark != null)
-			map.put("remark", remark);
+		if(party_remark != null)
+			map.put("party_remark", party_remark);
+		if(agent_remark != null)
+			map.put("agent_remark", agent_remark);
 		if(opening_bags != null)
 			map.put("opening_bags", opening_bags);
 		if(bags != null)
@@ -215,12 +244,16 @@ public abstract class Basemandi_delivery extends BaseResource {
 			map.put("deleted", deleted);
 		if(party_code != null)
 			map.put("party_code", party_code);
-		if(agent_code != null)
-			map.put("agent_code", agent_code);
+		if(party_name != null)
+			map.put("party_name", party_name);
 		if(party_id != null)
 			map.put("party_id", party_id);
 		if(agent_id != null)
 			map.put("agent_id", agent_id);
+		if(agent_code != null)
+			map.put("agent_code", agent_code);
+		if(agent_name != null)
+			map.put("agent_name", agent_name);
 		if(community_id != null)
 			map.put("community_id", community_id);
 		if(validateCreation_time(add))
@@ -242,15 +275,18 @@ public abstract class Basemandi_delivery extends BaseResource {
 		id = (String) map.get("id");
 		user_id = (String) map.get("user_id");
 		user_name = (String) map.get("user_name");
-		remark = (String) map.get("remark");
+		party_remark = (String) map.get("party_remark");
+		agent_remark = (String) map.get("agent_remark");
 		opening_bags = (Integer) map.get("opening_bags");
 		bags = (Integer) map.get("bags");
 		balance = (Integer) map.get("balance");
 		deleted = (String) map.get("deleted");
 		party_code = (String) map.get("party_code");
-		agent_code = (String) map.get("agent_code");
+		party_name = (String) map.get("party_name");
 		party_id = (String) map.get("party_id");
 		agent_id = (String) map.get("agent_id");
+		agent_code = (String) map.get("agent_code");
+		agent_name = (String) map.get("agent_name");
 		community_id = (String) map.get("community_id");
 		creation_time = (Long) map.get("creation_time");
 		last_update_time = (Long) map.get("last_update_time");
@@ -271,9 +307,13 @@ public abstract class Basemandi_delivery extends BaseResource {
 		if(user_nameObj != null)
 			user_name = user_nameObj.toString();
 
-		Object remarkObj = map.get("remark");
-		if(remarkObj != null)
-			remark = remarkObj.toString();
+		Object party_remarkObj = map.get("party_remark");
+		if(party_remarkObj != null)
+			party_remark = party_remarkObj.toString();
+
+		Object agent_remarkObj = map.get("agent_remark");
+		if(agent_remarkObj != null)
+			agent_remark = agent_remarkObj.toString();
 
 		Object opening_bagsObj = map.get("opening_bags");
 		if(opening_bagsObj != null)
@@ -295,9 +335,9 @@ public abstract class Basemandi_delivery extends BaseResource {
 		if(party_codeObj != null)
 			party_code = party_codeObj.toString();
 
-		Object agent_codeObj = map.get("agent_code");
-		if(agent_codeObj != null)
-			agent_code = agent_codeObj.toString();
+		Object party_nameObj = map.get("party_name");
+		if(party_nameObj != null)
+			party_name = party_nameObj.toString();
 
 		Object party_idObj = map.get("party_id");
 		if(party_idObj != null)
@@ -306,6 +346,14 @@ public abstract class Basemandi_delivery extends BaseResource {
 		Object agent_idObj = map.get("agent_id");
 		if(agent_idObj != null)
 			agent_id = agent_idObj.toString();
+
+		Object agent_codeObj = map.get("agent_code");
+		if(agent_codeObj != null)
+			agent_code = agent_codeObj.toString();
+
+		Object agent_nameObj = map.get("agent_name");
+		if(agent_nameObj != null)
+			agent_name = agent_nameObj.toString();
 
 		Object community_idObj = map.get("community_id");
 		if(community_idObj != null)
@@ -382,20 +430,36 @@ public abstract class Basemandi_delivery extends BaseResource {
 		this.user_name = null;
 	}
 
-	public String getRemark() {
-		return remark;
+	public String getParty_remark() {
+		return party_remark;
 	}
 
-	public String getRemarkEx() {
-		return remark != null ? remark : "";
+	public String getParty_remarkEx() {
+		return party_remark != null ? party_remark : "";
 	}
 
-	public void setRemark(String remark) {
-		this.remark = remark;
+	public void setParty_remark(String party_remark) {
+		this.party_remark = party_remark;
 	}
 
-	public void unSetRemark() {
-		this.remark = null;
+	public void unSetParty_remark() {
+		this.party_remark = null;
+	}
+
+	public String getAgent_remark() {
+		return agent_remark;
+	}
+
+	public String getAgent_remarkEx() {
+		return agent_remark != null ? agent_remark : "";
+	}
+
+	public void setAgent_remark(String agent_remark) {
+		this.agent_remark = agent_remark;
+	}
+
+	public void unSetAgent_remark() {
+		this.agent_remark = null;
 	}
 
 	public Integer getOpening_bags() {
@@ -490,20 +554,20 @@ public abstract class Basemandi_delivery extends BaseResource {
 		this.party_code = null;
 	}
 
-	public String getAgent_code() {
-		return agent_code;
+	public String getParty_name() {
+		return party_name;
 	}
 
-	public String getAgent_codeEx() {
-		return agent_code != null ? agent_code : "";
+	public String getParty_nameEx() {
+		return party_name != null ? party_name : "";
 	}
 
-	public void setAgent_code(String agent_code) {
-		this.agent_code = agent_code;
+	public void setParty_name(String party_name) {
+		this.party_name = party_name;
 	}
 
-	public void unSetAgent_code() {
-		this.agent_code = null;
+	public void unSetParty_name() {
+		this.party_name = null;
 	}
 
 	public String getParty_id() {
@@ -536,6 +600,38 @@ public abstract class Basemandi_delivery extends BaseResource {
 
 	public void unSetAgent_id() {
 		this.agent_id = null;
+	}
+
+	public String getAgent_code() {
+		return agent_code;
+	}
+
+	public String getAgent_codeEx() {
+		return agent_code != null ? agent_code : "";
+	}
+
+	public void setAgent_code(String agent_code) {
+		this.agent_code = agent_code;
+	}
+
+	public void unSetAgent_code() {
+		this.agent_code = null;
+	}
+
+	public String getAgent_name() {
+		return agent_name;
+	}
+
+	public String getAgent_nameEx() {
+		return agent_name != null ? agent_name : "";
+	}
+
+	public void setAgent_name(String agent_name) {
+		this.agent_name = agent_name;
+	}
+
+	public void unSetAgent_name() {
+		this.agent_name = null;
 	}
 
 	public String getCommunity_id() {
