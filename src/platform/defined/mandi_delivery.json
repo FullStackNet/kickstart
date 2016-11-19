@@ -43,6 +43,10 @@
 			{
 				'type':'int'
 			},
+			'delivered':
+			{
+				'type':'int'
+			},
 			'deleted':
 			{
 				'length': 128,

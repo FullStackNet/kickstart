@@ -27,6 +27,7 @@ public abstract class Basemandi_delivery extends BaseResource {
 	private Integer opening_bags = null;
 	private Integer bags = null;
 	private Integer balance = null;
+	private Integer delivered = null;
 	private String deleted = null;
 	private String party_code = null;
 	private String party_name = null;
@@ -47,6 +48,7 @@ public abstract class Basemandi_delivery extends BaseResource {
 	public static String FIELD_OPENING_BAGS = "opening_bags";
 	public static String FIELD_BAGS = "bags";
 	public static String FIELD_BALANCE = "balance";
+	public static String FIELD_DELIVERED = "delivered";
 	public static String FIELD_DELETED = "deleted";
 	public static String FIELD_PARTY_CODE = "party_code";
 	public static String FIELD_PARTY_NAME = "party_name";
@@ -94,6 +96,9 @@ public abstract class Basemandi_delivery extends BaseResource {
 
 		Field balanceField = new Field("balance", "int");
 		metaData.addField(balanceField);
+
+		Field deliveredField = new Field("delivered", "int");
+		metaData.addField(deliveredField);
 
 		Field deletedField = new Field("deleted", "String");
 		deletedField.setLength(128);
@@ -156,6 +161,7 @@ public abstract class Basemandi_delivery extends BaseResource {
 		this.opening_bags = obj.opening_bags;
 		this.bags = obj.bags;
 		this.balance = obj.balance;
+		this.delivered = obj.delivered;
 		this.deleted = obj.deleted;
 		this.party_code = obj.party_code;
 		this.party_name = obj.party_name;
@@ -194,6 +200,8 @@ public abstract class Basemandi_delivery extends BaseResource {
 			map.put("bags", bags);
 		if(balance != null)
 			map.put("balance", balance);
+		if(delivered != null)
+			map.put("delivered", delivered);
 		if(deleted != null)
 			map.put("deleted", deleted);
 		if(party_code != null)
@@ -240,6 +248,8 @@ public abstract class Basemandi_delivery extends BaseResource {
 			map.put("bags", bags);
 		if(balance != null)
 			map.put("balance", balance);
+		if(delivered != null)
+			map.put("delivered", delivered);
 		if(deleted != null)
 			map.put("deleted", deleted);
 		if(party_code != null)
@@ -280,6 +290,7 @@ public abstract class Basemandi_delivery extends BaseResource {
 		opening_bags = (Integer) map.get("opening_bags");
 		bags = (Integer) map.get("bags");
 		balance = (Integer) map.get("balance");
+		delivered = (Integer) map.get("delivered");
 		deleted = (String) map.get("deleted");
 		party_code = (String) map.get("party_code");
 		party_name = (String) map.get("party_name");
@@ -326,6 +337,10 @@ public abstract class Basemandi_delivery extends BaseResource {
 		Object balanceObj = map.get("balance");
 		if(balanceObj != null)
 			balance = new Integer(balanceObj.toString());
+
+		Object deliveredObj = map.get("delivered");
+		if(deliveredObj != null)
+			delivered = new Integer(deliveredObj.toString());
 
 		Object deletedObj = map.get("deleted");
 		if(deletedObj != null)
@@ -520,6 +535,26 @@ public abstract class Basemandi_delivery extends BaseResource {
 
 	public void unSetBalance() {
 		this.balance = null;
+	}
+
+	public Integer getDelivered() {
+		return delivered;
+	}
+
+	public int getDeliveredEx() {
+		return delivered != null ? delivered : 0;
+	}
+
+	public void setDelivered(int delivered) {
+		this.delivered = delivered;
+	}
+
+	public void setDelivered(Integer delivered) {
+		this.delivered = delivered;
+	}
+
+	public void unSetDelivered() {
+		this.delivered = null;
 	}
 
 	public String getDeleted() {
