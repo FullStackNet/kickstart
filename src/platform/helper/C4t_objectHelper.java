@@ -82,6 +82,16 @@ public class C4t_objectHelper extends BaseHelper {
 		return null;
 	}
 	
+	public BaseResource[] getByCommunityAllByCity(String community_type,String city) {
+		Expression e1 = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, "COMMUNITY");
+		Expression e2 = new Expression(c4t_object.FIELD_COMMUNITY_TYPE, REL_OP.EQ, community_type);
+		Expression e3 = new Expression(c4t_object.FIELD_CITY, REL_OP.EQ, city);
+		Expression e4 = new Expression(e1, LOG_OP.AND, e2);
+		Expression e = new Expression(e3, LOG_OP.AND, e4);
+		BaseResource[] resources = getByExpression(e);
+		return resources;
+	}
+	
 	public BaseResource[] getProducts(String community_id, String[] orderby) {
 		Expression e1 = new Expression(c4t_object.FIELD_OBJECT_TYPE, REL_OP.EQ, "COMMUNITY_PRODUCT");
 		Expression e2 = new Expression(c4t_object.FIELD_COMMUNITY_ID, REL_OP.EQ, community_id);
