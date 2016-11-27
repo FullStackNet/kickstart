@@ -145,7 +145,7 @@ public abstract class BaseResource  implements Cloneable, Serializable {
 		Map<String, Object> row = convertResourceToMap();
 		Map<String, Field> fields = getMetaData().getFields();
 		if ((rendertype != null) && rendertype.equals("form")) {
-			html = html.append("<form method=\"post\" action=\"/m16/"+this.getMetaData().getName().toLowerCase()+"\">");
+			html = html.append("<form method=\"post\" action=\"/api/"+this.getMetaData().getName().toLowerCase()+"\">");
 			html = html.append("<input type=\"hidden\" name=\"m16form\" value=\"yes\"/>");
 		}
 		for(Entry<String, Field> entry : fields.entrySet()) {
