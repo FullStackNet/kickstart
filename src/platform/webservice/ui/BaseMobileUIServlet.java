@@ -76,8 +76,12 @@ public abstract class BaseMobileUIServlet extends HttpServlet {
 		return getCookie(request, ApplicationConstants.SESSION_ID);
 	}
 	
-	protected abstract BaseHTMLComponent processRequest(UIServletContext ctx);
+	protected abstract BaseHTMLComponent processRequest(UIServletContext ctx,Map<String, String> map);
 	protected abstract String getName(UIServletContext ctx);
+	
+	protected String getTempleteName(UIServletContext ctx) {
+		return "mobile_templete";
+	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		setResponseParameters(response);
@@ -101,9 +105,13 @@ public abstract class BaseMobileUIServlet extends HttpServlet {
 			}
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("HEADER", getName(ctx));
-			BaseHTMLComponent content = processRequest(ctx);
-			map.put("CONTENT", content.getContent(0));
-			String contentString = Util.readTempleteFileFromLocal("mobile_templete", map);
+			BaseHTMLComponent content = processRequest(ctx,map);
+			if (content == null) {
+				map.put("CONTENT", "");					
+			} else {
+				map.put("CONTENT", content.getContent(0));
+			}
+			String contentString = Util.readTempleteFileFromLocal(getTempleteName(ctx), map);
 			response.getWriter().print(contentString);
 		} catch(Exception e) {
 			e.printStackTrace();
