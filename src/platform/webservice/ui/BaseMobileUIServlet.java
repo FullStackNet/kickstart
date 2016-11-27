@@ -84,6 +84,15 @@ public abstract class BaseMobileUIServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		try {
 			UIServletContext ctx = new UIServletContext(getSessionIdFromCookie(request));
+			ctx.setResponse(response);
+			if (Util.isEmpty(ctx.getUserId())) {
+				if (request.getServerPort() != 80) {
+					ctx.getResponse().sendRedirect("http://"+request.getServerName()+":"+request.getServerPort()+"/ui/m_login");
+				} else {
+					ctx.getResponse().sendRedirect("http://"+request.getServerName()+"/ui/m_login");								
+				}
+				return;
+			}
 			Enumeration<String> names = request.getParameterNames();
 			while (names.hasMoreElements()) {
 				String name = names.nextElement();
