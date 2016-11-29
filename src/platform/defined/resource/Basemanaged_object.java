@@ -434,7 +434,7 @@ public abstract class Basemanaged_object extends BaseResource {
 
 		Object last_up_detectedObj = map.get("last_up_detected");
 		if(last_up_detectedObj != null)
-			last_up_detected = (Long) last_up_detectedObj;
+			last_up_detected = new Long(last_up_detectedObj.toString());
 
 		Object cpu_usageObj = map.get("cpu_usage");
 		if(cpu_usageObj != null)

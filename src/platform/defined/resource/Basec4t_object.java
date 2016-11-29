@@ -3563,15 +3563,15 @@ public abstract class Basec4t_object extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object last_usedObj = map.get("last_used");
 		if(last_usedObj != null)
-			last_used = (Long) last_usedObj;
+			last_used = new Long(last_usedObj.toString());
 
 		Object updation_timeObj = map.get("updation_time");
 		if(updation_timeObj != null)
-			updation_time = (Long) updation_timeObj;
+			updation_time = new Long(updation_timeObj.toString());
 
 		Object owner_idObj = map.get("owner_id");
 		if(owner_idObj != null)

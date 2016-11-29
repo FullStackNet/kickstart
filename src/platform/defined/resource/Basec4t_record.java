@@ -2279,7 +2279,7 @@ public abstract class Basec4t_record extends BaseResource {
 
 		Object cheque_dateObj = map.get("cheque_date");
 		if(cheque_dateObj != null)
-			cheque_date = (Long) cheque_dateObj;
+			cheque_date = new Long(cheque_dateObj.toString());
 
 		Object cheque_date_strObj = map.get("cheque_date_str");
 		if(cheque_date_strObj != null)
@@ -2499,7 +2499,7 @@ public abstract class Basec4t_record extends BaseResource {
 
 		Object event_dateObj = map.get("event_date");
 		if(event_dateObj != null)
-			event_date = (Long) event_dateObj;
+			event_date = new Long(event_dateObj.toString());
 
 		Object candidate_idObj = map.get("candidate_id");
 		if(candidate_idObj != null)
@@ -2523,7 +2523,7 @@ public abstract class Basec4t_record extends BaseResource {
 
 		Object expiry_dateObj = map.get("expiry_date");
 		if(expiry_dateObj != null)
-			expiry_date = (Long) expiry_dateObj;
+			expiry_date = new Long(expiry_dateObj.toString());
 
 		Object expiry_date_strObj = map.get("expiry_date_str");
 		if(expiry_date_strObj != null)
@@ -2547,15 +2547,15 @@ public abstract class Basec4t_record extends BaseResource {
 
 		Object last_updatedObj = map.get("last_updated");
 		if(last_updatedObj != null)
-			last_updated = (Long) last_updatedObj;
+			last_updated = new Long(last_updatedObj.toString());
 
 		Object sent_timeObj = map.get("sent_time");
 		if(sent_timeObj != null)
-			sent_time = (Long) sent_timeObj;
+			sent_time = new Long(sent_timeObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object sentObj = map.get("sent");
 		if(sentObj != null)

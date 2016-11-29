@@ -1559,7 +1559,7 @@ public abstract class Baseappliance_part extends BaseResource {
 
 		Object last_reading_updatedObj = map.get("last_reading_updated");
 		if(last_reading_updatedObj != null)
-			last_reading_updated = (Long) last_reading_updatedObj;
+			last_reading_updated = new Long(last_reading_updatedObj.toString());
 
 		Object dg_readingObj = map.get("dg_reading");
 		if(dg_readingObj != null)
@@ -1631,7 +1631,7 @@ public abstract class Baseappliance_part extends BaseResource {
 
 		Object last_prefilege_detected_timeObj = map.get("last_prefilege_detected_time");
 		if(last_prefilege_detected_timeObj != null)
-			last_prefilege_detected_time = (Long) last_prefilege_detected_timeObj;
+			last_prefilege_detected_time = new Long(last_prefilege_detected_timeObj.toString());
 
 		Object move_stateObj = map.get("move_state");
 		if(move_stateObj != null)
@@ -1639,19 +1639,19 @@ public abstract class Baseappliance_part extends BaseResource {
 
 		Object last_moved_in_timeObj = map.get("last_moved_in_time");
 		if(last_moved_in_timeObj != null)
-			last_moved_in_time = (Long) last_moved_in_timeObj;
+			last_moved_in_time = new Long(last_moved_in_timeObj.toString());
 
 		Object last_moved_out_timeObj = map.get("last_moved_out_time");
 		if(last_moved_out_timeObj != null)
-			last_moved_out_time = (Long) last_moved_out_timeObj;
+			last_moved_out_time = new Long(last_moved_out_timeObj.toString());
 
 		Object last_disconnect_timeObj = map.get("last_disconnect_time");
 		if(last_disconnect_timeObj != null)
-			last_disconnect_time = (Long) last_disconnect_timeObj;
+			last_disconnect_time = new Long(last_disconnect_timeObj.toString());
 
 		Object last_update_timeObj = map.get("last_update_time");
 		if(last_update_timeObj != null)
-			last_update_time = (Long) last_update_timeObj;
+			last_update_time = new Long(last_update_timeObj.toString());
 
 		Object activatedObj = map.get("activated");
 		if(activatedObj != null)
@@ -1719,7 +1719,7 @@ public abstract class Baseappliance_part extends BaseResource {
 
 		Object lastProcessedTimeObj = map.get("lastProcessedTime");
 		if(lastProcessedTimeObj != null)
-			lastProcessedTime = (Long) lastProcessedTimeObj;
+			lastProcessedTime = new Long(lastProcessedTimeObj.toString());
 
 		Object charging_stateObj = map.get("charging_state");
 		if(charging_stateObj != null)

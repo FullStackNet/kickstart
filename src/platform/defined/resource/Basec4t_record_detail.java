@@ -728,7 +728,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 		Object reference_dateObj = map.get("reference_date");
 		if(reference_dateObj != null)
-			reference_date = (Long) reference_dateObj;
+			reference_date = new Long(reference_dateObj.toString());
 
 		Object reference_date_strObj = map.get("reference_date_str");
 		if(reference_date_strObj != null)
@@ -872,7 +872,7 @@ public abstract class Basec4t_record_detail extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}

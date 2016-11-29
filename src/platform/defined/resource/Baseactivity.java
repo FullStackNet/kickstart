@@ -184,7 +184,7 @@ public abstract class Baseactivity extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object statusObj = map.get("status");
 		if(statusObj != null)

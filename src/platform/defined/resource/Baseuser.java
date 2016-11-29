@@ -1140,7 +1140,7 @@ public abstract class Baseuser extends BaseResource {
 
 		Object last_loginObj = map.get("last_login");
 		if(last_loginObj != null)
-			last_login = (Long) last_loginObj;
+			last_login = new Long(last_loginObj.toString());
 
 		Object send_emailObj = map.get("send_email");
 		if(send_emailObj != null)

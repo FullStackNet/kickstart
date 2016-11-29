@@ -449,19 +449,19 @@ public abstract class Basesms_log extends BaseResource {
 
 		Object event_creation_timeObj = map.get("event_creation_time");
 		if(event_creation_timeObj != null)
-			event_creation_time = (Long) event_creation_timeObj;
+			event_creation_time = new Long(event_creation_timeObj.toString());
 
 		Object invocation_timeObj = map.get("invocation_time");
 		if(invocation_timeObj != null)
-			invocation_time = (Long) invocation_timeObj;
+			invocation_time = new Long(invocation_timeObj.toString());
 
 		Object sent_try_timeObj = map.get("sent_try_time");
 		if(sent_try_timeObj != null)
-			sent_try_time = (Long) sent_try_timeObj;
+			sent_try_time = new Long(sent_try_timeObj.toString());
 
 		Object sent_timeObj = map.get("sent_time");
 		if(sent_timeObj != null)
-			sent_time = (Long) sent_timeObj;
+			sent_time = new Long(sent_timeObj.toString());
 
 		Object sent_statusObj = map.get("sent_status");
 		if(sent_statusObj != null)

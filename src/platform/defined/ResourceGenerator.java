@@ -107,7 +107,8 @@ public class ResourceGenerator {
 	private static String CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_STRING_BLOCK = "\t\tObject %sObj = map.get(\"%s\");\n\t\tif(%sObj != null)\n\t\t\t%s = %sObj.toString();\n\n";
 	private static String CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_CHAR_BLOCK = "\t\tObject %sObj = map.get(\"%s\");\n\t\tif(%sObj != null && %sObj.toString().length() > 0)\n\t\t\t%s = %sObj.toString().charAt(0);\n\n";
 	private static String CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_OTHERS_BLOCK = "\t\tObject %sObj = map.get(\"%s\");\n\t\tif(%sObj != null)\n\t\t\t%s = new %s(%sObj.toString());\n\n";
-	private static String CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_TIMESTAMP_BLOCK = "\t\tObject %sObj = map.get(\"%s\");\n\t\tif(%sObj != null)\n\t\t\t%s = (%s) %sObj;\n\n";
+	private static String CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_TIMESTAMP_BLOCK = "\t\tObject %sObj = map.get(\"%s\");\n\t\tif(%sObj != null)\n\t\t\t%s = new Long(%sObj.toString());\n\n";
+	private static String CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_DATE_BLOCK = "\t\tObject %sObj = map.get(\"%s\");\n\t\tif(%sObj != null)\n\t\t\t%s = new java.util.Date(new Long(%sObj.toString()));\n\n";	
 	private static String CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_NUMBER_BLOCK = "\t\tObject %sObj = map.get(\"%s\");\n\t\tif(%sObj != null)\n\t\t\t%s = new Double(%sObj.toString());\n\n";
 	private static String CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_CLOSE = "\t}\n";
 	
@@ -375,10 +376,12 @@ public class ResourceGenerator {
 				continue;
 			
 			if(resourceField.getType().equals("timestamp"))
-				generate(String.format(CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_TIMESTAMP_BLOCK, resourceField.getName(), resourceField.getName(), resourceField.getName(),resourceField.getName(),getWrapperType(resourceField),resourceField.getName()));
+				generate(String.format(CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_TIMESTAMP_BLOCK, resourceField.getName(), resourceField.getName(), resourceField.getName(),
+						resourceField.getName(), resourceField.getName()));
 	
 			else if(resourceField.getType().equals("date"))
-				generate(String.format(CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_TIMESTAMP_BLOCK, resourceField.getName(), resourceField.getName(), resourceField.getName(),resourceField.getName(),getWrapperType(resourceField),resourceField.getName()));
+				generate(String.format(CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_DATE_BLOCK, resourceField.getName(), resourceField.getName(), resourceField.getName(),
+						resourceField.getName(), resourceField.getName()));
 		
 			else if(resourceField.getType().equals("String"))
 				generate(String.format(CONVERT_TYPE_UNSAFE_MAP_TO_RESOURCE_STRING_BLOCK, resourceField.getName(), resourceField.getName(), resourceField.getName(),

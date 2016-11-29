@@ -1085,11 +1085,11 @@ public abstract class Basegateway extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object last_modified_timeObj = map.get("last_modified_time");
 		if(last_modified_timeObj != null)
-			last_modified_time = (Long) last_modified_timeObj;
+			last_modified_time = new Long(last_modified_timeObj.toString());
 
 		Object created_by_profile_idObj = map.get("created_by_profile_id");
 		if(created_by_profile_idObj != null)

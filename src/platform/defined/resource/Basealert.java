@@ -423,7 +423,7 @@ public abstract class Basealert extends BaseResource {
 		alert_data = (Map<String, Object>) map.get("alert_data");
 		Object alert_timeObj = map.get("alert_time");
 		if(alert_timeObj != null)
-			alert_time = (Long) alert_timeObj;
+			alert_time = new Long(alert_timeObj.toString());
 
 		Object statusObj = map.get("status");
 		if(statusObj != null)
@@ -443,7 +443,7 @@ public abstract class Basealert extends BaseResource {
 
 		Object alarm_cleared_timeObj = map.get("alarm_cleared_time");
 		if(alarm_cleared_timeObj != null)
-			alarm_cleared_time = (Long) alarm_cleared_timeObj;
+			alarm_cleared_time = new Long(alarm_cleared_timeObj.toString());
 
 		Object severityObj = map.get("severity");
 		if(severityObj != null)

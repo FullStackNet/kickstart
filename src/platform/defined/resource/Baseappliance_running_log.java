@@ -198,11 +198,11 @@ public abstract class Baseappliance_running_log extends BaseResource {
 
 		Object start_timeObj = map.get("start_time");
 		if(start_timeObj != null)
-			start_time = (Long) start_timeObj;
+			start_time = new Long(start_timeObj.toString());
 
 		Object stop_timeObj = map.get("stop_time");
 		if(stop_timeObj != null)
-			stop_time = (Long) stop_timeObj;
+			stop_time = new Long(stop_timeObj.toString());
 
 		Object durationObj = map.get("duration");
 		if(durationObj != null)

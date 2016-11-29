@@ -2023,15 +2023,15 @@ public abstract class Basesensor extends BaseResource {
 
 		Object last_reading_updatedObj = map.get("last_reading_updated");
 		if(last_reading_updatedObj != null)
-			last_reading_updated = (Long) last_reading_updatedObj;
+			last_reading_updated = new Long(last_reading_updatedObj.toString());
 
 		Object start_reading_dateObj = map.get("start_reading_date");
 		if(start_reading_dateObj != null)
-			start_reading_date = (Long) start_reading_dateObj;
+			start_reading_date = new Long(start_reading_dateObj.toString());
 
 		Object initial_reading_dateObj = map.get("initial_reading_date");
 		if(initial_reading_dateObj != null)
-			initial_reading_date = (java.util.Date) initial_reading_dateObj;
+			initial_reading_date = new java.util.Date(new Long(initial_reading_dateObj.toString()));
 
 		Object dg_unit_openingObj = map.get("dg_unit_opening");
 		if(dg_unit_openingObj != null)
@@ -2223,11 +2223,11 @@ public abstract class Basesensor extends BaseResource {
 
 		Object last_reading_updated_dgObj = map.get("last_reading_updated_dg");
 		if(last_reading_updated_dgObj != null)
-			last_reading_updated_dg = (Long) last_reading_updated_dgObj;
+			last_reading_updated_dg = new Long(last_reading_updated_dgObj.toString());
 
 		Object last_reading_updated_gridObj = map.get("last_reading_updated_grid");
 		if(last_reading_updated_gridObj != null)
-			last_reading_updated_grid = (Long) last_reading_updated_gridObj;
+			last_reading_updated_grid = new Long(last_reading_updated_gridObj.toString());
 
 		Object dg_readingObj = map.get("dg_reading");
 		if(dg_readingObj != null)
@@ -2251,7 +2251,7 @@ public abstract class Basesensor extends BaseResource {
 
 		Object last_power_cut_timeObj = map.get("last_power_cut_time");
 		if(last_power_cut_timeObj != null)
-			last_power_cut_time = (Long) last_power_cut_timeObj;
+			last_power_cut_time = new Long(last_power_cut_timeObj.toString());
 
 		Object voltageObj = map.get("voltage");
 		if(voltageObj != null)
@@ -2307,7 +2307,7 @@ public abstract class Basesensor extends BaseResource {
 
 		Object last_prefilege_detected_timeObj = map.get("last_prefilege_detected_time");
 		if(last_prefilege_detected_timeObj != null)
-			last_prefilege_detected_time = (Long) last_prefilege_detected_timeObj;
+			last_prefilege_detected_time = new Long(last_prefilege_detected_timeObj.toString());
 
 		Object move_stateObj = map.get("move_state");
 		if(move_stateObj != null)
@@ -2315,19 +2315,19 @@ public abstract class Basesensor extends BaseResource {
 
 		Object last_moved_in_timeObj = map.get("last_moved_in_time");
 		if(last_moved_in_timeObj != null)
-			last_moved_in_time = (Long) last_moved_in_timeObj;
+			last_moved_in_time = new Long(last_moved_in_timeObj.toString());
 
 		Object last_moved_out_timeObj = map.get("last_moved_out_time");
 		if(last_moved_out_timeObj != null)
-			last_moved_out_time = (Long) last_moved_out_timeObj;
+			last_moved_out_time = new Long(last_moved_out_timeObj.toString());
 
 		Object last_disconnect_timeObj = map.get("last_disconnect_time");
 		if(last_disconnect_timeObj != null)
-			last_disconnect_time = (Long) last_disconnect_timeObj;
+			last_disconnect_time = new Long(last_disconnect_timeObj.toString());
 
 		Object last_update_timeObj = map.get("last_update_time");
 		if(last_update_timeObj != null)
-			last_update_time = (Long) last_update_timeObj;
+			last_update_time = new Long(last_update_timeObj.toString());
 
 		Object activatedObj = map.get("activated");
 		if(activatedObj != null)
@@ -2387,11 +2387,11 @@ public abstract class Basesensor extends BaseResource {
 
 		Object last_dg_reading_updated_dumpObj = map.get("last_dg_reading_updated_dump");
 		if(last_dg_reading_updated_dumpObj != null)
-			last_dg_reading_updated_dump = (Long) last_dg_reading_updated_dumpObj;
+			last_dg_reading_updated_dump = new Long(last_dg_reading_updated_dumpObj.toString());
 
 		Object last_grid_reading_updated_dumpObj = map.get("last_grid_reading_updated_dump");
 		if(last_grid_reading_updated_dumpObj != null)
-			last_grid_reading_updated_dump = (Long) last_grid_reading_updated_dumpObj;
+			last_grid_reading_updated_dump = new Long(last_grid_reading_updated_dumpObj.toString());
 
 		Object zero_reading_stateObj = map.get("zero_reading_state");
 		if(zero_reading_stateObj != null)
@@ -2407,7 +2407,7 @@ public abstract class Basesensor extends BaseResource {
 
 		Object started_zero_dg_readingObj = map.get("started_zero_dg_reading");
 		if(started_zero_dg_readingObj != null)
-			started_zero_dg_reading = (Long) started_zero_dg_readingObj;
+			started_zero_dg_reading = new Long(started_zero_dg_readingObj.toString());
 
 		Object zero_grid_reading_stateObj = map.get("zero_grid_reading_state");
 		if(zero_grid_reading_stateObj != null)
@@ -2415,11 +2415,11 @@ public abstract class Basesensor extends BaseResource {
 
 		Object started_zero_grid_readingObj = map.get("started_zero_grid_reading");
 		if(started_zero_grid_readingObj != null)
-			started_zero_grid_reading = (Long) started_zero_grid_readingObj;
+			started_zero_grid_reading = new Long(started_zero_grid_readingObj.toString());
 
 		Object started_zero_readingObj = map.get("started_zero_reading");
 		if(started_zero_readingObj != null)
-			started_zero_reading = (Long) started_zero_readingObj;
+			started_zero_reading = new Long(started_zero_readingObj.toString());
 
 		Object skip_limit_checkObj = map.get("skip_limit_check");
 		if(skip_limit_checkObj != null)
@@ -2491,11 +2491,11 @@ public abstract class Basesensor extends BaseResource {
 
 		Object lastEngineStartedObj = map.get("lastEngineStarted");
 		if(lastEngineStartedObj != null)
-			lastEngineStarted = (Long) lastEngineStartedObj;
+			lastEngineStarted = new Long(lastEngineStartedObj.toString());
 
 		Object lastEngineStoppedObj = map.get("lastEngineStopped");
 		if(lastEngineStoppedObj != null)
-			lastEngineStopped = (Long) lastEngineStoppedObj;
+			lastEngineStopped = new Long(lastEngineStoppedObj.toString());
 
 		Object heartbeat_intervalObj = map.get("heartbeat_interval");
 		if(heartbeat_intervalObj != null)
