@@ -33,6 +33,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String url = null;
 	private String summary = null;
 	private String book_name = null;
+	private Long orde_nor = null;
 	private String author_name = null;
 	private String publication_name = null;
 	private String severity = null;
@@ -196,6 +197,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_URL = "url";
 	public static String FIELD_SUMMARY = "summary";
 	public static String FIELD_BOOK_NAME = "book_name";
+	public static String FIELD_ORDE_NOR = "orde_nor";
 	public static String FIELD_AUTHOR_NAME = "author_name";
 	public static String FIELD_PUBLICATION_NAME = "publication_name";
 	public static String FIELD_SEVERITY = "severity";
@@ -416,6 +418,9 @@ public abstract class Basec4t_record extends BaseResource {
 		Field book_nameField = new Field("book_name", "String");
 		book_nameField.setLength(16);
 		metaData.addField(book_nameField);
+
+		Field orde_norField = new Field("orde_nor", "long");
+		metaData.addField(orde_norField);
 
 		Field author_nameField = new Field("author_name", "String");
 		author_nameField.setLength(16);
@@ -1008,6 +1013,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.url = obj.url;
 		this.summary = obj.summary;
 		this.book_name = obj.book_name;
+		this.orde_nor = obj.orde_nor;
 		this.author_name = obj.author_name;
 		this.publication_name = obj.publication_name;
 		this.severity = obj.severity;
@@ -1205,6 +1211,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("summary", summary);
 		if(book_name != null)
 			map.put("book_name", book_name);
+		if(orde_nor != null)
+			map.put("orde_nor", orde_nor);
 		if(author_name != null)
 			map.put("author_name", author_name);
 		if(publication_name != null)
@@ -1537,6 +1545,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("summary", summary);
 		if(book_name != null)
 			map.put("book_name", book_name);
+		if(orde_nor != null)
+			map.put("orde_nor", orde_nor);
 		if(author_name != null)
 			map.put("author_name", author_name);
 		if(publication_name != null)
@@ -1857,6 +1867,7 @@ public abstract class Basec4t_record extends BaseResource {
 		url = (String) map.get("url");
 		summary = (String) map.get("summary");
 		book_name = (String) map.get("book_name");
+		orde_nor = (Long) map.get("orde_nor");
 		author_name = (String) map.get("author_name");
 		publication_name = (String) map.get("publication_name");
 		severity = (String) map.get("severity");
@@ -2064,6 +2075,10 @@ public abstract class Basec4t_record extends BaseResource {
 		Object book_nameObj = map.get("book_name");
 		if(book_nameObj != null)
 			book_name = book_nameObj.toString();
+
+		Object orde_norObj = map.get("orde_nor");
+		if(orde_norObj != null)
+			orde_nor = new Long(orde_norObj.toString());
 
 		Object author_nameObj = map.get("author_name");
 		if(author_nameObj != null)
@@ -2890,6 +2905,26 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetBook_name() {
 		this.book_name = null;
+	}
+
+	public Long getOrde_nor() {
+		return orde_nor;
+	}
+
+	public long getOrde_norEx() {
+		return orde_nor != null ? orde_nor : 0L;
+	}
+
+	public void setOrde_nor(long orde_nor) {
+		this.orde_nor = orde_nor;
+	}
+
+	public void setOrde_nor(Long orde_nor) {
+		this.orde_nor = orde_nor;
+	}
+
+	public void unSetOrde_nor() {
+		this.orde_nor = null;
 	}
 
 	public String getAuthor_name() {

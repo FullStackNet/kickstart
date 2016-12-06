@@ -85,6 +85,10 @@
 				'length': 16,
 				'type':'String'
 			},
+			'orde_nor':
+			{
+				'type':'long'
+			},
 			'author_name':
 			{
 				'length': 16,
