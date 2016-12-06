@@ -423,7 +423,7 @@ public abstract class Basenotification extends BaseResource {
 		notification_data = (Map<String, Object>) map.get("notification_data");
 		Object notification_timeObj = map.get("notification_time");
 		if(notification_timeObj != null)
-			notification_time = (Long) notification_timeObj;
+			notification_time = new Long(notification_timeObj.toString());
 
 		Object statusObj = map.get("status");
 		if(statusObj != null)
@@ -443,7 +443,7 @@ public abstract class Basenotification extends BaseResource {
 
 		Object notification_cleared_timeObj = map.get("notification_cleared_time");
 		if(notification_cleared_timeObj != null)
-			notification_cleared_time = (Long) notification_cleared_timeObj;
+			notification_cleared_time = new Long(notification_cleared_timeObj.toString());
 
 		Object severityObj = map.get("severity");
 		if(severityObj != null)

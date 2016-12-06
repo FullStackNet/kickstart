@@ -286,7 +286,7 @@ public abstract class Baseschedule extends BaseResource {
 
 		Object schedule_timeObj = map.get("schedule_time");
 		if(schedule_timeObj != null)
-			schedule_time = (Long) schedule_timeObj;
+			schedule_time = new Long(schedule_timeObj.toString());
 
 		Object date_strObj = map.get("date_str");
 		if(date_strObj != null)
@@ -330,7 +330,7 @@ public abstract class Baseschedule extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		params = (Map<String, String>) map.get("params");
 		extra_data = (Map<String, Object>) map.get("extra_data");

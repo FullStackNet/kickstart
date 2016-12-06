@@ -257,11 +257,11 @@ public abstract class Baseid_card extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object last_update_timeObj = map.get("last_update_time");
 		if(last_update_timeObj != null)
-			last_update_time = (Long) last_update_timeObj;
+			last_update_time = new Long(last_update_timeObj.toString());
 
 		Object last_reader_noObj = map.get("last_reader_no");
 		if(last_reader_noObj != null)

@@ -280,7 +280,7 @@ public abstract class Basec4t_cart_item extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}

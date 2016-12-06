@@ -1046,11 +1046,11 @@ public abstract class Basecontroller extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object last_modified_timeObj = map.get("last_modified_time");
 		if(last_modified_timeObj != null)
-			last_modified_time = (Long) last_modified_timeObj;
+			last_modified_time = new Long(last_modified_timeObj.toString());
 
 		Object created_by_profile_idObj = map.get("created_by_profile_id");
 		if(created_by_profile_idObj != null)
@@ -1158,11 +1158,11 @@ public abstract class Basecontroller extends BaseResource {
 
 		Object last_data_receivedObj = map.get("last_data_received");
 		if(last_data_receivedObj != null)
-			last_data_received = (Long) last_data_receivedObj;
+			last_data_received = new Long(last_data_receivedObj.toString());
 
 		Object last_reading_receivedObj = map.get("last_reading_received");
 		if(last_reading_receivedObj != null)
-			last_reading_received = (Long) last_reading_receivedObj;
+			last_reading_received = new Long(last_reading_receivedObj.toString());
 
 		Object deployed_major_versionObj = map.get("deployed_major_version");
 		if(deployed_major_versionObj != null)

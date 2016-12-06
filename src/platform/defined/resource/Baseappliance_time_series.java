@@ -181,7 +181,7 @@ public abstract class Baseappliance_time_series extends BaseResource {
 
 		Object creation_dateObj = map.get("creation_date");
 		if(creation_dateObj != null)
-			creation_date = (Long) creation_dateObj;
+			creation_date = new Long(creation_dateObj.toString());
 
 		Object timezoneObj = map.get("timezone");
 		if(timezoneObj != null)

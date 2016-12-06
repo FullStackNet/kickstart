@@ -1505,7 +1505,7 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 		Object event_dateObj = map.get("event_date");
 		if(event_dateObj != null)
-			event_date = (Long) event_dateObj;
+			event_date = new Long(event_dateObj.toString());
 
 		Object event_date_strObj = map.get("event_date_str");
 		if(event_date_strObj != null)
@@ -1565,7 +1565,7 @@ public abstract class Basec4t_mandi_record extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object farmer1Obj = map.get("farmer1");
 		if(farmer1Obj != null)

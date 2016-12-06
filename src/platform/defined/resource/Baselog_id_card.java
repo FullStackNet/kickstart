@@ -399,7 +399,7 @@ public abstract class Baselog_id_card extends BaseResource {
 
 		Object event_timeObj = map.get("event_time");
 		if(event_timeObj != null)
-			event_time = (Long) event_timeObj;
+			event_time = new Long(event_timeObj.toString());
 
 		Object error_reasonObj = map.get("error_reason");
 		if(error_reasonObj != null)
@@ -419,7 +419,7 @@ public abstract class Baselog_id_card extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
