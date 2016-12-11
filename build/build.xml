@@ -54,7 +54,7 @@
     </script>
 </target>
 -->
-,<!--
+<!--
 <target name="update.version.build" depends="calculate.version.build">
     <propertyfile file="${versionFileName}">
         <entry key="build.number" type="int" operation="=" value="${currentBuild}" />
