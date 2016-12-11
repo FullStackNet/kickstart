@@ -1,0 +1,716 @@
+{
+	"student" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'admission_no':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'admission_date_str':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'emrgency_no':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'name':'school_id',
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'batch_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'fees_manual':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'fees_master_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'batch_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'emergency_no':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'house_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'short_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'blood_group':
+			{
+				'length': 10,
+				'type':'String'
+			},
+			'address1':
+			{
+				'name':'address1',
+				'length': 128,
+				'type':'String'
+			},
+			'address2':
+			{
+				'name':'address2',
+				'length': 128,
+				'type':'String'
+			},
+			'address3':
+			{
+				'name':'address3',
+				'length': 128,
+				'type':'String'
+			},
+			'city':
+			{
+				'name':'city',
+				'length': 128,
+				'type':'String'
+			},
+			'state':
+			{
+				'name':'state',
+				'length': 128,
+				'type':'String'
+			},
+			'syllabus_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'country':
+			{
+				'name':'country',
+				'length': 128,
+				'type':'String'
+			},
+			'institute_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'course_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'pickup_route_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'pickup_stopage_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'dropped_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'dropped_route_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'dropped_stopage_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'alert_pickup_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'alert_dropped_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'father_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_email_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_home_phone_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_office_phone_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_dob':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			
+			'father_occupation':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_role':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_company_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'father_phone_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_dob':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_home_phone_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_office_phone_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_occupation':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_role':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_company_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_email_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_phone_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'other_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'other_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'other_email_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'other_phone_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'dob':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'transport':
+			{
+				'length': 1,
+				'default' :"N",
+				'type':'String'
+			},
+			'class_section_name':
+			{
+				'length': 32,
+				'type':'String',
+				index : true
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'index' : true
+			},
+			'user_id':
+			{
+				'name':'user_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'remark':
+			{
+				'name':'remark',
+				'length': 512,
+				'type':'String'
+			},
+			'stopage_alert_sms':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'stopage_alert_mobile_app':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"Y"
+			},
+			'stopage_alert_email':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'overspeed_alert_sms':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'overspeed_alert_mobile_app':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"Y"
+			},
+			'overspeed_alert_email':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'neet_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'card_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'card_swipe_pickup_pick':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'card_swipe_pickup_pick_time':
+			{
+				'type':'timestamp'
+			},
+			'card_swipe_pickup_drop':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'card_swipe_pickup_drop_time':
+			{
+				'type':'timestamp'
+			},
+			'card_swipe_drop_pick':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'card_swipe_drop_pick_time':
+			{
+				'type':'timestamp'
+			},
+			'card_swipe_drop_drop':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'card_swipe_drop_drop_time':
+			{
+				'type':'timestamp'
+			},
+			'total_absent':
+			{
+				'type':'int',
+				default : 0
+			},
+			'total_present':
+			{
+				'type':'int',
+				default : 0
+			},
+			'daily_activity_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'home_practice_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'homework_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'notice_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'transport_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'absent_report_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'present_report_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'message2school_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'primary_contact':
+			{
+				'type':'String',
+				default : "MOTHER"
+			},
+			'gender':
+			{
+				'type':'String',
+				length : 10
+			},
+			'student_account':
+			{
+				'type':'String',
+				length : 1,
+				'default' : "Y"
+			},
+			'left':
+			{
+				'type':'String',
+				length : 1,
+				'default' : "N"
+			},
+			'left_date_str':
+			{
+				'type':'String',
+				length : 16
+			},
+			'left_reason':
+			{
+				'type':'String',
+				length : 256
+			},
+			'student_email_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'student_mobile_no':
+			{
+				'type':'String',
+				length : 128
+			},
+			'class_teacher_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'class_teacher_name':
+			{
+				'type':'String',
+				length : 128
+			},
+			'second_language':
+			{
+				'type':'String',
+				length : 128
+			},
+			'third_language':
+			{
+				'type':'String',
+				length : 128
+			},
+			'card_not_working':
+			{
+				'type':'String',
+				length : 128,
+				'default' : "N"
+			},
+			'card_not_working_reason':
+			{
+				'type':'String',
+				length : 128
+			},
+			'card_not_working_date_str':
+			{
+				'type':'String',
+				length : 32
+			},
+			'feature_bus_pickup_entry_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_bus_pickup_exit_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_bus_drop_entry_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_bus_drop_exit_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_school_entry_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'feature_school_exit_sms':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'application_processed':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'notes_issued':
+			{
+				'length': 1,
+				'default' : "Y",
+				'type':'String'
+			},
+			'notes_issued_date_str':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'fee_remark_str':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'due_date_str':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'due_date':
+			{
+				'type':'long'
+			},
+			
+			'notes_issued_date':
+			{
+				'type':'long'
+			},
+			'notes_issued_remark':
+			{
+				'length': 128,
+				'type':'String'
+			},
+		
+			'total_fees':
+			{
+				'type':'double'
+			},
+			'total_additional_charges':
+			{
+				'type':'double'
+			},
+			'total_fees_paid':
+			{
+				'type':'double'
+			},
+			'total_next_schedule_pending':
+			{
+				'type':'double'
+			},
+			'total_next_schedule_date':
+			{
+				'type':'long'
+			},
+			'total_next_schedule_date_str':
+			{
+				'type':'String'
+			},
+			'manual_fees_approval':
+			{
+				'type': 'String',
+				'length' : 1
+			},
+			'discount':
+			{
+				'type':'double'
+			},
+			'opening_balance':
+			{
+				'type':'double'
+			},
+			'total_debit':
+			{
+				'type':'double'
+			},
+			'total_credit':
+			{
+				'type':'double'
+			},
+			'closing_balance':
+			{
+				'type':'double'
+			},
+			'balance':
+			{
+				'type':'double'
+			},
+			'last_recharge':
+			{
+				'type':'double'
+			},
+			'last_recharge_time':
+			{
+				'type':'long'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

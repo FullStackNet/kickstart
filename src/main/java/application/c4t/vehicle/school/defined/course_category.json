@@ -1,0 +1,53 @@
+{
+	"course_category" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'parent_id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'parent_name':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'order':
+			{
+				'type':'long'
+			},
+			'image_url':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}			
+		}
+	}
+}

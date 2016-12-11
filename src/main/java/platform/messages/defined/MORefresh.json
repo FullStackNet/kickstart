@@ -1,0 +1,11 @@
+{
+	"MORefresh" :
+	{
+		"category" : "6",
+		"command" : "4",
+		"packet_type" : "1",
+		"fields":
+		{
+		}
+	}
+}

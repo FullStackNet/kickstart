@@ -1,0 +1,59 @@
+{
+	"MORegister" :
+	{
+		"category" : "6",
+		"command" : "1",
+		"packet_type" : "1",
+		"fields":
+		{
+			'id':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'object_name':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'type':
+			{
+				'type':'String',
+				'length' : 32
+			},
+			'monitor_type':
+			{
+				'type':'int'
+			},
+			'ip_address':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'port':
+			{
+				'type':'int'
+			},	
+			'process_id':
+			{
+				'type':'String',
+				'length' : 32
+			},
+			'location':
+			{
+				'type':'String',
+				'length' : 128
+			},
+			'version':
+			{
+				'type':'String',
+				'length' : 32
+			},
+			'message_bus_url':
+			{
+				'type':'String',
+				'length' : 32
+			}							
+		}
+	}
+}

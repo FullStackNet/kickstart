@@ -1,0 +1,27 @@
+{
+	"school_customer_map" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'comment' : "customer ids"
+			},
+			'schools':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'students':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}

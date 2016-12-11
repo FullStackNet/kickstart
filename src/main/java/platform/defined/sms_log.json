@@ -1,0 +1,132 @@
+{
+	"sms_log" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'parent_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'reason':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'reference_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'reference_description':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'student_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'student_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'community_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'community_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'school_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'member_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'mobile_no':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'person_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'date':
+			{
+				'length': 32,
+				'type':'String'			
+			},
+			'event_creation_time':
+			{
+				'type':'timestamp'
+			},
+			'invocation_time':
+			{
+				'type':'timestamp'
+			},
+			'sent_try_time':
+			{
+				'type':'timestamp'
+			},
+			'sent_time':
+			{
+				'type':'timestamp'
+			},
+			'sent_status':
+			{
+				'length': 1,
+				'type':'String',
+				'comment' : "N-Not sent,S-Sent,F-Failed"
+			},	
+			'processing_status':
+			{
+				'length': 1,
+				'type':'String',
+				'comment' : "N-Not Processed, P-Processed"
+			}		
+		}
+	}
+}

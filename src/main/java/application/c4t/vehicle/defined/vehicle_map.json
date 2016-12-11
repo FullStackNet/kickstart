@@ -1,0 +1,35 @@
+{
+	"vehicle_map" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'remark' : "vehicle Id"
+			},
+			'routes':
+			{
+				'name':'routes',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'stopages':
+			{
+				'name':'stopages',
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'notify_users':
+			{
+				'name':'notify_users',
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}

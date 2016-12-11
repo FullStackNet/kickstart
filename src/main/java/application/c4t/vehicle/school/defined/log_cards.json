@@ -1,0 +1,54 @@
+{
+	"log_cards" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'type':
+			{
+				'type':'String',
+				"Remark" : "BUS/School"
+			},
+			'card_no':
+			{
+				'type':'String',
+				"Remark" : "BUS/School"
+			},
+			'valid':
+			{
+				'type':'Array',
+				'valueType' : "String",
+				"Remark" : "BUS/School"
+			},
+			'record_type':
+			{
+				'type':'Array',
+				'valueType' : "String",
+				"Remark" : "Entry/Exit"
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			}
+		}
+	}
+}

@@ -1,0 +1,78 @@
+{
+	"report_card_generation_request" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			},
+			'accessment_for':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'school_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'school_id':
+			{
+				'name':'school_id',
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'class_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'index' : true
+			},
+			'accessment_type':
+			{
+				'type':'String',
+				length : 32
+			},
+			'total':
+			{
+				'type':'int'
+			},
+			'generated':
+			{
+				'type':'int'
+			},
+			'status':
+			{
+				'type':'String',
+				'length' : 32
+			},
+			'generated_by':
+			{
+				'type':'String',
+				'length' : 128
+			}
+		}
+	}
+}

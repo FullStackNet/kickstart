@@ -1,0 +1,150 @@
+{
+	"dg" :
+	{
+		"cluster": "DB_DEVICE",
+		"table"  => "appliance",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String',
+				'required': true
+			},
+			'make_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'auto' : true,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'length': 128,
+				'auto' : true,
+				'type':'String'
+			},
+			'model_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'type':
+			{
+				'length': 32,
+				'type':'String',
+				'auto': "VEHICLE"
+			},
+			'sub_type':
+			{
+				'length': 32,
+				'type':'String',
+				'remark' : "CAR/BUS/TRUCK"
+			},
+			'manager':
+			{
+				'length': 128,
+				'type':'String',
+				'required': true
+			},
+			'serial_no':
+			{
+				'length': 64,
+				'type':'String'
+			},
+			'manufecturing_date':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'next_servicing_date':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'threshold_fuel_level':
+			{
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'capacity':
+			{
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'maintainace_run_hour':
+			{
+				'length': 10,
+				'type':'int'
+			},
+			'connected':
+			{
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'config':
+			{
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'fuel_level':
+			{
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'fuel_quantity':
+			{
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'state':
+			{
+				'default':'N',
+				'length': 32,
+				'type':'String'
+			},
+			'last_disconnect_time':
+			{
+				'type':'timestamp'
+			},
+			'last_update_time':
+			{
+				'type':'timestamp'
+			},
+			'langitude':
+			{
+				'default':'0.00',
+				'length': 20,
+				'precision': 8,
+				'type':'Number'
+			},
+			'latitude':
+			{
+				'default':'0.00',
+				'length': 20,
+				'precision': 8,
+				'type':'Number'
+			}
+		}
+	}
+}

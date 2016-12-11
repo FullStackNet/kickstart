@@ -1,0 +1,23 @@
+{
+	"DeviceAction" :
+	{
+		"category" : "20",
+		"command" : "1",
+		"packet_type" : "1",
+		"message_id" : ['deviceId'],
+		"fields":
+		{
+			'deviceId':
+			{
+				'name':'deviceId',
+				'length': 10,
+				'type':'String'
+			},
+			'action':
+			{
+				'name':'action',
+				'type':'String'
+			}
+		}
+	}
+}

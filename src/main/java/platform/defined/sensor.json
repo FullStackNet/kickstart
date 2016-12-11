@@ -1,0 +1,919 @@
+{
+	"sensor" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'type':
+			{
+				'name':'type',
+				'length': 32,
+				'type':'String'
+			},
+			'sub_type':
+			{
+				'name':'sub_type',
+				'length': 32,
+				'type':'String'
+			},
+			'consumer_id':
+			{
+				'name':'consumer_id',
+				'length': 128,
+				'type':'String'
+			},
+			'manager':
+			{
+				'name':'manager',
+				'length': 128,
+				'type':'String'
+			},
+			'model':
+			{
+				'name':'model',
+				'length': 128,
+				'type':'String'
+			},
+			'location_id':
+			{
+				'name':'location_id',
+				'length': 128,
+				'type':'String'
+			},
+			'location_no':
+			{
+				'name':'location_no',
+				'length': 32,
+				'type':'String'
+			},
+			'gateway_id':
+			{
+				'name':'gateway_id',
+				'length': 128,
+				'type':'String'
+			},
+			'site_id':
+			{
+				'name':'site_id',
+				'length': 128,
+				'type':'String'
+			},
+			'start_grid_reading':
+			{
+				'name':'start_grid_reading',
+				'default':'0.0000',
+				'length': 10,
+				'precision': 4,
+				'type':'Number'
+			},
+			'start_dg_reading':
+			{
+				'name':'start_dg_reading',
+				'default':'0.0000',
+				'length': 10,
+				'precision': 4,
+				'type':'Number'
+			},
+			'initial_balance':
+			{
+				'name':'initial_balance',
+				'default':'0',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'meter_ct_mf':
+			{
+				'name':'meter_ct_mf',
+				'default':'1',
+				'length': 6,
+				'precision': 2,
+				'type':'Number'
+			},
+			'last_reading_updated':
+			{
+				'name':'last_reading_updated',
+				'default':'CURRENT_TIMESTAMP',
+				'required': true,
+				'type':'timestamp'
+			},
+			'start_reading_date':
+			{
+				'name':'start_reading_date',
+				'type':'timestamp'
+			},
+			'initial_reading_date':
+			{
+				'name':'initial_reading_date',
+				'type':'date'
+			},
+			'dg_unit_opening':
+			{
+				'name':'dg_unit_opening',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'dg_unit_consumed':
+			{
+				'name':'dg_unit_consumed',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'dg_unit_closing':
+			{
+				'name':'dg_unit_closing',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_unit_opening':
+			{
+				'name':'grid_unit_opening',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_unit_consumed':
+			{
+				'name':'grid_unit_consumed',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_unit_closing':
+			{
+				'name':'grid_unit_closing',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'serial_no':
+			{
+				'name':'serial_no',
+				'length': 64,
+				'type':'String'
+			},
+			'rf_tag_id':
+			{
+				'name':'rf_tag_id',
+				'length': 64,
+				'type':'String'
+			},
+			'manufecturing_date':
+			{
+				'name':'manufecturing_date',
+				'length': 32,
+				'type':'String'
+			},
+			'next_servicing_date':
+			{
+				'name':'next_servicing_date',
+				'length': 32,
+				'type':'String'
+			},
+			'threshold_fuel_level':
+			{
+				'name':'threshold_fuel_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'threshold_temperature_min_level':
+			{
+				'name':'threshold_temperature_min_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'threshold_temperature_max_level':
+			{
+				'name':'threshold_temperature_max_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'threshold_voltage_min_level':
+			{
+				'name':'threshold_voltage_min_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'threshold_voltage_max_level':
+			{
+				'name':'threshold_voltage_max_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'threshold_current_min_level':
+			{
+				'name':'threshold_current_min_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'threshold_current_max_level':
+			{
+				'name':'threshold_current_max_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'threshold_duration':
+			{
+				'name':'threshold_duration',
+				'length': 10,
+				'type':'Number'
+			},
+			'asset_id':
+			{
+				'name':'asset_id',
+				'length': 128,
+				'type':'String'
+			},
+			'partner_id':
+			{
+				'name':'partner_id',
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'type':'String'
+			},
+			'tenent_id':
+			{
+				'name':'tenent_id',
+				'length': 128,
+				'type':'String'
+			},
+			'controller_id':
+			{
+				'name':'controller_id',
+				'length': 128,
+				'type':'String'
+			},
+			'controller_port':
+			{
+				'name':'controller_port',
+				'length': 4,
+				'type':'int'
+			},
+			'controller_physical_port':
+			{
+				'name':'controller_physical_port',
+				'length': 4,
+				'type':'int'
+			},
+			'end_device':
+			{
+				'name':'end_device',
+				'length': 128,
+				'type':'String'
+			},
+			'ex_type':
+			{
+				'name':'ex_type',
+				'default':'ENABLED',
+				'length': 16,
+				'type':'String'
+			},
+			'interface_type':
+			{
+				'name':'interface_type',
+				'length': 32,
+				'type':'String'
+			},
+			'battery_number':
+			{
+				'name':'battery_number',
+				'length': 3,
+				'type':'int'
+			},
+			'number_of_batteries':
+			{
+				'name':'number_of_batteries',
+				'default':'24',
+				'length': 3,
+				'type':'int'
+			},
+			'appliance_id':
+			{
+				'name':'appliance_id',
+				'length': 128,
+				'type':'String'
+			},
+			'deploy_type':
+			{
+				'name':'deploy_type',
+				'default':'LOCATION',
+				'length': 16,
+				'type':'String'
+			},
+			'dg_overload_enabled':
+			{
+				'name':'dg_overload_enabled',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'grid_overload_enabled':
+			{
+				'name':'grid_overload_enabled',
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'dg_no':
+			{
+				'name':'dg_no',
+				'default':'0',
+				'length': 4,
+				'type':'int'
+			},
+			'grid_overload_setting':
+			{
+				'name':'grid_overload_setting',
+				'default':'800',
+				'length': 5,
+				'type':'int'
+			},
+			'dg_overload_setting':
+			{
+				'name':'dg_overload_setting',
+				'default':'500',
+				'length': 5,
+				'type':'int'
+			},
+			'over_voltage':
+			{
+				'name':'over_voltage',
+				'default':'280',
+				'length': 4,
+				'type':'int'
+			},
+			'under_voltage':
+			{
+				'name':'under_voltage',
+				'default':'150',
+				'length': 4,
+				'type':'int'
+			},
+			'sampleing_time':
+			{
+				'name':'sampleing_time',
+				'default':'30',
+				'length': 8,
+				'type':'int'
+			},
+			'reconnect_time':
+			{
+				'name':'reconnect_time',
+				'default':'30',
+				'length': 8,
+				'type':'int'
+			},
+			'number_of_overload_events':
+			{
+				'name':'number_of_overload_events',
+				'default':'10',
+				'length': 4,
+				'type':'int'
+			},
+			'connected':
+			{
+				'name':'connected',
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'config':
+			{
+				'name':'config',
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'battery_status':
+			{
+				'name':'battery_status',
+				'default':'O',
+				'length': 1,
+				'type':'String'
+			},
+			'battery_level':
+			{
+				'name':'battery_level',
+				'default':'100',
+				'length': 3,
+				'type':'int'
+			},
+			'last_reading':
+			{
+				'name':'last_reading',
+				'default':'0.0000',
+				'length': 16,
+				'precision': 4,
+				'type':'Number'
+			},
+			'last_reading_updated_dg':
+			{
+				'name':'last_reading_updated_dg',
+				'required': true,
+				'type':'timestamp'
+			},
+			'last_reading_updated_grid':
+			{
+				'name':'last_reading_updated_grid',
+				'required': true,
+				'type':'timestamp'
+			},
+			'dg_reading':
+			{
+				'name':'dg_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'reading_validator_mf':
+			{
+				'name':'reading_validator_mf',
+				'default':'7.0',
+				'length': 8,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_reading':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'dg_reading_dump':
+			{
+				'name':'dg_reading_dump',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_reading_dump':
+			{
+				'name':'grid_reading_dump',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'last_power_cut_time':
+			{
+				'name':'last_power_cut_time',
+				'type':'timestamp'
+			},
+			'voltage':
+			{
+				'name':'voltage',
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'voltage_float':
+			{
+				'name':'voltage_float',
+				'default':'0.0',
+				'length': 6,
+				'precision': 2,
+				'type':'Number'
+			},
+			'current':
+			{
+				'name':'current',
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'power':
+			{
+				'name':'power',
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'temperature':
+			{
+				'name':'temperature',
+				'default':'0.00',
+				'length': 6,
+				'precision': 2,
+				'type':'Number'
+			},
+			'humidity':
+			{
+				'name':'humidity',
+				'default':'0.00',
+				'length': 6,
+				'precision': 2,
+				'type':'Number'
+			},
+			'mode':
+			{
+				'name':'mode',
+				'default':'D',
+				'length': 1,
+				'type':'String'
+			},
+			'level':
+			{
+				'name':'level',
+				'default':'0',
+				'length': 3,
+				'type':'int'
+			},
+			'unhealthy_batteries':
+			{
+				'name':'unhealthy_batteries',
+				'default':'0',
+				'length': 3,
+				'type':'int'
+			},
+			'level_float':
+			{
+				'name':'level_float',
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'fuel_level':
+			{
+				'name':'fuel_level',
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'state':
+			{
+				'name':'state',
+				'default':'N',
+				'length': 32,
+				'type':'String'
+			},
+			'prefilege_detected':
+			{
+				'name':'prefilege_detected',
+				'length': 4,
+				'type':'String'
+			},
+			'last_prefilege_detected_time':
+			{
+				'name':'last_prefilege_detected_time',
+				'type':'timestamp'
+			},
+			'move_state':
+			{
+				'name':'move_state',
+				'length': 32,
+				'type':'String'
+			},
+			'last_moved_in_time':
+			{
+				'name':'last_moved_in_time',
+				'type':'timestamp'
+			},
+			'last_moved_out_time':
+			{
+				'name':'last_moved_out_time',
+				'type':'timestamp'
+			},
+			'last_disconnect_time':
+			{
+				'name':'last_disconnect_time',
+				'type':'timestamp'
+			},
+			'last_update_time':
+			{
+				'name':'last_update_time',
+				'type':'timestamp'
+			},
+			'activated':
+			{
+				'name':'activated',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'overload_grid':
+			{
+				'name':'overload_grid',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'overload_dg':
+			{
+				'name':'overload_dg',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'dg_on':
+			{
+				'name':'dg_on',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'low_battery_state':
+			{
+				'name':'low_battery_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'deep_discharge_battery_state':
+			{
+				'name':'deep_discharge_battery_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'charging_state':
+			{
+				'name':'charging_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'higher_reading_state':
+			{
+				'name':'higher_reading_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'higher_dg_reading_state':
+			{
+				'name':'higher_dg_reading_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'higher_grid_reading_state':
+			{
+				'name':'higher_grid_reading_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'out_of_mf_reading_state':
+			{
+				'name':'out_of_mf_reading_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'out_of_mf_dg_reading_state':
+			{
+				'name':'out_of_mf_dg_reading_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'out_of_mf_grid_reading_state':
+			{
+				'name':'out_of_mf_grid_reading_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'time_mismatch_state':
+			{
+				'name':'time_mismatch_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'last_dg_reading_updated_dump':
+			{
+				'name':'last_dg_reading_updated_dump',
+				'type':'timestamp'
+			},
+			'last_grid_reading_updated_dump':
+			{
+				'name':'last_grid_reading_updated_dump',
+				'type':'timestamp'
+			},
+			'zero_reading_state':
+			{
+				'name':'zero_reading_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'zero_dg_reading_state':
+			{
+				'name':'zero_dg_reading_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'dg_grid_reading_limit_state':
+			{
+				'name':'dg_grid_reading_limit_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'started_zero_dg_reading':
+			{
+				'name':'started_zero_dg_reading',
+				'type':'timestamp'
+			},
+			'zero_grid_reading_state':
+			{
+				'name':'zero_grid_reading_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'started_zero_grid_reading':
+			{
+				'name':'started_zero_grid_reading',
+				'type':'timestamp'
+			},
+			'started_zero_reading':
+			{
+				'name':'started_zero_reading',
+				'type':'timestamp'
+			},
+			'skip_limit_check':
+			{
+				'name':'skip_limit_check',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'admin_status':
+			{
+				'name':'admin_status',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'langitude':
+			{
+				'name':'langitude',
+				'default':'0.00',
+				'length': 20,
+				'precision': 8,
+				'type':'Number'
+			},
+			'latitude':
+			{
+				'name':'langitude',
+				'default':'0.00',
+				'length': 20,
+				'precision': 8,
+				'type':'Number'
+			},
+			'speed':
+			{
+				'name':'speed',
+				'default':'0',
+				'length': 4,
+				'type':'int'
+			},
+			'airFlow':
+			{
+				'name':'airFlow',
+				'default':'0',
+				'length': 8,
+				'type':'int'
+			},
+			'atmoshericPressure':
+			{
+				'name':'atmoshericPressure',
+				'default':'0',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'engineLoad':
+			{
+				'name':'engineLoad',
+				'default':'0',
+				'length': 12,
+				'type':'int'
+			},
+			'gpsStatus':
+			{
+				'name':'gpsStatus',
+				'default':'A',
+				'length': 1,
+				'type':'String'
+			},
+			'intakeAirTemperature':
+			{
+				'name':'intakeAirTemperature',
+				'default':'0',
+				'length': 12,
+				'type':'int'
+			},
+			'oilPressure':
+			{
+				'name':'oilPressure',
+				'default':'0',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'rpm':
+			{
+				'name':'rpm',
+				'default':'0',
+				'length': 12,
+				'type':'int'
+			},
+			'trottlePosition':
+			{
+				'name':'trottlePosition',
+				'default':'0',
+				'length': 12,
+				'type':'int'
+			},
+			'batteryVoltage':
+			{
+				'name':'batteryVoltage',
+				'default':'0',
+				'length': 12,
+				'precision': 2,
+				'type':'Number'
+			},
+			'intakeTubeAbsolutePressure':
+			{
+				'name':'intakeTubeAbsolutePressure',
+				'default':'0',
+				'length': 12,
+				'precision': 2,
+				'type':'Number'
+			},
+			'numberOfDTC':
+			{
+				'name':'numberOfDTC',
+				'default':'0',
+				'length': 12,
+				'type':'int'
+			},
+			'engineState':
+			{
+				'name':'engineState',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'lastEngineStarted':
+			{
+				'name':'lastEngineStarted',
+				'type':'timestamp'
+			},
+			'lastEngineStopped':
+			{
+				'name':'lastEngineStopped',
+				'type':'timestamp'
+			},
+			'heartbeat_interval':
+			{
+				'name':'heartbeat_interval',
+				'type':'int'
+			}
+		}
+	}
+}

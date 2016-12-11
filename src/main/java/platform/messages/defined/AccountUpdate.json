@@ -1,0 +1,40 @@
+{
+	"AccountUpdate" :
+	{
+		"category" : "7",
+		"command" : "1",
+		"packet_type" : "1",
+		"fields":
+		{
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'account_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'account_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'company_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'parent_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'balance':
+			{
+				'type':'double'
+			}
+		}
+	}
+}

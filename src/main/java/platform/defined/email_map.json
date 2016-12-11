@@ -1,0 +1,28 @@
+{
+	"email_map" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'invites':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'user_id':
+			{
+				'name':'user_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			}	
+		}
+	}
+}

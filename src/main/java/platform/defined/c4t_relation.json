@@ -1,0 +1,53 @@
+{
+	"c4t_relation" :
+	{
+		"cluster": "DB_OBJECT",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				"remark" : "from id and relation type"
+			},
+			'from_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'to_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'relation_type':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'role':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'order':
+			{
+				type':'long'
+			},
+			'object_map':
+			{
+				'type':'Array',
+				'valueType':'String'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			}						
+		}
+	}
+}

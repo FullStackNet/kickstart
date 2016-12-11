@@ -1,0 +1,54 @@
+{
+	"activity" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'profile_id':
+			{
+				'name':'profile_id',
+				'length': 128,
+				'type':'String'
+			},
+			'activity_type':
+			{
+				'name':'activity_type',
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'name':'creation_time',
+				'default':'CURRENT_TIMESTAMP',
+				'required': true,
+				'type':'timestamp'
+			},
+			'status':
+			{
+				'name':'status',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'data':
+			{
+				'name':'data',
+				'length': 512,
+				'type':'String'
+			},
+			'reference_id':
+			{
+				'name':'reference_id',
+				'length': 128,
+				'type':'String'
+			}
+		}
+	}
+}

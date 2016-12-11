@@ -1,0 +1,22 @@
+{
+	"DeviceCurrent" :
+	{
+		"category" : "20",
+		"command" : "15",
+		"packet_type" : "1",
+		"fields":
+		{
+			'deviceId':
+			{
+				'name':'deviceId',
+				'type':'String',
+				'length' : 128
+			},
+			'value':
+			{
+				'name':'value',
+				'type':'int'
+			}
+		}
+	}
+}

@@ -1,0 +1,112 @@
+{
+	"present_detail" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'present_parent_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'index' : true
+		
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'class_section_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'present_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "In Bus/In School"
+			},
+			'sub_present_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "PICKUP/DROP or Enter/Exit"
+			},
+			'langitude':
+			{
+				'name':'langitude',
+				'type':'String',
+				'length' : 32
+			},
+			'latitude':
+			{
+				'name':'langitude',
+				'type':'String',
+				'length' : 32
+			},
+			'present_record_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "ENTER/EXIT"
+			},
+			'date':
+			{
+				'type':'timestamp'
+			},
+			'date_str':
+			{
+				'type':'String'
+			},
+			'student_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			},
+			'entry_time':
+			{
+				'type':'timestamp'
+			},
+			'late_comingInMin':
+			{
+				'type':'long'
+			},
+			'workingInMin':
+			{
+				'type':'long'
+			},
+			'remark':
+			{
+				'type':'String',
+				length : 1024
+			},
+			'corrected':
+			{
+				'type':'String',
+				length : 1,
+				'default' : "N"
+			},
+			'correction_type':
+			{
+				'type':'String',
+				length : 1,
+				'default' : "N"
+			}
+		}
+	}
+}

@@ -1,0 +1,71 @@
+{
+	"user_map" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'applications':
+			{
+				'name':'applications',
+				'type':'Map'
+			},
+			'appliances':
+			{
+				'name':'appliances',
+				'type':'Array',
+				'valueType' : 'String' 
+			},
+			'devices':
+			{
+				'name':'devices',
+				'type':'Array',
+				'valueType' : 'String' 
+			},
+			'alerts':
+			{
+				'name':'alerts',
+				'type':'Array',
+				'valueType' : 'String' 
+			},
+			'notifications':
+			{
+				'name':'notifications',
+				'type':'Array',
+				'valueType' : 'String' 
+			},
+			'recent_notifications':
+			{
+				'type':'Array',
+				'valueType' : 'String' 
+			},
+			'recent_alerts':
+			{
+				'type':'Array',
+				'valueType' : 'String' 
+			},
+			'invites':
+			{
+				'name':'invites',
+				'type':'Array',
+				'valueType' : 'String' 
+			},
+			'locations':
+			{
+				'type':'Array',
+				'valueType' : 'String' 
+			},
+			'communities':
+			{
+				'type':'Array',
+				'valueType' : 'String' 
+			}
+		}
+	}
+}

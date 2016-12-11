@@ -1,0 +1,31 @@
+{
+	"fee_heading" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

@@ -1,0 +1,108 @@
+{
+	"email_account" :
+	{
+		"cluster": "DB_CONFIG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'do_not_mail':
+			{
+				'length': 1,
+				'type':'String',
+				default : "N"
+			},
+			'unique_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'bcc_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'send_to_unique_id':
+			{
+				'length': 128,
+				'type':'String',
+				default : "Y"
+			},
+			'send_to_right_id':
+			{
+				'length': 1,
+				'type':'String',
+				default : "N"
+			},
+			'send_to_both_id':
+			{
+				'length': 1,
+				'type':'String',
+				default : "N"
+			},
+			'send_to_bcc_id':
+			{
+				'length': 1,
+				'type':'String',
+				default : "N"
+			},
+			'domain':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'smtp_server':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'smtp_ssl_port':
+			{
+				'type':'int',
+				default : 463
+			},
+			'smtp_username':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'smtp_password':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'admin_mail':
+			{
+				'length': 128,
+				'type':'String'
+			},
+
+			'db_workers':
+			{
+				'type':'int',
+				default : 1
+			},
+			'send_workers':
+			{
+				'type':'int',
+				default : 6
+			},
+			'mails_queue_size':
+			{
+				'type':'int',
+				default : 10000
+			}
+		}
+	}
+}

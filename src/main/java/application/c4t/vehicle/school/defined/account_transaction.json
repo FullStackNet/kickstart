@@ -1,0 +1,70 @@
+{
+	"account_transaction" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'transaction_date': {
+				'type': 'timestamp'
+			},
+			'transaction_date_str': {
+				'type': 'String',
+				'length': 32
+			},
+			'account_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+		
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'account_name':
+			{
+				'type':'String',
+				length : 128
+			},
+			'accounting_head_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'accounting_head_name':
+			{
+				'type':'String',
+				length : 128
+			},
+			'credit_amount': {
+				'type': 'double'
+			},
+			'debit_amount': {
+				'type': 'double'
+			},
+			'remark': {
+				'type': 'String',
+				length : 256
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

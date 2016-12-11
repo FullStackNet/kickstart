@@ -1,0 +1,65 @@
+{
+	"absent_detail" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'absent_parent_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'index' : true
+		
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'class_section_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'date':
+			{
+				'type':'timestamp'
+			},
+			'date_str':
+			{
+				'type':'String'
+			},
+			'student_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'student_name':
+			{
+				'type':'String',
+				length : 128
+			},
+			'leave_apply':
+			{
+				'type':'String',
+				default : "N",
+				length : 1
+			},
+			'remark':
+			{
+				'type':'String',
+				length : 1024
+			}
+		}
+	}
+}

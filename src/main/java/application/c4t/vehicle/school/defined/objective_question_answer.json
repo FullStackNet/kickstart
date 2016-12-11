@@ -1,0 +1,91 @@
+{
+	"objective_question_answer" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				"remark" : "from id and relation type"
+			},
+			'allocated_test_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'question_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'answer_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'answer_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'answer_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'answer_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'answer_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'correct_answer_1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'correct_answer_2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'correct_answer_3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'correct_answer_4':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'correct_answer_5':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'correct_answer':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'marks':
+			{
+				'type':'double'
+			}			
+			
+		}
+	}
+}

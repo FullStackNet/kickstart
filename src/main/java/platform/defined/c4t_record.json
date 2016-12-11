@@ -1,0 +1,813 @@
+{
+	"c4t_record" :
+	{
+		"cluster": "DB_RECORD",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'community_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'batch_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'batch_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'school_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'student_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'course_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'course_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'community_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'url':
+			{
+				'length': 512,
+				'type':'String'
+			},
+			'summary':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'book_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'orde_nor':
+			{
+				'type':'long'
+			},
+			'author_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'publication_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'severity':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'customer_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'member_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'member_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'devilvery_boy_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'devilvery_boy_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'member_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'record_type':
+			{
+				'length': 512,
+				'type': 'String',
+				'remark' : "COMMUNICATION,PERSONAL_COMMUNICATION"
+			},
+			'record_no':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'payment_type':
+			{
+				'length': 512,
+				'type': 'String',
+				'index' : true
+			},
+			'vehicle_no':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'record_sub_type':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'location_type':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'title':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'attachment':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'attachment_name':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'has_attachment':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'bay_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+	
+			'release_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'release_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'total_farmers':
+			{
+				'type':'Double'
+			},
+			'max_items':
+			{
+				'type':'Double'
+			},
+			'total_amount':
+			{
+				'type':'Double'
+			},
+			'total_adjusted_amount':
+			{
+				'type':'Double'
+			},
+			'count':
+			{
+				'type':'int'
+			},
+			'parent_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'component_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'component_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'sprint_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'sprint_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'from_date':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			
+			'photo_url':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'created_by_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'created_by_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'assign_to_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'assign_to_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'reference_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'to_date':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'start_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'end_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'is_holiday':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'delivery_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'table_no':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'bay_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'supervisor_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'supervisor_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'flat_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'flat_no':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'user_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'cheque_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'cheque_date': {
+				'type': 'timestamp',
+				index : true
+			},
+			'cheque_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'user_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'product_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'product_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'product_unit':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'reference_id':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'reference_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'mobile_no':
+			{
+				'length': 32,
+				'type': 'String'
+			},
+			'address1':
+			{
+				'length': 256,
+				'type': 'String'
+			},
+			'address2':
+			{
+				'length': 256,
+				'type': 'String'
+			},
+			'area':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'city':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'state':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'country':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'zip_code':
+			{
+				'length': 10,
+				'type': 'String'
+			},
+			'land_mark':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'company_name':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'company_short_name':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'all':
+			{
+				'length': 1,
+				'type': 'String'
+			},
+			'record_status':
+			{
+				'length': 32,
+				'type': 'String'
+			},
+			'designation':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'address':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'quantity':
+			{
+				'type': 'Double'
+			},
+			'total_vat':
+			{
+				'type': 'Double'
+			},
+			'total_days':
+			{
+				'type': 'Double'
+			},
+			'total_present':
+			{
+				'type': 'Double'
+			},
+			'total_percentage':
+			{
+				'type': 'Double'
+			},
+			'total_items':
+			{
+				'type': 'long'
+			},
+			'total_service_tax':
+			{
+				'type': 'Double'
+			},
+			'total_service_charge':
+			{
+				'type': 'Double'
+			},
+			'total_amount':
+			{
+				'type': 'Double'
+			},
+			'transport_unit_charge':
+			{
+				'type': 'double'
+			},
+			'total_transport_charge':
+			{
+				'type': 'double'
+			},
+			'unloading_unit_charge':
+			{
+				'type': 'double'
+			},
+			'hidden_charge_percentage':
+			{
+				'type': 'double'
+			},
+			'total_hidden_charges':
+			{
+				'type': 'double'
+			},
+			'total_unloading_charge':
+			{
+				'type': 'double'
+			},
+			'total_transport_charge':
+			{
+				'type': 'double'
+			},
+			'net_amount':
+			{
+				'type': 'Double'
+			},
+			'total_muc':
+			{
+				'type': 'Double'
+			},
+			'discount_percentage':
+			{
+				'type': 'double'
+			},
+			'total_discount':
+			{
+				'type': 'double'
+			},
+			'total_commission':
+			{
+				'type': 'Double'
+			},
+			'total_products':
+			{
+				'type': 'long'
+			},
+			'total_ready':
+			{
+				'type': 'long'
+			},
+			'total_not_available':
+			{
+				'type': 'long'
+			},
+			'total_farmer_allocation':
+			{
+				'type': 'Double'
+			},
+			'total_paid_amount':
+			{
+				'type': 'Double'
+			},
+			'total_pending_amount':
+			{
+				'type': 'Double'
+			},
+			'total_pending':
+			{
+				'type': 'long'
+			},
+			'total_cancelled':
+			{
+				'type': 'long'
+			},
+			'total_delivered':
+			{
+				'type': 'long'
+			},
+			'total_quantity':
+			{
+				'type': 'Double'
+			},
+			'total_allocation':
+			{
+				'type': 'Double'
+			},
+			'recipients':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'description':{
+				'length': 4096,
+				'type': 'String'
+			},
+			
+			'remark':{
+				'length': 4096,
+				'type': 'String'
+			},
+			'event_date': {
+				'type': 'timestamp',
+				index : true
+			},
+			'candidate_id': {
+				'type': 'String',
+				'length' : 32
+			},
+			'candidate_name': {
+				'type': 'String',
+				'length' : 32
+			},
+			'inetrviewer_id': {
+				'type': 'String',
+				'length' : 32
+			},
+			'inetrviewer_name': {
+				'type': 'String',
+				'length' : 32
+			},
+			'event_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'expiry_date': {
+				'type': 'timestamp'
+			},
+			'expiry_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'downloaded': {
+				'type': 'String',
+				'length' : 1
+			},
+			'printed': {
+				'type': 'String',
+				'length' : 1
+			},
+			'last_updated_message': {
+				'type': 'String'
+			},
+			'last_updated_by': {
+				'type': 'String'
+			},
+			'last_updated': {
+				'type': 'timestamp'
+			},
+			'sent_time': {
+				'type': 'timestamp'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			},
+			'sent': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
+			},
+			'enable_chat': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "Y"
+			},
+			'send_sms_app_user': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "Y"
+			},
+			'send_sms': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
+			},
+			'send_email': {
+				'type': 'String',
+				'length' : 1,
+				'default' : "N"
+			},
+			'total_sent' : {
+				'type': 'int'
+			},
+			'total_user_sent' : {
+				'type': 'int'
+			},
+			'total_sms_sent' : {
+				'type': 'int'
+			},
+			'total_email_sent' : {
+				'type': 'int'
+			},
+			'total_app_notification_sent' : {
+				'type': 'int'
+			},
+			'messageType':
+			{
+				'length': 128,
+				'type': 'String'
+			},
+			'project_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'project_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'meeting_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'mom_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'parent_project_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'parent_project_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'meeting_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'description':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'release':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'priority':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'assign_to_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'assign_to_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'assign_date_str':
+			{
+				'type':'String',
+				'length': 16
+			},
+			'assign_date':
+			{
+				'type':'long'
+			},
+			'completion_date_str':
+			{
+				'type':'String',
+				'length': 16
+			},
+			'completion_date':
+			{
+				'type':'long'
+			}			
+		}					
+	}
+}

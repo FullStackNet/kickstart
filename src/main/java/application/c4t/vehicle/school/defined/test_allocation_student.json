@@ -1,0 +1,293 @@
+{
+	"test_allocation_student" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'teacher_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_allocation_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_code':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'student_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'school_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'student_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'student_mobile_no':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'student_email_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'subject_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'test_hindi':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_english':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'available_for_sale':
+			{
+				'type':'String'
+			},
+			'paid':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'free':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'type':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'test_group_id':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'free_centre_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'allowed_attempts':
+			{
+				'type':'long'
+			},
+			'price':
+			{
+				'type':'double'
+			},
+			'discount':
+			{
+				'type':'double'
+			},
+			
+			'duration':
+			{
+				'type':'long'
+			},
+			'total_time_in_min':
+			{
+				'type':'long'
+			},
+			'course_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'course_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'subject_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'allocation_type':
+			{
+				'type':'String',
+				'length': 1
+			},	
+			'immediate_result':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'start_date': {
+				'type': 'timestamp'
+			},
+			'start_time_s': {
+				'type': 'String'
+			},
+			'start_date_str': {
+				'type': 'String',
+				'length' : 32
+			},	
+			'end_time_s': {
+				'type': 'String'
+			},
+			'end_date': {
+				'type': 'timestamp'
+			},
+			'end_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'duration': {
+				'type': 'long'
+			},
+			'attempted_date': {
+				'type': 'timestamp'
+			},
+			'attempted_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'resuffle_question':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'resuffle_option':
+			{
+				'type':'String',
+				'length': 1
+			},	
+			'immediate_result':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'total_marks':
+			{
+				'type':'double'
+			},
+			'total_marks_got':
+			{
+				'type':'double'
+			},
+			'total_marks':
+			{
+				'type':'double'
+			},
+			'total_questions':
+			{
+				'type':'double'
+			},
+			'rank':
+			{
+				'type':'int'
+			},
+			'total_correct_answers':
+			{
+				'type':'long'
+			},
+			'total_wrong_answers':
+			{
+				'type':'long'
+			},
+			'total_not_attended':
+			{
+				'type':'long'
+			},
+			'status':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'multi_choice':
+			{
+				'type':'String',
+				'length': 1			
+			},
+			'total_time_in_min':
+			{
+				'type':'long'
+			},
+			'show_result': {
+				'type':'String',
+				'length': 1
+			},
+			'result_date': {
+				'type': 'timestamp'
+			},
+			'result_date_s': {
+				'type': 'String'
+			},
+			'result_time_s': {
+				'type': 'String'
+			},
+			'customer_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'total_student_attempted':
+			{
+				'type':'long'
+			},
+			'highest_marks':
+			{
+				'type':'long'
+			},
+			'average_marks':
+			{
+				'type':'long'
+			},
+			'last_update_time': {
+				'type': 'timestamp'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}	
+		}
+	}
+}

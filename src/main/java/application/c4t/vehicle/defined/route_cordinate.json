@@ -1,0 +1,49 @@
+{
+	"route_cordinate" :
+	{
+		"cluster": "DB_ANALYSIS",
+		"fields":
+		{
+			'id':
+			{
+				'length': 512,
+				'required': true,
+				'type':'String'
+			},
+			'route_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'stopage_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'distance':
+			{
+				'type':'double'
+			},
+			'langitude':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String',
+				index : true
+			},
+			'latitude':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String'
+			},
+			durations :
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}

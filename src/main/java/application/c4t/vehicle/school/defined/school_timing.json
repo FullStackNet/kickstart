@@ -1,0 +1,73 @@
+{
+	"school_timing" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'entry_buffer_beforeInMin':
+			{
+				'type': 'int'
+			},
+			'entry_buffer_afterInMin':
+			{
+				'type': 'int'
+			},
+			'exit_buffer_beforeInMin':
+			{
+				'type': 'int'
+			},
+			'exit_buffer_afterInMin':
+			{
+				'type': 'int'
+			},
+			'start_time':
+			{
+				'length': 16,
+				'type': 'String'
+			},
+			'end_time':
+			{
+				'length': 16,
+				'type': 'String'
+			},
+			'status':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : 'N'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

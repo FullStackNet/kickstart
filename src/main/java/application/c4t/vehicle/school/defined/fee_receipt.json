@@ -1,0 +1,116 @@
+{
+	"fee_receipt" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'receipt_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'school_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'student_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'class_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'section_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'amount':
+			{
+				'type': 'double'
+			},
+			'payment_date_str':
+			{
+				'type': 'String',
+				'length' : 32
+			},
+			'payment_date':
+			{
+				'type': 'long'
+			},
+			'payment_approval':
+			{
+				'type': 'String',
+				'length' : 1
+			},
+			'payment_method':
+			{
+				'type': 'String',
+				'length' : 128,
+				'remark' : "CASH/CHEQUE/ONLINE"
+			},
+			'bank_name':
+			{
+				'type': 'String',
+				'length' : 128
+			},
+			'cheque_no':
+			{
+				'type': 'String',
+				'length' : 128
+			},
+			'cheque_date':
+			{
+				'type': 'String',
+				'length' : 128
+			},
+			'approval_date':
+			{
+				'type': 'String',
+				'length' : 128
+			},
+			'cheque_status':
+			{
+				'type': 'String',
+				'length' : 128,
+				'remark' : "PENDING-DEPOSIT/DEPOSIT/CLEARED/BOUNCED"
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+{
+	"fee_schedule" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'parent_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'due_date_str':
+			{
+				'type': 'String',
+				'length': 32
+			},
+			'due_date':
+			{
+				'type': 'long'
+			},
+			'fees':
+			{
+				'type': 'double'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

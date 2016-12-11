@@ -6,7 +6,7 @@
        this is build.xml file to be used for building the c4t-platform project.
     </description>
 	<!-- build variables -->
-	<property name="src" value="src"/>
+	<property name="src" value="src/main/java/"/>
 	<property name="build" value="build"/>
 	<property name="classes" value="classes"/>
 	<property name="bin" value="bin"/>

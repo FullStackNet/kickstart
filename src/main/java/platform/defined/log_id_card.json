@@ -1,0 +1,123 @@
+{
+	"log_id_card" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'school_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'class_section_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'person_type':
+			{
+				'type':'String',
+				"Remark" : "STAFF/STUDENT"
+			},
+			'type':
+			{
+				'type':'String',
+				"Remark" : "BUS/School"
+			},
+			'reader_id':
+			{
+				'type':'String',
+				'length': 128,
+				"Remark" : "BUS/School"
+			},
+			'card_no':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'valid':
+			{
+				'type':'String',
+				'length': 1,
+				'default' : "Y"
+			},
+			'route_type':
+			{
+				'type':'String',
+				'length': 128,
+				"Remark" : "Entry/Exit"
+			},
+			'route_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'record_type':
+			{
+				'type':'String',
+				'length': 128,
+				"Remark" : "Entry/Exit"
+			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'student_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'event_time':
+			{
+				'type':'timestamp'
+			},
+			'error_reason':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'latitude':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'longitude':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'remark':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			}
+		}
+	}
+}

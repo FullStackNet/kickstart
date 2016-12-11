@@ -1,0 +1,471 @@
+{
+	"student_detail" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'community_id':
+			{
+				'name':'school_id',
+				'length': 128,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'name':'school_id',
+				'length': 128,
+				'type':'String'
+			},
+			'school_brand_name':
+			{
+				'name':'school_id',
+				'length': 128,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_route_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_route_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_start_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_end_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_vehicle_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_driver_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_driver_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'pickup_driver_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_route_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_route_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_start_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_end_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_vehicle_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_driver_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_driver_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dropped_driver_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'app_branding':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'bus_started':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'last_stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'last_stopage_time':
+			{
+				'type':'long'
+			},
+			'reaching_time':
+			{
+				'type':'long'
+			},
+			'reached':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'student_email_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'student_mobile_no':
+			{
+				'type':'String',
+				length : 128
+			},
+			'alert_pickup_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'alert_dropped_route_stopage_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'alert_pickup_stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'alert_dropped_stopage_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'stopage_alert_sms':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'institute_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'stopage_alert_mobile_app':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"Y"
+			},
+			'stopage_alert_email':
+			{
+				'length': 1,
+				'type':'String',
+				'default' :"N"
+			},
+			'feature_collabrotive_study':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_parent2parent_chat':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_homework':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_daily_activity':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_notice':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_home_practice':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_parent2teacher_chat':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_teacher2parent_chat':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_absent_report':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_test':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_book':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_timetable':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_present_report':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_pick_drop':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_message2parent':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_message2school':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_proficiency':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_account':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_wof':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_photo':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_video':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			
+			'feature_fees':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'feature_work_sheet':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'only_tracking':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'logo_file_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'daily_activity_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'home_practice_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'homework_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'notice_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			
+			'transport':
+			{
+				'length': 1,
+				'default' :"N",
+				'type':'String'
+			},
+			'transport_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'absent_report_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'present_report_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'message2school_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'photo_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'video_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'fees_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'proficiency_count':
+			{
+				'type':'int',
+				default : 0
+			},
+			'balance':
+			{
+				'type':'double'
+			},
+			'last_recharge':
+			{
+				'type':'double'
+			},
+			'last_recharge_time':
+			{
+				'type':'long'
+			}
+		}
+	}
+}

@@ -1,0 +1,68 @@
+{
+	"photo_collection" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'schools':
+			{
+				'type':'Array',
+				'valueType' : "String"
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'type':
+			{
+				'length': 512,
+				'type': 'String',
+				'remark' : "SCHOOL,CLASS,SECTION,VAN"
+			},
+			'class_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'section_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'title':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'description':{
+				'length': 4096,
+				'type': 'String'
+			},
+			'activity_date': {
+				'type': 'timestamp'
+			},
+			'activity_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}		
+		}
+	}
+}

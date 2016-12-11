@@ -1,0 +1,22 @@
+{
+	"DeviceEnergy" :
+	{
+		"category" : "20",
+		"command" : "18",
+		"packet_type" : "1",
+		"fields":
+		{
+			'deviceId':
+			{
+				'name':'deviceId',
+				'type':'String',
+				'length' : 128
+			},
+			'value':
+			{
+				'name':'value',
+				'type':'double'
+			}
+		}
+	}
+}

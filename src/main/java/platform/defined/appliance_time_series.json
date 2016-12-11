@@ -1,0 +1,68 @@
+{
+	"appliance_time_series" :
+	{
+		"cluster": "DB_ANALYSIS",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'appliance_id':
+			{
+				'name':'appliance_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'creation_date':
+			{
+				'name':'creation_date',
+				'required': true,
+				'type':'timestamp'
+			},
+			'timezone':
+			{
+				'name':'creation_time',
+				'type':'String',
+				'length': 32
+			},
+			'creation_time':
+			{
+				'name':'creation_time',
+				'type':'timestamp',
+				'transient' : 'true'
+			},
+			'counter':
+			{
+				'name':'counter',
+				'length': 128,
+				'required': 'true',
+				'type':'String'
+			},
+			'valueType':
+			{
+				'name':'valueType',
+				'type':'int',
+				'transient' : 'true',
+				'comment' : '1- int, 2-long, 3-double, 4-String'
+			},
+			'value':
+			{
+				'name':'value',
+				'length': 128,
+				'transient' : 'true',
+				'type':'String'
+			},
+			'values':
+			{
+				'name':'values',
+				'type':'Map',
+				'valueType' : 'Object'
+			}
+		}
+	}
+}

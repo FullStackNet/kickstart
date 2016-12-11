@@ -1,0 +1,71 @@
+{
+	"fee_master" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'class_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'course_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'due_date_str':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'due_date':
+			{
+				'type':'long'
+			},
+			'batch_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'batch_name':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			
+			'total_fees':
+			{
+				'type': 'double'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

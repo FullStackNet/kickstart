@@ -1,0 +1,149 @@
+{
+	"invite" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'type':
+			{
+				'name':'type',
+				'length': 32,
+				'type':'String'
+			},
+			'relation':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'community_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'company_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'company_name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'mobile_no':
+			{
+				'name':'mobile_no',
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'email_id':
+			{
+				'name':'email_id',
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'invite_type':
+			{
+				'name':'invite_type',
+				'length': 128,
+				'type':'String'
+			},
+			'reference_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'reference_id':
+			{
+				'name':'reference_id',
+				'length': 128,
+				'type':'String'
+			},
+			'reference_name':
+			{
+				'name':'reference_name',
+				'length': 128,
+				'type':'String'
+			},
+			'fleetService':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'gameService':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'communityService':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'schoolTrackerService':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'dgService':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'key':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'invite_status':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'password':
+			{
+				'length': 128,
+				'type':'String',
+				'transient' : true
+			},
+			'confirm_password':
+			{
+				'length': 128,
+				'type':'String',
+				'transient' : true
+			},
+			'creation_time':
+			{
+				type : "timestamp" 
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"batch_signup_book" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'batch_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'batch_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'book_id':
+			{
+				'length': 128,
+				'type':'String'
+			},		
+			'order':
+			{
+				'type':'int'
+			},
+			'book_name':
+			{
+				'length': 128,
+				'type':'String'
+			}
+		}
+	}
+}
