@@ -82,20 +82,25 @@ public abstract class BaseMobileUIServlet extends HttpServlet {
 	protected String getTempleteName(UIServletContext ctx) {
 		return "mobile_templete";
 	}
-	
+	protected boolean isLoginRequired() {
+		return true;
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		setResponseParameters(response);
 		response.setContentType("text/html; charset=UTF-8");
 		try {
 			UIServletContext ctx = new UIServletContext(getSessionIdFromCookie(request));
 			ctx.setResponse(response);
+			
 			if (Util.isEmpty(ctx.getUserId())) {
-				if (request.getServerPort() != 80) {
-					ctx.getResponse().sendRedirect("http://"+request.getServerName()+":"+request.getServerPort()+"/ui/m_login");
-				} else {
-					ctx.getResponse().sendRedirect("http://"+request.getServerName()+"/ui/m_login");								
+				if (isLoginRequired()) {
+					if (request.getServerPort() != 80) {
+						ctx.getResponse().sendRedirect("http://"+request.getServerName()+":"+request.getServerPort()+"/ui/m_login");
+					} else {
+						ctx.getResponse().sendRedirect("http://"+request.getServerName()+"/ui/m_login");								
+					}
+					return;
 				}
-				return;
 			}
 			Enumeration<String> names = request.getParameterNames();
 			while (names.hasMoreElements()) {
