@@ -298,6 +298,7 @@ public class MongoDBConnection extends DbConnection {
 		default:
 			break;
 		}
+		System.out.println(object.toString());
 		return object;
 	}
 
