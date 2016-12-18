@@ -25,5 +25,12 @@ public class c4t_object extends Basec4t_object {
 		// TODO Auto-generated method stub
 		return c4t_objectResult.class;
 	}
+	
+	public boolean isLoader() {
+		if ("MANDI_LOADER".equals(getType())) {
+			return true;
+		}
+		return false;
+	}
 
 }
