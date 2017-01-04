@@ -336,7 +336,7 @@ public class MongoDBConnection extends DbConnection {
 		List<Map<String, Object>> rows = new ArrayList<Map<String, Object>>();
 		DBCollection table = conn.getCollection(metaData.getTableName());
 		BasicDBObject condition = getCondition(metaData,expression);
-		//System.out.println(condition);
+		System.out.println(condition);
 		DBCursor cursor = null ;
 		if (pagesize > 0) {
 			if (Util.isEmpty(orderby)) {
