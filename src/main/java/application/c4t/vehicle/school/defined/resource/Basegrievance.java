@@ -9,10 +9,14 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -265,7 +269,7 @@ public abstract class Basegrievance extends BaseResource {
 
 		Object message_timeObj = map.get("message_time");
 		if(message_timeObj != null)
-			message_time = (Long) message_timeObj;
+			message_time = new Long(message_timeObj.toString());
 
 		Object message_textObj = map.get("message_text");
 		if(message_textObj != null)
@@ -305,7 +309,7 @@ public abstract class Basegrievance extends BaseResource {
 
 		Object last_updatedObj = map.get("last_updated");
 		if(last_updatedObj != null)
-			last_updated = (Long) last_updatedObj;
+			last_updated = new Long(last_updatedObj.toString());
 
 		Object last_updated_idObj = map.get("last_updated_id");
 		if(last_updated_idObj != null)

@@ -9,10 +9,14 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -38,6 +42,8 @@ public abstract class Basetest extends BaseResource {
 	private String course_name = null;
 	private String provider_id = null;
 	private String provider_name = null;
+	private String user_id = null;
+	private String user_name = null;
 	private String subject_name = null;
 	private Long total_questions = null;
 	private Double total_marks = null;
@@ -78,6 +84,8 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_COURSE_NAME = "course_name";
 	public static String FIELD_PROVIDER_ID = "provider_id";
 	public static String FIELD_PROVIDER_NAME = "provider_name";
+	public static String FIELD_USER_ID = "user_id";
+	public static String FIELD_USER_NAME = "user_name";
 	public static String FIELD_SUBJECT_NAME = "subject_name";
 	public static String FIELD_TOTAL_QUESTIONS = "total_questions";
 	public static String FIELD_TOTAL_MARKS = "total_marks";
@@ -176,6 +184,14 @@ public abstract class Basetest extends BaseResource {
 		provider_nameField.setLength(128);
 		metaData.addField(provider_nameField);
 
+		Field user_idField = new Field("user_id", "String");
+		user_idField.setLength(128);
+		metaData.addField(user_idField);
+
+		Field user_nameField = new Field("user_name", "String");
+		user_nameField.setLength(128);
+		metaData.addField(user_nameField);
+
 		Field subject_nameField = new Field("subject_name", "String");
 		subject_nameField.setLength(128);
 		metaData.addField(subject_nameField);
@@ -271,6 +287,8 @@ public abstract class Basetest extends BaseResource {
 		this.course_name = obj.course_name;
 		this.provider_id = obj.provider_id;
 		this.provider_name = obj.provider_name;
+		this.user_id = obj.user_id;
+		this.user_name = obj.user_name;
 		this.subject_name = obj.subject_name;
 		this.total_questions = obj.total_questions;
 		this.total_marks = obj.total_marks;
@@ -337,6 +355,10 @@ public abstract class Basetest extends BaseResource {
 			map.put("provider_id", provider_id);
 		if(provider_name != null)
 			map.put("provider_name", provider_name);
+		if (user_id != null)
+			map.put("user_id", user_id);
+		if (user_name != null)
+			map.put("user_name", user_name);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
 		if(total_questions != null)
@@ -420,6 +442,10 @@ public abstract class Basetest extends BaseResource {
 			map.put("provider_id", provider_id);
 		if(provider_name != null)
 			map.put("provider_name", provider_name);
+		if (user_id != null)
+			map.put("user_id", user_id);
+		if (user_name != null)
+			map.put("user_name", user_name);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
 		if(total_questions != null)
@@ -489,6 +515,8 @@ public abstract class Basetest extends BaseResource {
 		course_name = (String) map.get("course_name");
 		provider_id = (String) map.get("provider_id");
 		provider_name = (String) map.get("provider_name");
+		user_id = (String) map.get("user_id");
+		user_name = (String) map.get("user_name");
 		subject_name = (String) map.get("subject_name");
 		total_questions = (Long) map.get("total_questions");
 		total_marks = (Double) map.get("total_marks");
@@ -589,6 +617,14 @@ public abstract class Basetest extends BaseResource {
 		if(provider_nameObj != null)
 			provider_name = provider_nameObj.toString();
 
+		Object user_idObj = map.get("user_id");
+		if (user_idObj != null)
+			user_id = user_idObj.toString();
+
+		Object user_nameObj = map.get("user_name");
+		if (user_nameObj != null)
+			user_name = user_nameObj.toString();
+
 		Object subject_nameObj = map.get("subject_name");
 		if(subject_nameObj != null)
 			subject_name = subject_nameObj.toString();
@@ -623,7 +659,7 @@ public abstract class Basetest extends BaseResource {
 
 		Object last_update_timeObj = map.get("last_update_time");
 		if(last_update_timeObj != null)
-			last_update_time = (Long) last_update_timeObj;
+			last_update_time = new Long(last_update_timeObj.toString());
 
 		Object total_student_allocationsObj = map.get("total_student_allocations");
 		if(total_student_allocationsObj != null)
@@ -663,7 +699,7 @@ public abstract class Basetest extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1002,6 +1038,38 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetProvider_name() {
 		this.provider_name = null;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public String getUser_idEx() {
+		return user_id != null ? user_id : "";
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public void unSetUser_id() {
+		this.user_id = null;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public String getUser_nameEx() {
+		return user_name != null ? user_name : "";
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public void unSetUser_name() {
+		this.user_name = null;
 	}
 
 	public String getSubject_name() {

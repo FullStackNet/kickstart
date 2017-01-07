@@ -9,10 +9,14 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -343,7 +347,7 @@ public abstract class Basestudent_tutorial_history extends BaseResource {
 
 		Object assigned_dateObj = map.get("assigned_date");
 		if(assigned_dateObj != null)
-			assigned_date = (Long) assigned_dateObj;
+			assigned_date = new Long(assigned_dateObj.toString());
 
 		Object assigned_date_strObj = map.get("assigned_date_str");
 		if(assigned_date_strObj != null)
@@ -351,23 +355,23 @@ public abstract class Basestudent_tutorial_history extends BaseResource {
 
 		Object sent_assignment_dateObj = map.get("sent_assignment_date");
 		if(sent_assignment_dateObj != null)
-			sent_assignment_date = (Long) sent_assignment_dateObj;
+			sent_assignment_date = new Long(sent_assignment_dateObj.toString());
 
 		Object sent_assignment_date_strObj = map.get("sent_assignment_date_str");
 		if(sent_assignment_date_strObj != null)
-			sent_assignment_date_str = (Long) sent_assignment_date_strObj;
+			sent_assignment_date_str = new Long(sent_assignment_date_strObj.toString());
 
 		Object recived_assignment_dateObj = map.get("recived_assignment_date");
 		if(recived_assignment_dateObj != null)
-			recived_assignment_date = (Long) recived_assignment_dateObj;
+			recived_assignment_date = new Long(recived_assignment_dateObj.toString());
 
 		Object recived_assigned_date_strObj = map.get("recived_assigned_date_str");
 		if(recived_assigned_date_strObj != null)
-			recived_assigned_date_str = (Long) recived_assigned_date_strObj;
+			recived_assigned_date_str = new Long(recived_assigned_date_strObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}

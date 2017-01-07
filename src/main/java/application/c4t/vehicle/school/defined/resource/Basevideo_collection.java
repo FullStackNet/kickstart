@@ -9,10 +9,16 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -375,7 +381,7 @@ public abstract class Basevideo_collection extends BaseResource {
 
 		Object activity_dateObj = map.get("activity_date");
 		if(activity_dateObj != null)
-			activity_date = (Long) activity_dateObj;
+			activity_date = new Long(activity_dateObj.toString());
 
 		Object activity_date_strObj = map.get("activity_date_str");
 		if(activity_date_strObj != null)
@@ -383,7 +389,7 @@ public abstract class Basevideo_collection extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object sentObj = map.get("sent");
 		if(sentObj != null)

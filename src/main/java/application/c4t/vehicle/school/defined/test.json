@@ -97,6 +97,14 @@
 				'type':'String',
 				'length': 128
 			},
+			'user_id': {
+				'type': 'String',
+				'length': 128
+			},
+			'user_name': {
+				'type': 'String',
+				'length': 128
+			},
 			'subject_name':
 			{
 				'type':'String',

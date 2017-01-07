@@ -9,10 +9,14 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -277,7 +281,7 @@ public abstract class Basestaff_present extends BaseResource {
 
 		Object dateObj = map.get("date");
 		if(dateObj != null)
-			date = (Long) dateObj;
+			date = new Long(dateObj.toString());
 
 		Object date_strObj = map.get("date_str");
 		if(date_strObj != null)

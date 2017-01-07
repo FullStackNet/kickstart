@@ -9,10 +9,16 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -298,7 +304,7 @@ public abstract class Basestudent_parent extends BaseResource {
 		students = (List<Object>) map.get("students");
 		Object last_loginObj = map.get("last_login");
 		if(last_loginObj != null)
-			last_login = (Long) last_loginObj;
+			last_login = new Long(last_loginObj.toString());
 
 		Object installed_appObj = map.get("installed_app");
 		if(installed_appObj != null)

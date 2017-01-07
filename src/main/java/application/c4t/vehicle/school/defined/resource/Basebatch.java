@@ -9,10 +9,14 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -287,7 +291,7 @@ public abstract class Basebatch extends BaseResource {
 
 		Object start_dateObj = map.get("start_date");
 		if(start_dateObj != null)
-			start_date = (Long) start_dateObj;
+			start_date = new Long(start_dateObj.toString());
 
 		Object start_date_strObj = map.get("start_date_str");
 		if(start_date_strObj != null)
@@ -299,7 +303,7 @@ public abstract class Basebatch extends BaseResource {
 
 		Object end_dateObj = map.get("end_date");
 		if(end_dateObj != null)
-			end_date = (Long) end_dateObj;
+			end_date = new Long(end_dateObj.toString());
 
 		Object end_date_strObj = map.get("end_date_str");
 		if(end_date_strObj != null)

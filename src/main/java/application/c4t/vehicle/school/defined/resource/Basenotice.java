@@ -9,10 +9,16 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -457,7 +463,7 @@ public abstract class Basenotice extends BaseResource {
 
 		Object expiry_dateObj = map.get("expiry_date");
 		if(expiry_dateObj != null)
-			expiry_date = (Long) expiry_dateObj;
+			expiry_date = new Long(expiry_dateObj.toString());
 
 		Object expiry_date_strObj = map.get("expiry_date_str");
 		if(expiry_date_strObj != null)
@@ -465,7 +471,7 @@ public abstract class Basenotice extends BaseResource {
 
 		Object notice_dateObj = map.get("notice_date");
 		if(notice_dateObj != null)
-			notice_date = (Long) notice_dateObj;
+			notice_date = new Long(notice_dateObj.toString());
 
 		Object notice_date_strObj = map.get("notice_date_str");
 		if(notice_date_strObj != null)
@@ -473,7 +479,7 @@ public abstract class Basenotice extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object sentObj = map.get("sent");
 		if(sentObj != null)

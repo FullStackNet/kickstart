@@ -9,10 +9,14 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -162,7 +166,7 @@ public abstract class Basemessage2parent_conversation extends BaseResource {
 
 		Object message_timeObj = map.get("message_time");
 		if(message_timeObj != null)
-			message_time = (Long) message_timeObj;
+			message_time = new Long(message_timeObj.toString());
 
 		Object user_idObj = map.get("user_id");
 		if(user_idObj != null)

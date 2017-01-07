@@ -9,10 +9,16 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -238,7 +244,7 @@ public abstract class Baseholiday extends BaseResource {
 
 		Object holiday_dateObj = map.get("holiday_date");
 		if(holiday_dateObj != null)
-			holiday_date = (Long) holiday_dateObj;
+			holiday_date = new Long(holiday_dateObj.toString());
 
 		Object holiday_date_strObj = map.get("holiday_date_str");
 		if(holiday_date_strObj != null)
@@ -246,7 +252,7 @@ public abstract class Baseholiday extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
