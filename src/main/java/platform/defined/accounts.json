@@ -1,0 +1,11 @@
+{
+  "accounts": {
+    "cluster": "DB_RECORD",
+    "fields": {
+      'accounts': {
+        'type': 'Array',
+        'valueType': "platform.resource.account"
+      }
+    }
+  }
+}

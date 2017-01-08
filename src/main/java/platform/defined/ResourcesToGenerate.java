@@ -86,6 +86,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("c4t_payment", "platform.resource.c4t_payment"),
 		new ResourceMap("app_summary", "platform.resource.app_summary"),
 		new ResourceMap("mandi_delivery", "platform.resource.mandi_delivery"),
-		
+			new ResourceMap("account", "platform.resource.account"),
+			new ResourceMap("accounts", "platform.resource.accounts"),
+
 	};
 }
