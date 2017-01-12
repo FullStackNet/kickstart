@@ -105,10 +105,10 @@ public class RestClient {
 		String resourceString = Json.resourcetoString(resource);
 		Baseresult _result;
 		try {
-			System.out.println("request : "+resourceString + ",action : " + action);
+			//	System.out.println("request : "+resourceString + ",action : " + action);
 			String resultString = HttpClient.sendPostRequest(server_url, _namespace, session_id,
 					resourceName, resourceString, action);
-			System.out.println("Response : "+resultString);
+			//		System.out.println("Response : "+resultString);
 			_result =  Json.stringToBaseResult(resultString, resultClass);
 			return _result;
 		} catch(Exception e) {
