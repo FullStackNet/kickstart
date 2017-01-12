@@ -80,7 +80,7 @@
 				'type': 'double'
 			},
 			'fin_year': {
-				'type': 'timestamp'
+				'type': 'String'
 			},
 			'creation_time':
 			{

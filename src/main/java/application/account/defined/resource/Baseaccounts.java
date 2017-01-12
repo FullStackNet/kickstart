@@ -24,9 +24,11 @@ import java.util.Map;
  * 
  */
 public abstract class Baseaccounts extends BaseResource {
+    private String community_id = null;
     private List<application.account.resource.account> accounts = null;
     private Map<String, Object> extra_data = null;
 
+    public static String FIELD_COMMUNITY_ID = "community_id";
     public static String FIELD_ACCOUNTS = "accounts";
     public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -36,6 +38,10 @@ public abstract class Baseaccounts extends BaseResource {
     static {
         metaData.setCheckBeforeAdd(false);
         metaData.setCheckBeforeUpdate(false);
+        Field community_idField = new Field("community_id", "String");
+        community_idField.setLength(128);
+        metaData.addField(community_idField);
+
         Field accountsField = new Field("accounts", "Array");
         metaData.addField(accountsField);
 
@@ -53,6 +59,7 @@ public abstract class Baseaccounts extends BaseResource {
     }
 
     public Baseaccounts(Baseaccounts obj) {
+        this.community_id = obj.community_id;
         this.accounts = obj.accounts;
         this.extra_data = obj.extra_data;
     }
@@ -63,6 +70,8 @@ public abstract class Baseaccounts extends BaseResource {
 
     public Map<String, Object> convertResourceToMap() {
         HashMap<String, Object> map = new HashMap<String, Object>();
+        if (community_id != null)
+            map.put("community_id", community_id);
         if (accounts != null)
             map.put("accounts", accounts);
         if (extra_data != null)
@@ -72,6 +81,8 @@ public abstract class Baseaccounts extends BaseResource {
 
     public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
         HashMap<String, Object> map = new HashMap<String, Object>();
+        if (community_id != null)
+            map.put("community_id", community_id);
         if (accounts != null)
             map.put("accounts", accounts);
         if (extra_data != null)
@@ -86,12 +97,17 @@ public abstract class Baseaccounts extends BaseResource {
 
     @SuppressWarnings("unchecked")
     public void convertMapToResource(Map<String, Object> map) {
+        community_id = (String) map.get("community_id");
         accounts = (List<application.account.resource.account>) map.get("accounts");
         extra_data = (Map<String, Object>) map.get("extra_data");
     }
 
     @SuppressWarnings("unchecked")
     public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
+        Object community_idObj = map.get("community_id");
+        if (community_idObj != null)
+            community_id = community_idObj.toString();
+
         accounts = (List<application.account.resource.account>) map.get("accounts");
         extra_data = (Map<String, Object>) map.get("extra_data");
     }
@@ -100,6 +116,22 @@ public abstract class Baseaccounts extends BaseResource {
     }
 
     public void convertTypeUnsafePrimaryMapToResource(Map<String, Object> map) {
+    }
+
+    public String getCommunity_id() {
+        return community_id;
+    }
+
+    public String getCommunity_idEx() {
+        return community_id != null ? community_id : "";
+    }
+
+    public void setCommunity_id(String community_id) {
+        this.community_id = community_id;
+    }
+
+    public void unSetCommunity_id() {
+        this.community_id = null;
     }
 
     public List<application.account.resource.account> getAccounts() {

@@ -39,7 +39,7 @@ public abstract class Baseaccount extends BaseResource {
 	private Double closing_balance = null;
 	private Double total_dr = null;
 	private Double total_cr = null;
-	private Long fin_year = null;
+	private String fin_year = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private Map<String, Object> extra_data = null;
@@ -131,7 +131,7 @@ public abstract class Baseaccount extends BaseResource {
 		Field total_crField = new Field("total_cr", "double");
 		metaData.addField(total_crField);
 
-		Field fin_yearField = new Field("fin_year", "timestamp");
+		Field fin_yearField = new Field("fin_year", "String");
 		metaData.addField(fin_yearField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
@@ -292,7 +292,7 @@ public abstract class Baseaccount extends BaseResource {
 		closing_balance = (Double) map.get("closing_balance");
 		total_dr = (Double) map.get("total_dr");
 		total_cr = (Double) map.get("total_cr");
-		fin_year = (Long) map.get("fin_year");
+		fin_year = (String) map.get("fin_year");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -366,7 +366,7 @@ public abstract class Baseaccount extends BaseResource {
 
 		Object fin_yearObj = map.get("fin_year");
 		if (fin_yearObj != null)
-			fin_year = new Long(fin_yearObj.toString());
+			fin_year = fin_yearObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -667,14 +667,21 @@ public abstract class Baseaccount extends BaseResource {
 		this.total_cr = null;
 	}
 
-	public Long getFin_year() {
+	public String getFin_year() {
 		return fin_year;
 	}
 
-	public void setFin_year(Long fin_year) {
+	public String getFin_yearEx() {
+		return fin_year != null ? fin_year : "";
+	}
+
+	public void setFin_year(String fin_year) {
 		this.fin_year = fin_year;
 	}
 
+	public void unSetFin_year() {
+		this.fin_year = null;
+	}
 
 	public Long getCreation_time() {
 		return creation_time;

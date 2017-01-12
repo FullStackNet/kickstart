@@ -2,6 +2,10 @@
   "accounts": {
     "cluster": "DB_RECORD",
     "fields": {
+      'community_id': {
+        'length': 128,
+        'type': 'String'
+      },
       'accounts': {
         'type': 'Array',
         'valueType': "application.account.resource.account"
