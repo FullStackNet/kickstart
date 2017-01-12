@@ -24,7 +24,7 @@ import java.util.Map;
  * 
  */
 public abstract class Baseaccounts extends BaseResource {
-    private List<platform.resource.account> accounts = null;
+    private List<application.account.resource.account> accounts = null;
     private Map<String, Object> extra_data = null;
 
     public static String FIELD_ACCOUNTS = "accounts";
@@ -86,13 +86,13 @@ public abstract class Baseaccounts extends BaseResource {
 
     @SuppressWarnings("unchecked")
     public void convertMapToResource(Map<String, Object> map) {
-        accounts = (List<platform.resource.account>) map.get("accounts");
+        accounts = (List<application.account.resource.account>) map.get("accounts");
         extra_data = (Map<String, Object>) map.get("extra_data");
     }
 
     @SuppressWarnings("unchecked")
     public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
-        accounts = (List<platform.resource.account>) map.get("accounts");
+        accounts = (List<application.account.resource.account>) map.get("accounts");
         extra_data = (Map<String, Object>) map.get("extra_data");
     }
 
@@ -102,18 +102,18 @@ public abstract class Baseaccounts extends BaseResource {
     public void convertTypeUnsafePrimaryMapToResource(Map<String, Object> map) {
     }
 
-    public List<platform.resource.account> getAccounts() {
+    public List<application.account.resource.account> getAccounts() {
         return accounts;
     }
 
 
-    public void setAccounts(List<platform.resource.account> accounts) {
+    public void setAccounts(List<application.account.resource.account> accounts) {
         this.accounts = accounts;
     }
 
-    public void addAccounts(platform.resource.account value) {
+    public void addAccounts(application.account.resource.account value) {
         if (accounts == null)
-            accounts = new ArrayList<platform.resource.account>();
+            accounts = new ArrayList<application.account.resource.account>();
         accounts.add(value);
     }
 
