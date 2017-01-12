@@ -9,14 +9,14 @@
 
 package application.account.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -25,6 +25,9 @@ import platform.util.Field;
 public abstract class Baseaccount extends BaseResource {
 	private String id = null;
 	private String customer_id = null;
+	private String community_id = null;
+	private String code = null;
+	private String group_name = null;
 	private String company_name = null;
 	private String account_customer_id = null;
 	private String name = null;
@@ -32,12 +35,20 @@ public abstract class Baseaccount extends BaseResource {
 	private String parent_id = null;
 	private String parent_name = null;
 	private Double balance = null;
+	private Double opening_balance = null;
+	private Double closing_balance = null;
+	private Double tot_dr = null;
+	private Double tot_cr = null;
+	private Long fin_year = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_CODE = "code";
+	public static String FIELD_GROUP_NAME = "group_name";
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_ACCOUNT_CUSTOMER_ID = "account_customer_id";
 	public static String FIELD_NAME = "name";
@@ -45,6 +56,11 @@ public abstract class Baseaccount extends BaseResource {
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_PARENT_NAME = "parent_name";
 	public static String FIELD_BALANCE = "balance";
+	public static String FIELD_OPENING_BALANCE = "opening_balance";
+	public static String FIELD_CLOSING_BALANCE = "closing_balance";
+	public static String FIELD_TOT_DR = "tot_dr";
+	public static String FIELD_TOT_CR = "tot_cr";
+	public static String FIELD_FIN_YEAR = "fin_year";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -63,6 +79,18 @@ public abstract class Baseaccount extends BaseResource {
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
+
+		Field community_idField = new Field("community_id", "String");
+		community_idField.setLength(128);
+		metaData.addField(community_idField);
+
+		Field codeField = new Field("code", "String");
+		codeField.setLength(128);
+		metaData.addField(codeField);
+
+		Field group_nameField = new Field("group_name", "String");
+		group_nameField.setLength(128);
+		metaData.addField(group_nameField);
 
 		Field company_nameField = new Field("company_name", "String");
 		company_nameField.setLength(128);
@@ -91,6 +119,21 @@ public abstract class Baseaccount extends BaseResource {
 		Field balanceField = new Field("balance", "double");
 		metaData.addField(balanceField);
 
+		Field opening_balanceField = new Field("opening_balance", "double");
+		metaData.addField(opening_balanceField);
+
+		Field closing_balanceField = new Field("closing_balance", "double");
+		metaData.addField(closing_balanceField);
+
+		Field tot_drField = new Field("tot_dr", "double");
+		metaData.addField(tot_drField);
+
+		Field tot_crField = new Field("tot_cr", "double");
+		metaData.addField(tot_crField);
+
+		Field fin_yearField = new Field("fin_year", "timestamp");
+		metaData.addField(fin_yearField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -112,6 +155,9 @@ public abstract class Baseaccount extends BaseResource {
 	public Baseaccount(Baseaccount obj) {
 		this.id = obj.id;
 		this.customer_id = obj.customer_id;
+		this.community_id = obj.community_id;
+		this.code = obj.code;
+		this.group_name = obj.group_name;
 		this.company_name = obj.company_name;
 		this.account_customer_id = obj.account_customer_id;
 		this.name = obj.name;
@@ -119,6 +165,11 @@ public abstract class Baseaccount extends BaseResource {
 		this.parent_id = obj.parent_id;
 		this.parent_name = obj.parent_name;
 		this.balance = obj.balance;
+		this.opening_balance = obj.opening_balance;
+		this.closing_balance = obj.closing_balance;
+		this.tot_dr = obj.tot_dr;
+		this.tot_cr = obj.tot_cr;
+		this.fin_year = obj.fin_year;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
 		this.extra_data = obj.extra_data;
@@ -134,6 +185,12 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("id", id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if (community_id != null)
+			map.put("community_id", community_id);
+		if (code != null)
+			map.put("code", code);
+		if (group_name != null)
+			map.put("group_name", group_name);
 		if(company_name != null)
 			map.put("company_name", company_name);
 		if(account_customer_id != null)
@@ -148,6 +205,16 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
+		if (opening_balance != null)
+			map.put("opening_balance", opening_balance);
+		if (closing_balance != null)
+			map.put("closing_balance", closing_balance);
+		if (tot_dr != null)
+			map.put("tot_dr", tot_dr);
+		if (tot_cr != null)
+			map.put("tot_cr", tot_cr);
+		if (fin_year != null)
+			map.put("fin_year", fin_year);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -163,6 +230,12 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("id", id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if (community_id != null)
+			map.put("community_id", community_id);
+		if (code != null)
+			map.put("code", code);
+		if (group_name != null)
+			map.put("group_name", group_name);
 		if(company_name != null)
 			map.put("company_name", company_name);
 		if(account_customer_id != null)
@@ -177,6 +250,16 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
+		if (opening_balance != null)
+			map.put("opening_balance", opening_balance);
+		if (closing_balance != null)
+			map.put("closing_balance", closing_balance);
+		if (tot_dr != null)
+			map.put("tot_dr", tot_dr);
+		if (tot_cr != null)
+			map.put("tot_cr", tot_cr);
+		if (fin_year != null)
+			map.put("fin_year", fin_year);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(updation_time != null)
@@ -195,6 +278,9 @@ public abstract class Baseaccount extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		customer_id = (String) map.get("customer_id");
+		community_id = (String) map.get("community_id");
+		code = (String) map.get("code");
+		group_name = (String) map.get("group_name");
 		company_name = (String) map.get("company_name");
 		account_customer_id = (String) map.get("account_customer_id");
 		name = (String) map.get("name");
@@ -202,6 +288,11 @@ public abstract class Baseaccount extends BaseResource {
 		parent_id = (String) map.get("parent_id");
 		parent_name = (String) map.get("parent_name");
 		balance = (Double) map.get("balance");
+		opening_balance = (Double) map.get("opening_balance");
+		closing_balance = (Double) map.get("closing_balance");
+		tot_dr = (Double) map.get("tot_dr");
+		tot_cr = (Double) map.get("tot_cr");
+		fin_year = (Long) map.get("fin_year");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -216,6 +307,18 @@ public abstract class Baseaccount extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object community_idObj = map.get("community_id");
+		if (community_idObj != null)
+			community_id = community_idObj.toString();
+
+		Object codeObj = map.get("code");
+		if (codeObj != null)
+			code = codeObj.toString();
+
+		Object group_nameObj = map.get("group_name");
+		if (group_nameObj != null)
+			group_name = group_nameObj.toString();
 
 		Object company_nameObj = map.get("company_name");
 		if(company_nameObj != null)
@@ -245,13 +348,33 @@ public abstract class Baseaccount extends BaseResource {
 		if(balanceObj != null)
 			balance = new Double(balanceObj.toString());
 
+		Object opening_balanceObj = map.get("opening_balance");
+		if (opening_balanceObj != null)
+			opening_balance = new Double(opening_balanceObj.toString());
+
+		Object closing_balanceObj = map.get("closing_balance");
+		if (closing_balanceObj != null)
+			closing_balance = new Double(closing_balanceObj.toString());
+
+		Object tot_drObj = map.get("tot_dr");
+		if (tot_drObj != null)
+			tot_dr = new Double(tot_drObj.toString());
+
+		Object tot_crObj = map.get("tot_cr");
+		if (tot_crObj != null)
+			tot_cr = new Double(tot_crObj.toString());
+
+		Object fin_yearObj = map.get("fin_year");
+		if (fin_yearObj != null)
+			fin_year = new Long(fin_yearObj.toString());
+
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object updation_timeObj = map.get("updation_time");
 		if(updation_timeObj != null)
-			updation_time = (Long) updation_timeObj;
+			updation_time = new Long(updation_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -298,6 +421,54 @@ public abstract class Baseaccount extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public String getCommunity_id() {
+		return community_id;
+	}
+
+	public String getCommunity_idEx() {
+		return community_id != null ? community_id : "";
+	}
+
+	public void setCommunity_id(String community_id) {
+		this.community_id = community_id;
+	}
+
+	public void unSetCommunity_id() {
+		this.community_id = null;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public String getCodeEx() {
+		return code != null ? code : "";
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public void unSetCode() {
+		this.code = null;
+	}
+
+	public String getGroup_name() {
+		return group_name;
+	}
+
+	public String getGroup_nameEx() {
+		return group_name != null ? group_name : "";
+	}
+
+	public void setGroup_name(String group_name) {
+		this.group_name = group_name;
+	}
+
+	public void unSetGroup_name() {
+		this.group_name = null;
 	}
 
 	public String getCompany_name() {
@@ -415,6 +586,95 @@ public abstract class Baseaccount extends BaseResource {
 	public void unSetBalance() {
 		this.balance = null;
 	}
+
+	public Double getOpening_balance() {
+		return opening_balance;
+	}
+
+	public double getOpening_balanceEx() {
+		return opening_balance != null ? opening_balance : 0;
+	}
+
+	public void setOpening_balance(double opening_balance) {
+		this.opening_balance = opening_balance;
+	}
+
+	public void setOpening_balance(Double opening_balance) {
+		this.opening_balance = opening_balance;
+	}
+
+	public void unSetOpening_balance() {
+		this.opening_balance = null;
+	}
+
+	public Double getClosing_balance() {
+		return closing_balance;
+	}
+
+	public double getClosing_balanceEx() {
+		return closing_balance != null ? closing_balance : 0;
+	}
+
+	public void setClosing_balance(double closing_balance) {
+		this.closing_balance = closing_balance;
+	}
+
+	public void setClosing_balance(Double closing_balance) {
+		this.closing_balance = closing_balance;
+	}
+
+	public void unSetClosing_balance() {
+		this.closing_balance = null;
+	}
+
+	public Double getTot_dr() {
+		return tot_dr;
+	}
+
+	public double getTot_drEx() {
+		return tot_dr != null ? tot_dr : 0;
+	}
+
+	public void setTot_dr(double tot_dr) {
+		this.tot_dr = tot_dr;
+	}
+
+	public void setTot_dr(Double tot_dr) {
+		this.tot_dr = tot_dr;
+	}
+
+	public void unSetTot_dr() {
+		this.tot_dr = null;
+	}
+
+	public Double getTot_cr() {
+		return tot_cr;
+	}
+
+	public double getTot_crEx() {
+		return tot_cr != null ? tot_cr : 0;
+	}
+
+	public void setTot_cr(double tot_cr) {
+		this.tot_cr = tot_cr;
+	}
+
+	public void setTot_cr(Double tot_cr) {
+		this.tot_cr = tot_cr;
+	}
+
+	public void unSetTot_cr() {
+		this.tot_cr = null;
+	}
+
+	public Long getFin_year() {
+		return fin_year;
+	}
+
+	public void setFin_year(Long fin_year) {
+		this.fin_year = fin_year;
+	}
+
 
 	public Long getCreation_time() {
 		return creation_time;

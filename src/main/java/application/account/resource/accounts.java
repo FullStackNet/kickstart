@@ -1,6 +1,6 @@
-package platform.resource;
+package application.account.resource;
 
-import platform.defined.resource.Baseaccounts;
+import application.account.defined.resource.Baseaccounts;
 import platform.util.Util;
 
 public class accounts extends Baseaccounts {
@@ -8,7 +8,6 @@ public class accounts extends Baseaccounts {
     /**
      *
      */
-
     private static final long serialVersionUID = 1L;
 
     public accounts() {
@@ -24,6 +23,5 @@ public class accounts extends Baseaccounts {
         // TODO Auto-generated method stub
         return null;
     }
-
 
 }
