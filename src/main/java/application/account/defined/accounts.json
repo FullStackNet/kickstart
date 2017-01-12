@@ -6,6 +6,10 @@
         'length': 128,
         'type': 'String'
       },
+      'fin_year': {
+        'length': 128,
+        'type': 'String'
+      },
       'accounts': {
         'type': 'Array',
         'valueType': "application.account.resource.account"

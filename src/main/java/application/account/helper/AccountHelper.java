@@ -1,7 +1,6 @@
 package application.account.helper;
 
-import java.util.ArrayList;
-
+import application.account.resource.account;
 import platform.db.Expression;
 import platform.db.LOG_OP;
 import platform.db.REL_OP;
@@ -9,7 +8,8 @@ import platform.helper.BaseHelper;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.Util;
-import application.account.resource.account;
+
+import java.util.ArrayList;
 
 public class AccountHelper extends BaseHelper{
 
@@ -25,6 +25,18 @@ public class AccountHelper extends BaseHelper{
 		super(new account());
 		// TODO Auto-generated constructor stub
 	}
+
+	public BaseResource[] getByCommunity_id(String community_id, String fin_year) {
+		Expression e1 = new Expression(account.FIELD_COMMUNITY_ID, REL_OP.EQ, community_id);
+		Expression e2 = new Expression(account.FIELD_FIN_YEAR, REL_OP.EQ, fin_year);
+		Expression e = new Expression(e1, LOG_OP.AND, e2);
+		BaseResource[] resources = getByExpression(e, new String[]{account.FIELD_NAME});
+		if (Util.isEmpty(resources))
+			return null;
+		return resources;
+
+	}
+	
 	public BaseResource[] getCustomerBalance(String customer_id) {
 		Expression e = new Expression(account.FIELD_CUSTOMER_ID, REL_OP.EQ, customer_id);
 		BaseResource[] resources = getByExpression(e,new String[]{account.FIELD_NAME});

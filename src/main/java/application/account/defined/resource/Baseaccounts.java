@@ -25,10 +25,12 @@ import java.util.Map;
  */
 public abstract class Baseaccounts extends BaseResource {
     private String community_id = null;
+    private String fin_year = null;
     private List<application.account.resource.account> accounts = null;
     private Map<String, Object> extra_data = null;
 
     public static String FIELD_COMMUNITY_ID = "community_id";
+    public static String FIELD_FIN_YEAR = "fin_year";
     public static String FIELD_ACCOUNTS = "accounts";
     public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -41,6 +43,10 @@ public abstract class Baseaccounts extends BaseResource {
         Field community_idField = new Field("community_id", "String");
         community_idField.setLength(128);
         metaData.addField(community_idField);
+
+        Field fin_yearField = new Field("fin_year", "String");
+        fin_yearField.setLength(128);
+        metaData.addField(fin_yearField);
 
         Field accountsField = new Field("accounts", "Array");
         metaData.addField(accountsField);
@@ -60,6 +66,7 @@ public abstract class Baseaccounts extends BaseResource {
 
     public Baseaccounts(Baseaccounts obj) {
         this.community_id = obj.community_id;
+        this.fin_year = obj.fin_year;
         this.accounts = obj.accounts;
         this.extra_data = obj.extra_data;
     }
@@ -72,6 +79,8 @@ public abstract class Baseaccounts extends BaseResource {
         HashMap<String, Object> map = new HashMap<String, Object>();
         if (community_id != null)
             map.put("community_id", community_id);
+        if (fin_year != null)
+            map.put("fin_year", fin_year);
         if (accounts != null)
             map.put("accounts", accounts);
         if (extra_data != null)
@@ -83,6 +92,8 @@ public abstract class Baseaccounts extends BaseResource {
         HashMap<String, Object> map = new HashMap<String, Object>();
         if (community_id != null)
             map.put("community_id", community_id);
+        if (fin_year != null)
+            map.put("fin_year", fin_year);
         if (accounts != null)
             map.put("accounts", accounts);
         if (extra_data != null)
@@ -98,6 +109,7 @@ public abstract class Baseaccounts extends BaseResource {
     @SuppressWarnings("unchecked")
     public void convertMapToResource(Map<String, Object> map) {
         community_id = (String) map.get("community_id");
+        fin_year = (String) map.get("fin_year");
         accounts = (List<application.account.resource.account>) map.get("accounts");
         extra_data = (Map<String, Object>) map.get("extra_data");
     }
@@ -107,6 +119,10 @@ public abstract class Baseaccounts extends BaseResource {
         Object community_idObj = map.get("community_id");
         if (community_idObj != null)
             community_id = community_idObj.toString();
+
+        Object fin_yearObj = map.get("fin_year");
+        if (fin_yearObj != null)
+            fin_year = fin_yearObj.toString();
 
         accounts = (List<application.account.resource.account>) map.get("accounts");
         extra_data = (Map<String, Object>) map.get("extra_data");
@@ -132,6 +148,22 @@ public abstract class Baseaccounts extends BaseResource {
 
     public void unSetCommunity_id() {
         this.community_id = null;
+    }
+
+    public String getFin_year() {
+        return fin_year;
+    }
+
+    public String getFin_yearEx() {
+        return fin_year != null ? fin_year : "";
+    }
+
+    public void setFin_year(String fin_year) {
+        this.fin_year = fin_year;
+    }
+
+    public void unSetFin_year() {
+        this.fin_year = null;
     }
 
     public List<application.account.resource.account> getAccounts() {
