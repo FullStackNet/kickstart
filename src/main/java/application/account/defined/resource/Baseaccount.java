@@ -37,8 +37,8 @@ public abstract class Baseaccount extends BaseResource {
 	private Double balance = null;
 	private Double opening_balance = null;
 	private Double closing_balance = null;
-	private Double tot_dr = null;
-	private Double tot_cr = null;
+	private Double total_dr = null;
+	private Double total_cr = null;
 	private Long fin_year = null;
 	private Long creation_time = null;
 	private Long updation_time = null;
@@ -58,8 +58,8 @@ public abstract class Baseaccount extends BaseResource {
 	public static String FIELD_BALANCE = "balance";
 	public static String FIELD_OPENING_BALANCE = "opening_balance";
 	public static String FIELD_CLOSING_BALANCE = "closing_balance";
-	public static String FIELD_TOT_DR = "tot_dr";
-	public static String FIELD_TOT_CR = "tot_cr";
+	public static String FIELD_TOTAL_DR = "total_dr";
+	public static String FIELD_TOTAL_CR = "total_cr";
 	public static String FIELD_FIN_YEAR = "fin_year";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_UPDATION_TIME = "updation_time";
@@ -125,11 +125,11 @@ public abstract class Baseaccount extends BaseResource {
 		Field closing_balanceField = new Field("closing_balance", "double");
 		metaData.addField(closing_balanceField);
 
-		Field tot_drField = new Field("tot_dr", "double");
-		metaData.addField(tot_drField);
+		Field total_drField = new Field("total_dr", "double");
+		metaData.addField(total_drField);
 
-		Field tot_crField = new Field("tot_cr", "double");
-		metaData.addField(tot_crField);
+		Field total_crField = new Field("total_cr", "double");
+		metaData.addField(total_crField);
 
 		Field fin_yearField = new Field("fin_year", "timestamp");
 		metaData.addField(fin_yearField);
@@ -167,8 +167,8 @@ public abstract class Baseaccount extends BaseResource {
 		this.balance = obj.balance;
 		this.opening_balance = obj.opening_balance;
 		this.closing_balance = obj.closing_balance;
-		this.tot_dr = obj.tot_dr;
-		this.tot_cr = obj.tot_cr;
+		this.total_dr = obj.total_dr;
+		this.total_cr = obj.total_cr;
 		this.fin_year = obj.fin_year;
 		this.creation_time = obj.creation_time;
 		this.updation_time = obj.updation_time;
@@ -209,10 +209,10 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("opening_balance", opening_balance);
 		if (closing_balance != null)
 			map.put("closing_balance", closing_balance);
-		if (tot_dr != null)
-			map.put("tot_dr", tot_dr);
-		if (tot_cr != null)
-			map.put("tot_cr", tot_cr);
+		if (total_dr != null)
+			map.put("total_dr", total_dr);
+		if (total_cr != null)
+			map.put("total_cr", total_cr);
 		if (fin_year != null)
 			map.put("fin_year", fin_year);
 		if(creation_time != null)
@@ -254,10 +254,10 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("opening_balance", opening_balance);
 		if (closing_balance != null)
 			map.put("closing_balance", closing_balance);
-		if (tot_dr != null)
-			map.put("tot_dr", tot_dr);
-		if (tot_cr != null)
-			map.put("tot_cr", tot_cr);
+		if (total_dr != null)
+			map.put("total_dr", total_dr);
+		if (total_cr != null)
+			map.put("total_cr", total_cr);
 		if (fin_year != null)
 			map.put("fin_year", fin_year);
 		if(creation_time != null)
@@ -290,8 +290,8 @@ public abstract class Baseaccount extends BaseResource {
 		balance = (Double) map.get("balance");
 		opening_balance = (Double) map.get("opening_balance");
 		closing_balance = (Double) map.get("closing_balance");
-		tot_dr = (Double) map.get("tot_dr");
-		tot_cr = (Double) map.get("tot_cr");
+		total_dr = (Double) map.get("total_dr");
+		total_cr = (Double) map.get("total_cr");
 		fin_year = (Long) map.get("fin_year");
 		creation_time = (Long) map.get("creation_time");
 		updation_time = (Long) map.get("updation_time");
@@ -356,13 +356,13 @@ public abstract class Baseaccount extends BaseResource {
 		if (closing_balanceObj != null)
 			closing_balance = new Double(closing_balanceObj.toString());
 
-		Object tot_drObj = map.get("tot_dr");
-		if (tot_drObj != null)
-			tot_dr = new Double(tot_drObj.toString());
+		Object total_drObj = map.get("total_dr");
+		if (total_drObj != null)
+			total_dr = new Double(total_drObj.toString());
 
-		Object tot_crObj = map.get("tot_cr");
-		if (tot_crObj != null)
-			tot_cr = new Double(tot_crObj.toString());
+		Object total_crObj = map.get("total_cr");
+		if (total_crObj != null)
+			total_cr = new Double(total_crObj.toString());
 
 		Object fin_yearObj = map.get("fin_year");
 		if (fin_yearObj != null)
@@ -627,44 +627,44 @@ public abstract class Baseaccount extends BaseResource {
 		this.closing_balance = null;
 	}
 
-	public Double getTot_dr() {
-		return tot_dr;
+	public Double getTotal_dr() {
+		return total_dr;
 	}
 
-	public double getTot_drEx() {
-		return tot_dr != null ? tot_dr : 0;
+	public double getTotal_drEx() {
+		return total_dr != null ? total_dr : 0;
 	}
 
-	public void setTot_dr(double tot_dr) {
-		this.tot_dr = tot_dr;
+	public void setTotal_dr(double total_dr) {
+		this.total_dr = total_dr;
 	}
 
-	public void setTot_dr(Double tot_dr) {
-		this.tot_dr = tot_dr;
+	public void setTotal_dr(Double total_dr) {
+		this.total_dr = total_dr;
 	}
 
-	public void unSetTot_dr() {
-		this.tot_dr = null;
+	public void unSetTotal_dr() {
+		this.total_dr = null;
 	}
 
-	public Double getTot_cr() {
-		return tot_cr;
+	public Double getTotal_cr() {
+		return total_cr;
 	}
 
-	public double getTot_crEx() {
-		return tot_cr != null ? tot_cr : 0;
+	public double getTotal_crEx() {
+		return total_cr != null ? total_cr : 0;
 	}
 
-	public void setTot_cr(double tot_cr) {
-		this.tot_cr = tot_cr;
+	public void setTotal_cr(double total_cr) {
+		this.total_cr = total_cr;
 	}
 
-	public void setTot_cr(Double tot_cr) {
-		this.tot_cr = tot_cr;
+	public void setTotal_cr(Double total_cr) {
+		this.total_cr = total_cr;
 	}
 
-	public void unSetTot_cr() {
-		this.tot_cr = null;
+	public void unSetTotal_cr() {
+		this.total_cr = null;
 	}
 
 	public Long getFin_year() {

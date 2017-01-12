@@ -73,10 +73,10 @@
 			'closing_balance': {
 				'type': 'double'
 			},
-			'tot_dr': {
+			'total_dr': {
 				'type': 'double'
 			},
-			'tot_cr': {
+			'total_cr': {
 				'type': 'double'
 			},
 			'fin_year': {
