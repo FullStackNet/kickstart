@@ -86,7 +86,7 @@
 			{
 				'type':'timestamp'
 			},
-			'updation_time':
+			'last_update_time':
 			{
 				'type':'timestamp'
 			}

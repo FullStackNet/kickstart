@@ -41,7 +41,7 @@ public abstract class Baseaccount extends BaseResource {
 	private Double total_cr = null;
 	private String fin_year = null;
 	private Long creation_time = null;
-	private Long updation_time = null;
+	private Long last_update_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -62,7 +62,7 @@ public abstract class Baseaccount extends BaseResource {
 	public static String FIELD_TOTAL_CR = "total_cr";
 	public static String FIELD_FIN_YEAR = "fin_year";
 	public static String FIELD_CREATION_TIME = "creation_time";
-	public static String FIELD_UPDATION_TIME = "updation_time";
+	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -137,8 +137,8 @@ public abstract class Baseaccount extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
-		Field updation_timeField = new Field("updation_time", "timestamp");
-		metaData.addField(updation_timeField);
+		Field last_update_timeField = new Field("last_update_time", "timestamp");
+		metaData.addField(last_update_timeField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -171,7 +171,7 @@ public abstract class Baseaccount extends BaseResource {
 		this.total_cr = obj.total_cr;
 		this.fin_year = obj.fin_year;
 		this.creation_time = obj.creation_time;
-		this.updation_time = obj.updation_time;
+		this.last_update_time = obj.last_update_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -217,8 +217,8 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("fin_year", fin_year);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if(updation_time != null)
-			map.put("updation_time", updation_time);
+		if (last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -262,8 +262,8 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("fin_year", fin_year);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if(updation_time != null)
-			map.put("updation_time", updation_time);
+		if (last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -294,7 +294,7 @@ public abstract class Baseaccount extends BaseResource {
 		total_cr = (Double) map.get("total_cr");
 		fin_year = (String) map.get("fin_year");
 		creation_time = (Long) map.get("creation_time");
-		updation_time = (Long) map.get("updation_time");
+		last_update_time = (Long) map.get("last_update_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -372,9 +372,9 @@ public abstract class Baseaccount extends BaseResource {
 		if(creation_timeObj != null)
 			creation_time = new Long(creation_timeObj.toString());
 
-		Object updation_timeObj = map.get("updation_time");
-		if(updation_timeObj != null)
-			updation_time = new Long(updation_timeObj.toString());
+		Object last_update_timeObj = map.get("last_update_time");
+		if (last_update_timeObj != null)
+			last_update_time = new Long(last_update_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -692,12 +692,12 @@ public abstract class Baseaccount extends BaseResource {
 	}
 
 
-	public Long getUpdation_time() {
-		return updation_time;
+	public Long getLast_update_time() {
+		return last_update_time;
 	}
 
-	public void setUpdation_time(Long updation_time) {
-		this.updation_time = updation_time;
+	public void setLast_update_time(Long last_update_time) {
+		this.last_update_time = last_update_time;
 	}
 
 
