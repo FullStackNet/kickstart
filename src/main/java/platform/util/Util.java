@@ -1,20 +1,10 @@
 package platform.util;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
+import com.eaio.uuid.UUID;
+import platform.log.ApplicationLogger;
+import platform.resource.c4t_object;
+
+import java.io.*;
 import java.math.BigInteger;
 import java.net.NetworkInterface;
 import java.security.MessageDigest;
@@ -22,21 +12,8 @@ import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Random;
-
-import platform.log.ApplicationLogger;
-import platform.resource.c4t_object;
-
-import com.eaio.uuid.UUID;
 
 public class Util {
 	public static Long uniqueNumber = new Long(0); 
@@ -1389,7 +1366,7 @@ public class Util {
 		return true;  
 	}
 
-	public static long getAverage(ArrayList<Object> list) {
+	public static long getAverage(List<Object> list) {
 		if (list == null)
 			return 0;
 		if (list.size() == 0)

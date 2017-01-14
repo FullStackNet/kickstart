@@ -1,10 +1,13 @@
 package application.c4t.vehicle.helper;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Map;
-
+import application.c4t.vehicle.resource.route;
+import application.c4t.vehicle.resource.route_cordinate;
+import application.c4t.vehicle.resource.route_stopage;
+import application.c4t.vehicle.resource.stopage;
+import application.c4t.vehicle.school.helper.School_route_stopage_mapHelper;
+import application.c4t.vehicle.school.helper.StudentHelper;
+import application.c4t.vehicle.school.helper.Student_mapHelper;
+import application.c4t.vehicle.school.resource.student;
 import platform.db.Expression;
 import platform.db.JoinField;
 import platform.db.REL_OP;
@@ -20,14 +23,8 @@ import platform.util.ApplicationException;
 import platform.util.TimeUtil;
 import platform.util.Util;
 import platform.util.location.LocationUtil;
-import application.c4t.vehicle.resource.route;
-import application.c4t.vehicle.resource.route_cordinate;
-import application.c4t.vehicle.resource.route_stopage;
-import application.c4t.vehicle.resource.stopage;
-import application.c4t.vehicle.school.helper.School_route_stopage_mapHelper;
-import application.c4t.vehicle.school.helper.StudentHelper;
-import application.c4t.vehicle.school.helper.Student_mapHelper;
-import application.c4t.vehicle.school.resource.student;
+
+import java.util.*;
 
 
 public class Route_stopageHelper extends BaseHelper {
@@ -346,7 +343,7 @@ public class Route_stopageHelper extends BaseHelper {
 										latitude, longitude);
 								}
 								if ((_route_cordinate != null) ) {
-									ArrayList<Object> durations = _route_cordinate.getDurations();
+									List<Object> durations = _route_cordinate.getDurations();
 									System.out.println("Got the cordinates for  " + longitude + "-"+latitude + "in database data->"+durations.toString());
 									long average = Util.getAverage(durations);
 									lastReachTime = lastReachTime + _route_stopage.getTime_from_previous_stop();
