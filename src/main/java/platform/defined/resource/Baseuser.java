@@ -90,6 +90,7 @@ public abstract class Baseuser extends BaseResource {
 	private String request_category = null;
 	private String feature_fees_report = null;
 	private String referral_code = null;
+	private Double percentage = null;
 	private String registered_referral_code = null;
 	private Map<String, Object> extra_data = null;
 
@@ -160,6 +161,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_REQUEST_CATEGORY = "request_category";
 	public static String FIELD_FEATURE_FEES_REPORT = "feature_fees_report";
 	public static String FIELD_REFERRAL_CODE = "referral_code";
+	public static String FIELD_PERCENTAGE = "percentage";
 	public static String FIELD_REGISTERED_REFERRAL_CODE = "registered_referral_code";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -477,6 +479,9 @@ public abstract class Baseuser extends BaseResource {
 		referral_codeField.setLength(128);
 		metaData.addField(referral_codeField);
 
+		Field percentageField = new Field("percentage", "double");
+		metaData.addField(percentageField);
+
 		Field registered_referral_codeField = new Field("registered_referral_code", "String");
 		registered_referral_codeField.setLength(128);
 		metaData.addField(registered_referral_codeField);
@@ -561,6 +566,7 @@ public abstract class Baseuser extends BaseResource {
 		this.request_category = obj.request_category;
 		this.feature_fees_report = obj.feature_fees_report;
 		this.referral_code = obj.referral_code;
+		this.percentage = obj.percentage;
 		this.registered_referral_code = obj.registered_referral_code;
 		this.extra_data = obj.extra_data;
 	}
@@ -800,6 +806,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_fees_report", feature_fees_report);
 		if (referral_code != null)
 			map.put("referral_code", referral_code);
+		if (percentage != null)
+			map.put("percentage", percentage);
 		if (registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
 		if(extra_data != null)
@@ -946,6 +954,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("feature_fees_report", feature_fees_report);
 		if (referral_code != null)
 			map.put("referral_code", referral_code);
+		if (percentage != null)
+			map.put("percentage", percentage);
 		if (registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
 		if(extra_data != null)
@@ -1024,6 +1034,7 @@ public abstract class Baseuser extends BaseResource {
 		request_category = (String) map.get("request_category");
 		feature_fees_report = (String) map.get("feature_fees_report");
 		referral_code = (String) map.get("referral_code");
+		percentage = (Double) map.get("percentage");
 		registered_referral_code = (String) map.get("registered_referral_code");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1285,6 +1296,10 @@ public abstract class Baseuser extends BaseResource {
 		Object referral_codeObj = map.get("referral_code");
 		if (referral_codeObj != null)
 			referral_code = referral_codeObj.toString();
+
+		Object percentageObj = map.get("percentage");
+		if (percentageObj != null)
+			percentage = new Double(percentageObj.toString());
 
 		Object registered_referral_codeObj = map.get("registered_referral_code");
 		if (registered_referral_codeObj != null)
@@ -2208,6 +2223,26 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetReferral_code() {
 		this.referral_code = null;
+	}
+
+	public Double getPercentage() {
+		return percentage;
+	}
+
+	public double getPercentageEx() {
+		return percentage != null ? percentage : 0;
+	}
+
+	public void setPercentage(double percentage) {
+		this.percentage = percentage;
+	}
+
+	public void setPercentage(Double percentage) {
+		this.percentage = percentage;
+	}
+
+	public void unSetPercentage() {
+		this.percentage = null;
 	}
 
 	public String getRegistered_referral_code() {
