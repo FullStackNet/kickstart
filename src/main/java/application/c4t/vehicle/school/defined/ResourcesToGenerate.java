@@ -134,6 +134,10 @@ public class ResourcesToGenerate {
 		new ResourceMap("homepage_video", "application.c4t.vehicle.school.resource.homepage_video"),
 		new ResourceMap("recharge", "application.c4t.vehicle.school.resource.recharge"),
 		new ResourceMap("buy_log", "application.c4t.vehicle.school.resource.buy_log"),
-		new ResourceMap("homepage_rank_holder", "application.c4t.vehicle.school.resource.homepage_rank_holder")
+			new ResourceMap("homepage_rank_holder", "application.c4t.vehicle.school.resource.homepage_rank_holder"),
+			new ResourceMap("referral_code", "application.c4t.vehicle.school.resource.referral_code"),
+			new ResourceMap("referral_log", "application.c4t.vehicle.school.resource.referral_log")
+
+
 	};
 }
