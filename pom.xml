@@ -47,7 +47,7 @@
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
-            <version>3.2.2</version>
+            <version>3.4.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.eaio.uuid/uuid -->
         <dependency>
