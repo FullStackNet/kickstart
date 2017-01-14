@@ -16,7 +16,9 @@ public class user extends Baseuser {
 	public static String USER_TYPE_USER = "USER";
 	public static String USER_TYPE_PARENT = "PARENT";
 	public static String USER_TYPE_STUDENT = "STUDENT";
-	
+	public static String USER_TYPE_PROVIDER = "PROVIDER";
+	public static String USER_TYPE_PARTNER = "PARTNER";
+
 	/**
 	 * 
 	 */

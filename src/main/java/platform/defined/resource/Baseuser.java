@@ -9,10 +9,14 @@
 
 package platform.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -85,6 +89,8 @@ public abstract class Baseuser extends BaseResource {
 	private String feature_fees_approval = null;
 	private String request_category = null;
 	private String feature_fees_report = null;
+	private String referral_code = null;
+	private String registered_referral_code = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -153,6 +159,8 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_FEATURE_FEES_APPROVAL = "feature_fees_approval";
 	public static String FIELD_REQUEST_CATEGORY = "request_category";
 	public static String FIELD_FEATURE_FEES_REPORT = "feature_fees_report";
+	public static String FIELD_REFERRAL_CODE = "referral_code";
+	public static String FIELD_REGISTERED_REFERRAL_CODE = "registered_referral_code";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -465,6 +473,14 @@ public abstract class Baseuser extends BaseResource {
 		feature_fees_reportField.setLength(1);
 		metaData.addField(feature_fees_reportField);
 
+		Field referral_codeField = new Field("referral_code", "String");
+		referral_codeField.setLength(128);
+		metaData.addField(referral_codeField);
+
+		Field registered_referral_codeField = new Field("registered_referral_code", "String");
+		registered_referral_codeField.setLength(128);
+		metaData.addField(registered_referral_codeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -544,6 +560,8 @@ public abstract class Baseuser extends BaseResource {
 		this.feature_fees_approval = obj.feature_fees_approval;
 		this.request_category = obj.request_category;
 		this.feature_fees_report = obj.feature_fees_report;
+		this.referral_code = obj.referral_code;
+		this.registered_referral_code = obj.registered_referral_code;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -780,6 +798,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("request_category", request_category);
 		if(feature_fees_report != null)
 			map.put("feature_fees_report", feature_fees_report);
+		if (referral_code != null)
+			map.put("referral_code", referral_code);
+		if (registered_referral_code != null)
+			map.put("registered_referral_code", registered_referral_code);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -922,6 +944,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("request_category", request_category);
 		if(feature_fees_report != null)
 			map.put("feature_fees_report", feature_fees_report);
+		if (referral_code != null)
+			map.put("referral_code", referral_code);
+		if (registered_referral_code != null)
+			map.put("registered_referral_code", registered_referral_code);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -997,6 +1023,8 @@ public abstract class Baseuser extends BaseResource {
 		feature_fees_approval = (String) map.get("feature_fees_approval");
 		request_category = (String) map.get("request_category");
 		feature_fees_report = (String) map.get("feature_fees_report");
+		referral_code = (String) map.get("referral_code");
+		registered_referral_code = (String) map.get("registered_referral_code");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1253,6 +1281,14 @@ public abstract class Baseuser extends BaseResource {
 		Object feature_fees_reportObj = map.get("feature_fees_report");
 		if(feature_fees_reportObj != null)
 			feature_fees_report = feature_fees_reportObj.toString();
+
+		Object referral_codeObj = map.get("referral_code");
+		if (referral_codeObj != null)
+			referral_code = referral_codeObj.toString();
+
+		Object registered_referral_codeObj = map.get("registered_referral_code");
+		if (registered_referral_codeObj != null)
+			registered_referral_code = registered_referral_codeObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2156,6 +2192,38 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetFeature_fees_report() {
 		this.feature_fees_report = "N";
+	}
+
+	public String getReferral_code() {
+		return referral_code;
+	}
+
+	public String getReferral_codeEx() {
+		return referral_code != null ? referral_code : "";
+	}
+
+	public void setReferral_code(String referral_code) {
+		this.referral_code = referral_code;
+	}
+
+	public void unSetReferral_code() {
+		this.referral_code = null;
+	}
+
+	public String getRegistered_referral_code() {
+		return registered_referral_code;
+	}
+
+	public String getRegistered_referral_codeEx() {
+		return registered_referral_code != null ? registered_referral_code : "";
+	}
+
+	public void setRegistered_referral_code(String registered_referral_code) {
+		this.registered_referral_code = registered_referral_code;
+	}
+
+	public void unSetRegistered_referral_code() {
+		this.registered_referral_code = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

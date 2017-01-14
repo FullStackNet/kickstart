@@ -404,6 +404,14 @@
 				'length': 1,
 				'default' : "N",
 				'type':'String'
+			},
+			'referral_code': {
+				'length': 128,
+				'type': 'String'
+			},
+			'registered_referral_code': {
+				'length': 128,
+				'type': 'String'
 			}
 		}
 	}
