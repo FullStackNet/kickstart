@@ -9,15 +9,16 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -40,7 +41,7 @@ public abstract class Basetrip extends BaseResource {
 	private String helper_id = null;
 	private String alternate_helper_id = null;
 	private Long delayed = null;
-	private ArrayList<String> students = null;
+	private List<String> students = null;
 	private Integer overspeed_count = null;
 	private Long creation_time = null;
 	private Integer sms_sent_count = null;
@@ -333,7 +334,7 @@ public abstract class Basetrip extends BaseResource {
 		helper_id = (String) map.get("helper_id");
 		alternate_helper_id = (String) map.get("alternate_helper_id");
 		delayed = (Long) map.get("delayed");
-		students = (ArrayList<String>) map.get("students");
+		students = (List<String>) map.get("students");
 		overspeed_count = (Integer) map.get("overspeed_count");
 		creation_time = (Long) map.get("creation_time");
 		sms_sent_count = (Integer) map.get("sms_sent_count");
@@ -409,14 +410,14 @@ public abstract class Basetrip extends BaseResource {
 		if(delayedObj != null)
 			delayed = new Long(delayedObj.toString());
 
-		students = (ArrayList<String>) map.get("students");
+		students = (List<String>) map.get("students");
 		Object overspeed_countObj = map.get("overspeed_count");
 		if(overspeed_countObj != null)
 			overspeed_count = new Integer(overspeed_countObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object sms_sent_countObj = map.get("sms_sent_count");
 		if(sms_sent_countObj != null)
@@ -709,12 +710,12 @@ public abstract class Basetrip extends BaseResource {
 		this.delayed = null;
 	}
 
-	public ArrayList<String> getStudents() {
+	public List<String> getStudents() {
 		return students;
 	}
 
 
-	public void setStudents(ArrayList<String> students) {
+	public void setStudents(List<String> students) {
 		this.students = students;
 	}
 

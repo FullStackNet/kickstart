@@ -9,14 +9,14 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********

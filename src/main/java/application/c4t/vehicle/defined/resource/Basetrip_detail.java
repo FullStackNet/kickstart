@@ -9,15 +9,16 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -38,7 +39,7 @@ public abstract class Basetrip_detail extends BaseResource {
 	private Double nearest_distance = null;
 	private Long data_get_duration = null;
 	private String speed = null;
-	private ArrayList<String> students = null;
+	private List<String> students = null;
 	private String stopage_identified = null;
 	private Map<String, Object> extra_data = null;
 
@@ -256,7 +257,7 @@ public abstract class Basetrip_detail extends BaseResource {
 		nearest_distance = (Double) map.get("nearest_distance");
 		data_get_duration = (Long) map.get("data_get_duration");
 		speed = (String) map.get("speed");
-		students = (ArrayList<String>) map.get("students");
+		students = (List<String>) map.get("students");
 		stopage_identified = (String) map.get("stopage_identified");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -301,7 +302,7 @@ public abstract class Basetrip_detail extends BaseResource {
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
-			creation_time = (Long) creation_timeObj;
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object nearest_stopage_nameObj = map.get("nearest_stopage_name");
 		if(nearest_stopage_nameObj != null)
@@ -319,7 +320,7 @@ public abstract class Basetrip_detail extends BaseResource {
 		if(speedObj != null)
 			speed = speedObj.toString();
 
-		students = (ArrayList<String>) map.get("students");
+		students = (List<String>) map.get("students");
 		Object stopage_identifiedObj = map.get("stopage_identified");
 		if(stopage_identifiedObj != null)
 			stopage_identified = stopage_identifiedObj.toString();
@@ -568,12 +569,12 @@ public abstract class Basetrip_detail extends BaseResource {
 		this.speed = null;
 	}
 
-	public ArrayList<String> getStudents() {
+	public List<String> getStudents() {
 		return students;
 	}
 
 
-	public void setStudents(ArrayList<String> students) {
+	public void setStudents(List<String> students) {
 		this.students = students;
 	}
 

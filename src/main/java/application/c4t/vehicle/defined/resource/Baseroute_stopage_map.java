@@ -9,15 +9,16 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -25,8 +26,8 @@ import platform.util.Field;
  */
 public abstract class Baseroute_stopage_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> notify_users = null;
-	private ArrayList<Object> time_taken_from_previous_stop = null;
+	private List<Object> notify_users = null;
+	private List<Object> time_taken_from_previous_stop = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -108,8 +109,8 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		notify_users = (ArrayList<Object>) map.get("notify_users");
-		time_taken_from_previous_stop = (ArrayList<Object>) map.get("time_taken_from_previous_stop");
+		notify_users = (List<Object>) map.get("notify_users");
+		time_taken_from_previous_stop = (List<Object>) map.get("time_taken_from_previous_stop");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -119,8 +120,8 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		notify_users = (ArrayList<Object>) map.get("notify_users");
-		time_taken_from_previous_stop = (ArrayList<Object>) map.get("time_taken_from_previous_stop");
+		notify_users = (List<Object>) map.get("notify_users");
+		time_taken_from_previous_stop = (List<Object>) map.get("time_taken_from_previous_stop");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -152,12 +153,12 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getNotify_users() {
+	public List<Object> getNotify_users() {
 		return notify_users;
 	}
 
 
-	public void setNotify_users(ArrayList<Object> notify_users) {
+	public void setNotify_users(List<Object> notify_users) {
 		this.notify_users = notify_users;
 	}
 
@@ -171,12 +172,12 @@ public abstract class Baseroute_stopage_map extends BaseResource {
 		this.notify_users = null;
 	}
 
-	public ArrayList<Object> getTime_taken_from_previous_stop() {
+	public List<Object> getTime_taken_from_previous_stop() {
 		return time_taken_from_previous_stop;
 	}
 
 
-	public void setTime_taken_from_previous_stop(ArrayList<Object> time_taken_from_previous_stop) {
+	public void setTime_taken_from_previous_stop(List<Object> time_taken_from_previous_stop) {
 		this.time_taken_from_previous_stop = time_taken_from_previous_stop;
 	}
 

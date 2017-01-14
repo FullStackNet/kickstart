@@ -9,15 +9,16 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -25,8 +26,8 @@ import platform.util.Field;
  */
 public abstract class Basecustomer_vehicle_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> fleetManagers = null;
-	private ArrayList<Object> fleetOwners = null;
+	private List<Object> fleetManagers = null;
+	private List<Object> fleetOwners = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -108,8 +109,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
-		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
+		fleetManagers = (List<Object>) map.get("fleetManagers");
+		fleetOwners = (List<Object>) map.get("fleetOwners");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -119,8 +120,8 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		fleetManagers = (ArrayList<Object>) map.get("fleetManagers");
-		fleetOwners = (ArrayList<Object>) map.get("fleetOwners");
+		fleetManagers = (List<Object>) map.get("fleetManagers");
+		fleetOwners = (List<Object>) map.get("fleetOwners");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -152,12 +153,12 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getFleetManagers() {
+	public List<Object> getFleetManagers() {
 		return fleetManagers;
 	}
 
 
-	public void setFleetManagers(ArrayList<Object> fleetManagers) {
+	public void setFleetManagers(List<Object> fleetManagers) {
 		this.fleetManagers = fleetManagers;
 	}
 
@@ -171,12 +172,12 @@ public abstract class Basecustomer_vehicle_map extends BaseResource {
 		this.fleetManagers = null;
 	}
 
-	public ArrayList<Object> getFleetOwners() {
+	public List<Object> getFleetOwners() {
 		return fleetOwners;
 	}
 
 
-	public void setFleetOwners(ArrayList<Object> fleetOwners) {
+	public void setFleetOwners(List<Object> fleetOwners) {
 		this.fleetOwners = fleetOwners;
 	}
 

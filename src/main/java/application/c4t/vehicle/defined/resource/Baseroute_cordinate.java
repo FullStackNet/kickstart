@@ -9,15 +9,16 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -30,7 +31,7 @@ public abstract class Baseroute_cordinate extends BaseResource {
 	private Double distance = null;
 	private String langitude = null;
 	private String latitude = null;
-	private ArrayList<Object> durations = null;
+	private List<Object> durations = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -162,7 +163,7 @@ public abstract class Baseroute_cordinate extends BaseResource {
 		distance = (Double) map.get("distance");
 		langitude = (String) map.get("langitude");
 		latitude = (String) map.get("latitude");
-		durations = (ArrayList<Object>) map.get("durations");
+		durations = (List<Object>) map.get("durations");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -192,7 +193,7 @@ public abstract class Baseroute_cordinate extends BaseResource {
 		if(latitudeObj != null)
 			latitude = latitudeObj.toString();
 
-		durations = (ArrayList<Object>) map.get("durations");
+		durations = (List<Object>) map.get("durations");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -332,12 +333,12 @@ public abstract class Baseroute_cordinate extends BaseResource {
 		return latitude != null;
 	}
 
-	public ArrayList<Object> getDurations() {
+	public List<Object> getDurations() {
 		return durations;
 	}
 
 
-	public void setDurations(ArrayList<Object> durations) {
+	public void setDurations(List<Object> durations) {
 		this.durations = durations;
 	}
 

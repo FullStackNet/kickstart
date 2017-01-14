@@ -9,14 +9,14 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -669,7 +669,7 @@ public abstract class Baseroute extends BaseResource {
 
 		Object teacher_present_timeObj = map.get("teacher_present_time");
 		if(teacher_present_timeObj != null)
-			teacher_present_time = (Long) teacher_present_timeObj;
+			teacher_present_time = new Long(teacher_present_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}

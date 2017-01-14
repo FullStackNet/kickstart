@@ -9,15 +9,16 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -25,9 +26,9 @@ import platform.util.Field;
  */
 public abstract class Basevehicle_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> routes = null;
-	private ArrayList<Object> stopages = null;
-	private ArrayList<Object> notify_users = null;
+	private List<Object> routes = null;
+	private List<Object> stopages = null;
+	private List<Object> notify_users = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -118,9 +119,9 @@ public abstract class Basevehicle_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		routes = (ArrayList<Object>) map.get("routes");
-		stopages = (ArrayList<Object>) map.get("stopages");
-		notify_users = (ArrayList<Object>) map.get("notify_users");
+		routes = (List<Object>) map.get("routes");
+		stopages = (List<Object>) map.get("stopages");
+		notify_users = (List<Object>) map.get("notify_users");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -130,9 +131,9 @@ public abstract class Basevehicle_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		routes = (ArrayList<Object>) map.get("routes");
-		stopages = (ArrayList<Object>) map.get("stopages");
-		notify_users = (ArrayList<Object>) map.get("notify_users");
+		routes = (List<Object>) map.get("routes");
+		stopages = (List<Object>) map.get("stopages");
+		notify_users = (List<Object>) map.get("notify_users");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -164,12 +165,12 @@ public abstract class Basevehicle_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getRoutes() {
+	public List<Object> getRoutes() {
 		return routes;
 	}
 
 
-	public void setRoutes(ArrayList<Object> routes) {
+	public void setRoutes(List<Object> routes) {
 		this.routes = routes;
 	}
 
@@ -183,12 +184,12 @@ public abstract class Basevehicle_map extends BaseResource {
 		this.routes = null;
 	}
 
-	public ArrayList<Object> getStopages() {
+	public List<Object> getStopages() {
 		return stopages;
 	}
 
 
-	public void setStopages(ArrayList<Object> stopages) {
+	public void setStopages(List<Object> stopages) {
 		this.stopages = stopages;
 	}
 
@@ -202,12 +203,12 @@ public abstract class Basevehicle_map extends BaseResource {
 		this.stopages = null;
 	}
 
-	public ArrayList<Object> getNotify_users() {
+	public List<Object> getNotify_users() {
 		return notify_users;
 	}
 
 
-	public void setNotify_users(ArrayList<Object> notify_users) {
+	public void setNotify_users(List<Object> notify_users) {
 		this.notify_users = notify_users;
 	}
 

@@ -9,15 +9,16 @@
 
 package application.c4t.vehicle.defined.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -25,7 +26,7 @@ import platform.util.Field;
  */
 public abstract class Baseroute_map extends BaseResource {
 	private String id = null;
-	private ArrayList<Object> users = null;
+	private List<Object> users = null;
 	private Map<String, Object> start_points = null;
 	private Map<String, Object> extra_data = null;
 
@@ -109,7 +110,7 @@ public abstract class Baseroute_map extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
-		users = (ArrayList<Object>) map.get("users");
+		users = (List<Object>) map.get("users");
 		start_points = (Map<String, Object>) map.get("start_points");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -120,7 +121,7 @@ public abstract class Baseroute_map extends BaseResource {
 		if(idObj != null)
 			id = idObj.toString();
 
-		users = (ArrayList<Object>) map.get("users");
+		users = (List<Object>) map.get("users");
 		start_points = (Map<String, Object>) map.get("start_points");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -153,12 +154,12 @@ public abstract class Baseroute_map extends BaseResource {
 		return id != null;
 	}
 
-	public ArrayList<Object> getUsers() {
+	public List<Object> getUsers() {
 		return users;
 	}
 
 
-	public void setUsers(ArrayList<Object> users) {
+	public void setUsers(List<Object> users) {
 		this.users = users;
 	}
 
