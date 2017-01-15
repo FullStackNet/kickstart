@@ -206,11 +206,9 @@ public abstract class Baseaccounts extends BaseResource {
 	public void unSetExtra_data() {
 		this.extra_data = null;
 	}
-
 	public String getCluster() {
 		return "DB_RECORD";
 	}
-
 	public String getClusterType() {
 		return "REPLICATED";
 	}

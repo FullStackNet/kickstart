@@ -23,5 +23,7 @@ public class ResourcesToGenerate {
 	public static ResourceMap[] resourceMaps =  {
 		new ResourceMap("account", "application.account.resource.account"),
 			new ResourceMap("accounts", "application.account.resource.accounts"),
+			new ResourceMap("ledger", "application.account.resource.ledger"),
+			new ResourceMap("ledgers", "application.account.resource.ledgers"),
 	};
 }
