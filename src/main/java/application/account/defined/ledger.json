@@ -24,6 +24,13 @@
         'length': 128,
         'type': 'String'
       },
+      'transaction_date_str': {
+        'length': 32,
+        'type': 'String'
+      },
+      'transaction_date': {
+        'type': 'long'
+      },
       'particuler': {
         'length': 128,
         'type': 'String'
