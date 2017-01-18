@@ -156,6 +156,9 @@ public abstract class Basestudent extends BaseResource {
 	private Double balance = null;
 	private Double last_recharge = null;
 	private Long last_recharge_time = null;
+	private String referral_code = null;
+	private Double percentage = null;
+	private String registered_referral_code = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -292,6 +295,9 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_BALANCE = "balance";
 	public static String FIELD_LAST_RECHARGE = "last_recharge";
 	public static String FIELD_LAST_RECHARGE_TIME = "last_recharge_time";
+	public static String FIELD_REFERRAL_CODE = "referral_code";
+	public static String FIELD_PERCENTAGE = "percentage";
+	public static String FIELD_REGISTERED_REFERRAL_CODE = "registered_referral_code";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -857,6 +863,17 @@ public abstract class Basestudent extends BaseResource {
 		Field last_recharge_timeField = new Field("last_recharge_time", "long");
 		metaData.addField(last_recharge_timeField);
 
+		Field referral_codeField = new Field("referral_code", "String");
+		referral_codeField.setLength(128);
+		metaData.addField(referral_codeField);
+
+		Field percentageField = new Field("percentage", "double");
+		metaData.addField(percentageField);
+
+		Field registered_referral_codeField = new Field("registered_referral_code", "String");
+		registered_referral_codeField.setLength(128);
+		metaData.addField(registered_referral_codeField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -1006,6 +1023,9 @@ public abstract class Basestudent extends BaseResource {
 		this.balance = obj.balance;
 		this.last_recharge = obj.last_recharge;
 		this.last_recharge_time = obj.last_recharge_time;
+		this.referral_code = obj.referral_code;
+		this.percentage = obj.percentage;
+		this.registered_referral_code = obj.registered_referral_code;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -1351,6 +1371,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("last_recharge", last_recharge);
 		if(last_recharge_time != null)
 			map.put("last_recharge_time", last_recharge_time);
+		if (referral_code != null)
+			map.put("referral_code", referral_code);
+		if (percentage != null)
+			map.put("percentage", percentage);
+		if (registered_referral_code != null)
+			map.put("registered_referral_code", registered_referral_code);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -1629,6 +1655,12 @@ public abstract class Basestudent extends BaseResource {
 			map.put("last_recharge", last_recharge);
 		if(last_recharge_time != null)
 			map.put("last_recharge_time", last_recharge_time);
+		if (referral_code != null)
+			map.put("referral_code", referral_code);
+		if (percentage != null)
+			map.put("percentage", percentage);
+		if (registered_referral_code != null)
+			map.put("registered_referral_code", registered_referral_code);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -1776,6 +1808,9 @@ public abstract class Basestudent extends BaseResource {
 		balance = (Double) map.get("balance");
 		last_recharge = (Double) map.get("last_recharge");
 		last_recharge_time = (Long) map.get("last_recharge_time");
+		referral_code = (String) map.get("referral_code");
+		percentage = (Double) map.get("percentage");
+		registered_referral_code = (String) map.get("registered_referral_code");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2313,6 +2348,18 @@ public abstract class Basestudent extends BaseResource {
 		Object last_recharge_timeObj = map.get("last_recharge_time");
 		if(last_recharge_timeObj != null)
 			last_recharge_time = new Long(last_recharge_timeObj.toString());
+
+		Object referral_codeObj = map.get("referral_code");
+		if (referral_codeObj != null)
+			referral_code = referral_codeObj.toString();
+
+		Object percentageObj = map.get("percentage");
+		if (percentageObj != null)
+			percentage = new Double(percentageObj.toString());
+
+		Object registered_referral_codeObj = map.get("registered_referral_code");
+		if (registered_referral_codeObj != null)
+			registered_referral_code = registered_referral_codeObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -4411,6 +4458,58 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetLast_recharge_time() {
 		this.last_recharge_time = null;
+	}
+
+	public String getReferral_code() {
+		return referral_code;
+	}
+
+	public String getReferral_codeEx() {
+		return referral_code != null ? referral_code : "";
+	}
+
+	public void setReferral_code(String referral_code) {
+		this.referral_code = referral_code;
+	}
+
+	public void unSetReferral_code() {
+		this.referral_code = null;
+	}
+
+	public Double getPercentage() {
+		return percentage;
+	}
+
+	public double getPercentageEx() {
+		return percentage != null ? percentage : 0;
+	}
+
+	public void setPercentage(double percentage) {
+		this.percentage = percentage;
+	}
+
+	public void setPercentage(Double percentage) {
+		this.percentage = percentage;
+	}
+
+	public void unSetPercentage() {
+		this.percentage = null;
+	}
+
+	public String getRegistered_referral_code() {
+		return registered_referral_code;
+	}
+
+	public String getRegistered_referral_codeEx() {
+		return registered_referral_code != null ? registered_referral_code : "";
+	}
+
+	public void setRegistered_referral_code(String registered_referral_code) {
+		this.registered_referral_code = registered_referral_code;
+	}
+
+	public void unSetRegistered_referral_code() {
+		this.registered_referral_code = null;
 	}
 
 	public Long getCreation_time() {

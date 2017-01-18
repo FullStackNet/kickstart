@@ -708,6 +708,17 @@
 			{
 				'type':'long'
 			},
+			'referral_code': {
+				'length': 128,
+				'type': 'String'
+			},
+			'percentage': {
+				'type': 'double'
+			},
+			'registered_referral_code': {
+				'length': 128,
+				'type': 'String'
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}
