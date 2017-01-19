@@ -427,11 +427,9 @@ public abstract class Basereferral_code extends BaseResource {
 	public void unSetExtra_data() {
 		this.extra_data = null;
 	}
-
 	public String getCluster() {
 		return "DB_LOG";
 	}
-
 	public String getClusterType() {
 		return "REPLICATED";
 	}

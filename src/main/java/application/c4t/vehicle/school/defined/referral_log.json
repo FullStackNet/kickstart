@@ -40,6 +40,30 @@
         'length': 128,
         'type': 'String'
       },
+      'school_id': {
+        'length': 128,
+        'type': 'String'
+      },
+      'school_name': {
+        'length': 128,
+        'type': 'String'
+      },
+      'customer_id': {
+        'length': 128,
+        'type': 'String'
+      },
+      'customer_name': {
+        'length': 128,
+        'type': 'String'
+      },
+      'student_id': {
+        'length': 128,
+        'type': 'String'
+      },
+      'student_name': {
+        'length': 128,
+        'type': 'String'
+      },
       'test_amount': {
         'type': 'double'
       },

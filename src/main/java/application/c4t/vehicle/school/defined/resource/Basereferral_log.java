@@ -32,6 +32,12 @@ public abstract class Basereferral_log extends BaseResource {
 	private String buyer_user_id = null;
 	private String test_id = null;
 	private String test_name = null;
+	private String school_id = null;
+	private String school_name = null;
+	private String customer_id = null;
+	private String customer_name = null;
+	private String student_id = null;
+	private String student_name = null;
 	private Double test_amount = null;
 	private Double percentage = null;
 	private Double amount = null;
@@ -48,6 +54,12 @@ public abstract class Basereferral_log extends BaseResource {
 	public static String FIELD_BUYER_USER_ID = "buyer_user_id";
 	public static String FIELD_TEST_ID = "test_id";
 	public static String FIELD_TEST_NAME = "test_name";
+	public static String FIELD_SCHOOL_ID = "school_id";
+	public static String FIELD_SCHOOL_NAME = "school_name";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_CUSTOMER_NAME = "customer_name";
+	public static String FIELD_STUDENT_ID = "student_id";
+	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_TEST_AMOUNT = "test_amount";
 	public static String FIELD_PERCENTAGE = "percentage";
 	public static String FIELD_AMOUNT = "amount";
@@ -98,6 +110,30 @@ public abstract class Basereferral_log extends BaseResource {
 		test_nameField.setLength(128);
 		metaData.addField(test_nameField);
 
+		Field school_idField = new Field("school_id", "String");
+		school_idField.setLength(128);
+		metaData.addField(school_idField);
+
+		Field school_nameField = new Field("school_name", "String");
+		school_nameField.setLength(128);
+		metaData.addField(school_nameField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
+
+		Field customer_nameField = new Field("customer_name", "String");
+		customer_nameField.setLength(128);
+		metaData.addField(customer_nameField);
+
+		Field student_idField = new Field("student_id", "String");
+		student_idField.setLength(128);
+		metaData.addField(student_idField);
+
+		Field student_nameField = new Field("student_name", "String");
+		student_nameField.setLength(128);
+		metaData.addField(student_nameField);
+
 		Field test_amountField = new Field("test_amount", "double");
 		metaData.addField(test_amountField);
 
@@ -137,6 +173,12 @@ public abstract class Basereferral_log extends BaseResource {
 		this.buyer_user_id = obj.buyer_user_id;
 		this.test_id = obj.test_id;
 		this.test_name = obj.test_name;
+		this.school_id = obj.school_id;
+		this.school_name = obj.school_name;
+		this.customer_id = obj.customer_id;
+		this.customer_name = obj.customer_name;
+		this.student_id = obj.student_id;
+		this.student_name = obj.student_name;
 		this.test_amount = obj.test_amount;
 		this.percentage = obj.percentage;
 		this.amount = obj.amount;
@@ -169,6 +211,18 @@ public abstract class Basereferral_log extends BaseResource {
 			map.put("test_id", test_id);
 		if (test_name != null)
 			map.put("test_name", test_name);
+		if (school_id != null)
+			map.put("school_id", school_id);
+		if (school_name != null)
+			map.put("school_name", school_name);
+		if (customer_id != null)
+			map.put("customer_id", customer_id);
+		if (customer_name != null)
+			map.put("customer_name", customer_name);
+		if (student_id != null)
+			map.put("student_id", student_id);
+		if (student_name != null)
+			map.put("student_name", student_name);
 		if (test_amount != null)
 			map.put("test_amount", test_amount);
 		if (percentage != null)
@@ -204,6 +258,18 @@ public abstract class Basereferral_log extends BaseResource {
 			map.put("test_id", test_id);
 		if (test_name != null)
 			map.put("test_name", test_name);
+		if (school_id != null)
+			map.put("school_id", school_id);
+		if (school_name != null)
+			map.put("school_name", school_name);
+		if (customer_id != null)
+			map.put("customer_id", customer_id);
+		if (customer_name != null)
+			map.put("customer_name", customer_name);
+		if (student_id != null)
+			map.put("student_id", student_id);
+		if (student_name != null)
+			map.put("student_name", student_name);
 		if (test_amount != null)
 			map.put("test_amount", test_amount);
 		if (percentage != null)
@@ -235,6 +301,12 @@ public abstract class Basereferral_log extends BaseResource {
 		buyer_user_id = (String) map.get("buyer_user_id");
 		test_id = (String) map.get("test_id");
 		test_name = (String) map.get("test_name");
+		school_id = (String) map.get("school_id");
+		school_name = (String) map.get("school_name");
+		customer_id = (String) map.get("customer_id");
+		customer_name = (String) map.get("customer_name");
+		student_id = (String) map.get("student_id");
+		student_name = (String) map.get("student_name");
 		test_amount = (Double) map.get("test_amount");
 		percentage = (Double) map.get("percentage");
 		amount = (Double) map.get("amount");
@@ -280,6 +352,30 @@ public abstract class Basereferral_log extends BaseResource {
 		Object test_nameObj = map.get("test_name");
 		if (test_nameObj != null)
 			test_name = test_nameObj.toString();
+
+		Object school_idObj = map.get("school_id");
+		if (school_idObj != null)
+			school_id = school_idObj.toString();
+
+		Object school_nameObj = map.get("school_name");
+		if (school_nameObj != null)
+			school_name = school_nameObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if (customer_idObj != null)
+			customer_id = customer_idObj.toString();
+
+		Object customer_nameObj = map.get("customer_name");
+		if (customer_nameObj != null)
+			customer_name = customer_nameObj.toString();
+
+		Object student_idObj = map.get("student_id");
+		if (student_idObj != null)
+			student_id = student_idObj.toString();
+
+		Object student_nameObj = map.get("student_name");
+		if (student_nameObj != null)
+			student_name = student_nameObj.toString();
 
 		Object test_amountObj = map.get("test_amount");
 		if (test_amountObj != null)
@@ -460,6 +556,102 @@ public abstract class Basereferral_log extends BaseResource {
 		this.test_name = null;
 	}
 
+	public String getSchool_id() {
+		return school_id;
+	}
+
+	public String getSchool_idEx() {
+		return school_id != null ? school_id : "";
+	}
+
+	public void setSchool_id(String school_id) {
+		this.school_id = school_id;
+	}
+
+	public void unSetSchool_id() {
+		this.school_id = null;
+	}
+
+	public String getSchool_name() {
+		return school_name;
+	}
+
+	public String getSchool_nameEx() {
+		return school_name != null ? school_name : "";
+	}
+
+	public void setSchool_name(String school_name) {
+		this.school_name = school_name;
+	}
+
+	public void unSetSchool_name() {
+		this.school_name = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
+	}
+
+	public String getCustomer_name() {
+		return customer_name;
+	}
+
+	public String getCustomer_nameEx() {
+		return customer_name != null ? customer_name : "";
+	}
+
+	public void setCustomer_name(String customer_name) {
+		this.customer_name = customer_name;
+	}
+
+	public void unSetCustomer_name() {
+		this.customer_name = null;
+	}
+
+	public String getStudent_id() {
+		return student_id;
+	}
+
+	public String getStudent_idEx() {
+		return student_id != null ? student_id : "";
+	}
+
+	public void setStudent_id(String student_id) {
+		this.student_id = student_id;
+	}
+
+	public void unSetStudent_id() {
+		this.student_id = null;
+	}
+
+	public String getStudent_name() {
+		return student_name;
+	}
+
+	public String getStudent_nameEx() {
+		return student_name != null ? student_name : "";
+	}
+
+	public void setStudent_name(String student_name) {
+		this.student_name = student_name;
+	}
+
+	public void unSetStudent_name() {
+		this.student_name = null;
+	}
+
 	public Double getTest_amount() {
 		return test_amount;
 	}
@@ -566,11 +758,9 @@ public abstract class Basereferral_log extends BaseResource {
 	public void unSetExtra_data() {
 		this.extra_data = null;
 	}
-
 	public String getCluster() {
 		return "DB_LOG";
 	}
-
 	public String getClusterType() {
 		return "REPLICATED";
 	}
