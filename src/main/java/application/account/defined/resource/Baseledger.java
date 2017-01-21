@@ -28,8 +28,8 @@ public abstract class Baseledger extends BaseResource {
 	private String community_id = null;
 	private String code = null;
 	private String voucher_no = null;
-	private String transaction_date_str = null;
-	private Long transaction_date = null;
+	private String event_date_str = null;
+	private Long event_date = null;
 	private String particuler = null;
 	private String company_name = null;
 	private String account_customer_id = null;
@@ -49,8 +49,8 @@ public abstract class Baseledger extends BaseResource {
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_CODE = "code";
 	public static String FIELD_VOUCHER_NO = "voucher_no";
-	public static String FIELD_TRANSACTION_DATE_STR = "transaction_date_str";
-	public static String FIELD_TRANSACTION_DATE = "transaction_date";
+	public static String FIELD_EVENT_DATE_STR = "event_date_str";
+	public static String FIELD_EVENT_DATE = "event_date";
 	public static String FIELD_PARTICULER = "particuler";
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_ACCOUNT_CUSTOMER_ID = "account_customer_id";
@@ -92,12 +92,12 @@ public abstract class Baseledger extends BaseResource {
 		voucher_noField.setLength(128);
 		metaData.addField(voucher_noField);
 
-		Field transaction_date_strField = new Field("transaction_date_str", "String");
-		transaction_date_strField.setLength(32);
-		metaData.addField(transaction_date_strField);
+		Field event_date_strField = new Field("event_date_str", "String");
+		event_date_strField.setLength(32);
+		metaData.addField(event_date_strField);
 
-		Field transaction_dateField = new Field("transaction_date", "long");
-		metaData.addField(transaction_dateField);
+		Field event_dateField = new Field("event_date", "long");
+		metaData.addField(event_dateField);
 
 		Field particulerField = new Field("particuler", "String");
 		particulerField.setLength(128);
@@ -158,8 +158,8 @@ public abstract class Baseledger extends BaseResource {
 		this.community_id = obj.community_id;
 		this.code = obj.code;
 		this.voucher_no = obj.voucher_no;
-		this.transaction_date_str = obj.transaction_date_str;
-		this.transaction_date = obj.transaction_date;
+		this.event_date_str = obj.event_date_str;
+		this.event_date = obj.event_date;
 		this.particuler = obj.particuler;
 		this.company_name = obj.company_name;
 		this.account_customer_id = obj.account_customer_id;
@@ -191,10 +191,10 @@ public abstract class Baseledger extends BaseResource {
 			map.put("code", code);
 		if (voucher_no != null)
 			map.put("voucher_no", voucher_no);
-		if (transaction_date_str != null)
-			map.put("transaction_date_str", transaction_date_str);
-		if (transaction_date != null)
-			map.put("transaction_date", transaction_date);
+		if (event_date_str != null)
+			map.put("event_date_str", event_date_str);
+		if (event_date != null)
+			map.put("event_date", event_date);
 		if (particuler != null)
 			map.put("particuler", particuler);
 		if (company_name != null)
@@ -236,10 +236,10 @@ public abstract class Baseledger extends BaseResource {
 			map.put("code", code);
 		if (voucher_no != null)
 			map.put("voucher_no", voucher_no);
-		if (transaction_date_str != null)
-			map.put("transaction_date_str", transaction_date_str);
-		if (transaction_date != null)
-			map.put("transaction_date", transaction_date);
+		if (event_date_str != null)
+			map.put("event_date_str", event_date_str);
+		if (event_date != null)
+			map.put("event_date", event_date);
 		if (particuler != null)
 			map.put("particuler", particuler);
 		if (company_name != null)
@@ -281,8 +281,8 @@ public abstract class Baseledger extends BaseResource {
 		community_id = (String) map.get("community_id");
 		code = (String) map.get("code");
 		voucher_no = (String) map.get("voucher_no");
-		transaction_date_str = (String) map.get("transaction_date_str");
-		transaction_date = (Long) map.get("transaction_date");
+		event_date_str = (String) map.get("event_date_str");
+		event_date = (Long) map.get("event_date");
 		particuler = (String) map.get("particuler");
 		company_name = (String) map.get("company_name");
 		account_customer_id = (String) map.get("account_customer_id");
@@ -320,13 +320,13 @@ public abstract class Baseledger extends BaseResource {
 		if (voucher_noObj != null)
 			voucher_no = voucher_noObj.toString();
 
-		Object transaction_date_strObj = map.get("transaction_date_str");
-		if (transaction_date_strObj != null)
-			transaction_date_str = transaction_date_strObj.toString();
+		Object event_date_strObj = map.get("event_date_str");
+		if (event_date_strObj != null)
+			event_date_str = event_date_strObj.toString();
 
-		Object transaction_dateObj = map.get("transaction_date");
-		if (transaction_dateObj != null)
-			transaction_date = new Long(transaction_dateObj.toString());
+		Object event_dateObj = map.get("event_date");
+		if (event_dateObj != null)
+			event_date = new Long(event_dateObj.toString());
 
 		Object particulerObj = map.get("particuler");
 		if (particulerObj != null)
@@ -471,40 +471,40 @@ public abstract class Baseledger extends BaseResource {
 		this.voucher_no = null;
 	}
 
-	public String getTransaction_date_str() {
-		return transaction_date_str;
+	public String getEvent_date_str() {
+		return event_date_str;
 	}
 
-	public String getTransaction_date_strEx() {
-		return transaction_date_str != null ? transaction_date_str : "";
+	public String getEvent_date_strEx() {
+		return event_date_str != null ? event_date_str : "";
 	}
 
-	public void setTransaction_date_str(String transaction_date_str) {
-		this.transaction_date_str = transaction_date_str;
+	public void setEvent_date_str(String event_date_str) {
+		this.event_date_str = event_date_str;
 	}
 
-	public void unSetTransaction_date_str() {
-		this.transaction_date_str = null;
+	public void unSetEvent_date_str() {
+		this.event_date_str = null;
 	}
 
-	public Long getTransaction_date() {
-		return transaction_date;
+	public Long getEvent_date() {
+		return event_date;
 	}
 
-	public long getTransaction_dateEx() {
-		return transaction_date != null ? transaction_date : 0L;
+	public long getEvent_dateEx() {
+		return event_date != null ? event_date : 0L;
 	}
 
-	public void setTransaction_date(long transaction_date) {
-		this.transaction_date = transaction_date;
+	public void setEvent_date(long event_date) {
+		this.event_date = event_date;
 	}
 
-	public void setTransaction_date(Long transaction_date) {
-		this.transaction_date = transaction_date;
+	public void setEvent_date(Long event_date) {
+		this.event_date = event_date;
 	}
 
-	public void unSetTransaction_date() {
-		this.transaction_date = null;
+	public void unSetEvent_date() {
+		this.event_date = null;
 	}
 
 	public String getParticuler() {
@@ -726,11 +726,9 @@ public abstract class Baseledger extends BaseResource {
 	public void unSetExtra_data() {
 		this.extra_data = null;
 	}
-
 	public String getCluster() {
 		return "DB_ACCOUNT";
 	}
-
 	public String getClusterType() {
 		return "REPLICATED";
 	}
