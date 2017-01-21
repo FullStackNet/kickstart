@@ -24,11 +24,11 @@
         'length': 128,
         'type': 'String'
       },
-      'transaction_date_str': {
+      'event_date_str': {
         'length': 32,
         'type': 'String'
       },
-      'transaction_date': {
+      'event_date': {
         'type': 'long'
       },
       'particuler': {

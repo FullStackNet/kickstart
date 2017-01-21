@@ -1184,6 +1184,13 @@ public class Util {
 		return s == null || s.isEmpty();
 	}
 
+	public static boolean isEmpty(Double s) {
+		if (s == null) {
+			return true;
+		}
+		return false;
+	}
+
 	public static boolean isEmpty(byte[] array) {
 		return array == null || array.length == 0;
 	}
