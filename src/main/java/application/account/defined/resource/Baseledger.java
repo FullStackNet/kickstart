@@ -30,7 +30,7 @@ public abstract class Baseledger extends BaseResource {
 	private String voucher_no = null;
 	private String event_date_str = null;
 	private Long event_date = null;
-	private String particuler = null;
+	private String particular = null;
 	private String company_name = null;
 	private String account_customer_id = null;
 	private String account_id = null;
@@ -51,7 +51,7 @@ public abstract class Baseledger extends BaseResource {
 	public static String FIELD_VOUCHER_NO = "voucher_no";
 	public static String FIELD_EVENT_DATE_STR = "event_date_str";
 	public static String FIELD_EVENT_DATE = "event_date";
-	public static String FIELD_PARTICULER = "particuler";
+	public static String FIELD_PARTICULAR = "particular";
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_ACCOUNT_CUSTOMER_ID = "account_customer_id";
 	public static String FIELD_ACCOUNT_ID = "account_id";
@@ -99,9 +99,9 @@ public abstract class Baseledger extends BaseResource {
 		Field event_dateField = new Field("event_date", "long");
 		metaData.addField(event_dateField);
 
-		Field particulerField = new Field("particuler", "String");
-		particulerField.setLength(128);
-		metaData.addField(particulerField);
+		Field particularField = new Field("particular", "String");
+		particularField.setLength(128);
+		metaData.addField(particularField);
 
 		Field company_nameField = new Field("company_name", "String");
 		company_nameField.setLength(128);
@@ -160,7 +160,7 @@ public abstract class Baseledger extends BaseResource {
 		this.voucher_no = obj.voucher_no;
 		this.event_date_str = obj.event_date_str;
 		this.event_date = obj.event_date;
-		this.particuler = obj.particuler;
+		this.particular = obj.particular;
 		this.company_name = obj.company_name;
 		this.account_customer_id = obj.account_customer_id;
 		this.account_id = obj.account_id;
@@ -195,8 +195,8 @@ public abstract class Baseledger extends BaseResource {
 			map.put("event_date_str", event_date_str);
 		if (event_date != null)
 			map.put("event_date", event_date);
-		if (particuler != null)
-			map.put("particuler", particuler);
+		if (particular != null)
+			map.put("particular", particular);
 		if (company_name != null)
 			map.put("company_name", company_name);
 		if (account_customer_id != null)
@@ -240,8 +240,8 @@ public abstract class Baseledger extends BaseResource {
 			map.put("event_date_str", event_date_str);
 		if (event_date != null)
 			map.put("event_date", event_date);
-		if (particuler != null)
-			map.put("particuler", particuler);
+		if (particular != null)
+			map.put("particular", particular);
 		if (company_name != null)
 			map.put("company_name", company_name);
 		if (account_customer_id != null)
@@ -283,7 +283,7 @@ public abstract class Baseledger extends BaseResource {
 		voucher_no = (String) map.get("voucher_no");
 		event_date_str = (String) map.get("event_date_str");
 		event_date = (Long) map.get("event_date");
-		particuler = (String) map.get("particuler");
+		particular = (String) map.get("particular");
 		company_name = (String) map.get("company_name");
 		account_customer_id = (String) map.get("account_customer_id");
 		account_id = (String) map.get("account_id");
@@ -328,9 +328,9 @@ public abstract class Baseledger extends BaseResource {
 		if (event_dateObj != null)
 			event_date = new Long(event_dateObj.toString());
 
-		Object particulerObj = map.get("particuler");
-		if (particulerObj != null)
-			particuler = particulerObj.toString();
+		Object particularObj = map.get("particular");
+		if (particularObj != null)
+			particular = particularObj.toString();
 
 		Object company_nameObj = map.get("company_name");
 		if (company_nameObj != null)
@@ -507,20 +507,20 @@ public abstract class Baseledger extends BaseResource {
 		this.event_date = null;
 	}
 
-	public String getParticuler() {
-		return particuler;
+	public String getParticular() {
+		return particular;
 	}
 
-	public String getParticulerEx() {
-		return particuler != null ? particuler : "";
+	public String getParticularEx() {
+		return particular != null ? particular : "";
 	}
 
-	public void setParticuler(String particuler) {
-		this.particuler = particuler;
+	public void setParticular(String particular) {
+		this.particular = particular;
 	}
 
-	public void unSetParticuler() {
-		this.particuler = null;
+	public void unSetParticular() {
+		this.particular = null;
 	}
 
 	public String getCompany_name() {
