@@ -194,6 +194,7 @@ public class MongoDBConnection extends DbConnection {
 
 			if (value != null) {
 				if (value instanceof Double) {
+
 					if (field.getType().equalsIgnoreCase("int")) {
 						row.put(columnName, ((Double)value).intValue());
 					} else if (field.getType().equalsIgnoreCase("long")) {
@@ -202,6 +203,34 @@ public class MongoDBConnection extends DbConnection {
 						row.put(columnName, ((Double)value).shortValue());
 					} else if (field.getType().equalsIgnoreCase("byte")) {
 						row.put(columnName, ((Double)value).byteValue());
+					} else if (field.getType().equalsIgnoreCase("string")) {
+						row.put(columnName, value.toString());
+					} else {
+						row.put(columnName, value);
+					}
+				} else if (value instanceof Long) {
+					if (field.getType().equalsIgnoreCase("int")) {
+						row.put(columnName, ((Long) value).intValue());
+					} else if (field.getType().equalsIgnoreCase("long")) {
+						row.put(columnName, ((Long) value).longValue());
+					} else if (field.getType().equalsIgnoreCase("short")) {
+						row.put(columnName, ((Long) value).shortValue());
+					} else if (field.getType().equalsIgnoreCase("byte")) {
+						row.put(columnName, ((Long) value).byteValue());
+					} else if (field.getType().equalsIgnoreCase("string")) {
+						row.put(columnName, value.toString());
+					} else {
+						row.put(columnName, value);
+					}
+				} else if (value instanceof Integer) {
+					if (field.getType().equalsIgnoreCase("int")) {
+						row.put(columnName, ((Integer) value).intValue());
+					} else if (field.getType().equalsIgnoreCase("long")) {
+						row.put(columnName, ((Integer) value).longValue());
+					} else if (field.getType().equalsIgnoreCase("short")) {
+						row.put(columnName, ((Integer) value).shortValue());
+					} else if (field.getType().equalsIgnoreCase("byte")) {
+						row.put(columnName, ((Integer) value).byteValue());
 					} else if (field.getType().equalsIgnoreCase("string")) {
 						row.put(columnName, value.toString());
 					} else {
