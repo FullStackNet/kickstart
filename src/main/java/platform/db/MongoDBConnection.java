@@ -1,15 +1,8 @@
 package platform.db;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TimeZone;
-import java.util.regex.Pattern;
-
+import com.mongodb.*;
+import com.mongodb.gridfs.GridFS;
+import com.mongodb.gridfs.GridFSInputFile;
 import platform.config.Reader;
 import platform.defined.DBNameEnum;
 import platform.event.EventManager;
@@ -18,23 +11,11 @@ import platform.event.interfaces.GenericEventListener;
 import platform.events.ShutDownProcessEvent;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
-import platform.util.ApplicationConstants;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-import platform.util.Util;
+import platform.util.*;
 
-import com.mongodb.BasicDBList;
-import com.mongodb.BasicDBObject;
-import com.mongodb.CommandResult;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.MongoClient;
-import com.mongodb.ServerAddress;
-import com.mongodb.WriteConcern;
-import com.mongodb.gridfs.GridFS;
-import com.mongodb.gridfs.GridFSInputFile;
+import java.io.File;
+import java.util.*;
+import java.util.regex.Pattern;
 
 
 public class MongoDBConnection extends DbConnection {
@@ -564,6 +545,8 @@ public class MongoDBConnection extends DbConnection {
 		BasicDBObject doc = new BasicDBObject();
 		boolean arrayExist = false;
 		boolean mapExist = false;
+		boolean fieldExist = false;
+
 		for (Map.Entry<String, Field> entry : map.entrySet()) {
 			String columnName =  (String) entry.getKey();
 			Field field =   entry.getValue();
@@ -581,15 +564,18 @@ public class MongoDBConnection extends DbConnection {
 				} else {
 					doc.append(columnName, value);
 				}
+				fieldExist = true;
 			} 
 		}
-		try {
-			BasicDBObject searchDoc = new BasicDBObject();
-			searchDoc.put("_id", resource.getId());
-			table.update(searchDoc, new BasicDBObject("$set",doc));
-		} catch (Exception e) {
-			ApplicationLogger.error("Update SQL Failed :: "+e.getMessage(), this.getClass());
-			throw e;
+		if (fieldExist) {
+			try {
+				BasicDBObject searchDoc = new BasicDBObject();
+				searchDoc.put("_id", resource.getId());
+				table.update(searchDoc, new BasicDBObject("$set", doc));
+			} catch (Exception e) {
+				ApplicationLogger.error("Update SQL Failed :: " + e.getMessage(), this.getClass());
+				throw e;
+			}
 		}
 		if (arrayExist) {
 			for (Map.Entry<String, Field> entry : map.entrySet()) {
