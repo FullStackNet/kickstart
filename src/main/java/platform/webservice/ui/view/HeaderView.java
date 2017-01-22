@@ -5,12 +5,7 @@ import platform.resource.c4t_object;
 import platform.util.Util;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.component.BaseView;
-import platform.webservice.ui.html.A;
-import platform.webservice.ui.html.Div;
-import platform.webservice.ui.html.IMG;
-import platform.webservice.ui.html.MenuItem;
-import platform.webservice.ui.html.SPAN;
-import platform.webservice.ui.html.UL;
+import platform.webservice.ui.html.*;
 import platform.webservice.ui.util.ImageUtils;
 
 public class HeaderView extends BaseView {
@@ -101,7 +96,7 @@ public class HeaderView extends BaseView {
 		        headerDiv.addChild(headerMenuDiv);
 			}
 	        headerDiv.addAttribute("domain",mContext.getDomainName());
-		} else if (_community.getType().equals("MANDI_AGENT")){
+		} /*else if (_community.getType().equals("MANDI_AGENT")){
 			headerDiv.addAttribute("align", "right");
 			Div titleDiv = new Div();
 			SPAN s = new SPAN();
@@ -158,7 +153,7 @@ public class HeaderView extends BaseView {
 			a.setText("Logout");
 			a.setHref("/ui/logout");
 			headerDiv.addChild(a);
-		} else {
+		}*/ else {
 			
 			headerDiv.addAttribute("align", "right");
 			headerDiv.addStyle("padding-top", "10px");
