@@ -680,6 +680,10 @@
 			{
 				'type':'double'
 			},
+			'promocode': {
+				'type': 'String',
+				'length': 32
+			},
 			'opening_balance':
 			{
 				'type':'double'

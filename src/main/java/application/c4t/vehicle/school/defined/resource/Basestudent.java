@@ -149,6 +149,7 @@ public abstract class Basestudent extends BaseResource {
 	private String total_next_schedule_date_str = null;
 	private String manual_fees_approval = null;
 	private Double discount = null;
+	private String promocode = null;
 	private Double opening_balance = null;
 	private Double total_debit = null;
 	private Double total_credit = null;
@@ -288,6 +289,7 @@ public abstract class Basestudent extends BaseResource {
 	public static String FIELD_TOTAL_NEXT_SCHEDULE_DATE_STR = "total_next_schedule_date_str";
 	public static String FIELD_MANUAL_FEES_APPROVAL = "manual_fees_approval";
 	public static String FIELD_DISCOUNT = "discount";
+	public static String FIELD_PROMOCODE = "promocode";
 	public static String FIELD_OPENING_BALANCE = "opening_balance";
 	public static String FIELD_TOTAL_DEBIT = "total_debit";
 	public static String FIELD_TOTAL_CREDIT = "total_credit";
@@ -842,6 +844,10 @@ public abstract class Basestudent extends BaseResource {
 		Field discountField = new Field("discount", "double");
 		metaData.addField(discountField);
 
+		Field promocodeField = new Field("promocode", "String");
+		promocodeField.setLength(32);
+		metaData.addField(promocodeField);
+
 		Field opening_balanceField = new Field("opening_balance", "double");
 		metaData.addField(opening_balanceField);
 
@@ -1016,6 +1022,7 @@ public abstract class Basestudent extends BaseResource {
 		this.total_next_schedule_date_str = obj.total_next_schedule_date_str;
 		this.manual_fees_approval = obj.manual_fees_approval;
 		this.discount = obj.discount;
+		this.promocode = obj.promocode;
 		this.opening_balance = obj.opening_balance;
 		this.total_debit = obj.total_debit;
 		this.total_credit = obj.total_credit;
@@ -1357,6 +1364,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("manual_fees_approval", manual_fees_approval);
 		if(discount != null)
 			map.put("discount", discount);
+		if (promocode != null)
+			map.put("promocode", promocode);
 		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
 		if(total_debit != null)
@@ -1641,6 +1650,8 @@ public abstract class Basestudent extends BaseResource {
 			map.put("manual_fees_approval", manual_fees_approval);
 		if(discount != null)
 			map.put("discount", discount);
+		if (promocode != null)
+			map.put("promocode", promocode);
 		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
 		if(total_debit != null)
@@ -1801,6 +1812,7 @@ public abstract class Basestudent extends BaseResource {
 		total_next_schedule_date_str = (String) map.get("total_next_schedule_date_str");
 		manual_fees_approval = (String) map.get("manual_fees_approval");
 		discount = (Double) map.get("discount");
+		promocode = (String) map.get("promocode");
 		opening_balance = (Double) map.get("opening_balance");
 		total_debit = (Double) map.get("total_debit");
 		total_credit = (Double) map.get("total_credit");
@@ -2320,6 +2332,10 @@ public abstract class Basestudent extends BaseResource {
 		Object discountObj = map.get("discount");
 		if(discountObj != null)
 			discount = new Double(discountObj.toString());
+
+		Object promocodeObj = map.get("promocode");
+		if (promocodeObj != null)
+			promocode = promocodeObj.toString();
 
 		Object opening_balanceObj = map.get("opening_balance");
 		if(opening_balanceObj != null)
@@ -4318,6 +4334,22 @@ public abstract class Basestudent extends BaseResource {
 
 	public void unSetDiscount() {
 		this.discount = null;
+	}
+
+	public String getPromocode() {
+		return promocode;
+	}
+
+	public String getPromocodeEx() {
+		return promocode != null ? promocode : "";
+	}
+
+	public void setPromocode(String promocode) {
+		this.promocode = promocode;
+	}
+
+	public void unSetPromocode() {
+		this.promocode = null;
 	}
 
 	public Double getOpening_balance() {
