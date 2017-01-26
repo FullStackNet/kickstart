@@ -98,6 +98,14 @@ public class RestClient {
 		}
 	}
 
+	public Object getResourceArray(String resourceName, String queryId, String args, Class<?> resultType, String _namespace) throws Exception {
+		Object _result;
+		String resultString = HttpClient.sendGetRequest(server_url, _namespace, session_id,
+				resourceName, queryId, args);
+		_result = Json.stringToObject(resultString, resultType);
+		return _result;
+	}
+	
 	public Baseresult post(String resourceName,BaseResource resource,Class<?> resultClass,String action) {
 		return post(resourceName,resource,action,resultClass,namespace) ;
 	}
