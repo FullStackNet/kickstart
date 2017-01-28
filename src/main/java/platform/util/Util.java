@@ -27,6 +27,15 @@ public class Util {
 			e.printStackTrace();
 		}
 	}
+
+	public static String getFin_year(int month, int year) {
+		if (month < 4) {
+			return "" + (year - 1) + "-" + year;
+		} else {
+			return "" + year + "-" + (year + 1);
+		}
+	}
+	
 	private static final Random generator = new Random();  
 
 	public static long nextNumber() {

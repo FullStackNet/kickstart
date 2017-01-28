@@ -1,9 +1,9 @@
 package platform.test;
 
+import platform.util.TimeUtil;
+
 import java.util.Calendar;
 import java.util.Date;
-
-import platform.util.TimeUtil;
 
 public class TestTime {
 	public static void main(String[] args) throws Exception {
@@ -26,6 +26,8 @@ public class TestTime {
         int month = now.getMonth()+1;
         int day = now.getDate();
         System.out.println(year+" - " + month+ " - " + day);
-        
+		String datestr = "20160526";
+		System.out.println(datestr.substring(6, 8) + "-" + datestr.substring(4, 6) + "-" + datestr.substring(0, 4));
+
 	}
 }	

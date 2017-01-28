@@ -27,6 +27,7 @@ public abstract class Baseledger extends BaseResource {
 	private String customer_id = null;
 	private String community_id = null;
 	private String code = null;
+	private String reference_id = null;
 	private String voucher_no = null;
 	private String event_date_str = null;
 	private Long event_date = null;
@@ -48,6 +49,7 @@ public abstract class Baseledger extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_CODE = "code";
+	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_VOUCHER_NO = "voucher_no";
 	public static String FIELD_EVENT_DATE_STR = "event_date_str";
 	public static String FIELD_EVENT_DATE = "event_date";
@@ -87,6 +89,10 @@ public abstract class Baseledger extends BaseResource {
 		Field codeField = new Field("code", "String");
 		codeField.setLength(128);
 		metaData.addField(codeField);
+
+		Field reference_idField = new Field("reference_id", "String");
+		reference_idField.setLength(128);
+		metaData.addField(reference_idField);
 
 		Field voucher_noField = new Field("voucher_no", "String");
 		voucher_noField.setLength(128);
@@ -157,6 +163,7 @@ public abstract class Baseledger extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.community_id = obj.community_id;
 		this.code = obj.code;
+		this.reference_id = obj.reference_id;
 		this.voucher_no = obj.voucher_no;
 		this.event_date_str = obj.event_date_str;
 		this.event_date = obj.event_date;
@@ -189,6 +196,8 @@ public abstract class Baseledger extends BaseResource {
 			map.put("community_id", community_id);
 		if (code != null)
 			map.put("code", code);
+		if (reference_id != null)
+			map.put("reference_id", reference_id);
 		if (voucher_no != null)
 			map.put("voucher_no", voucher_no);
 		if (event_date_str != null)
@@ -234,6 +243,8 @@ public abstract class Baseledger extends BaseResource {
 			map.put("community_id", community_id);
 		if (code != null)
 			map.put("code", code);
+		if (reference_id != null)
+			map.put("reference_id", reference_id);
 		if (voucher_no != null)
 			map.put("voucher_no", voucher_no);
 		if (event_date_str != null)
@@ -280,6 +291,7 @@ public abstract class Baseledger extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		community_id = (String) map.get("community_id");
 		code = (String) map.get("code");
+		reference_id = (String) map.get("reference_id");
 		voucher_no = (String) map.get("voucher_no");
 		event_date_str = (String) map.get("event_date_str");
 		event_date = (Long) map.get("event_date");
@@ -315,6 +327,10 @@ public abstract class Baseledger extends BaseResource {
 		Object codeObj = map.get("code");
 		if (codeObj != null)
 			code = codeObj.toString();
+
+		Object reference_idObj = map.get("reference_id");
+		if (reference_idObj != null)
+			reference_id = reference_idObj.toString();
 
 		Object voucher_noObj = map.get("voucher_no");
 		if (voucher_noObj != null)
@@ -453,6 +469,22 @@ public abstract class Baseledger extends BaseResource {
 
 	public void unSetCode() {
 		this.code = null;
+	}
+
+	public String getReference_id() {
+		return reference_id;
+	}
+
+	public String getReference_idEx() {
+		return reference_id != null ? reference_id : "";
+	}
+
+	public void setReference_id(String reference_id) {
+		this.reference_id = reference_id;
+	}
+
+	public void unSetReference_id() {
+		this.reference_id = null;
 	}
 
 	public String getVoucher_no() {

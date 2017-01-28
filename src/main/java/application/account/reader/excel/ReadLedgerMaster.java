@@ -26,13 +26,6 @@ public class ReadLedgerMaster {
         return s == null || "".equals(s.trim());
     }
 
-    public static String getFin_year(int month, int year) {
-        if (month < 4) {
-            return "" + (year - 1) + "-" + year;
-        } else {
-            return "" + year + "-" + (year + 1);
-        }
-    }
 
     public static ArrayList<ledger> getLedger(String filename, String community_id) throws Exception {
         ArrayList<ledger> ledger_list = new ArrayList<ledger>();
@@ -120,7 +113,7 @@ public class ReadLedgerMaster {
                 tokens[2] = "20" + tokens[2];
                 _ledger.setEvent_date_str(tokens[0] + "-" + tokens[1] + "-" + tokens[2]);
             }
-            String fin_year = getFin_year(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]));
+            String fin_year = Util.getFin_year(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]));
             _ledger.setAccount_id(community_id + "^" + fin_year + "^" + _ledger.getCode());
             _ledger.setFin_year(fin_year);
             _ledger.setParticular(map.get("particular"));
