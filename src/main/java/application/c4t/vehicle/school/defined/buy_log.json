@@ -39,6 +39,9 @@
 			{
 				'type':'double'
 			},
+			'provider_amount': {
+				'type': 'double'
+			},
 			'item_type':
 			{
 				'length': 128,
@@ -58,11 +61,23 @@
 			{
 				'length': 128,
 				'type':'String'
-			},		
+			},
+			'provider_id': {
+				'length': 128,
+				'type': 'String'
+			},
+			'provider_name': {
+				'length': 128,
+				'type': 'String'
+			},
 			'customer_id':
 			{
 				'length': 128,
 				'type':'String'
+			},
+			'remark': {
+				'length': 128,
+				'type': 'String'
 			}
 		}
 	}

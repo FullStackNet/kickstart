@@ -30,11 +30,15 @@ public abstract class Basebuy_log extends BaseResource {
 	private String student_name = null;
 	private Long creation_time = null;
 	private Double amount = null;
+	private Double provider_amount = null;
 	private String item_type = null;
 	private String reference_id = null;
 	private String item_id = null;
 	private String item_name = null;
+	private String provider_id = null;
+	private String provider_name = null;
 	private String customer_id = null;
+	private String remark = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -44,11 +48,15 @@ public abstract class Basebuy_log extends BaseResource {
 	public static String FIELD_STUDENT_NAME = "student_name";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_AMOUNT = "amount";
+	public static String FIELD_PROVIDER_AMOUNT = "provider_amount";
 	public static String FIELD_ITEM_TYPE = "item_type";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_ITEM_ID = "item_id";
 	public static String FIELD_ITEM_NAME = "item_name";
+	public static String FIELD_PROVIDER_ID = "provider_id";
+	public static String FIELD_PROVIDER_NAME = "provider_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_REMARK = "remark";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -84,6 +92,9 @@ public abstract class Basebuy_log extends BaseResource {
 		Field amountField = new Field("amount", "double");
 		metaData.addField(amountField);
 
+		Field provider_amountField = new Field("provider_amount", "double");
+		metaData.addField(provider_amountField);
+
 		Field item_typeField = new Field("item_type", "String");
 		item_typeField.setLength(128);
 		metaData.addField(item_typeField);
@@ -100,9 +111,21 @@ public abstract class Basebuy_log extends BaseResource {
 		item_nameField.setLength(128);
 		metaData.addField(item_nameField);
 
+		Field provider_idField = new Field("provider_id", "String");
+		provider_idField.setLength(128);
+		metaData.addField(provider_idField);
+
+		Field provider_nameField = new Field("provider_name", "String");
+		provider_nameField.setLength(128);
+		metaData.addField(provider_nameField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
 		metaData.addField(customer_idField);
+
+		Field remarkField = new Field("remark", "String");
+		remarkField.setLength(128);
+		metaData.addField(remarkField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -124,11 +147,15 @@ public abstract class Basebuy_log extends BaseResource {
 		this.student_name = obj.student_name;
 		this.creation_time = obj.creation_time;
 		this.amount = obj.amount;
+		this.provider_amount = obj.provider_amount;
 		this.item_type = obj.item_type;
 		this.reference_id = obj.reference_id;
 		this.item_id = obj.item_id;
 		this.item_name = obj.item_name;
+		this.provider_id = obj.provider_id;
+		this.provider_name = obj.provider_name;
 		this.customer_id = obj.customer_id;
+		this.remark = obj.remark;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -152,6 +179,8 @@ public abstract class Basebuy_log extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(amount != null)
 			map.put("amount", amount);
+		if (provider_amount != null)
+			map.put("provider_amount", provider_amount);
 		if(item_type != null)
 			map.put("item_type", item_type);
 		if(reference_id != null)
@@ -160,8 +189,14 @@ public abstract class Basebuy_log extends BaseResource {
 			map.put("item_id", item_id);
 		if(item_name != null)
 			map.put("item_name", item_name);
+		if (provider_id != null)
+			map.put("provider_id", provider_id);
+		if (provider_name != null)
+			map.put("provider_name", provider_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if (remark != null)
+			map.put("remark", remark);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -183,6 +218,8 @@ public abstract class Basebuy_log extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(amount != null)
 			map.put("amount", amount);
+		if (provider_amount != null)
+			map.put("provider_amount", provider_amount);
 		if(item_type != null)
 			map.put("item_type", item_type);
 		if(reference_id != null)
@@ -191,8 +228,14 @@ public abstract class Basebuy_log extends BaseResource {
 			map.put("item_id", item_id);
 		if(item_name != null)
 			map.put("item_name", item_name);
+		if (provider_id != null)
+			map.put("provider_id", provider_id);
+		if (provider_name != null)
+			map.put("provider_name", provider_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if (remark != null)
+			map.put("remark", remark);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -212,11 +255,15 @@ public abstract class Basebuy_log extends BaseResource {
 		student_name = (String) map.get("student_name");
 		creation_time = (Long) map.get("creation_time");
 		amount = (Double) map.get("amount");
+		provider_amount = (Double) map.get("provider_amount");
 		item_type = (String) map.get("item_type");
 		reference_id = (String) map.get("reference_id");
 		item_id = (String) map.get("item_id");
 		item_name = (String) map.get("item_name");
+		provider_id = (String) map.get("provider_id");
+		provider_name = (String) map.get("provider_name");
 		customer_id = (String) map.get("customer_id");
+		remark = (String) map.get("remark");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -250,6 +297,10 @@ public abstract class Basebuy_log extends BaseResource {
 		if(amountObj != null)
 			amount = new Double(amountObj.toString());
 
+		Object provider_amountObj = map.get("provider_amount");
+		if (provider_amountObj != null)
+			provider_amount = new Double(provider_amountObj.toString());
+
 		Object item_typeObj = map.get("item_type");
 		if(item_typeObj != null)
 			item_type = item_typeObj.toString();
@@ -266,9 +317,21 @@ public abstract class Basebuy_log extends BaseResource {
 		if(item_nameObj != null)
 			item_name = item_nameObj.toString();
 
+		Object provider_idObj = map.get("provider_id");
+		if (provider_idObj != null)
+			provider_id = provider_idObj.toString();
+
+		Object provider_nameObj = map.get("provider_name");
+		if (provider_nameObj != null)
+			provider_name = provider_nameObj.toString();
+
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object remarkObj = map.get("remark");
+		if (remarkObj != null)
+			remark = remarkObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -394,6 +457,26 @@ public abstract class Basebuy_log extends BaseResource {
 		this.amount = null;
 	}
 
+	public Double getProvider_amount() {
+		return provider_amount;
+	}
+
+	public double getProvider_amountEx() {
+		return provider_amount != null ? provider_amount : 0;
+	}
+
+	public void setProvider_amount(double provider_amount) {
+		this.provider_amount = provider_amount;
+	}
+
+	public void setProvider_amount(Double provider_amount) {
+		this.provider_amount = provider_amount;
+	}
+
+	public void unSetProvider_amount() {
+		this.provider_amount = null;
+	}
+
 	public String getItem_type() {
 		return item_type;
 	}
@@ -458,6 +541,38 @@ public abstract class Basebuy_log extends BaseResource {
 		this.item_name = null;
 	}
 
+	public String getProvider_id() {
+		return provider_id;
+	}
+
+	public String getProvider_idEx() {
+		return provider_id != null ? provider_id : "";
+	}
+
+	public void setProvider_id(String provider_id) {
+		this.provider_id = provider_id;
+	}
+
+	public void unSetProvider_id() {
+		this.provider_id = null;
+	}
+
+	public String getProvider_name() {
+		return provider_name;
+	}
+
+	public String getProvider_nameEx() {
+		return provider_name != null ? provider_name : "";
+	}
+
+	public void setProvider_name(String provider_name) {
+		this.provider_name = provider_name;
+	}
+
+	public void unSetProvider_name() {
+		this.provider_name = null;
+	}
+
 	public String getCustomer_id() {
 		return customer_id;
 	}
@@ -472,6 +587,22 @@ public abstract class Basebuy_log extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public String getRemarkEx() {
+		return remark != null ? remark : "";
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public void unSetRemark() {
+		this.remark = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
