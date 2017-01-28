@@ -29,6 +29,7 @@ public abstract class Baseprovider extends BaseResource {
 	private String mobile_no = null;
 	private String brand_name = null;
 	private String customer_id = null;
+	private Double percentage = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -38,6 +39,7 @@ public abstract class Baseprovider extends BaseResource {
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_BRAND_NAME = "brand_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
+	public static String FIELD_PERCENTAGE = "percentage";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -72,6 +74,9 @@ public abstract class Baseprovider extends BaseResource {
 		customer_idField.setLength(32);
 		metaData.addField(customer_idField);
 
+		Field percentageField = new Field("percentage", "Double");
+		metaData.addField(percentageField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -94,6 +99,7 @@ public abstract class Baseprovider extends BaseResource {
 		this.mobile_no = obj.mobile_no;
 		this.brand_name = obj.brand_name;
 		this.customer_id = obj.customer_id;
+		this.percentage = obj.percentage;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -116,6 +122,8 @@ public abstract class Baseprovider extends BaseResource {
 			map.put("brand_name", brand_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if (percentage != null)
+			map.put("percentage", percentage);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -137,6 +145,8 @@ public abstract class Baseprovider extends BaseResource {
 			map.put("brand_name", brand_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
+		if (percentage != null)
+			map.put("percentage", percentage);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -157,6 +167,7 @@ public abstract class Baseprovider extends BaseResource {
 		mobile_no = (String) map.get("mobile_no");
 		brand_name = (String) map.get("brand_name");
 		customer_id = (String) map.get("customer_id");
+		percentage = (Double) map.get("percentage");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -186,6 +197,10 @@ public abstract class Baseprovider extends BaseResource {
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
+
+		Object percentageObj = map.get("percentage");
+		if (percentageObj != null)
+			percentage = new Double(percentageObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -300,6 +315,18 @@ public abstract class Baseprovider extends BaseResource {
 
 	public void unSetCustomer_id() {
 		this.customer_id = null;
+	}
+
+	public Double getPercentage() {
+		return percentage;
+	}
+
+	public void setPercentage(Double percentage) {
+		this.percentage = percentage;
+	}
+
+	public void unSetPercentage() {
+		this.percentage = null;
 	}
 
 	public Long getCreation_time() {

@@ -36,6 +36,9 @@
 				'length': 32,
 				'type':'String'
 			},
+			'percentage': {
+				'type': 'Double'
+			},
 			'creation_time': {
 				'type': 'timestamp'
 			}			
