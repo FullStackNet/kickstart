@@ -1,16 +1,6 @@
 package platform.helper;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import platform.db.DbConnection;
-import platform.db.DbManager;
-import platform.db.Expression;
-import platform.db.JoinField;
-import platform.db.LOG_OP;
-import platform.db.REL_OP;
+import platform.db.*;
 import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
 import platform.resource.c4t_object;
@@ -19,6 +9,11 @@ import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
 import platform.util.Util;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BaseHelper {
 	BaseResource resource;
@@ -76,6 +71,10 @@ public class BaseHelper {
 			connection = DbManager.getInstance().getConnection(this.getResource());
 			BaseResource clonedResource = (BaseResource) this.resource.clone();
 			clonedResource.setId(id);
+			BaseResource fetch_counter = getById(id);
+			if (fetch_counter == null) {
+				add(clonedResource);
+			}
 			connection.incrementValue(clonedResource, fieldName, incrementBy);
 		} catch(Exception e) {	
 			e.printStackTrace();
@@ -94,6 +93,10 @@ public class BaseHelper {
 			connection = DbManager.getInstance().getConnection(this.getResource());
 			BaseResource clonedResource = (BaseResource) this.resource.clone();
 			clonedResource.setId(id);
+			BaseResource fetch_counter = getById(id);
+			if (fetch_counter == null) {
+				add(clonedResource);
+			}
 			connection.incrementCounter(clonedResource, counterName, incrementBy);
 		} catch(Exception e) {	
 			e.printStackTrace();
@@ -112,6 +115,10 @@ public class BaseHelper {
 			BaseResource clonedResource = (BaseResource) this.resource.clone();
 			clonedResource.setId(id);
 			connection = DbManager.getInstance().getConnection(this.getResource());
+			BaseResource fetch_counter = getById(id);
+			if (fetch_counter == null) {
+				add(clonedResource);
+			}
 			connection.incrementCounter(clonedResource, counterName, (-1)*decrementBy);
 		} catch(Exception e) {	
 			e.printStackTrace();
