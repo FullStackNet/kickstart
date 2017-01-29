@@ -1,36 +1,25 @@
 package platform.webservice;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
+import com.google.common.io.Files;
+import org.apache.commons.fileupload.FileItemIterator;
+import org.apache.commons.fileupload.FileItemStream;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload.util.Streams;
+import platform.exception.ExceptionEnum;
+import platform.helper.SessionHelper;
+import platform.resource.*;
+import platform.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.fileupload.FileItemIterator;
-import org.apache.commons.fileupload.FileItemStream;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.fileupload.util.Streams;
-
-import platform.exception.ExceptionEnum;
-import platform.helper.SessionHelper;
-import platform.resource.BaseResource;
-import platform.resource.FailureResult;
-import platform.resource.SuccessResult;
-import platform.resource.result;
-import platform.resource.session;
-import platform.util.ApplicationConstants;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Json;
-import platform.util.Util;
-
-import com.google.common.io.Files;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public abstract class BaseImportFileServlet extends HttpServlet {
@@ -73,6 +62,11 @@ public abstract class BaseImportFileServlet extends HttpServlet {
 		}
 		return null;
 	}
+
+	protected String redirect() {
+		return null;
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		result result = null;
 		setResponseParameters(response);
@@ -123,6 +117,11 @@ public abstract class BaseImportFileServlet extends HttpServlet {
 		} catch(Exception e) {
 			e.printStackTrace();
 			result = new FailureResult(e);
+		}
+		String redirectURL = redirect();
+		if (redirectURL != null) {
+			response.sendRedirect(redirectURL);
+			return;
 		}
 		response.getWriter().print(Json.resourcetoString(result));
 	}

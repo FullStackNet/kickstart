@@ -28,7 +28,7 @@ public class ReadAccountMaster {
         return s == null || "".equals(s.trim());
     }
 
-    public static ArrayList<account> getAccounts(String filename, String community_id) throws Exception {
+    public static ArrayList<account> getAccounts(String filename, String community_id, String fin_year) throws Exception {
         ArrayList<account> account_list = new ArrayList<account>();
         HashMap<String, Boolean> requiredField = new HashMap<String, Boolean>();
         requiredField.put("name", false);
@@ -93,6 +93,9 @@ public class ReadAccountMaster {
             _account.setName(map.get("name"));
             _account.setCode(map.get("code"));
             _account.setFin_year(map.get("fin_year"));
+            if (Util.isEmpty(_account.getFin_year())) {
+                _account.setFin_year(fin_year);
+            }
             _account.setGroup_name(map.get("group_name"));
             _account.setId(community_id + "^" + map.get("fin_year") + "^" + _account.getCode());
             _account.setCommunity_id(community_id);
