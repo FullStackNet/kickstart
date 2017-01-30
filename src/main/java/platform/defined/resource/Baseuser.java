@@ -91,6 +91,12 @@ public abstract class Baseuser extends BaseResource {
 	private String feature_fees_report = null;
 	private String referral_code = null;
 	private Double percentage = null;
+	private Integer no_of_registration = null;
+	private Double per_registration_amount = null;
+	private Long last_payment_settledment = null;
+	private String last_payment_settledment_str = null;
+	private Long settledment_count = null;
+	private Double last_payment_made = null;
 	private String registered_referral_code = null;
 	private Map<String, Object> extra_data = null;
 
@@ -162,6 +168,12 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_FEATURE_FEES_REPORT = "feature_fees_report";
 	public static String FIELD_REFERRAL_CODE = "referral_code";
 	public static String FIELD_PERCENTAGE = "percentage";
+	public static String FIELD_NO_OF_REGISTRATION = "no_of_registration";
+	public static String FIELD_PER_REGISTRATION_AMOUNT = "per_registration_amount";
+	public static String FIELD_LAST_PAYMENT_SETTLEDMENT = "last_payment_settledment";
+	public static String FIELD_LAST_PAYMENT_SETTLEDMENT_STR = "last_payment_settledment_str";
+	public static String FIELD_SETTLEDMENT_COUNT = "settledment_count";
+	public static String FIELD_LAST_PAYMENT_MADE = "last_payment_made";
 	public static String FIELD_REGISTERED_REFERRAL_CODE = "registered_referral_code";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -482,6 +494,25 @@ public abstract class Baseuser extends BaseResource {
 		Field percentageField = new Field("percentage", "double");
 		metaData.addField(percentageField);
 
+		Field no_of_registrationField = new Field("no_of_registration", "int");
+		metaData.addField(no_of_registrationField);
+
+		Field per_registration_amountField = new Field("per_registration_amount", "double");
+		metaData.addField(per_registration_amountField);
+
+		Field last_payment_settledmentField = new Field("last_payment_settledment", "long");
+		metaData.addField(last_payment_settledmentField);
+
+		Field last_payment_settledment_strField = new Field("last_payment_settledment_str", "String");
+		last_payment_settledment_strField.setLength(32);
+		metaData.addField(last_payment_settledment_strField);
+
+		Field settledment_countField = new Field("settledment_count", "long");
+		metaData.addField(settledment_countField);
+
+		Field last_payment_madeField = new Field("last_payment_made", "double");
+		metaData.addField(last_payment_madeField);
+
 		Field registered_referral_codeField = new Field("registered_referral_code", "String");
 		registered_referral_codeField.setLength(128);
 		metaData.addField(registered_referral_codeField);
@@ -567,6 +598,12 @@ public abstract class Baseuser extends BaseResource {
 		this.feature_fees_report = obj.feature_fees_report;
 		this.referral_code = obj.referral_code;
 		this.percentage = obj.percentage;
+		this.no_of_registration = obj.no_of_registration;
+		this.per_registration_amount = obj.per_registration_amount;
+		this.last_payment_settledment = obj.last_payment_settledment;
+		this.last_payment_settledment_str = obj.last_payment_settledment_str;
+		this.settledment_count = obj.settledment_count;
+		this.last_payment_made = obj.last_payment_made;
 		this.registered_referral_code = obj.registered_referral_code;
 		this.extra_data = obj.extra_data;
 	}
@@ -808,6 +845,18 @@ public abstract class Baseuser extends BaseResource {
 			map.put("referral_code", referral_code);
 		if (percentage != null)
 			map.put("percentage", percentage);
+		if (no_of_registration != null)
+			map.put("no_of_registration", no_of_registration);
+		if (per_registration_amount != null)
+			map.put("per_registration_amount", per_registration_amount);
+		if (last_payment_settledment != null)
+			map.put("last_payment_settledment", last_payment_settledment);
+		if (last_payment_settledment_str != null)
+			map.put("last_payment_settledment_str", last_payment_settledment_str);
+		if (settledment_count != null)
+			map.put("settledment_count", settledment_count);
+		if (last_payment_made != null)
+			map.put("last_payment_made", last_payment_made);
 		if (registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
 		if(extra_data != null)
@@ -956,6 +1005,18 @@ public abstract class Baseuser extends BaseResource {
 			map.put("referral_code", referral_code);
 		if (percentage != null)
 			map.put("percentage", percentage);
+		if (no_of_registration != null)
+			map.put("no_of_registration", no_of_registration);
+		if (per_registration_amount != null)
+			map.put("per_registration_amount", per_registration_amount);
+		if (last_payment_settledment != null)
+			map.put("last_payment_settledment", last_payment_settledment);
+		if (last_payment_settledment_str != null)
+			map.put("last_payment_settledment_str", last_payment_settledment_str);
+		if (settledment_count != null)
+			map.put("settledment_count", settledment_count);
+		if (last_payment_made != null)
+			map.put("last_payment_made", last_payment_made);
 		if (registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
 		if(extra_data != null)
@@ -1035,6 +1096,12 @@ public abstract class Baseuser extends BaseResource {
 		feature_fees_report = (String) map.get("feature_fees_report");
 		referral_code = (String) map.get("referral_code");
 		percentage = (Double) map.get("percentage");
+		no_of_registration = (Integer) map.get("no_of_registration");
+		per_registration_amount = (Double) map.get("per_registration_amount");
+		last_payment_settledment = (Long) map.get("last_payment_settledment");
+		last_payment_settledment_str = (String) map.get("last_payment_settledment_str");
+		settledment_count = (Long) map.get("settledment_count");
+		last_payment_made = (Double) map.get("last_payment_made");
 		registered_referral_code = (String) map.get("registered_referral_code");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1300,6 +1367,30 @@ public abstract class Baseuser extends BaseResource {
 		Object percentageObj = map.get("percentage");
 		if (percentageObj != null)
 			percentage = new Double(percentageObj.toString());
+
+		Object no_of_registrationObj = map.get("no_of_registration");
+		if (no_of_registrationObj != null)
+			no_of_registration = new Integer(no_of_registrationObj.toString());
+
+		Object per_registration_amountObj = map.get("per_registration_amount");
+		if (per_registration_amountObj != null)
+			per_registration_amount = new Double(per_registration_amountObj.toString());
+
+		Object last_payment_settledmentObj = map.get("last_payment_settledment");
+		if (last_payment_settledmentObj != null)
+			last_payment_settledment = new Long(last_payment_settledmentObj.toString());
+
+		Object last_payment_settledment_strObj = map.get("last_payment_settledment_str");
+		if (last_payment_settledment_strObj != null)
+			last_payment_settledment_str = last_payment_settledment_strObj.toString();
+
+		Object settledment_countObj = map.get("settledment_count");
+		if (settledment_countObj != null)
+			settledment_count = new Long(settledment_countObj.toString());
+
+		Object last_payment_madeObj = map.get("last_payment_made");
+		if (last_payment_madeObj != null)
+			last_payment_made = new Double(last_payment_madeObj.toString());
 
 		Object registered_referral_codeObj = map.get("registered_referral_code");
 		if (registered_referral_codeObj != null)
@@ -2243,6 +2334,122 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetPercentage() {
 		this.percentage = null;
+	}
+
+	public Integer getNo_of_registration() {
+		return no_of_registration;
+	}
+
+	public int getNo_of_registrationEx() {
+		return no_of_registration != null ? no_of_registration : 0;
+	}
+
+	public void setNo_of_registration(int no_of_registration) {
+		this.no_of_registration = no_of_registration;
+	}
+
+	public void setNo_of_registration(Integer no_of_registration) {
+		this.no_of_registration = no_of_registration;
+	}
+
+	public void unSetNo_of_registration() {
+		this.no_of_registration = null;
+	}
+
+	public Double getPer_registration_amount() {
+		return per_registration_amount;
+	}
+
+	public double getPer_registration_amountEx() {
+		return per_registration_amount != null ? per_registration_amount : 0;
+	}
+
+	public void setPer_registration_amount(double per_registration_amount) {
+		this.per_registration_amount = per_registration_amount;
+	}
+
+	public void setPer_registration_amount(Double per_registration_amount) {
+		this.per_registration_amount = per_registration_amount;
+	}
+
+	public void unSetPer_registration_amount() {
+		this.per_registration_amount = null;
+	}
+
+	public Long getLast_payment_settledment() {
+		return last_payment_settledment;
+	}
+
+	public long getLast_payment_settledmentEx() {
+		return last_payment_settledment != null ? last_payment_settledment : 0L;
+	}
+
+	public void setLast_payment_settledment(long last_payment_settledment) {
+		this.last_payment_settledment = last_payment_settledment;
+	}
+
+	public void setLast_payment_settledment(Long last_payment_settledment) {
+		this.last_payment_settledment = last_payment_settledment;
+	}
+
+	public void unSetLast_payment_settledment() {
+		this.last_payment_settledment = null;
+	}
+
+	public String getLast_payment_settledment_str() {
+		return last_payment_settledment_str;
+	}
+
+	public String getLast_payment_settledment_strEx() {
+		return last_payment_settledment_str != null ? last_payment_settledment_str : "";
+	}
+
+	public void setLast_payment_settledment_str(String last_payment_settledment_str) {
+		this.last_payment_settledment_str = last_payment_settledment_str;
+	}
+
+	public void unSetLast_payment_settledment_str() {
+		this.last_payment_settledment_str = null;
+	}
+
+	public Long getSettledment_count() {
+		return settledment_count;
+	}
+
+	public long getSettledment_countEx() {
+		return settledment_count != null ? settledment_count : 0L;
+	}
+
+	public void setSettledment_count(long settledment_count) {
+		this.settledment_count = settledment_count;
+	}
+
+	public void setSettledment_count(Long settledment_count) {
+		this.settledment_count = settledment_count;
+	}
+
+	public void unSetSettledment_count() {
+		this.settledment_count = null;
+	}
+
+	public Double getLast_payment_made() {
+		return last_payment_made;
+	}
+
+	public double getLast_payment_madeEx() {
+		return last_payment_made != null ? last_payment_made : 0;
+	}
+
+	public void setLast_payment_made(double last_payment_made) {
+		this.last_payment_made = last_payment_made;
+	}
+
+	public void setLast_payment_made(Double last_payment_made) {
+		this.last_payment_made = last_payment_made;
+	}
+
+	public void unSetLast_payment_made() {
+		this.last_payment_made = null;
 	}
 
 	public String getRegistered_referral_code() {

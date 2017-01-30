@@ -412,6 +412,25 @@
 			'percentage': {
 				'type': 'double'
 			},
+			'no_of_registration': {
+				'type': 'int'
+			},
+			'per_registration_amount': {
+				'type': 'double'
+			},
+			'last_payment_settledment': {
+				'type': 'long'
+			},
+			'last_payment_settledment_str': {
+				'type': 'String',
+				'length': 32
+			},
+			'settledment_count': {
+				'type': 'long'
+			},
+			'last_payment_made': {
+				'type': 'double'
+			},
 			'registered_referral_code': {
 				'length': 128,
 				'type': 'String'
