@@ -79,20 +79,5 @@ public class MandiMenuView extends BaseView {
         a.setHref("/ui/import_vouchers");
         li.addChild(a);
 
-        li = new LI(null, "");
-        ul.addChild(li);
-        a = new A();
-        a.setText("Upload Account Master (tally)");
-        a.setHref("/ui/import_account_master?tally=yes");
-        li.addChild(a);
-
-        li = new LI(null, "");
-        ul.addChild(li);
-        a = new A();
-        a.setText("Upload Vouchers (tally)");
-        a.setHref("/ui/import_vouchers?tally=yes");
-        li.addChild(a);
-
-
     }
 }
