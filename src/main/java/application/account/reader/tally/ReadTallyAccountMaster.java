@@ -5,10 +5,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 
 public class ReadTallyAccountMaster {
@@ -17,9 +21,13 @@ public class ReadTallyAccountMaster {
         ArrayList<account> list = new ArrayList<account>();
         try {
             File fXmlFile = new File(filePath);
+            java.io.InputStream inputStream = new FileInputStream(fXmlFile);
+            Reader reader = new InputStreamReader(inputStream, "UTF-16");
+            InputSource is = new InputSource(reader);
+            is.setEncoding("UTF-16");         
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(fXmlFile);
+            Document doc = dBuilder.parse(is);
             doc.getDocumentElement().normalize();
             System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
             Node request_data = doc.getElementsByTagName("REQUESTDATA").item(0);

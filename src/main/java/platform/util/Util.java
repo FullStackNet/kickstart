@@ -7,6 +7,10 @@ import platform.resource.c4t_object;
 import java.io.*;
 import java.math.BigInteger;
 import java.net.NetworkInterface;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -1448,6 +1452,36 @@ public class Util {
 					e.printStackTrace();
 				}
 			}
+		}
+	}
+
+
+	public static void replaceTextInFile(String filename, String[] searchText, String[] replaceText) {
+		Path wiki_path = Paths.get(filename);
+		try {
+			List<String> lines = Files.readAllLines(wiki_path, StandardCharsets.UTF_16);
+			for (int i = 0; i < lines.size(); i++) {
+				String line = lines.get(i);
+				//System.out.println("before : "+line);
+				for (int index = 0; index < searchText.length; index++) {
+					line = line.replace(searchText[index], replaceText[index]);
+				}
+				lines.set(i, line);
+				//System.out.println("after : "+line);
+			}
+			try {
+				PrintWriter writer = new PrintWriter(filename, "UTF-16");
+				for (int i = 0; i < lines.size(); i++) {
+					String line = lines.get(i);
+					writer.println(line);
+				}
+				writer.close();
+			} catch (Exception e) {
+				// do something
+				e.printStackTrace();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	public static String getPathSeperator() {
