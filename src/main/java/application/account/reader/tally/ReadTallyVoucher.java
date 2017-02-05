@@ -74,9 +74,10 @@ public class ReadTallyVoucher {
                         Element amountElement = (Element) ledger_node.getElementsByTagName("AMOUNT").item(0);
                         Double amount = Double.parseDouble(amountElement.getTextContent());
                         ledger _ledger = new ledger();
-                        _ledger.setId(community_id + "^" + fin_year + "^" + voucherId + "^" + account_id.replace(" ", "-"));
+                        _ledger.setVoucher_type(voucherType);
+                        _ledger.setId(community_id + "^" + fin_year + "^" + _ledger.getVoucher_type() + "^" + voucherId + "^" + account_id.replace(" ", "-"));
                         _ledger.setEvent_date_str(dateStr);
-                        _ledger.setVoucher_no(voucherType + "#" + voucherno);
+                        _ledger.setVoucher_no(voucherno);
                         String acc_id = community_id + "^" + fin_year + "^" + account_id.replace(" ", "-");
                         _ledger.setAccount_id(acc_id);
                         _ledger.setParticular(narration);

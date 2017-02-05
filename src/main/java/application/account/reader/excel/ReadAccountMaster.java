@@ -51,14 +51,14 @@ public class ReadAccountMaster {
                 continue;
 
             String content = headerCells[i].getContents();
-            content = content.trim();
+            content = content.trim().toLowerCase();
             requiredField.put(content, true);
         }
         for (int i = 0; i < headerCells.length; i++) {
             if (headerCells[i] == null) {
                 continue;
             }
-            System.out.println((i + 1) + "->" + headerCells[i].getContents());
+            System.out.println((i + 1) + "->" + headerCells[i].getContents().toLowerCase());
         }
         for (Map.Entry<String, Boolean> entry : requiredField.entrySet()) {
             if (!entry.getValue()) {
@@ -76,13 +76,12 @@ public class ReadAccountMaster {
                 if (isEmpty(headerCells[j].getContents()))
                     continue;
                 String content = headerCells[j].getContents();
-                content = content.trim();
-
+                content = content.trim().toLowerCase();
                 Cell cell = sheet.getCell(j, i);
                 System.out.println(content + "->" + cell.getContents());
-                map.put(content.toLowerCase(), cell.getContents());
+                map.put(content, cell.getContents());
                 if (cell.getContents() != null) {
-                    map.put(content.toLowerCase(), cell.getContents().trim());
+                    map.put(content, cell.getContents().trim());
                 }
             }
             list.add(map);

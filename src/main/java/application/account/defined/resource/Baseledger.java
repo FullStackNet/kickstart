@@ -29,6 +29,7 @@ public abstract class Baseledger extends BaseResource {
 	private String code = null;
 	private String reference_id = null;
 	private String voucher_no = null;
+	private String voucher_type = null;
 	private String event_date_str = null;
 	private Long event_date = null;
 	private String particular = null;
@@ -51,6 +52,7 @@ public abstract class Baseledger extends BaseResource {
 	public static String FIELD_CODE = "code";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_VOUCHER_NO = "voucher_no";
+	public static String FIELD_VOUCHER_TYPE = "voucher_type";
 	public static String FIELD_EVENT_DATE_STR = "event_date_str";
 	public static String FIELD_EVENT_DATE = "event_date";
 	public static String FIELD_PARTICULAR = "particular";
@@ -97,6 +99,10 @@ public abstract class Baseledger extends BaseResource {
 		Field voucher_noField = new Field("voucher_no", "String");
 		voucher_noField.setLength(128);
 		metaData.addField(voucher_noField);
+
+		Field voucher_typeField = new Field("voucher_type", "String");
+		voucher_typeField.setLength(128);
+		metaData.addField(voucher_typeField);
 
 		Field event_date_strField = new Field("event_date_str", "String");
 		event_date_strField.setLength(32);
@@ -165,6 +171,7 @@ public abstract class Baseledger extends BaseResource {
 		this.code = obj.code;
 		this.reference_id = obj.reference_id;
 		this.voucher_no = obj.voucher_no;
+		this.voucher_type = obj.voucher_type;
 		this.event_date_str = obj.event_date_str;
 		this.event_date = obj.event_date;
 		this.particular = obj.particular;
@@ -200,6 +207,8 @@ public abstract class Baseledger extends BaseResource {
 			map.put("reference_id", reference_id);
 		if (voucher_no != null)
 			map.put("voucher_no", voucher_no);
+		if (voucher_type != null)
+			map.put("voucher_type", voucher_type);
 		if (event_date_str != null)
 			map.put("event_date_str", event_date_str);
 		if (event_date != null)
@@ -247,6 +256,8 @@ public abstract class Baseledger extends BaseResource {
 			map.put("reference_id", reference_id);
 		if (voucher_no != null)
 			map.put("voucher_no", voucher_no);
+		if (voucher_type != null)
+			map.put("voucher_type", voucher_type);
 		if (event_date_str != null)
 			map.put("event_date_str", event_date_str);
 		if (event_date != null)
@@ -293,6 +304,7 @@ public abstract class Baseledger extends BaseResource {
 		code = (String) map.get("code");
 		reference_id = (String) map.get("reference_id");
 		voucher_no = (String) map.get("voucher_no");
+		voucher_type = (String) map.get("voucher_type");
 		event_date_str = (String) map.get("event_date_str");
 		event_date = (Long) map.get("event_date");
 		particular = (String) map.get("particular");
@@ -335,6 +347,10 @@ public abstract class Baseledger extends BaseResource {
 		Object voucher_noObj = map.get("voucher_no");
 		if (voucher_noObj != null)
 			voucher_no = voucher_noObj.toString();
+
+		Object voucher_typeObj = map.get("voucher_type");
+		if (voucher_typeObj != null)
+			voucher_type = voucher_typeObj.toString();
 
 		Object event_date_strObj = map.get("event_date_str");
 		if (event_date_strObj != null)
@@ -501,6 +517,22 @@ public abstract class Baseledger extends BaseResource {
 
 	public void unSetVoucher_no() {
 		this.voucher_no = null;
+	}
+
+	public String getVoucher_type() {
+		return voucher_type;
+	}
+
+	public String getVoucher_typeEx() {
+		return voucher_type != null ? voucher_type : "";
+	}
+
+	public void setVoucher_type(String voucher_type) {
+		this.voucher_type = voucher_type;
+	}
+
+	public void unSetVoucher_type() {
+		this.voucher_type = null;
 	}
 
 	public String getEvent_date_str() {

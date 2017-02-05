@@ -15,6 +15,7 @@ import java.util.Map;
 public class ReadLedgerMaster {
     private static String[] validColumns = new String[]{
             "voucher_no",
+            "voucher_type",
             "date",
             "code",
             "particuler",
@@ -49,14 +50,14 @@ public class ReadLedgerMaster {
                 continue;
 
             String content = headerCells[i].getContents();
-            content = content.trim();
+            content = content.trim().toLowerCase();
             requiredField.put(content, true);
         }
         for (int i = 0; i < headerCells.length; i++) {
             if (headerCells[i] == null) {
                 continue;
             }
-            System.out.println((i + 1) + "->" + headerCells[i].getContents());
+            System.out.println((i + 1) + "->" + headerCells[i].getContents().toLowerCase());
         }
         for (Map.Entry<String, Boolean> entry : requiredField.entrySet()) {
             if (!entry.getValue()) {
@@ -74,13 +75,13 @@ public class ReadLedgerMaster {
                 if (isEmpty(headerCells[j].getContents()))
                     continue;
                 String content = headerCells[j].getContents();
-                content = content.trim();
+                content = content.trim().toLowerCase();
 
                 Cell cell = sheet.getCell(j, i);
                 System.out.println(content + "->" + cell.getContents());
                 map.put(content.toLowerCase(), cell.getContents());
                 if (cell.getContents() != null) {
-                    map.put(content.toLowerCase(), cell.getContents().trim());
+                    map.put(content, cell.getContents().trim());
                 }
             }
             list.add(map);
@@ -88,6 +89,7 @@ public class ReadLedgerMaster {
         for (int i = 0; i < list.size(); i++) {
             Map<String, String> map = list.get(i);
             ledger _ledger = new ledger();
+            _ledger.setVoucher_type(map.get("voucher_type"));
             _ledger.setVoucher_no(map.get("voucher_no"));
             if (Util.isEmpty(_ledger.getVoucher_no())) {
                 continue;
@@ -117,7 +119,7 @@ public class ReadLedgerMaster {
             _ledger.setAccount_id(community_id + "^" + fin_year + "^" + _ledger.getCode());
             _ledger.setFin_year(fin_year);
             _ledger.setParticular(map.get("particular"));
-            _ledger.setId(community_id + "^" + fin_year + "^" + _ledger.getVoucher_no());
+            _ledger.setId(community_id + "^" + fin_year + "^" + _ledger.getVoucher_type() + "^" + _ledger.getVoucher_no());
             if (!Util.isEmpty(map.get("debit"))) {
                 try {
                     double value = Double.parseDouble(map.get("debit"));
