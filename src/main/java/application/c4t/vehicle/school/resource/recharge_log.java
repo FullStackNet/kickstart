@@ -1,9 +1,9 @@
 package application.c4t.vehicle.school.resource;
 
-import application.c4t.vehicle.school.defined.resource.Basereferral_log;
+import application.c4t.vehicle.school.defined.resource.Baserecharge_log;
 import platform.util.Util;
 
-public class recharge_log extends Basereferral_log {
+public class recharge_log extends Baserecharge_log {
 
     /**
      *
