@@ -16,6 +16,8 @@ public class ReadLedgerMaster {
     private static String[] validColumns = new String[]{
             "voucher_no",
             "voucher_type",
+            "no",
+            "type",
             "date",
             "code",
             "particuler",
@@ -90,7 +92,13 @@ public class ReadLedgerMaster {
             Map<String, String> map = list.get(i);
             ledger _ledger = new ledger();
             _ledger.setVoucher_type(map.get("voucher_type"));
+            if (Util.isEmpty(_ledger.getVoucher_type())) {
+                _ledger.setVoucher_no(map.get("type"));
+            }
             _ledger.setVoucher_no(map.get("voucher_no"));
+            if (Util.isEmpty(_ledger.getVoucher_no())) {
+                _ledger.setVoucher_no(map.get("no"));
+            }
             if (Util.isEmpty(_ledger.getVoucher_no())) {
                 continue;
             }

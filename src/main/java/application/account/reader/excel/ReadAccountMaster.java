@@ -19,8 +19,10 @@ public class ReadAccountMaster {
             "code",
             "group_name",
             "opening_balance",
+            "op_bal",
             "total_dr",
             "total_cr",
+            "cl_bal",
             "closing_balance"
     };
 
@@ -105,6 +107,13 @@ public class ReadAccountMaster {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            } else if (!Util.isEmpty(map.get("op_bal"))) {
+                try {
+                    double value = Double.parseDouble(map.get("op_bal"));
+                    _account.setOpening_balance(value);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             if (!Util.isEmpty(map.get("total_dr"))) {
@@ -126,6 +135,13 @@ public class ReadAccountMaster {
             if (!Util.isEmpty(map.get("closing_balance"))) {
                 try {
                     double value = Double.parseDouble(map.get("closing_balance"));
+                    _account.setClosing_balance(value);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (!Util.isEmpty(map.get("cl_bal"))) {
+                try {
+                    double value = Double.parseDouble(map.get("cl_bal"));
                     _account.setClosing_balance(value);
                 } catch (Exception e) {
                     e.printStackTrace();
