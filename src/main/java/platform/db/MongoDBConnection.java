@@ -439,6 +439,7 @@ public class MongoDBConnection extends DbConnection {
 			}
 			rows.add(row);
 		}
+		cursor.close();
 		return rows; 
 	}
 
