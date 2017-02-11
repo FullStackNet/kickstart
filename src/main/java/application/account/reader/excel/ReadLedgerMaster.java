@@ -93,7 +93,7 @@ public class ReadLedgerMaster {
             ledger _ledger = new ledger();
             _ledger.setVoucher_type(map.get("voucher_type"));
             if (Util.isEmpty(_ledger.getVoucher_type())) {
-                _ledger.setVoucher_no(map.get("type"));
+                _ledger.setVoucher_type(map.get("type"));
             }
             _ledger.setVoucher_no(map.get("voucher_no"));
             if (Util.isEmpty(_ledger.getVoucher_no())) {

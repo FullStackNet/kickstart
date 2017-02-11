@@ -98,6 +98,9 @@ public class ReadAccountMaster {
                 _account.setFin_year(fin_year);
             }
             _account.setGroup_name(map.get("group_name"));
+            if (Util.isEmpty(_account.getGroup_name())) {
+                _account.setGroup_name(map.get("address"));
+            }
             _account.setId(community_id + "^" + _account.getFin_year() + "^" + _account.getCode());
             _account.setCommunity_id(community_id);
             if (!Util.isEmpty(map.get("opening_balance"))) {
