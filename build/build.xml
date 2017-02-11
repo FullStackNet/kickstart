@@ -80,6 +80,9 @@
     		 ${thirdparty}/mail.jar:
     		 ${thirdparty}/c4t-db.jar:
     		 ${thirdparty}/commons-fileupload-1.2.2.jar:
+    		 ${thirdparty}/poi-3.12.jar:
+    		 ${thirdparty}/poi-ooxml-3.12.jar:
+    		 ${thirdparty}/poi-ooxml-schemas-3.12.jar:
     		 ${thirdparty}/guava-13.0.1.jar:
     		 ${thirdparty}/sigar.jar:
     		 ${thirdparty}/imgscalr-lib-4.1.jar:
