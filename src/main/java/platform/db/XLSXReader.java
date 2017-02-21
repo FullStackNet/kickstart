@@ -1,5 +1,6 @@
 package platform.db;
 
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -8,6 +9,7 @@ import platform.util.Util;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -36,13 +38,17 @@ public class XLSXReader {
             // For each row, iterate through each columns
             Map<String, String> map = new HashMap<String, String>();
             Iterator<Cell> cellIterator = row.cellIterator();
-            int colIndex = 0;
             while (cellIterator.hasNext()) {
                 Cell cell = cellIterator.next();
                 String value = "";
                 switch (cell.getCellType()) {
                     case Cell.CELL_TYPE_NUMERIC:
-                        value = value + cell.getNumericCellValue();
+                        if (HSSFDateUtil.isCellDateFormatted(cell)) {
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                            value = value + sdf.format(cell.getDateCellValue());
+                        } else {
+                            value = value + cell.getNumericCellValue();
+                        }
                         break;
                     case Cell.CELL_TYPE_STRING:
                         value = value + cell.getStringCellValue();
@@ -53,14 +59,12 @@ public class XLSXReader {
                         break;
                 }
                 if (rowIndex == 0) {
-                    colIndex++;
                     if (Util.isEmpty(value)) {
                         continue;
                     }
                     headers.add(value.toLowerCase());
                 } else {
-                    String colName = headers.get(colIndex);
-                    colIndex++;
+                    String colName = headers.get(cell.getColumnIndex());
                     if (Util.isEmpty(value)) {
                         continue;
                     }
