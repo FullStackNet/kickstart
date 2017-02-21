@@ -57,7 +57,7 @@ public class XLSReader {
                     if (Util.isEmpty(value)) {
                         continue;
                     }
-                    headers.add(value);
+                    headers.add(value.toLowerCase());
                 } else {
                     String colName = headers.get(colIndex);
                     colIndex++;
