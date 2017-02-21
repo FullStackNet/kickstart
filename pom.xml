@@ -86,8 +86,14 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.16-beta1</version>
+            <version>3.12</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.12</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.eclipse.paho/mqtt-client -->
         <!-- https://mvnrepository.com/artifact/org.eclipse.paho/mqtt-client -->
 
