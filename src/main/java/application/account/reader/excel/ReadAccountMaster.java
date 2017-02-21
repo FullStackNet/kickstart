@@ -28,6 +28,9 @@ public class ReadAccountMaster {
             account _account = new account();
             _account.setName(map.get("name"));
             _account.setCode(map.get("code"));
+            if (!Util.isEmpty(_account.getCode())) {
+                _account.setCode(_account.getCode().replace("\\.0", ""));
+            }
             _account.setFin_year(map.get("fin_year"));
             if (Util.isEmpty(_account.getFin_year())) {
                 _account.setFin_year(fin_year);

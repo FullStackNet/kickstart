@@ -38,6 +38,9 @@ public class ReadLedgerMaster {
             if (Util.isEmpty(_ledger.getVoucher_no())) {
                 continue;
             }
+            if (!Util.isEmpty(_ledger.getVoucher_no())) {
+                _ledger.setVoucher_no(_ledger.getVoucher_no().replace("\\.0", ""));
+            }
             String date = map.get("date");
             if (Util.isEmpty(date)) {
                 continue;
@@ -46,6 +49,9 @@ public class ReadLedgerMaster {
             date = date.replace("//", "-");
             _ledger.setEvent_date_str(date);
             _ledger.setCode(map.get("code"));
+            if (!Util.isEmpty(_ledger.getCode())) {
+                _ledger.setCode(_ledger.getCode().replace("\\.0", ""));
+            }
             _ledger.setCommunity_id(community_id);
             String[] tokens = _ledger.getEvent_date_str().split("-");
             if (tokens[0].length() == 1) {
