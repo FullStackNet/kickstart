@@ -19,9 +19,9 @@ public class ReadLedgerMaster {
     public static ArrayList<ledger> getLedger(String filename, String community_id) throws Exception {
         ArrayList<ledger> ledger_list = new ArrayList<ledger>();
         ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();
-        if (filename.endsWith("xlsx")) {
+        if (filename.endsWith("xlsx") || filename.endsWith("XLSX")) {
             list = XLSXReader.readFile(filename);
-        } else if (filename.endsWith("xls")) {
+        } else if (filename.endsWith("xls") || filename.endsWith("XLS")) {
             list = XLSReader.readFile(filename);
         }
         for (int i = 0; i < list.size(); i++) {

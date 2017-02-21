@@ -18,9 +18,9 @@ public class ReadAccountMaster {
     public static ArrayList<account> getAccounts(String filename, String community_id, String fin_year) throws Exception {
         ArrayList<account> account_list = new ArrayList<account>();
         ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();
-        if (filename.endsWith("xlsx")) {
+        if (filename.endsWith("xlsx") || filename.endsWith("XLSX")) {
             list = XLSXReader.readFile(filename);
-        } else if (filename.endsWith("xls")) {
+        } else if (filename.endsWith("xls") || filename.endsWith("XLS")) {
             list = XLSReader.readFile(filename);
         }
         for (int i = 0; i < list.size(); i++) {
