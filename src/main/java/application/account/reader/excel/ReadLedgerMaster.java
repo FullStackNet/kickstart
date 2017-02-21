@@ -39,8 +39,7 @@ public class ReadLedgerMaster {
                 continue;
             }
             if (!Util.isEmpty(_ledger.getVoucher_no())) {
-                _ledger.setVoucher_no(_ledger.getVoucher_no().replace("\\.0", ""));
-                _ledger.setVoucher_no(_ledger.getVoucher_no().replace(".0", ""));
+                _ledger.setVoucher_no(_ledger.getVoucher_no().replaceAll("[.0]+$", ""));
             }
             String date = map.get("date");
             if (Util.isEmpty(date)) {
@@ -51,8 +50,7 @@ public class ReadLedgerMaster {
             _ledger.setEvent_date_str(date);
             _ledger.setCode(map.get("code"));
             if (!Util.isEmpty(_ledger.getCode())) {
-                _ledger.setCode(_ledger.getCode().replace("\\.0", ""));
-                _ledger.setCode(_ledger.getCode().replace(".0", ""));
+                _ledger.setCode(_ledger.getCode().replaceAll("[.0]+$", ""));
             }
             _ledger.setCommunity_id(community_id);
             String[] tokens = _ledger.getEvent_date_str().split("-");
