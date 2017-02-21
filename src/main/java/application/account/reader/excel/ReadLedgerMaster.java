@@ -1,29 +1,15 @@
 package application.account.reader.excel;
 
 import application.account.resource.ledger;
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
+import platform.db.XLSReader;
+import platform.db.XLSXReader;
 import platform.util.Util;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 
 public class ReadLedgerMaster {
-    private static String[] validColumns = new String[]{
-            "voucher_no",
-            "voucher_type",
-            "no",
-            "type",
-            "date",
-            "code",
-            "particuler",
-            "dr_amount",
-            "cr_amount"
-    };
 
     public static boolean isEmpty(String s) {
         return s == null || "".equals(s.trim());
@@ -32,61 +18,11 @@ public class ReadLedgerMaster {
 
     public static ArrayList<ledger> getLedger(String filename, String community_id) throws Exception {
         ArrayList<ledger> ledger_list = new ArrayList<ledger>();
-        HashMap<String, Boolean> requiredField = new HashMap<String, Boolean>();
-        int add_count = 0;
-        int already_exist_count = 0;
-        int error_count = 0;
-        int deleted_count = 0;
-        Workbook workbook = Workbook.getWorkbook(new File(filename));
-        Sheet sheet = workbook.getSheet(0);
-        int ROWS = sheet.getRows();
-        System.out.println("Number of Rows -  " + ROWS + ", Columns : " + sheet.getColumns());
-        Cell[] headerCells = new Cell[sheet.getColumns()];
-        for (int i = 0; i < headerCells.length; i++) {
-            headerCells[i] = sheet.getCell(i, 0);
-
-            if (headerCells[i] == null) {
-                continue;
-            }
-            if (isEmpty(headerCells[i].getContents()))
-                continue;
-
-            String content = headerCells[i].getContents();
-            content = content.trim().toLowerCase();
-            requiredField.put(content, true);
-        }
-        for (int i = 0; i < headerCells.length; i++) {
-            if (headerCells[i] == null) {
-                continue;
-            }
-            System.out.println((i + 1) + "->" + headerCells[i].getContents().toLowerCase());
-        }
-        for (Map.Entry<String, Boolean> entry : requiredField.entrySet()) {
-            if (!entry.getValue()) {
-                System.out.println("Required Field missing " + entry.getKey());
-                System.exit(-1);
-            }
-        }
         ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();
-        for (int i = 1; i < ROWS; i++) {
-            Map<String, String> map = new HashMap<String, String>();
-            for (int j = 0; j < headerCells.length; j++) {
-                if (headerCells[j] == null) {
-                    continue;
-                }
-                if (isEmpty(headerCells[j].getContents()))
-                    continue;
-                String content = headerCells[j].getContents();
-                content = content.trim().toLowerCase();
-
-                Cell cell = sheet.getCell(j, i);
-                System.out.println(content + "->" + cell.getContents());
-                map.put(content.toLowerCase(), cell.getContents());
-                if (cell.getContents() != null) {
-                    map.put(content, cell.getContents().trim());
-                }
-            }
-            list.add(map);
+        if (filename.endsWith("xlsx")) {
+            list = XLSXReader.readFile(filename);
+        } else if (filename.endsWith("xls")) {
+            list = XLSReader.readFile(filename);
         }
         for (int i = 0; i < list.size(); i++) {
             Map<String, String> map = list.get(i);
@@ -146,8 +82,6 @@ public class ReadLedgerMaster {
             }
             ledger_list.add(_ledger);
         }
-        System.out.println("Total  read -> " + list.size() + ", Successfully created :" + add_count + ", Error : " + error_count + ", Already exists : " + already_exist_count + ", Deleted : " + deleted_count);
-        workbook.close();
         return ledger_list;
     }
 }
