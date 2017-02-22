@@ -30,6 +30,7 @@ public abstract class Basetest extends BaseResource {
 	private String free_centre_student = null;
 	private Long allowed_attempts = null;
 	private String context_enabled = null;
+	private String context_status = null;
 	private Double price = null;
 	private Double discount = null;
 	private Long duration = null;
@@ -83,6 +84,7 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_FREE_CENTRE_STUDENT = "free_centre_student";
 	public static String FIELD_ALLOWED_ATTEMPTS = "allowed_attempts";
 	public static String FIELD_CONTEXT_ENABLED = "context_enabled";
+	public static String FIELD_CONTEXT_STATUS = "context_status";
 	public static String FIELD_PRICE = "price";
 	public static String FIELD_DISCOUNT = "discount";
 	public static String FIELD_DURATION = "duration";
@@ -161,6 +163,10 @@ public abstract class Basetest extends BaseResource {
 		Field context_enabledField = new Field("context_enabled", "String");
 		context_enabledField.setLength(1);
 		metaData.addField(context_enabledField);
+
+		Field context_statusField = new Field("context_status", "String");
+		context_statusField.setLength(1);
+		metaData.addField(context_statusField);
 
 		Field priceField = new Field("price", "double");
 		metaData.addField(priceField);
@@ -334,6 +340,7 @@ public abstract class Basetest extends BaseResource {
 		this.free_centre_student = obj.free_centre_student;
 		this.allowed_attempts = obj.allowed_attempts;
 		this.context_enabled = obj.context_enabled;
+		this.context_status = obj.context_status;
 		this.price = obj.price;
 		this.discount = obj.discount;
 		this.duration = obj.duration;
@@ -401,6 +408,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("allowed_attempts", allowed_attempts);
 		if (context_enabled != null)
 			map.put("context_enabled", context_enabled);
+		if (context_status != null)
+			map.put("context_status", context_status);
 		if(price != null)
 			map.put("price", price);
 		if(discount != null)
@@ -510,6 +519,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("allowed_attempts", allowed_attempts);
 		if (context_enabled != null)
 			map.put("context_enabled", context_enabled);
+		if (context_status != null)
+			map.put("context_status", context_status);
 		if(price != null)
 			map.put("price", price);
 		if(discount != null)
@@ -617,6 +628,7 @@ public abstract class Basetest extends BaseResource {
 		free_centre_student = (String) map.get("free_centre_student");
 		allowed_attempts = (Long) map.get("allowed_attempts");
 		context_enabled = (String) map.get("context_enabled");
+		context_status = (String) map.get("context_status");
 		price = (Double) map.get("price");
 		discount = (Double) map.get("discount");
 		duration = (Long) map.get("duration");
@@ -693,6 +705,10 @@ public abstract class Basetest extends BaseResource {
 		Object context_enabledObj = map.get("context_enabled");
 		if (context_enabledObj != null)
 			context_enabled = context_enabledObj.toString();
+
+		Object context_statusObj = map.get("context_status");
+		if (context_statusObj != null)
+			context_status = context_statusObj.toString();
 
 		Object priceObj = map.get("price");
 		if(priceObj != null)
@@ -999,6 +1015,22 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetContext_enabled() {
 		this.context_enabled = null;
+	}
+
+	public String getContext_status() {
+		return context_status;
+	}
+
+	public String getContext_statusEx() {
+		return context_status != null ? context_status : "";
+	}
+
+	public void setContext_status(String context_status) {
+		this.context_status = context_status;
+	}
+
+	public void unSetContext_status() {
+		this.context_status = null;
 	}
 
 	public Double getPrice() {

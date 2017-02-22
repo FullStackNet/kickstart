@@ -38,6 +38,10 @@
 				'length': 1,
 				'type': 'String'
 			},
+			'context_status': {
+				'length': 1,
+				'type': 'String'
+			},
 			'price':
 			{
 				'type':'double'
