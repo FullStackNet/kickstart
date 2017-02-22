@@ -29,6 +29,7 @@ public abstract class Basetest extends BaseResource {
 	private String free = null;
 	private String free_centre_student = null;
 	private Long allowed_attempts = null;
+	private String context_enabled = null;
 	private Double price = null;
 	private Double discount = null;
 	private Long duration = null;
@@ -55,6 +56,12 @@ public abstract class Basetest extends BaseResource {
 	private Long last_update_time = null;
 	private Long total_student_allocations = null;
 	private Long total_student_attempted = null;
+	private Long start_date = null;
+	private String start_time_s = null;
+	private String start_date_str = null;
+	private String end_time_s = null;
+	private Long end_date = null;
+	private String end_date_str = null;
 	private Long highest_marks = null;
 	private Long average_marks = null;
 	private Long total_test_marks = null;
@@ -71,6 +78,7 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_FREE = "free";
 	public static String FIELD_FREE_CENTRE_STUDENT = "free_centre_student";
 	public static String FIELD_ALLOWED_ATTEMPTS = "allowed_attempts";
+	public static String FIELD_CONTEXT_ENABLED = "context_enabled";
 	public static String FIELD_PRICE = "price";
 	public static String FIELD_DISCOUNT = "discount";
 	public static String FIELD_DURATION = "duration";
@@ -97,6 +105,12 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_TOTAL_STUDENT_ALLOCATIONS = "total_student_allocations";
 	public static String FIELD_TOTAL_STUDENT_ATTEMPTED = "total_student_attempted";
+	public static String FIELD_START_DATE = "start_date";
+	public static String FIELD_START_TIME_S = "start_time_s";
+	public static String FIELD_START_DATE_STR = "start_date_str";
+	public static String FIELD_END_TIME_S = "end_time_s";
+	public static String FIELD_END_DATE = "end_date";
+	public static String FIELD_END_DATE_STR = "end_date_str";
 	public static String FIELD_HIGHEST_MARKS = "highest_marks";
 	public static String FIELD_AVERAGE_MARKS = "average_marks";
 	public static String FIELD_TOTAL_TEST_MARKS = "total_test_marks";
@@ -135,6 +149,10 @@ public abstract class Basetest extends BaseResource {
 
 		Field allowed_attemptsField = new Field("allowed_attempts", "long");
 		metaData.addField(allowed_attemptsField);
+
+		Field context_enabledField = new Field("context_enabled", "String");
+		context_enabledField.setLength(1);
+		metaData.addField(context_enabledField);
 
 		Field priceField = new Field("price", "double");
 		metaData.addField(priceField);
@@ -229,6 +247,26 @@ public abstract class Basetest extends BaseResource {
 		Field total_student_attemptedField = new Field("total_student_attempted", "long");
 		metaData.addField(total_student_attemptedField);
 
+		Field start_dateField = new Field("start_date", "timestamp");
+		metaData.addField(start_dateField);
+
+		Field start_time_sField = new Field("start_time_s", "String");
+		metaData.addField(start_time_sField);
+
+		Field start_date_strField = new Field("start_date_str", "String");
+		start_date_strField.setLength(32);
+		metaData.addField(start_date_strField);
+
+		Field end_time_sField = new Field("end_time_s", "String");
+		metaData.addField(end_time_sField);
+
+		Field end_dateField = new Field("end_date", "timestamp");
+		metaData.addField(end_dateField);
+
+		Field end_date_strField = new Field("end_date_str", "String");
+		end_date_strField.setLength(32);
+		metaData.addField(end_date_strField);
+
 		Field highest_marksField = new Field("highest_marks", "long");
 		metaData.addField(highest_marksField);
 
@@ -274,6 +312,7 @@ public abstract class Basetest extends BaseResource {
 		this.free = obj.free;
 		this.free_centre_student = obj.free_centre_student;
 		this.allowed_attempts = obj.allowed_attempts;
+		this.context_enabled = obj.context_enabled;
 		this.price = obj.price;
 		this.discount = obj.discount;
 		this.duration = obj.duration;
@@ -300,6 +339,12 @@ public abstract class Basetest extends BaseResource {
 		this.last_update_time = obj.last_update_time;
 		this.total_student_allocations = obj.total_student_allocations;
 		this.total_student_attempted = obj.total_student_attempted;
+		this.start_date = obj.start_date;
+		this.start_time_s = obj.start_time_s;
+		this.start_date_str = obj.start_date_str;
+		this.end_time_s = obj.end_time_s;
+		this.end_date = obj.end_date;
+		this.end_date_str = obj.end_date_str;
 		this.highest_marks = obj.highest_marks;
 		this.average_marks = obj.average_marks;
 		this.total_test_marks = obj.total_test_marks;
@@ -329,6 +374,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("free_centre_student", free_centre_student);
 		if(allowed_attempts != null)
 			map.put("allowed_attempts", allowed_attempts);
+		if (context_enabled != null)
+			map.put("context_enabled", context_enabled);
 		if(price != null)
 			map.put("price", price);
 		if(discount != null)
@@ -381,6 +428,18 @@ public abstract class Basetest extends BaseResource {
 			map.put("total_student_allocations", total_student_allocations);
 		if(total_student_attempted != null)
 			map.put("total_student_attempted", total_student_attempted);
+		if (start_date != null)
+			map.put("start_date", start_date);
+		if (start_time_s != null)
+			map.put("start_time_s", start_time_s);
+		if (start_date_str != null)
+			map.put("start_date_str", start_date_str);
+		if (end_time_s != null)
+			map.put("end_time_s", end_time_s);
+		if (end_date != null)
+			map.put("end_date", end_date);
+		if (end_date_str != null)
+			map.put("end_date_str", end_date_str);
 		if(highest_marks != null)
 			map.put("highest_marks", highest_marks);
 		if(average_marks != null)
@@ -416,6 +475,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("free_centre_student", free_centre_student);
 		if(allowed_attempts != null)
 			map.put("allowed_attempts", allowed_attempts);
+		if (context_enabled != null)
+			map.put("context_enabled", context_enabled);
 		if(price != null)
 			map.put("price", price);
 		if(discount != null)
@@ -468,6 +529,18 @@ public abstract class Basetest extends BaseResource {
 			map.put("total_student_allocations", total_student_allocations);
 		if(total_student_attempted != null)
 			map.put("total_student_attempted", total_student_attempted);
+		if (start_date != null)
+			map.put("start_date", start_date);
+		if (start_time_s != null)
+			map.put("start_time_s", start_time_s);
+		if (start_date_str != null)
+			map.put("start_date_str", start_date_str);
+		if (end_time_s != null)
+			map.put("end_time_s", end_time_s);
+		if (end_date != null)
+			map.put("end_date", end_date);
+		if (end_date_str != null)
+			map.put("end_date_str", end_date_str);
 		if(highest_marks != null)
 			map.put("highest_marks", highest_marks);
 		if(average_marks != null)
@@ -502,6 +575,7 @@ public abstract class Basetest extends BaseResource {
 		free = (String) map.get("free");
 		free_centre_student = (String) map.get("free_centre_student");
 		allowed_attempts = (Long) map.get("allowed_attempts");
+		context_enabled = (String) map.get("context_enabled");
 		price = (Double) map.get("price");
 		discount = (Double) map.get("discount");
 		duration = (Long) map.get("duration");
@@ -528,6 +602,12 @@ public abstract class Basetest extends BaseResource {
 		last_update_time = (Long) map.get("last_update_time");
 		total_student_allocations = (Long) map.get("total_student_allocations");
 		total_student_attempted = (Long) map.get("total_student_attempted");
+		start_date = (Long) map.get("start_date");
+		start_time_s = (String) map.get("start_time_s");
+		start_date_str = (String) map.get("start_date_str");
+		end_time_s = (String) map.get("end_time_s");
+		end_date = (Long) map.get("end_date");
+		end_date_str = (String) map.get("end_date_str");
 		highest_marks = (Long) map.get("highest_marks");
 		average_marks = (Long) map.get("average_marks");
 		total_test_marks = (Long) map.get("total_test_marks");
@@ -564,6 +644,10 @@ public abstract class Basetest extends BaseResource {
 		Object allowed_attemptsObj = map.get("allowed_attempts");
 		if(allowed_attemptsObj != null)
 			allowed_attempts = new Long(allowed_attemptsObj.toString());
+
+		Object context_enabledObj = map.get("context_enabled");
+		if (context_enabledObj != null)
+			context_enabled = context_enabledObj.toString();
 
 		Object priceObj = map.get("price");
 		if(priceObj != null)
@@ -668,6 +752,30 @@ public abstract class Basetest extends BaseResource {
 		Object total_student_attemptedObj = map.get("total_student_attempted");
 		if(total_student_attemptedObj != null)
 			total_student_attempted = new Long(total_student_attemptedObj.toString());
+
+		Object start_dateObj = map.get("start_date");
+		if (start_dateObj != null)
+			start_date = new Long(start_dateObj.toString());
+
+		Object start_time_sObj = map.get("start_time_s");
+		if (start_time_sObj != null)
+			start_time_s = start_time_sObj.toString();
+
+		Object start_date_strObj = map.get("start_date_str");
+		if (start_date_strObj != null)
+			start_date_str = start_date_strObj.toString();
+
+		Object end_time_sObj = map.get("end_time_s");
+		if (end_time_sObj != null)
+			end_time_s = end_time_sObj.toString();
+
+		Object end_dateObj = map.get("end_date");
+		if (end_dateObj != null)
+			end_date = new Long(end_dateObj.toString());
+
+		Object end_date_strObj = map.get("end_date_str");
+		if (end_date_strObj != null)
+			end_date_str = end_date_strObj.toString();
 
 		Object highest_marksObj = map.get("highest_marks");
 		if(highest_marksObj != null)
@@ -814,6 +922,22 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetAllowed_attempts() {
 		this.allowed_attempts = null;
+	}
+
+	public String getContext_enabled() {
+		return context_enabled;
+	}
+
+	public String getContext_enabledEx() {
+		return context_enabled != null ? context_enabled : "";
+	}
+
+	public void setContext_enabled(String context_enabled) {
+		this.context_enabled = context_enabled;
+	}
+
+	public void unSetContext_enabled() {
+		this.context_enabled = null;
 	}
 
 	public Double getPrice() {
@@ -1239,6 +1363,88 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetTotal_student_attempted() {
 		this.total_student_attempted = null;
+	}
+
+	public Long getStart_date() {
+		return start_date;
+	}
+
+	public void setStart_date(Long start_date) {
+		this.start_date = start_date;
+	}
+
+
+	public String getStart_time_s() {
+		return start_time_s;
+	}
+
+	public String getStart_time_sEx() {
+		return start_time_s != null ? start_time_s : "";
+	}
+
+	public void setStart_time_s(String start_time_s) {
+		this.start_time_s = start_time_s;
+	}
+
+	public void unSetStart_time_s() {
+		this.start_time_s = null;
+	}
+
+	public String getStart_date_str() {
+		return start_date_str;
+	}
+
+	public String getStart_date_strEx() {
+		return start_date_str != null ? start_date_str : "";
+	}
+
+	public void setStart_date_str(String start_date_str) {
+		this.start_date_str = start_date_str;
+	}
+
+	public void unSetStart_date_str() {
+		this.start_date_str = null;
+	}
+
+	public String getEnd_time_s() {
+		return end_time_s;
+	}
+
+	public String getEnd_time_sEx() {
+		return end_time_s != null ? end_time_s : "";
+	}
+
+	public void setEnd_time_s(String end_time_s) {
+		this.end_time_s = end_time_s;
+	}
+
+	public void unSetEnd_time_s() {
+		this.end_time_s = null;
+	}
+
+	public Long getEnd_date() {
+		return end_date;
+	}
+
+	public void setEnd_date(Long end_date) {
+		this.end_date = end_date;
+	}
+
+
+	public String getEnd_date_str() {
+		return end_date_str;
+	}
+
+	public String getEnd_date_strEx() {
+		return end_date_str != null ? end_date_str : "";
+	}
+
+	public void setEnd_date_str(String end_date_str) {
+		this.end_date_str = end_date_str;
+	}
+
+	public void unSetEnd_date_str() {
+		this.end_date_str = null;
 	}
 
 	public Long getHighest_marks() {

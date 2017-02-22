@@ -34,6 +34,10 @@
 			{
 				'type':'long'
 			},
+			'context_enabled': {
+				'length': 1,
+				'type': 'String'
+			},
 			'price':
 			{
 				'type':'double'
@@ -167,6 +171,26 @@
 			{
 				'type':'long'
 			},
+			'start_date': {
+				'type': 'timestamp'
+			},
+			'start_time_s': {
+				'type': 'String'
+			},
+			'start_date_str': {
+				'type': 'String',
+				'length': 32
+			},
+			'end_time_s': {
+				'type': 'String'
+			},
+			'end_date': {
+				'type': 'timestamp'
+			},
+			'end_date_str': {
+				'type': 'String',
+				'length': 32
+			},
 			'highest_marks':
 			{
 				'type':'long'
@@ -199,7 +223,7 @@
 			},
 			'creation_time': {
 				'type': 'timestamp'
-			}	
+			}
 		}
 	}
 }
