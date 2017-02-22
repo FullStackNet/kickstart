@@ -89,6 +89,13 @@ public class UIConstants {
 		"Male",
 		"Female"
 	};
+
+	public final static String[] CONTEXT_STATUS_ENUM = new String[]{
+			"OPEN",
+			"STARTED",
+			"COMPLETED"
+	};
+	
 	public final static String[] COLOR_ENUM = new String[] {
 		"Red",
 		"Green",
