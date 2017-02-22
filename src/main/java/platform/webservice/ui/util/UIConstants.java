@@ -91,6 +91,7 @@ public class UIConstants {
 	};
 
 	public final static String[] CONTEXT_STATUS_ENUM = new String[]{
+			"NOT-AVAILABLE",
 			"OPEN",
 			"STARTED",
 			"COMPLETED"
