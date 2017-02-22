@@ -62,6 +62,10 @@ public abstract class Basetest extends BaseResource {
 	private String end_time_s = null;
 	private Long end_date = null;
 	private String end_date_str = null;
+	private String immediate_result = null;
+	private Long result_date = null;
+	private String result_date_s = null;
+	private String result_time_s = null;
 	private Long highest_marks = null;
 	private Long average_marks = null;
 	private Long total_test_marks = null;
@@ -111,6 +115,10 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_END_TIME_S = "end_time_s";
 	public static String FIELD_END_DATE = "end_date";
 	public static String FIELD_END_DATE_STR = "end_date_str";
+	public static String FIELD_IMMEDIATE_RESULT = "immediate_result";
+	public static String FIELD_RESULT_DATE = "result_date";
+	public static String FIELD_RESULT_DATE_S = "result_date_s";
+	public static String FIELD_RESULT_TIME_S = "result_time_s";
 	public static String FIELD_HIGHEST_MARKS = "highest_marks";
 	public static String FIELD_AVERAGE_MARKS = "average_marks";
 	public static String FIELD_TOTAL_TEST_MARKS = "total_test_marks";
@@ -267,6 +275,19 @@ public abstract class Basetest extends BaseResource {
 		end_date_strField.setLength(32);
 		metaData.addField(end_date_strField);
 
+		Field immediate_resultField = new Field("immediate_result", "String");
+		immediate_resultField.setLength(1);
+		metaData.addField(immediate_resultField);
+
+		Field result_dateField = new Field("result_date", "timestamp");
+		metaData.addField(result_dateField);
+
+		Field result_date_sField = new Field("result_date_s", "String");
+		metaData.addField(result_date_sField);
+
+		Field result_time_sField = new Field("result_time_s", "String");
+		metaData.addField(result_time_sField);
+
 		Field highest_marksField = new Field("highest_marks", "long");
 		metaData.addField(highest_marksField);
 
@@ -345,6 +366,10 @@ public abstract class Basetest extends BaseResource {
 		this.end_time_s = obj.end_time_s;
 		this.end_date = obj.end_date;
 		this.end_date_str = obj.end_date_str;
+		this.immediate_result = obj.immediate_result;
+		this.result_date = obj.result_date;
+		this.result_date_s = obj.result_date_s;
+		this.result_time_s = obj.result_time_s;
 		this.highest_marks = obj.highest_marks;
 		this.average_marks = obj.average_marks;
 		this.total_test_marks = obj.total_test_marks;
@@ -440,6 +465,14 @@ public abstract class Basetest extends BaseResource {
 			map.put("end_date", end_date);
 		if (end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if (immediate_result != null)
+			map.put("immediate_result", immediate_result);
+		if (result_date != null)
+			map.put("result_date", result_date);
+		if (result_date_s != null)
+			map.put("result_date_s", result_date_s);
+		if (result_time_s != null)
+			map.put("result_time_s", result_time_s);
 		if(highest_marks != null)
 			map.put("highest_marks", highest_marks);
 		if(average_marks != null)
@@ -541,6 +574,14 @@ public abstract class Basetest extends BaseResource {
 			map.put("end_date", end_date);
 		if (end_date_str != null)
 			map.put("end_date_str", end_date_str);
+		if (immediate_result != null)
+			map.put("immediate_result", immediate_result);
+		if (result_date != null)
+			map.put("result_date", result_date);
+		if (result_date_s != null)
+			map.put("result_date_s", result_date_s);
+		if (result_time_s != null)
+			map.put("result_time_s", result_time_s);
 		if(highest_marks != null)
 			map.put("highest_marks", highest_marks);
 		if(average_marks != null)
@@ -608,6 +649,10 @@ public abstract class Basetest extends BaseResource {
 		end_time_s = (String) map.get("end_time_s");
 		end_date = (Long) map.get("end_date");
 		end_date_str = (String) map.get("end_date_str");
+		immediate_result = (String) map.get("immediate_result");
+		result_date = (Long) map.get("result_date");
+		result_date_s = (String) map.get("result_date_s");
+		result_time_s = (String) map.get("result_time_s");
 		highest_marks = (Long) map.get("highest_marks");
 		average_marks = (Long) map.get("average_marks");
 		total_test_marks = (Long) map.get("total_test_marks");
@@ -776,6 +821,22 @@ public abstract class Basetest extends BaseResource {
 		Object end_date_strObj = map.get("end_date_str");
 		if (end_date_strObj != null)
 			end_date_str = end_date_strObj.toString();
+
+		Object immediate_resultObj = map.get("immediate_result");
+		if (immediate_resultObj != null)
+			immediate_result = immediate_resultObj.toString();
+
+		Object result_dateObj = map.get("result_date");
+		if (result_dateObj != null)
+			result_date = new Long(result_dateObj.toString());
+
+		Object result_date_sObj = map.get("result_date_s");
+		if (result_date_sObj != null)
+			result_date_s = result_date_sObj.toString();
+
+		Object result_time_sObj = map.get("result_time_s");
+		if (result_time_sObj != null)
+			result_time_s = result_time_sObj.toString();
 
 		Object highest_marksObj = map.get("highest_marks");
 		if(highest_marksObj != null)
@@ -1445,6 +1506,63 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetEnd_date_str() {
 		this.end_date_str = null;
+	}
+
+	public String getImmediate_result() {
+		return immediate_result;
+	}
+
+	public String getImmediate_resultEx() {
+		return immediate_result != null ? immediate_result : "";
+	}
+
+	public void setImmediate_result(String immediate_result) {
+		this.immediate_result = immediate_result;
+	}
+
+	public void unSetImmediate_result() {
+		this.immediate_result = null;
+	}
+
+	public Long getResult_date() {
+		return result_date;
+	}
+
+	public void setResult_date(Long result_date) {
+		this.result_date = result_date;
+	}
+
+
+	public String getResult_date_s() {
+		return result_date_s;
+	}
+
+	public String getResult_date_sEx() {
+		return result_date_s != null ? result_date_s : "";
+	}
+
+	public void setResult_date_s(String result_date_s) {
+		this.result_date_s = result_date_s;
+	}
+
+	public void unSetResult_date_s() {
+		this.result_date_s = null;
+	}
+
+	public String getResult_time_s() {
+		return result_time_s;
+	}
+
+	public String getResult_time_sEx() {
+		return result_time_s != null ? result_time_s : "";
+	}
+
+	public void setResult_time_s(String result_time_s) {
+		this.result_time_s = result_time_s;
+	}
+
+	public void unSetResult_time_s() {
+		this.result_time_s = null;
 	}
 
 	public Long getHighest_marks() {

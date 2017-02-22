@@ -496,11 +496,9 @@ public abstract class Baserecharge_log extends BaseResource {
 	public void unSetExtra_data() {
 		this.extra_data = null;
 	}
-
 	public String getCluster() {
 		return "DB_LOG";
 	}
-
 	public String getClusterType() {
 		return "REPLICATED";
 	}

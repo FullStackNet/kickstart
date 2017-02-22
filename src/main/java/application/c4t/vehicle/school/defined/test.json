@@ -191,6 +191,19 @@
 				'type': 'String',
 				'length': 32
 			},
+			'immediate_result': {
+				'type': 'String',
+				'length': 1
+			},
+			'result_date': {
+				'type': 'timestamp'
+			},
+			'result_date_s': {
+				'type': 'String'
+			},
+			'result_time_s': {
+				'type': 'String'
+			},
 			'highest_marks':
 			{
 				'type':'long'
