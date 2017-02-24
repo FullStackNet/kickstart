@@ -1096,8 +1096,68 @@ public class MongoDBConnection extends DbConnection {
 			for (Map.Entry<String, Field> entry : map.entrySet()) {
 				String columnName =  (String) entry.getKey();
 				Object value =  dataMap.get(columnName);
+				Field field = entry.getValue();
 				if (value != null) {
-					row.put(columnName, value);
+					if (field.getType().equalsIgnoreCase("Array")) {
+						ArrayList<Object> list = new ArrayList<Object>();
+						BasicDBList dblist = (BasicDBList) dataMap.get(columnName);
+						for (int i = 0; i < dblist.size(); i++) {
+							list.add(dblist.get(i));
+						}
+						row.put(columnName, list);
+					} else {
+						if (value instanceof Double) {
+
+							if (field.getType().equalsIgnoreCase("int")) {
+								row.put(columnName, ((Double) value).intValue());
+							} else if (field.getType().equalsIgnoreCase("long")) {
+								row.put(columnName, ((Double) value).longValue());
+							} else if (field.getType().equalsIgnoreCase("short")) {
+								row.put(columnName, ((Double) value).shortValue());
+							} else if (field.getType().equalsIgnoreCase("byte")) {
+								row.put(columnName, ((Double) value).byteValue());
+							} else if (field.getType().equalsIgnoreCase("string")) {
+								row.put(columnName, value.toString());
+							} else {
+								row.put(columnName, value);
+							}
+						} else if (value instanceof Long) {
+							if (field.getType().equalsIgnoreCase("int")) {
+								row.put(columnName, ((Long) value).intValue());
+								System.out.println(columnName + "-> Integer 1");
+							} else if (field.getType().equalsIgnoreCase("long")) {
+								row.put(columnName, ((Long) value).longValue());
+							} else if (field.getType().equalsIgnoreCase("short")) {
+								row.put(columnName, ((Long) value).shortValue());
+							} else if (field.getType().equalsIgnoreCase("byte")) {
+								row.put(columnName, ((Long) value).byteValue());
+							} else if (field.getType().equalsIgnoreCase("string")) {
+								row.put(columnName, value.toString());
+							} else {
+								System.out.println(columnName + "-> Long 1");
+								row.put(columnName, value);
+							}
+						} else if (value instanceof Integer) {
+							if (field.getType().equalsIgnoreCase("int")) {
+								row.put(columnName, ((Integer) value).intValue());
+							} else if (field.getType().equalsIgnoreCase("long")) {
+								row.put(columnName, ((Integer) value).longValue());
+								System.out.println(columnName + "-> long 2");
+							} else if (field.getType().equalsIgnoreCase("short")) {
+								row.put(columnName, ((Integer) value).shortValue());
+							} else if (field.getType().equalsIgnoreCase("byte")) {
+								row.put(columnName, ((Integer) value).byteValue());
+							} else if (field.getType().equalsIgnoreCase("string")) {
+								row.put(columnName, value.toString());
+							} else {
+								System.out.println(columnName + "-> Integer 2");
+								row.put(columnName, value);
+							}
+						} else {
+							row.put(columnName, value);
+							System.out.println(columnName + "->  3");
+						}
+					}
 				}
 			}
 			rows.add(row);
