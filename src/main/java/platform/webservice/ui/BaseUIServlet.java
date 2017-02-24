@@ -1,11 +1,11 @@
 package platform.webservice.ui;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Enumeration;
-import java.util.zip.GZIPOutputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
+import platform.log.ApplicationLogger;
+import platform.util.ApplicationConstants;
+import platform.util.ApplicationException;
+import platform.webservice.UAgentInfo;
+import platform.webservice.ui.component.WebUnAuthorizedAccessView;
+import platform.webservice.ui.layout.CenterSingleLayout;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -13,13 +13,12 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import platform.log.ApplicationLogger;
-import platform.util.ApplicationConstants;
-import platform.util.ApplicationException;
-import platform.webservice.UAgentInfo;
-import platform.webservice.ui.component.WebUnAuthorizedAccessView;
-import platform.webservice.ui.layout.CenterSingleLayout;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Enumeration;
+import java.util.zip.GZIPOutputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 
 public abstract class BaseUIServlet extends HttpServlet
@@ -172,5 +171,22 @@ public abstract class BaseUIServlet extends HttpServlet
 			e.printStackTrace();
 		}
 	    out.close();
+	}
+
+	protected String doGetSpringBoot(UIServletContext ctx) throws ServletException, IOException {
+		ctx.setServletPath(getServletContext().getRealPath("/"));
+		String buffer = "";
+		if (platform.util.Util.isEmpty(ctx.getUserId())) {
+			if (isLoginRequired()) {
+				CenterSingleLayout layout = new CenterSingleLayout(ctx);
+				WebUnAuthorizedAccessView view = new WebUnAuthorizedAccessView(ctx);
+				layout.getLayout().addChild(view.getView());
+				ctx.getPageBuilder().setLayout(layout);
+				buffer = ctx.getPageBuilder().getPageContent();
+				return buffer;
+			}
+		}
+		buffer = getWebPage(ctx);
+		return buffer;
 	}
 }
