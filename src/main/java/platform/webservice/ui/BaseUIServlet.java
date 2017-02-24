@@ -173,7 +173,7 @@ public abstract class BaseUIServlet extends HttpServlet
 	    out.close();
 	}
 
-	protected String doGetSpringBoot(UIServletContext ctx) throws ServletException, IOException {
+	public String doGetSpringBoot(UIServletContext ctx) throws ServletException, IOException {
 		ctx.setServletPath(getServletContext().getRealPath("/"));
 		String buffer = "";
 		if (platform.util.Util.isEmpty(ctx.getUserId())) {
