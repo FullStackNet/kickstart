@@ -88,6 +88,7 @@
             <artifactId>poi</artifactId>
             <version>3.12</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
@@ -116,6 +117,7 @@
             <artifactId>commons-codec</artifactId>
             <version>1.10</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 
     </dependencies>
     </project>
