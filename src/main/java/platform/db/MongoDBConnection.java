@@ -308,7 +308,7 @@ public class MongoDBConnection extends DbConnection {
 		default:
 			break;
 		}
-		System.out.println(object.toString());
+		//System.out.println(object.toString());
 		return object;
 	}
 
@@ -346,7 +346,7 @@ public class MongoDBConnection extends DbConnection {
 		List<Map<String, Object>> rows = new ArrayList<Map<String, Object>>();
 		DBCollection table = conn.getCollection(metaData.getTableName());
 		BasicDBObject condition = getCondition(metaData,expression);
-		System.out.println(condition);
+		//System.out.println(condition);
 		DBCursor cursor = null ;
 		if (pagesize > 0) {
 			if (Util.isEmpty(orderby)) {
@@ -403,7 +403,7 @@ public class MongoDBConnection extends DbConnection {
 							} else if (value instanceof Long) {
 								if (field.getType().equalsIgnoreCase("int")) {
 									row.put(columnName, ((Long)value).intValue());
-									System.out.println(columnName + "-> Integer 1");
+									//System.out.println(columnName + "-> Integer 1");
 								} else if (field.getType().equalsIgnoreCase("long")) {
 									row.put(columnName, ((Long)value).longValue());
 								} else if (field.getType().equalsIgnoreCase("short")) {
@@ -413,7 +413,7 @@ public class MongoDBConnection extends DbConnection {
 								}  else if (field.getType().equalsIgnoreCase("string")) {
 									row.put(columnName, value.toString());
 								} else {
-									System.out.println(columnName + "-> Long 1");
+									//System.out.println(columnName + "-> Long 1");
 									row.put(columnName, value);
 								}
 							} else if (value instanceof Integer) {
@@ -421,7 +421,7 @@ public class MongoDBConnection extends DbConnection {
 									row.put(columnName, ((Integer)value).intValue());
 								} else if (field.getType().equalsIgnoreCase("long")) {
 									row.put(columnName, ((Integer)value).longValue());
-									System.out.println(columnName + "-> long 2");
+									//System.out.println(columnName + "-> long 2");
 								} else if (field.getType().equalsIgnoreCase("short")) {
 									row.put(columnName, ((Integer)value).shortValue());
 								} else if (field.getType().equalsIgnoreCase("byte")) {
@@ -429,12 +429,12 @@ public class MongoDBConnection extends DbConnection {
 								}  else if (field.getType().equalsIgnoreCase("string")) {
 									row.put(columnName, value.toString());
 								} else {
-									System.out.println(columnName + "-> Integer 2");
+									//System.out.println(columnName + "-> Integer 2");
 									row.put(columnName, value);
 								}
 							} else {
 								row.put(columnName, value);
-								System.out.println(columnName + "->  3");
+								//System.out.println(columnName + "->  3");
 							}
 						}
 					}
@@ -1124,7 +1124,7 @@ public class MongoDBConnection extends DbConnection {
 						} else if (value instanceof Long) {
 							if (field.getType().equalsIgnoreCase("int")) {
 								row.put(columnName, ((Long) value).intValue());
-								System.out.println(columnName + "-> Integer 1");
+								//System.out.println(columnName + "-> Integer 1");
 							} else if (field.getType().equalsIgnoreCase("long")) {
 								row.put(columnName, ((Long) value).longValue());
 							} else if (field.getType().equalsIgnoreCase("short")) {
@@ -1134,7 +1134,7 @@ public class MongoDBConnection extends DbConnection {
 							} else if (field.getType().equalsIgnoreCase("string")) {
 								row.put(columnName, value.toString());
 							} else {
-								System.out.println(columnName + "-> Long 1");
+								//System.out.println(columnName + "-> Long 1");
 								row.put(columnName, value);
 							}
 						} else if (value instanceof Integer) {
@@ -1142,7 +1142,7 @@ public class MongoDBConnection extends DbConnection {
 								row.put(columnName, ((Integer) value).intValue());
 							} else if (field.getType().equalsIgnoreCase("long")) {
 								row.put(columnName, ((Integer) value).longValue());
-								System.out.println(columnName + "-> long 2");
+								//System.out.println(columnName + "-> long 2");
 							} else if (field.getType().equalsIgnoreCase("short")) {
 								row.put(columnName, ((Integer) value).shortValue());
 							} else if (field.getType().equalsIgnoreCase("byte")) {
@@ -1150,12 +1150,12 @@ public class MongoDBConnection extends DbConnection {
 							} else if (field.getType().equalsIgnoreCase("string")) {
 								row.put(columnName, value.toString());
 							} else {
-								System.out.println(columnName + "-> Integer 2");
+								//System.out.println(columnName + "-> Integer 2");
 								row.put(columnName, value);
 							}
 						} else {
 							row.put(columnName, value);
-							System.out.println(columnName + "->  3");
+							//System.out.println(columnName + "->  3");
 						}
 					}
 				}
