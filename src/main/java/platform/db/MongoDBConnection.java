@@ -434,6 +434,7 @@ public class MongoDBConnection extends DbConnection {
 								}
 							} else {
 								row.put(columnName, value);
+								System.out.println(columnName + "->  3");
 							}
 						}
 					}
