@@ -174,7 +174,6 @@ public abstract class BaseUIServlet extends HttpServlet
 	}
 
 	public String doGetSpringBoot(UIServletContext ctx) throws ServletException, IOException {
-		ctx.setServletPath(getServletContext().getRealPath("/"));
 		String buffer = "";
 		if (platform.util.Util.isEmpty(ctx.getUserId())) {
 			if (isLoginRequired()) {
