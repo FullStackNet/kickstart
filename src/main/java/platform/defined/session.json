@@ -69,6 +69,12 @@
 				'length': 1,
 				'default' : "N",
 				'type':'String'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			},
+			'last_update_time': {
+				'type': 'timestamp'
 			}
 		}
 	}

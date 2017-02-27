@@ -98,6 +98,8 @@ public abstract class Baseuser extends BaseResource {
 	private Long settledment_count = null;
 	private Double last_payment_made = null;
 	private String registered_referral_code = null;
+	private Long creation_time = null;
+	private Long last_update_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -175,6 +177,8 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_SETTLEDMENT_COUNT = "settledment_count";
 	public static String FIELD_LAST_PAYMENT_MADE = "last_payment_made";
 	public static String FIELD_REGISTERED_REFERRAL_CODE = "registered_referral_code";
+	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -517,6 +521,12 @@ public abstract class Baseuser extends BaseResource {
 		registered_referral_codeField.setLength(128);
 		metaData.addField(registered_referral_codeField);
 
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
+
+		Field last_update_timeField = new Field("last_update_time", "timestamp");
+		metaData.addField(last_update_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -605,6 +615,8 @@ public abstract class Baseuser extends BaseResource {
 		this.settledment_count = obj.settledment_count;
 		this.last_payment_made = obj.last_payment_made;
 		this.registered_referral_code = obj.registered_referral_code;
+		this.creation_time = obj.creation_time;
+		this.last_update_time = obj.last_update_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -859,6 +871,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("last_payment_made", last_payment_made);
 		if (registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
+		if (creation_time != null)
+			map.put("creation_time", creation_time);
+		if (last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1019,6 +1035,10 @@ public abstract class Baseuser extends BaseResource {
 			map.put("last_payment_made", last_payment_made);
 		if (registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
+		if (creation_time != null)
+			map.put("creation_time", creation_time);
+		if (last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -1103,6 +1123,8 @@ public abstract class Baseuser extends BaseResource {
 		settledment_count = (Long) map.get("settledment_count");
 		last_payment_made = (Double) map.get("last_payment_made");
 		registered_referral_code = (String) map.get("registered_referral_code");
+		creation_time = (Long) map.get("creation_time");
+		last_update_time = (Long) map.get("last_update_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -1395,6 +1417,14 @@ public abstract class Baseuser extends BaseResource {
 		Object registered_referral_codeObj = map.get("registered_referral_code");
 		if (registered_referral_codeObj != null)
 			registered_referral_code = registered_referral_codeObj.toString();
+
+		Object creation_timeObj = map.get("creation_time");
+		if (creation_timeObj != null)
+			creation_time = new Long(creation_timeObj.toString());
+
+		Object last_update_timeObj = map.get("last_update_time");
+		if (last_update_timeObj != null)
+			last_update_time = new Long(last_update_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -2467,6 +2497,24 @@ public abstract class Baseuser extends BaseResource {
 	public void unSetRegistered_referral_code() {
 		this.registered_referral_code = null;
 	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
+
+	public Long getLast_update_time() {
+		return last_update_time;
+	}
+
+	public void setLast_update_time(Long last_update_time) {
+		this.last_update_time = last_update_time;
+	}
+
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

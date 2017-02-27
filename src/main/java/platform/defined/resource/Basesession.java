@@ -9,10 +9,14 @@
 
 package platform.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -31,6 +35,8 @@ public abstract class Basesession extends BaseResource {
 	private String super_user = null;
 	private String role = null;
 	private String readonly_user = null;
+	private Long creation_time = null;
+	private Long last_update_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -45,6 +51,8 @@ public abstract class Basesession extends BaseResource {
 	public static String FIELD_SUPER_USER = "super_user";
 	public static String FIELD_ROLE = "role";
 	public static String FIELD_READONLY_USER = "readonly_user";
+	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -105,6 +113,12 @@ public abstract class Basesession extends BaseResource {
 		readonly_userField.setLength(1);
 		metaData.addField(readonly_userField);
 
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
+
+		Field last_update_timeField = new Field("last_update_time", "timestamp");
+		metaData.addField(last_update_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -130,6 +144,8 @@ public abstract class Basesession extends BaseResource {
 		this.super_user = obj.super_user;
 		this.role = obj.role;
 		this.readonly_user = obj.readonly_user;
+		this.creation_time = obj.creation_time;
+		this.last_update_time = obj.last_update_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -172,6 +188,10 @@ public abstract class Basesession extends BaseResource {
 			map.put("role", role);
 		if(readonly_user != null)
 			map.put("readonly_user", readonly_user);
+		if (creation_time != null)
+			map.put("creation_time", creation_time);
+		if (last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -206,6 +226,10 @@ public abstract class Basesession extends BaseResource {
 			map.put("role", role);
 		if(readonly_user != null)
 			map.put("readonly_user", readonly_user);
+		if (creation_time != null)
+			map.put("creation_time", creation_time);
+		if (last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -230,6 +254,8 @@ public abstract class Basesession extends BaseResource {
 		super_user = (String) map.get("super_user");
 		role = (String) map.get("role");
 		readonly_user = (String) map.get("readonly_user");
+		creation_time = (Long) map.get("creation_time");
+		last_update_time = (Long) map.get("last_update_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -282,6 +308,14 @@ public abstract class Basesession extends BaseResource {
 		Object readonly_userObj = map.get("readonly_user");
 		if(readonly_userObj != null)
 			readonly_user = readonly_userObj.toString();
+
+		Object creation_timeObj = map.get("creation_time");
+		if (creation_timeObj != null)
+			creation_time = new Long(creation_timeObj.toString());
+
+		Object last_update_timeObj = map.get("last_update_time");
+		if (last_update_timeObj != null)
+			last_update_time = new Long(last_update_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -477,6 +511,24 @@ public abstract class Basesession extends BaseResource {
 	public void unSetReadonly_user() {
 		this.readonly_user = "N";
 	}
+
+	public Long getCreation_time() {
+		return creation_time;
+	}
+
+	public void setCreation_time(Long creation_time) {
+		this.creation_time = creation_time;
+	}
+
+
+	public Long getLast_update_time() {
+		return last_update_time;
+	}
+
+	public void setLast_update_time(Long last_update_time) {
+		this.last_update_time = last_update_time;
+	}
+
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;
