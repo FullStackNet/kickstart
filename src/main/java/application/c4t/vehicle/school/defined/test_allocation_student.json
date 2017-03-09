@@ -110,6 +110,14 @@
 				'length': 1,
 				'type':'String'
 			},
+			'provider_id': {
+				'length': 128,
+				'type': 'String'
+			},
+			'provider_name': {
+				'length': 128,
+				'type': 'String'
+			},
 			'free_centre_student':
 			{
 				'length': 1,

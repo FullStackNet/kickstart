@@ -44,6 +44,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String free = null;
 	private String type = null;
 	private String test_group_id = null;
+	private String provider_id = null;
+	private String provider_name = null;
 	private String free_centre_student = null;
 	private Long allowed_attempts = null;
 	private Double price = null;
@@ -107,6 +109,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_FREE = "free";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_TEST_GROUP_ID = "test_group_id";
+	public static String FIELD_PROVIDER_ID = "provider_id";
+	public static String FIELD_PROVIDER_NAME = "provider_name";
 	public static String FIELD_FREE_CENTRE_STUDENT = "free_centre_student";
 	public static String FIELD_ALLOWED_ATTEMPTS = "allowed_attempts";
 	public static String FIELD_PRICE = "price";
@@ -238,6 +242,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Field test_group_idField = new Field("test_group_id", "String");
 		test_group_idField.setLength(1);
 		metaData.addField(test_group_idField);
+
+		Field provider_idField = new Field("provider_id", "String");
+		provider_idField.setLength(128);
+		metaData.addField(provider_idField);
+
+		Field provider_nameField = new Field("provider_name", "String");
+		provider_nameField.setLength(128);
+		metaData.addField(provider_nameField);
 
 		Field free_centre_studentField = new Field("free_centre_student", "String");
 		free_centre_studentField.setLength(1);
@@ -408,6 +420,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.free = obj.free;
 		this.type = obj.type;
 		this.test_group_id = obj.test_group_id;
+		this.provider_id = obj.provider_id;
+		this.provider_name = obj.provider_name;
 		this.free_centre_student = obj.free_centre_student;
 		this.allowed_attempts = obj.allowed_attempts;
 		this.price = obj.price;
@@ -499,6 +513,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("type", type);
 		if(test_group_id != null)
 			map.put("test_group_id", test_group_id);
+		if (provider_id != null)
+			map.put("provider_id", provider_id);
+		if (provider_name != null)
+			map.put("provider_name", provider_name);
 		if(free_centre_student != null)
 			map.put("free_centre_student", free_centre_student);
 		if(allowed_attempts != null)
@@ -628,6 +646,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("type", type);
 		if(test_group_id != null)
 			map.put("test_group_id", test_group_id);
+		if (provider_id != null)
+			map.put("provider_id", provider_id);
+		if (provider_name != null)
+			map.put("provider_name", provider_name);
 		if(free_centre_student != null)
 			map.put("free_centre_student", free_centre_student);
 		if(allowed_attempts != null)
@@ -741,6 +763,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		free = (String) map.get("free");
 		type = (String) map.get("type");
 		test_group_id = (String) map.get("test_group_id");
+		provider_id = (String) map.get("provider_id");
+		provider_name = (String) map.get("provider_name");
 		free_centre_student = (String) map.get("free_centre_student");
 		allowed_attempts = (Long) map.get("allowed_attempts");
 		price = (Double) map.get("price");
@@ -869,6 +893,14 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object test_group_idObj = map.get("test_group_id");
 		if(test_group_idObj != null)
 			test_group_id = test_group_idObj.toString();
+
+		Object provider_idObj = map.get("provider_id");
+		if (provider_idObj != null)
+			provider_id = provider_idObj.toString();
+
+		Object provider_nameObj = map.get("provider_name");
+		if (provider_nameObj != null)
+			provider_name = provider_nameObj.toString();
 
 		Object free_centre_studentObj = map.get("free_centre_student");
 		if(free_centre_studentObj != null)
@@ -1379,6 +1411,38 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetTest_group_id() {
 		this.test_group_id = null;
+	}
+
+	public String getProvider_id() {
+		return provider_id;
+	}
+
+	public String getProvider_idEx() {
+		return provider_id != null ? provider_id : "";
+	}
+
+	public void setProvider_id(String provider_id) {
+		this.provider_id = provider_id;
+	}
+
+	public void unSetProvider_id() {
+		this.provider_id = null;
+	}
+
+	public String getProvider_name() {
+		return provider_name;
+	}
+
+	public String getProvider_nameEx() {
+		return provider_name != null ? provider_name : "";
+	}
+
+	public void setProvider_name(String provider_name) {
+		this.provider_name = provider_name;
+	}
+
+	public void unSetProvider_name() {
+		this.provider_name = null;
 	}
 
 	public String getFree_centre_student() {

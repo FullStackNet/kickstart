@@ -100,7 +100,7 @@ public class XLSReader {
 			for (int i = 0; i < headerCells.length; i++) {
 				headerCells[i] = sheet.getCell(i, 0);
 			}
-			list = new ArrayList<>();
+			list = new ArrayList<Map<String, String>>();
 			for (int i = 1; i < ROWS; i++) {
 				Map<String, String> map = new HashMap<String, String>();
 				for (int j = 0; j < headerCells.length; j++) {
