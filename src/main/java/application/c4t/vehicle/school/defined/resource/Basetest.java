@@ -32,6 +32,7 @@ public abstract class Basetest extends BaseResource {
 	private String context_enabled = null;
 	private String context_status = null;
 	private Double price = null;
+	private Double contenst_reward = null;
 	private Double discount = null;
 	private Long duration = null;
 	private Long total_time_in_min = null;
@@ -86,6 +87,7 @@ public abstract class Basetest extends BaseResource {
 	public static String FIELD_CONTEXT_ENABLED = "context_enabled";
 	public static String FIELD_CONTEXT_STATUS = "context_status";
 	public static String FIELD_PRICE = "price";
+	public static String FIELD_CONTENST_REWARD = "contenst_reward";
 	public static String FIELD_DISCOUNT = "discount";
 	public static String FIELD_DURATION = "duration";
 	public static String FIELD_TOTAL_TIME_IN_MIN = "total_time_in_min";
@@ -170,6 +172,9 @@ public abstract class Basetest extends BaseResource {
 
 		Field priceField = new Field("price", "double");
 		metaData.addField(priceField);
+
+		Field contenst_rewardField = new Field("contenst_reward", "double");
+		metaData.addField(contenst_rewardField);
 
 		Field discountField = new Field("discount", "double");
 		metaData.addField(discountField);
@@ -342,6 +347,7 @@ public abstract class Basetest extends BaseResource {
 		this.context_enabled = obj.context_enabled;
 		this.context_status = obj.context_status;
 		this.price = obj.price;
+		this.contenst_reward = obj.contenst_reward;
 		this.discount = obj.discount;
 		this.duration = obj.duration;
 		this.total_time_in_min = obj.total_time_in_min;
@@ -412,6 +418,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("context_status", context_status);
 		if(price != null)
 			map.put("price", price);
+		if (contenst_reward != null)
+			map.put("contenst_reward", contenst_reward);
 		if(discount != null)
 			map.put("discount", discount);
 		if(duration != null)
@@ -523,6 +531,8 @@ public abstract class Basetest extends BaseResource {
 			map.put("context_status", context_status);
 		if(price != null)
 			map.put("price", price);
+		if (contenst_reward != null)
+			map.put("contenst_reward", contenst_reward);
 		if(discount != null)
 			map.put("discount", discount);
 		if(duration != null)
@@ -630,6 +640,7 @@ public abstract class Basetest extends BaseResource {
 		context_enabled = (String) map.get("context_enabled");
 		context_status = (String) map.get("context_status");
 		price = (Double) map.get("price");
+		contenst_reward = (Double) map.get("contenst_reward");
 		discount = (Double) map.get("discount");
 		duration = (Long) map.get("duration");
 		total_time_in_min = (Long) map.get("total_time_in_min");
@@ -713,6 +724,10 @@ public abstract class Basetest extends BaseResource {
 		Object priceObj = map.get("price");
 		if(priceObj != null)
 			price = new Double(priceObj.toString());
+
+		Object contenst_rewardObj = map.get("contenst_reward");
+		if (contenst_rewardObj != null)
+			contenst_reward = new Double(contenst_rewardObj.toString());
 
 		Object discountObj = map.get("discount");
 		if(discountObj != null)
@@ -1051,6 +1066,26 @@ public abstract class Basetest extends BaseResource {
 
 	public void unSetPrice() {
 		this.price = null;
+	}
+
+	public Double getContenst_reward() {
+		return contenst_reward;
+	}
+
+	public double getContenst_rewardEx() {
+		return contenst_reward != null ? contenst_reward : 0;
+	}
+
+	public void setContenst_reward(double contenst_reward) {
+		this.contenst_reward = contenst_reward;
+	}
+
+	public void setContenst_reward(Double contenst_reward) {
+		this.contenst_reward = contenst_reward;
+	}
+
+	public void unSetContenst_reward() {
+		this.contenst_reward = null;
 	}
 
 	public Double getDiscount() {

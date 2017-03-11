@@ -42,6 +42,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	private String available_for_sale = null;
 	private String paid = null;
 	private String free = null;
+	private Double contenst_reward = null;
 	private String type = null;
 	private String test_group_id = null;
 	private String provider_id = null;
@@ -107,6 +108,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 	public static String FIELD_AVAILABLE_FOR_SALE = "available_for_sale";
 	public static String FIELD_PAID = "paid";
 	public static String FIELD_FREE = "free";
+	public static String FIELD_CONTENST_REWARD = "contenst_reward";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_TEST_GROUP_ID = "test_group_id";
 	public static String FIELD_PROVIDER_ID = "provider_id";
@@ -234,6 +236,9 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Field freeField = new Field("free", "String");
 		freeField.setLength(1);
 		metaData.addField(freeField);
+
+		Field contenst_rewardField = new Field("contenst_reward", "double");
+		metaData.addField(contenst_rewardField);
 
 		Field typeField = new Field("type", "String");
 		typeField.setLength(1);
@@ -418,6 +423,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		this.available_for_sale = obj.available_for_sale;
 		this.paid = obj.paid;
 		this.free = obj.free;
+		this.contenst_reward = obj.contenst_reward;
 		this.type = obj.type;
 		this.test_group_id = obj.test_group_id;
 		this.provider_id = obj.provider_id;
@@ -509,6 +515,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("paid", paid);
 		if(free != null)
 			map.put("free", free);
+		if (contenst_reward != null)
+			map.put("contenst_reward", contenst_reward);
 		if(type != null)
 			map.put("type", type);
 		if(test_group_id != null)
@@ -642,6 +650,8 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("paid", paid);
 		if(free != null)
 			map.put("free", free);
+		if (contenst_reward != null)
+			map.put("contenst_reward", contenst_reward);
 		if(type != null)
 			map.put("type", type);
 		if(test_group_id != null)
@@ -761,6 +771,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		available_for_sale = (String) map.get("available_for_sale");
 		paid = (String) map.get("paid");
 		free = (String) map.get("free");
+		contenst_reward = (Double) map.get("contenst_reward");
 		type = (String) map.get("type");
 		test_group_id = (String) map.get("test_group_id");
 		provider_id = (String) map.get("provider_id");
@@ -885,6 +896,10 @@ public abstract class Basetest_allocation_student extends BaseResource {
 		Object freeObj = map.get("free");
 		if(freeObj != null)
 			free = freeObj.toString();
+
+		Object contenst_rewardObj = map.get("contenst_reward");
+		if (contenst_rewardObj != null)
+			contenst_reward = new Double(contenst_rewardObj.toString());
 
 		Object typeObj = map.get("type");
 		if(typeObj != null)
@@ -1379,6 +1394,26 @@ public abstract class Basetest_allocation_student extends BaseResource {
 
 	public void unSetFree() {
 		this.free = null;
+	}
+
+	public Double getContenst_reward() {
+		return contenst_reward;
+	}
+
+	public double getContenst_rewardEx() {
+		return contenst_reward != null ? contenst_reward : 0;
+	}
+
+	public void setContenst_reward(double contenst_reward) {
+		this.contenst_reward = contenst_reward;
+	}
+
+	public void setContenst_reward(Double contenst_reward) {
+		this.contenst_reward = contenst_reward;
+	}
+
+	public void unSetContenst_reward() {
+		this.contenst_reward = null;
 	}
 
 	public String getType() {

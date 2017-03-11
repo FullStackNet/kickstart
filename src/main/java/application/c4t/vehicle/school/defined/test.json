@@ -46,6 +46,9 @@
 			{
 				'type':'double'
 			},
+			'contenst_reward': {
+				'type': 'double'
+			},
 			'discount':
 			{
 				'type':'double'
@@ -149,7 +152,7 @@
 				'type':'String',
 				'length': 128
 			},
-						'free':
+			'free':
 			{
 				'length': 1,
 				'type':'String'
@@ -163,7 +166,6 @@
 			{
 				'type':'double'
 			},
-			
 			'last_update_time': {
 				'type': 'timestamp'
 			},	
