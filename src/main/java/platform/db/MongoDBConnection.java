@@ -236,6 +236,20 @@ public class MongoDBConnection extends DbConnection {
 					} else {
 						row.put(columnName, value);
 					}
+				} else if (value instanceof String) {
+					if (field.getType().equalsIgnoreCase("int")) {
+						row.put(columnName, Integer.parseInt(value.toString()));
+					} else if (field.getType().equalsIgnoreCase("long")) {
+						row.put(columnName, Long.parseLong(value.toString()));
+						//System.out.println(columnName + "-> long 2");
+					} else if (field.getType().equalsIgnoreCase("short")) {
+						row.put(columnName, Short.parseShort(value.toString()));
+					} else if (field.getType().equalsIgnoreCase("byte")) {
+						row.put(columnName, Byte.parseByte(value.toString()));
+					} else {
+						//System.out.println(columnName + "-> Integer 2");
+						row.put(columnName, value);
+					}
 				} else {
 					row.put(columnName, value);
 				}
@@ -428,6 +442,20 @@ public class MongoDBConnection extends DbConnection {
 									row.put(columnName, ((Integer)value).byteValue());
 								}  else if (field.getType().equalsIgnoreCase("string")) {
 									row.put(columnName, value.toString());
+								} else {
+									//System.out.println(columnName + "-> Integer 2");
+									row.put(columnName, value);
+								}
+							} else if (value instanceof String) {
+								if (field.getType().equalsIgnoreCase("int")) {
+									row.put(columnName, Integer.parseInt(value.toString()));
+								} else if (field.getType().equalsIgnoreCase("long")) {
+									row.put(columnName, Long.parseLong(value.toString()));
+									//System.out.println(columnName + "-> long 2");
+								} else if (field.getType().equalsIgnoreCase("short")) {
+									row.put(columnName, Short.parseShort(value.toString()));
+								} else if (field.getType().equalsIgnoreCase("byte")) {
+									row.put(columnName, Byte.parseByte(value.toString()));
 								} else {
 									//System.out.println(columnName + "-> Integer 2");
 									row.put(columnName, value);
@@ -1149,6 +1177,20 @@ public class MongoDBConnection extends DbConnection {
 								row.put(columnName, ((Integer) value).byteValue());
 							} else if (field.getType().equalsIgnoreCase("string")) {
 								row.put(columnName, value.toString());
+							} else {
+								//System.out.println(columnName + "-> Integer 2");
+								row.put(columnName, value);
+							}
+						} else if (value instanceof String) {
+							if (field.getType().equalsIgnoreCase("int")) {
+								row.put(columnName, Integer.parseInt(value.toString()));
+							} else if (field.getType().equalsIgnoreCase("long")) {
+								row.put(columnName, Long.parseLong(value.toString()));
+								//System.out.println(columnName + "-> long 2");
+							} else if (field.getType().equalsIgnoreCase("short")) {
+								row.put(columnName, Short.parseShort(value.toString()));
+							} else if (field.getType().equalsIgnoreCase("byte")) {
+								row.put(columnName, Byte.parseByte(value.toString()));
 							} else {
 								//System.out.println(columnName + "-> Integer 2");
 								row.put(columnName, value);
