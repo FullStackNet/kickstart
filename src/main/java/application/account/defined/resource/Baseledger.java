@@ -36,6 +36,7 @@ public abstract class Baseledger extends BaseResource {
 	private String company_name = null;
 	private String account_customer_id = null;
 	private String account_id = null;
+	private String account_name = null;
 	private Double balance = null;
 	private Double opening_balance = null;
 	private Double closing_balance = null;
@@ -59,6 +60,7 @@ public abstract class Baseledger extends BaseResource {
 	public static String FIELD_COMPANY_NAME = "company_name";
 	public static String FIELD_ACCOUNT_CUSTOMER_ID = "account_customer_id";
 	public static String FIELD_ACCOUNT_ID = "account_id";
+	public static String FIELD_ACCOUNT_NAME = "account_name";
 	public static String FIELD_BALANCE = "balance";
 	public static String FIELD_OPENING_BALANCE = "opening_balance";
 	public static String FIELD_CLOSING_BALANCE = "closing_balance";
@@ -127,6 +129,10 @@ public abstract class Baseledger extends BaseResource {
 		account_idField.setLength(128);
 		metaData.addField(account_idField);
 
+		Field account_nameField = new Field("account_name", "String");
+		account_nameField.setLength(128);
+		metaData.addField(account_nameField);
+
 		Field balanceField = new Field("balance", "double");
 		metaData.addField(balanceField);
 
@@ -178,6 +184,7 @@ public abstract class Baseledger extends BaseResource {
 		this.company_name = obj.company_name;
 		this.account_customer_id = obj.account_customer_id;
 		this.account_id = obj.account_id;
+		this.account_name = obj.account_name;
 		this.balance = obj.balance;
 		this.opening_balance = obj.opening_balance;
 		this.closing_balance = obj.closing_balance;
@@ -221,6 +228,8 @@ public abstract class Baseledger extends BaseResource {
 			map.put("account_customer_id", account_customer_id);
 		if (account_id != null)
 			map.put("account_id", account_id);
+		if (account_name != null)
+			map.put("account_name", account_name);
 		if (balance != null)
 			map.put("balance", balance);
 		if (opening_balance != null)
@@ -270,6 +279,8 @@ public abstract class Baseledger extends BaseResource {
 			map.put("account_customer_id", account_customer_id);
 		if (account_id != null)
 			map.put("account_id", account_id);
+		if (account_name != null)
+			map.put("account_name", account_name);
 		if (balance != null)
 			map.put("balance", balance);
 		if (opening_balance != null)
@@ -311,6 +322,7 @@ public abstract class Baseledger extends BaseResource {
 		company_name = (String) map.get("company_name");
 		account_customer_id = (String) map.get("account_customer_id");
 		account_id = (String) map.get("account_id");
+		account_name = (String) map.get("account_name");
 		balance = (Double) map.get("balance");
 		opening_balance = (Double) map.get("opening_balance");
 		closing_balance = (Double) map.get("closing_balance");
@@ -375,6 +387,10 @@ public abstract class Baseledger extends BaseResource {
 		Object account_idObj = map.get("account_id");
 		if (account_idObj != null)
 			account_id = account_idObj.toString();
+
+		Object account_nameObj = map.get("account_name");
+		if (account_nameObj != null)
+			account_name = account_nameObj.toString();
 
 		Object balanceObj = map.get("balance");
 		if (balanceObj != null)
@@ -633,6 +649,22 @@ public abstract class Baseledger extends BaseResource {
 
 	public void unSetAccount_id() {
 		this.account_id = null;
+	}
+
+	public String getAccount_name() {
+		return account_name;
+	}
+
+	public String getAccount_nameEx() {
+		return account_name != null ? account_name : "";
+	}
+
+	public void setAccount_name(String account_name) {
+		this.account_name = account_name;
+	}
+
+	public void unSetAccount_name() {
+		this.account_name = null;
 	}
 
 	public Double getBalance() {
