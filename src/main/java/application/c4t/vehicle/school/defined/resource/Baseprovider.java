@@ -15,7 +15,9 @@ import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.Field;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /*
@@ -28,6 +30,8 @@ public abstract class Baseprovider extends BaseResource {
 	private String email_id = null;
 	private String mobile_no = null;
 	private String brand_name = null;
+	private String courses_summary = null;
+	private List<String> courses = null;
 	private String customer_id = null;
 	private Double percentage = null;
 	private Long creation_time = null;
@@ -38,6 +42,8 @@ public abstract class Baseprovider extends BaseResource {
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_BRAND_NAME = "brand_name";
+	public static String FIELD_COURSES_SUMMARY = "courses_summary";
+	public static String FIELD_COURSES = "courses";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_PERCENTAGE = "percentage";
 	public static String FIELD_CREATION_TIME = "creation_time";
@@ -70,6 +76,13 @@ public abstract class Baseprovider extends BaseResource {
 		brand_nameField.setLength(32);
 		metaData.addField(brand_nameField);
 
+		Field courses_summaryField = new Field("courses_summary", "String");
+		courses_summaryField.setLength(128);
+		metaData.addField(courses_summaryField);
+
+		Field coursesField = new Field("courses", "Array");
+		metaData.addField(coursesField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(32);
 		metaData.addField(customer_idField);
@@ -98,6 +111,8 @@ public abstract class Baseprovider extends BaseResource {
 		this.email_id = obj.email_id;
 		this.mobile_no = obj.mobile_no;
 		this.brand_name = obj.brand_name;
+		this.courses_summary = obj.courses_summary;
+		this.courses = obj.courses;
 		this.customer_id = obj.customer_id;
 		this.percentage = obj.percentage;
 		this.creation_time = obj.creation_time;
@@ -120,6 +135,10 @@ public abstract class Baseprovider extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
+		if (courses_summary != null)
+			map.put("courses_summary", courses_summary);
+		if (courses != null)
+			map.put("courses", courses);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if (percentage != null)
@@ -143,6 +162,10 @@ public abstract class Baseprovider extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
+		if (courses_summary != null)
+			map.put("courses_summary", courses_summary);
+		if (courses != null)
+			map.put("courses", courses);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if (percentage != null)
@@ -166,6 +189,8 @@ public abstract class Baseprovider extends BaseResource {
 		email_id = (String) map.get("email_id");
 		mobile_no = (String) map.get("mobile_no");
 		brand_name = (String) map.get("brand_name");
+		courses_summary = (String) map.get("courses_summary");
+		courses = (List<String>) map.get("courses");
 		customer_id = (String) map.get("customer_id");
 		percentage = (Double) map.get("percentage");
 		creation_time = (Long) map.get("creation_time");
@@ -194,6 +219,11 @@ public abstract class Baseprovider extends BaseResource {
 		if(brand_nameObj != null)
 			brand_name = brand_nameObj.toString();
 
+		Object courses_summaryObj = map.get("courses_summary");
+		if (courses_summaryObj != null)
+			courses_summary = courses_summaryObj.toString();
+
+		courses = (List<String>) map.get("courses");
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
@@ -299,6 +329,41 @@ public abstract class Baseprovider extends BaseResource {
 
 	public void unSetBrand_name() {
 		this.brand_name = null;
+	}
+
+	public String getCourses_summary() {
+		return courses_summary;
+	}
+
+	public String getCourses_summaryEx() {
+		return courses_summary != null ? courses_summary : "";
+	}
+
+	public void setCourses_summary(String courses_summary) {
+		this.courses_summary = courses_summary;
+	}
+
+	public void unSetCourses_summary() {
+		this.courses_summary = null;
+	}
+
+	public List<String> getCourses() {
+		return courses;
+	}
+
+
+	public void setCourses(List<String> courses) {
+		this.courses = courses;
+	}
+
+	public void addCourses(String value) {
+		if (courses == null)
+			courses = new ArrayList<String>();
+		courses.add(value);
+	}
+
+	public void unSetCourses() {
+		this.courses = null;
 	}
 
 	public String getCustomer_id() {

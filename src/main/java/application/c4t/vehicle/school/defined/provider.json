@@ -31,6 +31,14 @@
 				'length': 32,
 				'type':'String'
 			},
+			'courses_summary': {
+				'length': 128,
+				'type': 'String'
+			},
+			'courses': {
+				'type': 'Array',
+				'valueType': 'String'
+			},
 			'customer_id':
 			{
 				'length': 32,
