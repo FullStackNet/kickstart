@@ -27,6 +27,7 @@ import java.util.Map;
 public abstract class Baseprovider extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String logo_url = null;
 	private String email_id = null;
 	private String mobile_no = null;
 	private String brand_name = null;
@@ -39,6 +40,7 @@ public abstract class Baseprovider extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_LOGO_URL = "logo_url";
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_BRAND_NAME = "brand_name";
@@ -63,6 +65,10 @@ public abstract class Baseprovider extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(32);
 		metaData.addField(nameField);
+
+		Field logo_urlField = new Field("logo_url", "String");
+		logo_urlField.setLength(32);
+		metaData.addField(logo_urlField);
 
 		Field email_idField = new Field("email_id", "String");
 		email_idField.setLength(32);
@@ -108,6 +114,7 @@ public abstract class Baseprovider extends BaseResource {
 	public Baseprovider(Baseprovider obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.logo_url = obj.logo_url;
 		this.email_id = obj.email_id;
 		this.mobile_no = obj.mobile_no;
 		this.brand_name = obj.brand_name;
@@ -129,6 +136,8 @@ public abstract class Baseprovider extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if (logo_url != null)
+			map.put("logo_url", logo_url);
 		if(email_id != null)
 			map.put("email_id", email_id);
 		if(mobile_no != null)
@@ -156,6 +165,8 @@ public abstract class Baseprovider extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if (logo_url != null)
+			map.put("logo_url", logo_url);
 		if(email_id != null)
 			map.put("email_id", email_id);
 		if(mobile_no != null)
@@ -186,6 +197,7 @@ public abstract class Baseprovider extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		logo_url = (String) map.get("logo_url");
 		email_id = (String) map.get("email_id");
 		mobile_no = (String) map.get("mobile_no");
 		brand_name = (String) map.get("brand_name");
@@ -206,6 +218,10 @@ public abstract class Baseprovider extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object logo_urlObj = map.get("logo_url");
+		if (logo_urlObj != null)
+			logo_url = logo_urlObj.toString();
 
 		Object email_idObj = map.get("email_id");
 		if(email_idObj != null)
@@ -281,6 +297,22 @@ public abstract class Baseprovider extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getLogo_url() {
+		return logo_url;
+	}
+
+	public String getLogo_urlEx() {
+		return logo_url != null ? logo_url : "";
+	}
+
+	public void setLogo_url(String logo_url) {
+		this.logo_url = logo_url;
+	}
+
+	public void unSetLogo_url() {
+		this.logo_url = null;
 	}
 
 	public String getEmail_id() {

@@ -16,6 +16,10 @@
 				'length': 32,
 				'type':'String'
 			},
+			'logo_url': {
+				'length': 32,
+				'type': 'String'
+			},
 			'email_id':
 			{
 				'length': 32,
