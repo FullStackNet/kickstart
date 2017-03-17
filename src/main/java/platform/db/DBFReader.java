@@ -23,7 +23,7 @@ public class DBFReader {
             String header[] = new String[numberOfFields];
             for (int i = 0; i < numberOfFields; i++) {
                 DBFField field = reader.getField(i);
-                header[i] = field.getName();
+                header[i] = field.getName().toLowerCase();
             }
             Object[] rowObjects;
             while ((rowObjects = reader.nextRecord()) != null) {
