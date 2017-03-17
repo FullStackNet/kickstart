@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import platform.util.Util;
+
 /**
  * Created by ajay on 11/2/17.
  */
@@ -29,6 +31,9 @@ public class DBFReader {
             while ((rowObjects = reader.nextRecord()) != null) {
                 Map<String, String> map = new HashMap<String, String>();
                 for (int i = 0; i < rowObjects.length; i++) {
+                	if (rowObjects[i] == null) {
+                		continue;
+                	}
                     map.put(header[i], rowObjects[i].toString());
                 }
                 list.add(map);
