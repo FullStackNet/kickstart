@@ -94,6 +94,11 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.12</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.albfernandez</groupId>
+            <artifactId>javadbf</artifactId>
+            <version>1.2.0</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.eclipse.paho/mqtt-client -->
         <!-- https://mvnrepository.com/artifact/org.eclipse.paho/mqtt-client -->
