@@ -1,6 +1,8 @@
 package application.account.reader.excel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 import platform.db.DBFReader;
@@ -36,13 +38,19 @@ public class ReadDbfLedgerMaster {
             if (!Util.isEmpty(_ledger.getVoucher_no())) {
                 _ledger.setVoucher_no(_ledger.getVoucher_no().replaceAll("[.0]+$", ""));
             }
-            String date = map.get("date");
-            if (Util.isEmpty(date)) {
+            String date_str = map.get("date");
+            SimpleDateFormat parseFormat = 
+            	    new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
+            Date date = parseFormat.parse(date_str);
+        	SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        	date_str = format.format(date);
+           
+            if (Util.isEmpty(date_str)) {
                 continue;
             }
-            date = date.replace("/", "-");
-            date = date.replace("//", "-");
-            _ledger.setEvent_date_str(date);
+            date_str = date_str.replace("/", "-");
+            date_str = date_str.replace("//", "-");
+            _ledger.setEvent_date_str(date_str);
             _ledger.setCode(map.get("code"));
             if (!Util.isEmpty(_ledger.getCode())) {
                 _ledger.setCode(_ledger.getCode().replaceAll("[.0]+$", ""));
