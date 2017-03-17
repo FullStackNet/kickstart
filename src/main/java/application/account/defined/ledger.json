@@ -55,6 +55,10 @@
         'length': 128,
         'type': 'String'
       },
+      'account_name': {
+        'length': 128,
+        'type': 'String'
+      },
       'balance': {
         'type': 'double'
       },
