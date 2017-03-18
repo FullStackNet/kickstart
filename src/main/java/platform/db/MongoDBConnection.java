@@ -118,9 +118,10 @@ public class MongoDBConnection extends DbConnection {
 				if (!auth) {
 					C4TLogger.error("Authentication Failed "+database +" server :" +server, this.getClass());
 				}*/
+				conn.slaveOk();
 			} catch(Exception e) {
-				ApplicationLogger.error("Unable to connect the Database "+database +" server :" +server, this.getClass());
-				e.printStackTrace(); 
+				ApplicationLogger.error("Unable to connect the Database " + database + " server :" + server, this.getClass());
+				e.printStackTrace();
 			}
 		}
 	}
