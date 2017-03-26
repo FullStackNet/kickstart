@@ -825,7 +825,6 @@ public class MongoDBConnection extends DbConnection {
 			ApplicationLogger.error("Update SQL Failed :: "+e.getMessage(), this.getClass());
 			throw e;
 		}
-		return 0;
 	}
 
 	public boolean checkConnection() {
