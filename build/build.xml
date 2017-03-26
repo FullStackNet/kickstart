@@ -131,6 +131,11 @@
 				<include name="c4t-platform.jar"/>
 			</fileset>
 		</copy>
+		<copy todir="${build_home}/c4t-import-manager" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
 		<copy todir="${build_home}/c4t-email-manager" overwrite="true">
 			<fileset dir="${libs}/">
 				<include name="c4t-platform.jar"/>
