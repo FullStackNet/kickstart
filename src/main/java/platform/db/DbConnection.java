@@ -66,7 +66,8 @@ public abstract class DbConnection {
 	 abstract public int updateCurrentTime(BaseResource resource, String fieldName) throws Exception;
 	 abstract public int deleteById(ResourceMetaData metaData, String id) throws Exception;
 	 abstract public int deleteByExpression(ResourceMetaData metaData, Expression expression) throws Exception;
-	 abstract public List<Map<String, Object>> getById(ResourceMetaData metaData, String[] ids, String[] orderBy, Expression expression) throws Exception;
+	 abstract public void deleteAll(ResourceMetaData metaData) throws Exception;
+	abstract public List<Map<String, Object>> getById(ResourceMetaData metaData, String[] ids, String[] orderBy, Expression expression) throws Exception;
 	 abstract public List<Map<String, Object>> getById(ResourceMetaData metaData, String[] ids, String[] orderBy, Expression expression,int pageno, int pagesize) throws Exception;
 	 abstract public int add(BaseResource resource) throws Exception;
 	 abstract  public Map<String, Object> get(ResourceMetaData metaData, String Id);

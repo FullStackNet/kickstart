@@ -58,7 +58,11 @@ public class HSQLDBConnection extends DbConnection {
 	public String decodePassword(String password1) {
 		return password1.substring(2);
 	}
-	
+
+	@Override
+	public synchronized void deleteAll(ResourceMetaData metaData) throws Exception {
+
+	}
 	public String encodePassword(String password1) {
 		return "^^"+password1;
 	}

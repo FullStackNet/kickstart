@@ -1019,6 +1019,21 @@ public class BaseHelper {
 		return clonedResource ;
 	}
 
+	public void deleteAll() {
+		BaseResource clonedResource = null;
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			connection.deleteAll(resource.getMetaData());
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return ;
+	}
+
 
 	public String verify() throws Exception {
 		DbConnection connection = null;

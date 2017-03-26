@@ -811,6 +811,23 @@ public class MongoDBConnection extends DbConnection {
 		return 0;
 	}
 
+	@Override
+	public synchronized void deleteAll(ResourceMetaData metaData) throws Exception {
+		checkAndReviveConnection();
+		if (conn == null) {
+			ApplicationException e = new ApplicationException(ExceptionSeverity.ERROR, "Unable to connect to database");
+			throw e;
+		}
+		DBCollection table = conn.getCollection(metaData.getTableName());
+		try {
+			table.drop();
+		} catch (Exception e) {
+			ApplicationLogger.error("Update SQL Failed :: "+e.getMessage(), this.getClass());
+			throw e;
+		}
+		return 0;
+	}
+
 	public boolean checkConnection() {
 		try {
 			if (conn == null)

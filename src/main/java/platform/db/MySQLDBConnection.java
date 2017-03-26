@@ -79,6 +79,10 @@ public class MySQLDBConnection extends DbConnection {
 		}
 
 	}
+	@Override
+	public synchronized void deleteAll(ResourceMetaData metaData) throws Exception {
+
+	}
 
 	public MySQLDBConnection(String clusterId, String cluster, String server,String username,String password,String databse) {
 		this.cluster = cluster;
