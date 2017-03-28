@@ -28,11 +28,24 @@ public abstract class BaseProcess {
 	String ipAddress;
 	String name;
 	String location;
+	boolean monitor;
+	
+	
 	MonitorHeartbeatThread monitorHeartbeatThread;
 	
+	
+	public boolean isMonitor() {
+		return monitor;
+	}
+
+	public void setMonitor(boolean monitor) {
+		this.monitor = monitor;
+	}
+
 	public BaseProcess() {
 		// TODO Auto-generated constructor stub
 		this.messageBusURL = "tcp://localhost:61616";
+		monitor = true;
 	}
 	
 	protected abstract void registerMessage(MessageManager messageManager);
@@ -96,8 +109,10 @@ public abstract class BaseProcess {
 		addRegisterParameters(registerObject);
 		ClientMessageQueue.getInstance().addMessage(GlobalDataManager.getInstance().getId(), 
 				ApplicationConstants.APPLICATION_NAME_MONITOR, registerObject);
-		monitorHeartbeatThread = new MonitorHeartbeatThread();
-		monitorHeartbeatThread.start();
+		if (monitor) {
+			monitorHeartbeatThread = new MonitorHeartbeatThread();
+			monitorHeartbeatThread.start();
+		}
 	}
 	
 	public void start() {
