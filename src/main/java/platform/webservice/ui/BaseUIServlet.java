@@ -32,7 +32,7 @@ public abstract class BaseUIServlet extends HttpServlet
 	private static final long serialVersionUID = 1L;
 
 	public BaseUIServlet() {
-		
+		ApplicationLogger.init();
 	}
 
 	
