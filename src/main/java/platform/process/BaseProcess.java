@@ -44,7 +44,7 @@ public abstract class BaseProcess {
 
 	public BaseProcess() {
 		// TODO Auto-generated constructor stub
-		this.messageBusURL = "tcp://localhost:61616";
+		this.messageBusURL = "failover:(tcp://localhost:61616)";
 		monitor = true;
 	}
 	
@@ -61,7 +61,7 @@ public abstract class BaseProcess {
 	
 	void _loadConfiguration() {
 		Reader reader = new Reader(ApplicationConstants.CONFIGURATION_FILE);
-		messageBusURL = reader.getString(ApplicationConstants.PROPERTY_CONNECT_URL,"tcp://localhost:61616");
+		messageBusURL = reader.getString(ApplicationConstants.PROPERTY_CONNECT_URL,"failover:(tcp://localhost:61616)");
 		GlobalDataManager.getInstance().setId(reader.getString(ApplicationConstants.PROPERTY_ID,null));
 		ipAddress = reader.getString(ApplicationConstants.PROPERTY_SELF_IP_ADDRESS,null);
 		location = reader.getString(ApplicationConstants.PROPERTY_LOCATION,null);

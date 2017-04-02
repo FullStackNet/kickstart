@@ -33,18 +33,28 @@ public class ServletContext {
 	}
 	
 	public String getSessionId() {
+		if (_session == null)
+			return null;
+
 		return _session.getId();
 	}
 	
 	public String getUserId() {
+		if (_session == null)
+			return null;
 		return _session.getUser_id();
 	}
 
 	public String getCustomerId() {
+		if (_session == null)
+			return null;
 		return _session.getCustomer_id();
 	}
 
 	public String getCustomerName() {
+		if (_session == null)
+			return null;
+
 		if (_session.getCustomer_name() == null) {
 			if (_session.getCustomer_id() != null) {
 			customer _customer = (customer)CustomerHelper.getInstance().getById(_session.getCustomer_id());
@@ -56,14 +66,22 @@ public class ServletContext {
 	}
 
 	public String getUserType() {
+		if (_session == null)
+			return null;
+
 		return _session.getUser_type();
 	}
 	
 	public String getUserName() {
+		if (_session == null)
+			return null;
+
 		return _session.getUser_name();
 	}
 	
 	public String getSuperUser() {
+		if (_session == null)
+			return null;
 		return _session.getSuper_user();
 	}
 	

@@ -33,6 +33,7 @@ public class ReadDbfLedgerMaster {
                 _ledger.setVoucher_no(map.get("no"));
             }
             if (Util.isEmpty(_ledger.getVoucher_no())) {
+            	System.out.println("No Voucher No");
                 continue;
             }
             if (!Util.isEmpty(_ledger.getVoucher_no())) {
@@ -46,6 +47,7 @@ public class ReadDbfLedgerMaster {
         	date_str = format.format(date);
            
             if (Util.isEmpty(date_str)) {
+            	System.out.println("No valid Date " + date_str);
                 continue;
             }
             date_str = date_str.replace("/", "-");
