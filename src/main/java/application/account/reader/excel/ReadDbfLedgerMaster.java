@@ -54,9 +54,6 @@ public class ReadDbfLedgerMaster {
             date_str = date_str.replace("//", "-");
             _ledger.setEvent_date_str(date_str);
             _ledger.setCode(map.get("code"));
-            if (!Util.isEmpty(_ledger.getCode())) {
-                _ledger.setCode(_ledger.getCode().replaceAll("[.0]+$", ""));
-            }
             _ledger.setCommunity_id(community_id);
             String[] tokens = _ledger.getEvent_date_str().split("-");
             if (tokens[0].length() == 1) {

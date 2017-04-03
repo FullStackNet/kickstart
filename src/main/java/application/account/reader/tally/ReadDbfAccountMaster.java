@@ -22,9 +22,6 @@ public class ReadDbfAccountMaster {
              account _account = new account();
              _account.setName(map.get("name"));
              _account.setCode(map.get("code"));
-             if (!Util.isEmpty(_account.getCode())) {
-                 _account.setCode(_account.getCode().replaceAll("[.0]+$", ""));
-             }
              _account.setFin_year(map.get("fin_year"));
              if (Util.isEmpty(_account.getFin_year())) {
                  _account.setFin_year(fin_year);
@@ -45,6 +42,13 @@ public class ReadDbfAccountMaster {
              } else if (!Util.isEmpty(map.get("op_bal"))) {
                  try {
                      double value = Double.parseDouble(map.get("op_bal"));
+                     _account.setOpening_balance(value);
+                 } catch (Exception e) {
+                     e.printStackTrace();
+                 }
+             } else if (!Util.isEmpty(map.get("op_balance"))) {
+                 try {
+                     double value = Double.parseDouble(map.get("op_balance"));
                      _account.setOpening_balance(value);
                  } catch (Exception e) {
                      e.printStackTrace();
