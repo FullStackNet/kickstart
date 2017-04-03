@@ -53,6 +53,13 @@ public class ReadDbfAccountMaster {
                  } catch (Exception e) {
                      e.printStackTrace();
                  }
+             } else if (!Util.isEmpty(map.get("opening_bal"))) {
+                 try {
+                     double value = Double.parseDouble(map.get("opening_bal"));
+                     _account.setOpening_balance(value);
+                 } catch (Exception e) {
+                     e.printStackTrace();
+                 }
              }
 
              if (!Util.isEmpty(map.get("total_dr"))) {
