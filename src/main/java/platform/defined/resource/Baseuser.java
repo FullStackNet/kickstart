@@ -9,14 +9,10 @@
 
 package platform.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -853,27 +849,27 @@ public abstract class Baseuser extends BaseResource {
 			map.put("request_category", request_category);
 		if(feature_fees_report != null)
 			map.put("feature_fees_report", feature_fees_report);
-		if (referral_code != null)
+		if(referral_code != null)
 			map.put("referral_code", referral_code);
-		if (percentage != null)
+		if(percentage != null)
 			map.put("percentage", percentage);
-		if (no_of_registration != null)
+		if(no_of_registration != null)
 			map.put("no_of_registration", no_of_registration);
-		if (per_registration_amount != null)
+		if(per_registration_amount != null)
 			map.put("per_registration_amount", per_registration_amount);
-		if (last_payment_settledment != null)
+		if(last_payment_settledment != null)
 			map.put("last_payment_settledment", last_payment_settledment);
-		if (last_payment_settledment_str != null)
+		if(last_payment_settledment_str != null)
 			map.put("last_payment_settledment_str", last_payment_settledment_str);
-		if (settledment_count != null)
+		if(settledment_count != null)
 			map.put("settledment_count", settledment_count);
-		if (last_payment_made != null)
+		if(last_payment_made != null)
 			map.put("last_payment_made", last_payment_made);
-		if (registered_referral_code != null)
+		if(registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
-		if (creation_time != null)
+		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (last_update_time != null)
+		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
@@ -1017,27 +1013,27 @@ public abstract class Baseuser extends BaseResource {
 			map.put("request_category", request_category);
 		if(feature_fees_report != null)
 			map.put("feature_fees_report", feature_fees_report);
-		if (referral_code != null)
+		if(referral_code != null)
 			map.put("referral_code", referral_code);
-		if (percentage != null)
+		if(percentage != null)
 			map.put("percentage", percentage);
-		if (no_of_registration != null)
+		if(no_of_registration != null)
 			map.put("no_of_registration", no_of_registration);
-		if (per_registration_amount != null)
+		if(per_registration_amount != null)
 			map.put("per_registration_amount", per_registration_amount);
-		if (last_payment_settledment != null)
+		if(last_payment_settledment != null)
 			map.put("last_payment_settledment", last_payment_settledment);
-		if (last_payment_settledment_str != null)
+		if(last_payment_settledment_str != null)
 			map.put("last_payment_settledment_str", last_payment_settledment_str);
-		if (settledment_count != null)
+		if(settledment_count != null)
 			map.put("settledment_count", settledment_count);
-		if (last_payment_made != null)
+		if(last_payment_made != null)
 			map.put("last_payment_made", last_payment_made);
-		if (registered_referral_code != null)
+		if(registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
-		if (creation_time != null)
+		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (last_update_time != null)
+		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
@@ -1383,47 +1379,47 @@ public abstract class Baseuser extends BaseResource {
 			feature_fees_report = feature_fees_reportObj.toString();
 
 		Object referral_codeObj = map.get("referral_code");
-		if (referral_codeObj != null)
+		if(referral_codeObj != null)
 			referral_code = referral_codeObj.toString();
 
 		Object percentageObj = map.get("percentage");
-		if (percentageObj != null)
+		if(percentageObj != null)
 			percentage = new Double(percentageObj.toString());
 
 		Object no_of_registrationObj = map.get("no_of_registration");
-		if (no_of_registrationObj != null)
+		if(no_of_registrationObj != null)
 			no_of_registration = new Integer(no_of_registrationObj.toString());
 
 		Object per_registration_amountObj = map.get("per_registration_amount");
-		if (per_registration_amountObj != null)
+		if(per_registration_amountObj != null)
 			per_registration_amount = new Double(per_registration_amountObj.toString());
 
 		Object last_payment_settledmentObj = map.get("last_payment_settledment");
-		if (last_payment_settledmentObj != null)
+		if(last_payment_settledmentObj != null)
 			last_payment_settledment = new Long(last_payment_settledmentObj.toString());
 
 		Object last_payment_settledment_strObj = map.get("last_payment_settledment_str");
-		if (last_payment_settledment_strObj != null)
+		if(last_payment_settledment_strObj != null)
 			last_payment_settledment_str = last_payment_settledment_strObj.toString();
 
 		Object settledment_countObj = map.get("settledment_count");
-		if (settledment_countObj != null)
+		if(settledment_countObj != null)
 			settledment_count = new Long(settledment_countObj.toString());
 
 		Object last_payment_madeObj = map.get("last_payment_made");
-		if (last_payment_madeObj != null)
+		if(last_payment_madeObj != null)
 			last_payment_made = new Double(last_payment_madeObj.toString());
 
 		Object registered_referral_codeObj = map.get("registered_referral_code");
-		if (registered_referral_codeObj != null)
+		if(registered_referral_codeObj != null)
 			registered_referral_code = registered_referral_codeObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
-		if (creation_timeObj != null)
+		if(creation_timeObj != null)
 			creation_time = new Long(creation_timeObj.toString());
 
 		Object last_update_timeObj = map.get("last_update_time");
-		if (last_update_timeObj != null)
+		if(last_update_timeObj != null)
 			last_update_time = new Long(last_update_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");

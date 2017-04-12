@@ -907,6 +907,10 @@
 			{
 				'type':'timestamp'
 			},
+			'last_imported_time':
+			{
+				'type':'timestamp'
+			},
 			'last_used':
 			{
 				'type':'timestamp'

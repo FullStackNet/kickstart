@@ -9,14 +9,10 @@
 
 package platform.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -188,9 +184,9 @@ public abstract class Basesession extends BaseResource {
 			map.put("role", role);
 		if(readonly_user != null)
 			map.put("readonly_user", readonly_user);
-		if (creation_time != null)
+		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (last_update_time != null)
+		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
@@ -226,9 +222,9 @@ public abstract class Basesession extends BaseResource {
 			map.put("role", role);
 		if(readonly_user != null)
 			map.put("readonly_user", readonly_user);
-		if (creation_time != null)
+		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (last_update_time != null)
+		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
@@ -310,11 +306,11 @@ public abstract class Basesession extends BaseResource {
 			readonly_user = readonly_userObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
-		if (creation_timeObj != null)
+		if(creation_timeObj != null)
 			creation_time = new Long(creation_timeObj.toString());
 
 		Object last_update_timeObj = map.get("last_update_time");
-		if (last_update_timeObj != null)
+		if(last_update_timeObj != null)
 			last_update_time = new Long(last_update_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
