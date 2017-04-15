@@ -321,6 +321,11 @@
 				'type':'String',
 				'length': 128
 			},
+			'vehicle_type':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'size':
 			{
 				'type':'String',

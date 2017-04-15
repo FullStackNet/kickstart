@@ -81,6 +81,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String area = null;
 	private String city = null;
 	private String state = null;
+	private String vehicle_type = null;
 	private String size = null;
 	private String pattern = null;
 	private String scheme = null;
@@ -318,6 +319,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_AREA = "area";
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
+	public static String FIELD_VEHICLE_TYPE = "vehicle_type";
 	public static String FIELD_SIZE = "size";
 	public static String FIELD_PATTERN = "pattern";
 	public static String FIELD_SCHEME = "scheme";
@@ -752,6 +754,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Field stateField = new Field("state", "String");
 		stateField.setLength(128);
 		metaData.addField(stateField);
+
+		Field vehicle_typeField = new Field("vehicle_type", "String");
+		vehicle_typeField.setLength(128);
+		metaData.addField(vehicle_typeField);
 
 		Field sizeField = new Field("size", "String");
 		sizeField.setLength(128);
@@ -1463,6 +1469,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.area = obj.area;
 		this.city = obj.city;
 		this.state = obj.state;
+		this.vehicle_type = obj.vehicle_type;
 		this.size = obj.size;
 		this.pattern = obj.pattern;
 		this.scheme = obj.scheme;
@@ -1769,6 +1776,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("city", city);
 		if(state != null)
 			map.put("state", state);
+		if(vehicle_type != null)
+			map.put("vehicle_type", vehicle_type);
 		if(size != null)
 			map.put("size", size);
 		if(pattern != null)
@@ -2246,6 +2255,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("city", city);
 		if(state != null)
 			map.put("state", state);
+		if(vehicle_type != null)
+			map.put("vehicle_type", vehicle_type);
 		if(size != null)
 			map.put("size", size);
 		if(pattern != null)
@@ -2666,6 +2677,7 @@ public abstract class Basec4t_object extends BaseResource {
 		area = (String) map.get("area");
 		city = (String) map.get("city");
 		state = (String) map.get("state");
+		vehicle_type = (String) map.get("vehicle_type");
 		size = (String) map.get("size");
 		pattern = (String) map.get("pattern");
 		scheme = (String) map.get("scheme");
@@ -3091,6 +3103,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object stateObj = map.get("state");
 		if(stateObj != null)
 			state = stateObj.toString();
+
+		Object vehicle_typeObj = map.get("vehicle_type");
+		if(vehicle_typeObj != null)
+			vehicle_type = vehicle_typeObj.toString();
 
 		Object sizeObj = map.get("size");
 		if(sizeObj != null)
@@ -4801,6 +4817,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetState() {
 		this.state = null;
+	}
+
+	public String getVehicle_type() {
+		return vehicle_type;
+	}
+
+	public String getVehicle_typeEx() {
+		return vehicle_type != null ? vehicle_type : "";
+	}
+
+	public void setVehicle_type(String vehicle_type) {
+		this.vehicle_type = vehicle_type;
+	}
+
+	public void unSetVehicle_type() {
+		this.vehicle_type = null;
 	}
 
 	public String getSize() {
