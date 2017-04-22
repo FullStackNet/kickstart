@@ -11,7 +11,7 @@ public class COMBO {
 	String hint;
 	
 	public COMBO(String id,String className, ArrayList<IdValue> list,Object value) {
-		select = new SELECT(id,className);
+		select = new SELECT(id,id,className);
 		OPTION option = new OPTION();
 		option.addAttribute("value","");
 		if (hint  == null) {
