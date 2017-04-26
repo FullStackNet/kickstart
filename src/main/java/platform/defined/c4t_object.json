@@ -1132,7 +1132,23 @@
 			{
 				'type':'String',
 				'length': 128
-			} , 
+			},
+			'repos_server': {
+				'type': 'String',
+				'length': 128
+			},
+			'repos_server_port': {
+				'type': 'String',
+				'length': 128
+			},
+			'repos_username': {
+				'type': 'String',
+				'length': 128
+			},
+			'repos_password': {
+				'type': 'String',
+				'length': 128
+			},
 			'available_time':
 			{
 				'type':'String',
