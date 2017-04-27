@@ -3,26 +3,20 @@ package platform.communication;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLEncoder;
 
-import com.google.common.io.Files;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.util.security.SecurityUtil;
 
 public class HttpClient {
 
-    private static int CONNECTION_TIMEOUT = 1000 * 20;    // timeout 20 second
+    private static int CONNECTION_TIMEOUT = 1000 * 30;    // timeout 20 second
 
     public HttpClient() {
     }
@@ -214,6 +208,7 @@ public class HttpClient {
     public static String sendPostRequest(String serverURL, String session_id, String params, String cookie) {
         URL url;
         HttpURLConnection connection = null;
+        StringBuffer response = new StringBuffer();
         try {
             url = new URL(serverURL);
             connection = (HttpURLConnection) url.openConnection();
@@ -243,7 +238,7 @@ public class HttpClient {
             InputStream is = connection.getInputStream();
             BufferedReader rd = new BufferedReader(new InputStreamReader(is));
             String line;
-            StringBuffer response = new StringBuffer();
+           
             while ((line = rd.readLine()) != null) {
                 response.append(line);
                 response.append('\r');
@@ -252,10 +247,13 @@ public class HttpClient {
             return response.toString();
 
         } catch (Exception e) {
-
+        	
             e.printStackTrace();
-            return null;
-
+            if (response.toString().isEmpty())
+            	return null;
+            else {
+            	return response.toString();
+            }
         } finally {
 
             if (connection != null) {
