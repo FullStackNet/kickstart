@@ -9,10 +9,14 @@
 
 package platform.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -254,6 +258,10 @@ public abstract class Basec4t_object extends BaseResource {
 	private String onion_business = null;
 	private String valid_mandi_main_imie = null;
 	private String valid_mandi_secondary_imie = null;
+	private String repos_server = null;
+	private String repos_server_port = null;
+	private String repos_username = null;
+	private String repos_password = null;
 	private String available_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -492,6 +500,10 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ONION_BUSINESS = "onion_business";
 	public static String FIELD_VALID_MANDI_MAIN_IMIE = "valid_mandi_main_imie";
 	public static String FIELD_VALID_MANDI_SECONDARY_IMIE = "valid_mandi_secondary_imie";
+	public static String FIELD_REPOS_SERVER = "repos_server";
+	public static String FIELD_REPOS_SERVER_PORT = "repos_server_port";
+	public static String FIELD_REPOS_USERNAME = "repos_username";
+	public static String FIELD_REPOS_PASSWORD = "repos_password";
 	public static String FIELD_AVAILABLE_TIME = "available_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -1390,6 +1402,22 @@ public abstract class Basec4t_object extends BaseResource {
 		valid_mandi_secondary_imieField.setLength(128);
 		metaData.addField(valid_mandi_secondary_imieField);
 
+		Field repos_serverField = new Field("repos_server", "String");
+		repos_serverField.setLength(128);
+		metaData.addField(repos_serverField);
+
+		Field repos_server_portField = new Field("repos_server_port", "String");
+		repos_server_portField.setLength(128);
+		metaData.addField(repos_server_portField);
+
+		Field repos_usernameField = new Field("repos_username", "String");
+		repos_usernameField.setLength(128);
+		metaData.addField(repos_usernameField);
+
+		Field repos_passwordField = new Field("repos_password", "String");
+		repos_passwordField.setLength(128);
+		metaData.addField(repos_passwordField);
+
 		Field available_timeField = new Field("available_time", "String");
 		available_timeField.setLength(128);
 		metaData.addField(available_timeField);
@@ -1642,6 +1670,10 @@ public abstract class Basec4t_object extends BaseResource {
 		this.onion_business = obj.onion_business;
 		this.valid_mandi_main_imie = obj.valid_mandi_main_imie;
 		this.valid_mandi_secondary_imie = obj.valid_mandi_secondary_imie;
+		this.repos_server = obj.repos_server;
+		this.repos_server_port = obj.repos_server_port;
+		this.repos_username = obj.repos_username;
+		this.repos_password = obj.repos_password;
 		this.available_time = obj.available_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -2122,6 +2154,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("valid_mandi_main_imie", valid_mandi_main_imie);
 		if(valid_mandi_secondary_imie != null)
 			map.put("valid_mandi_secondary_imie", valid_mandi_secondary_imie);
+		if (repos_server != null)
+			map.put("repos_server", repos_server);
+		if (repos_server_port != null)
+			map.put("repos_server_port", repos_server_port);
+		if (repos_username != null)
+			map.put("repos_username", repos_username);
+		if (repos_password != null)
+			map.put("repos_password", repos_password);
 		if(available_time != null)
 			map.put("available_time", available_time);
 		if(extra_data != null)
@@ -2601,6 +2641,14 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("valid_mandi_main_imie", valid_mandi_main_imie);
 		if(valid_mandi_secondary_imie != null)
 			map.put("valid_mandi_secondary_imie", valid_mandi_secondary_imie);
+		if (repos_server != null)
+			map.put("repos_server", repos_server);
+		if (repos_server_port != null)
+			map.put("repos_server_port", repos_server_port);
+		if (repos_username != null)
+			map.put("repos_username", repos_username);
+		if (repos_password != null)
+			map.put("repos_password", repos_password);
 		if(available_time != null)
 			map.put("available_time", available_time);
 		if(extra_data != null)
@@ -2850,6 +2898,10 @@ public abstract class Basec4t_object extends BaseResource {
 		onion_business = (String) map.get("onion_business");
 		valid_mandi_main_imie = (String) map.get("valid_mandi_main_imie");
 		valid_mandi_secondary_imie = (String) map.get("valid_mandi_secondary_imie");
+		repos_server = (String) map.get("repos_server");
+		repos_server_port = (String) map.get("repos_server_port");
+		repos_username = (String) map.get("repos_username");
+		repos_password = (String) map.get("repos_password");
 		available_time = (String) map.get("available_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -3795,6 +3847,22 @@ public abstract class Basec4t_object extends BaseResource {
 		Object valid_mandi_secondary_imieObj = map.get("valid_mandi_secondary_imie");
 		if(valid_mandi_secondary_imieObj != null)
 			valid_mandi_secondary_imie = valid_mandi_secondary_imieObj.toString();
+
+		Object repos_serverObj = map.get("repos_server");
+		if (repos_serverObj != null)
+			repos_server = repos_serverObj.toString();
+
+		Object repos_server_portObj = map.get("repos_server_port");
+		if (repos_server_portObj != null)
+			repos_server_port = repos_server_portObj.toString();
+
+		Object repos_usernameObj = map.get("repos_username");
+		if (repos_usernameObj != null)
+			repos_username = repos_usernameObj.toString();
+
+		Object repos_passwordObj = map.get("repos_password");
+		if (repos_passwordObj != null)
+			repos_password = repos_passwordObj.toString();
 
 		Object available_timeObj = map.get("available_time");
 		if(available_timeObj != null)
@@ -7677,6 +7745,70 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetValid_mandi_secondary_imie() {
 		this.valid_mandi_secondary_imie = null;
+	}
+
+	public String getRepos_server() {
+		return repos_server;
+	}
+
+	public String getRepos_serverEx() {
+		return repos_server != null ? repos_server : "";
+	}
+
+	public void setRepos_server(String repos_server) {
+		this.repos_server = repos_server;
+	}
+
+	public void unSetRepos_server() {
+		this.repos_server = null;
+	}
+
+	public String getRepos_server_port() {
+		return repos_server_port;
+	}
+
+	public String getRepos_server_portEx() {
+		return repos_server_port != null ? repos_server_port : "";
+	}
+
+	public void setRepos_server_port(String repos_server_port) {
+		this.repos_server_port = repos_server_port;
+	}
+
+	public void unSetRepos_server_port() {
+		this.repos_server_port = null;
+	}
+
+	public String getRepos_username() {
+		return repos_username;
+	}
+
+	public String getRepos_usernameEx() {
+		return repos_username != null ? repos_username : "";
+	}
+
+	public void setRepos_username(String repos_username) {
+		this.repos_username = repos_username;
+	}
+
+	public void unSetRepos_username() {
+		this.repos_username = null;
+	}
+
+	public String getRepos_password() {
+		return repos_password;
+	}
+
+	public String getRepos_passwordEx() {
+		return repos_password != null ? repos_password : "";
+	}
+
+	public void setRepos_password(String repos_password) {
+		this.repos_password = repos_password;
+	}
+
+	public void unSetRepos_password() {
+		this.repos_password = null;
 	}
 
 	public String getAvailable_time() {
