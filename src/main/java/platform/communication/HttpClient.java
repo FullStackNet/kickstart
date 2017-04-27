@@ -157,6 +157,7 @@ public class HttpClient {
         HttpURLConnection connection = null;
         try {
             url = new URL(serverURL);
+            System.out.println("URL -> " + serverURL);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type",
