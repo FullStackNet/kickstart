@@ -436,6 +436,7 @@ public class BaseServlet extends HttpServlet
 			result.setMessage(e.getMessage());
 			responseStr = Json.resulttoString(result);
 		}
+		responseStr = responseStr + "\r\n";
 		out.println(responseStr);
 	}
 
@@ -706,6 +707,7 @@ public class BaseServlet extends HttpServlet
 			result.setMessage(e.getMessage());
 			responseStr = Json.resulttoString(result);
 		}
+		responseStr = responseStr + "\r\n";
 		out.write(responseStr.getBytes());
 		//Write the compression trailer and close the output stream
 		out.close();
