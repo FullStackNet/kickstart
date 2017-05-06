@@ -471,8 +471,8 @@ public class BaseHelper {
 		String[] ids = HelperUtils.convertResource2IdArray(resources,id_field_name);
 		return  getById(ids, orderBy);
 	}
-	
-	
+
+
 	public BaseResource[] getById(String[] ids) {
 		ArrayList<BaseResource> list = getListById(ids);
 		return  HelperUtils.convertList2Array(list);
@@ -911,6 +911,30 @@ public class BaseHelper {
 				clonedResource.convertMapToResource(row);
 			}
 		} catch(Exception e) {	
+			e.printStackTrace();
+		} finally {
+			if (connection != null)
+				connection.release();
+		}
+		return clonedResource ;
+	}
+
+	public BaseResource getByName(String name) {
+		BaseResource clonedResource = null;
+		DbConnection connection = null;
+		try {
+			connection = DbManager.getInstance().getConnection(this.getResource());
+			Expression e = new Expression("name",REL_OP.EQ,name);
+			List<Map<String, Object>> rows = connection.getByExpression(resource.getMetaData(),e,null);
+			if (Util.isEmpty(rows)) {
+				return null;
+			}
+			Map<String, Object> row = rows.get(0);
+			if ((row != null) && (row.size() > 0)) {
+				clonedResource = (BaseResource) this.resource.clone();
+				clonedResource.convertMapToResource(row);
+			}
+		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
 			if (connection != null)
