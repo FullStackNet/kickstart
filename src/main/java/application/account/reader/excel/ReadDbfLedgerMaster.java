@@ -36,9 +36,6 @@ public class ReadDbfLedgerMaster {
             	System.out.println("No Voucher No");
                 continue;
             }
-            if (!Util.isEmpty(_ledger.getVoucher_no())) {
-                _ledger.setVoucher_no(_ledger.getVoucher_no().replaceAll("[.0]+$", ""));
-            }
             String date_str = map.get("date");
             SimpleDateFormat parseFormat = 
             	    new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
