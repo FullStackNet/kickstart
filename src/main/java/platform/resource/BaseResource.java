@@ -94,6 +94,36 @@ public abstract class BaseResource  implements Cloneable, Serializable {
     		System.out.println(tabs + fieldName + ": " + row.get(fieldName)); 
 		}
 	}
+	public void dumpNonEmpty(int index) {
+		StringBuilder tabs = new StringBuilder(index);
+		for(int i = 0; i < index ; i++)
+			tabs.append("\t");
+
+		Map<String, Object> row = convertResourceToMap();
+		Map<String, Field> fields = getMetaData().getFields();
+		for(Entry<String, Field> entry : fields.entrySet()) {
+			String fieldName = entry.getValue().getName();
+			Object _object = row.get(fieldName);
+			if (_object != null) {
+				System.out.println(tabs + fieldName + ": " + row.get(fieldName));
+			}
+		}
+	}
+
+	public String getDump(String sep) {
+		StringBuffer buf = new StringBuffer();
+		
+		buf.append(getMetaData().getName());
+		Map<String, Object> row = convertResourceToMap();
+		Map<String, Field> fields = getMetaData().getFields();
+		for(Entry<String, Field> entry : fields.entrySet()) {
+			String fieldName = entry.getValue().getName();
+			if (row.get(fieldName) != null) {
+				buf.append(sep + fieldName + ": " + row.get(fieldName));
+			}
+		}
+		return buf.toString();
+	}
 
 	public String dumpCounter(String sep) {
 		StringBuffer buf = new StringBuffer();
