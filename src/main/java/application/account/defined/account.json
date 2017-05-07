@@ -73,6 +73,15 @@
 			'closing_balance': {
 				'type': 'double'
 			},
+			'settled_amount': {
+				'type': 'double'
+			},
+			'balance_amount': {
+				'type': 'double'
+			},
+			'settled': {
+				'type': 'String'
+			},
 			'total_dr': {
 				'type': 'double'
 			},
@@ -82,6 +91,7 @@
 			'fin_year': {
 				'type': 'String'
 			},
+
 			'creation_time':
 			{
 				'type':'timestamp'

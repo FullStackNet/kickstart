@@ -33,6 +33,9 @@ public abstract class Baseaccount extends BaseResource {
 	private Double balance = null;
 	private Double opening_balance = null;
 	private Double closing_balance = null;
+	private Double settled_amount = null;
+	private Double balance_amount = null;
+	private String settled = null;
 	private Double total_dr = null;
 	private Double total_cr = null;
 	private String fin_year = null;
@@ -54,6 +57,9 @@ public abstract class Baseaccount extends BaseResource {
 	public static String FIELD_BALANCE = "balance";
 	public static String FIELD_OPENING_BALANCE = "opening_balance";
 	public static String FIELD_CLOSING_BALANCE = "closing_balance";
+	public static String FIELD_SETTLED_AMOUNT = "settled_amount";
+	public static String FIELD_BALANCE_AMOUNT = "balance_amount";
+	public static String FIELD_SETTLED = "settled";
 	public static String FIELD_TOTAL_DR = "total_dr";
 	public static String FIELD_TOTAL_CR = "total_cr";
 	public static String FIELD_FIN_YEAR = "fin_year";
@@ -121,6 +127,15 @@ public abstract class Baseaccount extends BaseResource {
 		Field closing_balanceField = new Field("closing_balance", "double");
 		metaData.addField(closing_balanceField);
 
+		Field settled_amountField = new Field("settled_amount", "double");
+		metaData.addField(settled_amountField);
+
+		Field balance_amountField = new Field("balance_amount", "double");
+		metaData.addField(balance_amountField);
+
+		Field settledField = new Field("settled", "String");
+		metaData.addField(settledField);
+
 		Field total_drField = new Field("total_dr", "double");
 		metaData.addField(total_drField);
 
@@ -163,6 +178,9 @@ public abstract class Baseaccount extends BaseResource {
 		this.balance = obj.balance;
 		this.opening_balance = obj.opening_balance;
 		this.closing_balance = obj.closing_balance;
+		this.settled_amount = obj.settled_amount;
+		this.balance_amount = obj.balance_amount;
+		this.settled = obj.settled;
 		this.total_dr = obj.total_dr;
 		this.total_cr = obj.total_cr;
 		this.fin_year = obj.fin_year;
@@ -205,6 +223,12 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("opening_balance", opening_balance);
 		if(closing_balance != null)
 			map.put("closing_balance", closing_balance);
+		if(settled_amount != null)
+			map.put("settled_amount", settled_amount);
+		if(balance_amount != null)
+			map.put("balance_amount", balance_amount);
+		if(settled != null)
+			map.put("settled", settled);
 		if(total_dr != null)
 			map.put("total_dr", total_dr);
 		if(total_cr != null)
@@ -250,6 +274,12 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("opening_balance", opening_balance);
 		if(closing_balance != null)
 			map.put("closing_balance", closing_balance);
+		if(settled_amount != null)
+			map.put("settled_amount", settled_amount);
+		if(balance_amount != null)
+			map.put("balance_amount", balance_amount);
+		if(settled != null)
+			map.put("settled", settled);
 		if(total_dr != null)
 			map.put("total_dr", total_dr);
 		if(total_cr != null)
@@ -286,6 +316,9 @@ public abstract class Baseaccount extends BaseResource {
 		balance = (Double) map.get("balance");
 		opening_balance = (Double) map.get("opening_balance");
 		closing_balance = (Double) map.get("closing_balance");
+		settled_amount = (Double) map.get("settled_amount");
+		balance_amount = (Double) map.get("balance_amount");
+		settled = (String) map.get("settled");
 		total_dr = (Double) map.get("total_dr");
 		total_cr = (Double) map.get("total_cr");
 		fin_year = (String) map.get("fin_year");
@@ -351,6 +384,18 @@ public abstract class Baseaccount extends BaseResource {
 		Object closing_balanceObj = map.get("closing_balance");
 		if(closing_balanceObj != null)
 			closing_balance = new Double(closing_balanceObj.toString());
+
+		Object settled_amountObj = map.get("settled_amount");
+		if(settled_amountObj != null)
+			settled_amount = new Double(settled_amountObj.toString());
+
+		Object balance_amountObj = map.get("balance_amount");
+		if(balance_amountObj != null)
+			balance_amount = new Double(balance_amountObj.toString());
+
+		Object settledObj = map.get("settled");
+		if(settledObj != null)
+			settled = settledObj.toString();
 
 		Object total_drObj = map.get("total_dr");
 		if(total_drObj != null)
@@ -621,6 +666,62 @@ public abstract class Baseaccount extends BaseResource {
 
 	public void unSetClosing_balance() {
 		this.closing_balance = null;
+	}
+
+	public Double getSettled_amount() {
+		return settled_amount;
+	}
+
+	public double getSettled_amountEx() {
+		return settled_amount != null ? settled_amount : 0;
+	}
+
+	public void setSettled_amount(double settled_amount) {
+		this.settled_amount = settled_amount;
+	}
+
+	public void setSettled_amount(Double settled_amount) {
+		this.settled_amount = settled_amount;
+	}
+
+	public void unSetSettled_amount() {
+		this.settled_amount = null;
+	}
+
+	public Double getBalance_amount() {
+		return balance_amount;
+	}
+
+	public double getBalance_amountEx() {
+		return balance_amount != null ? balance_amount : 0;
+	}
+
+	public void setBalance_amount(double balance_amount) {
+		this.balance_amount = balance_amount;
+	}
+
+	public void setBalance_amount(Double balance_amount) {
+		this.balance_amount = balance_amount;
+	}
+
+	public void unSetBalance_amount() {
+		this.balance_amount = null;
+	}
+
+	public String getSettled() {
+		return settled;
+	}
+
+	public String getSettledEx() {
+		return settled != null ? settled : "";
+	}
+
+	public void setSettled(String settled) {
+		this.settled = settled;
+	}
+
+	public void unSetSettled() {
+		this.settled = null;
 	}
 
 	public Double getTotal_dr() {
