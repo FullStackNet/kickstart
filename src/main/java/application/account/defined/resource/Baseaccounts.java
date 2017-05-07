@@ -9,15 +9,10 @@
 
 package application.account.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.Field;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -61,8 +56,7 @@ public abstract class Baseaccounts extends BaseResource {
 		metaData.setCluster("DB_RECORD");
 	}
 
-	public Baseaccounts() {
-	}
+	public Baseaccounts() {}
 
 	public Baseaccounts(Baseaccounts obj) {
 		this.community_id = obj.community_id;
@@ -77,26 +71,26 @@ public abstract class Baseaccounts extends BaseResource {
 
 	public Map<String, Object> convertResourceToMap() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		if (community_id != null)
+		if(community_id != null)
 			map.put("community_id", community_id);
-		if (fin_year != null)
+		if(fin_year != null)
 			map.put("fin_year", fin_year);
-		if (accounts != null)
+		if(accounts != null)
 			map.put("accounts", accounts);
-		if (extra_data != null)
+		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		if (community_id != null)
+		if(community_id != null)
 			map.put("community_id", community_id);
-		if (fin_year != null)
+		if(fin_year != null)
 			map.put("fin_year", fin_year);
-		if (accounts != null)
+		if(accounts != null)
 			map.put("accounts", accounts);
-		if (extra_data != null)
+		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
@@ -117,11 +111,11 @@ public abstract class Baseaccounts extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object community_idObj = map.get("community_id");
-		if (community_idObj != null)
+		if(community_idObj != null)
 			community_id = community_idObj.toString();
 
 		Object fin_yearObj = map.get("fin_year");
-		if (fin_yearObj != null)
+		if(fin_yearObj != null)
 			fin_year = fin_yearObj.toString();
 
 		accounts = (List<application.account.resource.account>) map.get("accounts");
@@ -176,7 +170,7 @@ public abstract class Baseaccounts extends BaseResource {
 	}
 
 	public void addAccounts(application.account.resource.account value) {
-		if (accounts == null)
+		if(accounts == null)
 			accounts = new ArrayList<application.account.resource.account>();
 		accounts.add(value);
 	}
@@ -198,7 +192,7 @@ public abstract class Baseaccounts extends BaseResource {
 	}
 
 	public void setExtra_data(String key, Object value) {
-		if (extra_data == null)
+		if(extra_data == null)
 			extra_data = new HashMap<String, Object>();
 		extra_data.put(key, value);
 	}

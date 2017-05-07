@@ -9,14 +9,10 @@
 
 package application.account.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -43,6 +39,9 @@ public abstract class Baseledger extends BaseResource {
 	private Double dr_amount = null;
 	private Double cr_amount = null;
 	private String fin_year = null;
+	private String settled = null;
+	private Double settled_amount = null;
+	private Double balance_amount = null;
 	private Long creation_time = null;
 	private Long last_update_time = null;
 	private Map<String, Object> extra_data = null;
@@ -67,6 +66,9 @@ public abstract class Baseledger extends BaseResource {
 	public static String FIELD_DR_AMOUNT = "dr_amount";
 	public static String FIELD_CR_AMOUNT = "cr_amount";
 	public static String FIELD_FIN_YEAR = "fin_year";
+	public static String FIELD_SETTLED = "settled";
+	public static String FIELD_SETTLED_AMOUNT = "settled_amount";
+	public static String FIELD_BALANCE_AMOUNT = "balance_amount";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -151,6 +153,15 @@ public abstract class Baseledger extends BaseResource {
 		Field fin_yearField = new Field("fin_year", "String");
 		metaData.addField(fin_yearField);
 
+		Field settledField = new Field("settled", "String");
+		metaData.addField(settledField);
+
+		Field settled_amountField = new Field("settled_amount", "double");
+		metaData.addField(settled_amountField);
+
+		Field balance_amountField = new Field("balance_amount", "double");
+		metaData.addField(balance_amountField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -167,8 +178,7 @@ public abstract class Baseledger extends BaseResource {
 		metaData.setCluster("DB_ACCOUNT");
 	}
 
-	public Baseledger() {
-	}
+	public Baseledger() {}
 
 	public Baseledger(Baseledger obj) {
 		this.id = obj.id;
@@ -191,6 +201,9 @@ public abstract class Baseledger extends BaseResource {
 		this.dr_amount = obj.dr_amount;
 		this.cr_amount = obj.cr_amount;
 		this.fin_year = obj.fin_year;
+		this.settled = obj.settled;
+		this.settled_amount = obj.settled_amount;
+		this.balance_amount = obj.balance_amount;
 		this.creation_time = obj.creation_time;
 		this.last_update_time = obj.last_update_time;
 		this.extra_data = obj.extra_data;
@@ -202,102 +215,114 @@ public abstract class Baseledger extends BaseResource {
 
 	public Map<String, Object> convertResourceToMap() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		if (id != null)
+		if(id != null)
 			map.put("id", id);
-		if (customer_id != null)
+		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if (community_id != null)
+		if(community_id != null)
 			map.put("community_id", community_id);
-		if (code != null)
+		if(code != null)
 			map.put("code", code);
-		if (reference_id != null)
+		if(reference_id != null)
 			map.put("reference_id", reference_id);
-		if (voucher_no != null)
+		if(voucher_no != null)
 			map.put("voucher_no", voucher_no);
-		if (voucher_type != null)
+		if(voucher_type != null)
 			map.put("voucher_type", voucher_type);
-		if (event_date_str != null)
+		if(event_date_str != null)
 			map.put("event_date_str", event_date_str);
-		if (event_date != null)
+		if(event_date != null)
 			map.put("event_date", event_date);
-		if (particular != null)
+		if(particular != null)
 			map.put("particular", particular);
-		if (company_name != null)
+		if(company_name != null)
 			map.put("company_name", company_name);
-		if (account_customer_id != null)
+		if(account_customer_id != null)
 			map.put("account_customer_id", account_customer_id);
-		if (account_id != null)
+		if(account_id != null)
 			map.put("account_id", account_id);
-		if (account_name != null)
+		if(account_name != null)
 			map.put("account_name", account_name);
-		if (balance != null)
+		if(balance != null)
 			map.put("balance", balance);
-		if (opening_balance != null)
+		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
-		if (closing_balance != null)
+		if(closing_balance != null)
 			map.put("closing_balance", closing_balance);
-		if (dr_amount != null)
+		if(dr_amount != null)
 			map.put("dr_amount", dr_amount);
-		if (cr_amount != null)
+		if(cr_amount != null)
 			map.put("cr_amount", cr_amount);
-		if (fin_year != null)
+		if(fin_year != null)
 			map.put("fin_year", fin_year);
-		if (creation_time != null)
+		if(settled != null)
+			map.put("settled", settled);
+		if(settled_amount != null)
+			map.put("settled_amount", settled_amount);
+		if(balance_amount != null)
+			map.put("balance_amount", balance_amount);
+		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (last_update_time != null)
+		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
-		if (extra_data != null)
+		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		if (validateId(add))
+		if(validateId(add))
 			map.put("id", id);
-		if (customer_id != null)
+		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if (community_id != null)
+		if(community_id != null)
 			map.put("community_id", community_id);
-		if (code != null)
+		if(code != null)
 			map.put("code", code);
-		if (reference_id != null)
+		if(reference_id != null)
 			map.put("reference_id", reference_id);
-		if (voucher_no != null)
+		if(voucher_no != null)
 			map.put("voucher_no", voucher_no);
-		if (voucher_type != null)
+		if(voucher_type != null)
 			map.put("voucher_type", voucher_type);
-		if (event_date_str != null)
+		if(event_date_str != null)
 			map.put("event_date_str", event_date_str);
-		if (event_date != null)
+		if(event_date != null)
 			map.put("event_date", event_date);
-		if (particular != null)
+		if(particular != null)
 			map.put("particular", particular);
-		if (company_name != null)
+		if(company_name != null)
 			map.put("company_name", company_name);
-		if (account_customer_id != null)
+		if(account_customer_id != null)
 			map.put("account_customer_id", account_customer_id);
-		if (account_id != null)
+		if(account_id != null)
 			map.put("account_id", account_id);
-		if (account_name != null)
+		if(account_name != null)
 			map.put("account_name", account_name);
-		if (balance != null)
+		if(balance != null)
 			map.put("balance", balance);
-		if (opening_balance != null)
+		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
-		if (closing_balance != null)
+		if(closing_balance != null)
 			map.put("closing_balance", closing_balance);
-		if (dr_amount != null)
+		if(dr_amount != null)
 			map.put("dr_amount", dr_amount);
-		if (cr_amount != null)
+		if(cr_amount != null)
 			map.put("cr_amount", cr_amount);
-		if (fin_year != null)
+		if(fin_year != null)
 			map.put("fin_year", fin_year);
-		if (creation_time != null)
+		if(settled != null)
+			map.put("settled", settled);
+		if(settled_amount != null)
+			map.put("settled_amount", settled_amount);
+		if(balance_amount != null)
+			map.put("balance_amount", balance_amount);
+		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (last_update_time != null)
+		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
-		if (extra_data != null)
+		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
@@ -329,6 +354,9 @@ public abstract class Baseledger extends BaseResource {
 		dr_amount = (Double) map.get("dr_amount");
 		cr_amount = (Double) map.get("cr_amount");
 		fin_year = (String) map.get("fin_year");
+		settled = (String) map.get("settled");
+		settled_amount = (Double) map.get("settled_amount");
+		balance_amount = (Double) map.get("balance_amount");
 		creation_time = (Long) map.get("creation_time");
 		last_update_time = (Long) map.get("last_update_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -337,91 +365,103 @@ public abstract class Baseledger extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
-		if (idObj != null)
+		if(idObj != null)
 			id = idObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
-		if (customer_idObj != null)
+		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
 
 		Object community_idObj = map.get("community_id");
-		if (community_idObj != null)
+		if(community_idObj != null)
 			community_id = community_idObj.toString();
 
 		Object codeObj = map.get("code");
-		if (codeObj != null)
+		if(codeObj != null)
 			code = codeObj.toString();
 
 		Object reference_idObj = map.get("reference_id");
-		if (reference_idObj != null)
+		if(reference_idObj != null)
 			reference_id = reference_idObj.toString();
 
 		Object voucher_noObj = map.get("voucher_no");
-		if (voucher_noObj != null)
+		if(voucher_noObj != null)
 			voucher_no = voucher_noObj.toString();
 
 		Object voucher_typeObj = map.get("voucher_type");
-		if (voucher_typeObj != null)
+		if(voucher_typeObj != null)
 			voucher_type = voucher_typeObj.toString();
 
 		Object event_date_strObj = map.get("event_date_str");
-		if (event_date_strObj != null)
+		if(event_date_strObj != null)
 			event_date_str = event_date_strObj.toString();
 
 		Object event_dateObj = map.get("event_date");
-		if (event_dateObj != null)
+		if(event_dateObj != null)
 			event_date = new Long(event_dateObj.toString());
 
 		Object particularObj = map.get("particular");
-		if (particularObj != null)
+		if(particularObj != null)
 			particular = particularObj.toString();
 
 		Object company_nameObj = map.get("company_name");
-		if (company_nameObj != null)
+		if(company_nameObj != null)
 			company_name = company_nameObj.toString();
 
 		Object account_customer_idObj = map.get("account_customer_id");
-		if (account_customer_idObj != null)
+		if(account_customer_idObj != null)
 			account_customer_id = account_customer_idObj.toString();
 
 		Object account_idObj = map.get("account_id");
-		if (account_idObj != null)
+		if(account_idObj != null)
 			account_id = account_idObj.toString();
 
 		Object account_nameObj = map.get("account_name");
-		if (account_nameObj != null)
+		if(account_nameObj != null)
 			account_name = account_nameObj.toString();
 
 		Object balanceObj = map.get("balance");
-		if (balanceObj != null)
+		if(balanceObj != null)
 			balance = new Double(balanceObj.toString());
 
 		Object opening_balanceObj = map.get("opening_balance");
-		if (opening_balanceObj != null)
+		if(opening_balanceObj != null)
 			opening_balance = new Double(opening_balanceObj.toString());
 
 		Object closing_balanceObj = map.get("closing_balance");
-		if (closing_balanceObj != null)
+		if(closing_balanceObj != null)
 			closing_balance = new Double(closing_balanceObj.toString());
 
 		Object dr_amountObj = map.get("dr_amount");
-		if (dr_amountObj != null)
+		if(dr_amountObj != null)
 			dr_amount = new Double(dr_amountObj.toString());
 
 		Object cr_amountObj = map.get("cr_amount");
-		if (cr_amountObj != null)
+		if(cr_amountObj != null)
 			cr_amount = new Double(cr_amountObj.toString());
 
 		Object fin_yearObj = map.get("fin_year");
-		if (fin_yearObj != null)
+		if(fin_yearObj != null)
 			fin_year = fin_yearObj.toString();
 
+		Object settledObj = map.get("settled");
+		if(settledObj != null)
+			settled = settledObj.toString();
+
+		Object settled_amountObj = map.get("settled_amount");
+		if(settled_amountObj != null)
+			settled_amount = new Double(settled_amountObj.toString());
+
+		Object balance_amountObj = map.get("balance_amount");
+		if(balance_amountObj != null)
+			balance_amount = new Double(balance_amountObj.toString());
+
 		Object creation_timeObj = map.get("creation_time");
-		if (creation_timeObj != null)
+		if(creation_timeObj != null)
 			creation_time = new Long(creation_timeObj.toString());
 
 		Object last_update_timeObj = map.get("last_update_time");
-		if (last_update_timeObj != null)
+		if(last_update_timeObj != null)
 			last_update_time = new Long(last_update_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -450,7 +490,7 @@ public abstract class Baseledger extends BaseResource {
 	}
 
 	public boolean validateId(boolean add) throws ApplicationException {
-		if (add && id == null)
+		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
 	}
@@ -783,6 +823,62 @@ public abstract class Baseledger extends BaseResource {
 		this.fin_year = null;
 	}
 
+	public String getSettled() {
+		return settled;
+	}
+
+	public String getSettledEx() {
+		return settled != null ? settled : "";
+	}
+
+	public void setSettled(String settled) {
+		this.settled = settled;
+	}
+
+	public void unSetSettled() {
+		this.settled = null;
+	}
+
+	public Double getSettled_amount() {
+		return settled_amount;
+	}
+
+	public double getSettled_amountEx() {
+		return settled_amount != null ? settled_amount : 0;
+	}
+
+	public void setSettled_amount(double settled_amount) {
+		this.settled_amount = settled_amount;
+	}
+
+	public void setSettled_amount(Double settled_amount) {
+		this.settled_amount = settled_amount;
+	}
+
+	public void unSetSettled_amount() {
+		this.settled_amount = null;
+	}
+
+	public Double getBalance_amount() {
+		return balance_amount;
+	}
+
+	public double getBalance_amountEx() {
+		return balance_amount != null ? balance_amount : 0;
+	}
+
+	public void setBalance_amount(double balance_amount) {
+		this.balance_amount = balance_amount;
+	}
+
+	public void setBalance_amount(Double balance_amount) {
+		this.balance_amount = balance_amount;
+	}
+
+	public void unSetBalance_amount() {
+		this.balance_amount = null;
+	}
+
 	public Long getCreation_time() {
 		return creation_time;
 	}
@@ -814,7 +910,7 @@ public abstract class Baseledger extends BaseResource {
 	}
 
 	public void setExtra_data(String key, Object value) {
-		if (extra_data == null)
+		if(extra_data == null)
 			extra_data = new HashMap<String, Object>();
 		extra_data.put(key, value);
 	}

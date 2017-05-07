@@ -9,14 +9,10 @@
 
 package application.account.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -185,11 +181,11 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("id", id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if (community_id != null)
+		if(community_id != null)
 			map.put("community_id", community_id);
-		if (code != null)
+		if(code != null)
 			map.put("code", code);
-		if (group_name != null)
+		if(group_name != null)
 			map.put("group_name", group_name);
 		if(company_name != null)
 			map.put("company_name", company_name);
@@ -205,19 +201,19 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
-		if (opening_balance != null)
+		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
-		if (closing_balance != null)
+		if(closing_balance != null)
 			map.put("closing_balance", closing_balance);
-		if (total_dr != null)
+		if(total_dr != null)
 			map.put("total_dr", total_dr);
-		if (total_cr != null)
+		if(total_cr != null)
 			map.put("total_cr", total_cr);
-		if (fin_year != null)
+		if(fin_year != null)
 			map.put("fin_year", fin_year);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (last_update_time != null)
+		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
@@ -230,11 +226,11 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("id", id);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if (community_id != null)
+		if(community_id != null)
 			map.put("community_id", community_id);
-		if (code != null)
+		if(code != null)
 			map.put("code", code);
-		if (group_name != null)
+		if(group_name != null)
 			map.put("group_name", group_name);
 		if(company_name != null)
 			map.put("company_name", company_name);
@@ -250,19 +246,19 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
-		if (opening_balance != null)
+		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
-		if (closing_balance != null)
+		if(closing_balance != null)
 			map.put("closing_balance", closing_balance);
-		if (total_dr != null)
+		if(total_dr != null)
 			map.put("total_dr", total_dr);
-		if (total_cr != null)
+		if(total_cr != null)
 			map.put("total_cr", total_cr);
-		if (fin_year != null)
+		if(fin_year != null)
 			map.put("fin_year", fin_year);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (last_update_time != null)
+		if(last_update_time != null)
 			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
@@ -309,15 +305,15 @@ public abstract class Baseaccount extends BaseResource {
 			customer_id = customer_idObj.toString();
 
 		Object community_idObj = map.get("community_id");
-		if (community_idObj != null)
+		if(community_idObj != null)
 			community_id = community_idObj.toString();
 
 		Object codeObj = map.get("code");
-		if (codeObj != null)
+		if(codeObj != null)
 			code = codeObj.toString();
 
 		Object group_nameObj = map.get("group_name");
-		if (group_nameObj != null)
+		if(group_nameObj != null)
 			group_name = group_nameObj.toString();
 
 		Object company_nameObj = map.get("company_name");
@@ -349,23 +345,23 @@ public abstract class Baseaccount extends BaseResource {
 			balance = new Double(balanceObj.toString());
 
 		Object opening_balanceObj = map.get("opening_balance");
-		if (opening_balanceObj != null)
+		if(opening_balanceObj != null)
 			opening_balance = new Double(opening_balanceObj.toString());
 
 		Object closing_balanceObj = map.get("closing_balance");
-		if (closing_balanceObj != null)
+		if(closing_balanceObj != null)
 			closing_balance = new Double(closing_balanceObj.toString());
 
 		Object total_drObj = map.get("total_dr");
-		if (total_drObj != null)
+		if(total_drObj != null)
 			total_dr = new Double(total_drObj.toString());
 
 		Object total_crObj = map.get("total_cr");
-		if (total_crObj != null)
+		if(total_crObj != null)
 			total_cr = new Double(total_crObj.toString());
 
 		Object fin_yearObj = map.get("fin_year");
-		if (fin_yearObj != null)
+		if(fin_yearObj != null)
 			fin_year = fin_yearObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
@@ -373,7 +369,7 @@ public abstract class Baseaccount extends BaseResource {
 			creation_time = new Long(creation_timeObj.toString());
 
 		Object last_update_timeObj = map.get("last_update_time");
-		if (last_update_timeObj != null)
+		if(last_update_timeObj != null)
 			last_update_time = new Long(last_update_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");

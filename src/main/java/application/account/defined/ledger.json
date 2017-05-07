@@ -77,6 +77,15 @@
       'fin_year': {
         'type': 'String'
       },
+      'settled': {
+        'type': 'String'
+      },
+      'settled_amount': {
+        'type': 'double'
+      },
+      'balance_amount': {
+        'type': 'double'
+      },
       'creation_time': {
         'type': 'timestamp'
       },
