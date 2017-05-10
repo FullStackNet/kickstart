@@ -63,6 +63,7 @@ public class ApartmentMenuView extends BaseView {
 		LI li = new LI(null,"");
 		ul.addChild(li);
 		A a = new A();
+		a.setHref("/ui/apartment_security");
 		a.setText("<i class=\"fa fa-institution\"></i> Security");
 		li.addChild(a);
 		
@@ -77,6 +78,7 @@ public class ApartmentMenuView extends BaseView {
 		li = new LI(null,"");
 		ul.addChild(li);
 		 a = new A();
+		 a.setHref("/ui/apartment_facility");
 		a.setText("<i class=\"fa fa-laptop\"></i> Facility");
 		li.addChild(a);
 		
@@ -90,6 +92,7 @@ public class ApartmentMenuView extends BaseView {
 		li = new LI(null,"");
 		ul.addChild(li);
 		a = new A();
+		a.setHref("/ui/apartment_account");
 		a.setText("<i class=\"fa fa-newspaper-o\"></i> Account");
 		li.addChild(a);
 		
