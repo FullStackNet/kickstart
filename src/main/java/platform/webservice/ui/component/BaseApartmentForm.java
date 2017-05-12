@@ -102,8 +102,10 @@ public abstract class BaseApartmentForm extends BaseView {
 		
 		if (mDefinition.getWidth() == 100) {
 			getView().addStyle("width","100%");
+			getView().addStyle("margin","30px");
 		} else {
 			getView().addStyle("width",mDefinition.getWidth()+"px");
+			getView().addStyle("margin","30px");
 		}
 		Div headerDiv =  new Div();
 		getView().addChild(headerDiv);
@@ -112,7 +114,7 @@ public abstract class BaseApartmentForm extends BaseView {
 		h2.addStyle("background-color", "silver");
 		h2.addStyle("padding", "6px");
 		
-		h2.addAttribute("class","font-22 text-center no-margin text-gray-black padding-b-5");
+		h2.addAttribute("class","font-18 text-center no-margin text-gray-black padding-b-5");
 		headerDiv.addChild(h2);
 		Div clearDiv =  new Div(null,"clearfix");
 		getView().addChild(clearDiv);
