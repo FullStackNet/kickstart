@@ -50,6 +50,7 @@ public abstract class BaseApartmentForm extends BaseView {
 		mContext = ctx;
 		ctx.getPageBuilder().addJS(new JS("action_handle.js", "/ui/js/"));
 		getView().addChild(mForm);
+		getDefinition().setWidth(100);
 	}
 
 	public void setDefinition(FormDefinition formDefinition) {
