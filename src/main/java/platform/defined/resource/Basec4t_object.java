@@ -9,14 +9,10 @@
 
 package platform.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -258,6 +254,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String onion_business = null;
 	private String valid_mandi_main_imie = null;
 	private String valid_mandi_secondary_imie = null;
+	private String repos_protocol = null;
 	private String repos_server = null;
 	private String repos_server_port = null;
 	private String repos_username = null;
@@ -500,6 +497,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_ONION_BUSINESS = "onion_business";
 	public static String FIELD_VALID_MANDI_MAIN_IMIE = "valid_mandi_main_imie";
 	public static String FIELD_VALID_MANDI_SECONDARY_IMIE = "valid_mandi_secondary_imie";
+	public static String FIELD_REPOS_PROTOCOL = "repos_protocol";
 	public static String FIELD_REPOS_SERVER = "repos_server";
 	public static String FIELD_REPOS_SERVER_PORT = "repos_server_port";
 	public static String FIELD_REPOS_USERNAME = "repos_username";
@@ -1402,6 +1400,10 @@ public abstract class Basec4t_object extends BaseResource {
 		valid_mandi_secondary_imieField.setLength(128);
 		metaData.addField(valid_mandi_secondary_imieField);
 
+		Field repos_protocolField = new Field("repos_protocol", "String");
+		repos_protocolField.setLength(10);
+		metaData.addField(repos_protocolField);
+
 		Field repos_serverField = new Field("repos_server", "String");
 		repos_serverField.setLength(128);
 		metaData.addField(repos_serverField);
@@ -1670,6 +1672,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.onion_business = obj.onion_business;
 		this.valid_mandi_main_imie = obj.valid_mandi_main_imie;
 		this.valid_mandi_secondary_imie = obj.valid_mandi_secondary_imie;
+		this.repos_protocol = obj.repos_protocol;
 		this.repos_server = obj.repos_server;
 		this.repos_server_port = obj.repos_server_port;
 		this.repos_username = obj.repos_username;
@@ -2154,13 +2157,15 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("valid_mandi_main_imie", valid_mandi_main_imie);
 		if(valid_mandi_secondary_imie != null)
 			map.put("valid_mandi_secondary_imie", valid_mandi_secondary_imie);
-		if (repos_server != null)
+		if(repos_protocol != null)
+			map.put("repos_protocol", repos_protocol);
+		if(repos_server != null)
 			map.put("repos_server", repos_server);
-		if (repos_server_port != null)
+		if(repos_server_port != null)
 			map.put("repos_server_port", repos_server_port);
-		if (repos_username != null)
+		if(repos_username != null)
 			map.put("repos_username", repos_username);
-		if (repos_password != null)
+		if(repos_password != null)
 			map.put("repos_password", repos_password);
 		if(available_time != null)
 			map.put("available_time", available_time);
@@ -2641,13 +2646,15 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("valid_mandi_main_imie", valid_mandi_main_imie);
 		if(valid_mandi_secondary_imie != null)
 			map.put("valid_mandi_secondary_imie", valid_mandi_secondary_imie);
-		if (repos_server != null)
+		if(repos_protocol != null)
+			map.put("repos_protocol", repos_protocol);
+		if(repos_server != null)
 			map.put("repos_server", repos_server);
-		if (repos_server_port != null)
+		if(repos_server_port != null)
 			map.put("repos_server_port", repos_server_port);
-		if (repos_username != null)
+		if(repos_username != null)
 			map.put("repos_username", repos_username);
-		if (repos_password != null)
+		if(repos_password != null)
 			map.put("repos_password", repos_password);
 		if(available_time != null)
 			map.put("available_time", available_time);
@@ -2898,6 +2905,7 @@ public abstract class Basec4t_object extends BaseResource {
 		onion_business = (String) map.get("onion_business");
 		valid_mandi_main_imie = (String) map.get("valid_mandi_main_imie");
 		valid_mandi_secondary_imie = (String) map.get("valid_mandi_secondary_imie");
+		repos_protocol = (String) map.get("repos_protocol");
 		repos_server = (String) map.get("repos_server");
 		repos_server_port = (String) map.get("repos_server_port");
 		repos_username = (String) map.get("repos_username");
@@ -3848,20 +3856,24 @@ public abstract class Basec4t_object extends BaseResource {
 		if(valid_mandi_secondary_imieObj != null)
 			valid_mandi_secondary_imie = valid_mandi_secondary_imieObj.toString();
 
+		Object repos_protocolObj = map.get("repos_protocol");
+		if(repos_protocolObj != null)
+			repos_protocol = repos_protocolObj.toString();
+
 		Object repos_serverObj = map.get("repos_server");
-		if (repos_serverObj != null)
+		if(repos_serverObj != null)
 			repos_server = repos_serverObj.toString();
 
 		Object repos_server_portObj = map.get("repos_server_port");
-		if (repos_server_portObj != null)
+		if(repos_server_portObj != null)
 			repos_server_port = repos_server_portObj.toString();
 
 		Object repos_usernameObj = map.get("repos_username");
-		if (repos_usernameObj != null)
+		if(repos_usernameObj != null)
 			repos_username = repos_usernameObj.toString();
 
 		Object repos_passwordObj = map.get("repos_password");
-		if (repos_passwordObj != null)
+		if(repos_passwordObj != null)
 			repos_password = repos_passwordObj.toString();
 
 		Object available_timeObj = map.get("available_time");
@@ -7745,6 +7757,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetValid_mandi_secondary_imie() {
 		this.valid_mandi_secondary_imie = null;
+	}
+
+	public String getRepos_protocol() {
+		return repos_protocol;
+	}
+
+	public String getRepos_protocolEx() {
+		return repos_protocol != null ? repos_protocol : "";
+	}
+
+	public void setRepos_protocol(String repos_protocol) {
+		this.repos_protocol = repos_protocol;
+	}
+
+	public void unSetRepos_protocol() {
+		this.repos_protocol = null;
 	}
 
 	public String getRepos_server() {

@@ -9,24 +9,7 @@ import platform.util.Util;
 import platform.webservice.ui.UIServletContext;
 import platform.webservice.ui.definition.Field;
 import platform.webservice.ui.definition.TableDefinition;
-import platform.webservice.ui.html.A;
-import platform.webservice.ui.html.BUTTON;
-import platform.webservice.ui.html.Div;
-import platform.webservice.ui.html.FORM;
-import platform.webservice.ui.html.H4;
-import platform.webservice.ui.html.HIDDEN;
-import platform.webservice.ui.html.IMG;
-import platform.webservice.ui.html.JS;
-import platform.webservice.ui.html.P;
-import platform.webservice.ui.html.SPAN;
-import platform.webservice.ui.html.TABLE;
-import platform.webservice.ui.html.TBODY;
-import platform.webservice.ui.html.TD;
-import platform.webservice.ui.html.TEXT;
-import platform.webservice.ui.html.TEXTEDIT;
-import platform.webservice.ui.html.TH;
-import platform.webservice.ui.html.THEAD;
-import platform.webservice.ui.html.TR;
+import platform.webservice.ui.html.*;
 import platform.webservice.ui.renderer.BaseRenderer;
 import platform.webservice.ui.util.Attribute;
 import platform.webservice.ui.util.ImageUtils;
@@ -348,7 +331,7 @@ public abstract class BaseApartmentTableView extends BaseView {
 		}
 		boolean requiredSeperator = false;
 		if (mDefinition.isModifyButton() && (url != null)) {
-			A _editlink = new A(null,"glyphicon glyphicon-pencil");
+			A _editlink = new A(null,"");
 			_editlink.setHref(url);
 			_editlink.addStyle("color", "#0092a9");
 			/*_editlink.addStyle("background-color", "#99ffd6");
@@ -360,7 +343,7 @@ public abstract class BaseApartmentTableView extends BaseView {
 			_editlink.addStyle("padding-top", "4px");
 			_editlink.addStyle("padding-bottom", "4px");
 			*/	
-			_editlink.setText("");
+			_editlink.setText("<i class=\"font-14 fa fa-pencil\"></i>");
 			_editlink.addAttribute("title","Edit");
 			actiontd.addChild(_editlink);
 			requiredSeperator = true;
@@ -374,7 +357,7 @@ public abstract class BaseApartmentTableView extends BaseView {
 			span.setText("&nbsp;&nbsp;");			
 			actiontd.addChild(span);
 			String id = (String)data.get("id");
-			 A _link = new A(null,"glyphicon glyphicon-remove-circle");
+			 A _link = new A(null,"");
 			_link.setHref("#");
 			_link.addAttribute("onClick","ActionHandler.callDelete('"+deleteUrl+"','"+id+"')");
 			_link.addAttribute("title","Delete");
@@ -387,6 +370,7 @@ public abstract class BaseApartmentTableView extends BaseView {
 			_link.addStyle("padding-right", "10px");
 			_link.addStyle("padding-top", "4px");
 			_link.addStyle("padding-bottom", "4px");*/
+			_link.setText("<i style=\"color:red;\" class=\"font-14 fa fa-minus-circle\"></i>");
 			actiontd.addChild(_link);
 		}
 		row.addChild(actiontd);

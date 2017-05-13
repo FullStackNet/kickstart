@@ -1133,6 +1133,10 @@
 				'type':'String',
 				'length': 128
 			},
+			'repos_protocol': {
+				'type': 'String',
+				'length': 10
+			},
 			'repos_server': {
 				'type': 'String',
 				'length': 128

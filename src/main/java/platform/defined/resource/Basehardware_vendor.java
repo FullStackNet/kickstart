@@ -9,16 +9,10 @@
 
 package platform.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
