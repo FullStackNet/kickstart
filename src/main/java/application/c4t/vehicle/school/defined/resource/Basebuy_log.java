@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -179,7 +175,7 @@ public abstract class Basebuy_log extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(amount != null)
 			map.put("amount", amount);
-		if (provider_amount != null)
+		if(provider_amount != null)
 			map.put("provider_amount", provider_amount);
 		if(item_type != null)
 			map.put("item_type", item_type);
@@ -189,13 +185,13 @@ public abstract class Basebuy_log extends BaseResource {
 			map.put("item_id", item_id);
 		if(item_name != null)
 			map.put("item_name", item_name);
-		if (provider_id != null)
+		if(provider_id != null)
 			map.put("provider_id", provider_id);
-		if (provider_name != null)
+		if(provider_name != null)
 			map.put("provider_name", provider_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if (remark != null)
+		if(remark != null)
 			map.put("remark", remark);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
@@ -218,7 +214,7 @@ public abstract class Basebuy_log extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(amount != null)
 			map.put("amount", amount);
-		if (provider_amount != null)
+		if(provider_amount != null)
 			map.put("provider_amount", provider_amount);
 		if(item_type != null)
 			map.put("item_type", item_type);
@@ -228,13 +224,13 @@ public abstract class Basebuy_log extends BaseResource {
 			map.put("item_id", item_id);
 		if(item_name != null)
 			map.put("item_name", item_name);
-		if (provider_id != null)
+		if(provider_id != null)
 			map.put("provider_id", provider_id);
-		if (provider_name != null)
+		if(provider_name != null)
 			map.put("provider_name", provider_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if (remark != null)
+		if(remark != null)
 			map.put("remark", remark);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
@@ -298,7 +294,7 @@ public abstract class Basebuy_log extends BaseResource {
 			amount = new Double(amountObj.toString());
 
 		Object provider_amountObj = map.get("provider_amount");
-		if (provider_amountObj != null)
+		if(provider_amountObj != null)
 			provider_amount = new Double(provider_amountObj.toString());
 
 		Object item_typeObj = map.get("item_type");
@@ -318,11 +314,11 @@ public abstract class Basebuy_log extends BaseResource {
 			item_name = item_nameObj.toString();
 
 		Object provider_idObj = map.get("provider_id");
-		if (provider_idObj != null)
+		if(provider_idObj != null)
 			provider_id = provider_idObj.toString();
 
 		Object provider_nameObj = map.get("provider_name");
-		if (provider_nameObj != null)
+		if(provider_nameObj != null)
 			provider_name = provider_nameObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
@@ -330,7 +326,7 @@ public abstract class Basebuy_log extends BaseResource {
 			customer_id = customer_idObj.toString();
 
 		Object remarkObj = map.get("remark");
-		if (remarkObj != null)
+		if(remarkObj != null)
 			remark = remarkObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");

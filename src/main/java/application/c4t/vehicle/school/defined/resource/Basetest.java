@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -412,13 +408,13 @@ public abstract class Basetest extends BaseResource {
 			map.put("free_centre_student", free_centre_student);
 		if(allowed_attempts != null)
 			map.put("allowed_attempts", allowed_attempts);
-		if (context_enabled != null)
+		if(context_enabled != null)
 			map.put("context_enabled", context_enabled);
-		if (context_status != null)
+		if(context_status != null)
 			map.put("context_status", context_status);
 		if(price != null)
 			map.put("price", price);
-		if (contenst_reward != null)
+		if(contenst_reward != null)
 			map.put("contenst_reward", contenst_reward);
 		if(discount != null)
 			map.put("discount", discount);
@@ -444,9 +440,9 @@ public abstract class Basetest extends BaseResource {
 			map.put("provider_id", provider_id);
 		if(provider_name != null)
 			map.put("provider_name", provider_name);
-		if (user_id != null)
+		if(user_id != null)
 			map.put("user_id", user_id);
-		if (user_name != null)
+		if(user_name != null)
 			map.put("user_name", user_name);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
@@ -470,25 +466,25 @@ public abstract class Basetest extends BaseResource {
 			map.put("total_student_allocations", total_student_allocations);
 		if(total_student_attempted != null)
 			map.put("total_student_attempted", total_student_attempted);
-		if (start_date != null)
+		if(start_date != null)
 			map.put("start_date", start_date);
-		if (start_time_s != null)
+		if(start_time_s != null)
 			map.put("start_time_s", start_time_s);
-		if (start_date_str != null)
+		if(start_date_str != null)
 			map.put("start_date_str", start_date_str);
-		if (end_time_s != null)
+		if(end_time_s != null)
 			map.put("end_time_s", end_time_s);
-		if (end_date != null)
+		if(end_date != null)
 			map.put("end_date", end_date);
-		if (end_date_str != null)
+		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
-		if (immediate_result != null)
+		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
-		if (result_date != null)
+		if(result_date != null)
 			map.put("result_date", result_date);
-		if (result_date_s != null)
+		if(result_date_s != null)
 			map.put("result_date_s", result_date_s);
-		if (result_time_s != null)
+		if(result_time_s != null)
 			map.put("result_time_s", result_time_s);
 		if(highest_marks != null)
 			map.put("highest_marks", highest_marks);
@@ -525,13 +521,13 @@ public abstract class Basetest extends BaseResource {
 			map.put("free_centre_student", free_centre_student);
 		if(allowed_attempts != null)
 			map.put("allowed_attempts", allowed_attempts);
-		if (context_enabled != null)
+		if(context_enabled != null)
 			map.put("context_enabled", context_enabled);
-		if (context_status != null)
+		if(context_status != null)
 			map.put("context_status", context_status);
 		if(price != null)
 			map.put("price", price);
-		if (contenst_reward != null)
+		if(contenst_reward != null)
 			map.put("contenst_reward", contenst_reward);
 		if(discount != null)
 			map.put("discount", discount);
@@ -557,9 +553,9 @@ public abstract class Basetest extends BaseResource {
 			map.put("provider_id", provider_id);
 		if(provider_name != null)
 			map.put("provider_name", provider_name);
-		if (user_id != null)
+		if(user_id != null)
 			map.put("user_id", user_id);
-		if (user_name != null)
+		if(user_name != null)
 			map.put("user_name", user_name);
 		if(subject_name != null)
 			map.put("subject_name", subject_name);
@@ -583,25 +579,25 @@ public abstract class Basetest extends BaseResource {
 			map.put("total_student_allocations", total_student_allocations);
 		if(total_student_attempted != null)
 			map.put("total_student_attempted", total_student_attempted);
-		if (start_date != null)
+		if(start_date != null)
 			map.put("start_date", start_date);
-		if (start_time_s != null)
+		if(start_time_s != null)
 			map.put("start_time_s", start_time_s);
-		if (start_date_str != null)
+		if(start_date_str != null)
 			map.put("start_date_str", start_date_str);
-		if (end_time_s != null)
+		if(end_time_s != null)
 			map.put("end_time_s", end_time_s);
-		if (end_date != null)
+		if(end_date != null)
 			map.put("end_date", end_date);
-		if (end_date_str != null)
+		if(end_date_str != null)
 			map.put("end_date_str", end_date_str);
-		if (immediate_result != null)
+		if(immediate_result != null)
 			map.put("immediate_result", immediate_result);
-		if (result_date != null)
+		if(result_date != null)
 			map.put("result_date", result_date);
-		if (result_date_s != null)
+		if(result_date_s != null)
 			map.put("result_date_s", result_date_s);
-		if (result_time_s != null)
+		if(result_time_s != null)
 			map.put("result_time_s", result_time_s);
 		if(highest_marks != null)
 			map.put("highest_marks", highest_marks);
@@ -714,11 +710,11 @@ public abstract class Basetest extends BaseResource {
 			allowed_attempts = new Long(allowed_attemptsObj.toString());
 
 		Object context_enabledObj = map.get("context_enabled");
-		if (context_enabledObj != null)
+		if(context_enabledObj != null)
 			context_enabled = context_enabledObj.toString();
 
 		Object context_statusObj = map.get("context_status");
-		if (context_statusObj != null)
+		if(context_statusObj != null)
 			context_status = context_statusObj.toString();
 
 		Object priceObj = map.get("price");
@@ -726,7 +722,7 @@ public abstract class Basetest extends BaseResource {
 			price = new Double(priceObj.toString());
 
 		Object contenst_rewardObj = map.get("contenst_reward");
-		if (contenst_rewardObj != null)
+		if(contenst_rewardObj != null)
 			contenst_reward = new Double(contenst_rewardObj.toString());
 
 		Object discountObj = map.get("discount");
@@ -778,11 +774,11 @@ public abstract class Basetest extends BaseResource {
 			provider_name = provider_nameObj.toString();
 
 		Object user_idObj = map.get("user_id");
-		if (user_idObj != null)
+		if(user_idObj != null)
 			user_id = user_idObj.toString();
 
 		Object user_nameObj = map.get("user_name");
-		if (user_nameObj != null)
+		if(user_nameObj != null)
 			user_name = user_nameObj.toString();
 
 		Object subject_nameObj = map.get("subject_name");
@@ -830,43 +826,43 @@ public abstract class Basetest extends BaseResource {
 			total_student_attempted = new Long(total_student_attemptedObj.toString());
 
 		Object start_dateObj = map.get("start_date");
-		if (start_dateObj != null)
+		if(start_dateObj != null)
 			start_date = new Long(start_dateObj.toString());
 
 		Object start_time_sObj = map.get("start_time_s");
-		if (start_time_sObj != null)
+		if(start_time_sObj != null)
 			start_time_s = start_time_sObj.toString();
 
 		Object start_date_strObj = map.get("start_date_str");
-		if (start_date_strObj != null)
+		if(start_date_strObj != null)
 			start_date_str = start_date_strObj.toString();
 
 		Object end_time_sObj = map.get("end_time_s");
-		if (end_time_sObj != null)
+		if(end_time_sObj != null)
 			end_time_s = end_time_sObj.toString();
 
 		Object end_dateObj = map.get("end_date");
-		if (end_dateObj != null)
+		if(end_dateObj != null)
 			end_date = new Long(end_dateObj.toString());
 
 		Object end_date_strObj = map.get("end_date_str");
-		if (end_date_strObj != null)
+		if(end_date_strObj != null)
 			end_date_str = end_date_strObj.toString();
 
 		Object immediate_resultObj = map.get("immediate_result");
-		if (immediate_resultObj != null)
+		if(immediate_resultObj != null)
 			immediate_result = immediate_resultObj.toString();
 
 		Object result_dateObj = map.get("result_date");
-		if (result_dateObj != null)
+		if(result_dateObj != null)
 			result_date = new Long(result_dateObj.toString());
 
 		Object result_date_sObj = map.get("result_date_s");
-		if (result_date_sObj != null)
+		if(result_date_sObj != null)
 			result_date_s = result_date_sObj.toString();
 
 		Object result_time_sObj = map.get("result_time_s");
-		if (result_time_sObj != null)
+		if(result_time_sObj != null)
 			result_time_s = result_time_sObj.toString();
 
 		Object highest_marksObj = map.get("highest_marks");

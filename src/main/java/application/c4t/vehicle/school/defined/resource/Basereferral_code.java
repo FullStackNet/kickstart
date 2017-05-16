@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -100,8 +96,7 @@ public abstract class Basereferral_code extends BaseResource {
 		metaData.setCluster("DB_LOG");
 	}
 
-	public Basereferral_code() {
-	}
+	public Basereferral_code() {}
 
 	public Basereferral_code(Basereferral_code obj) {
 		this.id = obj.id;
@@ -123,54 +118,54 @@ public abstract class Basereferral_code extends BaseResource {
 
 	public Map<String, Object> convertResourceToMap() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		if (id != null)
+		if(id != null)
 			map.put("id", id);
-		if (code != null)
+		if(code != null)
 			map.put("code", code);
-		if (code_type != null)
+		if(code_type != null)
 			map.put("code_type", code_type);
-		if (user_id != null)
+		if(user_id != null)
 			map.put("user_id", user_id);
-		if (user_name != null)
+		if(user_name != null)
 			map.put("user_name", user_name);
-		if (percentage != null)
+		if(percentage != null)
 			map.put("percentage", percentage);
-		if (amount != null)
+		if(amount != null)
 			map.put("amount", amount);
-		if (status != null)
+		if(status != null)
 			map.put("status", status);
-		if (creation_time != null)
+		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (expiry_time != null)
+		if(expiry_time != null)
 			map.put("expiry_time", expiry_time);
-		if (extra_data != null)
+		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		if (validateId(add))
+		if(validateId(add))
 			map.put("id", id);
-		if (code != null)
+		if(code != null)
 			map.put("code", code);
-		if (code_type != null)
+		if(code_type != null)
 			map.put("code_type", code_type);
-		if (user_id != null)
+		if(user_id != null)
 			map.put("user_id", user_id);
-		if (user_name != null)
+		if(user_name != null)
 			map.put("user_name", user_name);
-		if (percentage != null)
+		if(percentage != null)
 			map.put("percentage", percentage);
-		if (amount != null)
+		if(amount != null)
 			map.put("amount", amount);
-		if (status != null)
+		if(status != null)
 			map.put("status", status);
-		if (creation_time != null)
+		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (expiry_time != null)
+		if(expiry_time != null)
 			map.put("expiry_time", expiry_time);
-		if (extra_data != null)
+		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
@@ -198,43 +193,43 @@ public abstract class Basereferral_code extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
-		if (idObj != null)
+		if(idObj != null)
 			id = idObj.toString();
 
 		Object codeObj = map.get("code");
-		if (codeObj != null)
+		if(codeObj != null)
 			code = codeObj.toString();
 
 		Object code_typeObj = map.get("code_type");
-		if (code_typeObj != null)
+		if(code_typeObj != null)
 			code_type = code_typeObj.toString();
 
 		Object user_idObj = map.get("user_id");
-		if (user_idObj != null)
+		if(user_idObj != null)
 			user_id = user_idObj.toString();
 
 		Object user_nameObj = map.get("user_name");
-		if (user_nameObj != null)
+		if(user_nameObj != null)
 			user_name = user_nameObj.toString();
 
 		Object percentageObj = map.get("percentage");
-		if (percentageObj != null)
+		if(percentageObj != null)
 			percentage = new Double(percentageObj.toString());
 
 		Object amountObj = map.get("amount");
-		if (amountObj != null)
+		if(amountObj != null)
 			amount = new Double(amountObj.toString());
 
 		Object statusObj = map.get("status");
-		if (statusObj != null)
+		if(statusObj != null)
 			status = statusObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
-		if (creation_timeObj != null)
+		if(creation_timeObj != null)
 			creation_time = new Long(creation_timeObj.toString());
 
 		Object expiry_timeObj = map.get("expiry_time");
-		if (expiry_timeObj != null)
+		if(expiry_timeObj != null)
 			expiry_time = new Long(expiry_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -263,7 +258,7 @@ public abstract class Basereferral_code extends BaseResource {
 	}
 
 	public boolean validateId(boolean add) throws ApplicationException {
-		if (add && id == null)
+		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
 	}
@@ -419,7 +414,7 @@ public abstract class Basereferral_code extends BaseResource {
 	}
 
 	public void setExtra_data(String key, Object value) {
-		if (extra_data == null)
+		if(extra_data == null)
 			extra_data = new HashMap<String, Object>();
 		extra_data.put(key, value);
 	}

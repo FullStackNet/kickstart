@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -114,8 +110,7 @@ public abstract class Baserecharge_log extends BaseResource {
 		metaData.setCluster("DB_LOG");
 	}
 
-	public Baserecharge_log() {
-	}
+	public Baserecharge_log() {}
 
 	public Baserecharge_log(Baserecharge_log obj) {
 		this.id = obj.id;
@@ -139,62 +134,62 @@ public abstract class Baserecharge_log extends BaseResource {
 
 	public Map<String, Object> convertResourceToMap() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		if (id != null)
+		if(id != null)
 			map.put("id", id);
-		if (user_id != null)
+		if(user_id != null)
 			map.put("user_id", user_id);
-		if (user_name != null)
+		if(user_name != null)
 			map.put("user_name", user_name);
-		if (school_id != null)
+		if(school_id != null)
 			map.put("school_id", school_id);
-		if (school_name != null)
+		if(school_name != null)
 			map.put("school_name", school_name);
-		if (customer_id != null)
+		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if (customer_name != null)
+		if(customer_name != null)
 			map.put("customer_name", customer_name);
-		if (student_id != null)
+		if(student_id != null)
 			map.put("student_id", student_id);
-		if (student_name != null)
+		if(student_name != null)
 			map.put("student_name", student_name);
-		if (amount != null)
+		if(amount != null)
 			map.put("amount", amount);
-		if (status != null)
+		if(status != null)
 			map.put("status", status);
-		if (creation_time != null)
+		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (extra_data != null)
+		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		if (validateId(add))
+		if(validateId(add))
 			map.put("id", id);
-		if (user_id != null)
+		if(user_id != null)
 			map.put("user_id", user_id);
-		if (user_name != null)
+		if(user_name != null)
 			map.put("user_name", user_name);
-		if (school_id != null)
+		if(school_id != null)
 			map.put("school_id", school_id);
-		if (school_name != null)
+		if(school_name != null)
 			map.put("school_name", school_name);
-		if (customer_id != null)
+		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if (customer_name != null)
+		if(customer_name != null)
 			map.put("customer_name", customer_name);
-		if (student_id != null)
+		if(student_id != null)
 			map.put("student_id", student_id);
-		if (student_name != null)
+		if(student_name != null)
 			map.put("student_name", student_name);
-		if (amount != null)
+		if(amount != null)
 			map.put("amount", amount);
-		if (status != null)
+		if(status != null)
 			map.put("status", status);
-		if (creation_time != null)
+		if(creation_time != null)
 			map.put("creation_time", creation_time);
-		if (extra_data != null)
+		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
@@ -224,51 +219,51 @@ public abstract class Baserecharge_log extends BaseResource {
 	@SuppressWarnings("unchecked")
 	public void convertTypeUnsafeMapToResource(Map<String, Object> map) {
 		Object idObj = map.get("id");
-		if (idObj != null)
+		if(idObj != null)
 			id = idObj.toString();
 
 		Object user_idObj = map.get("user_id");
-		if (user_idObj != null)
+		if(user_idObj != null)
 			user_id = user_idObj.toString();
 
 		Object user_nameObj = map.get("user_name");
-		if (user_nameObj != null)
+		if(user_nameObj != null)
 			user_name = user_nameObj.toString();
 
 		Object school_idObj = map.get("school_id");
-		if (school_idObj != null)
+		if(school_idObj != null)
 			school_id = school_idObj.toString();
 
 		Object school_nameObj = map.get("school_name");
-		if (school_nameObj != null)
+		if(school_nameObj != null)
 			school_name = school_nameObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
-		if (customer_idObj != null)
+		if(customer_idObj != null)
 			customer_id = customer_idObj.toString();
 
 		Object customer_nameObj = map.get("customer_name");
-		if (customer_nameObj != null)
+		if(customer_nameObj != null)
 			customer_name = customer_nameObj.toString();
 
 		Object student_idObj = map.get("student_id");
-		if (student_idObj != null)
+		if(student_idObj != null)
 			student_id = student_idObj.toString();
 
 		Object student_nameObj = map.get("student_name");
-		if (student_nameObj != null)
+		if(student_nameObj != null)
 			student_name = student_nameObj.toString();
 
 		Object amountObj = map.get("amount");
-		if (amountObj != null)
+		if(amountObj != null)
 			amount = new Double(amountObj.toString());
 
 		Object statusObj = map.get("status");
-		if (statusObj != null)
+		if(statusObj != null)
 			status = statusObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
-		if (creation_timeObj != null)
+		if(creation_timeObj != null)
 			creation_time = new Long(creation_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -297,7 +292,7 @@ public abstract class Baserecharge_log extends BaseResource {
 	}
 
 	public boolean validateId(boolean add) throws ApplicationException {
-		if (add && id == null)
+		if(add && id == null)
 			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[id]");
 		return id != null;
 	}
@@ -488,7 +483,7 @@ public abstract class Baserecharge_log extends BaseResource {
 	}
 
 	public void setExtra_data(String key, Object value) {
-		if (extra_data == null)
+		if(extra_data == null)
 			extra_data = new HashMap<String, Object>();
 		extra_data.put(key, value);
 	}

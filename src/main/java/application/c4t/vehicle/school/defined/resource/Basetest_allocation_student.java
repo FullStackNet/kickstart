@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -515,15 +511,15 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("paid", paid);
 		if(free != null)
 			map.put("free", free);
-		if (contenst_reward != null)
+		if(contenst_reward != null)
 			map.put("contenst_reward", contenst_reward);
 		if(type != null)
 			map.put("type", type);
 		if(test_group_id != null)
 			map.put("test_group_id", test_group_id);
-		if (provider_id != null)
+		if(provider_id != null)
 			map.put("provider_id", provider_id);
-		if (provider_name != null)
+		if(provider_name != null)
 			map.put("provider_name", provider_name);
 		if(free_centre_student != null)
 			map.put("free_centre_student", free_centre_student);
@@ -650,15 +646,15 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			map.put("paid", paid);
 		if(free != null)
 			map.put("free", free);
-		if (contenst_reward != null)
+		if(contenst_reward != null)
 			map.put("contenst_reward", contenst_reward);
 		if(type != null)
 			map.put("type", type);
 		if(test_group_id != null)
 			map.put("test_group_id", test_group_id);
-		if (provider_id != null)
+		if(provider_id != null)
 			map.put("provider_id", provider_id);
-		if (provider_name != null)
+		if(provider_name != null)
 			map.put("provider_name", provider_name);
 		if(free_centre_student != null)
 			map.put("free_centre_student", free_centre_student);
@@ -898,7 +894,7 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			free = freeObj.toString();
 
 		Object contenst_rewardObj = map.get("contenst_reward");
-		if (contenst_rewardObj != null)
+		if(contenst_rewardObj != null)
 			contenst_reward = new Double(contenst_rewardObj.toString());
 
 		Object typeObj = map.get("type");
@@ -910,11 +906,11 @@ public abstract class Basetest_allocation_student extends BaseResource {
 			test_group_id = test_group_idObj.toString();
 
 		Object provider_idObj = map.get("provider_id");
-		if (provider_idObj != null)
+		if(provider_idObj != null)
 			provider_id = provider_idObj.toString();
 
 		Object provider_nameObj = map.get("provider_name");
-		if (provider_nameObj != null)
+		if(provider_nameObj != null)
 			provider_name = provider_nameObj.toString();
 
 		Object free_centre_studentObj = map.get("free_centre_student");

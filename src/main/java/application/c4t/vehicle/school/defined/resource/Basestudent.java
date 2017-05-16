@@ -9,14 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -1364,7 +1360,7 @@ public abstract class Basestudent extends BaseResource {
 			map.put("manual_fees_approval", manual_fees_approval);
 		if(discount != null)
 			map.put("discount", discount);
-		if (promocode != null)
+		if(promocode != null)
 			map.put("promocode", promocode);
 		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
@@ -1380,11 +1376,11 @@ public abstract class Basestudent extends BaseResource {
 			map.put("last_recharge", last_recharge);
 		if(last_recharge_time != null)
 			map.put("last_recharge_time", last_recharge_time);
-		if (referral_code != null)
+		if(referral_code != null)
 			map.put("referral_code", referral_code);
-		if (percentage != null)
+		if(percentage != null)
 			map.put("percentage", percentage);
-		if (registered_referral_code != null)
+		if(registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
@@ -1650,7 +1646,7 @@ public abstract class Basestudent extends BaseResource {
 			map.put("manual_fees_approval", manual_fees_approval);
 		if(discount != null)
 			map.put("discount", discount);
-		if (promocode != null)
+		if(promocode != null)
 			map.put("promocode", promocode);
 		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
@@ -1666,11 +1662,11 @@ public abstract class Basestudent extends BaseResource {
 			map.put("last_recharge", last_recharge);
 		if(last_recharge_time != null)
 			map.put("last_recharge_time", last_recharge_time);
-		if (referral_code != null)
+		if(referral_code != null)
 			map.put("referral_code", referral_code);
-		if (percentage != null)
+		if(percentage != null)
 			map.put("percentage", percentage);
-		if (registered_referral_code != null)
+		if(registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
@@ -2334,7 +2330,7 @@ public abstract class Basestudent extends BaseResource {
 			discount = new Double(discountObj.toString());
 
 		Object promocodeObj = map.get("promocode");
-		if (promocodeObj != null)
+		if(promocodeObj != null)
 			promocode = promocodeObj.toString();
 
 		Object opening_balanceObj = map.get("opening_balance");
@@ -2366,15 +2362,15 @@ public abstract class Basestudent extends BaseResource {
 			last_recharge_time = new Long(last_recharge_timeObj.toString());
 
 		Object referral_codeObj = map.get("referral_code");
-		if (referral_codeObj != null)
+		if(referral_codeObj != null)
 			referral_code = referral_codeObj.toString();
 
 		Object percentageObj = map.get("percentage");
-		if (percentageObj != null)
+		if(percentageObj != null)
 			percentage = new Double(percentageObj.toString());
 
 		Object registered_referral_codeObj = map.get("registered_referral_code");
-		if (registered_referral_codeObj != null)
+		if(registered_referral_codeObj != null)
 			registered_referral_code = registered_referral_codeObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");

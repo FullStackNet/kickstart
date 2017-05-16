@@ -9,16 +9,10 @@
 
 package application.c4t.vehicle.school.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -31,6 +25,7 @@ public abstract class Baseprovider extends BaseResource {
 	private String email_id = null;
 	private String mobile_no = null;
 	private String brand_name = null;
+	private String about_us = null;
 	private String courses_summary = null;
 	private List<String> courses = null;
 	private String customer_id = null;
@@ -44,6 +39,7 @@ public abstract class Baseprovider extends BaseResource {
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_MOBILE_NO = "mobile_no";
 	public static String FIELD_BRAND_NAME = "brand_name";
+	public static String FIELD_ABOUT_US = "about_us";
 	public static String FIELD_COURSES_SUMMARY = "courses_summary";
 	public static String FIELD_COURSES = "courses";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
@@ -82,6 +78,10 @@ public abstract class Baseprovider extends BaseResource {
 		brand_nameField.setLength(32);
 		metaData.addField(brand_nameField);
 
+		Field about_usField = new Field("about_us", "String");
+		about_usField.setLength(32);
+		metaData.addField(about_usField);
+
 		Field courses_summaryField = new Field("courses_summary", "String");
 		courses_summaryField.setLength(128);
 		metaData.addField(courses_summaryField);
@@ -118,6 +118,7 @@ public abstract class Baseprovider extends BaseResource {
 		this.email_id = obj.email_id;
 		this.mobile_no = obj.mobile_no;
 		this.brand_name = obj.brand_name;
+		this.about_us = obj.about_us;
 		this.courses_summary = obj.courses_summary;
 		this.courses = obj.courses;
 		this.customer_id = obj.customer_id;
@@ -136,7 +137,7 @@ public abstract class Baseprovider extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
-		if (logo_url != null)
+		if(logo_url != null)
 			map.put("logo_url", logo_url);
 		if(email_id != null)
 			map.put("email_id", email_id);
@@ -144,13 +145,15 @@ public abstract class Baseprovider extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
-		if (courses_summary != null)
+		if(about_us != null)
+			map.put("about_us", about_us);
+		if(courses_summary != null)
 			map.put("courses_summary", courses_summary);
-		if (courses != null)
+		if(courses != null)
 			map.put("courses", courses);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if (percentage != null)
+		if(percentage != null)
 			map.put("percentage", percentage);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
@@ -165,7 +168,7 @@ public abstract class Baseprovider extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
-		if (logo_url != null)
+		if(logo_url != null)
 			map.put("logo_url", logo_url);
 		if(email_id != null)
 			map.put("email_id", email_id);
@@ -173,13 +176,15 @@ public abstract class Baseprovider extends BaseResource {
 			map.put("mobile_no", mobile_no);
 		if(brand_name != null)
 			map.put("brand_name", brand_name);
-		if (courses_summary != null)
+		if(about_us != null)
+			map.put("about_us", about_us);
+		if(courses_summary != null)
 			map.put("courses_summary", courses_summary);
-		if (courses != null)
+		if(courses != null)
 			map.put("courses", courses);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
-		if (percentage != null)
+		if(percentage != null)
 			map.put("percentage", percentage);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
@@ -201,6 +206,7 @@ public abstract class Baseprovider extends BaseResource {
 		email_id = (String) map.get("email_id");
 		mobile_no = (String) map.get("mobile_no");
 		brand_name = (String) map.get("brand_name");
+		about_us = (String) map.get("about_us");
 		courses_summary = (String) map.get("courses_summary");
 		courses = (List<String>) map.get("courses");
 		customer_id = (String) map.get("customer_id");
@@ -220,7 +226,7 @@ public abstract class Baseprovider extends BaseResource {
 			name = nameObj.toString();
 
 		Object logo_urlObj = map.get("logo_url");
-		if (logo_urlObj != null)
+		if(logo_urlObj != null)
 			logo_url = logo_urlObj.toString();
 
 		Object email_idObj = map.get("email_id");
@@ -235,8 +241,12 @@ public abstract class Baseprovider extends BaseResource {
 		if(brand_nameObj != null)
 			brand_name = brand_nameObj.toString();
 
+		Object about_usObj = map.get("about_us");
+		if(about_usObj != null)
+			about_us = about_usObj.toString();
+
 		Object courses_summaryObj = map.get("courses_summary");
-		if (courses_summaryObj != null)
+		if(courses_summaryObj != null)
 			courses_summary = courses_summaryObj.toString();
 
 		courses = (List<String>) map.get("courses");
@@ -245,7 +255,7 @@ public abstract class Baseprovider extends BaseResource {
 			customer_id = customer_idObj.toString();
 
 		Object percentageObj = map.get("percentage");
-		if (percentageObj != null)
+		if(percentageObj != null)
 			percentage = new Double(percentageObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
@@ -363,6 +373,22 @@ public abstract class Baseprovider extends BaseResource {
 		this.brand_name = null;
 	}
 
+	public String getAbout_us() {
+		return about_us;
+	}
+
+	public String getAbout_usEx() {
+		return about_us != null ? about_us : "";
+	}
+
+	public void setAbout_us(String about_us) {
+		this.about_us = about_us;
+	}
+
+	public void unSetAbout_us() {
+		this.about_us = null;
+	}
+
 	public String getCourses_summary() {
 		return courses_summary;
 	}
@@ -389,7 +415,7 @@ public abstract class Baseprovider extends BaseResource {
 	}
 
 	public void addCourses(String value) {
-		if (courses == null)
+		if(courses == null)
 			courses = new ArrayList<String>();
 		courses.add(value);
 	}

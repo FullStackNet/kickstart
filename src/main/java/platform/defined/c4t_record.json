@@ -713,6 +713,11 @@
 			'total_sent' : {
 				'type': 'int'
 			},
+			'read':
+			{
+				'type':'Array',
+				'valueType':'String'
+			},
 			'total_user_sent' : {
 				'type': 'int'
 			},
