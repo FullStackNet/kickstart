@@ -163,6 +163,7 @@ public abstract class Basec4t_record extends BaseResource {
 	private String send_sms = null;
 	private String send_email = null;
 	private Integer total_sent = null;
+	private List<String> read = null;
 	private Integer total_user_sent = null;
 	private Integer total_sms_sent = null;
 	private Integer total_email_sent = null;
@@ -327,6 +328,7 @@ public abstract class Basec4t_record extends BaseResource {
 	public static String FIELD_SEND_SMS = "send_sms";
 	public static String FIELD_SEND_EMAIL = "send_email";
 	public static String FIELD_TOTAL_SENT = "total_sent";
+	public static String FIELD_READ = "read";
 	public static String FIELD_TOTAL_USER_SENT = "total_user_sent";
 	public static String FIELD_TOTAL_SMS_SENT = "total_sms_sent";
 	public static String FIELD_TOTAL_EMAIL_SENT = "total_email_sent";
@@ -920,6 +922,9 @@ public abstract class Basec4t_record extends BaseResource {
 		Field total_sentField = new Field("total_sent", "int");
 		metaData.addField(total_sentField);
 
+		Field readField = new Field("read", "Array");
+		metaData.addField(readField);
+
 		Field total_user_sentField = new Field("total_user_sent", "int");
 		metaData.addField(total_user_sentField);
 
@@ -1143,6 +1148,7 @@ public abstract class Basec4t_record extends BaseResource {
 		this.send_sms = obj.send_sms;
 		this.send_email = obj.send_email;
 		this.total_sent = obj.total_sent;
+		this.read = obj.read;
 		this.total_user_sent = obj.total_user_sent;
 		this.total_sms_sent = obj.total_sms_sent;
 		this.total_email_sent = obj.total_email_sent;
@@ -1471,6 +1477,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("send_email", send_email);
 		if(total_sent != null)
 			map.put("total_sent", total_sent);
+		if(read != null)
+			map.put("read", read);
 		if(total_user_sent != null)
 			map.put("total_user_sent", total_user_sent);
 		if(total_sms_sent != null)
@@ -1805,6 +1813,8 @@ public abstract class Basec4t_record extends BaseResource {
 			map.put("send_email", send_email);
 		if(total_sent != null)
 			map.put("total_sent", total_sent);
+		if(read != null)
+			map.put("read", read);
 		if(total_user_sent != null)
 			map.put("total_user_sent", total_user_sent);
 		if(total_sms_sent != null)
@@ -1997,6 +2007,7 @@ public abstract class Basec4t_record extends BaseResource {
 		send_sms = (String) map.get("send_sms");
 		send_email = (String) map.get("send_email");
 		total_sent = (Integer) map.get("total_sent");
+		read = (List<String>) map.get("read");
 		total_user_sent = (Integer) map.get("total_user_sent");
 		total_sms_sent = (Integer) map.get("total_sms_sent");
 		total_email_sent = (Integer) map.get("total_email_sent");
@@ -2596,6 +2607,7 @@ public abstract class Basec4t_record extends BaseResource {
 		if(total_sentObj != null)
 			total_sent = new Integer(total_sentObj.toString());
 
+		read = (List<String>) map.get("read");
 		Object total_user_sentObj = map.get("total_user_sent");
 		if(total_user_sentObj != null)
 			total_user_sent = new Integer(total_user_sentObj.toString());
@@ -4919,6 +4931,25 @@ public abstract class Basec4t_record extends BaseResource {
 
 	public void unSetTotal_sent() {
 		this.total_sent = null;
+	}
+
+	public List<String> getRead() {
+		return read;
+	}
+
+
+	public void setRead(List<String> read) {
+		this.read = read;
+	}
+
+	public void addRead(String value) {
+		if(read == null)
+			read = new ArrayList<String>();
+		read.add(value);
+	}
+
+	public void unSetRead() {
+		this.read = null;
 	}
 
 	public Integer getTotal_user_sent() {
