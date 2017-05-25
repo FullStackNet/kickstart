@@ -255,6 +255,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String valid_mandi_main_imie = null;
 	private String valid_mandi_secondary_imie = null;
 	private String repos_protocol = null;
+	private String repos_server_id = null;
 	private String repos_server = null;
 	private String repos_server_port = null;
 	private String repos_username = null;
@@ -498,6 +499,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_VALID_MANDI_MAIN_IMIE = "valid_mandi_main_imie";
 	public static String FIELD_VALID_MANDI_SECONDARY_IMIE = "valid_mandi_secondary_imie";
 	public static String FIELD_REPOS_PROTOCOL = "repos_protocol";
+	public static String FIELD_REPOS_SERVER_ID = "repos_server_id";
 	public static String FIELD_REPOS_SERVER = "repos_server";
 	public static String FIELD_REPOS_SERVER_PORT = "repos_server_port";
 	public static String FIELD_REPOS_USERNAME = "repos_username";
@@ -1404,6 +1406,10 @@ public abstract class Basec4t_object extends BaseResource {
 		repos_protocolField.setLength(10);
 		metaData.addField(repos_protocolField);
 
+		Field repos_server_idField = new Field("repos_server_id", "String");
+		repos_server_idField.setLength(128);
+		metaData.addField(repos_server_idField);
+
 		Field repos_serverField = new Field("repos_server", "String");
 		repos_serverField.setLength(128);
 		metaData.addField(repos_serverField);
@@ -1673,6 +1679,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.valid_mandi_main_imie = obj.valid_mandi_main_imie;
 		this.valid_mandi_secondary_imie = obj.valid_mandi_secondary_imie;
 		this.repos_protocol = obj.repos_protocol;
+		this.repos_server_id = obj.repos_server_id;
 		this.repos_server = obj.repos_server;
 		this.repos_server_port = obj.repos_server_port;
 		this.repos_username = obj.repos_username;
@@ -2159,6 +2166,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("valid_mandi_secondary_imie", valid_mandi_secondary_imie);
 		if(repos_protocol != null)
 			map.put("repos_protocol", repos_protocol);
+		if(repos_server_id != null)
+			map.put("repos_server_id", repos_server_id);
 		if(repos_server != null)
 			map.put("repos_server", repos_server);
 		if(repos_server_port != null)
@@ -2648,6 +2657,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("valid_mandi_secondary_imie", valid_mandi_secondary_imie);
 		if(repos_protocol != null)
 			map.put("repos_protocol", repos_protocol);
+		if(repos_server_id != null)
+			map.put("repos_server_id", repos_server_id);
 		if(repos_server != null)
 			map.put("repos_server", repos_server);
 		if(repos_server_port != null)
@@ -2906,6 +2917,7 @@ public abstract class Basec4t_object extends BaseResource {
 		valid_mandi_main_imie = (String) map.get("valid_mandi_main_imie");
 		valid_mandi_secondary_imie = (String) map.get("valid_mandi_secondary_imie");
 		repos_protocol = (String) map.get("repos_protocol");
+		repos_server_id = (String) map.get("repos_server_id");
 		repos_server = (String) map.get("repos_server");
 		repos_server_port = (String) map.get("repos_server_port");
 		repos_username = (String) map.get("repos_username");
@@ -3859,6 +3871,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object repos_protocolObj = map.get("repos_protocol");
 		if(repos_protocolObj != null)
 			repos_protocol = repos_protocolObj.toString();
+
+		Object repos_server_idObj = map.get("repos_server_id");
+		if(repos_server_idObj != null)
+			repos_server_id = repos_server_idObj.toString();
 
 		Object repos_serverObj = map.get("repos_server");
 		if(repos_serverObj != null)
@@ -7773,6 +7789,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetRepos_protocol() {
 		this.repos_protocol = null;
+	}
+
+	public String getRepos_server_id() {
+		return repos_server_id;
+	}
+
+	public String getRepos_server_idEx() {
+		return repos_server_id != null ? repos_server_id : "";
+	}
+
+	public void setRepos_server_id(String repos_server_id) {
+		this.repos_server_id = repos_server_id;
+	}
+
+	public void unSetRepos_server_id() {
+		this.repos_server_id = null;
 	}
 
 	public String getRepos_server() {

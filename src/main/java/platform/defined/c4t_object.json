@@ -1137,6 +1137,10 @@
 				'type': 'String',
 				'length': 10
 			},
+			'repos_server_id': {
+				'type': 'String',
+				'length': 128
+			},
 			'repos_server': {
 				'type': 'String',
 				'length': 128
