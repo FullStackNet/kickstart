@@ -1153,7 +1153,7 @@
 				'type': 'String',
 				'length': 128
 			},
-			'repos_create_repo': {
+			'repos_auto_create': {
 				'type': 'String',
 				'length': 1
 			},
