@@ -38,7 +38,7 @@ public class PortScan {
 		return true;
 	}
 	public static void main(String[] args) throws Exception {
-		String ip = "184.107.144.122";
+		String ip = "199.233.246.210";
 		int end_ports = 65535;
 		if ((args != null) && (args.length > 0)) {
 			ip = args[0];
