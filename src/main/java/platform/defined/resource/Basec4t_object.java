@@ -260,6 +260,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String repos_server_port = null;
 	private String repos_username = null;
 	private String repos_auto_create = null;
+	private String token = null;
 	private String repos_password = null;
 	private String available_time = null;
 	private Map<String, Object> extra_data = null;
@@ -505,6 +506,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_REPOS_SERVER_PORT = "repos_server_port";
 	public static String FIELD_REPOS_USERNAME = "repos_username";
 	public static String FIELD_REPOS_AUTO_CREATE = "repos_auto_create";
+	public static String FIELD_TOKEN = "token";
 	public static String FIELD_REPOS_PASSWORD = "repos_password";
 	public static String FIELD_AVAILABLE_TIME = "available_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -1428,6 +1430,10 @@ public abstract class Basec4t_object extends BaseResource {
 		repos_auto_createField.setLength(1);
 		metaData.addField(repos_auto_createField);
 
+		Field tokenField = new Field("token", "String");
+		tokenField.setLength(1);
+		metaData.addField(tokenField);
+
 		Field repos_passwordField = new Field("repos_password", "String");
 		repos_passwordField.setLength(128);
 		metaData.addField(repos_passwordField);
@@ -1690,6 +1696,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.repos_server_port = obj.repos_server_port;
 		this.repos_username = obj.repos_username;
 		this.repos_auto_create = obj.repos_auto_create;
+		this.token = obj.token;
 		this.repos_password = obj.repos_password;
 		this.available_time = obj.available_time;
 		this.extra_data = obj.extra_data;
@@ -2183,6 +2190,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("repos_username", repos_username);
 		if(repos_auto_create != null)
 			map.put("repos_auto_create", repos_auto_create);
+		if(token != null)
+			map.put("token", token);
 		if(repos_password != null)
 			map.put("repos_password", repos_password);
 		if(available_time != null)
@@ -2676,6 +2685,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("repos_username", repos_username);
 		if(repos_auto_create != null)
 			map.put("repos_auto_create", repos_auto_create);
+		if(token != null)
+			map.put("token", token);
 		if(repos_password != null)
 			map.put("repos_password", repos_password);
 		if(available_time != null)
@@ -2933,6 +2944,7 @@ public abstract class Basec4t_object extends BaseResource {
 		repos_server_port = (String) map.get("repos_server_port");
 		repos_username = (String) map.get("repos_username");
 		repos_auto_create = (String) map.get("repos_auto_create");
+		token = (String) map.get("token");
 		repos_password = (String) map.get("repos_password");
 		available_time = (String) map.get("available_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -3903,6 +3915,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object repos_auto_createObj = map.get("repos_auto_create");
 		if(repos_auto_createObj != null)
 			repos_auto_create = repos_auto_createObj.toString();
+
+		Object tokenObj = map.get("token");
+		if(tokenObj != null)
+			token = tokenObj.toString();
 
 		Object repos_passwordObj = map.get("repos_password");
 		if(repos_passwordObj != null)
@@ -7885,6 +7901,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetRepos_auto_create() {
 		this.repos_auto_create = null;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public String getTokenEx() {
+		return token != null ? token : "";
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public void unSetToken() {
+		this.token = null;
 	}
 
 	public String getRepos_password() {

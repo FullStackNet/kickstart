@@ -1157,6 +1157,10 @@
 				'type': 'String',
 				'length': 1
 			},
+			'token': {
+				'type': 'String',
+				'length': 1
+			},
 			'repos_password': {
 				'type': 'String',
 				'length': 128
