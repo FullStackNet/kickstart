@@ -1157,7 +1157,7 @@
 				'type': 'String',
 				'length': 1
 			},
-			'token': {
+			'repos_token': {
 				'type': 'String',
 				'length': 1
 			},
