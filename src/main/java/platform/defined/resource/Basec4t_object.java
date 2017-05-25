@@ -259,6 +259,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String repos_server = null;
 	private String repos_server_port = null;
 	private String repos_username = null;
+	private String repos_create_repo = null;
 	private String repos_password = null;
 	private String available_time = null;
 	private Map<String, Object> extra_data = null;
@@ -503,6 +504,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_REPOS_SERVER = "repos_server";
 	public static String FIELD_REPOS_SERVER_PORT = "repos_server_port";
 	public static String FIELD_REPOS_USERNAME = "repos_username";
+	public static String FIELD_REPOS_CREATE_REPO = "repos_create_repo";
 	public static String FIELD_REPOS_PASSWORD = "repos_password";
 	public static String FIELD_AVAILABLE_TIME = "available_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -1422,6 +1424,10 @@ public abstract class Basec4t_object extends BaseResource {
 		repos_usernameField.setLength(128);
 		metaData.addField(repos_usernameField);
 
+		Field repos_create_repoField = new Field("repos_create_repo", "String");
+		repos_create_repoField.setLength(1);
+		metaData.addField(repos_create_repoField);
+
 		Field repos_passwordField = new Field("repos_password", "String");
 		repos_passwordField.setLength(128);
 		metaData.addField(repos_passwordField);
@@ -1683,6 +1689,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.repos_server = obj.repos_server;
 		this.repos_server_port = obj.repos_server_port;
 		this.repos_username = obj.repos_username;
+		this.repos_create_repo = obj.repos_create_repo;
 		this.repos_password = obj.repos_password;
 		this.available_time = obj.available_time;
 		this.extra_data = obj.extra_data;
@@ -2174,6 +2181,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("repos_server_port", repos_server_port);
 		if(repos_username != null)
 			map.put("repos_username", repos_username);
+		if(repos_create_repo != null)
+			map.put("repos_create_repo", repos_create_repo);
 		if(repos_password != null)
 			map.put("repos_password", repos_password);
 		if(available_time != null)
@@ -2665,6 +2674,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("repos_server_port", repos_server_port);
 		if(repos_username != null)
 			map.put("repos_username", repos_username);
+		if(repos_create_repo != null)
+			map.put("repos_create_repo", repos_create_repo);
 		if(repos_password != null)
 			map.put("repos_password", repos_password);
 		if(available_time != null)
@@ -2921,6 +2932,7 @@ public abstract class Basec4t_object extends BaseResource {
 		repos_server = (String) map.get("repos_server");
 		repos_server_port = (String) map.get("repos_server_port");
 		repos_username = (String) map.get("repos_username");
+		repos_create_repo = (String) map.get("repos_create_repo");
 		repos_password = (String) map.get("repos_password");
 		available_time = (String) map.get("available_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -3887,6 +3899,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object repos_usernameObj = map.get("repos_username");
 		if(repos_usernameObj != null)
 			repos_username = repos_usernameObj.toString();
+
+		Object repos_create_repoObj = map.get("repos_create_repo");
+		if(repos_create_repoObj != null)
+			repos_create_repo = repos_create_repoObj.toString();
 
 		Object repos_passwordObj = map.get("repos_password");
 		if(repos_passwordObj != null)
@@ -7853,6 +7869,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetRepos_username() {
 		this.repos_username = null;
+	}
+
+	public String getRepos_create_repo() {
+		return repos_create_repo;
+	}
+
+	public String getRepos_create_repoEx() {
+		return repos_create_repo != null ? repos_create_repo : "";
+	}
+
+	public void setRepos_create_repo(String repos_create_repo) {
+		this.repos_create_repo = repos_create_repo;
+	}
+
+	public void unSetRepos_create_repo() {
+		this.repos_create_repo = null;
 	}
 
 	public String getRepos_password() {

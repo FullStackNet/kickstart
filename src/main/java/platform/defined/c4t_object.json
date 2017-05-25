@@ -1153,6 +1153,10 @@
 				'type': 'String',
 				'length': 128
 			},
+			'repos_create_repo': {
+				'type': 'String',
+				'length': 1
+			},
 			'repos_password': {
 				'type': 'String',
 				'length': 128
