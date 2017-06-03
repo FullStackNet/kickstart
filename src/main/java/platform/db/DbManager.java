@@ -37,6 +37,7 @@ import platform.helper.SensorHelper;
 import platform.helper.SessionHelper;
 import platform.helper.UserHelper;
 import platform.helper.User_mapHelper;
+import platform.log.ApplicationLogger;
 import platform.resource.BaseResource;
 import platform.resource.cluster;
 import platform.util.ApplicationConstants;
@@ -228,13 +229,26 @@ public class DbManager {
 			} 
 			if (connectionList != null) {
 				i = 0;
+				int try_count = 0;
 				while (i < connectionList.size()) {
 					MongoDBConnection connection = (MongoDBConnection) connectionList.get(i);
 					if (connection.isFree()) {
+						connection.setAcquire_time(System.currentTimeMillis());
 						connection.aquire();
 						return connection;
 					}
 					i++;
+					if (i== connectionList.size() && try_count < 5) {
+						ApplicationLogger.error("No connection available ....for " + " size="+connectionList.size() + ", Config Name="+configName+",dbType::"+dbType+ ",ClusterName::"+clusterName+ ",getClusterType"+getClusterType+",resourceName::"+resourceName+",keyValue::"+keyValue,this.getClass());
+						try {
+							Thread.sleep(500L);
+							try_count++;
+						} catch(Exception e) {
+
+						}
+					} else {
+						ApplicationLogger.error("Exiting as no connection available ....for " + " size="+connectionList.size() + ", Config Name="+configName+",dbType::"+dbType+ ",ClusterName::"+clusterName+ ",getClusterType"+getClusterType+",resourceName::"+resourceName+",keyValue::"+keyValue,this.getClass());
+					}
 				}
 				
 			}
@@ -258,6 +272,7 @@ public class DbManager {
 				i++;
 			}
 		}
+
 		if ((connectionList != null)  && (connectionList.size() != 0)){
 			throw new ApplicationException(ExceptionSeverity.ERROR, "No DB Connection free for size="+connectionList.size() + ", Config Name="+configName+",dbType::"+dbType+ ",ClusterName::"+clusterName+ ",getClusterType"+getClusterType+",resourceName::"+resourceName+",keyValue::"+keyValue);
 		} 

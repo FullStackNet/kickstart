@@ -48,13 +48,23 @@ public abstract class DbConnection {
  String password;
  boolean free;
  boolean isConnected;
-	
+ long acquire_time;
+
+	public long getAcquire_time() {
+		return acquire_time;
+	}
+
+	public void setAcquire_time(long acquire_time) {
+		this.acquire_time = acquire_time;
+	}
+
 	public DbConnection() {
 		 server = "localhost";
 		 database = "sdp";
 		 username = "root";
 		 password = "";
 		 port = 3306;
+		 acquire_time = 0;
 		 free = true;
 	 }
 	 
@@ -90,13 +100,22 @@ public abstract class DbConnection {
 		 return null;
 	 }
 	 public  void aquire() {
-			free = false;
+		 free = false;
+		 acquire_time = System.currentTimeMillis();
 	 }
 	 public void release() {
-			free = true;
+		 free = true;
+		 acquire_time = 0;
 	 }
 	 public boolean isFree() {
-			return free;
+		 if (!free) {
+			 long current_time = System.currentTimeMillis();
+			 long elpsed_time = current_time-acquire_time;
+			 if (elpsed_time > 3*1000L) {
+				 release();
+			 }
+		 }
+		 return free;
 	 }
 	 abstract public byte getType();
 	 abstract public void  saveFile(String folder,String file,String tempFile) throws Exception;
