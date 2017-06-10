@@ -19,6 +19,9 @@ public class Device {
 	public static String DEVICE_MODEL_C4T_POWER_SNG_01 = "C4T-POWER-SNG-01";
 	public static String DEVICE_MODEL_BTM_READER_01 = "BTM-READER-01";
 	public static String DEVICE_MODEL_KPP1_READER_1 = "KPP1-READER-1";
+	public static String DEVICE_MODEL_ST_READER_1 = "ST-READER-1";
+	public static String DEVICE_MODEL_ST_TRACKER_1 = "ST-TRACKER-1";
+
 	
 	
 	
@@ -33,6 +36,8 @@ public class Device {
 	public static String DEVICE_MANAGER_ACPREADER = "ACPREADER";
 	public static String DEVICE_MANAGER_BTMREADER = "BTMREADER";
 	public static String DEVICE_MANAGER_KPP1 = "KPP1";
+	public static String DEVICE_MANAGER_ST = "ST";
+	
 	
 	public static String DEVICE_MANAGER_DIC = "DIC";
 	public static String DEVICE_MANAGER_NETVOX = "NETVOX";
@@ -80,7 +85,8 @@ public class Device {
 				DEVICE_MANAGER_MQTT,
 				DEVICE_MANAGER_MQTT_SANTOSH,
 				DEVICE_MANAGER_BTMREADER,
-				DEVICE_MANAGER_KPP1
+				DEVICE_MANAGER_KPP1,
+				DEVICE_MANAGER_ST
 		};
 		return list;
 	}
@@ -97,7 +103,9 @@ public class Device {
 				DEVICE_MANAGER_ACPREADER_1500,
 				DEVICE_MODEL_JMN_TRACKER_1000,
 				DEVICE_MODEL_BTM_READER_01,
-				DEVICE_MODEL_KPP1_READER_1
+				DEVICE_MODEL_KPP1_READER_1,
+				DEVICE_MODEL_ST_READER_1,
+				DEVICE_MODEL_ST_TRACKER_1
 		};
 		return list;
 	}
