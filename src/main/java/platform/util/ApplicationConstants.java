@@ -17,6 +17,7 @@ public class ApplicationConstants {
 	public static String ACPTRACKER_CONFIGURATION_FILE = "acptracker";
 	public static String JMNTRACKER_CONFIGURATION_FILE = "jmntracker";
 	public static String TALLY_CONFIGURATION_FILE = "tally";
+	public static String ST_CONFIGURATION_FILE = "st";
 	public static String MANDI_CONFIGURATION_FILE = "mandi";
 	public static String C2C_CONFIGURATION_FILE = "c2c";
 	public static String KPP1_CONFIGURATION_FILE = "kpp1";
@@ -45,6 +46,7 @@ public class ApplicationConstants {
 	public static String PROPERTY_CONTROLLER_USB_PORT = "controller_port";
 	public static String PROPERTY_CONTROLER_BUADRATE = "controller_buadrate";
 	public static String PROPERTY_CONTROLLER_IP = "controller_ip";
+	public static String PROPERTY_WEB_SERVICE_URL = "web_service_url";
 	public static String PROPERTY_CONTROLLER_PORT = "controller_port";
 
 	

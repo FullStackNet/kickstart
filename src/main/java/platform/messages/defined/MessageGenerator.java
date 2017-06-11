@@ -22,7 +22,7 @@ import platform.util.MessageMetaData;
 
 
 public class MessageGenerator {
-	private static String BASE_PATH = "./src/platform/messages/";
+	private static String BASE_PATH = "./src/main/java/platform/messages/";
 	
 	private static String FILE_EXTENSION = ".java";
 	private static String SERIAL_VERSION = "\tprivate static final long serialVersionUID = 1L;\n";

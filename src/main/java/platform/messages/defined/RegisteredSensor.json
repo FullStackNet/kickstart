@@ -45,7 +45,12 @@
 			{
 				'name':'controllerPhysicalPort',
 				'type':'short'
-			}				
+			},
+			'lastUpdateTime':
+			{
+				'name':'lastUpdateTime',
+				'type':'long'
+			}
 		}
 	}
 }

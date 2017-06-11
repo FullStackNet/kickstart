@@ -41,7 +41,12 @@
 				'name':'packet_capture',
 				'type':'String',
 				'length' : 1
-			}					
+			},
+			'lastUpdateTime':
+			{
+				'name':'lastUpdateTime',
+				'type':'long'
+			}
 		}
 	}
 }

@@ -22,6 +22,18 @@ public class Json {
 		return gson.toJson(resource);
 	}
 
+	public static Object strinfToObject(String jsonText, String className) throws ApplicationException {
+		try {
+			Gson gson = new Gson();
+			return (Object)gson.fromJson(jsonText, Class.forName(className));
+		} catch(Exception e) {
+			System.out.println(jsonText);
+			e.printStackTrace();
+			throw new ApplicationException(ExceptionSeverity.ERROR, e.getMessage());
+		}
+	}
+
+	
 	public static String resourcetoString(BaseResource[] resources) {
 		Gson gson = new Gson();
 		return gson.toJson(resources);

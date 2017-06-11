@@ -9,12 +9,10 @@
 
 package platform.messages;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.communication.Session;
-import platform.message.Message;
-import platform.util.Field;
+import platform.message.*;
+import platform.util.*;
+import java.util.*;
+import platform.communication.*;
 
 public abstract class BaseRegisteredSensor extends Message {
 	private static final long serialVersionUID = 1L;
@@ -25,6 +23,7 @@ public abstract class BaseRegisteredSensor extends Message {
 	private String controllerId = null;
 	private Short controllerPort = null;
 	private Short controllerPhysicalPort = null;
+	private Long lastUpdateTime = null;
 
 
 	public BaseRegisteredSensor() {
@@ -36,7 +35,7 @@ public abstract class BaseRegisteredSensor extends Message {
 
 	public void populate_field() {
  		if (fields != null) return ;
-		fields = new Field[7];
+		fields = new Field[8];
 		fields[0] =  new Field("sensor_id","String",128);
 		fields[1] =  new Field("sensor_name","String",128);
 		fields[2] =  new Field("sensor_type","String",32);
@@ -44,6 +43,7 @@ public abstract class BaseRegisteredSensor extends Message {
 		fields[4] =  new Field("controllerId","String",128);
 		fields[5] = new Field("controllerPort","short");
 		fields[6] = new Field("controllerPhysicalPort","short");
+		fields[7] = new Field("lastUpdateTime","long");
 	}
 
 	public void dump() {
@@ -54,6 +54,7 @@ public abstract class BaseRegisteredSensor extends Message {
 		System.out.println("controllerId	:	 "+controllerId);
 		System.out.println("controllerPort	:	 "+controllerPort);
 		System.out.println("controllerPhysicalPort	:	 "+controllerPhysicalPort);
+		System.out.println("lastUpdateTime	:	 "+lastUpdateTime);
 	}
 	public String getDump() {
 		String str="";
@@ -64,6 +65,7 @@ public abstract class BaseRegisteredSensor extends Message {
 		str = str +",controllerId:"+controllerId;
 		str = str +",controllerPort:"+controllerPort;
 		str = str +",controllerPhysicalPort:"+controllerPhysicalPort;
+		str = str +",lastUpdateTime:"+lastUpdateTime;
 		return str;
 	}
 
@@ -83,6 +85,8 @@ public abstract class BaseRegisteredSensor extends Message {
 			map.put("controllerPort", controllerPort);
 		if(controllerPhysicalPort != null)
 			map.put("controllerPhysicalPort", controllerPhysicalPort);
+		if(lastUpdateTime != null)
+			map.put("lastUpdateTime", lastUpdateTime);
 		return map;
 	}
 
@@ -94,9 +98,10 @@ public abstract class BaseRegisteredSensor extends Message {
 		controllerId = (String) map.get("controllerId");
 		controllerPort = (Short) map.get("controllerPort");
 		controllerPhysicalPort = (Short) map.get("controllerPhysicalPort");
+		lastUpdateTime = (Long) map.get("lastUpdateTime");
 	}
 
- 	public int getMessageSize() {return 452;}
+ 	public int getMessageSize() {return 456;}
 
  	public String getName() {return "RegisteredSensor";}
 
@@ -220,5 +225,25 @@ public Message process(Session session,Message parentMessage) {return null;}
 
 	public void unSetControllerPhysicalPort() {
 		this.controllerPhysicalPort = null;
+	}
+
+	public Long getLastUpdateTime() {
+		return lastUpdateTime;
+	}
+
+	public long getLastUpdateTimeEx() {
+		return lastUpdateTime != null ? lastUpdateTime : 0L;
+	}
+
+	public void setLastUpdateTime(long lastUpdateTime) {
+		this.lastUpdateTime = lastUpdateTime;
+	}
+
+	public void setLastUpdateTime(Long lastUpdateTime) {
+		this.lastUpdateTime = lastUpdateTime;
+	}
+
+	public void unSetLastUpdateTime() {
+		this.lastUpdateTime = null;
 	}
 }

@@ -25,7 +25,7 @@ import com.google.gson.JsonObject;
 public class JsonMessageParser {
 	private MessageMetaData messageMetaData;
 	
-	private static String BASE_PATH = "./src/platform/messages/defined/";
+	private static String BASE_PATH = "./src/main/java/platform/messages/defined/";
 	private static String FILE_EXTENSION = ".json";
 	
 	public JsonMessageParser(String resourceName) {

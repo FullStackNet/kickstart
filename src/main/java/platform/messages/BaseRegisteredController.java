@@ -9,12 +9,10 @@
 
 package platform.messages;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import platform.communication.Session;
-import platform.message.Message;
-import platform.util.Field;
+import platform.message.*;
+import platform.util.*;
+import java.util.*;
+import platform.communication.*;
 
 public abstract class BaseRegisteredController extends Message {
 	private static final long serialVersionUID = 1L;
@@ -24,6 +22,7 @@ public abstract class BaseRegisteredController extends Message {
 	private String manager = null;
 	private String model = null;
 	private String packet_capture = null;
+	private Long lastUpdateTime = null;
 
 
 	public BaseRegisteredController() {
@@ -35,13 +34,14 @@ public abstract class BaseRegisteredController extends Message {
 
 	public void populate_field() {
  		if (fields != null) return ;
-		fields = new Field[6];
+		fields = new Field[7];
 		fields[0] =  new Field("controller_id","String",128);
 		fields[1] =  new Field("controller_name","String",128);
 		fields[2] =  new Field("controller_type","String",32);
 		fields[3] =  new Field("manager","String",32);
 		fields[4] =  new Field("model","String",32);
 		fields[5] =  new Field("packet_capture","String",1);
+		fields[6] = new Field("lastUpdateTime","long");
 	}
 
 	public void dump() {
@@ -51,6 +51,7 @@ public abstract class BaseRegisteredController extends Message {
 		System.out.println("manager	:	 "+manager);
 		System.out.println("model	:	 "+model);
 		System.out.println("packet_capture	:	 "+packet_capture);
+		System.out.println("lastUpdateTime	:	 "+lastUpdateTime);
 	}
 	public String getDump() {
 		String str="";
@@ -60,6 +61,7 @@ public abstract class BaseRegisteredController extends Message {
 		str = str +",manager:"+manager;
 		str = str +",model:"+model;
 		str = str +",packet_capture:"+packet_capture;
+		str = str +",lastUpdateTime:"+lastUpdateTime;
 		return str;
 	}
 
@@ -77,6 +79,8 @@ public abstract class BaseRegisteredController extends Message {
 			map.put("model", model);
 		if(packet_capture != null)
 			map.put("packet_capture", packet_capture);
+		if(lastUpdateTime != null)
+			map.put("lastUpdateTime", lastUpdateTime);
 		return map;
 	}
 
@@ -87,9 +91,10 @@ public abstract class BaseRegisteredController extends Message {
 		manager = (String) map.get("manager");
 		model = (String) map.get("model");
 		packet_capture = (String) map.get("packet_capture");
+		lastUpdateTime = (Long) map.get("lastUpdateTime");
 	}
 
- 	public int getMessageSize() {return 353;}
+ 	public int getMessageSize() {return 357;}
 
  	public String getName() {return "RegisteredController";}
 
@@ -189,5 +194,25 @@ public Message process(Session session,Message parentMessage) {return null;}
 
 	public void unSetPacket_capture() {
 		this.packet_capture = null;
+	}
+
+	public Long getLastUpdateTime() {
+		return lastUpdateTime;
+	}
+
+	public long getLastUpdateTimeEx() {
+		return lastUpdateTime != null ? lastUpdateTime : 0L;
+	}
+
+	public void setLastUpdateTime(long lastUpdateTime) {
+		this.lastUpdateTime = lastUpdateTime;
+	}
+
+	public void setLastUpdateTime(Long lastUpdateTime) {
+		this.lastUpdateTime = lastUpdateTime;
+	}
+
+	public void unSetLastUpdateTime() {
+		this.lastUpdateTime = null;
 	}
 }
