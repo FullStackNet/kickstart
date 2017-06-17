@@ -8,6 +8,14 @@
         'required': true,
         'type': 'String'
       },
+      'fin_year': {
+        'length': 128,
+        'type': 'String'
+      },
+      'account_id': {
+        'length': 128,
+        'type': 'String'
+      },
       'code': {
         'length': 128,
         'type': 'String'
@@ -20,6 +28,10 @@
         'type': 'long'
       },
       'name': {
+        'length': 128,
+        'type': 'String'
+      },
+      'address': {
         'length': 128,
         'type': 'String'
       },
