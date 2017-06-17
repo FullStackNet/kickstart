@@ -362,6 +362,14 @@
 				'type':'String',
 				'length': 1
 			},
+			'feature_mandi_accounting': {
+				'type': 'String',
+				'length': 1
+			},
+			'feature_mandi_arrival': {
+				'type': 'String',
+				'length': 1
+			},
 			'feature_show_mrp_price':
 			{
 				'type':'String',

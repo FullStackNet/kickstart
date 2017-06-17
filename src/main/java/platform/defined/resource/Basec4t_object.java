@@ -93,6 +93,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String feature_show_sales_price = null;
 	private String feature_mandi_auction = null;
 	private String feature_mandi_billing = null;
+	private String feature_mandi_accounting = null;
+	private String feature_mandi_arrival = null;
 	private String feature_show_mrp_price = null;
 	private String feature_appliance_management = null;
 	private String feature_non_veg = null;
@@ -340,6 +342,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_FEATURE_SHOW_SALES_PRICE = "feature_show_sales_price";
 	public static String FIELD_FEATURE_MANDI_AUCTION = "feature_mandi_auction";
 	public static String FIELD_FEATURE_MANDI_BILLING = "feature_mandi_billing";
+	public static String FIELD_FEATURE_MANDI_ACCOUNTING = "feature_mandi_accounting";
+	public static String FIELD_FEATURE_MANDI_ARRIVAL = "feature_mandi_arrival";
 	public static String FIELD_FEATURE_SHOW_MRP_PRICE = "feature_show_mrp_price";
 	public static String FIELD_FEATURE_APPLIANCE_MANAGEMENT = "feature_appliance_management";
 	public static String FIELD_FEATURE_NON_VEG = "feature_non_veg";
@@ -808,6 +812,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Field feature_mandi_billingField = new Field("feature_mandi_billing", "String");
 		feature_mandi_billingField.setLength(1);
 		metaData.addField(feature_mandi_billingField);
+
+		Field feature_mandi_accountingField = new Field("feature_mandi_accounting", "String");
+		feature_mandi_accountingField.setLength(1);
+		metaData.addField(feature_mandi_accountingField);
+
+		Field feature_mandi_arrivalField = new Field("feature_mandi_arrival", "String");
+		feature_mandi_arrivalField.setLength(1);
+		metaData.addField(feature_mandi_arrivalField);
 
 		Field feature_show_mrp_priceField = new Field("feature_show_mrp_price", "String");
 		feature_show_mrp_priceField.setLength(1);
@@ -1535,6 +1547,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.feature_show_sales_price = obj.feature_show_sales_price;
 		this.feature_mandi_auction = obj.feature_mandi_auction;
 		this.feature_mandi_billing = obj.feature_mandi_billing;
+		this.feature_mandi_accounting = obj.feature_mandi_accounting;
+		this.feature_mandi_arrival = obj.feature_mandi_arrival;
 		this.feature_show_mrp_price = obj.feature_show_mrp_price;
 		this.feature_appliance_management = obj.feature_appliance_management;
 		this.feature_non_veg = obj.feature_non_veg;
@@ -1859,6 +1873,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_mandi_auction", feature_mandi_auction);
 		if(feature_mandi_billing != null)
 			map.put("feature_mandi_billing", feature_mandi_billing);
+		if (feature_mandi_accounting != null)
+			map.put("feature_mandi_accounting", feature_mandi_accounting);
+		if (feature_mandi_arrival != null)
+			map.put("feature_mandi_arrival", feature_mandi_arrival);
 		if(feature_show_mrp_price != null)
 			map.put("feature_show_mrp_price", feature_show_mrp_price);
 		if(feature_appliance_management != null)
@@ -2356,6 +2374,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_mandi_auction", feature_mandi_auction);
 		if(feature_mandi_billing != null)
 			map.put("feature_mandi_billing", feature_mandi_billing);
+		if (feature_mandi_accounting != null)
+			map.put("feature_mandi_accounting", feature_mandi_accounting);
+		if (feature_mandi_arrival != null)
+			map.put("feature_mandi_arrival", feature_mandi_arrival);
 		if(feature_show_mrp_price != null)
 			map.put("feature_show_mrp_price", feature_show_mrp_price);
 		if(feature_appliance_management != null)
@@ -2788,6 +2810,8 @@ public abstract class Basec4t_object extends BaseResource {
 		feature_show_sales_price = (String) map.get("feature_show_sales_price");
 		feature_mandi_auction = (String) map.get("feature_mandi_auction");
 		feature_mandi_billing = (String) map.get("feature_mandi_billing");
+		feature_mandi_accounting = (String) map.get("feature_mandi_accounting");
+		feature_mandi_arrival = (String) map.get("feature_mandi_arrival");
 		feature_show_mrp_price = (String) map.get("feature_show_mrp_price");
 		feature_appliance_management = (String) map.get("feature_appliance_management");
 		feature_non_veg = (String) map.get("feature_non_veg");
@@ -3247,6 +3271,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object feature_mandi_billingObj = map.get("feature_mandi_billing");
 		if(feature_mandi_billingObj != null)
 			feature_mandi_billing = feature_mandi_billingObj.toString();
+
+		Object feature_mandi_accountingObj = map.get("feature_mandi_accounting");
+		if (feature_mandi_accountingObj != null)
+			feature_mandi_accounting = feature_mandi_accountingObj.toString();
+
+		Object feature_mandi_arrivalObj = map.get("feature_mandi_arrival");
+		if (feature_mandi_arrivalObj != null)
+			feature_mandi_arrival = feature_mandi_arrivalObj.toString();
 
 		Object feature_show_mrp_priceObj = map.get("feature_show_mrp_price");
 		if(feature_show_mrp_priceObj != null)
@@ -5093,6 +5125,38 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetFeature_mandi_billing() {
 		this.feature_mandi_billing = null;
+	}
+
+	public String getFeature_mandi_accounting() {
+		return feature_mandi_accounting;
+	}
+
+	public String getFeature_mandi_accountingEx() {
+		return feature_mandi_accounting != null ? feature_mandi_accounting : "";
+	}
+
+	public void setFeature_mandi_accounting(String feature_mandi_accounting) {
+		this.feature_mandi_accounting = feature_mandi_accounting;
+	}
+
+	public void unSetFeature_mandi_accounting() {
+		this.feature_mandi_accounting = null;
+	}
+
+	public String getFeature_mandi_arrival() {
+		return feature_mandi_arrival;
+	}
+
+	public String getFeature_mandi_arrivalEx() {
+		return feature_mandi_arrival != null ? feature_mandi_arrival : "";
+	}
+
+	public void setFeature_mandi_arrival(String feature_mandi_arrival) {
+		this.feature_mandi_arrival = feature_mandi_arrival;
+	}
+
+	public void unSetFeature_mandi_arrival() {
+		this.feature_mandi_arrival = null;
 	}
 
 	public String getFeature_show_mrp_price() {
