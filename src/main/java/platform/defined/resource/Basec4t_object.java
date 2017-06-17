@@ -9,10 +9,14 @@
 
 package platform.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -262,6 +266,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private String repos_auto_create = null;
 	private String repos_token = null;
 	private String repos_password = null;
+	private String configured = null;
 	private String available_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -508,6 +513,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_REPOS_AUTO_CREATE = "repos_auto_create";
 	public static String FIELD_REPOS_TOKEN = "repos_token";
 	public static String FIELD_REPOS_PASSWORD = "repos_password";
+	public static String FIELD_CONFIGURED = "configured";
 	public static String FIELD_AVAILABLE_TIME = "available_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -1438,6 +1444,10 @@ public abstract class Basec4t_object extends BaseResource {
 		repos_passwordField.setLength(128);
 		metaData.addField(repos_passwordField);
 
+		Field configuredField = new Field("configured", "String");
+		configuredField.setLength(1);
+		metaData.addField(configuredField);
+
 		Field available_timeField = new Field("available_time", "String");
 		available_timeField.setLength(128);
 		metaData.addField(available_timeField);
@@ -1698,6 +1708,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.repos_auto_create = obj.repos_auto_create;
 		this.repos_token = obj.repos_token;
 		this.repos_password = obj.repos_password;
+		this.configured = obj.configured;
 		this.available_time = obj.available_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -2194,6 +2205,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("repos_token", repos_token);
 		if(repos_password != null)
 			map.put("repos_password", repos_password);
+		if (configured != null)
+			map.put("configured", configured);
 		if(available_time != null)
 			map.put("available_time", available_time);
 		if(extra_data != null)
@@ -2689,6 +2702,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("repos_token", repos_token);
 		if(repos_password != null)
 			map.put("repos_password", repos_password);
+		if (configured != null)
+			map.put("configured", configured);
 		if(available_time != null)
 			map.put("available_time", available_time);
 		if(extra_data != null)
@@ -2946,6 +2961,7 @@ public abstract class Basec4t_object extends BaseResource {
 		repos_auto_create = (String) map.get("repos_auto_create");
 		repos_token = (String) map.get("repos_token");
 		repos_password = (String) map.get("repos_password");
+		configured = (String) map.get("configured");
 		available_time = (String) map.get("available_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -3923,6 +3939,10 @@ public abstract class Basec4t_object extends BaseResource {
 		Object repos_passwordObj = map.get("repos_password");
 		if(repos_passwordObj != null)
 			repos_password = repos_passwordObj.toString();
+
+		Object configuredObj = map.get("configured");
+		if (configuredObj != null)
+			configured = configuredObj.toString();
 
 		Object available_timeObj = map.get("available_time");
 		if(available_timeObj != null)
@@ -7933,6 +7953,22 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetRepos_password() {
 		this.repos_password = null;
+	}
+
+	public String getConfigured() {
+		return configured;
+	}
+
+	public String getConfiguredEx() {
+		return configured != null ? configured : "";
+	}
+
+	public void setConfigured(String configured) {
+		this.configured = configured;
+	}
+
+	public void unSetConfigured() {
+		this.configured = null;
 	}
 
 	public String getAvailable_time() {

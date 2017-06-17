@@ -1165,6 +1165,10 @@
 				'type': 'String',
 				'length': 128
 			},
+			'configured': {
+				'type': 'String',
+				'length': 1
+			},
 			'available_time':
 			{
 				'type':'String',
