@@ -12,11 +12,11 @@
         'length': 128,
         'type': 'String'
       },
-      'arrivate_date_str': {
+      'arrival_date_str': {
         'length': 128,
         'type': 'String'
       },
-      'arrivate_date': {
+      'arrival_date': {
         'type': 'long'
       },
       'name': {
@@ -39,6 +39,12 @@
         'type': 'int'
       },
       'expense': {
+        'type': 'double'
+      },
+      'freight': {
+        'type': 'double'
+      },
+      'advance': {
         'type': 'double'
       },
       'last_update_time': {
