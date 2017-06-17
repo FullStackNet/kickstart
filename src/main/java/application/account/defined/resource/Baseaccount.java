@@ -9,10 +9,14 @@
 
 package application.account.defined.resource;
 
+import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.*;
-import platform.db.*;
-import java.util.*;
+import platform.util.ApplicationException;
+import platform.util.ExceptionSeverity;
+import platform.util.Field;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  ********** This is a generated class **********
@@ -31,6 +35,7 @@ public abstract class Baseaccount extends BaseResource {
 	private String parent_id = null;
 	private String parent_name = null;
 	private Double balance = null;
+	private String imie = null;
 	private Double opening_balance = null;
 	private Double closing_balance = null;
 	private Double settled_amount = null;
@@ -55,6 +60,7 @@ public abstract class Baseaccount extends BaseResource {
 	public static String FIELD_PARENT_ID = "parent_id";
 	public static String FIELD_PARENT_NAME = "parent_name";
 	public static String FIELD_BALANCE = "balance";
+	public static String FIELD_IMIE = "imie";
 	public static String FIELD_OPENING_BALANCE = "opening_balance";
 	public static String FIELD_CLOSING_BALANCE = "closing_balance";
 	public static String FIELD_SETTLED_AMOUNT = "settled_amount";
@@ -121,6 +127,9 @@ public abstract class Baseaccount extends BaseResource {
 		Field balanceField = new Field("balance", "double");
 		metaData.addField(balanceField);
 
+		Field imieField = new Field("imie", "String");
+		metaData.addField(imieField);
+
 		Field opening_balanceField = new Field("opening_balance", "double");
 		metaData.addField(opening_balanceField);
 
@@ -176,6 +185,7 @@ public abstract class Baseaccount extends BaseResource {
 		this.parent_id = obj.parent_id;
 		this.parent_name = obj.parent_name;
 		this.balance = obj.balance;
+		this.imie = obj.imie;
 		this.opening_balance = obj.opening_balance;
 		this.closing_balance = obj.closing_balance;
 		this.settled_amount = obj.settled_amount;
@@ -219,6 +229,8 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
+		if (imie != null)
+			map.put("imie", imie);
 		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
 		if(closing_balance != null)
@@ -270,6 +282,8 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
+		if (imie != null)
+			map.put("imie", imie);
 		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
 		if(closing_balance != null)
@@ -314,6 +328,7 @@ public abstract class Baseaccount extends BaseResource {
 		parent_id = (String) map.get("parent_id");
 		parent_name = (String) map.get("parent_name");
 		balance = (Double) map.get("balance");
+		imie = (String) map.get("imie");
 		opening_balance = (Double) map.get("opening_balance");
 		closing_balance = (Double) map.get("closing_balance");
 		settled_amount = (Double) map.get("settled_amount");
@@ -376,6 +391,10 @@ public abstract class Baseaccount extends BaseResource {
 		Object balanceObj = map.get("balance");
 		if(balanceObj != null)
 			balance = new Double(balanceObj.toString());
+
+		Object imieObj = map.get("imie");
+		if (imieObj != null)
+			imie = imieObj.toString();
 
 		Object opening_balanceObj = map.get("opening_balance");
 		if(opening_balanceObj != null)
@@ -626,6 +645,22 @@ public abstract class Baseaccount extends BaseResource {
 
 	public void unSetBalance() {
 		this.balance = null;
+	}
+
+	public String getImie() {
+		return imie;
+	}
+
+	public String getImieEx() {
+		return imie != null ? imie : "";
+	}
+
+	public void setImie(String imie) {
+		this.imie = imie;
+	}
+
+	public void unSetImie() {
+		this.imie = null;
 	}
 
 	public Double getOpening_balance() {

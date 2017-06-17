@@ -64,6 +64,9 @@
 			{
 				'type':'double'
 			},
+			'imie': {
+				'type': 'String'
+			},
 			'opening_balance': {
 				'type': 'double'
 			},
