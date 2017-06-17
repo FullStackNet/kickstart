@@ -1,0 +1,52 @@
+{
+  "mandi_arrival": {
+    "cluster": "DB_LOG",
+    "fields": {
+      'id': {
+        'name': 'id',
+        'length': 128,
+        'required': true,
+        'type': 'String'
+      },
+      'code': {
+        'length': 128,
+        'type': 'String'
+      },
+      'arrivate_date_str': {
+        'length': 128,
+        'type': 'String'
+      },
+      'arrivate_date': {
+        'type': 'long'
+      },
+      'name': {
+        'length': 128,
+        'type': 'String'
+      },
+      'type': {
+        'length': 128,
+        'type': 'String'
+      },
+      'community_id': {
+        'length': 128,
+        'type': 'String'
+      },
+      'community_name': {
+        'length': 128,
+        'type': 'String'
+      },
+      'bags': {
+        'type': 'int'
+      },
+      'expense': {
+        'type': 'double'
+      },
+      'last_update_time': {
+        'type': 'long'
+      },
+      'creation_time': {
+        'type': 'long'
+      }
+    }
+  }
+}
