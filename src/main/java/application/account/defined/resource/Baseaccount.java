@@ -9,14 +9,10 @@
 
 package application.account.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -229,7 +225,7 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
-		if (imie != null)
+		if(imie != null)
 			map.put("imie", imie);
 		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
@@ -282,7 +278,7 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("parent_name", parent_name);
 		if(balance != null)
 			map.put("balance", balance);
-		if (imie != null)
+		if(imie != null)
 			map.put("imie", imie);
 		if(opening_balance != null)
 			map.put("opening_balance", opening_balance);
@@ -393,7 +389,7 @@ public abstract class Baseaccount extends BaseResource {
 			balance = new Double(balanceObj.toString());
 
 		Object imieObj = map.get("imie");
-		if (imieObj != null)
+		if(imieObj != null)
 			imie = imieObj.toString();
 
 		Object opening_balanceObj = map.get("opening_balance");
