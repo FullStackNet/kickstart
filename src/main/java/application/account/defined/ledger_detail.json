@@ -20,7 +20,7 @@
         'length': 128,
         'type': 'String'
       },
-      'voucher_no': {
+      'voucher_id': {
         'length': 128,
         'type': 'String'
       },
