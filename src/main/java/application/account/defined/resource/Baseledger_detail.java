@@ -35,6 +35,8 @@ public abstract class Baseledger_detail extends BaseResource {
 	private Double amount = null;
 	private String arrival_date_str = null;
 	private Long arrival_date = null;
+	private String voucher_date_str = null;
+	private Long voucher_date = null;
 	private Long creation_time = null;
 	private Long last_update_time = null;
 	private Map<String, Object> extra_data = null;
@@ -55,6 +57,8 @@ public abstract class Baseledger_detail extends BaseResource {
 	public static String FIELD_AMOUNT = "amount";
 	public static String FIELD_ARRIVAL_DATE_STR = "arrival_date_str";
 	public static String FIELD_ARRIVAL_DATE = "arrival_date";
+	public static String FIELD_VOUCHER_DATE_STR = "voucher_date_str";
+	public static String FIELD_VOUCHER_DATE = "voucher_date";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -126,6 +130,13 @@ public abstract class Baseledger_detail extends BaseResource {
 		Field arrival_dateField = new Field("arrival_date", "long");
 		metaData.addField(arrival_dateField);
 
+		Field voucher_date_strField = new Field("voucher_date_str", "String");
+		voucher_date_strField.setLength(32);
+		metaData.addField(voucher_date_strField);
+
+		Field voucher_dateField = new Field("voucher_date", "long");
+		metaData.addField(voucher_dateField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -161,6 +172,8 @@ public abstract class Baseledger_detail extends BaseResource {
 		this.amount = obj.amount;
 		this.arrival_date_str = obj.arrival_date_str;
 		this.arrival_date = obj.arrival_date;
+		this.voucher_date_str = obj.voucher_date_str;
+		this.voucher_date = obj.voucher_date;
 		this.creation_time = obj.creation_time;
 		this.last_update_time = obj.last_update_time;
 		this.extra_data = obj.extra_data;
@@ -204,6 +217,10 @@ public abstract class Baseledger_detail extends BaseResource {
 			map.put("arrival_date_str", arrival_date_str);
 		if(arrival_date != null)
 			map.put("arrival_date", arrival_date);
+		if(voucher_date_str != null)
+			map.put("voucher_date_str", voucher_date_str);
+		if(voucher_date != null)
+			map.put("voucher_date", voucher_date);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(last_update_time != null)
@@ -247,6 +264,10 @@ public abstract class Baseledger_detail extends BaseResource {
 			map.put("arrival_date_str", arrival_date_str);
 		if(arrival_date != null)
 			map.put("arrival_date", arrival_date);
+		if(voucher_date_str != null)
+			map.put("voucher_date_str", voucher_date_str);
+		if(voucher_date != null)
+			map.put("voucher_date", voucher_date);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(last_update_time != null)
@@ -279,6 +300,8 @@ public abstract class Baseledger_detail extends BaseResource {
 		amount = (Double) map.get("amount");
 		arrival_date_str = (String) map.get("arrival_date_str");
 		arrival_date = (Long) map.get("arrival_date");
+		voucher_date_str = (String) map.get("voucher_date_str");
+		voucher_date = (Long) map.get("voucher_date");
 		creation_time = (Long) map.get("creation_time");
 		last_update_time = (Long) map.get("last_update_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -349,6 +372,14 @@ public abstract class Baseledger_detail extends BaseResource {
 		Object arrival_dateObj = map.get("arrival_date");
 		if(arrival_dateObj != null)
 			arrival_date = new Long(arrival_dateObj.toString());
+
+		Object voucher_date_strObj = map.get("voucher_date_str");
+		if(voucher_date_strObj != null)
+			voucher_date_str = voucher_date_strObj.toString();
+
+		Object voucher_dateObj = map.get("voucher_date");
+		if(voucher_dateObj != null)
+			voucher_date = new Long(voucher_dateObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -647,6 +678,42 @@ public abstract class Baseledger_detail extends BaseResource {
 
 	public void unSetArrival_date() {
 		this.arrival_date = null;
+	}
+
+	public String getVoucher_date_str() {
+		return voucher_date_str;
+	}
+
+	public String getVoucher_date_strEx() {
+		return voucher_date_str != null ? voucher_date_str : "";
+	}
+
+	public void setVoucher_date_str(String voucher_date_str) {
+		this.voucher_date_str = voucher_date_str;
+	}
+
+	public void unSetVoucher_date_str() {
+		this.voucher_date_str = null;
+	}
+
+	public Long getVoucher_date() {
+		return voucher_date;
+	}
+
+	public long getVoucher_dateEx() {
+		return voucher_date != null ? voucher_date : 0L;
+	}
+
+	public void setVoucher_date(long voucher_date) {
+		this.voucher_date = voucher_date;
+	}
+
+	public void setVoucher_date(Long voucher_date) {
+		this.voucher_date = voucher_date;
+	}
+
+	public void unSetVoucher_date() {
+		this.voucher_date = null;
 	}
 
 	public Long getCreation_time() {

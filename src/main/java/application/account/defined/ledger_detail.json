@@ -64,6 +64,13 @@
       'arrival_date': {
         'type': 'long'
       },
+      'voucher_date_str': {
+        'length': 32,
+        'type': 'String'
+      },
+      'voucher_date': {
+        'type': 'long'
+      },
       'creation_time': {
         'type': 'timestamp'
       },
