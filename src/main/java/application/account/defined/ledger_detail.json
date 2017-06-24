@@ -12,6 +12,10 @@
         'length': 128,
         'type': 'String'
       },
+      'fin_year': {
+        'length': 128,
+        'type': 'String'
+      },
       'f_code': {
         'length': 128,
         'type': 'String'

@@ -21,6 +21,7 @@ import java.util.*;
 public abstract class Baseledger_detail extends BaseResource {
 	private String id = null;
 	private String community_id = null;
+	private String fin_year = null;
 	private String f_code = null;
 	private String reference_id = null;
 	private String voucher_id = null;
@@ -38,6 +39,7 @@ public abstract class Baseledger_detail extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_FIN_YEAR = "fin_year";
 	public static String FIELD_F_CODE = "f_code";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_VOUCHER_ID = "voucher_id";
@@ -67,6 +69,10 @@ public abstract class Baseledger_detail extends BaseResource {
 		Field community_idField = new Field("community_id", "String");
 		community_idField.setLength(128);
 		metaData.addField(community_idField);
+
+		Field fin_yearField = new Field("fin_year", "String");
+		fin_yearField.setLength(128);
+		metaData.addField(fin_yearField);
 
 		Field f_codeField = new Field("f_code", "String");
 		f_codeField.setLength(128);
@@ -129,6 +135,7 @@ public abstract class Baseledger_detail extends BaseResource {
 	public Baseledger_detail(Baseledger_detail obj) {
 		this.id = obj.id;
 		this.community_id = obj.community_id;
+		this.fin_year = obj.fin_year;
 		this.f_code = obj.f_code;
 		this.reference_id = obj.reference_id;
 		this.voucher_id = obj.voucher_id;
@@ -155,6 +162,8 @@ public abstract class Baseledger_detail extends BaseResource {
 			map.put("id", id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(fin_year != null)
+			map.put("fin_year", fin_year);
 		if(f_code != null)
 			map.put("f_code", f_code);
 		if(reference_id != null)
@@ -192,6 +201,8 @@ public abstract class Baseledger_detail extends BaseResource {
 			map.put("id", id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(fin_year != null)
+			map.put("fin_year", fin_year);
 		if(f_code != null)
 			map.put("f_code", f_code);
 		if(reference_id != null)
@@ -232,6 +243,7 @@ public abstract class Baseledger_detail extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		community_id = (String) map.get("community_id");
+		fin_year = (String) map.get("fin_year");
 		f_code = (String) map.get("f_code");
 		reference_id = (String) map.get("reference_id");
 		voucher_id = (String) map.get("voucher_id");
@@ -257,6 +269,10 @@ public abstract class Baseledger_detail extends BaseResource {
 		Object community_idObj = map.get("community_id");
 		if(community_idObj != null)
 			community_id = community_idObj.toString();
+
+		Object fin_yearObj = map.get("fin_year");
+		if(fin_yearObj != null)
+			fin_year = fin_yearObj.toString();
 
 		Object f_codeObj = map.get("f_code");
 		if(f_codeObj != null)
@@ -355,6 +371,22 @@ public abstract class Baseledger_detail extends BaseResource {
 
 	public void unSetCommunity_id() {
 		this.community_id = null;
+	}
+
+	public String getFin_year() {
+		return fin_year;
+	}
+
+	public String getFin_yearEx() {
+		return fin_year != null ? fin_year : "";
+	}
+
+	public void setFin_year(String fin_year) {
+		this.fin_year = fin_year;
+	}
+
+	public void unSetFin_year() {
+		this.fin_year = null;
 	}
 
 	public String getF_code() {
