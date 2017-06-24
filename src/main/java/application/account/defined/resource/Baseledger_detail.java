@@ -23,6 +23,8 @@ public abstract class Baseledger_detail extends BaseResource {
 	private String community_id = null;
 	private String fin_year = null;
 	private String f_code = null;
+	private String f_name = null;
+	private String f_address = null;
 	private String reference_id = null;
 	private String voucher_id = null;
 	private String particular = null;
@@ -41,6 +43,8 @@ public abstract class Baseledger_detail extends BaseResource {
 	public static String FIELD_COMMUNITY_ID = "community_id";
 	public static String FIELD_FIN_YEAR = "fin_year";
 	public static String FIELD_F_CODE = "f_code";
+	public static String FIELD_F_NAME = "f_name";
+	public static String FIELD_F_ADDRESS = "f_address";
 	public static String FIELD_REFERENCE_ID = "reference_id";
 	public static String FIELD_VOUCHER_ID = "voucher_id";
 	public static String FIELD_PARTICULAR = "particular";
@@ -77,6 +81,14 @@ public abstract class Baseledger_detail extends BaseResource {
 		Field f_codeField = new Field("f_code", "String");
 		f_codeField.setLength(128);
 		metaData.addField(f_codeField);
+
+		Field f_nameField = new Field("f_name", "String");
+		f_nameField.setLength(128);
+		metaData.addField(f_nameField);
+
+		Field f_addressField = new Field("f_address", "String");
+		f_addressField.setLength(128);
+		metaData.addField(f_addressField);
 
 		Field reference_idField = new Field("reference_id", "String");
 		reference_idField.setLength(128);
@@ -137,6 +149,8 @@ public abstract class Baseledger_detail extends BaseResource {
 		this.community_id = obj.community_id;
 		this.fin_year = obj.fin_year;
 		this.f_code = obj.f_code;
+		this.f_name = obj.f_name;
+		this.f_address = obj.f_address;
 		this.reference_id = obj.reference_id;
 		this.voucher_id = obj.voucher_id;
 		this.particular = obj.particular;
@@ -166,6 +180,10 @@ public abstract class Baseledger_detail extends BaseResource {
 			map.put("fin_year", fin_year);
 		if(f_code != null)
 			map.put("f_code", f_code);
+		if(f_name != null)
+			map.put("f_name", f_name);
+		if(f_address != null)
+			map.put("f_address", f_address);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
 		if(voucher_id != null)
@@ -205,6 +223,10 @@ public abstract class Baseledger_detail extends BaseResource {
 			map.put("fin_year", fin_year);
 		if(f_code != null)
 			map.put("f_code", f_code);
+		if(f_name != null)
+			map.put("f_name", f_name);
+		if(f_address != null)
+			map.put("f_address", f_address);
 		if(reference_id != null)
 			map.put("reference_id", reference_id);
 		if(voucher_id != null)
@@ -245,6 +267,8 @@ public abstract class Baseledger_detail extends BaseResource {
 		community_id = (String) map.get("community_id");
 		fin_year = (String) map.get("fin_year");
 		f_code = (String) map.get("f_code");
+		f_name = (String) map.get("f_name");
+		f_address = (String) map.get("f_address");
 		reference_id = (String) map.get("reference_id");
 		voucher_id = (String) map.get("voucher_id");
 		particular = (String) map.get("particular");
@@ -277,6 +301,14 @@ public abstract class Baseledger_detail extends BaseResource {
 		Object f_codeObj = map.get("f_code");
 		if(f_codeObj != null)
 			f_code = f_codeObj.toString();
+
+		Object f_nameObj = map.get("f_name");
+		if(f_nameObj != null)
+			f_name = f_nameObj.toString();
+
+		Object f_addressObj = map.get("f_address");
+		if(f_addressObj != null)
+			f_address = f_addressObj.toString();
 
 		Object reference_idObj = map.get("reference_id");
 		if(reference_idObj != null)
@@ -403,6 +435,38 @@ public abstract class Baseledger_detail extends BaseResource {
 
 	public void unSetF_code() {
 		this.f_code = null;
+	}
+
+	public String getF_name() {
+		return f_name;
+	}
+
+	public String getF_nameEx() {
+		return f_name != null ? f_name : "";
+	}
+
+	public void setF_name(String f_name) {
+		this.f_name = f_name;
+	}
+
+	public void unSetF_name() {
+		this.f_name = null;
+	}
+
+	public String getF_address() {
+		return f_address;
+	}
+
+	public String getF_addressEx() {
+		return f_address != null ? f_address : "";
+	}
+
+	public void setF_address(String f_address) {
+		this.f_address = f_address;
+	}
+
+	public void unSetF_address() {
+		this.f_address = null;
 	}
 
 	public String getReference_id() {
