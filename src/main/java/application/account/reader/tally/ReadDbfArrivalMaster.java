@@ -66,6 +66,14 @@ public class ReadDbfArrivalMaster {
                     e.printStackTrace();
                 }
             }
+            int sold = 0;
+            if (!Util.isEmpty(map.get("sold"))) {
+                try {
+                    sold = Integer.parseInt(map.get("sold"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             double freight = 0.0;
             double advance = 0.0;
             double expense = 0.0;
@@ -87,6 +95,7 @@ public class ReadDbfArrivalMaster {
             }
             expense = advance + freight;
             _arrival.setBags(bags);
+            _arrival.setSold(sold);
             _arrival.setExpense(expense);
             _arrival.setFreight(freight);
             _arrival.setAdvance(advance);
