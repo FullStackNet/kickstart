@@ -50,6 +50,9 @@
       'bags': {
         'type': 'int'
       },
+      'sold': {
+        'type': 'int'
+      },
       'expense': {
         'type': 'double'
       },

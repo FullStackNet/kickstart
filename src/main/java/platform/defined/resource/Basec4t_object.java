@@ -9,14 +9,10 @@
 
 package platform.defined.resource;
 
-import platform.db.ResourceMetaData;
 import platform.resource.BaseResource;
-import platform.util.ApplicationException;
-import platform.util.ExceptionSeverity;
-import platform.util.Field;
-
-import java.util.HashMap;
-import java.util.Map;
+import platform.util.*;
+import platform.db.*;
+import java.util.*;
 
 /*
  ********** This is a generated class **********
@@ -1873,9 +1869,9 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_mandi_auction", feature_mandi_auction);
 		if(feature_mandi_billing != null)
 			map.put("feature_mandi_billing", feature_mandi_billing);
-		if (feature_mandi_accounting != null)
+		if(feature_mandi_accounting != null)
 			map.put("feature_mandi_accounting", feature_mandi_accounting);
-		if (feature_mandi_arrival != null)
+		if(feature_mandi_arrival != null)
 			map.put("feature_mandi_arrival", feature_mandi_arrival);
 		if(feature_show_mrp_price != null)
 			map.put("feature_show_mrp_price", feature_show_mrp_price);
@@ -2223,7 +2219,7 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("repos_token", repos_token);
 		if(repos_password != null)
 			map.put("repos_password", repos_password);
-		if (configured != null)
+		if(configured != null)
 			map.put("configured", configured);
 		if(available_time != null)
 			map.put("available_time", available_time);
@@ -2374,9 +2370,9 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("feature_mandi_auction", feature_mandi_auction);
 		if(feature_mandi_billing != null)
 			map.put("feature_mandi_billing", feature_mandi_billing);
-		if (feature_mandi_accounting != null)
+		if(feature_mandi_accounting != null)
 			map.put("feature_mandi_accounting", feature_mandi_accounting);
-		if (feature_mandi_arrival != null)
+		if(feature_mandi_arrival != null)
 			map.put("feature_mandi_arrival", feature_mandi_arrival);
 		if(feature_show_mrp_price != null)
 			map.put("feature_show_mrp_price", feature_show_mrp_price);
@@ -2724,7 +2720,7 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("repos_token", repos_token);
 		if(repos_password != null)
 			map.put("repos_password", repos_password);
-		if (configured != null)
+		if(configured != null)
 			map.put("configured", configured);
 		if(available_time != null)
 			map.put("available_time", available_time);
@@ -3273,11 +3269,11 @@ public abstract class Basec4t_object extends BaseResource {
 			feature_mandi_billing = feature_mandi_billingObj.toString();
 
 		Object feature_mandi_accountingObj = map.get("feature_mandi_accounting");
-		if (feature_mandi_accountingObj != null)
+		if(feature_mandi_accountingObj != null)
 			feature_mandi_accounting = feature_mandi_accountingObj.toString();
 
 		Object feature_mandi_arrivalObj = map.get("feature_mandi_arrival");
-		if (feature_mandi_arrivalObj != null)
+		if(feature_mandi_arrivalObj != null)
 			feature_mandi_arrival = feature_mandi_arrivalObj.toString();
 
 		Object feature_show_mrp_priceObj = map.get("feature_show_mrp_price");
@@ -3973,7 +3969,7 @@ public abstract class Basec4t_object extends BaseResource {
 			repos_password = repos_passwordObj.toString();
 
 		Object configuredObj = map.get("configured");
-		if (configuredObj != null)
+		if(configuredObj != null)
 			configured = configuredObj.toString();
 
 		Object available_timeObj = map.get("available_time");
