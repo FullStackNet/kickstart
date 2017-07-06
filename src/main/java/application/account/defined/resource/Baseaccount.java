@@ -22,6 +22,8 @@ public abstract class Baseaccount extends BaseResource {
 	private String id = null;
 	private String customer_id = null;
 	private String community_id = null;
+	private String community_name = null;
+	private String license_no = null;
 	private String code = null;
 	private String group_name = null;
 	private String company_name = null;
@@ -47,6 +49,8 @@ public abstract class Baseaccount extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_COMMUNITY_ID = "community_id";
+	public static String FIELD_COMMUNITY_NAME = "community_name";
+	public static String FIELD_LICENSE_NO = "license_no";
 	public static String FIELD_CODE = "code";
 	public static String FIELD_GROUP_NAME = "group_name";
 	public static String FIELD_COMPANY_NAME = "company_name";
@@ -87,6 +91,14 @@ public abstract class Baseaccount extends BaseResource {
 		Field community_idField = new Field("community_id", "String");
 		community_idField.setLength(128);
 		metaData.addField(community_idField);
+
+		Field community_nameField = new Field("community_name", "String");
+		community_nameField.setLength(128);
+		metaData.addField(community_nameField);
+
+		Field license_noField = new Field("license_no", "String");
+		license_noField.setLength(128);
+		metaData.addField(license_noField);
 
 		Field codeField = new Field("code", "String");
 		codeField.setLength(128);
@@ -172,6 +184,8 @@ public abstract class Baseaccount extends BaseResource {
 		this.id = obj.id;
 		this.customer_id = obj.customer_id;
 		this.community_id = obj.community_id;
+		this.community_name = obj.community_name;
+		this.license_no = obj.license_no;
 		this.code = obj.code;
 		this.group_name = obj.group_name;
 		this.company_name = obj.company_name;
@@ -207,6 +221,10 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
+		if(license_no != null)
+			map.put("license_no", license_no);
 		if(code != null)
 			map.put("code", code);
 		if(group_name != null)
@@ -260,6 +278,10 @@ public abstract class Baseaccount extends BaseResource {
 			map.put("customer_id", customer_id);
 		if(community_id != null)
 			map.put("community_id", community_id);
+		if(community_name != null)
+			map.put("community_name", community_name);
+		if(license_no != null)
+			map.put("license_no", license_no);
 		if(code != null)
 			map.put("code", code);
 		if(group_name != null)
@@ -315,6 +337,8 @@ public abstract class Baseaccount extends BaseResource {
 		id = (String) map.get("id");
 		customer_id = (String) map.get("customer_id");
 		community_id = (String) map.get("community_id");
+		community_name = (String) map.get("community_name");
+		license_no = (String) map.get("license_no");
 		code = (String) map.get("code");
 		group_name = (String) map.get("group_name");
 		company_name = (String) map.get("company_name");
@@ -351,6 +375,14 @@ public abstract class Baseaccount extends BaseResource {
 		Object community_idObj = map.get("community_id");
 		if(community_idObj != null)
 			community_id = community_idObj.toString();
+
+		Object community_nameObj = map.get("community_name");
+		if(community_nameObj != null)
+			community_name = community_nameObj.toString();
+
+		Object license_noObj = map.get("license_no");
+		if(license_noObj != null)
+			license_no = license_noObj.toString();
 
 		Object codeObj = map.get("code");
 		if(codeObj != null)
@@ -493,6 +525,38 @@ public abstract class Baseaccount extends BaseResource {
 
 	public void unSetCommunity_id() {
 		this.community_id = null;
+	}
+
+	public String getCommunity_name() {
+		return community_name;
+	}
+
+	public String getCommunity_nameEx() {
+		return community_name != null ? community_name : "";
+	}
+
+	public void setCommunity_name(String community_name) {
+		this.community_name = community_name;
+	}
+
+	public void unSetCommunity_name() {
+		this.community_name = null;
+	}
+
+	public String getLicense_no() {
+		return license_no;
+	}
+
+	public String getLicense_noEx() {
+		return license_no != null ? license_no : "";
+	}
+
+	public void setLicense_no(String license_no) {
+		this.license_no = license_no;
+	}
+
+	public void unSetLicense_no() {
+		this.license_no = null;
 	}
 
 	public String getCode() {
