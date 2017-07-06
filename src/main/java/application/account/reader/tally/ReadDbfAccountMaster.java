@@ -23,6 +23,7 @@ public class ReadDbfAccountMaster {
              _account.setName(map.get("name"));
              _account.setCode(map.get("code"));
              _account.setImie(map.get("imie"));
+             _account.setLicense_no(map.get("reg_no"));
              _account.setFin_year(map.get("fin_year"));
              if (Util.isEmpty(_account.getFin_year())) {
                  _account.setFin_year(fin_year);
