@@ -55,6 +55,8 @@ public class ReadDbfArrivalMaster {
                 _arrival.setArrival_date_str(tokens[0] + "-" + tokens[1] + "-" + tokens[2]);
             }
             String fin_year = Util.getFin_year(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]));
+            String id = community_id+"^"+fin_year+"^"+map.get("no");
+            _arrival.setId(id);
             _arrival.setFin_year(fin_year);
             _arrival.setCode(map.get("code"));
             _arrival.setCommunity_id(community_id);
