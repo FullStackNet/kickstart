@@ -14,6 +14,10 @@ import platform.util.ApplicationException;
 public class ServletContext {
 	private session _session;
 	String path;
+	String userAgent;
+
+
+
 	Map<String , String> params;
 	
 	public ServletContext(session _session) throws ApplicationException {
@@ -22,6 +26,14 @@ public class ServletContext {
 		 _session = (session) SessionHelper.getInstance().getById(_session.getId());
 		this._session = _session;
 		params = new HashMap<String , String>();
+	}
+
+	public String getUserAgent() {
+		return userAgent;
+	}
+
+	public void setUserAgent(String userAgent) {
+		this.userAgent = userAgent;
 	}
 
 	public void addParam(String name,String value) {

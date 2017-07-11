@@ -17,6 +17,7 @@ public class UIServletContext {
 	String currentURL;
 	
 	String domainName;
+	String userAgent;
 	private session _session;
 	String sessionId;
 	PageBuilder mPageBuilder;
@@ -25,7 +26,15 @@ public class UIServletContext {
 	Map<String , String> params;
 	HttpServletResponse response;
 	String path;
-	
+
+	public String getUserAgent() {
+		return userAgent;
+	}
+
+	public void setUserAgent(String userAgent) {
+		this.userAgent = userAgent;
+	}
+
 	public String getCurrentURL() {
 		return currentURL;
 	}
