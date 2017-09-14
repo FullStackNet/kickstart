@@ -1,0 +1,37 @@
+{
+	"c4t_record_map" :
+	{
+		"cluster": "DB_RECORD",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'remark' : "Key will be always the id and record_map_type"
+			},
+			'record_id':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'record_map_type':
+			{
+				'length': 512,
+				'type': 'String'
+			},
+			'reference_id':
+			{
+				'length': 512,
+				'type': 'String',
+				'transient' : true
+			},
+			'record_map': {
+				'type': 'Array',
+				'valueType' : "Object"
+			}			
+		}					
+	}
+}

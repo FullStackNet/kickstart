@@ -1,0 +1,73 @@
+{
+	"member_flat" :
+	{
+		"cluster": "DB_OBJECT",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'member_name':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'member_id':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'flat_id':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'flat_no':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'resident':
+			{
+				'length': 128,
+				'type':'String',
+				index : true
+			},
+			'type':
+			{
+				'length': 128,
+				'type':'String',
+				"remark" : "Owner/Tanent"
+			},
+			'tenant_lease_started_str':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'tenant_lease_started':
+			{
+				type : "long"
+			},
+			'tenant_lease_ended_str':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'tenant_lease_ended':
+			{
+				type : "long"
+			},
+			'tenant_stay_status':
+			{
+				type : "String"
+			}
+		}
+	}
+}

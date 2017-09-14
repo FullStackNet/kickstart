@@ -1,0 +1,442 @@
+{
+	"gateway" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'model':
+			{
+				'name':'model',
+				'length': 50,
+				'type':'String'
+			},
+			'machine_id':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'serial_number':
+			{
+				'name':'serial_number',
+				'length': 32,
+				'type':'String'
+			},
+			'login_id':
+			{
+				'name':'login_id',
+				'length': 128,
+				'type':'String'
+			},
+			'password':
+			{
+				'name':'password',
+				'length': 128,
+				'type':'String'
+			},
+			'mfg_date':
+			{
+				'name':'mfg_date',
+				'length': 20,
+				'type':'String'
+			},
+			'hardware_version':
+			{
+				'name':'hardware_version',
+				'length': 50,
+				'type':'String'
+			},
+			'gateway_type':
+			{
+				'length': 50,
+				'type':'String',
+				'remark' : "C4T,MEDICAL-DISTRIBUTER"
+			},
+			'software_version':
+			{
+				'name':'software_version',
+				'length': 50,
+				'type':'String'
+			},
+			'sdp_protocol_version':
+			{
+				'name':'sdp_protocol_version',
+				'length': 10,
+				'type':'String'
+			},
+			'application':
+			{
+				'name':'application',
+				'length': 50,
+				'type':'String'
+			},
+			'community_id':
+			{
+				'name':'site_id',
+				'length': 128,
+				'type':'String'
+			},
+			'community_name':
+			{
+				'name':'site_name',
+				'length': 128,
+				'type':'String'
+			},
+			'data_read_interval':
+			{
+				'name':'data_read_interval',
+				'default':'30',
+				'length': 8,
+				'type':'int'
+			},
+			'data_push_interval':
+			{
+				'name':'data_push_interval',
+				'default':'3600',
+				'length': 8,
+				'type':'int'
+			},
+			'heartbeat_interval':
+			{
+				'name':'heartbeat_interval',
+				'default':'3600',
+				'length': 8,
+				'type':'int'
+			},
+			'alarm_server':
+			{
+				'name':'alarm_server',
+				'length': 128,
+				'type':'String'
+			},
+			'alarm_server_port':
+			{
+				'name':'alarm_server_port',
+				'length': 5,
+				'type':'int'
+			},
+			'sftp_server':
+			{
+				'name':'sftp_server',
+				'length': 128,
+				'type':'String'
+			},
+			'sftp_port':
+			{
+				'name':'sftp_port',
+				'length': 5,
+				'type':'int'
+			},
+			'sftp_username':
+			{
+				'name':'sftp_username',
+				'length': 128,
+				'type':'String'
+			},
+			'sftp_password':
+			{
+				'name':'sftp_password',
+				'length': 128,
+				'type':'String'
+			},
+			'datalog_server':
+			{
+				'name':'datalog_server',
+				'length': 128,
+				'type':'String'
+			},
+			'datalog_server_port':
+			{
+				'name':'datalog_server_port',
+				'length': 5,
+				'type':'int'
+			},
+			'gateway_ip':
+			{
+				'name':'gateway_ip',
+				'length': 128,
+				'type':'String'
+			},
+			'license_key':
+			{
+				'name':'license_key',
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'name':'creation_time',
+				'default':'CURRENT_TIMESTAMP',
+				'required': true,
+				'type':'timestamp'
+			},
+			'last_modified_time':
+			{
+				'name':'last_modified_time',
+				'type':'timestamp'
+			},
+			'created_by_profile_id':
+			{
+				'name':'created_by_profile_id',
+				'length': 128,
+				'type':'String'
+			},
+			'created_by_profile_name':
+			{
+				'name':'created_by_profile_name',
+				'length': 128,
+				'type':'String'
+			},
+			'last_updated_by_profile_id':
+			{
+				'name':'last_updated_by_profile_id',
+				'length': 128,
+				'type':'String'
+			},
+			'last_updated_by_profile_name':
+			{
+				'name':'last_updated_by_profile_name',
+				'length': 128,
+				'type':'String'
+			},
+			'remark':
+			{
+				'name':'remark',
+				'length': 512,
+				'type':'String'
+			},
+			'status':
+			{
+				'name':'status',
+				'default':'U',
+				'length': 1,
+				'type':'String'
+			},
+			'gateway_local_id':
+			{
+				'name':'gateway_local_id',
+				'length': 64,
+				'type':'String'
+			},
+			'inventory_state':
+			{
+				'name':'inventory_state',
+				'length': 16,
+				'type':'String'
+			},
+			'simnumber_1':
+			{
+				'name':'simnumber_1',
+				'length': 64,
+				'type':'String'
+			},
+			'simnumber_2':
+			{
+				'name':'simnumber_2',
+				'length': 64,
+				'type':'String'
+			},
+			'mobileno_1':
+			{
+				'name':'mobileno_1',
+				'length': 64,
+				'type':'String'
+			},
+			'mobileno_2':
+			{
+				'name':'mobileno_2',
+				'length': 64,
+				'type':'String'
+			},
+			'lat':
+			{
+				'name':'lat',
+				'length': 10,
+				'type':'String'
+			},
+			'longitude':
+			{
+				'name':'longitude',
+				'length': 10,
+				'type':'String'
+			},
+			'access_key_handling':
+			{
+				'name':'access_key_handling',
+				'length': 16,
+				'type':'String'
+			},
+			'db_enabled':
+			{
+				'name':'db_enabled',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'controller_heartbeat_interval':
+			{
+				'name':'controller_heartbeat_interval',
+				'default':'30',
+				'length': 8,
+				'type':'int'
+			},
+			'controller_reconnect':
+			{
+				'name':'controller_reconnect',
+				'default':'30',
+				'length': 8,
+				'type':'int'
+			},
+			'controller_type':
+			{
+				'name':'controller_type',
+				'default':'TCP',
+				'length': 8,
+				'type':'String'
+			},
+			'controller_ip':
+			{
+				'name':'controller_ip',
+				'default':'127.0.0.1',
+				'length': 20,
+				'type':'String'
+			},
+			'controller_port':
+			{
+				'name':'controller_port',
+				'default':'1001',
+				'length': 8,
+				'type':'int'
+			},
+			'controller_usb_port':
+			{
+				'name':'controller_usb_port',
+				'default':'/dev/ttyUSB0',
+				'length': 32,
+				'type':'String'
+			},
+			'controller_baudrate':
+			{
+				'name':'controller_baudrate',
+				'default':'115200',
+				'length': 8,
+				'type':'int'
+			},
+			'modules':
+			{
+				'name':'modules',
+				'default':'DIC',
+				'length': 128,
+				'type':'String'
+			},
+			'power_priority':
+			{
+				'name':'power_priority',
+				'default':'GRID',
+				'length': 10,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'type':'String'
+			},
+			'activated':
+			{
+				'name':'activated',
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'connected':
+			{
+				'name':'connected',
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'config':
+			{
+				'name':'config',
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'deployed_version':
+			{
+				'name':'deployed_version',
+				'length': 16,
+				'type':'String'
+			},
+			'cpu_usage':
+			{
+				'name':'cpu_usage',
+				'default':'0.00',
+				'length': 12,
+				'precision': 2,
+				'type':'Number'
+			},
+			'process_cpu_usage':
+			{
+				'name':'process_cpu_usage',
+				'default':'0.00',
+				'length': 12,
+				'precision': 2,
+				'type':'Number'
+			},
+			'total_memory':
+			{
+				'name':'total_memory',
+				'default':'0',
+				'length': 12,
+				'type':'Number'
+			},
+			'free_memory':
+			{
+				'name':'free_memory',
+				'default':'0',
+				'length': 12,
+				'type':'Number'
+			},
+			'free_disk_space':
+			{
+				'name':'free_disk_space',
+				'default':'0',
+				'length': 12,
+				'type':'Number'
+			},
+			'total_disk_space':
+			{
+				'name':'total_disk_space',
+				'default':'0',
+				'length': 12,
+				'type':'Number'
+			},
+			'admin_status':
+			{
+				'name':'admin_status',
+				'default':'S',
+				'length': 1,
+				'type':'String'
+			},
+			'controllers':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			}	
+		}
+	}
+}

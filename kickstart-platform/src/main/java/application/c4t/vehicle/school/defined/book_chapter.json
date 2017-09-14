@@ -1,0 +1,51 @@
+{
+	"book_chapter" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'order' : {
+				'type':'long'
+			 },
+			 'free_access' : {
+				'type':'String',
+				'length': 1
+			 },
+			'summary':
+			{
+				'length': 32,
+				'type':'String'
+			},	
+			'book_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'last_update_time': {
+				'type': 'timestamp'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}			
+		}
+	}
+}

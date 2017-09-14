@@ -1,0 +1,45 @@
+{
+  "referral_code": {
+    "cluster": "DB_LOG",
+    "fields": {
+      'id': {
+        'name': 'id',
+        'length': 128,
+        'required': true,
+        'type': 'String'
+      },
+      'code': {
+        'length': 128,
+        'type': 'String'
+      },
+      'code_type': {
+        'length': 128,
+        'type': 'String'
+      },
+      'user_id': {
+        'length': 128,
+        'type': 'String'
+      },
+      'user_name': {
+        'length': 128,
+        'type': 'String'
+      },
+      'percentage': {
+        'type': 'double'
+      },
+      'amount': {
+        'type': 'double'
+      },
+      'status': {
+        'length': 32,
+        'type': 'String'
+      },
+      'creation_time': {
+        'type': 'timestamp'
+      },
+      'expiry_time': {
+        'type': 'timestamp'
+      }
+    }
+  }
+}

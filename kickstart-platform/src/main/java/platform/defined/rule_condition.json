@@ -1,0 +1,108 @@
+{
+	"rule_condition" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'type':
+			{
+				'name':'type',
+				'length': 64,
+				'type':'String'
+			},
+			'entity_type':
+			{
+				'name':'entity_type',
+				'length': 64,
+				'type':'String'
+			},
+			'entity_id':
+			{
+				'name':'entity_id',
+				'length': 128,
+				'type':'String'
+			},
+			'entity_name':
+			{
+				'name':'entity_name',
+				'length': 128,
+				'type':'String'
+			},
+			'attribute':
+			{
+				'name':'attribute',
+				'length': 64,
+				'type':'String'
+			},
+			'attribute_value_type':
+			{
+				'name':'attribute_value_type',
+				'length': 32,
+				'type':'String'
+			},
+			'operator':
+			{
+				'name':'operator',
+				'length': 32,
+				'type':'String'
+			},
+			'value':
+			{
+				'name':'value',
+				'length': 128,
+				'type':'String'
+			},
+			'leftConditionId':
+			{
+				'name':'leftConditionId',
+				'length': 128,
+				'type':'String'
+			},
+			'leftConditionName':
+			{
+				'name':'leftConditionName',
+				'length': 128,
+				'type':'String'
+			},
+			'rightConditionId':
+			{
+				'name':'rightConditionId',
+				'length': 128,
+				'type':'String'
+			},
+			'rightConditionName':
+			{
+				'name':'rightConditionName',
+				'length': 128,
+				'type':'String'
+			},
+			'referance_type':
+			{
+				'name':'referance_type',
+				'default':'LOCATION',
+				'length': 16,
+				'required': true,
+				'type':'String'
+			},
+			'referance_id':
+			{
+				'name':'referance_id',
+				'length': 128,
+				'type':'String'
+			}
+		}
+	}
+}

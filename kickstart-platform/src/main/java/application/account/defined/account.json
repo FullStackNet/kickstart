@@ -1,0 +1,116 @@
+{
+	"account" :
+	{
+		"cluster": "DB_ACCOUNT",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'community_id': {
+				'length': 128,
+				'type': 'String'
+			},
+			'community_name': {
+				'length': 128,
+				'type': 'String'
+			},
+			'license_no': {
+				'length': 128,
+				'type': 'String'
+			},
+			'code': {
+				'length': 128,
+				'type': 'String'
+			},
+			'group_name': {
+				'length': 128,
+				'type': 'String'
+			},
+			
+			'company_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'account_customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'type':
+			{
+				'length': 128,
+				'type':'String',
+				'remark' : "A-Account, G- Group"
+			},
+			'parent_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'parent_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'balance':
+			{
+				'type':'double'
+			},
+			'imie': {
+				'type': 'String'
+			},
+			'opening_balance': {
+				'type': 'double'
+			},
+			'opening_balance': {
+				'type': 'double'
+			},
+			'closing_balance': {
+				'type': 'double'
+			},
+			'settled_amount': {
+				'type': 'double'
+			},
+			'balance_amount': {
+				'type': 'double'
+			},
+			'settled': {
+				'type': 'String'
+			},
+			'total_dr': {
+				'type': 'double'
+			},
+			'total_cr': {
+				'type': 'double'
+			},
+			'fin_year': {
+				'type': 'String'
+			},
+
+			'creation_time':
+			{
+				'type':'timestamp'
+			},
+			'last_update_time':
+			{
+				'type':'timestamp'
+			}
+		}
+	}
+}

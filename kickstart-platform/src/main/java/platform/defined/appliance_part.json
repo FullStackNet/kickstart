@@ -1,0 +1,637 @@
+{
+	"appliance_part" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'make':
+			{
+				'name':'make',
+				'length': 128,
+				'type':'String'
+			},
+			'power_rating':
+			{
+				'name':'power_rating',
+				'default':'0.0000',
+				'length': 16,
+				'precision': 4,
+				'type':'Number'
+			},
+			'type':
+			{
+				'name':'type',
+				'length': 32,
+				'type':'String'
+			},
+			'applaince_type_id':
+			{
+				'name':'applaince_type_id',
+				'length': 128,
+				'type':'String'
+			},
+			'consumer_id':
+			{
+				'name':'consumer_id',
+				'length': 128,
+				'type':'String'
+			},
+			'manager':
+			{
+				'name':'manager',
+				'length': 128,
+				'type':'String'
+			},
+			'model':
+			{
+				'name':'model',
+				'length': 128,
+				'type':'String'
+			},
+			'location_id':
+			{
+				'name':'location_id',
+				'length': 128,
+				'type':'String'
+			},
+			'sub_location_id':
+			{
+				'name':'sub_location_id',
+				'length': 128,
+				'type':'String'
+			},
+			'site_id':
+			{
+				'name':'site_id',
+				'length': 128,
+				'type':'String'
+			},
+			'tank_id':
+			{
+				'name':'tank_id',
+				'length': 128,
+				'type':'String'
+			},
+			'dg_unit_opening':
+			{
+				'name':'dg_unit_opening',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'dg_unit_consumed':
+			{
+				'name':'dg_unit_consumed',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'dg_unit_closing':
+			{
+				'name':'dg_unit_closing',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_unit_opening':
+			{
+				'name':'grid_unit_opening',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_unit_consumed':
+			{
+				'name':'grid_unit_consumed',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_unit_closing':
+			{
+				'name':'grid_unit_closing',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'serial_no':
+			{
+				'name':'serial_no',
+				'length': 64,
+				'type':'String'
+			},
+			'rf_tag_id':
+			{
+				'name':'rf_tag_id',
+				'length': 64,
+				'type':'String'
+			},
+			'manufecturing_date':
+			{
+				'name':'manufecturing_date',
+				'length': 32,
+				'type':'String'
+			},
+			'next_servicing_date':
+			{
+				'name':'next_servicing_date',
+				'length': 32,
+				'type':'String'
+			},
+			'threshold_fuel_level':
+			{
+				'name':'threshold_fuel_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'capacity':
+			{
+				'name':'capacity',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'maintainace_run_hour':
+			{
+				'name':'maintainace_run_hour',
+				'length': 10,
+				'type':'int'
+			},
+			'consumption_per_hour':
+			{
+				'name':'consumption_per_hour',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'threshold_temperature_min_level':
+			{
+				'name':'threshold_temperature_min_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'threshold_temperature_max_level':
+			{
+				'name':'threshold_temperature_max_level',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'threshold_voltage_min_level':
+			{
+				'name':'threshold_voltage_min_level',
+				'length': 10,
+				'type':'Number'
+			},
+			'threshold_voltage_max_level':
+			{
+				'name':'threshold_voltage_max_level',
+				'length': 10,
+				'type':'Number'
+			},
+			'threshold_current_min_level':
+			{
+				'name':'threshold_current_min_level',
+				'length': 10,
+				'type':'Number'
+			},
+			'threshold_current_max_level':
+			{
+				'name':'threshold_current_max_level',
+				'length': 10,
+				'type':'Number'
+			},
+			'threshold_duration':
+			{
+				'name':'threshold_duration',
+				'length': 10,
+				'type':'Number'
+			},
+			'asset_id':
+			{
+				'name':'asset_id',
+				'length': 128,
+				'type':'String'
+			},
+			'partner_id':
+			{
+				'name':'partner_id',
+				'length': 128,
+				'type':'String'
+			},
+			'tenent_id':
+			{
+				'name':'tenent_id',
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'type':'String'
+			},
+			'ex_type':
+			{
+				'name':'ex_type',
+				'default':'ENABLED',
+				'length': 16,
+				'type':'String'
+			},
+			'interface_type':
+			{
+				'name':'interface_type',
+				'length': 32,
+				'type':'String'
+			},
+			'battery_number':
+			{
+				'name':'battery_number',
+				'length': 3,
+				'type':'int'
+			},
+			'number_of_batteries':
+			{
+				'name':'number_of_batteries',
+				'length': 3,
+				'type':'int'
+			},
+			'deploy_type':
+			{
+				'name':'deploy_type',
+				'default':'LOCATION',
+				'length': 16,
+				'type':'String'
+			},
+			'connected':
+			{
+				'name':'connected',
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'config':
+			{
+				'name':'config',
+				'default':'Y',
+				'length': 1,
+				'type':'String'
+			},
+			'battery_status':
+			{
+				'name':'battery_status',
+				'default':'O',
+				'length': 1,
+				'type':'String'
+			},
+			'battery_level':
+			{
+				'name':'battery_level',
+				'default':'100',
+				'length': 3,
+				'type':'int'
+			},
+			'last_reading':
+			{
+				'name':'last_reading',
+				'default':'0.0000',
+				'length': 16,
+				'precision': 4,
+				'type':'Number'
+			},
+			'last_reading_updated':
+			{
+				'name':'last_reading_updated',
+				'default':'CURRENT_TIMESTAMP',
+				'required': true,
+				'type':'timestamp'
+			},
+			'dg_reading':
+			{
+				'name':'dg_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_reading':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'voltage':
+			{
+				'name':'voltage',
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'current':
+			{
+				'name':'current',
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'power':
+			{
+				'name':'power',
+				'default':'0.0000',
+				'length': 16,
+				'precision': 4,
+				'type':'Number'
+			},
+			'temperature':
+			{
+				'name':'temperature',
+				'default':'0.00',
+				'length': 6,
+				'precision': 2,
+				'type':'Number'
+			},
+			'humidity':
+			{
+				'name':'humidity',
+				'default':'0.00',
+				'length': 6,
+				'precision': 2,
+				'type':'Number'
+			},
+			'mode':
+			{
+				'name':'mode',
+				'default':'D',
+				'length': 1,
+				'type':'String'
+			},
+			'level':
+			{
+				'name':'level',
+				'default':'0',
+				'length': 3,
+				'type':'int'
+			},
+			'level_float':
+			{
+				'name':'level_float',
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'fuel_level':
+			{
+				'name':'fuel_level',
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'fuel_quantity':
+			{
+				'name':'fuel_quantity',
+				'default':'0.00',
+				'length': 10,
+				'precision': 2,
+				'type':'Number'
+			},
+			'state':
+			{
+				'name':'state',
+				'default':'N',
+				'length': 32,
+				'type':'String'
+			},
+			'flow_state':
+			{
+				'name':'flow_state',
+				'default':'N',
+				'length': 4,
+				'type':'String'
+			},
+			'load_state':
+			{
+				'name':'load_state',
+				'default':'N',
+				'length': 4,
+				'type':'String'
+			},
+			'vibration_state':
+			{
+				'name':'vibration_state',
+				'default':'N',
+				'length': 4,
+				'type':'String'
+			},
+			'prefilege_detected':
+			{
+				'name':'prefilege_detected',
+				'length': 4,
+				'type':'String'
+			},
+			'last_prefilege_detected_time':
+			{
+				'name':'last_prefilege_detected_time',
+				'type':'timestamp'
+			},
+			'move_state':
+			{
+				'name':'move_state',
+				'length': 32,
+				'type':'String'
+			},
+			'last_moved_in_time':
+			{
+				'name':'last_moved_in_time',
+				'type':'timestamp'
+			},
+			'last_moved_out_time':
+			{
+				'name':'last_moved_out_time',
+				'type':'timestamp'
+			},
+			'last_disconnect_time':
+			{
+				'name':'last_disconnect_time',
+				'type':'timestamp'
+			},
+			'last_update_time':
+			{
+				'name':'last_update_time',
+				'type':'timestamp'
+			},
+			'activated':
+			{
+				'name':'activated',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'overload_dg':
+			{
+				'name':'overload_dg',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'overload_grid':
+			{
+				'name':'overload_grid',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'dg_on':
+			{
+				'name':'dg_on',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'appliance_id':
+			{
+				'name':'appliance_id',
+				'length': 128,
+				'type':'String'
+			},
+			'unhealthy_batteries':
+			{
+				'name':'unhealthy_batteries',
+				'default':'0',
+				'length': 3,
+				'type':'int'
+			},
+			'bb_u_a':
+			{
+				'name':'bb_u_a',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'bb_n_u_a':
+			{
+				'name':'bb_n_u_a',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'bb_critical':
+			{
+				'name':'bb_critical',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'bb_mains_fail':
+			{
+				'name':'bb_mains_fail',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'bb_rfa':
+			{
+				'name':'bb_rfa',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'bb_fuse_fail':
+			{
+				'name':'bb_fuse_fail',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'lube_low_pressure':
+			{
+				'name':'lube_low_pressure',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'high_dg_water_temperature':
+			{
+				'name':'high_dg_water_temperature',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'canopy_temperature':
+			{
+				'name':'canopy_temperature',
+				'default':'0.00',
+				'length': 6,
+				'precision': 2,
+				'type':'Number'
+			},
+			'lastProcessedState':
+			{
+				'name':'lastProcessedState',
+				'default':'STOP',
+				'length': 32,
+				'type':'String'
+			},
+			'lastProcessedTime':
+			{
+				'name':'lastProcessedTime',
+				'type':'timestamp'
+			},
+			'charging_state':
+			{
+				'name':'charging_state',
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'last_processed_fuel_quantity':
+			{
+				'name':'last_processed_fuel_quantity',
+				'default':'0.00',
+				'length': 15,
+				'precision': 4,
+				'type':'Number'
+			},
+			'last_processed_db_reading':
+			{
+				'name':'last_processed_db_reading',
+				'default':'0.00',
+				'length': 15,
+				'precision': 4,
+				'type':'Number'
+			},
+			'last_processed_grid_reading':
+			{
+				'name':'last_processed_grid_reading',
+				'default':'0.00',
+				'length': 15,
+				'precision': 4,
+				'type':'Number'
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"c4t_objects" :
+	{
+		"cluster": "DB_OBJECT",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				"remark" : "from id and relation type"
+			},
+			'object_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'objects':
+			{
+				'type': 'Array',
+				'valueType' : "platform.resource.c4t_object"
+			}
+		}
+	}
+}

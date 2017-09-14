@@ -1,0 +1,81 @@
+{
+	"device" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'type':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String',
+				'remark' : "GATEWAY,DG_CONTROLLER,OBD,CONTROLLER,HOME_AUTOMATION_CONTROLLER,PROBE"
+			},
+			'vendor_device_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'imie_no':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String'
+			},
+			'vendor_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'model':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'manager':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'firmware_major_version':
+			{
+				'length': 10,
+				'type':'String'
+			},
+			'firmware_minor_version':
+			{
+				'length': 10,
+				'type':'String'
+			},
+			'state':
+			{
+				'length': 32,
+				'type':'String',
+				'default' : "IN-STORE",
+				'comments' : "IN-STORE,DEPLOYED,REPAIRED"
+			},
+			'customer_id':
+			{
+				'length': 32,
+				'type':'String',
+				"remark" : "Which customer has deployed this device"
+			}
+		}
+	}
+}

@@ -1,0 +1,84 @@
+{
+	"buy_log" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'school_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'student_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			},
+			'amount':
+			{
+				'type':'double'
+			},
+			'provider_amount': {
+				'type': 'double'
+			},
+			'item_type':
+			{
+				'length': 128,
+				'type':'String'
+			},	
+			'reference_id':
+			{
+				'length': 128,
+				'type':'String'
+			},	
+			'item_id':
+			{
+				'length': 128,
+				'type':'String'
+			},	
+			'item_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'provider_id': {
+				'length': 128,
+				'type': 'String'
+			},
+			'provider_name': {
+				'length': 128,
+				'type': 'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'remark': {
+				'length': 128,
+				'type': 'String'
+			}
+		}
+	}
+}

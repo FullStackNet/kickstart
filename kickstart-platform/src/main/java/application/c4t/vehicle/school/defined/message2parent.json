@@ -1,0 +1,77 @@
+{
+	"message2parent" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 260,
+				'required': true,
+				'type':'String',
+				"comments" : "Thread Id"
+			},
+			'message_time': {
+				'type':'timestamp'	
+			},
+			'message_text': {
+				'type':'String',
+				'length':  1024		
+			},
+			'school_id': {
+				'type':'String',
+				'length':  128,
+				index : true			
+			},
+			'school_name': {
+				'type':'String',
+				'length':  128
+			},
+			'user_id': {
+				'type':'String',
+				'length':  128,
+				index : true		
+			},
+			'user_name': {
+				'type':'String',
+				'length':  128,
+				index : true		
+			},
+			'student_id': {
+				'type':'String',
+				'length':  128,
+				index : true		
+			},
+			'customer_id': {
+				'type':'String',
+				'length':  128,
+				index : true		
+			},
+			'teacher_id': {
+				'type':'String',
+				'length':  128,
+				index : true			
+			},
+			'student_name': {
+				'type':'String',
+				'length':  128
+			},
+			'last_updated': {
+				'type':'timestamp'		
+			},
+			'last_updated_id': {
+				'type':'String',
+				'length':  128		
+			},
+			'last_updated_name': {
+				'type':'String',
+				'length':  128		
+			},
+			'last_message': {
+				'type':'String',
+				'length':  1024		
+			}
+		}
+	}
+}

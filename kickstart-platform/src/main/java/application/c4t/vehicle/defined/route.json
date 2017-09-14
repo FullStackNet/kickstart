@@ -1,0 +1,205 @@
+{
+	"route" :
+	{
+		"cluster": "DB_CONFIG",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'type':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'route_no':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'state':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'from_point':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'to_point':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'by_route':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'index' : true
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'user_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'appliance_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'driver_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'attendent_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'start_time':
+			{
+				'length': 10,
+				'type':'String'
+			},
+			'end_time':
+			{
+				'length': 10,
+				'type':'String'
+			},
+			'active':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'schedule_day_monday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_tuesday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_wednesday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_thursday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_fridayday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_saturday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'schedule_day_sunday' :
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "Y"
+			},
+			'in_route_accuracy' :
+			{
+				type : "long",
+				default : 50,
+				"remark" : "Meters"
+			},
+			'next_connecting_route_id' :
+			{
+				type : "String"
+			},
+			'record_trip':
+			{
+				'type':'String',
+				default : "N"
+			},
+			'overSpeedState' : {
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			'onlyTracking' : {
+				'default':'N',
+				'length': 1,
+				'type':'String'
+			},
+			threshold_over_speed : {
+				type : "int"
+			},
+			alert_parent_over_speed : {
+				type : "String",
+				'default' : "N",
+				length : 1
+			},
+			notifiy_teacher_present : {
+				type : "String",
+				'default' : "N",
+				length : 1
+			},
+			teacher_present : {
+				type : "String",
+				'default' : "N",
+				length : 1
+			},
+			teacher_present_time : {
+				type : "timestamp"
+			}
+		},
+		"information" : 
+		{
+			"add" : 
+			 {
+				1 : {
+					context : "On Adding route",
+					resource : "customer_vehicle_map",
+					to_field : "routes" ,
+					comment : "pick the route id and customer id from context and add into routes array in customer_vehicle_map"
+				},
+				2 : {
+					context : "On Adding route if vehicle is specified",
+					resource : "vehicle_map",
+					to_field : "routes", 
+					comment : "pick the route id and vehicle id  and add into routes array in vehicle_map"
+				}
+			}
+		}		
+	}
+}

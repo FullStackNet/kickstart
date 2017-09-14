@@ -1,0 +1,19 @@
+{
+  "ledgers": {
+    "cluster": "DB_RECORD",
+    "fields": {
+      'community_id': {
+        'length': 128,
+        'type': 'String'
+      },
+      'fin_year': {
+        'length': 128,
+        'type': 'String'
+      },
+      'ledgers': {
+        'type': 'Array',
+        'valueType': "application.account.resource.ledger"
+      }
+    }
+  }
+}

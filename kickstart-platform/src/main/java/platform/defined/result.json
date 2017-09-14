@@ -1,0 +1,33 @@
+{
+	"result":
+	{
+		"fields":
+		{
+			"errCode":
+			{
+				"type": "int"
+			},
+			"message":
+			{
+				"type": "String"
+			},
+			"sessionId":
+			{
+				"type": "String"
+			},
+			"recentNotifications":
+			{
+				"type": "long"
+			},
+			"recentAlerts":
+			{
+				"type": "long"
+			},
+			"pendingCoins":
+			{
+				"type": "long"
+			}
+		},
+		"comment": "Result"
+	}
+}

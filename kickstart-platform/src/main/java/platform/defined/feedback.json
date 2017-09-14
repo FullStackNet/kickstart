@@ -1,0 +1,85 @@
+{
+	"feedback" :
+	{
+		"cluster": "DB_ANALYSIS",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'mobile_no':
+			{
+				'length': 32,
+				'required': true,
+				'type':'String'
+			},
+			'email_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'default':'CURRENT_TIMESTAMP',
+				'required': true,
+				'type':'timestamp'
+			},
+			'title':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'description':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'feedback_type':
+			{
+				'length': 128,
+				'type':'String',
+				"remark" : "School/App"
+			},
+			'app_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'candidate_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'candidate_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'candidate_mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			}
+		}
+	}
+}

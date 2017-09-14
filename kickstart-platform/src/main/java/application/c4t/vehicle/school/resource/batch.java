@@ -1,0 +1,27 @@
+package application.c4t.vehicle.school.resource;
+
+import platform.util.Util;
+import application.c4t.vehicle.school.defined.resource.Basebatch;
+
+public class batch extends Basebatch {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	public batch() {
+		this.setId(Util.getUniqueId());
+	}
+	
+	public batch(String id) {
+		this.setId(id);
+	}	
+	
+	@Override
+	public Class<?> getResultClass() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

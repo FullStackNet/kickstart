@@ -1,0 +1,81 @@
+{
+	"session" :
+	{
+		"cluster": "DB_SESSION",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'context_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'context_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'customer_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_type':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'user_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'super_user':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'role':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'readonly_user':
+			{
+				'length': 1,
+				'default' : "N",
+				'type':'String'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			},
+			'last_update_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

@@ -1,0 +1,62 @@
+{
+	"staff_timing" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'entry_buffer_beforeInMin':
+			{
+				'type': 'int'
+			},
+			'entry_buffer_afterInMin':
+			{
+				'type': 'int'
+			},
+			'exit_buffer_beforeInMin':
+			{
+				'type': 'int'
+			},
+			'exit_buffer_afterInMin':
+			{
+				'type': 'int'
+			},
+			'start_time':
+			{
+				'length': 16,
+				'type': 'String'
+			},
+			'end_time':
+			{
+				'length': 16,
+				'type': 'String'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

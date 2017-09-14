@@ -1,0 +1,22 @@
+{
+	"DevicePower" :
+	{
+		"category" : "20",
+		"command" : "17",
+		"packet_type" : "1",
+		"fields":
+		{
+			'deviceId':
+			{
+				'name':'deviceId',
+				'type':'String',
+				'length' : 128
+			},
+			'value':
+			{
+				'name':'value',
+				'type':'double'
+			}
+		}
+	}
+}

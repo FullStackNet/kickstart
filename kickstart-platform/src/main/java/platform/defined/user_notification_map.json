@@ -1,0 +1,50 @@
+{
+	"user_notification_map" :
+	{
+		"cluster": "DB_NOTIFICATION",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'unreadCriticalAlerts':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'unreadWarningAlerts':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'unreadInfoAlerts':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'criticalAlerts':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'warningAlerts':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'infoAlerts':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			},
+			'allNotifications':
+			{
+				'type':'Array',
+				'valueType' : 'Object' 
+			}
+		}
+	}
+}

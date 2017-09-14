@@ -1,0 +1,216 @@
+
+<!-- build scripts for the m16 -->
+
+<project name="c4t-platform" default="compile" basedir="../">
+	<description>
+       this is build.xml file to be used for building the c4t-platform project.
+    </description>
+	<!-- build variables -->
+	<property name="src" value="src/main/java/"/>
+	<property name="build" value="build"/>
+	<property name="classes" value="classes"/>
+	<property name="bin" value="bin"/>
+	<property name="conf" value="conf"/>
+	<property name="AntDir" value="build/AntScripts"/>
+	<property name="jarprefix" value="c4t"/>
+	<property name="RELEASENAME" value="c4t"/>
+	<property name="REL_VER" value="1.0"/>
+	<property name="BUILD_VER" value="10.001"/>
+	<property environment="env"/>
+	<property name="java_home" value="${env.JAVA6}"/>
+	<property name="manager_home" value="${env.C4T_MANAGER_HOME}"/>
+	<property name="alert_manager_home" value="${env.C4T_ALERT_MANAGER_HOME}"/>
+	<property name="gateway_home" value="${env.C4T_GATEWAY_HOME}"/>
+	<property name="web_service_home" value="${env.C4T_WEB_SERVICE_HOME}"/>
+	<property name="build_home" value="${env.C4T_BUILD_HOME}/build-1-0/"/>
+	<property name="message_home" value="${env.C4T_MESSAGE_HOME}"/>
+	<property name="simulator_home" value="${env.C4T_SIMULATOR_HOME}"/>
+	<property name="v3_simulator_home" value="${env.C4T_V3_SIMULATOR_HOME}"/>
+	<property name="test_home" value="${env.C4T_TEST_HOME}"/>
+	<property name="monitor_home" value="${env.C4T_MONITOR_HOME}"/>
+	<property name="agent_home" value="${env.C4T_AGENT_HOME}"/>
+	<property name="libs" value="${env.C4T_LIBS}"/>
+	<property name="thirdparty" value="${env.C4T_THIRDPARTY}"/>
+	<property name="versionFileName" value="${build}/build.properties" />
+	<property file="${versionFileName}" />  
+	<property name="currentVersion" value="1.0"/>
+	<property name="version_descriptor" value="${src}/platform/version/VersionManager.java" />
+ 	<property name="version_descriptor_template" value="${src}/platform/version/VersionManager.templete" />
+ <!--
+ 	<target name="calculate.version.build">
+    <script language="javascript">
+        <![CDATA[             
+            var currentVersion = project.getProperty("currentVersion");
+            var oldVersion = project.getProperty("version.number");
+            var buildNumber = project.getProperty("build.number");
+
+            if (!currentVersion.equals(oldVersion)){
+                project.setProperty("currentBuild", 1);
+            } else {
+                var newBuildNumber = ++buildNumber;
+                project.setProperty("currentBuild", newBuildNumber);
+            }
+        ]]> 
+    </script>
+</target>
+-->
+<!--
+<target name="update.version.build" depends="calculate.version.build">
+    <propertyfile file="${versionFileName}">
+        <entry key="build.number" type="int" operation="=" value="${currentBuild}" />
+        <entry key="version.number" type="string" operation="=" value="${currentVersion}" />
+    </propertyfile>
+    <echo message="New version: ${currentVersion}.${currentBuild}" />
+	<copy file="${version_descriptor_template}"
+ 			tofile="${version_descriptor}"
+ 		overwrite="true" />
+	 <replace file="${version_descriptor}"
+		 token="@@VERSION@@"
+ 		 value="${currentVersion}.${currentBuild}" />
+</target>
+-->
+ 	<!-- classpath -->
+	<property name="extclasspath" 
+             value=" ${thirdparty}/commons-lang-2.4.jar:
+		     ${thirdparty}/c4t-dds.jar:
+		     ${thirdparty}/c4t-message-bus.jar:
+    	 	 ${thirdparty}/gson-1.6.jar:
+			 ${thirdparty}/commons-codec-1.2.jar:
+			 ${thirdparty}/servlet-api-2.5-20081211.jar:
+    		 ${thirdparty}/mail.jar:
+    		 ${thirdparty}/c4t-db.jar:
+    		 ${thirdparty}/commons-fileupload-1.2.2.jar:
+    		 ${thirdparty}/poi-3.12.jar:
+    		 ${thirdparty}/poi-ooxml-3.12.jar:
+    		 ${thirdparty}/poi-ooxml-schemas-3.12.jar:
+    		 ${thirdparty}/guava-13.0.1.jar:
+    		 ${thirdparty}/javadbf-1.2.0.jar:
+    		 ${thirdparty}/sigar.jar:
+    		 ${thirdparty}/imgscalr-lib-4.1.jar:
+    		 ${thirdparty}/thumbnailator-0.4.6.jar:
+    		 ${thirdparty}/jasper/jasperreports-5.6.1.jar:
+    	 	 ${thirdparty}/jasper/js-mongodb-datasource-0.5.0.jar:
+    	 	 ${thirdparty}/jasper/mongo-java-driver-2.7.3.jar:
+    	 	 ${thirdparty}/jxl.jar:
+    	 	 ${thirdparty}/mqtt-client-0.4.0.jar:
+		 	 ${thirdparty}/chunk-templates-3.0.1.jar:
+    		 ${thirdparty}/uuid-3.2.jar"
+ 	/>
+	<!-- initilization process-->
+	<target name="init">
+		<mkdir dir="${classes}"/>
+	</target>
+
+	<target name="clean">
+		<delete includeemptydirs="true">
+			<fileset dir="${classes}" casesensitive="no">
+				<include name="**/*"/>
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="compile" depends="init">
+		<javac fork="true" memoryinitialsize="256m" memorymaximumsize="512m" srcdir="${src}" 
+                destdir="${classes}" classpath="${extclasspath}" debug="true">
+			<include name="**/*.java"/>
+		</javac>
+
+
+		<jar jarfile="${libs}/${jarprefix}-platform.jar"
+            basedir="${classes}"
+            includes="**"
+            excludes="*.jar">
+		</jar>
+	</target>
+	
+	<!--<target name="build" depends="update.version.build,compile"> -->
+<target name="build" depends="compile">
+
+	<copy todir="${build_home}/c4t-manager" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-import-manager" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-email-manager" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-sms-manager" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-notification-manager" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-schedule-manager" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-alert-manager" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-mobd-manager" overwrite="true">
+					<fileset dir="${libs}/">
+						<include name="c4t-platform.jar"/>
+					</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-mobd-simulator" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-v3-simulator" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-gateway" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-monitor" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-agent" overwrite="true">
+			<fileset dir="${libs}/">
+				<include name="c4t-platform.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-web-server/context/c4t/WEB-INF/lib" overwrite="true">
+					<fileset dir="${libs}/">
+						<include name="c4t-platform.jar"/>
+					</fileset>
+		</copy>
+		<copy todir="${build_home}/c4t-web-server/context/vms/WEB-INF/lib" overwrite="true">
+							<fileset dir="${libs}/">
+								<include name="c4t-platform.jar"/>
+							</fileset>
+				</copy>
+		<copy todir="${build_home}/c4t-web-server/context/ui/WEB-INF/lib" overwrite="true">
+							<fileset dir="${libs}/">
+								<include name="c4t-platform.jar"/>
+							</fileset>
+		</copy>
+		<copy todir="${build_home}/pk-web-server/context/pupilkonnect/WEB-INF/lib" overwrite="true">
+									<fileset dir="${libs}/">
+										<include name="c4t-platform.jar"/>
+									</fileset>
+				</copy>
+	</target>
+	
+</project>

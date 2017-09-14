@@ -1,0 +1,102 @@
+{
+	"present" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'route_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'route_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'class_section_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'class_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'present_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "In Bus/In School"
+			},
+			'sub_present_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "PICKUP/DROP only for In Bus"
+			},
+			'present_record_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "ENTER/EXIT"
+			},
+			'section_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'date':
+			{
+				'type':'timestamp'
+			},
+			'date_str':
+			{
+				'type':'String',
+				length : 16
+			},
+			'total_student':
+			{
+				'type':'int'
+			},
+			'total_present':
+			{
+				'type':'int'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'sent':
+			{
+				'type':'String',
+				default : "N",
+				length : 1
+			}
+		}
+	}
+}

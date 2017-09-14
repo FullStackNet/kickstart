@@ -1,0 +1,47 @@
+{
+	"test_question" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'question_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'test_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'order':
+			{
+				'type':'long',
+				'length': 128
+			},
+			'positive_mark':
+			{
+				'type':'long'
+			},
+			'negative_mark':
+			{
+				'type':'long'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

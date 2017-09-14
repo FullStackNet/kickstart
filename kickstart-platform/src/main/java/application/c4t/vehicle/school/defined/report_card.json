@@ -1,0 +1,283 @@
+{
+	"report_card" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'accessment_for':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'admission_no':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'admission_date_str':
+			{
+				'length': 32,
+				'type':'String'
+			},
+			'school_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'school_id':
+			{
+				'name':'school_id',
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'student_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'student_name':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'father_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mother_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'other_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'class_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'section_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'dob':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'class_section_name':
+			{
+				'length': 32,
+				'type':'String',
+				index : true
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'index' : true
+			},
+			'assessment_date':
+			{
+				'type':'String',
+				length : 32
+			},
+			'report_card_date':
+			{
+				'type':'String',
+				length : 32
+			},
+			'accessment_type':
+			{
+				'type':'String',
+				length : 32
+			},
+			'literacy_and_langauage_development':
+			{
+				'type':'String',
+				length : 32
+			},
+			'numerical_and_logical_development':
+			{
+				'type':'String',
+				length : 32
+			},
+			'knowledge_and_social_development':
+			{
+				'type':'String',
+				length : 32
+			},
+			'art_and_craft':
+			{
+				'type':'String',
+				length : 32
+			},
+			'extersize_of_practical_life':
+			{
+				'type':'String',
+				length : 32
+			},
+			'classroom_methodology_remark':
+			{
+				'type':'String',
+				length : 512
+			},
+			
+			'sensorial':
+			{
+				'type':'String',
+				length : 32
+			},
+			'arithmetic':
+			{
+				'type':'String',
+				length : 32
+			},
+			'language':
+			{
+				'type':'String',
+				length : 32
+			},
+			'science':
+			{
+				'type':'String',
+				length : 32
+			},
+			'science':
+			{
+				'type':'String',
+				length : 32
+			},
+			'montessory_methodology_remark':
+			{
+				'type':'String',
+				length : 32
+			},
+			'interactive_white_board':
+			{
+				'type':'String',
+				length : 32
+			},
+			'interactive_white_board_remark':
+			{
+				'type':'String',
+				length : 512
+			},
+			'thematic_teaching':
+			{
+				'type':'String',
+				length : 32
+			},
+			'thematic_teaching_remark':
+			{
+				'type':'String',
+				length : 512
+			},
+			'thematic_celebration':
+			{
+				'type':'String',
+				length : 32
+			},
+			'event':
+			{
+				'type':'String',
+				length : 32
+			},
+			'organized_games':
+			{
+				'type':'String',
+				length : 32
+			},
+			'music_and_dance':
+			{
+				'type':'String',
+				length : 32
+			},
+			'exercise_yoga_drill':
+			{
+				'type':'String',
+				length : 32
+			},
+			'extra_activity_remark':
+			{
+				'type':'String',
+				length : 512
+			},
+			'height':
+			{
+				'type':'String',
+				length : 32
+			},
+			'weight':
+			{
+				'type':'String',
+				length : 32
+			},
+			'attendance_total_days':
+			{
+				'type':'int'
+			},
+			'attendance_present_days':
+			{
+				'type':'int'
+			},
+			'general_remark':
+			{
+				'type':'String',
+				length : 512
+			},
+			'templete_type':
+			{
+				'type':'String',
+				length : 128
+			},
+			'teacher_signature_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'centre_head_signature_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'acedemic_counselor_signature_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'generated':
+			{
+				'type':'String',
+				length : 1
+			},
+			'generation_status':
+			{
+				'type':'String',
+				length : 32
+			},
+			'locked':
+			{
+				'type':'String',
+				length : 1
+			}
+		}
+	}
+}

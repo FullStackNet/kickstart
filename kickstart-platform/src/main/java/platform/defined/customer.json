@@ -1,0 +1,139 @@
+{
+	"customer" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'emailId':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'mobile_no':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'address1':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'address2':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'address3':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'city':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'state':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'country':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'remark':
+			{
+				'length': 512,
+				'type':'String'
+			},
+			'fleetService':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'schoolTrackerService':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'dgService':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'brushUpSkillService':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'gameService':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'homeAutomationService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'customerService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'communityService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'merchantService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
+			'selfOwned':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'leasedOut':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'leasedIn':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'email_account':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'sms_account':
+			{
+				'length': 128,
+				'type':'String'
+			}
+		}
+	}
+}

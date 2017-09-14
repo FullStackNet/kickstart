@@ -1,0 +1,38 @@
+{
+	"medical_record_date_wise" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'student_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'date': {
+				'type': 'long'
+			},
+			'weight' : {
+				'type': 'double'
+			},
+			'height' : {
+				'type': 'double'
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}

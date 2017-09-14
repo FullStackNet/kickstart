@@ -1,0 +1,52 @@
+{
+	"RegisteredController" :
+	{
+		"category" : "20",
+		"command" : "8",
+		"packet_type" : "1",
+		"fields":
+		{
+			'controller_id':
+			{
+				'name':'sensor_id',
+				'type':'String',
+				'length' : 128
+			},
+			'controller_name':
+			{
+				'name':'name',
+				'type':'String',
+				'length' : 128
+			},
+			'controller_type':
+			{
+				'name':'sensor_type',
+				'type':'String',
+				'length' : 32
+			},
+			'manager':
+			{
+				'name':'manager',
+				'type':'String',
+				'length' : 32
+			},
+			'model':
+			{
+				'name':'model',
+				'type':'String',
+				'length' : 32
+			},
+			'packet_capture':
+			{
+				'name':'packet_capture',
+				'type':'String',
+				'length' : 1
+			},
+			'lastUpdateTime':
+			{
+				'name':'lastUpdateTime',
+				'type':'long'
+			}
+		}
+	}
+}

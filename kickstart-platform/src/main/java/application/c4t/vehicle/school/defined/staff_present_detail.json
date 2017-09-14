@@ -1,0 +1,82 @@
+{
+	"staff_present_detail" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'present_parent_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'index' : true
+		
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'present_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "In Bus/In School"
+			},
+			'sub_present_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "PICKUP/DROP or Enter/Exit"
+			},
+			'present_record_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : "ENTER/EXIT"
+			},
+			'date':
+			{
+				'type':'timestamp'
+			},
+			'date_str':
+			{
+				'type':'String'
+			},
+			'staff_id':
+			{
+				'type':'String',
+				length : 128
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			},
+			'entry_time':
+			{
+				'type':'timestamp'
+			},
+			'remark':
+			{
+				'type':'String',
+				length : 1024
+			},
+			'late_comingInMin':
+			{
+				'type':'long'
+			},
+			'workingInMin':
+			{
+				'type':'long'
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"DeviceState" :
+	{
+		"category" : "20",
+		"command" : "14",
+		"packet_type" : "1",
+		"fields":
+		{
+			'deviceId':
+			{
+				'name':'deviceId',
+				'type':'String',
+				'length' : 128
+			},
+			'state':
+			{
+				'name':'state',
+				'type':'byte'
+			}
+		}
+	}
+}

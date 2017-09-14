@@ -1,0 +1,58 @@
+{
+	"c4t_payment" :
+	{
+		"cluster": "DB_RECORD",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String',
+				"remark" : "from id and relation type"
+			},
+			
+			'community_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'community_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'user_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'payment_date':
+			{
+				'type':'timestamp'
+			},
+			'amount':
+			{
+				'type':'double'
+			},
+			'number_of_month':
+			{
+				'type':'long'
+			},
+			'settled':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			}						
+		}
+	}
+}

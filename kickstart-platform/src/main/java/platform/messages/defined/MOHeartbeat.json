@@ -1,0 +1,16 @@
+{
+	"MOHeartbeat" :
+	{
+		"category" : "6",
+		"command" : "2",
+		"packet_type" : "1",
+		"fields":
+		{
+			'id':
+			{
+				'type':'String',
+				'length' : 128
+			}				
+		}
+	}
+}

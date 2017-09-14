@@ -1,0 +1,60 @@
+{
+	"stopage" :
+	{
+		"cluster": "DB_CONFIG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'longitude':
+			{
+				'name':'longitude',
+				'length': 128,
+				'type':'String'
+			},
+			'latitude':
+			{
+				'name':'latitude',
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'required': true,
+				'type':'String',
+				'index' : true
+			},
+			'area':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String',
+				'index' : true
+			},
+			'user_id':
+			{
+				'name':'user_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			}
+		}
+	}
+}

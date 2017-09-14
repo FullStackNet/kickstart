@@ -1,0 +1,83 @@
+{
+	"batch" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'course_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'course_name':
+			{
+				'length': 128,
+				'type':'String',
+				'self_key' : 'course_id',
+				'reference_table' : 'course'
+			},
+			'school_name':
+			{
+				'length': 128,
+				'type':'String',
+				'self_key' : 'school_id',
+				'reference_table' : 'school'
+			},
+			'school_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'fees_master_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'start_date': {
+				'type': 'timestamp'
+			},
+			'start_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'online': {
+				'type': 'String',
+				'length' : 1
+			},	
+			'end_date': {
+				'type': 'timestamp'
+			},
+			'end_date_str': {
+				'type': 'String',
+				'length' : 32
+			},
+			'total_student': {
+				'type': 'long'
+			},
+			'status': {
+				'type': 'String',
+				'length' : 32,
+				'comment' : "Active/Deactive"
+			}		
+				
+		}
+	}
+}

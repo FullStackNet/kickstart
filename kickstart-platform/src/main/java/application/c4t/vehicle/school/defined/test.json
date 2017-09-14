@@ -1,0 +1,248 @@
+{
+	"test" :
+	{
+		"cluster": "DB_SCHOOL",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'code':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'available_for_sale':
+			{
+				'type':'String'
+			},
+			'free':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'free_centre_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'allowed_attempts':
+			{
+				'type':'long'
+			},
+			'context_enabled': {
+				'length': 1,
+				'type': 'String'
+			},
+			'context_status': {
+				'length': 1,
+				'type': 'String'
+			},
+			'price':
+			{
+				'type':'double'
+			},
+			'contenst_reward': {
+				'type': 'double'
+			},
+			'discount':
+			{
+				'type':'double'
+			},
+			
+			'duration':
+			{
+				'type':'long'
+			},
+			'total_time_in_min':
+			{
+				'type':'long'
+			},
+			'title':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'title_hindi':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'instruction':
+			{
+				'length': 4096,
+				'type':'String'
+			},
+			'instruction_hindi':
+			{
+				'length': 4096,
+				'type':'String'
+			},
+			
+			'subject_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'course_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'course_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'provider_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'provider_name':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'user_id': {
+				'type': 'String',
+				'length': 128
+			},
+			'user_name': {
+				'type': 'String',
+				'length': 128
+			},
+			'subject_name':
+			{
+				'type':'String',
+				'length': 128
+			},	
+			'total_questions':
+			{
+				'type':'long'
+			},
+			'total_marks':
+			{
+				'type':'Double'
+			},
+			'test_hindi':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'test_english':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'positive_mark':
+			{
+				'type':'Double'
+			},
+			'negative_mark':
+			{
+				'type':'Double'
+			},
+			'customer_id':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'free':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'free_centre_student':
+			{
+				'length': 1,
+				'type':'String'
+			},
+			'price':
+			{
+				'type':'double'
+			},
+			'last_update_time': {
+				'type': 'timestamp'
+			},	
+			'total_student_allocations':
+			{
+				'type':'long'
+			},
+			'total_student_attempted':
+			{
+				'type':'long'
+			},
+			'start_date': {
+				'type': 'timestamp'
+			},
+			'start_time_s': {
+				'type': 'String'
+			},
+			'start_date_str': {
+				'type': 'String',
+				'length': 32
+			},
+			'end_time_s': {
+				'type': 'String'
+			},
+			'end_date': {
+				'type': 'timestamp'
+			},
+			'end_date_str': {
+				'type': 'String',
+				'length': 32
+			},
+			'immediate_result': {
+				'type': 'String',
+				'length': 1
+			},
+			'result_date': {
+				'type': 'timestamp'
+			},
+			'result_date_s': {
+				'type': 'String'
+			},
+			'result_time_s': {
+				'type': 'String'
+			},
+			'highest_marks':
+			{
+				'type':'long'
+			},
+			'average_marks':
+			{
+				'type':'long'
+			},
+			'total_test_marks':
+			{
+				'type':'long'
+			},
+			'average_duration':
+			{
+				'type':'long'
+			},
+			'min_duration':
+			{
+				'type':'long'
+			},
+			'multi_choice':
+			{
+				'type':'String',
+				'length': 1			
+			},
+			'published':
+			{
+				'type':'String',
+				'length': 1
+			},
+			'creation_time': {
+				'type': 'timestamp'
+			}
+		}
+	}
+}
