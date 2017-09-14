@@ -18,6 +18,9 @@ package com.kickstartapp.utils
 	{
 		private var _totalResources:uint = 0;
 		private var _generatedResourceCount:uint = 0;
+		private var _projectName:String;
+		private var _packageName:String;
+		private var _versionNumber:String;
 		
 		public function FileWritingHandler()
 		{
@@ -28,16 +31,30 @@ package com.kickstartapp.utils
 		{
 			log(this, "Init");
 			
+			_projectName = projectName;
+			_packageName = packageName;
+			_versionNumber = versionNumber;
+			
+			createFolderStructure();
+			createPomFiles();
+			copyStaticJavaFiles();
+			createJSONResources();
+			
+			log(this, "All Done");
+		}
+		
+		private function createFolderStructure():void 
+		{
 			var file:File;
 			var folderPaths:Array = new Array();
-			var rootPath:String = GlobalData.nativeProjectFolderPath + File.separator + projectName + "-resource-app" + File.separator + "src" + File.separator + "main" + File.separator + "java";
+			var rootPath:String = GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-resource-app" + File.separator + "src" + File.separator + "main" + File.separator + "java";
 			
 			folderPaths.push(rootPath + File.separator + "application" + File.separator + "defined" + File.separator + "resource");
 			folderPaths.push(rootPath + File.separator + "application" + File.separator + "helper");
 			folderPaths.push(rootPath + File.separator + "application" + File.separator + "resource");
 			folderPaths.push(rootPath + File.separator + "util");
 			
-			rootPath = GlobalData.nativeProjectFolderPath + File.separator + projectName + "-web-app" + File.separator + "src" + File.separator + "main";
+			rootPath = GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-web-app" + File.separator + "src" + File.separator + "main";
 			
 			folderPaths.push(rootPath + File.separator + "java" + File.separator + "application");
 			folderPaths.push(rootPath + File.separator + "java" + File.separator + "controller");
@@ -47,18 +64,82 @@ package com.kickstartapp.utils
 			folderPaths.push(rootPath + File.separator + "java" + File.separator + "util");
 			folderPaths.push(rootPath + File.separator + "resources");
 			
-			for (var l:int = 0; l < folderPaths.length; l++) 
+			for (var l:int = 0; l < folderPaths.length; l++)
 			{
 				file = new File(folderPaths[l]);
 				file.createDirectory();
 			}
 			
+			folderPaths.length = 0;
+			folderPaths = null;
 			file = null;
+		}
+		
+		private function createPomFiles():void
+		{
+			var srcData:String;
+			var file:File = File.applicationDirectory.resolvePath("assets/resource-app-files/pom.xml");
 			
+			var fs:FileStream = new FileStream();
+			fs.open(file, FileMode.READ)
+			srcData = fs.readUTFBytes(fs.bytesAvailable);
+			fs.close();
+			
+			srcData = srcData.split("${groupId}").join(_packageName);
+			srcData = srcData.split("${artifactId}").join(_projectName);
+			srcData = srcData.split("${version}").join(_versionNumber);
+			
+			file = new File(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-resource-app" + File.separator + "pom.xml");
+			fs.open(file, FileMode.WRITE);
+			fs.writeUTFBytes(srcData);
+			fs.close();
+			
+			file = File.applicationDirectory.resolvePath("assets/web-app-files/pom.xml");
+			fs.open(file, FileMode.READ)
+			srcData = fs.readUTFBytes(fs.bytesAvailable);
+			fs.close();
+			
+			srcData = srcData.split("${groupId}").join(_packageName);
+			srcData = srcData.split("${artifactId}").join(_projectName);
+			srcData = srcData.split("${version}").join(_versionNumber);
+			
+			file = new File(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-web-app" + File.separator + "pom.xml");
+			fs.open(file, FileMode.WRITE);
+			fs.writeUTFBytes(srcData);
+			fs.close();
+			file = null;
+		}
+		
+		private function copyStaticJavaFiles():void
+		{
+			var filesToTransfer:Array = new Array();
+			filesToTransfer.push({src: "assets/resource-app-files/LocalhostDBSetup.java", dest: String(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-resource-app" + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "util" + File.separator + "LocalhostDBSetup.java")});
+			filesToTransfer.push({src: "assets/resource-app-files/GenerateResource.java", dest: String(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-resource-app" + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "application" + File.separator + "defined" + File.separator + "GenerateResource.java")});
+			filesToTransfer.push({src: "assets/web-app-files/Application.java", dest: String(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-web-app" + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "application" + File.separator + "Application.java")});
+			filesToTransfer.push({src: "assets/web-app-files/BaseController.java", dest: String(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-web-app" + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "controller" + File.separator + "BaseController.java")});
+			
+			for (var i:int = 0; i < filesToTransfer.length; i++)
+			{
+				var srcFile:File = File.applicationDirectory.resolvePath(filesToTransfer[i].src);
+				var destFile:File = new File(filesToTransfer[i].dest);
+				
+				try 
+				{
+					srcFile.copyTo(destFile, true);
+				} 
+				catch (err:Error) 
+				{
+					log(this, "Error:", err.message);
+				}
+			}
+		}
+		
+		private function createJSONResources():void 
+		{
 			_generatedResourceCount = 0;
 			_totalResources = GlobalData.allResources.length;
 			
-			rootPath = GlobalData.nativeProjectFolderPath + File.separator + projectName + "-resource-app" + File.separator + "src" + File.separator + "main" + File.separator + "java";
+			var rootPath:String = GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-resource-app" + File.separator + "src" + File.separator + "main" + File.separator + "java";
 			var jsonFolderPath:String = rootPath + File.separator + "application" + File.separator + "defined";
 			
 			for (var i:int = 0; i < _totalResources; i++)
@@ -67,11 +148,6 @@ package com.kickstartapp.utils
 				var f:File = new File(jsonFolderPath + File.separator + resource.resourceName + ".json");
 				
 				var fileStream:FileStream = new FileStream();
-				/*fileStream.addEventListener(flash.events.Event.COMPLETE, onFileWritten);
-				fileStream.addEventListener(flash.events.Event.OPEN, onFileOpen);
-				fileStream.addEventListener(flash.events.Event.CLOSE, onFileClosed);
-				fileStream.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-				fileStream.addEventListener(IOErrorEvent.IO_ERROR, errorHandler);*/
 				fileStream.open(f, FileMode.WRITE);
 				
 				var objToConvert:Object = new Object();
@@ -79,7 +155,7 @@ package com.kickstartapp.utils
 				resourceObj.cluster = resource.clusterName;
 				
 				var fields:Object = new Object();
-				for (var j:int = 0; j < resource.fields.length; j++) 
+				for (var j:int = 0; j < resource.fields.length; j++)
 				{
 					fields[resource.fields[j].fieldName] = new Object();
 					fields[resource.fields[j].fieldName].type = resource.fields[j].fieldType;
@@ -91,32 +167,7 @@ package com.kickstartapp.utils
 				
 				fileStream.writeUTFBytes(JSON.stringify(objToConvert));
 				fileStream.close();
-				
-				
 			}
-			
-			log(this, "Done");
-		}
-		
-		private function copyFile(srcFilePath:String, destPath:String):void 
-		{
-			var srcData:String;
-			var file:File = File.applicationDirectory.resolvePath("assets/resource-app-files/pom.xml");
-			
-			var fs:FileStream = new FileStream();
-			fs.open(file, FileMode.READ)
-			srcData = fs.readUTFBytes(fs.bytesAvailable);
-			fs.close();
-			
-			srcData = Utils.getPomString(srcData, packageName, projectName, versionNumber);
-			/*srcData = srcData.replace("${groupId}", packageName);
-			srcData = srcData.replace("${artifactId}", projectName);
-			srcData = srcData.replace("${version}", versionNumber);*/
-			
-			file = new File(GlobalData.nativeProjectFolderPath + File.separator + projectName + "-resource-app" + File.separator + "pom.xml");
-			fs.open(file, FileMode.WRITE);
-			fs.writeUTFBytes(srcData);
-			fs.close();
 		}
 		
 		private function onFileClosed(e:flash.events.Event):void
