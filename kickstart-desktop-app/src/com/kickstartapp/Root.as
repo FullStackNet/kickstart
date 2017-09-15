@@ -7,7 +7,6 @@ package com.kickstartapp
 	import feathers.controls.ScreenNavigator;
 	import feathers.controls.ScreenNavigatorItem;
 	import feathers.motion.Fade;
-	import feathers.themes.MetalWorksDesktopTheme;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	

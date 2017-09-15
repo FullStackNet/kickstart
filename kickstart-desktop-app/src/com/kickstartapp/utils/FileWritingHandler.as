@@ -27,7 +27,7 @@ package com.kickstartapp.utils
 		
 		}
 		
-		public function init(projectName:String, packageName:String, versionNumber:String):void
+		public function createResources(projectName:String, packageName:String, versionNumber:String):void
 		{
 			log(this, "Init");
 			
@@ -35,34 +35,46 @@ package com.kickstartapp.utils
 			_packageName = packageName;
 			_versionNumber = versionNumber;
 			
+			log(this, "Generating resources..");
+			
 			createFolderStructure();
 			createPomFiles();
 			copyStaticJavaFiles();
 			createJSONResources();
 			
 			log(this, "All Done");
+			
+			//run project
+			var scriptHandler:ScriptHandler = new ScriptHandler();
+			scriptHandler.addEventListener(Event.COMPLETE, onProjectCompiled);
+			scriptHandler.runMavenToBuildProject(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app" + "/pom.xml");
 		}
 		
-		private function createFolderStructure():void 
+		private function onProjectCompiled(e:Event):void 
+		{
+			writeJavaClasses();
+		}
+		
+		private function createFolderStructure():void
 		{
 			var file:File;
 			var folderPaths:Array = new Array();
-			var rootPath:String = GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-resource-app" + File.separator + "src" + File.separator + "main" + File.separator + "java";
+			var rootPath:String = GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java";
 			
-			folderPaths.push(rootPath + File.separator + "application" + File.separator + "defined" + File.separator + "resource");
-			folderPaths.push(rootPath + File.separator + "application" + File.separator + "helper");
-			folderPaths.push(rootPath + File.separator + "application" + File.separator + "resource");
-			folderPaths.push(rootPath + File.separator + "util");
+			folderPaths.push(rootPath + "/" + "application/defined/resource");
+			folderPaths.push(rootPath + "/" + "application/helper");
+			folderPaths.push(rootPath + "/" + "application/resource");
+			folderPaths.push(rootPath + "/" + "util");
 			
-			rootPath = GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-web-app" + File.separator + "src" + File.separator + "main";
+			rootPath = GlobalData.nativeProjectFolderPath + "/" + _projectName + "-web-app/src/main";
 			
-			folderPaths.push(rootPath + File.separator + "java" + File.separator + "application");
-			folderPaths.push(rootPath + File.separator + "java" + File.separator + "controller");
-			folderPaths.push(rootPath + File.separator + "java" + File.separator + "data");
-			folderPaths.push(rootPath + File.separator + "java" + File.separator + "service");
-			folderPaths.push(rootPath + File.separator + "java" + File.separator + "servlet");
-			folderPaths.push(rootPath + File.separator + "java" + File.separator + "util");
-			folderPaths.push(rootPath + File.separator + "resources");
+			folderPaths.push(rootPath + "/" + "java/application");
+			folderPaths.push(rootPath + "/" + "java/controller");
+			folderPaths.push(rootPath + "/" + "java/data");
+			folderPaths.push(rootPath + "/" + "java/service");
+			folderPaths.push(rootPath + "/" + "java/servlet");
+			folderPaths.push(rootPath + "/" + "java/util");
+			folderPaths.push(rootPath + "/" + "resources");
 			
 			for (var l:int = 0; l < folderPaths.length; l++)
 			{
@@ -88,8 +100,9 @@ package com.kickstartapp.utils
 			srcData = srcData.split("${groupId}").join(_packageName);
 			srcData = srcData.split("${artifactId}").join(_projectName);
 			srcData = srcData.split("${version}").join(_versionNumber);
+			srcData = srcData.split("${working-dir}").join(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app");
 			
-			file = new File(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-resource-app" + File.separator + "pom.xml");
+			file = new File(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/pom.xml");
 			fs.open(file, FileMode.WRITE);
 			fs.writeUTFBytes(srcData);
 			fs.close();
@@ -103,7 +116,7 @@ package com.kickstartapp.utils
 			srcData = srcData.split("${artifactId}").join(_projectName);
 			srcData = srcData.split("${version}").join(_versionNumber);
 			
-			file = new File(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-web-app" + File.separator + "pom.xml");
+			file = new File(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-web-app/pom.xml");
 			fs.open(file, FileMode.WRITE);
 			fs.writeUTFBytes(srcData);
 			fs.close();
@@ -113,39 +126,56 @@ package com.kickstartapp.utils
 		private function copyStaticJavaFiles():void
 		{
 			var filesToTransfer:Array = new Array();
-			filesToTransfer.push({src: "assets/resource-app-files/LocalhostDBSetup.java", dest: String(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-resource-app" + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "util" + File.separator + "LocalhostDBSetup.java")});
-			filesToTransfer.push({src: "assets/resource-app-files/GenerateResource.java", dest: String(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-resource-app" + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "application" + File.separator + "defined" + File.separator + "GenerateResource.java")});
-			filesToTransfer.push({src: "assets/web-app-files/Application.java", dest: String(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-web-app" + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "application" + File.separator + "Application.java")});
-			filesToTransfer.push({src: "assets/web-app-files/BaseController.java", dest: String(GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-web-app" + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "controller" + File.separator + "BaseController.java")});
+			filesToTransfer.push({src: "assets/resource-app-files/LocalhostDBSetup.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/util/LocalhostDBSetup.java")});
+			filesToTransfer.push({src: "assets/resource-app-files/GenerateResource.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/defined/GenerateResource.java")});
+			filesToTransfer.push({src: "assets/resource-app-files/ResourcesToGenerate.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/defined/ResourcesToGenerate.java")});
+			filesToTransfer.push({src: "assets/web-app-files/Application.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-web-app/src/main/java/application/Application.java")});
+			filesToTransfer.push({src: "assets/web-app-files/BaseController.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-web-app/src/main/java/controller/BaseController.java")});
 			
 			for (var i:int = 0; i < filesToTransfer.length; i++)
 			{
 				var srcFile:File = File.applicationDirectory.resolvePath(filesToTransfer[i].src);
 				var destFile:File = new File(filesToTransfer[i].dest);
 				
-				try 
+				try
 				{
 					srcFile.copyTo(destFile, true);
-				} 
-				catch (err:Error) 
+				}
+				catch (err:Error)
 				{
 					log(this, "Error:", err.message);
 				}
 			}
+			
+			var file:File = new File(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/defined/GenerateResource.java");
+			var fs:FileStream = new FileStream();
+			fs.open(file, FileMode.READ)
+			var srcData:String = fs.readUTFBytes(fs.bytesAvailable);
+			fs.close();
+			
+			srcData = srcData.split("$WorkingDir").join(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app");
+			
+			fs.open(file, FileMode.WRITE);
+			fs.writeUTFBytes(srcData);
+			fs.close();
+			
+			file = null;
 		}
 		
-		private function createJSONResources():void 
+		private function createJSONResources():void
 		{
 			_generatedResourceCount = 0;
 			_totalResources = GlobalData.allResources.length;
 			
-			var rootPath:String = GlobalData.nativeProjectFolderPath + File.separator + _projectName + "-resource-app" + File.separator + "src" + File.separator + "main" + File.separator + "java";
-			var jsonFolderPath:String = rootPath + File.separator + "application" + File.separator + "defined";
+			var rootPath:String = GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java";
+			var jsonFolderPath:String = rootPath + "/" + "application/defined";
+			var srcCodeForResourcesToGenerate:String = "";
+			var srcData:String = "";
 			
 			for (var i:int = 0; i < _totalResources; i++)
 			{
 				var resource:Resource = GlobalData.allResources[i];
-				var f:File = new File(jsonFolderPath + File.separator + resource.resourceName + ".json");
+				var f:File = new File(jsonFolderPath + "/" + resource.resourceName + ".json");
 				
 				var fileStream:FileStream = new FileStream();
 				fileStream.open(f, FileMode.WRITE);
@@ -167,38 +197,74 @@ package com.kickstartapp.utils
 				
 				fileStream.writeUTFBytes(JSON.stringify(objToConvert));
 				fileStream.close();
+				
+				//generating code for ResourcesToGenerate.java class
+				srcCodeForResourcesToGenerate += "\n\t\tnew ResourceMap(\"" + resource.resourceName + "\", \"application.resource." + resource.resourceName + "\")";
+				if (i < _totalResources - 1)
+				{
+					srcCodeForResourcesToGenerate += ",";
+				}
+				else
+				{
+					srcCodeForResourcesToGenerate += "\n";
+				}
 			}
-		}
-		
-		private function onFileClosed(e:flash.events.Event):void
-		{
-			log(this, "Closed");
 			
-			_generatedResourceCount++;
-			if (_generatedResourceCount == _totalResources)
+			var file:File = new File(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/defined/ResourcesToGenerate.java");
+			var fs:FileStream = new FileStream();
+			fs.open(file, FileMode.READ)
+			srcData = fs.readUTFBytes(fs.bytesAvailable);
+			fs.close();
+			
+			srcData = srcData.replace("/*code-goes-here*/", srcCodeForResourcesToGenerate);
+			
+			fs.open(file, FileMode.WRITE);
+			fs.writeUTFBytes(srcData);
+			fs.close();
+			
+			file = null;
+		}
+		
+		public function writeJavaClasses():void 
+		{
+			log(this, "Writing java classes..");
+			
+			var rootPath:String = GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java";
+			var srcData:String = "";
+			var f:File;
+			var fileStream:FileStream = new FileStream();
+				
+			for (var i:int = 0; i < _totalResources; i++)
 			{
-				log(this, "All resource generated!");
+				var resource:Resource = GlobalData.allResources[i];
+				
+				//generate Base class
+				f = File.applicationDirectory.resolvePath("assets/resource-app-files/GenericResourceClass.java");
+				fileStream.open(f, FileMode.READ);
+				srcData = fileStream.readUTFBytes(fileStream.bytesAvailable);
+				fileStream.close();
+			
+				f = new File(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/resource" + "/" + resource.resourceName + ".java");
+				fileStream.open(f, FileMode.WRITE);
+				srcData = srcData.split("$resourcename").join(resource.resourceName);
+				fileStream.writeUTFBytes(srcData);
+				fileStream.close();
+				
+				//generate Helper class
+				f = File.applicationDirectory.resolvePath("assets/resource-app-files/GenericHelperClass.java");
+				fileStream.open(f, FileMode.READ);
+				srcData = fileStream.readUTFBytes(fileStream.bytesAvailable);
+				fileStream.close();
+			
+				f = new File(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/helper" + "/" + Utils.getFirstLetterUppercase(resource.resourceName).concat("Helper") + ".java");
+				fileStream.open(f, FileMode.WRITE);
+				srcData = srcData.split("$resourcename").join(resource.resourceName);
+				srcData = srcData.split("$Resourcename").join(Utils.getFirstLetterUppercase(resource.resourceName));
+				fileStream.writeUTFBytes(srcData);
+				fileStream.close();
 			}
-		}
-		
-		private function progressHandler(e:ProgressEvent):void
-		{
-			log(this, "Progress");
-		}
-		
-		private function errorHandler(e:IOErrorEvent):void
-		{
-			log(this, "Error");
-		}
-		
-		private function onFileOpen(e:flash.events.Event):void
-		{
-			log(this, "Batch file opened");
-		}
-		
-		private function onFileWritten(e:flash.events.Event):void
-		{
-			log(this, "Batch file writing over");
+			
+			log(this, "All Done");
 		}
 	}
 

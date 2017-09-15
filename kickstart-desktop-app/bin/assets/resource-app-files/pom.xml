@@ -12,7 +12,29 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
+	
+	<build>
+		<plugins>
+		  <plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>exec-maven-plugin</artifactId>
+			<version>1.6.0</version>
+			<executions>
+			  <execution>
+				<goals>
+				  <goal>exec</goal>
+				</goals>
+			  </execution>
+			</executions>
+			<configuration>
+			  <executable>maven</executable>
+			  <workingDirectory>${working-dir}</workingDirectory>
+			  <mainClass>application.defined.GenerateResource</mainClass>
+			</configuration>
+		  </plugin>
+		</plugins>
+	</build>
+	
     <dependencies>
         <dependency>
             <groupId>c4t-platform</groupId>

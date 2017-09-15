@@ -10,5 +10,5 @@ public class ResourcesToGenerate {
 	 * db_name - instance of DBNameEnum where this resource will stored. null if resource is transient (not stored in DB)
 	 * Make sure there is a default constructor (with no args) in the extending class.
 	 */
-	public static ResourceMap[] resourceMaps =  { /* code goes here */};
+	public static ResourceMap[] resourceMaps =  { /*code-goes-here*/ };
 }

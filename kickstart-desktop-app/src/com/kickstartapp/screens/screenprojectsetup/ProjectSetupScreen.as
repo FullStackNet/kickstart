@@ -5,7 +5,7 @@ package com.kickstartapp.screens.screenprojectsetup
 	import com.kickstartapp.popups.AddResourcePopUp;
 	import com.kickstartapp.utils.FileWritingHandler;
 	import com.kickstartapp.utils.ResourceListHeader;
-	import com.kickstartapp.utils.ScriptHandler;
+	import feathers.controls.Alert;
 	import feathers.controls.Button;
 	import feathers.controls.GroupedList;
 	import feathers.controls.Header;
@@ -17,21 +17,14 @@ package com.kickstartapp.screens.screenprojectsetup
 	import feathers.controls.TextCallout;
 	import feathers.controls.TextInput;
 	import feathers.controls.renderers.DefaultGroupedListItemRenderer;
-	import feathers.controls.renderers.IGroupedListHeaderRenderer;
 	import feathers.controls.renderers.IGroupedListItemRenderer;
 	import feathers.core.PopUpManager;
+	import feathers.data.ArrayCollection;
 	import feathers.data.VectorHierarchicalCollection;
 	import feathers.layout.HorizontalAlign;
 	import feathers.layout.HorizontalLayout;
 	import feathers.layout.VerticalAlign;
 	import feathers.layout.VerticalLayout;
-	import flash.desktop.NativeProcess;
-	import flash.desktop.NativeProcessStartupInfo;
-	import flash.events.IOErrorEvent;
-	import flash.events.ProgressEvent;
-	import flash.filesystem.File;
-	import flash.filesystem.FileMode;
-	import flash.filesystem.FileStream;
 	import starling.events.Event;
 	
 	/**
@@ -50,6 +43,7 @@ package com.kickstartapp.screens.screenprojectsetup
 		private var _addResourcePopUp:AddResourcePopUp;
 		private var _projectNameInput:TextInput;
 		private var _versionInput:TextInput;
+		private var _fileHandler:FileWritingHandler;
 		
 		public function ProjectSetupScreen()
 		{
@@ -129,10 +123,25 @@ package com.kickstartapp.screens.screenprojectsetup
 			addResourceBtn.addEventListener(starling.events.Event.TRIGGERED, onAddResource);
 			projectInfoGroup.addChild(addResourceBtn);
 			
-			var createProjectBtn:Button = new Button();
-			createProjectBtn.label = "Create Resources";
-			createProjectBtn.addEventListener(starling.events.Event.TRIGGERED, onCreateResource);
-			projectInfoGroup.addChild(createProjectBtn);
+			var buttonsGroup:LayoutGroup = new LayoutGroup();
+			buttonsGroup.height = 40;
+			this.addChild(buttonsGroup);
+			
+			var buttonsGroupLayout:HorizontalLayout = new HorizontalLayout();
+			buttonsGroupLayout.distributeWidths = true;
+			buttonsGroupLayout.gap = 10;
+			buttonsGroupLayout.verticalAlign = VerticalAlign.MIDDLE;
+			buttonsGroup.layout = buttonsGroupLayout;
+			
+			var createResourcesBtn:Button = new Button();
+			createResourcesBtn.label = "Create Resources";
+			createResourcesBtn.addEventListener(starling.events.Event.TRIGGERED, onCreateResource);
+			buttonsGroup.addChild(createResourcesBtn);
+			
+			var writeJavaClassesBtn:Button = new Button();
+			writeJavaClassesBtn.label = "Write Java Classes";
+			writeJavaClassesBtn.addEventListener(starling.events.Event.TRIGGERED, onWriteJavaClasses);
+			buttonsGroup.addChild(writeJavaClassesBtn);
 			
 			_resourceList = new VectorHierarchicalCollection(GlobalData.allResources);
 			_resourceList.childrenField = "fields";
@@ -157,31 +166,44 @@ package com.kickstartapp.screens.screenprojectsetup
 			_infoLabel.text = "Press 'Add Resource' button to add new resources.";
 			_infoLabel.alpha = PROMPT_ALPHA;
 			this.stage.addChild(_infoLabel);
+			
+			_fileHandler = new FileWritingHandler();
 		}
 		
 		private function onCreateResource(e:starling.events.Event):void
 		{
-			/*if (_projectNameInput.text.length == 0)
-			   {
-			   TextCallout.show("Cannot be empty!", _projectNameInput);
-			   return;
-			   }
+			if (_projectNameInput.text.length == 0)
+			{
+				TextCallout.show("Cannot be empty!", _projectNameInput);
+				return;
+			}
 			
-			   if (_packageInput.text.length == 0)
-			   {
-			   TextCallout.show("Cannot be empty!", _packageInput);
-			   return;
-			   }
+			if (_packageInput.text.length == 0)
+			{
+				TextCallout.show("Cannot be empty!", _packageInput);
+				return;
+			}
 			
-			   if (_versionInput.text.length == 0)
-			   {
-			   TextCallout.show("Cannot be empty!", _versionInput);
-			   return;
-			   }*/
+			if (_versionInput.text.length == 0)
+			{
+				TextCallout.show("Cannot be empty!", _versionInput);
+				return;
+			}
 			
-			//create a bat file at the project location
-			var fileHandler:FileWritingHandler = new FileWritingHandler();
-			fileHandler.init(_projectNameInput.text, _packageInput.text, _versionInput.text);
+			_fileHandler.createResources(_projectNameInput.text, _packageInput.text, _versionInput.text);
+		}
+		
+		private function onWriteJavaClasses(e:Event):void
+		{
+			var message:String = "Make sure you have compiled the resource app project (GenerateResource.java) before generating the java classes.";
+			var title:String = "Alert";
+			var buttons:ArrayCollection = new ArrayCollection([{label: "Ok", triggered: onWriteClasses}]);
+			var alert:Alert = Alert.show(message, title, buttons);
+		}
+		
+		private function onWriteClasses(e:Event):void
+		{
+			_fileHandler.writeJavaClasses();
 		}
 		
 		private function onFieldTapped(e:starling.events.Event):void
@@ -234,7 +256,7 @@ package com.kickstartapp.screens.screenprojectsetup
 		{
 			var projectName:String = (e.target as TextInput).text;
 			this.title = projectName.length > 0 ? TITLE_TEXT + ": " + projectName : TITLE_TEXT;
-			_packageInput.prompt = projectName.length > 0 ? "com." + projectName.toLowerCase() : PACKAGE_TEXT;
+			_packageInput.text = projectName.length > 0 ? "com." + projectName.toLowerCase() : PACKAGE_TEXT;
 		}
 		
 		private function toggleInfoMessage():void

@@ -10,10 +10,10 @@ package com.kickstartapp.screens.screenmainmenu
 	import feathers.layout.AnchorLayout;
 	import feathers.layout.AnchorLayoutData;
 	import feathers.layout.Direction;
+	import flash.events.Event;
 	import flash.filesystem.File;
 	import starling.events.Event;
 	
-	import flash.events.Event;
 	
 	/**
 	 * ...
@@ -86,9 +86,10 @@ package com.kickstartapp.screens.screenmainmenu
 		private function onFolderSelected(e:flash.events.Event):void
 		{
 			var nativePath:String = (e.target as File).nativePath;
-			log(this, "Folder selected:", nativePath);
-			
 			GlobalData.nativeProjectFolderPath = nativePath;
+			GlobalData.nativeProjectFolderPath = GlobalData.nativeProjectFolderPath.split("\\").join("/");
+			
+			log(this, "Folder selected:", GlobalData.nativeProjectFolderPath);
 			this.dispatchEventWith(starling.events.Event.CLOSE);
 		}
 		

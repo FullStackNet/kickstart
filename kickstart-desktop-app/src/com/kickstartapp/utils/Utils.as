@@ -6,13 +6,11 @@ package com.kickstartapp.utils
 	 */
 	public class Utils 
 	{
-		public static function getPomString(src:String, packageName:String, projectName:String, versionNumber:String):String
+		public static function getFirstLetterUppercase(value:String):String
 		{
-			src = src.replace("${groupId}", packageName);
-			src = src.replace("${artifactId}", projectName);
-			src = src.replace("${version}", versionNumber);
-			
-			return src;
+			var firstLetter:String = value.charAt(0);
+			value = firstLetter.toUpperCase() + value.substring(1);
+			return value;
 		}
 	}
 

@@ -26,6 +26,31 @@ package com.kickstartapp.utils
 		
 		}
 		
+		public function runMavenToBuildProject(projectPomFilePath:String):void 
+		{
+			var cmd:File = new File("C:\\WINDOWS\\system32\\cmd.exe");
+			var args:Vector.<String> = new Vector.<String>();
+			args[0] = "/c";
+			args[1] = "mvn clean install exec:java -f " + projectPomFilePath;
+			
+			var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
+			nativeProcessStartupInfo.executable = cmd;
+			nativeProcessStartupInfo.arguments = args;
+			
+			_process = new NativeProcess();
+			_process.addEventListener(NativeProcessExitEvent.EXIT, onExit);
+			_process.addEventListener(Event.STANDARD_ERROR_CLOSE, standardErrorClose);
+			_process.addEventListener(ProgressEvent.STANDARD_ERROR_DATA, onErrorData);
+			_process.addEventListener(IOErrorEvent.STANDARD_ERROR_IO_ERROR, onIOError);
+			_process.addEventListener(Event.STANDARD_INPUT_CLOSE, standardInputClose);
+			_process.addEventListener(IOErrorEvent.STANDARD_INPUT_IO_ERROR, onIOError);
+			_process.addEventListener(ProgressEvent.STANDARD_INPUT_PROGRESS, standardInputProgress);
+			_process.addEventListener(Event.STANDARD_OUTPUT_CLOSE, standardOutpoutClose);
+			_process.addEventListener(ProgressEvent.STANDARD_OUTPUT_DATA, onOutputData);
+			_process.addEventListener(IOErrorEvent.STANDARD_OUTPUT_IO_ERROR, onIOError);
+			_process.start(nativeProcessStartupInfo);
+		}
+		
 		public function startScript(batchFileScript:String):void
 		{
 			var cmd:File = new File("C:\\WINDOWS\\system32\\cmd.exe");
@@ -100,11 +125,6 @@ package com.kickstartapp.utils
 			if (event.exitCode == 0)
 			{
 				this.dispatchEvent(new Event(Event.COMPLETE));
-				
-				var currentFolder:File = File.applicationDirectory.resolvePath("bla-resource-app");
-				var destFolder:File = new File(GlobalData.nativeProjectFolderPath);
-				
-				currentFolder.moveTo(destFolder, true);
 			}
 		}
 		
