@@ -203,7 +203,7 @@ package com.kickstartapp.screens.screenprojectsetup
 		
 		private function onWriteClasses(e:Event):void
 		{
-			_fileHandler.writeJavaClasses();
+			_fileHandler.writeJavaClassesForResourceApp();
 		}
 		
 		private function onFieldTapped(e:starling.events.Event):void

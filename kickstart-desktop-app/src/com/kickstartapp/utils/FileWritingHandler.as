@@ -2,6 +2,8 @@ package com.kickstartapp.utils
 {
 	import com.kickstartapp.data.GlobalData;
 	import com.kickstartapp.data.Resource;
+	import com.kickstartapp.utils.scripthandler.ScriptHandler;
+	import com.kickstartapp.utils.scripthandler.ScriptStatus;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.IOErrorEvent;
@@ -21,10 +23,12 @@ package com.kickstartapp.utils
 		private var _projectName:String;
 		private var _packageName:String;
 		private var _versionNumber:String;
+		private var _scriptHandler:ScriptHandler;
 		
 		public function FileWritingHandler()
 		{
-		
+			_scriptHandler = new ScriptHandler();
+			_scriptHandler.addEventListener(Event.COMPLETE, onScriptRunCompleted);
 		}
 		
 		public function createResources(projectName:String, packageName:String, versionNumber:String):void
@@ -42,17 +46,30 @@ package com.kickstartapp.utils
 			copyStaticJavaFiles();
 			createJSONResources();
 			
-			log(this, "All Done");
+			log(this, "Resources generation done");
 			
-			//run project
-			var scriptHandler:ScriptHandler = new ScriptHandler();
-			scriptHandler.addEventListener(Event.COMPLETE, onProjectCompiled);
-			scriptHandler.runMavenToBuildProject(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app" + "/pom.xml");
+			_scriptHandler.runMaven(ScriptHandler.MVN_CLEAN_INSTALL_EXEC_JAVA, GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/pom.xml");
 		}
 		
-		private function onProjectCompiled(e:Event):void 
+		private function onScriptRunCompleted(e:Event):void 
 		{
-			writeJavaClasses();
+			var scriptStatus:ScriptStatus = (e.target as ScriptHandler).currentProcessStatus;
+			scriptStatus.isCompleted = true;
+			
+			switch (scriptStatus.mvnCommand) 
+			{
+				case ScriptHandler.MVN_CLEAN_INSTALL_EXEC_JAVA:
+					writeJavaClassesForResourceApp();
+					_scriptHandler.runMaven(ScriptHandler.MVN_CLEAN_INSTALL, GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/pom.xml");
+				break;
+				case ScriptHandler.MVN_CLEAN_INSTALL:
+					writeJavaClassesForWebApp();
+				break;
+				case ScriptHandler.MVN_SPRING_BOOT_RUN:
+					//all done
+				break;
+				default:
+			}
 		}
 		
 		private function createFolderStructure():void
@@ -61,20 +78,20 @@ package com.kickstartapp.utils
 			var folderPaths:Array = new Array();
 			var rootPath:String = GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java";
 			
-			folderPaths.push(rootPath + "/" + "application/defined/resource");
-			folderPaths.push(rootPath + "/" + "application/helper");
-			folderPaths.push(rootPath + "/" + "application/resource");
-			folderPaths.push(rootPath + "/" + "util");
+			folderPaths.push(rootPath + "/application/defined/resource");
+			folderPaths.push(rootPath + "/application/helper");
+			folderPaths.push(rootPath + "/application/resource");
+			folderPaths.push(rootPath + "/util");
 			
 			rootPath = GlobalData.nativeProjectFolderPath + "/" + _projectName + "-web-app/src/main";
 			
-			folderPaths.push(rootPath + "/" + "java/application");
-			folderPaths.push(rootPath + "/" + "java/controller");
-			folderPaths.push(rootPath + "/" + "java/data");
-			folderPaths.push(rootPath + "/" + "java/service");
-			folderPaths.push(rootPath + "/" + "java/servlet");
-			folderPaths.push(rootPath + "/" + "java/util");
-			folderPaths.push(rootPath + "/" + "resources");
+			folderPaths.push(rootPath + "/java/application");
+			folderPaths.push(rootPath + "/java/controller");
+			folderPaths.push(rootPath + "/java/data");
+			folderPaths.push(rootPath + "/java/service");
+			folderPaths.push(rootPath + "/java/servlet");
+			folderPaths.push(rootPath + "/java/util");
+			folderPaths.push(rootPath + "/resources");
 			
 			for (var l:int = 0; l < folderPaths.length; l++)
 			{
@@ -168,7 +185,7 @@ package com.kickstartapp.utils
 			_totalResources = GlobalData.allResources.length;
 			
 			var rootPath:String = GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java";
-			var jsonFolderPath:String = rootPath + "/" + "application/defined";
+			var jsonFolderPath:String = rootPath + "/application/defined";
 			var srcCodeForResourcesToGenerate:String = "";
 			var srcData:String = "";
 			
@@ -225,9 +242,9 @@ package com.kickstartapp.utils
 			file = null;
 		}
 		
-		public function writeJavaClasses():void 
+		public function writeJavaClassesForResourceApp():void 
 		{
-			log(this, "Writing java classes..");
+			log(this, "Writing java classes for resource app..");
 			
 			var rootPath:String = GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java";
 			var srcData:String = "";
@@ -260,6 +277,49 @@ package com.kickstartapp.utils
 				fileStream.open(f, FileMode.WRITE);
 				srcData = srcData.split("$resourcename").join(resource.resourceName);
 				srcData = srcData.split("$Resourcename").join(Utils.getFirstLetterUppercase(resource.resourceName));
+				fileStream.writeUTFBytes(srcData);
+				fileStream.close();
+			}
+			
+			log(this, "Resource app java classes written");
+		}
+		
+		private function writeJavaClassesForWebApp():void 
+		{
+			log(this, "Writing java classes for web app..");
+			
+			var rootPath:String = GlobalData.nativeProjectFolderPath + "/" + _projectName + "-web-app/src/main/java";
+			var srcData:String = "";
+			var f:File;
+			var fileStream:FileStream = new FileStream();
+				
+			for (var i:int = 0; i < _totalResources; i++)
+			{
+				var resource:Resource = GlobalData.allResources[i];
+				
+				//generate controller class
+				f = File.applicationDirectory.resolvePath("assets/web-app-files/GenericController.java");
+				fileStream.open(f, FileMode.READ);
+				srcData = fileStream.readUTFBytes(fileStream.bytesAvailable);
+				fileStream.close();
+			
+				f = new File(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-web-app/src/main/java/controller/" + Utils.getFirstLetterUppercase(resource.resourceName).concat("Controller.java"));
+				fileStream.open(f, FileMode.WRITE);
+				srcData = srcData.split("$resource-name").join(resource.resourceName);
+				srcData = srcData.split("$Resource-name").join(Utils.getFirstLetterUppercase(resource.resourceName));
+				fileStream.writeUTFBytes(srcData);
+				fileStream.close();
+				
+				//generate service class
+				f = File.applicationDirectory.resolvePath("assets/web-app-files/GenericService.java");
+				fileStream.open(f, FileMode.READ);
+				srcData = fileStream.readUTFBytes(fileStream.bytesAvailable);
+				fileStream.close();
+			
+				f = new File(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-web-app/src/main/java/service/" + Utils.getFirstLetterUppercase(resource.resourceName).concat("Service.java"));
+				fileStream.open(f, FileMode.WRITE);
+				srcData = srcData.split("$resource-name").join(resource.resourceName);
+				srcData = srcData.split("$Resource-name").join(Utils.getFirstLetterUppercase(resource.resourceName));
 				fileStream.writeUTFBytes(srcData);
 				fileStream.close();
 			}
