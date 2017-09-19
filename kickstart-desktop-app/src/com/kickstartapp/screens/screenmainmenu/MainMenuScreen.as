@@ -69,7 +69,26 @@ package com.kickstartapp.screens.screenmainmenu
 		private function onCreateProject(event:starling.events.Event):void
 		{
 			log(this, "Create a new project");
+			//var f:File = File.documentsDirectory;
+			var f:File = new File("D:/FunStuff/ProjectTodo");
+			
+			try
+			{
+				f.addEventListener(flash.events.Event.SELECT, onFolderSelected);
+				f.browseForDirectory("Choose a directory");
+			}
+			catch (err:Error)
+			{
+				log(this, "Some error occurred!");
+				TextCallout.show("Some error occurred!", event.target as Button);
+			}
+		}
+		
+		private function onOpenProject(event:starling.events.Event):void
+		{
+			log(this, "Open a project");
 			var f:File = File.documentsDirectory;
+			//var f:File = new File("D:/FunStuff/ProjectTodo");
 			
 			try
 			{
@@ -91,11 +110,6 @@ package com.kickstartapp.screens.screenmainmenu
 			
 			log(this, "Folder selected:", GlobalData.nativeProjectFolderPath);
 			this.dispatchEventWith(starling.events.Event.CLOSE);
-		}
-		
-		private function onOpenProject(event:starling.events.Event):void
-		{
-		
 		}
 	}
 

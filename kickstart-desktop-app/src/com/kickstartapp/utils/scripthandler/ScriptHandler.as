@@ -23,6 +23,7 @@ package com.kickstartapp.utils.scripthandler
 		public static const MVN_CLEAN_INSTALL_EXEC_JAVA:uint = 0;
 		static public const MVN_CLEAN_INSTALL:uint = 1;
 		static public const MVN_SPRING_BOOT_RUN:uint = 2;
+		static public const MVN_DEPLOY_CLUSTERS:uint = 3;
 		
 		private var _process:NativeProcess;
 		private var _currentProcessStatus:ScriptStatus;
@@ -60,6 +61,9 @@ package com.kickstartapp.utils.scripthandler
 				break;
 				case MVN_CLEAN_INSTALL:
 					args[1] = "mvn clean install -f " + projectPomFilePath;
+				break;
+				case MVN_DEPLOY_CLUSTERS:
+					
 				break;
 				default:
 			}
