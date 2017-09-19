@@ -109,7 +109,7 @@ package com.kickstartapp.utils.scripthandler
 		private function onOutputData(event:ProgressEvent):void
 		{
 			var output:String = _process.standardOutput.readUTFBytes(_process.standardOutput.bytesAvailable);
-			log(this, "Got: ", output);
+			log(this, output);
 		}
 		
 		private function onErrorData(event:ProgressEvent):void

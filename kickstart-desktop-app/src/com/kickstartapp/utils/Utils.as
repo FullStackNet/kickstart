@@ -12,17 +12,6 @@ package com.kickstartapp.utils
 			value = firstLetter.toUpperCase() + value.substring(1);
 			return value;
 		}
-		
-		static public function getProjectFileContent(projectName:String, packageName:String, versionNumber:String):String
-		{
-			var xml:XML = new XML(<project>
-				<projectname>{projectName}</projectname>
-				<packagename>{packageName}</packagename>
-				<version>{versionNumber}</version>
-			</project>);
-			
-			return xml.toString();
-		}
 	}
 
 }

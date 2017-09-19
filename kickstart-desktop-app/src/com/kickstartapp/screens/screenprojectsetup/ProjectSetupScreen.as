@@ -1,8 +1,10 @@
 package com.kickstartapp.screens.screenprojectsetup
 {
+	import com.kickstartapp.data.Field;
 	import com.kickstartapp.data.GlobalData;
 	import com.kickstartapp.data.Resource;
 	import com.kickstartapp.popups.AddResourcePopUp;
+	import com.kickstartapp.popups.FieldPopUp;
 	import com.kickstartapp.utils.FileWritingHandler;
 	import com.kickstartapp.utils.ResourceListHeader;
 	import feathers.controls.Alert;
@@ -47,6 +49,11 @@ package com.kickstartapp.screens.screenprojectsetup
 		private var _projectNameInput:TextInput;
 		private var _versionInput:TextInput;
 		private var _fileHandler:FileWritingHandler;
+		private var _fieldPopUp:FieldPopUp;
+		
+		private var _selectedFieldForEdit:Field;
+		private var _selectedResourceForEdit:Resource;
+		private var _isNewProject:Boolean;
 		
 		public function ProjectSetupScreen()
 		{
@@ -59,6 +66,7 @@ package com.kickstartapp.screens.screenprojectsetup
 			super.initialize();
 			log(this, "Initialise");
 			
+			_isNewProject = true;
 			const PROMPT_ALPHA:Number = 0.2;
 			
 			var verticalLayout:VerticalLayout = new VerticalLayout();
@@ -140,8 +148,9 @@ package com.kickstartapp.screens.screenprojectsetup
 			_resourceList = new VectorHierarchicalCollection(GlobalData.allResources);
 			_resourceList.childrenField = "fields";
 			_resourceGroupList = new GroupedList();
-			_resourceGroupList.isSelectable = false;
+			_resourceGroupList.isSelectable = true;
 			_resourceGroupList.dataProvider = _resourceList;
+			_resourceGroupList.addEventListener(starling.events.Event.CHANGE, onResourceListSelected);
 			_resourceGroupList.addEventListener(starling.events.Event.UPDATE, onResourceUpdated);
 			_resourceGroupList.headerRendererType = ResourceListHeader;
 			_resourceGroupList.itemRendererFactory = function():IGroupedListItemRenderer
@@ -151,7 +160,6 @@ package com.kickstartapp.screens.screenprojectsetup
 				itemRenderer.height = 40;
 				itemRenderer.paddingLeft = 15;
 				itemRenderer.isQuickHitAreaEnabled = true;
-				itemRenderer.addEventListener(starling.events.Event.TRIGGERED, onFieldTapped);
 				return itemRenderer;
 			};
 			this.addChild(_resourceGroupList);
@@ -162,15 +170,27 @@ package com.kickstartapp.screens.screenprojectsetup
 			this.stage.addChild(_infoLabel);
 			
 			_fileHandler = new FileWritingHandler();
+			_fileHandler.addEventListener(flash.events.Event.CLOSE, onFolderAnalysisClosed);
 			_fileHandler.addEventListener(flash.events.Event.COMPLETE, onFolderAnalysisComplete);
 			_fileHandler.analyseSelectedDirectory();
 		}
 		
+		private function onFolderAnalysisClosed(e:flash.events.Event):void 
+		{
+			_isNewProject = true;
+		}
+		
 		private function onFolderAnalysisComplete(e:flash.events.Event):void 
 		{
+			_isNewProject = false;
+			
 			_projectNameInput.text = _fileHandler.projectName;
 			_packageInput.text = _fileHandler.packageName;
 			_versionInput.text = _fileHandler.versionNumber;
+			
+			_projectNameInput.isEnabled = false;
+			_packageInput.isEnabled = false;
+			_versionInput.isEnabled = false;
 			
 			var resourceNames:Vector.<String> = _fileHandler.assetManager.getObjectNames();
 			for (var i:int = 0; i < resourceNames.length; i++) 
@@ -216,12 +236,39 @@ package com.kickstartapp.screens.screenprojectsetup
 				return;
 			}
 			
-			_fileHandler.createProject(_projectNameInput.text, _packageInput.text, _versionInput.text);
+			if (_isNewProject)
+			{
+				_fileHandler.createProject(_projectNameInput.text, _packageInput.text, _versionInput.text);
+			}
+			else 
+			{
+				_fileHandler.updateProject();
+			}
 		}
 		
-		private function onFieldTapped(e:starling.events.Event):void
+		private function onResourceListSelected(e:starling.events.Event):void 
 		{
-			log(this, "Field tapped!");
+			_selectedResourceForEdit = _resourceList.getItemAt(_resourceGroupList.selectedGroupIndex) as Resource;
+			_selectedFieldForEdit = _resourceGroupList.selectedItem as Field;
+			
+			_fieldPopUp = new FieldPopUp();
+			_fieldPopUp.initializeNow();
+			_fieldPopUp.setFieldData(_selectedFieldForEdit.fieldName, _selectedFieldForEdit.fieldType, String(_selectedFieldForEdit.fieldLength));
+			_fieldPopUp.addEventListener(starling.events.Event.COMPLETE, onFieldUpdated);
+			_fieldPopUp.addEventListener(starling.events.Event.CLOSE, onFieldClosed);
+			PopUpManager.addPopUp(_fieldPopUp);
+		}
+		
+		private function onFieldUpdated(e:starling.events.Event):void 
+		{
+			_selectedResourceForEdit.updateField(_selectedFieldForEdit.id, e.data.fieldname, e.data.fieldtype, e.data.fieldlength);
+			closeFieldPopUp();
+			_resourceList.updateAll();
+		}
+		
+		private function onFieldClosed(e:starling.events.Event):void 
+		{
+			closeFieldPopUp();
 		}
 		
 		private function onAddResource(e:starling.events.Event):void
@@ -266,6 +313,18 @@ package com.kickstartapp.screens.screenprojectsetup
 			_addResourcePopUp = null;
 		}
 		
+		private function closeFieldPopUp():void 
+		{
+			if (_fieldPopUp == null)
+				return;
+			
+			_fieldPopUp.removeEventListener(starling.events.Event.UPDATE, onFieldUpdated);
+			_fieldPopUp.removeEventListener(starling.events.Event.CLOSE, onFieldClosed);
+			
+			PopUpManager.removePopUp(_fieldPopUp, true);
+			_fieldPopUp = null;
+		}
+		
 		private function onProjectNameChanged(e:starling.events.Event):void
 		{
 			var projectName:String = (e.target as TextInput).text;
@@ -288,6 +347,15 @@ package com.kickstartapp.screens.screenprojectsetup
 			_infoLabel.alignPivot();
 			_infoLabel.x = _resourceGroupList.x + _resourceGroupList.width / 2;
 			_infoLabel.y = _resourceGroupList.y + _resourceGroupList.height / 2;
+		}
+		
+		override public function dispose():void 
+		{
+			log(this, "Dispose");
+			
+			_infoLabel.removeFromParent(this);
+			_infoLabel = null;
+			super.dispose();
 		}
 	}
 

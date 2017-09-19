@@ -1,4 +1,4 @@
-package com.kickstartapp.popups 
+package com.kickstartapp.popups
 {
 	import com.kickstartapp.utils.HorizontalDropDownWithLabel;
 	import com.kickstartapp.utils.HorizontalTextInputWithLabel;
@@ -18,20 +18,21 @@ package com.kickstartapp.popups
 	 * ...
 	 * @author Aditya
 	 */
-	public class FieldPopUp extends Panel 
+	public class FieldPopUp extends Panel
 	{
 		private var _addButtonLabel:String;
 		private var _fieldNameInput:HorizontalTextInputWithLabel;
 		private var _fieldType:HorizontalDropDownWithLabel;
 		private var _fieldLength:HorizontalTextInputWithLabel;
+		private var _fieldTypeValues:Array;
 		
-		public function FieldPopUp() 
+		public function FieldPopUp()
 		{
 			super();
-			
+		
 		}
 		
-		override protected function initialize():void 
+		override protected function initialize():void
 		{
 			super.initialize();
 			
@@ -65,7 +66,12 @@ package com.kickstartapp.popups
 			this.addChild(_fieldNameInput);
 			_fieldNameInput.initializeNow();
 			
-			_fieldType = new HorizontalDropDownWithLabel("Field type: ", "", new ArrayCollection([ { id:1, name:"String" }, { id:2, name:"Long" }, { id:3, name:"timestamp" } ]));
+			_fieldTypeValues = new Array();
+			_fieldTypeValues.push({id: 1, name: "String"});
+			_fieldTypeValues.push({id: 2, name: "long"});
+			_fieldTypeValues.push({id: 3, name: "timestamp"});
+			
+			_fieldType = new HorizontalDropDownWithLabel("Field type: ", "", new ArrayCollection(_fieldTypeValues));
 			this.addChild(_fieldType);
 			_fieldType.initializeNow();
 			
@@ -75,7 +81,25 @@ package com.kickstartapp.popups
 			_fieldLength.initializeNow();
 		}
 		
-		private function onAddButton(e:Event):void 
+		public function setFieldData(fieldName:String, fieldType:String, fieldLength:String):void
+		{
+			this.title = "Update Field";
+			_addButtonLabel = "Update";
+			
+			_fieldNameInput.setValue(fieldName);
+			_fieldLength.setValue(fieldLength);
+			
+			for (var i:int = 0; i < _fieldTypeValues.length; i++) 
+			{
+				if (_fieldTypeValues[i].name == fieldType)
+				{
+					_fieldType.setSelectedObject(i);
+					break;
+				}
+			}
+		}
+		
+		private function onAddButton(e:Event):void
 		{
 			var fieldName:String = _fieldNameInput.getValue();
 			var fieldType:String;
@@ -103,10 +127,10 @@ package com.kickstartapp.popups
 			
 			fieldLength = uint(_fieldLength.getValue());
 			
-			this.dispatchEventWith(Event.COMPLETE, false, { fieldname: fieldName, fieldtype: fieldType, fieldlength: fieldLength} );
+			this.dispatchEventWith(Event.COMPLETE, false, {fieldname: fieldName, fieldtype: fieldType, fieldlength: fieldLength});
 		}
 		
-		private function onCancelButton(e:Event):void 
+		private function onCancelButton(e:Event):void
 		{
 			this.dispatchEventWith(Event.CLOSE);
 		}

@@ -41,6 +41,7 @@ package com.kickstartapp
 			_screenNavigator.addScreen(AppScreen.SCREEN_MAIN_MENU, mainMenuItem);
 			
 			var projectSetupItem:ScreenNavigatorItem = new ScreenNavigatorItem(ProjectSetupScreen);
+			projectSetupItem.setScreenIDForEvent(Event.CLOSE, AppScreen.SCREEN_MAIN_MENU);
 			_screenNavigator.addScreen(AppScreen.SCREEN_PROJECT_SETUP, projectSetupItem);
 			
 			_screenNavigator.showScreen(AppScreen.SCREEN_MAIN_MENU);

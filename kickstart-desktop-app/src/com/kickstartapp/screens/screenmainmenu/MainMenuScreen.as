@@ -87,8 +87,9 @@ package com.kickstartapp.screens.screenmainmenu
 		private function onOpenProject(event:starling.events.Event):void
 		{
 			log(this, "Open a project");
-			var f:File = File.documentsDirectory;
-			//var f:File = new File("D:/FunStuff/ProjectTodo");
+			
+			//var f:File = File.documentsDirectory;
+			var f:File = new File("D:/FunStuff/ProjectTodo");
 			
 			try
 			{

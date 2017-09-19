@@ -83,15 +83,9 @@ package com.kickstartapp.utils
 		private function onAddField(e:Event):void 
 		{
 			_fieldPopUp = new FieldPopUp();
-			_fieldPopUp.addEventListener(Event.UPDATE, onFieldUpdated);
 			_fieldPopUp.addEventListener(Event.COMPLETE, onFieldAdded);
 			_fieldPopUp.addEventListener(Event.CLOSE, onFieldClosed);
 			PopUpManager.addPopUp(_fieldPopUp);
-		}
-		
-		private function onFieldUpdated(e:Event):void 
-		{
-			
 		}
 		
 		private function onFieldAdded(e:Event):void 
@@ -153,7 +147,6 @@ package com.kickstartapp.utils
 			if (_fieldPopUp == null)
 				return;
 			
-			_fieldPopUp.removeEventListener(Event.UPDATE, onFieldUpdated);
 			_fieldPopUp.removeEventListener(Event.COMPLETE, onFieldAdded);
 			_fieldPopUp.removeEventListener(Event.CLOSE, onFieldClosed);
 			

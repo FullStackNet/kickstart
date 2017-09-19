@@ -1,7 +1,5 @@
 package com.kickstartapp.data
 {
-	import feathers.controls.supportClasses.TextFieldViewPort;
-	import starling.core.Starling;
 	
 	/**
 	 * ...
@@ -34,31 +32,19 @@ package com.kickstartapp.data
 			field.fieldLength = fieldLength;
 			fields.push(field);
 		}
-	}
-}
-
-class Field
-{
-	public var fieldName:String = "";
-	public var fieldType:String = "";
-	public var fieldLength:uint = 0;
-	
-	private var _display:String = "";
-	
-	public function Field()
-	{
 		
+		public function updateField(fieldId:Number, fieldName:String, fieldType:String, fieldLength:uint):void
+		{
+			for (var i:int = 0; i < fields.length; i++)
+			{
+				if (fields[i].id == fieldId)
+				{
+					fields[i].fieldName = fieldName;
+					fields[i].fieldType = fieldType;
+					fields[i].fieldLength = fieldLength;
+					return;
+				}
+			}
+		}
 	}
-	
-	public function get display():String 
-	{
-		_display = fieldName + " [type: " + fieldType + ", length: " + fieldLength + "]";
-		return _display;
-	}
-	
-	/*public function toJSON(s:String):*
-	{
-		var jsonString:String = "BLA";
-		return jsonString;
-	}*/
 }

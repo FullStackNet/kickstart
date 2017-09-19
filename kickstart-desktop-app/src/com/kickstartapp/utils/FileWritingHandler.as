@@ -6,8 +6,6 @@ package com.kickstartapp.utils
 	import com.kickstartapp.utils.scripthandler.ScriptStatus;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
-	import flash.events.IOErrorEvent;
-	import flash.events.ProgressEvent;
 	import flash.filesystem.File;
 	import flash.filesystem.FileMode;
 	import flash.filesystem.FileStream;
@@ -77,12 +75,6 @@ package com.kickstartapp.utils
 				_packageName = pomFile.groupId.toString();
 				_versionNumber = pomFile.version.toString();
 				
-				log(this, "--");
-				
-				//read all the resource files
-				//read all the fields
-				//add some logic to stop user to edit the project name
-				
 				file = new File(GlobalData.nativeProjectFolderPath + "/" + resourceAppFolderName + "/src/main/java/application/defined");
 				_assetManager = new AssetManager();
 				_assetManager.verbose = true;
@@ -92,6 +84,7 @@ package com.kickstartapp.utils
 			else
 			{
 				log(this, "Could not find kickstart project in the specified folder!!");
+				this.dispatchEvent(new Event(Event.CLOSE));
 			}
 		}
 		
@@ -142,6 +135,7 @@ package com.kickstartapp.utils
 			switch (scriptStatus.mvnCommand)
 			{
 				case ScriptHandler.MVN_CLEAN_INSTALL_EXEC_JAVA: 
+					log(this, "MVN_CLEAN_INSTALL_EXEC_JAVA complete..");
 					writeJavaClassesForResourceApp();
 					_scriptHandler.runMaven(ScriptHandler.MVN_CLEAN_INSTALL, GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/pom.xml");
 					break;
@@ -228,7 +222,7 @@ package com.kickstartapp.utils
 			var filesToTransfer:Array = new Array();
 			filesToTransfer.push({src: "assets/resource-app-files/LocalhostDBSetup.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/util/LocalhostDBSetup.java")});
 			filesToTransfer.push({src: "assets/resource-app-files/GenerateResource.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/defined/GenerateResource.java")});
-			filesToTransfer.push({src: "assets/resource-app-files/ResourcesToGenerate.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/defined/ResourcesToGenerate.java")});
+			//filesToTransfer.push({src: "assets/resource-app-files/ResourcesToGenerate.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/defined/ResourcesToGenerate.java")});
 			filesToTransfer.push({src: "assets/web-app-files/Application.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-web-app/src/main/java/application/Application.java")});
 			filesToTransfer.push({src: "assets/web-app-files/BaseController.java", dest: String(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-web-app/src/main/java/controller/BaseController.java")});
 			
@@ -310,7 +304,7 @@ package com.kickstartapp.utils
 				}
 			}
 			
-			var file:File = new File(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/defined/ResourcesToGenerate.java");
+			var file:File = File.applicationDirectory.resolvePath("assets/resource-app-files/ResourcesToGenerate.java");
 			var fs:FileStream = new FileStream();
 			fs.open(file, FileMode.READ)
 			srcData = fs.readUTFBytes(fs.bytesAvailable);
@@ -318,6 +312,7 @@ package com.kickstartapp.utils
 			
 			srcData = srcData.replace("/*code-goes-here*/", srcCodeForResourcesToGenerate);
 			
+			file = new File(GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/src/main/java/application/defined/ResourcesToGenerate.java");
 			fs.open(file, FileMode.WRITE);
 			fs.writeUTFBytes(srcData);
 			fs.close();
