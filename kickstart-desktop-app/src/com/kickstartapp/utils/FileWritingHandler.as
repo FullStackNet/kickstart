@@ -84,7 +84,7 @@ package com.kickstartapp.utils
 			else
 			{
 				log(this, "Could not find kickstart project in the specified folder!!");
-				this.dispatchEvent(new Event(Event.CLOSE));
+				this.dispatchEvent(new Event(Event.CLOSE, false));
 			}
 		}
 		
@@ -104,7 +104,7 @@ package com.kickstartapp.utils
 		public function updateProject():void
 		{
 			createJSONResources();
-			_scriptHandler.runMaven(ScriptHandler.MVN_CLEAN_INSTALL_EXEC_JAVA, GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/pom.xml");
+			_scriptHandler.runMaven(ScriptHandler.MVN_CLEAN_INSTALL_EXEC_JAVA, GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/pom.xml", GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app");
 		}
 		
 		public function createProject(projectName:String, packageName:String, versionNumber:String):void
@@ -124,7 +124,7 @@ package com.kickstartapp.utils
 			
 			log(this, "Resources generation done");
 			
-			_scriptHandler.runMaven(ScriptHandler.MVN_CLEAN_INSTALL_EXEC_JAVA, GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/pom.xml");
+			_scriptHandler.runMaven(ScriptHandler.MVN_CLEAN_INSTALL_EXEC_JAVA, GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/pom.xml", GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app");
 		}
 		
 		private function onScriptRunCompleted(e:Event):void
@@ -137,13 +137,10 @@ package com.kickstartapp.utils
 				case ScriptHandler.MVN_CLEAN_INSTALL_EXEC_JAVA: 
 					log(this, "MVN_CLEAN_INSTALL_EXEC_JAVA complete..");
 					writeJavaClassesForResourceApp();
-					_scriptHandler.runMaven(ScriptHandler.MVN_CLEAN_INSTALL, GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/pom.xml");
+					_scriptHandler.runMaven(ScriptHandler.MVN_CLEAN_INSTALL, GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app/pom.xml", GlobalData.nativeProjectFolderPath + "/" + _projectName + "-resource-app");
 					break;
 				case ScriptHandler.MVN_CLEAN_INSTALL: 
 					writeJavaClassesForWebApp();
-					break;
-				case ScriptHandler.MVN_SPRING_BOOT_RUN: 
-					//all done
 					break;
 				default: 
 			}

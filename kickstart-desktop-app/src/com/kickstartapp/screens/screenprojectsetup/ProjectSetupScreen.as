@@ -5,6 +5,7 @@ package com.kickstartapp.screens.screenprojectsetup
 	import com.kickstartapp.data.Resource;
 	import com.kickstartapp.popups.AddResourcePopUp;
 	import com.kickstartapp.popups.FieldPopUp;
+	import com.kickstartapp.popups.LogPopUp;
 	import com.kickstartapp.utils.FileWritingHandler;
 	import com.kickstartapp.utils.ResourceListHeader;
 	import feathers.controls.Alert;
@@ -90,7 +91,11 @@ package com.kickstartapp.screens.screenprojectsetup
 				addResourceBtn.label = "Add Resource";
 				addResourceBtn.addEventListener(starling.events.Event.TRIGGERED, onAddResource);
 				
-				header.rightItems = new <DisplayObject>[addResourceBtn];
+				var showLogsBtn:Button = new Button();
+				showLogsBtn.label = "Show Logs";
+				showLogsBtn.addEventListener(starling.events.Event.TRIGGERED, onShowLogs);
+				
+				header.rightItems = new <DisplayObject>[addResourceBtn, showLogsBtn];
 				return header;
 			}
 			
@@ -236,6 +241,8 @@ package com.kickstartapp.screens.screenprojectsetup
 				return;
 			}
 			
+			PopUpManager.addPopUp(new LogPopUp());
+			
 			if (_isNewProject)
 			{
 				_fileHandler.createProject(_projectNameInput.text, _packageInput.text, _versionInput.text);
@@ -300,6 +307,11 @@ package com.kickstartapp.screens.screenprojectsetup
 			_resourceList.updateAll();
 			toggleInfoMessage();
 			closeAddResourcePopUp();
+		}
+		
+		private function onShowLogs(e:starling.events.Event):void 
+		{
+			PopUpManager.addPopUp(new LogPopUp());
 		}
 		
 		private function closeAddResourcePopUp():void

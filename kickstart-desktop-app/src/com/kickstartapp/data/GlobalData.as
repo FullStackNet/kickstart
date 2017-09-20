@@ -8,6 +8,7 @@ package com.kickstartapp.data
 	public class GlobalData
 	{
 		static public var nativeProjectFolderPath:String = "";
+		static public var logs:String = "";
 		static public var allResources:Vector.<Resource> = new Vector.<Resource>();
 		
 		static public function getBatchFileScript(projectName:String, packageName:String, versionNum:String):String
