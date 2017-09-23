@@ -59,6 +59,11 @@
 			{
 				'length': 16,
 				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 16,
+				'type':'String'
 			}
 		}
 	}

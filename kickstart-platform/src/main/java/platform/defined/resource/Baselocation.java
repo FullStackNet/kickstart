@@ -30,6 +30,7 @@ public abstract class Baselocation extends BaseResource {
 	private String state = null;
 	private String country = null;
 	private String pinCode = null;
+	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -43,6 +44,7 @@ public abstract class Baselocation extends BaseResource {
 	public static String FIELD_STATE = "state";
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_PINCODE = "pinCode";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -96,6 +98,10 @@ public abstract class Baselocation extends BaseResource {
 		pinCodeField.setLength(16);
 		metaData.addField(pinCodeField);
 
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(16);
+		metaData.addField(customer_idField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -120,6 +126,7 @@ public abstract class Baselocation extends BaseResource {
 		this.state = obj.state;
 		this.country = obj.country;
 		this.pinCode = obj.pinCode;
+		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -151,6 +158,8 @@ public abstract class Baselocation extends BaseResource {
 			map.put("country", country);
 		if(pinCode != null)
 			map.put("pinCode", pinCode);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -180,6 +189,8 @@ public abstract class Baselocation extends BaseResource {
 			map.put("country", country);
 		if(pinCode != null)
 			map.put("pinCode", pinCode);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -203,6 +214,7 @@ public abstract class Baselocation extends BaseResource {
 		state = (String) map.get("state");
 		country = (String) map.get("country");
 		pinCode = (String) map.get("pinCode");
+		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -251,6 +263,10 @@ public abstract class Baselocation extends BaseResource {
 		Object pinCodeObj = map.get("pinCode");
 		if(pinCodeObj != null)
 			pinCode = pinCodeObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -441,6 +457,22 @@ public abstract class Baselocation extends BaseResource {
 
 	public void unSetPinCode() {
 		this.pinCode = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
 	public Map<String, Object> getExtra_data() {

@@ -8,20 +8,14 @@ import platform.appliances.ApplianceConstants;
 import platform.db.Expression;
 import platform.db.REL_OP;
 import platform.exception.ExceptionEnum;
-import platform.helper.ApplianceHelper;
-import platform.helper.Appliance_mapHelper;
-import platform.helper.ControllerHelper;
-import platform.helper.UserHelper;
-import platform.helper.User_mapHelper;
+import platform.helper.*;
 import platform.manager.ApplicationManager;
 import platform.message.DeviceAction;
 import platform.message.DeviceConfiguration;
-import platform.resource.BaseResource;
-import platform.resource.appliance;
-import platform.resource.controller;
-import platform.resource.user;
+import platform.resource.*;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
+import platform.util.Util;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 import platform.webservice.WebServiceContants;
@@ -38,7 +32,13 @@ public class ApplianceService extends BaseService{
 		if (_resource.getCustomer_id() == null) {
 			_resource.setCustomer_id(ctx.getCustomerId());
 		}
-		_resource.setUser_id(ctx.getUserId());
+		if (!Util.isEmpty(_resource.getLocation_id())) {
+			location _location = (location)LocationHelper.getInstance().getById(_resource.getLocation_id());
+			if (_location != null) {
+				_resource.setLocation_name(_location.getName());
+			}
+		}
+			_resource.setUser_id(ctx.getUserId());
 		getHelper().add(resource);
 		Appliance_mapHelper.getInstance().addAdmin(_resource.getId(),ctx.getUserId());
 		User_mapHelper.getInstance().addAppliance(ctx.getUserId(), _resource.getId());
@@ -206,6 +206,12 @@ public class ApplianceService extends BaseService{
 	}
 	public void update(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		appliance _appliance = (appliance) resource;
+		if (!Util.isEmpty(_appliance.getLocation_id())) {
+			location _location = (location)LocationHelper.getInstance().getById(_appliance.getLocation_id());
+			if (_location != null) {
+				_appliance.setLocation_name(_location.getName());
+			}
+		}
 		getHelper().update(_appliance);
 	}
 
