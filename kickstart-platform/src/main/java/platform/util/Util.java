@@ -678,7 +678,32 @@ public class Util {
 			if (!_file.exists()) {
 				directory = "templete/";
 				file = directory+template + ".html";
-			}	
+			}
+			FileInputStream fstream = new FileInputStream(file);
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			String strLine;
+			while ((strLine = br.readLine()) != null) {
+				text = text + strLine+"\n";
+			}
+			br.close();
+		} catch (Exception e) {// Catch exception if any
+			System.err.println("Error: " + e.getMessage());
+		}
+		if (params != null) {
+			for (Map.Entry<String, String> param : params.entrySet()) {
+				String value = param.getValue();
+				String key = "!!!"+param.getKey()+"!!!";
+				text = text.replaceAll(key, value);
+			}
+		}
+		return text;
+	}
+
+	public static String readTempleteFileFromLocal(File file,
+												   Map<String, String> params) {
+		String text = "";
+		try {
 			FileInputStream fstream = new FileInputStream(file);
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
