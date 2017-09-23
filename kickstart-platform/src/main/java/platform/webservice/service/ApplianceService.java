@@ -39,7 +39,7 @@ public class ApplianceService extends BaseService{
 			}
 		}
 			_resource.setUser_id(ctx.getUserId());
-		getHelper().add(resource);
+		getHelper().add(_resource);
 		Appliance_mapHelper.getInstance().addAdmin(_resource.getId(),ctx.getUserId());
 		User_mapHelper.getInstance().addAppliance(ctx.getUserId(), _resource.getId());
 	}

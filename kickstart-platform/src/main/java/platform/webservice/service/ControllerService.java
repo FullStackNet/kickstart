@@ -43,7 +43,7 @@ public class ControllerService extends BaseService{
 		_resource.setManager(_device.getManager());
 		_resource.setModel(_device.getModel());
 		_resource.setHardware_vendor_id(_device.getVendor_id());
-		getHelper().add(resource);
+		getHelper().add(_resource);
 		Customer_mapHelper.getInstance().addController(ctx.getCustomerId(), _resource.getId());
 		DeviceHelper.getInstance().updateState(_device.getId(), "DEPLOYED");
 		
