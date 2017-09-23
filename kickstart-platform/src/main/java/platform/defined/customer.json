@@ -103,6 +103,12 @@
 				'type':'String',
 				'default' : "N"
 			},
+			'amrService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'merchantService':
 			{
 				'length': 1,

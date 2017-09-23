@@ -43,6 +43,12 @@ public class user extends Baseuser {
 		}
 		return false;
 	}
+	public boolean isAmrServiceEnabled() {
+		if ("Y".equalsIgnoreCase(getAmrService())) {
+			return true;
+		}
+		return false;
+	}
 	
 	public boolean isGameServiceEnabled() {
 		if ("Y".equalsIgnoreCase(getGameService())) {

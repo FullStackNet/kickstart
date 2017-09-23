@@ -56,6 +56,8 @@ public class HeaderView extends BaseView {
 						logoImg.addAttribute("height","130px");
 						logoImg.setSRC("http://www.nirmanias.com/images/logo.png");
 					} else {
+						logoImg.addAttribute("width","230px");
+						logoImg.addAttribute("height","130px");
 						logoImg.setSRC(ImageUtils.C2P_HEADER_LOGO);
 					}
 				} else {

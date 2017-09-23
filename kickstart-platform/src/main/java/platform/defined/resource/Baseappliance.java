@@ -22,6 +22,7 @@ public abstract class Baseappliance extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String controller_id = null;
+	private Long controller_port = null;
 	private String imei = null;
 	private String vin = null;
 	private String make_id = null;
@@ -36,6 +37,7 @@ public abstract class Baseappliance extends BaseResource {
 	private String manager = null;
 	private String model = null;
 	private String location_id = null;
+	private String location_name = null;
 	private String sub_location_id = null;
 	private String site_id = null;
 	private String tank_id = null;
@@ -198,6 +200,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_CONTROLLER_ID = "controller_id";
+	public static String FIELD_CONTROLLER_PORT = "controller_port";
 	public static String FIELD_IMEI = "imei";
 	public static String FIELD_VIN = "vin";
 	public static String FIELD_MAKE_ID = "make_id";
@@ -212,6 +215,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_MANAGER = "manager";
 	public static String FIELD_MODEL = "model";
 	public static String FIELD_LOCATION_ID = "location_id";
+	public static String FIELD_LOCATION_NAME = "location_name";
 	public static String FIELD_SUB_LOCATION_ID = "sub_location_id";
 	public static String FIELD_SITE_ID = "site_id";
 	public static String FIELD_TANK_ID = "tank_id";
@@ -386,6 +390,9 @@ public abstract class Baseappliance extends BaseResource {
 		nameField.setLength(128);
 		metaData.addField(nameField);
 
+		Field controller_portField = new Field("controller_port", "long");
+		metaData.addField(controller_portField);
+
 		Field imeiField = new Field("imei", "String");
 		imeiField.setIndexed(true);
 		imeiField.setLength(16);
@@ -436,6 +443,10 @@ public abstract class Baseappliance extends BaseResource {
 		Field location_idField = new Field("location_id", "String");
 		location_idField.setLength(128);
 		metaData.addField(location_idField);
+
+		Field location_nameField = new Field("location_name", "String");
+		location_nameField.setLength(128);
+		metaData.addField(location_nameField);
 
 		Field sub_location_idField = new Field("sub_location_id", "String");
 		sub_location_idField.setLength(128);
@@ -1195,6 +1206,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.controller_id = obj.controller_id;
+		this.controller_port = obj.controller_port;
 		this.imei = obj.imei;
 		this.vin = obj.vin;
 		this.make_id = obj.make_id;
@@ -1209,6 +1221,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.manager = obj.manager;
 		this.model = obj.model;
 		this.location_id = obj.location_id;
+		this.location_name = obj.location_name;
 		this.sub_location_id = obj.sub_location_id;
 		this.site_id = obj.site_id;
 		this.tank_id = obj.tank_id;
@@ -1592,6 +1605,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("name", name);
 		if(controller_id != null)
 			map.put("controller_id", controller_id);
+		if(controller_port != null)
+			map.put("controller_port", controller_port);
 		if(imei != null)
 			map.put("imei", imei);
 		if(vin != null)
@@ -1620,6 +1635,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("model", model);
 		if(location_id != null)
 			map.put("location_id", location_id);
+		if(location_name != null)
+			map.put("location_name", location_name);
 		if(sub_location_id != null)
 			map.put("sub_location_id", sub_location_id);
 		if(site_id != null)
@@ -1950,6 +1967,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("name", name);
 		if(controller_id != null)
 			map.put("controller_id", controller_id);
+		if(controller_port != null)
+			map.put("controller_port", controller_port);
 		if(imei != null)
 			map.put("imei", imei);
 		if(vin != null)
@@ -1978,6 +1997,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("model", model);
 		if(location_id != null)
 			map.put("location_id", location_id);
+		if(location_name != null)
+			map.put("location_name", location_name);
 		if(sub_location_id != null)
 			map.put("sub_location_id", sub_location_id);
 		if(site_id != null)
@@ -2306,6 +2327,7 @@ public abstract class Baseappliance extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		controller_port = (Long) map.get("controller_port");
 		imei = (String) map.get("imei");
 		vin = (String) map.get("vin");
 		make_id = (String) map.get("make_id");
@@ -2318,6 +2340,7 @@ public abstract class Baseappliance extends BaseResource {
 		manager = (String) map.get("manager");
 		model = (String) map.get("model");
 		location_id = (String) map.get("location_id");
+		location_name = (String) map.get("location_name");
 		sub_location_id = (String) map.get("sub_location_id");
 		site_id = (String) map.get("site_id");
 		tank_id = (String) map.get("tank_id");
@@ -2484,6 +2507,10 @@ public abstract class Baseappliance extends BaseResource {
 		if(nameObj != null)
 			name = nameObj.toString();
 
+		Object controller_portObj = map.get("controller_port");
+		if(controller_portObj != null)
+			controller_port = new Long(controller_portObj.toString());
+
 		Object imeiObj = map.get("imei");
 		if(imeiObj != null)
 			imei = imeiObj.toString();
@@ -2531,6 +2558,10 @@ public abstract class Baseappliance extends BaseResource {
 		Object location_idObj = map.get("location_id");
 		if(location_idObj != null)
 			location_id = location_idObj.toString();
+
+		Object location_nameObj = map.get("location_name");
+		if(location_nameObj != null)
+			location_name = location_nameObj.toString();
 
 		Object sub_location_idObj = map.get("sub_location_id");
 		if(sub_location_idObj != null)
@@ -3207,6 +3238,26 @@ public abstract class Baseappliance extends BaseResource {
 		this.controller_id = null;
 	}
 
+	public Long getController_port() {
+		return controller_port;
+	}
+
+	public long getController_portEx() {
+		return controller_port != null ? controller_port : 0L;
+	}
+
+	public void setController_port(long controller_port) {
+		this.controller_port = controller_port;
+	}
+
+	public void setController_port(Long controller_port) {
+		this.controller_port = controller_port;
+	}
+
+	public void unSetController_port() {
+		this.controller_port = null;
+	}
+
 	public String getImei() {
 		return imei;
 	}
@@ -3425,6 +3476,22 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetLocation_id() {
 		this.location_id = null;
+	}
+
+	public String getLocation_name() {
+		return location_name;
+	}
+
+	public String getLocation_nameEx() {
+		return location_name != null ? location_name : "";
+	}
+
+	public void setLocation_name(String location_name) {
+		this.location_name = location_name;
+	}
+
+	public void unSetLocation_name() {
+		this.location_name = null;
 	}
 
 	public String getSub_location_id() {

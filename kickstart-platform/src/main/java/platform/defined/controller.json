@@ -367,6 +367,21 @@
 				'default':'0',
 				'type':'int'
 			},
+			'appliances':
+			{
+				'default':'0',
+				'type':'int'
+			},
+			'faulty_appliances':
+			{
+				'default':'0',
+				'type':'int'
+			},
+			'funcational_appliances':
+			{
+				'default':'0',
+				'type':'int'
+			},
 			'password':
 			{
 				'length': 10,

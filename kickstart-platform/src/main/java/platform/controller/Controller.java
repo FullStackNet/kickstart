@@ -15,6 +15,7 @@ public class  Controller {
 	public static String CONTROLLER_TYPE_TRACKER = "TRACKER";
 	public static String CONTROLLER_TYPE_GENERIC = "GENERIC_CONTROLLER";
 	public static String CONTROLLER_TYPE_GAME_CONTROLLER = "GAME_CONTROLLER";
+	public static String CONTROLLER_TYPE_AMR = "AMR_CONTROLLER";
 	
 	public static String[] getList() {
 		String[] list = {
@@ -22,7 +23,8 @@ public class  Controller {
 				CONTROLLER_TYPE_GAME_CONTROLLER,
 				CONTROLLER_TYPE_OBD,
 				CONTROLLER_TYPE_GENERIC,
-				CONTROLLER_TYPE_TRACKER
+				CONTROLLER_TYPE_TRACKER,
+				CONTROLLER_TYPE_AMR,				
 		};
 		return list;
 	}

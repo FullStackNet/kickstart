@@ -133,6 +133,12 @@
 				'type':'String',
 				'default' : "N"
 			},
+			'amrService':
+			{
+				'length': 1,
+				'type':'String',
+				'default' : "N"
+			},
 			'gameService':
 			{
 				'length': 1,
@@ -435,6 +441,11 @@
 				'length': 128,
 				'type': 'String'
 			},
+			'repos_server_id': {
+				'length': 128,
+				'type': 'String'
+			},
+
 			'creation_time': {
 				'type': 'timestamp'
 			},

@@ -40,6 +40,7 @@ public abstract class Baseuser extends BaseResource {
 	private String studentService = null;
 	private String teacherService = null;
 	private String fleetService = null;
+	private String amrService = null;
 	private String gameService = null;
 	private String schoolTrackerService = null;
 	private String dgService = null;
@@ -94,6 +95,7 @@ public abstract class Baseuser extends BaseResource {
 	private Long settledment_count = null;
 	private Double last_payment_made = null;
 	private String registered_referral_code = null;
+	private String repos_server_id = null;
 	private Long creation_time = null;
 	private Long last_update_time = null;
 	private Map<String, Object> extra_data = null;
@@ -119,6 +121,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_STUDENTSERVICE = "studentService";
 	public static String FIELD_TEACHERSERVICE = "teacherService";
 	public static String FIELD_FLEETSERVICE = "fleetService";
+	public static String FIELD_AMRSERVICE = "amrService";
 	public static String FIELD_GAMESERVICE = "gameService";
 	public static String FIELD_SCHOOLTRACKERSERVICE = "schoolTrackerService";
 	public static String FIELD_DGSERVICE = "dgService";
@@ -173,6 +176,7 @@ public abstract class Baseuser extends BaseResource {
 	public static String FIELD_SETTLEDMENT_COUNT = "settledment_count";
 	public static String FIELD_LAST_PAYMENT_MADE = "last_payment_made";
 	public static String FIELD_REGISTERED_REFERRAL_CODE = "registered_referral_code";
+	public static String FIELD_REPOS_SERVER_ID = "repos_server_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -265,6 +269,11 @@ public abstract class Baseuser extends BaseResource {
 		fleetServiceField.setDefaultValue("N");
 		fleetServiceField.setLength(1);
 		metaData.addField(fleetServiceField);
+
+		Field amrServiceField = new Field("amrService", "String");
+		amrServiceField.setDefaultValue("N");
+		amrServiceField.setLength(1);
+		metaData.addField(amrServiceField);
 
 		Field gameServiceField = new Field("gameService", "String");
 		gameServiceField.setDefaultValue("N");
@@ -517,6 +526,10 @@ public abstract class Baseuser extends BaseResource {
 		registered_referral_codeField.setLength(128);
 		metaData.addField(registered_referral_codeField);
 
+		Field repos_server_idField = new Field("repos_server_id", "String");
+		repos_server_idField.setLength(128);
+		metaData.addField(repos_server_idField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -557,6 +570,7 @@ public abstract class Baseuser extends BaseResource {
 		this.studentService = obj.studentService;
 		this.teacherService = obj.teacherService;
 		this.fleetService = obj.fleetService;
+		this.amrService = obj.amrService;
 		this.gameService = obj.gameService;
 		this.schoolTrackerService = obj.schoolTrackerService;
 		this.dgService = obj.dgService;
@@ -611,6 +625,7 @@ public abstract class Baseuser extends BaseResource {
 		this.settledment_count = obj.settledment_count;
 		this.last_payment_made = obj.last_payment_made;
 		this.registered_referral_code = obj.registered_referral_code;
+		this.repos_server_id = obj.repos_server_id;
 		this.creation_time = obj.creation_time;
 		this.last_update_time = obj.last_update_time;
 		this.extra_data = obj.extra_data;
@@ -629,6 +644,8 @@ public abstract class Baseuser extends BaseResource {
 			teacherService = "N";
 		if(fleetService == null)
 			fleetService = "N";
+		if(amrService == null)
+			amrService = "N";
 		if(gameService == null)
 			gameService = "N";
 		if(schoolTrackerService == null)
@@ -759,6 +776,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("teacherService", teacherService);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
+		if(amrService != null)
+			map.put("amrService", amrService);
 		if(gameService != null)
 			map.put("gameService", gameService);
 		if(schoolTrackerService != null)
@@ -867,6 +886,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("last_payment_made", last_payment_made);
 		if(registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
+		if(repos_server_id != null)
+			map.put("repos_server_id", repos_server_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(last_update_time != null)
@@ -923,6 +944,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("teacherService", teacherService);
 		if(fleetService != null)
 			map.put("fleetService", fleetService);
+		if(amrService != null)
+			map.put("amrService", amrService);
 		if(gameService != null)
 			map.put("gameService", gameService);
 		if(schoolTrackerService != null)
@@ -1031,6 +1054,8 @@ public abstract class Baseuser extends BaseResource {
 			map.put("last_payment_made", last_payment_made);
 		if(registered_referral_code != null)
 			map.put("registered_referral_code", registered_referral_code);
+		if(repos_server_id != null)
+			map.put("repos_server_id", repos_server_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(last_update_time != null)
@@ -1065,6 +1090,7 @@ public abstract class Baseuser extends BaseResource {
 		studentService = (String) map.get("studentService");
 		teacherService = (String) map.get("teacherService");
 		fleetService = (String) map.get("fleetService");
+		amrService = (String) map.get("amrService");
 		gameService = (String) map.get("gameService");
 		schoolTrackerService = (String) map.get("schoolTrackerService");
 		dgService = (String) map.get("dgService");
@@ -1119,6 +1145,7 @@ public abstract class Baseuser extends BaseResource {
 		settledment_count = (Long) map.get("settledment_count");
 		last_payment_made = (Double) map.get("last_payment_made");
 		registered_referral_code = (String) map.get("registered_referral_code");
+		repos_server_id = (String) map.get("repos_server_id");
 		creation_time = (Long) map.get("creation_time");
 		last_update_time = (Long) map.get("last_update_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -1197,6 +1224,10 @@ public abstract class Baseuser extends BaseResource {
 		Object fleetServiceObj = map.get("fleetService");
 		if(fleetServiceObj != null)
 			fleetService = fleetServiceObj.toString();
+
+		Object amrServiceObj = map.get("amrService");
+		if(amrServiceObj != null)
+			amrService = amrServiceObj.toString();
 
 		Object gameServiceObj = map.get("gameService");
 		if(gameServiceObj != null)
@@ -1413,6 +1444,10 @@ public abstract class Baseuser extends BaseResource {
 		Object registered_referral_codeObj = map.get("registered_referral_code");
 		if(registered_referral_codeObj != null)
 			registered_referral_code = registered_referral_codeObj.toString();
+
+		Object repos_server_idObj = map.get("repos_server_id");
+		if(repos_server_idObj != null)
+			repos_server_id = repos_server_idObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -1779,6 +1814,18 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetFleetService() {
 		this.fleetService = "N";
+	}
+
+	public String getAmrService() {
+		return amrService != null ? amrService : "N";
+	}
+
+	public void setAmrService(String amrService) {
+		this.amrService = amrService;
+	}
+
+	public void unSetAmrService() {
+		this.amrService = "N";
 	}
 
 	public String getGameService() {
@@ -2492,6 +2539,22 @@ public abstract class Baseuser extends BaseResource {
 
 	public void unSetRegistered_referral_code() {
 		this.registered_referral_code = null;
+	}
+
+	public String getRepos_server_id() {
+		return repos_server_id;
+	}
+
+	public String getRepos_server_idEx() {
+		return repos_server_id != null ? repos_server_id : "";
+	}
+
+	public void setRepos_server_id(String repos_server_id) {
+		this.repos_server_id = repos_server_id;
+	}
+
+	public void unSetRepos_server_id() {
+		this.repos_server_id = null;
 	}
 
 	public Long getCreation_time() {

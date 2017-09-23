@@ -76,6 +76,9 @@ public abstract class Basecontroller extends BaseResource {
 	private String admin_status = null;
 	private Integer heartbeat_interval = null;
 	private Integer data_read_interval = null;
+	private Integer appliances = null;
+	private Integer faulty_appliances = null;
+	private Integer funcational_appliances = null;
 	private String password = null;
 	private Double multiple_factor_port3001 = null;
 	private Double multiple_factor_port3002 = null;
@@ -147,6 +150,9 @@ public abstract class Basecontroller extends BaseResource {
 	public static String FIELD_ADMIN_STATUS = "admin_status";
 	public static String FIELD_HEARTBEAT_INTERVAL = "heartbeat_interval";
 	public static String FIELD_DATA_READ_INTERVAL = "data_read_interval";
+	public static String FIELD_APPLIANCES = "appliances";
+	public static String FIELD_FAULTY_APPLIANCES = "faulty_appliances";
+	public static String FIELD_FUNCATIONAL_APPLIANCES = "funcational_appliances";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_MULTIPLE_FACTOR_PORT3001 = "multiple_factor_port3001";
 	public static String FIELD_MULTIPLE_FACTOR_PORT3002 = "multiple_factor_port3002";
@@ -412,6 +418,18 @@ public abstract class Basecontroller extends BaseResource {
 		data_read_intervalField.setDefaultValue(0);
 		metaData.addField(data_read_intervalField);
 
+		Field appliancesField = new Field("appliances", "int");
+		appliancesField.setDefaultValue(0);
+		metaData.addField(appliancesField);
+
+		Field faulty_appliancesField = new Field("faulty_appliances", "int");
+		faulty_appliancesField.setDefaultValue(0);
+		metaData.addField(faulty_appliancesField);
+
+		Field funcational_appliancesField = new Field("funcational_appliances", "int");
+		funcational_appliancesField.setDefaultValue(0);
+		metaData.addField(funcational_appliancesField);
+
 		Field passwordField = new Field("password", "String");
 		passwordField.setLength(10);
 		metaData.addField(passwordField);
@@ -524,6 +542,9 @@ public abstract class Basecontroller extends BaseResource {
 		this.admin_status = obj.admin_status;
 		this.heartbeat_interval = obj.heartbeat_interval;
 		this.data_read_interval = obj.data_read_interval;
+		this.appliances = obj.appliances;
+		this.faulty_appliances = obj.faulty_appliances;
+		this.funcational_appliances = obj.funcational_appliances;
 		this.password = obj.password;
 		this.multiple_factor_port3001 = obj.multiple_factor_port3001;
 		this.multiple_factor_port3002 = obj.multiple_factor_port3002;
@@ -580,6 +601,12 @@ public abstract class Basecontroller extends BaseResource {
 			heartbeat_interval = 0;
 		if(data_read_interval == null)
 			data_read_interval = 0;
+		if(appliances == null)
+			appliances = 0;
+		if(faulty_appliances == null)
+			faulty_appliances = 0;
+		if(funcational_appliances == null)
+			funcational_appliances = 0;
 		if(packet_capture == null)
 			packet_capture = "N";
 		if(deployment_type == null)
@@ -702,6 +729,12 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("heartbeat_interval", heartbeat_interval);
 		if(data_read_interval != null)
 			map.put("data_read_interval", data_read_interval);
+		if(appliances != null)
+			map.put("appliances", appliances);
+		if(faulty_appliances != null)
+			map.put("faulty_appliances", faulty_appliances);
+		if(funcational_appliances != null)
+			map.put("funcational_appliances", funcational_appliances);
 		if(password != null)
 			map.put("password", password);
 		if(multiple_factor_port3001 != null)
@@ -850,6 +883,12 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("heartbeat_interval", heartbeat_interval);
 		if(data_read_interval != null)
 			map.put("data_read_interval", data_read_interval);
+		if(appliances != null)
+			map.put("appliances", appliances);
+		if(faulty_appliances != null)
+			map.put("faulty_appliances", faulty_appliances);
+		if(funcational_appliances != null)
+			map.put("funcational_appliances", funcational_appliances);
 		if(password != null)
 			map.put("password", password);
 		if(multiple_factor_port3001 != null)
@@ -943,6 +982,9 @@ public abstract class Basecontroller extends BaseResource {
 		admin_status = (String) map.get("admin_status");
 		heartbeat_interval = (Integer) map.get("heartbeat_interval");
 		data_read_interval = (Integer) map.get("data_read_interval");
+		appliances = (Integer) map.get("appliances");
+		faulty_appliances = (Integer) map.get("faulty_appliances");
+		funcational_appliances = (Integer) map.get("funcational_appliances");
 		password = (String) map.get("password");
 		multiple_factor_port3001 = (Double) map.get("multiple_factor_port3001");
 		multiple_factor_port3002 = (Double) map.get("multiple_factor_port3002");
@@ -1187,6 +1229,18 @@ public abstract class Basecontroller extends BaseResource {
 		Object data_read_intervalObj = map.get("data_read_interval");
 		if(data_read_intervalObj != null)
 			data_read_interval = new Integer(data_read_intervalObj.toString());
+
+		Object appliancesObj = map.get("appliances");
+		if(appliancesObj != null)
+			appliances = new Integer(appliancesObj.toString());
+
+		Object faulty_appliancesObj = map.get("faulty_appliances");
+		if(faulty_appliancesObj != null)
+			faulty_appliances = new Integer(faulty_appliancesObj.toString());
+
+		Object funcational_appliancesObj = map.get("funcational_appliances");
+		if(funcational_appliancesObj != null)
+			funcational_appliances = new Integer(funcational_appliancesObj.toString());
 
 		Object passwordObj = map.get("password");
 		if(passwordObj != null)
@@ -2129,6 +2183,54 @@ public abstract class Basecontroller extends BaseResource {
 
 	public void unSetData_read_interval() {
 		this.data_read_interval = 0;
+	}
+
+	public Integer getAppliances() {
+		return appliances != null ? appliances : 0;
+	}
+
+	public void setAppliances(int appliances) {
+		this.appliances = appliances;
+	}
+
+	public void setAppliances(Integer appliances) {
+		this.appliances = appliances;
+	}
+
+	public void unSetAppliances() {
+		this.appliances = 0;
+	}
+
+	public Integer getFaulty_appliances() {
+		return faulty_appliances != null ? faulty_appliances : 0;
+	}
+
+	public void setFaulty_appliances(int faulty_appliances) {
+		this.faulty_appliances = faulty_appliances;
+	}
+
+	public void setFaulty_appliances(Integer faulty_appliances) {
+		this.faulty_appliances = faulty_appliances;
+	}
+
+	public void unSetFaulty_appliances() {
+		this.faulty_appliances = 0;
+	}
+
+	public Integer getFuncational_appliances() {
+		return funcational_appliances != null ? funcational_appliances : 0;
+	}
+
+	public void setFuncational_appliances(int funcational_appliances) {
+		this.funcational_appliances = funcational_appliances;
+	}
+
+	public void setFuncational_appliances(Integer funcational_appliances) {
+		this.funcational_appliances = funcational_appliances;
+	}
+
+	public void unSetFuncational_appliances() {
+		this.funcational_appliances = 0;
 	}
 
 	public String getPassword() {

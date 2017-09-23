@@ -23,6 +23,10 @@
 				'length': 128,
 				'type':'String'
 			},
+			'controller_port':
+			{
+				'type':'long'
+			},
 			'imei':
 			{
 				'name':'imei',
@@ -110,6 +114,12 @@
 				'type':'String'
 			},
 			'location_id':
+			{
+				'name':'location_id',
+				'length': 128,
+				'type':'String'
+			},
+			'location_name':
 			{
 				'name':'location_id',
 				'length': 128,

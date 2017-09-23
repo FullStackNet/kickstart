@@ -50,6 +50,14 @@ public class customer extends Basecustomer {
 		return false;
 	}
 	
+	public boolean isAMRServiceEnabled() {
+		if ("Y".equalsIgnoreCase(getAmrService())) {
+			return true;
+		}
+		return false;
+	}
+	
+	
 	public boolean isFleetServiceEnable() {
 		if ("Y".equalsIgnoreCase(getFleetService())) {
 			return true;
