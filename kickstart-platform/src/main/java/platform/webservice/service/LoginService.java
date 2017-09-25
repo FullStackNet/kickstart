@@ -24,11 +24,9 @@ public class LoginService extends BaseService{
 			_user = UserHelper.getInstance().getByMobileId(_login.getEmail_id());
 		
 		if (_user != null) {
-			if (_login.getPassword().equals(_user.getPassword())) {
-				return;
-			}
 			String doubleMd5 = Util.doubleMD5(_login.getPassword());
-			if (doubleMd5.equals(_user.getPassword())){
+			if (doubleMd5.equals(_user.getPassword()) ||
+					_login.getPassword().equals(_user.getPassword())){
 				String sessionId = Util.getUniqueId();
 				session _session = new session();
 				_session.setId(sessionId);
