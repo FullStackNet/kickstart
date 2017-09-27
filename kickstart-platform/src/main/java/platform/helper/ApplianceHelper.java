@@ -298,8 +298,8 @@ public class ApplianceHelper extends BaseHelper {
 			__appliance.setState("Y");
 		}
 		__appliance.setVoltage(voltage);
-		__appliance.setCurrent(current);	
-		__appliance.setEnergy(power);	
+		__appliance.setCurrent(current);
+		__appliance.setEnergy(power);
 		__appliance.setLast_reading_updated(time);
 		__appliance.setConnected("Y");
 		try {
