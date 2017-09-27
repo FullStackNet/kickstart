@@ -22,6 +22,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("member_flat", "platform.resource.member_flat"),
 		new ResourceMap("activity", "platform.resource.activity"),
 		new ResourceMap("alert", "platform.resource.alert"),
+		new ResourceMap("appliance_simulator", "platform.resource.appliance_simulator"),
 		new ResourceMap("appliance", "platform.resource.appliance"),
 		new ResourceMap("appliance_make", "platform.resource.appliance_make"),
 		new ResourceMap("appliance_model", "platform.resource.appliance_model"),
@@ -86,7 +87,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("mandi_auction_weight", "platform.resource.mandi_auction_weight"),
 		new ResourceMap("c4t_payment", "platform.resource.c4t_payment"),
 		new ResourceMap("app_summary", "platform.resource.app_summary"),
-			new ResourceMap("mandi_delivery", "platform.resource.mandi_delivery"),
-			new ResourceMap("mandi_arrival", "platform.resource.mandi_arrival")
+		new ResourceMap("mandi_delivery", "platform.resource.mandi_delivery"),
+		new ResourceMap("mandi_arrival", "platform.resource.mandi_arrival"),
+
 	};
 }
