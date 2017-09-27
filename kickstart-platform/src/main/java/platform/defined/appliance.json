@@ -469,7 +469,7 @@
 				'required': true,
 				'type':'timestamp'
 			},
-			'dg_reading':
+			'dg_reading_kwh':
 			{
 				'name':'dg_reading',
 				'default':'0.0000',
@@ -477,7 +477,7 @@
 				'precision': 4,
 				'type':'Number'
 			},
-			'grid_reading':
+			'grid_reading_kvah':
 			{
 				'name':'grid_reading',
 				'default':'0.0000',
@@ -485,35 +485,49 @@
 				'precision': 4,
 				'type':'Number'
 			},
-			'voltage':
+			'dg_reading_kwah':
+			{
+				'name':'dg_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_reading_kwh':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_voltage':
 			{
 				'name':'voltage',
 				'default':'0',
 				'length': 5,
 				'type':'int'
 			},
-			'current':
+			'grid_current':
 			{
 				'name':'current',
 				'default':'0',
 				'length': 5,
 				'type':'int'
 			},
-			'power':
+			'dg_voltage':
 			{
-				'name':'power',
-				'default':'0.0000',
-				'length': 16,
-				'precision': 4,
-				'type':'Number'
+				'name':'voltage',
+				'default':'0',
+				'length': 5,
+				'type':'int'
 			},
-			'energy':
+			'dg_current':
 			{
-				'name':'energy',
-				'default':'0.0000',
-				'length': 16,
-				'precision': 4,
-				'type':'Number'
+				'name':'current',
+				'default':'0',
+				'length': 5,
+				'type':'int'
 			},
 			'temperature':
 			{

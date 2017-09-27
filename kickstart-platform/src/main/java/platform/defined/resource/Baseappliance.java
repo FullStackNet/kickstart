@@ -89,12 +89,14 @@ public abstract class Baseappliance extends BaseResource {
 	private Integer battery_level = null;
 	private Number last_reading = null;
 	private Long last_reading_updated = null;
-	private Number dg_reading = null;
-	private Number grid_reading = null;
-	private Integer voltage = null;
-	private Integer current = null;
-	private Number power = null;
-	private Number energy = null;
+	private Number dg_reading_kwh = null;
+	private Number grid_reading_kvah = null;
+	private Number dg_reading_kwah = null;
+	private Number grid_reading_kwh = null;
+	private Integer grid_voltage = null;
+	private Integer grid_current = null;
+	private Integer dg_voltage = null;
+	private Integer dg_current = null;
 	private Number temperature = null;
 	private Number humidity = null;
 	private String mode = null;
@@ -267,12 +269,14 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_BATTERY_LEVEL = "battery_level";
 	public static String FIELD_LAST_READING = "last_reading";
 	public static String FIELD_LAST_READING_UPDATED = "last_reading_updated";
-	public static String FIELD_DG_READING = "dg_reading";
-	public static String FIELD_GRID_READING = "grid_reading";
-	public static String FIELD_VOLTAGE = "voltage";
-	public static String FIELD_CURRENT = "current";
-	public static String FIELD_POWER = "power";
-	public static String FIELD_ENERGY = "energy";
+	public static String FIELD_DG_READING_KWH = "dg_reading_kwh";
+	public static String FIELD_GRID_READING_KVAH = "grid_reading_kvah";
+	public static String FIELD_DG_READING_KWAH = "dg_reading_kwah";
+	public static String FIELD_GRID_READING_KWH = "grid_reading_kwh";
+	public static String FIELD_GRID_VOLTAGE = "grid_voltage";
+	public static String FIELD_GRID_CURRENT = "grid_current";
+	public static String FIELD_DG_VOLTAGE = "dg_voltage";
+	public static String FIELD_DG_CURRENT = "dg_current";
 	public static String FIELD_TEMPERATURE = "temperature";
 	public static String FIELD_HUMIDITY = "humidity";
 	public static String FIELD_MODE = "mode";
@@ -697,39 +701,49 @@ public abstract class Baseappliance extends BaseResource {
 		last_reading_updatedField.setDefaultValue("CURRENT_TIMESTAMP");
 		metaData.addField(last_reading_updatedField);
 
-		Field dg_readingField = new Field("dg_reading", "Number");
-		dg_readingField.setDefaultValue(0.0000);
-		dg_readingField.setLength(12);
-		dg_readingField.setPrecision(4);
-		metaData.addField(dg_readingField);
+		Field dg_reading_kwhField = new Field("dg_reading_kwh", "Number");
+		dg_reading_kwhField.setDefaultValue(0.0000);
+		dg_reading_kwhField.setLength(12);
+		dg_reading_kwhField.setPrecision(4);
+		metaData.addField(dg_reading_kwhField);
 
-		Field grid_readingField = new Field("grid_reading", "Number");
-		grid_readingField.setDefaultValue(0.0000);
-		grid_readingField.setLength(12);
-		grid_readingField.setPrecision(4);
-		metaData.addField(grid_readingField);
+		Field grid_reading_kvahField = new Field("grid_reading_kvah", "Number");
+		grid_reading_kvahField.setDefaultValue(0.0000);
+		grid_reading_kvahField.setLength(12);
+		grid_reading_kvahField.setPrecision(4);
+		metaData.addField(grid_reading_kvahField);
 
-		Field voltageField = new Field("voltage", "int");
-		voltageField.setDefaultValue(0);
-		voltageField.setLength(5);
-		metaData.addField(voltageField);
+		Field dg_reading_kwahField = new Field("dg_reading_kwah", "Number");
+		dg_reading_kwahField.setDefaultValue(0.0000);
+		dg_reading_kwahField.setLength(12);
+		dg_reading_kwahField.setPrecision(4);
+		metaData.addField(dg_reading_kwahField);
 
-		Field currentField = new Field("current", "int");
-		currentField.setDefaultValue(0);
-		currentField.setLength(5);
-		metaData.addField(currentField);
+		Field grid_reading_kwhField = new Field("grid_reading_kwh", "Number");
+		grid_reading_kwhField.setDefaultValue(0.0000);
+		grid_reading_kwhField.setLength(12);
+		grid_reading_kwhField.setPrecision(4);
+		metaData.addField(grid_reading_kwhField);
 
-		Field powerField = new Field("power", "Number");
-		powerField.setDefaultValue(0.0000);
-		powerField.setLength(16);
-		powerField.setPrecision(4);
-		metaData.addField(powerField);
+		Field grid_voltageField = new Field("grid_voltage", "int");
+		grid_voltageField.setDefaultValue(0);
+		grid_voltageField.setLength(5);
+		metaData.addField(grid_voltageField);
 
-		Field energyField = new Field("energy", "Number");
-		energyField.setDefaultValue(0.0000);
-		energyField.setLength(16);
-		energyField.setPrecision(4);
-		metaData.addField(energyField);
+		Field grid_currentField = new Field("grid_current", "int");
+		grid_currentField.setDefaultValue(0);
+		grid_currentField.setLength(5);
+		metaData.addField(grid_currentField);
+
+		Field dg_voltageField = new Field("dg_voltage", "int");
+		dg_voltageField.setDefaultValue(0);
+		dg_voltageField.setLength(5);
+		metaData.addField(dg_voltageField);
+
+		Field dg_currentField = new Field("dg_current", "int");
+		dg_currentField.setDefaultValue(0);
+		dg_currentField.setLength(5);
+		metaData.addField(dg_currentField);
 
 		Field temperatureField = new Field("temperature", "Number");
 		temperatureField.setDefaultValue(0.00);
@@ -1273,12 +1287,14 @@ public abstract class Baseappliance extends BaseResource {
 		this.battery_level = obj.battery_level;
 		this.last_reading = obj.last_reading;
 		this.last_reading_updated = obj.last_reading_updated;
-		this.dg_reading = obj.dg_reading;
-		this.grid_reading = obj.grid_reading;
-		this.voltage = obj.voltage;
-		this.current = obj.current;
-		this.power = obj.power;
-		this.energy = obj.energy;
+		this.dg_reading_kwh = obj.dg_reading_kwh;
+		this.grid_reading_kvah = obj.grid_reading_kvah;
+		this.dg_reading_kwah = obj.dg_reading_kwah;
+		this.grid_reading_kwh = obj.grid_reading_kwh;
+		this.grid_voltage = obj.grid_voltage;
+		this.grid_current = obj.grid_current;
+		this.dg_voltage = obj.dg_voltage;
+		this.dg_current = obj.dg_current;
 		this.temperature = obj.temperature;
 		this.humidity = obj.humidity;
 		this.mode = obj.mode;
@@ -1447,18 +1463,22 @@ public abstract class Baseappliance extends BaseResource {
 			battery_level = 0;
 		if(last_reading == null)
 			last_reading = 0.0000;
-		if(dg_reading == null)
-			dg_reading = 0.0000;
-		if(grid_reading == null)
-			grid_reading = 0.0000;
-		if(voltage == null)
-			voltage = 0;
-		if(current == null)
-			current = 0;
-		if(power == null)
-			power = 0.0000;
-		if(energy == null)
-			energy = 0.0000;
+		if(dg_reading_kwh == null)
+			dg_reading_kwh = 0.0000;
+		if(grid_reading_kvah == null)
+			grid_reading_kvah = 0.0000;
+		if(dg_reading_kwah == null)
+			dg_reading_kwah = 0.0000;
+		if(grid_reading_kwh == null)
+			grid_reading_kwh = 0.0000;
+		if(grid_voltage == null)
+			grid_voltage = 0;
+		if(grid_current == null)
+			grid_current = 0;
+		if(dg_voltage == null)
+			dg_voltage = 0;
+		if(dg_current == null)
+			dg_current = 0;
 		if(temperature == null)
 			temperature = 0.00;
 		if(humidity == null)
@@ -1739,18 +1759,22 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("last_reading", last_reading);
 		if(last_reading_updated != null)
 			map.put("last_reading_updated", last_reading_updated);
-		if(dg_reading != null)
-			map.put("dg_reading", dg_reading);
-		if(grid_reading != null)
-			map.put("grid_reading", grid_reading);
-		if(voltage != null)
-			map.put("voltage", voltage);
-		if(current != null)
-			map.put("current", current);
-		if(power != null)
-			map.put("power", power);
-		if(energy != null)
-			map.put("energy", energy);
+		if(dg_reading_kwh != null)
+			map.put("dg_reading_kwh", dg_reading_kwh);
+		if(grid_reading_kvah != null)
+			map.put("grid_reading_kvah", grid_reading_kvah);
+		if(dg_reading_kwah != null)
+			map.put("dg_reading_kwah", dg_reading_kwah);
+		if(grid_reading_kwh != null)
+			map.put("grid_reading_kwh", grid_reading_kwh);
+		if(grid_voltage != null)
+			map.put("grid_voltage", grid_voltage);
+		if(grid_current != null)
+			map.put("grid_current", grid_current);
+		if(dg_voltage != null)
+			map.put("dg_voltage", dg_voltage);
+		if(dg_current != null)
+			map.put("dg_current", dg_current);
 		if(temperature != null)
 			map.put("temperature", temperature);
 		if(humidity != null)
@@ -2101,18 +2125,22 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("last_reading", last_reading);
 		if(validateLast_reading_updated(add))
 			map.put("last_reading_updated", last_reading_updated);
-		if(dg_reading != null)
-			map.put("dg_reading", dg_reading);
-		if(grid_reading != null)
-			map.put("grid_reading", grid_reading);
-		if(voltage != null)
-			map.put("voltage", voltage);
-		if(current != null)
-			map.put("current", current);
-		if(power != null)
-			map.put("power", power);
-		if(energy != null)
-			map.put("energy", energy);
+		if(dg_reading_kwh != null)
+			map.put("dg_reading_kwh", dg_reading_kwh);
+		if(grid_reading_kvah != null)
+			map.put("grid_reading_kvah", grid_reading_kvah);
+		if(dg_reading_kwah != null)
+			map.put("dg_reading_kwah", dg_reading_kwah);
+		if(grid_reading_kwh != null)
+			map.put("grid_reading_kwh", grid_reading_kwh);
+		if(grid_voltage != null)
+			map.put("grid_voltage", grid_voltage);
+		if(grid_current != null)
+			map.put("grid_current", grid_current);
+		if(dg_voltage != null)
+			map.put("dg_voltage", dg_voltage);
+		if(dg_current != null)
+			map.put("dg_current", dg_current);
 		if(temperature != null)
 			map.put("temperature", temperature);
 		if(humidity != null)
@@ -2392,12 +2420,14 @@ public abstract class Baseappliance extends BaseResource {
 		battery_level = (Integer) map.get("battery_level");
 		last_reading = (Number) map.get("last_reading");
 		last_reading_updated = (Long) map.get("last_reading_updated");
-		dg_reading = (Number) map.get("dg_reading");
-		grid_reading = (Number) map.get("grid_reading");
-		voltage = (Integer) map.get("voltage");
-		current = (Integer) map.get("current");
-		power = (Number) map.get("power");
-		energy = (Number) map.get("energy");
+		dg_reading_kwh = (Number) map.get("dg_reading_kwh");
+		grid_reading_kvah = (Number) map.get("grid_reading_kvah");
+		dg_reading_kwah = (Number) map.get("dg_reading_kwah");
+		grid_reading_kwh = (Number) map.get("grid_reading_kwh");
+		grid_voltage = (Integer) map.get("grid_voltage");
+		grid_current = (Integer) map.get("grid_current");
+		dg_voltage = (Integer) map.get("dg_voltage");
+		dg_current = (Integer) map.get("dg_current");
 		temperature = (Number) map.get("temperature");
 		humidity = (Number) map.get("humidity");
 		mode = (String) map.get("mode");
@@ -2767,29 +2797,37 @@ public abstract class Baseappliance extends BaseResource {
 		if(last_reading_updatedObj != null)
 			last_reading_updated = new Long(last_reading_updatedObj.toString());
 
-		Object dg_readingObj = map.get("dg_reading");
-		if(dg_readingObj != null)
-			dg_reading = new Double(dg_readingObj.toString());
+		Object dg_reading_kwhObj = map.get("dg_reading_kwh");
+		if(dg_reading_kwhObj != null)
+			dg_reading_kwh = new Double(dg_reading_kwhObj.toString());
 
-		Object grid_readingObj = map.get("grid_reading");
-		if(grid_readingObj != null)
-			grid_reading = new Double(grid_readingObj.toString());
+		Object grid_reading_kvahObj = map.get("grid_reading_kvah");
+		if(grid_reading_kvahObj != null)
+			grid_reading_kvah = new Double(grid_reading_kvahObj.toString());
 
-		Object voltageObj = map.get("voltage");
-		if(voltageObj != null)
-			voltage = new Integer(voltageObj.toString());
+		Object dg_reading_kwahObj = map.get("dg_reading_kwah");
+		if(dg_reading_kwahObj != null)
+			dg_reading_kwah = new Double(dg_reading_kwahObj.toString());
 
-		Object currentObj = map.get("current");
-		if(currentObj != null)
-			current = new Integer(currentObj.toString());
+		Object grid_reading_kwhObj = map.get("grid_reading_kwh");
+		if(grid_reading_kwhObj != null)
+			grid_reading_kwh = new Double(grid_reading_kwhObj.toString());
 
-		Object powerObj = map.get("power");
-		if(powerObj != null)
-			power = new Double(powerObj.toString());
+		Object grid_voltageObj = map.get("grid_voltage");
+		if(grid_voltageObj != null)
+			grid_voltage = new Integer(grid_voltageObj.toString());
 
-		Object energyObj = map.get("energy");
-		if(energyObj != null)
-			energy = new Double(energyObj.toString());
+		Object grid_currentObj = map.get("grid_current");
+		if(grid_currentObj != null)
+			grid_current = new Integer(grid_currentObj.toString());
+
+		Object dg_voltageObj = map.get("dg_voltage");
+		if(dg_voltageObj != null)
+			dg_voltage = new Integer(dg_voltageObj.toString());
+
+		Object dg_currentObj = map.get("dg_current");
+		if(dg_currentObj != null)
+			dg_current = new Integer(dg_currentObj.toString());
 
 		Object temperatureObj = map.get("temperature");
 		if(temperatureObj != null)
@@ -4221,84 +4259,116 @@ public abstract class Baseappliance extends BaseResource {
 		return last_reading_updated != null;
 	}
 
-	public Number getDg_reading() {
-		return dg_reading != null ? dg_reading : 0.0000;
+	public Number getDg_reading_kwh() {
+		return dg_reading_kwh != null ? dg_reading_kwh : 0.0000;
 	}
 
-	public void setDg_reading(Number dg_reading) {
-		this.dg_reading = dg_reading;
+	public void setDg_reading_kwh(Number dg_reading_kwh) {
+		this.dg_reading_kwh = dg_reading_kwh;
 	}
 
-	public void unSetDg_reading() {
-		this.dg_reading = 0.0000;
+	public void unSetDg_reading_kwh() {
+		this.dg_reading_kwh = 0.0000;
 	}
 
-	public Number getGrid_reading() {
-		return grid_reading != null ? grid_reading : 0.0000;
+	public Number getGrid_reading_kvah() {
+		return grid_reading_kvah != null ? grid_reading_kvah : 0.0000;
 	}
 
-	public void setGrid_reading(Number grid_reading) {
-		this.grid_reading = grid_reading;
+	public void setGrid_reading_kvah(Number grid_reading_kvah) {
+		this.grid_reading_kvah = grid_reading_kvah;
 	}
 
-	public void unSetGrid_reading() {
-		this.grid_reading = 0.0000;
+	public void unSetGrid_reading_kvah() {
+		this.grid_reading_kvah = 0.0000;
 	}
 
-	public Integer getVoltage() {
-		return voltage != null ? voltage : 0;
+	public Number getDg_reading_kwah() {
+		return dg_reading_kwah != null ? dg_reading_kwah : 0.0000;
 	}
 
-	public void setVoltage(int voltage) {
-		this.voltage = voltage;
+	public void setDg_reading_kwah(Number dg_reading_kwah) {
+		this.dg_reading_kwah = dg_reading_kwah;
 	}
 
-	public void setVoltage(Integer voltage) {
-		this.voltage = voltage;
+	public void unSetDg_reading_kwah() {
+		this.dg_reading_kwah = 0.0000;
 	}
 
-	public void unSetVoltage() {
-		this.voltage = 0;
+	public Number getGrid_reading_kwh() {
+		return grid_reading_kwh != null ? grid_reading_kwh : 0.0000;
 	}
 
-	public Integer getCurrent() {
-		return current != null ? current : 0;
+	public void setGrid_reading_kwh(Number grid_reading_kwh) {
+		this.grid_reading_kwh = grid_reading_kwh;
 	}
 
-	public void setCurrent(int current) {
-		this.current = current;
+	public void unSetGrid_reading_kwh() {
+		this.grid_reading_kwh = 0.0000;
 	}
 
-	public void setCurrent(Integer current) {
-		this.current = current;
+	public Integer getGrid_voltage() {
+		return grid_voltage != null ? grid_voltage : 0;
 	}
 
-	public void unSetCurrent() {
-		this.current = 0;
+	public void setGrid_voltage(int grid_voltage) {
+		this.grid_voltage = grid_voltage;
 	}
 
-	public Number getPower() {
-		return power != null ? power : 0.0000;
+	public void setGrid_voltage(Integer grid_voltage) {
+		this.grid_voltage = grid_voltage;
 	}
 
-	public void setPower(Number power) {
-		this.power = power;
+	public void unSetGrid_voltage() {
+		this.grid_voltage = 0;
 	}
 
-	public void unSetPower() {
-		this.power = 0.0000;
+	public Integer getGrid_current() {
+		return grid_current != null ? grid_current : 0;
 	}
 
-	public Number getEnergy() {
-		return energy != null ? energy : 0.0000;
+	public void setGrid_current(int grid_current) {
+		this.grid_current = grid_current;
 	}
 
-	public void setEnergy(Number energy) {
-		this.energy = energy;
+	public void setGrid_current(Integer grid_current) {
+		this.grid_current = grid_current;
 	}
 
-	public void unSetEnergy() {
-		this.energy = 0.0000;
+	public void unSetGrid_current() {
+		this.grid_current = 0;
+	}
+
+	public Integer getDg_voltage() {
+		return dg_voltage != null ? dg_voltage : 0;
+	}
+
+	public void setDg_voltage(int dg_voltage) {
+		this.dg_voltage = dg_voltage;
+	}
+
+	public void setDg_voltage(Integer dg_voltage) {
+		this.dg_voltage = dg_voltage;
+	}
+
+	public void unSetDg_voltage() {
+		this.dg_voltage = 0;
+	}
+
+	public Integer getDg_current() {
+		return dg_current != null ? dg_current : 0;
+	}
+
+	public void setDg_current(int dg_current) {
+		this.dg_current = dg_current;
+	}
+
+	public void setDg_current(Integer dg_current) {
+		this.dg_current = dg_current;
+	}
+
+	public void unSetDg_current() {
+		this.dg_current = 0;
 	}
 
 	public Number getTemperature() {
