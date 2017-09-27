@@ -531,7 +531,7 @@
 				'precision': 4,
 				'type':'Number'
 			},
-			'dg_reading_kwah':
+			'dg_reading_kvah':
 			{
 				'name':'dg_reading',
 				'default':'0.0000',
