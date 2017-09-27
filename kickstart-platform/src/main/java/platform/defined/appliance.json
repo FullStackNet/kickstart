@@ -40,33 +40,33 @@
 				'length': 32,
 				'type':'String'
 			},
-			
+
 			'make_id':
 			{
 				'name':'make_id',
 				'length': 128,
 				'type':'String'
-				
+
 			},
 			'make_name':
 			{
 				'name':'make_name',
 				'length': 128,
 				'type':'String',
-				'transient' : true 
+				'transient' : true
 			},
 			'model_id':
 			{
 				'name':'model_id',
 				'length': 128,
-				'type':'String' 
+				'type':'String'
 			},
 			'model_name':
 			{
 				'name':'model_name',
 				'length': 128,
 				'type':'String',
-				'transient' : true 
+				'transient' : true
 			},
 			'power_rating':
 			{
@@ -223,10 +223,10 @@
 				'default' : '0.0',
 				'type':'Number'
 			},
-			
+
 			threshold_over_speed : {
 				type : "int"
-			},	
+			},
 			'capacity':
 			{
 				'name':'capacity',
@@ -468,6 +468,52 @@
 				'default':'CURRENT_TIMESTAMP',
 				'required': true,
 				'type':'timestamp'
+			},
+			'dg_reading':
+			{
+				'name':'dg_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'grid_reading':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Number'
+			},
+			'voltage':
+			{
+				'name':'voltage',
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'current':
+			{
+				'name':'current',
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'power':
+			{
+				'name':'power',
+				'default':'0.0000',
+				'length': 16,
+				'precision': 4,
+				'type':'Number'
+			},
+			'energy':
+			{
+				'name':'energy',
+				'default':'0.0000',
+				'length': 16,
+				'precision': 4,
+				'type':'Number'
 			},
 			'dg_reading_kwh':
 			{
@@ -1125,7 +1171,7 @@
 				'length': 28,
 				'type': 'String'
 			},
-			
+
 			current_route_name : {
 				 transient : true,
 				'length': 128,
@@ -1156,7 +1202,7 @@
 			cost_unit : {
 				'type': 'String',
 				'length': 32
-			}					
+			}
 		}
 	}
 }
