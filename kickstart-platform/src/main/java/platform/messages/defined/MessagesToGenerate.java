@@ -70,5 +70,7 @@ public class MessagesToGenerate {
 		
 		// Account 7
 		new MessageMap("AccountUpdate"), // 7/21/1
+			new MessageMap("MeterData"), // 1/40/1
+
 	};
 }

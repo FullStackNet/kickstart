@@ -1,0 +1,52 @@
+{
+	"MeterData" :
+	{
+		"category" : "40",
+		"command" : "1",
+		"packet_type" : "1",
+		"fields":
+		{
+			'device_id':
+			{
+				'type':'String',
+				'length' : 16
+			},
+			'port': {
+				'type': 'long'
+			},
+			'source':
+			{
+				'type':'long'
+			},
+			'kwh':
+			{
+				'type':'long'
+			},
+			'kvah':
+			{
+				'type':'long'
+			},
+			'pf':
+			{
+				'type':'long'
+			},
+			'voltage':
+			{
+				'type':'long'
+			},
+			'current':
+			{
+				'type':'long'
+			},
+			'md':
+			{
+				'type':'long'
+			},
+			'hr':
+			{
+				'type':'long'
+			}
+		}
+	}
+}
+

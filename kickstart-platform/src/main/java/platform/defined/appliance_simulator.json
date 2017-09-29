@@ -40,33 +40,33 @@
 				'length': 32,
 				'type':'String'
 			},
-			
+
 			'make_id':
 			{
 				'name':'make_id',
 				'length': 128,
 				'type':'String'
-				
+
 			},
 			'make_name':
 			{
 				'name':'make_name',
 				'length': 128,
 				'type':'String',
-				'transient' : true 
+				'transient' : true
 			},
 			'model_id':
 			{
 				'name':'model_id',
 				'length': 128,
-				'type':'String' 
+				'type':'String'
 			},
 			'model_name':
 			{
 				'name':'model_name',
 				'length': 128,
 				'type':'String',
-				'transient' : true 
+				'transient' : true
 			},
 			'power_rating':
 			{
@@ -74,7 +74,7 @@
 				'default':'0.0000',
 				'length': 16,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'type':
 			{
@@ -149,7 +149,7 @@
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'dg_unit_consumed':
 			{
@@ -157,7 +157,7 @@
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'dg_unit_closing':
 			{
@@ -165,7 +165,7 @@
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'grid_unit_opening':
 			{
@@ -173,7 +173,7 @@
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'grid_unit_consumed':
 			{
@@ -181,7 +181,7 @@
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'grid_unit_closing':
 			{
@@ -189,7 +189,7 @@
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'serial_no':
 			{
@@ -221,19 +221,19 @@
 				'length': 10,
 				'precision': 2,
 				'default' : '0.0',
-				'type':'Number'
+				'type':'Double'
 			},
-			
+
 			threshold_over_speed : {
 				type : "int"
-			},	
+			},
 			'capacity':
 			{
 				'name':'capacity',
 				'length': 10,
 				'precision': 2,
 				'default' : '0.0',
-				'type':'Number'
+				'type':'Double'
 			},
 			'maintainace_run_hour':
 			{
@@ -251,21 +251,21 @@
 				'length': 20,
 				'precision': 4,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'average_fuel_consumption':
 			{
 				'length': 20,
 				'precision': 4,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'today_fuel_loss':
 			{
 				'length': 20,
 				'precision': 4,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'current_month_run_time':
 			{
@@ -277,14 +277,14 @@
 				'length': 20,
 				'precision': 4,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'current_month_fuel_loss':
 			{
 				'length': 20,
 				'precision': 4,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'threshold_temperature_min_level':
 			{
@@ -292,7 +292,7 @@
 				'length': 10,
 				'precision': 2,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'threshold_temperature_max_level':
 			{
@@ -300,42 +300,42 @@
 				'length': 10,
 				'precision': 2,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'threshold_voltage_min_level':
 			{
 				'name':'threshold_voltage_min_level',
 				'length': 10,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'threshold_voltage_max_level':
 			{
 				'name':'threshold_voltage_max_level',
 				'length': 10,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'threshold_current_min_level':
 			{
 				'name':'threshold_current_min_level',
 				'length': 10,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'threshold_current_max_level':
 			{
 				'name':'threshold_current_max_level',
 				'length': 10,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'threshold_duration':
 			{
 				'name':'threshold_duration',
 				'length': 10,
 				'default':'0.00',
-				'type':'Number'
+				'type':'Double'
 			},
 			'alert_dg_grid_on':
 			{
@@ -460,7 +460,7 @@
 				'default':'0.0000',
 				'length': 16,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'last_reading_updated':
 			{
@@ -475,7 +475,7 @@
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'grid_reading':
 			{
@@ -483,7 +483,7 @@
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'voltage':
 			{
@@ -505,7 +505,7 @@
 				'default':'0.0000',
 				'length': 16,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'energy':
 			{
@@ -513,7 +513,131 @@
 				'default':'0.0000',
 				'length': 16,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
+			},
+			'dg_reading_kwh':
+			{
+				'name':'dg_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_reading_kvah':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_reading_kvah':
+			{
+				'name':'dg_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_reading_kwh':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'grid_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'grid_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_frequency':
+			{
+				'default':'0',
+				'type':'long'
+			},
+
+
+			'dg_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'dg_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'dg_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_frequency':
+			{
+				'default':'0',
+				'type':'long'
 			},
 			'temperature':
 			{
@@ -521,7 +645,7 @@
 				'default':'0.00',
 				'length': 6,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'humidity':
 			{
@@ -529,7 +653,7 @@
 				'default':'0.00',
 				'length': 6,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'mode':
 			{
@@ -551,7 +675,7 @@
 				'default':'0.00',
 				'length': 10,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'fuel_level':
 			{
@@ -559,7 +683,7 @@
 				'default':'0.00',
 				'length': 10,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'fuel_quantity':
 			{
@@ -567,7 +691,7 @@
 				'default':'0.00',
 				'length': 10,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'state':
 			{
@@ -751,7 +875,7 @@
 				'default':'0.00',
 				'length': 6,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'coolant_temperature':
 			{
@@ -759,7 +883,7 @@
 				'default':'0.00',
 				'length': 6,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'high_canopy_temperature':
 			{
@@ -793,7 +917,7 @@
 				'default':'0.00',
 				'length': 15,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'last_processed_db_reading':
 			{
@@ -801,7 +925,7 @@
 				'default':'0.00',
 				'length': 15,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'last_processed_grid_reading':
 			{
@@ -809,7 +933,7 @@
 				'default':'0.00',
 				'length': 15,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'langitude':
 			{
@@ -850,7 +974,7 @@
 				'default':'0.0',
 				'length': 6,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'ignitionState':
 			{
@@ -886,7 +1010,7 @@
 				'default':'0.0',
 				'length': 6,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'airFlow':
 			{
@@ -898,10 +1022,10 @@
 			'atmoshericPressure':
 			{
 				'name':'atmoshericPressure',
-				'default':'0',
+				'default':'0.0',
 				'length': 12,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'engineLoad':
 			{
@@ -927,10 +1051,10 @@
 			'oilPressure':
 			{
 				'name':'oilPressure',
-				'default':'0',
+				'default':'0.0',
 				'length': 12,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'rpm':
 			{
@@ -949,18 +1073,18 @@
 			'batteryVoltage':
 			{
 				'name':'batteryVoltage',
-				'default':'0',
+				'default':'0.0',
 				'length': 12,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'intakeTubeAbsolutePressure':
 			{
 				'name':'intakeTubeAbsolutePressure',
-				'default':'0',
+				'default':'0.0',
 				'length': 12,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'numberOfDTC':
 			{
@@ -991,10 +1115,10 @@
 			},
 			'start_reading' : {
 				'name':'start_reading',
-				'default':'0',
+				'default':'0.0',
 				'length': 12,
 				'precision': 2,
-				'type':'Number'
+				'type':'Double'
 			},
 			'grid_state' : {
 				'name':'grid_state',
@@ -1018,17 +1142,17 @@
 			},
 			'current_fuel_consumption' : {
 				'name':'current_fuel_consumption',
-				'default':'0',
+				'default':'0.0',
 				'length': 15,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'fuel_calibration_factor' : {
 				'name':'fuel_calibration_factor',
-				'default':'0',
+				'default':'0.0',
 				'length': 15,
 				'precision': 4,
-				'type':'Number'
+				'type':'Double'
 			},
 			'lowFuelState' : {
 				'default':'N',
@@ -1111,38 +1235,34 @@
 				'length': 28,
 				'type': 'String'
 			},
-			
+
 			current_route_name : {
-				 transient : true,
+				transient : true,
 				'length': 128,
 				'type': 'String'
 			},
 			current_route_schedule : {
-				 transient : true,
+				transient : true,
 				'length': 128,
 				'type': 'String'
 			},
 			last_stopage_name : {
-				 transient : true,
+				transient : true,
 				'length': 128,
 				'type': 'String'
 			},
 			last_stopage_reached_time : {
-				 transient : true,
+				transient : true,
 				'type': 'long'
 			},
-			controller_id : {
-				 transient : true,
-				'length': 128,
-				'type': 'String'
-			},
+
 			cost : {
 				'type': 'double'
 			},
 			cost_unit : {
 				'type': 'String',
 				'length': 32
-			}					
+			}
 		}
 	}
 }
