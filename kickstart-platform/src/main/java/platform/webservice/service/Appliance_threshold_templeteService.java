@@ -1,9 +1,7 @@
 package platform.webservice.service;
 
 import platform.exception.ExceptionEnum;
-import platform.helper.Appliance_threshold_temleteHelper;
-import platform.helper.Customer_mapHelper;
-import platform.helper.LocationHelper;
+import platform.helper.Appliance_threshold_templeteHelper;
 import platform.resource.BaseResource;
 import platform.resource.appliance_threshold_templete;
 import platform.resource.location;
@@ -18,7 +16,7 @@ import java.util.Map;
 
 public class Appliance_threshold_templeteService extends BaseService{
 	public Appliance_threshold_templeteService() {
-		super(Appliance_threshold_temleteHelper.getInstance(),new appliance_threshold_templete());
+		super(Appliance_threshold_templeteHelper.getInstance(),new appliance_threshold_templete());
 	}
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
