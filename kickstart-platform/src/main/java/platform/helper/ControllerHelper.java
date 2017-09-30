@@ -64,7 +64,21 @@ public class ControllerHelper extends BaseHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public void updateApplianceCount(String controllerId, long count) {
+		if (controllerId ==null) return;
+
+		controller _controller = new controller();
+		_controller.setId(controllerId);
+		_controller.setAppliances((int)count);
+		try {
+			ControllerHelper.getInstance().update(_controller);
+		} catch (ApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public BaseResource[] getCommunityControllers(String communityId) {
 		Expression e = new Expression(appliance.FIELD_COMMUNITY_ID, REL_OP.EQ, communityId);
 		BaseResource[] _controllers = getByExpression(e, new String[]{appliance.FIELD_NAME});

@@ -243,6 +243,11 @@ public class ApplianceHelper extends BaseHelper {
 
 	}
 
+	public long  getApplianceCount4ControllerId(String controller_id) {
+		Expression e = new Expression(appliance.FIELD_CONTROLLER_ID, REL_OP.EQ,controller_id);
+		return ApplianceHelper.getInstance().getCount(e);
+	}
+
 	public void updateLastDataUpdateTime(String applianceId, Date time) {
 		if (applianceId ==null) return;
 		

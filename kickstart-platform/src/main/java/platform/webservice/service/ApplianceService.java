@@ -38,7 +38,22 @@ public class ApplianceService extends BaseService{
 				_resource.setLocation_name(_location.getName());
 			}
 		}
-			_resource.setUser_id(ctx.getUserId());
+		if (!Util.isEmpty(_resource.getController_id())) {
+			controller _controller = (controller)ControllerHelper.getInstance().getById(_resource.getController_id());
+			if (_controller != null) {
+				_resource.setController_name(_controller.getName());
+			}
+			long count = ApplianceHelper.getInstance().getApplianceCount4ControllerId(_resource.getController_id());
+			ControllerHelper.getInstance().updateApplianceCount(_resource.getController_id(),count);
+		}
+
+		if (!Util.isEmpty(_resource.getThreshold_templete_id())) {
+			appliance_threshold_templete _templete = (appliance_threshold_templete)Appliance_threshold_templeteHelper.getInstance().getById(_resource.getThreshold_templete_id());
+			if (_templete != null) {
+				_resource.setThreshold_templete_name(_templete.getName());
+			}
+		}
+		_resource.setUser_id(ctx.getUserId());
 		getHelper().add(_resource);
 		Appliance_mapHelper.getInstance().addAdmin(_resource.getId(),ctx.getUserId());
 		User_mapHelper.getInstance().addAppliance(ctx.getUserId(), _resource.getId());
@@ -210,6 +225,20 @@ public class ApplianceService extends BaseService{
 			location _location = (location)LocationHelper.getInstance().getById(_appliance.getLocation_id());
 			if (_location != null) {
 				_appliance.setLocation_name(_location.getName());
+			}
+		}
+		if (!Util.isEmpty(_appliance.getController_id())) {
+			controller _controller = (controller)ControllerHelper.getInstance().getById(_appliance.getController_id());
+			if (_controller != null) {
+				_appliance.setController_name(_controller.getName());
+			}
+			long count = ApplianceHelper.getInstance().getApplianceCount4ControllerId(_appliance.getController_id());
+			ControllerHelper.getInstance().updateApplianceCount(_appliance.getController_id(),count);
+		}
+		if (!Util.isEmpty(_appliance.getThreshold_templete_id())) {
+			appliance_threshold_templete _templete = (appliance_threshold_templete)Appliance_threshold_templeteHelper.getInstance().getById(_appliance.getThreshold_templete_id());
+			if (_templete != null) {
+				_appliance.setThreshold_templete_name(_templete.getName());
 			}
 		}
 		getHelper().update(_appliance);
