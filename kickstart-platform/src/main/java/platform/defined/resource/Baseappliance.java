@@ -21,6 +21,9 @@ import java.util.*;
 public abstract class Baseappliance extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String threshold_templete_id = null;
+	private String threshold_templete_name = null;
+	private String controller_name = null;
 	private String controller_id = null;
 	private Long controller_port = null;
 	private String imei = null;
@@ -271,6 +274,9 @@ public abstract class Baseappliance extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_THRESHOLD_TEMPLETE_ID = "threshold_templete_id";
+	public static String FIELD_THRESHOLD_TEMPLETE_NAME = "threshold_templete_name";
+	public static String FIELD_CONTROLLER_NAME = "controller_name";
 	public static String FIELD_CONTROLLER_ID = "controller_id";
 	public static String FIELD_CONTROLLER_PORT = "controller_port";
 	public static String FIELD_IMEI = "imei";
@@ -533,6 +539,18 @@ public abstract class Baseappliance extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field threshold_templete_idField = new Field("threshold_templete_id", "String");
+		threshold_templete_idField.setLength(128);
+		metaData.addField(threshold_templete_idField);
+
+		Field threshold_templete_nameField = new Field("threshold_templete_name", "String");
+		threshold_templete_nameField.setLength(128);
+		metaData.addField(threshold_templete_nameField);
+
+		Field controller_nameField = new Field("controller_name", "String");
+		controller_nameField.setLength(128);
+		metaData.addField(controller_nameField);
 
 		Field controller_idField = new Field("controller_id", "String");
 		controller_idField.setLength(128);
@@ -1753,6 +1771,9 @@ public abstract class Baseappliance extends BaseResource {
 	public Baseappliance(Baseappliance obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.threshold_templete_id = obj.threshold_templete_id;
+		this.threshold_templete_name = obj.threshold_templete_name;
+		this.controller_name = obj.controller_name;
 		this.controller_id = obj.controller_id;
 		this.controller_port = obj.controller_port;
 		this.imei = obj.imei;
@@ -2367,6 +2388,12 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(threshold_templete_id != null)
+			map.put("threshold_templete_id", threshold_templete_id);
+		if(threshold_templete_name != null)
+			map.put("threshold_templete_name", threshold_templete_name);
+		if(controller_name != null)
+			map.put("controller_name", controller_name);
 		if(controller_id != null)
 			map.put("controller_id", controller_id);
 		if(controller_port != null)
@@ -2873,6 +2900,12 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(threshold_templete_id != null)
+			map.put("threshold_templete_id", threshold_templete_id);
+		if(threshold_templete_name != null)
+			map.put("threshold_templete_name", threshold_templete_name);
+		if(controller_name != null)
+			map.put("controller_name", controller_name);
 		if(controller_id != null)
 			map.put("controller_id", controller_id);
 		if(controller_port != null)
@@ -3379,6 +3412,9 @@ public abstract class Baseappliance extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		threshold_templete_id = (String) map.get("threshold_templete_id");
+		threshold_templete_name = (String) map.get("threshold_templete_name");
+		controller_name = (String) map.get("controller_name");
 		controller_id = (String) map.get("controller_id");
 		controller_port = (Long) map.get("controller_port");
 		imei = (String) map.get("imei");
@@ -3631,6 +3667,18 @@ public abstract class Baseappliance extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object threshold_templete_idObj = map.get("threshold_templete_id");
+		if(threshold_templete_idObj != null)
+			threshold_templete_id = threshold_templete_idObj.toString();
+
+		Object threshold_templete_nameObj = map.get("threshold_templete_name");
+		if(threshold_templete_nameObj != null)
+			threshold_templete_name = threshold_templete_nameObj.toString();
+
+		Object controller_nameObj = map.get("controller_name");
+		if(controller_nameObj != null)
+			controller_name = controller_nameObj.toString();
 
 		Object controller_idObj = map.get("controller_id");
 		if(controller_idObj != null)
@@ -4637,6 +4685,54 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getThreshold_templete_id() {
+		return threshold_templete_id;
+	}
+
+	public String getThreshold_templete_idEx() {
+		return threshold_templete_id != null ? threshold_templete_id : "";
+	}
+
+	public void setThreshold_templete_id(String threshold_templete_id) {
+		this.threshold_templete_id = threshold_templete_id;
+	}
+
+	public void unSetThreshold_templete_id() {
+		this.threshold_templete_id = null;
+	}
+
+	public String getThreshold_templete_name() {
+		return threshold_templete_name;
+	}
+
+	public String getThreshold_templete_nameEx() {
+		return threshold_templete_name != null ? threshold_templete_name : "";
+	}
+
+	public void setThreshold_templete_name(String threshold_templete_name) {
+		this.threshold_templete_name = threshold_templete_name;
+	}
+
+	public void unSetThreshold_templete_name() {
+		this.threshold_templete_name = null;
+	}
+
+	public String getController_name() {
+		return controller_name;
+	}
+
+	public String getController_nameEx() {
+		return controller_name != null ? controller_name : "";
+	}
+
+	public void setController_name(String controller_name) {
+		this.controller_name = controller_name;
+	}
+
+	public void unSetController_name() {
+		this.controller_name = null;
 	}
 
 	public String getController_id() {
