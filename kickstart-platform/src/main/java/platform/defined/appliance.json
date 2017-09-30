@@ -514,14 +514,6 @@
 				'precision': 4,
 				'type':'Double'
 			},
-			'dg_reading_kwh':
-			{
-				'name':'dg_reading',
-				'default':'0.0000',
-				'length': 12,
-				'precision': 4,
-				'type':'Double'
-			},
 			'grid_reading_kvah':
 			{
 				'name':'grid_reading',
@@ -530,14 +522,7 @@
 				'precision': 4,
 				'type':'Double'
 			},
-			'dg_reading_kvah':
-			{
-				'name':'dg_reading',
-				'default':'0.0000',
-				'length': 12,
-				'precision': 4,
-				'type':'Double'
-			},
+
 			'grid_reading_kwh':
 			{
 				'name':'grid_reading',
@@ -592,6 +577,211 @@
 				'type':'long'
 			},
 
+			'grid_p1_reading_kvah':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'grid_p1_reading_kwh':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_p1_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'grid_p1_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'grid_p1_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p1_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p1_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p1_kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p1_frequency':
+			{
+				'default':'0',
+				'type':'long'
+			},
+
+			'grid_p2_reading_kvah':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'grid_p2_reading_kwh':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_p2_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'grid_p2_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'grid_p2_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p2_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p2_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p2_kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p2_frequency':
+			{
+				'default':'0',
+				'type':'long'
+			},
+
+			'grid_p3_reading_kvah':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'grid_p3_reading_kwh':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_p3_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'grid_p3_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'grid_p3_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p3_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p3_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p3_kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'grid_p3_frequency':
+			{
+				'default':'0',
+				'type':'long'
+			},
+
+			'dg_reading_kwh':
+			{
+				'name':'dg_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_reading_kvah':
+			{
+				'name':'dg_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
 
 			'dg_voltage':
 			{
@@ -634,6 +824,194 @@
 				'type':'double'
 			},
 			'dg_frequency':
+			{
+				'default':'0',
+				'type':'long'
+			},
+			'dg_p1_reading_kvah':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'dg_p1_reading_kwh':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_p1_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'dg_p1_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'dg_p1_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p1_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p1_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p1_kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p1_frequency':
+			{
+				'default':'0',
+				'type':'long'
+			},
+
+			'dg_p2_reading_kvah':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'dg_p2_reading_kwh':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_p2_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'dg_p2_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'dg_p2_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p2_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p2_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p2_kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p2_frequency':
+			{
+				'default':'0',
+				'type':'long'
+			},
+
+			'dg_p3_reading_kvah':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'dg_p3_reading_kwh':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_p3_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'dg_p3_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'dg_p3_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p3_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p3_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p3_kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'dg_p3_frequency':
 			{
 				'default':'0',
 				'type':'long'

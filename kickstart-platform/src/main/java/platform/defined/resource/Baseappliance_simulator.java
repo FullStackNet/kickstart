@@ -95,9 +95,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	private Integer current = null;
 	private Double power = null;
 	private Double energy = null;
-	private Double dg_reading_kwh = null;
 	private Double grid_reading_kvah = null;
-	private Double dg_reading_kvah = null;
 	private Double grid_reading_kwh = null;
 	private Integer grid_voltage = null;
 	private Integer grid_current = null;
@@ -106,6 +104,35 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	private Double grid_tdh = null;
 	private Double grid_kvarh = null;
 	private Long grid_frequency = null;
+	private Double grid_p1_reading_kvah = null;
+	private Double grid_p1_reading_kwh = null;
+	private Integer grid_p1_voltage = null;
+	private Integer grid_p1_current = null;
+	private Double grid_p1_pf = null;
+	private Double grid_p1_md = null;
+	private Double grid_p1_tdh = null;
+	private Double grid_p1_kvarh = null;
+	private Long grid_p1_frequency = null;
+	private Double grid_p2_reading_kvah = null;
+	private Double grid_p2_reading_kwh = null;
+	private Integer grid_p2_voltage = null;
+	private Integer grid_p2_current = null;
+	private Double grid_p2_pf = null;
+	private Double grid_p2_md = null;
+	private Double grid_p2_tdh = null;
+	private Double grid_p2_kvarh = null;
+	private Long grid_p2_frequency = null;
+	private Double grid_p3_reading_kvah = null;
+	private Double grid_p3_reading_kwh = null;
+	private Integer grid_p3_voltage = null;
+	private Integer grid_p3_current = null;
+	private Double grid_p3_pf = null;
+	private Double grid_p3_md = null;
+	private Double grid_p3_tdh = null;
+	private Double grid_p3_kvarh = null;
+	private Long grid_p3_frequency = null;
+	private Double dg_reading_kwh = null;
+	private Double dg_reading_kvah = null;
 	private Integer dg_voltage = null;
 	private Integer dg_current = null;
 	private Double dg_pf = null;
@@ -113,6 +140,33 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	private Double dg_tdh = null;
 	private Double dg_kvarh = null;
 	private Long dg_frequency = null;
+	private Double dg_p1_reading_kvah = null;
+	private Double dg_p1_reading_kwh = null;
+	private Integer dg_p1_voltage = null;
+	private Integer dg_p1_current = null;
+	private Double dg_p1_pf = null;
+	private Double dg_p1_md = null;
+	private Double dg_p1_tdh = null;
+	private Double dg_p1_kvarh = null;
+	private Long dg_p1_frequency = null;
+	private Double dg_p2_reading_kvah = null;
+	private Double dg_p2_reading_kwh = null;
+	private Integer dg_p2_voltage = null;
+	private Integer dg_p2_current = null;
+	private Double dg_p2_pf = null;
+	private Double dg_p2_md = null;
+	private Double dg_p2_tdh = null;
+	private Double dg_p2_kvarh = null;
+	private Long dg_p2_frequency = null;
+	private Double dg_p3_reading_kvah = null;
+	private Double dg_p3_reading_kwh = null;
+	private Integer dg_p3_voltage = null;
+	private Integer dg_p3_current = null;
+	private Double dg_p3_pf = null;
+	private Double dg_p3_md = null;
+	private Double dg_p3_tdh = null;
+	private Double dg_p3_kvarh = null;
+	private Long dg_p3_frequency = null;
 	private Double temperature = null;
 	private Double humidity = null;
 	private String mode = null;
@@ -291,9 +345,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	public static String FIELD_CURRENT = "current";
 	public static String FIELD_POWER = "power";
 	public static String FIELD_ENERGY = "energy";
-	public static String FIELD_DG_READING_KWH = "dg_reading_kwh";
 	public static String FIELD_GRID_READING_KVAH = "grid_reading_kvah";
-	public static String FIELD_DG_READING_KVAH = "dg_reading_kvah";
 	public static String FIELD_GRID_READING_KWH = "grid_reading_kwh";
 	public static String FIELD_GRID_VOLTAGE = "grid_voltage";
 	public static String FIELD_GRID_CURRENT = "grid_current";
@@ -302,6 +354,35 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	public static String FIELD_GRID_TDH = "grid_tdh";
 	public static String FIELD_GRID_KVARH = "grid_kvarh";
 	public static String FIELD_GRID_FREQUENCY = "grid_frequency";
+	public static String FIELD_GRID_P1_READING_KVAH = "grid_p1_reading_kvah";
+	public static String FIELD_GRID_P1_READING_KWH = "grid_p1_reading_kwh";
+	public static String FIELD_GRID_P1_VOLTAGE = "grid_p1_voltage";
+	public static String FIELD_GRID_P1_CURRENT = "grid_p1_current";
+	public static String FIELD_GRID_P1_PF = "grid_p1_pf";
+	public static String FIELD_GRID_P1_MD = "grid_p1_md";
+	public static String FIELD_GRID_P1_TDH = "grid_p1_tdh";
+	public static String FIELD_GRID_P1_KVARH = "grid_p1_kvarh";
+	public static String FIELD_GRID_P1_FREQUENCY = "grid_p1_frequency";
+	public static String FIELD_GRID_P2_READING_KVAH = "grid_p2_reading_kvah";
+	public static String FIELD_GRID_P2_READING_KWH = "grid_p2_reading_kwh";
+	public static String FIELD_GRID_P2_VOLTAGE = "grid_p2_voltage";
+	public static String FIELD_GRID_P2_CURRENT = "grid_p2_current";
+	public static String FIELD_GRID_P2_PF = "grid_p2_pf";
+	public static String FIELD_GRID_P2_MD = "grid_p2_md";
+	public static String FIELD_GRID_P2_TDH = "grid_p2_tdh";
+	public static String FIELD_GRID_P2_KVARH = "grid_p2_kvarh";
+	public static String FIELD_GRID_P2_FREQUENCY = "grid_p2_frequency";
+	public static String FIELD_GRID_P3_READING_KVAH = "grid_p3_reading_kvah";
+	public static String FIELD_GRID_P3_READING_KWH = "grid_p3_reading_kwh";
+	public static String FIELD_GRID_P3_VOLTAGE = "grid_p3_voltage";
+	public static String FIELD_GRID_P3_CURRENT = "grid_p3_current";
+	public static String FIELD_GRID_P3_PF = "grid_p3_pf";
+	public static String FIELD_GRID_P3_MD = "grid_p3_md";
+	public static String FIELD_GRID_P3_TDH = "grid_p3_tdh";
+	public static String FIELD_GRID_P3_KVARH = "grid_p3_kvarh";
+	public static String FIELD_GRID_P3_FREQUENCY = "grid_p3_frequency";
+	public static String FIELD_DG_READING_KWH = "dg_reading_kwh";
+	public static String FIELD_DG_READING_KVAH = "dg_reading_kvah";
 	public static String FIELD_DG_VOLTAGE = "dg_voltage";
 	public static String FIELD_DG_CURRENT = "dg_current";
 	public static String FIELD_DG_PF = "dg_pf";
@@ -309,6 +390,33 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	public static String FIELD_DG_TDH = "dg_tdh";
 	public static String FIELD_DG_KVARH = "dg_kvarh";
 	public static String FIELD_DG_FREQUENCY = "dg_frequency";
+	public static String FIELD_DG_P1_READING_KVAH = "dg_p1_reading_kvah";
+	public static String FIELD_DG_P1_READING_KWH = "dg_p1_reading_kwh";
+	public static String FIELD_DG_P1_VOLTAGE = "dg_p1_voltage";
+	public static String FIELD_DG_P1_CURRENT = "dg_p1_current";
+	public static String FIELD_DG_P1_PF = "dg_p1_pf";
+	public static String FIELD_DG_P1_MD = "dg_p1_md";
+	public static String FIELD_DG_P1_TDH = "dg_p1_tdh";
+	public static String FIELD_DG_P1_KVARH = "dg_p1_kvarh";
+	public static String FIELD_DG_P1_FREQUENCY = "dg_p1_frequency";
+	public static String FIELD_DG_P2_READING_KVAH = "dg_p2_reading_kvah";
+	public static String FIELD_DG_P2_READING_KWH = "dg_p2_reading_kwh";
+	public static String FIELD_DG_P2_VOLTAGE = "dg_p2_voltage";
+	public static String FIELD_DG_P2_CURRENT = "dg_p2_current";
+	public static String FIELD_DG_P2_PF = "dg_p2_pf";
+	public static String FIELD_DG_P2_MD = "dg_p2_md";
+	public static String FIELD_DG_P2_TDH = "dg_p2_tdh";
+	public static String FIELD_DG_P2_KVARH = "dg_p2_kvarh";
+	public static String FIELD_DG_P2_FREQUENCY = "dg_p2_frequency";
+	public static String FIELD_DG_P3_READING_KVAH = "dg_p3_reading_kvah";
+	public static String FIELD_DG_P3_READING_KWH = "dg_p3_reading_kwh";
+	public static String FIELD_DG_P3_VOLTAGE = "dg_p3_voltage";
+	public static String FIELD_DG_P3_CURRENT = "dg_p3_current";
+	public static String FIELD_DG_P3_PF = "dg_p3_pf";
+	public static String FIELD_DG_P3_MD = "dg_p3_md";
+	public static String FIELD_DG_P3_TDH = "dg_p3_tdh";
+	public static String FIELD_DG_P3_KVARH = "dg_p3_kvarh";
+	public static String FIELD_DG_P3_FREQUENCY = "dg_p3_frequency";
 	public static String FIELD_TEMPERATURE = "temperature";
 	public static String FIELD_HUMIDITY = "humidity";
 	public static String FIELD_MODE = "mode";
@@ -771,23 +879,11 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		energyField.setPrecision(4);
 		metaData.addField(energyField);
 
-		Field dg_reading_kwhField = new Field("dg_reading_kwh", "Double");
-		dg_reading_kwhField.setDefaultValue(0.0000);
-		dg_reading_kwhField.setLength(12);
-		dg_reading_kwhField.setPrecision(4);
-		metaData.addField(dg_reading_kwhField);
-
 		Field grid_reading_kvahField = new Field("grid_reading_kvah", "Double");
 		grid_reading_kvahField.setDefaultValue(0.0000);
 		grid_reading_kvahField.setLength(12);
 		grid_reading_kvahField.setPrecision(4);
 		metaData.addField(grid_reading_kvahField);
-
-		Field dg_reading_kvahField = new Field("dg_reading_kvah", "Double");
-		dg_reading_kvahField.setDefaultValue(0.0000);
-		dg_reading_kvahField.setLength(12);
-		dg_reading_kvahField.setPrecision(4);
-		metaData.addField(dg_reading_kvahField);
 
 		Field grid_reading_kwhField = new Field("grid_reading_kwh", "Double");
 		grid_reading_kwhField.setDefaultValue(0.0000);
@@ -833,6 +929,168 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		grid_frequencyField.setDefaultValue(0L);
 		metaData.addField(grid_frequencyField);
 
+		Field grid_p1_reading_kvahField = new Field("grid_p1_reading_kvah", "Double");
+		grid_p1_reading_kvahField.setDefaultValue(0.0000);
+		grid_p1_reading_kvahField.setLength(12);
+		grid_p1_reading_kvahField.setPrecision(4);
+		metaData.addField(grid_p1_reading_kvahField);
+
+		Field grid_p1_reading_kwhField = new Field("grid_p1_reading_kwh", "Double");
+		grid_p1_reading_kwhField.setDefaultValue(0.0000);
+		grid_p1_reading_kwhField.setLength(12);
+		grid_p1_reading_kwhField.setPrecision(4);
+		metaData.addField(grid_p1_reading_kwhField);
+
+		Field grid_p1_voltageField = new Field("grid_p1_voltage", "int");
+		grid_p1_voltageField.setDefaultValue(0);
+		grid_p1_voltageField.setLength(5);
+		metaData.addField(grid_p1_voltageField);
+
+		Field grid_p1_currentField = new Field("grid_p1_current", "int");
+		grid_p1_currentField.setDefaultValue(0);
+		grid_p1_currentField.setLength(5);
+		metaData.addField(grid_p1_currentField);
+
+		Field grid_p1_pfField = new Field("grid_p1_pf", "double");
+		grid_p1_pfField.setDefaultValue(0.0000);
+		grid_p1_pfField.setLength(12);
+		grid_p1_pfField.setPrecision(4);
+		metaData.addField(grid_p1_pfField);
+
+		Field grid_p1_mdField = new Field("grid_p1_md", "double");
+		grid_p1_mdField.setDefaultValue(0.0000);
+		grid_p1_mdField.setLength(12);
+		grid_p1_mdField.setPrecision(4);
+		metaData.addField(grid_p1_mdField);
+
+		Field grid_p1_tdhField = new Field("grid_p1_tdh", "double");
+		grid_p1_tdhField.setDefaultValue(0.0000);
+		grid_p1_tdhField.setLength(12);
+		grid_p1_tdhField.setPrecision(4);
+		metaData.addField(grid_p1_tdhField);
+
+		Field grid_p1_kvarhField = new Field("grid_p1_kvarh", "double");
+		grid_p1_kvarhField.setDefaultValue(0.0000);
+		grid_p1_kvarhField.setLength(12);
+		grid_p1_kvarhField.setPrecision(4);
+		metaData.addField(grid_p1_kvarhField);
+
+		Field grid_p1_frequencyField = new Field("grid_p1_frequency", "long");
+		grid_p1_frequencyField.setDefaultValue(0L);
+		metaData.addField(grid_p1_frequencyField);
+
+		Field grid_p2_reading_kvahField = new Field("grid_p2_reading_kvah", "Double");
+		grid_p2_reading_kvahField.setDefaultValue(0.0000);
+		grid_p2_reading_kvahField.setLength(12);
+		grid_p2_reading_kvahField.setPrecision(4);
+		metaData.addField(grid_p2_reading_kvahField);
+
+		Field grid_p2_reading_kwhField = new Field("grid_p2_reading_kwh", "Double");
+		grid_p2_reading_kwhField.setDefaultValue(0.0000);
+		grid_p2_reading_kwhField.setLength(12);
+		grid_p2_reading_kwhField.setPrecision(4);
+		metaData.addField(grid_p2_reading_kwhField);
+
+		Field grid_p2_voltageField = new Field("grid_p2_voltage", "int");
+		grid_p2_voltageField.setDefaultValue(0);
+		grid_p2_voltageField.setLength(5);
+		metaData.addField(grid_p2_voltageField);
+
+		Field grid_p2_currentField = new Field("grid_p2_current", "int");
+		grid_p2_currentField.setDefaultValue(0);
+		grid_p2_currentField.setLength(5);
+		metaData.addField(grid_p2_currentField);
+
+		Field grid_p2_pfField = new Field("grid_p2_pf", "double");
+		grid_p2_pfField.setDefaultValue(0.0000);
+		grid_p2_pfField.setLength(12);
+		grid_p2_pfField.setPrecision(4);
+		metaData.addField(grid_p2_pfField);
+
+		Field grid_p2_mdField = new Field("grid_p2_md", "double");
+		grid_p2_mdField.setDefaultValue(0.0000);
+		grid_p2_mdField.setLength(12);
+		grid_p2_mdField.setPrecision(4);
+		metaData.addField(grid_p2_mdField);
+
+		Field grid_p2_tdhField = new Field("grid_p2_tdh", "double");
+		grid_p2_tdhField.setDefaultValue(0.0000);
+		grid_p2_tdhField.setLength(12);
+		grid_p2_tdhField.setPrecision(4);
+		metaData.addField(grid_p2_tdhField);
+
+		Field grid_p2_kvarhField = new Field("grid_p2_kvarh", "double");
+		grid_p2_kvarhField.setDefaultValue(0.0000);
+		grid_p2_kvarhField.setLength(12);
+		grid_p2_kvarhField.setPrecision(4);
+		metaData.addField(grid_p2_kvarhField);
+
+		Field grid_p2_frequencyField = new Field("grid_p2_frequency", "long");
+		grid_p2_frequencyField.setDefaultValue(0L);
+		metaData.addField(grid_p2_frequencyField);
+
+		Field grid_p3_reading_kvahField = new Field("grid_p3_reading_kvah", "Double");
+		grid_p3_reading_kvahField.setDefaultValue(0.0000);
+		grid_p3_reading_kvahField.setLength(12);
+		grid_p3_reading_kvahField.setPrecision(4);
+		metaData.addField(grid_p3_reading_kvahField);
+
+		Field grid_p3_reading_kwhField = new Field("grid_p3_reading_kwh", "Double");
+		grid_p3_reading_kwhField.setDefaultValue(0.0000);
+		grid_p3_reading_kwhField.setLength(12);
+		grid_p3_reading_kwhField.setPrecision(4);
+		metaData.addField(grid_p3_reading_kwhField);
+
+		Field grid_p3_voltageField = new Field("grid_p3_voltage", "int");
+		grid_p3_voltageField.setDefaultValue(0);
+		grid_p3_voltageField.setLength(5);
+		metaData.addField(grid_p3_voltageField);
+
+		Field grid_p3_currentField = new Field("grid_p3_current", "int");
+		grid_p3_currentField.setDefaultValue(0);
+		grid_p3_currentField.setLength(5);
+		metaData.addField(grid_p3_currentField);
+
+		Field grid_p3_pfField = new Field("grid_p3_pf", "double");
+		grid_p3_pfField.setDefaultValue(0.0000);
+		grid_p3_pfField.setLength(12);
+		grid_p3_pfField.setPrecision(4);
+		metaData.addField(grid_p3_pfField);
+
+		Field grid_p3_mdField = new Field("grid_p3_md", "double");
+		grid_p3_mdField.setDefaultValue(0.0000);
+		grid_p3_mdField.setLength(12);
+		grid_p3_mdField.setPrecision(4);
+		metaData.addField(grid_p3_mdField);
+
+		Field grid_p3_tdhField = new Field("grid_p3_tdh", "double");
+		grid_p3_tdhField.setDefaultValue(0.0000);
+		grid_p3_tdhField.setLength(12);
+		grid_p3_tdhField.setPrecision(4);
+		metaData.addField(grid_p3_tdhField);
+
+		Field grid_p3_kvarhField = new Field("grid_p3_kvarh", "double");
+		grid_p3_kvarhField.setDefaultValue(0.0000);
+		grid_p3_kvarhField.setLength(12);
+		grid_p3_kvarhField.setPrecision(4);
+		metaData.addField(grid_p3_kvarhField);
+
+		Field grid_p3_frequencyField = new Field("grid_p3_frequency", "long");
+		grid_p3_frequencyField.setDefaultValue(0L);
+		metaData.addField(grid_p3_frequencyField);
+
+		Field dg_reading_kwhField = new Field("dg_reading_kwh", "Double");
+		dg_reading_kwhField.setDefaultValue(0.0000);
+		dg_reading_kwhField.setLength(12);
+		dg_reading_kwhField.setPrecision(4);
+		metaData.addField(dg_reading_kwhField);
+
+		Field dg_reading_kvahField = new Field("dg_reading_kvah", "Double");
+		dg_reading_kvahField.setDefaultValue(0.0000);
+		dg_reading_kvahField.setLength(12);
+		dg_reading_kvahField.setPrecision(4);
+		metaData.addField(dg_reading_kvahField);
+
 		Field dg_voltageField = new Field("dg_voltage", "int");
 		dg_voltageField.setDefaultValue(0);
 		dg_voltageField.setLength(5);
@@ -870,6 +1128,156 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		Field dg_frequencyField = new Field("dg_frequency", "long");
 		dg_frequencyField.setDefaultValue(0L);
 		metaData.addField(dg_frequencyField);
+
+		Field dg_p1_reading_kvahField = new Field("dg_p1_reading_kvah", "Double");
+		dg_p1_reading_kvahField.setDefaultValue(0.0000);
+		dg_p1_reading_kvahField.setLength(12);
+		dg_p1_reading_kvahField.setPrecision(4);
+		metaData.addField(dg_p1_reading_kvahField);
+
+		Field dg_p1_reading_kwhField = new Field("dg_p1_reading_kwh", "Double");
+		dg_p1_reading_kwhField.setDefaultValue(0.0000);
+		dg_p1_reading_kwhField.setLength(12);
+		dg_p1_reading_kwhField.setPrecision(4);
+		metaData.addField(dg_p1_reading_kwhField);
+
+		Field dg_p1_voltageField = new Field("dg_p1_voltage", "int");
+		dg_p1_voltageField.setDefaultValue(0);
+		dg_p1_voltageField.setLength(5);
+		metaData.addField(dg_p1_voltageField);
+
+		Field dg_p1_currentField = new Field("dg_p1_current", "int");
+		dg_p1_currentField.setDefaultValue(0);
+		dg_p1_currentField.setLength(5);
+		metaData.addField(dg_p1_currentField);
+
+		Field dg_p1_pfField = new Field("dg_p1_pf", "double");
+		dg_p1_pfField.setDefaultValue(0.0000);
+		dg_p1_pfField.setLength(12);
+		dg_p1_pfField.setPrecision(4);
+		metaData.addField(dg_p1_pfField);
+
+		Field dg_p1_mdField = new Field("dg_p1_md", "double");
+		dg_p1_mdField.setDefaultValue(0.0000);
+		dg_p1_mdField.setLength(12);
+		dg_p1_mdField.setPrecision(4);
+		metaData.addField(dg_p1_mdField);
+
+		Field dg_p1_tdhField = new Field("dg_p1_tdh", "double");
+		dg_p1_tdhField.setDefaultValue(0.0000);
+		dg_p1_tdhField.setLength(12);
+		dg_p1_tdhField.setPrecision(4);
+		metaData.addField(dg_p1_tdhField);
+
+		Field dg_p1_kvarhField = new Field("dg_p1_kvarh", "double");
+		dg_p1_kvarhField.setDefaultValue(0.0000);
+		dg_p1_kvarhField.setLength(12);
+		dg_p1_kvarhField.setPrecision(4);
+		metaData.addField(dg_p1_kvarhField);
+
+		Field dg_p1_frequencyField = new Field("dg_p1_frequency", "long");
+		dg_p1_frequencyField.setDefaultValue(0L);
+		metaData.addField(dg_p1_frequencyField);
+
+		Field dg_p2_reading_kvahField = new Field("dg_p2_reading_kvah", "Double");
+		dg_p2_reading_kvahField.setDefaultValue(0.0000);
+		dg_p2_reading_kvahField.setLength(12);
+		dg_p2_reading_kvahField.setPrecision(4);
+		metaData.addField(dg_p2_reading_kvahField);
+
+		Field dg_p2_reading_kwhField = new Field("dg_p2_reading_kwh", "Double");
+		dg_p2_reading_kwhField.setDefaultValue(0.0000);
+		dg_p2_reading_kwhField.setLength(12);
+		dg_p2_reading_kwhField.setPrecision(4);
+		metaData.addField(dg_p2_reading_kwhField);
+
+		Field dg_p2_voltageField = new Field("dg_p2_voltage", "int");
+		dg_p2_voltageField.setDefaultValue(0);
+		dg_p2_voltageField.setLength(5);
+		metaData.addField(dg_p2_voltageField);
+
+		Field dg_p2_currentField = new Field("dg_p2_current", "int");
+		dg_p2_currentField.setDefaultValue(0);
+		dg_p2_currentField.setLength(5);
+		metaData.addField(dg_p2_currentField);
+
+		Field dg_p2_pfField = new Field("dg_p2_pf", "double");
+		dg_p2_pfField.setDefaultValue(0.0000);
+		dg_p2_pfField.setLength(12);
+		dg_p2_pfField.setPrecision(4);
+		metaData.addField(dg_p2_pfField);
+
+		Field dg_p2_mdField = new Field("dg_p2_md", "double");
+		dg_p2_mdField.setDefaultValue(0.0000);
+		dg_p2_mdField.setLength(12);
+		dg_p2_mdField.setPrecision(4);
+		metaData.addField(dg_p2_mdField);
+
+		Field dg_p2_tdhField = new Field("dg_p2_tdh", "double");
+		dg_p2_tdhField.setDefaultValue(0.0000);
+		dg_p2_tdhField.setLength(12);
+		dg_p2_tdhField.setPrecision(4);
+		metaData.addField(dg_p2_tdhField);
+
+		Field dg_p2_kvarhField = new Field("dg_p2_kvarh", "double");
+		dg_p2_kvarhField.setDefaultValue(0.0000);
+		dg_p2_kvarhField.setLength(12);
+		dg_p2_kvarhField.setPrecision(4);
+		metaData.addField(dg_p2_kvarhField);
+
+		Field dg_p2_frequencyField = new Field("dg_p2_frequency", "long");
+		dg_p2_frequencyField.setDefaultValue(0L);
+		metaData.addField(dg_p2_frequencyField);
+
+		Field dg_p3_reading_kvahField = new Field("dg_p3_reading_kvah", "Double");
+		dg_p3_reading_kvahField.setDefaultValue(0.0000);
+		dg_p3_reading_kvahField.setLength(12);
+		dg_p3_reading_kvahField.setPrecision(4);
+		metaData.addField(dg_p3_reading_kvahField);
+
+		Field dg_p3_reading_kwhField = new Field("dg_p3_reading_kwh", "Double");
+		dg_p3_reading_kwhField.setDefaultValue(0.0000);
+		dg_p3_reading_kwhField.setLength(12);
+		dg_p3_reading_kwhField.setPrecision(4);
+		metaData.addField(dg_p3_reading_kwhField);
+
+		Field dg_p3_voltageField = new Field("dg_p3_voltage", "int");
+		dg_p3_voltageField.setDefaultValue(0);
+		dg_p3_voltageField.setLength(5);
+		metaData.addField(dg_p3_voltageField);
+
+		Field dg_p3_currentField = new Field("dg_p3_current", "int");
+		dg_p3_currentField.setDefaultValue(0);
+		dg_p3_currentField.setLength(5);
+		metaData.addField(dg_p3_currentField);
+
+		Field dg_p3_pfField = new Field("dg_p3_pf", "double");
+		dg_p3_pfField.setDefaultValue(0.0000);
+		dg_p3_pfField.setLength(12);
+		dg_p3_pfField.setPrecision(4);
+		metaData.addField(dg_p3_pfField);
+
+		Field dg_p3_mdField = new Field("dg_p3_md", "double");
+		dg_p3_mdField.setDefaultValue(0.0000);
+		dg_p3_mdField.setLength(12);
+		dg_p3_mdField.setPrecision(4);
+		metaData.addField(dg_p3_mdField);
+
+		Field dg_p3_tdhField = new Field("dg_p3_tdh", "double");
+		dg_p3_tdhField.setDefaultValue(0.0000);
+		dg_p3_tdhField.setLength(12);
+		dg_p3_tdhField.setPrecision(4);
+		metaData.addField(dg_p3_tdhField);
+
+		Field dg_p3_kvarhField = new Field("dg_p3_kvarh", "double");
+		dg_p3_kvarhField.setDefaultValue(0.0000);
+		dg_p3_kvarhField.setLength(12);
+		dg_p3_kvarhField.setPrecision(4);
+		metaData.addField(dg_p3_kvarhField);
+
+		Field dg_p3_frequencyField = new Field("dg_p3_frequency", "long");
+		dg_p3_frequencyField.setDefaultValue(0L);
+		metaData.addField(dg_p3_frequencyField);
 
 		Field temperatureField = new Field("temperature", "Double");
 		temperatureField.setDefaultValue(0.00);
@@ -1419,9 +1827,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.current = obj.current;
 		this.power = obj.power;
 		this.energy = obj.energy;
-		this.dg_reading_kwh = obj.dg_reading_kwh;
 		this.grid_reading_kvah = obj.grid_reading_kvah;
-		this.dg_reading_kvah = obj.dg_reading_kvah;
 		this.grid_reading_kwh = obj.grid_reading_kwh;
 		this.grid_voltage = obj.grid_voltage;
 		this.grid_current = obj.grid_current;
@@ -1430,6 +1836,35 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_tdh = obj.grid_tdh;
 		this.grid_kvarh = obj.grid_kvarh;
 		this.grid_frequency = obj.grid_frequency;
+		this.grid_p1_reading_kvah = obj.grid_p1_reading_kvah;
+		this.grid_p1_reading_kwh = obj.grid_p1_reading_kwh;
+		this.grid_p1_voltage = obj.grid_p1_voltage;
+		this.grid_p1_current = obj.grid_p1_current;
+		this.grid_p1_pf = obj.grid_p1_pf;
+		this.grid_p1_md = obj.grid_p1_md;
+		this.grid_p1_tdh = obj.grid_p1_tdh;
+		this.grid_p1_kvarh = obj.grid_p1_kvarh;
+		this.grid_p1_frequency = obj.grid_p1_frequency;
+		this.grid_p2_reading_kvah = obj.grid_p2_reading_kvah;
+		this.grid_p2_reading_kwh = obj.grid_p2_reading_kwh;
+		this.grid_p2_voltage = obj.grid_p2_voltage;
+		this.grid_p2_current = obj.grid_p2_current;
+		this.grid_p2_pf = obj.grid_p2_pf;
+		this.grid_p2_md = obj.grid_p2_md;
+		this.grid_p2_tdh = obj.grid_p2_tdh;
+		this.grid_p2_kvarh = obj.grid_p2_kvarh;
+		this.grid_p2_frequency = obj.grid_p2_frequency;
+		this.grid_p3_reading_kvah = obj.grid_p3_reading_kvah;
+		this.grid_p3_reading_kwh = obj.grid_p3_reading_kwh;
+		this.grid_p3_voltage = obj.grid_p3_voltage;
+		this.grid_p3_current = obj.grid_p3_current;
+		this.grid_p3_pf = obj.grid_p3_pf;
+		this.grid_p3_md = obj.grid_p3_md;
+		this.grid_p3_tdh = obj.grid_p3_tdh;
+		this.grid_p3_kvarh = obj.grid_p3_kvarh;
+		this.grid_p3_frequency = obj.grid_p3_frequency;
+		this.dg_reading_kwh = obj.dg_reading_kwh;
+		this.dg_reading_kvah = obj.dg_reading_kvah;
 		this.dg_voltage = obj.dg_voltage;
 		this.dg_current = obj.dg_current;
 		this.dg_pf = obj.dg_pf;
@@ -1437,6 +1872,33 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.dg_tdh = obj.dg_tdh;
 		this.dg_kvarh = obj.dg_kvarh;
 		this.dg_frequency = obj.dg_frequency;
+		this.dg_p1_reading_kvah = obj.dg_p1_reading_kvah;
+		this.dg_p1_reading_kwh = obj.dg_p1_reading_kwh;
+		this.dg_p1_voltage = obj.dg_p1_voltage;
+		this.dg_p1_current = obj.dg_p1_current;
+		this.dg_p1_pf = obj.dg_p1_pf;
+		this.dg_p1_md = obj.dg_p1_md;
+		this.dg_p1_tdh = obj.dg_p1_tdh;
+		this.dg_p1_kvarh = obj.dg_p1_kvarh;
+		this.dg_p1_frequency = obj.dg_p1_frequency;
+		this.dg_p2_reading_kvah = obj.dg_p2_reading_kvah;
+		this.dg_p2_reading_kwh = obj.dg_p2_reading_kwh;
+		this.dg_p2_voltage = obj.dg_p2_voltage;
+		this.dg_p2_current = obj.dg_p2_current;
+		this.dg_p2_pf = obj.dg_p2_pf;
+		this.dg_p2_md = obj.dg_p2_md;
+		this.dg_p2_tdh = obj.dg_p2_tdh;
+		this.dg_p2_kvarh = obj.dg_p2_kvarh;
+		this.dg_p2_frequency = obj.dg_p2_frequency;
+		this.dg_p3_reading_kvah = obj.dg_p3_reading_kvah;
+		this.dg_p3_reading_kwh = obj.dg_p3_reading_kwh;
+		this.dg_p3_voltage = obj.dg_p3_voltage;
+		this.dg_p3_current = obj.dg_p3_current;
+		this.dg_p3_pf = obj.dg_p3_pf;
+		this.dg_p3_md = obj.dg_p3_md;
+		this.dg_p3_tdh = obj.dg_p3_tdh;
+		this.dg_p3_kvarh = obj.dg_p3_kvarh;
+		this.dg_p3_frequency = obj.dg_p3_frequency;
 		this.temperature = obj.temperature;
 		this.humidity = obj.humidity;
 		this.mode = obj.mode;
@@ -1617,12 +2079,8 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			power = 0.0000;
 		if(energy == null)
 			energy = 0.0000;
-		if(dg_reading_kwh == null)
-			dg_reading_kwh = 0.0000;
 		if(grid_reading_kvah == null)
 			grid_reading_kvah = 0.0000;
-		if(dg_reading_kvah == null)
-			dg_reading_kvah = 0.0000;
 		if(grid_reading_kwh == null)
 			grid_reading_kwh = 0.0000;
 		if(grid_voltage == null)
@@ -1639,6 +2097,64 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			grid_kvarh = 0.0000;
 		if(grid_frequency == null)
 			grid_frequency = 0L;
+		if(grid_p1_reading_kvah == null)
+			grid_p1_reading_kvah = 0.0000;
+		if(grid_p1_reading_kwh == null)
+			grid_p1_reading_kwh = 0.0000;
+		if(grid_p1_voltage == null)
+			grid_p1_voltage = 0;
+		if(grid_p1_current == null)
+			grid_p1_current = 0;
+		if(grid_p1_pf == null)
+			grid_p1_pf = 0.0000;
+		if(grid_p1_md == null)
+			grid_p1_md = 0.0000;
+		if(grid_p1_tdh == null)
+			grid_p1_tdh = 0.0000;
+		if(grid_p1_kvarh == null)
+			grid_p1_kvarh = 0.0000;
+		if(grid_p1_frequency == null)
+			grid_p1_frequency = 0L;
+		if(grid_p2_reading_kvah == null)
+			grid_p2_reading_kvah = 0.0000;
+		if(grid_p2_reading_kwh == null)
+			grid_p2_reading_kwh = 0.0000;
+		if(grid_p2_voltage == null)
+			grid_p2_voltage = 0;
+		if(grid_p2_current == null)
+			grid_p2_current = 0;
+		if(grid_p2_pf == null)
+			grid_p2_pf = 0.0000;
+		if(grid_p2_md == null)
+			grid_p2_md = 0.0000;
+		if(grid_p2_tdh == null)
+			grid_p2_tdh = 0.0000;
+		if(grid_p2_kvarh == null)
+			grid_p2_kvarh = 0.0000;
+		if(grid_p2_frequency == null)
+			grid_p2_frequency = 0L;
+		if(grid_p3_reading_kvah == null)
+			grid_p3_reading_kvah = 0.0000;
+		if(grid_p3_reading_kwh == null)
+			grid_p3_reading_kwh = 0.0000;
+		if(grid_p3_voltage == null)
+			grid_p3_voltage = 0;
+		if(grid_p3_current == null)
+			grid_p3_current = 0;
+		if(grid_p3_pf == null)
+			grid_p3_pf = 0.0000;
+		if(grid_p3_md == null)
+			grid_p3_md = 0.0000;
+		if(grid_p3_tdh == null)
+			grid_p3_tdh = 0.0000;
+		if(grid_p3_kvarh == null)
+			grid_p3_kvarh = 0.0000;
+		if(grid_p3_frequency == null)
+			grid_p3_frequency = 0L;
+		if(dg_reading_kwh == null)
+			dg_reading_kwh = 0.0000;
+		if(dg_reading_kvah == null)
+			dg_reading_kvah = 0.0000;
 		if(dg_voltage == null)
 			dg_voltage = 0;
 		if(dg_current == null)
@@ -1653,6 +2169,60 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			dg_kvarh = 0.0000;
 		if(dg_frequency == null)
 			dg_frequency = 0L;
+		if(dg_p1_reading_kvah == null)
+			dg_p1_reading_kvah = 0.0000;
+		if(dg_p1_reading_kwh == null)
+			dg_p1_reading_kwh = 0.0000;
+		if(dg_p1_voltage == null)
+			dg_p1_voltage = 0;
+		if(dg_p1_current == null)
+			dg_p1_current = 0;
+		if(dg_p1_pf == null)
+			dg_p1_pf = 0.0000;
+		if(dg_p1_md == null)
+			dg_p1_md = 0.0000;
+		if(dg_p1_tdh == null)
+			dg_p1_tdh = 0.0000;
+		if(dg_p1_kvarh == null)
+			dg_p1_kvarh = 0.0000;
+		if(dg_p1_frequency == null)
+			dg_p1_frequency = 0L;
+		if(dg_p2_reading_kvah == null)
+			dg_p2_reading_kvah = 0.0000;
+		if(dg_p2_reading_kwh == null)
+			dg_p2_reading_kwh = 0.0000;
+		if(dg_p2_voltage == null)
+			dg_p2_voltage = 0;
+		if(dg_p2_current == null)
+			dg_p2_current = 0;
+		if(dg_p2_pf == null)
+			dg_p2_pf = 0.0000;
+		if(dg_p2_md == null)
+			dg_p2_md = 0.0000;
+		if(dg_p2_tdh == null)
+			dg_p2_tdh = 0.0000;
+		if(dg_p2_kvarh == null)
+			dg_p2_kvarh = 0.0000;
+		if(dg_p2_frequency == null)
+			dg_p2_frequency = 0L;
+		if(dg_p3_reading_kvah == null)
+			dg_p3_reading_kvah = 0.0000;
+		if(dg_p3_reading_kwh == null)
+			dg_p3_reading_kwh = 0.0000;
+		if(dg_p3_voltage == null)
+			dg_p3_voltage = 0;
+		if(dg_p3_current == null)
+			dg_p3_current = 0;
+		if(dg_p3_pf == null)
+			dg_p3_pf = 0.0000;
+		if(dg_p3_md == null)
+			dg_p3_md = 0.0000;
+		if(dg_p3_tdh == null)
+			dg_p3_tdh = 0.0000;
+		if(dg_p3_kvarh == null)
+			dg_p3_kvarh = 0.0000;
+		if(dg_p3_frequency == null)
+			dg_p3_frequency = 0L;
 		if(temperature == null)
 			temperature = 0.00;
 		if(humidity == null)
@@ -1945,12 +2515,8 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("power", power);
 		if(energy != null)
 			map.put("energy", energy);
-		if(dg_reading_kwh != null)
-			map.put("dg_reading_kwh", dg_reading_kwh);
 		if(grid_reading_kvah != null)
 			map.put("grid_reading_kvah", grid_reading_kvah);
-		if(dg_reading_kvah != null)
-			map.put("dg_reading_kvah", dg_reading_kvah);
 		if(grid_reading_kwh != null)
 			map.put("grid_reading_kwh", grid_reading_kwh);
 		if(grid_voltage != null)
@@ -1967,6 +2533,64 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("grid_kvarh", grid_kvarh);
 		if(grid_frequency != null)
 			map.put("grid_frequency", grid_frequency);
+		if(grid_p1_reading_kvah != null)
+			map.put("grid_p1_reading_kvah", grid_p1_reading_kvah);
+		if(grid_p1_reading_kwh != null)
+			map.put("grid_p1_reading_kwh", grid_p1_reading_kwh);
+		if(grid_p1_voltage != null)
+			map.put("grid_p1_voltage", grid_p1_voltage);
+		if(grid_p1_current != null)
+			map.put("grid_p1_current", grid_p1_current);
+		if(grid_p1_pf != null)
+			map.put("grid_p1_pf", grid_p1_pf);
+		if(grid_p1_md != null)
+			map.put("grid_p1_md", grid_p1_md);
+		if(grid_p1_tdh != null)
+			map.put("grid_p1_tdh", grid_p1_tdh);
+		if(grid_p1_kvarh != null)
+			map.put("grid_p1_kvarh", grid_p1_kvarh);
+		if(grid_p1_frequency != null)
+			map.put("grid_p1_frequency", grid_p1_frequency);
+		if(grid_p2_reading_kvah != null)
+			map.put("grid_p2_reading_kvah", grid_p2_reading_kvah);
+		if(grid_p2_reading_kwh != null)
+			map.put("grid_p2_reading_kwh", grid_p2_reading_kwh);
+		if(grid_p2_voltage != null)
+			map.put("grid_p2_voltage", grid_p2_voltage);
+		if(grid_p2_current != null)
+			map.put("grid_p2_current", grid_p2_current);
+		if(grid_p2_pf != null)
+			map.put("grid_p2_pf", grid_p2_pf);
+		if(grid_p2_md != null)
+			map.put("grid_p2_md", grid_p2_md);
+		if(grid_p2_tdh != null)
+			map.put("grid_p2_tdh", grid_p2_tdh);
+		if(grid_p2_kvarh != null)
+			map.put("grid_p2_kvarh", grid_p2_kvarh);
+		if(grid_p2_frequency != null)
+			map.put("grid_p2_frequency", grid_p2_frequency);
+		if(grid_p3_reading_kvah != null)
+			map.put("grid_p3_reading_kvah", grid_p3_reading_kvah);
+		if(grid_p3_reading_kwh != null)
+			map.put("grid_p3_reading_kwh", grid_p3_reading_kwh);
+		if(grid_p3_voltage != null)
+			map.put("grid_p3_voltage", grid_p3_voltage);
+		if(grid_p3_current != null)
+			map.put("grid_p3_current", grid_p3_current);
+		if(grid_p3_pf != null)
+			map.put("grid_p3_pf", grid_p3_pf);
+		if(grid_p3_md != null)
+			map.put("grid_p3_md", grid_p3_md);
+		if(grid_p3_tdh != null)
+			map.put("grid_p3_tdh", grid_p3_tdh);
+		if(grid_p3_kvarh != null)
+			map.put("grid_p3_kvarh", grid_p3_kvarh);
+		if(grid_p3_frequency != null)
+			map.put("grid_p3_frequency", grid_p3_frequency);
+		if(dg_reading_kwh != null)
+			map.put("dg_reading_kwh", dg_reading_kwh);
+		if(dg_reading_kvah != null)
+			map.put("dg_reading_kvah", dg_reading_kvah);
 		if(dg_voltage != null)
 			map.put("dg_voltage", dg_voltage);
 		if(dg_current != null)
@@ -1981,6 +2605,60 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("dg_kvarh", dg_kvarh);
 		if(dg_frequency != null)
 			map.put("dg_frequency", dg_frequency);
+		if(dg_p1_reading_kvah != null)
+			map.put("dg_p1_reading_kvah", dg_p1_reading_kvah);
+		if(dg_p1_reading_kwh != null)
+			map.put("dg_p1_reading_kwh", dg_p1_reading_kwh);
+		if(dg_p1_voltage != null)
+			map.put("dg_p1_voltage", dg_p1_voltage);
+		if(dg_p1_current != null)
+			map.put("dg_p1_current", dg_p1_current);
+		if(dg_p1_pf != null)
+			map.put("dg_p1_pf", dg_p1_pf);
+		if(dg_p1_md != null)
+			map.put("dg_p1_md", dg_p1_md);
+		if(dg_p1_tdh != null)
+			map.put("dg_p1_tdh", dg_p1_tdh);
+		if(dg_p1_kvarh != null)
+			map.put("dg_p1_kvarh", dg_p1_kvarh);
+		if(dg_p1_frequency != null)
+			map.put("dg_p1_frequency", dg_p1_frequency);
+		if(dg_p2_reading_kvah != null)
+			map.put("dg_p2_reading_kvah", dg_p2_reading_kvah);
+		if(dg_p2_reading_kwh != null)
+			map.put("dg_p2_reading_kwh", dg_p2_reading_kwh);
+		if(dg_p2_voltage != null)
+			map.put("dg_p2_voltage", dg_p2_voltage);
+		if(dg_p2_current != null)
+			map.put("dg_p2_current", dg_p2_current);
+		if(dg_p2_pf != null)
+			map.put("dg_p2_pf", dg_p2_pf);
+		if(dg_p2_md != null)
+			map.put("dg_p2_md", dg_p2_md);
+		if(dg_p2_tdh != null)
+			map.put("dg_p2_tdh", dg_p2_tdh);
+		if(dg_p2_kvarh != null)
+			map.put("dg_p2_kvarh", dg_p2_kvarh);
+		if(dg_p2_frequency != null)
+			map.put("dg_p2_frequency", dg_p2_frequency);
+		if(dg_p3_reading_kvah != null)
+			map.put("dg_p3_reading_kvah", dg_p3_reading_kvah);
+		if(dg_p3_reading_kwh != null)
+			map.put("dg_p3_reading_kwh", dg_p3_reading_kwh);
+		if(dg_p3_voltage != null)
+			map.put("dg_p3_voltage", dg_p3_voltage);
+		if(dg_p3_current != null)
+			map.put("dg_p3_current", dg_p3_current);
+		if(dg_p3_pf != null)
+			map.put("dg_p3_pf", dg_p3_pf);
+		if(dg_p3_md != null)
+			map.put("dg_p3_md", dg_p3_md);
+		if(dg_p3_tdh != null)
+			map.put("dg_p3_tdh", dg_p3_tdh);
+		if(dg_p3_kvarh != null)
+			map.put("dg_p3_kvarh", dg_p3_kvarh);
+		if(dg_p3_frequency != null)
+			map.put("dg_p3_frequency", dg_p3_frequency);
 		if(temperature != null)
 			map.put("temperature", temperature);
 		if(humidity != null)
@@ -2343,12 +3021,8 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("power", power);
 		if(energy != null)
 			map.put("energy", energy);
-		if(dg_reading_kwh != null)
-			map.put("dg_reading_kwh", dg_reading_kwh);
 		if(grid_reading_kvah != null)
 			map.put("grid_reading_kvah", grid_reading_kvah);
-		if(dg_reading_kvah != null)
-			map.put("dg_reading_kvah", dg_reading_kvah);
 		if(grid_reading_kwh != null)
 			map.put("grid_reading_kwh", grid_reading_kwh);
 		if(grid_voltage != null)
@@ -2365,6 +3039,64 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("grid_kvarh", grid_kvarh);
 		if(grid_frequency != null)
 			map.put("grid_frequency", grid_frequency);
+		if(grid_p1_reading_kvah != null)
+			map.put("grid_p1_reading_kvah", grid_p1_reading_kvah);
+		if(grid_p1_reading_kwh != null)
+			map.put("grid_p1_reading_kwh", grid_p1_reading_kwh);
+		if(grid_p1_voltage != null)
+			map.put("grid_p1_voltage", grid_p1_voltage);
+		if(grid_p1_current != null)
+			map.put("grid_p1_current", grid_p1_current);
+		if(grid_p1_pf != null)
+			map.put("grid_p1_pf", grid_p1_pf);
+		if(grid_p1_md != null)
+			map.put("grid_p1_md", grid_p1_md);
+		if(grid_p1_tdh != null)
+			map.put("grid_p1_tdh", grid_p1_tdh);
+		if(grid_p1_kvarh != null)
+			map.put("grid_p1_kvarh", grid_p1_kvarh);
+		if(grid_p1_frequency != null)
+			map.put("grid_p1_frequency", grid_p1_frequency);
+		if(grid_p2_reading_kvah != null)
+			map.put("grid_p2_reading_kvah", grid_p2_reading_kvah);
+		if(grid_p2_reading_kwh != null)
+			map.put("grid_p2_reading_kwh", grid_p2_reading_kwh);
+		if(grid_p2_voltage != null)
+			map.put("grid_p2_voltage", grid_p2_voltage);
+		if(grid_p2_current != null)
+			map.put("grid_p2_current", grid_p2_current);
+		if(grid_p2_pf != null)
+			map.put("grid_p2_pf", grid_p2_pf);
+		if(grid_p2_md != null)
+			map.put("grid_p2_md", grid_p2_md);
+		if(grid_p2_tdh != null)
+			map.put("grid_p2_tdh", grid_p2_tdh);
+		if(grid_p2_kvarh != null)
+			map.put("grid_p2_kvarh", grid_p2_kvarh);
+		if(grid_p2_frequency != null)
+			map.put("grid_p2_frequency", grid_p2_frequency);
+		if(grid_p3_reading_kvah != null)
+			map.put("grid_p3_reading_kvah", grid_p3_reading_kvah);
+		if(grid_p3_reading_kwh != null)
+			map.put("grid_p3_reading_kwh", grid_p3_reading_kwh);
+		if(grid_p3_voltage != null)
+			map.put("grid_p3_voltage", grid_p3_voltage);
+		if(grid_p3_current != null)
+			map.put("grid_p3_current", grid_p3_current);
+		if(grid_p3_pf != null)
+			map.put("grid_p3_pf", grid_p3_pf);
+		if(grid_p3_md != null)
+			map.put("grid_p3_md", grid_p3_md);
+		if(grid_p3_tdh != null)
+			map.put("grid_p3_tdh", grid_p3_tdh);
+		if(grid_p3_kvarh != null)
+			map.put("grid_p3_kvarh", grid_p3_kvarh);
+		if(grid_p3_frequency != null)
+			map.put("grid_p3_frequency", grid_p3_frequency);
+		if(dg_reading_kwh != null)
+			map.put("dg_reading_kwh", dg_reading_kwh);
+		if(dg_reading_kvah != null)
+			map.put("dg_reading_kvah", dg_reading_kvah);
 		if(dg_voltage != null)
 			map.put("dg_voltage", dg_voltage);
 		if(dg_current != null)
@@ -2379,6 +3111,60 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("dg_kvarh", dg_kvarh);
 		if(dg_frequency != null)
 			map.put("dg_frequency", dg_frequency);
+		if(dg_p1_reading_kvah != null)
+			map.put("dg_p1_reading_kvah", dg_p1_reading_kvah);
+		if(dg_p1_reading_kwh != null)
+			map.put("dg_p1_reading_kwh", dg_p1_reading_kwh);
+		if(dg_p1_voltage != null)
+			map.put("dg_p1_voltage", dg_p1_voltage);
+		if(dg_p1_current != null)
+			map.put("dg_p1_current", dg_p1_current);
+		if(dg_p1_pf != null)
+			map.put("dg_p1_pf", dg_p1_pf);
+		if(dg_p1_md != null)
+			map.put("dg_p1_md", dg_p1_md);
+		if(dg_p1_tdh != null)
+			map.put("dg_p1_tdh", dg_p1_tdh);
+		if(dg_p1_kvarh != null)
+			map.put("dg_p1_kvarh", dg_p1_kvarh);
+		if(dg_p1_frequency != null)
+			map.put("dg_p1_frequency", dg_p1_frequency);
+		if(dg_p2_reading_kvah != null)
+			map.put("dg_p2_reading_kvah", dg_p2_reading_kvah);
+		if(dg_p2_reading_kwh != null)
+			map.put("dg_p2_reading_kwh", dg_p2_reading_kwh);
+		if(dg_p2_voltage != null)
+			map.put("dg_p2_voltage", dg_p2_voltage);
+		if(dg_p2_current != null)
+			map.put("dg_p2_current", dg_p2_current);
+		if(dg_p2_pf != null)
+			map.put("dg_p2_pf", dg_p2_pf);
+		if(dg_p2_md != null)
+			map.put("dg_p2_md", dg_p2_md);
+		if(dg_p2_tdh != null)
+			map.put("dg_p2_tdh", dg_p2_tdh);
+		if(dg_p2_kvarh != null)
+			map.put("dg_p2_kvarh", dg_p2_kvarh);
+		if(dg_p2_frequency != null)
+			map.put("dg_p2_frequency", dg_p2_frequency);
+		if(dg_p3_reading_kvah != null)
+			map.put("dg_p3_reading_kvah", dg_p3_reading_kvah);
+		if(dg_p3_reading_kwh != null)
+			map.put("dg_p3_reading_kwh", dg_p3_reading_kwh);
+		if(dg_p3_voltage != null)
+			map.put("dg_p3_voltage", dg_p3_voltage);
+		if(dg_p3_current != null)
+			map.put("dg_p3_current", dg_p3_current);
+		if(dg_p3_pf != null)
+			map.put("dg_p3_pf", dg_p3_pf);
+		if(dg_p3_md != null)
+			map.put("dg_p3_md", dg_p3_md);
+		if(dg_p3_tdh != null)
+			map.put("dg_p3_tdh", dg_p3_tdh);
+		if(dg_p3_kvarh != null)
+			map.put("dg_p3_kvarh", dg_p3_kvarh);
+		if(dg_p3_frequency != null)
+			map.put("dg_p3_frequency", dg_p3_frequency);
 		if(temperature != null)
 			map.put("temperature", temperature);
 		if(humidity != null)
@@ -2665,9 +3451,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		current = (Integer) map.get("current");
 		power = (Double) map.get("power");
 		energy = (Double) map.get("energy");
-		dg_reading_kwh = (Double) map.get("dg_reading_kwh");
 		grid_reading_kvah = (Double) map.get("grid_reading_kvah");
-		dg_reading_kvah = (Double) map.get("dg_reading_kvah");
 		grid_reading_kwh = (Double) map.get("grid_reading_kwh");
 		grid_voltage = (Integer) map.get("grid_voltage");
 		grid_current = (Integer) map.get("grid_current");
@@ -2676,6 +3460,35 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		grid_tdh = (Double) map.get("grid_tdh");
 		grid_kvarh = (Double) map.get("grid_kvarh");
 		grid_frequency = (Long) map.get("grid_frequency");
+		grid_p1_reading_kvah = (Double) map.get("grid_p1_reading_kvah");
+		grid_p1_reading_kwh = (Double) map.get("grid_p1_reading_kwh");
+		grid_p1_voltage = (Integer) map.get("grid_p1_voltage");
+		grid_p1_current = (Integer) map.get("grid_p1_current");
+		grid_p1_pf = (Double) map.get("grid_p1_pf");
+		grid_p1_md = (Double) map.get("grid_p1_md");
+		grid_p1_tdh = (Double) map.get("grid_p1_tdh");
+		grid_p1_kvarh = (Double) map.get("grid_p1_kvarh");
+		grid_p1_frequency = (Long) map.get("grid_p1_frequency");
+		grid_p2_reading_kvah = (Double) map.get("grid_p2_reading_kvah");
+		grid_p2_reading_kwh = (Double) map.get("grid_p2_reading_kwh");
+		grid_p2_voltage = (Integer) map.get("grid_p2_voltage");
+		grid_p2_current = (Integer) map.get("grid_p2_current");
+		grid_p2_pf = (Double) map.get("grid_p2_pf");
+		grid_p2_md = (Double) map.get("grid_p2_md");
+		grid_p2_tdh = (Double) map.get("grid_p2_tdh");
+		grid_p2_kvarh = (Double) map.get("grid_p2_kvarh");
+		grid_p2_frequency = (Long) map.get("grid_p2_frequency");
+		grid_p3_reading_kvah = (Double) map.get("grid_p3_reading_kvah");
+		grid_p3_reading_kwh = (Double) map.get("grid_p3_reading_kwh");
+		grid_p3_voltage = (Integer) map.get("grid_p3_voltage");
+		grid_p3_current = (Integer) map.get("grid_p3_current");
+		grid_p3_pf = (Double) map.get("grid_p3_pf");
+		grid_p3_md = (Double) map.get("grid_p3_md");
+		grid_p3_tdh = (Double) map.get("grid_p3_tdh");
+		grid_p3_kvarh = (Double) map.get("grid_p3_kvarh");
+		grid_p3_frequency = (Long) map.get("grid_p3_frequency");
+		dg_reading_kwh = (Double) map.get("dg_reading_kwh");
+		dg_reading_kvah = (Double) map.get("dg_reading_kvah");
 		dg_voltage = (Integer) map.get("dg_voltage");
 		dg_current = (Integer) map.get("dg_current");
 		dg_pf = (Double) map.get("dg_pf");
@@ -2683,6 +3496,33 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		dg_tdh = (Double) map.get("dg_tdh");
 		dg_kvarh = (Double) map.get("dg_kvarh");
 		dg_frequency = (Long) map.get("dg_frequency");
+		dg_p1_reading_kvah = (Double) map.get("dg_p1_reading_kvah");
+		dg_p1_reading_kwh = (Double) map.get("dg_p1_reading_kwh");
+		dg_p1_voltage = (Integer) map.get("dg_p1_voltage");
+		dg_p1_current = (Integer) map.get("dg_p1_current");
+		dg_p1_pf = (Double) map.get("dg_p1_pf");
+		dg_p1_md = (Double) map.get("dg_p1_md");
+		dg_p1_tdh = (Double) map.get("dg_p1_tdh");
+		dg_p1_kvarh = (Double) map.get("dg_p1_kvarh");
+		dg_p1_frequency = (Long) map.get("dg_p1_frequency");
+		dg_p2_reading_kvah = (Double) map.get("dg_p2_reading_kvah");
+		dg_p2_reading_kwh = (Double) map.get("dg_p2_reading_kwh");
+		dg_p2_voltage = (Integer) map.get("dg_p2_voltage");
+		dg_p2_current = (Integer) map.get("dg_p2_current");
+		dg_p2_pf = (Double) map.get("dg_p2_pf");
+		dg_p2_md = (Double) map.get("dg_p2_md");
+		dg_p2_tdh = (Double) map.get("dg_p2_tdh");
+		dg_p2_kvarh = (Double) map.get("dg_p2_kvarh");
+		dg_p2_frequency = (Long) map.get("dg_p2_frequency");
+		dg_p3_reading_kvah = (Double) map.get("dg_p3_reading_kvah");
+		dg_p3_reading_kwh = (Double) map.get("dg_p3_reading_kwh");
+		dg_p3_voltage = (Integer) map.get("dg_p3_voltage");
+		dg_p3_current = (Integer) map.get("dg_p3_current");
+		dg_p3_pf = (Double) map.get("dg_p3_pf");
+		dg_p3_md = (Double) map.get("dg_p3_md");
+		dg_p3_tdh = (Double) map.get("dg_p3_tdh");
+		dg_p3_kvarh = (Double) map.get("dg_p3_kvarh");
+		dg_p3_frequency = (Long) map.get("dg_p3_frequency");
 		temperature = (Double) map.get("temperature");
 		humidity = (Double) map.get("humidity");
 		mode = (String) map.get("mode");
@@ -3080,17 +3920,9 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(energyObj != null)
 			energy = new Double(energyObj.toString());
 
-		Object dg_reading_kwhObj = map.get("dg_reading_kwh");
-		if(dg_reading_kwhObj != null)
-			dg_reading_kwh = new Double(dg_reading_kwhObj.toString());
-
 		Object grid_reading_kvahObj = map.get("grid_reading_kvah");
 		if(grid_reading_kvahObj != null)
 			grid_reading_kvah = new Double(grid_reading_kvahObj.toString());
-
-		Object dg_reading_kvahObj = map.get("dg_reading_kvah");
-		if(dg_reading_kvahObj != null)
-			dg_reading_kvah = new Double(dg_reading_kvahObj.toString());
 
 		Object grid_reading_kwhObj = map.get("grid_reading_kwh");
 		if(grid_reading_kwhObj != null)
@@ -3124,6 +3956,122 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(grid_frequencyObj != null)
 			grid_frequency = new Long(grid_frequencyObj.toString());
 
+		Object grid_p1_reading_kvahObj = map.get("grid_p1_reading_kvah");
+		if(grid_p1_reading_kvahObj != null)
+			grid_p1_reading_kvah = new Double(grid_p1_reading_kvahObj.toString());
+
+		Object grid_p1_reading_kwhObj = map.get("grid_p1_reading_kwh");
+		if(grid_p1_reading_kwhObj != null)
+			grid_p1_reading_kwh = new Double(grid_p1_reading_kwhObj.toString());
+
+		Object grid_p1_voltageObj = map.get("grid_p1_voltage");
+		if(grid_p1_voltageObj != null)
+			grid_p1_voltage = new Integer(grid_p1_voltageObj.toString());
+
+		Object grid_p1_currentObj = map.get("grid_p1_current");
+		if(grid_p1_currentObj != null)
+			grid_p1_current = new Integer(grid_p1_currentObj.toString());
+
+		Object grid_p1_pfObj = map.get("grid_p1_pf");
+		if(grid_p1_pfObj != null)
+			grid_p1_pf = new Double(grid_p1_pfObj.toString());
+
+		Object grid_p1_mdObj = map.get("grid_p1_md");
+		if(grid_p1_mdObj != null)
+			grid_p1_md = new Double(grid_p1_mdObj.toString());
+
+		Object grid_p1_tdhObj = map.get("grid_p1_tdh");
+		if(grid_p1_tdhObj != null)
+			grid_p1_tdh = new Double(grid_p1_tdhObj.toString());
+
+		Object grid_p1_kvarhObj = map.get("grid_p1_kvarh");
+		if(grid_p1_kvarhObj != null)
+			grid_p1_kvarh = new Double(grid_p1_kvarhObj.toString());
+
+		Object grid_p1_frequencyObj = map.get("grid_p1_frequency");
+		if(grid_p1_frequencyObj != null)
+			grid_p1_frequency = new Long(grid_p1_frequencyObj.toString());
+
+		Object grid_p2_reading_kvahObj = map.get("grid_p2_reading_kvah");
+		if(grid_p2_reading_kvahObj != null)
+			grid_p2_reading_kvah = new Double(grid_p2_reading_kvahObj.toString());
+
+		Object grid_p2_reading_kwhObj = map.get("grid_p2_reading_kwh");
+		if(grid_p2_reading_kwhObj != null)
+			grid_p2_reading_kwh = new Double(grid_p2_reading_kwhObj.toString());
+
+		Object grid_p2_voltageObj = map.get("grid_p2_voltage");
+		if(grid_p2_voltageObj != null)
+			grid_p2_voltage = new Integer(grid_p2_voltageObj.toString());
+
+		Object grid_p2_currentObj = map.get("grid_p2_current");
+		if(grid_p2_currentObj != null)
+			grid_p2_current = new Integer(grid_p2_currentObj.toString());
+
+		Object grid_p2_pfObj = map.get("grid_p2_pf");
+		if(grid_p2_pfObj != null)
+			grid_p2_pf = new Double(grid_p2_pfObj.toString());
+
+		Object grid_p2_mdObj = map.get("grid_p2_md");
+		if(grid_p2_mdObj != null)
+			grid_p2_md = new Double(grid_p2_mdObj.toString());
+
+		Object grid_p2_tdhObj = map.get("grid_p2_tdh");
+		if(grid_p2_tdhObj != null)
+			grid_p2_tdh = new Double(grid_p2_tdhObj.toString());
+
+		Object grid_p2_kvarhObj = map.get("grid_p2_kvarh");
+		if(grid_p2_kvarhObj != null)
+			grid_p2_kvarh = new Double(grid_p2_kvarhObj.toString());
+
+		Object grid_p2_frequencyObj = map.get("grid_p2_frequency");
+		if(grid_p2_frequencyObj != null)
+			grid_p2_frequency = new Long(grid_p2_frequencyObj.toString());
+
+		Object grid_p3_reading_kvahObj = map.get("grid_p3_reading_kvah");
+		if(grid_p3_reading_kvahObj != null)
+			grid_p3_reading_kvah = new Double(grid_p3_reading_kvahObj.toString());
+
+		Object grid_p3_reading_kwhObj = map.get("grid_p3_reading_kwh");
+		if(grid_p3_reading_kwhObj != null)
+			grid_p3_reading_kwh = new Double(grid_p3_reading_kwhObj.toString());
+
+		Object grid_p3_voltageObj = map.get("grid_p3_voltage");
+		if(grid_p3_voltageObj != null)
+			grid_p3_voltage = new Integer(grid_p3_voltageObj.toString());
+
+		Object grid_p3_currentObj = map.get("grid_p3_current");
+		if(grid_p3_currentObj != null)
+			grid_p3_current = new Integer(grid_p3_currentObj.toString());
+
+		Object grid_p3_pfObj = map.get("grid_p3_pf");
+		if(grid_p3_pfObj != null)
+			grid_p3_pf = new Double(grid_p3_pfObj.toString());
+
+		Object grid_p3_mdObj = map.get("grid_p3_md");
+		if(grid_p3_mdObj != null)
+			grid_p3_md = new Double(grid_p3_mdObj.toString());
+
+		Object grid_p3_tdhObj = map.get("grid_p3_tdh");
+		if(grid_p3_tdhObj != null)
+			grid_p3_tdh = new Double(grid_p3_tdhObj.toString());
+
+		Object grid_p3_kvarhObj = map.get("grid_p3_kvarh");
+		if(grid_p3_kvarhObj != null)
+			grid_p3_kvarh = new Double(grid_p3_kvarhObj.toString());
+
+		Object grid_p3_frequencyObj = map.get("grid_p3_frequency");
+		if(grid_p3_frequencyObj != null)
+			grid_p3_frequency = new Long(grid_p3_frequencyObj.toString());
+
+		Object dg_reading_kwhObj = map.get("dg_reading_kwh");
+		if(dg_reading_kwhObj != null)
+			dg_reading_kwh = new Double(dg_reading_kwhObj.toString());
+
+		Object dg_reading_kvahObj = map.get("dg_reading_kvah");
+		if(dg_reading_kvahObj != null)
+			dg_reading_kvah = new Double(dg_reading_kvahObj.toString());
+
 		Object dg_voltageObj = map.get("dg_voltage");
 		if(dg_voltageObj != null)
 			dg_voltage = new Integer(dg_voltageObj.toString());
@@ -3151,6 +4099,114 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		Object dg_frequencyObj = map.get("dg_frequency");
 		if(dg_frequencyObj != null)
 			dg_frequency = new Long(dg_frequencyObj.toString());
+
+		Object dg_p1_reading_kvahObj = map.get("dg_p1_reading_kvah");
+		if(dg_p1_reading_kvahObj != null)
+			dg_p1_reading_kvah = new Double(dg_p1_reading_kvahObj.toString());
+
+		Object dg_p1_reading_kwhObj = map.get("dg_p1_reading_kwh");
+		if(dg_p1_reading_kwhObj != null)
+			dg_p1_reading_kwh = new Double(dg_p1_reading_kwhObj.toString());
+
+		Object dg_p1_voltageObj = map.get("dg_p1_voltage");
+		if(dg_p1_voltageObj != null)
+			dg_p1_voltage = new Integer(dg_p1_voltageObj.toString());
+
+		Object dg_p1_currentObj = map.get("dg_p1_current");
+		if(dg_p1_currentObj != null)
+			dg_p1_current = new Integer(dg_p1_currentObj.toString());
+
+		Object dg_p1_pfObj = map.get("dg_p1_pf");
+		if(dg_p1_pfObj != null)
+			dg_p1_pf = new Double(dg_p1_pfObj.toString());
+
+		Object dg_p1_mdObj = map.get("dg_p1_md");
+		if(dg_p1_mdObj != null)
+			dg_p1_md = new Double(dg_p1_mdObj.toString());
+
+		Object dg_p1_tdhObj = map.get("dg_p1_tdh");
+		if(dg_p1_tdhObj != null)
+			dg_p1_tdh = new Double(dg_p1_tdhObj.toString());
+
+		Object dg_p1_kvarhObj = map.get("dg_p1_kvarh");
+		if(dg_p1_kvarhObj != null)
+			dg_p1_kvarh = new Double(dg_p1_kvarhObj.toString());
+
+		Object dg_p1_frequencyObj = map.get("dg_p1_frequency");
+		if(dg_p1_frequencyObj != null)
+			dg_p1_frequency = new Long(dg_p1_frequencyObj.toString());
+
+		Object dg_p2_reading_kvahObj = map.get("dg_p2_reading_kvah");
+		if(dg_p2_reading_kvahObj != null)
+			dg_p2_reading_kvah = new Double(dg_p2_reading_kvahObj.toString());
+
+		Object dg_p2_reading_kwhObj = map.get("dg_p2_reading_kwh");
+		if(dg_p2_reading_kwhObj != null)
+			dg_p2_reading_kwh = new Double(dg_p2_reading_kwhObj.toString());
+
+		Object dg_p2_voltageObj = map.get("dg_p2_voltage");
+		if(dg_p2_voltageObj != null)
+			dg_p2_voltage = new Integer(dg_p2_voltageObj.toString());
+
+		Object dg_p2_currentObj = map.get("dg_p2_current");
+		if(dg_p2_currentObj != null)
+			dg_p2_current = new Integer(dg_p2_currentObj.toString());
+
+		Object dg_p2_pfObj = map.get("dg_p2_pf");
+		if(dg_p2_pfObj != null)
+			dg_p2_pf = new Double(dg_p2_pfObj.toString());
+
+		Object dg_p2_mdObj = map.get("dg_p2_md");
+		if(dg_p2_mdObj != null)
+			dg_p2_md = new Double(dg_p2_mdObj.toString());
+
+		Object dg_p2_tdhObj = map.get("dg_p2_tdh");
+		if(dg_p2_tdhObj != null)
+			dg_p2_tdh = new Double(dg_p2_tdhObj.toString());
+
+		Object dg_p2_kvarhObj = map.get("dg_p2_kvarh");
+		if(dg_p2_kvarhObj != null)
+			dg_p2_kvarh = new Double(dg_p2_kvarhObj.toString());
+
+		Object dg_p2_frequencyObj = map.get("dg_p2_frequency");
+		if(dg_p2_frequencyObj != null)
+			dg_p2_frequency = new Long(dg_p2_frequencyObj.toString());
+
+		Object dg_p3_reading_kvahObj = map.get("dg_p3_reading_kvah");
+		if(dg_p3_reading_kvahObj != null)
+			dg_p3_reading_kvah = new Double(dg_p3_reading_kvahObj.toString());
+
+		Object dg_p3_reading_kwhObj = map.get("dg_p3_reading_kwh");
+		if(dg_p3_reading_kwhObj != null)
+			dg_p3_reading_kwh = new Double(dg_p3_reading_kwhObj.toString());
+
+		Object dg_p3_voltageObj = map.get("dg_p3_voltage");
+		if(dg_p3_voltageObj != null)
+			dg_p3_voltage = new Integer(dg_p3_voltageObj.toString());
+
+		Object dg_p3_currentObj = map.get("dg_p3_current");
+		if(dg_p3_currentObj != null)
+			dg_p3_current = new Integer(dg_p3_currentObj.toString());
+
+		Object dg_p3_pfObj = map.get("dg_p3_pf");
+		if(dg_p3_pfObj != null)
+			dg_p3_pf = new Double(dg_p3_pfObj.toString());
+
+		Object dg_p3_mdObj = map.get("dg_p3_md");
+		if(dg_p3_mdObj != null)
+			dg_p3_md = new Double(dg_p3_mdObj.toString());
+
+		Object dg_p3_tdhObj = map.get("dg_p3_tdh");
+		if(dg_p3_tdhObj != null)
+			dg_p3_tdh = new Double(dg_p3_tdhObj.toString());
+
+		Object dg_p3_kvarhObj = map.get("dg_p3_kvarh");
+		if(dg_p3_kvarhObj != null)
+			dg_p3_kvarh = new Double(dg_p3_kvarhObj.toString());
+
+		Object dg_p3_frequencyObj = map.get("dg_p3_frequency");
+		if(dg_p3_frequencyObj != null)
+			dg_p3_frequency = new Long(dg_p3_frequencyObj.toString());
 
 		Object temperatureObj = map.get("temperature");
 		if(temperatureObj != null)
@@ -4662,18 +5718,6 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.energy = 0.0000;
 	}
 
-	public Double getDg_reading_kwh() {
-		return dg_reading_kwh != null ? dg_reading_kwh : 0.0000;
-	}
-
-	public void setDg_reading_kwh(Double dg_reading_kwh) {
-		this.dg_reading_kwh = dg_reading_kwh;
-	}
-
-	public void unSetDg_reading_kwh() {
-		this.dg_reading_kwh = 0.0000;
-	}
-
 	public Double getGrid_reading_kvah() {
 		return grid_reading_kvah != null ? grid_reading_kvah : 0.0000;
 	}
@@ -4684,18 +5728,6 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public void unSetGrid_reading_kvah() {
 		this.grid_reading_kvah = 0.0000;
-	}
-
-	public Double getDg_reading_kvah() {
-		return dg_reading_kvah != null ? dg_reading_kvah : 0.0000;
-	}
-
-	public void setDg_reading_kvah(Double dg_reading_kvah) {
-		this.dg_reading_kvah = dg_reading_kvah;
-	}
-
-	public void unSetDg_reading_kvah() {
-		this.dg_reading_kvah = 0.0000;
 	}
 
 	public Double getGrid_reading_kwh() {
@@ -4822,6 +5854,438 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_frequency = 0L;
 	}
 
+	public Double getGrid_p1_reading_kvah() {
+		return grid_p1_reading_kvah != null ? grid_p1_reading_kvah : 0.0000;
+	}
+
+	public void setGrid_p1_reading_kvah(Double grid_p1_reading_kvah) {
+		this.grid_p1_reading_kvah = grid_p1_reading_kvah;
+	}
+
+	public void unSetGrid_p1_reading_kvah() {
+		this.grid_p1_reading_kvah = 0.0000;
+	}
+
+	public Double getGrid_p1_reading_kwh() {
+		return grid_p1_reading_kwh != null ? grid_p1_reading_kwh : 0.0000;
+	}
+
+	public void setGrid_p1_reading_kwh(Double grid_p1_reading_kwh) {
+		this.grid_p1_reading_kwh = grid_p1_reading_kwh;
+	}
+
+	public void unSetGrid_p1_reading_kwh() {
+		this.grid_p1_reading_kwh = 0.0000;
+	}
+
+	public Integer getGrid_p1_voltage() {
+		return grid_p1_voltage != null ? grid_p1_voltage : 0;
+	}
+
+	public void setGrid_p1_voltage(int grid_p1_voltage) {
+		this.grid_p1_voltage = grid_p1_voltage;
+	}
+
+	public void setGrid_p1_voltage(Integer grid_p1_voltage) {
+		this.grid_p1_voltage = grid_p1_voltage;
+	}
+
+	public void unSetGrid_p1_voltage() {
+		this.grid_p1_voltage = 0;
+	}
+
+	public Integer getGrid_p1_current() {
+		return grid_p1_current != null ? grid_p1_current : 0;
+	}
+
+	public void setGrid_p1_current(int grid_p1_current) {
+		this.grid_p1_current = grid_p1_current;
+	}
+
+	public void setGrid_p1_current(Integer grid_p1_current) {
+		this.grid_p1_current = grid_p1_current;
+	}
+
+	public void unSetGrid_p1_current() {
+		this.grid_p1_current = 0;
+	}
+
+	public Double getGrid_p1_pf() {
+		return grid_p1_pf != null ? grid_p1_pf : 0.0000;
+	}
+
+	public void setGrid_p1_pf(double grid_p1_pf) {
+		this.grid_p1_pf = grid_p1_pf;
+	}
+
+	public void setGrid_p1_pf(Double grid_p1_pf) {
+		this.grid_p1_pf = grid_p1_pf;
+	}
+
+	public void unSetGrid_p1_pf() {
+		this.grid_p1_pf = 0.0000;
+	}
+
+	public Double getGrid_p1_md() {
+		return grid_p1_md != null ? grid_p1_md : 0.0000;
+	}
+
+	public void setGrid_p1_md(double grid_p1_md) {
+		this.grid_p1_md = grid_p1_md;
+	}
+
+	public void setGrid_p1_md(Double grid_p1_md) {
+		this.grid_p1_md = grid_p1_md;
+	}
+
+	public void unSetGrid_p1_md() {
+		this.grid_p1_md = 0.0000;
+	}
+
+	public Double getGrid_p1_tdh() {
+		return grid_p1_tdh != null ? grid_p1_tdh : 0.0000;
+	}
+
+	public void setGrid_p1_tdh(double grid_p1_tdh) {
+		this.grid_p1_tdh = grid_p1_tdh;
+	}
+
+	public void setGrid_p1_tdh(Double grid_p1_tdh) {
+		this.grid_p1_tdh = grid_p1_tdh;
+	}
+
+	public void unSetGrid_p1_tdh() {
+		this.grid_p1_tdh = 0.0000;
+	}
+
+	public Double getGrid_p1_kvarh() {
+		return grid_p1_kvarh != null ? grid_p1_kvarh : 0.0000;
+	}
+
+	public void setGrid_p1_kvarh(double grid_p1_kvarh) {
+		this.grid_p1_kvarh = grid_p1_kvarh;
+	}
+
+	public void setGrid_p1_kvarh(Double grid_p1_kvarh) {
+		this.grid_p1_kvarh = grid_p1_kvarh;
+	}
+
+	public void unSetGrid_p1_kvarh() {
+		this.grid_p1_kvarh = 0.0000;
+	}
+
+	public Long getGrid_p1_frequency() {
+		return grid_p1_frequency != null ? grid_p1_frequency : 0L;
+	}
+
+	public void setGrid_p1_frequency(long grid_p1_frequency) {
+		this.grid_p1_frequency = grid_p1_frequency;
+	}
+
+	public void setGrid_p1_frequency(Long grid_p1_frequency) {
+		this.grid_p1_frequency = grid_p1_frequency;
+	}
+
+	public void unSetGrid_p1_frequency() {
+		this.grid_p1_frequency = 0L;
+	}
+
+	public Double getGrid_p2_reading_kvah() {
+		return grid_p2_reading_kvah != null ? grid_p2_reading_kvah : 0.0000;
+	}
+
+	public void setGrid_p2_reading_kvah(Double grid_p2_reading_kvah) {
+		this.grid_p2_reading_kvah = grid_p2_reading_kvah;
+	}
+
+	public void unSetGrid_p2_reading_kvah() {
+		this.grid_p2_reading_kvah = 0.0000;
+	}
+
+	public Double getGrid_p2_reading_kwh() {
+		return grid_p2_reading_kwh != null ? grid_p2_reading_kwh : 0.0000;
+	}
+
+	public void setGrid_p2_reading_kwh(Double grid_p2_reading_kwh) {
+		this.grid_p2_reading_kwh = grid_p2_reading_kwh;
+	}
+
+	public void unSetGrid_p2_reading_kwh() {
+		this.grid_p2_reading_kwh = 0.0000;
+	}
+
+	public Integer getGrid_p2_voltage() {
+		return grid_p2_voltage != null ? grid_p2_voltage : 0;
+	}
+
+	public void setGrid_p2_voltage(int grid_p2_voltage) {
+		this.grid_p2_voltage = grid_p2_voltage;
+	}
+
+	public void setGrid_p2_voltage(Integer grid_p2_voltage) {
+		this.grid_p2_voltage = grid_p2_voltage;
+	}
+
+	public void unSetGrid_p2_voltage() {
+		this.grid_p2_voltage = 0;
+	}
+
+	public Integer getGrid_p2_current() {
+		return grid_p2_current != null ? grid_p2_current : 0;
+	}
+
+	public void setGrid_p2_current(int grid_p2_current) {
+		this.grid_p2_current = grid_p2_current;
+	}
+
+	public void setGrid_p2_current(Integer grid_p2_current) {
+		this.grid_p2_current = grid_p2_current;
+	}
+
+	public void unSetGrid_p2_current() {
+		this.grid_p2_current = 0;
+	}
+
+	public Double getGrid_p2_pf() {
+		return grid_p2_pf != null ? grid_p2_pf : 0.0000;
+	}
+
+	public void setGrid_p2_pf(double grid_p2_pf) {
+		this.grid_p2_pf = grid_p2_pf;
+	}
+
+	public void setGrid_p2_pf(Double grid_p2_pf) {
+		this.grid_p2_pf = grid_p2_pf;
+	}
+
+	public void unSetGrid_p2_pf() {
+		this.grid_p2_pf = 0.0000;
+	}
+
+	public Double getGrid_p2_md() {
+		return grid_p2_md != null ? grid_p2_md : 0.0000;
+	}
+
+	public void setGrid_p2_md(double grid_p2_md) {
+		this.grid_p2_md = grid_p2_md;
+	}
+
+	public void setGrid_p2_md(Double grid_p2_md) {
+		this.grid_p2_md = grid_p2_md;
+	}
+
+	public void unSetGrid_p2_md() {
+		this.grid_p2_md = 0.0000;
+	}
+
+	public Double getGrid_p2_tdh() {
+		return grid_p2_tdh != null ? grid_p2_tdh : 0.0000;
+	}
+
+	public void setGrid_p2_tdh(double grid_p2_tdh) {
+		this.grid_p2_tdh = grid_p2_tdh;
+	}
+
+	public void setGrid_p2_tdh(Double grid_p2_tdh) {
+		this.grid_p2_tdh = grid_p2_tdh;
+	}
+
+	public void unSetGrid_p2_tdh() {
+		this.grid_p2_tdh = 0.0000;
+	}
+
+	public Double getGrid_p2_kvarh() {
+		return grid_p2_kvarh != null ? grid_p2_kvarh : 0.0000;
+	}
+
+	public void setGrid_p2_kvarh(double grid_p2_kvarh) {
+		this.grid_p2_kvarh = grid_p2_kvarh;
+	}
+
+	public void setGrid_p2_kvarh(Double grid_p2_kvarh) {
+		this.grid_p2_kvarh = grid_p2_kvarh;
+	}
+
+	public void unSetGrid_p2_kvarh() {
+		this.grid_p2_kvarh = 0.0000;
+	}
+
+	public Long getGrid_p2_frequency() {
+		return grid_p2_frequency != null ? grid_p2_frequency : 0L;
+	}
+
+	public void setGrid_p2_frequency(long grid_p2_frequency) {
+		this.grid_p2_frequency = grid_p2_frequency;
+	}
+
+	public void setGrid_p2_frequency(Long grid_p2_frequency) {
+		this.grid_p2_frequency = grid_p2_frequency;
+	}
+
+	public void unSetGrid_p2_frequency() {
+		this.grid_p2_frequency = 0L;
+	}
+
+	public Double getGrid_p3_reading_kvah() {
+		return grid_p3_reading_kvah != null ? grid_p3_reading_kvah : 0.0000;
+	}
+
+	public void setGrid_p3_reading_kvah(Double grid_p3_reading_kvah) {
+		this.grid_p3_reading_kvah = grid_p3_reading_kvah;
+	}
+
+	public void unSetGrid_p3_reading_kvah() {
+		this.grid_p3_reading_kvah = 0.0000;
+	}
+
+	public Double getGrid_p3_reading_kwh() {
+		return grid_p3_reading_kwh != null ? grid_p3_reading_kwh : 0.0000;
+	}
+
+	public void setGrid_p3_reading_kwh(Double grid_p3_reading_kwh) {
+		this.grid_p3_reading_kwh = grid_p3_reading_kwh;
+	}
+
+	public void unSetGrid_p3_reading_kwh() {
+		this.grid_p3_reading_kwh = 0.0000;
+	}
+
+	public Integer getGrid_p3_voltage() {
+		return grid_p3_voltage != null ? grid_p3_voltage : 0;
+	}
+
+	public void setGrid_p3_voltage(int grid_p3_voltage) {
+		this.grid_p3_voltage = grid_p3_voltage;
+	}
+
+	public void setGrid_p3_voltage(Integer grid_p3_voltage) {
+		this.grid_p3_voltage = grid_p3_voltage;
+	}
+
+	public void unSetGrid_p3_voltage() {
+		this.grid_p3_voltage = 0;
+	}
+
+	public Integer getGrid_p3_current() {
+		return grid_p3_current != null ? grid_p3_current : 0;
+	}
+
+	public void setGrid_p3_current(int grid_p3_current) {
+		this.grid_p3_current = grid_p3_current;
+	}
+
+	public void setGrid_p3_current(Integer grid_p3_current) {
+		this.grid_p3_current = grid_p3_current;
+	}
+
+	public void unSetGrid_p3_current() {
+		this.grid_p3_current = 0;
+	}
+
+	public Double getGrid_p3_pf() {
+		return grid_p3_pf != null ? grid_p3_pf : 0.0000;
+	}
+
+	public void setGrid_p3_pf(double grid_p3_pf) {
+		this.grid_p3_pf = grid_p3_pf;
+	}
+
+	public void setGrid_p3_pf(Double grid_p3_pf) {
+		this.grid_p3_pf = grid_p3_pf;
+	}
+
+	public void unSetGrid_p3_pf() {
+		this.grid_p3_pf = 0.0000;
+	}
+
+	public Double getGrid_p3_md() {
+		return grid_p3_md != null ? grid_p3_md : 0.0000;
+	}
+
+	public void setGrid_p3_md(double grid_p3_md) {
+		this.grid_p3_md = grid_p3_md;
+	}
+
+	public void setGrid_p3_md(Double grid_p3_md) {
+		this.grid_p3_md = grid_p3_md;
+	}
+
+	public void unSetGrid_p3_md() {
+		this.grid_p3_md = 0.0000;
+	}
+
+	public Double getGrid_p3_tdh() {
+		return grid_p3_tdh != null ? grid_p3_tdh : 0.0000;
+	}
+
+	public void setGrid_p3_tdh(double grid_p3_tdh) {
+		this.grid_p3_tdh = grid_p3_tdh;
+	}
+
+	public void setGrid_p3_tdh(Double grid_p3_tdh) {
+		this.grid_p3_tdh = grid_p3_tdh;
+	}
+
+	public void unSetGrid_p3_tdh() {
+		this.grid_p3_tdh = 0.0000;
+	}
+
+	public Double getGrid_p3_kvarh() {
+		return grid_p3_kvarh != null ? grid_p3_kvarh : 0.0000;
+	}
+
+	public void setGrid_p3_kvarh(double grid_p3_kvarh) {
+		this.grid_p3_kvarh = grid_p3_kvarh;
+	}
+
+	public void setGrid_p3_kvarh(Double grid_p3_kvarh) {
+		this.grid_p3_kvarh = grid_p3_kvarh;
+	}
+
+	public void unSetGrid_p3_kvarh() {
+		this.grid_p3_kvarh = 0.0000;
+	}
+
+	public Long getGrid_p3_frequency() {
+		return grid_p3_frequency != null ? grid_p3_frequency : 0L;
+	}
+
+	public void setGrid_p3_frequency(long grid_p3_frequency) {
+		this.grid_p3_frequency = grid_p3_frequency;
+	}
+
+	public void setGrid_p3_frequency(Long grid_p3_frequency) {
+		this.grid_p3_frequency = grid_p3_frequency;
+	}
+
+	public void unSetGrid_p3_frequency() {
+		this.grid_p3_frequency = 0L;
+	}
+
+	public Double getDg_reading_kwh() {
+		return dg_reading_kwh != null ? dg_reading_kwh : 0.0000;
+	}
+
+	public void setDg_reading_kwh(Double dg_reading_kwh) {
+		this.dg_reading_kwh = dg_reading_kwh;
+	}
+
+	public void unSetDg_reading_kwh() {
+		this.dg_reading_kwh = 0.0000;
+	}
+
+	public Double getDg_reading_kvah() {
+		return dg_reading_kvah != null ? dg_reading_kvah : 0.0000;
+	}
+
+	public void setDg_reading_kvah(Double dg_reading_kvah) {
+		this.dg_reading_kvah = dg_reading_kvah;
+	}
+
+	public void unSetDg_reading_kvah() {
+		this.dg_reading_kvah = 0.0000;
+	}
+
 	public Integer getDg_voltage() {
 		return dg_voltage != null ? dg_voltage : 0;
 	}
@@ -4932,6 +6396,414 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public void unSetDg_frequency() {
 		this.dg_frequency = 0L;
+	}
+
+	public Double getDg_p1_reading_kvah() {
+		return dg_p1_reading_kvah != null ? dg_p1_reading_kvah : 0.0000;
+	}
+
+	public void setDg_p1_reading_kvah(Double dg_p1_reading_kvah) {
+		this.dg_p1_reading_kvah = dg_p1_reading_kvah;
+	}
+
+	public void unSetDg_p1_reading_kvah() {
+		this.dg_p1_reading_kvah = 0.0000;
+	}
+
+	public Double getDg_p1_reading_kwh() {
+		return dg_p1_reading_kwh != null ? dg_p1_reading_kwh : 0.0000;
+	}
+
+	public void setDg_p1_reading_kwh(Double dg_p1_reading_kwh) {
+		this.dg_p1_reading_kwh = dg_p1_reading_kwh;
+	}
+
+	public void unSetDg_p1_reading_kwh() {
+		this.dg_p1_reading_kwh = 0.0000;
+	}
+
+	public Integer getDg_p1_voltage() {
+		return dg_p1_voltage != null ? dg_p1_voltage : 0;
+	}
+
+	public void setDg_p1_voltage(int dg_p1_voltage) {
+		this.dg_p1_voltage = dg_p1_voltage;
+	}
+
+	public void setDg_p1_voltage(Integer dg_p1_voltage) {
+		this.dg_p1_voltage = dg_p1_voltage;
+	}
+
+	public void unSetDg_p1_voltage() {
+		this.dg_p1_voltage = 0;
+	}
+
+	public Integer getDg_p1_current() {
+		return dg_p1_current != null ? dg_p1_current : 0;
+	}
+
+	public void setDg_p1_current(int dg_p1_current) {
+		this.dg_p1_current = dg_p1_current;
+	}
+
+	public void setDg_p1_current(Integer dg_p1_current) {
+		this.dg_p1_current = dg_p1_current;
+	}
+
+	public void unSetDg_p1_current() {
+		this.dg_p1_current = 0;
+	}
+
+	public Double getDg_p1_pf() {
+		return dg_p1_pf != null ? dg_p1_pf : 0.0000;
+	}
+
+	public void setDg_p1_pf(double dg_p1_pf) {
+		this.dg_p1_pf = dg_p1_pf;
+	}
+
+	public void setDg_p1_pf(Double dg_p1_pf) {
+		this.dg_p1_pf = dg_p1_pf;
+	}
+
+	public void unSetDg_p1_pf() {
+		this.dg_p1_pf = 0.0000;
+	}
+
+	public Double getDg_p1_md() {
+		return dg_p1_md != null ? dg_p1_md : 0.0000;
+	}
+
+	public void setDg_p1_md(double dg_p1_md) {
+		this.dg_p1_md = dg_p1_md;
+	}
+
+	public void setDg_p1_md(Double dg_p1_md) {
+		this.dg_p1_md = dg_p1_md;
+	}
+
+	public void unSetDg_p1_md() {
+		this.dg_p1_md = 0.0000;
+	}
+
+	public Double getDg_p1_tdh() {
+		return dg_p1_tdh != null ? dg_p1_tdh : 0.0000;
+	}
+
+	public void setDg_p1_tdh(double dg_p1_tdh) {
+		this.dg_p1_tdh = dg_p1_tdh;
+	}
+
+	public void setDg_p1_tdh(Double dg_p1_tdh) {
+		this.dg_p1_tdh = dg_p1_tdh;
+	}
+
+	public void unSetDg_p1_tdh() {
+		this.dg_p1_tdh = 0.0000;
+	}
+
+	public Double getDg_p1_kvarh() {
+		return dg_p1_kvarh != null ? dg_p1_kvarh : 0.0000;
+	}
+
+	public void setDg_p1_kvarh(double dg_p1_kvarh) {
+		this.dg_p1_kvarh = dg_p1_kvarh;
+	}
+
+	public void setDg_p1_kvarh(Double dg_p1_kvarh) {
+		this.dg_p1_kvarh = dg_p1_kvarh;
+	}
+
+	public void unSetDg_p1_kvarh() {
+		this.dg_p1_kvarh = 0.0000;
+	}
+
+	public Long getDg_p1_frequency() {
+		return dg_p1_frequency != null ? dg_p1_frequency : 0L;
+	}
+
+	public void setDg_p1_frequency(long dg_p1_frequency) {
+		this.dg_p1_frequency = dg_p1_frequency;
+	}
+
+	public void setDg_p1_frequency(Long dg_p1_frequency) {
+		this.dg_p1_frequency = dg_p1_frequency;
+	}
+
+	public void unSetDg_p1_frequency() {
+		this.dg_p1_frequency = 0L;
+	}
+
+	public Double getDg_p2_reading_kvah() {
+		return dg_p2_reading_kvah != null ? dg_p2_reading_kvah : 0.0000;
+	}
+
+	public void setDg_p2_reading_kvah(Double dg_p2_reading_kvah) {
+		this.dg_p2_reading_kvah = dg_p2_reading_kvah;
+	}
+
+	public void unSetDg_p2_reading_kvah() {
+		this.dg_p2_reading_kvah = 0.0000;
+	}
+
+	public Double getDg_p2_reading_kwh() {
+		return dg_p2_reading_kwh != null ? dg_p2_reading_kwh : 0.0000;
+	}
+
+	public void setDg_p2_reading_kwh(Double dg_p2_reading_kwh) {
+		this.dg_p2_reading_kwh = dg_p2_reading_kwh;
+	}
+
+	public void unSetDg_p2_reading_kwh() {
+		this.dg_p2_reading_kwh = 0.0000;
+	}
+
+	public Integer getDg_p2_voltage() {
+		return dg_p2_voltage != null ? dg_p2_voltage : 0;
+	}
+
+	public void setDg_p2_voltage(int dg_p2_voltage) {
+		this.dg_p2_voltage = dg_p2_voltage;
+	}
+
+	public void setDg_p2_voltage(Integer dg_p2_voltage) {
+		this.dg_p2_voltage = dg_p2_voltage;
+	}
+
+	public void unSetDg_p2_voltage() {
+		this.dg_p2_voltage = 0;
+	}
+
+	public Integer getDg_p2_current() {
+		return dg_p2_current != null ? dg_p2_current : 0;
+	}
+
+	public void setDg_p2_current(int dg_p2_current) {
+		this.dg_p2_current = dg_p2_current;
+	}
+
+	public void setDg_p2_current(Integer dg_p2_current) {
+		this.dg_p2_current = dg_p2_current;
+	}
+
+	public void unSetDg_p2_current() {
+		this.dg_p2_current = 0;
+	}
+
+	public Double getDg_p2_pf() {
+		return dg_p2_pf != null ? dg_p2_pf : 0.0000;
+	}
+
+	public void setDg_p2_pf(double dg_p2_pf) {
+		this.dg_p2_pf = dg_p2_pf;
+	}
+
+	public void setDg_p2_pf(Double dg_p2_pf) {
+		this.dg_p2_pf = dg_p2_pf;
+	}
+
+	public void unSetDg_p2_pf() {
+		this.dg_p2_pf = 0.0000;
+	}
+
+	public Double getDg_p2_md() {
+		return dg_p2_md != null ? dg_p2_md : 0.0000;
+	}
+
+	public void setDg_p2_md(double dg_p2_md) {
+		this.dg_p2_md = dg_p2_md;
+	}
+
+	public void setDg_p2_md(Double dg_p2_md) {
+		this.dg_p2_md = dg_p2_md;
+	}
+
+	public void unSetDg_p2_md() {
+		this.dg_p2_md = 0.0000;
+	}
+
+	public Double getDg_p2_tdh() {
+		return dg_p2_tdh != null ? dg_p2_tdh : 0.0000;
+	}
+
+	public void setDg_p2_tdh(double dg_p2_tdh) {
+		this.dg_p2_tdh = dg_p2_tdh;
+	}
+
+	public void setDg_p2_tdh(Double dg_p2_tdh) {
+		this.dg_p2_tdh = dg_p2_tdh;
+	}
+
+	public void unSetDg_p2_tdh() {
+		this.dg_p2_tdh = 0.0000;
+	}
+
+	public Double getDg_p2_kvarh() {
+		return dg_p2_kvarh != null ? dg_p2_kvarh : 0.0000;
+	}
+
+	public void setDg_p2_kvarh(double dg_p2_kvarh) {
+		this.dg_p2_kvarh = dg_p2_kvarh;
+	}
+
+	public void setDg_p2_kvarh(Double dg_p2_kvarh) {
+		this.dg_p2_kvarh = dg_p2_kvarh;
+	}
+
+	public void unSetDg_p2_kvarh() {
+		this.dg_p2_kvarh = 0.0000;
+	}
+
+	public Long getDg_p2_frequency() {
+		return dg_p2_frequency != null ? dg_p2_frequency : 0L;
+	}
+
+	public void setDg_p2_frequency(long dg_p2_frequency) {
+		this.dg_p2_frequency = dg_p2_frequency;
+	}
+
+	public void setDg_p2_frequency(Long dg_p2_frequency) {
+		this.dg_p2_frequency = dg_p2_frequency;
+	}
+
+	public void unSetDg_p2_frequency() {
+		this.dg_p2_frequency = 0L;
+	}
+
+	public Double getDg_p3_reading_kvah() {
+		return dg_p3_reading_kvah != null ? dg_p3_reading_kvah : 0.0000;
+	}
+
+	public void setDg_p3_reading_kvah(Double dg_p3_reading_kvah) {
+		this.dg_p3_reading_kvah = dg_p3_reading_kvah;
+	}
+
+	public void unSetDg_p3_reading_kvah() {
+		this.dg_p3_reading_kvah = 0.0000;
+	}
+
+	public Double getDg_p3_reading_kwh() {
+		return dg_p3_reading_kwh != null ? dg_p3_reading_kwh : 0.0000;
+	}
+
+	public void setDg_p3_reading_kwh(Double dg_p3_reading_kwh) {
+		this.dg_p3_reading_kwh = dg_p3_reading_kwh;
+	}
+
+	public void unSetDg_p3_reading_kwh() {
+		this.dg_p3_reading_kwh = 0.0000;
+	}
+
+	public Integer getDg_p3_voltage() {
+		return dg_p3_voltage != null ? dg_p3_voltage : 0;
+	}
+
+	public void setDg_p3_voltage(int dg_p3_voltage) {
+		this.dg_p3_voltage = dg_p3_voltage;
+	}
+
+	public void setDg_p3_voltage(Integer dg_p3_voltage) {
+		this.dg_p3_voltage = dg_p3_voltage;
+	}
+
+	public void unSetDg_p3_voltage() {
+		this.dg_p3_voltage = 0;
+	}
+
+	public Integer getDg_p3_current() {
+		return dg_p3_current != null ? dg_p3_current : 0;
+	}
+
+	public void setDg_p3_current(int dg_p3_current) {
+		this.dg_p3_current = dg_p3_current;
+	}
+
+	public void setDg_p3_current(Integer dg_p3_current) {
+		this.dg_p3_current = dg_p3_current;
+	}
+
+	public void unSetDg_p3_current() {
+		this.dg_p3_current = 0;
+	}
+
+	public Double getDg_p3_pf() {
+		return dg_p3_pf != null ? dg_p3_pf : 0.0000;
+	}
+
+	public void setDg_p3_pf(double dg_p3_pf) {
+		this.dg_p3_pf = dg_p3_pf;
+	}
+
+	public void setDg_p3_pf(Double dg_p3_pf) {
+		this.dg_p3_pf = dg_p3_pf;
+	}
+
+	public void unSetDg_p3_pf() {
+		this.dg_p3_pf = 0.0000;
+	}
+
+	public Double getDg_p3_md() {
+		return dg_p3_md != null ? dg_p3_md : 0.0000;
+	}
+
+	public void setDg_p3_md(double dg_p3_md) {
+		this.dg_p3_md = dg_p3_md;
+	}
+
+	public void setDg_p3_md(Double dg_p3_md) {
+		this.dg_p3_md = dg_p3_md;
+	}
+
+	public void unSetDg_p3_md() {
+		this.dg_p3_md = 0.0000;
+	}
+
+	public Double getDg_p3_tdh() {
+		return dg_p3_tdh != null ? dg_p3_tdh : 0.0000;
+	}
+
+	public void setDg_p3_tdh(double dg_p3_tdh) {
+		this.dg_p3_tdh = dg_p3_tdh;
+	}
+
+	public void setDg_p3_tdh(Double dg_p3_tdh) {
+		this.dg_p3_tdh = dg_p3_tdh;
+	}
+
+	public void unSetDg_p3_tdh() {
+		this.dg_p3_tdh = 0.0000;
+	}
+
+	public Double getDg_p3_kvarh() {
+		return dg_p3_kvarh != null ? dg_p3_kvarh : 0.0000;
+	}
+
+	public void setDg_p3_kvarh(double dg_p3_kvarh) {
+		this.dg_p3_kvarh = dg_p3_kvarh;
+	}
+
+	public void setDg_p3_kvarh(Double dg_p3_kvarh) {
+		this.dg_p3_kvarh = dg_p3_kvarh;
+	}
+
+	public void unSetDg_p3_kvarh() {
+		this.dg_p3_kvarh = 0.0000;
+	}
+
+	public Long getDg_p3_frequency() {
+		return dg_p3_frequency != null ? dg_p3_frequency : 0L;
+	}
+
+	public void setDg_p3_frequency(long dg_p3_frequency) {
+		this.dg_p3_frequency = dg_p3_frequency;
+	}
+
+	public void setDg_p3_frequency(Long dg_p3_frequency) {
+		this.dg_p3_frequency = dg_p3_frequency;
+	}
+
+	public void unSetDg_p3_frequency() {
+		this.dg_p3_frequency = 0L;
 	}
 
 	public Double getTemperature() {
