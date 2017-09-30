@@ -26,6 +26,10 @@
 			{
 				'type':'long'
 			},
+			'kvarh':
+			{
+				'type':'long'
+			},
 			'pf':
 			{
 				'type':'long'
@@ -42,10 +46,15 @@
 			{
 				'type':'long'
 			},
-			'hr':
+			'tdh':
+			{
+				'type':'long'
+			},
+			'frequency':
 			{
 				'type':'long'
 			}
+
 		}
 	}
 }
