@@ -329,7 +329,13 @@
 				'default': '0',
 				'length': 5,
 				'type': 'int'
+			},
+			'customer_id': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
 			}
+
 		}
 	}
 }
