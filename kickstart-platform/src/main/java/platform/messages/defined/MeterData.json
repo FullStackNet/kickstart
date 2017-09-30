@@ -18,6 +18,11 @@
 			{
 				'type':'long'
 			},
+			'data_type':
+			{
+				'type':'String',
+				'comment' : "ALL,COMMULATIVE,P1,P2,P3"
+			},
 			'kwh':
 			{
 				'type':'long'
@@ -53,8 +58,151 @@
 			'frequency':
 			{
 				'type':'long'
+			},
+			'kwh':
+			{
+				'type':'long'
+			},
+			'kvah':
+			{
+				'type':'long'
+			},
+			'kvarh':
+			{
+				'type':'long'
+			},
+			'pf':
+			{
+				'type':'long'
+			},
+			'voltage':
+			{
+				'type':'long'
+			},
+			'current':
+			{
+				'type':'long'
+			},
+			'md':
+			{
+				'type':'long'
+			},
+			'tdh':
+			{
+				'type':'long'
+			},
+			'frequency':
+			{
+				'type':'long'
+			},
+			'p1_kwh':
+			{
+				'type':'long'
+			},
+			'p1_kvah':
+			{
+				'type':'long'
+			},
+			'p1_kvarh':
+			{
+				'type':'long'
+			},
+			'p1_pf':
+			{
+				'type':'long'
+			},
+			'p1_voltage':
+			{
+				'type':'long'
+			},
+			'p1_current':
+			{
+				'type':'long'
+			},
+			'p1_md':
+			{
+				'type':'long'
+			},
+			'p1_tdh':
+			{
+				'type':'long'
+			},
+			'p1_frequency':
+			{
+				'type':'long'
+			},
+			'p2_kwh':
+			{
+				'type':'long'
+			},
+			'p2_kvah':
+			{
+				'type':'long'
+			},
+			'p2_kvarh':
+			{
+				'type':'long'
+			},
+			'p2_pf':
+			{
+				'type':'long'
+			},
+			'p2_voltage':
+			{
+				'type':'long'
+			},
+			'p2_current':
+			{
+				'type':'long'
+			},
+			'p2_md':
+			{
+				'type':'long'
+			},
+			'p2_tdh':
+			{
+				'type':'long'
+			},
+			'p2_frequency':
+			{
+				'type':'long'
+			},
+			'p3_kwh':
+			{
+				'type':'long'
+			},
+			'p3_kvah':
+			{
+				'type':'long'
+			},
+			'p3_kvarh':
+			{
+				'type':'long'
+			},
+			'p3_pf':
+			{
+				'type':'long'
+			},
+			'p3_voltage':
+			{
+				'type':'long'
+			},
+			'p3_current':
+			{
+				'type':'long'
+			},
+			'p3_md':
+			{
+				'type':'long'
+			},
+			'p3_tdh':
+			{
+				'type':'long'
+			},
+			'p3_frequency':
+			{
+				'type':'long'
 			}
-
 		}
 	}
 }
