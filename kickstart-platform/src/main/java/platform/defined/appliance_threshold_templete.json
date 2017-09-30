@@ -1,0 +1,335 @@
+{
+	"appliance_threshold_templete" : {
+		"cluster": "DB_DEVICE",
+		"fields": {
+			'id': {
+				'name': 'id',
+				'length': 128,
+				'required': true,
+				'type': 'String'
+			},
+			'name': {
+				'name': 'name',
+				'length': 128,
+				'type': 'String'
+			},
+			'type': {
+				'name': 'name',
+				'length': 128,
+				'type': 'String'
+			},
+			'grid_min_voltage': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'grid_mx_voltage': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'grid_voltage_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_voltage_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_voltage_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_voltage_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'grid_min_current': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'grid_max_current': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'grid_current_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_current_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_current_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_current_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'grid_min_pf': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'grid_max_pf': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'grid_pf_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_pf_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_pf_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_pf_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'grid_min_md': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'grid_max_md': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'grid_md_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_md_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_md_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_md_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'grid_min_tdh': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'grid_max_tdh': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'grid_tdh_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_tdh_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_tdh_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_tdh_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_min_voltage': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_mx_voltage': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_voltage_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_voltage_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_voltage_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_voltage_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_min_current': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_max_current': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_current_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_current_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_current_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_current_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_min_pf': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'dg_max_pf': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'dg_pf_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_pf_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_pf_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_pf_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_min_md': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'dg_max_md': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'dg_md_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_md_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_md_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_md_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_min_tdh': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'dg_max_tdh': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'dg_tdh_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_tdh_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_tdh_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_tdh_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			}
+		}
+	}
+}

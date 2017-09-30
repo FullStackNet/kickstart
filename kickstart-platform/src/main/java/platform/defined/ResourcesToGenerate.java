@@ -23,6 +23,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("activity", "platform.resource.activity"),
 		new ResourceMap("alert", "platform.resource.alert"),
 		new ResourceMap("appliance_simulator", "platform.resource.appliance_simulator"),
+		new ResourceMap("appliance_threshold_templete", "platform.resource.appliance_threshold_templete"),
 		new ResourceMap("appliance", "platform.resource.appliance"),
 		new ResourceMap("appliance_make", "platform.resource.appliance_make"),
 		new ResourceMap("appliance_model", "platform.resource.appliance_model"),
