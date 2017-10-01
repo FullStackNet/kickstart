@@ -1123,6 +1123,15 @@ public class BaseHelper {
 		return getByExpression(e, new String[]{"name"});
 	}
 
+	public BaseResource[] getByCustomerId(Expression e, String customerId) {
+		return getByCustomerId(e,customerId,new String[]{"name"});
+	}
+	public BaseResource[] getByCustomerId(Expression e, String customerId,String[] order) {
+		Expression e1 = new Expression("customer_id", REL_OP.EQ, customerId);
+		Expression e2 = new Expression(e1, LOG_OP.AND, e);
+		return getByExpression(e2, order);
+	}
+
 	public BaseResource[] getByCustomerId(String customerId,String[] orderby) {
 		Expression e = new Expression("customer_id", REL_OP.EQ, customerId);
 		return getByExpression(e, orderby);
