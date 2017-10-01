@@ -268,6 +268,10 @@ public abstract class Baseappliance extends BaseResource {
 	private String current_route_schedule = null;
 	private String last_stopage_name = null;
 	private Long last_stopage_reached_time = null;
+	private Long critical_alerts = null;
+	private Long major_alerts = null;
+	private Long wanring_alerts = null;
+	private Long minor_alerts = null;
 	private Double cost = null;
 	private String cost_unit = null;
 	private Map<String, Object> extra_data = null;
@@ -521,6 +525,10 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_CURRENT_ROUTE_SCHEDULE = "current_route_schedule";
 	public static String FIELD_LAST_STOPAGE_NAME = "last_stopage_name";
 	public static String FIELD_LAST_STOPAGE_REACHED_TIME = "last_stopage_reached_time";
+	public static String FIELD_CRITICAL_ALERTS = "critical_alerts";
+	public static String FIELD_MAJOR_ALERTS = "major_alerts";
+	public static String FIELD_WANRING_ALERTS = "wanring_alerts";
+	public static String FIELD_MINOR_ALERTS = "minor_alerts";
 	public static String FIELD_COST = "cost";
 	public static String FIELD_COST_UNIT = "cost_unit";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -1749,6 +1757,22 @@ public abstract class Baseappliance extends BaseResource {
 		lastServiceField.setLength(28);
 		metaData.addField(lastServiceField);
 
+		Field critical_alertsField = new Field("critical_alerts", "long");
+		critical_alertsField.setDefaultValue(0L);
+		metaData.addField(critical_alertsField);
+
+		Field major_alertsField = new Field("major_alerts", "long");
+		major_alertsField.setDefaultValue(0L);
+		metaData.addField(major_alertsField);
+
+		Field wanring_alertsField = new Field("wanring_alerts", "long");
+		wanring_alertsField.setDefaultValue(0L);
+		metaData.addField(wanring_alertsField);
+
+		Field minor_alertsField = new Field("minor_alerts", "long");
+		minor_alertsField.setDefaultValue(0L);
+		metaData.addField(minor_alertsField);
+
 		Field costField = new Field("cost", "double");
 		metaData.addField(costField);
 
@@ -2018,6 +2042,10 @@ public abstract class Baseappliance extends BaseResource {
 		this.current_route_schedule = obj.current_route_schedule;
 		this.last_stopage_name = obj.last_stopage_name;
 		this.last_stopage_reached_time = obj.last_stopage_reached_time;
+		this.critical_alerts = obj.critical_alerts;
+		this.major_alerts = obj.major_alerts;
+		this.wanring_alerts = obj.wanring_alerts;
+		this.minor_alerts = obj.minor_alerts;
 		this.cost = obj.cost;
 		this.cost_unit = obj.cost_unit;
 		this.extra_data = obj.extra_data;
@@ -2380,6 +2408,14 @@ public abstract class Baseappliance extends BaseResource {
 			featureEngineMonitoring = "N";
 		if(featureTracking == null)
 			featureTracking = "N";
+		if(critical_alerts == null)
+			critical_alerts = 0L;
+		if(major_alerts == null)
+			major_alerts = 0L;
+		if(wanring_alerts == null)
+			wanring_alerts = 0L;
+		if(minor_alerts == null)
+			minor_alerts = 0L;
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -2882,6 +2918,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("last_stopage_name", last_stopage_name);
 		if(last_stopage_reached_time != null)
 			map.put("last_stopage_reached_time", last_stopage_reached_time);
+		if(critical_alerts != null)
+			map.put("critical_alerts", critical_alerts);
+		if(major_alerts != null)
+			map.put("major_alerts", major_alerts);
+		if(wanring_alerts != null)
+			map.put("wanring_alerts", wanring_alerts);
+		if(minor_alerts != null)
+			map.put("minor_alerts", minor_alerts);
 		if(cost != null)
 			map.put("cost", cost);
 		if(cost_unit != null)
@@ -3394,6 +3438,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("last_stopage_name", last_stopage_name);
 		if(last_stopage_reached_time != null)
 			map.put("last_stopage_reached_time", last_stopage_reached_time);
+		if(critical_alerts != null)
+			map.put("critical_alerts", critical_alerts);
+		if(major_alerts != null)
+			map.put("major_alerts", major_alerts);
+		if(wanring_alerts != null)
+			map.put("wanring_alerts", wanring_alerts);
+		if(minor_alerts != null)
+			map.put("minor_alerts", minor_alerts);
 		if(cost != null)
 			map.put("cost", cost);
 		if(cost_unit != null)
@@ -3653,6 +3705,10 @@ public abstract class Baseappliance extends BaseResource {
 		pollutionCertificateExpiry = (String) map.get("pollutionCertificateExpiry");
 		vehicleFitnessExpiry = (String) map.get("vehicleFitnessExpiry");
 		lastService = (String) map.get("lastService");
+		critical_alerts = (Long) map.get("critical_alerts");
+		major_alerts = (Long) map.get("major_alerts");
+		wanring_alerts = (Long) map.get("wanring_alerts");
+		minor_alerts = (Long) map.get("minor_alerts");
 		cost = (Double) map.get("cost");
 		cost_unit = (String) map.get("cost_unit");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -4631,6 +4687,22 @@ public abstract class Baseappliance extends BaseResource {
 		Object lastServiceObj = map.get("lastService");
 		if(lastServiceObj != null)
 			lastService = lastServiceObj.toString();
+
+		Object critical_alertsObj = map.get("critical_alerts");
+		if(critical_alertsObj != null)
+			critical_alerts = new Long(critical_alertsObj.toString());
+
+		Object major_alertsObj = map.get("major_alerts");
+		if(major_alertsObj != null)
+			major_alerts = new Long(major_alertsObj.toString());
+
+		Object wanring_alertsObj = map.get("wanring_alerts");
+		if(wanring_alertsObj != null)
+			wanring_alerts = new Long(wanring_alertsObj.toString());
+
+		Object minor_alertsObj = map.get("minor_alerts");
+		if(minor_alertsObj != null)
+			minor_alerts = new Long(minor_alertsObj.toString());
 
 		Object costObj = map.get("cost");
 		if(costObj != null)
@@ -8178,6 +8250,70 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetLast_stopage_reached_time() {
 		this.last_stopage_reached_time = null;
+	}
+
+	public Long getCritical_alerts() {
+		return critical_alerts != null ? critical_alerts : 0L;
+	}
+
+	public void setCritical_alerts(long critical_alerts) {
+		this.critical_alerts = critical_alerts;
+	}
+
+	public void setCritical_alerts(Long critical_alerts) {
+		this.critical_alerts = critical_alerts;
+	}
+
+	public void unSetCritical_alerts() {
+		this.critical_alerts = 0L;
+	}
+
+	public Long getMajor_alerts() {
+		return major_alerts != null ? major_alerts : 0L;
+	}
+
+	public void setMajor_alerts(long major_alerts) {
+		this.major_alerts = major_alerts;
+	}
+
+	public void setMajor_alerts(Long major_alerts) {
+		this.major_alerts = major_alerts;
+	}
+
+	public void unSetMajor_alerts() {
+		this.major_alerts = 0L;
+	}
+
+	public Long getWanring_alerts() {
+		return wanring_alerts != null ? wanring_alerts : 0L;
+	}
+
+	public void setWanring_alerts(long wanring_alerts) {
+		this.wanring_alerts = wanring_alerts;
+	}
+
+	public void setWanring_alerts(Long wanring_alerts) {
+		this.wanring_alerts = wanring_alerts;
+	}
+
+	public void unSetWanring_alerts() {
+		this.wanring_alerts = 0L;
+	}
+
+	public Long getMinor_alerts() {
+		return minor_alerts != null ? minor_alerts : 0L;
+	}
+
+	public void setMinor_alerts(long minor_alerts) {
+		this.minor_alerts = minor_alerts;
+	}
+
+	public void setMinor_alerts(Long minor_alerts) {
+		this.minor_alerts = minor_alerts;
+	}
+
+	public void unSetMinor_alerts() {
+		this.minor_alerts = 0L;
 	}
 
 	public Double getCost() {

@@ -206,4 +206,12 @@ public class AlertHelper extends BaseHelper {
 		}
 		EventManager.getInstance().triggerEvent(this, new AlertAddedEvent(_alert.getId()));
 	}
+
+
+	public BaseResource[] getAlertByDeviceId(String id) {
+		Expression e1 = new Expression(alert.FIELD_DEVICE_ID, REL_OP.EQ,id);
+		Expression e2 = new Expression(alert.FIELD_CLEARED, REL_OP.EQ,"N");
+		Expression e = new Expression(e1, LOG_OP.AND,e2);
+		return getByExpression(e,new String[]{alert.FIELD_ALERT_TIME+" desc"});
+	}
 }

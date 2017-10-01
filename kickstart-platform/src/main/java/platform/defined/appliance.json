@@ -1653,7 +1653,22 @@
 				 transient : true,
 				'type': 'long'
 			},
-
+			critical_alerts : {
+				'type': 'long',
+				'default' : 0
+			},
+			major_alerts : {
+				'type': 'long',
+				'default' : 0
+			},
+			wanring_alerts : {
+				'type': 'long',
+				'default' : 0
+			},
+			minor_alerts : {
+				'type': 'long',
+				'default' : 0
+			},
 			cost : {
 				'type': 'double'
 			},
