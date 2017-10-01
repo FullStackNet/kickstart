@@ -223,7 +223,7 @@
 				'length': 1,
 				'type': 'int'
 			},
-			'grid_td_alert_clear_mode': {
+			'grid_tdh_alert_clear_mode': {
 				'default': 'AUTO',
 				'length': 10,
 				'type': 'String',

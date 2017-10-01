@@ -31,9 +31,19 @@ public class AlertFactory {
 	public static String ALERT_LOW_FUEL = "LOW_FUEL";
 	public static String ALERT_LOW_FUEL_NORMAL = "LOW_FUEL_NORMAL";
 	public static String ALERT_HIGH_CANOPY_TEMPERATURE = "HIGH_CANOPY_TEMPERATURE";
-	public static String ALERT_NORMAL_CANOPY_TEMPERATURE = "NORMAL_CANOPY_TEMPERATURE";	
+	public static String ALERT_NORMAL_CANOPY_TEMPERATURE = "NORMAL_CANOPY_TEMPERATURE";
 	public static String ALERT_LOW_BATTERY_VOLTAGE = "LOW_BATTERY_VOLTAGE";
 	public static String ALERT_NORMAL_BATTERY_VOLTAGE = "NORMAL_BATTERY_VOLTAGE";
 	public static String ALERT_LOW_VOLTAGE = "LOW_VOLTAGE";
 	public static String ALERT_HIGH_VOLTAGE = "HIGH_VOLTAGE";
+	public static String ALERT_LOW_CURRENT = "LOW_CURRENT";
+	public static String ALERT_HIGH_CURRENT = "HIGH_CURRENT";
+	public static String ALERT_LOW_PF = "LOW_PF";
+	public static String ALERT_HIGH_PF = "HIGH_PF";
+	public static String ALERT_LOW_MD = "LOW_MD";
+	public static String ALERT_HIGH_MD = "HIGH_MD";
+	public static String ALERT_LOW_TDH = "LOW_TDH";
+	public static String ALERT_HIGH_TDH = "HIGH_TDH";
+
+
 }

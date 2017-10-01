@@ -61,7 +61,7 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 	private String grid_tdh_alert_email = null;
 	private Integer grid_tdh_cool_down = null;
 	private Integer grid_tdh_alert_severity = null;
-	private String grid_td_alert_clear_mode = null; //Auto,Manual
+	private String grid_tdh_alert_clear_mode = null; //Auto,Manual
 	private Integer dg_min_voltage = null;
 	private Integer dg_mx_voltage = null;
 	private String dg_voltage_alert = null;
@@ -147,7 +147,7 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 	public static String FIELD_GRID_TDH_ALERT_EMAIL = "grid_tdh_alert_email";
 	public static String FIELD_GRID_TDH_COOL_DOWN = "grid_tdh_cool_down";
 	public static String FIELD_GRID_TDH_ALERT_SEVERITY = "grid_tdh_alert_severity";
-	public static String FIELD_GRID_TD_ALERT_CLEAR_MODE = "grid_td_alert_clear_mode";
+	public static String FIELD_GRID_TDH_ALERT_CLEAR_MODE = "grid_tdh_alert_clear_mode";
 	public static String FIELD_DG_MIN_VOLTAGE = "dg_min_voltage";
 	public static String FIELD_DG_MX_VOLTAGE = "dg_mx_voltage";
 	public static String FIELD_DG_VOLTAGE_ALERT = "dg_voltage_alert";
@@ -411,10 +411,10 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		grid_tdh_alert_severityField.setLength(1);
 		metaData.addField(grid_tdh_alert_severityField);
 
-		Field grid_td_alert_clear_modeField = new Field("grid_td_alert_clear_mode", "String");
-		grid_td_alert_clear_modeField.setDefaultValue("AUTO");
-		grid_td_alert_clear_modeField.setLength(10);
-		metaData.addField(grid_td_alert_clear_modeField);
+		Field grid_tdh_alert_clear_modeField = new Field("grid_tdh_alert_clear_mode", "String");
+		grid_tdh_alert_clear_modeField.setDefaultValue("AUTO");
+		grid_tdh_alert_clear_modeField.setLength(10);
+		metaData.addField(grid_tdh_alert_clear_modeField);
 
 		Field dg_min_voltageField = new Field("dg_min_voltage", "int");
 		dg_min_voltageField.setDefaultValue(0);
@@ -682,7 +682,7 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		this.grid_tdh_alert_email = obj.grid_tdh_alert_email;
 		this.grid_tdh_cool_down = obj.grid_tdh_cool_down;
 		this.grid_tdh_alert_severity = obj.grid_tdh_alert_severity;
-		this.grid_td_alert_clear_mode = obj.grid_td_alert_clear_mode;
+		this.grid_tdh_alert_clear_mode = obj.grid_tdh_alert_clear_mode;
 		this.dg_min_voltage = obj.dg_min_voltage;
 		this.dg_mx_voltage = obj.dg_mx_voltage;
 		this.dg_voltage_alert = obj.dg_voltage_alert;
@@ -810,8 +810,8 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 			grid_tdh_cool_down = 0;
 		if(grid_tdh_alert_severity == null)
 			grid_tdh_alert_severity = 0;
-		if(grid_td_alert_clear_mode == null)
-			grid_td_alert_clear_mode = "AUTO";
+		if(grid_tdh_alert_clear_mode == null)
+			grid_tdh_alert_clear_mode = "AUTO";
 		if(dg_min_voltage == null)
 			dg_min_voltage = 0;
 		if(dg_mx_voltage == null)
@@ -982,8 +982,8 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 			map.put("grid_tdh_cool_down", grid_tdh_cool_down);
 		if(grid_tdh_alert_severity != null)
 			map.put("grid_tdh_alert_severity", grid_tdh_alert_severity);
-		if(grid_td_alert_clear_mode != null)
-			map.put("grid_td_alert_clear_mode", grid_td_alert_clear_mode);
+		if(grid_tdh_alert_clear_mode != null)
+			map.put("grid_tdh_alert_clear_mode", grid_tdh_alert_clear_mode);
 		if(dg_min_voltage != null)
 			map.put("dg_min_voltage", dg_min_voltage);
 		if(dg_mx_voltage != null)
@@ -1160,8 +1160,8 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 			map.put("grid_tdh_cool_down", grid_tdh_cool_down);
 		if(grid_tdh_alert_severity != null)
 			map.put("grid_tdh_alert_severity", grid_tdh_alert_severity);
-		if(grid_td_alert_clear_mode != null)
-			map.put("grid_td_alert_clear_mode", grid_td_alert_clear_mode);
+		if(grid_tdh_alert_clear_mode != null)
+			map.put("grid_tdh_alert_clear_mode", grid_tdh_alert_clear_mode);
 		if(dg_min_voltage != null)
 			map.put("dg_min_voltage", dg_min_voltage);
 		if(dg_mx_voltage != null)
@@ -1298,7 +1298,7 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		grid_tdh_alert_email = (String) map.get("grid_tdh_alert_email");
 		grid_tdh_cool_down = (Integer) map.get("grid_tdh_cool_down");
 		grid_tdh_alert_severity = (Integer) map.get("grid_tdh_alert_severity");
-		grid_td_alert_clear_mode = (String) map.get("grid_td_alert_clear_mode");
+		grid_tdh_alert_clear_mode = (String) map.get("grid_tdh_alert_clear_mode");
 		dg_min_voltage = (Integer) map.get("dg_min_voltage");
 		dg_mx_voltage = (Integer) map.get("dg_mx_voltage");
 		dg_voltage_alert = (String) map.get("dg_voltage_alert");
@@ -1513,9 +1513,9 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		if(grid_tdh_alert_severityObj != null)
 			grid_tdh_alert_severity = new Integer(grid_tdh_alert_severityObj.toString());
 
-		Object grid_td_alert_clear_modeObj = map.get("grid_td_alert_clear_mode");
-		if(grid_td_alert_clear_modeObj != null)
-			grid_td_alert_clear_mode = grid_td_alert_clear_modeObj.toString();
+		Object grid_tdh_alert_clear_modeObj = map.get("grid_tdh_alert_clear_mode");
+		if(grid_tdh_alert_clear_modeObj != null)
+			grid_tdh_alert_clear_mode = grid_tdh_alert_clear_modeObj.toString();
 
 		Object dg_min_voltageObj = map.get("dg_min_voltage");
 		if(dg_min_voltageObj != null)
@@ -2292,16 +2292,16 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		this.grid_tdh_alert_severity = 0;
 	}
 
-	public String getGrid_td_alert_clear_mode() {
-		return grid_td_alert_clear_mode != null ? grid_td_alert_clear_mode : "AUTO";
+	public String getGrid_tdh_alert_clear_mode() {
+		return grid_tdh_alert_clear_mode != null ? grid_tdh_alert_clear_mode : "AUTO";
 	}
 
-	public void setGrid_td_alert_clear_mode(String grid_td_alert_clear_mode) {
-		this.grid_td_alert_clear_mode = grid_td_alert_clear_mode;
+	public void setGrid_tdh_alert_clear_mode(String grid_tdh_alert_clear_mode) {
+		this.grid_tdh_alert_clear_mode = grid_tdh_alert_clear_mode;
 	}
 
-	public void unSetGrid_td_alert_clear_mode() {
-		this.grid_td_alert_clear_mode = "AUTO";
+	public void unSetGrid_tdh_alert_clear_mode() {
+		this.grid_tdh_alert_clear_mode = "AUTO";
 	}
 
 	public Integer getDg_min_voltage() {
