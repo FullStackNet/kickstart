@@ -241,7 +241,8 @@ public class DataSource {
 	public IdValue getSelectedObject(Object id) {
 		ArrayList<IdValue> data  = getData();
 		for(int i = 0 ; i < data.size() ; i++) {
-			if (data.get(i).getId().equals(id)) {
+			String _id = ""+data.get(i).getId();
+			if (_id.equals(""+id)) {
 				return data.get(i);
 			}
 		}

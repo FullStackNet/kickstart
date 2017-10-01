@@ -44,9 +44,15 @@
 				'type': 'String'
 			},
 			'grid_voltage_alert_severity': {
-				'default': 'INFO',
-				'length': 16,
-				'type': 'String'
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'grid_voltage_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
 			},
 			'grid_voltage_cool_down': {
 				'default': '0',
@@ -84,9 +90,15 @@
 				'type': 'int'
 			},
 			'grid_current_alert_severity': {
-				'default': 'INFO',
-				'length': 16,
-				'type': 'String'
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'grid_current_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
 			},
 			'grid_min_pf': {
 				'default': '0.0000',
@@ -121,9 +133,15 @@
 				'type': 'int'
 			},
 			'grid_pf_alert_severity': {
-				'default': 'INFO',
-				'length': 16,
-				'type': 'String'
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'grid_pf_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
 			},
 			'grid_min_md': {
 				'default': '0.0000',
@@ -158,9 +176,15 @@
 				'type': 'int'
 			},
 			'grid_md_alert_severity': {
-				'default': 'INFO',
-				'length': 16,
-				'type': 'String'
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'grid_md_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
 			},
 			'grid_min_tdh': {
 				'default': '0.0000',
@@ -195,9 +219,15 @@
 				'type': 'int'
 			},
 			'grid_tdh_alert_severity': {
-				'default': 'INFO',
-				'length': 16,
-				'type': 'String'
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'grid_td_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
 			},
 			'dg_min_voltage': {
 				'default': '0',
@@ -230,9 +260,15 @@
 				'type': 'int'
 			},
 			'dg_voltage_alert_severity': {
-				'default': 'INFO',
-				'length': 16,
-				'type': 'String'
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'dg_voltage_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
 			},
 			'dg_min_current': {
 				'default': '0',
@@ -265,9 +301,15 @@
 				'type': 'int'
 			},
 			'dg_current_alert_severity': {
-				'default': 'INFO',
-				'length': 16,
-				'type': 'String'
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'dg_current_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
 			},
 			'dg_min_pf': {
 				'default': '0.0000',
@@ -302,9 +344,15 @@
 				'type': 'int'
 			},
 			'dg_pf_alert_severity': {
-				'default': 'INFO',
-				'length': 16,
-				'type': 'String'
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'dg_pf_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
 			},
 			'dg_min_md': {
 				'default': '0.0000',
@@ -339,9 +387,15 @@
 				'type': 'int'
 			},
 			'dg_md_alert_severity': {
-				'default': 'INFO',
-				'length': 16,
-				'type': 'String'
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'dg_md_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
 			},
 			'dg_min_tdh': {
 				'default': '0.0000',
@@ -376,9 +430,15 @@
 				'type': 'int'
 			},
 			'dg_tdh_alert_severity': {
-				'default': 'INFO',
-				'length': 16,
-				'type': 'String'
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'dg_tdh_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
 			},
 			'customer_id': {
 				'default': 'N',

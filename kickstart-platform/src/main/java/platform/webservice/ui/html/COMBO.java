@@ -29,7 +29,8 @@ public class COMBO {
 				
 			option.addAttribute("value", list.get(i).getId().toString());
 			option.setText(list.get(i).getValue().toString());
-			if (list.get(i).getId().equals(value)) {
+			String _id = ""+list.get(i).getId();
+			if (_id.equals(value)) {
 				option.addAttribute("selected", "NO_VALUE");
 			}
 			select.addChild(option);
