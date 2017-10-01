@@ -9,6 +9,7 @@ import platform.db.LOG_OP;
 import platform.db.REL_OP;
 import platform.event.EventManager;
 import platform.events.AlertAddedEvent;
+import platform.notification.NotificationFactory;
 import platform.resource.BaseResource;
 import platform.resource.alert;
 import platform.resource.appliance;
@@ -214,4 +215,43 @@ public class AlertHelper extends BaseHelper {
 		Expression e = new Expression(e1, LOG_OP.AND,e2);
 		return getByExpression(e,new String[]{alert.FIELD_ALERT_TIME+" desc"});
 	}
+
+
+	public long getCriticalAlert4DeviceId(String id) {
+		Expression e1 = new Expression(alert.FIELD_DEVICE_ID, REL_OP.EQ,id);
+		Expression e2 = new Expression(alert.FIELD_CLEARED, REL_OP.EQ,"N");
+		Expression e3 = new Expression(alert.FIELD_SEVERITY, REL_OP.EQ, NotificationFactory.SEVERIRY_CRITICAL);
+		Expression e4 = new Expression(e1, LOG_OP.AND,e2);
+		Expression e = new Expression(e3, LOG_OP.AND,e4);
+		return getCount(e);
+	}
+
+	public long getMajorAlert4DeviceId(String id) {
+		Expression e1 = new Expression(alert.FIELD_DEVICE_ID, REL_OP.EQ,id);
+		Expression e2 = new Expression(alert.FIELD_CLEARED, REL_OP.EQ,"N");
+		Expression e3 = new Expression(alert.FIELD_SEVERITY, REL_OP.EQ, NotificationFactory.SEVERIRY_MAJOR);
+		Expression e4 = new Expression(e1, LOG_OP.AND,e2);
+		Expression e = new Expression(e3, LOG_OP.AND,e4);
+		return getCount(e);
+	}
+
+	public long getWarningAlert4DeviceId(String id) {
+		Expression e1 = new Expression(alert.FIELD_DEVICE_ID, REL_OP.EQ,id);
+		Expression e2 = new Expression(alert.FIELD_CLEARED, REL_OP.EQ,"N");
+		Expression e3 = new Expression(alert.FIELD_SEVERITY, REL_OP.EQ, NotificationFactory.SEVERIRY_WARNING);
+		Expression e4 = new Expression(e1, LOG_OP.AND,e2);
+		Expression e = new Expression(e3, LOG_OP.AND,e4);
+		return getCount(e);
+	}
+
+	public long getMinorAlert4DeviceId(String id) {
+		Expression e1 = new Expression(alert.FIELD_DEVICE_ID, REL_OP.EQ,id);
+		Expression e2 = new Expression(alert.FIELD_CLEARED, REL_OP.EQ,"N");
+		Expression e3 = new Expression(alert.FIELD_SEVERITY, REL_OP.EQ, NotificationFactory.SEVERIRY_MINOR);
+		Expression e4 = new Expression(e1, LOG_OP.AND,e2);
+		Expression e = new Expression(e3, LOG_OP.AND,e4);
+		return getCount(e);
+	}
+
+
 }

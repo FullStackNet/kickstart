@@ -315,7 +315,24 @@ public class ApplianceHelper extends BaseHelper {
 		}
 
 	}
-	
+
+	public void updateAlertSummary(String applianceId) {
+
+		long criticalAlert = AlertHelper.getInstance().getCriticalAlert4DeviceId(applianceId);
+		long warningAlert = AlertHelper.getInstance().getWarningAlert4DeviceId(applianceId);
+		long majorAlert = AlertHelper.getInstance().getMajorAlert4DeviceId(applianceId);
+		long minorAlert = AlertHelper.getInstance().getMinorAlert4DeviceId(applianceId);
+		appliance _appliance = new appliance(applianceId);
+		_appliance.setCritical_alerts(criticalAlert);
+		_appliance.setMajor_alerts(majorAlert);
+		_appliance.setWanring_alerts(warningAlert);
+		_appliance.setMinor_alerts(minorAlert);
+		try {
+			ApplianceHelper.getInstance().update(_appliance);
+		} catch (ApplicationException e) {
+			e.printStackTrace();
+		}
+	}
 	public void updateDGData(controller _controller,
 			appliance _appliance,
 			double fuelLevel, double fuelQuantity,double canopyTemperature,
