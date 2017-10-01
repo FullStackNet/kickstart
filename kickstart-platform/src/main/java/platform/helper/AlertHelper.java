@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.Map;
 
 import platform.alert.AlertFactory;
+import platform.db.Expression;
+import platform.db.LOG_OP;
+import platform.db.REL_OP;
 import platform.event.EventManager;
 import platform.events.AlertAddedEvent;
 import platform.resource.BaseResource;
@@ -160,27 +163,43 @@ public class AlertHelper extends BaseHelper {
 				alertId, severity, data, alertTime);
 	}
 
+	alert getAleadyCreatedAlert(String deviceId,String deviceType,String alertId) {
+		Expression e1 = new Expression(alert.FIELD_DEVICE_ID, REL_OP.EQ,deviceId);
+		Expression e2 = new Expression(alert.FIELD_DEVICE_TYPE, REL_OP.EQ,deviceType);
+		Expression e3 = new Expression(alert.FIELD_ALERT_ID, REL_OP.EQ,alertId);
+		Expression e4 = new Expression(alert.FIELD_CLEARED, REL_OP.EQ,"N");
+		Expression e5 = new Expression(e1, LOG_OP.AND,e2);
+		Expression e6 = new Expression(e3, LOG_OP.AND,e4);
+		Expression e = new Expression(e5, LOG_OP.AND,e6);
+		return  (alert)AlertHelper.getInstance().getByExpressionFirstRecord(e);
+	}
+
 	void addAlert(String customerId,String site_id, 
 			String gatewayId, String deviceId,String deviceType,String deviceName, 
 			String applianceId,String applianceName,String assetId, 
 			String alertId, int severity, Map<String, Object> data, Date alertTime)  {
-		
-		 alert _alert = new alert();
-		_alert.setSite_id(site_id);
-		_alert.setCustomer_id(customerId);
-		_alert.setDevice_id(deviceId);
-		_alert.setDevice_name(deviceName);
-		_alert.setDevice_type(deviceType);
-		_alert.setAlert_id(alertId);
-		_alert.setSeverity(severity);
-		_alert.setAlert_data(data);
-		_alert.setGateway_id(gatewayId);
-		_alert.setApplinace_id(applianceId);
-		_alert.setAsset_id(assetId);
-		_alert.setApplinace_name(applianceName);
+
+
+		 alert _alert = getAleadyCreatedAlert(deviceId,deviceType,alertId);
+		 if (_alert == null) {
+			 _alert = new alert();
+			 _alert.setSite_id(site_id);
+			 _alert.setCustomer_id(customerId);
+			 _alert.setDevice_id(deviceId);
+			 _alert.setDevice_name(deviceName);
+			 _alert.setDevice_type(deviceType);
+			 _alert.setAlert_id(alertId);
+			 _alert.setSeverity(severity);
+			 _alert.setAlert_data(data);
+			 _alert.setGateway_id(gatewayId);
+			 _alert.setApplinace_id(applianceId);
+			 _alert.setAsset_id(assetId);
+			 _alert.setApplinace_name(applianceName);
+			 _alert.setCleared("N");
+		 }
 		_alert.setAlert_time(alertTime.getTime());
 		try {
-			add(_alert);
+			AddOrUpdate(_alert);
 		} catch (ApplicationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

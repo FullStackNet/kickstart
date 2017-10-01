@@ -124,6 +124,12 @@
 				'name':'severity',
 				'type':'int'
 			},
+			'cleared':
+			{
+				'type':'String',
+				'length' : 1
+			},
+
 			'partner_id':
 			{
 				'name':'partner_id',

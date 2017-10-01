@@ -39,6 +39,7 @@ public abstract class Basealert extends BaseResource {
 	private String alert_cleared_type = null;
 	private Long alarm_cleared_time = null;
 	private Integer severity = null;
+	private String cleared = null;
 	private String partner_id = null;
 	private String customer_id = null;
 	private String tanent_id = null;
@@ -65,6 +66,7 @@ public abstract class Basealert extends BaseResource {
 	public static String FIELD_ALERT_CLEARED_TYPE = "alert_cleared_type";
 	public static String FIELD_ALARM_CLEARED_TIME = "alarm_cleared_time";
 	public static String FIELD_SEVERITY = "severity";
+	public static String FIELD_CLEARED = "cleared";
 	public static String FIELD_PARTNER_ID = "partner_id";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_TANENT_ID = "tanent_id";
@@ -158,6 +160,10 @@ public abstract class Basealert extends BaseResource {
 		Field severityField = new Field("severity", "int");
 		metaData.addField(severityField);
 
+		Field clearedField = new Field("cleared", "String");
+		clearedField.setLength(1);
+		metaData.addField(clearedField);
+
 		Field partner_idField = new Field("partner_id", "String");
 		partner_idField.setLength(128);
 		metaData.addField(partner_idField);
@@ -207,6 +213,7 @@ public abstract class Basealert extends BaseResource {
 		this.alert_cleared_type = obj.alert_cleared_type;
 		this.alarm_cleared_time = obj.alarm_cleared_time;
 		this.severity = obj.severity;
+		this.cleared = obj.cleared;
 		this.partner_id = obj.partner_id;
 		this.customer_id = obj.customer_id;
 		this.tanent_id = obj.tanent_id;
@@ -265,6 +272,8 @@ public abstract class Basealert extends BaseResource {
 			map.put("alarm_cleared_time", alarm_cleared_time);
 		if(severity != null)
 			map.put("severity", severity);
+		if(cleared != null)
+			map.put("cleared", cleared);
 		if(partner_id != null)
 			map.put("partner_id", partner_id);
 		if(customer_id != null)
@@ -323,6 +332,8 @@ public abstract class Basealert extends BaseResource {
 			map.put("alarm_cleared_time", alarm_cleared_time);
 		if(severity != null)
 			map.put("severity", severity);
+		if(cleared != null)
+			map.put("cleared", cleared);
 		if(partner_id != null)
 			map.put("partner_id", partner_id);
 		if(customer_id != null)
@@ -363,6 +374,7 @@ public abstract class Basealert extends BaseResource {
 		alert_cleared_type = (String) map.get("alert_cleared_type");
 		alarm_cleared_time = (Long) map.get("alarm_cleared_time");
 		severity = (Integer) map.get("severity");
+		cleared = (String) map.get("cleared");
 		partner_id = (String) map.get("partner_id");
 		customer_id = (String) map.get("customer_id");
 		tanent_id = (String) map.get("tanent_id");
@@ -448,6 +460,10 @@ public abstract class Basealert extends BaseResource {
 		Object severityObj = map.get("severity");
 		if(severityObj != null)
 			severity = new Integer(severityObj.toString());
+
+		Object clearedObj = map.get("cleared");
+		if(clearedObj != null)
+			cleared = clearedObj.toString();
 
 		Object partner_idObj = map.get("partner_id");
 		if(partner_idObj != null)
@@ -804,6 +820,22 @@ public abstract class Basealert extends BaseResource {
 
 	public void unSetSeverity() {
 		this.severity = null;
+	}
+
+	public String getCleared() {
+		return cleared;
+	}
+
+	public String getClearedEx() {
+		return cleared != null ? cleared : "";
+	}
+
+	public void setCleared(String cleared) {
+		this.cleared = cleared;
+	}
+
+	public void unSetCleared() {
+		this.cleared = null;
 	}
 
 	public String getPartner_id() {

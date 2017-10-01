@@ -299,6 +299,13 @@ public class BaseHelper {
 
 	}
 
+	public BaseResource getByExpressionFirstRecord(Expression expression) {
+		BaseResource[] resources =  getByExpression(expression);
+		if (Util.isEmpty(resources))
+			return null;
+		return resources[0];
+	}
+
 	public BaseResource[] getByExpression(Expression expression) {
 		return getByExpression(expression,null);
 	}
