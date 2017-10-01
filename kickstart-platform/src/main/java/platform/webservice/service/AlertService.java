@@ -1,16 +1,19 @@
 package platform.webservice.service;
 
+import java.util.Date;
 import java.util.Map;
 
 import platform.exception.ExceptionEnum;
 import platform.helper.AlertHelper;
 import platform.helper.User_mapHelper;
+import platform.message.Alert;
 import platform.resource.BaseResource;
 import platform.resource.alert;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
+import platform.webservice.WebServiceContants;
 
 
 public class AlertService extends BaseService{
@@ -18,6 +21,26 @@ public class AlertService extends BaseService{
 		super(AlertHelper.getInstance(),new alert());
 	}
 
+	void clear_alarm(ServletContext ctx, BaseResource resource) {
+		alert _alert = (alert)AlertHelper.getInstance().getById(resource.getId());
+		if (_alert == null)
+			return;
+		alert upd_alert = new alert(_alert.getId());
+		upd_alert.setCleared("Y");
+		upd_alert.setAlarm_cleared_time(new Date().getTime());
+		upd_alert.setAlert_cleared_type("MANUAL");
+		try {
+			AlertHelper.getInstance().update(upd_alert);
+		} catch (ApplicationException e) {
+			e.printStackTrace();
+		}
+	}
+	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
+		if (action.equalsIgnoreCase("clear")) {
+			clear_alarm(ctx, resource);
+			return;
+		}
+	}
 	
 	private enum QueryTypes {
 
