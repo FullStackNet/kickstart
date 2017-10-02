@@ -143,44 +143,87 @@
 				'type': 'String',
 				'comment' : 'Auto,Manual'
 			},
-			'grid_min_load': {
+			'grid_min_load_kw': {
 				'default': '0.0000',
 				'length': 12,
 				'precision': 4,
 				'type': 'double'
 			},
-			'grid_max_load': {
+			'grid_max_load_kw': {
 				'default': '0.0000',
 				'length': 12,
 				'precision': 4,
 				'type': 'double'
 			},
-			'grid_load_alert': {
+			'grid_load_kw_alert': {
 				'default': 'N',
 				'length': 1,
 				'type': 'String'
 			},
-			'grid_load_alert_sms': {
+			'grid_load_kw_alert_sms': {
 				'default': 'N',
 				'length': 1,
 				'type': 'String'
 			},
-			'grid_load_alert_email': {
+			'grid_load_kw_alert_email': {
 				'default': 'N',
 				'length': 1,
 				'type': 'String'
 			},
-			'grid_load_cool_down': {
+			'grid_load_kw_cool_down': {
 				'default': '0',
 				'length': 5,
 				'type': 'int'
 			},
-			'grid_load_alert_severity': {
+			'grid_load_kw_alert_severity': {
 				'default': '0',
 				'length': 1,
 				'type': 'int'
 			},
-			'grid_load_alert_clear_mode': {
+			'grid_load_kw_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
+			},
+			'grid_min_load_kva': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'grid_max_load_kva': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'grid_load_kva_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_load_kva_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_load_kva_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_load_kva_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'grid_load_kva_alert_severity': {
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'grid_load_kva_alert_clear_mode': {
 				'default': 'AUTO',
 				'length': 10,
 				'type': 'String',
@@ -397,44 +440,87 @@
 				'type': 'String',
 				'comment' : 'Auto,Manual'
 			},
-			'dg_min_load': {
+			'dg_min_load_kw': {
 				'default': '0.0000',
 				'length': 12,
 				'precision': 4,
 				'type': 'double'
 			},
-			'dg_max_load': {
+			'dg_max_load_kw': {
 				'default': '0.0000',
 				'length': 12,
 				'precision': 4,
 				'type': 'double'
 			},
-			'dg_load_alert': {
+			'dg_load_kw_alert': {
 				'default': 'N',
 				'length': 1,
 				'type': 'String'
 			},
-			'dg_load_alert_sms': {
+			'dg_load_kw_alert_sms': {
 				'default': 'N',
 				'length': 1,
 				'type': 'String'
 			},
-			'dg_load_alert_email': {
+			'dg_load_kw_alert_email': {
 				'default': 'N',
 				'length': 1,
 				'type': 'String'
 			},
-			'dg_load_cool_down': {
+			'dg_load_kw_cool_down': {
 				'default': '0',
 				'length': 5,
 				'type': 'int'
 			},
-			'dg_load_alert_severity': {
+			'dg_load_kw_alert_severity': {
 				'default': '0',
 				'length': 1,
 				'type': 'int'
 			},
-			'dg_load_alert_clear_mode': {
+			'dg_load_kw_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
+			},
+			'dg_min_load_kva': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'dg_max_load_kva': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'dg_load_kva_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_load_kva_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_load_kva_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_load_kva_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_load_kva_alert_severity': {
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'dg_load_kva_alert_clear_mode': {
 				'default': 'AUTO',
 				'length': 10,
 				'type': 'String',
