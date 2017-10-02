@@ -100,6 +100,8 @@ public abstract class Baseappliance extends BaseResource {
 	private Double energy = null;
 	private Double grid_reading_kvah = null;
 	private Double grid_reading_kwh = null;
+	private Double grid_load_kva = null;
+	private Double grid_load_kw = null;
 	private Integer grid_voltage = null;
 	private Integer grid_current = null;
 	private Double grid_pf = null;
@@ -109,6 +111,8 @@ public abstract class Baseappliance extends BaseResource {
 	private Long grid_frequency = null;
 	private Double grid_p1_reading_kvah = null;
 	private Double grid_p1_reading_kwh = null;
+	private Double grid_p1_load_kva = null;
+	private Double grid_p1_load_kw = null;
 	private Integer grid_p1_voltage = null;
 	private Integer grid_p1_current = null;
 	private Double grid_p1_pf = null;
@@ -118,6 +122,8 @@ public abstract class Baseappliance extends BaseResource {
 	private Long grid_p1_frequency = null;
 	private Double grid_p2_reading_kvah = null;
 	private Double grid_p2_reading_kwh = null;
+	private Double grid_p2_load_kva = null;
+	private Double grid_p2_load_kw = null;
 	private Integer grid_p2_voltage = null;
 	private Integer grid_p2_current = null;
 	private Double grid_p2_pf = null;
@@ -127,6 +133,8 @@ public abstract class Baseappliance extends BaseResource {
 	private Long grid_p2_frequency = null;
 	private Double grid_p3_reading_kvah = null;
 	private Double grid_p3_reading_kwh = null;
+	private Double grid_p3_load_kva = null;
+	private Double grid_p3_load_kw = null;
 	private Integer grid_p3_voltage = null;
 	private Integer grid_p3_current = null;
 	private Double grid_p3_pf = null;
@@ -136,6 +144,8 @@ public abstract class Baseappliance extends BaseResource {
 	private Long grid_p3_frequency = null;
 	private Double dg_reading_kwh = null;
 	private Double dg_reading_kvah = null;
+	private Double dg_load_kw = null;
+	private Double dg_load_kva = null;
 	private Integer dg_voltage = null;
 	private Integer dg_current = null;
 	private Double dg_pf = null;
@@ -145,6 +155,8 @@ public abstract class Baseappliance extends BaseResource {
 	private Long dg_frequency = null;
 	private Double dg_p1_reading_kvah = null;
 	private Double dg_p1_reading_kwh = null;
+	private Double dg_p1_load_kva = null;
+	private Double dg_p1_load_kw = null;
 	private Integer dg_p1_voltage = null;
 	private Integer dg_p1_current = null;
 	private Double dg_p1_pf = null;
@@ -154,6 +166,8 @@ public abstract class Baseappliance extends BaseResource {
 	private Long dg_p1_frequency = null;
 	private Double dg_p2_reading_kvah = null;
 	private Double dg_p2_reading_kwh = null;
+	private Double dg_p2_load_kva = null;
+	private Double dg_p2_load_kw = null;
 	private Integer dg_p2_voltage = null;
 	private Integer dg_p2_current = null;
 	private Double dg_p2_pf = null;
@@ -163,6 +177,8 @@ public abstract class Baseappliance extends BaseResource {
 	private Long dg_p2_frequency = null;
 	private Double dg_p3_reading_kvah = null;
 	private Double dg_p3_reading_kwh = null;
+	private Double dg_p3_load_kva = null;
+	private Double dg_p3_load_kw = null;
 	private Integer dg_p3_voltage = null;
 	private Integer dg_p3_current = null;
 	private Double dg_p3_pf = null;
@@ -357,6 +373,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_ENERGY = "energy";
 	public static String FIELD_GRID_READING_KVAH = "grid_reading_kvah";
 	public static String FIELD_GRID_READING_KWH = "grid_reading_kwh";
+	public static String FIELD_GRID_LOAD_KVA = "grid_load_kva";
+	public static String FIELD_GRID_LOAD_KW = "grid_load_kw";
 	public static String FIELD_GRID_VOLTAGE = "grid_voltage";
 	public static String FIELD_GRID_CURRENT = "grid_current";
 	public static String FIELD_GRID_PF = "grid_pf";
@@ -366,6 +384,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_GRID_FREQUENCY = "grid_frequency";
 	public static String FIELD_GRID_P1_READING_KVAH = "grid_p1_reading_kvah";
 	public static String FIELD_GRID_P1_READING_KWH = "grid_p1_reading_kwh";
+	public static String FIELD_GRID_P1_LOAD_KVA = "grid_p1_load_kva";
+	public static String FIELD_GRID_P1_LOAD_KW = "grid_p1_load_kw";
 	public static String FIELD_GRID_P1_VOLTAGE = "grid_p1_voltage";
 	public static String FIELD_GRID_P1_CURRENT = "grid_p1_current";
 	public static String FIELD_GRID_P1_PF = "grid_p1_pf";
@@ -375,6 +395,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_GRID_P1_FREQUENCY = "grid_p1_frequency";
 	public static String FIELD_GRID_P2_READING_KVAH = "grid_p2_reading_kvah";
 	public static String FIELD_GRID_P2_READING_KWH = "grid_p2_reading_kwh";
+	public static String FIELD_GRID_P2_LOAD_KVA = "grid_p2_load_kva";
+	public static String FIELD_GRID_P2_LOAD_KW = "grid_p2_load_kw";
 	public static String FIELD_GRID_P2_VOLTAGE = "grid_p2_voltage";
 	public static String FIELD_GRID_P2_CURRENT = "grid_p2_current";
 	public static String FIELD_GRID_P2_PF = "grid_p2_pf";
@@ -384,6 +406,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_GRID_P2_FREQUENCY = "grid_p2_frequency";
 	public static String FIELD_GRID_P3_READING_KVAH = "grid_p3_reading_kvah";
 	public static String FIELD_GRID_P3_READING_KWH = "grid_p3_reading_kwh";
+	public static String FIELD_GRID_P3_LOAD_KVA = "grid_p3_load_kva";
+	public static String FIELD_GRID_P3_LOAD_KW = "grid_p3_load_kw";
 	public static String FIELD_GRID_P3_VOLTAGE = "grid_p3_voltage";
 	public static String FIELD_GRID_P3_CURRENT = "grid_p3_current";
 	public static String FIELD_GRID_P3_PF = "grid_p3_pf";
@@ -393,6 +417,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_GRID_P3_FREQUENCY = "grid_p3_frequency";
 	public static String FIELD_DG_READING_KWH = "dg_reading_kwh";
 	public static String FIELD_DG_READING_KVAH = "dg_reading_kvah";
+	public static String FIELD_DG_LOAD_KW = "dg_load_kw";
+	public static String FIELD_DG_LOAD_KVA = "dg_load_kva";
 	public static String FIELD_DG_VOLTAGE = "dg_voltage";
 	public static String FIELD_DG_CURRENT = "dg_current";
 	public static String FIELD_DG_PF = "dg_pf";
@@ -402,6 +428,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_DG_FREQUENCY = "dg_frequency";
 	public static String FIELD_DG_P1_READING_KVAH = "dg_p1_reading_kvah";
 	public static String FIELD_DG_P1_READING_KWH = "dg_p1_reading_kwh";
+	public static String FIELD_DG_P1_LOAD_KVA = "dg_p1_load_kva";
+	public static String FIELD_DG_P1_LOAD_KW = "dg_p1_load_kw";
 	public static String FIELD_DG_P1_VOLTAGE = "dg_p1_voltage";
 	public static String FIELD_DG_P1_CURRENT = "dg_p1_current";
 	public static String FIELD_DG_P1_PF = "dg_p1_pf";
@@ -411,6 +439,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_DG_P1_FREQUENCY = "dg_p1_frequency";
 	public static String FIELD_DG_P2_READING_KVAH = "dg_p2_reading_kvah";
 	public static String FIELD_DG_P2_READING_KWH = "dg_p2_reading_kwh";
+	public static String FIELD_DG_P2_LOAD_KVA = "dg_p2_load_kva";
+	public static String FIELD_DG_P2_LOAD_KW = "dg_p2_load_kw";
 	public static String FIELD_DG_P2_VOLTAGE = "dg_p2_voltage";
 	public static String FIELD_DG_P2_CURRENT = "dg_p2_current";
 	public static String FIELD_DG_P2_PF = "dg_p2_pf";
@@ -420,6 +450,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_DG_P2_FREQUENCY = "dg_p2_frequency";
 	public static String FIELD_DG_P3_READING_KVAH = "dg_p3_reading_kvah";
 	public static String FIELD_DG_P3_READING_KWH = "dg_p3_reading_kwh";
+	public static String FIELD_DG_P3_LOAD_KVA = "dg_p3_load_kva";
+	public static String FIELD_DG_P3_LOAD_KW = "dg_p3_load_kw";
 	public static String FIELD_DG_P3_VOLTAGE = "dg_p3_voltage";
 	public static String FIELD_DG_P3_CURRENT = "dg_p3_current";
 	public static String FIELD_DG_P3_PF = "dg_p3_pf";
@@ -917,6 +949,18 @@ public abstract class Baseappliance extends BaseResource {
 		grid_reading_kwhField.setPrecision(4);
 		metaData.addField(grid_reading_kwhField);
 
+		Field grid_load_kvaField = new Field("grid_load_kva", "Double");
+		grid_load_kvaField.setDefaultValue(0.0000);
+		grid_load_kvaField.setLength(12);
+		grid_load_kvaField.setPrecision(4);
+		metaData.addField(grid_load_kvaField);
+
+		Field grid_load_kwField = new Field("grid_load_kw", "Double");
+		grid_load_kwField.setDefaultValue(0.0000);
+		grid_load_kwField.setLength(12);
+		grid_load_kwField.setPrecision(4);
+		metaData.addField(grid_load_kwField);
+
 		Field grid_voltageField = new Field("grid_voltage", "int");
 		grid_voltageField.setDefaultValue(0);
 		grid_voltageField.setLength(5);
@@ -966,6 +1010,18 @@ public abstract class Baseappliance extends BaseResource {
 		grid_p1_reading_kwhField.setLength(12);
 		grid_p1_reading_kwhField.setPrecision(4);
 		metaData.addField(grid_p1_reading_kwhField);
+
+		Field grid_p1_load_kvaField = new Field("grid_p1_load_kva", "Double");
+		grid_p1_load_kvaField.setDefaultValue(0.0000);
+		grid_p1_load_kvaField.setLength(12);
+		grid_p1_load_kvaField.setPrecision(4);
+		metaData.addField(grid_p1_load_kvaField);
+
+		Field grid_p1_load_kwField = new Field("grid_p1_load_kw", "Double");
+		grid_p1_load_kwField.setDefaultValue(0.0000);
+		grid_p1_load_kwField.setLength(12);
+		grid_p1_load_kwField.setPrecision(4);
+		metaData.addField(grid_p1_load_kwField);
 
 		Field grid_p1_voltageField = new Field("grid_p1_voltage", "int");
 		grid_p1_voltageField.setDefaultValue(0);
@@ -1017,6 +1073,18 @@ public abstract class Baseappliance extends BaseResource {
 		grid_p2_reading_kwhField.setPrecision(4);
 		metaData.addField(grid_p2_reading_kwhField);
 
+		Field grid_p2_load_kvaField = new Field("grid_p2_load_kva", "Double");
+		grid_p2_load_kvaField.setDefaultValue(0.0000);
+		grid_p2_load_kvaField.setLength(12);
+		grid_p2_load_kvaField.setPrecision(4);
+		metaData.addField(grid_p2_load_kvaField);
+
+		Field grid_p2_load_kwField = new Field("grid_p2_load_kw", "Double");
+		grid_p2_load_kwField.setDefaultValue(0.0000);
+		grid_p2_load_kwField.setLength(12);
+		grid_p2_load_kwField.setPrecision(4);
+		metaData.addField(grid_p2_load_kwField);
+
 		Field grid_p2_voltageField = new Field("grid_p2_voltage", "int");
 		grid_p2_voltageField.setDefaultValue(0);
 		grid_p2_voltageField.setLength(5);
@@ -1066,6 +1134,18 @@ public abstract class Baseappliance extends BaseResource {
 		grid_p3_reading_kwhField.setLength(12);
 		grid_p3_reading_kwhField.setPrecision(4);
 		metaData.addField(grid_p3_reading_kwhField);
+
+		Field grid_p3_load_kvaField = new Field("grid_p3_load_kva", "Double");
+		grid_p3_load_kvaField.setDefaultValue(0.0000);
+		grid_p3_load_kvaField.setLength(12);
+		grid_p3_load_kvaField.setPrecision(4);
+		metaData.addField(grid_p3_load_kvaField);
+
+		Field grid_p3_load_kwField = new Field("grid_p3_load_kw", "Double");
+		grid_p3_load_kwField.setDefaultValue(0.0000);
+		grid_p3_load_kwField.setLength(12);
+		grid_p3_load_kwField.setPrecision(4);
+		metaData.addField(grid_p3_load_kwField);
 
 		Field grid_p3_voltageField = new Field("grid_p3_voltage", "int");
 		grid_p3_voltageField.setDefaultValue(0);
@@ -1117,6 +1197,18 @@ public abstract class Baseappliance extends BaseResource {
 		dg_reading_kvahField.setPrecision(4);
 		metaData.addField(dg_reading_kvahField);
 
+		Field dg_load_kwField = new Field("dg_load_kw", "Double");
+		dg_load_kwField.setDefaultValue(0.0000);
+		dg_load_kwField.setLength(12);
+		dg_load_kwField.setPrecision(4);
+		metaData.addField(dg_load_kwField);
+
+		Field dg_load_kvaField = new Field("dg_load_kva", "Double");
+		dg_load_kvaField.setDefaultValue(0.0000);
+		dg_load_kvaField.setLength(12);
+		dg_load_kvaField.setPrecision(4);
+		metaData.addField(dg_load_kvaField);
+
 		Field dg_voltageField = new Field("dg_voltage", "int");
 		dg_voltageField.setDefaultValue(0);
 		dg_voltageField.setLength(5);
@@ -1166,6 +1258,18 @@ public abstract class Baseappliance extends BaseResource {
 		dg_p1_reading_kwhField.setLength(12);
 		dg_p1_reading_kwhField.setPrecision(4);
 		metaData.addField(dg_p1_reading_kwhField);
+
+		Field dg_p1_load_kvaField = new Field("dg_p1_load_kva", "Double");
+		dg_p1_load_kvaField.setDefaultValue(0.0000);
+		dg_p1_load_kvaField.setLength(12);
+		dg_p1_load_kvaField.setPrecision(4);
+		metaData.addField(dg_p1_load_kvaField);
+
+		Field dg_p1_load_kwField = new Field("dg_p1_load_kw", "Double");
+		dg_p1_load_kwField.setDefaultValue(0.0000);
+		dg_p1_load_kwField.setLength(12);
+		dg_p1_load_kwField.setPrecision(4);
+		metaData.addField(dg_p1_load_kwField);
 
 		Field dg_p1_voltageField = new Field("dg_p1_voltage", "int");
 		dg_p1_voltageField.setDefaultValue(0);
@@ -1217,6 +1321,18 @@ public abstract class Baseappliance extends BaseResource {
 		dg_p2_reading_kwhField.setPrecision(4);
 		metaData.addField(dg_p2_reading_kwhField);
 
+		Field dg_p2_load_kvaField = new Field("dg_p2_load_kva", "Double");
+		dg_p2_load_kvaField.setDefaultValue(0.0000);
+		dg_p2_load_kvaField.setLength(12);
+		dg_p2_load_kvaField.setPrecision(4);
+		metaData.addField(dg_p2_load_kvaField);
+
+		Field dg_p2_load_kwField = new Field("dg_p2_load_kw", "Double");
+		dg_p2_load_kwField.setDefaultValue(0.0000);
+		dg_p2_load_kwField.setLength(12);
+		dg_p2_load_kwField.setPrecision(4);
+		metaData.addField(dg_p2_load_kwField);
+
 		Field dg_p2_voltageField = new Field("dg_p2_voltage", "int");
 		dg_p2_voltageField.setDefaultValue(0);
 		dg_p2_voltageField.setLength(5);
@@ -1266,6 +1382,18 @@ public abstract class Baseappliance extends BaseResource {
 		dg_p3_reading_kwhField.setLength(12);
 		dg_p3_reading_kwhField.setPrecision(4);
 		metaData.addField(dg_p3_reading_kwhField);
+
+		Field dg_p3_load_kvaField = new Field("dg_p3_load_kva", "Double");
+		dg_p3_load_kvaField.setDefaultValue(0.0000);
+		dg_p3_load_kvaField.setLength(12);
+		dg_p3_load_kvaField.setPrecision(4);
+		metaData.addField(dg_p3_load_kvaField);
+
+		Field dg_p3_load_kwField = new Field("dg_p3_load_kw", "Double");
+		dg_p3_load_kwField.setDefaultValue(0.0000);
+		dg_p3_load_kwField.setLength(12);
+		dg_p3_load_kwField.setPrecision(4);
+		metaData.addField(dg_p3_load_kwField);
 
 		Field dg_p3_voltageField = new Field("dg_p3_voltage", "int");
 		dg_p3_voltageField.setDefaultValue(0);
@@ -1874,6 +2002,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.energy = obj.energy;
 		this.grid_reading_kvah = obj.grid_reading_kvah;
 		this.grid_reading_kwh = obj.grid_reading_kwh;
+		this.grid_load_kva = obj.grid_load_kva;
+		this.grid_load_kw = obj.grid_load_kw;
 		this.grid_voltage = obj.grid_voltage;
 		this.grid_current = obj.grid_current;
 		this.grid_pf = obj.grid_pf;
@@ -1883,6 +2013,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.grid_frequency = obj.grid_frequency;
 		this.grid_p1_reading_kvah = obj.grid_p1_reading_kvah;
 		this.grid_p1_reading_kwh = obj.grid_p1_reading_kwh;
+		this.grid_p1_load_kva = obj.grid_p1_load_kva;
+		this.grid_p1_load_kw = obj.grid_p1_load_kw;
 		this.grid_p1_voltage = obj.grid_p1_voltage;
 		this.grid_p1_current = obj.grid_p1_current;
 		this.grid_p1_pf = obj.grid_p1_pf;
@@ -1892,6 +2024,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.grid_p1_frequency = obj.grid_p1_frequency;
 		this.grid_p2_reading_kvah = obj.grid_p2_reading_kvah;
 		this.grid_p2_reading_kwh = obj.grid_p2_reading_kwh;
+		this.grid_p2_load_kva = obj.grid_p2_load_kva;
+		this.grid_p2_load_kw = obj.grid_p2_load_kw;
 		this.grid_p2_voltage = obj.grid_p2_voltage;
 		this.grid_p2_current = obj.grid_p2_current;
 		this.grid_p2_pf = obj.grid_p2_pf;
@@ -1901,6 +2035,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.grid_p2_frequency = obj.grid_p2_frequency;
 		this.grid_p3_reading_kvah = obj.grid_p3_reading_kvah;
 		this.grid_p3_reading_kwh = obj.grid_p3_reading_kwh;
+		this.grid_p3_load_kva = obj.grid_p3_load_kva;
+		this.grid_p3_load_kw = obj.grid_p3_load_kw;
 		this.grid_p3_voltage = obj.grid_p3_voltage;
 		this.grid_p3_current = obj.grid_p3_current;
 		this.grid_p3_pf = obj.grid_p3_pf;
@@ -1910,6 +2046,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.grid_p3_frequency = obj.grid_p3_frequency;
 		this.dg_reading_kwh = obj.dg_reading_kwh;
 		this.dg_reading_kvah = obj.dg_reading_kvah;
+		this.dg_load_kw = obj.dg_load_kw;
+		this.dg_load_kva = obj.dg_load_kva;
 		this.dg_voltage = obj.dg_voltage;
 		this.dg_current = obj.dg_current;
 		this.dg_pf = obj.dg_pf;
@@ -1919,6 +2057,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.dg_frequency = obj.dg_frequency;
 		this.dg_p1_reading_kvah = obj.dg_p1_reading_kvah;
 		this.dg_p1_reading_kwh = obj.dg_p1_reading_kwh;
+		this.dg_p1_load_kva = obj.dg_p1_load_kva;
+		this.dg_p1_load_kw = obj.dg_p1_load_kw;
 		this.dg_p1_voltage = obj.dg_p1_voltage;
 		this.dg_p1_current = obj.dg_p1_current;
 		this.dg_p1_pf = obj.dg_p1_pf;
@@ -1928,6 +2068,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.dg_p1_frequency = obj.dg_p1_frequency;
 		this.dg_p2_reading_kvah = obj.dg_p2_reading_kvah;
 		this.dg_p2_reading_kwh = obj.dg_p2_reading_kwh;
+		this.dg_p2_load_kva = obj.dg_p2_load_kva;
+		this.dg_p2_load_kw = obj.dg_p2_load_kw;
 		this.dg_p2_voltage = obj.dg_p2_voltage;
 		this.dg_p2_current = obj.dg_p2_current;
 		this.dg_p2_pf = obj.dg_p2_pf;
@@ -1937,6 +2079,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.dg_p2_frequency = obj.dg_p2_frequency;
 		this.dg_p3_reading_kvah = obj.dg_p3_reading_kvah;
 		this.dg_p3_reading_kwh = obj.dg_p3_reading_kwh;
+		this.dg_p3_load_kva = obj.dg_p3_load_kva;
+		this.dg_p3_load_kw = obj.dg_p3_load_kw;
 		this.dg_p3_voltage = obj.dg_p3_voltage;
 		this.dg_p3_current = obj.dg_p3_current;
 		this.dg_p3_pf = obj.dg_p3_pf;
@@ -2132,6 +2276,10 @@ public abstract class Baseappliance extends BaseResource {
 			grid_reading_kvah = 0.0000;
 		if(grid_reading_kwh == null)
 			grid_reading_kwh = 0.0000;
+		if(grid_load_kva == null)
+			grid_load_kva = 0.0000;
+		if(grid_load_kw == null)
+			grid_load_kw = 0.0000;
 		if(grid_voltage == null)
 			grid_voltage = 0;
 		if(grid_current == null)
@@ -2150,6 +2298,10 @@ public abstract class Baseappliance extends BaseResource {
 			grid_p1_reading_kvah = 0.0000;
 		if(grid_p1_reading_kwh == null)
 			grid_p1_reading_kwh = 0.0000;
+		if(grid_p1_load_kva == null)
+			grid_p1_load_kva = 0.0000;
+		if(grid_p1_load_kw == null)
+			grid_p1_load_kw = 0.0000;
 		if(grid_p1_voltage == null)
 			grid_p1_voltage = 0;
 		if(grid_p1_current == null)
@@ -2168,6 +2320,10 @@ public abstract class Baseappliance extends BaseResource {
 			grid_p2_reading_kvah = 0.0000;
 		if(grid_p2_reading_kwh == null)
 			grid_p2_reading_kwh = 0.0000;
+		if(grid_p2_load_kva == null)
+			grid_p2_load_kva = 0.0000;
+		if(grid_p2_load_kw == null)
+			grid_p2_load_kw = 0.0000;
 		if(grid_p2_voltage == null)
 			grid_p2_voltage = 0;
 		if(grid_p2_current == null)
@@ -2186,6 +2342,10 @@ public abstract class Baseappliance extends BaseResource {
 			grid_p3_reading_kvah = 0.0000;
 		if(grid_p3_reading_kwh == null)
 			grid_p3_reading_kwh = 0.0000;
+		if(grid_p3_load_kva == null)
+			grid_p3_load_kva = 0.0000;
+		if(grid_p3_load_kw == null)
+			grid_p3_load_kw = 0.0000;
 		if(grid_p3_voltage == null)
 			grid_p3_voltage = 0;
 		if(grid_p3_current == null)
@@ -2204,6 +2364,10 @@ public abstract class Baseappliance extends BaseResource {
 			dg_reading_kwh = 0.0000;
 		if(dg_reading_kvah == null)
 			dg_reading_kvah = 0.0000;
+		if(dg_load_kw == null)
+			dg_load_kw = 0.0000;
+		if(dg_load_kva == null)
+			dg_load_kva = 0.0000;
 		if(dg_voltage == null)
 			dg_voltage = 0;
 		if(dg_current == null)
@@ -2222,6 +2386,10 @@ public abstract class Baseappliance extends BaseResource {
 			dg_p1_reading_kvah = 0.0000;
 		if(dg_p1_reading_kwh == null)
 			dg_p1_reading_kwh = 0.0000;
+		if(dg_p1_load_kva == null)
+			dg_p1_load_kva = 0.0000;
+		if(dg_p1_load_kw == null)
+			dg_p1_load_kw = 0.0000;
 		if(dg_p1_voltage == null)
 			dg_p1_voltage = 0;
 		if(dg_p1_current == null)
@@ -2240,6 +2408,10 @@ public abstract class Baseappliance extends BaseResource {
 			dg_p2_reading_kvah = 0.0000;
 		if(dg_p2_reading_kwh == null)
 			dg_p2_reading_kwh = 0.0000;
+		if(dg_p2_load_kva == null)
+			dg_p2_load_kva = 0.0000;
+		if(dg_p2_load_kw == null)
+			dg_p2_load_kw = 0.0000;
 		if(dg_p2_voltage == null)
 			dg_p2_voltage = 0;
 		if(dg_p2_current == null)
@@ -2258,6 +2430,10 @@ public abstract class Baseappliance extends BaseResource {
 			dg_p3_reading_kvah = 0.0000;
 		if(dg_p3_reading_kwh == null)
 			dg_p3_reading_kwh = 0.0000;
+		if(dg_p3_load_kva == null)
+			dg_p3_load_kva = 0.0000;
+		if(dg_p3_load_kw == null)
+			dg_p3_load_kw = 0.0000;
 		if(dg_p3_voltage == null)
 			dg_p3_voltage = 0;
 		if(dg_p3_current == null)
@@ -2582,6 +2758,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_reading_kvah", grid_reading_kvah);
 		if(grid_reading_kwh != null)
 			map.put("grid_reading_kwh", grid_reading_kwh);
+		if(grid_load_kva != null)
+			map.put("grid_load_kva", grid_load_kva);
+		if(grid_load_kw != null)
+			map.put("grid_load_kw", grid_load_kw);
 		if(grid_voltage != null)
 			map.put("grid_voltage", grid_voltage);
 		if(grid_current != null)
@@ -2600,6 +2780,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_p1_reading_kvah", grid_p1_reading_kvah);
 		if(grid_p1_reading_kwh != null)
 			map.put("grid_p1_reading_kwh", grid_p1_reading_kwh);
+		if(grid_p1_load_kva != null)
+			map.put("grid_p1_load_kva", grid_p1_load_kva);
+		if(grid_p1_load_kw != null)
+			map.put("grid_p1_load_kw", grid_p1_load_kw);
 		if(grid_p1_voltage != null)
 			map.put("grid_p1_voltage", grid_p1_voltage);
 		if(grid_p1_current != null)
@@ -2618,6 +2802,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_p2_reading_kvah", grid_p2_reading_kvah);
 		if(grid_p2_reading_kwh != null)
 			map.put("grid_p2_reading_kwh", grid_p2_reading_kwh);
+		if(grid_p2_load_kva != null)
+			map.put("grid_p2_load_kva", grid_p2_load_kva);
+		if(grid_p2_load_kw != null)
+			map.put("grid_p2_load_kw", grid_p2_load_kw);
 		if(grid_p2_voltage != null)
 			map.put("grid_p2_voltage", grid_p2_voltage);
 		if(grid_p2_current != null)
@@ -2636,6 +2824,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_p3_reading_kvah", grid_p3_reading_kvah);
 		if(grid_p3_reading_kwh != null)
 			map.put("grid_p3_reading_kwh", grid_p3_reading_kwh);
+		if(grid_p3_load_kva != null)
+			map.put("grid_p3_load_kva", grid_p3_load_kva);
+		if(grid_p3_load_kw != null)
+			map.put("grid_p3_load_kw", grid_p3_load_kw);
 		if(grid_p3_voltage != null)
 			map.put("grid_p3_voltage", grid_p3_voltage);
 		if(grid_p3_current != null)
@@ -2654,6 +2846,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_reading_kwh", dg_reading_kwh);
 		if(dg_reading_kvah != null)
 			map.put("dg_reading_kvah", dg_reading_kvah);
+		if(dg_load_kw != null)
+			map.put("dg_load_kw", dg_load_kw);
+		if(dg_load_kva != null)
+			map.put("dg_load_kva", dg_load_kva);
 		if(dg_voltage != null)
 			map.put("dg_voltage", dg_voltage);
 		if(dg_current != null)
@@ -2672,6 +2868,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_p1_reading_kvah", dg_p1_reading_kvah);
 		if(dg_p1_reading_kwh != null)
 			map.put("dg_p1_reading_kwh", dg_p1_reading_kwh);
+		if(dg_p1_load_kva != null)
+			map.put("dg_p1_load_kva", dg_p1_load_kva);
+		if(dg_p1_load_kw != null)
+			map.put("dg_p1_load_kw", dg_p1_load_kw);
 		if(dg_p1_voltage != null)
 			map.put("dg_p1_voltage", dg_p1_voltage);
 		if(dg_p1_current != null)
@@ -2690,6 +2890,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_p2_reading_kvah", dg_p2_reading_kvah);
 		if(dg_p2_reading_kwh != null)
 			map.put("dg_p2_reading_kwh", dg_p2_reading_kwh);
+		if(dg_p2_load_kva != null)
+			map.put("dg_p2_load_kva", dg_p2_load_kva);
+		if(dg_p2_load_kw != null)
+			map.put("dg_p2_load_kw", dg_p2_load_kw);
 		if(dg_p2_voltage != null)
 			map.put("dg_p2_voltage", dg_p2_voltage);
 		if(dg_p2_current != null)
@@ -2708,6 +2912,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_p3_reading_kvah", dg_p3_reading_kvah);
 		if(dg_p3_reading_kwh != null)
 			map.put("dg_p3_reading_kwh", dg_p3_reading_kwh);
+		if(dg_p3_load_kva != null)
+			map.put("dg_p3_load_kva", dg_p3_load_kva);
+		if(dg_p3_load_kw != null)
+			map.put("dg_p3_load_kw", dg_p3_load_kw);
 		if(dg_p3_voltage != null)
 			map.put("dg_p3_voltage", dg_p3_voltage);
 		if(dg_p3_current != null)
@@ -3102,6 +3310,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_reading_kvah", grid_reading_kvah);
 		if(grid_reading_kwh != null)
 			map.put("grid_reading_kwh", grid_reading_kwh);
+		if(grid_load_kva != null)
+			map.put("grid_load_kva", grid_load_kva);
+		if(grid_load_kw != null)
+			map.put("grid_load_kw", grid_load_kw);
 		if(grid_voltage != null)
 			map.put("grid_voltage", grid_voltage);
 		if(grid_current != null)
@@ -3120,6 +3332,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_p1_reading_kvah", grid_p1_reading_kvah);
 		if(grid_p1_reading_kwh != null)
 			map.put("grid_p1_reading_kwh", grid_p1_reading_kwh);
+		if(grid_p1_load_kva != null)
+			map.put("grid_p1_load_kva", grid_p1_load_kva);
+		if(grid_p1_load_kw != null)
+			map.put("grid_p1_load_kw", grid_p1_load_kw);
 		if(grid_p1_voltage != null)
 			map.put("grid_p1_voltage", grid_p1_voltage);
 		if(grid_p1_current != null)
@@ -3138,6 +3354,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_p2_reading_kvah", grid_p2_reading_kvah);
 		if(grid_p2_reading_kwh != null)
 			map.put("grid_p2_reading_kwh", grid_p2_reading_kwh);
+		if(grid_p2_load_kva != null)
+			map.put("grid_p2_load_kva", grid_p2_load_kva);
+		if(grid_p2_load_kw != null)
+			map.put("grid_p2_load_kw", grid_p2_load_kw);
 		if(grid_p2_voltage != null)
 			map.put("grid_p2_voltage", grid_p2_voltage);
 		if(grid_p2_current != null)
@@ -3156,6 +3376,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_p3_reading_kvah", grid_p3_reading_kvah);
 		if(grid_p3_reading_kwh != null)
 			map.put("grid_p3_reading_kwh", grid_p3_reading_kwh);
+		if(grid_p3_load_kva != null)
+			map.put("grid_p3_load_kva", grid_p3_load_kva);
+		if(grid_p3_load_kw != null)
+			map.put("grid_p3_load_kw", grid_p3_load_kw);
 		if(grid_p3_voltage != null)
 			map.put("grid_p3_voltage", grid_p3_voltage);
 		if(grid_p3_current != null)
@@ -3174,6 +3398,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_reading_kwh", dg_reading_kwh);
 		if(dg_reading_kvah != null)
 			map.put("dg_reading_kvah", dg_reading_kvah);
+		if(dg_load_kw != null)
+			map.put("dg_load_kw", dg_load_kw);
+		if(dg_load_kva != null)
+			map.put("dg_load_kva", dg_load_kva);
 		if(dg_voltage != null)
 			map.put("dg_voltage", dg_voltage);
 		if(dg_current != null)
@@ -3192,6 +3420,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_p1_reading_kvah", dg_p1_reading_kvah);
 		if(dg_p1_reading_kwh != null)
 			map.put("dg_p1_reading_kwh", dg_p1_reading_kwh);
+		if(dg_p1_load_kva != null)
+			map.put("dg_p1_load_kva", dg_p1_load_kva);
+		if(dg_p1_load_kw != null)
+			map.put("dg_p1_load_kw", dg_p1_load_kw);
 		if(dg_p1_voltage != null)
 			map.put("dg_p1_voltage", dg_p1_voltage);
 		if(dg_p1_current != null)
@@ -3210,6 +3442,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_p2_reading_kvah", dg_p2_reading_kvah);
 		if(dg_p2_reading_kwh != null)
 			map.put("dg_p2_reading_kwh", dg_p2_reading_kwh);
+		if(dg_p2_load_kva != null)
+			map.put("dg_p2_load_kva", dg_p2_load_kva);
+		if(dg_p2_load_kw != null)
+			map.put("dg_p2_load_kw", dg_p2_load_kw);
 		if(dg_p2_voltage != null)
 			map.put("dg_p2_voltage", dg_p2_voltage);
 		if(dg_p2_current != null)
@@ -3228,6 +3464,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_p3_reading_kvah", dg_p3_reading_kvah);
 		if(dg_p3_reading_kwh != null)
 			map.put("dg_p3_reading_kwh", dg_p3_reading_kwh);
+		if(dg_p3_load_kva != null)
+			map.put("dg_p3_load_kva", dg_p3_load_kva);
+		if(dg_p3_load_kw != null)
+			map.put("dg_p3_load_kw", dg_p3_load_kw);
 		if(dg_p3_voltage != null)
 			map.put("dg_p3_voltage", dg_p3_voltage);
 		if(dg_p3_current != null)
@@ -3541,6 +3781,8 @@ public abstract class Baseappliance extends BaseResource {
 		energy = (Double) map.get("energy");
 		grid_reading_kvah = (Double) map.get("grid_reading_kvah");
 		grid_reading_kwh = (Double) map.get("grid_reading_kwh");
+		grid_load_kva = (Double) map.get("grid_load_kva");
+		grid_load_kw = (Double) map.get("grid_load_kw");
 		grid_voltage = (Integer) map.get("grid_voltage");
 		grid_current = (Integer) map.get("grid_current");
 		grid_pf = (Double) map.get("grid_pf");
@@ -3550,6 +3792,8 @@ public abstract class Baseappliance extends BaseResource {
 		grid_frequency = (Long) map.get("grid_frequency");
 		grid_p1_reading_kvah = (Double) map.get("grid_p1_reading_kvah");
 		grid_p1_reading_kwh = (Double) map.get("grid_p1_reading_kwh");
+		grid_p1_load_kva = (Double) map.get("grid_p1_load_kva");
+		grid_p1_load_kw = (Double) map.get("grid_p1_load_kw");
 		grid_p1_voltage = (Integer) map.get("grid_p1_voltage");
 		grid_p1_current = (Integer) map.get("grid_p1_current");
 		grid_p1_pf = (Double) map.get("grid_p1_pf");
@@ -3559,6 +3803,8 @@ public abstract class Baseappliance extends BaseResource {
 		grid_p1_frequency = (Long) map.get("grid_p1_frequency");
 		grid_p2_reading_kvah = (Double) map.get("grid_p2_reading_kvah");
 		grid_p2_reading_kwh = (Double) map.get("grid_p2_reading_kwh");
+		grid_p2_load_kva = (Double) map.get("grid_p2_load_kva");
+		grid_p2_load_kw = (Double) map.get("grid_p2_load_kw");
 		grid_p2_voltage = (Integer) map.get("grid_p2_voltage");
 		grid_p2_current = (Integer) map.get("grid_p2_current");
 		grid_p2_pf = (Double) map.get("grid_p2_pf");
@@ -3568,6 +3814,8 @@ public abstract class Baseappliance extends BaseResource {
 		grid_p2_frequency = (Long) map.get("grid_p2_frequency");
 		grid_p3_reading_kvah = (Double) map.get("grid_p3_reading_kvah");
 		grid_p3_reading_kwh = (Double) map.get("grid_p3_reading_kwh");
+		grid_p3_load_kva = (Double) map.get("grid_p3_load_kva");
+		grid_p3_load_kw = (Double) map.get("grid_p3_load_kw");
 		grid_p3_voltage = (Integer) map.get("grid_p3_voltage");
 		grid_p3_current = (Integer) map.get("grid_p3_current");
 		grid_p3_pf = (Double) map.get("grid_p3_pf");
@@ -3577,6 +3825,8 @@ public abstract class Baseappliance extends BaseResource {
 		grid_p3_frequency = (Long) map.get("grid_p3_frequency");
 		dg_reading_kwh = (Double) map.get("dg_reading_kwh");
 		dg_reading_kvah = (Double) map.get("dg_reading_kvah");
+		dg_load_kw = (Double) map.get("dg_load_kw");
+		dg_load_kva = (Double) map.get("dg_load_kva");
 		dg_voltage = (Integer) map.get("dg_voltage");
 		dg_current = (Integer) map.get("dg_current");
 		dg_pf = (Double) map.get("dg_pf");
@@ -3586,6 +3836,8 @@ public abstract class Baseappliance extends BaseResource {
 		dg_frequency = (Long) map.get("dg_frequency");
 		dg_p1_reading_kvah = (Double) map.get("dg_p1_reading_kvah");
 		dg_p1_reading_kwh = (Double) map.get("dg_p1_reading_kwh");
+		dg_p1_load_kva = (Double) map.get("dg_p1_load_kva");
+		dg_p1_load_kw = (Double) map.get("dg_p1_load_kw");
 		dg_p1_voltage = (Integer) map.get("dg_p1_voltage");
 		dg_p1_current = (Integer) map.get("dg_p1_current");
 		dg_p1_pf = (Double) map.get("dg_p1_pf");
@@ -3595,6 +3847,8 @@ public abstract class Baseappliance extends BaseResource {
 		dg_p1_frequency = (Long) map.get("dg_p1_frequency");
 		dg_p2_reading_kvah = (Double) map.get("dg_p2_reading_kvah");
 		dg_p2_reading_kwh = (Double) map.get("dg_p2_reading_kwh");
+		dg_p2_load_kva = (Double) map.get("dg_p2_load_kva");
+		dg_p2_load_kw = (Double) map.get("dg_p2_load_kw");
 		dg_p2_voltage = (Integer) map.get("dg_p2_voltage");
 		dg_p2_current = (Integer) map.get("dg_p2_current");
 		dg_p2_pf = (Double) map.get("dg_p2_pf");
@@ -3604,6 +3858,8 @@ public abstract class Baseappliance extends BaseResource {
 		dg_p2_frequency = (Long) map.get("dg_p2_frequency");
 		dg_p3_reading_kvah = (Double) map.get("dg_p3_reading_kvah");
 		dg_p3_reading_kwh = (Double) map.get("dg_p3_reading_kwh");
+		dg_p3_load_kva = (Double) map.get("dg_p3_load_kva");
+		dg_p3_load_kw = (Double) map.get("dg_p3_load_kw");
 		dg_p3_voltage = (Integer) map.get("dg_p3_voltage");
 		dg_p3_current = (Integer) map.get("dg_p3_current");
 		dg_p3_pf = (Double) map.get("dg_p3_pf");
@@ -4032,6 +4288,14 @@ public abstract class Baseappliance extends BaseResource {
 		if(grid_reading_kwhObj != null)
 			grid_reading_kwh = new Double(grid_reading_kwhObj.toString());
 
+		Object grid_load_kvaObj = map.get("grid_load_kva");
+		if(grid_load_kvaObj != null)
+			grid_load_kva = new Double(grid_load_kvaObj.toString());
+
+		Object grid_load_kwObj = map.get("grid_load_kw");
+		if(grid_load_kwObj != null)
+			grid_load_kw = new Double(grid_load_kwObj.toString());
+
 		Object grid_voltageObj = map.get("grid_voltage");
 		if(grid_voltageObj != null)
 			grid_voltage = new Integer(grid_voltageObj.toString());
@@ -4067,6 +4331,14 @@ public abstract class Baseappliance extends BaseResource {
 		Object grid_p1_reading_kwhObj = map.get("grid_p1_reading_kwh");
 		if(grid_p1_reading_kwhObj != null)
 			grid_p1_reading_kwh = new Double(grid_p1_reading_kwhObj.toString());
+
+		Object grid_p1_load_kvaObj = map.get("grid_p1_load_kva");
+		if(grid_p1_load_kvaObj != null)
+			grid_p1_load_kva = new Double(grid_p1_load_kvaObj.toString());
+
+		Object grid_p1_load_kwObj = map.get("grid_p1_load_kw");
+		if(grid_p1_load_kwObj != null)
+			grid_p1_load_kw = new Double(grid_p1_load_kwObj.toString());
 
 		Object grid_p1_voltageObj = map.get("grid_p1_voltage");
 		if(grid_p1_voltageObj != null)
@@ -4104,6 +4376,14 @@ public abstract class Baseappliance extends BaseResource {
 		if(grid_p2_reading_kwhObj != null)
 			grid_p2_reading_kwh = new Double(grid_p2_reading_kwhObj.toString());
 
+		Object grid_p2_load_kvaObj = map.get("grid_p2_load_kva");
+		if(grid_p2_load_kvaObj != null)
+			grid_p2_load_kva = new Double(grid_p2_load_kvaObj.toString());
+
+		Object grid_p2_load_kwObj = map.get("grid_p2_load_kw");
+		if(grid_p2_load_kwObj != null)
+			grid_p2_load_kw = new Double(grid_p2_load_kwObj.toString());
+
 		Object grid_p2_voltageObj = map.get("grid_p2_voltage");
 		if(grid_p2_voltageObj != null)
 			grid_p2_voltage = new Integer(grid_p2_voltageObj.toString());
@@ -4139,6 +4419,14 @@ public abstract class Baseappliance extends BaseResource {
 		Object grid_p3_reading_kwhObj = map.get("grid_p3_reading_kwh");
 		if(grid_p3_reading_kwhObj != null)
 			grid_p3_reading_kwh = new Double(grid_p3_reading_kwhObj.toString());
+
+		Object grid_p3_load_kvaObj = map.get("grid_p3_load_kva");
+		if(grid_p3_load_kvaObj != null)
+			grid_p3_load_kva = new Double(grid_p3_load_kvaObj.toString());
+
+		Object grid_p3_load_kwObj = map.get("grid_p3_load_kw");
+		if(grid_p3_load_kwObj != null)
+			grid_p3_load_kw = new Double(grid_p3_load_kwObj.toString());
 
 		Object grid_p3_voltageObj = map.get("grid_p3_voltage");
 		if(grid_p3_voltageObj != null)
@@ -4176,6 +4464,14 @@ public abstract class Baseappliance extends BaseResource {
 		if(dg_reading_kvahObj != null)
 			dg_reading_kvah = new Double(dg_reading_kvahObj.toString());
 
+		Object dg_load_kwObj = map.get("dg_load_kw");
+		if(dg_load_kwObj != null)
+			dg_load_kw = new Double(dg_load_kwObj.toString());
+
+		Object dg_load_kvaObj = map.get("dg_load_kva");
+		if(dg_load_kvaObj != null)
+			dg_load_kva = new Double(dg_load_kvaObj.toString());
+
 		Object dg_voltageObj = map.get("dg_voltage");
 		if(dg_voltageObj != null)
 			dg_voltage = new Integer(dg_voltageObj.toString());
@@ -4211,6 +4507,14 @@ public abstract class Baseappliance extends BaseResource {
 		Object dg_p1_reading_kwhObj = map.get("dg_p1_reading_kwh");
 		if(dg_p1_reading_kwhObj != null)
 			dg_p1_reading_kwh = new Double(dg_p1_reading_kwhObj.toString());
+
+		Object dg_p1_load_kvaObj = map.get("dg_p1_load_kva");
+		if(dg_p1_load_kvaObj != null)
+			dg_p1_load_kva = new Double(dg_p1_load_kvaObj.toString());
+
+		Object dg_p1_load_kwObj = map.get("dg_p1_load_kw");
+		if(dg_p1_load_kwObj != null)
+			dg_p1_load_kw = new Double(dg_p1_load_kwObj.toString());
 
 		Object dg_p1_voltageObj = map.get("dg_p1_voltage");
 		if(dg_p1_voltageObj != null)
@@ -4248,6 +4552,14 @@ public abstract class Baseappliance extends BaseResource {
 		if(dg_p2_reading_kwhObj != null)
 			dg_p2_reading_kwh = new Double(dg_p2_reading_kwhObj.toString());
 
+		Object dg_p2_load_kvaObj = map.get("dg_p2_load_kva");
+		if(dg_p2_load_kvaObj != null)
+			dg_p2_load_kva = new Double(dg_p2_load_kvaObj.toString());
+
+		Object dg_p2_load_kwObj = map.get("dg_p2_load_kw");
+		if(dg_p2_load_kwObj != null)
+			dg_p2_load_kw = new Double(dg_p2_load_kwObj.toString());
+
 		Object dg_p2_voltageObj = map.get("dg_p2_voltage");
 		if(dg_p2_voltageObj != null)
 			dg_p2_voltage = new Integer(dg_p2_voltageObj.toString());
@@ -4283,6 +4595,14 @@ public abstract class Baseappliance extends BaseResource {
 		Object dg_p3_reading_kwhObj = map.get("dg_p3_reading_kwh");
 		if(dg_p3_reading_kwhObj != null)
 			dg_p3_reading_kwh = new Double(dg_p3_reading_kwhObj.toString());
+
+		Object dg_p3_load_kvaObj = map.get("dg_p3_load_kva");
+		if(dg_p3_load_kvaObj != null)
+			dg_p3_load_kva = new Double(dg_p3_load_kvaObj.toString());
+
+		Object dg_p3_load_kwObj = map.get("dg_p3_load_kw");
+		if(dg_p3_load_kwObj != null)
+			dg_p3_load_kw = new Double(dg_p3_load_kwObj.toString());
 
 		Object dg_p3_voltageObj = map.get("dg_p3_voltage");
 		if(dg_p3_voltageObj != null)
@@ -5910,6 +6230,30 @@ public abstract class Baseappliance extends BaseResource {
 		this.grid_reading_kwh = 0.0000;
 	}
 
+	public Double getGrid_load_kva() {
+		return grid_load_kva != null ? grid_load_kva : 0.0000;
+	}
+
+	public void setGrid_load_kva(Double grid_load_kva) {
+		this.grid_load_kva = grid_load_kva;
+	}
+
+	public void unSetGrid_load_kva() {
+		this.grid_load_kva = 0.0000;
+	}
+
+	public Double getGrid_load_kw() {
+		return grid_load_kw != null ? grid_load_kw : 0.0000;
+	}
+
+	public void setGrid_load_kw(Double grid_load_kw) {
+		this.grid_load_kw = grid_load_kw;
+	}
+
+	public void unSetGrid_load_kw() {
+		this.grid_load_kw = 0.0000;
+	}
+
 	public Integer getGrid_voltage() {
 		return grid_voltage != null ? grid_voltage : 0;
 	}
@@ -6044,6 +6388,30 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetGrid_p1_reading_kwh() {
 		this.grid_p1_reading_kwh = 0.0000;
+	}
+
+	public Double getGrid_p1_load_kva() {
+		return grid_p1_load_kva != null ? grid_p1_load_kva : 0.0000;
+	}
+
+	public void setGrid_p1_load_kva(Double grid_p1_load_kva) {
+		this.grid_p1_load_kva = grid_p1_load_kva;
+	}
+
+	public void unSetGrid_p1_load_kva() {
+		this.grid_p1_load_kva = 0.0000;
+	}
+
+	public Double getGrid_p1_load_kw() {
+		return grid_p1_load_kw != null ? grid_p1_load_kw : 0.0000;
+	}
+
+	public void setGrid_p1_load_kw(Double grid_p1_load_kw) {
+		this.grid_p1_load_kw = grid_p1_load_kw;
+	}
+
+	public void unSetGrid_p1_load_kw() {
+		this.grid_p1_load_kw = 0.0000;
 	}
 
 	public Integer getGrid_p1_voltage() {
@@ -6182,6 +6550,30 @@ public abstract class Baseappliance extends BaseResource {
 		this.grid_p2_reading_kwh = 0.0000;
 	}
 
+	public Double getGrid_p2_load_kva() {
+		return grid_p2_load_kva != null ? grid_p2_load_kva : 0.0000;
+	}
+
+	public void setGrid_p2_load_kva(Double grid_p2_load_kva) {
+		this.grid_p2_load_kva = grid_p2_load_kva;
+	}
+
+	public void unSetGrid_p2_load_kva() {
+		this.grid_p2_load_kva = 0.0000;
+	}
+
+	public Double getGrid_p2_load_kw() {
+		return grid_p2_load_kw != null ? grid_p2_load_kw : 0.0000;
+	}
+
+	public void setGrid_p2_load_kw(Double grid_p2_load_kw) {
+		this.grid_p2_load_kw = grid_p2_load_kw;
+	}
+
+	public void unSetGrid_p2_load_kw() {
+		this.grid_p2_load_kw = 0.0000;
+	}
+
 	public Integer getGrid_p2_voltage() {
 		return grid_p2_voltage != null ? grid_p2_voltage : 0;
 	}
@@ -6316,6 +6708,30 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetGrid_p3_reading_kwh() {
 		this.grid_p3_reading_kwh = 0.0000;
+	}
+
+	public Double getGrid_p3_load_kva() {
+		return grid_p3_load_kva != null ? grid_p3_load_kva : 0.0000;
+	}
+
+	public void setGrid_p3_load_kva(Double grid_p3_load_kva) {
+		this.grid_p3_load_kva = grid_p3_load_kva;
+	}
+
+	public void unSetGrid_p3_load_kva() {
+		this.grid_p3_load_kva = 0.0000;
+	}
+
+	public Double getGrid_p3_load_kw() {
+		return grid_p3_load_kw != null ? grid_p3_load_kw : 0.0000;
+	}
+
+	public void setGrid_p3_load_kw(Double grid_p3_load_kw) {
+		this.grid_p3_load_kw = grid_p3_load_kw;
+	}
+
+	public void unSetGrid_p3_load_kw() {
+		this.grid_p3_load_kw = 0.0000;
 	}
 
 	public Integer getGrid_p3_voltage() {
@@ -6454,6 +6870,30 @@ public abstract class Baseappliance extends BaseResource {
 		this.dg_reading_kvah = 0.0000;
 	}
 
+	public Double getDg_load_kw() {
+		return dg_load_kw != null ? dg_load_kw : 0.0000;
+	}
+
+	public void setDg_load_kw(Double dg_load_kw) {
+		this.dg_load_kw = dg_load_kw;
+	}
+
+	public void unSetDg_load_kw() {
+		this.dg_load_kw = 0.0000;
+	}
+
+	public Double getDg_load_kva() {
+		return dg_load_kva != null ? dg_load_kva : 0.0000;
+	}
+
+	public void setDg_load_kva(Double dg_load_kva) {
+		this.dg_load_kva = dg_load_kva;
+	}
+
+	public void unSetDg_load_kva() {
+		this.dg_load_kva = 0.0000;
+	}
+
 	public Integer getDg_voltage() {
 		return dg_voltage != null ? dg_voltage : 0;
 	}
@@ -6588,6 +7028,30 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetDg_p1_reading_kwh() {
 		this.dg_p1_reading_kwh = 0.0000;
+	}
+
+	public Double getDg_p1_load_kva() {
+		return dg_p1_load_kva != null ? dg_p1_load_kva : 0.0000;
+	}
+
+	public void setDg_p1_load_kva(Double dg_p1_load_kva) {
+		this.dg_p1_load_kva = dg_p1_load_kva;
+	}
+
+	public void unSetDg_p1_load_kva() {
+		this.dg_p1_load_kva = 0.0000;
+	}
+
+	public Double getDg_p1_load_kw() {
+		return dg_p1_load_kw != null ? dg_p1_load_kw : 0.0000;
+	}
+
+	public void setDg_p1_load_kw(Double dg_p1_load_kw) {
+		this.dg_p1_load_kw = dg_p1_load_kw;
+	}
+
+	public void unSetDg_p1_load_kw() {
+		this.dg_p1_load_kw = 0.0000;
 	}
 
 	public Integer getDg_p1_voltage() {
@@ -6726,6 +7190,30 @@ public abstract class Baseappliance extends BaseResource {
 		this.dg_p2_reading_kwh = 0.0000;
 	}
 
+	public Double getDg_p2_load_kva() {
+		return dg_p2_load_kva != null ? dg_p2_load_kva : 0.0000;
+	}
+
+	public void setDg_p2_load_kva(Double dg_p2_load_kva) {
+		this.dg_p2_load_kva = dg_p2_load_kva;
+	}
+
+	public void unSetDg_p2_load_kva() {
+		this.dg_p2_load_kva = 0.0000;
+	}
+
+	public Double getDg_p2_load_kw() {
+		return dg_p2_load_kw != null ? dg_p2_load_kw : 0.0000;
+	}
+
+	public void setDg_p2_load_kw(Double dg_p2_load_kw) {
+		this.dg_p2_load_kw = dg_p2_load_kw;
+	}
+
+	public void unSetDg_p2_load_kw() {
+		this.dg_p2_load_kw = 0.0000;
+	}
+
 	public Integer getDg_p2_voltage() {
 		return dg_p2_voltage != null ? dg_p2_voltage : 0;
 	}
@@ -6860,6 +7348,30 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetDg_p3_reading_kwh() {
 		this.dg_p3_reading_kwh = 0.0000;
+	}
+
+	public Double getDg_p3_load_kva() {
+		return dg_p3_load_kva != null ? dg_p3_load_kva : 0.0000;
+	}
+
+	public void setDg_p3_load_kva(Double dg_p3_load_kva) {
+		this.dg_p3_load_kva = dg_p3_load_kva;
+	}
+
+	public void unSetDg_p3_load_kva() {
+		this.dg_p3_load_kva = 0.0000;
+	}
+
+	public Double getDg_p3_load_kw() {
+		return dg_p3_load_kw != null ? dg_p3_load_kw : 0.0000;
+	}
+
+	public void setDg_p3_load_kw(Double dg_p3_load_kw) {
+		this.dg_p3_load_kw = dg_p3_load_kw;
+	}
+
+	public void unSetDg_p3_load_kw() {
+		this.dg_p3_load_kw = 0.0000;
 	}
 
 	public Integer getDg_p3_voltage() {
