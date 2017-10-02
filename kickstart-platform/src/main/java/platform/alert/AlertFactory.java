@@ -34,16 +34,39 @@ public class AlertFactory {
 	public static String ALERT_NORMAL_CANOPY_TEMPERATURE = "NORMAL_CANOPY_TEMPERATURE";
 	public static String ALERT_LOW_BATTERY_VOLTAGE = "LOW_BATTERY_VOLTAGE";
 	public static String ALERT_NORMAL_BATTERY_VOLTAGE = "NORMAL_BATTERY_VOLTAGE";
-	public static String ALERT_LOW_VOLTAGE = "LOW_VOLTAGE";
-	public static String ALERT_HIGH_VOLTAGE = "HIGH_VOLTAGE";
-	public static String ALERT_LOW_CURRENT = "LOW_CURRENT";
-	public static String ALERT_HIGH_CURRENT = "HIGH_CURRENT";
-	public static String ALERT_LOW_PF = "LOW_PF";
-	public static String ALERT_HIGH_PF = "HIGH_PF";
-	public static String ALERT_LOW_MD = "LOW_MD";
-	public static String ALERT_HIGH_MD = "HIGH_MD";
-	public static String ALERT_LOW_TDH = "LOW_TDH";
-	public static String ALERT_HIGH_TDH = "HIGH_TDH";
+	public static String ALERT_GRID_LOW_VOLTAGE = "GRID_LOW_VOLTAGE";
+	public static String ALERT_GRID_HIGH_VOLTAGE = "GRID_HIGH_VOLTAGE";
+	public static String ALERT_GRID_LOW_CURRENT = "GRID_LOW_CURRENT";
+	public static String ALERT_GRID_HIGH_CURRENT = "GRID_HIGH_CURRENT";
+	public static String ALERT_GRID_LOW_PF = "GRID_LOW_PF";
+	public static String ALERT_GRID_HIGH_PF = "GRID_HIGH_PF";
+	public static String ALERT_GRID_LOW_MD = "GRID_LOW_MD";
+	public static String ALERT_GRID_HIGH_MD = "GRID_HIGH_MD";
+	public static String ALERT_GRID_LOW_TDH = "GRID_LOW_TDH";
+	public static String ALERT_GRID_HIGH_TDH = "GRID_HIGH_TDH";
+	public static String ALERT_GRID_HIGH_LOAD_KW = "GRID_HIGH_LOAD_KW";
+	public static String ALERT_GRID_HIGH_LOAD_KVA = "GRID_HIGH_LOAD_KVA";
+	public static String ALERT_GRID_LOW_LOAD_KW = "GRID_LOW_LOAD_KW";
+	public static String ALERT_GRID_LOW_LOAD_KVA = "GRID_LOW_LOAD_KVA";
+
+
+
+	public static String ALERT_DG_LOW_VOLTAGE = "DG_LOW_VOLTAGE";
+	public static String ALERT_DG_HIGH_VOLTAGE = "DG_HIGH_VOLTAGE";
+	public static String ALERT_DG_LOW_CURRENT = "DG_LOW_CURRENT";
+	public static String ALERT_DG_HIGH_CURRENT = "DG_HIGH_CURRENT";
+	public static String ALERT_DG_LOW_PF = "DG_LOW_PF";
+	public static String ALERT_DG_HIGH_PF = "DG_HIGH_PF";
+	public static String ALERT_DG_LOW_MD = "DG_LOW_MD";
+	public static String ALERT_DG_HIGH_MD = "DG_HIGH_MD";
+	public static String ALERT_DG_LOW_TDH = "DG_LOW_TDH";
+	public static String ALERT_DG_HIGH_TDH = "DG_HIGH_TDH";
+
+	public static String ALERT_DG_HIGH_LOAD_KW = "DG_HIGH_LOAD_KW";
+	public static String ALERT_DG_HIGH_LOAD_KVA = "DG_HIGH_LOAD_KVA";
+	public static String ALERT_DG_LOW_LOAD_KW = "DG_LOW_LOAD_KW";
+	public static String ALERT_DG_LOW_LOAD_KVA = "DG_LOW_LOAD_KVA";
+
 
 
 }
