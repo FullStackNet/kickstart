@@ -607,7 +607,7 @@ public class TimeUtil {
 		if (min > 0) {
 			str = str+min+" mins ";
 		}
-		if (second > 0) {
+		if ((day ==0) && second > 0) {
 			str = str+second+" secs ";
 		}
 		str = str+" ago ";
