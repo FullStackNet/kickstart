@@ -143,6 +143,49 @@
 				'type': 'String',
 				'comment' : 'Auto,Manual'
 			},
+			'grid_min_load': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'grid_max_load': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'grid_load_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_load_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_load_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'grid_load_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'grid_load_alert_severity': {
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'grid_load_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
+			},
 			'grid_min_md': {
 				'default': '0.0000',
 				'length': 12,
@@ -349,6 +392,49 @@
 				'type': 'int'
 			},
 			'dg_pf_alert_clear_mode': {
+				'default': 'AUTO',
+				'length': 10,
+				'type': 'String',
+				'comment' : 'Auto,Manual'
+			},
+			'dg_min_load': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'dg_max_load': {
+				'default': '0.0000',
+				'length': 12,
+				'precision': 4,
+				'type': 'double'
+			},
+			'dg_load_alert': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_load_alert_sms': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_load_alert_email': {
+				'default': 'N',
+				'length': 1,
+				'type': 'String'
+			},
+			'dg_load_cool_down': {
+				'default': '0',
+				'length': 5,
+				'type': 'int'
+			},
+			'dg_load_alert_severity': {
+				'default': '0',
+				'length': 1,
+				'type': 'int'
+			},
+			'dg_load_alert_clear_mode': {
 				'default': 'AUTO',
 				'length': 10,
 				'type': 'String',

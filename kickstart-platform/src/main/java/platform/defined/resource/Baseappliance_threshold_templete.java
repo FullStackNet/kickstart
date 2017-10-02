@@ -46,6 +46,14 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 	private Integer grid_pf_cool_down = null;
 	private Integer grid_pf_alert_severity = null;
 	private String grid_pf_alert_clear_mode = null; //Auto,Manual
+	private Double grid_min_load = null;
+	private Double grid_max_load = null;
+	private String grid_load_alert = null;
+	private String grid_load_alert_sms = null;
+	private String grid_load_alert_email = null;
+	private Integer grid_load_cool_down = null;
+	private Integer grid_load_alert_severity = null;
+	private String grid_load_alert_clear_mode = null; //Auto,Manual
 	private Double grid_min_md = null;
 	private Double grid_max_md = null;
 	private String grid_md_alert = null;
@@ -86,6 +94,14 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 	private Integer dg_pf_cool_down = null;
 	private Integer dg_pf_alert_severity = null;
 	private String dg_pf_alert_clear_mode = null; //Auto,Manual
+	private Double dg_min_load = null;
+	private Double dg_max_load = null;
+	private String dg_load_alert = null;
+	private String dg_load_alert_sms = null;
+	private String dg_load_alert_email = null;
+	private Integer dg_load_cool_down = null;
+	private Integer dg_load_alert_severity = null;
+	private String dg_load_alert_clear_mode = null; //Auto,Manual
 	private Double dg_min_md = null;
 	private Double dg_max_md = null;
 	private String dg_md_alert = null;
@@ -132,6 +148,14 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 	public static String FIELD_GRID_PF_COOL_DOWN = "grid_pf_cool_down";
 	public static String FIELD_GRID_PF_ALERT_SEVERITY = "grid_pf_alert_severity";
 	public static String FIELD_GRID_PF_ALERT_CLEAR_MODE = "grid_pf_alert_clear_mode";
+	public static String FIELD_GRID_MIN_LOAD = "grid_min_load";
+	public static String FIELD_GRID_MAX_LOAD = "grid_max_load";
+	public static String FIELD_GRID_LOAD_ALERT = "grid_load_alert";
+	public static String FIELD_GRID_LOAD_ALERT_SMS = "grid_load_alert_sms";
+	public static String FIELD_GRID_LOAD_ALERT_EMAIL = "grid_load_alert_email";
+	public static String FIELD_GRID_LOAD_COOL_DOWN = "grid_load_cool_down";
+	public static String FIELD_GRID_LOAD_ALERT_SEVERITY = "grid_load_alert_severity";
+	public static String FIELD_GRID_LOAD_ALERT_CLEAR_MODE = "grid_load_alert_clear_mode";
 	public static String FIELD_GRID_MIN_MD = "grid_min_md";
 	public static String FIELD_GRID_MAX_MD = "grid_max_md";
 	public static String FIELD_GRID_MD_ALERT = "grid_md_alert";
@@ -172,6 +196,14 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 	public static String FIELD_DG_PF_COOL_DOWN = "dg_pf_cool_down";
 	public static String FIELD_DG_PF_ALERT_SEVERITY = "dg_pf_alert_severity";
 	public static String FIELD_DG_PF_ALERT_CLEAR_MODE = "dg_pf_alert_clear_mode";
+	public static String FIELD_DG_MIN_LOAD = "dg_min_load";
+	public static String FIELD_DG_MAX_LOAD = "dg_max_load";
+	public static String FIELD_DG_LOAD_ALERT = "dg_load_alert";
+	public static String FIELD_DG_LOAD_ALERT_SMS = "dg_load_alert_sms";
+	public static String FIELD_DG_LOAD_ALERT_EMAIL = "dg_load_alert_email";
+	public static String FIELD_DG_LOAD_COOL_DOWN = "dg_load_cool_down";
+	public static String FIELD_DG_LOAD_ALERT_SEVERITY = "dg_load_alert_severity";
+	public static String FIELD_DG_LOAD_ALERT_CLEAR_MODE = "dg_load_alert_clear_mode";
 	public static String FIELD_DG_MIN_MD = "dg_min_md";
 	public static String FIELD_DG_MAX_MD = "dg_max_md";
 	public static String FIELD_DG_MD_ALERT = "dg_md_alert";
@@ -331,6 +363,48 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		grid_pf_alert_clear_modeField.setDefaultValue("AUTO");
 		grid_pf_alert_clear_modeField.setLength(10);
 		metaData.addField(grid_pf_alert_clear_modeField);
+
+		Field grid_min_loadField = new Field("grid_min_load", "double");
+		grid_min_loadField.setDefaultValue(0.0000);
+		grid_min_loadField.setLength(12);
+		grid_min_loadField.setPrecision(4);
+		metaData.addField(grid_min_loadField);
+
+		Field grid_max_loadField = new Field("grid_max_load", "double");
+		grid_max_loadField.setDefaultValue(0.0000);
+		grid_max_loadField.setLength(12);
+		grid_max_loadField.setPrecision(4);
+		metaData.addField(grid_max_loadField);
+
+		Field grid_load_alertField = new Field("grid_load_alert", "String");
+		grid_load_alertField.setDefaultValue("N");
+		grid_load_alertField.setLength(1);
+		metaData.addField(grid_load_alertField);
+
+		Field grid_load_alert_smsField = new Field("grid_load_alert_sms", "String");
+		grid_load_alert_smsField.setDefaultValue("N");
+		grid_load_alert_smsField.setLength(1);
+		metaData.addField(grid_load_alert_smsField);
+
+		Field grid_load_alert_emailField = new Field("grid_load_alert_email", "String");
+		grid_load_alert_emailField.setDefaultValue("N");
+		grid_load_alert_emailField.setLength(1);
+		metaData.addField(grid_load_alert_emailField);
+
+		Field grid_load_cool_downField = new Field("grid_load_cool_down", "int");
+		grid_load_cool_downField.setDefaultValue(0);
+		grid_load_cool_downField.setLength(5);
+		metaData.addField(grid_load_cool_downField);
+
+		Field grid_load_alert_severityField = new Field("grid_load_alert_severity", "int");
+		grid_load_alert_severityField.setDefaultValue(0);
+		grid_load_alert_severityField.setLength(1);
+		metaData.addField(grid_load_alert_severityField);
+
+		Field grid_load_alert_clear_modeField = new Field("grid_load_alert_clear_mode", "String");
+		grid_load_alert_clear_modeField.setDefaultValue("AUTO");
+		grid_load_alert_clear_modeField.setLength(10);
+		metaData.addField(grid_load_alert_clear_modeField);
 
 		Field grid_min_mdField = new Field("grid_min_md", "double");
 		grid_min_mdField.setDefaultValue(0.0000);
@@ -538,6 +612,48 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		dg_pf_alert_clear_modeField.setLength(10);
 		metaData.addField(dg_pf_alert_clear_modeField);
 
+		Field dg_min_loadField = new Field("dg_min_load", "double");
+		dg_min_loadField.setDefaultValue(0.0000);
+		dg_min_loadField.setLength(12);
+		dg_min_loadField.setPrecision(4);
+		metaData.addField(dg_min_loadField);
+
+		Field dg_max_loadField = new Field("dg_max_load", "double");
+		dg_max_loadField.setDefaultValue(0.0000);
+		dg_max_loadField.setLength(12);
+		dg_max_loadField.setPrecision(4);
+		metaData.addField(dg_max_loadField);
+
+		Field dg_load_alertField = new Field("dg_load_alert", "String");
+		dg_load_alertField.setDefaultValue("N");
+		dg_load_alertField.setLength(1);
+		metaData.addField(dg_load_alertField);
+
+		Field dg_load_alert_smsField = new Field("dg_load_alert_sms", "String");
+		dg_load_alert_smsField.setDefaultValue("N");
+		dg_load_alert_smsField.setLength(1);
+		metaData.addField(dg_load_alert_smsField);
+
+		Field dg_load_alert_emailField = new Field("dg_load_alert_email", "String");
+		dg_load_alert_emailField.setDefaultValue("N");
+		dg_load_alert_emailField.setLength(1);
+		metaData.addField(dg_load_alert_emailField);
+
+		Field dg_load_cool_downField = new Field("dg_load_cool_down", "int");
+		dg_load_cool_downField.setDefaultValue(0);
+		dg_load_cool_downField.setLength(5);
+		metaData.addField(dg_load_cool_downField);
+
+		Field dg_load_alert_severityField = new Field("dg_load_alert_severity", "int");
+		dg_load_alert_severityField.setDefaultValue(0);
+		dg_load_alert_severityField.setLength(1);
+		metaData.addField(dg_load_alert_severityField);
+
+		Field dg_load_alert_clear_modeField = new Field("dg_load_alert_clear_mode", "String");
+		dg_load_alert_clear_modeField.setDefaultValue("AUTO");
+		dg_load_alert_clear_modeField.setLength(10);
+		metaData.addField(dg_load_alert_clear_modeField);
+
 		Field dg_min_mdField = new Field("dg_min_md", "double");
 		dg_min_mdField.setDefaultValue(0.0000);
 		dg_min_mdField.setLength(12);
@@ -667,6 +783,14 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		this.grid_pf_cool_down = obj.grid_pf_cool_down;
 		this.grid_pf_alert_severity = obj.grid_pf_alert_severity;
 		this.grid_pf_alert_clear_mode = obj.grid_pf_alert_clear_mode;
+		this.grid_min_load = obj.grid_min_load;
+		this.grid_max_load = obj.grid_max_load;
+		this.grid_load_alert = obj.grid_load_alert;
+		this.grid_load_alert_sms = obj.grid_load_alert_sms;
+		this.grid_load_alert_email = obj.grid_load_alert_email;
+		this.grid_load_cool_down = obj.grid_load_cool_down;
+		this.grid_load_alert_severity = obj.grid_load_alert_severity;
+		this.grid_load_alert_clear_mode = obj.grid_load_alert_clear_mode;
 		this.grid_min_md = obj.grid_min_md;
 		this.grid_max_md = obj.grid_max_md;
 		this.grid_md_alert = obj.grid_md_alert;
@@ -707,6 +831,14 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		this.dg_pf_cool_down = obj.dg_pf_cool_down;
 		this.dg_pf_alert_severity = obj.dg_pf_alert_severity;
 		this.dg_pf_alert_clear_mode = obj.dg_pf_alert_clear_mode;
+		this.dg_min_load = obj.dg_min_load;
+		this.dg_max_load = obj.dg_max_load;
+		this.dg_load_alert = obj.dg_load_alert;
+		this.dg_load_alert_sms = obj.dg_load_alert_sms;
+		this.dg_load_alert_email = obj.dg_load_alert_email;
+		this.dg_load_cool_down = obj.dg_load_cool_down;
+		this.dg_load_alert_severity = obj.dg_load_alert_severity;
+		this.dg_load_alert_clear_mode = obj.dg_load_alert_clear_mode;
 		this.dg_min_md = obj.dg_min_md;
 		this.dg_max_md = obj.dg_max_md;
 		this.dg_md_alert = obj.dg_md_alert;
@@ -780,6 +912,22 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 			grid_pf_alert_severity = 0;
 		if(grid_pf_alert_clear_mode == null)
 			grid_pf_alert_clear_mode = "AUTO";
+		if(grid_min_load == null)
+			grid_min_load = 0.0000;
+		if(grid_max_load == null)
+			grid_max_load = 0.0000;
+		if(grid_load_alert == null)
+			grid_load_alert = "N";
+		if(grid_load_alert_sms == null)
+			grid_load_alert_sms = "N";
+		if(grid_load_alert_email == null)
+			grid_load_alert_email = "N";
+		if(grid_load_cool_down == null)
+			grid_load_cool_down = 0;
+		if(grid_load_alert_severity == null)
+			grid_load_alert_severity = 0;
+		if(grid_load_alert_clear_mode == null)
+			grid_load_alert_clear_mode = "AUTO";
 		if(grid_min_md == null)
 			grid_min_md = 0.0000;
 		if(grid_max_md == null)
@@ -860,6 +1008,22 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 			dg_pf_alert_severity = 0;
 		if(dg_pf_alert_clear_mode == null)
 			dg_pf_alert_clear_mode = "AUTO";
+		if(dg_min_load == null)
+			dg_min_load = 0.0000;
+		if(dg_max_load == null)
+			dg_max_load = 0.0000;
+		if(dg_load_alert == null)
+			dg_load_alert = "N";
+		if(dg_load_alert_sms == null)
+			dg_load_alert_sms = "N";
+		if(dg_load_alert_email == null)
+			dg_load_alert_email = "N";
+		if(dg_load_cool_down == null)
+			dg_load_cool_down = 0;
+		if(dg_load_alert_severity == null)
+			dg_load_alert_severity = 0;
+		if(dg_load_alert_clear_mode == null)
+			dg_load_alert_clear_mode = "AUTO";
 		if(dg_min_md == null)
 			dg_min_md = 0.0000;
 		if(dg_max_md == null)
@@ -952,6 +1116,22 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 			map.put("grid_pf_alert_severity", grid_pf_alert_severity);
 		if(grid_pf_alert_clear_mode != null)
 			map.put("grid_pf_alert_clear_mode", grid_pf_alert_clear_mode);
+		if(grid_min_load != null)
+			map.put("grid_min_load", grid_min_load);
+		if(grid_max_load != null)
+			map.put("grid_max_load", grid_max_load);
+		if(grid_load_alert != null)
+			map.put("grid_load_alert", grid_load_alert);
+		if(grid_load_alert_sms != null)
+			map.put("grid_load_alert_sms", grid_load_alert_sms);
+		if(grid_load_alert_email != null)
+			map.put("grid_load_alert_email", grid_load_alert_email);
+		if(grid_load_cool_down != null)
+			map.put("grid_load_cool_down", grid_load_cool_down);
+		if(grid_load_alert_severity != null)
+			map.put("grid_load_alert_severity", grid_load_alert_severity);
+		if(grid_load_alert_clear_mode != null)
+			map.put("grid_load_alert_clear_mode", grid_load_alert_clear_mode);
 		if(grid_min_md != null)
 			map.put("grid_min_md", grid_min_md);
 		if(grid_max_md != null)
@@ -1032,6 +1212,22 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 			map.put("dg_pf_alert_severity", dg_pf_alert_severity);
 		if(dg_pf_alert_clear_mode != null)
 			map.put("dg_pf_alert_clear_mode", dg_pf_alert_clear_mode);
+		if(dg_min_load != null)
+			map.put("dg_min_load", dg_min_load);
+		if(dg_max_load != null)
+			map.put("dg_max_load", dg_max_load);
+		if(dg_load_alert != null)
+			map.put("dg_load_alert", dg_load_alert);
+		if(dg_load_alert_sms != null)
+			map.put("dg_load_alert_sms", dg_load_alert_sms);
+		if(dg_load_alert_email != null)
+			map.put("dg_load_alert_email", dg_load_alert_email);
+		if(dg_load_cool_down != null)
+			map.put("dg_load_cool_down", dg_load_cool_down);
+		if(dg_load_alert_severity != null)
+			map.put("dg_load_alert_severity", dg_load_alert_severity);
+		if(dg_load_alert_clear_mode != null)
+			map.put("dg_load_alert_clear_mode", dg_load_alert_clear_mode);
 		if(dg_min_md != null)
 			map.put("dg_min_md", dg_min_md);
 		if(dg_max_md != null)
@@ -1130,6 +1326,22 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 			map.put("grid_pf_alert_severity", grid_pf_alert_severity);
 		if(grid_pf_alert_clear_mode != null)
 			map.put("grid_pf_alert_clear_mode", grid_pf_alert_clear_mode);
+		if(grid_min_load != null)
+			map.put("grid_min_load", grid_min_load);
+		if(grid_max_load != null)
+			map.put("grid_max_load", grid_max_load);
+		if(grid_load_alert != null)
+			map.put("grid_load_alert", grid_load_alert);
+		if(grid_load_alert_sms != null)
+			map.put("grid_load_alert_sms", grid_load_alert_sms);
+		if(grid_load_alert_email != null)
+			map.put("grid_load_alert_email", grid_load_alert_email);
+		if(grid_load_cool_down != null)
+			map.put("grid_load_cool_down", grid_load_cool_down);
+		if(grid_load_alert_severity != null)
+			map.put("grid_load_alert_severity", grid_load_alert_severity);
+		if(grid_load_alert_clear_mode != null)
+			map.put("grid_load_alert_clear_mode", grid_load_alert_clear_mode);
 		if(grid_min_md != null)
 			map.put("grid_min_md", grid_min_md);
 		if(grid_max_md != null)
@@ -1210,6 +1422,22 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 			map.put("dg_pf_alert_severity", dg_pf_alert_severity);
 		if(dg_pf_alert_clear_mode != null)
 			map.put("dg_pf_alert_clear_mode", dg_pf_alert_clear_mode);
+		if(dg_min_load != null)
+			map.put("dg_min_load", dg_min_load);
+		if(dg_max_load != null)
+			map.put("dg_max_load", dg_max_load);
+		if(dg_load_alert != null)
+			map.put("dg_load_alert", dg_load_alert);
+		if(dg_load_alert_sms != null)
+			map.put("dg_load_alert_sms", dg_load_alert_sms);
+		if(dg_load_alert_email != null)
+			map.put("dg_load_alert_email", dg_load_alert_email);
+		if(dg_load_cool_down != null)
+			map.put("dg_load_cool_down", dg_load_cool_down);
+		if(dg_load_alert_severity != null)
+			map.put("dg_load_alert_severity", dg_load_alert_severity);
+		if(dg_load_alert_clear_mode != null)
+			map.put("dg_load_alert_clear_mode", dg_load_alert_clear_mode);
 		if(dg_min_md != null)
 			map.put("dg_min_md", dg_min_md);
 		if(dg_max_md != null)
@@ -1283,6 +1511,14 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		grid_pf_cool_down = (Integer) map.get("grid_pf_cool_down");
 		grid_pf_alert_severity = (Integer) map.get("grid_pf_alert_severity");
 		grid_pf_alert_clear_mode = (String) map.get("grid_pf_alert_clear_mode");
+		grid_min_load = (Double) map.get("grid_min_load");
+		grid_max_load = (Double) map.get("grid_max_load");
+		grid_load_alert = (String) map.get("grid_load_alert");
+		grid_load_alert_sms = (String) map.get("grid_load_alert_sms");
+		grid_load_alert_email = (String) map.get("grid_load_alert_email");
+		grid_load_cool_down = (Integer) map.get("grid_load_cool_down");
+		grid_load_alert_severity = (Integer) map.get("grid_load_alert_severity");
+		grid_load_alert_clear_mode = (String) map.get("grid_load_alert_clear_mode");
 		grid_min_md = (Double) map.get("grid_min_md");
 		grid_max_md = (Double) map.get("grid_max_md");
 		grid_md_alert = (String) map.get("grid_md_alert");
@@ -1323,6 +1559,14 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		dg_pf_cool_down = (Integer) map.get("dg_pf_cool_down");
 		dg_pf_alert_severity = (Integer) map.get("dg_pf_alert_severity");
 		dg_pf_alert_clear_mode = (String) map.get("dg_pf_alert_clear_mode");
+		dg_min_load = (Double) map.get("dg_min_load");
+		dg_max_load = (Double) map.get("dg_max_load");
+		dg_load_alert = (String) map.get("dg_load_alert");
+		dg_load_alert_sms = (String) map.get("dg_load_alert_sms");
+		dg_load_alert_email = (String) map.get("dg_load_alert_email");
+		dg_load_cool_down = (Integer) map.get("dg_load_cool_down");
+		dg_load_alert_severity = (Integer) map.get("dg_load_alert_severity");
+		dg_load_alert_clear_mode = (String) map.get("dg_load_alert_clear_mode");
 		dg_min_md = (Double) map.get("dg_min_md");
 		dg_max_md = (Double) map.get("dg_max_md");
 		dg_md_alert = (String) map.get("dg_md_alert");
@@ -1452,6 +1696,38 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		Object grid_pf_alert_clear_modeObj = map.get("grid_pf_alert_clear_mode");
 		if(grid_pf_alert_clear_modeObj != null)
 			grid_pf_alert_clear_mode = grid_pf_alert_clear_modeObj.toString();
+
+		Object grid_min_loadObj = map.get("grid_min_load");
+		if(grid_min_loadObj != null)
+			grid_min_load = new Double(grid_min_loadObj.toString());
+
+		Object grid_max_loadObj = map.get("grid_max_load");
+		if(grid_max_loadObj != null)
+			grid_max_load = new Double(grid_max_loadObj.toString());
+
+		Object grid_load_alertObj = map.get("grid_load_alert");
+		if(grid_load_alertObj != null)
+			grid_load_alert = grid_load_alertObj.toString();
+
+		Object grid_load_alert_smsObj = map.get("grid_load_alert_sms");
+		if(grid_load_alert_smsObj != null)
+			grid_load_alert_sms = grid_load_alert_smsObj.toString();
+
+		Object grid_load_alert_emailObj = map.get("grid_load_alert_email");
+		if(grid_load_alert_emailObj != null)
+			grid_load_alert_email = grid_load_alert_emailObj.toString();
+
+		Object grid_load_cool_downObj = map.get("grid_load_cool_down");
+		if(grid_load_cool_downObj != null)
+			grid_load_cool_down = new Integer(grid_load_cool_downObj.toString());
+
+		Object grid_load_alert_severityObj = map.get("grid_load_alert_severity");
+		if(grid_load_alert_severityObj != null)
+			grid_load_alert_severity = new Integer(grid_load_alert_severityObj.toString());
+
+		Object grid_load_alert_clear_modeObj = map.get("grid_load_alert_clear_mode");
+		if(grid_load_alert_clear_modeObj != null)
+			grid_load_alert_clear_mode = grid_load_alert_clear_modeObj.toString();
 
 		Object grid_min_mdObj = map.get("grid_min_md");
 		if(grid_min_mdObj != null)
@@ -1612,6 +1888,38 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 		Object dg_pf_alert_clear_modeObj = map.get("dg_pf_alert_clear_mode");
 		if(dg_pf_alert_clear_modeObj != null)
 			dg_pf_alert_clear_mode = dg_pf_alert_clear_modeObj.toString();
+
+		Object dg_min_loadObj = map.get("dg_min_load");
+		if(dg_min_loadObj != null)
+			dg_min_load = new Double(dg_min_loadObj.toString());
+
+		Object dg_max_loadObj = map.get("dg_max_load");
+		if(dg_max_loadObj != null)
+			dg_max_load = new Double(dg_max_loadObj.toString());
+
+		Object dg_load_alertObj = map.get("dg_load_alert");
+		if(dg_load_alertObj != null)
+			dg_load_alert = dg_load_alertObj.toString();
+
+		Object dg_load_alert_smsObj = map.get("dg_load_alert_sms");
+		if(dg_load_alert_smsObj != null)
+			dg_load_alert_sms = dg_load_alert_smsObj.toString();
+
+		Object dg_load_alert_emailObj = map.get("dg_load_alert_email");
+		if(dg_load_alert_emailObj != null)
+			dg_load_alert_email = dg_load_alert_emailObj.toString();
+
+		Object dg_load_cool_downObj = map.get("dg_load_cool_down");
+		if(dg_load_cool_downObj != null)
+			dg_load_cool_down = new Integer(dg_load_cool_downObj.toString());
+
+		Object dg_load_alert_severityObj = map.get("dg_load_alert_severity");
+		if(dg_load_alert_severityObj != null)
+			dg_load_alert_severity = new Integer(dg_load_alert_severityObj.toString());
+
+		Object dg_load_alert_clear_modeObj = map.get("dg_load_alert_clear_mode");
+		if(dg_load_alert_clear_modeObj != null)
+			dg_load_alert_clear_mode = dg_load_alert_clear_modeObj.toString();
 
 		Object dg_min_mdObj = map.get("dg_min_md");
 		if(dg_min_mdObj != null)
@@ -2078,6 +2386,118 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 
 	public void unSetGrid_pf_alert_clear_mode() {
 		this.grid_pf_alert_clear_mode = "AUTO";
+	}
+
+	public Double getGrid_min_load() {
+		return grid_min_load != null ? grid_min_load : 0.0000;
+	}
+
+	public void setGrid_min_load(double grid_min_load) {
+		this.grid_min_load = grid_min_load;
+	}
+
+	public void setGrid_min_load(Double grid_min_load) {
+		this.grid_min_load = grid_min_load;
+	}
+
+	public void unSetGrid_min_load() {
+		this.grid_min_load = 0.0000;
+	}
+
+	public Double getGrid_max_load() {
+		return grid_max_load != null ? grid_max_load : 0.0000;
+	}
+
+	public void setGrid_max_load(double grid_max_load) {
+		this.grid_max_load = grid_max_load;
+	}
+
+	public void setGrid_max_load(Double grid_max_load) {
+		this.grid_max_load = grid_max_load;
+	}
+
+	public void unSetGrid_max_load() {
+		this.grid_max_load = 0.0000;
+	}
+
+	public String getGrid_load_alert() {
+		return grid_load_alert != null ? grid_load_alert : "N";
+	}
+
+	public void setGrid_load_alert(String grid_load_alert) {
+		this.grid_load_alert = grid_load_alert;
+	}
+
+	public void unSetGrid_load_alert() {
+		this.grid_load_alert = "N";
+	}
+
+	public String getGrid_load_alert_sms() {
+		return grid_load_alert_sms != null ? grid_load_alert_sms : "N";
+	}
+
+	public void setGrid_load_alert_sms(String grid_load_alert_sms) {
+		this.grid_load_alert_sms = grid_load_alert_sms;
+	}
+
+	public void unSetGrid_load_alert_sms() {
+		this.grid_load_alert_sms = "N";
+	}
+
+	public String getGrid_load_alert_email() {
+		return grid_load_alert_email != null ? grid_load_alert_email : "N";
+	}
+
+	public void setGrid_load_alert_email(String grid_load_alert_email) {
+		this.grid_load_alert_email = grid_load_alert_email;
+	}
+
+	public void unSetGrid_load_alert_email() {
+		this.grid_load_alert_email = "N";
+	}
+
+	public Integer getGrid_load_cool_down() {
+		return grid_load_cool_down != null ? grid_load_cool_down : 0;
+	}
+
+	public void setGrid_load_cool_down(int grid_load_cool_down) {
+		this.grid_load_cool_down = grid_load_cool_down;
+	}
+
+	public void setGrid_load_cool_down(Integer grid_load_cool_down) {
+		this.grid_load_cool_down = grid_load_cool_down;
+	}
+
+	public void unSetGrid_load_cool_down() {
+		this.grid_load_cool_down = 0;
+	}
+
+	public Integer getGrid_load_alert_severity() {
+		return grid_load_alert_severity != null ? grid_load_alert_severity : 0;
+	}
+
+	public void setGrid_load_alert_severity(int grid_load_alert_severity) {
+		this.grid_load_alert_severity = grid_load_alert_severity;
+	}
+
+	public void setGrid_load_alert_severity(Integer grid_load_alert_severity) {
+		this.grid_load_alert_severity = grid_load_alert_severity;
+	}
+
+	public void unSetGrid_load_alert_severity() {
+		this.grid_load_alert_severity = 0;
+	}
+
+	public String getGrid_load_alert_clear_mode() {
+		return grid_load_alert_clear_mode != null ? grid_load_alert_clear_mode : "AUTO";
+	}
+
+	public void setGrid_load_alert_clear_mode(String grid_load_alert_clear_mode) {
+		this.grid_load_alert_clear_mode = grid_load_alert_clear_mode;
+	}
+
+	public void unSetGrid_load_alert_clear_mode() {
+		this.grid_load_alert_clear_mode = "AUTO";
 	}
 
 	public Double getGrid_min_md() {
@@ -2638,6 +3058,118 @@ public abstract class Baseappliance_threshold_templete extends BaseResource {
 
 	public void unSetDg_pf_alert_clear_mode() {
 		this.dg_pf_alert_clear_mode = "AUTO";
+	}
+
+	public Double getDg_min_load() {
+		return dg_min_load != null ? dg_min_load : 0.0000;
+	}
+
+	public void setDg_min_load(double dg_min_load) {
+		this.dg_min_load = dg_min_load;
+	}
+
+	public void setDg_min_load(Double dg_min_load) {
+		this.dg_min_load = dg_min_load;
+	}
+
+	public void unSetDg_min_load() {
+		this.dg_min_load = 0.0000;
+	}
+
+	public Double getDg_max_load() {
+		return dg_max_load != null ? dg_max_load : 0.0000;
+	}
+
+	public void setDg_max_load(double dg_max_load) {
+		this.dg_max_load = dg_max_load;
+	}
+
+	public void setDg_max_load(Double dg_max_load) {
+		this.dg_max_load = dg_max_load;
+	}
+
+	public void unSetDg_max_load() {
+		this.dg_max_load = 0.0000;
+	}
+
+	public String getDg_load_alert() {
+		return dg_load_alert != null ? dg_load_alert : "N";
+	}
+
+	public void setDg_load_alert(String dg_load_alert) {
+		this.dg_load_alert = dg_load_alert;
+	}
+
+	public void unSetDg_load_alert() {
+		this.dg_load_alert = "N";
+	}
+
+	public String getDg_load_alert_sms() {
+		return dg_load_alert_sms != null ? dg_load_alert_sms : "N";
+	}
+
+	public void setDg_load_alert_sms(String dg_load_alert_sms) {
+		this.dg_load_alert_sms = dg_load_alert_sms;
+	}
+
+	public void unSetDg_load_alert_sms() {
+		this.dg_load_alert_sms = "N";
+	}
+
+	public String getDg_load_alert_email() {
+		return dg_load_alert_email != null ? dg_load_alert_email : "N";
+	}
+
+	public void setDg_load_alert_email(String dg_load_alert_email) {
+		this.dg_load_alert_email = dg_load_alert_email;
+	}
+
+	public void unSetDg_load_alert_email() {
+		this.dg_load_alert_email = "N";
+	}
+
+	public Integer getDg_load_cool_down() {
+		return dg_load_cool_down != null ? dg_load_cool_down : 0;
+	}
+
+	public void setDg_load_cool_down(int dg_load_cool_down) {
+		this.dg_load_cool_down = dg_load_cool_down;
+	}
+
+	public void setDg_load_cool_down(Integer dg_load_cool_down) {
+		this.dg_load_cool_down = dg_load_cool_down;
+	}
+
+	public void unSetDg_load_cool_down() {
+		this.dg_load_cool_down = 0;
+	}
+
+	public Integer getDg_load_alert_severity() {
+		return dg_load_alert_severity != null ? dg_load_alert_severity : 0;
+	}
+
+	public void setDg_load_alert_severity(int dg_load_alert_severity) {
+		this.dg_load_alert_severity = dg_load_alert_severity;
+	}
+
+	public void setDg_load_alert_severity(Integer dg_load_alert_severity) {
+		this.dg_load_alert_severity = dg_load_alert_severity;
+	}
+
+	public void unSetDg_load_alert_severity() {
+		this.dg_load_alert_severity = 0;
+	}
+
+	public String getDg_load_alert_clear_mode() {
+		return dg_load_alert_clear_mode != null ? dg_load_alert_clear_mode : "AUTO";
+	}
+
+	public void setDg_load_alert_clear_mode(String dg_load_alert_clear_mode) {
+		this.dg_load_alert_clear_mode = dg_load_alert_clear_mode;
+	}
+
+	public void unSetDg_load_alert_clear_mode() {
+		this.dg_load_alert_clear_mode = "AUTO";
 	}
 
 	public Double getDg_min_md() {
