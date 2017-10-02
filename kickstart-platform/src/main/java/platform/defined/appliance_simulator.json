@@ -531,6 +531,21 @@
 				'precision': 4,
 				'type':'Double'
 			},
+			'grid_load_kva':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'grid_load_kw':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
 			'grid_voltage':
 			{
 				'default':'0',
@@ -587,6 +602,21 @@
 			},
 
 			'grid_p1_reading_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_p1_load_kva':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'grid_p1_load_kw':
 			{
 				'name':'grid_reading',
 				'default':'0.0000',
@@ -651,7 +681,21 @@
 
 			'grid_p2_reading_kwh':
 			{
-				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_p2_load_kva':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'grid_p2_load_kw':
+			{
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -720,6 +764,23 @@
 				'precision': 4,
 				'type':'Double'
 			},
+
+			'grid_p3_load_kva':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'grid_p3_load_kw':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
 			'grid_p3_voltage':
 			{
 				'default':'0',
@@ -775,6 +836,22 @@
 				'type':'Double'
 			},
 			'dg_reading_kvah':
+			{
+				'name':'dg_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_load_kw':
+			{
+				'name':'dg_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_load_kva':
 			{
 				'name':'dg_reading',
 				'default':'0.0000',
@@ -845,6 +922,23 @@
 				'precision': 4,
 				'type':'Double'
 			},
+			'dg_p1_load_kva':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'dg_p1_load_kw':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
 			'dg_p1_voltage':
 			{
 				'default':'0',
@@ -908,6 +1002,23 @@
 				'precision': 4,
 				'type':'Double'
 			},
+			'dg_p2_load_kva':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'dg_p2_load_kw':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
 			'dg_p2_voltage':
 			{
 				'default':'0',
@@ -964,6 +1075,23 @@
 			},
 
 			'dg_p3_reading_kwh':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_p3_load_kva':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'dg_p3_load_kw':
 			{
 				'name':'grid_reading',
 				'default':'0.0000',
