@@ -16,4 +16,13 @@ public class  Appliance {
 		};
 		return list;
 	}
+
+	public static boolean isAppliance(String type) {
+		if (APPLIANCE_METER.equalsIgnoreCase(type) ||
+				APPLIANCE_VEHICLE.equalsIgnoreCase(type) ||
+				APPLIANCE_DG.equalsIgnoreCase(type)) {
+			return true;
+		}
+		return false;
+	}
 }

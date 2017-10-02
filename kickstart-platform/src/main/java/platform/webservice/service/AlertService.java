@@ -3,8 +3,10 @@ package platform.webservice.service;
 import java.util.Date;
 import java.util.Map;
 
+import platform.appliances.Appliance;
 import platform.exception.ExceptionEnum;
 import platform.helper.AlertHelper;
+import platform.helper.ApplianceHelper;
 import platform.helper.User_mapHelper;
 import platform.message.Alert;
 import platform.resource.BaseResource;
@@ -33,6 +35,9 @@ public class AlertService extends BaseService{
 			AlertHelper.getInstance().update(upd_alert);
 		} catch (ApplicationException e) {
 			e.printStackTrace();
+		}
+		if (Appliance.isAppliance(_alert.getDevice_type())) {
+			ApplianceHelper.getInstance().updateAlertSummary(_alert.getDevice_id());
 		}
 	}
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
