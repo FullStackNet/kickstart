@@ -25,7 +25,9 @@ public class ResourcesToGenerate {
 		new ResourceMap("appliance_simulator", "platform.resource.appliance_simulator"),
 		new ResourceMap("appliance_threshold_templete", "platform.resource.appliance_threshold_templete"),
 		new ResourceMap("appliance", "platform.resource.appliance"),
-		new ResourceMap("appliance_make", "platform.resource.appliance_make"),
+			new ResourceMap("meter_log", "platform.resource.meter_log"),
+
+			new ResourceMap("appliance_make", "platform.resource.appliance_make"),
 		new ResourceMap("appliance_model", "platform.resource.appliance_model"),
 		new ResourceMap("appliance_map", "platform.resource.appliance_map"),
 		new ResourceMap("appliance_part", "platform.resource.appliance_part"),

@@ -1,0 +1,306 @@
+{
+	"meter_log" :
+	{
+		"cluster": "DB_ANALYSIS",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'appliance_id':
+			{
+				'name':'appliance_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'source':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'creation_date':
+			{
+				'name':'creation_date',
+				'required': true,
+				'type':'timestamp'
+			},
+			'timezone':
+			{
+				'name':'creation_time',
+				'type':'String',
+				'length': 32
+			},
+			'creation_time':
+			{
+				'name':'creation_time',
+				'type':'timestamp',
+				'transient' : 'true'
+			},
+			'load_kva':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'load_kw':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p1_load_kva':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'p1_load_kw':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'p1_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'p1_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'p1_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p1_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p1_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p1_kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p1_frequency':
+			{
+				'default':'0',
+				'type':'long'
+			},
+
+			'p2_reading_kvah':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'p2_reading_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'p2_load_kva':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'p2_load_kw':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'p2_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'p2_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'p2_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p2_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p2_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p2_kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p2_frequency':
+			{
+				'default':'0',
+				'type':'long'
+			},
+
+			'p3_reading_kvah':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'p3_reading_kwh':
+			{
+				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'p3_load_kva':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'p3_load_kw':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
+			'p3_voltage':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'p3_current':
+			{
+				'default':'0',
+				'length': 5,
+				'type':'int'
+			},
+			'p3_pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p3_md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'p3_tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			}
+		}
+	}
+}
