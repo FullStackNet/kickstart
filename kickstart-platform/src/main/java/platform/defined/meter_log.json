@@ -44,8 +44,7 @@
 			'creation_time':
 			{
 				'name':'creation_time',
-				'type':'timestamp',
-				'transient' : 'true'
+				'type':'timestamp'
 			},
 			'load_kva':
 			{

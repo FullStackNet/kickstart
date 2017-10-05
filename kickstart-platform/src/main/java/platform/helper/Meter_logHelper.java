@@ -1,12 +1,13 @@
 package platform.helper;
 
 import platform.resource.activity;
+import platform.resource.meter_log;
 
 
 public class Meter_logHelper extends BaseHelper {
 
 	public Meter_logHelper() {
-		super(new activity());
+		super(new meter_log());
 		// TODO Auto-generated constructor stub
 	}
 	private static Meter_logHelper instance;

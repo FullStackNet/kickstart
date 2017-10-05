@@ -142,6 +142,9 @@ public abstract class Basemeter_log extends BaseResource {
 		timezoneField.setLength(32);
 		metaData.addField(timezoneField);
 
+		Field creation_timeField = new Field("creation_time", "timestamp");
+		metaData.addField(creation_timeField);
+
 		Field load_kvaField = new Field("load_kva", "Double");
 		load_kvaField.setDefaultValue(0.0000);
 		load_kvaField.setLength(12);
@@ -686,6 +689,7 @@ public abstract class Basemeter_log extends BaseResource {
 		source = (String) map.get("source");
 		creation_date = (Long) map.get("creation_date");
 		timezone = (String) map.get("timezone");
+		creation_time = (Long) map.get("creation_time");
 		load_kva = (Double) map.get("load_kva");
 		load_kw = (Double) map.get("load_kw");
 		voltage = (Integer) map.get("voltage");
@@ -750,6 +754,10 @@ public abstract class Basemeter_log extends BaseResource {
 		Object timezoneObj = map.get("timezone");
 		if(timezoneObj != null)
 			timezone = timezoneObj.toString();
+
+		Object creation_timeObj = map.get("creation_time");
+		if(creation_timeObj != null)
+			creation_time = new Long(creation_timeObj.toString());
 
 		Object load_kvaObj = map.get("load_kva");
 		if(load_kvaObj != null)

@@ -711,4 +711,66 @@ public class TimeUtil {
 		toCal.set(Calendar.SECOND, second);
 		return toCal.getTime().getTime();
 	}
+	public static long getFromTime(String durationType,String timezone) {
+		long time=0;
+		if ("today".equalsIgnoreCase(durationType)) {
+			time = TimeUtil.getTimeforCurrentDate(timezone);
+		}
+		if ("yesterday".equalsIgnoreCase(durationType)) {
+			time = TimeUtil.getTimeforCurrentDate(timezone)-24*60*60*1000L;
+		}
+		if ("this_week".equalsIgnoreCase(durationType)) {
+			time = TimeUtil.getStartTimeofThisWeek(timezone);
+		}
+		if ("this_month".equalsIgnoreCase(durationType)) {
+			time = TimeUtil.getStartTimeofThisMonth(timezone);
+		}
+		return time;
+	}
+	public static long getToTime(String durationType,long fromTime,String timezone) {
+		long time=0;
+		if ("today".equalsIgnoreCase(durationType)) {
+			time = fromTime-1000+24*60*60*1000L;
+		}
+		if ("yesterday".equalsIgnoreCase(durationType)) {
+			time = fromTime-1000+24*60*60*1000L;
+		}
+		if ("this_week".equalsIgnoreCase(durationType)) {
+			time = System.currentTimeMillis();
+		}
+		if ("this_month".equalsIgnoreCase(durationType)) {
+			time = System.currentTimeMillis();
+		}
+		return time;
+	}
+
+	public static long getStartTimeofThisWeek(String timezone) {
+		if (timezone == null)
+			timezone = "IST";
+
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		if (dayOfWeek == Calendar.SUNDAY) {
+			dayOfWeek = 8;
+		}
+		dayOfWeek = dayOfWeek - 2;
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis()-dayOfWeek*24*60*60*1000L;
+	}
+	public static long getStartTimeofThisMonth(String timezone) {
+		if (timezone == null)
+			timezone = "IST";
+
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+		dayOfMonth = dayOfMonth - 1;
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis()-dayOfMonth*24*60*60*1000L;
+	}
 }
