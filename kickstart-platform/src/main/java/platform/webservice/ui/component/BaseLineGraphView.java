@@ -77,7 +77,7 @@ public class BaseLineGraphView extends BaseView {
 				first = false;
 				Field field = mDefinition.getFields().get(j);
 				Object value = map.get(field.getName());
-				if (field.getType().equals(UIConstants.DATA_TYPE_TIMESTAMP)) {
+				if (field.getType().equalsIgnoreCase(UIConstants.DATA_TYPE_TIMESTAMP)) {
 					Date date = new Date(Long.parseLong(value.toString()));
 					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					buffer.append(dateFormat.format(date));
