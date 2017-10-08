@@ -53,7 +53,7 @@ public class BaseLineGraphView extends BaseView {
 				buffer.append(",");
 			first = false;
 			Field field = mDefinition.getFields().get(i);
-			buffer.append(field.getName());
+			buffer.append(field.getLabel());
 		}
 		if (list.size() == 0) {
 			first = true;
