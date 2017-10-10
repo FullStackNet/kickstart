@@ -504,7 +504,6 @@
 			},
 			'dg_reading':
 			{
-				'name':'dg_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -512,7 +511,6 @@
 			},
 			'grid_reading':
 			{
-				'name':'grid_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -520,21 +518,18 @@
 			},
 			'voltage':
 			{
-				'name':'voltage',
 				'default':'0',
 				'length': 5,
 				'type':'int'
 			},
 			'current':
 			{
-				'name':'current',
 				'default':'0',
 				'length': 5,
 				'type':'int'
 			},
 			'power':
 			{
-				'name':'power',
 				'default':'0.0000',
 				'length': 16,
 				'precision': 4,
@@ -542,7 +537,6 @@
 			},
 			'energy':
 			{
-				'name':'energy',
 				'default':'0.0000',
 				'length': 16,
 				'precision': 4,
@@ -550,7 +544,6 @@
 			},
 			'grid_reading_kvah':
 			{
-				'name':'grid_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -559,7 +552,6 @@
 
 			'grid_reading_kwh':
 			{
-				'name':'grid_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -656,7 +648,6 @@
 
 			'grid_p1_reading_kvah':
 			{
-				'name':'grid_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -680,7 +671,6 @@
 
 			'grid_p1_load_kw':
 			{
-				'name':'grid_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -734,7 +724,6 @@
 
 			'grid_p2_reading_kvah':
 			{
-				'name':'grid_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -811,7 +800,6 @@
 
 			'grid_p3_reading_kvah':
 			{
-				'name':'grid_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -820,7 +808,6 @@
 
 			'grid_p3_reading_kwh':
 			{
-				'name':'grid_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -891,7 +878,6 @@
 
 			'dg_reading_kwh':
 			{
-				'name':'dg_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -899,7 +885,6 @@
 			},
 			'dg_reading_kvah':
 			{
-				'name':'dg_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -936,7 +921,6 @@
 
 			'dg_load_kw':
 			{
-				'name':'dg_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -944,7 +928,6 @@
 			},
 			'dg_load_kva':
 			{
-				'name':'dg_reading',
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -1834,22 +1817,22 @@
 			},
 
 			current_route_name : {
-				 transient : true,
+				transient : true,
 				'length': 128,
 				'type': 'String'
 			},
 			current_route_schedule : {
-				 transient : true,
+				transient : true,
 				'length': 128,
 				'type': 'String'
 			},
 			last_stopage_name : {
-				 transient : true,
+				transient : true,
 				'length': 128,
 				'type': 'String'
 			},
 			last_stopage_reached_time : {
-				 transient : true,
+				transient : true,
 				'type': 'long'
 			},
 			critical_alerts : {
