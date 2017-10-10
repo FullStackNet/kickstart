@@ -92,6 +92,8 @@ public abstract class Baseappliance extends BaseResource {
 	private Integer battery_level = null;
 	private Double last_reading = null;
 	private Long last_reading_updated = null;
+	private Long last_grid_reading_updated = null;
+	private Long last_dg_reading_updated = null;
 	private Double dg_reading = null;
 	private Double grid_reading = null;
 	private Integer voltage = null;
@@ -100,6 +102,10 @@ public abstract class Baseappliance extends BaseResource {
 	private Double energy = null;
 	private Double grid_reading_kvah = null;
 	private Double grid_reading_kwh = null;
+	private Double grid_today_kwh = null;
+	private Double grid_current_month_kwh = null;
+	private Double grid_today_kvah = null;
+	private Double grid_current_month_kvah = null;
 	private Double grid_load_kva = null;
 	private Double grid_load_kw = null;
 	private Integer grid_voltage = null;
@@ -144,6 +150,10 @@ public abstract class Baseappliance extends BaseResource {
 	private Long grid_p3_frequency = null;
 	private Double dg_reading_kwh = null;
 	private Double dg_reading_kvah = null;
+	private Double dg_today_kwh = null;
+	private Double dg_current_month_kwh = null;
+	private Double dg_today_kvah = null;
+	private Double dg_current_month_kvah = null;
 	private Double dg_load_kw = null;
 	private Double dg_load_kva = null;
 	private Integer dg_voltage = null;
@@ -365,6 +375,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_BATTERY_LEVEL = "battery_level";
 	public static String FIELD_LAST_READING = "last_reading";
 	public static String FIELD_LAST_READING_UPDATED = "last_reading_updated";
+	public static String FIELD_LAST_GRID_READING_UPDATED = "last_grid_reading_updated";
+	public static String FIELD_LAST_DG_READING_UPDATED = "last_dg_reading_updated";
 	public static String FIELD_DG_READING = "dg_reading";
 	public static String FIELD_GRID_READING = "grid_reading";
 	public static String FIELD_VOLTAGE = "voltage";
@@ -373,6 +385,10 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_ENERGY = "energy";
 	public static String FIELD_GRID_READING_KVAH = "grid_reading_kvah";
 	public static String FIELD_GRID_READING_KWH = "grid_reading_kwh";
+	public static String FIELD_GRID_TODAY_KWH = "grid_today_kwh";
+	public static String FIELD_GRID_CURRENT_MONTH_KWH = "grid_current_month_kwh";
+	public static String FIELD_GRID_TODAY_KVAH = "grid_today_kvah";
+	public static String FIELD_GRID_CURRENT_MONTH_KVAH = "grid_current_month_kvah";
 	public static String FIELD_GRID_LOAD_KVA = "grid_load_kva";
 	public static String FIELD_GRID_LOAD_KW = "grid_load_kw";
 	public static String FIELD_GRID_VOLTAGE = "grid_voltage";
@@ -417,6 +433,10 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_GRID_P3_FREQUENCY = "grid_p3_frequency";
 	public static String FIELD_DG_READING_KWH = "dg_reading_kwh";
 	public static String FIELD_DG_READING_KVAH = "dg_reading_kvah";
+	public static String FIELD_DG_TODAY_KWH = "dg_today_kwh";
+	public static String FIELD_DG_CURRENT_MONTH_KWH = "dg_current_month_kwh";
+	public static String FIELD_DG_TODAY_KVAH = "dg_today_kvah";
+	public static String FIELD_DG_CURRENT_MONTH_KVAH = "dg_current_month_kvah";
 	public static String FIELD_DG_LOAD_KW = "dg_load_kw";
 	public static String FIELD_DG_LOAD_KVA = "dg_load_kva";
 	public static String FIELD_DG_VOLTAGE = "dg_voltage";
@@ -903,6 +923,16 @@ public abstract class Baseappliance extends BaseResource {
 		last_reading_updatedField.setDefaultValue("CURRENT_TIMESTAMP");
 		metaData.addField(last_reading_updatedField);
 
+		Field last_grid_reading_updatedField = new Field("last_grid_reading_updated", "timestamp");
+		last_grid_reading_updatedField.setRequired(true);
+		last_grid_reading_updatedField.setDefaultValue("CURRENT_TIMESTAMP");
+		metaData.addField(last_grid_reading_updatedField);
+
+		Field last_dg_reading_updatedField = new Field("last_dg_reading_updated", "timestamp");
+		last_dg_reading_updatedField.setRequired(true);
+		last_dg_reading_updatedField.setDefaultValue("CURRENT_TIMESTAMP");
+		metaData.addField(last_dg_reading_updatedField);
+
 		Field dg_readingField = new Field("dg_reading", "Double");
 		dg_readingField.setDefaultValue(0.0000);
 		dg_readingField.setLength(12);
@@ -948,6 +978,30 @@ public abstract class Baseappliance extends BaseResource {
 		grid_reading_kwhField.setLength(12);
 		grid_reading_kwhField.setPrecision(4);
 		metaData.addField(grid_reading_kwhField);
+
+		Field grid_today_kwhField = new Field("grid_today_kwh", "Double");
+		grid_today_kwhField.setDefaultValue(0.0000);
+		grid_today_kwhField.setLength(12);
+		grid_today_kwhField.setPrecision(4);
+		metaData.addField(grid_today_kwhField);
+
+		Field grid_current_month_kwhField = new Field("grid_current_month_kwh", "Double");
+		grid_current_month_kwhField.setDefaultValue(0.0000);
+		grid_current_month_kwhField.setLength(12);
+		grid_current_month_kwhField.setPrecision(4);
+		metaData.addField(grid_current_month_kwhField);
+
+		Field grid_today_kvahField = new Field("grid_today_kvah", "Double");
+		grid_today_kvahField.setDefaultValue(0.0000);
+		grid_today_kvahField.setLength(12);
+		grid_today_kvahField.setPrecision(4);
+		metaData.addField(grid_today_kvahField);
+
+		Field grid_current_month_kvahField = new Field("grid_current_month_kvah", "Double");
+		grid_current_month_kvahField.setDefaultValue(0.0000);
+		grid_current_month_kvahField.setLength(12);
+		grid_current_month_kvahField.setPrecision(4);
+		metaData.addField(grid_current_month_kvahField);
 
 		Field grid_load_kvaField = new Field("grid_load_kva", "Double");
 		grid_load_kvaField.setDefaultValue(0.0000);
@@ -1196,6 +1250,30 @@ public abstract class Baseappliance extends BaseResource {
 		dg_reading_kvahField.setLength(12);
 		dg_reading_kvahField.setPrecision(4);
 		metaData.addField(dg_reading_kvahField);
+
+		Field dg_today_kwhField = new Field("dg_today_kwh", "Double");
+		dg_today_kwhField.setDefaultValue(0.0000);
+		dg_today_kwhField.setLength(12);
+		dg_today_kwhField.setPrecision(4);
+		metaData.addField(dg_today_kwhField);
+
+		Field dg_current_month_kwhField = new Field("dg_current_month_kwh", "Double");
+		dg_current_month_kwhField.setDefaultValue(0.0000);
+		dg_current_month_kwhField.setLength(12);
+		dg_current_month_kwhField.setPrecision(4);
+		metaData.addField(dg_current_month_kwhField);
+
+		Field dg_today_kvahField = new Field("dg_today_kvah", "Double");
+		dg_today_kvahField.setDefaultValue(0.0000);
+		dg_today_kvahField.setLength(12);
+		dg_today_kvahField.setPrecision(4);
+		metaData.addField(dg_today_kvahField);
+
+		Field dg_current_month_kvahField = new Field("dg_current_month_kvah", "Double");
+		dg_current_month_kvahField.setDefaultValue(0.0000);
+		dg_current_month_kvahField.setLength(12);
+		dg_current_month_kvahField.setPrecision(4);
+		metaData.addField(dg_current_month_kvahField);
 
 		Field dg_load_kwField = new Field("dg_load_kw", "Double");
 		dg_load_kwField.setDefaultValue(0.0000);
@@ -1994,6 +2072,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.battery_level = obj.battery_level;
 		this.last_reading = obj.last_reading;
 		this.last_reading_updated = obj.last_reading_updated;
+		this.last_grid_reading_updated = obj.last_grid_reading_updated;
+		this.last_dg_reading_updated = obj.last_dg_reading_updated;
 		this.dg_reading = obj.dg_reading;
 		this.grid_reading = obj.grid_reading;
 		this.voltage = obj.voltage;
@@ -2002,6 +2082,10 @@ public abstract class Baseappliance extends BaseResource {
 		this.energy = obj.energy;
 		this.grid_reading_kvah = obj.grid_reading_kvah;
 		this.grid_reading_kwh = obj.grid_reading_kwh;
+		this.grid_today_kwh = obj.grid_today_kwh;
+		this.grid_current_month_kwh = obj.grid_current_month_kwh;
+		this.grid_today_kvah = obj.grid_today_kvah;
+		this.grid_current_month_kvah = obj.grid_current_month_kvah;
 		this.grid_load_kva = obj.grid_load_kva;
 		this.grid_load_kw = obj.grid_load_kw;
 		this.grid_voltage = obj.grid_voltage;
@@ -2046,6 +2130,10 @@ public abstract class Baseappliance extends BaseResource {
 		this.grid_p3_frequency = obj.grid_p3_frequency;
 		this.dg_reading_kwh = obj.dg_reading_kwh;
 		this.dg_reading_kvah = obj.dg_reading_kvah;
+		this.dg_today_kwh = obj.dg_today_kwh;
+		this.dg_current_month_kwh = obj.dg_current_month_kwh;
+		this.dg_today_kvah = obj.dg_today_kvah;
+		this.dg_current_month_kvah = obj.dg_current_month_kvah;
 		this.dg_load_kw = obj.dg_load_kw;
 		this.dg_load_kva = obj.dg_load_kva;
 		this.dg_voltage = obj.dg_voltage;
@@ -2276,6 +2364,14 @@ public abstract class Baseappliance extends BaseResource {
 			grid_reading_kvah = 0.0000;
 		if(grid_reading_kwh == null)
 			grid_reading_kwh = 0.0000;
+		if(grid_today_kwh == null)
+			grid_today_kwh = 0.0000;
+		if(grid_current_month_kwh == null)
+			grid_current_month_kwh = 0.0000;
+		if(grid_today_kvah == null)
+			grid_today_kvah = 0.0000;
+		if(grid_current_month_kvah == null)
+			grid_current_month_kvah = 0.0000;
 		if(grid_load_kva == null)
 			grid_load_kva = 0.0000;
 		if(grid_load_kw == null)
@@ -2364,6 +2460,14 @@ public abstract class Baseappliance extends BaseResource {
 			dg_reading_kwh = 0.0000;
 		if(dg_reading_kvah == null)
 			dg_reading_kvah = 0.0000;
+		if(dg_today_kwh == null)
+			dg_today_kwh = 0.0000;
+		if(dg_current_month_kwh == null)
+			dg_current_month_kwh = 0.0000;
+		if(dg_today_kvah == null)
+			dg_today_kvah = 0.0000;
+		if(dg_current_month_kvah == null)
+			dg_current_month_kvah = 0.0000;
 		if(dg_load_kw == null)
 			dg_load_kw = 0.0000;
 		if(dg_load_kva == null)
@@ -2742,6 +2846,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("last_reading", last_reading);
 		if(last_reading_updated != null)
 			map.put("last_reading_updated", last_reading_updated);
+		if(last_grid_reading_updated != null)
+			map.put("last_grid_reading_updated", last_grid_reading_updated);
+		if(last_dg_reading_updated != null)
+			map.put("last_dg_reading_updated", last_dg_reading_updated);
 		if(dg_reading != null)
 			map.put("dg_reading", dg_reading);
 		if(grid_reading != null)
@@ -2758,6 +2866,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_reading_kvah", grid_reading_kvah);
 		if(grid_reading_kwh != null)
 			map.put("grid_reading_kwh", grid_reading_kwh);
+		if(grid_today_kwh != null)
+			map.put("grid_today_kwh", grid_today_kwh);
+		if(grid_current_month_kwh != null)
+			map.put("grid_current_month_kwh", grid_current_month_kwh);
+		if(grid_today_kvah != null)
+			map.put("grid_today_kvah", grid_today_kvah);
+		if(grid_current_month_kvah != null)
+			map.put("grid_current_month_kvah", grid_current_month_kvah);
 		if(grid_load_kva != null)
 			map.put("grid_load_kva", grid_load_kva);
 		if(grid_load_kw != null)
@@ -2846,6 +2962,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_reading_kwh", dg_reading_kwh);
 		if(dg_reading_kvah != null)
 			map.put("dg_reading_kvah", dg_reading_kvah);
+		if(dg_today_kwh != null)
+			map.put("dg_today_kwh", dg_today_kwh);
+		if(dg_current_month_kwh != null)
+			map.put("dg_current_month_kwh", dg_current_month_kwh);
+		if(dg_today_kvah != null)
+			map.put("dg_today_kvah", dg_today_kvah);
+		if(dg_current_month_kvah != null)
+			map.put("dg_current_month_kvah", dg_current_month_kvah);
 		if(dg_load_kw != null)
 			map.put("dg_load_kw", dg_load_kw);
 		if(dg_load_kva != null)
@@ -3294,6 +3418,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("last_reading", last_reading);
 		if(validateLast_reading_updated(add))
 			map.put("last_reading_updated", last_reading_updated);
+		if(validateLast_grid_reading_updated(add))
+			map.put("last_grid_reading_updated", last_grid_reading_updated);
+		if(validateLast_dg_reading_updated(add))
+			map.put("last_dg_reading_updated", last_dg_reading_updated);
 		if(dg_reading != null)
 			map.put("dg_reading", dg_reading);
 		if(grid_reading != null)
@@ -3310,6 +3438,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_reading_kvah", grid_reading_kvah);
 		if(grid_reading_kwh != null)
 			map.put("grid_reading_kwh", grid_reading_kwh);
+		if(grid_today_kwh != null)
+			map.put("grid_today_kwh", grid_today_kwh);
+		if(grid_current_month_kwh != null)
+			map.put("grid_current_month_kwh", grid_current_month_kwh);
+		if(grid_today_kvah != null)
+			map.put("grid_today_kvah", grid_today_kvah);
+		if(grid_current_month_kvah != null)
+			map.put("grid_current_month_kvah", grid_current_month_kvah);
 		if(grid_load_kva != null)
 			map.put("grid_load_kva", grid_load_kva);
 		if(grid_load_kw != null)
@@ -3398,6 +3534,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_reading_kwh", dg_reading_kwh);
 		if(dg_reading_kvah != null)
 			map.put("dg_reading_kvah", dg_reading_kvah);
+		if(dg_today_kwh != null)
+			map.put("dg_today_kwh", dg_today_kwh);
+		if(dg_current_month_kwh != null)
+			map.put("dg_current_month_kwh", dg_current_month_kwh);
+		if(dg_today_kvah != null)
+			map.put("dg_today_kvah", dg_today_kvah);
+		if(dg_current_month_kvah != null)
+			map.put("dg_current_month_kvah", dg_current_month_kvah);
 		if(dg_load_kw != null)
 			map.put("dg_load_kw", dg_load_kw);
 		if(dg_load_kva != null)
@@ -3773,6 +3917,8 @@ public abstract class Baseappliance extends BaseResource {
 		battery_level = (Integer) map.get("battery_level");
 		last_reading = (Double) map.get("last_reading");
 		last_reading_updated = (Long) map.get("last_reading_updated");
+		last_grid_reading_updated = (Long) map.get("last_grid_reading_updated");
+		last_dg_reading_updated = (Long) map.get("last_dg_reading_updated");
 		dg_reading = (Double) map.get("dg_reading");
 		grid_reading = (Double) map.get("grid_reading");
 		voltage = (Integer) map.get("voltage");
@@ -3781,6 +3927,10 @@ public abstract class Baseappliance extends BaseResource {
 		energy = (Double) map.get("energy");
 		grid_reading_kvah = (Double) map.get("grid_reading_kvah");
 		grid_reading_kwh = (Double) map.get("grid_reading_kwh");
+		grid_today_kwh = (Double) map.get("grid_today_kwh");
+		grid_current_month_kwh = (Double) map.get("grid_current_month_kwh");
+		grid_today_kvah = (Double) map.get("grid_today_kvah");
+		grid_current_month_kvah = (Double) map.get("grid_current_month_kvah");
 		grid_load_kva = (Double) map.get("grid_load_kva");
 		grid_load_kw = (Double) map.get("grid_load_kw");
 		grid_voltage = (Integer) map.get("grid_voltage");
@@ -3825,6 +3975,10 @@ public abstract class Baseappliance extends BaseResource {
 		grid_p3_frequency = (Long) map.get("grid_p3_frequency");
 		dg_reading_kwh = (Double) map.get("dg_reading_kwh");
 		dg_reading_kvah = (Double) map.get("dg_reading_kvah");
+		dg_today_kwh = (Double) map.get("dg_today_kwh");
+		dg_current_month_kwh = (Double) map.get("dg_current_month_kwh");
+		dg_today_kvah = (Double) map.get("dg_today_kvah");
+		dg_current_month_kvah = (Double) map.get("dg_current_month_kvah");
 		dg_load_kw = (Double) map.get("dg_load_kw");
 		dg_load_kva = (Double) map.get("dg_load_kva");
 		dg_voltage = (Integer) map.get("dg_voltage");
@@ -4256,6 +4410,14 @@ public abstract class Baseappliance extends BaseResource {
 		if(last_reading_updatedObj != null)
 			last_reading_updated = new Long(last_reading_updatedObj.toString());
 
+		Object last_grid_reading_updatedObj = map.get("last_grid_reading_updated");
+		if(last_grid_reading_updatedObj != null)
+			last_grid_reading_updated = new Long(last_grid_reading_updatedObj.toString());
+
+		Object last_dg_reading_updatedObj = map.get("last_dg_reading_updated");
+		if(last_dg_reading_updatedObj != null)
+			last_dg_reading_updated = new Long(last_dg_reading_updatedObj.toString());
+
 		Object dg_readingObj = map.get("dg_reading");
 		if(dg_readingObj != null)
 			dg_reading = new Double(dg_readingObj.toString());
@@ -4287,6 +4449,22 @@ public abstract class Baseappliance extends BaseResource {
 		Object grid_reading_kwhObj = map.get("grid_reading_kwh");
 		if(grid_reading_kwhObj != null)
 			grid_reading_kwh = new Double(grid_reading_kwhObj.toString());
+
+		Object grid_today_kwhObj = map.get("grid_today_kwh");
+		if(grid_today_kwhObj != null)
+			grid_today_kwh = new Double(grid_today_kwhObj.toString());
+
+		Object grid_current_month_kwhObj = map.get("grid_current_month_kwh");
+		if(grid_current_month_kwhObj != null)
+			grid_current_month_kwh = new Double(grid_current_month_kwhObj.toString());
+
+		Object grid_today_kvahObj = map.get("grid_today_kvah");
+		if(grid_today_kvahObj != null)
+			grid_today_kvah = new Double(grid_today_kvahObj.toString());
+
+		Object grid_current_month_kvahObj = map.get("grid_current_month_kvah");
+		if(grid_current_month_kvahObj != null)
+			grid_current_month_kvah = new Double(grid_current_month_kvahObj.toString());
 
 		Object grid_load_kvaObj = map.get("grid_load_kva");
 		if(grid_load_kvaObj != null)
@@ -4463,6 +4641,22 @@ public abstract class Baseappliance extends BaseResource {
 		Object dg_reading_kvahObj = map.get("dg_reading_kvah");
 		if(dg_reading_kvahObj != null)
 			dg_reading_kvah = new Double(dg_reading_kvahObj.toString());
+
+		Object dg_today_kwhObj = map.get("dg_today_kwh");
+		if(dg_today_kwhObj != null)
+			dg_today_kwh = new Double(dg_today_kwhObj.toString());
+
+		Object dg_current_month_kwhObj = map.get("dg_current_month_kwh");
+		if(dg_current_month_kwhObj != null)
+			dg_current_month_kwh = new Double(dg_current_month_kwhObj.toString());
+
+		Object dg_today_kvahObj = map.get("dg_today_kvah");
+		if(dg_today_kvahObj != null)
+			dg_today_kvah = new Double(dg_today_kvahObj.toString());
+
+		Object dg_current_month_kvahObj = map.get("dg_current_month_kvah");
+		if(dg_current_month_kvahObj != null)
+			dg_current_month_kvah = new Double(dg_current_month_kvahObj.toString());
 
 		Object dg_load_kwObj = map.get("dg_load_kw");
 		if(dg_load_kwObj != null)
@@ -6126,6 +6320,36 @@ public abstract class Baseappliance extends BaseResource {
 		return last_reading_updated != null;
 	}
 
+	public Long getLast_grid_reading_updated() {
+		return last_grid_reading_updated;
+	}
+
+	public void setLast_grid_reading_updated(Long last_grid_reading_updated) {
+		this.last_grid_reading_updated = last_grid_reading_updated;
+	}
+
+
+	public boolean validateLast_grid_reading_updated(boolean add) throws ApplicationException {
+		if(add && last_grid_reading_updated == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[last_grid_reading_updated]");
+		return last_grid_reading_updated != null;
+	}
+
+	public Long getLast_dg_reading_updated() {
+		return last_dg_reading_updated;
+	}
+
+	public void setLast_dg_reading_updated(Long last_dg_reading_updated) {
+		this.last_dg_reading_updated = last_dg_reading_updated;
+	}
+
+
+	public boolean validateLast_dg_reading_updated(boolean add) throws ApplicationException {
+		if(add && last_dg_reading_updated == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[last_dg_reading_updated]");
+		return last_dg_reading_updated != null;
+	}
+
 	public Double getDg_reading() {
 		return dg_reading != null ? dg_reading : 0.0000;
 	}
@@ -6228,6 +6452,54 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetGrid_reading_kwh() {
 		this.grid_reading_kwh = 0.0000;
+	}
+
+	public Double getGrid_today_kwh() {
+		return grid_today_kwh != null ? grid_today_kwh : 0.0000;
+	}
+
+	public void setGrid_today_kwh(Double grid_today_kwh) {
+		this.grid_today_kwh = grid_today_kwh;
+	}
+
+	public void unSetGrid_today_kwh() {
+		this.grid_today_kwh = 0.0000;
+	}
+
+	public Double getGrid_current_month_kwh() {
+		return grid_current_month_kwh != null ? grid_current_month_kwh : 0.0000;
+	}
+
+	public void setGrid_current_month_kwh(Double grid_current_month_kwh) {
+		this.grid_current_month_kwh = grid_current_month_kwh;
+	}
+
+	public void unSetGrid_current_month_kwh() {
+		this.grid_current_month_kwh = 0.0000;
+	}
+
+	public Double getGrid_today_kvah() {
+		return grid_today_kvah != null ? grid_today_kvah : 0.0000;
+	}
+
+	public void setGrid_today_kvah(Double grid_today_kvah) {
+		this.grid_today_kvah = grid_today_kvah;
+	}
+
+	public void unSetGrid_today_kvah() {
+		this.grid_today_kvah = 0.0000;
+	}
+
+	public Double getGrid_current_month_kvah() {
+		return grid_current_month_kvah != null ? grid_current_month_kvah : 0.0000;
+	}
+
+	public void setGrid_current_month_kvah(Double grid_current_month_kvah) {
+		this.grid_current_month_kvah = grid_current_month_kvah;
+	}
+
+	public void unSetGrid_current_month_kvah() {
+		this.grid_current_month_kvah = 0.0000;
 	}
 
 	public Double getGrid_load_kva() {
@@ -6868,6 +7140,54 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetDg_reading_kvah() {
 		this.dg_reading_kvah = 0.0000;
+	}
+
+	public Double getDg_today_kwh() {
+		return dg_today_kwh != null ? dg_today_kwh : 0.0000;
+	}
+
+	public void setDg_today_kwh(Double dg_today_kwh) {
+		this.dg_today_kwh = dg_today_kwh;
+	}
+
+	public void unSetDg_today_kwh() {
+		this.dg_today_kwh = 0.0000;
+	}
+
+	public Double getDg_current_month_kwh() {
+		return dg_current_month_kwh != null ? dg_current_month_kwh : 0.0000;
+	}
+
+	public void setDg_current_month_kwh(Double dg_current_month_kwh) {
+		this.dg_current_month_kwh = dg_current_month_kwh;
+	}
+
+	public void unSetDg_current_month_kwh() {
+		this.dg_current_month_kwh = 0.0000;
+	}
+
+	public Double getDg_today_kvah() {
+		return dg_today_kvah != null ? dg_today_kvah : 0.0000;
+	}
+
+	public void setDg_today_kvah(Double dg_today_kvah) {
+		this.dg_today_kvah = dg_today_kvah;
+	}
+
+	public void unSetDg_today_kvah() {
+		this.dg_today_kvah = 0.0000;
+	}
+
+	public Double getDg_current_month_kvah() {
+		return dg_current_month_kvah != null ? dg_current_month_kvah : 0.0000;
+	}
+
+	public void setDg_current_month_kvah(Double dg_current_month_kvah) {
+		this.dg_current_month_kvah = dg_current_month_kvah;
+	}
+
+	public void unSetDg_current_month_kvah() {
+		this.dg_current_month_kvah = 0.0000;
 	}
 
 	public Double getDg_load_kw() {

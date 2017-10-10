@@ -23,6 +23,8 @@ public abstract class BaseMeterData extends Message {
 	private Long kwh = null;
 	private Long kvah = null;
 	private Long kvarh = null;
+	private Long kw = null;
+	private Long kva = null;
 	private Long pf = null;
 	private Long voltage = null;
 	private Long current = null;
@@ -31,6 +33,8 @@ public abstract class BaseMeterData extends Message {
 	private Long frequency = null;
 	private Long p1_kwh = null;
 	private Long p1_kvah = null;
+	private Long p1_kw = null;
+	private Long p1_kva = null;
 	private Long p1_kvarh = null;
 	private Long p1_pf = null;
 	private Long p1_voltage = null;
@@ -40,6 +44,8 @@ public abstract class BaseMeterData extends Message {
 	private Long p1_frequency = null;
 	private Long p2_kwh = null;
 	private Long p2_kvah = null;
+	private Long p2_kw = null;
+	private Long p2_kva = null;
 	private Long p2_kvarh = null;
 	private Long p2_pf = null;
 	private Long p2_voltage = null;
@@ -49,6 +55,8 @@ public abstract class BaseMeterData extends Message {
 	private Long p2_frequency = null;
 	private Long p3_kwh = null;
 	private Long p3_kvah = null;
+	private Long p3_kw = null;
+	private Long p3_kva = null;
 	private Long p3_kvarh = null;
 	private Long p3_pf = null;
 	private Long p3_voltage = null;
@@ -67,7 +75,7 @@ public abstract class BaseMeterData extends Message {
 
 	public void populate_field() {
  		if (fields != null) return ;
-		fields = new Field[40];
+		fields = new Field[48];
 		fields[0] =  new Field("device_id","String",16);
 		fields[1] = new Field("port","long");
 		fields[2] = new Field("source","long");
@@ -75,39 +83,47 @@ public abstract class BaseMeterData extends Message {
 		fields[4] = new Field("kwh","long");
 		fields[5] = new Field("kvah","long");
 		fields[6] = new Field("kvarh","long");
-		fields[7] = new Field("pf","long");
-		fields[8] = new Field("voltage","long");
-		fields[9] = new Field("current","long");
-		fields[10] = new Field("md","long");
-		fields[11] = new Field("tdh","long");
-		fields[12] = new Field("frequency","long");
-		fields[13] = new Field("p1_kwh","long");
-		fields[14] = new Field("p1_kvah","long");
-		fields[15] = new Field("p1_kvarh","long");
-		fields[16] = new Field("p1_pf","long");
-		fields[17] = new Field("p1_voltage","long");
-		fields[18] = new Field("p1_current","long");
-		fields[19] = new Field("p1_md","long");
-		fields[20] = new Field("p1_tdh","long");
-		fields[21] = new Field("p1_frequency","long");
-		fields[22] = new Field("p2_kwh","long");
-		fields[23] = new Field("p2_kvah","long");
-		fields[24] = new Field("p2_kvarh","long");
-		fields[25] = new Field("p2_pf","long");
-		fields[26] = new Field("p2_voltage","long");
-		fields[27] = new Field("p2_current","long");
-		fields[28] = new Field("p2_md","long");
-		fields[29] = new Field("p2_tdh","long");
-		fields[30] = new Field("p2_frequency","long");
-		fields[31] = new Field("p3_kwh","long");
-		fields[32] = new Field("p3_kvah","long");
-		fields[33] = new Field("p3_kvarh","long");
-		fields[34] = new Field("p3_pf","long");
-		fields[35] = new Field("p3_voltage","long");
-		fields[36] = new Field("p3_current","long");
-		fields[37] = new Field("p3_md","long");
-		fields[38] = new Field("p3_tdh","long");
-		fields[39] = new Field("p3_frequency","long");
+		fields[7] = new Field("kw","long");
+		fields[8] = new Field("kva","long");
+		fields[9] = new Field("pf","long");
+		fields[10] = new Field("voltage","long");
+		fields[11] = new Field("current","long");
+		fields[12] = new Field("md","long");
+		fields[13] = new Field("tdh","long");
+		fields[14] = new Field("frequency","long");
+		fields[15] = new Field("p1_kwh","long");
+		fields[16] = new Field("p1_kvah","long");
+		fields[17] = new Field("p1_kw","long");
+		fields[18] = new Field("p1_kva","long");
+		fields[19] = new Field("p1_kvarh","long");
+		fields[20] = new Field("p1_pf","long");
+		fields[21] = new Field("p1_voltage","long");
+		fields[22] = new Field("p1_current","long");
+		fields[23] = new Field("p1_md","long");
+		fields[24] = new Field("p1_tdh","long");
+		fields[25] = new Field("p1_frequency","long");
+		fields[26] = new Field("p2_kwh","long");
+		fields[27] = new Field("p2_kvah","long");
+		fields[28] = new Field("p2_kw","long");
+		fields[29] = new Field("p2_kva","long");
+		fields[30] = new Field("p2_kvarh","long");
+		fields[31] = new Field("p2_pf","long");
+		fields[32] = new Field("p2_voltage","long");
+		fields[33] = new Field("p2_current","long");
+		fields[34] = new Field("p2_md","long");
+		fields[35] = new Field("p2_tdh","long");
+		fields[36] = new Field("p2_frequency","long");
+		fields[37] = new Field("p3_kwh","long");
+		fields[38] = new Field("p3_kvah","long");
+		fields[39] = new Field("p3_kw","long");
+		fields[40] = new Field("p3_kva","long");
+		fields[41] = new Field("p3_kvarh","long");
+		fields[42] = new Field("p3_pf","long");
+		fields[43] = new Field("p3_voltage","long");
+		fields[44] = new Field("p3_current","long");
+		fields[45] = new Field("p3_md","long");
+		fields[46] = new Field("p3_tdh","long");
+		fields[47] = new Field("p3_frequency","long");
 	}
 
 	public void dump() {
@@ -118,6 +134,8 @@ public abstract class BaseMeterData extends Message {
 		System.out.println("kwh	:	 "+kwh);
 		System.out.println("kvah	:	 "+kvah);
 		System.out.println("kvarh	:	 "+kvarh);
+		System.out.println("kw	:	 "+kw);
+		System.out.println("kva	:	 "+kva);
 		System.out.println("pf	:	 "+pf);
 		System.out.println("voltage	:	 "+voltage);
 		System.out.println("current	:	 "+current);
@@ -126,6 +144,8 @@ public abstract class BaseMeterData extends Message {
 		System.out.println("frequency	:	 "+frequency);
 		System.out.println("p1_kwh	:	 "+p1_kwh);
 		System.out.println("p1_kvah	:	 "+p1_kvah);
+		System.out.println("p1_kw	:	 "+p1_kw);
+		System.out.println("p1_kva	:	 "+p1_kva);
 		System.out.println("p1_kvarh	:	 "+p1_kvarh);
 		System.out.println("p1_pf	:	 "+p1_pf);
 		System.out.println("p1_voltage	:	 "+p1_voltage);
@@ -135,6 +155,8 @@ public abstract class BaseMeterData extends Message {
 		System.out.println("p1_frequency	:	 "+p1_frequency);
 		System.out.println("p2_kwh	:	 "+p2_kwh);
 		System.out.println("p2_kvah	:	 "+p2_kvah);
+		System.out.println("p2_kw	:	 "+p2_kw);
+		System.out.println("p2_kva	:	 "+p2_kva);
 		System.out.println("p2_kvarh	:	 "+p2_kvarh);
 		System.out.println("p2_pf	:	 "+p2_pf);
 		System.out.println("p2_voltage	:	 "+p2_voltage);
@@ -144,6 +166,8 @@ public abstract class BaseMeterData extends Message {
 		System.out.println("p2_frequency	:	 "+p2_frequency);
 		System.out.println("p3_kwh	:	 "+p3_kwh);
 		System.out.println("p3_kvah	:	 "+p3_kvah);
+		System.out.println("p3_kw	:	 "+p3_kw);
+		System.out.println("p3_kva	:	 "+p3_kva);
 		System.out.println("p3_kvarh	:	 "+p3_kvarh);
 		System.out.println("p3_pf	:	 "+p3_pf);
 		System.out.println("p3_voltage	:	 "+p3_voltage);
@@ -161,6 +185,8 @@ public abstract class BaseMeterData extends Message {
 		str = str +",kwh:"+kwh;
 		str = str +",kvah:"+kvah;
 		str = str +",kvarh:"+kvarh;
+		str = str +",kw:"+kw;
+		str = str +",kva:"+kva;
 		str = str +",pf:"+pf;
 		str = str +",voltage:"+voltage;
 		str = str +",current:"+current;
@@ -169,6 +195,8 @@ public abstract class BaseMeterData extends Message {
 		str = str +",frequency:"+frequency;
 		str = str +",p1_kwh:"+p1_kwh;
 		str = str +",p1_kvah:"+p1_kvah;
+		str = str +",p1_kw:"+p1_kw;
+		str = str +",p1_kva:"+p1_kva;
 		str = str +",p1_kvarh:"+p1_kvarh;
 		str = str +",p1_pf:"+p1_pf;
 		str = str +",p1_voltage:"+p1_voltage;
@@ -178,6 +206,8 @@ public abstract class BaseMeterData extends Message {
 		str = str +",p1_frequency:"+p1_frequency;
 		str = str +",p2_kwh:"+p2_kwh;
 		str = str +",p2_kvah:"+p2_kvah;
+		str = str +",p2_kw:"+p2_kw;
+		str = str +",p2_kva:"+p2_kva;
 		str = str +",p2_kvarh:"+p2_kvarh;
 		str = str +",p2_pf:"+p2_pf;
 		str = str +",p2_voltage:"+p2_voltage;
@@ -187,6 +217,8 @@ public abstract class BaseMeterData extends Message {
 		str = str +",p2_frequency:"+p2_frequency;
 		str = str +",p3_kwh:"+p3_kwh;
 		str = str +",p3_kvah:"+p3_kvah;
+		str = str +",p3_kw:"+p3_kw;
+		str = str +",p3_kva:"+p3_kva;
 		str = str +",p3_kvarh:"+p3_kvarh;
 		str = str +",p3_pf:"+p3_pf;
 		str = str +",p3_voltage:"+p3_voltage;
@@ -213,6 +245,10 @@ public abstract class BaseMeterData extends Message {
 			map.put("kvah", kvah);
 		if(kvarh != null)
 			map.put("kvarh", kvarh);
+		if(kw != null)
+			map.put("kw", kw);
+		if(kva != null)
+			map.put("kva", kva);
 		if(pf != null)
 			map.put("pf", pf);
 		if(voltage != null)
@@ -229,6 +265,10 @@ public abstract class BaseMeterData extends Message {
 			map.put("p1_kwh", p1_kwh);
 		if(p1_kvah != null)
 			map.put("p1_kvah", p1_kvah);
+		if(p1_kw != null)
+			map.put("p1_kw", p1_kw);
+		if(p1_kva != null)
+			map.put("p1_kva", p1_kva);
 		if(p1_kvarh != null)
 			map.put("p1_kvarh", p1_kvarh);
 		if(p1_pf != null)
@@ -247,6 +287,10 @@ public abstract class BaseMeterData extends Message {
 			map.put("p2_kwh", p2_kwh);
 		if(p2_kvah != null)
 			map.put("p2_kvah", p2_kvah);
+		if(p2_kw != null)
+			map.put("p2_kw", p2_kw);
+		if(p2_kva != null)
+			map.put("p2_kva", p2_kva);
 		if(p2_kvarh != null)
 			map.put("p2_kvarh", p2_kvarh);
 		if(p2_pf != null)
@@ -265,6 +309,10 @@ public abstract class BaseMeterData extends Message {
 			map.put("p3_kwh", p3_kwh);
 		if(p3_kvah != null)
 			map.put("p3_kvah", p3_kvah);
+		if(p3_kw != null)
+			map.put("p3_kw", p3_kw);
+		if(p3_kva != null)
+			map.put("p3_kva", p3_kva);
 		if(p3_kvarh != null)
 			map.put("p3_kvarh", p3_kvarh);
 		if(p3_pf != null)
@@ -290,6 +338,8 @@ public abstract class BaseMeterData extends Message {
 		kwh = (Long) map.get("kwh");
 		kvah = (Long) map.get("kvah");
 		kvarh = (Long) map.get("kvarh");
+		kw = (Long) map.get("kw");
+		kva = (Long) map.get("kva");
 		pf = (Long) map.get("pf");
 		voltage = (Long) map.get("voltage");
 		current = (Long) map.get("current");
@@ -298,6 +348,8 @@ public abstract class BaseMeterData extends Message {
 		frequency = (Long) map.get("frequency");
 		p1_kwh = (Long) map.get("p1_kwh");
 		p1_kvah = (Long) map.get("p1_kvah");
+		p1_kw = (Long) map.get("p1_kw");
+		p1_kva = (Long) map.get("p1_kva");
 		p1_kvarh = (Long) map.get("p1_kvarh");
 		p1_pf = (Long) map.get("p1_pf");
 		p1_voltage = (Long) map.get("p1_voltage");
@@ -307,6 +359,8 @@ public abstract class BaseMeterData extends Message {
 		p1_frequency = (Long) map.get("p1_frequency");
 		p2_kwh = (Long) map.get("p2_kwh");
 		p2_kvah = (Long) map.get("p2_kvah");
+		p2_kw = (Long) map.get("p2_kw");
+		p2_kva = (Long) map.get("p2_kva");
 		p2_kvarh = (Long) map.get("p2_kvarh");
 		p2_pf = (Long) map.get("p2_pf");
 		p2_voltage = (Long) map.get("p2_voltage");
@@ -316,6 +370,8 @@ public abstract class BaseMeterData extends Message {
 		p2_frequency = (Long) map.get("p2_frequency");
 		p3_kwh = (Long) map.get("p3_kwh");
 		p3_kvah = (Long) map.get("p3_kvah");
+		p3_kw = (Long) map.get("p3_kw");
+		p3_kva = (Long) map.get("p3_kva");
 		p3_kvarh = (Long) map.get("p3_kvarh");
 		p3_pf = (Long) map.get("p3_pf");
 		p3_voltage = (Long) map.get("p3_voltage");
@@ -325,7 +381,7 @@ public abstract class BaseMeterData extends Message {
 		p3_frequency = (Long) map.get("p3_frequency");
 	}
 
- 	public int getMessageSize() {return 168;}
+ 	public int getMessageSize() {return 200;}
 
  	public String getName() {return "MeterData";}
 
@@ -461,6 +517,46 @@ public Message process(Session session,Message parentMessage) {return null;}
 
 	public void unSetKvarh() {
 		this.kvarh = null;
+	}
+
+	public Long getKw() {
+		return kw;
+	}
+
+	public long getKwEx() {
+		return kw != null ? kw : 0L;
+	}
+
+	public void setKw(long kw) {
+		this.kw = kw;
+	}
+
+	public void setKw(Long kw) {
+		this.kw = kw;
+	}
+
+	public void unSetKw() {
+		this.kw = null;
+	}
+
+	public Long getKva() {
+		return kva;
+	}
+
+	public long getKvaEx() {
+		return kva != null ? kva : 0L;
+	}
+
+	public void setKva(long kva) {
+		this.kva = kva;
+	}
+
+	public void setKva(Long kva) {
+		this.kva = kva;
+	}
+
+	public void unSetKva() {
+		this.kva = null;
 	}
 
 	public Long getPf() {
@@ -621,6 +717,46 @@ public Message process(Session session,Message parentMessage) {return null;}
 
 	public void unSetP1_kvah() {
 		this.p1_kvah = null;
+	}
+
+	public Long getP1_kw() {
+		return p1_kw;
+	}
+
+	public long getP1_kwEx() {
+		return p1_kw != null ? p1_kw : 0L;
+	}
+
+	public void setP1_kw(long p1_kw) {
+		this.p1_kw = p1_kw;
+	}
+
+	public void setP1_kw(Long p1_kw) {
+		this.p1_kw = p1_kw;
+	}
+
+	public void unSetP1_kw() {
+		this.p1_kw = null;
+	}
+
+	public Long getP1_kva() {
+		return p1_kva;
+	}
+
+	public long getP1_kvaEx() {
+		return p1_kva != null ? p1_kva : 0L;
+	}
+
+	public void setP1_kva(long p1_kva) {
+		this.p1_kva = p1_kva;
+	}
+
+	public void setP1_kva(Long p1_kva) {
+		this.p1_kva = p1_kva;
+	}
+
+	public void unSetP1_kva() {
+		this.p1_kva = null;
 	}
 
 	public Long getP1_kvarh() {
@@ -803,6 +939,46 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_kvah = null;
 	}
 
+	public Long getP2_kw() {
+		return p2_kw;
+	}
+
+	public long getP2_kwEx() {
+		return p2_kw != null ? p2_kw : 0L;
+	}
+
+	public void setP2_kw(long p2_kw) {
+		this.p2_kw = p2_kw;
+	}
+
+	public void setP2_kw(Long p2_kw) {
+		this.p2_kw = p2_kw;
+	}
+
+	public void unSetP2_kw() {
+		this.p2_kw = null;
+	}
+
+	public Long getP2_kva() {
+		return p2_kva;
+	}
+
+	public long getP2_kvaEx() {
+		return p2_kva != null ? p2_kva : 0L;
+	}
+
+	public void setP2_kva(long p2_kva) {
+		this.p2_kva = p2_kva;
+	}
+
+	public void setP2_kva(Long p2_kva) {
+		this.p2_kva = p2_kva;
+	}
+
+	public void unSetP2_kva() {
+		this.p2_kva = null;
+	}
+
 	public Long getP2_kvarh() {
 		return p2_kvarh;
 	}
@@ -981,6 +1157,46 @@ public Message process(Session session,Message parentMessage) {return null;}
 
 	public void unSetP3_kvah() {
 		this.p3_kvah = null;
+	}
+
+	public Long getP3_kw() {
+		return p3_kw;
+	}
+
+	public long getP3_kwEx() {
+		return p3_kw != null ? p3_kw : 0L;
+	}
+
+	public void setP3_kw(long p3_kw) {
+		this.p3_kw = p3_kw;
+	}
+
+	public void setP3_kw(Long p3_kw) {
+		this.p3_kw = p3_kw;
+	}
+
+	public void unSetP3_kw() {
+		this.p3_kw = null;
+	}
+
+	public Long getP3_kva() {
+		return p3_kva;
+	}
+
+	public long getP3_kvaEx() {
+		return p3_kva != null ? p3_kva : 0L;
+	}
+
+	public void setP3_kva(long p3_kva) {
+		this.p3_kva = p3_kva;
+	}
+
+	public void setP3_kva(Long p3_kva) {
+		this.p3_kva = p3_kva;
+	}
+
+	public void unSetP3_kva() {
+		this.p3_kva = null;
 	}
 
 	public Long getP3_kvarh() {

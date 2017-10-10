@@ -488,6 +488,20 @@
 				'required': true,
 				'type':'timestamp'
 			},
+			'last_grid_reading_updated':
+			{
+				'name':'last_reading_updated',
+				'default':'CURRENT_TIMESTAMP',
+				'required': true,
+				'type':'timestamp'
+			},
+			'last_dg_reading_updated':
+			{
+				'name':'last_reading_updated',
+				'default':'CURRENT_TIMESTAMP',
+				'required': true,
+				'type':'timestamp'
+			},
 			'dg_reading':
 			{
 				'name':'dg_reading',
@@ -546,6 +560,34 @@
 			'grid_reading_kwh':
 			{
 				'name':'grid_reading',
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_today_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_current_month_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_today_kvah':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'grid_current_month_kvah':
+			{
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
@@ -863,6 +905,35 @@
 				'precision': 4,
 				'type':'Double'
 			},
+			'dg_today_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_current_month_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_today_kvah':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'dg_current_month_kvah':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+
 			'dg_load_kw':
 			{
 				'name':'dg_reading',

@@ -1,0 +1,111 @@
+{
+	"meter_daily_log" :
+	{
+		"cluster": "DB_ANALYSIS",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'appliance_id':
+			{
+				'name':'appliance_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'appliance_name':
+			{
+				'name':'appliance_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'location_id':
+			{
+				'name':'appliance_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'location_name':
+			{
+				'name':'appliance_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'source':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'log_date':
+			{
+				'type':'timestamp'
+			},
+			'log_date_str':
+			{
+				'type':'String',
+				'length': 32
+			},
+			'creation_time':
+			{
+				'name':'creation_time',
+				'type':'timestamp'
+			},
+			'opening_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'closing_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'opening_kvah':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'kvah':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
+			'closing_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			}
+		}
+	}
+}

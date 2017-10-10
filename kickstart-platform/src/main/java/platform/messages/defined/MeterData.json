@@ -35,6 +35,14 @@
 			{
 				'type':'long'
 			},
+			'kw':
+			{
+				'type':'long'
+			},
+			'kva':
+			{
+				'type':'long'
+			},
 			'pf':
 			{
 				'type':'long'
@@ -103,6 +111,14 @@
 			{
 				'type':'long'
 			},
+			'p1_kw':
+			{
+				'type':'long'
+			},
+			'p1_kva':
+			{
+				'type':'long'
+			},
 			'p1_kvarh':
 			{
 				'type':'long'
@@ -139,6 +155,14 @@
 			{
 				'type':'long'
 			},
+			'p2_kw':
+			{
+				'type':'long'
+			},
+			'p2_kva':
+			{
+				'type':'long'
+			},
 			'p2_kvarh':
 			{
 				'type':'long'
@@ -172,6 +196,14 @@
 				'type':'long'
 			},
 			'p3_kvah':
+			{
+				'type':'long'
+			},
+			'p3_kw':
+			{
+				'type':'long'
+			},
+			'p3_kva':
 			{
 				'type':'long'
 			},

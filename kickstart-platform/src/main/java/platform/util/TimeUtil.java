@@ -8,11 +8,11 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class TimeUtil {
-	
+
 	public static int getMonthNumber(String month) {
 		int monthNumber = 0;
 		if (month.equalsIgnoreCase("JAN"))
-				return 1;
+			return 1;
 		if (month.equalsIgnoreCase("FEB"))
 			return 2;
 		if (month.equalsIgnoreCase("MAR"))
@@ -37,194 +37,194 @@ public class TimeUtil {
 			return 12;
 		return monthNumber;
 	}
-	
+
 	public static long getTimeFromString(String date,String timeZone) {
-			if (Util.isEmpty(timeZone))
-				timeZone = "IST";
-		    int year = Integer.parseInt(date.substring(0,4));
-			int month = Integer.parseInt(date.substring(4,6));
-			int day = Integer.parseInt(date.substring(6,8));
-			Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-			cal.set(year, month-1, day);
-			cal.set(Calendar.HOUR_OF_DAY, 0);
-			cal.set(Calendar.MINUTE, 0);
-			cal.set(Calendar.SECOND, 0);
-			cal.set(Calendar.MILLISECOND, 0);
-			return cal.getTimeInMillis();
-	    }
-		
-	
-	    public static String getCurrentTimeSeriesString() {
-			DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-			Date date = new Date();
-			return dateFormat.format(date);
+		if (Util.isEmpty(timeZone))
+			timeZone = "IST";
+		int year = Integer.parseInt(date.substring(0,4));
+		int month = Integer.parseInt(date.substring(4,6));
+		int day = Integer.parseInt(date.substring(6,8));
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		cal.set(year, month-1, day);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
+	}
+
+
+	public static String getCurrentTimeSeriesString() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
+
+	public static String getDisplayDateString(String timeZone,long time) {
+		if (timeZone == null)
+			timeZone = "IST";
+		if (time == 0) {
+			time = new Date().getTime();
 		}
-	   
-	    public static String getDisplayDateString(String timeZone,long time) {
-			if (timeZone == null)
-				timeZone = "IST";
-			if (time == 0) {
-				time = new Date().getTime();
-			}
-			Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-			cal.setTime(new Date(time));
-	
-			return String.format("%02d-%02d-%04d",cal.get(Calendar.DAY_OF_MONTH),
-					cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR));
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		cal.setTime(new Date(time));
+
+		return String.format("%02d-%02d-%04d",cal.get(Calendar.DAY_OF_MONTH),
+				cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR));
+	}
+
+	public static String getDateStringMMDDYYYY(String timeZone,long time,String sepeartor) {
+		if (timeZone == null)
+			timeZone = "GMT";
+		if (time == 0) {
+			time = new Date().getTime();
 		}
-	    
-	    public static String getDateStringMMDDYYYY(String timeZone,long time,String sepeartor) {
-			if (timeZone == null)
-				timeZone = "GMT";
-			if (time == 0) {
-				time = new Date().getTime();
-			}
-			Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-			cal.setTime(new Date(time));
-	
-			return String.format("%02d"+sepeartor+"%02d"+sepeartor+"%04d",
-					cal.get(Calendar.DAY_OF_MONTH),cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR));
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		cal.setTime(new Date(time));
+
+		return String.format("%02d"+sepeartor+"%02d"+sepeartor+"%04d",
+				cal.get(Calendar.DAY_OF_MONTH),cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR));
+	}
+
+	public static String getDateString(String timeZone,long time,String sepeartor) {
+		if (timeZone == null)
+			timeZone = "GMT";
+		if (time == 0) {
+			time = new Date().getTime();
 		}
-	    
-	    public static String getDateString(String timeZone,long time,String sepeartor) {
-			if (timeZone == null)
-				timeZone = "GMT";
-			if (time == 0) {
-				time = new Date().getTime();
-			}
-			Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-			cal.setTime(new Date(time));
-	
-			return String.format("%04d"+sepeartor+"%02d"+sepeartor+"%02d",cal.get(Calendar.YEAR),
-					cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		cal.setTime(new Date(time));
+
+		return String.format("%04d"+sepeartor+"%02d"+sepeartor+"%02d",cal.get(Calendar.YEAR),
+				cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
+	}
+	public static String getDateString(String timeZone,long time) {
+		if (timeZone == null)
+			timeZone = "GMT";
+		if (time == 0) {
+			time = new Date().getTime();
 		}
-	    public static String getDateString(String timeZone,long time) {
-			if (timeZone == null)
-				timeZone = "GMT";
-			if (time == 0) {
-				time = new Date().getTime();
-			}
-			Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-			cal.setTime(new Date(time));
-	
-			return String.format("%04d%02d%02d",cal.get(Calendar.YEAR),
-					cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		cal.setTime(new Date(time));
+
+		return String.format("%04d%02d%02d",cal.get(Calendar.YEAR),
+				cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
+	}
+
+	public static boolean isSameDate(String timezone,long date1, long date2) {
+		if (Util.isEmpty(timezone))
+			timezone = "IST";
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		cal.setTimeInMillis(date1);
+		String dateStr1 =  String.format("%04d%02d%02d",cal.get(Calendar.YEAR),
+				cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
+		cal.setTimeInMillis(date2);
+		String dateStr2 =  String.format("%04d%02d%02d",cal.get(Calendar.YEAR),
+				cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
+		if (dateStr1.equals(dateStr2)) {
+			return true;
 		}
-	    
-	    public static boolean isSameDate(String timezone,long date1, long date2) {
-	    	if (Util.isEmpty(timezone))
-	    		timezone = "IST";
-	    	Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
-	    	cal.setTimeInMillis(date1);
-	    	String dateStr1 =  String.format("%04d%02d%02d",cal.get(Calendar.YEAR),
-					cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
-	    	cal.setTimeInMillis(date2);
-	    	String dateStr2 =  String.format("%04d%02d%02d",cal.get(Calendar.YEAR),
-					cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
-	    	if (dateStr1.equals(dateStr2)) {
-	    		return true;
-	    	}
-	    	return false;
-	    }
-	    
-	    public static boolean isSameMonth(String timezone,long date1, long date2) {
-	    	Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
-	    	cal.setTimeInMillis(date1);
-	    	String monthStr1 =  String.format("%04d%02d",cal.get(Calendar.YEAR),
-					cal.get(Calendar.MONTH)+1);
-	    	cal.setTimeInMillis(date2);
-	    	String monthStr2 =  String.format("%04d%02d",cal.get(Calendar.YEAR),
-					cal.get(Calendar.MONTH)+1);
-	    	if (monthStr1.equals(monthStr2)) {
-	    		return true;
-	    	}
-	    	return false;
-	    }
-	    
-	    public static long todayTimePassed(String timezone,long date1) {
-	    	Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
-	    	cal.setTimeInMillis(date1);
-	    	cal.set(Calendar.HOUR_OF_DAY, 0);
-	    	cal.set(Calendar.MINUTE, 0);
-	    	cal.set(Calendar.SECOND, 0);
-	    	cal.set(Calendar.MILLISECOND, 0);
-	    	return date1-cal.getTimeInMillis();
-	    }
-	    
-	    
-	    
-	    public static String getNextDate(String dateString,String toDate) {
-    	  int year = Integer.parseInt(dateString.substring(0,4));
-		  int month = Integer.parseInt(dateString.substring(4,6));
-		  int day = Integer.parseInt(dateString.substring(6,8));
-		  
-		  Calendar cal = Calendar.getInstance();
-		  cal.set(Calendar.YEAR, year);
-		  cal.set(Calendar.MONTH, month-1);
-		  cal.set(Calendar.DAY_OF_MONTH, day);
-		  cal.set(Calendar.HOUR_OF_DAY, 0);
-		  cal.set(Calendar.MINUTE, 0);
-		  cal.set(Calendar.SECOND, 0);
-		  cal.set(Calendar.MILLISECOND, 0);
-		  cal.add(Calendar.DATE, 1);
-		  
-		  year = Integer.parseInt(toDate.substring(0,4));
-		  month = Integer.parseInt(toDate.substring(4,6));
-		  day = Integer.parseInt(toDate.substring(6,8));
-		  
-		  Calendar toCal = Calendar.getInstance();
-		  toCal.set(Calendar.YEAR, year);
-		  toCal.set(Calendar.MONTH, month-1);
-		  toCal.set(Calendar.DAY_OF_MONTH, day);
-		  cal.set(Calendar.HOUR_OF_DAY, 0);
-		  cal.set(Calendar.MINUTE, 0);
-		  cal.set(Calendar.SECOND, 0);
-		  cal.set(Calendar.MILLISECOND, 0);
-		  if (cal.getTime().getTime() > toCal.getTime().getTime()) {
-			  return null;
-		  }
-		  return String.format("%04d%02d%02d",cal.get(Calendar.YEAR),
-					cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
+		return false;
+	}
+
+	public static boolean isSameMonth(String timezone,long date1, long date2) {
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		cal.setTimeInMillis(date1);
+		String monthStr1 =  String.format("%04d%02d",cal.get(Calendar.YEAR),
+				cal.get(Calendar.MONTH)+1);
+		cal.setTimeInMillis(date2);
+		String monthStr2 =  String.format("%04d%02d",cal.get(Calendar.YEAR),
+				cal.get(Calendar.MONTH)+1);
+		if (monthStr1.equals(monthStr2)) {
+			return true;
 		}
-	    
-	    public static String getPreviousDate(String dateString,String fromDate) {
-	    	  int year = Integer.parseInt(dateString.substring(0,4));
-			  int month = Integer.parseInt(dateString.substring(4,6));
-			  int day = Integer.parseInt(dateString.substring(6,8));
-			  
-			  Calendar cal = Calendar.getInstance();
-			  cal.set(Calendar.YEAR, year);
-			  cal.set(Calendar.MONTH, month-1);
-			  cal.set(Calendar.DAY_OF_MONTH, day);
-			  cal.add(Calendar.DATE, 1);
-			  
-			  year = Integer.parseInt(fromDate.substring(0,4));
-			  month = Integer.parseInt(fromDate.substring(4,6));
-			  day = Integer.parseInt(fromDate.substring(6,8));
-			  
-			  Calendar toCal = Calendar.getInstance();
-			  toCal.set(Calendar.YEAR, year);
-			  toCal.set(Calendar.MONTH, month-1);
-			  toCal.set(Calendar.DAY_OF_MONTH, day);
-			  if (cal.getTime().getTime() > toCal.getTime().getTime()) {
-				  return null;
-			  }
-			  return String.format("%04d%02d%02d",cal.get(Calendar.YEAR),
-						cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
-			}
-	    
-	    public static String getMonthString(String timeZone,long time) {
-			if (timeZone == null)
-				timeZone = "GMT";
-			if (time == 0) {
-				time = new Date().getTime();
-			}
-			Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-			cal.setTime(new Date(time));
-	
-			return String.format("%04d%02d01",cal.get(Calendar.YEAR),
-					cal.get(Calendar.MONTH)+1);
+		return false;
+	}
+
+	public static long todayTimePassed(String timezone,long date1) {
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		cal.setTimeInMillis(date1);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return date1-cal.getTimeInMillis();
+	}
+
+
+
+	public static String getNextDate(String dateString,String toDate) {
+		int year = Integer.parseInt(dateString.substring(0,4));
+		int month = Integer.parseInt(dateString.substring(4,6));
+		int day = Integer.parseInt(dateString.substring(6,8));
+
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month-1);
+		cal.set(Calendar.DAY_OF_MONTH, day);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		cal.add(Calendar.DATE, 1);
+
+		year = Integer.parseInt(toDate.substring(0,4));
+		month = Integer.parseInt(toDate.substring(4,6));
+		day = Integer.parseInt(toDate.substring(6,8));
+
+		Calendar toCal = Calendar.getInstance();
+		toCal.set(Calendar.YEAR, year);
+		toCal.set(Calendar.MONTH, month-1);
+		toCal.set(Calendar.DAY_OF_MONTH, day);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		if (cal.getTime().getTime() > toCal.getTime().getTime()) {
+			return null;
 		}
+		return String.format("%04d%02d%02d",cal.get(Calendar.YEAR),
+				cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
+	}
+
+	public static String getPreviousDate(String dateString,String fromDate) {
+		int year = Integer.parseInt(dateString.substring(0,4));
+		int month = Integer.parseInt(dateString.substring(4,6));
+		int day = Integer.parseInt(dateString.substring(6,8));
+
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month-1);
+		cal.set(Calendar.DAY_OF_MONTH, day);
+		cal.add(Calendar.DATE, 1);
+
+		year = Integer.parseInt(fromDate.substring(0,4));
+		month = Integer.parseInt(fromDate.substring(4,6));
+		day = Integer.parseInt(fromDate.substring(6,8));
+
+		Calendar toCal = Calendar.getInstance();
+		toCal.set(Calendar.YEAR, year);
+		toCal.set(Calendar.MONTH, month-1);
+		toCal.set(Calendar.DAY_OF_MONTH, day);
+		if (cal.getTime().getTime() > toCal.getTime().getTime()) {
+			return null;
+		}
+		return String.format("%04d%02d%02d",cal.get(Calendar.YEAR),
+				cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
+	}
+
+	public static String getMonthString(String timeZone,long time) {
+		if (timeZone == null)
+			timeZone = "GMT";
+		if (time == 0) {
+			time = new Date().getTime();
+		}
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+		cal.setTime(new Date(time));
+
+		return String.format("%04d%02d01",cal.get(Calendar.YEAR),
+				cal.get(Calendar.MONTH)+1);
+	}
 	public static  int getCurrentDateDiff(int year, int month, int day) {
 		@SuppressWarnings("deprecation")
 		Date startDate = new Date(year-1900, month-1, day);
@@ -242,39 +242,39 @@ public class TimeUtil {
 		return months;
 	}
 	public static int  getCurrentYear() {
-		
+
 		Calendar now = Calendar.getInstance();   // Gets the current date and time
 		int year = now.get(Calendar.YEAR);
 		return year;
 	}
-	
+
 	public static String getMonthString(int month) {
 		String monthString = "";
 		switch (month) {
 			case 1:  monthString = "JAN"; break;
-            case 2:  monthString = "FEB"; break;
-            case 3:  monthString = "MAR"; break;
-            case 4:  monthString = "APR"; break;
-            case 5:  monthString = "MAY"; break;
-            case 6:  monthString = "JUN"; break;
-            case 7:  monthString = "JUL"; break;
-            case 8:  monthString = "AUG"; break;
-            case 9:  monthString = "SEP"; break;
-            case 10: monthString = "OCT"; break;
-            case 11: monthString = "NOV"; break;
-            case 12: monthString = "DEC"; break;
-            default:
-            	break;
+			case 2:  monthString = "FEB"; break;
+			case 3:  monthString = "MAR"; break;
+			case 4:  monthString = "APR"; break;
+			case 5:  monthString = "MAY"; break;
+			case 6:  monthString = "JUN"; break;
+			case 7:  monthString = "JUL"; break;
+			case 8:  monthString = "AUG"; break;
+			case 9:  monthString = "SEP"; break;
+			case 10: monthString = "OCT"; break;
+			case 11: monthString = "NOV"; break;
+			case 12: monthString = "DEC"; break;
+			default:
+				break;
 		}
 		return monthString;
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	public static int getYear (Timestamp time) {
 		int year = time.getYear()+1900;
 		return year;
 	}
-	@SuppressWarnings("deprecation")	
+	@SuppressWarnings("deprecation")
 	public static int getMonth (Timestamp time) {
 		int month = time.getMonth()+1;
 		return month;
@@ -289,15 +289,15 @@ public class TimeUtil {
 		int hour = time.getHours();
 		return hour;
 	}
-	
+
 	public static String getStringFromTime(String timeZone,long time) {
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(new Date(time));
-			SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-YYYY HH:mm:ss");
-			sdf.setTimeZone(TimeZone.getTimeZone(timeZone));
-			return sdf.format(new Date(time));
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date(time));
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-YYYY HH:mm:ss");
+		sdf.setTimeZone(TimeZone.getTimeZone(timeZone));
+		return sdf.format(new Date(time));
 	}
-	
+
 	public static String getMMDDYYYYStringFromTime(String timeZone,long time) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date(time));
@@ -312,8 +312,8 @@ public class TimeUtil {
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 		sdf.setTimeZone(TimeZone.getTimeZone(timeZone));
 		return sdf.format(new Date(time));
-}
-	
+	}
+
 	public static String getDurationString(long duration) {
 		String str = "";
 		if (duration == 0)
@@ -328,13 +328,13 @@ public class TimeUtil {
 			str = str + hours + " Hours ";
 			duration = duration - hours*(60*60*1000L);
 		}
-		
+
 		if (duration > (60*1000L)) {
 			long mm = duration / (60*1000L);
 			str = str + mm + " Minutes ";
 			duration = duration - mm*(60*1000L);
 		}
-		
+
 		if (duration > (1000L)) {
 			long ss = duration / (1000L);
 			str = str + ss + " Seconds ";
@@ -342,12 +342,12 @@ public class TimeUtil {
 		}
 		return str;
 	}
-	
+
 	public static String ago(Date startTime) {
 		if (startTime == null) return "-";
 		return ago(startTime.getTime());
 	}
-	
+
 	public static String getDayTimeString(long dayTime) {
 		long   time = dayTime;
 		long hr = time/(60*60);
@@ -356,7 +356,7 @@ public class TimeUtil {
 		long ss = time-(mn*60);
 		return String.format("%02d:%02d:%02d",hr,mn,ss);
 	}
-	
+
 	public static long getDayTime(String timeZone,long timeinMs) {
 		Date time = new Date(timeinMs);
 		long dayTime = 0;
@@ -376,7 +376,7 @@ public class TimeUtil {
 		}
 		if (timeZone == null)
 			timeZone = "IST";
-		
+
 		String[] tokens = date.split("-");
 		if (date.indexOf('/') > 0) {
 			tokens = date.split("/");
@@ -384,14 +384,14 @@ public class TimeUtil {
 		int year = Integer.parseInt(tokens[2]);
 		int  month = Integer.parseInt(tokens[1]);
 		int  day = Integer.parseInt(tokens[0]);
-		 
+
 		String[] timeTokens = timeHHMMSS.split(":");
 		int hh = Integer.parseInt(timeTokens[0]);
 		int  mm = Integer.parseInt(timeTokens[1]);
 		int  ss = Integer.parseInt(timeTokens[2]);
-		
+
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-		
+
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, month-1);
 		cal.set(Calendar.DAY_OF_MONTH, day);
@@ -401,23 +401,23 @@ public class TimeUtil {
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTimeInMillis();
 	}
-	
+
 	public static Long getTimeFromDateStringWithCurrentYear(String timeZone,String date) {
 		if (Util.isEmpty(date)) {
 			return null;
 		}
 		if (timeZone == null)
 			timeZone = "IST";
-		
+
 		String[] tokens = date.split("-");
 		if (date.indexOf('/') > 0) {
 			tokens = date.split("/");
 		}
 		int  month = Integer.parseInt(tokens[1]);
 		int  day = Integer.parseInt(tokens[0]);
-		  
+
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-		
+
 		cal.set(Calendar.YEAR, getCurrentYear());
 		cal.set(Calendar.MONTH, month-1);
 		cal.set(Calendar.DAY_OF_MONTH, day);
@@ -430,7 +430,7 @@ public class TimeUtil {
 	public static Long getTimeFromDateString(String timeZone,long time,String timeHHMMSS) {
 		if (timeZone == null)
 			timeZone = "IST";
-		
+
 		String[] timeTokens = timeHHMMSS.split(":");
 		int hh = Integer.parseInt(timeTokens[0]);
 		int  mm = Integer.parseInt(timeTokens[1]);
@@ -446,21 +446,21 @@ public class TimeUtil {
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTimeInMillis();
 	}
-	
+
 	public static Long getTimeFromDateStringWithCurrentYear(String timeZone,String date,String timeHHMMSS) {
 		if (Util.isEmpty(date)) {
 			return null;
 		}
 		if (timeZone == null)
 			timeZone = "IST";
-		
+
 		String[] tokens = date.split("-");
 		if (date.indexOf('/') > 0) {
 			tokens = date.split("/");
 		}
 		int  month = Integer.parseInt(tokens[1]);
 		int  day = Integer.parseInt(tokens[0]);
-		 
+
 		String[] timeTokens = timeHHMMSS.split(":");
 		int hh = Integer.parseInt(timeTokens[0]);
 		int  mm = Integer.parseInt(timeTokens[1]);
@@ -469,7 +469,7 @@ public class TimeUtil {
 			ss = Integer.parseInt(timeTokens[2]);
 		}
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-		
+
 		cal.set(Calendar.YEAR, getCurrentYear());
 		cal.set(Calendar.MONTH, month-1);
 		cal.set(Calendar.DAY_OF_MONTH, day);
@@ -479,14 +479,14 @@ public class TimeUtil {
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTimeInMillis();
 	}
-	
+
 	public static Long getTimeFromDateString(String timeZone,String date) {
 		if (Util.isEmpty(date)) {
 			return null;
 		}
 		if (timeZone == null)
 			timeZone = "IST";
-		
+
 		String[] tokens = date.split("-");
 		if (date.indexOf('/') > 0) {
 			tokens = date.split("/");
@@ -494,9 +494,9 @@ public class TimeUtil {
 		int year = Integer.parseInt(tokens[2]);
 		int  month = Integer.parseInt(tokens[1]);
 		int  day = Integer.parseInt(tokens[0]);
-		  
+
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-		
+
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, month-1);
 		cal.set(Calendar.DAY_OF_MONTH, day);
@@ -506,14 +506,14 @@ public class TimeUtil {
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTimeInMillis();
 	}
-	
+
 	public static Long getTimeFromDateStringYYYYMMDD(String timeZone,String date) {
 		if (Util.isEmpty(date)) {
 			return null;
 		}
 		if (timeZone == null)
 			timeZone = "IST";
-		
+
 		String[] tokens = date.split("-");
 		if (date.indexOf('/') > 0) {
 			tokens = date.split("/");
@@ -521,9 +521,9 @@ public class TimeUtil {
 		int year = Integer.parseInt(tokens[0]);
 		int  month = Integer.parseInt(tokens[1]);
 		int  day = Integer.parseInt(tokens[2]);
-		  
+
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
-		
+
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, month-1);
 		cal.set(Calendar.DAY_OF_MONTH, day);
@@ -545,7 +545,7 @@ public class TimeUtil {
 		dayTime = ss+(mm*60L)+(hr*60L*60L);
 		return dayTime;
 	}
-	
+
 	public static String getDayTimeString(String timeZone,Date time) {
 		if (timeZone == null)
 			timeZone = "IST";
@@ -573,9 +573,9 @@ public class TimeUtil {
 		}
 		return dayTime;
 	}
-	
 
-	
+
+
 	public static String ago(long startTime) {
 		Date endTime= new Date();
 		long elapsedTime = endTime.getTime()-startTime;
@@ -583,7 +583,7 @@ public class TimeUtil {
 		long min = 0;
 		long hrs = 0;
 		long day = 0;
-		String str ="";	
+		String str ="";
 		if (second > 60) {
 			min = second/60L;
 			second = second % 60;
@@ -596,11 +596,11 @@ public class TimeUtil {
 			day = hrs/24L;
 			hrs = hrs % 24;
 		}
-		
+
 		if (day > 0) {
 			str = str+day+" days ";
 		}
-		
+
 		if (hrs > 0) {
 			str = str+hrs+" hrs ";
 		}
@@ -615,46 +615,46 @@ public class TimeUtil {
 	}
 
 	public static long addYear(Date time,int year) {
-		Calendar c = Calendar.getInstance(); 
-		c.setTime(time); 
+		Calendar c = Calendar.getInstance();
+		c.setTime(time);
 		c.add(Calendar.YEAR, year);
 		return c.getTime().getTime();
 	}
-	
+
 	public static long addYear(long time,int year) {
 		return addYear(new Date(time),year);
 	}
-	
+
 	public static long addMonth(Date time,int month) {
-		Calendar c = Calendar.getInstance(); 
-		c.setTime(time); 
+		Calendar c = Calendar.getInstance();
+		c.setTime(time);
 		c.add(Calendar.MONTH, month);
 		return c.getTime().getTime();
 	}
-	
+
 	public static long addMonth(long time,long month) {
 		return addMonth(new Date(time),(int)month);
 	}
-	
+
 	public static long addMonth(long time,int month) {
 		return addMonth(new Date(time),month);
 	}
-	
+
 	public static long addDay(Date time,int day) {
-		Calendar c = Calendar.getInstance(); 
-		c.setTime(time); 
+		Calendar c = Calendar.getInstance();
+		c.setTime(time);
 		c.add(Calendar.DATE, day);
 		return c.getTime().getTime();
 	}
-	
+
 	public static long addDay(long time,int day) {
 		return addDay(new Date(time),day);
 	}
-	
+
 	public static long getTimeforCurrentDate(String timezone) {
 		if (timezone == null)
 			timezone = "IST";
-		
+
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
 		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
@@ -662,7 +662,7 @@ public class TimeUtil {
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTimeInMillis();
 	}
-	
+
 	public static long getCurrentDay(String timezone) {
 		if (timezone == null)
 			timezone = "IST";
@@ -686,7 +686,7 @@ public class TimeUtil {
 		toCal.setTime(new Date());
 		return toCal.get(Calendar.YEAR);
 	}
-	
+
 	public static long getTimeDDMMYYHHMMSS(String timezone, String timeString) {
 		int day = Integer.parseInt(timeString.substring(0,2));
 		int month = Integer.parseInt(timeString.substring(2,4));
@@ -694,10 +694,10 @@ public class TimeUtil {
 		int hh = Integer.parseInt(timeString.substring(6,8));
 		int mm = Integer.parseInt(timeString.substring(8,10));
 		int ss = Integer.parseInt(timeString.substring(10,12));
-		return getTime(timezone, year, month, day, hh, mm, ss);		
+		return getTime(timezone, year, month, day, hh, mm, ss);
 	}
 	public static long getTime(String timezone,int year,int month, int day,
-			int hrs, int min, int second) {
+							   int hrs, int min, int second) {
 		if (timezone == null)
 			timezone = "IST";
 		if (year < 1000)
@@ -744,6 +744,19 @@ public class TimeUtil {
 		return time;
 	}
 
+	public static long getStartTimeofDate(String timezone,long time) {
+		if (timezone == null)
+			timezone = "IST";
+
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		cal.setTime(new Date(time));
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
+	}
+
 	public static long getStartTimeofThisWeek(String timezone) {
 		if (timezone == null)
 			timezone = "IST";
@@ -773,4 +786,28 @@ public class TimeUtil {
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTimeInMillis()-dayOfMonth*24*60*60*1000L;
 	}
+
+	public static long getHour(String timezone,long time) {
+		if (timezone == null)
+			timezone = "IST";
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		cal.setTime(new Date(time));
+		return cal.get(Calendar.HOUR_OF_DAY);
+	}
+	public static long getMonth(String timezone,long time) {
+		if (timezone == null)
+			timezone = "IST";
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		cal.setTime(new Date(time));
+		return cal.get(Calendar.MONTH);
+	}
+
+	public static long getYear(String timezone,long time) {
+		if (timezone == null)
+			timezone = "IST";
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		cal.setTime(new Date(time));
+		return cal.get(Calendar.YEAR);
+	}
+
 }
