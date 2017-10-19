@@ -20,6 +20,8 @@ public class ServerService extends BaseService{
 	}
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
+		server _resource = (server) resource;
+		_resource.setCustomer_id(ctx.getCustomerId());
 		getHelper().add(resource);
 	}
 
@@ -34,6 +36,11 @@ public class ServerService extends BaseService{
 
 
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
+		if (queryId.equalsIgnoreCase("QUERY_MY_SERVER")) {
+			String customerId = ctx.getCustomerId();
+			return ServerHelper.getInstance().getByCustomerId(customerId);
+		}
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_QUERY);
+
 	}
 }

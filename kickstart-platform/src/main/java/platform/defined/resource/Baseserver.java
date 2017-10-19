@@ -27,6 +27,7 @@ public abstract class Baseserver extends BaseResource {
 	private Long up_since = null;
 	private Long down_since = null;
 	private Long creation_time = null;
+	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -37,6 +38,7 @@ public abstract class Baseserver extends BaseResource {
 	public static String FIELD_UP_SINCE = "up_since";
 	public static String FIELD_DOWN_SINCE = "down_since";
 	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -74,6 +76,10 @@ public abstract class Baseserver extends BaseResource {
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -95,6 +101,7 @@ public abstract class Baseserver extends BaseResource {
 		this.up_since = obj.up_since;
 		this.down_since = obj.down_since;
 		this.creation_time = obj.creation_time;
+		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -120,6 +127,8 @@ public abstract class Baseserver extends BaseResource {
 			map.put("down_since", down_since);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -143,6 +152,8 @@ public abstract class Baseserver extends BaseResource {
 			map.put("down_since", down_since);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -163,6 +174,7 @@ public abstract class Baseserver extends BaseResource {
 		up_since = (Long) map.get("up_since");
 		down_since = (Long) map.get("down_since");
 		creation_time = (Long) map.get("creation_time");
+		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -199,6 +211,10 @@ public abstract class Baseserver extends BaseResource {
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
 			creation_time = new Long(creation_timeObj.toString());
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -315,6 +331,22 @@ public abstract class Baseserver extends BaseResource {
 		this.creation_time = creation_time;
 	}
 
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
+	}
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;

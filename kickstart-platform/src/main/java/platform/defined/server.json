@@ -42,6 +42,11 @@
 			'creation_time':
 			{
 				'type':'timestamp'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
 			}
 		}
 	}
