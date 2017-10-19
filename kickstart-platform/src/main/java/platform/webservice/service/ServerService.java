@@ -36,7 +36,7 @@ public class ServerService extends BaseService{
 
 
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
-		if (queryId.equalsIgnoreCase("QUERY_MY_SERVER")) {
+		if (queryId.equalsIgnoreCase("QUERY_MY_SERVERS")) {
 			String customerId = ctx.getCustomerId();
 			return ServerHelper.getInstance().getByCustomerId(customerId);
 		}
