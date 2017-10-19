@@ -1,0 +1,36 @@
+{
+	"server" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'type':'String'
+			},
+			'type':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'url':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			}
+		}
+	}
+}
