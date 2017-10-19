@@ -40,6 +40,7 @@ public class ServerService extends BaseService{
 			String customerId = ctx.getCustomerId();
 			return ServerHelper.getInstance().getByCustomerId(customerId);
 		}
+
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_QUERY);
 
 	}
