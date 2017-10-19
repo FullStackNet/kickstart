@@ -23,9 +23,21 @@
 			},
 			'url':
 			{
-				'name':'name',
 				'length': 128,
 				'type':'String'
+			},
+			'state':
+			{
+				'length': 16,
+				'type':'String'
+			},
+			'up_since':
+			{
+				'type':'timestamp'
+			},
+			'down_since':
+			{
+				'type':'timestamp'
 			},
 			'creation_time':
 			{

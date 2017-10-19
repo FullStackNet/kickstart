@@ -23,6 +23,9 @@ public abstract class Baseserver extends BaseResource {
 	private String type = null;
 	private String name = null;
 	private String url = null;
+	private String state = null;
+	private Long up_since = null;
+	private Long down_since = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
@@ -30,6 +33,9 @@ public abstract class Baseserver extends BaseResource {
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_URL = "url";
+	public static String FIELD_STATE = "state";
+	public static String FIELD_UP_SINCE = "up_since";
+	public static String FIELD_DOWN_SINCE = "down_since";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -55,6 +61,16 @@ public abstract class Baseserver extends BaseResource {
 		urlField.setLength(128);
 		metaData.addField(urlField);
 
+		Field stateField = new Field("state", "String");
+		stateField.setLength(16);
+		metaData.addField(stateField);
+
+		Field up_sinceField = new Field("up_since", "timestamp");
+		metaData.addField(up_sinceField);
+
+		Field down_sinceField = new Field("down_since", "timestamp");
+		metaData.addField(down_sinceField);
+
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		metaData.addField(creation_timeField);
 
@@ -75,6 +91,9 @@ public abstract class Baseserver extends BaseResource {
 		this.type = obj.type;
 		this.name = obj.name;
 		this.url = obj.url;
+		this.state = obj.state;
+		this.up_since = obj.up_since;
+		this.down_since = obj.down_since;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -93,6 +112,12 @@ public abstract class Baseserver extends BaseResource {
 			map.put("name", name);
 		if(url != null)
 			map.put("url", url);
+		if(state != null)
+			map.put("state", state);
+		if(up_since != null)
+			map.put("up_since", up_since);
+		if(down_since != null)
+			map.put("down_since", down_since);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -110,6 +135,12 @@ public abstract class Baseserver extends BaseResource {
 			map.put("name", name);
 		if(url != null)
 			map.put("url", url);
+		if(state != null)
+			map.put("state", state);
+		if(up_since != null)
+			map.put("up_since", up_since);
+		if(down_since != null)
+			map.put("down_since", down_since);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -128,6 +159,9 @@ public abstract class Baseserver extends BaseResource {
 		type = (String) map.get("type");
 		name = (String) map.get("name");
 		url = (String) map.get("url");
+		state = (String) map.get("state");
+		up_since = (Long) map.get("up_since");
+		down_since = (Long) map.get("down_since");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -149,6 +183,18 @@ public abstract class Baseserver extends BaseResource {
 		Object urlObj = map.get("url");
 		if(urlObj != null)
 			url = urlObj.toString();
+
+		Object stateObj = map.get("state");
+		if(stateObj != null)
+			state = stateObj.toString();
+
+		Object up_sinceObj = map.get("up_since");
+		if(up_sinceObj != null)
+			up_since = new Long(up_sinceObj.toString());
+
+		Object down_sinceObj = map.get("down_since");
+		if(down_sinceObj != null)
+			down_since = new Long(down_sinceObj.toString());
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -226,6 +272,40 @@ public abstract class Baseserver extends BaseResource {
 	public void unSetUrl() {
 		this.url = null;
 	}
+
+	public String getState() {
+		return state;
+	}
+
+	public String getStateEx() {
+		return state != null ? state : "";
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public void unSetState() {
+		this.state = null;
+	}
+
+	public Long getUp_since() {
+		return up_since;
+	}
+
+	public void setUp_since(Long up_since) {
+		this.up_since = up_since;
+	}
+
+
+	public Long getDown_since() {
+		return down_since;
+	}
+
+	public void setDown_since(Long down_since) {
+		this.down_since = down_since;
+	}
+
 
 	public Long getCreation_time() {
 		return creation_time;
