@@ -67,6 +67,7 @@ public class AlertFactory {
 	public static String ALERT_DG_LOW_LOAD_KW = "DG_LOW_LOAD_KW";
 	public static String ALERT_DG_LOW_LOAD_KVA = "DG_LOW_LOAD_KVA";
 
+	public static String ALERT_SERVER_DOWN = "SERVER_DOWN";
 
 
 }
