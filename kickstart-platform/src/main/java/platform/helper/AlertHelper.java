@@ -175,7 +175,7 @@ public class AlertHelper extends BaseHelper {
 		return  (alert)AlertHelper.getInstance().getByExpressionFirstRecord(e);
 	}
 
-	void addServerAlert(String customerId,
+	public void addServerAlert(String customerId,
 				  String serverId,String serverName,
 			  	String alertId, int severity, Map<String, Object> data, Date alertTime) {
 		addAlert(customerId,"","",serverId,"SERVER",serverName,"","","",alertId,severity,data,alertTime);
