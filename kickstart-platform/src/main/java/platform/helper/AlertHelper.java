@@ -164,7 +164,7 @@ public class AlertHelper extends BaseHelper {
 				alertId, severity, data, alertTime);
 	}
 
-	alert getAleadyCreatedAlert(String deviceId,String deviceType,String alertId) {
+	public alert getAleadyCreatedAlert(String deviceId,String deviceType,String alertId) {
 		Expression e1 = new Expression(alert.FIELD_DEVICE_ID, REL_OP.EQ,deviceId);
 		Expression e2 = new Expression(alert.FIELD_DEVICE_TYPE, REL_OP.EQ,deviceType);
 		Expression e3 = new Expression(alert.FIELD_ALERT_ID, REL_OP.EQ,alertId);
