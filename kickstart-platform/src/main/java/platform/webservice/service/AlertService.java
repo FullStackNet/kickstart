@@ -4,9 +4,12 @@ import java.util.Date;
 import java.util.Map;
 
 import platform.appliances.Appliance;
+import platform.db.Expression;
+import platform.db.REL_OP;
 import platform.exception.ExceptionEnum;
 import platform.helper.AlertHelper;
 import platform.helper.ApplianceHelper;
+import platform.helper.HelperUtils;
 import platform.helper.User_mapHelper;
 import platform.message.Alert;
 import platform.resource.BaseResource;
@@ -52,7 +55,12 @@ public class AlertService extends BaseService{
 		//Expects emailId. Returns the profile associated with this emailId.
 		QUERY_USER_ALERT {
 			public String toString() {
-				return "QUERY_USER_ALERT"; 
+				return "QUERY_USER_ALERT";
+			}
+		},
+		QUERY_CUSTOMER_ALERT {
+			public String toString() {
+				return "QUERY_CUSTOMER_ALERT";
 			}
 		}
 	};
@@ -65,7 +73,10 @@ public class AlertService extends BaseService{
 				throw new ApplicationException(ExceptionSeverity.ERROR, "Session is expired or not authenticated.");
 			}
 			return User_mapHelper.getInstance().getAlertArray(userId);
-		} 
+		} else if(QueryTypes.QUERY_CUSTOMER_ALERT.toString().equals(queryId)) {
+			Expression e = new Expression(alert.FIELD_CLEARED, REL_OP.EQ,"N");
+			return  AlertHelper.getInstance().getByCustomerId(e,ctx.getCustomerId(), new String[]{alert.FIELD_ALERT_TIME+ " desc"});
+		}
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_QUERY);
 	}
 }
