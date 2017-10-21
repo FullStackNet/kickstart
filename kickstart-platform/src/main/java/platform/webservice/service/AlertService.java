@@ -82,7 +82,7 @@ public class AlertService extends BaseService{
 			Expression e = new Expression(alert.FIELD_CLEARED, REL_OP.EQ,"N");
 			return  AlertHelper.getInstance().getByCustomerId(e,ctx.getCustomerId(), new String[]{alert.FIELD_ALERT_TIME+ " desc"});
 		} else if(QueryTypes.QUERY_CUSTOMER_ALERT_HISTORY.toString().equals(queryId)) {
-			return  AlertHelper.getInstance().getByCustomerId(ctx.getCustomerId(), new String[]{alert.FIELD_ALERT_TIME+ " desc"});
+			return  AlertHelper.getInstance().getByCustomerId(ctx.getCustomerId(), new String[]{alert.FIELD_LAST_UPDATE_TIME+ " desc"});
 		}
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_QUERY);
 	}
