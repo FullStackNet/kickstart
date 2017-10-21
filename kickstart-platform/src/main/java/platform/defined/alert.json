@@ -153,6 +153,11 @@
 				'name':'asset_id',
 				'length': 128,
 				'type':'String'
+			},
+			'last_update_time':
+			{
+				'length': 1,
+				'type':'timestamp'
 			}
 		}
 	}

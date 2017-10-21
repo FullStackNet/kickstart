@@ -44,6 +44,7 @@ public abstract class Basealert extends BaseResource {
 	private String customer_id = null;
 	private String tanent_id = null;
 	private String asset_id = null;
+	private Long last_update_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -71,6 +72,7 @@ public abstract class Basealert extends BaseResource {
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_TANENT_ID = "tanent_id";
 	public static String FIELD_ASSET_ID = "asset_id";
+	public static String FIELD_LAST_UPDATE_TIME = "last_update_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -180,6 +182,10 @@ public abstract class Basealert extends BaseResource {
 		asset_idField.setLength(128);
 		metaData.addField(asset_idField);
 
+		Field last_update_timeField = new Field("last_update_time", "timestamp");
+		last_update_timeField.setLength(1);
+		metaData.addField(last_update_timeField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -218,6 +224,7 @@ public abstract class Basealert extends BaseResource {
 		this.customer_id = obj.customer_id;
 		this.tanent_id = obj.tanent_id;
 		this.asset_id = obj.asset_id;
+		this.last_update_time = obj.last_update_time;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -282,6 +289,8 @@ public abstract class Basealert extends BaseResource {
 			map.put("tanent_id", tanent_id);
 		if(asset_id != null)
 			map.put("asset_id", asset_id);
+		if(last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -342,6 +351,8 @@ public abstract class Basealert extends BaseResource {
 			map.put("tanent_id", tanent_id);
 		if(asset_id != null)
 			map.put("asset_id", asset_id);
+		if(last_update_time != null)
+			map.put("last_update_time", last_update_time);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -379,6 +390,7 @@ public abstract class Basealert extends BaseResource {
 		customer_id = (String) map.get("customer_id");
 		tanent_id = (String) map.get("tanent_id");
 		asset_id = (String) map.get("asset_id");
+		last_update_time = (Long) map.get("last_update_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -480,6 +492,10 @@ public abstract class Basealert extends BaseResource {
 		Object asset_idObj = map.get("asset_id");
 		if(asset_idObj != null)
 			asset_id = asset_idObj.toString();
+
+		Object last_update_timeObj = map.get("last_update_time");
+		if(last_update_timeObj != null)
+			last_update_time = new Long(last_update_timeObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -901,6 +917,15 @@ public abstract class Basealert extends BaseResource {
 	public void unSetAsset_id() {
 		this.asset_id = null;
 	}
+
+	public Long getLast_update_time() {
+		return last_update_time;
+	}
+
+	public void setLast_update_time(Long last_update_time) {
+		this.last_update_time = last_update_time;
+	}
+
 
 	public Map<String, Object> getExtra_data() {
 		return extra_data;
