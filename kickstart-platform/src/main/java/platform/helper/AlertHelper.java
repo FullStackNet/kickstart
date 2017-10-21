@@ -205,6 +205,8 @@ public class AlertHelper extends BaseHelper {
 			 _alert.setCleared("N");
 		 }
 		_alert.setAlert_time(alertTime.getTime());
+		_alert.setLast_update_time(alertTime.getTime());
+
 		try {
 			AddOrUpdate(_alert);
 		} catch (ApplicationException e) {
