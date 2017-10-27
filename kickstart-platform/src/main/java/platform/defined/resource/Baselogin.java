@@ -23,6 +23,7 @@ public abstract class Baselogin extends BaseResource {
 	private String email_id = null;
 	private String password = null;
 	private String session_id = null;
+	private String customer_id = null;
 	private String api_version = null;
 	private Map<String, Object> extra_data = null;
 
@@ -30,6 +31,7 @@ public abstract class Baselogin extends BaseResource {
 	public static String FIELD_EMAIL_ID = "email_id";
 	public static String FIELD_PASSWORD = "password";
 	public static String FIELD_SESSION_ID = "session_id";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_API_VERSION = "api_version";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -58,6 +60,10 @@ public abstract class Baselogin extends BaseResource {
 		session_idField.setLength(128);
 		metaData.addField(session_idField);
 
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
+
 		Field api_versionField = new Field("api_version", "String");
 		api_versionField.setLength(32);
 		metaData.addField(api_versionField);
@@ -79,6 +85,7 @@ public abstract class Baselogin extends BaseResource {
 		this.email_id = obj.email_id;
 		this.password = obj.password;
 		this.session_id = obj.session_id;
+		this.customer_id = obj.customer_id;
 		this.api_version = obj.api_version;
 		this.extra_data = obj.extra_data;
 	}
@@ -97,6 +104,8 @@ public abstract class Baselogin extends BaseResource {
 			map.put("password", password);
 		if(session_id != null)
 			map.put("session_id", session_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(api_version != null)
 			map.put("api_version", api_version);
 		if(extra_data != null)
@@ -114,6 +123,8 @@ public abstract class Baselogin extends BaseResource {
 			map.put("password", password);
 		if(session_id != null)
 			map.put("session_id", session_id);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(api_version != null)
 			map.put("api_version", api_version);
 		if(extra_data != null)
@@ -132,6 +143,7 @@ public abstract class Baselogin extends BaseResource {
 		email_id = (String) map.get("email_id");
 		password = (String) map.get("password");
 		session_id = (String) map.get("session_id");
+		customer_id = (String) map.get("customer_id");
 		api_version = (String) map.get("api_version");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -153,6 +165,10 @@ public abstract class Baselogin extends BaseResource {
 		Object session_idObj = map.get("session_id");
 		if(session_idObj != null)
 			session_id = session_idObj.toString();
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		Object api_versionObj = map.get("api_version");
 		if(api_versionObj != null)
@@ -247,6 +263,22 @@ public abstract class Baselogin extends BaseResource {
 
 	public void unSetSession_id() {
 		this.session_id = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
 	public String getApi_version() {

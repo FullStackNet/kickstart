@@ -37,6 +37,7 @@ public class LoginService extends BaseService{
 				_session.setSuper_user(_user.getSuper_user());
 				SessionHelper.getInstance().add(_session);
 				_login.setSession_id(_session.getId());
+				_login.setCustomer_id(_user.getCustomer_id());
 				return;
 			}
 		}
