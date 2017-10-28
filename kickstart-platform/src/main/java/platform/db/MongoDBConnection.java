@@ -422,7 +422,7 @@ public class MongoDBConnection extends DbConnection {
 								} else if (field.getType().equalsIgnoreCase("long")) {
 									row.put(columnName, ((Long)value).longValue());
 								} else if (field.getType().equalsIgnoreCase("double")) {
-									row.put(columnName, ((Double)value).longValue());
+									row.put(columnName, new Double(((Long)value).longValue()));
 								} else if (field.getType().equalsIgnoreCase("short")) {
 									row.put(columnName, (new Double(((Long) value).longValue())));
 								} else if (field.getType().equalsIgnoreCase("byte")) {
@@ -439,7 +439,7 @@ public class MongoDBConnection extends DbConnection {
 								} else if (field.getType().equalsIgnoreCase("long")) {
 									row.put(columnName, ((Integer)value).longValue());
 									//System.out.println(columnName + "-> long 2");
-								}else if (field.getType().equalsIgnoreCase("short")) {
+								}else if (field.getType().equalsIgnoreCase("double")) {
 									row.put(columnName, (new Double(((Integer) value).intValue())));
 								}  else if (field.getType().equalsIgnoreCase("short")) {
 									row.put(columnName, ((Integer)value).shortValue());
