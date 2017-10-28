@@ -53,6 +53,12 @@ public class ApplianceService extends BaseService{
 				_resource.setThreshold_templete_name(_templete.getName());
 			}
 		}
+		if (!Util.isEmpty(_resource.getAppliance_mf_profile_id())) {
+			appliance_mf_profile _mf_profile = (appliance_mf_profile)Appliance_mf_profileHelper.getInstance().getById(_resource.getAppliance_mf_profile_id());
+			if (_mf_profile != null) {
+				_resource.setAppliance_mf_profile_name(_mf_profile.getName());
+			}
+		}
 		_resource.setUser_id(ctx.getUserId());
 		getHelper().add(_resource);
 		Appliance_mapHelper.getInstance().addAdmin(_resource.getId(),ctx.getUserId());
@@ -239,6 +245,12 @@ public class ApplianceService extends BaseService{
 			appliance_threshold_templete _templete = (appliance_threshold_templete)Appliance_threshold_templeteHelper.getInstance().getById(_appliance.getThreshold_templete_id());
 			if (_templete != null) {
 				_appliance.setThreshold_templete_name(_templete.getName());
+			}
+		}
+		if (!Util.isEmpty(_appliance.getAppliance_mf_profile_id())) {
+			appliance_mf_profile _mf_profile = (appliance_mf_profile)Appliance_mf_profileHelper.getInstance().getById(_appliance.getAppliance_mf_profile_id());
+			if (_mf_profile != null) {
+				_appliance.setAppliance_mf_profile_name(_mf_profile.getName());
 			}
 		}
 		getHelper().update(_appliance);
