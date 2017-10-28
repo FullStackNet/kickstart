@@ -421,8 +421,10 @@ public class MongoDBConnection extends DbConnection {
 									//System.out.println(columnName + "-> Integer 1");
 								} else if (field.getType().equalsIgnoreCase("long")) {
 									row.put(columnName, ((Long)value).longValue());
+								} else if (field.getType().equalsIgnoreCase("double")) {
+									row.put(columnName, ((Double)value).longValue());
 								} else if (field.getType().equalsIgnoreCase("short")) {
-									row.put(columnName, ((Long)value).shortValue());
+									row.put(columnName, (new Double(((Long) value).longValue())));
 								} else if (field.getType().equalsIgnoreCase("byte")) {
 									row.put(columnName, ((Long)value).byteValue());
 								}  else if (field.getType().equalsIgnoreCase("string")) {
@@ -437,7 +439,9 @@ public class MongoDBConnection extends DbConnection {
 								} else if (field.getType().equalsIgnoreCase("long")) {
 									row.put(columnName, ((Integer)value).longValue());
 									//System.out.println(columnName + "-> long 2");
-								} else if (field.getType().equalsIgnoreCase("short")) {
+								}else if (field.getType().equalsIgnoreCase("short")) {
+									row.put(columnName, (new Double(((Integer) value).intValue())));
+								}  else if (field.getType().equalsIgnoreCase("short")) {
 									row.put(columnName, ((Integer)value).shortValue());
 								} else if (field.getType().equalsIgnoreCase("byte")) {
 									row.put(columnName, ((Integer)value).byteValue());
@@ -452,6 +456,9 @@ public class MongoDBConnection extends DbConnection {
 									row.put(columnName, Integer.parseInt(value.toString()));
 								} else if (field.getType().equalsIgnoreCase("long")) {
 									row.put(columnName, Long.parseLong(value.toString()));
+									//System.out.println(columnName + "-> long 2");
+								}else if (field.getType().equalsIgnoreCase("double")) {
+									row.put(columnName, Double.parseDouble(value.toString()));
 									//System.out.println(columnName + "-> long 2");
 								} else if (field.getType().equalsIgnoreCase("short")) {
 									row.put(columnName, Short.parseShort(value.toString()));
