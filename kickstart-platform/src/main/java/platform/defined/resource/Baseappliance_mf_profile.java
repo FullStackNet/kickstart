@@ -32,7 +32,7 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 	private Double md = null;
 	private Double tdh = null;
 	private Double kvarh = null;
-	private Long frequency = null;
+	private Double frequency = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -132,8 +132,10 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 		kvarhField.setPrecision(4);
 		metaData.addField(kvarhField);
 
-		Field frequencyField = new Field("frequency", "long");
-		frequencyField.setDefaultValue(0L);
+		Field frequencyField = new Field("frequency", "double");
+		frequencyField.setDefaultValue(0.0000);
+		frequencyField.setLength(12);
+		frequencyField.setPrecision(4);
 		metaData.addField(frequencyField);
 
 		Field customer_idField = new Field("customer_id", "String");
@@ -197,7 +199,7 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 		if(kvarh == null)
 			kvarh = 0.0000;
 		if(frequency == null)
-			frequency = 0L;
+			frequency = 0.0000;
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -297,7 +299,7 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 		md = (Double) map.get("md");
 		tdh = (Double) map.get("tdh");
 		kvarh = (Double) map.get("kvarh");
-		frequency = (Long) map.get("frequency");
+		frequency = (Double) map.get("frequency");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -358,7 +360,7 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 
 		Object frequencyObj = map.get("frequency");
 		if(frequencyObj != null)
-			frequency = new Long(frequencyObj.toString());
+			frequency = new Double(frequencyObj.toString());
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -587,20 +589,20 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 		this.kvarh = 0.0000;
 	}
 
-	public Long getFrequency() {
-		return frequency != null ? frequency : 0L;
+	public Double getFrequency() {
+		return frequency != null ? frequency : 0.0000;
 	}
 
-	public void setFrequency(long frequency) {
+	public void setFrequency(double frequency) {
 		this.frequency = frequency;
 	}
 
-	public void setFrequency(Long frequency) {
+	public void setFrequency(Double frequency) {
 		this.frequency = frequency;
 	}
 
 	public void unSetFrequency() {
-		this.frequency = 0L;
+		this.frequency = 0.0000;
 	}
 
 	public String getCustomer_id() {

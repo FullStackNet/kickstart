@@ -93,8 +93,10 @@
 			},
 			'frequency':
 			{
-				'default':'0',
-				'type':'long'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
 			},
 			'customer_id':
 			{
