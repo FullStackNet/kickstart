@@ -114,7 +114,7 @@ public abstract class Baseappliance extends BaseResource {
 	private Double grid_md = null;
 	private Double grid_tdh = null;
 	private Double grid_kvarh = null;
-	private Long grid_frequency = null;
+	private Double grid_frequency = null;
 	private Double grid_p1_reading_kvah = null;
 	private Double grid_p1_reading_kwh = null;
 	private Double grid_p1_load_kva = null;
@@ -1051,8 +1051,10 @@ public abstract class Baseappliance extends BaseResource {
 		grid_kvarhField.setPrecision(4);
 		metaData.addField(grid_kvarhField);
 
-		Field grid_frequencyField = new Field("grid_frequency", "long");
-		grid_frequencyField.setDefaultValue(0L);
+		Field grid_frequencyField = new Field("grid_frequency", "double");
+		grid_frequencyField.setDefaultValue(0.0000);
+		grid_frequencyField.setLength(12);
+		grid_frequencyField.setPrecision(4);
 		metaData.addField(grid_frequencyField);
 
 		Field grid_p1_reading_kvahField = new Field("grid_p1_reading_kvah", "double");
@@ -2419,7 +2421,7 @@ public abstract class Baseappliance extends BaseResource {
 		if(grid_kvarh == null)
 			grid_kvarh = 0.0000;
 		if(grid_frequency == null)
-			grid_frequency = 0L;
+			grid_frequency = 0.0000;
 		if(grid_p1_reading_kvah == null)
 			grid_p1_reading_kvah = 0.0000;
 		if(grid_p1_reading_kwh == null)
@@ -3969,7 +3971,7 @@ public abstract class Baseappliance extends BaseResource {
 		grid_md = (Double) map.get("grid_md");
 		grid_tdh = (Double) map.get("grid_tdh");
 		grid_kvarh = (Double) map.get("grid_kvarh");
-		grid_frequency = (Long) map.get("grid_frequency");
+		grid_frequency = (Double) map.get("grid_frequency");
 		grid_p1_reading_kvah = (Double) map.get("grid_p1_reading_kvah");
 		grid_p1_reading_kwh = (Double) map.get("grid_p1_reading_kwh");
 		grid_p1_load_kva = (Double) map.get("grid_p1_load_kva");
@@ -4530,7 +4532,7 @@ public abstract class Baseappliance extends BaseResource {
 
 		Object grid_frequencyObj = map.get("grid_frequency");
 		if(grid_frequencyObj != null)
-			grid_frequency = new Long(grid_frequencyObj.toString());
+			grid_frequency = new Double(grid_frequencyObj.toString());
 
 		Object grid_p1_reading_kvahObj = map.get("grid_p1_reading_kvah");
 		if(grid_p1_reading_kvahObj != null)
@@ -6788,20 +6790,20 @@ public abstract class Baseappliance extends BaseResource {
 		this.grid_kvarh = 0.0000;
 	}
 
-	public Long getGrid_frequency() {
-		return grid_frequency != null ? grid_frequency : 0L;
+	public Double getGrid_frequency() {
+		return grid_frequency != null ? grid_frequency : 0.0000;
 	}
 
-	public void setGrid_frequency(long grid_frequency) {
+	public void setGrid_frequency(double grid_frequency) {
 		this.grid_frequency = grid_frequency;
 	}
 
-	public void setGrid_frequency(Long grid_frequency) {
+	public void setGrid_frequency(Double grid_frequency) {
 		this.grid_frequency = grid_frequency;
 	}
 
 	public void unSetGrid_frequency() {
-		this.grid_frequency = 0L;
+		this.grid_frequency = 0.0000;
 	}
 
 	public Double getGrid_p1_reading_kvah() {

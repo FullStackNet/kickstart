@@ -1,0 +1,108 @@
+{
+	"appliance_mf_profile" :
+	{
+		"cluster": "DB_DEVICE",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'reading_kvah':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'reading_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'load_kva':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+
+			'load_kw':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'voltage':
+			{
+				'default':'0.00',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'current':
+			{
+				'default':'0.00',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'pf':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'md':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'tdh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'kvarh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'frequency':
+			{
+				'default':'0',
+				'type':'long'
+			},
+			'customer_id':
+			{
+				'name':'customer_id',
+				'length': 128,
+				'type':'String'
+			},
+
+		}
+	}
+}
