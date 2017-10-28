@@ -21,6 +21,9 @@ import java.util.*;
 public abstract class Baseappliance_simulator extends BaseResource {
 	private String id = null;
 	private String name = null;
+	private String threshold_templete_id = null;
+	private String threshold_templete_name = null;
+	private String controller_name = null;
 	private String controller_id = null;
 	private Long controller_port = null;
 	private String imei = null;
@@ -89,6 +92,8 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	private Integer battery_level = null;
 	private Double last_reading = null;
 	private Long last_reading_updated = null;
+	private Long last_grid_reading_updated = null;
+	private Long last_dg_reading_updated = null;
 	private Double dg_reading = null;
 	private Double grid_reading = null;
 	private Integer voltage = null;
@@ -97,10 +102,14 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	private Double energy = null;
 	private Double grid_reading_kvah = null;
 	private Double grid_reading_kwh = null;
+	private Double grid_today_kwh = null;
+	private Double grid_current_month_kwh = null;
+	private Double grid_today_kvah = null;
+	private Double grid_current_month_kvah = null;
 	private Double grid_load_kva = null;
 	private Double grid_load_kw = null;
-	private Integer grid_voltage = null;
-	private Integer grid_current = null;
+	private Double grid_voltage = null;
+	private Double grid_current = null;
 	private Double grid_pf = null;
 	private Double grid_md = null;
 	private Double grid_tdh = null;
@@ -110,79 +119,83 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	private Double grid_p1_reading_kwh = null;
 	private Double grid_p1_load_kva = null;
 	private Double grid_p1_load_kw = null;
-	private Integer grid_p1_voltage = null;
-	private Integer grid_p1_current = null;
+	private Double grid_p1_voltage = null;
+	private Double grid_p1_current = null;
 	private Double grid_p1_pf = null;
 	private Double grid_p1_md = null;
 	private Double grid_p1_tdh = null;
 	private Double grid_p1_kvarh = null;
-	private Long grid_p1_frequency = null;
+	private Double grid_p1_frequency = null;
 	private Double grid_p2_reading_kvah = null;
 	private Double grid_p2_reading_kwh = null;
 	private Double grid_p2_load_kva = null;
 	private Double grid_p2_load_kw = null;
-	private Integer grid_p2_voltage = null;
-	private Integer grid_p2_current = null;
+	private Double grid_p2_voltage = null;
+	private Double grid_p2_current = null;
 	private Double grid_p2_pf = null;
 	private Double grid_p2_md = null;
 	private Double grid_p2_tdh = null;
 	private Double grid_p2_kvarh = null;
-	private Long grid_p2_frequency = null;
+	private Double grid_p2_frequency = null;
 	private Double grid_p3_reading_kvah = null;
 	private Double grid_p3_reading_kwh = null;
 	private Double grid_p3_load_kva = null;
 	private Double grid_p3_load_kw = null;
-	private Integer grid_p3_voltage = null;
-	private Integer grid_p3_current = null;
+	private Double grid_p3_voltage = null;
+	private Double grid_p3_current = null;
 	private Double grid_p3_pf = null;
 	private Double grid_p3_md = null;
 	private Double grid_p3_tdh = null;
 	private Double grid_p3_kvarh = null;
-	private Long grid_p3_frequency = null;
+	private Double grid_p3_frequency = null;
 	private Double dg_reading_kwh = null;
 	private Double dg_reading_kvah = null;
+	private Double dg_today_kwh = null;
+	private Double dg_current_month_kwh = null;
+	private Double dg_today_kvah = null;
+	private Double dg_current_month_kvah = null;
 	private Double dg_load_kw = null;
 	private Double dg_load_kva = null;
-	private Integer dg_voltage = null;
-	private Integer dg_current = null;
+	private Double dg_voltage = null;
+	private Double dg_current = null;
 	private Double dg_pf = null;
 	private Double dg_md = null;
 	private Double dg_tdh = null;
 	private Double dg_kvarh = null;
-	private Long dg_frequency = null;
+	private Double dg_frequency = null;
 	private Double dg_p1_reading_kvah = null;
 	private Double dg_p1_reading_kwh = null;
 	private Double dg_p1_load_kva = null;
 	private Double dg_p1_load_kw = null;
-	private Integer dg_p1_voltage = null;
-	private Integer dg_p1_current = null;
+	private Double dg_p1_voltage = null;
+	private Double dg_p1_current = null;
 	private Double dg_p1_pf = null;
 	private Double dg_p1_md = null;
 	private Double dg_p1_tdh = null;
 	private Double dg_p1_kvarh = null;
-	private Long dg_p1_frequency = null;
+	private Double dg_p1_frequency = null;
 	private Double dg_p2_reading_kvah = null;
 	private Double dg_p2_reading_kwh = null;
 	private Double dg_p2_load_kva = null;
 	private Double dg_p2_load_kw = null;
-	private Integer dg_p2_voltage = null;
-	private Integer dg_p2_current = null;
+	private Double dg_p2_voltage = null;
+	private Double dg_p2_current = null;
 	private Double dg_p2_pf = null;
 	private Double dg_p2_md = null;
 	private Double dg_p2_tdh = null;
 	private Double dg_p2_kvarh = null;
-	private Long dg_p2_frequency = null;
+	private Double dg_p2_frequency = null;
 	private Double dg_p3_reading_kvah = null;
 	private Double dg_p3_reading_kwh = null;
 	private Double dg_p3_load_kva = null;
 	private Double dg_p3_load_kw = null;
-	private Integer dg_p3_voltage = null;
-	private Integer dg_p3_current = null;
+	private Double dg_p3_voltage = null;
+	private Double dg_p3_current = null;
 	private Double dg_p3_pf = null;
 	private Double dg_p3_md = null;
 	private Double dg_p3_tdh = null;
 	private Double dg_p3_kvarh = null;
-	private Long dg_p3_frequency = null;
+	private Double dg_p3_frequency = null;
 	private Double temperature = null;
 	private Double humidity = null;
 	private String mode = null;
@@ -281,12 +294,19 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	private String current_route_schedule = null;
 	private String last_stopage_name = null;
 	private Long last_stopage_reached_time = null;
+	private Long critical_alerts = null;
+	private Long major_alerts = null;
+	private Long wanring_alerts = null;
+	private Long minor_alerts = null;
 	private Double cost = null;
 	private String cost_unit = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
+	public static String FIELD_THRESHOLD_TEMPLETE_ID = "threshold_templete_id";
+	public static String FIELD_THRESHOLD_TEMPLETE_NAME = "threshold_templete_name";
+	public static String FIELD_CONTROLLER_NAME = "controller_name";
 	public static String FIELD_CONTROLLER_ID = "controller_id";
 	public static String FIELD_CONTROLLER_PORT = "controller_port";
 	public static String FIELD_IMEI = "imei";
@@ -355,6 +375,8 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	public static String FIELD_BATTERY_LEVEL = "battery_level";
 	public static String FIELD_LAST_READING = "last_reading";
 	public static String FIELD_LAST_READING_UPDATED = "last_reading_updated";
+	public static String FIELD_LAST_GRID_READING_UPDATED = "last_grid_reading_updated";
+	public static String FIELD_LAST_DG_READING_UPDATED = "last_dg_reading_updated";
 	public static String FIELD_DG_READING = "dg_reading";
 	public static String FIELD_GRID_READING = "grid_reading";
 	public static String FIELD_VOLTAGE = "voltage";
@@ -363,6 +385,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	public static String FIELD_ENERGY = "energy";
 	public static String FIELD_GRID_READING_KVAH = "grid_reading_kvah";
 	public static String FIELD_GRID_READING_KWH = "grid_reading_kwh";
+	public static String FIELD_GRID_TODAY_KWH = "grid_today_kwh";
+	public static String FIELD_GRID_CURRENT_MONTH_KWH = "grid_current_month_kwh";
+	public static String FIELD_GRID_TODAY_KVAH = "grid_today_kvah";
+	public static String FIELD_GRID_CURRENT_MONTH_KVAH = "grid_current_month_kvah";
 	public static String FIELD_GRID_LOAD_KVA = "grid_load_kva";
 	public static String FIELD_GRID_LOAD_KW = "grid_load_kw";
 	public static String FIELD_GRID_VOLTAGE = "grid_voltage";
@@ -407,6 +433,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	public static String FIELD_GRID_P3_FREQUENCY = "grid_p3_frequency";
 	public static String FIELD_DG_READING_KWH = "dg_reading_kwh";
 	public static String FIELD_DG_READING_KVAH = "dg_reading_kvah";
+	public static String FIELD_DG_TODAY_KWH = "dg_today_kwh";
+	public static String FIELD_DG_CURRENT_MONTH_KWH = "dg_current_month_kwh";
+	public static String FIELD_DG_TODAY_KVAH = "dg_today_kvah";
+	public static String FIELD_DG_CURRENT_MONTH_KVAH = "dg_current_month_kvah";
 	public static String FIELD_DG_LOAD_KW = "dg_load_kw";
 	public static String FIELD_DG_LOAD_KVA = "dg_load_kva";
 	public static String FIELD_DG_VOLTAGE = "dg_voltage";
@@ -547,6 +577,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	public static String FIELD_CURRENT_ROUTE_SCHEDULE = "current_route_schedule";
 	public static String FIELD_LAST_STOPAGE_NAME = "last_stopage_name";
 	public static String FIELD_LAST_STOPAGE_REACHED_TIME = "last_stopage_reached_time";
+	public static String FIELD_CRITICAL_ALERTS = "critical_alerts";
+	public static String FIELD_MAJOR_ALERTS = "major_alerts";
+	public static String FIELD_WANRING_ALERTS = "wanring_alerts";
+	public static String FIELD_MINOR_ALERTS = "minor_alerts";
 	public static String FIELD_COST = "cost";
 	public static String FIELD_COST_UNIT = "cost_unit";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -565,6 +599,18 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		Field nameField = new Field("name", "String");
 		nameField.setLength(128);
 		metaData.addField(nameField);
+
+		Field threshold_templete_idField = new Field("threshold_templete_id", "String");
+		threshold_templete_idField.setLength(128);
+		metaData.addField(threshold_templete_idField);
+
+		Field threshold_templete_nameField = new Field("threshold_templete_name", "String");
+		threshold_templete_nameField.setLength(128);
+		metaData.addField(threshold_templete_nameField);
+
+		Field controller_nameField = new Field("controller_name", "String");
+		controller_nameField.setLength(128);
+		metaData.addField(controller_nameField);
 
 		Field controller_idField = new Field("controller_id", "String");
 		controller_idField.setLength(128);
@@ -590,7 +636,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		model_idField.setLength(128);
 		metaData.addField(model_idField);
 
-		Field power_ratingField = new Field("power_rating", "Double");
+		Field power_ratingField = new Field("power_rating", "double");
 		power_ratingField.setDefaultValue(0.0000);
 		power_ratingField.setLength(16);
 		power_ratingField.setPrecision(4);
@@ -640,37 +686,37 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		tank_idField.setLength(128);
 		metaData.addField(tank_idField);
 
-		Field dg_unit_openingField = new Field("dg_unit_opening", "Double");
+		Field dg_unit_openingField = new Field("dg_unit_opening", "double");
 		dg_unit_openingField.setDefaultValue(0.0000);
 		dg_unit_openingField.setLength(12);
 		dg_unit_openingField.setPrecision(4);
 		metaData.addField(dg_unit_openingField);
 
-		Field dg_unit_consumedField = new Field("dg_unit_consumed", "Double");
+		Field dg_unit_consumedField = new Field("dg_unit_consumed", "double");
 		dg_unit_consumedField.setDefaultValue(0.0000);
 		dg_unit_consumedField.setLength(12);
 		dg_unit_consumedField.setPrecision(4);
 		metaData.addField(dg_unit_consumedField);
 
-		Field dg_unit_closingField = new Field("dg_unit_closing", "Double");
+		Field dg_unit_closingField = new Field("dg_unit_closing", "double");
 		dg_unit_closingField.setDefaultValue(0.0000);
 		dg_unit_closingField.setLength(12);
 		dg_unit_closingField.setPrecision(4);
 		metaData.addField(dg_unit_closingField);
 
-		Field grid_unit_openingField = new Field("grid_unit_opening", "Double");
+		Field grid_unit_openingField = new Field("grid_unit_opening", "double");
 		grid_unit_openingField.setDefaultValue(0.0000);
 		grid_unit_openingField.setLength(12);
 		grid_unit_openingField.setPrecision(4);
 		metaData.addField(grid_unit_openingField);
 
-		Field grid_unit_consumedField = new Field("grid_unit_consumed", "Double");
+		Field grid_unit_consumedField = new Field("grid_unit_consumed", "double");
 		grid_unit_consumedField.setDefaultValue(0.0000);
 		grid_unit_consumedField.setLength(12);
 		grid_unit_consumedField.setPrecision(4);
 		metaData.addField(grid_unit_consumedField);
 
-		Field grid_unit_closingField = new Field("grid_unit_closing", "Double");
+		Field grid_unit_closingField = new Field("grid_unit_closing", "double");
 		grid_unit_closingField.setDefaultValue(0.0000);
 		grid_unit_closingField.setLength(12);
 		grid_unit_closingField.setPrecision(4);
@@ -692,7 +738,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		next_servicing_dateField.setLength(32);
 		metaData.addField(next_servicing_dateField);
 
-		Field threshold_fuel_levelField = new Field("threshold_fuel_level", "Double");
+		Field threshold_fuel_levelField = new Field("threshold_fuel_level", "double");
 		threshold_fuel_levelField.setDefaultValue(0.0);
 		threshold_fuel_levelField.setLength(10);
 		threshold_fuel_levelField.setPrecision(2);
@@ -701,7 +747,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		Field threshold_over_speedField = new Field("threshold_over_speed", "int");
 		metaData.addField(threshold_over_speedField);
 
-		Field capacityField = new Field("capacity", "Double");
+		Field capacityField = new Field("capacity", "double");
 		capacityField.setDefaultValue(0.0);
 		capacityField.setLength(10);
 		capacityField.setPrecision(2);
@@ -715,19 +761,19 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		today_run_timeField.setLength(20);
 		metaData.addField(today_run_timeField);
 
-		Field today_fuel_consumptionField = new Field("today_fuel_consumption", "Double");
+		Field today_fuel_consumptionField = new Field("today_fuel_consumption", "double");
 		today_fuel_consumptionField.setDefaultValue(0.00);
 		today_fuel_consumptionField.setLength(20);
 		today_fuel_consumptionField.setPrecision(4);
 		metaData.addField(today_fuel_consumptionField);
 
-		Field average_fuel_consumptionField = new Field("average_fuel_consumption", "Double");
+		Field average_fuel_consumptionField = new Field("average_fuel_consumption", "double");
 		average_fuel_consumptionField.setDefaultValue(0.00);
 		average_fuel_consumptionField.setLength(20);
 		average_fuel_consumptionField.setPrecision(4);
 		metaData.addField(average_fuel_consumptionField);
 
-		Field today_fuel_lossField = new Field("today_fuel_loss", "Double");
+		Field today_fuel_lossField = new Field("today_fuel_loss", "double");
 		today_fuel_lossField.setDefaultValue(0.00);
 		today_fuel_lossField.setLength(20);
 		today_fuel_lossField.setPrecision(4);
@@ -737,51 +783,51 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		current_month_run_timeField.setLength(20);
 		metaData.addField(current_month_run_timeField);
 
-		Field current_month_fuel_consumptionField = new Field("current_month_fuel_consumption", "Double");
+		Field current_month_fuel_consumptionField = new Field("current_month_fuel_consumption", "double");
 		current_month_fuel_consumptionField.setDefaultValue(0.00);
 		current_month_fuel_consumptionField.setLength(20);
 		current_month_fuel_consumptionField.setPrecision(4);
 		metaData.addField(current_month_fuel_consumptionField);
 
-		Field current_month_fuel_lossField = new Field("current_month_fuel_loss", "Double");
+		Field current_month_fuel_lossField = new Field("current_month_fuel_loss", "double");
 		current_month_fuel_lossField.setDefaultValue(0.00);
 		current_month_fuel_lossField.setLength(20);
 		current_month_fuel_lossField.setPrecision(4);
 		metaData.addField(current_month_fuel_lossField);
 
-		Field threshold_temperature_min_levelField = new Field("threshold_temperature_min_level", "Double");
+		Field threshold_temperature_min_levelField = new Field("threshold_temperature_min_level", "double");
 		threshold_temperature_min_levelField.setDefaultValue(0.00);
 		threshold_temperature_min_levelField.setLength(10);
 		threshold_temperature_min_levelField.setPrecision(2);
 		metaData.addField(threshold_temperature_min_levelField);
 
-		Field threshold_temperature_max_levelField = new Field("threshold_temperature_max_level", "Double");
+		Field threshold_temperature_max_levelField = new Field("threshold_temperature_max_level", "double");
 		threshold_temperature_max_levelField.setDefaultValue(0.00);
 		threshold_temperature_max_levelField.setLength(10);
 		threshold_temperature_max_levelField.setPrecision(2);
 		metaData.addField(threshold_temperature_max_levelField);
 
-		Field threshold_voltage_min_levelField = new Field("threshold_voltage_min_level", "Double");
+		Field threshold_voltage_min_levelField = new Field("threshold_voltage_min_level", "double");
 		threshold_voltage_min_levelField.setDefaultValue(0.00);
 		threshold_voltage_min_levelField.setLength(10);
 		metaData.addField(threshold_voltage_min_levelField);
 
-		Field threshold_voltage_max_levelField = new Field("threshold_voltage_max_level", "Double");
+		Field threshold_voltage_max_levelField = new Field("threshold_voltage_max_level", "double");
 		threshold_voltage_max_levelField.setDefaultValue(0.00);
 		threshold_voltage_max_levelField.setLength(10);
 		metaData.addField(threshold_voltage_max_levelField);
 
-		Field threshold_current_min_levelField = new Field("threshold_current_min_level", "Double");
+		Field threshold_current_min_levelField = new Field("threshold_current_min_level", "double");
 		threshold_current_min_levelField.setDefaultValue(0.00);
 		threshold_current_min_levelField.setLength(10);
 		metaData.addField(threshold_current_min_levelField);
 
-		Field threshold_current_max_levelField = new Field("threshold_current_max_level", "Double");
+		Field threshold_current_max_levelField = new Field("threshold_current_max_level", "double");
 		threshold_current_max_levelField.setDefaultValue(0.00);
 		threshold_current_max_levelField.setLength(10);
 		metaData.addField(threshold_current_max_levelField);
 
-		Field threshold_durationField = new Field("threshold_duration", "Double");
+		Field threshold_durationField = new Field("threshold_duration", "double");
 		threshold_durationField.setDefaultValue(0.00);
 		threshold_durationField.setLength(10);
 		metaData.addField(threshold_durationField);
@@ -866,7 +912,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		battery_levelField.setLength(3);
 		metaData.addField(battery_levelField);
 
-		Field last_readingField = new Field("last_reading", "Double");
+		Field last_readingField = new Field("last_reading", "double");
 		last_readingField.setDefaultValue(0.0000);
 		last_readingField.setLength(16);
 		last_readingField.setPrecision(4);
@@ -877,13 +923,23 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		last_reading_updatedField.setDefaultValue("CURRENT_TIMESTAMP");
 		metaData.addField(last_reading_updatedField);
 
-		Field dg_readingField = new Field("dg_reading", "Double");
+		Field last_grid_reading_updatedField = new Field("last_grid_reading_updated", "timestamp");
+		last_grid_reading_updatedField.setRequired(true);
+		last_grid_reading_updatedField.setDefaultValue("CURRENT_TIMESTAMP");
+		metaData.addField(last_grid_reading_updatedField);
+
+		Field last_dg_reading_updatedField = new Field("last_dg_reading_updated", "timestamp");
+		last_dg_reading_updatedField.setRequired(true);
+		last_dg_reading_updatedField.setDefaultValue("CURRENT_TIMESTAMP");
+		metaData.addField(last_dg_reading_updatedField);
+
+		Field dg_readingField = new Field("dg_reading", "double");
 		dg_readingField.setDefaultValue(0.0000);
 		dg_readingField.setLength(12);
 		dg_readingField.setPrecision(4);
 		metaData.addField(dg_readingField);
 
-		Field grid_readingField = new Field("grid_reading", "Double");
+		Field grid_readingField = new Field("grid_reading", "double");
 		grid_readingField.setDefaultValue(0.0000);
 		grid_readingField.setLength(12);
 		grid_readingField.setPrecision(4);
@@ -899,50 +955,76 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		currentField.setLength(5);
 		metaData.addField(currentField);
 
-		Field powerField = new Field("power", "Double");
+		Field powerField = new Field("power", "double");
 		powerField.setDefaultValue(0.0000);
 		powerField.setLength(16);
 		powerField.setPrecision(4);
 		metaData.addField(powerField);
 
-		Field energyField = new Field("energy", "Double");
+		Field energyField = new Field("energy", "double");
 		energyField.setDefaultValue(0.0000);
 		energyField.setLength(16);
 		energyField.setPrecision(4);
 		metaData.addField(energyField);
 
-		Field grid_reading_kvahField = new Field("grid_reading_kvah", "Double");
+		Field grid_reading_kvahField = new Field("grid_reading_kvah", "double");
 		grid_reading_kvahField.setDefaultValue(0.0000);
 		grid_reading_kvahField.setLength(12);
 		grid_reading_kvahField.setPrecision(4);
 		metaData.addField(grid_reading_kvahField);
 
-		Field grid_reading_kwhField = new Field("grid_reading_kwh", "Double");
+		Field grid_reading_kwhField = new Field("grid_reading_kwh", "double");
 		grid_reading_kwhField.setDefaultValue(0.0000);
 		grid_reading_kwhField.setLength(12);
 		grid_reading_kwhField.setPrecision(4);
 		metaData.addField(grid_reading_kwhField);
 
-		Field grid_load_kvaField = new Field("grid_load_kva", "Double");
+		Field grid_today_kwhField = new Field("grid_today_kwh", "double");
+		grid_today_kwhField.setDefaultValue(0.0000);
+		grid_today_kwhField.setLength(12);
+		grid_today_kwhField.setPrecision(4);
+		metaData.addField(grid_today_kwhField);
+
+		Field grid_current_month_kwhField = new Field("grid_current_month_kwh", "double");
+		grid_current_month_kwhField.setDefaultValue(0.0000);
+		grid_current_month_kwhField.setLength(12);
+		grid_current_month_kwhField.setPrecision(4);
+		metaData.addField(grid_current_month_kwhField);
+
+		Field grid_today_kvahField = new Field("grid_today_kvah", "double");
+		grid_today_kvahField.setDefaultValue(0.0000);
+		grid_today_kvahField.setLength(12);
+		grid_today_kvahField.setPrecision(4);
+		metaData.addField(grid_today_kvahField);
+
+		Field grid_current_month_kvahField = new Field("grid_current_month_kvah", "double");
+		grid_current_month_kvahField.setDefaultValue(0.0000);
+		grid_current_month_kvahField.setLength(12);
+		grid_current_month_kvahField.setPrecision(4);
+		metaData.addField(grid_current_month_kvahField);
+
+		Field grid_load_kvaField = new Field("grid_load_kva", "double");
 		grid_load_kvaField.setDefaultValue(0.0000);
 		grid_load_kvaField.setLength(12);
 		grid_load_kvaField.setPrecision(4);
 		metaData.addField(grid_load_kvaField);
 
-		Field grid_load_kwField = new Field("grid_load_kw", "Double");
+		Field grid_load_kwField = new Field("grid_load_kw", "double");
 		grid_load_kwField.setDefaultValue(0.0000);
 		grid_load_kwField.setLength(12);
 		grid_load_kwField.setPrecision(4);
 		metaData.addField(grid_load_kwField);
 
-		Field grid_voltageField = new Field("grid_voltage", "int");
-		grid_voltageField.setDefaultValue(0);
-		grid_voltageField.setLength(5);
+		Field grid_voltageField = new Field("grid_voltage", "double");
+		grid_voltageField.setDefaultValue(0.00);
+		grid_voltageField.setLength(12);
+		grid_voltageField.setPrecision(4);
 		metaData.addField(grid_voltageField);
 
-		Field grid_currentField = new Field("grid_current", "int");
-		grid_currentField.setDefaultValue(0);
-		grid_currentField.setLength(5);
+		Field grid_currentField = new Field("grid_current", "double");
+		grid_currentField.setDefaultValue(0.00);
+		grid_currentField.setLength(12);
+		grid_currentField.setPrecision(4);
 		metaData.addField(grid_currentField);
 
 		Field grid_pfField = new Field("grid_pf", "double");
@@ -973,38 +1055,40 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		grid_frequencyField.setDefaultValue(0L);
 		metaData.addField(grid_frequencyField);
 
-		Field grid_p1_reading_kvahField = new Field("grid_p1_reading_kvah", "Double");
+		Field grid_p1_reading_kvahField = new Field("grid_p1_reading_kvah", "double");
 		grid_p1_reading_kvahField.setDefaultValue(0.0000);
 		grid_p1_reading_kvahField.setLength(12);
 		grid_p1_reading_kvahField.setPrecision(4);
 		metaData.addField(grid_p1_reading_kvahField);
 
-		Field grid_p1_reading_kwhField = new Field("grid_p1_reading_kwh", "Double");
+		Field grid_p1_reading_kwhField = new Field("grid_p1_reading_kwh", "double");
 		grid_p1_reading_kwhField.setDefaultValue(0.0000);
 		grid_p1_reading_kwhField.setLength(12);
 		grid_p1_reading_kwhField.setPrecision(4);
 		metaData.addField(grid_p1_reading_kwhField);
 
-		Field grid_p1_load_kvaField = new Field("grid_p1_load_kva", "Double");
+		Field grid_p1_load_kvaField = new Field("grid_p1_load_kva", "double");
 		grid_p1_load_kvaField.setDefaultValue(0.0000);
 		grid_p1_load_kvaField.setLength(12);
 		grid_p1_load_kvaField.setPrecision(4);
 		metaData.addField(grid_p1_load_kvaField);
 
-		Field grid_p1_load_kwField = new Field("grid_p1_load_kw", "Double");
+		Field grid_p1_load_kwField = new Field("grid_p1_load_kw", "double");
 		grid_p1_load_kwField.setDefaultValue(0.0000);
 		grid_p1_load_kwField.setLength(12);
 		grid_p1_load_kwField.setPrecision(4);
 		metaData.addField(grid_p1_load_kwField);
 
-		Field grid_p1_voltageField = new Field("grid_p1_voltage", "int");
-		grid_p1_voltageField.setDefaultValue(0);
-		grid_p1_voltageField.setLength(5);
+		Field grid_p1_voltageField = new Field("grid_p1_voltage", "double");
+		grid_p1_voltageField.setDefaultValue(0.0000);
+		grid_p1_voltageField.setLength(12);
+		grid_p1_voltageField.setPrecision(4);
 		metaData.addField(grid_p1_voltageField);
 
-		Field grid_p1_currentField = new Field("grid_p1_current", "int");
-		grid_p1_currentField.setDefaultValue(0);
-		grid_p1_currentField.setLength(5);
+		Field grid_p1_currentField = new Field("grid_p1_current", "double");
+		grid_p1_currentField.setDefaultValue(0.0000);
+		grid_p1_currentField.setLength(12);
+		grid_p1_currentField.setPrecision(4);
 		metaData.addField(grid_p1_currentField);
 
 		Field grid_p1_pfField = new Field("grid_p1_pf", "double");
@@ -1031,42 +1115,46 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		grid_p1_kvarhField.setPrecision(4);
 		metaData.addField(grid_p1_kvarhField);
 
-		Field grid_p1_frequencyField = new Field("grid_p1_frequency", "long");
-		grid_p1_frequencyField.setDefaultValue(0L);
+		Field grid_p1_frequencyField = new Field("grid_p1_frequency", "double");
+		grid_p1_frequencyField.setDefaultValue(0.0000);
+		grid_p1_frequencyField.setLength(12);
+		grid_p1_frequencyField.setPrecision(4);
 		metaData.addField(grid_p1_frequencyField);
 
-		Field grid_p2_reading_kvahField = new Field("grid_p2_reading_kvah", "Double");
+		Field grid_p2_reading_kvahField = new Field("grid_p2_reading_kvah", "double");
 		grid_p2_reading_kvahField.setDefaultValue(0.0000);
 		grid_p2_reading_kvahField.setLength(12);
 		grid_p2_reading_kvahField.setPrecision(4);
 		metaData.addField(grid_p2_reading_kvahField);
 
-		Field grid_p2_reading_kwhField = new Field("grid_p2_reading_kwh", "Double");
+		Field grid_p2_reading_kwhField = new Field("grid_p2_reading_kwh", "double");
 		grid_p2_reading_kwhField.setDefaultValue(0.0000);
 		grid_p2_reading_kwhField.setLength(12);
 		grid_p2_reading_kwhField.setPrecision(4);
 		metaData.addField(grid_p2_reading_kwhField);
 
-		Field grid_p2_load_kvaField = new Field("grid_p2_load_kva", "Double");
+		Field grid_p2_load_kvaField = new Field("grid_p2_load_kva", "double");
 		grid_p2_load_kvaField.setDefaultValue(0.0000);
 		grid_p2_load_kvaField.setLength(12);
 		grid_p2_load_kvaField.setPrecision(4);
 		metaData.addField(grid_p2_load_kvaField);
 
-		Field grid_p2_load_kwField = new Field("grid_p2_load_kw", "Double");
+		Field grid_p2_load_kwField = new Field("grid_p2_load_kw", "double");
 		grid_p2_load_kwField.setDefaultValue(0.0000);
 		grid_p2_load_kwField.setLength(12);
 		grid_p2_load_kwField.setPrecision(4);
 		metaData.addField(grid_p2_load_kwField);
 
-		Field grid_p2_voltageField = new Field("grid_p2_voltage", "int");
-		grid_p2_voltageField.setDefaultValue(0);
-		grid_p2_voltageField.setLength(5);
+		Field grid_p2_voltageField = new Field("grid_p2_voltage", "double");
+		grid_p2_voltageField.setDefaultValue(0.0000);
+		grid_p2_voltageField.setLength(12);
+		grid_p2_voltageField.setPrecision(4);
 		metaData.addField(grid_p2_voltageField);
 
-		Field grid_p2_currentField = new Field("grid_p2_current", "int");
-		grid_p2_currentField.setDefaultValue(0);
-		grid_p2_currentField.setLength(5);
+		Field grid_p2_currentField = new Field("grid_p2_current", "double");
+		grid_p2_currentField.setDefaultValue(0.0000);
+		grid_p2_currentField.setLength(12);
+		grid_p2_currentField.setPrecision(4);
 		metaData.addField(grid_p2_currentField);
 
 		Field grid_p2_pfField = new Field("grid_p2_pf", "double");
@@ -1093,42 +1181,46 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		grid_p2_kvarhField.setPrecision(4);
 		metaData.addField(grid_p2_kvarhField);
 
-		Field grid_p2_frequencyField = new Field("grid_p2_frequency", "long");
-		grid_p2_frequencyField.setDefaultValue(0L);
+		Field grid_p2_frequencyField = new Field("grid_p2_frequency", "double");
+		grid_p2_frequencyField.setDefaultValue(0.0000);
+		grid_p2_frequencyField.setLength(12);
+		grid_p2_frequencyField.setPrecision(4);
 		metaData.addField(grid_p2_frequencyField);
 
-		Field grid_p3_reading_kvahField = new Field("grid_p3_reading_kvah", "Double");
+		Field grid_p3_reading_kvahField = new Field("grid_p3_reading_kvah", "double");
 		grid_p3_reading_kvahField.setDefaultValue(0.0000);
 		grid_p3_reading_kvahField.setLength(12);
 		grid_p3_reading_kvahField.setPrecision(4);
 		metaData.addField(grid_p3_reading_kvahField);
 
-		Field grid_p3_reading_kwhField = new Field("grid_p3_reading_kwh", "Double");
+		Field grid_p3_reading_kwhField = new Field("grid_p3_reading_kwh", "double");
 		grid_p3_reading_kwhField.setDefaultValue(0.0000);
 		grid_p3_reading_kwhField.setLength(12);
 		grid_p3_reading_kwhField.setPrecision(4);
 		metaData.addField(grid_p3_reading_kwhField);
 
-		Field grid_p3_load_kvaField = new Field("grid_p3_load_kva", "Double");
+		Field grid_p3_load_kvaField = new Field("grid_p3_load_kva", "double");
 		grid_p3_load_kvaField.setDefaultValue(0.0000);
 		grid_p3_load_kvaField.setLength(12);
 		grid_p3_load_kvaField.setPrecision(4);
 		metaData.addField(grid_p3_load_kvaField);
 
-		Field grid_p3_load_kwField = new Field("grid_p3_load_kw", "Double");
+		Field grid_p3_load_kwField = new Field("grid_p3_load_kw", "double");
 		grid_p3_load_kwField.setDefaultValue(0.0000);
 		grid_p3_load_kwField.setLength(12);
 		grid_p3_load_kwField.setPrecision(4);
 		metaData.addField(grid_p3_load_kwField);
 
-		Field grid_p3_voltageField = new Field("grid_p3_voltage", "int");
-		grid_p3_voltageField.setDefaultValue(0);
-		grid_p3_voltageField.setLength(5);
+		Field grid_p3_voltageField = new Field("grid_p3_voltage", "double");
+		grid_p3_voltageField.setDefaultValue(0.0000);
+		grid_p3_voltageField.setLength(12);
+		grid_p3_voltageField.setPrecision(4);
 		metaData.addField(grid_p3_voltageField);
 
-		Field grid_p3_currentField = new Field("grid_p3_current", "int");
-		grid_p3_currentField.setDefaultValue(0);
-		grid_p3_currentField.setLength(5);
+		Field grid_p3_currentField = new Field("grid_p3_current", "double");
+		grid_p3_currentField.setDefaultValue(0.0000);
+		grid_p3_currentField.setLength(12);
+		grid_p3_currentField.setPrecision(4);
 		metaData.addField(grid_p3_currentField);
 
 		Field grid_p3_pfField = new Field("grid_p3_pf", "double");
@@ -1155,42 +1247,70 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		grid_p3_kvarhField.setPrecision(4);
 		metaData.addField(grid_p3_kvarhField);
 
-		Field grid_p3_frequencyField = new Field("grid_p3_frequency", "long");
-		grid_p3_frequencyField.setDefaultValue(0L);
+		Field grid_p3_frequencyField = new Field("grid_p3_frequency", "double");
+		grid_p3_frequencyField.setDefaultValue(0.0000);
+		grid_p3_frequencyField.setLength(12);
+		grid_p3_frequencyField.setPrecision(4);
 		metaData.addField(grid_p3_frequencyField);
 
-		Field dg_reading_kwhField = new Field("dg_reading_kwh", "Double");
+		Field dg_reading_kwhField = new Field("dg_reading_kwh", "double");
 		dg_reading_kwhField.setDefaultValue(0.0000);
 		dg_reading_kwhField.setLength(12);
 		dg_reading_kwhField.setPrecision(4);
 		metaData.addField(dg_reading_kwhField);
 
-		Field dg_reading_kvahField = new Field("dg_reading_kvah", "Double");
+		Field dg_reading_kvahField = new Field("dg_reading_kvah", "double");
 		dg_reading_kvahField.setDefaultValue(0.0000);
 		dg_reading_kvahField.setLength(12);
 		dg_reading_kvahField.setPrecision(4);
 		metaData.addField(dg_reading_kvahField);
 
-		Field dg_load_kwField = new Field("dg_load_kw", "Double");
+		Field dg_today_kwhField = new Field("dg_today_kwh", "double");
+		dg_today_kwhField.setDefaultValue(0.0000);
+		dg_today_kwhField.setLength(12);
+		dg_today_kwhField.setPrecision(4);
+		metaData.addField(dg_today_kwhField);
+
+		Field dg_current_month_kwhField = new Field("dg_current_month_kwh", "double");
+		dg_current_month_kwhField.setDefaultValue(0.0000);
+		dg_current_month_kwhField.setLength(12);
+		dg_current_month_kwhField.setPrecision(4);
+		metaData.addField(dg_current_month_kwhField);
+
+		Field dg_today_kvahField = new Field("dg_today_kvah", "double");
+		dg_today_kvahField.setDefaultValue(0.0000);
+		dg_today_kvahField.setLength(12);
+		dg_today_kvahField.setPrecision(4);
+		metaData.addField(dg_today_kvahField);
+
+		Field dg_current_month_kvahField = new Field("dg_current_month_kvah", "double");
+		dg_current_month_kvahField.setDefaultValue(0.0000);
+		dg_current_month_kvahField.setLength(12);
+		dg_current_month_kvahField.setPrecision(4);
+		metaData.addField(dg_current_month_kvahField);
+
+		Field dg_load_kwField = new Field("dg_load_kw", "double");
 		dg_load_kwField.setDefaultValue(0.0000);
 		dg_load_kwField.setLength(12);
 		dg_load_kwField.setPrecision(4);
 		metaData.addField(dg_load_kwField);
 
-		Field dg_load_kvaField = new Field("dg_load_kva", "Double");
+		Field dg_load_kvaField = new Field("dg_load_kva", "double");
 		dg_load_kvaField.setDefaultValue(0.0000);
 		dg_load_kvaField.setLength(12);
 		dg_load_kvaField.setPrecision(4);
 		metaData.addField(dg_load_kvaField);
 
-		Field dg_voltageField = new Field("dg_voltage", "int");
-		dg_voltageField.setDefaultValue(0);
-		dg_voltageField.setLength(5);
+		Field dg_voltageField = new Field("dg_voltage", "double");
+		dg_voltageField.setDefaultValue(0.0000);
+		dg_voltageField.setLength(12);
+		dg_voltageField.setPrecision(4);
 		metaData.addField(dg_voltageField);
 
-		Field dg_currentField = new Field("dg_current", "int");
-		dg_currentField.setDefaultValue(0);
-		dg_currentField.setLength(5);
+		Field dg_currentField = new Field("dg_current", "double");
+		dg_currentField.setDefaultValue(0.0000);
+		dg_currentField.setLength(12);
+		dg_currentField.setPrecision(4);
 		metaData.addField(dg_currentField);
 
 		Field dg_pfField = new Field("dg_pf", "double");
@@ -1217,42 +1337,46 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		dg_kvarhField.setPrecision(4);
 		metaData.addField(dg_kvarhField);
 
-		Field dg_frequencyField = new Field("dg_frequency", "long");
-		dg_frequencyField.setDefaultValue(0L);
+		Field dg_frequencyField = new Field("dg_frequency", "double");
+		dg_frequencyField.setDefaultValue(0.0000);
+		dg_frequencyField.setLength(12);
+		dg_frequencyField.setPrecision(4);
 		metaData.addField(dg_frequencyField);
 
-		Field dg_p1_reading_kvahField = new Field("dg_p1_reading_kvah", "Double");
+		Field dg_p1_reading_kvahField = new Field("dg_p1_reading_kvah", "double");
 		dg_p1_reading_kvahField.setDefaultValue(0.0000);
 		dg_p1_reading_kvahField.setLength(12);
 		dg_p1_reading_kvahField.setPrecision(4);
 		metaData.addField(dg_p1_reading_kvahField);
 
-		Field dg_p1_reading_kwhField = new Field("dg_p1_reading_kwh", "Double");
+		Field dg_p1_reading_kwhField = new Field("dg_p1_reading_kwh", "double");
 		dg_p1_reading_kwhField.setDefaultValue(0.0000);
 		dg_p1_reading_kwhField.setLength(12);
 		dg_p1_reading_kwhField.setPrecision(4);
 		metaData.addField(dg_p1_reading_kwhField);
 
-		Field dg_p1_load_kvaField = new Field("dg_p1_load_kva", "Double");
+		Field dg_p1_load_kvaField = new Field("dg_p1_load_kva", "double");
 		dg_p1_load_kvaField.setDefaultValue(0.0000);
 		dg_p1_load_kvaField.setLength(12);
 		dg_p1_load_kvaField.setPrecision(4);
 		metaData.addField(dg_p1_load_kvaField);
 
-		Field dg_p1_load_kwField = new Field("dg_p1_load_kw", "Double");
+		Field dg_p1_load_kwField = new Field("dg_p1_load_kw", "double");
 		dg_p1_load_kwField.setDefaultValue(0.0000);
 		dg_p1_load_kwField.setLength(12);
 		dg_p1_load_kwField.setPrecision(4);
 		metaData.addField(dg_p1_load_kwField);
 
-		Field dg_p1_voltageField = new Field("dg_p1_voltage", "int");
-		dg_p1_voltageField.setDefaultValue(0);
-		dg_p1_voltageField.setLength(5);
+		Field dg_p1_voltageField = new Field("dg_p1_voltage", "double");
+		dg_p1_voltageField.setDefaultValue(0.0000);
+		dg_p1_voltageField.setLength(12);
+		dg_p1_voltageField.setPrecision(4);
 		metaData.addField(dg_p1_voltageField);
 
-		Field dg_p1_currentField = new Field("dg_p1_current", "int");
-		dg_p1_currentField.setDefaultValue(0);
-		dg_p1_currentField.setLength(5);
+		Field dg_p1_currentField = new Field("dg_p1_current", "double");
+		dg_p1_currentField.setDefaultValue(0.0000);
+		dg_p1_currentField.setLength(12);
+		dg_p1_currentField.setPrecision(4);
 		metaData.addField(dg_p1_currentField);
 
 		Field dg_p1_pfField = new Field("dg_p1_pf", "double");
@@ -1279,42 +1403,46 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		dg_p1_kvarhField.setPrecision(4);
 		metaData.addField(dg_p1_kvarhField);
 
-		Field dg_p1_frequencyField = new Field("dg_p1_frequency", "long");
-		dg_p1_frequencyField.setDefaultValue(0L);
+		Field dg_p1_frequencyField = new Field("dg_p1_frequency", "double");
+		dg_p1_frequencyField.setDefaultValue(0.0000);
+		dg_p1_frequencyField.setLength(12);
+		dg_p1_frequencyField.setPrecision(4);
 		metaData.addField(dg_p1_frequencyField);
 
-		Field dg_p2_reading_kvahField = new Field("dg_p2_reading_kvah", "Double");
+		Field dg_p2_reading_kvahField = new Field("dg_p2_reading_kvah", "double");
 		dg_p2_reading_kvahField.setDefaultValue(0.0000);
 		dg_p2_reading_kvahField.setLength(12);
 		dg_p2_reading_kvahField.setPrecision(4);
 		metaData.addField(dg_p2_reading_kvahField);
 
-		Field dg_p2_reading_kwhField = new Field("dg_p2_reading_kwh", "Double");
+		Field dg_p2_reading_kwhField = new Field("dg_p2_reading_kwh", "double");
 		dg_p2_reading_kwhField.setDefaultValue(0.0000);
 		dg_p2_reading_kwhField.setLength(12);
 		dg_p2_reading_kwhField.setPrecision(4);
 		metaData.addField(dg_p2_reading_kwhField);
 
-		Field dg_p2_load_kvaField = new Field("dg_p2_load_kva", "Double");
+		Field dg_p2_load_kvaField = new Field("dg_p2_load_kva", "double");
 		dg_p2_load_kvaField.setDefaultValue(0.0000);
 		dg_p2_load_kvaField.setLength(12);
 		dg_p2_load_kvaField.setPrecision(4);
 		metaData.addField(dg_p2_load_kvaField);
 
-		Field dg_p2_load_kwField = new Field("dg_p2_load_kw", "Double");
+		Field dg_p2_load_kwField = new Field("dg_p2_load_kw", "double");
 		dg_p2_load_kwField.setDefaultValue(0.0000);
 		dg_p2_load_kwField.setLength(12);
 		dg_p2_load_kwField.setPrecision(4);
 		metaData.addField(dg_p2_load_kwField);
 
-		Field dg_p2_voltageField = new Field("dg_p2_voltage", "int");
-		dg_p2_voltageField.setDefaultValue(0);
-		dg_p2_voltageField.setLength(5);
+		Field dg_p2_voltageField = new Field("dg_p2_voltage", "double");
+		dg_p2_voltageField.setDefaultValue(0.0000);
+		dg_p2_voltageField.setLength(12);
+		dg_p2_voltageField.setPrecision(4);
 		metaData.addField(dg_p2_voltageField);
 
-		Field dg_p2_currentField = new Field("dg_p2_current", "int");
-		dg_p2_currentField.setDefaultValue(0);
-		dg_p2_currentField.setLength(5);
+		Field dg_p2_currentField = new Field("dg_p2_current", "double");
+		dg_p2_currentField.setDefaultValue(0.0000);
+		dg_p2_currentField.setLength(12);
+		dg_p2_currentField.setPrecision(4);
 		metaData.addField(dg_p2_currentField);
 
 		Field dg_p2_pfField = new Field("dg_p2_pf", "double");
@@ -1341,42 +1469,46 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		dg_p2_kvarhField.setPrecision(4);
 		metaData.addField(dg_p2_kvarhField);
 
-		Field dg_p2_frequencyField = new Field("dg_p2_frequency", "long");
-		dg_p2_frequencyField.setDefaultValue(0L);
+		Field dg_p2_frequencyField = new Field("dg_p2_frequency", "double");
+		dg_p2_frequencyField.setDefaultValue(0.0000);
+		dg_p2_frequencyField.setLength(12);
+		dg_p2_frequencyField.setPrecision(4);
 		metaData.addField(dg_p2_frequencyField);
 
-		Field dg_p3_reading_kvahField = new Field("dg_p3_reading_kvah", "Double");
+		Field dg_p3_reading_kvahField = new Field("dg_p3_reading_kvah", "double");
 		dg_p3_reading_kvahField.setDefaultValue(0.0000);
 		dg_p3_reading_kvahField.setLength(12);
 		dg_p3_reading_kvahField.setPrecision(4);
 		metaData.addField(dg_p3_reading_kvahField);
 
-		Field dg_p3_reading_kwhField = new Field("dg_p3_reading_kwh", "Double");
+		Field dg_p3_reading_kwhField = new Field("dg_p3_reading_kwh", "double");
 		dg_p3_reading_kwhField.setDefaultValue(0.0000);
 		dg_p3_reading_kwhField.setLength(12);
 		dg_p3_reading_kwhField.setPrecision(4);
 		metaData.addField(dg_p3_reading_kwhField);
 
-		Field dg_p3_load_kvaField = new Field("dg_p3_load_kva", "Double");
+		Field dg_p3_load_kvaField = new Field("dg_p3_load_kva", "double");
 		dg_p3_load_kvaField.setDefaultValue(0.0000);
 		dg_p3_load_kvaField.setLength(12);
 		dg_p3_load_kvaField.setPrecision(4);
 		metaData.addField(dg_p3_load_kvaField);
 
-		Field dg_p3_load_kwField = new Field("dg_p3_load_kw", "Double");
+		Field dg_p3_load_kwField = new Field("dg_p3_load_kw", "double");
 		dg_p3_load_kwField.setDefaultValue(0.0000);
 		dg_p3_load_kwField.setLength(12);
 		dg_p3_load_kwField.setPrecision(4);
 		metaData.addField(dg_p3_load_kwField);
 
-		Field dg_p3_voltageField = new Field("dg_p3_voltage", "int");
-		dg_p3_voltageField.setDefaultValue(0);
-		dg_p3_voltageField.setLength(5);
+		Field dg_p3_voltageField = new Field("dg_p3_voltage", "double");
+		dg_p3_voltageField.setDefaultValue(0.0000);
+		dg_p3_voltageField.setLength(12);
+		dg_p3_voltageField.setPrecision(4);
 		metaData.addField(dg_p3_voltageField);
 
-		Field dg_p3_currentField = new Field("dg_p3_current", "int");
-		dg_p3_currentField.setDefaultValue(0);
-		dg_p3_currentField.setLength(5);
+		Field dg_p3_currentField = new Field("dg_p3_current", "double");
+		dg_p3_currentField.setDefaultValue(0.0000);
+		dg_p3_currentField.setLength(12);
+		dg_p3_currentField.setPrecision(4);
 		metaData.addField(dg_p3_currentField);
 
 		Field dg_p3_pfField = new Field("dg_p3_pf", "double");
@@ -1403,17 +1535,19 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		dg_p3_kvarhField.setPrecision(4);
 		metaData.addField(dg_p3_kvarhField);
 
-		Field dg_p3_frequencyField = new Field("dg_p3_frequency", "long");
-		dg_p3_frequencyField.setDefaultValue(0L);
+		Field dg_p3_frequencyField = new Field("dg_p3_frequency", "double");
+		dg_p3_frequencyField.setDefaultValue(0.0000);
+		dg_p3_frequencyField.setLength(12);
+		dg_p3_frequencyField.setPrecision(4);
 		metaData.addField(dg_p3_frequencyField);
 
-		Field temperatureField = new Field("temperature", "Double");
+		Field temperatureField = new Field("temperature", "double");
 		temperatureField.setDefaultValue(0.00);
 		temperatureField.setLength(6);
 		temperatureField.setPrecision(2);
 		metaData.addField(temperatureField);
 
-		Field humidityField = new Field("humidity", "Double");
+		Field humidityField = new Field("humidity", "double");
 		humidityField.setDefaultValue(0.00);
 		humidityField.setLength(6);
 		humidityField.setPrecision(2);
@@ -1429,19 +1563,19 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		levelField.setLength(3);
 		metaData.addField(levelField);
 
-		Field level_floatField = new Field("level_float", "Double");
+		Field level_floatField = new Field("level_float", "double");
 		level_floatField.setDefaultValue(0.00);
 		level_floatField.setLength(10);
 		level_floatField.setPrecision(2);
 		metaData.addField(level_floatField);
 
-		Field fuel_levelField = new Field("fuel_level", "Double");
+		Field fuel_levelField = new Field("fuel_level", "double");
 		fuel_levelField.setDefaultValue(0.00);
 		fuel_levelField.setLength(10);
 		fuel_levelField.setPrecision(2);
 		metaData.addField(fuel_levelField);
 
-		Field fuel_quantityField = new Field("fuel_quantity", "Double");
+		Field fuel_quantityField = new Field("fuel_quantity", "double");
 		fuel_quantityField.setDefaultValue(0.00);
 		fuel_quantityField.setLength(10);
 		fuel_quantityField.setPrecision(2);
@@ -1569,13 +1703,13 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		high_coolant_temperatureField.setLength(1);
 		metaData.addField(high_coolant_temperatureField);
 
-		Field canopy_temperatureField = new Field("canopy_temperature", "Double");
+		Field canopy_temperatureField = new Field("canopy_temperature", "double");
 		canopy_temperatureField.setDefaultValue(0.00);
 		canopy_temperatureField.setLength(6);
 		canopy_temperatureField.setPrecision(2);
 		metaData.addField(canopy_temperatureField);
 
-		Field coolant_temperatureField = new Field("coolant_temperature", "Double");
+		Field coolant_temperatureField = new Field("coolant_temperature", "double");
 		coolant_temperatureField.setDefaultValue(0.00);
 		coolant_temperatureField.setLength(6);
 		coolant_temperatureField.setPrecision(2);
@@ -1599,19 +1733,19 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		charging_stateField.setLength(1);
 		metaData.addField(charging_stateField);
 
-		Field last_processed_fuel_quantityField = new Field("last_processed_fuel_quantity", "Double");
+		Field last_processed_fuel_quantityField = new Field("last_processed_fuel_quantity", "double");
 		last_processed_fuel_quantityField.setDefaultValue(0.00);
 		last_processed_fuel_quantityField.setLength(15);
 		last_processed_fuel_quantityField.setPrecision(4);
 		metaData.addField(last_processed_fuel_quantityField);
 
-		Field last_processed_db_readingField = new Field("last_processed_db_reading", "Double");
+		Field last_processed_db_readingField = new Field("last_processed_db_reading", "double");
 		last_processed_db_readingField.setDefaultValue(0.00);
 		last_processed_db_readingField.setLength(15);
 		last_processed_db_readingField.setPrecision(4);
 		metaData.addField(last_processed_db_readingField);
 
-		Field last_processed_grid_readingField = new Field("last_processed_grid_reading", "Double");
+		Field last_processed_grid_readingField = new Field("last_processed_grid_reading", "double");
 		last_processed_grid_readingField.setDefaultValue(0.00);
 		last_processed_grid_readingField.setLength(15);
 		last_processed_grid_readingField.setPrecision(4);
@@ -1639,7 +1773,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		currentDriverIdField.setLength(32);
 		metaData.addField(currentDriverIdField);
 
-		Field engineTemperatureField = new Field("engineTemperature", "Double");
+		Field engineTemperatureField = new Field("engineTemperature", "double");
 		engineTemperatureField.setDefaultValue(0.0);
 		engineTemperatureField.setLength(6);
 		engineTemperatureField.setPrecision(2);
@@ -1665,7 +1799,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		obdLowBatteryStateField.setLength(1);
 		metaData.addField(obdLowBatteryStateField);
 
-		Field batteryLevelField = new Field("batteryLevel", "Double");
+		Field batteryLevelField = new Field("batteryLevel", "double");
 		batteryLevelField.setDefaultValue(0.0);
 		batteryLevelField.setLength(6);
 		batteryLevelField.setPrecision(2);
@@ -1676,7 +1810,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		airFlowField.setLength(8);
 		metaData.addField(airFlowField);
 
-		Field atmoshericPressureField = new Field("atmoshericPressure", "Double");
+		Field atmoshericPressureField = new Field("atmoshericPressure", "double");
 		atmoshericPressureField.setDefaultValue(0.0);
 		atmoshericPressureField.setLength(12);
 		atmoshericPressureField.setPrecision(4);
@@ -1697,7 +1831,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		intakeAirTemperatureField.setLength(12);
 		metaData.addField(intakeAirTemperatureField);
 
-		Field oilPressureField = new Field("oilPressure", "Double");
+		Field oilPressureField = new Field("oilPressure", "double");
 		oilPressureField.setDefaultValue(0.0);
 		oilPressureField.setLength(12);
 		oilPressureField.setPrecision(4);
@@ -1713,13 +1847,13 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		trottlePositionField.setLength(12);
 		metaData.addField(trottlePositionField);
 
-		Field batteryVoltageField = new Field("batteryVoltage", "Double");
+		Field batteryVoltageField = new Field("batteryVoltage", "double");
 		batteryVoltageField.setDefaultValue(0.0);
 		batteryVoltageField.setLength(12);
 		batteryVoltageField.setPrecision(2);
 		metaData.addField(batteryVoltageField);
 
-		Field intakeTubeAbsolutePressureField = new Field("intakeTubeAbsolutePressure", "Double");
+		Field intakeTubeAbsolutePressureField = new Field("intakeTubeAbsolutePressure", "double");
 		intakeTubeAbsolutePressureField.setDefaultValue(0.0);
 		intakeTubeAbsolutePressureField.setLength(12);
 		intakeTubeAbsolutePressureField.setPrecision(2);
@@ -1745,7 +1879,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		fuel_typeField.setLength(32);
 		metaData.addField(fuel_typeField);
 
-		Field start_readingField = new Field("start_reading", "Double");
+		Field start_readingField = new Field("start_reading", "double");
 		start_readingField.setDefaultValue(0.0);
 		start_readingField.setLength(12);
 		start_readingField.setPrecision(2);
@@ -1767,13 +1901,13 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		Field start_timeField = new Field("start_time", "timestamp");
 		metaData.addField(start_timeField);
 
-		Field current_fuel_consumptionField = new Field("current_fuel_consumption", "Double");
+		Field current_fuel_consumptionField = new Field("current_fuel_consumption", "double");
 		current_fuel_consumptionField.setDefaultValue(0.0);
 		current_fuel_consumptionField.setLength(15);
 		current_fuel_consumptionField.setPrecision(4);
 		metaData.addField(current_fuel_consumptionField);
 
-		Field fuel_calibration_factorField = new Field("fuel_calibration_factor", "Double");
+		Field fuel_calibration_factorField = new Field("fuel_calibration_factor", "double");
 		fuel_calibration_factorField.setDefaultValue(0.0);
 		fuel_calibration_factorField.setLength(15);
 		fuel_calibration_factorField.setPrecision(4);
@@ -1859,6 +1993,22 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		lastServiceField.setLength(28);
 		metaData.addField(lastServiceField);
 
+		Field critical_alertsField = new Field("critical_alerts", "long");
+		critical_alertsField.setDefaultValue(0L);
+		metaData.addField(critical_alertsField);
+
+		Field major_alertsField = new Field("major_alerts", "long");
+		major_alertsField.setDefaultValue(0L);
+		metaData.addField(major_alertsField);
+
+		Field wanring_alertsField = new Field("wanring_alerts", "long");
+		wanring_alertsField.setDefaultValue(0L);
+		metaData.addField(wanring_alertsField);
+
+		Field minor_alertsField = new Field("minor_alerts", "long");
+		minor_alertsField.setDefaultValue(0L);
+		metaData.addField(minor_alertsField);
+
 		Field costField = new Field("cost", "double");
 		metaData.addField(costField);
 
@@ -1881,6 +2031,9 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	public Baseappliance_simulator(Baseappliance_simulator obj) {
 		this.id = obj.id;
 		this.name = obj.name;
+		this.threshold_templete_id = obj.threshold_templete_id;
+		this.threshold_templete_name = obj.threshold_templete_name;
+		this.controller_name = obj.controller_name;
 		this.controller_id = obj.controller_id;
 		this.controller_port = obj.controller_port;
 		this.imei = obj.imei;
@@ -1949,6 +2102,8 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.battery_level = obj.battery_level;
 		this.last_reading = obj.last_reading;
 		this.last_reading_updated = obj.last_reading_updated;
+		this.last_grid_reading_updated = obj.last_grid_reading_updated;
+		this.last_dg_reading_updated = obj.last_dg_reading_updated;
 		this.dg_reading = obj.dg_reading;
 		this.grid_reading = obj.grid_reading;
 		this.voltage = obj.voltage;
@@ -1957,6 +2112,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.energy = obj.energy;
 		this.grid_reading_kvah = obj.grid_reading_kvah;
 		this.grid_reading_kwh = obj.grid_reading_kwh;
+		this.grid_today_kwh = obj.grid_today_kwh;
+		this.grid_current_month_kwh = obj.grid_current_month_kwh;
+		this.grid_today_kvah = obj.grid_today_kvah;
+		this.grid_current_month_kvah = obj.grid_current_month_kvah;
 		this.grid_load_kva = obj.grid_load_kva;
 		this.grid_load_kw = obj.grid_load_kw;
 		this.grid_voltage = obj.grid_voltage;
@@ -2001,6 +2160,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_p3_frequency = obj.grid_p3_frequency;
 		this.dg_reading_kwh = obj.dg_reading_kwh;
 		this.dg_reading_kvah = obj.dg_reading_kvah;
+		this.dg_today_kwh = obj.dg_today_kwh;
+		this.dg_current_month_kwh = obj.dg_current_month_kwh;
+		this.dg_today_kvah = obj.dg_today_kvah;
+		this.dg_current_month_kvah = obj.dg_current_month_kvah;
 		this.dg_load_kw = obj.dg_load_kw;
 		this.dg_load_kva = obj.dg_load_kva;
 		this.dg_voltage = obj.dg_voltage;
@@ -2141,6 +2304,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.current_route_schedule = obj.current_route_schedule;
 		this.last_stopage_name = obj.last_stopage_name;
 		this.last_stopage_reached_time = obj.last_stopage_reached_time;
+		this.critical_alerts = obj.critical_alerts;
+		this.major_alerts = obj.major_alerts;
+		this.wanring_alerts = obj.wanring_alerts;
+		this.minor_alerts = obj.minor_alerts;
 		this.cost = obj.cost;
 		this.cost_unit = obj.cost_unit;
 		this.extra_data = obj.extra_data;
@@ -2227,14 +2394,22 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			grid_reading_kvah = 0.0000;
 		if(grid_reading_kwh == null)
 			grid_reading_kwh = 0.0000;
+		if(grid_today_kwh == null)
+			grid_today_kwh = 0.0000;
+		if(grid_current_month_kwh == null)
+			grid_current_month_kwh = 0.0000;
+		if(grid_today_kvah == null)
+			grid_today_kvah = 0.0000;
+		if(grid_current_month_kvah == null)
+			grid_current_month_kvah = 0.0000;
 		if(grid_load_kva == null)
 			grid_load_kva = 0.0000;
 		if(grid_load_kw == null)
 			grid_load_kw = 0.0000;
 		if(grid_voltage == null)
-			grid_voltage = 0;
+			grid_voltage = 0.00;
 		if(grid_current == null)
-			grid_current = 0;
+			grid_current = 0.00;
 		if(grid_pf == null)
 			grid_pf = 0.0000;
 		if(grid_md == null)
@@ -2254,9 +2429,9 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(grid_p1_load_kw == null)
 			grid_p1_load_kw = 0.0000;
 		if(grid_p1_voltage == null)
-			grid_p1_voltage = 0;
+			grid_p1_voltage = 0.0000;
 		if(grid_p1_current == null)
-			grid_p1_current = 0;
+			grid_p1_current = 0.0000;
 		if(grid_p1_pf == null)
 			grid_p1_pf = 0.0000;
 		if(grid_p1_md == null)
@@ -2266,7 +2441,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(grid_p1_kvarh == null)
 			grid_p1_kvarh = 0.0000;
 		if(grid_p1_frequency == null)
-			grid_p1_frequency = 0L;
+			grid_p1_frequency = 0.0000;
 		if(grid_p2_reading_kvah == null)
 			grid_p2_reading_kvah = 0.0000;
 		if(grid_p2_reading_kwh == null)
@@ -2276,9 +2451,9 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(grid_p2_load_kw == null)
 			grid_p2_load_kw = 0.0000;
 		if(grid_p2_voltage == null)
-			grid_p2_voltage = 0;
+			grid_p2_voltage = 0.0000;
 		if(grid_p2_current == null)
-			grid_p2_current = 0;
+			grid_p2_current = 0.0000;
 		if(grid_p2_pf == null)
 			grid_p2_pf = 0.0000;
 		if(grid_p2_md == null)
@@ -2288,7 +2463,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(grid_p2_kvarh == null)
 			grid_p2_kvarh = 0.0000;
 		if(grid_p2_frequency == null)
-			grid_p2_frequency = 0L;
+			grid_p2_frequency = 0.0000;
 		if(grid_p3_reading_kvah == null)
 			grid_p3_reading_kvah = 0.0000;
 		if(grid_p3_reading_kwh == null)
@@ -2298,9 +2473,9 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(grid_p3_load_kw == null)
 			grid_p3_load_kw = 0.0000;
 		if(grid_p3_voltage == null)
-			grid_p3_voltage = 0;
+			grid_p3_voltage = 0.0000;
 		if(grid_p3_current == null)
-			grid_p3_current = 0;
+			grid_p3_current = 0.0000;
 		if(grid_p3_pf == null)
 			grid_p3_pf = 0.0000;
 		if(grid_p3_md == null)
@@ -2310,19 +2485,27 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(grid_p3_kvarh == null)
 			grid_p3_kvarh = 0.0000;
 		if(grid_p3_frequency == null)
-			grid_p3_frequency = 0L;
+			grid_p3_frequency = 0.0000;
 		if(dg_reading_kwh == null)
 			dg_reading_kwh = 0.0000;
 		if(dg_reading_kvah == null)
 			dg_reading_kvah = 0.0000;
+		if(dg_today_kwh == null)
+			dg_today_kwh = 0.0000;
+		if(dg_current_month_kwh == null)
+			dg_current_month_kwh = 0.0000;
+		if(dg_today_kvah == null)
+			dg_today_kvah = 0.0000;
+		if(dg_current_month_kvah == null)
+			dg_current_month_kvah = 0.0000;
 		if(dg_load_kw == null)
 			dg_load_kw = 0.0000;
 		if(dg_load_kva == null)
 			dg_load_kva = 0.0000;
 		if(dg_voltage == null)
-			dg_voltage = 0;
+			dg_voltage = 0.0000;
 		if(dg_current == null)
-			dg_current = 0;
+			dg_current = 0.0000;
 		if(dg_pf == null)
 			dg_pf = 0.0000;
 		if(dg_md == null)
@@ -2332,7 +2515,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(dg_kvarh == null)
 			dg_kvarh = 0.0000;
 		if(dg_frequency == null)
-			dg_frequency = 0L;
+			dg_frequency = 0.0000;
 		if(dg_p1_reading_kvah == null)
 			dg_p1_reading_kvah = 0.0000;
 		if(dg_p1_reading_kwh == null)
@@ -2342,9 +2525,9 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(dg_p1_load_kw == null)
 			dg_p1_load_kw = 0.0000;
 		if(dg_p1_voltage == null)
-			dg_p1_voltage = 0;
+			dg_p1_voltage = 0.0000;
 		if(dg_p1_current == null)
-			dg_p1_current = 0;
+			dg_p1_current = 0.0000;
 		if(dg_p1_pf == null)
 			dg_p1_pf = 0.0000;
 		if(dg_p1_md == null)
@@ -2354,7 +2537,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(dg_p1_kvarh == null)
 			dg_p1_kvarh = 0.0000;
 		if(dg_p1_frequency == null)
-			dg_p1_frequency = 0L;
+			dg_p1_frequency = 0.0000;
 		if(dg_p2_reading_kvah == null)
 			dg_p2_reading_kvah = 0.0000;
 		if(dg_p2_reading_kwh == null)
@@ -2364,9 +2547,9 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(dg_p2_load_kw == null)
 			dg_p2_load_kw = 0.0000;
 		if(dg_p2_voltage == null)
-			dg_p2_voltage = 0;
+			dg_p2_voltage = 0.0000;
 		if(dg_p2_current == null)
-			dg_p2_current = 0;
+			dg_p2_current = 0.0000;
 		if(dg_p2_pf == null)
 			dg_p2_pf = 0.0000;
 		if(dg_p2_md == null)
@@ -2376,7 +2559,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(dg_p2_kvarh == null)
 			dg_p2_kvarh = 0.0000;
 		if(dg_p2_frequency == null)
-			dg_p2_frequency = 0L;
+			dg_p2_frequency = 0.0000;
 		if(dg_p3_reading_kvah == null)
 			dg_p3_reading_kvah = 0.0000;
 		if(dg_p3_reading_kwh == null)
@@ -2386,9 +2569,9 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(dg_p3_load_kw == null)
 			dg_p3_load_kw = 0.0000;
 		if(dg_p3_voltage == null)
-			dg_p3_voltage = 0;
+			dg_p3_voltage = 0.0000;
 		if(dg_p3_current == null)
-			dg_p3_current = 0;
+			dg_p3_current = 0.0000;
 		if(dg_p3_pf == null)
 			dg_p3_pf = 0.0000;
 		if(dg_p3_md == null)
@@ -2398,7 +2581,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(dg_p3_kvarh == null)
 			dg_p3_kvarh = 0.0000;
 		if(dg_p3_frequency == null)
-			dg_p3_frequency = 0L;
+			dg_p3_frequency = 0.0000;
 		if(temperature == null)
 			temperature = 0.00;
 		if(humidity == null)
@@ -2535,6 +2718,14 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			featureEngineMonitoring = "N";
 		if(featureTracking == null)
 			featureTracking = "N";
+		if(critical_alerts == null)
+			critical_alerts = 0L;
+		if(major_alerts == null)
+			major_alerts = 0L;
+		if(wanring_alerts == null)
+			wanring_alerts = 0L;
+		if(minor_alerts == null)
+			minor_alerts = 0L;
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -2543,6 +2734,12 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(threshold_templete_id != null)
+			map.put("threshold_templete_id", threshold_templete_id);
+		if(threshold_templete_name != null)
+			map.put("threshold_templete_name", threshold_templete_name);
+		if(controller_name != null)
+			map.put("controller_name", controller_name);
 		if(controller_id != null)
 			map.put("controller_id", controller_id);
 		if(controller_port != null)
@@ -2679,6 +2876,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("last_reading", last_reading);
 		if(last_reading_updated != null)
 			map.put("last_reading_updated", last_reading_updated);
+		if(last_grid_reading_updated != null)
+			map.put("last_grid_reading_updated", last_grid_reading_updated);
+		if(last_dg_reading_updated != null)
+			map.put("last_dg_reading_updated", last_dg_reading_updated);
 		if(dg_reading != null)
 			map.put("dg_reading", dg_reading);
 		if(grid_reading != null)
@@ -2695,6 +2896,14 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("grid_reading_kvah", grid_reading_kvah);
 		if(grid_reading_kwh != null)
 			map.put("grid_reading_kwh", grid_reading_kwh);
+		if(grid_today_kwh != null)
+			map.put("grid_today_kwh", grid_today_kwh);
+		if(grid_current_month_kwh != null)
+			map.put("grid_current_month_kwh", grid_current_month_kwh);
+		if(grid_today_kvah != null)
+			map.put("grid_today_kvah", grid_today_kvah);
+		if(grid_current_month_kvah != null)
+			map.put("grid_current_month_kvah", grid_current_month_kvah);
 		if(grid_load_kva != null)
 			map.put("grid_load_kva", grid_load_kva);
 		if(grid_load_kw != null)
@@ -2783,6 +2992,14 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("dg_reading_kwh", dg_reading_kwh);
 		if(dg_reading_kvah != null)
 			map.put("dg_reading_kvah", dg_reading_kvah);
+		if(dg_today_kwh != null)
+			map.put("dg_today_kwh", dg_today_kwh);
+		if(dg_current_month_kwh != null)
+			map.put("dg_current_month_kwh", dg_current_month_kwh);
+		if(dg_today_kvah != null)
+			map.put("dg_today_kvah", dg_today_kvah);
+		if(dg_current_month_kvah != null)
+			map.put("dg_current_month_kvah", dg_current_month_kvah);
 		if(dg_load_kw != null)
 			map.put("dg_load_kw", dg_load_kw);
 		if(dg_load_kva != null)
@@ -3063,6 +3280,14 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("last_stopage_name", last_stopage_name);
 		if(last_stopage_reached_time != null)
 			map.put("last_stopage_reached_time", last_stopage_reached_time);
+		if(critical_alerts != null)
+			map.put("critical_alerts", critical_alerts);
+		if(major_alerts != null)
+			map.put("major_alerts", major_alerts);
+		if(wanring_alerts != null)
+			map.put("wanring_alerts", wanring_alerts);
+		if(minor_alerts != null)
+			map.put("minor_alerts", minor_alerts);
 		if(cost != null)
 			map.put("cost", cost);
 		if(cost_unit != null)
@@ -3081,6 +3306,12 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
+		if(threshold_templete_id != null)
+			map.put("threshold_templete_id", threshold_templete_id);
+		if(threshold_templete_name != null)
+			map.put("threshold_templete_name", threshold_templete_name);
+		if(controller_name != null)
+			map.put("controller_name", controller_name);
 		if(controller_id != null)
 			map.put("controller_id", controller_id);
 		if(controller_port != null)
@@ -3217,6 +3448,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("last_reading", last_reading);
 		if(validateLast_reading_updated(add))
 			map.put("last_reading_updated", last_reading_updated);
+		if(validateLast_grid_reading_updated(add))
+			map.put("last_grid_reading_updated", last_grid_reading_updated);
+		if(validateLast_dg_reading_updated(add))
+			map.put("last_dg_reading_updated", last_dg_reading_updated);
 		if(dg_reading != null)
 			map.put("dg_reading", dg_reading);
 		if(grid_reading != null)
@@ -3233,6 +3468,14 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("grid_reading_kvah", grid_reading_kvah);
 		if(grid_reading_kwh != null)
 			map.put("grid_reading_kwh", grid_reading_kwh);
+		if(grid_today_kwh != null)
+			map.put("grid_today_kwh", grid_today_kwh);
+		if(grid_current_month_kwh != null)
+			map.put("grid_current_month_kwh", grid_current_month_kwh);
+		if(grid_today_kvah != null)
+			map.put("grid_today_kvah", grid_today_kvah);
+		if(grid_current_month_kvah != null)
+			map.put("grid_current_month_kvah", grid_current_month_kvah);
 		if(grid_load_kva != null)
 			map.put("grid_load_kva", grid_load_kva);
 		if(grid_load_kw != null)
@@ -3321,6 +3564,14 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("dg_reading_kwh", dg_reading_kwh);
 		if(dg_reading_kvah != null)
 			map.put("dg_reading_kvah", dg_reading_kvah);
+		if(dg_today_kwh != null)
+			map.put("dg_today_kwh", dg_today_kwh);
+		if(dg_current_month_kwh != null)
+			map.put("dg_current_month_kwh", dg_current_month_kwh);
+		if(dg_today_kvah != null)
+			map.put("dg_today_kvah", dg_today_kvah);
+		if(dg_current_month_kvah != null)
+			map.put("dg_current_month_kvah", dg_current_month_kvah);
 		if(dg_load_kw != null)
 			map.put("dg_load_kw", dg_load_kw);
 		if(dg_load_kva != null)
@@ -3601,6 +3852,14 @@ public abstract class Baseappliance_simulator extends BaseResource {
 			map.put("last_stopage_name", last_stopage_name);
 		if(last_stopage_reached_time != null)
 			map.put("last_stopage_reached_time", last_stopage_reached_time);
+		if(critical_alerts != null)
+			map.put("critical_alerts", critical_alerts);
+		if(major_alerts != null)
+			map.put("major_alerts", major_alerts);
+		if(wanring_alerts != null)
+			map.put("wanring_alerts", wanring_alerts);
+		if(minor_alerts != null)
+			map.put("minor_alerts", minor_alerts);
 		if(cost != null)
 			map.put("cost", cost);
 		if(cost_unit != null)
@@ -3619,6 +3878,9 @@ public abstract class Baseappliance_simulator extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
+		threshold_templete_id = (String) map.get("threshold_templete_id");
+		threshold_templete_name = (String) map.get("threshold_templete_name");
+		controller_name = (String) map.get("controller_name");
 		controller_id = (String) map.get("controller_id");
 		controller_port = (Long) map.get("controller_port");
 		imei = (String) map.get("imei");
@@ -3685,6 +3947,8 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		battery_level = (Integer) map.get("battery_level");
 		last_reading = (Double) map.get("last_reading");
 		last_reading_updated = (Long) map.get("last_reading_updated");
+		last_grid_reading_updated = (Long) map.get("last_grid_reading_updated");
+		last_dg_reading_updated = (Long) map.get("last_dg_reading_updated");
 		dg_reading = (Double) map.get("dg_reading");
 		grid_reading = (Double) map.get("grid_reading");
 		voltage = (Integer) map.get("voltage");
@@ -3693,10 +3957,14 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		energy = (Double) map.get("energy");
 		grid_reading_kvah = (Double) map.get("grid_reading_kvah");
 		grid_reading_kwh = (Double) map.get("grid_reading_kwh");
+		grid_today_kwh = (Double) map.get("grid_today_kwh");
+		grid_current_month_kwh = (Double) map.get("grid_current_month_kwh");
+		grid_today_kvah = (Double) map.get("grid_today_kvah");
+		grid_current_month_kvah = (Double) map.get("grid_current_month_kvah");
 		grid_load_kva = (Double) map.get("grid_load_kva");
 		grid_load_kw = (Double) map.get("grid_load_kw");
-		grid_voltage = (Integer) map.get("grid_voltage");
-		grid_current = (Integer) map.get("grid_current");
+		grid_voltage = (Double) map.get("grid_voltage");
+		grid_current = (Double) map.get("grid_current");
 		grid_pf = (Double) map.get("grid_pf");
 		grid_md = (Double) map.get("grid_md");
 		grid_tdh = (Double) map.get("grid_tdh");
@@ -3706,79 +3974,83 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		grid_p1_reading_kwh = (Double) map.get("grid_p1_reading_kwh");
 		grid_p1_load_kva = (Double) map.get("grid_p1_load_kva");
 		grid_p1_load_kw = (Double) map.get("grid_p1_load_kw");
-		grid_p1_voltage = (Integer) map.get("grid_p1_voltage");
-		grid_p1_current = (Integer) map.get("grid_p1_current");
+		grid_p1_voltage = (Double) map.get("grid_p1_voltage");
+		grid_p1_current = (Double) map.get("grid_p1_current");
 		grid_p1_pf = (Double) map.get("grid_p1_pf");
 		grid_p1_md = (Double) map.get("grid_p1_md");
 		grid_p1_tdh = (Double) map.get("grid_p1_tdh");
 		grid_p1_kvarh = (Double) map.get("grid_p1_kvarh");
-		grid_p1_frequency = (Long) map.get("grid_p1_frequency");
+		grid_p1_frequency = (Double) map.get("grid_p1_frequency");
 		grid_p2_reading_kvah = (Double) map.get("grid_p2_reading_kvah");
 		grid_p2_reading_kwh = (Double) map.get("grid_p2_reading_kwh");
 		grid_p2_load_kva = (Double) map.get("grid_p2_load_kva");
 		grid_p2_load_kw = (Double) map.get("grid_p2_load_kw");
-		grid_p2_voltage = (Integer) map.get("grid_p2_voltage");
-		grid_p2_current = (Integer) map.get("grid_p2_current");
+		grid_p2_voltage = (Double) map.get("grid_p2_voltage");
+		grid_p2_current = (Double) map.get("grid_p2_current");
 		grid_p2_pf = (Double) map.get("grid_p2_pf");
 		grid_p2_md = (Double) map.get("grid_p2_md");
 		grid_p2_tdh = (Double) map.get("grid_p2_tdh");
 		grid_p2_kvarh = (Double) map.get("grid_p2_kvarh");
-		grid_p2_frequency = (Long) map.get("grid_p2_frequency");
+		grid_p2_frequency = (Double) map.get("grid_p2_frequency");
 		grid_p3_reading_kvah = (Double) map.get("grid_p3_reading_kvah");
 		grid_p3_reading_kwh = (Double) map.get("grid_p3_reading_kwh");
 		grid_p3_load_kva = (Double) map.get("grid_p3_load_kva");
 		grid_p3_load_kw = (Double) map.get("grid_p3_load_kw");
-		grid_p3_voltage = (Integer) map.get("grid_p3_voltage");
-		grid_p3_current = (Integer) map.get("grid_p3_current");
+		grid_p3_voltage = (Double) map.get("grid_p3_voltage");
+		grid_p3_current = (Double) map.get("grid_p3_current");
 		grid_p3_pf = (Double) map.get("grid_p3_pf");
 		grid_p3_md = (Double) map.get("grid_p3_md");
 		grid_p3_tdh = (Double) map.get("grid_p3_tdh");
 		grid_p3_kvarh = (Double) map.get("grid_p3_kvarh");
-		grid_p3_frequency = (Long) map.get("grid_p3_frequency");
+		grid_p3_frequency = (Double) map.get("grid_p3_frequency");
 		dg_reading_kwh = (Double) map.get("dg_reading_kwh");
 		dg_reading_kvah = (Double) map.get("dg_reading_kvah");
+		dg_today_kwh = (Double) map.get("dg_today_kwh");
+		dg_current_month_kwh = (Double) map.get("dg_current_month_kwh");
+		dg_today_kvah = (Double) map.get("dg_today_kvah");
+		dg_current_month_kvah = (Double) map.get("dg_current_month_kvah");
 		dg_load_kw = (Double) map.get("dg_load_kw");
 		dg_load_kva = (Double) map.get("dg_load_kva");
-		dg_voltage = (Integer) map.get("dg_voltage");
-		dg_current = (Integer) map.get("dg_current");
+		dg_voltage = (Double) map.get("dg_voltage");
+		dg_current = (Double) map.get("dg_current");
 		dg_pf = (Double) map.get("dg_pf");
 		dg_md = (Double) map.get("dg_md");
 		dg_tdh = (Double) map.get("dg_tdh");
 		dg_kvarh = (Double) map.get("dg_kvarh");
-		dg_frequency = (Long) map.get("dg_frequency");
+		dg_frequency = (Double) map.get("dg_frequency");
 		dg_p1_reading_kvah = (Double) map.get("dg_p1_reading_kvah");
 		dg_p1_reading_kwh = (Double) map.get("dg_p1_reading_kwh");
 		dg_p1_load_kva = (Double) map.get("dg_p1_load_kva");
 		dg_p1_load_kw = (Double) map.get("dg_p1_load_kw");
-		dg_p1_voltage = (Integer) map.get("dg_p1_voltage");
-		dg_p1_current = (Integer) map.get("dg_p1_current");
+		dg_p1_voltage = (Double) map.get("dg_p1_voltage");
+		dg_p1_current = (Double) map.get("dg_p1_current");
 		dg_p1_pf = (Double) map.get("dg_p1_pf");
 		dg_p1_md = (Double) map.get("dg_p1_md");
 		dg_p1_tdh = (Double) map.get("dg_p1_tdh");
 		dg_p1_kvarh = (Double) map.get("dg_p1_kvarh");
-		dg_p1_frequency = (Long) map.get("dg_p1_frequency");
+		dg_p1_frequency = (Double) map.get("dg_p1_frequency");
 		dg_p2_reading_kvah = (Double) map.get("dg_p2_reading_kvah");
 		dg_p2_reading_kwh = (Double) map.get("dg_p2_reading_kwh");
 		dg_p2_load_kva = (Double) map.get("dg_p2_load_kva");
 		dg_p2_load_kw = (Double) map.get("dg_p2_load_kw");
-		dg_p2_voltage = (Integer) map.get("dg_p2_voltage");
-		dg_p2_current = (Integer) map.get("dg_p2_current");
+		dg_p2_voltage = (Double) map.get("dg_p2_voltage");
+		dg_p2_current = (Double) map.get("dg_p2_current");
 		dg_p2_pf = (Double) map.get("dg_p2_pf");
 		dg_p2_md = (Double) map.get("dg_p2_md");
 		dg_p2_tdh = (Double) map.get("dg_p2_tdh");
 		dg_p2_kvarh = (Double) map.get("dg_p2_kvarh");
-		dg_p2_frequency = (Long) map.get("dg_p2_frequency");
+		dg_p2_frequency = (Double) map.get("dg_p2_frequency");
 		dg_p3_reading_kvah = (Double) map.get("dg_p3_reading_kvah");
 		dg_p3_reading_kwh = (Double) map.get("dg_p3_reading_kwh");
 		dg_p3_load_kva = (Double) map.get("dg_p3_load_kva");
 		dg_p3_load_kw = (Double) map.get("dg_p3_load_kw");
-		dg_p3_voltage = (Integer) map.get("dg_p3_voltage");
-		dg_p3_current = (Integer) map.get("dg_p3_current");
+		dg_p3_voltage = (Double) map.get("dg_p3_voltage");
+		dg_p3_current = (Double) map.get("dg_p3_current");
 		dg_p3_pf = (Double) map.get("dg_p3_pf");
 		dg_p3_md = (Double) map.get("dg_p3_md");
 		dg_p3_tdh = (Double) map.get("dg_p3_tdh");
 		dg_p3_kvarh = (Double) map.get("dg_p3_kvarh");
-		dg_p3_frequency = (Long) map.get("dg_p3_frequency");
+		dg_p3_frequency = (Double) map.get("dg_p3_frequency");
 		temperature = (Double) map.get("temperature");
 		humidity = (Double) map.get("humidity");
 		mode = (String) map.get("mode");
@@ -3873,6 +4145,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		pollutionCertificateExpiry = (String) map.get("pollutionCertificateExpiry");
 		vehicleFitnessExpiry = (String) map.get("vehicleFitnessExpiry");
 		lastService = (String) map.get("lastService");
+		critical_alerts = (Long) map.get("critical_alerts");
+		major_alerts = (Long) map.get("major_alerts");
+		wanring_alerts = (Long) map.get("wanring_alerts");
+		minor_alerts = (Long) map.get("minor_alerts");
 		cost = (Double) map.get("cost");
 		cost_unit = (String) map.get("cost_unit");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -3887,6 +4163,18 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		Object nameObj = map.get("name");
 		if(nameObj != null)
 			name = nameObj.toString();
+
+		Object threshold_templete_idObj = map.get("threshold_templete_id");
+		if(threshold_templete_idObj != null)
+			threshold_templete_id = threshold_templete_idObj.toString();
+
+		Object threshold_templete_nameObj = map.get("threshold_templete_name");
+		if(threshold_templete_nameObj != null)
+			threshold_templete_name = threshold_templete_nameObj.toString();
+
+		Object controller_nameObj = map.get("controller_name");
+		if(controller_nameObj != null)
+			controller_name = controller_nameObj.toString();
 
 		Object controller_idObj = map.get("controller_id");
 		if(controller_idObj != null)
@@ -4152,6 +4440,14 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(last_reading_updatedObj != null)
 			last_reading_updated = new Long(last_reading_updatedObj.toString());
 
+		Object last_grid_reading_updatedObj = map.get("last_grid_reading_updated");
+		if(last_grid_reading_updatedObj != null)
+			last_grid_reading_updated = new Long(last_grid_reading_updatedObj.toString());
+
+		Object last_dg_reading_updatedObj = map.get("last_dg_reading_updated");
+		if(last_dg_reading_updatedObj != null)
+			last_dg_reading_updated = new Long(last_dg_reading_updatedObj.toString());
+
 		Object dg_readingObj = map.get("dg_reading");
 		if(dg_readingObj != null)
 			dg_reading = new Double(dg_readingObj.toString());
@@ -4184,6 +4480,22 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(grid_reading_kwhObj != null)
 			grid_reading_kwh = new Double(grid_reading_kwhObj.toString());
 
+		Object grid_today_kwhObj = map.get("grid_today_kwh");
+		if(grid_today_kwhObj != null)
+			grid_today_kwh = new Double(grid_today_kwhObj.toString());
+
+		Object grid_current_month_kwhObj = map.get("grid_current_month_kwh");
+		if(grid_current_month_kwhObj != null)
+			grid_current_month_kwh = new Double(grid_current_month_kwhObj.toString());
+
+		Object grid_today_kvahObj = map.get("grid_today_kvah");
+		if(grid_today_kvahObj != null)
+			grid_today_kvah = new Double(grid_today_kvahObj.toString());
+
+		Object grid_current_month_kvahObj = map.get("grid_current_month_kvah");
+		if(grid_current_month_kvahObj != null)
+			grid_current_month_kvah = new Double(grid_current_month_kvahObj.toString());
+
 		Object grid_load_kvaObj = map.get("grid_load_kva");
 		if(grid_load_kvaObj != null)
 			grid_load_kva = new Double(grid_load_kvaObj.toString());
@@ -4194,11 +4506,11 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object grid_voltageObj = map.get("grid_voltage");
 		if(grid_voltageObj != null)
-			grid_voltage = new Integer(grid_voltageObj.toString());
+			grid_voltage = new Double(grid_voltageObj.toString());
 
 		Object grid_currentObj = map.get("grid_current");
 		if(grid_currentObj != null)
-			grid_current = new Integer(grid_currentObj.toString());
+			grid_current = new Double(grid_currentObj.toString());
 
 		Object grid_pfObj = map.get("grid_pf");
 		if(grid_pfObj != null)
@@ -4238,11 +4550,11 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object grid_p1_voltageObj = map.get("grid_p1_voltage");
 		if(grid_p1_voltageObj != null)
-			grid_p1_voltage = new Integer(grid_p1_voltageObj.toString());
+			grid_p1_voltage = new Double(grid_p1_voltageObj.toString());
 
 		Object grid_p1_currentObj = map.get("grid_p1_current");
 		if(grid_p1_currentObj != null)
-			grid_p1_current = new Integer(grid_p1_currentObj.toString());
+			grid_p1_current = new Double(grid_p1_currentObj.toString());
 
 		Object grid_p1_pfObj = map.get("grid_p1_pf");
 		if(grid_p1_pfObj != null)
@@ -4262,7 +4574,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object grid_p1_frequencyObj = map.get("grid_p1_frequency");
 		if(grid_p1_frequencyObj != null)
-			grid_p1_frequency = new Long(grid_p1_frequencyObj.toString());
+			grid_p1_frequency = new Double(grid_p1_frequencyObj.toString());
 
 		Object grid_p2_reading_kvahObj = map.get("grid_p2_reading_kvah");
 		if(grid_p2_reading_kvahObj != null)
@@ -4282,11 +4594,11 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object grid_p2_voltageObj = map.get("grid_p2_voltage");
 		if(grid_p2_voltageObj != null)
-			grid_p2_voltage = new Integer(grid_p2_voltageObj.toString());
+			grid_p2_voltage = new Double(grid_p2_voltageObj.toString());
 
 		Object grid_p2_currentObj = map.get("grid_p2_current");
 		if(grid_p2_currentObj != null)
-			grid_p2_current = new Integer(grid_p2_currentObj.toString());
+			grid_p2_current = new Double(grid_p2_currentObj.toString());
 
 		Object grid_p2_pfObj = map.get("grid_p2_pf");
 		if(grid_p2_pfObj != null)
@@ -4306,7 +4618,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object grid_p2_frequencyObj = map.get("grid_p2_frequency");
 		if(grid_p2_frequencyObj != null)
-			grid_p2_frequency = new Long(grid_p2_frequencyObj.toString());
+			grid_p2_frequency = new Double(grid_p2_frequencyObj.toString());
 
 		Object grid_p3_reading_kvahObj = map.get("grid_p3_reading_kvah");
 		if(grid_p3_reading_kvahObj != null)
@@ -4326,11 +4638,11 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object grid_p3_voltageObj = map.get("grid_p3_voltage");
 		if(grid_p3_voltageObj != null)
-			grid_p3_voltage = new Integer(grid_p3_voltageObj.toString());
+			grid_p3_voltage = new Double(grid_p3_voltageObj.toString());
 
 		Object grid_p3_currentObj = map.get("grid_p3_current");
 		if(grid_p3_currentObj != null)
-			grid_p3_current = new Integer(grid_p3_currentObj.toString());
+			grid_p3_current = new Double(grid_p3_currentObj.toString());
 
 		Object grid_p3_pfObj = map.get("grid_p3_pf");
 		if(grid_p3_pfObj != null)
@@ -4350,7 +4662,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object grid_p3_frequencyObj = map.get("grid_p3_frequency");
 		if(grid_p3_frequencyObj != null)
-			grid_p3_frequency = new Long(grid_p3_frequencyObj.toString());
+			grid_p3_frequency = new Double(grid_p3_frequencyObj.toString());
 
 		Object dg_reading_kwhObj = map.get("dg_reading_kwh");
 		if(dg_reading_kwhObj != null)
@@ -4359,6 +4671,22 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		Object dg_reading_kvahObj = map.get("dg_reading_kvah");
 		if(dg_reading_kvahObj != null)
 			dg_reading_kvah = new Double(dg_reading_kvahObj.toString());
+
+		Object dg_today_kwhObj = map.get("dg_today_kwh");
+		if(dg_today_kwhObj != null)
+			dg_today_kwh = new Double(dg_today_kwhObj.toString());
+
+		Object dg_current_month_kwhObj = map.get("dg_current_month_kwh");
+		if(dg_current_month_kwhObj != null)
+			dg_current_month_kwh = new Double(dg_current_month_kwhObj.toString());
+
+		Object dg_today_kvahObj = map.get("dg_today_kvah");
+		if(dg_today_kvahObj != null)
+			dg_today_kvah = new Double(dg_today_kvahObj.toString());
+
+		Object dg_current_month_kvahObj = map.get("dg_current_month_kvah");
+		if(dg_current_month_kvahObj != null)
+			dg_current_month_kvah = new Double(dg_current_month_kvahObj.toString());
 
 		Object dg_load_kwObj = map.get("dg_load_kw");
 		if(dg_load_kwObj != null)
@@ -4370,11 +4698,11 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object dg_voltageObj = map.get("dg_voltage");
 		if(dg_voltageObj != null)
-			dg_voltage = new Integer(dg_voltageObj.toString());
+			dg_voltage = new Double(dg_voltageObj.toString());
 
 		Object dg_currentObj = map.get("dg_current");
 		if(dg_currentObj != null)
-			dg_current = new Integer(dg_currentObj.toString());
+			dg_current = new Double(dg_currentObj.toString());
 
 		Object dg_pfObj = map.get("dg_pf");
 		if(dg_pfObj != null)
@@ -4394,7 +4722,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object dg_frequencyObj = map.get("dg_frequency");
 		if(dg_frequencyObj != null)
-			dg_frequency = new Long(dg_frequencyObj.toString());
+			dg_frequency = new Double(dg_frequencyObj.toString());
 
 		Object dg_p1_reading_kvahObj = map.get("dg_p1_reading_kvah");
 		if(dg_p1_reading_kvahObj != null)
@@ -4414,11 +4742,11 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object dg_p1_voltageObj = map.get("dg_p1_voltage");
 		if(dg_p1_voltageObj != null)
-			dg_p1_voltage = new Integer(dg_p1_voltageObj.toString());
+			dg_p1_voltage = new Double(dg_p1_voltageObj.toString());
 
 		Object dg_p1_currentObj = map.get("dg_p1_current");
 		if(dg_p1_currentObj != null)
-			dg_p1_current = new Integer(dg_p1_currentObj.toString());
+			dg_p1_current = new Double(dg_p1_currentObj.toString());
 
 		Object dg_p1_pfObj = map.get("dg_p1_pf");
 		if(dg_p1_pfObj != null)
@@ -4438,7 +4766,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object dg_p1_frequencyObj = map.get("dg_p1_frequency");
 		if(dg_p1_frequencyObj != null)
-			dg_p1_frequency = new Long(dg_p1_frequencyObj.toString());
+			dg_p1_frequency = new Double(dg_p1_frequencyObj.toString());
 
 		Object dg_p2_reading_kvahObj = map.get("dg_p2_reading_kvah");
 		if(dg_p2_reading_kvahObj != null)
@@ -4458,11 +4786,11 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object dg_p2_voltageObj = map.get("dg_p2_voltage");
 		if(dg_p2_voltageObj != null)
-			dg_p2_voltage = new Integer(dg_p2_voltageObj.toString());
+			dg_p2_voltage = new Double(dg_p2_voltageObj.toString());
 
 		Object dg_p2_currentObj = map.get("dg_p2_current");
 		if(dg_p2_currentObj != null)
-			dg_p2_current = new Integer(dg_p2_currentObj.toString());
+			dg_p2_current = new Double(dg_p2_currentObj.toString());
 
 		Object dg_p2_pfObj = map.get("dg_p2_pf");
 		if(dg_p2_pfObj != null)
@@ -4482,7 +4810,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object dg_p2_frequencyObj = map.get("dg_p2_frequency");
 		if(dg_p2_frequencyObj != null)
-			dg_p2_frequency = new Long(dg_p2_frequencyObj.toString());
+			dg_p2_frequency = new Double(dg_p2_frequencyObj.toString());
 
 		Object dg_p3_reading_kvahObj = map.get("dg_p3_reading_kvah");
 		if(dg_p3_reading_kvahObj != null)
@@ -4502,11 +4830,11 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object dg_p3_voltageObj = map.get("dg_p3_voltage");
 		if(dg_p3_voltageObj != null)
-			dg_p3_voltage = new Integer(dg_p3_voltageObj.toString());
+			dg_p3_voltage = new Double(dg_p3_voltageObj.toString());
 
 		Object dg_p3_currentObj = map.get("dg_p3_current");
 		if(dg_p3_currentObj != null)
-			dg_p3_current = new Integer(dg_p3_currentObj.toString());
+			dg_p3_current = new Double(dg_p3_currentObj.toString());
 
 		Object dg_p3_pfObj = map.get("dg_p3_pf");
 		if(dg_p3_pfObj != null)
@@ -4526,7 +4854,7 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 		Object dg_p3_frequencyObj = map.get("dg_p3_frequency");
 		if(dg_p3_frequencyObj != null)
-			dg_p3_frequency = new Long(dg_p3_frequencyObj.toString());
+			dg_p3_frequency = new Double(dg_p3_frequencyObj.toString());
 
 		Object temperatureObj = map.get("temperature");
 		if(temperatureObj != null)
@@ -4904,6 +5232,22 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		if(lastServiceObj != null)
 			lastService = lastServiceObj.toString();
 
+		Object critical_alertsObj = map.get("critical_alerts");
+		if(critical_alertsObj != null)
+			critical_alerts = new Long(critical_alertsObj.toString());
+
+		Object major_alertsObj = map.get("major_alerts");
+		if(major_alertsObj != null)
+			major_alerts = new Long(major_alertsObj.toString());
+
+		Object wanring_alertsObj = map.get("wanring_alerts");
+		if(wanring_alertsObj != null)
+			wanring_alerts = new Long(wanring_alertsObj.toString());
+
+		Object minor_alertsObj = map.get("minor_alerts");
+		if(minor_alertsObj != null)
+			minor_alerts = new Long(minor_alertsObj.toString());
+
 		Object costObj = map.get("cost");
 		if(costObj != null)
 			cost = new Double(costObj.toString());
@@ -4957,6 +5301,54 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public void unSetName() {
 		this.name = null;
+	}
+
+	public String getThreshold_templete_id() {
+		return threshold_templete_id;
+	}
+
+	public String getThreshold_templete_idEx() {
+		return threshold_templete_id != null ? threshold_templete_id : "";
+	}
+
+	public void setThreshold_templete_id(String threshold_templete_id) {
+		this.threshold_templete_id = threshold_templete_id;
+	}
+
+	public void unSetThreshold_templete_id() {
+		this.threshold_templete_id = null;
+	}
+
+	public String getThreshold_templete_name() {
+		return threshold_templete_name;
+	}
+
+	public String getThreshold_templete_nameEx() {
+		return threshold_templete_name != null ? threshold_templete_name : "";
+	}
+
+	public void setThreshold_templete_name(String threshold_templete_name) {
+		this.threshold_templete_name = threshold_templete_name;
+	}
+
+	public void unSetThreshold_templete_name() {
+		this.threshold_templete_name = null;
+	}
+
+	public String getController_name() {
+		return controller_name;
+	}
+
+	public String getController_nameEx() {
+		return controller_name != null ? controller_name : "";
+	}
+
+	public void setController_name(String controller_name) {
+		this.controller_name = controller_name;
+	}
+
+	public void unSetController_name() {
+		this.controller_name = null;
 	}
 
 	public String getController_id() {
@@ -5093,6 +5485,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getPower_rating() {
 		return power_rating != null ? power_rating : 0.0000;
+	}
+
+	public void setPower_rating(double power_rating) {
+		this.power_rating = power_rating;
 	}
 
 	public void setPower_rating(Double power_rating) {
@@ -5283,6 +5679,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return dg_unit_opening != null ? dg_unit_opening : 0.0000;
 	}
 
+	public void setDg_unit_opening(double dg_unit_opening) {
+		this.dg_unit_opening = dg_unit_opening;
+	}
+
 	public void setDg_unit_opening(Double dg_unit_opening) {
 		this.dg_unit_opening = dg_unit_opening;
 	}
@@ -5293,6 +5693,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getDg_unit_consumed() {
 		return dg_unit_consumed != null ? dg_unit_consumed : 0.0000;
+	}
+
+	public void setDg_unit_consumed(double dg_unit_consumed) {
+		this.dg_unit_consumed = dg_unit_consumed;
 	}
 
 	public void setDg_unit_consumed(Double dg_unit_consumed) {
@@ -5307,6 +5711,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return dg_unit_closing != null ? dg_unit_closing : 0.0000;
 	}
 
+	public void setDg_unit_closing(double dg_unit_closing) {
+		this.dg_unit_closing = dg_unit_closing;
+	}
+
 	public void setDg_unit_closing(Double dg_unit_closing) {
 		this.dg_unit_closing = dg_unit_closing;
 	}
@@ -5317,6 +5725,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getGrid_unit_opening() {
 		return grid_unit_opening != null ? grid_unit_opening : 0.0000;
+	}
+
+	public void setGrid_unit_opening(double grid_unit_opening) {
+		this.grid_unit_opening = grid_unit_opening;
 	}
 
 	public void setGrid_unit_opening(Double grid_unit_opening) {
@@ -5331,6 +5743,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_unit_consumed != null ? grid_unit_consumed : 0.0000;
 	}
 
+	public void setGrid_unit_consumed(double grid_unit_consumed) {
+		this.grid_unit_consumed = grid_unit_consumed;
+	}
+
 	public void setGrid_unit_consumed(Double grid_unit_consumed) {
 		this.grid_unit_consumed = grid_unit_consumed;
 	}
@@ -5341,6 +5757,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getGrid_unit_closing() {
 		return grid_unit_closing != null ? grid_unit_closing : 0.0000;
+	}
+
+	public void setGrid_unit_closing(double grid_unit_closing) {
+		this.grid_unit_closing = grid_unit_closing;
 	}
 
 	public void setGrid_unit_closing(Double grid_unit_closing) {
@@ -5419,6 +5839,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return threshold_fuel_level != null ? threshold_fuel_level : 0.0;
 	}
 
+	public void setThreshold_fuel_level(double threshold_fuel_level) {
+		this.threshold_fuel_level = threshold_fuel_level;
+	}
+
 	public void setThreshold_fuel_level(Double threshold_fuel_level) {
 		this.threshold_fuel_level = threshold_fuel_level;
 	}
@@ -5449,6 +5873,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getCapacity() {
 		return capacity != null ? capacity : 0.0;
+	}
+
+	public void setCapacity(double capacity) {
+		this.capacity = capacity;
 	}
 
 	public void setCapacity(Double capacity) {
@@ -5503,6 +5931,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return today_fuel_consumption != null ? today_fuel_consumption : 0.00;
 	}
 
+	public void setToday_fuel_consumption(double today_fuel_consumption) {
+		this.today_fuel_consumption = today_fuel_consumption;
+	}
+
 	public void setToday_fuel_consumption(Double today_fuel_consumption) {
 		this.today_fuel_consumption = today_fuel_consumption;
 	}
@@ -5515,6 +5947,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return average_fuel_consumption != null ? average_fuel_consumption : 0.00;
 	}
 
+	public void setAverage_fuel_consumption(double average_fuel_consumption) {
+		this.average_fuel_consumption = average_fuel_consumption;
+	}
+
 	public void setAverage_fuel_consumption(Double average_fuel_consumption) {
 		this.average_fuel_consumption = average_fuel_consumption;
 	}
@@ -5525,6 +5961,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getToday_fuel_loss() {
 		return today_fuel_loss != null ? today_fuel_loss : 0.00;
+	}
+
+	public void setToday_fuel_loss(double today_fuel_loss) {
+		this.today_fuel_loss = today_fuel_loss;
 	}
 
 	public void setToday_fuel_loss(Double today_fuel_loss) {
@@ -5559,6 +5999,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return current_month_fuel_consumption != null ? current_month_fuel_consumption : 0.00;
 	}
 
+	public void setCurrent_month_fuel_consumption(double current_month_fuel_consumption) {
+		this.current_month_fuel_consumption = current_month_fuel_consumption;
+	}
+
 	public void setCurrent_month_fuel_consumption(Double current_month_fuel_consumption) {
 		this.current_month_fuel_consumption = current_month_fuel_consumption;
 	}
@@ -5569,6 +6013,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getCurrent_month_fuel_loss() {
 		return current_month_fuel_loss != null ? current_month_fuel_loss : 0.00;
+	}
+
+	public void setCurrent_month_fuel_loss(double current_month_fuel_loss) {
+		this.current_month_fuel_loss = current_month_fuel_loss;
 	}
 
 	public void setCurrent_month_fuel_loss(Double current_month_fuel_loss) {
@@ -5583,6 +6031,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return threshold_temperature_min_level != null ? threshold_temperature_min_level : 0.00;
 	}
 
+	public void setThreshold_temperature_min_level(double threshold_temperature_min_level) {
+		this.threshold_temperature_min_level = threshold_temperature_min_level;
+	}
+
 	public void setThreshold_temperature_min_level(Double threshold_temperature_min_level) {
 		this.threshold_temperature_min_level = threshold_temperature_min_level;
 	}
@@ -5593,6 +6045,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getThreshold_temperature_max_level() {
 		return threshold_temperature_max_level != null ? threshold_temperature_max_level : 0.00;
+	}
+
+	public void setThreshold_temperature_max_level(double threshold_temperature_max_level) {
+		this.threshold_temperature_max_level = threshold_temperature_max_level;
 	}
 
 	public void setThreshold_temperature_max_level(Double threshold_temperature_max_level) {
@@ -5607,6 +6063,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return threshold_voltage_min_level != null ? threshold_voltage_min_level : 0.00;
 	}
 
+	public void setThreshold_voltage_min_level(double threshold_voltage_min_level) {
+		this.threshold_voltage_min_level = threshold_voltage_min_level;
+	}
+
 	public void setThreshold_voltage_min_level(Double threshold_voltage_min_level) {
 		this.threshold_voltage_min_level = threshold_voltage_min_level;
 	}
@@ -5617,6 +6077,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getThreshold_voltage_max_level() {
 		return threshold_voltage_max_level != null ? threshold_voltage_max_level : 0.00;
+	}
+
+	public void setThreshold_voltage_max_level(double threshold_voltage_max_level) {
+		this.threshold_voltage_max_level = threshold_voltage_max_level;
 	}
 
 	public void setThreshold_voltage_max_level(Double threshold_voltage_max_level) {
@@ -5631,6 +6095,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return threshold_current_min_level != null ? threshold_current_min_level : 0.00;
 	}
 
+	public void setThreshold_current_min_level(double threshold_current_min_level) {
+		this.threshold_current_min_level = threshold_current_min_level;
+	}
+
 	public void setThreshold_current_min_level(Double threshold_current_min_level) {
 		this.threshold_current_min_level = threshold_current_min_level;
 	}
@@ -5643,6 +6111,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return threshold_current_max_level != null ? threshold_current_max_level : 0.00;
 	}
 
+	public void setThreshold_current_max_level(double threshold_current_max_level) {
+		this.threshold_current_max_level = threshold_current_max_level;
+	}
+
 	public void setThreshold_current_max_level(Double threshold_current_max_level) {
 		this.threshold_current_max_level = threshold_current_max_level;
 	}
@@ -5653,6 +6125,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getThreshold_duration() {
 		return threshold_duration != null ? threshold_duration : 0.00;
+	}
+
+	public void setThreshold_duration(double threshold_duration) {
+		this.threshold_duration = threshold_duration;
 	}
 
 	public void setThreshold_duration(Double threshold_duration) {
@@ -5935,6 +6411,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return last_reading != null ? last_reading : 0.0000;
 	}
 
+	public void setLast_reading(double last_reading) {
+		this.last_reading = last_reading;
+	}
+
 	public void setLast_reading(Double last_reading) {
 		this.last_reading = last_reading;
 	}
@@ -5958,8 +6438,42 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return last_reading_updated != null;
 	}
 
+	public Long getLast_grid_reading_updated() {
+		return last_grid_reading_updated;
+	}
+
+	public void setLast_grid_reading_updated(Long last_grid_reading_updated) {
+		this.last_grid_reading_updated = last_grid_reading_updated;
+	}
+
+
+	public boolean validateLast_grid_reading_updated(boolean add) throws ApplicationException {
+		if(add && last_grid_reading_updated == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[last_grid_reading_updated]");
+		return last_grid_reading_updated != null;
+	}
+
+	public Long getLast_dg_reading_updated() {
+		return last_dg_reading_updated;
+	}
+
+	public void setLast_dg_reading_updated(Long last_dg_reading_updated) {
+		this.last_dg_reading_updated = last_dg_reading_updated;
+	}
+
+
+	public boolean validateLast_dg_reading_updated(boolean add) throws ApplicationException {
+		if(add && last_dg_reading_updated == null)
+			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[last_dg_reading_updated]");
+		return last_dg_reading_updated != null;
+	}
+
 	public Double getDg_reading() {
 		return dg_reading != null ? dg_reading : 0.0000;
+	}
+
+	public void setDg_reading(double dg_reading) {
+		this.dg_reading = dg_reading;
 	}
 
 	public void setDg_reading(Double dg_reading) {
@@ -5972,6 +6486,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getGrid_reading() {
 		return grid_reading != null ? grid_reading : 0.0000;
+	}
+
+	public void setGrid_reading(double grid_reading) {
+		this.grid_reading = grid_reading;
 	}
 
 	public void setGrid_reading(Double grid_reading) {
@@ -6018,6 +6536,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return power != null ? power : 0.0000;
 	}
 
+	public void setPower(double power) {
+		this.power = power;
+	}
+
 	public void setPower(Double power) {
 		this.power = power;
 	}
@@ -6028,6 +6550,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getEnergy() {
 		return energy != null ? energy : 0.0000;
+	}
+
+	public void setEnergy(double energy) {
+		this.energy = energy;
 	}
 
 	public void setEnergy(Double energy) {
@@ -6042,6 +6568,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_reading_kvah != null ? grid_reading_kvah : 0.0000;
 	}
 
+	public void setGrid_reading_kvah(double grid_reading_kvah) {
+		this.grid_reading_kvah = grid_reading_kvah;
+	}
+
 	public void setGrid_reading_kvah(Double grid_reading_kvah) {
 		this.grid_reading_kvah = grid_reading_kvah;
 	}
@@ -6054,6 +6584,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_reading_kwh != null ? grid_reading_kwh : 0.0000;
 	}
 
+	public void setGrid_reading_kwh(double grid_reading_kwh) {
+		this.grid_reading_kwh = grid_reading_kwh;
+	}
+
 	public void setGrid_reading_kwh(Double grid_reading_kwh) {
 		this.grid_reading_kwh = grid_reading_kwh;
 	}
@@ -6062,8 +6596,76 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_reading_kwh = 0.0000;
 	}
 
+	public Double getGrid_today_kwh() {
+		return grid_today_kwh != null ? grid_today_kwh : 0.0000;
+	}
+
+	public void setGrid_today_kwh(double grid_today_kwh) {
+		this.grid_today_kwh = grid_today_kwh;
+	}
+
+	public void setGrid_today_kwh(Double grid_today_kwh) {
+		this.grid_today_kwh = grid_today_kwh;
+	}
+
+	public void unSetGrid_today_kwh() {
+		this.grid_today_kwh = 0.0000;
+	}
+
+	public Double getGrid_current_month_kwh() {
+		return grid_current_month_kwh != null ? grid_current_month_kwh : 0.0000;
+	}
+
+	public void setGrid_current_month_kwh(double grid_current_month_kwh) {
+		this.grid_current_month_kwh = grid_current_month_kwh;
+	}
+
+	public void setGrid_current_month_kwh(Double grid_current_month_kwh) {
+		this.grid_current_month_kwh = grid_current_month_kwh;
+	}
+
+	public void unSetGrid_current_month_kwh() {
+		this.grid_current_month_kwh = 0.0000;
+	}
+
+	public Double getGrid_today_kvah() {
+		return grid_today_kvah != null ? grid_today_kvah : 0.0000;
+	}
+
+	public void setGrid_today_kvah(double grid_today_kvah) {
+		this.grid_today_kvah = grid_today_kvah;
+	}
+
+	public void setGrid_today_kvah(Double grid_today_kvah) {
+		this.grid_today_kvah = grid_today_kvah;
+	}
+
+	public void unSetGrid_today_kvah() {
+		this.grid_today_kvah = 0.0000;
+	}
+
+	public Double getGrid_current_month_kvah() {
+		return grid_current_month_kvah != null ? grid_current_month_kvah : 0.0000;
+	}
+
+	public void setGrid_current_month_kvah(double grid_current_month_kvah) {
+		this.grid_current_month_kvah = grid_current_month_kvah;
+	}
+
+	public void setGrid_current_month_kvah(Double grid_current_month_kvah) {
+		this.grid_current_month_kvah = grid_current_month_kvah;
+	}
+
+	public void unSetGrid_current_month_kvah() {
+		this.grid_current_month_kvah = 0.0000;
+	}
+
 	public Double getGrid_load_kva() {
 		return grid_load_kva != null ? grid_load_kva : 0.0000;
+	}
+
+	public void setGrid_load_kva(double grid_load_kva) {
+		this.grid_load_kva = grid_load_kva;
 	}
 
 	public void setGrid_load_kva(Double grid_load_kva) {
@@ -6078,6 +6680,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_load_kw != null ? grid_load_kw : 0.0000;
 	}
 
+	public void setGrid_load_kw(double grid_load_kw) {
+		this.grid_load_kw = grid_load_kw;
+	}
+
 	public void setGrid_load_kw(Double grid_load_kw) {
 		this.grid_load_kw = grid_load_kw;
 	}
@@ -6086,36 +6692,36 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_load_kw = 0.0000;
 	}
 
-	public Integer getGrid_voltage() {
-		return grid_voltage != null ? grid_voltage : 0;
+	public Double getGrid_voltage() {
+		return grid_voltage != null ? grid_voltage : 0.00;
 	}
 
-	public void setGrid_voltage(int grid_voltage) {
+	public void setGrid_voltage(double grid_voltage) {
 		this.grid_voltage = grid_voltage;
 	}
 
-	public void setGrid_voltage(Integer grid_voltage) {
+	public void setGrid_voltage(Double grid_voltage) {
 		this.grid_voltage = grid_voltage;
 	}
 
 	public void unSetGrid_voltage() {
-		this.grid_voltage = 0;
+		this.grid_voltage = 0.00;
 	}
 
-	public Integer getGrid_current() {
-		return grid_current != null ? grid_current : 0;
+	public Double getGrid_current() {
+		return grid_current != null ? grid_current : 0.00;
 	}
 
-	public void setGrid_current(int grid_current) {
+	public void setGrid_current(double grid_current) {
 		this.grid_current = grid_current;
 	}
 
-	public void setGrid_current(Integer grid_current) {
+	public void setGrid_current(Double grid_current) {
 		this.grid_current = grid_current;
 	}
 
 	public void unSetGrid_current() {
-		this.grid_current = 0;
+		this.grid_current = 0.00;
 	}
 
 	public Double getGrid_pf() {
@@ -6202,6 +6808,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_p1_reading_kvah != null ? grid_p1_reading_kvah : 0.0000;
 	}
 
+	public void setGrid_p1_reading_kvah(double grid_p1_reading_kvah) {
+		this.grid_p1_reading_kvah = grid_p1_reading_kvah;
+	}
+
 	public void setGrid_p1_reading_kvah(Double grid_p1_reading_kvah) {
 		this.grid_p1_reading_kvah = grid_p1_reading_kvah;
 	}
@@ -6212,6 +6822,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getGrid_p1_reading_kwh() {
 		return grid_p1_reading_kwh != null ? grid_p1_reading_kwh : 0.0000;
+	}
+
+	public void setGrid_p1_reading_kwh(double grid_p1_reading_kwh) {
+		this.grid_p1_reading_kwh = grid_p1_reading_kwh;
 	}
 
 	public void setGrid_p1_reading_kwh(Double grid_p1_reading_kwh) {
@@ -6226,6 +6840,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_p1_load_kva != null ? grid_p1_load_kva : 0.0000;
 	}
 
+	public void setGrid_p1_load_kva(double grid_p1_load_kva) {
+		this.grid_p1_load_kva = grid_p1_load_kva;
+	}
+
 	public void setGrid_p1_load_kva(Double grid_p1_load_kva) {
 		this.grid_p1_load_kva = grid_p1_load_kva;
 	}
@@ -6238,6 +6856,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_p1_load_kw != null ? grid_p1_load_kw : 0.0000;
 	}
 
+	public void setGrid_p1_load_kw(double grid_p1_load_kw) {
+		this.grid_p1_load_kw = grid_p1_load_kw;
+	}
+
 	public void setGrid_p1_load_kw(Double grid_p1_load_kw) {
 		this.grid_p1_load_kw = grid_p1_load_kw;
 	}
@@ -6246,36 +6868,36 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_p1_load_kw = 0.0000;
 	}
 
-	public Integer getGrid_p1_voltage() {
-		return grid_p1_voltage != null ? grid_p1_voltage : 0;
+	public Double getGrid_p1_voltage() {
+		return grid_p1_voltage != null ? grid_p1_voltage : 0.0000;
 	}
 
-	public void setGrid_p1_voltage(int grid_p1_voltage) {
+	public void setGrid_p1_voltage(double grid_p1_voltage) {
 		this.grid_p1_voltage = grid_p1_voltage;
 	}
 
-	public void setGrid_p1_voltage(Integer grid_p1_voltage) {
+	public void setGrid_p1_voltage(Double grid_p1_voltage) {
 		this.grid_p1_voltage = grid_p1_voltage;
 	}
 
 	public void unSetGrid_p1_voltage() {
-		this.grid_p1_voltage = 0;
+		this.grid_p1_voltage = 0.0000;
 	}
 
-	public Integer getGrid_p1_current() {
-		return grid_p1_current != null ? grid_p1_current : 0;
+	public Double getGrid_p1_current() {
+		return grid_p1_current != null ? grid_p1_current : 0.0000;
 	}
 
-	public void setGrid_p1_current(int grid_p1_current) {
+	public void setGrid_p1_current(double grid_p1_current) {
 		this.grid_p1_current = grid_p1_current;
 	}
 
-	public void setGrid_p1_current(Integer grid_p1_current) {
+	public void setGrid_p1_current(Double grid_p1_current) {
 		this.grid_p1_current = grid_p1_current;
 	}
 
 	public void unSetGrid_p1_current() {
-		this.grid_p1_current = 0;
+		this.grid_p1_current = 0.0000;
 	}
 
 	public Double getGrid_p1_pf() {
@@ -6342,24 +6964,28 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_p1_kvarh = 0.0000;
 	}
 
-	public Long getGrid_p1_frequency() {
-		return grid_p1_frequency != null ? grid_p1_frequency : 0L;
+	public Double getGrid_p1_frequency() {
+		return grid_p1_frequency != null ? grid_p1_frequency : 0.0000;
 	}
 
-	public void setGrid_p1_frequency(long grid_p1_frequency) {
+	public void setGrid_p1_frequency(double grid_p1_frequency) {
 		this.grid_p1_frequency = grid_p1_frequency;
 	}
 
-	public void setGrid_p1_frequency(Long grid_p1_frequency) {
+	public void setGrid_p1_frequency(Double grid_p1_frequency) {
 		this.grid_p1_frequency = grid_p1_frequency;
 	}
 
 	public void unSetGrid_p1_frequency() {
-		this.grid_p1_frequency = 0L;
+		this.grid_p1_frequency = 0.0000;
 	}
 
 	public Double getGrid_p2_reading_kvah() {
 		return grid_p2_reading_kvah != null ? grid_p2_reading_kvah : 0.0000;
+	}
+
+	public void setGrid_p2_reading_kvah(double grid_p2_reading_kvah) {
+		this.grid_p2_reading_kvah = grid_p2_reading_kvah;
 	}
 
 	public void setGrid_p2_reading_kvah(Double grid_p2_reading_kvah) {
@@ -6374,6 +7000,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_p2_reading_kwh != null ? grid_p2_reading_kwh : 0.0000;
 	}
 
+	public void setGrid_p2_reading_kwh(double grid_p2_reading_kwh) {
+		this.grid_p2_reading_kwh = grid_p2_reading_kwh;
+	}
+
 	public void setGrid_p2_reading_kwh(Double grid_p2_reading_kwh) {
 		this.grid_p2_reading_kwh = grid_p2_reading_kwh;
 	}
@@ -6384,6 +7014,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getGrid_p2_load_kva() {
 		return grid_p2_load_kva != null ? grid_p2_load_kva : 0.0000;
+	}
+
+	public void setGrid_p2_load_kva(double grid_p2_load_kva) {
+		this.grid_p2_load_kva = grid_p2_load_kva;
 	}
 
 	public void setGrid_p2_load_kva(Double grid_p2_load_kva) {
@@ -6398,6 +7032,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_p2_load_kw != null ? grid_p2_load_kw : 0.0000;
 	}
 
+	public void setGrid_p2_load_kw(double grid_p2_load_kw) {
+		this.grid_p2_load_kw = grid_p2_load_kw;
+	}
+
 	public void setGrid_p2_load_kw(Double grid_p2_load_kw) {
 		this.grid_p2_load_kw = grid_p2_load_kw;
 	}
@@ -6406,36 +7044,36 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_p2_load_kw = 0.0000;
 	}
 
-	public Integer getGrid_p2_voltage() {
-		return grid_p2_voltage != null ? grid_p2_voltage : 0;
+	public Double getGrid_p2_voltage() {
+		return grid_p2_voltage != null ? grid_p2_voltage : 0.0000;
 	}
 
-	public void setGrid_p2_voltage(int grid_p2_voltage) {
+	public void setGrid_p2_voltage(double grid_p2_voltage) {
 		this.grid_p2_voltage = grid_p2_voltage;
 	}
 
-	public void setGrid_p2_voltage(Integer grid_p2_voltage) {
+	public void setGrid_p2_voltage(Double grid_p2_voltage) {
 		this.grid_p2_voltage = grid_p2_voltage;
 	}
 
 	public void unSetGrid_p2_voltage() {
-		this.grid_p2_voltage = 0;
+		this.grid_p2_voltage = 0.0000;
 	}
 
-	public Integer getGrid_p2_current() {
-		return grid_p2_current != null ? grid_p2_current : 0;
+	public Double getGrid_p2_current() {
+		return grid_p2_current != null ? grid_p2_current : 0.0000;
 	}
 
-	public void setGrid_p2_current(int grid_p2_current) {
+	public void setGrid_p2_current(double grid_p2_current) {
 		this.grid_p2_current = grid_p2_current;
 	}
 
-	public void setGrid_p2_current(Integer grid_p2_current) {
+	public void setGrid_p2_current(Double grid_p2_current) {
 		this.grid_p2_current = grid_p2_current;
 	}
 
 	public void unSetGrid_p2_current() {
-		this.grid_p2_current = 0;
+		this.grid_p2_current = 0.0000;
 	}
 
 	public Double getGrid_p2_pf() {
@@ -6502,24 +7140,28 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_p2_kvarh = 0.0000;
 	}
 
-	public Long getGrid_p2_frequency() {
-		return grid_p2_frequency != null ? grid_p2_frequency : 0L;
+	public Double getGrid_p2_frequency() {
+		return grid_p2_frequency != null ? grid_p2_frequency : 0.0000;
 	}
 
-	public void setGrid_p2_frequency(long grid_p2_frequency) {
+	public void setGrid_p2_frequency(double grid_p2_frequency) {
 		this.grid_p2_frequency = grid_p2_frequency;
 	}
 
-	public void setGrid_p2_frequency(Long grid_p2_frequency) {
+	public void setGrid_p2_frequency(Double grid_p2_frequency) {
 		this.grid_p2_frequency = grid_p2_frequency;
 	}
 
 	public void unSetGrid_p2_frequency() {
-		this.grid_p2_frequency = 0L;
+		this.grid_p2_frequency = 0.0000;
 	}
 
 	public Double getGrid_p3_reading_kvah() {
 		return grid_p3_reading_kvah != null ? grid_p3_reading_kvah : 0.0000;
+	}
+
+	public void setGrid_p3_reading_kvah(double grid_p3_reading_kvah) {
+		this.grid_p3_reading_kvah = grid_p3_reading_kvah;
 	}
 
 	public void setGrid_p3_reading_kvah(Double grid_p3_reading_kvah) {
@@ -6534,6 +7176,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_p3_reading_kwh != null ? grid_p3_reading_kwh : 0.0000;
 	}
 
+	public void setGrid_p3_reading_kwh(double grid_p3_reading_kwh) {
+		this.grid_p3_reading_kwh = grid_p3_reading_kwh;
+	}
+
 	public void setGrid_p3_reading_kwh(Double grid_p3_reading_kwh) {
 		this.grid_p3_reading_kwh = grid_p3_reading_kwh;
 	}
@@ -6544,6 +7190,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getGrid_p3_load_kva() {
 		return grid_p3_load_kva != null ? grid_p3_load_kva : 0.0000;
+	}
+
+	public void setGrid_p3_load_kva(double grid_p3_load_kva) {
+		this.grid_p3_load_kva = grid_p3_load_kva;
 	}
 
 	public void setGrid_p3_load_kva(Double grid_p3_load_kva) {
@@ -6558,6 +7208,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return grid_p3_load_kw != null ? grid_p3_load_kw : 0.0000;
 	}
 
+	public void setGrid_p3_load_kw(double grid_p3_load_kw) {
+		this.grid_p3_load_kw = grid_p3_load_kw;
+	}
+
 	public void setGrid_p3_load_kw(Double grid_p3_load_kw) {
 		this.grid_p3_load_kw = grid_p3_load_kw;
 	}
@@ -6566,36 +7220,36 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_p3_load_kw = 0.0000;
 	}
 
-	public Integer getGrid_p3_voltage() {
-		return grid_p3_voltage != null ? grid_p3_voltage : 0;
+	public Double getGrid_p3_voltage() {
+		return grid_p3_voltage != null ? grid_p3_voltage : 0.0000;
 	}
 
-	public void setGrid_p3_voltage(int grid_p3_voltage) {
+	public void setGrid_p3_voltage(double grid_p3_voltage) {
 		this.grid_p3_voltage = grid_p3_voltage;
 	}
 
-	public void setGrid_p3_voltage(Integer grid_p3_voltage) {
+	public void setGrid_p3_voltage(Double grid_p3_voltage) {
 		this.grid_p3_voltage = grid_p3_voltage;
 	}
 
 	public void unSetGrid_p3_voltage() {
-		this.grid_p3_voltage = 0;
+		this.grid_p3_voltage = 0.0000;
 	}
 
-	public Integer getGrid_p3_current() {
-		return grid_p3_current != null ? grid_p3_current : 0;
+	public Double getGrid_p3_current() {
+		return grid_p3_current != null ? grid_p3_current : 0.0000;
 	}
 
-	public void setGrid_p3_current(int grid_p3_current) {
+	public void setGrid_p3_current(double grid_p3_current) {
 		this.grid_p3_current = grid_p3_current;
 	}
 
-	public void setGrid_p3_current(Integer grid_p3_current) {
+	public void setGrid_p3_current(Double grid_p3_current) {
 		this.grid_p3_current = grid_p3_current;
 	}
 
 	public void unSetGrid_p3_current() {
-		this.grid_p3_current = 0;
+		this.grid_p3_current = 0.0000;
 	}
 
 	public Double getGrid_p3_pf() {
@@ -6662,24 +7316,28 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.grid_p3_kvarh = 0.0000;
 	}
 
-	public Long getGrid_p3_frequency() {
-		return grid_p3_frequency != null ? grid_p3_frequency : 0L;
+	public Double getGrid_p3_frequency() {
+		return grid_p3_frequency != null ? grid_p3_frequency : 0.0000;
 	}
 
-	public void setGrid_p3_frequency(long grid_p3_frequency) {
+	public void setGrid_p3_frequency(double grid_p3_frequency) {
 		this.grid_p3_frequency = grid_p3_frequency;
 	}
 
-	public void setGrid_p3_frequency(Long grid_p3_frequency) {
+	public void setGrid_p3_frequency(Double grid_p3_frequency) {
 		this.grid_p3_frequency = grid_p3_frequency;
 	}
 
 	public void unSetGrid_p3_frequency() {
-		this.grid_p3_frequency = 0L;
+		this.grid_p3_frequency = 0.0000;
 	}
 
 	public Double getDg_reading_kwh() {
 		return dg_reading_kwh != null ? dg_reading_kwh : 0.0000;
+	}
+
+	public void setDg_reading_kwh(double dg_reading_kwh) {
+		this.dg_reading_kwh = dg_reading_kwh;
 	}
 
 	public void setDg_reading_kwh(Double dg_reading_kwh) {
@@ -6694,6 +7352,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return dg_reading_kvah != null ? dg_reading_kvah : 0.0000;
 	}
 
+	public void setDg_reading_kvah(double dg_reading_kvah) {
+		this.dg_reading_kvah = dg_reading_kvah;
+	}
+
 	public void setDg_reading_kvah(Double dg_reading_kvah) {
 		this.dg_reading_kvah = dg_reading_kvah;
 	}
@@ -6702,8 +7364,76 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.dg_reading_kvah = 0.0000;
 	}
 
+	public Double getDg_today_kwh() {
+		return dg_today_kwh != null ? dg_today_kwh : 0.0000;
+	}
+
+	public void setDg_today_kwh(double dg_today_kwh) {
+		this.dg_today_kwh = dg_today_kwh;
+	}
+
+	public void setDg_today_kwh(Double dg_today_kwh) {
+		this.dg_today_kwh = dg_today_kwh;
+	}
+
+	public void unSetDg_today_kwh() {
+		this.dg_today_kwh = 0.0000;
+	}
+
+	public Double getDg_current_month_kwh() {
+		return dg_current_month_kwh != null ? dg_current_month_kwh : 0.0000;
+	}
+
+	public void setDg_current_month_kwh(double dg_current_month_kwh) {
+		this.dg_current_month_kwh = dg_current_month_kwh;
+	}
+
+	public void setDg_current_month_kwh(Double dg_current_month_kwh) {
+		this.dg_current_month_kwh = dg_current_month_kwh;
+	}
+
+	public void unSetDg_current_month_kwh() {
+		this.dg_current_month_kwh = 0.0000;
+	}
+
+	public Double getDg_today_kvah() {
+		return dg_today_kvah != null ? dg_today_kvah : 0.0000;
+	}
+
+	public void setDg_today_kvah(double dg_today_kvah) {
+		this.dg_today_kvah = dg_today_kvah;
+	}
+
+	public void setDg_today_kvah(Double dg_today_kvah) {
+		this.dg_today_kvah = dg_today_kvah;
+	}
+
+	public void unSetDg_today_kvah() {
+		this.dg_today_kvah = 0.0000;
+	}
+
+	public Double getDg_current_month_kvah() {
+		return dg_current_month_kvah != null ? dg_current_month_kvah : 0.0000;
+	}
+
+	public void setDg_current_month_kvah(double dg_current_month_kvah) {
+		this.dg_current_month_kvah = dg_current_month_kvah;
+	}
+
+	public void setDg_current_month_kvah(Double dg_current_month_kvah) {
+		this.dg_current_month_kvah = dg_current_month_kvah;
+	}
+
+	public void unSetDg_current_month_kvah() {
+		this.dg_current_month_kvah = 0.0000;
+	}
+
 	public Double getDg_load_kw() {
 		return dg_load_kw != null ? dg_load_kw : 0.0000;
+	}
+
+	public void setDg_load_kw(double dg_load_kw) {
+		this.dg_load_kw = dg_load_kw;
 	}
 
 	public void setDg_load_kw(Double dg_load_kw) {
@@ -6718,6 +7448,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return dg_load_kva != null ? dg_load_kva : 0.0000;
 	}
 
+	public void setDg_load_kva(double dg_load_kva) {
+		this.dg_load_kva = dg_load_kva;
+	}
+
 	public void setDg_load_kva(Double dg_load_kva) {
 		this.dg_load_kva = dg_load_kva;
 	}
@@ -6726,36 +7460,36 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.dg_load_kva = 0.0000;
 	}
 
-	public Integer getDg_voltage() {
-		return dg_voltage != null ? dg_voltage : 0;
+	public Double getDg_voltage() {
+		return dg_voltage != null ? dg_voltage : 0.0000;
 	}
 
-	public void setDg_voltage(int dg_voltage) {
+	public void setDg_voltage(double dg_voltage) {
 		this.dg_voltage = dg_voltage;
 	}
 
-	public void setDg_voltage(Integer dg_voltage) {
+	public void setDg_voltage(Double dg_voltage) {
 		this.dg_voltage = dg_voltage;
 	}
 
 	public void unSetDg_voltage() {
-		this.dg_voltage = 0;
+		this.dg_voltage = 0.0000;
 	}
 
-	public Integer getDg_current() {
-		return dg_current != null ? dg_current : 0;
+	public Double getDg_current() {
+		return dg_current != null ? dg_current : 0.0000;
 	}
 
-	public void setDg_current(int dg_current) {
+	public void setDg_current(double dg_current) {
 		this.dg_current = dg_current;
 	}
 
-	public void setDg_current(Integer dg_current) {
+	public void setDg_current(Double dg_current) {
 		this.dg_current = dg_current;
 	}
 
 	public void unSetDg_current() {
-		this.dg_current = 0;
+		this.dg_current = 0.0000;
 	}
 
 	public Double getDg_pf() {
@@ -6822,24 +7556,28 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.dg_kvarh = 0.0000;
 	}
 
-	public Long getDg_frequency() {
-		return dg_frequency != null ? dg_frequency : 0L;
+	public Double getDg_frequency() {
+		return dg_frequency != null ? dg_frequency : 0.0000;
 	}
 
-	public void setDg_frequency(long dg_frequency) {
+	public void setDg_frequency(double dg_frequency) {
 		this.dg_frequency = dg_frequency;
 	}
 
-	public void setDg_frequency(Long dg_frequency) {
+	public void setDg_frequency(Double dg_frequency) {
 		this.dg_frequency = dg_frequency;
 	}
 
 	public void unSetDg_frequency() {
-		this.dg_frequency = 0L;
+		this.dg_frequency = 0.0000;
 	}
 
 	public Double getDg_p1_reading_kvah() {
 		return dg_p1_reading_kvah != null ? dg_p1_reading_kvah : 0.0000;
+	}
+
+	public void setDg_p1_reading_kvah(double dg_p1_reading_kvah) {
+		this.dg_p1_reading_kvah = dg_p1_reading_kvah;
 	}
 
 	public void setDg_p1_reading_kvah(Double dg_p1_reading_kvah) {
@@ -6854,6 +7592,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return dg_p1_reading_kwh != null ? dg_p1_reading_kwh : 0.0000;
 	}
 
+	public void setDg_p1_reading_kwh(double dg_p1_reading_kwh) {
+		this.dg_p1_reading_kwh = dg_p1_reading_kwh;
+	}
+
 	public void setDg_p1_reading_kwh(Double dg_p1_reading_kwh) {
 		this.dg_p1_reading_kwh = dg_p1_reading_kwh;
 	}
@@ -6864,6 +7606,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getDg_p1_load_kva() {
 		return dg_p1_load_kva != null ? dg_p1_load_kva : 0.0000;
+	}
+
+	public void setDg_p1_load_kva(double dg_p1_load_kva) {
+		this.dg_p1_load_kva = dg_p1_load_kva;
 	}
 
 	public void setDg_p1_load_kva(Double dg_p1_load_kva) {
@@ -6878,6 +7624,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return dg_p1_load_kw != null ? dg_p1_load_kw : 0.0000;
 	}
 
+	public void setDg_p1_load_kw(double dg_p1_load_kw) {
+		this.dg_p1_load_kw = dg_p1_load_kw;
+	}
+
 	public void setDg_p1_load_kw(Double dg_p1_load_kw) {
 		this.dg_p1_load_kw = dg_p1_load_kw;
 	}
@@ -6886,36 +7636,36 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.dg_p1_load_kw = 0.0000;
 	}
 
-	public Integer getDg_p1_voltage() {
-		return dg_p1_voltage != null ? dg_p1_voltage : 0;
+	public Double getDg_p1_voltage() {
+		return dg_p1_voltage != null ? dg_p1_voltage : 0.0000;
 	}
 
-	public void setDg_p1_voltage(int dg_p1_voltage) {
+	public void setDg_p1_voltage(double dg_p1_voltage) {
 		this.dg_p1_voltage = dg_p1_voltage;
 	}
 
-	public void setDg_p1_voltage(Integer dg_p1_voltage) {
+	public void setDg_p1_voltage(Double dg_p1_voltage) {
 		this.dg_p1_voltage = dg_p1_voltage;
 	}
 
 	public void unSetDg_p1_voltage() {
-		this.dg_p1_voltage = 0;
+		this.dg_p1_voltage = 0.0000;
 	}
 
-	public Integer getDg_p1_current() {
-		return dg_p1_current != null ? dg_p1_current : 0;
+	public Double getDg_p1_current() {
+		return dg_p1_current != null ? dg_p1_current : 0.0000;
 	}
 
-	public void setDg_p1_current(int dg_p1_current) {
+	public void setDg_p1_current(double dg_p1_current) {
 		this.dg_p1_current = dg_p1_current;
 	}
 
-	public void setDg_p1_current(Integer dg_p1_current) {
+	public void setDg_p1_current(Double dg_p1_current) {
 		this.dg_p1_current = dg_p1_current;
 	}
 
 	public void unSetDg_p1_current() {
-		this.dg_p1_current = 0;
+		this.dg_p1_current = 0.0000;
 	}
 
 	public Double getDg_p1_pf() {
@@ -6982,24 +7732,28 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.dg_p1_kvarh = 0.0000;
 	}
 
-	public Long getDg_p1_frequency() {
-		return dg_p1_frequency != null ? dg_p1_frequency : 0L;
+	public Double getDg_p1_frequency() {
+		return dg_p1_frequency != null ? dg_p1_frequency : 0.0000;
 	}
 
-	public void setDg_p1_frequency(long dg_p1_frequency) {
+	public void setDg_p1_frequency(double dg_p1_frequency) {
 		this.dg_p1_frequency = dg_p1_frequency;
 	}
 
-	public void setDg_p1_frequency(Long dg_p1_frequency) {
+	public void setDg_p1_frequency(Double dg_p1_frequency) {
 		this.dg_p1_frequency = dg_p1_frequency;
 	}
 
 	public void unSetDg_p1_frequency() {
-		this.dg_p1_frequency = 0L;
+		this.dg_p1_frequency = 0.0000;
 	}
 
 	public Double getDg_p2_reading_kvah() {
 		return dg_p2_reading_kvah != null ? dg_p2_reading_kvah : 0.0000;
+	}
+
+	public void setDg_p2_reading_kvah(double dg_p2_reading_kvah) {
+		this.dg_p2_reading_kvah = dg_p2_reading_kvah;
 	}
 
 	public void setDg_p2_reading_kvah(Double dg_p2_reading_kvah) {
@@ -7014,6 +7768,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return dg_p2_reading_kwh != null ? dg_p2_reading_kwh : 0.0000;
 	}
 
+	public void setDg_p2_reading_kwh(double dg_p2_reading_kwh) {
+		this.dg_p2_reading_kwh = dg_p2_reading_kwh;
+	}
+
 	public void setDg_p2_reading_kwh(Double dg_p2_reading_kwh) {
 		this.dg_p2_reading_kwh = dg_p2_reading_kwh;
 	}
@@ -7024,6 +7782,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getDg_p2_load_kva() {
 		return dg_p2_load_kva != null ? dg_p2_load_kva : 0.0000;
+	}
+
+	public void setDg_p2_load_kva(double dg_p2_load_kva) {
+		this.dg_p2_load_kva = dg_p2_load_kva;
 	}
 
 	public void setDg_p2_load_kva(Double dg_p2_load_kva) {
@@ -7038,6 +7800,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return dg_p2_load_kw != null ? dg_p2_load_kw : 0.0000;
 	}
 
+	public void setDg_p2_load_kw(double dg_p2_load_kw) {
+		this.dg_p2_load_kw = dg_p2_load_kw;
+	}
+
 	public void setDg_p2_load_kw(Double dg_p2_load_kw) {
 		this.dg_p2_load_kw = dg_p2_load_kw;
 	}
@@ -7046,36 +7812,36 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.dg_p2_load_kw = 0.0000;
 	}
 
-	public Integer getDg_p2_voltage() {
-		return dg_p2_voltage != null ? dg_p2_voltage : 0;
+	public Double getDg_p2_voltage() {
+		return dg_p2_voltage != null ? dg_p2_voltage : 0.0000;
 	}
 
-	public void setDg_p2_voltage(int dg_p2_voltage) {
+	public void setDg_p2_voltage(double dg_p2_voltage) {
 		this.dg_p2_voltage = dg_p2_voltage;
 	}
 
-	public void setDg_p2_voltage(Integer dg_p2_voltage) {
+	public void setDg_p2_voltage(Double dg_p2_voltage) {
 		this.dg_p2_voltage = dg_p2_voltage;
 	}
 
 	public void unSetDg_p2_voltage() {
-		this.dg_p2_voltage = 0;
+		this.dg_p2_voltage = 0.0000;
 	}
 
-	public Integer getDg_p2_current() {
-		return dg_p2_current != null ? dg_p2_current : 0;
+	public Double getDg_p2_current() {
+		return dg_p2_current != null ? dg_p2_current : 0.0000;
 	}
 
-	public void setDg_p2_current(int dg_p2_current) {
+	public void setDg_p2_current(double dg_p2_current) {
 		this.dg_p2_current = dg_p2_current;
 	}
 
-	public void setDg_p2_current(Integer dg_p2_current) {
+	public void setDg_p2_current(Double dg_p2_current) {
 		this.dg_p2_current = dg_p2_current;
 	}
 
 	public void unSetDg_p2_current() {
-		this.dg_p2_current = 0;
+		this.dg_p2_current = 0.0000;
 	}
 
 	public Double getDg_p2_pf() {
@@ -7142,24 +7908,28 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.dg_p2_kvarh = 0.0000;
 	}
 
-	public Long getDg_p2_frequency() {
-		return dg_p2_frequency != null ? dg_p2_frequency : 0L;
+	public Double getDg_p2_frequency() {
+		return dg_p2_frequency != null ? dg_p2_frequency : 0.0000;
 	}
 
-	public void setDg_p2_frequency(long dg_p2_frequency) {
+	public void setDg_p2_frequency(double dg_p2_frequency) {
 		this.dg_p2_frequency = dg_p2_frequency;
 	}
 
-	public void setDg_p2_frequency(Long dg_p2_frequency) {
+	public void setDg_p2_frequency(Double dg_p2_frequency) {
 		this.dg_p2_frequency = dg_p2_frequency;
 	}
 
 	public void unSetDg_p2_frequency() {
-		this.dg_p2_frequency = 0L;
+		this.dg_p2_frequency = 0.0000;
 	}
 
 	public Double getDg_p3_reading_kvah() {
 		return dg_p3_reading_kvah != null ? dg_p3_reading_kvah : 0.0000;
+	}
+
+	public void setDg_p3_reading_kvah(double dg_p3_reading_kvah) {
+		this.dg_p3_reading_kvah = dg_p3_reading_kvah;
 	}
 
 	public void setDg_p3_reading_kvah(Double dg_p3_reading_kvah) {
@@ -7174,6 +7944,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return dg_p3_reading_kwh != null ? dg_p3_reading_kwh : 0.0000;
 	}
 
+	public void setDg_p3_reading_kwh(double dg_p3_reading_kwh) {
+		this.dg_p3_reading_kwh = dg_p3_reading_kwh;
+	}
+
 	public void setDg_p3_reading_kwh(Double dg_p3_reading_kwh) {
 		this.dg_p3_reading_kwh = dg_p3_reading_kwh;
 	}
@@ -7184,6 +7958,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getDg_p3_load_kva() {
 		return dg_p3_load_kva != null ? dg_p3_load_kva : 0.0000;
+	}
+
+	public void setDg_p3_load_kva(double dg_p3_load_kva) {
+		this.dg_p3_load_kva = dg_p3_load_kva;
 	}
 
 	public void setDg_p3_load_kva(Double dg_p3_load_kva) {
@@ -7198,6 +7976,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return dg_p3_load_kw != null ? dg_p3_load_kw : 0.0000;
 	}
 
+	public void setDg_p3_load_kw(double dg_p3_load_kw) {
+		this.dg_p3_load_kw = dg_p3_load_kw;
+	}
+
 	public void setDg_p3_load_kw(Double dg_p3_load_kw) {
 		this.dg_p3_load_kw = dg_p3_load_kw;
 	}
@@ -7206,36 +7988,36 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.dg_p3_load_kw = 0.0000;
 	}
 
-	public Integer getDg_p3_voltage() {
-		return dg_p3_voltage != null ? dg_p3_voltage : 0;
+	public Double getDg_p3_voltage() {
+		return dg_p3_voltage != null ? dg_p3_voltage : 0.0000;
 	}
 
-	public void setDg_p3_voltage(int dg_p3_voltage) {
+	public void setDg_p3_voltage(double dg_p3_voltage) {
 		this.dg_p3_voltage = dg_p3_voltage;
 	}
 
-	public void setDg_p3_voltage(Integer dg_p3_voltage) {
+	public void setDg_p3_voltage(Double dg_p3_voltage) {
 		this.dg_p3_voltage = dg_p3_voltage;
 	}
 
 	public void unSetDg_p3_voltage() {
-		this.dg_p3_voltage = 0;
+		this.dg_p3_voltage = 0.0000;
 	}
 
-	public Integer getDg_p3_current() {
-		return dg_p3_current != null ? dg_p3_current : 0;
+	public Double getDg_p3_current() {
+		return dg_p3_current != null ? dg_p3_current : 0.0000;
 	}
 
-	public void setDg_p3_current(int dg_p3_current) {
+	public void setDg_p3_current(double dg_p3_current) {
 		this.dg_p3_current = dg_p3_current;
 	}
 
-	public void setDg_p3_current(Integer dg_p3_current) {
+	public void setDg_p3_current(Double dg_p3_current) {
 		this.dg_p3_current = dg_p3_current;
 	}
 
 	public void unSetDg_p3_current() {
-		this.dg_p3_current = 0;
+		this.dg_p3_current = 0.0000;
 	}
 
 	public Double getDg_p3_pf() {
@@ -7302,24 +8084,28 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		this.dg_p3_kvarh = 0.0000;
 	}
 
-	public Long getDg_p3_frequency() {
-		return dg_p3_frequency != null ? dg_p3_frequency : 0L;
+	public Double getDg_p3_frequency() {
+		return dg_p3_frequency != null ? dg_p3_frequency : 0.0000;
 	}
 
-	public void setDg_p3_frequency(long dg_p3_frequency) {
+	public void setDg_p3_frequency(double dg_p3_frequency) {
 		this.dg_p3_frequency = dg_p3_frequency;
 	}
 
-	public void setDg_p3_frequency(Long dg_p3_frequency) {
+	public void setDg_p3_frequency(Double dg_p3_frequency) {
 		this.dg_p3_frequency = dg_p3_frequency;
 	}
 
 	public void unSetDg_p3_frequency() {
-		this.dg_p3_frequency = 0L;
+		this.dg_p3_frequency = 0.0000;
 	}
 
 	public Double getTemperature() {
 		return temperature != null ? temperature : 0.00;
+	}
+
+	public void setTemperature(double temperature) {
+		this.temperature = temperature;
 	}
 
 	public void setTemperature(Double temperature) {
@@ -7332,6 +8118,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getHumidity() {
 		return humidity != null ? humidity : 0.00;
+	}
+
+	public void setHumidity(double humidity) {
+		this.humidity = humidity;
 	}
 
 	public void setHumidity(Double humidity) {
@@ -7374,6 +8164,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return level_float != null ? level_float : 0.00;
 	}
 
+	public void setLevel_float(double level_float) {
+		this.level_float = level_float;
+	}
+
 	public void setLevel_float(Double level_float) {
 		this.level_float = level_float;
 	}
@@ -7386,6 +8180,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return fuel_level != null ? fuel_level : 0.00;
 	}
 
+	public void setFuel_level(double fuel_level) {
+		this.fuel_level = fuel_level;
+	}
+
 	public void setFuel_level(Double fuel_level) {
 		this.fuel_level = fuel_level;
 	}
@@ -7396,6 +8194,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getFuel_quantity() {
 		return fuel_quantity != null ? fuel_quantity : 0.00;
+	}
+
+	public void setFuel_quantity(double fuel_quantity) {
+		this.fuel_quantity = fuel_quantity;
 	}
 
 	public void setFuel_quantity(Double fuel_quantity) {
@@ -7735,6 +8537,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return canopy_temperature != null ? canopy_temperature : 0.00;
 	}
 
+	public void setCanopy_temperature(double canopy_temperature) {
+		this.canopy_temperature = canopy_temperature;
+	}
+
 	public void setCanopy_temperature(Double canopy_temperature) {
 		this.canopy_temperature = canopy_temperature;
 	}
@@ -7745,6 +8551,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getCoolant_temperature() {
 		return coolant_temperature != null ? coolant_temperature : 0.00;
+	}
+
+	public void setCoolant_temperature(double coolant_temperature) {
+		this.coolant_temperature = coolant_temperature;
 	}
 
 	public void setCoolant_temperature(Double coolant_temperature) {
@@ -7804,6 +8614,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return last_processed_fuel_quantity != null ? last_processed_fuel_quantity : 0.00;
 	}
 
+	public void setLast_processed_fuel_quantity(double last_processed_fuel_quantity) {
+		this.last_processed_fuel_quantity = last_processed_fuel_quantity;
+	}
+
 	public void setLast_processed_fuel_quantity(Double last_processed_fuel_quantity) {
 		this.last_processed_fuel_quantity = last_processed_fuel_quantity;
 	}
@@ -7816,6 +8630,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return last_processed_db_reading != null ? last_processed_db_reading : 0.00;
 	}
 
+	public void setLast_processed_db_reading(double last_processed_db_reading) {
+		this.last_processed_db_reading = last_processed_db_reading;
+	}
+
 	public void setLast_processed_db_reading(Double last_processed_db_reading) {
 		this.last_processed_db_reading = last_processed_db_reading;
 	}
@@ -7826,6 +8644,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getLast_processed_grid_reading() {
 		return last_processed_grid_reading != null ? last_processed_grid_reading : 0.00;
+	}
+
+	public void setLast_processed_grid_reading(double last_processed_grid_reading) {
+		this.last_processed_grid_reading = last_processed_grid_reading;
 	}
 
 	public void setLast_processed_grid_reading(Double last_processed_grid_reading) {
@@ -7916,6 +8738,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return engineTemperature != null ? engineTemperature : 0.0;
 	}
 
+	public void setEngineTemperature(double engineTemperature) {
+		this.engineTemperature = engineTemperature;
+	}
+
 	public void setEngineTemperature(Double engineTemperature) {
 		this.engineTemperature = engineTemperature;
 	}
@@ -7976,6 +8802,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return batteryLevel != null ? batteryLevel : 0.0;
 	}
 
+	public void setBatteryLevel(double batteryLevel) {
+		this.batteryLevel = batteryLevel;
+	}
+
 	public void setBatteryLevel(Double batteryLevel) {
 		this.batteryLevel = batteryLevel;
 	}
@@ -8002,6 +8832,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getAtmoshericPressure() {
 		return atmoshericPressure != null ? atmoshericPressure : 0.0;
+	}
+
+	public void setAtmoshericPressure(double atmoshericPressure) {
+		this.atmoshericPressure = atmoshericPressure;
 	}
 
 	public void setAtmoshericPressure(Double atmoshericPressure) {
@@ -8060,6 +8894,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return oilPressure != null ? oilPressure : 0.0;
 	}
 
+	public void setOilPressure(double oilPressure) {
+		this.oilPressure = oilPressure;
+	}
+
 	public void setOilPressure(Double oilPressure) {
 		this.oilPressure = oilPressure;
 	}
@@ -8104,6 +8942,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return batteryVoltage != null ? batteryVoltage : 0.0;
 	}
 
+	public void setBatteryVoltage(double batteryVoltage) {
+		this.batteryVoltage = batteryVoltage;
+	}
+
 	public void setBatteryVoltage(Double batteryVoltage) {
 		this.batteryVoltage = batteryVoltage;
 	}
@@ -8114,6 +8956,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getIntakeTubeAbsolutePressure() {
 		return intakeTubeAbsolutePressure != null ? intakeTubeAbsolutePressure : 0.0;
+	}
+
+	public void setIntakeTubeAbsolutePressure(double intakeTubeAbsolutePressure) {
+		this.intakeTubeAbsolutePressure = intakeTubeAbsolutePressure;
 	}
 
 	public void setIntakeTubeAbsolutePressure(Double intakeTubeAbsolutePressure) {
@@ -8190,6 +9036,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return start_reading != null ? start_reading : 0.0;
 	}
 
+	public void setStart_reading(double start_reading) {
+		this.start_reading = start_reading;
+	}
+
 	public void setStart_reading(Double start_reading) {
 		this.start_reading = start_reading;
 	}
@@ -8263,6 +9113,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 		return current_fuel_consumption != null ? current_fuel_consumption : 0.0;
 	}
 
+	public void setCurrent_fuel_consumption(double current_fuel_consumption) {
+		this.current_fuel_consumption = current_fuel_consumption;
+	}
+
 	public void setCurrent_fuel_consumption(Double current_fuel_consumption) {
 		this.current_fuel_consumption = current_fuel_consumption;
 	}
@@ -8273,6 +9127,10 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public Double getFuel_calibration_factor() {
 		return fuel_calibration_factor != null ? fuel_calibration_factor : 0.0;
+	}
+
+	public void setFuel_calibration_factor(double fuel_calibration_factor) {
+		this.fuel_calibration_factor = fuel_calibration_factor;
 	}
 
 	public void setFuel_calibration_factor(Double fuel_calibration_factor) {
@@ -8594,6 +9452,70 @@ public abstract class Baseappliance_simulator extends BaseResource {
 
 	public void unSetLast_stopage_reached_time() {
 		this.last_stopage_reached_time = null;
+	}
+
+	public Long getCritical_alerts() {
+		return critical_alerts != null ? critical_alerts : 0L;
+	}
+
+	public void setCritical_alerts(long critical_alerts) {
+		this.critical_alerts = critical_alerts;
+	}
+
+	public void setCritical_alerts(Long critical_alerts) {
+		this.critical_alerts = critical_alerts;
+	}
+
+	public void unSetCritical_alerts() {
+		this.critical_alerts = 0L;
+	}
+
+	public Long getMajor_alerts() {
+		return major_alerts != null ? major_alerts : 0L;
+	}
+
+	public void setMajor_alerts(long major_alerts) {
+		this.major_alerts = major_alerts;
+	}
+
+	public void setMajor_alerts(Long major_alerts) {
+		this.major_alerts = major_alerts;
+	}
+
+	public void unSetMajor_alerts() {
+		this.major_alerts = 0L;
+	}
+
+	public Long getWanring_alerts() {
+		return wanring_alerts != null ? wanring_alerts : 0L;
+	}
+
+	public void setWanring_alerts(long wanring_alerts) {
+		this.wanring_alerts = wanring_alerts;
+	}
+
+	public void setWanring_alerts(Long wanring_alerts) {
+		this.wanring_alerts = wanring_alerts;
+	}
+
+	public void unSetWanring_alerts() {
+		this.wanring_alerts = 0L;
+	}
+
+	public Long getMinor_alerts() {
+		return minor_alerts != null ? minor_alerts : 0L;
+	}
+
+	public void setMinor_alerts(long minor_alerts) {
+		this.minor_alerts = minor_alerts;
+	}
+
+	public void setMinor_alerts(Long minor_alerts) {
+		this.minor_alerts = minor_alerts;
+	}
+
+	public void unSetMinor_alerts() {
+		this.minor_alerts = 0L;
 	}
 
 	public Double getCost() {
