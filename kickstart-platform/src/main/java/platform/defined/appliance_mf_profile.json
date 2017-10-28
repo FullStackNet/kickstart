@@ -20,14 +20,14 @@
 				'length': 128,
 				'type':'String'
 			},
-			'reading_kvah':
+			'kvah':
 			{
 				'default':'0.0000',
 				'length': 12,
 				'precision': 4,
 				'type':'double'
 			},
-			'reading_kwh':
+			'kwh':
 			{
 				'default':'0.0000',
 				'length': 12,
@@ -101,8 +101,7 @@
 				'name':'customer_id',
 				'length': 128,
 				'type':'String'
-			},
-
+			}
 		}
 	}
 }

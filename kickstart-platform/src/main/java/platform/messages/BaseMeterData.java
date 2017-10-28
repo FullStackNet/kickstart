@@ -20,50 +20,50 @@ public abstract class BaseMeterData extends Message {
 	private Long port = null;
 	private Long source = null;
 	private String data_type = null; //ALL,COMMULATIVE,P1,P2,P3
-	private Long kwh = null;
-	private Long kvah = null;
-	private Long kvarh = null;
-	private Long kw = null;
-	private Long kva = null;
-	private Long pf = null;
-	private Long voltage = null;
-	private Long current = null;
-	private Long md = null;
-	private Long tdh = null;
-	private Long frequency = null;
-	private Long p1_kwh = null;
-	private Long p1_kvah = null;
-	private Long p1_kw = null;
-	private Long p1_kva = null;
-	private Long p1_kvarh = null;
-	private Long p1_pf = null;
-	private Long p1_voltage = null;
-	private Long p1_current = null;
-	private Long p1_md = null;
-	private Long p1_tdh = null;
-	private Long p1_frequency = null;
-	private Long p2_kwh = null;
-	private Long p2_kvah = null;
-	private Long p2_kw = null;
-	private Long p2_kva = null;
-	private Long p2_kvarh = null;
-	private Long p2_pf = null;
-	private Long p2_voltage = null;
-	private Long p2_current = null;
-	private Long p2_md = null;
-	private Long p2_tdh = null;
-	private Long p2_frequency = null;
-	private Long p3_kwh = null;
-	private Long p3_kvah = null;
-	private Long p3_kw = null;
-	private Long p3_kva = null;
-	private Long p3_kvarh = null;
-	private Long p3_pf = null;
-	private Long p3_voltage = null;
-	private Long p3_current = null;
-	private Long p3_md = null;
-	private Long p3_tdh = null;
-	private Long p3_frequency = null;
+	private Double kwh = null;
+	private Double kvah = null;
+	private Double kvarh = null;
+	private Double kw = null;
+	private Double kva = null;
+	private Double pf = null;
+	private Double voltage = null;
+	private Double current = null;
+	private Double md = null;
+	private Double tdh = null;
+	private Double frequency = null;
+	private Double p1_kwh = null;
+	private Double p1_kvah = null;
+	private Double p1_kw = null;
+	private Double p1_kva = null;
+	private Double p1_kvarh = null;
+	private Double p1_pf = null;
+	private Double p1_voltage = null;
+	private Double p1_current = null;
+	private Double p1_md = null;
+	private Double p1_tdh = null;
+	private Double p1_frequency = null;
+	private Double p2_kwh = null;
+	private Double p2_kvah = null;
+	private Double p2_kw = null;
+	private Double p2_kva = null;
+	private Double p2_kvarh = null;
+	private Double p2_pf = null;
+	private Double p2_voltage = null;
+	private Double p2_current = null;
+	private Double p2_md = null;
+	private Double p2_tdh = null;
+	private Double p2_frequency = null;
+	private Double p3_kwh = null;
+	private Double p3_kvah = null;
+	private Double p3_kw = null;
+	private Double p3_kva = null;
+	private Double p3_kvarh = null;
+	private Double p3_pf = null;
+	private Double p3_voltage = null;
+	private Double p3_current = null;
+	private Double p3_md = null;
+	private Double p3_tdh = null;
+	private Double p3_frequency = null;
 
 
 	public BaseMeterData() {
@@ -80,50 +80,50 @@ public abstract class BaseMeterData extends Message {
 		fields[1] = new Field("port","long");
 		fields[2] = new Field("source","long");
 		fields[3] =  new Field("data_type","String",0);
-		fields[4] = new Field("kwh","long");
-		fields[5] = new Field("kvah","long");
-		fields[6] = new Field("kvarh","long");
-		fields[7] = new Field("kw","long");
-		fields[8] = new Field("kva","long");
-		fields[9] = new Field("pf","long");
-		fields[10] = new Field("voltage","long");
-		fields[11] = new Field("current","long");
-		fields[12] = new Field("md","long");
-		fields[13] = new Field("tdh","long");
-		fields[14] = new Field("frequency","long");
-		fields[15] = new Field("p1_kwh","long");
-		fields[16] = new Field("p1_kvah","long");
-		fields[17] = new Field("p1_kw","long");
-		fields[18] = new Field("p1_kva","long");
-		fields[19] = new Field("p1_kvarh","long");
-		fields[20] = new Field("p1_pf","long");
-		fields[21] = new Field("p1_voltage","long");
-		fields[22] = new Field("p1_current","long");
-		fields[23] = new Field("p1_md","long");
-		fields[24] = new Field("p1_tdh","long");
-		fields[25] = new Field("p1_frequency","long");
-		fields[26] = new Field("p2_kwh","long");
-		fields[27] = new Field("p2_kvah","long");
-		fields[28] = new Field("p2_kw","long");
-		fields[29] = new Field("p2_kva","long");
-		fields[30] = new Field("p2_kvarh","long");
-		fields[31] = new Field("p2_pf","long");
-		fields[32] = new Field("p2_voltage","long");
-		fields[33] = new Field("p2_current","long");
-		fields[34] = new Field("p2_md","long");
-		fields[35] = new Field("p2_tdh","long");
-		fields[36] = new Field("p2_frequency","long");
-		fields[37] = new Field("p3_kwh","long");
-		fields[38] = new Field("p3_kvah","long");
-		fields[39] = new Field("p3_kw","long");
-		fields[40] = new Field("p3_kva","long");
-		fields[41] = new Field("p3_kvarh","long");
-		fields[42] = new Field("p3_pf","long");
-		fields[43] = new Field("p3_voltage","long");
-		fields[44] = new Field("p3_current","long");
-		fields[45] = new Field("p3_md","long");
-		fields[46] = new Field("p3_tdh","long");
-		fields[47] = new Field("p3_frequency","long");
+		fields[4] = new Field("kwh","double");
+		fields[5] = new Field("kvah","double");
+		fields[6] = new Field("kvarh","double");
+		fields[7] = new Field("kw","double");
+		fields[8] = new Field("kva","double");
+		fields[9] = new Field("pf","double");
+		fields[10] = new Field("voltage","double");
+		fields[11] = new Field("current","double");
+		fields[12] = new Field("md","double");
+		fields[13] = new Field("tdh","double");
+		fields[14] = new Field("frequency","double");
+		fields[15] = new Field("p1_kwh","double");
+		fields[16] = new Field("p1_kvah","double");
+		fields[17] = new Field("p1_kw","double");
+		fields[18] = new Field("p1_kva","double");
+		fields[19] = new Field("p1_kvarh","double");
+		fields[20] = new Field("p1_pf","double");
+		fields[21] = new Field("p1_voltage","double");
+		fields[22] = new Field("p1_current","double");
+		fields[23] = new Field("p1_md","double");
+		fields[24] = new Field("p1_tdh","double");
+		fields[25] = new Field("p1_frequency","double");
+		fields[26] = new Field("p2_kwh","double");
+		fields[27] = new Field("p2_kvah","double");
+		fields[28] = new Field("p2_kw","double");
+		fields[29] = new Field("p2_kva","double");
+		fields[30] = new Field("p2_kvarh","double");
+		fields[31] = new Field("p2_pf","double");
+		fields[32] = new Field("p2_voltage","double");
+		fields[33] = new Field("p2_current","double");
+		fields[34] = new Field("p2_md","double");
+		fields[35] = new Field("p2_tdh","double");
+		fields[36] = new Field("p2_frequency","double");
+		fields[37] = new Field("p3_kwh","double");
+		fields[38] = new Field("p3_kvah","double");
+		fields[39] = new Field("p3_kw","double");
+		fields[40] = new Field("p3_kva","double");
+		fields[41] = new Field("p3_kvarh","double");
+		fields[42] = new Field("p3_pf","double");
+		fields[43] = new Field("p3_voltage","double");
+		fields[44] = new Field("p3_current","double");
+		fields[45] = new Field("p3_md","double");
+		fields[46] = new Field("p3_tdh","double");
+		fields[47] = new Field("p3_frequency","double");
 	}
 
 	public void dump() {
@@ -335,53 +335,53 @@ public abstract class BaseMeterData extends Message {
 		port = (Long) map.get("port");
 		source = (Long) map.get("source");
 		data_type = (String) map.get("data_type");
-		kwh = (Long) map.get("kwh");
-		kvah = (Long) map.get("kvah");
-		kvarh = (Long) map.get("kvarh");
-		kw = (Long) map.get("kw");
-		kva = (Long) map.get("kva");
-		pf = (Long) map.get("pf");
-		voltage = (Long) map.get("voltage");
-		current = (Long) map.get("current");
-		md = (Long) map.get("md");
-		tdh = (Long) map.get("tdh");
-		frequency = (Long) map.get("frequency");
-		p1_kwh = (Long) map.get("p1_kwh");
-		p1_kvah = (Long) map.get("p1_kvah");
-		p1_kw = (Long) map.get("p1_kw");
-		p1_kva = (Long) map.get("p1_kva");
-		p1_kvarh = (Long) map.get("p1_kvarh");
-		p1_pf = (Long) map.get("p1_pf");
-		p1_voltage = (Long) map.get("p1_voltage");
-		p1_current = (Long) map.get("p1_current");
-		p1_md = (Long) map.get("p1_md");
-		p1_tdh = (Long) map.get("p1_tdh");
-		p1_frequency = (Long) map.get("p1_frequency");
-		p2_kwh = (Long) map.get("p2_kwh");
-		p2_kvah = (Long) map.get("p2_kvah");
-		p2_kw = (Long) map.get("p2_kw");
-		p2_kva = (Long) map.get("p2_kva");
-		p2_kvarh = (Long) map.get("p2_kvarh");
-		p2_pf = (Long) map.get("p2_pf");
-		p2_voltage = (Long) map.get("p2_voltage");
-		p2_current = (Long) map.get("p2_current");
-		p2_md = (Long) map.get("p2_md");
-		p2_tdh = (Long) map.get("p2_tdh");
-		p2_frequency = (Long) map.get("p2_frequency");
-		p3_kwh = (Long) map.get("p3_kwh");
-		p3_kvah = (Long) map.get("p3_kvah");
-		p3_kw = (Long) map.get("p3_kw");
-		p3_kva = (Long) map.get("p3_kva");
-		p3_kvarh = (Long) map.get("p3_kvarh");
-		p3_pf = (Long) map.get("p3_pf");
-		p3_voltage = (Long) map.get("p3_voltage");
-		p3_current = (Long) map.get("p3_current");
-		p3_md = (Long) map.get("p3_md");
-		p3_tdh = (Long) map.get("p3_tdh");
-		p3_frequency = (Long) map.get("p3_frequency");
+		kwh = (Double) map.get("kwh");
+		kvah = (Double) map.get("kvah");
+		kvarh = (Double) map.get("kvarh");
+		kw = (Double) map.get("kw");
+		kva = (Double) map.get("kva");
+		pf = (Double) map.get("pf");
+		voltage = (Double) map.get("voltage");
+		current = (Double) map.get("current");
+		md = (Double) map.get("md");
+		tdh = (Double) map.get("tdh");
+		frequency = (Double) map.get("frequency");
+		p1_kwh = (Double) map.get("p1_kwh");
+		p1_kvah = (Double) map.get("p1_kvah");
+		p1_kw = (Double) map.get("p1_kw");
+		p1_kva = (Double) map.get("p1_kva");
+		p1_kvarh = (Double) map.get("p1_kvarh");
+		p1_pf = (Double) map.get("p1_pf");
+		p1_voltage = (Double) map.get("p1_voltage");
+		p1_current = (Double) map.get("p1_current");
+		p1_md = (Double) map.get("p1_md");
+		p1_tdh = (Double) map.get("p1_tdh");
+		p1_frequency = (Double) map.get("p1_frequency");
+		p2_kwh = (Double) map.get("p2_kwh");
+		p2_kvah = (Double) map.get("p2_kvah");
+		p2_kw = (Double) map.get("p2_kw");
+		p2_kva = (Double) map.get("p2_kva");
+		p2_kvarh = (Double) map.get("p2_kvarh");
+		p2_pf = (Double) map.get("p2_pf");
+		p2_voltage = (Double) map.get("p2_voltage");
+		p2_current = (Double) map.get("p2_current");
+		p2_md = (Double) map.get("p2_md");
+		p2_tdh = (Double) map.get("p2_tdh");
+		p2_frequency = (Double) map.get("p2_frequency");
+		p3_kwh = (Double) map.get("p3_kwh");
+		p3_kvah = (Double) map.get("p3_kvah");
+		p3_kw = (Double) map.get("p3_kw");
+		p3_kva = (Double) map.get("p3_kva");
+		p3_kvarh = (Double) map.get("p3_kvarh");
+		p3_pf = (Double) map.get("p3_pf");
+		p3_voltage = (Double) map.get("p3_voltage");
+		p3_current = (Double) map.get("p3_current");
+		p3_md = (Double) map.get("p3_md");
+		p3_tdh = (Double) map.get("p3_tdh");
+		p3_frequency = (Double) map.get("p3_frequency");
 	}
 
- 	public int getMessageSize() {return 200;}
+ 	public int getMessageSize() {return 376;}
 
  	public String getName() {return "MeterData";}
 
@@ -459,19 +459,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.data_type = null;
 	}
 
-	public Long getKwh() {
+	public Double getKwh() {
 		return kwh;
 	}
 
-	public long getKwhEx() {
-		return kwh != null ? kwh : 0L;
+	public double getKwhEx() {
+		return kwh != null ? kwh : 0;
 	}
 
-	public void setKwh(long kwh) {
+	public void setKwh(double kwh) {
 		this.kwh = kwh;
 	}
 
-	public void setKwh(Long kwh) {
+	public void setKwh(Double kwh) {
 		this.kwh = kwh;
 	}
 
@@ -479,19 +479,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.kwh = null;
 	}
 
-	public Long getKvah() {
+	public Double getKvah() {
 		return kvah;
 	}
 
-	public long getKvahEx() {
-		return kvah != null ? kvah : 0L;
+	public double getKvahEx() {
+		return kvah != null ? kvah : 0;
 	}
 
-	public void setKvah(long kvah) {
+	public void setKvah(double kvah) {
 		this.kvah = kvah;
 	}
 
-	public void setKvah(Long kvah) {
+	public void setKvah(Double kvah) {
 		this.kvah = kvah;
 	}
 
@@ -499,19 +499,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.kvah = null;
 	}
 
-	public Long getKvarh() {
+	public Double getKvarh() {
 		return kvarh;
 	}
 
-	public long getKvarhEx() {
-		return kvarh != null ? kvarh : 0L;
+	public double getKvarhEx() {
+		return kvarh != null ? kvarh : 0;
 	}
 
-	public void setKvarh(long kvarh) {
+	public void setKvarh(double kvarh) {
 		this.kvarh = kvarh;
 	}
 
-	public void setKvarh(Long kvarh) {
+	public void setKvarh(Double kvarh) {
 		this.kvarh = kvarh;
 	}
 
@@ -519,19 +519,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.kvarh = null;
 	}
 
-	public Long getKw() {
+	public Double getKw() {
 		return kw;
 	}
 
-	public long getKwEx() {
-		return kw != null ? kw : 0L;
+	public double getKwEx() {
+		return kw != null ? kw : 0;
 	}
 
-	public void setKw(long kw) {
+	public void setKw(double kw) {
 		this.kw = kw;
 	}
 
-	public void setKw(Long kw) {
+	public void setKw(Double kw) {
 		this.kw = kw;
 	}
 
@@ -539,19 +539,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.kw = null;
 	}
 
-	public Long getKva() {
+	public Double getKva() {
 		return kva;
 	}
 
-	public long getKvaEx() {
-		return kva != null ? kva : 0L;
+	public double getKvaEx() {
+		return kva != null ? kva : 0;
 	}
 
-	public void setKva(long kva) {
+	public void setKva(double kva) {
 		this.kva = kva;
 	}
 
-	public void setKva(Long kva) {
+	public void setKva(Double kva) {
 		this.kva = kva;
 	}
 
@@ -559,19 +559,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.kva = null;
 	}
 
-	public Long getPf() {
+	public Double getPf() {
 		return pf;
 	}
 
-	public long getPfEx() {
-		return pf != null ? pf : 0L;
+	public double getPfEx() {
+		return pf != null ? pf : 0;
 	}
 
-	public void setPf(long pf) {
+	public void setPf(double pf) {
 		this.pf = pf;
 	}
 
-	public void setPf(Long pf) {
+	public void setPf(Double pf) {
 		this.pf = pf;
 	}
 
@@ -579,19 +579,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.pf = null;
 	}
 
-	public Long getVoltage() {
+	public Double getVoltage() {
 		return voltage;
 	}
 
-	public long getVoltageEx() {
-		return voltage != null ? voltage : 0L;
+	public double getVoltageEx() {
+		return voltage != null ? voltage : 0;
 	}
 
-	public void setVoltage(long voltage) {
+	public void setVoltage(double voltage) {
 		this.voltage = voltage;
 	}
 
-	public void setVoltage(Long voltage) {
+	public void setVoltage(Double voltage) {
 		this.voltage = voltage;
 	}
 
@@ -599,19 +599,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.voltage = null;
 	}
 
-	public Long getCurrent() {
+	public Double getCurrent() {
 		return current;
 	}
 
-	public long getCurrentEx() {
-		return current != null ? current : 0L;
+	public double getCurrentEx() {
+		return current != null ? current : 0;
 	}
 
-	public void setCurrent(long current) {
+	public void setCurrent(double current) {
 		this.current = current;
 	}
 
-	public void setCurrent(Long current) {
+	public void setCurrent(Double current) {
 		this.current = current;
 	}
 
@@ -619,19 +619,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.current = null;
 	}
 
-	public Long getMd() {
+	public Double getMd() {
 		return md;
 	}
 
-	public long getMdEx() {
-		return md != null ? md : 0L;
+	public double getMdEx() {
+		return md != null ? md : 0;
 	}
 
-	public void setMd(long md) {
+	public void setMd(double md) {
 		this.md = md;
 	}
 
-	public void setMd(Long md) {
+	public void setMd(Double md) {
 		this.md = md;
 	}
 
@@ -639,19 +639,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.md = null;
 	}
 
-	public Long getTdh() {
+	public Double getTdh() {
 		return tdh;
 	}
 
-	public long getTdhEx() {
-		return tdh != null ? tdh : 0L;
+	public double getTdhEx() {
+		return tdh != null ? tdh : 0;
 	}
 
-	public void setTdh(long tdh) {
+	public void setTdh(double tdh) {
 		this.tdh = tdh;
 	}
 
-	public void setTdh(Long tdh) {
+	public void setTdh(Double tdh) {
 		this.tdh = tdh;
 	}
 
@@ -659,19 +659,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.tdh = null;
 	}
 
-	public Long getFrequency() {
+	public Double getFrequency() {
 		return frequency;
 	}
 
-	public long getFrequencyEx() {
-		return frequency != null ? frequency : 0L;
+	public double getFrequencyEx() {
+		return frequency != null ? frequency : 0;
 	}
 
-	public void setFrequency(long frequency) {
+	public void setFrequency(double frequency) {
 		this.frequency = frequency;
 	}
 
-	public void setFrequency(Long frequency) {
+	public void setFrequency(Double frequency) {
 		this.frequency = frequency;
 	}
 
@@ -679,19 +679,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.frequency = null;
 	}
 
-	public Long getP1_kwh() {
+	public Double getP1_kwh() {
 		return p1_kwh;
 	}
 
-	public long getP1_kwhEx() {
-		return p1_kwh != null ? p1_kwh : 0L;
+	public double getP1_kwhEx() {
+		return p1_kwh != null ? p1_kwh : 0;
 	}
 
-	public void setP1_kwh(long p1_kwh) {
+	public void setP1_kwh(double p1_kwh) {
 		this.p1_kwh = p1_kwh;
 	}
 
-	public void setP1_kwh(Long p1_kwh) {
+	public void setP1_kwh(Double p1_kwh) {
 		this.p1_kwh = p1_kwh;
 	}
 
@@ -699,19 +699,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_kwh = null;
 	}
 
-	public Long getP1_kvah() {
+	public Double getP1_kvah() {
 		return p1_kvah;
 	}
 
-	public long getP1_kvahEx() {
-		return p1_kvah != null ? p1_kvah : 0L;
+	public double getP1_kvahEx() {
+		return p1_kvah != null ? p1_kvah : 0;
 	}
 
-	public void setP1_kvah(long p1_kvah) {
+	public void setP1_kvah(double p1_kvah) {
 		this.p1_kvah = p1_kvah;
 	}
 
-	public void setP1_kvah(Long p1_kvah) {
+	public void setP1_kvah(Double p1_kvah) {
 		this.p1_kvah = p1_kvah;
 	}
 
@@ -719,19 +719,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_kvah = null;
 	}
 
-	public Long getP1_kw() {
+	public Double getP1_kw() {
 		return p1_kw;
 	}
 
-	public long getP1_kwEx() {
-		return p1_kw != null ? p1_kw : 0L;
+	public double getP1_kwEx() {
+		return p1_kw != null ? p1_kw : 0;
 	}
 
-	public void setP1_kw(long p1_kw) {
+	public void setP1_kw(double p1_kw) {
 		this.p1_kw = p1_kw;
 	}
 
-	public void setP1_kw(Long p1_kw) {
+	public void setP1_kw(Double p1_kw) {
 		this.p1_kw = p1_kw;
 	}
 
@@ -739,19 +739,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_kw = null;
 	}
 
-	public Long getP1_kva() {
+	public Double getP1_kva() {
 		return p1_kva;
 	}
 
-	public long getP1_kvaEx() {
-		return p1_kva != null ? p1_kva : 0L;
+	public double getP1_kvaEx() {
+		return p1_kva != null ? p1_kva : 0;
 	}
 
-	public void setP1_kva(long p1_kva) {
+	public void setP1_kva(double p1_kva) {
 		this.p1_kva = p1_kva;
 	}
 
-	public void setP1_kva(Long p1_kva) {
+	public void setP1_kva(Double p1_kva) {
 		this.p1_kva = p1_kva;
 	}
 
@@ -759,19 +759,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_kva = null;
 	}
 
-	public Long getP1_kvarh() {
+	public Double getP1_kvarh() {
 		return p1_kvarh;
 	}
 
-	public long getP1_kvarhEx() {
-		return p1_kvarh != null ? p1_kvarh : 0L;
+	public double getP1_kvarhEx() {
+		return p1_kvarh != null ? p1_kvarh : 0;
 	}
 
-	public void setP1_kvarh(long p1_kvarh) {
+	public void setP1_kvarh(double p1_kvarh) {
 		this.p1_kvarh = p1_kvarh;
 	}
 
-	public void setP1_kvarh(Long p1_kvarh) {
+	public void setP1_kvarh(Double p1_kvarh) {
 		this.p1_kvarh = p1_kvarh;
 	}
 
@@ -779,19 +779,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_kvarh = null;
 	}
 
-	public Long getP1_pf() {
+	public Double getP1_pf() {
 		return p1_pf;
 	}
 
-	public long getP1_pfEx() {
-		return p1_pf != null ? p1_pf : 0L;
+	public double getP1_pfEx() {
+		return p1_pf != null ? p1_pf : 0;
 	}
 
-	public void setP1_pf(long p1_pf) {
+	public void setP1_pf(double p1_pf) {
 		this.p1_pf = p1_pf;
 	}
 
-	public void setP1_pf(Long p1_pf) {
+	public void setP1_pf(Double p1_pf) {
 		this.p1_pf = p1_pf;
 	}
 
@@ -799,19 +799,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_pf = null;
 	}
 
-	public Long getP1_voltage() {
+	public Double getP1_voltage() {
 		return p1_voltage;
 	}
 
-	public long getP1_voltageEx() {
-		return p1_voltage != null ? p1_voltage : 0L;
+	public double getP1_voltageEx() {
+		return p1_voltage != null ? p1_voltage : 0;
 	}
 
-	public void setP1_voltage(long p1_voltage) {
+	public void setP1_voltage(double p1_voltage) {
 		this.p1_voltage = p1_voltage;
 	}
 
-	public void setP1_voltage(Long p1_voltage) {
+	public void setP1_voltage(Double p1_voltage) {
 		this.p1_voltage = p1_voltage;
 	}
 
@@ -819,19 +819,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_voltage = null;
 	}
 
-	public Long getP1_current() {
+	public Double getP1_current() {
 		return p1_current;
 	}
 
-	public long getP1_currentEx() {
-		return p1_current != null ? p1_current : 0L;
+	public double getP1_currentEx() {
+		return p1_current != null ? p1_current : 0;
 	}
 
-	public void setP1_current(long p1_current) {
+	public void setP1_current(double p1_current) {
 		this.p1_current = p1_current;
 	}
 
-	public void setP1_current(Long p1_current) {
+	public void setP1_current(Double p1_current) {
 		this.p1_current = p1_current;
 	}
 
@@ -839,19 +839,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_current = null;
 	}
 
-	public Long getP1_md() {
+	public Double getP1_md() {
 		return p1_md;
 	}
 
-	public long getP1_mdEx() {
-		return p1_md != null ? p1_md : 0L;
+	public double getP1_mdEx() {
+		return p1_md != null ? p1_md : 0;
 	}
 
-	public void setP1_md(long p1_md) {
+	public void setP1_md(double p1_md) {
 		this.p1_md = p1_md;
 	}
 
-	public void setP1_md(Long p1_md) {
+	public void setP1_md(Double p1_md) {
 		this.p1_md = p1_md;
 	}
 
@@ -859,19 +859,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_md = null;
 	}
 
-	public Long getP1_tdh() {
+	public Double getP1_tdh() {
 		return p1_tdh;
 	}
 
-	public long getP1_tdhEx() {
-		return p1_tdh != null ? p1_tdh : 0L;
+	public double getP1_tdhEx() {
+		return p1_tdh != null ? p1_tdh : 0;
 	}
 
-	public void setP1_tdh(long p1_tdh) {
+	public void setP1_tdh(double p1_tdh) {
 		this.p1_tdh = p1_tdh;
 	}
 
-	public void setP1_tdh(Long p1_tdh) {
+	public void setP1_tdh(Double p1_tdh) {
 		this.p1_tdh = p1_tdh;
 	}
 
@@ -879,19 +879,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_tdh = null;
 	}
 
-	public Long getP1_frequency() {
+	public Double getP1_frequency() {
 		return p1_frequency;
 	}
 
-	public long getP1_frequencyEx() {
-		return p1_frequency != null ? p1_frequency : 0L;
+	public double getP1_frequencyEx() {
+		return p1_frequency != null ? p1_frequency : 0;
 	}
 
-	public void setP1_frequency(long p1_frequency) {
+	public void setP1_frequency(double p1_frequency) {
 		this.p1_frequency = p1_frequency;
 	}
 
-	public void setP1_frequency(Long p1_frequency) {
+	public void setP1_frequency(Double p1_frequency) {
 		this.p1_frequency = p1_frequency;
 	}
 
@@ -899,19 +899,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p1_frequency = null;
 	}
 
-	public Long getP2_kwh() {
+	public Double getP2_kwh() {
 		return p2_kwh;
 	}
 
-	public long getP2_kwhEx() {
-		return p2_kwh != null ? p2_kwh : 0L;
+	public double getP2_kwhEx() {
+		return p2_kwh != null ? p2_kwh : 0;
 	}
 
-	public void setP2_kwh(long p2_kwh) {
+	public void setP2_kwh(double p2_kwh) {
 		this.p2_kwh = p2_kwh;
 	}
 
-	public void setP2_kwh(Long p2_kwh) {
+	public void setP2_kwh(Double p2_kwh) {
 		this.p2_kwh = p2_kwh;
 	}
 
@@ -919,19 +919,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_kwh = null;
 	}
 
-	public Long getP2_kvah() {
+	public Double getP2_kvah() {
 		return p2_kvah;
 	}
 
-	public long getP2_kvahEx() {
-		return p2_kvah != null ? p2_kvah : 0L;
+	public double getP2_kvahEx() {
+		return p2_kvah != null ? p2_kvah : 0;
 	}
 
-	public void setP2_kvah(long p2_kvah) {
+	public void setP2_kvah(double p2_kvah) {
 		this.p2_kvah = p2_kvah;
 	}
 
-	public void setP2_kvah(Long p2_kvah) {
+	public void setP2_kvah(Double p2_kvah) {
 		this.p2_kvah = p2_kvah;
 	}
 
@@ -939,19 +939,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_kvah = null;
 	}
 
-	public Long getP2_kw() {
+	public Double getP2_kw() {
 		return p2_kw;
 	}
 
-	public long getP2_kwEx() {
-		return p2_kw != null ? p2_kw : 0L;
+	public double getP2_kwEx() {
+		return p2_kw != null ? p2_kw : 0;
 	}
 
-	public void setP2_kw(long p2_kw) {
+	public void setP2_kw(double p2_kw) {
 		this.p2_kw = p2_kw;
 	}
 
-	public void setP2_kw(Long p2_kw) {
+	public void setP2_kw(Double p2_kw) {
 		this.p2_kw = p2_kw;
 	}
 
@@ -959,19 +959,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_kw = null;
 	}
 
-	public Long getP2_kva() {
+	public Double getP2_kva() {
 		return p2_kva;
 	}
 
-	public long getP2_kvaEx() {
-		return p2_kva != null ? p2_kva : 0L;
+	public double getP2_kvaEx() {
+		return p2_kva != null ? p2_kva : 0;
 	}
 
-	public void setP2_kva(long p2_kva) {
+	public void setP2_kva(double p2_kva) {
 		this.p2_kva = p2_kva;
 	}
 
-	public void setP2_kva(Long p2_kva) {
+	public void setP2_kva(Double p2_kva) {
 		this.p2_kva = p2_kva;
 	}
 
@@ -979,19 +979,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_kva = null;
 	}
 
-	public Long getP2_kvarh() {
+	public Double getP2_kvarh() {
 		return p2_kvarh;
 	}
 
-	public long getP2_kvarhEx() {
-		return p2_kvarh != null ? p2_kvarh : 0L;
+	public double getP2_kvarhEx() {
+		return p2_kvarh != null ? p2_kvarh : 0;
 	}
 
-	public void setP2_kvarh(long p2_kvarh) {
+	public void setP2_kvarh(double p2_kvarh) {
 		this.p2_kvarh = p2_kvarh;
 	}
 
-	public void setP2_kvarh(Long p2_kvarh) {
+	public void setP2_kvarh(Double p2_kvarh) {
 		this.p2_kvarh = p2_kvarh;
 	}
 
@@ -999,19 +999,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_kvarh = null;
 	}
 
-	public Long getP2_pf() {
+	public Double getP2_pf() {
 		return p2_pf;
 	}
 
-	public long getP2_pfEx() {
-		return p2_pf != null ? p2_pf : 0L;
+	public double getP2_pfEx() {
+		return p2_pf != null ? p2_pf : 0;
 	}
 
-	public void setP2_pf(long p2_pf) {
+	public void setP2_pf(double p2_pf) {
 		this.p2_pf = p2_pf;
 	}
 
-	public void setP2_pf(Long p2_pf) {
+	public void setP2_pf(Double p2_pf) {
 		this.p2_pf = p2_pf;
 	}
 
@@ -1019,19 +1019,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_pf = null;
 	}
 
-	public Long getP2_voltage() {
+	public Double getP2_voltage() {
 		return p2_voltage;
 	}
 
-	public long getP2_voltageEx() {
-		return p2_voltage != null ? p2_voltage : 0L;
+	public double getP2_voltageEx() {
+		return p2_voltage != null ? p2_voltage : 0;
 	}
 
-	public void setP2_voltage(long p2_voltage) {
+	public void setP2_voltage(double p2_voltage) {
 		this.p2_voltage = p2_voltage;
 	}
 
-	public void setP2_voltage(Long p2_voltage) {
+	public void setP2_voltage(Double p2_voltage) {
 		this.p2_voltage = p2_voltage;
 	}
 
@@ -1039,19 +1039,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_voltage = null;
 	}
 
-	public Long getP2_current() {
+	public Double getP2_current() {
 		return p2_current;
 	}
 
-	public long getP2_currentEx() {
-		return p2_current != null ? p2_current : 0L;
+	public double getP2_currentEx() {
+		return p2_current != null ? p2_current : 0;
 	}
 
-	public void setP2_current(long p2_current) {
+	public void setP2_current(double p2_current) {
 		this.p2_current = p2_current;
 	}
 
-	public void setP2_current(Long p2_current) {
+	public void setP2_current(Double p2_current) {
 		this.p2_current = p2_current;
 	}
 
@@ -1059,19 +1059,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_current = null;
 	}
 
-	public Long getP2_md() {
+	public Double getP2_md() {
 		return p2_md;
 	}
 
-	public long getP2_mdEx() {
-		return p2_md != null ? p2_md : 0L;
+	public double getP2_mdEx() {
+		return p2_md != null ? p2_md : 0;
 	}
 
-	public void setP2_md(long p2_md) {
+	public void setP2_md(double p2_md) {
 		this.p2_md = p2_md;
 	}
 
-	public void setP2_md(Long p2_md) {
+	public void setP2_md(Double p2_md) {
 		this.p2_md = p2_md;
 	}
 
@@ -1079,19 +1079,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_md = null;
 	}
 
-	public Long getP2_tdh() {
+	public Double getP2_tdh() {
 		return p2_tdh;
 	}
 
-	public long getP2_tdhEx() {
-		return p2_tdh != null ? p2_tdh : 0L;
+	public double getP2_tdhEx() {
+		return p2_tdh != null ? p2_tdh : 0;
 	}
 
-	public void setP2_tdh(long p2_tdh) {
+	public void setP2_tdh(double p2_tdh) {
 		this.p2_tdh = p2_tdh;
 	}
 
-	public void setP2_tdh(Long p2_tdh) {
+	public void setP2_tdh(Double p2_tdh) {
 		this.p2_tdh = p2_tdh;
 	}
 
@@ -1099,19 +1099,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_tdh = null;
 	}
 
-	public Long getP2_frequency() {
+	public Double getP2_frequency() {
 		return p2_frequency;
 	}
 
-	public long getP2_frequencyEx() {
-		return p2_frequency != null ? p2_frequency : 0L;
+	public double getP2_frequencyEx() {
+		return p2_frequency != null ? p2_frequency : 0;
 	}
 
-	public void setP2_frequency(long p2_frequency) {
+	public void setP2_frequency(double p2_frequency) {
 		this.p2_frequency = p2_frequency;
 	}
 
-	public void setP2_frequency(Long p2_frequency) {
+	public void setP2_frequency(Double p2_frequency) {
 		this.p2_frequency = p2_frequency;
 	}
 
@@ -1119,19 +1119,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p2_frequency = null;
 	}
 
-	public Long getP3_kwh() {
+	public Double getP3_kwh() {
 		return p3_kwh;
 	}
 
-	public long getP3_kwhEx() {
-		return p3_kwh != null ? p3_kwh : 0L;
+	public double getP3_kwhEx() {
+		return p3_kwh != null ? p3_kwh : 0;
 	}
 
-	public void setP3_kwh(long p3_kwh) {
+	public void setP3_kwh(double p3_kwh) {
 		this.p3_kwh = p3_kwh;
 	}
 
-	public void setP3_kwh(Long p3_kwh) {
+	public void setP3_kwh(Double p3_kwh) {
 		this.p3_kwh = p3_kwh;
 	}
 
@@ -1139,19 +1139,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p3_kwh = null;
 	}
 
-	public Long getP3_kvah() {
+	public Double getP3_kvah() {
 		return p3_kvah;
 	}
 
-	public long getP3_kvahEx() {
-		return p3_kvah != null ? p3_kvah : 0L;
+	public double getP3_kvahEx() {
+		return p3_kvah != null ? p3_kvah : 0;
 	}
 
-	public void setP3_kvah(long p3_kvah) {
+	public void setP3_kvah(double p3_kvah) {
 		this.p3_kvah = p3_kvah;
 	}
 
-	public void setP3_kvah(Long p3_kvah) {
+	public void setP3_kvah(Double p3_kvah) {
 		this.p3_kvah = p3_kvah;
 	}
 
@@ -1159,19 +1159,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p3_kvah = null;
 	}
 
-	public Long getP3_kw() {
+	public Double getP3_kw() {
 		return p3_kw;
 	}
 
-	public long getP3_kwEx() {
-		return p3_kw != null ? p3_kw : 0L;
+	public double getP3_kwEx() {
+		return p3_kw != null ? p3_kw : 0;
 	}
 
-	public void setP3_kw(long p3_kw) {
+	public void setP3_kw(double p3_kw) {
 		this.p3_kw = p3_kw;
 	}
 
-	public void setP3_kw(Long p3_kw) {
+	public void setP3_kw(Double p3_kw) {
 		this.p3_kw = p3_kw;
 	}
 
@@ -1179,19 +1179,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p3_kw = null;
 	}
 
-	public Long getP3_kva() {
+	public Double getP3_kva() {
 		return p3_kva;
 	}
 
-	public long getP3_kvaEx() {
-		return p3_kva != null ? p3_kva : 0L;
+	public double getP3_kvaEx() {
+		return p3_kva != null ? p3_kva : 0;
 	}
 
-	public void setP3_kva(long p3_kva) {
+	public void setP3_kva(double p3_kva) {
 		this.p3_kva = p3_kva;
 	}
 
-	public void setP3_kva(Long p3_kva) {
+	public void setP3_kva(Double p3_kva) {
 		this.p3_kva = p3_kva;
 	}
 
@@ -1199,19 +1199,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p3_kva = null;
 	}
 
-	public Long getP3_kvarh() {
+	public Double getP3_kvarh() {
 		return p3_kvarh;
 	}
 
-	public long getP3_kvarhEx() {
-		return p3_kvarh != null ? p3_kvarh : 0L;
+	public double getP3_kvarhEx() {
+		return p3_kvarh != null ? p3_kvarh : 0;
 	}
 
-	public void setP3_kvarh(long p3_kvarh) {
+	public void setP3_kvarh(double p3_kvarh) {
 		this.p3_kvarh = p3_kvarh;
 	}
 
-	public void setP3_kvarh(Long p3_kvarh) {
+	public void setP3_kvarh(Double p3_kvarh) {
 		this.p3_kvarh = p3_kvarh;
 	}
 
@@ -1219,19 +1219,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p3_kvarh = null;
 	}
 
-	public Long getP3_pf() {
+	public Double getP3_pf() {
 		return p3_pf;
 	}
 
-	public long getP3_pfEx() {
-		return p3_pf != null ? p3_pf : 0L;
+	public double getP3_pfEx() {
+		return p3_pf != null ? p3_pf : 0;
 	}
 
-	public void setP3_pf(long p3_pf) {
+	public void setP3_pf(double p3_pf) {
 		this.p3_pf = p3_pf;
 	}
 
-	public void setP3_pf(Long p3_pf) {
+	public void setP3_pf(Double p3_pf) {
 		this.p3_pf = p3_pf;
 	}
 
@@ -1239,19 +1239,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p3_pf = null;
 	}
 
-	public Long getP3_voltage() {
+	public Double getP3_voltage() {
 		return p3_voltage;
 	}
 
-	public long getP3_voltageEx() {
-		return p3_voltage != null ? p3_voltage : 0L;
+	public double getP3_voltageEx() {
+		return p3_voltage != null ? p3_voltage : 0;
 	}
 
-	public void setP3_voltage(long p3_voltage) {
+	public void setP3_voltage(double p3_voltage) {
 		this.p3_voltage = p3_voltage;
 	}
 
-	public void setP3_voltage(Long p3_voltage) {
+	public void setP3_voltage(Double p3_voltage) {
 		this.p3_voltage = p3_voltage;
 	}
 
@@ -1259,19 +1259,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p3_voltage = null;
 	}
 
-	public Long getP3_current() {
+	public Double getP3_current() {
 		return p3_current;
 	}
 
-	public long getP3_currentEx() {
-		return p3_current != null ? p3_current : 0L;
+	public double getP3_currentEx() {
+		return p3_current != null ? p3_current : 0;
 	}
 
-	public void setP3_current(long p3_current) {
+	public void setP3_current(double p3_current) {
 		this.p3_current = p3_current;
 	}
 
-	public void setP3_current(Long p3_current) {
+	public void setP3_current(Double p3_current) {
 		this.p3_current = p3_current;
 	}
 
@@ -1279,19 +1279,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p3_current = null;
 	}
 
-	public Long getP3_md() {
+	public Double getP3_md() {
 		return p3_md;
 	}
 
-	public long getP3_mdEx() {
-		return p3_md != null ? p3_md : 0L;
+	public double getP3_mdEx() {
+		return p3_md != null ? p3_md : 0;
 	}
 
-	public void setP3_md(long p3_md) {
+	public void setP3_md(double p3_md) {
 		this.p3_md = p3_md;
 	}
 
-	public void setP3_md(Long p3_md) {
+	public void setP3_md(Double p3_md) {
 		this.p3_md = p3_md;
 	}
 
@@ -1299,19 +1299,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p3_md = null;
 	}
 
-	public Long getP3_tdh() {
+	public Double getP3_tdh() {
 		return p3_tdh;
 	}
 
-	public long getP3_tdhEx() {
-		return p3_tdh != null ? p3_tdh : 0L;
+	public double getP3_tdhEx() {
+		return p3_tdh != null ? p3_tdh : 0;
 	}
 
-	public void setP3_tdh(long p3_tdh) {
+	public void setP3_tdh(double p3_tdh) {
 		this.p3_tdh = p3_tdh;
 	}
 
-	public void setP3_tdh(Long p3_tdh) {
+	public void setP3_tdh(Double p3_tdh) {
 		this.p3_tdh = p3_tdh;
 	}
 
@@ -1319,19 +1319,19 @@ public Message process(Session session,Message parentMessage) {return null;}
 		this.p3_tdh = null;
 	}
 
-	public Long getP3_frequency() {
+	public Double getP3_frequency() {
 		return p3_frequency;
 	}
 
-	public long getP3_frequencyEx() {
-		return p3_frequency != null ? p3_frequency : 0L;
+	public double getP3_frequencyEx() {
+		return p3_frequency != null ? p3_frequency : 0;
 	}
 
-	public void setP3_frequency(long p3_frequency) {
+	public void setP3_frequency(double p3_frequency) {
 		this.p3_frequency = p3_frequency;
 	}
 
-	public void setP3_frequency(Long p3_frequency) {
+	public void setP3_frequency(Double p3_frequency) {
 		this.p3_frequency = p3_frequency;
 	}
 

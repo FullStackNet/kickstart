@@ -28,37 +28,37 @@ public abstract class Basemeter_log extends BaseResource {
 	private Long creation_time = null;
 	private Double load_kva = null;
 	private Double load_kw = null;
-	private Integer voltage = null;
-	private Integer current = null;
+	private Double voltage = null;
+	private Double current = null;
 	private Double pf = null;
 	private Double md = null;
 	private Double tdh = null;
 	private Double p1_load_kva = null;
 	private Double p1_load_kw = null;
-	private Integer p1_voltage = null;
-	private Integer p1_current = null;
+	private Double p1_voltage = null;
+	private Double p1_current = null;
 	private Double p1_pf = null;
 	private Double p1_md = null;
 	private Double p1_tdh = null;
 	private Double p1_kvarh = null;
-	private Long p1_frequency = null;
+	private Double p1_frequency = null;
 	private Double p2_reading_kvah = null;
 	private Double p2_reading_kwh = null;
 	private Double p2_load_kva = null;
 	private Double p2_load_kw = null;
-	private Integer p2_voltage = null;
-	private Integer p2_current = null;
+	private Double p2_voltage = null;
+	private Double p2_current = null;
 	private Double p2_pf = null;
 	private Double p2_md = null;
 	private Double p2_tdh = null;
 	private Double p2_kvarh = null;
-	private Long p2_frequency = null;
+	private Double p2_frequency = null;
 	private Double p3_reading_kvah = null;
 	private Double p3_reading_kwh = null;
 	private Double p3_load_kva = null;
 	private Double p3_load_kw = null;
-	private Integer p3_voltage = null;
-	private Integer p3_current = null;
+	private Double p3_voltage = null;
+	private Double p3_current = null;
 	private Double p3_pf = null;
 	private Double p3_md = null;
 	private Double p3_tdh = null;
@@ -157,14 +157,16 @@ public abstract class Basemeter_log extends BaseResource {
 		load_kwField.setPrecision(4);
 		metaData.addField(load_kwField);
 
-		Field voltageField = new Field("voltage", "int");
-		voltageField.setDefaultValue(0);
-		voltageField.setLength(5);
+		Field voltageField = new Field("voltage", "Double");
+		voltageField.setDefaultValue(0.0000);
+		voltageField.setLength(12);
+		voltageField.setPrecision(4);
 		metaData.addField(voltageField);
 
-		Field currentField = new Field("current", "int");
-		currentField.setDefaultValue(0);
-		currentField.setLength(5);
+		Field currentField = new Field("current", "Double");
+		currentField.setDefaultValue(0.0000);
+		currentField.setLength(12);
+		currentField.setPrecision(4);
 		metaData.addField(currentField);
 
 		Field pfField = new Field("pf", "double");
@@ -197,14 +199,16 @@ public abstract class Basemeter_log extends BaseResource {
 		p1_load_kwField.setPrecision(4);
 		metaData.addField(p1_load_kwField);
 
-		Field p1_voltageField = new Field("p1_voltage", "int");
-		p1_voltageField.setDefaultValue(0);
-		p1_voltageField.setLength(5);
+		Field p1_voltageField = new Field("p1_voltage", "Double");
+		p1_voltageField.setDefaultValue(0.0000);
+		p1_voltageField.setLength(12);
+		p1_voltageField.setPrecision(4);
 		metaData.addField(p1_voltageField);
 
-		Field p1_currentField = new Field("p1_current", "int");
-		p1_currentField.setDefaultValue(0);
-		p1_currentField.setLength(5);
+		Field p1_currentField = new Field("p1_current", "Double");
+		p1_currentField.setDefaultValue(0.0000);
+		p1_currentField.setLength(12);
+		p1_currentField.setPrecision(4);
 		metaData.addField(p1_currentField);
 
 		Field p1_pfField = new Field("p1_pf", "double");
@@ -231,8 +235,10 @@ public abstract class Basemeter_log extends BaseResource {
 		p1_kvarhField.setPrecision(4);
 		metaData.addField(p1_kvarhField);
 
-		Field p1_frequencyField = new Field("p1_frequency", "long");
-		p1_frequencyField.setDefaultValue(0L);
+		Field p1_frequencyField = new Field("p1_frequency", "Double");
+		p1_frequencyField.setDefaultValue(0.0000);
+		p1_frequencyField.setLength(12);
+		p1_frequencyField.setPrecision(4);
 		metaData.addField(p1_frequencyField);
 
 		Field p2_reading_kvahField = new Field("p2_reading_kvah", "Double");
@@ -259,14 +265,16 @@ public abstract class Basemeter_log extends BaseResource {
 		p2_load_kwField.setPrecision(4);
 		metaData.addField(p2_load_kwField);
 
-		Field p2_voltageField = new Field("p2_voltage", "int");
-		p2_voltageField.setDefaultValue(0);
-		p2_voltageField.setLength(5);
+		Field p2_voltageField = new Field("p2_voltage", "Double");
+		p2_voltageField.setDefaultValue(0.0000);
+		p2_voltageField.setLength(12);
+		p2_voltageField.setPrecision(4);
 		metaData.addField(p2_voltageField);
 
-		Field p2_currentField = new Field("p2_current", "int");
-		p2_currentField.setDefaultValue(0);
-		p2_currentField.setLength(5);
+		Field p2_currentField = new Field("p2_current", "Double");
+		p2_currentField.setDefaultValue(0.0000);
+		p2_currentField.setLength(12);
+		p2_currentField.setPrecision(4);
 		metaData.addField(p2_currentField);
 
 		Field p2_pfField = new Field("p2_pf", "double");
@@ -293,8 +301,10 @@ public abstract class Basemeter_log extends BaseResource {
 		p2_kvarhField.setPrecision(4);
 		metaData.addField(p2_kvarhField);
 
-		Field p2_frequencyField = new Field("p2_frequency", "long");
-		p2_frequencyField.setDefaultValue(0L);
+		Field p2_frequencyField = new Field("p2_frequency", "Double");
+		p2_frequencyField.setDefaultValue(0.0000);
+		p2_frequencyField.setLength(12);
+		p2_frequencyField.setPrecision(4);
 		metaData.addField(p2_frequencyField);
 
 		Field p3_reading_kvahField = new Field("p3_reading_kvah", "Double");
@@ -321,14 +331,16 @@ public abstract class Basemeter_log extends BaseResource {
 		p3_load_kwField.setPrecision(4);
 		metaData.addField(p3_load_kwField);
 
-		Field p3_voltageField = new Field("p3_voltage", "int");
-		p3_voltageField.setDefaultValue(0);
-		p3_voltageField.setLength(5);
+		Field p3_voltageField = new Field("p3_voltage", "Double");
+		p3_voltageField.setDefaultValue(0.0000);
+		p3_voltageField.setLength(12);
+		p3_voltageField.setPrecision(4);
 		metaData.addField(p3_voltageField);
 
-		Field p3_currentField = new Field("p3_current", "int");
-		p3_currentField.setDefaultValue(0);
-		p3_currentField.setLength(5);
+		Field p3_currentField = new Field("p3_current", "Double");
+		p3_currentField.setDefaultValue(0.0000);
+		p3_currentField.setLength(12);
+		p3_currentField.setPrecision(4);
 		metaData.addField(p3_currentField);
 
 		Field p3_pfField = new Field("p3_pf", "double");
@@ -418,9 +430,9 @@ public abstract class Basemeter_log extends BaseResource {
 		if(load_kw == null)
 			load_kw = 0.0000;
 		if(voltage == null)
-			voltage = 0;
+			voltage = 0.0000;
 		if(current == null)
-			current = 0;
+			current = 0.0000;
 		if(pf == null)
 			pf = 0.0000;
 		if(md == null)
@@ -432,9 +444,9 @@ public abstract class Basemeter_log extends BaseResource {
 		if(p1_load_kw == null)
 			p1_load_kw = 0.0000;
 		if(p1_voltage == null)
-			p1_voltage = 0;
+			p1_voltage = 0.0000;
 		if(p1_current == null)
-			p1_current = 0;
+			p1_current = 0.0000;
 		if(p1_pf == null)
 			p1_pf = 0.0000;
 		if(p1_md == null)
@@ -444,7 +456,7 @@ public abstract class Basemeter_log extends BaseResource {
 		if(p1_kvarh == null)
 			p1_kvarh = 0.0000;
 		if(p1_frequency == null)
-			p1_frequency = 0L;
+			p1_frequency = 0.0000;
 		if(p2_reading_kvah == null)
 			p2_reading_kvah = 0.0000;
 		if(p2_reading_kwh == null)
@@ -454,9 +466,9 @@ public abstract class Basemeter_log extends BaseResource {
 		if(p2_load_kw == null)
 			p2_load_kw = 0.0000;
 		if(p2_voltage == null)
-			p2_voltage = 0;
+			p2_voltage = 0.0000;
 		if(p2_current == null)
-			p2_current = 0;
+			p2_current = 0.0000;
 		if(p2_pf == null)
 			p2_pf = 0.0000;
 		if(p2_md == null)
@@ -466,7 +478,7 @@ public abstract class Basemeter_log extends BaseResource {
 		if(p2_kvarh == null)
 			p2_kvarh = 0.0000;
 		if(p2_frequency == null)
-			p2_frequency = 0L;
+			p2_frequency = 0.0000;
 		if(p3_reading_kvah == null)
 			p3_reading_kvah = 0.0000;
 		if(p3_reading_kwh == null)
@@ -476,9 +488,9 @@ public abstract class Basemeter_log extends BaseResource {
 		if(p3_load_kw == null)
 			p3_load_kw = 0.0000;
 		if(p3_voltage == null)
-			p3_voltage = 0;
+			p3_voltage = 0.0000;
 		if(p3_current == null)
-			p3_current = 0;
+			p3_current = 0.0000;
 		if(p3_pf == null)
 			p3_pf = 0.0000;
 		if(p3_md == null)
@@ -692,37 +704,37 @@ public abstract class Basemeter_log extends BaseResource {
 		creation_time = (Long) map.get("creation_time");
 		load_kva = (Double) map.get("load_kva");
 		load_kw = (Double) map.get("load_kw");
-		voltage = (Integer) map.get("voltage");
-		current = (Integer) map.get("current");
+		voltage = (Double) map.get("voltage");
+		current = (Double) map.get("current");
 		pf = (Double) map.get("pf");
 		md = (Double) map.get("md");
 		tdh = (Double) map.get("tdh");
 		p1_load_kva = (Double) map.get("p1_load_kva");
 		p1_load_kw = (Double) map.get("p1_load_kw");
-		p1_voltage = (Integer) map.get("p1_voltage");
-		p1_current = (Integer) map.get("p1_current");
+		p1_voltage = (Double) map.get("p1_voltage");
+		p1_current = (Double) map.get("p1_current");
 		p1_pf = (Double) map.get("p1_pf");
 		p1_md = (Double) map.get("p1_md");
 		p1_tdh = (Double) map.get("p1_tdh");
 		p1_kvarh = (Double) map.get("p1_kvarh");
-		p1_frequency = (Long) map.get("p1_frequency");
+		p1_frequency = (Double) map.get("p1_frequency");
 		p2_reading_kvah = (Double) map.get("p2_reading_kvah");
 		p2_reading_kwh = (Double) map.get("p2_reading_kwh");
 		p2_load_kva = (Double) map.get("p2_load_kva");
 		p2_load_kw = (Double) map.get("p2_load_kw");
-		p2_voltage = (Integer) map.get("p2_voltage");
-		p2_current = (Integer) map.get("p2_current");
+		p2_voltage = (Double) map.get("p2_voltage");
+		p2_current = (Double) map.get("p2_current");
 		p2_pf = (Double) map.get("p2_pf");
 		p2_md = (Double) map.get("p2_md");
 		p2_tdh = (Double) map.get("p2_tdh");
 		p2_kvarh = (Double) map.get("p2_kvarh");
-		p2_frequency = (Long) map.get("p2_frequency");
+		p2_frequency = (Double) map.get("p2_frequency");
 		p3_reading_kvah = (Double) map.get("p3_reading_kvah");
 		p3_reading_kwh = (Double) map.get("p3_reading_kwh");
 		p3_load_kva = (Double) map.get("p3_load_kva");
 		p3_load_kw = (Double) map.get("p3_load_kw");
-		p3_voltage = (Integer) map.get("p3_voltage");
-		p3_current = (Integer) map.get("p3_current");
+		p3_voltage = (Double) map.get("p3_voltage");
+		p3_current = (Double) map.get("p3_current");
 		p3_pf = (Double) map.get("p3_pf");
 		p3_md = (Double) map.get("p3_md");
 		p3_tdh = (Double) map.get("p3_tdh");
@@ -769,11 +781,11 @@ public abstract class Basemeter_log extends BaseResource {
 
 		Object voltageObj = map.get("voltage");
 		if(voltageObj != null)
-			voltage = new Integer(voltageObj.toString());
+			voltage = new Double(voltageObj.toString());
 
 		Object currentObj = map.get("current");
 		if(currentObj != null)
-			current = new Integer(currentObj.toString());
+			current = new Double(currentObj.toString());
 
 		Object pfObj = map.get("pf");
 		if(pfObj != null)
@@ -797,11 +809,11 @@ public abstract class Basemeter_log extends BaseResource {
 
 		Object p1_voltageObj = map.get("p1_voltage");
 		if(p1_voltageObj != null)
-			p1_voltage = new Integer(p1_voltageObj.toString());
+			p1_voltage = new Double(p1_voltageObj.toString());
 
 		Object p1_currentObj = map.get("p1_current");
 		if(p1_currentObj != null)
-			p1_current = new Integer(p1_currentObj.toString());
+			p1_current = new Double(p1_currentObj.toString());
 
 		Object p1_pfObj = map.get("p1_pf");
 		if(p1_pfObj != null)
@@ -821,7 +833,7 @@ public abstract class Basemeter_log extends BaseResource {
 
 		Object p1_frequencyObj = map.get("p1_frequency");
 		if(p1_frequencyObj != null)
-			p1_frequency = new Long(p1_frequencyObj.toString());
+			p1_frequency = new Double(p1_frequencyObj.toString());
 
 		Object p2_reading_kvahObj = map.get("p2_reading_kvah");
 		if(p2_reading_kvahObj != null)
@@ -841,11 +853,11 @@ public abstract class Basemeter_log extends BaseResource {
 
 		Object p2_voltageObj = map.get("p2_voltage");
 		if(p2_voltageObj != null)
-			p2_voltage = new Integer(p2_voltageObj.toString());
+			p2_voltage = new Double(p2_voltageObj.toString());
 
 		Object p2_currentObj = map.get("p2_current");
 		if(p2_currentObj != null)
-			p2_current = new Integer(p2_currentObj.toString());
+			p2_current = new Double(p2_currentObj.toString());
 
 		Object p2_pfObj = map.get("p2_pf");
 		if(p2_pfObj != null)
@@ -865,7 +877,7 @@ public abstract class Basemeter_log extends BaseResource {
 
 		Object p2_frequencyObj = map.get("p2_frequency");
 		if(p2_frequencyObj != null)
-			p2_frequency = new Long(p2_frequencyObj.toString());
+			p2_frequency = new Double(p2_frequencyObj.toString());
 
 		Object p3_reading_kvahObj = map.get("p3_reading_kvah");
 		if(p3_reading_kvahObj != null)
@@ -885,11 +897,11 @@ public abstract class Basemeter_log extends BaseResource {
 
 		Object p3_voltageObj = map.get("p3_voltage");
 		if(p3_voltageObj != null)
-			p3_voltage = new Integer(p3_voltageObj.toString());
+			p3_voltage = new Double(p3_voltageObj.toString());
 
 		Object p3_currentObj = map.get("p3_current");
 		if(p3_currentObj != null)
-			p3_current = new Integer(p3_currentObj.toString());
+			p3_current = new Double(p3_currentObj.toString());
 
 		Object p3_pfObj = map.get("p3_pf");
 		if(p3_pfObj != null)
@@ -1058,36 +1070,28 @@ public abstract class Basemeter_log extends BaseResource {
 		this.load_kw = 0.0000;
 	}
 
-	public Integer getVoltage() {
-		return voltage != null ? voltage : 0;
+	public Double getVoltage() {
+		return voltage != null ? voltage : 0.0000;
 	}
 
-	public void setVoltage(int voltage) {
-		this.voltage = voltage;
-	}
-
-	public void setVoltage(Integer voltage) {
+	public void setVoltage(Double voltage) {
 		this.voltage = voltage;
 	}
 
 	public void unSetVoltage() {
-		this.voltage = 0;
+		this.voltage = 0.0000;
 	}
 
-	public Integer getCurrent() {
-		return current != null ? current : 0;
+	public Double getCurrent() {
+		return current != null ? current : 0.0000;
 	}
 
-	public void setCurrent(int current) {
-		this.current = current;
-	}
-
-	public void setCurrent(Integer current) {
+	public void setCurrent(Double current) {
 		this.current = current;
 	}
 
 	public void unSetCurrent() {
-		this.current = 0;
+		this.current = 0.0000;
 	}
 
 	public Double getPf() {
@@ -1162,36 +1166,28 @@ public abstract class Basemeter_log extends BaseResource {
 		this.p1_load_kw = 0.0000;
 	}
 
-	public Integer getP1_voltage() {
-		return p1_voltage != null ? p1_voltage : 0;
+	public Double getP1_voltage() {
+		return p1_voltage != null ? p1_voltage : 0.0000;
 	}
 
-	public void setP1_voltage(int p1_voltage) {
-		this.p1_voltage = p1_voltage;
-	}
-
-	public void setP1_voltage(Integer p1_voltage) {
+	public void setP1_voltage(Double p1_voltage) {
 		this.p1_voltage = p1_voltage;
 	}
 
 	public void unSetP1_voltage() {
-		this.p1_voltage = 0;
+		this.p1_voltage = 0.0000;
 	}
 
-	public Integer getP1_current() {
-		return p1_current != null ? p1_current : 0;
+	public Double getP1_current() {
+		return p1_current != null ? p1_current : 0.0000;
 	}
 
-	public void setP1_current(int p1_current) {
-		this.p1_current = p1_current;
-	}
-
-	public void setP1_current(Integer p1_current) {
+	public void setP1_current(Double p1_current) {
 		this.p1_current = p1_current;
 	}
 
 	public void unSetP1_current() {
-		this.p1_current = 0;
+		this.p1_current = 0.0000;
 	}
 
 	public Double getP1_pf() {
@@ -1258,20 +1254,16 @@ public abstract class Basemeter_log extends BaseResource {
 		this.p1_kvarh = 0.0000;
 	}
 
-	public Long getP1_frequency() {
-		return p1_frequency != null ? p1_frequency : 0L;
+	public Double getP1_frequency() {
+		return p1_frequency != null ? p1_frequency : 0.0000;
 	}
 
-	public void setP1_frequency(long p1_frequency) {
-		this.p1_frequency = p1_frequency;
-	}
-
-	public void setP1_frequency(Long p1_frequency) {
+	public void setP1_frequency(Double p1_frequency) {
 		this.p1_frequency = p1_frequency;
 	}
 
 	public void unSetP1_frequency() {
-		this.p1_frequency = 0L;
+		this.p1_frequency = 0.0000;
 	}
 
 	public Double getP2_reading_kvah() {
@@ -1322,36 +1314,28 @@ public abstract class Basemeter_log extends BaseResource {
 		this.p2_load_kw = 0.0000;
 	}
 
-	public Integer getP2_voltage() {
-		return p2_voltage != null ? p2_voltage : 0;
+	public Double getP2_voltage() {
+		return p2_voltage != null ? p2_voltage : 0.0000;
 	}
 
-	public void setP2_voltage(int p2_voltage) {
-		this.p2_voltage = p2_voltage;
-	}
-
-	public void setP2_voltage(Integer p2_voltage) {
+	public void setP2_voltage(Double p2_voltage) {
 		this.p2_voltage = p2_voltage;
 	}
 
 	public void unSetP2_voltage() {
-		this.p2_voltage = 0;
+		this.p2_voltage = 0.0000;
 	}
 
-	public Integer getP2_current() {
-		return p2_current != null ? p2_current : 0;
+	public Double getP2_current() {
+		return p2_current != null ? p2_current : 0.0000;
 	}
 
-	public void setP2_current(int p2_current) {
-		this.p2_current = p2_current;
-	}
-
-	public void setP2_current(Integer p2_current) {
+	public void setP2_current(Double p2_current) {
 		this.p2_current = p2_current;
 	}
 
 	public void unSetP2_current() {
-		this.p2_current = 0;
+		this.p2_current = 0.0000;
 	}
 
 	public Double getP2_pf() {
@@ -1418,20 +1402,16 @@ public abstract class Basemeter_log extends BaseResource {
 		this.p2_kvarh = 0.0000;
 	}
 
-	public Long getP2_frequency() {
-		return p2_frequency != null ? p2_frequency : 0L;
+	public Double getP2_frequency() {
+		return p2_frequency != null ? p2_frequency : 0.0000;
 	}
 
-	public void setP2_frequency(long p2_frequency) {
-		this.p2_frequency = p2_frequency;
-	}
-
-	public void setP2_frequency(Long p2_frequency) {
+	public void setP2_frequency(Double p2_frequency) {
 		this.p2_frequency = p2_frequency;
 	}
 
 	public void unSetP2_frequency() {
-		this.p2_frequency = 0L;
+		this.p2_frequency = 0.0000;
 	}
 
 	public Double getP3_reading_kvah() {
@@ -1482,36 +1462,28 @@ public abstract class Basemeter_log extends BaseResource {
 		this.p3_load_kw = 0.0000;
 	}
 
-	public Integer getP3_voltage() {
-		return p3_voltage != null ? p3_voltage : 0;
+	public Double getP3_voltage() {
+		return p3_voltage != null ? p3_voltage : 0.0000;
 	}
 
-	public void setP3_voltage(int p3_voltage) {
-		this.p3_voltage = p3_voltage;
-	}
-
-	public void setP3_voltage(Integer p3_voltage) {
+	public void setP3_voltage(Double p3_voltage) {
 		this.p3_voltage = p3_voltage;
 	}
 
 	public void unSetP3_voltage() {
-		this.p3_voltage = 0;
+		this.p3_voltage = 0.0000;
 	}
 
-	public Integer getP3_current() {
-		return p3_current != null ? p3_current : 0;
+	public Double getP3_current() {
+		return p3_current != null ? p3_current : 0.0000;
 	}
 
-	public void setP3_current(int p3_current) {
-		this.p3_current = p3_current;
-	}
-
-	public void setP3_current(Integer p3_current) {
+	public void setP3_current(Double p3_current) {
 		this.p3_current = p3_current;
 	}
 
 	public void unSetP3_current() {
-		this.p3_current = 0;
+		this.p3_current = 0.0000;
 	}
 
 	public Double getP3_pf() {

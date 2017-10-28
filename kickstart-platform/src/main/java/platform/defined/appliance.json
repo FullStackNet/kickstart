@@ -37,6 +37,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'appliance_mf_profile_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'appliance_mf_profile_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'controller_name':
 			{
 				'length': 128,

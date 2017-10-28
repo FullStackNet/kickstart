@@ -25,6 +25,8 @@ public abstract class Baseappliance extends BaseResource {
 	private String threshold_templete_name = null;
 	private String controller_name = null;
 	private String controller_id = null;
+	private String appliance_mf_profile_id = null;
+	private String appliance_mf_profile_name = null;
 	private Long controller_port = null;
 	private String imei = null;
 	private String vin = null;
@@ -308,6 +310,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_THRESHOLD_TEMPLETE_NAME = "threshold_templete_name";
 	public static String FIELD_CONTROLLER_NAME = "controller_name";
 	public static String FIELD_CONTROLLER_ID = "controller_id";
+	public static String FIELD_APPLIANCE_MF_PROFILE_ID = "appliance_mf_profile_id";
+	public static String FIELD_APPLIANCE_MF_PROFILE_NAME = "appliance_mf_profile_name";
 	public static String FIELD_CONTROLLER_PORT = "controller_port";
 	public static String FIELD_IMEI = "imei";
 	public static String FIELD_VIN = "vin";
@@ -615,6 +619,14 @@ public abstract class Baseappliance extends BaseResource {
 		Field controller_idField = new Field("controller_id", "String");
 		controller_idField.setLength(128);
 		metaData.addField(controller_idField);
+
+		Field appliance_mf_profile_idField = new Field("appliance_mf_profile_id", "String");
+		appliance_mf_profile_idField.setLength(128);
+		metaData.addField(appliance_mf_profile_idField);
+
+		Field appliance_mf_profile_nameField = new Field("appliance_mf_profile_name", "String");
+		appliance_mf_profile_nameField.setLength(128);
+		metaData.addField(appliance_mf_profile_nameField);
 
 		Field controller_portField = new Field("controller_port", "long");
 		metaData.addField(controller_portField);
@@ -2037,6 +2049,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.threshold_templete_name = obj.threshold_templete_name;
 		this.controller_name = obj.controller_name;
 		this.controller_id = obj.controller_id;
+		this.appliance_mf_profile_id = obj.appliance_mf_profile_id;
+		this.appliance_mf_profile_name = obj.appliance_mf_profile_name;
 		this.controller_port = obj.controller_port;
 		this.imei = obj.imei;
 		this.vin = obj.vin;
@@ -2744,6 +2758,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("controller_name", controller_name);
 		if(controller_id != null)
 			map.put("controller_id", controller_id);
+		if(appliance_mf_profile_id != null)
+			map.put("appliance_mf_profile_id", appliance_mf_profile_id);
+		if(appliance_mf_profile_name != null)
+			map.put("appliance_mf_profile_name", appliance_mf_profile_name);
 		if(controller_port != null)
 			map.put("controller_port", controller_port);
 		if(imei != null)
@@ -3316,6 +3334,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("controller_name", controller_name);
 		if(controller_id != null)
 			map.put("controller_id", controller_id);
+		if(appliance_mf_profile_id != null)
+			map.put("appliance_mf_profile_id", appliance_mf_profile_id);
+		if(appliance_mf_profile_name != null)
+			map.put("appliance_mf_profile_name", appliance_mf_profile_name);
 		if(controller_port != null)
 			map.put("controller_port", controller_port);
 		if(imei != null)
@@ -3884,6 +3906,8 @@ public abstract class Baseappliance extends BaseResource {
 		threshold_templete_name = (String) map.get("threshold_templete_name");
 		controller_name = (String) map.get("controller_name");
 		controller_id = (String) map.get("controller_id");
+		appliance_mf_profile_id = (String) map.get("appliance_mf_profile_id");
+		appliance_mf_profile_name = (String) map.get("appliance_mf_profile_name");
 		controller_port = (Long) map.get("controller_port");
 		imei = (String) map.get("imei");
 		vin = (String) map.get("vin");
@@ -4181,6 +4205,14 @@ public abstract class Baseappliance extends BaseResource {
 		Object controller_idObj = map.get("controller_id");
 		if(controller_idObj != null)
 			controller_id = controller_idObj.toString();
+
+		Object appliance_mf_profile_idObj = map.get("appliance_mf_profile_id");
+		if(appliance_mf_profile_idObj != null)
+			appliance_mf_profile_id = appliance_mf_profile_idObj.toString();
+
+		Object appliance_mf_profile_nameObj = map.get("appliance_mf_profile_name");
+		if(appliance_mf_profile_nameObj != null)
+			appliance_mf_profile_name = appliance_mf_profile_nameObj.toString();
 
 		Object controller_portObj = map.get("controller_port");
 		if(controller_portObj != null)
@@ -5367,6 +5399,38 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetController_id() {
 		this.controller_id = null;
+	}
+
+	public String getAppliance_mf_profile_id() {
+		return appliance_mf_profile_id;
+	}
+
+	public String getAppliance_mf_profile_idEx() {
+		return appliance_mf_profile_id != null ? appliance_mf_profile_id : "";
+	}
+
+	public void setAppliance_mf_profile_id(String appliance_mf_profile_id) {
+		this.appliance_mf_profile_id = appliance_mf_profile_id;
+	}
+
+	public void unSetAppliance_mf_profile_id() {
+		this.appliance_mf_profile_id = null;
+	}
+
+	public String getAppliance_mf_profile_name() {
+		return appliance_mf_profile_name;
+	}
+
+	public String getAppliance_mf_profile_nameEx() {
+		return appliance_mf_profile_name != null ? appliance_mf_profile_name : "";
+	}
+
+	public void setAppliance_mf_profile_name(String appliance_mf_profile_name) {
+		this.appliance_mf_profile_name = appliance_mf_profile_name;
+	}
+
+	public void unSetAppliance_mf_profile_name() {
+		this.appliance_mf_profile_name = null;
 	}
 
 	public Long getController_port() {

@@ -19,13 +19,14 @@ public class ResourcesToGenerate {
 	 * Make sure there is a default constructor (with no args) in the extending class.
 	 */
 	public static ResourceMap[] resourceMaps =  {
-			new ResourceMap("server", "platform.resource.server"),
-			new ResourceMap("member_flat", "platform.resource.member_flat"),
+		new ResourceMap("server", "platform.resource.server"),
+		new ResourceMap("member_flat", "platform.resource.member_flat"),
 		new ResourceMap("activity", "platform.resource.activity"),
 		new ResourceMap("alert", "platform.resource.alert"),
 		new ResourceMap("appliance_simulator", "platform.resource.appliance_simulator"),
 		new ResourceMap("appliance_threshold_templete", "platform.resource.appliance_threshold_templete"),
 		new ResourceMap("appliance", "platform.resource.appliance"),
+		new ResourceMap("appliance_mf_profile", "platform.resource.appliance_mf_profile"),
 		new ResourceMap("meter_log", "platform.resource.meter_log"),
 		new ResourceMap("meter_hourly_log", "platform.resource.meter_hourly_log"),
 		new ResourceMap("meter_daily_log", "platform.resource.meter_daily_log"),

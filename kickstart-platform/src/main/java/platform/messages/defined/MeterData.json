@@ -25,215 +25,215 @@
 			},
 			'kwh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'kvah':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'kvarh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'kw':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'kva':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'pf':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'voltage':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'current':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'md':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'tdh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'frequency':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'kwh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'kvah':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'kvarh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'pf':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'voltage':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'current':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'md':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'tdh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'frequency':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_kwh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_kvah':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_kw':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_kva':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_kvarh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_pf':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_voltage':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_current':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_md':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_tdh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p1_frequency':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_kwh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_kvah':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_kw':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_kva':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_kvarh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_pf':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_voltage':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_current':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_md':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_tdh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p2_frequency':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_kwh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_kvah':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_kw':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_kva':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_kvarh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_pf':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_voltage':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_current':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_md':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_tdh':
 			{
-				'type':'long'
+				'type':'double'
 			},
 			'p3_frequency':
 			{
-				'type':'long'
+				'type':'double'
 			}
 		}
 	}

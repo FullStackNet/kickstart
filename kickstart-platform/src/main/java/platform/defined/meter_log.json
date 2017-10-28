@@ -63,15 +63,17 @@
 			},
 			'voltage':
 			{
-				'default':'0',
-				'length': 5,
-				'type':'int'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
 			},
 			'current':
 			{
-				'default':'0',
-				'length': 5,
-				'type':'int'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
 			},
 			'pf':
 			{
@@ -112,15 +114,17 @@
 			},
 			'p1_voltage':
 			{
-				'default':'0',
-				'length': 5,
-				'type':'int'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
 			},
 			'p1_current':
 			{
-				'default':'0',
-				'length': 5,
-				'type':'int'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
 			},
 			'p1_pf':
 			{
@@ -152,8 +156,10 @@
 			},
 			'p1_frequency':
 			{
-				'default':'0',
-				'type':'long'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
 			},
 
 			'p2_reading_kvah':
@@ -189,15 +195,17 @@
 			},
 			'p2_voltage':
 			{
-				'default':'0',
-				'length': 5,
-				'type':'int'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
 			},
 			'p2_current':
 			{
-				'default':'0',
-				'length': 5,
-				'type':'int'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
 			},
 			'p2_pf':
 			{
@@ -229,8 +237,10 @@
 			},
 			'p2_frequency':
 			{
-				'default':'0',
-				'type':'long'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
 			},
 
 			'p3_reading_kvah':
@@ -269,15 +279,17 @@
 
 			'p3_voltage':
 			{
-				'default':'0',
-				'length': 5,
-				'type':'int'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
 			},
 			'p3_current':
 			{
-				'default':'0',
-				'length': 5,
-				'type':'int'
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
 			},
 			'p3_pf':
 			{
