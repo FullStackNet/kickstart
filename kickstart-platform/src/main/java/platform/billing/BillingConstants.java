@@ -22,4 +22,11 @@ public class BillingConstants {
     public static String[] getBillingParameter() {
         return new String[]{BILLING_PARAMETER_KWH,BILLING_PARAMETER_KVAH};
     }
+
+    public static String BILLING_SOURCE_GRID = "GRID";
+    public static String BILLING_SOURCE_DG = "DG";
+
+    public static String[] getBillingSource() {
+        return new String[]{BILLING_SOURCE_GRID,BILLING_SOURCE_DG};
+    }
 }
