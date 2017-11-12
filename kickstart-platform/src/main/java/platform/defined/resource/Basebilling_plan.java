@@ -23,8 +23,10 @@ public abstract class Basebilling_plan extends BaseResource {
 	private String name = null;
 	private String type = null; //PREPAID/POSTPAID
 	private String grid_bill_type = null; //FLAT/SLAB
+	private Double grid_flat_rate = null;
 	private String grid_billing_parameter = null; //Kwh/Kvah
 	private String dg_billing_parameter = null; //Kwh/Kvah
+	private Double dg_flat_rate = null;
 	private String dg_bill_type = null; //FLAT/SLAB
 	private String grid_slab_id = null;
 	private String dg_slab_id = null;
@@ -38,8 +40,10 @@ public abstract class Basebilling_plan extends BaseResource {
 	public static String FIELD_NAME = "name";
 	public static String FIELD_TYPE = "type";
 	public static String FIELD_GRID_BILL_TYPE = "grid_bill_type";
+	public static String FIELD_GRID_FLAT_RATE = "grid_flat_rate";
 	public static String FIELD_GRID_BILLING_PARAMETER = "grid_billing_parameter";
 	public static String FIELD_DG_BILLING_PARAMETER = "dg_billing_parameter";
+	public static String FIELD_DG_FLAT_RATE = "dg_flat_rate";
 	public static String FIELD_DG_BILL_TYPE = "dg_bill_type";
 	public static String FIELD_GRID_SLAB_ID = "grid_slab_id";
 	public static String FIELD_DG_SLAB_ID = "dg_slab_id";
@@ -73,6 +77,9 @@ public abstract class Basebilling_plan extends BaseResource {
 		grid_bill_typeField.setLength(128);
 		metaData.addField(grid_bill_typeField);
 
+		Field grid_flat_rateField = new Field("grid_flat_rate", "Double");
+		metaData.addField(grid_flat_rateField);
+
 		Field grid_billing_parameterField = new Field("grid_billing_parameter", "String");
 		grid_billing_parameterField.setLength(128);
 		metaData.addField(grid_billing_parameterField);
@@ -80,6 +87,9 @@ public abstract class Basebilling_plan extends BaseResource {
 		Field dg_billing_parameterField = new Field("dg_billing_parameter", "String");
 		dg_billing_parameterField.setLength(128);
 		metaData.addField(dg_billing_parameterField);
+
+		Field dg_flat_rateField = new Field("dg_flat_rate", "Double");
+		metaData.addField(dg_flat_rateField);
 
 		Field dg_bill_typeField = new Field("dg_bill_type", "String");
 		dg_bill_typeField.setLength(128);
@@ -125,8 +135,10 @@ public abstract class Basebilling_plan extends BaseResource {
 		this.name = obj.name;
 		this.type = obj.type;
 		this.grid_bill_type = obj.grid_bill_type;
+		this.grid_flat_rate = obj.grid_flat_rate;
 		this.grid_billing_parameter = obj.grid_billing_parameter;
 		this.dg_billing_parameter = obj.dg_billing_parameter;
+		this.dg_flat_rate = obj.dg_flat_rate;
 		this.dg_bill_type = obj.dg_bill_type;
 		this.grid_slab_id = obj.grid_slab_id;
 		this.dg_slab_id = obj.dg_slab_id;
@@ -154,10 +166,14 @@ public abstract class Basebilling_plan extends BaseResource {
 			map.put("type", type);
 		if(grid_bill_type != null)
 			map.put("grid_bill_type", grid_bill_type);
+		if(grid_flat_rate != null)
+			map.put("grid_flat_rate", grid_flat_rate);
 		if(grid_billing_parameter != null)
 			map.put("grid_billing_parameter", grid_billing_parameter);
 		if(dg_billing_parameter != null)
 			map.put("dg_billing_parameter", dg_billing_parameter);
+		if(dg_flat_rate != null)
+			map.put("dg_flat_rate", dg_flat_rate);
 		if(dg_bill_type != null)
 			map.put("dg_bill_type", dg_bill_type);
 		if(grid_slab_id != null)
@@ -190,10 +206,14 @@ public abstract class Basebilling_plan extends BaseResource {
 			map.put("type", type);
 		if(grid_bill_type != null)
 			map.put("grid_bill_type", grid_bill_type);
+		if(grid_flat_rate != null)
+			map.put("grid_flat_rate", grid_flat_rate);
 		if(grid_billing_parameter != null)
 			map.put("grid_billing_parameter", grid_billing_parameter);
 		if(dg_billing_parameter != null)
 			map.put("dg_billing_parameter", dg_billing_parameter);
+		if(dg_flat_rate != null)
+			map.put("dg_flat_rate", dg_flat_rate);
 		if(dg_bill_type != null)
 			map.put("dg_bill_type", dg_bill_type);
 		if(grid_slab_id != null)
@@ -224,8 +244,10 @@ public abstract class Basebilling_plan extends BaseResource {
 		name = (String) map.get("name");
 		type = (String) map.get("type");
 		grid_bill_type = (String) map.get("grid_bill_type");
+		grid_flat_rate = (Double) map.get("grid_flat_rate");
 		grid_billing_parameter = (String) map.get("grid_billing_parameter");
 		dg_billing_parameter = (String) map.get("dg_billing_parameter");
+		dg_flat_rate = (Double) map.get("dg_flat_rate");
 		dg_bill_type = (String) map.get("dg_bill_type");
 		grid_slab_id = (String) map.get("grid_slab_id");
 		dg_slab_id = (String) map.get("dg_slab_id");
@@ -254,6 +276,10 @@ public abstract class Basebilling_plan extends BaseResource {
 		if(grid_bill_typeObj != null)
 			grid_bill_type = grid_bill_typeObj.toString();
 
+		Object grid_flat_rateObj = map.get("grid_flat_rate");
+		if(grid_flat_rateObj != null)
+			grid_flat_rate = new Double(grid_flat_rateObj.toString());
+
 		Object grid_billing_parameterObj = map.get("grid_billing_parameter");
 		if(grid_billing_parameterObj != null)
 			grid_billing_parameter = grid_billing_parameterObj.toString();
@@ -261,6 +287,10 @@ public abstract class Basebilling_plan extends BaseResource {
 		Object dg_billing_parameterObj = map.get("dg_billing_parameter");
 		if(dg_billing_parameterObj != null)
 			dg_billing_parameter = dg_billing_parameterObj.toString();
+
+		Object dg_flat_rateObj = map.get("dg_flat_rate");
+		if(dg_flat_rateObj != null)
+			dg_flat_rate = new Double(dg_flat_rateObj.toString());
 
 		Object dg_bill_typeObj = map.get("dg_bill_type");
 		if(dg_bill_typeObj != null)
@@ -375,6 +405,18 @@ public abstract class Basebilling_plan extends BaseResource {
 		this.grid_bill_type = null;
 	}
 
+	public Double getGrid_flat_rate() {
+		return grid_flat_rate;
+	}
+
+	public void setGrid_flat_rate(Double grid_flat_rate) {
+		this.grid_flat_rate = grid_flat_rate;
+	}
+
+	public void unSetGrid_flat_rate() {
+		this.grid_flat_rate = null;
+	}
+
 	public String getGrid_billing_parameter() {
 		return grid_billing_parameter;
 	}
@@ -405,6 +447,18 @@ public abstract class Basebilling_plan extends BaseResource {
 
 	public void unSetDg_billing_parameter() {
 		this.dg_billing_parameter = null;
+	}
+
+	public Double getDg_flat_rate() {
+		return dg_flat_rate;
+	}
+
+	public void setDg_flat_rate(Double dg_flat_rate) {
+		this.dg_flat_rate = dg_flat_rate;
+	}
+
+	public void unSetDg_flat_rate() {
+		this.dg_flat_rate = null;
 	}
 
 	public String getDg_bill_type() {

@@ -29,6 +29,10 @@
 				'type':'String',
 				'comment' : "FLAT/SLAB"
 			},
+			'grid_flat_rate':
+			{
+				'type':'Double'
+			},
 			'grid_billing_parameter':
 			{
 				'length': 128,
@@ -40,6 +44,10 @@
 				'length': 128,
 				'type':'String',
 				'comment' : "Kwh/Kvah"
+			},
+			'dg_flat_rate':
+			{
+				'type':'Double'
 			},
 			'dg_bill_type':
 			{
