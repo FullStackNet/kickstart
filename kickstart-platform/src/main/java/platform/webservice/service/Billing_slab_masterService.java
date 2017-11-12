@@ -2,10 +2,10 @@ package platform.webservice.service;
 
 import platform.exception.ExceptionEnum;
 import platform.helper.Billing_planHelper;
-import platform.helper.CustomerHelper;
+import platform.helper.Billing_slab_masterHelper;
 import platform.resource.BaseResource;
 import platform.resource.billing_plan;
-import platform.resource.customer;
+import platform.resource.billing_slab_master;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
 import platform.webservice.BaseService;
@@ -14,13 +14,13 @@ import platform.webservice.WebServiceContants;
 
 import java.util.Map;
 
-public class Billing_planService extends BaseService{
-	public Billing_planService() {
-		super(Billing_planHelper.getInstance(),new billing_plan());
+public class Billing_slab_masterService extends BaseService{
+	public Billing_slab_masterService() {
+		super(Billing_slab_masterHelper.getInstance(),new billing_slab_master());
 	}
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
-		billing_plan _resource = (billing_plan)resource;
+		billing_slab_master _resource = (billing_slab_master)resource;
 		_resource.setCustomer_id(ctx.getCustomerId());
 		getHelper().add(resource);
 	}

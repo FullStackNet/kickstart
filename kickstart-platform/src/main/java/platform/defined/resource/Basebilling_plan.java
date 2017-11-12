@@ -22,20 +22,30 @@ public abstract class Basebilling_plan extends BaseResource {
 	private String id = null;
 	private String name = null;
 	private String type = null; //PREPAID/POSTPAID
+	private String grid_bill_type = null; //FLAT/SLAB
+	private String grid_billing_parameter = null; //Kwh/Kvah
+	private String dg_billing_parameter = null; //Kwh/Kvah
+	private String dg_bill_type = null; //FLAT/SLAB
 	private String grid_slab_id = null;
 	private String dg_slab_id = null;
 	private Long dg_free_unit = null;
 	private Long grid_free_unit = null;
+	private String customer_id = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
 	public static String FIELD_TYPE = "type";
+	public static String FIELD_GRID_BILL_TYPE = "grid_bill_type";
+	public static String FIELD_GRID_BILLING_PARAMETER = "grid_billing_parameter";
+	public static String FIELD_DG_BILLING_PARAMETER = "dg_billing_parameter";
+	public static String FIELD_DG_BILL_TYPE = "dg_bill_type";
 	public static String FIELD_GRID_SLAB_ID = "grid_slab_id";
 	public static String FIELD_DG_SLAB_ID = "dg_slab_id";
 	public static String FIELD_DG_FREE_UNIT = "dg_free_unit";
 	public static String FIELD_GRID_FREE_UNIT = "grid_free_unit";
+	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -59,6 +69,22 @@ public abstract class Basebilling_plan extends BaseResource {
 		typeField.setLength(128);
 		metaData.addField(typeField);
 
+		Field grid_bill_typeField = new Field("grid_bill_type", "String");
+		grid_bill_typeField.setLength(128);
+		metaData.addField(grid_bill_typeField);
+
+		Field grid_billing_parameterField = new Field("grid_billing_parameter", "String");
+		grid_billing_parameterField.setLength(128);
+		metaData.addField(grid_billing_parameterField);
+
+		Field dg_billing_parameterField = new Field("dg_billing_parameter", "String");
+		dg_billing_parameterField.setLength(128);
+		metaData.addField(dg_billing_parameterField);
+
+		Field dg_bill_typeField = new Field("dg_bill_type", "String");
+		dg_bill_typeField.setLength(128);
+		metaData.addField(dg_bill_typeField);
+
 		Field grid_slab_idField = new Field("grid_slab_id", "String");
 		grid_slab_idField.setLength(128);
 		metaData.addField(grid_slab_idField);
@@ -72,6 +98,10 @@ public abstract class Basebilling_plan extends BaseResource {
 
 		Field grid_free_unitField = new Field("grid_free_unit", "long");
 		metaData.addField(grid_free_unitField);
+
+		Field customer_idField = new Field("customer_id", "String");
+		customer_idField.setLength(128);
+		metaData.addField(customer_idField);
 
 		Field creation_timeField = new Field("creation_time", "timestamp");
 		creation_timeField.setRequired(true);
@@ -94,10 +124,15 @@ public abstract class Basebilling_plan extends BaseResource {
 		this.id = obj.id;
 		this.name = obj.name;
 		this.type = obj.type;
+		this.grid_bill_type = obj.grid_bill_type;
+		this.grid_billing_parameter = obj.grid_billing_parameter;
+		this.dg_billing_parameter = obj.dg_billing_parameter;
+		this.dg_bill_type = obj.dg_bill_type;
 		this.grid_slab_id = obj.grid_slab_id;
 		this.dg_slab_id = obj.dg_slab_id;
 		this.dg_free_unit = obj.dg_free_unit;
 		this.grid_free_unit = obj.grid_free_unit;
+		this.customer_id = obj.customer_id;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
 	}
@@ -117,6 +152,14 @@ public abstract class Basebilling_plan extends BaseResource {
 			map.put("name", name);
 		if(type != null)
 			map.put("type", type);
+		if(grid_bill_type != null)
+			map.put("grid_bill_type", grid_bill_type);
+		if(grid_billing_parameter != null)
+			map.put("grid_billing_parameter", grid_billing_parameter);
+		if(dg_billing_parameter != null)
+			map.put("dg_billing_parameter", dg_billing_parameter);
+		if(dg_bill_type != null)
+			map.put("dg_bill_type", dg_bill_type);
 		if(grid_slab_id != null)
 			map.put("grid_slab_id", grid_slab_id);
 		if(dg_slab_id != null)
@@ -125,6 +168,8 @@ public abstract class Basebilling_plan extends BaseResource {
 			map.put("dg_free_unit", dg_free_unit);
 		if(grid_free_unit != null)
 			map.put("grid_free_unit", grid_free_unit);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(creation_time != null)
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -143,6 +188,14 @@ public abstract class Basebilling_plan extends BaseResource {
 			map.put("name", name);
 		if(type != null)
 			map.put("type", type);
+		if(grid_bill_type != null)
+			map.put("grid_bill_type", grid_bill_type);
+		if(grid_billing_parameter != null)
+			map.put("grid_billing_parameter", grid_billing_parameter);
+		if(dg_billing_parameter != null)
+			map.put("dg_billing_parameter", dg_billing_parameter);
+		if(dg_bill_type != null)
+			map.put("dg_bill_type", dg_bill_type);
 		if(grid_slab_id != null)
 			map.put("grid_slab_id", grid_slab_id);
 		if(dg_slab_id != null)
@@ -151,6 +204,8 @@ public abstract class Basebilling_plan extends BaseResource {
 			map.put("dg_free_unit", dg_free_unit);
 		if(grid_free_unit != null)
 			map.put("grid_free_unit", grid_free_unit);
+		if(customer_id != null)
+			map.put("customer_id", customer_id);
 		if(validateCreation_time(add))
 			map.put("creation_time", creation_time);
 		if(extra_data != null)
@@ -168,10 +223,15 @@ public abstract class Basebilling_plan extends BaseResource {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
 		type = (String) map.get("type");
+		grid_bill_type = (String) map.get("grid_bill_type");
+		grid_billing_parameter = (String) map.get("grid_billing_parameter");
+		dg_billing_parameter = (String) map.get("dg_billing_parameter");
+		dg_bill_type = (String) map.get("dg_bill_type");
 		grid_slab_id = (String) map.get("grid_slab_id");
 		dg_slab_id = (String) map.get("dg_slab_id");
 		dg_free_unit = (Long) map.get("dg_free_unit");
 		grid_free_unit = (Long) map.get("grid_free_unit");
+		customer_id = (String) map.get("customer_id");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -190,6 +250,22 @@ public abstract class Basebilling_plan extends BaseResource {
 		if(typeObj != null)
 			type = typeObj.toString();
 
+		Object grid_bill_typeObj = map.get("grid_bill_type");
+		if(grid_bill_typeObj != null)
+			grid_bill_type = grid_bill_typeObj.toString();
+
+		Object grid_billing_parameterObj = map.get("grid_billing_parameter");
+		if(grid_billing_parameterObj != null)
+			grid_billing_parameter = grid_billing_parameterObj.toString();
+
+		Object dg_billing_parameterObj = map.get("dg_billing_parameter");
+		if(dg_billing_parameterObj != null)
+			dg_billing_parameter = dg_billing_parameterObj.toString();
+
+		Object dg_bill_typeObj = map.get("dg_bill_type");
+		if(dg_bill_typeObj != null)
+			dg_bill_type = dg_bill_typeObj.toString();
+
 		Object grid_slab_idObj = map.get("grid_slab_id");
 		if(grid_slab_idObj != null)
 			grid_slab_id = grid_slab_idObj.toString();
@@ -205,6 +281,10 @@ public abstract class Basebilling_plan extends BaseResource {
 		Object grid_free_unitObj = map.get("grid_free_unit");
 		if(grid_free_unitObj != null)
 			grid_free_unit = new Long(grid_free_unitObj.toString());
+
+		Object customer_idObj = map.get("customer_id");
+		if(customer_idObj != null)
+			customer_id = customer_idObj.toString();
 
 		Object creation_timeObj = map.get("creation_time");
 		if(creation_timeObj != null)
@@ -279,6 +359,70 @@ public abstract class Basebilling_plan extends BaseResource {
 		this.type = null;
 	}
 
+	public String getGrid_bill_type() {
+		return grid_bill_type;
+	}
+
+	public String getGrid_bill_typeEx() {
+		return grid_bill_type != null ? grid_bill_type : "";
+	}
+
+	public void setGrid_bill_type(String grid_bill_type) {
+		this.grid_bill_type = grid_bill_type;
+	}
+
+	public void unSetGrid_bill_type() {
+		this.grid_bill_type = null;
+	}
+
+	public String getGrid_billing_parameter() {
+		return grid_billing_parameter;
+	}
+
+	public String getGrid_billing_parameterEx() {
+		return grid_billing_parameter != null ? grid_billing_parameter : "";
+	}
+
+	public void setGrid_billing_parameter(String grid_billing_parameter) {
+		this.grid_billing_parameter = grid_billing_parameter;
+	}
+
+	public void unSetGrid_billing_parameter() {
+		this.grid_billing_parameter = null;
+	}
+
+	public String getDg_billing_parameter() {
+		return dg_billing_parameter;
+	}
+
+	public String getDg_billing_parameterEx() {
+		return dg_billing_parameter != null ? dg_billing_parameter : "";
+	}
+
+	public void setDg_billing_parameter(String dg_billing_parameter) {
+		this.dg_billing_parameter = dg_billing_parameter;
+	}
+
+	public void unSetDg_billing_parameter() {
+		this.dg_billing_parameter = null;
+	}
+
+	public String getDg_bill_type() {
+		return dg_bill_type;
+	}
+
+	public String getDg_bill_typeEx() {
+		return dg_bill_type != null ? dg_bill_type : "";
+	}
+
+	public void setDg_bill_type(String dg_bill_type) {
+		this.dg_bill_type = dg_bill_type;
+	}
+
+	public void unSetDg_bill_type() {
+		this.dg_bill_type = null;
+	}
+
 	public String getGrid_slab_id() {
 		return grid_slab_id;
 	}
@@ -349,6 +493,22 @@ public abstract class Basebilling_plan extends BaseResource {
 
 	public void unSetGrid_free_unit() {
 		this.grid_free_unit = null;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public String getCustomer_idEx() {
+		return customer_id != null ? customer_id : "";
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public void unSetCustomer_id() {
+		this.customer_id = null;
 	}
 
 	public Long getCreation_time() {

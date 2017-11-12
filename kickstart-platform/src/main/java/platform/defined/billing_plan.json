@@ -23,6 +23,30 @@
 				'type':'String',
 				'comment' : "PREPAID/POSTPAID"
 			},
+			'grid_bill_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comment' : "FLAT/SLAB"
+			},
+			'grid_billing_parameter':
+			{
+				'length': 128,
+				'type':'String',
+				'comment' : "Kwh/Kvah"
+			},
+			'dg_billing_parameter':
+			{
+				'length': 128,
+				'type':'String',
+				'comment' : "Kwh/Kvah"
+			},
+			'dg_bill_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comment' : "FLAT/SLAB"
+			},
 			'grid_slab_id':
 			{
 				'length': 128,
@@ -40,6 +64,11 @@
 			'grid_free_unit':
 			{
 				'type':'long'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
 			},
 			'creation_time': {
 				'name': 'creation_time',

@@ -1,0 +1,39 @@
+{
+	"billing_slab_master" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'source':
+			{
+				'length': 128,
+				'type':'String',
+				'comment' : "DG/GRID"
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time': {
+				'name': 'creation_time',
+				'default': 'CURRENT_TIMESTAMP',
+				'required': true,
+				'type': 'timestamp'
+			}
+		}
+	}
+}
