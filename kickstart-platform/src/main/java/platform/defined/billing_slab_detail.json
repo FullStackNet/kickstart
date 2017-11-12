@@ -1,0 +1,40 @@
+{
+	"billing_slab_detail" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'slab_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'start_value':
+			{
+				'type':'Double'
+			},
+			'end_value':
+			{
+				'type':'Double'
+			},
+			'rate':
+			{
+				'type':'Double'
+			},
+			'creation_time': {
+				'name': 'creation_time',
+				'default': 'CURRENT_TIMESTAMP',
+				'required': true,
+				'type': 'timestamp'
+			}
+		}
+	}
+}
