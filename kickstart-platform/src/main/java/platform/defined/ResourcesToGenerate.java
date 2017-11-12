@@ -22,6 +22,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("server", "platform.resource.server"),
 		new ResourceMap("member_flat", "platform.resource.member_flat"),
 		new ResourceMap("activity", "platform.resource.activity"),
+		new ResourceMap("billing_plan", "platform.resource.bill_plan"),
+		new ResourceMap("appliance_plan", "platform.resource.appliance_plan"),
 		new ResourceMap("alert", "platform.resource.alert"),
 		new ResourceMap("appliance_simulator", "platform.resource.appliance_simulator"),
 		new ResourceMap("appliance_threshold_templete", "platform.resource.appliance_threshold_templete"),

@@ -1,0 +1,52 @@
+{
+	"billing_plan" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'type':
+			{
+				'length': 128,
+				'type':'String',
+				'comment' : "PREPAID/POSTPAID"
+			},
+			'grid_slab_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dg_slab_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'dg_free_unit':
+			{
+				'type':'long'
+			},
+			'grid_free_unit':
+			{
+				'type':'long'
+			},
+			'creation_time': {
+				'name': 'creation_time',
+				'default': 'CURRENT_TIMESTAMP',
+				'required': true,
+				'type': 'timestamp'
+			}
+		}
+	}
+}
