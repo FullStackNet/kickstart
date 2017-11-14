@@ -29,7 +29,15 @@
 				'type':'String',
 				'comment' : "FLAT/SLAB"
 			},
+			'grid_sanction_load':
+			{
+				'type':'Double'
+			},
 			'grid_flat_rate':
+			{
+				'type':'Double'
+			},
+			'grid_fix_amount':
 			{
 				'type':'Double'
 			},
@@ -55,6 +63,10 @@
 				'type':'String',
 				'comment' : "FLAT/SLAB"
 			},
+			'dg_fix_amount':
+			{
+				'type':'Double'
+			},
 			'grid_slab_id':
 			{
 				'length': 128,
@@ -67,11 +79,59 @@
 			},
 			'dg_free_unit':
 			{
-				'type':'long'
+				'type':'double'
+			},
+			'dg_sanction_load':
+			{
+				'type':'Double'
+			},
+			'grid_electricity_duty':
+			{
+				'type':'double'
+			},
+			'grid_regulatory_surcharge':
+			{
+				'type':'double'
+			},
+			'grid_fuel_charge':
+			{
+				'type':'double'
 			},
 			'grid_free_unit':
 			{
-				'type':'long'
+				'type':'double'
+			},
+			'grid_cgst':
+			{
+				'type':'double'
+			},
+			'grid_sgst':
+			{
+				'type':'double'
+			},
+			'grid_igst':
+			{
+				'type':'double'
+			},
+			'grid_ugst':
+			{
+				'type':'double'
+			},
+			'dg_cgst':
+			{
+				'type':'double'
+			},
+			'dg_sgst':
+			{
+				'type':'double'
+			},
+			'dg_igst':
+			{
+				'type':'double'
+			},
+			'dg_ugst':
+			{
+				'type':'double'
 			},
 			'customer_id':
 			{
