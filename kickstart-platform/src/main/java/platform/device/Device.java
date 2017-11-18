@@ -22,7 +22,7 @@ public class Device {
 	public static String DEVICE_MODEL_ST_READER_1 = "ST-READER-1";
 	public static String DEVICE_MODEL_ST_TRACKER_1 = "ST-TRACKER-1";
 	public static String DEVICE_MODEL_MJ_AMR_CONTROLLER_1 = "MJ-AMR-CONTROLLER-1";
-	
+	public static String DEVICE_MODEL_VND_AMR_CONTROLLER_1 = "VND-AMR-CONTROLLER-1";
 
 	
 	
@@ -40,6 +40,7 @@ public class Device {
 	public static String DEVICE_MANAGER_KPP1 = "KPP1";
 	public static String DEVICE_MANAGER_ST = "ST";
 	public static String DEVICE_MANAGER_MJ = "MJ";
+	public static String DEVICE_MANAGER_VND = "VND";
 	
 	
 	
@@ -91,7 +92,8 @@ public class Device {
 				DEVICE_MANAGER_BTMREADER,
 				DEVICE_MANAGER_KPP1,
 				DEVICE_MANAGER_ST,
-				DEVICE_MANAGER_MJ
+				DEVICE_MANAGER_MJ,
+				DEVICE_MANAGER_VND
 		};
 		return list;
 	}
@@ -111,7 +113,8 @@ public class Device {
 				DEVICE_MODEL_KPP1_READER_1,
 				DEVICE_MODEL_ST_READER_1,
 				DEVICE_MODEL_ST_TRACKER_1,
-				DEVICE_MODEL_MJ_AMR_CONTROLLER_1
+				DEVICE_MODEL_MJ_AMR_CONTROLLER_1,
+				DEVICE_MODEL_VND_AMR_CONTROLLER_1
 		};
 		return list;
 	}
