@@ -106,7 +106,7 @@
 				'precision': 4,
 				'type':'Double'
 			},
-			'closing_kwh':
+			'closing_kvah':
 			{
 				'default':'0.0000',
 				'length': 12,
