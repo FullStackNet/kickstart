@@ -20,9 +20,14 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class Util {
-	public static Long uniqueNumber = new Long(0); 
+	public static Long uniqueNumber = new Long(0);
 
 
+	public static double getLimitedDouble(double number, int maxDigitsAfterDecimal) {
+		int multiplier = (int) Math.pow(10, maxDigitsAfterDecimal);
+		double truncated = (double) ((long) ((number) * multiplier)) / multiplier;
+		return truncated;
+	}
 	public static void pause(long mSecs) {
 		try {
 			Thread.sleep(mSecs);
