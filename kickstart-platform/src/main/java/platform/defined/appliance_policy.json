@@ -1,0 +1,80 @@
+{
+	"appliance_policy" :
+	{
+		"cluster": "DB_PROFILE",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'appliance_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'appliance_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'threshold_profile_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'threshold_profile_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'duration_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : 'Daily/weekly/monthly'
+			},
+			'day_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : 'Any Day/Working Day/Holiday'
+			},
+			'time_type':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : 'whole day/duration'
+			},
+			'from_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'to_time':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time': {
+				'name': 'creation_time',
+				'default': 'CURRENT_TIMESTAMP',
+				'required': true,
+				'type': 'timestamp'
+			}
+		}
+	}
+}

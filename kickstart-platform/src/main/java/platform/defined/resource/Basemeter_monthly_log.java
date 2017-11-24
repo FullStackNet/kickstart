@@ -36,6 +36,7 @@ public abstract class Basemeter_monthly_log extends BaseResource {
 	private Double closing_kwh = null;
 	private Double opening_kvah = null;
 	private Double kvah = null;
+	private Double closing_kvah = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -55,6 +56,7 @@ public abstract class Basemeter_monthly_log extends BaseResource {
 	public static String FIELD_CLOSING_KWH = "closing_kwh";
 	public static String FIELD_OPENING_KVAH = "opening_kvah";
 	public static String FIELD_KVAH = "kvah";
+	public static String FIELD_CLOSING_KVAH = "closing_kvah";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -142,6 +144,12 @@ public abstract class Basemeter_monthly_log extends BaseResource {
 		kvahField.setPrecision(4);
 		metaData.addField(kvahField);
 
+		Field closing_kvahField = new Field("closing_kvah", "Double");
+		closing_kvahField.setDefaultValue(0.0000);
+		closing_kvahField.setLength(12);
+		closing_kvahField.setPrecision(4);
+		metaData.addField(closing_kvahField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -172,6 +180,7 @@ public abstract class Basemeter_monthly_log extends BaseResource {
 		this.closing_kwh = obj.closing_kwh;
 		this.opening_kvah = obj.opening_kvah;
 		this.kvah = obj.kvah;
+		this.closing_kvah = obj.closing_kvah;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -190,6 +199,8 @@ public abstract class Basemeter_monthly_log extends BaseResource {
 			opening_kvah = 0.0000;
 		if(kvah == null)
 			kvah = 0.0000;
+		if(closing_kvah == null)
+			closing_kvah = 0.0000;
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -228,6 +239,8 @@ public abstract class Basemeter_monthly_log extends BaseResource {
 			map.put("opening_kvah", opening_kvah);
 		if(kvah != null)
 			map.put("kvah", kvah);
+		if(closing_kvah != null)
+			map.put("closing_kvah", closing_kvah);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -272,6 +285,8 @@ public abstract class Basemeter_monthly_log extends BaseResource {
 			map.put("opening_kvah", opening_kvah);
 		if(kvah != null)
 			map.put("kvah", kvah);
+		if(closing_kvah != null)
+			map.put("closing_kvah", closing_kvah);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -301,6 +316,7 @@ public abstract class Basemeter_monthly_log extends BaseResource {
 		closing_kwh = (Double) map.get("closing_kwh");
 		opening_kvah = (Double) map.get("opening_kvah");
 		kvah = (Double) map.get("kvah");
+		closing_kvah = (Double) map.get("closing_kvah");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -373,6 +389,10 @@ public abstract class Basemeter_monthly_log extends BaseResource {
 		Object kvahObj = map.get("kvah");
 		if(kvahObj != null)
 			kvah = new Double(kvahObj.toString());
+
+		Object closing_kvahObj = map.get("closing_kvah");
+		if(closing_kvahObj != null)
+			closing_kvah = new Double(closing_kvahObj.toString());
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -656,6 +676,18 @@ public abstract class Basemeter_monthly_log extends BaseResource {
 
 	public void unSetKvah() {
 		this.kvah = 0.0000;
+	}
+
+	public Double getClosing_kvah() {
+		return closing_kvah != null ? closing_kvah : 0.0000;
+	}
+
+	public void setClosing_kvah(Double closing_kvah) {
+		this.closing_kvah = closing_kvah;
+	}
+
+	public void unSetClosing_kvah() {
+		this.closing_kvah = 0.0000;
 	}
 
 	public Map<String, Object> getExtra_data() {
