@@ -26,6 +26,7 @@ public abstract class Baseappliance_policy extends BaseResource {
 	private String threshold_profile_id = null;
 	private String threshold_profile_name = null;
 	private String duration_type = null;
+	private String season = null;
 	private String day_type = null;
 	private String time_type = null;
 	private String from_time = null;
@@ -41,6 +42,7 @@ public abstract class Baseappliance_policy extends BaseResource {
 	public static String FIELD_THRESHOLD_PROFILE_ID = "threshold_profile_id";
 	public static String FIELD_THRESHOLD_PROFILE_NAME = "threshold_profile_name";
 	public static String FIELD_DURATION_TYPE = "duration_type";
+	public static String FIELD_SEASON = "season";
 	public static String FIELD_DAY_TYPE = "day_type";
 	public static String FIELD_TIME_TYPE = "time_type";
 	public static String FIELD_FROM_TIME = "from_time";
@@ -83,6 +85,10 @@ public abstract class Baseappliance_policy extends BaseResource {
 		Field duration_typeField = new Field("duration_type", "String");
 		duration_typeField.setLength(128);
 		metaData.addField(duration_typeField);
+
+		Field seasonField = new Field("season", "String");
+		seasonField.setLength(128);
+		metaData.addField(seasonField);
 
 		Field day_typeField = new Field("day_type", "String");
 		day_typeField.setLength(128);
@@ -129,6 +135,7 @@ public abstract class Baseappliance_policy extends BaseResource {
 		this.threshold_profile_id = obj.threshold_profile_id;
 		this.threshold_profile_name = obj.threshold_profile_name;
 		this.duration_type = obj.duration_type;
+		this.season = obj.season;
 		this.day_type = obj.day_type;
 		this.time_type = obj.time_type;
 		this.from_time = obj.from_time;
@@ -161,6 +168,8 @@ public abstract class Baseappliance_policy extends BaseResource {
 			map.put("threshold_profile_name", threshold_profile_name);
 		if(duration_type != null)
 			map.put("duration_type", duration_type);
+		if(season != null)
+			map.put("season", season);
 		if(day_type != null)
 			map.put("day_type", day_type);
 		if(time_type != null)
@@ -197,6 +206,8 @@ public abstract class Baseappliance_policy extends BaseResource {
 			map.put("threshold_profile_name", threshold_profile_name);
 		if(duration_type != null)
 			map.put("duration_type", duration_type);
+		if(season != null)
+			map.put("season", season);
 		if(day_type != null)
 			map.put("day_type", day_type);
 		if(time_type != null)
@@ -228,6 +239,7 @@ public abstract class Baseappliance_policy extends BaseResource {
 		threshold_profile_id = (String) map.get("threshold_profile_id");
 		threshold_profile_name = (String) map.get("threshold_profile_name");
 		duration_type = (String) map.get("duration_type");
+		season = (String) map.get("season");
 		day_type = (String) map.get("day_type");
 		time_type = (String) map.get("time_type");
 		from_time = (String) map.get("from_time");
@@ -266,6 +278,10 @@ public abstract class Baseappliance_policy extends BaseResource {
 		Object duration_typeObj = map.get("duration_type");
 		if(duration_typeObj != null)
 			duration_type = duration_typeObj.toString();
+
+		Object seasonObj = map.get("season");
+		if(seasonObj != null)
+			season = seasonObj.toString();
 
 		Object day_typeObj = map.get("day_type");
 		if(day_typeObj != null)
@@ -416,6 +432,22 @@ public abstract class Baseappliance_policy extends BaseResource {
 
 	public void unSetDuration_type() {
 		this.duration_type = null;
+	}
+
+	public String getSeason() {
+		return season;
+	}
+
+	public String getSeasonEx() {
+		return season != null ? season : "";
+	}
+
+	public void setSeason(String season) {
+		this.season = season;
+	}
+
+	public void unSetSeason() {
+		this.season = null;
 	}
 
 	public String getDay_type() {

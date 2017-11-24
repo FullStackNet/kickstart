@@ -42,6 +42,12 @@
 				'type':'String',
 				'comments' : 'Daily/weekly/monthly'
 			},
+			'season':
+			{
+				'length': 128,
+				'type':'String',
+				'comments' : 'All/Winter/Summar/Rainy'
+			},
 			'day_type':
 			{
 				'length': 128,
