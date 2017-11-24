@@ -17,4 +17,5 @@ public class Appliance_policyHelper extends BaseHelper {
 			instance = new Appliance_policyHelper();
 		return instance;
 	}
+
 }
