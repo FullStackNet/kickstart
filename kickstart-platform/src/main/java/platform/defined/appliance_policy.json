@@ -16,12 +16,12 @@
 				'length': 128,
 				'type':'String'
 			},
-			'appliance_id':
+			'group_id':
 			{
 				'length': 128,
 				'type':'String'
 			},
-			'appliance_name':
+			'group_name':
 			{
 				'length': 128,
 				'type':'String'

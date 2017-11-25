@@ -1,5 +1,8 @@
 package platform.helper;
 
+import platform.db.Expression;
+import platform.db.REL_OP;
+import platform.resource.BaseResource;
 import platform.resource.activity;
 import platform.resource.appliance_policy;
 
@@ -18,4 +21,8 @@ public class Appliance_policyHelper extends BaseHelper {
 		return instance;
 	}
 
+	public BaseResource[] getGroupPolicies(String groupId) {
+		Expression e = new Expression(appliance_policy.FIELD_GROUP_ID, REL_OP.EQ,groupId);
+		return getByExpression(e);
+	}
 }

@@ -21,8 +21,8 @@ import java.util.*;
 public abstract class Baseappliance_policy extends BaseResource {
 	private String id = null;
 	private String name = null;
-	private String appliance_id = null;
-	private String appliance_name = null;
+	private String group_id = null;
+	private String group_name = null;
 	private String threshold_profile_id = null;
 	private String threshold_profile_name = null;
 	private String duration_type = null;
@@ -37,8 +37,8 @@ public abstract class Baseappliance_policy extends BaseResource {
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
-	public static String FIELD_APPLIANCE_ID = "appliance_id";
-	public static String FIELD_APPLIANCE_NAME = "appliance_name";
+	public static String FIELD_GROUP_ID = "group_id";
+	public static String FIELD_GROUP_NAME = "group_name";
 	public static String FIELD_THRESHOLD_PROFILE_ID = "threshold_profile_id";
 	public static String FIELD_THRESHOLD_PROFILE_NAME = "threshold_profile_name";
 	public static String FIELD_DURATION_TYPE = "duration_type";
@@ -66,13 +66,13 @@ public abstract class Baseappliance_policy extends BaseResource {
 		nameField.setLength(128);
 		metaData.addField(nameField);
 
-		Field appliance_idField = new Field("appliance_id", "String");
-		appliance_idField.setLength(128);
-		metaData.addField(appliance_idField);
+		Field group_idField = new Field("group_id", "String");
+		group_idField.setLength(128);
+		metaData.addField(group_idField);
 
-		Field appliance_nameField = new Field("appliance_name", "String");
-		appliance_nameField.setLength(128);
-		metaData.addField(appliance_nameField);
+		Field group_nameField = new Field("group_name", "String");
+		group_nameField.setLength(128);
+		metaData.addField(group_nameField);
 
 		Field threshold_profile_idField = new Field("threshold_profile_id", "String");
 		threshold_profile_idField.setLength(128);
@@ -130,8 +130,8 @@ public abstract class Baseappliance_policy extends BaseResource {
 	public Baseappliance_policy(Baseappliance_policy obj) {
 		this.id = obj.id;
 		this.name = obj.name;
-		this.appliance_id = obj.appliance_id;
-		this.appliance_name = obj.appliance_name;
+		this.group_id = obj.group_id;
+		this.group_name = obj.group_name;
 		this.threshold_profile_id = obj.threshold_profile_id;
 		this.threshold_profile_name = obj.threshold_profile_name;
 		this.duration_type = obj.duration_type;
@@ -158,10 +158,10 @@ public abstract class Baseappliance_policy extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
-		if(appliance_id != null)
-			map.put("appliance_id", appliance_id);
-		if(appliance_name != null)
-			map.put("appliance_name", appliance_name);
+		if(group_id != null)
+			map.put("group_id", group_id);
+		if(group_name != null)
+			map.put("group_name", group_name);
 		if(threshold_profile_id != null)
 			map.put("threshold_profile_id", threshold_profile_id);
 		if(threshold_profile_name != null)
@@ -196,10 +196,10 @@ public abstract class Baseappliance_policy extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
-		if(appliance_id != null)
-			map.put("appliance_id", appliance_id);
-		if(appliance_name != null)
-			map.put("appliance_name", appliance_name);
+		if(group_id != null)
+			map.put("group_id", group_id);
+		if(group_name != null)
+			map.put("group_name", group_name);
 		if(threshold_profile_id != null)
 			map.put("threshold_profile_id", threshold_profile_id);
 		if(threshold_profile_name != null)
@@ -234,8 +234,8 @@ public abstract class Baseappliance_policy extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
-		appliance_id = (String) map.get("appliance_id");
-		appliance_name = (String) map.get("appliance_name");
+		group_id = (String) map.get("group_id");
+		group_name = (String) map.get("group_name");
 		threshold_profile_id = (String) map.get("threshold_profile_id");
 		threshold_profile_name = (String) map.get("threshold_profile_name");
 		duration_type = (String) map.get("duration_type");
@@ -259,13 +259,13 @@ public abstract class Baseappliance_policy extends BaseResource {
 		if(nameObj != null)
 			name = nameObj.toString();
 
-		Object appliance_idObj = map.get("appliance_id");
-		if(appliance_idObj != null)
-			appliance_id = appliance_idObj.toString();
+		Object group_idObj = map.get("group_id");
+		if(group_idObj != null)
+			group_id = group_idObj.toString();
 
-		Object appliance_nameObj = map.get("appliance_name");
-		if(appliance_nameObj != null)
-			appliance_name = appliance_nameObj.toString();
+		Object group_nameObj = map.get("group_name");
+		if(group_nameObj != null)
+			group_name = group_nameObj.toString();
 
 		Object threshold_profile_idObj = map.get("threshold_profile_id");
 		if(threshold_profile_idObj != null)
@@ -354,36 +354,36 @@ public abstract class Baseappliance_policy extends BaseResource {
 		this.name = null;
 	}
 
-	public String getAppliance_id() {
-		return appliance_id;
+	public String getGroup_id() {
+		return group_id;
 	}
 
-	public String getAppliance_idEx() {
-		return appliance_id != null ? appliance_id : "";
+	public String getGroup_idEx() {
+		return group_id != null ? group_id : "";
 	}
 
-	public void setAppliance_id(String appliance_id) {
-		this.appliance_id = appliance_id;
+	public void setGroup_id(String group_id) {
+		this.group_id = group_id;
 	}
 
-	public void unSetAppliance_id() {
-		this.appliance_id = null;
+	public void unSetGroup_id() {
+		this.group_id = null;
 	}
 
-	public String getAppliance_name() {
-		return appliance_name;
+	public String getGroup_name() {
+		return group_name;
 	}
 
-	public String getAppliance_nameEx() {
-		return appliance_name != null ? appliance_name : "";
+	public String getGroup_nameEx() {
+		return group_name != null ? group_name : "";
 	}
 
-	public void setAppliance_name(String appliance_name) {
-		this.appliance_name = appliance_name;
+	public void setGroup_name(String group_name) {
+		this.group_name = group_name;
 	}
 
-	public void unSetAppliance_name() {
-		this.appliance_name = null;
+	public void unSetGroup_name() {
+		this.group_name = null;
 	}
 
 	public String getThreshold_profile_id() {
