@@ -1,5 +1,5 @@
 {
-	"appliance_policy_group" :
+	"appliance_policy" :
 	{
 		"cluster": "DB_PROFILE",
 		"fields":
@@ -12,6 +12,11 @@
 				'type':'String'
 			},
 			'name':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'appliance_type':
 			{
 				'length': 128,
 				'type':'String'

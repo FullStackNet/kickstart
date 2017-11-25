@@ -32,7 +32,7 @@ public abstract class Baseappliance_policy_group extends BaseResource {
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
-	private final static ResourceMetaData metaData = new ResourceMetaData("appliance_policy_group");
+	private final static ResourceMetaData metaData = new ResourceMetaData("appliance_policy");
 
 	static {
 		metaData.setCheckBeforeAdd(false);
@@ -60,7 +60,7 @@ public abstract class Baseappliance_policy_group extends BaseResource {
 		metaData.addField(extra_dataField);
 
 
-		metaData.setTableName("appliance_policy_group");
+		metaData.setTableName("appliance_policy");
 
 		metaData.setCluster("DB_PROFILE");
 	}

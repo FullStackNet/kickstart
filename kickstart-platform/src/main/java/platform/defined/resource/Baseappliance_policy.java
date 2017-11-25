@@ -21,32 +21,14 @@ import java.util.*;
 public abstract class Baseappliance_policy extends BaseResource {
 	private String id = null;
 	private String name = null;
-	private String group_id = null;
-	private String group_name = null;
-	private String threshold_profile_id = null;
-	private String threshold_profile_name = null;
-	private String duration_type = null;
-	private String season = null;
-	private String day_type = null;
-	private String time_type = null;
-	private String from_time = null;
-	private String to_time = null;
+	private String appliance_type = null;
 	private String customer_id = null;
 	private Long creation_time = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
 	public static String FIELD_NAME = "name";
-	public static String FIELD_GROUP_ID = "group_id";
-	public static String FIELD_GROUP_NAME = "group_name";
-	public static String FIELD_THRESHOLD_PROFILE_ID = "threshold_profile_id";
-	public static String FIELD_THRESHOLD_PROFILE_NAME = "threshold_profile_name";
-	public static String FIELD_DURATION_TYPE = "duration_type";
-	public static String FIELD_SEASON = "season";
-	public static String FIELD_DAY_TYPE = "day_type";
-	public static String FIELD_TIME_TYPE = "time_type";
-	public static String FIELD_FROM_TIME = "from_time";
-	public static String FIELD_TO_TIME = "to_time";
+	public static String FIELD_APPLIANCE_TYPE = "appliance_type";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -66,45 +48,9 @@ public abstract class Baseappliance_policy extends BaseResource {
 		nameField.setLength(128);
 		metaData.addField(nameField);
 
-		Field group_idField = new Field("group_id", "String");
-		group_idField.setLength(128);
-		metaData.addField(group_idField);
-
-		Field group_nameField = new Field("group_name", "String");
-		group_nameField.setLength(128);
-		metaData.addField(group_nameField);
-
-		Field threshold_profile_idField = new Field("threshold_profile_id", "String");
-		threshold_profile_idField.setLength(128);
-		metaData.addField(threshold_profile_idField);
-
-		Field threshold_profile_nameField = new Field("threshold_profile_name", "String");
-		threshold_profile_nameField.setLength(128);
-		metaData.addField(threshold_profile_nameField);
-
-		Field duration_typeField = new Field("duration_type", "String");
-		duration_typeField.setLength(128);
-		metaData.addField(duration_typeField);
-
-		Field seasonField = new Field("season", "String");
-		seasonField.setLength(128);
-		metaData.addField(seasonField);
-
-		Field day_typeField = new Field("day_type", "String");
-		day_typeField.setLength(128);
-		metaData.addField(day_typeField);
-
-		Field time_typeField = new Field("time_type", "String");
-		time_typeField.setLength(128);
-		metaData.addField(time_typeField);
-
-		Field from_timeField = new Field("from_time", "String");
-		from_timeField.setLength(128);
-		metaData.addField(from_timeField);
-
-		Field to_timeField = new Field("to_time", "String");
-		to_timeField.setLength(128);
-		metaData.addField(to_timeField);
+		Field appliance_typeField = new Field("appliance_type", "String");
+		appliance_typeField.setLength(128);
+		metaData.addField(appliance_typeField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(128);
@@ -130,16 +76,7 @@ public abstract class Baseappliance_policy extends BaseResource {
 	public Baseappliance_policy(Baseappliance_policy obj) {
 		this.id = obj.id;
 		this.name = obj.name;
-		this.group_id = obj.group_id;
-		this.group_name = obj.group_name;
-		this.threshold_profile_id = obj.threshold_profile_id;
-		this.threshold_profile_name = obj.threshold_profile_name;
-		this.duration_type = obj.duration_type;
-		this.season = obj.season;
-		this.day_type = obj.day_type;
-		this.time_type = obj.time_type;
-		this.from_time = obj.from_time;
-		this.to_time = obj.to_time;
+		this.appliance_type = obj.appliance_type;
 		this.customer_id = obj.customer_id;
 		this.creation_time = obj.creation_time;
 		this.extra_data = obj.extra_data;
@@ -158,26 +95,8 @@ public abstract class Baseappliance_policy extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
-		if(group_id != null)
-			map.put("group_id", group_id);
-		if(group_name != null)
-			map.put("group_name", group_name);
-		if(threshold_profile_id != null)
-			map.put("threshold_profile_id", threshold_profile_id);
-		if(threshold_profile_name != null)
-			map.put("threshold_profile_name", threshold_profile_name);
-		if(duration_type != null)
-			map.put("duration_type", duration_type);
-		if(season != null)
-			map.put("season", season);
-		if(day_type != null)
-			map.put("day_type", day_type);
-		if(time_type != null)
-			map.put("time_type", time_type);
-		if(from_time != null)
-			map.put("from_time", from_time);
-		if(to_time != null)
-			map.put("to_time", to_time);
+		if(appliance_type != null)
+			map.put("appliance_type", appliance_type);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(creation_time != null)
@@ -196,26 +115,8 @@ public abstract class Baseappliance_policy extends BaseResource {
 			map.put("id", id);
 		if(name != null)
 			map.put("name", name);
-		if(group_id != null)
-			map.put("group_id", group_id);
-		if(group_name != null)
-			map.put("group_name", group_name);
-		if(threshold_profile_id != null)
-			map.put("threshold_profile_id", threshold_profile_id);
-		if(threshold_profile_name != null)
-			map.put("threshold_profile_name", threshold_profile_name);
-		if(duration_type != null)
-			map.put("duration_type", duration_type);
-		if(season != null)
-			map.put("season", season);
-		if(day_type != null)
-			map.put("day_type", day_type);
-		if(time_type != null)
-			map.put("time_type", time_type);
-		if(from_time != null)
-			map.put("from_time", from_time);
-		if(to_time != null)
-			map.put("to_time", to_time);
+		if(appliance_type != null)
+			map.put("appliance_type", appliance_type);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(validateCreation_time(add))
@@ -234,16 +135,7 @@ public abstract class Baseappliance_policy extends BaseResource {
 	public void convertMapToResource(Map<String, Object> map) {
 		id = (String) map.get("id");
 		name = (String) map.get("name");
-		group_id = (String) map.get("group_id");
-		group_name = (String) map.get("group_name");
-		threshold_profile_id = (String) map.get("threshold_profile_id");
-		threshold_profile_name = (String) map.get("threshold_profile_name");
-		duration_type = (String) map.get("duration_type");
-		season = (String) map.get("season");
-		day_type = (String) map.get("day_type");
-		time_type = (String) map.get("time_type");
-		from_time = (String) map.get("from_time");
-		to_time = (String) map.get("to_time");
+		appliance_type = (String) map.get("appliance_type");
 		customer_id = (String) map.get("customer_id");
 		creation_time = (Long) map.get("creation_time");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -259,45 +151,9 @@ public abstract class Baseappliance_policy extends BaseResource {
 		if(nameObj != null)
 			name = nameObj.toString();
 
-		Object group_idObj = map.get("group_id");
-		if(group_idObj != null)
-			group_id = group_idObj.toString();
-
-		Object group_nameObj = map.get("group_name");
-		if(group_nameObj != null)
-			group_name = group_nameObj.toString();
-
-		Object threshold_profile_idObj = map.get("threshold_profile_id");
-		if(threshold_profile_idObj != null)
-			threshold_profile_id = threshold_profile_idObj.toString();
-
-		Object threshold_profile_nameObj = map.get("threshold_profile_name");
-		if(threshold_profile_nameObj != null)
-			threshold_profile_name = threshold_profile_nameObj.toString();
-
-		Object duration_typeObj = map.get("duration_type");
-		if(duration_typeObj != null)
-			duration_type = duration_typeObj.toString();
-
-		Object seasonObj = map.get("season");
-		if(seasonObj != null)
-			season = seasonObj.toString();
-
-		Object day_typeObj = map.get("day_type");
-		if(day_typeObj != null)
-			day_type = day_typeObj.toString();
-
-		Object time_typeObj = map.get("time_type");
-		if(time_typeObj != null)
-			time_type = time_typeObj.toString();
-
-		Object from_timeObj = map.get("from_time");
-		if(from_timeObj != null)
-			from_time = from_timeObj.toString();
-
-		Object to_timeObj = map.get("to_time");
-		if(to_timeObj != null)
-			to_time = to_timeObj.toString();
+		Object appliance_typeObj = map.get("appliance_type");
+		if(appliance_typeObj != null)
+			appliance_type = appliance_typeObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -354,164 +210,20 @@ public abstract class Baseappliance_policy extends BaseResource {
 		this.name = null;
 	}
 
-	public String getGroup_id() {
-		return group_id;
+	public String getAppliance_type() {
+		return appliance_type;
 	}
 
-	public String getGroup_idEx() {
-		return group_id != null ? group_id : "";
+	public String getAppliance_typeEx() {
+		return appliance_type != null ? appliance_type : "";
 	}
 
-	public void setGroup_id(String group_id) {
-		this.group_id = group_id;
+	public void setAppliance_type(String appliance_type) {
+		this.appliance_type = appliance_type;
 	}
 
-	public void unSetGroup_id() {
-		this.group_id = null;
-	}
-
-	public String getGroup_name() {
-		return group_name;
-	}
-
-	public String getGroup_nameEx() {
-		return group_name != null ? group_name : "";
-	}
-
-	public void setGroup_name(String group_name) {
-		this.group_name = group_name;
-	}
-
-	public void unSetGroup_name() {
-		this.group_name = null;
-	}
-
-	public String getThreshold_profile_id() {
-		return threshold_profile_id;
-	}
-
-	public String getThreshold_profile_idEx() {
-		return threshold_profile_id != null ? threshold_profile_id : "";
-	}
-
-	public void setThreshold_profile_id(String threshold_profile_id) {
-		this.threshold_profile_id = threshold_profile_id;
-	}
-
-	public void unSetThreshold_profile_id() {
-		this.threshold_profile_id = null;
-	}
-
-	public String getThreshold_profile_name() {
-		return threshold_profile_name;
-	}
-
-	public String getThreshold_profile_nameEx() {
-		return threshold_profile_name != null ? threshold_profile_name : "";
-	}
-
-	public void setThreshold_profile_name(String threshold_profile_name) {
-		this.threshold_profile_name = threshold_profile_name;
-	}
-
-	public void unSetThreshold_profile_name() {
-		this.threshold_profile_name = null;
-	}
-
-	public String getDuration_type() {
-		return duration_type;
-	}
-
-	public String getDuration_typeEx() {
-		return duration_type != null ? duration_type : "";
-	}
-
-	public void setDuration_type(String duration_type) {
-		this.duration_type = duration_type;
-	}
-
-	public void unSetDuration_type() {
-		this.duration_type = null;
-	}
-
-	public String getSeason() {
-		return season;
-	}
-
-	public String getSeasonEx() {
-		return season != null ? season : "";
-	}
-
-	public void setSeason(String season) {
-		this.season = season;
-	}
-
-	public void unSetSeason() {
-		this.season = null;
-	}
-
-	public String getDay_type() {
-		return day_type;
-	}
-
-	public String getDay_typeEx() {
-		return day_type != null ? day_type : "";
-	}
-
-	public void setDay_type(String day_type) {
-		this.day_type = day_type;
-	}
-
-	public void unSetDay_type() {
-		this.day_type = null;
-	}
-
-	public String getTime_type() {
-		return time_type;
-	}
-
-	public String getTime_typeEx() {
-		return time_type != null ? time_type : "";
-	}
-
-	public void setTime_type(String time_type) {
-		this.time_type = time_type;
-	}
-
-	public void unSetTime_type() {
-		this.time_type = null;
-	}
-
-	public String getFrom_time() {
-		return from_time;
-	}
-
-	public String getFrom_timeEx() {
-		return from_time != null ? from_time : "";
-	}
-
-	public void setFrom_time(String from_time) {
-		this.from_time = from_time;
-	}
-
-	public void unSetFrom_time() {
-		this.from_time = null;
-	}
-
-	public String getTo_time() {
-		return to_time;
-	}
-
-	public String getTo_timeEx() {
-		return to_time != null ? to_time : "";
-	}
-
-	public void setTo_time(String to_time) {
-		this.to_time = to_time;
-	}
-
-	public void unSetTo_time() {
-		this.to_time = null;
+	public void unSetAppliance_type() {
+		this.appliance_type = null;
 	}
 
 	public String getCustomer_id() {
