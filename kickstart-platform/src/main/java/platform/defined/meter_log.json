@@ -53,6 +53,13 @@
 				'precision': 4,
 				'type':'Double'
 			},
+			'load_kvar':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
 
 			'load_kw':
 			{
@@ -103,7 +110,13 @@
 				'precision': 4,
 				'type':'Double'
 			},
-
+			'p1_load_kvar':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
 			'p1_load_kw':
 			{
 				'name':'grid_reading',
@@ -185,7 +198,13 @@
 				'precision': 4,
 				'type':'Double'
 			},
-
+			'p2_load_kvar':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
 			'p2_load_kw':
 			{
 				'default':'0.0000',
@@ -268,7 +287,13 @@
 				'precision': 4,
 				'type':'Double'
 			},
-
+			'p3_load_kvar':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'Double'
+			},
 			'p3_load_kw':
 			{
 				'default':'0.0000',

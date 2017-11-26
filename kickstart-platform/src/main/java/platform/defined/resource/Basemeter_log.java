@@ -27,6 +27,7 @@ public abstract class Basemeter_log extends BaseResource {
 	private String timezone = null;
 	private Long creation_time = null;
 	private Double load_kva = null;
+	private Double load_kvar = null;
 	private Double load_kw = null;
 	private Double voltage = null;
 	private Double current = null;
@@ -34,6 +35,7 @@ public abstract class Basemeter_log extends BaseResource {
 	private Double md = null;
 	private Double tdh = null;
 	private Double p1_load_kva = null;
+	private Double p1_load_kvar = null;
 	private Double p1_load_kw = null;
 	private Double p1_voltage = null;
 	private Double p1_current = null;
@@ -45,6 +47,7 @@ public abstract class Basemeter_log extends BaseResource {
 	private Double p2_reading_kvah = null;
 	private Double p2_reading_kwh = null;
 	private Double p2_load_kva = null;
+	private Double p2_load_kvar = null;
 	private Double p2_load_kw = null;
 	private Double p2_voltage = null;
 	private Double p2_current = null;
@@ -56,6 +59,7 @@ public abstract class Basemeter_log extends BaseResource {
 	private Double p3_reading_kvah = null;
 	private Double p3_reading_kwh = null;
 	private Double p3_load_kva = null;
+	private Double p3_load_kvar = null;
 	private Double p3_load_kw = null;
 	private Double p3_voltage = null;
 	private Double p3_current = null;
@@ -72,6 +76,7 @@ public abstract class Basemeter_log extends BaseResource {
 	public static String FIELD_TIMEZONE = "timezone";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_LOAD_KVA = "load_kva";
+	public static String FIELD_LOAD_KVAR = "load_kvar";
 	public static String FIELD_LOAD_KW = "load_kw";
 	public static String FIELD_VOLTAGE = "voltage";
 	public static String FIELD_CURRENT = "current";
@@ -79,6 +84,7 @@ public abstract class Basemeter_log extends BaseResource {
 	public static String FIELD_MD = "md";
 	public static String FIELD_TDH = "tdh";
 	public static String FIELD_P1_LOAD_KVA = "p1_load_kva";
+	public static String FIELD_P1_LOAD_KVAR = "p1_load_kvar";
 	public static String FIELD_P1_LOAD_KW = "p1_load_kw";
 	public static String FIELD_P1_VOLTAGE = "p1_voltage";
 	public static String FIELD_P1_CURRENT = "p1_current";
@@ -90,6 +96,7 @@ public abstract class Basemeter_log extends BaseResource {
 	public static String FIELD_P2_READING_KVAH = "p2_reading_kvah";
 	public static String FIELD_P2_READING_KWH = "p2_reading_kwh";
 	public static String FIELD_P2_LOAD_KVA = "p2_load_kva";
+	public static String FIELD_P2_LOAD_KVAR = "p2_load_kvar";
 	public static String FIELD_P2_LOAD_KW = "p2_load_kw";
 	public static String FIELD_P2_VOLTAGE = "p2_voltage";
 	public static String FIELD_P2_CURRENT = "p2_current";
@@ -101,6 +108,7 @@ public abstract class Basemeter_log extends BaseResource {
 	public static String FIELD_P3_READING_KVAH = "p3_reading_kvah";
 	public static String FIELD_P3_READING_KWH = "p3_reading_kwh";
 	public static String FIELD_P3_LOAD_KVA = "p3_load_kva";
+	public static String FIELD_P3_LOAD_KVAR = "p3_load_kvar";
 	public static String FIELD_P3_LOAD_KW = "p3_load_kw";
 	public static String FIELD_P3_VOLTAGE = "p3_voltage";
 	public static String FIELD_P3_CURRENT = "p3_current";
@@ -151,6 +159,12 @@ public abstract class Basemeter_log extends BaseResource {
 		load_kvaField.setPrecision(4);
 		metaData.addField(load_kvaField);
 
+		Field load_kvarField = new Field("load_kvar", "Double");
+		load_kvarField.setDefaultValue(0.0000);
+		load_kvarField.setLength(12);
+		load_kvarField.setPrecision(4);
+		metaData.addField(load_kvarField);
+
 		Field load_kwField = new Field("load_kw", "Double");
 		load_kwField.setDefaultValue(0.0000);
 		load_kwField.setLength(12);
@@ -192,6 +206,12 @@ public abstract class Basemeter_log extends BaseResource {
 		p1_load_kvaField.setLength(12);
 		p1_load_kvaField.setPrecision(4);
 		metaData.addField(p1_load_kvaField);
+
+		Field p1_load_kvarField = new Field("p1_load_kvar", "Double");
+		p1_load_kvarField.setDefaultValue(0.0000);
+		p1_load_kvarField.setLength(12);
+		p1_load_kvarField.setPrecision(4);
+		metaData.addField(p1_load_kvarField);
 
 		Field p1_load_kwField = new Field("p1_load_kw", "Double");
 		p1_load_kwField.setDefaultValue(0.0000);
@@ -259,6 +279,12 @@ public abstract class Basemeter_log extends BaseResource {
 		p2_load_kvaField.setPrecision(4);
 		metaData.addField(p2_load_kvaField);
 
+		Field p2_load_kvarField = new Field("p2_load_kvar", "Double");
+		p2_load_kvarField.setDefaultValue(0.0000);
+		p2_load_kvarField.setLength(12);
+		p2_load_kvarField.setPrecision(4);
+		metaData.addField(p2_load_kvarField);
+
 		Field p2_load_kwField = new Field("p2_load_kw", "Double");
 		p2_load_kwField.setDefaultValue(0.0000);
 		p2_load_kwField.setLength(12);
@@ -325,6 +351,12 @@ public abstract class Basemeter_log extends BaseResource {
 		p3_load_kvaField.setPrecision(4);
 		metaData.addField(p3_load_kvaField);
 
+		Field p3_load_kvarField = new Field("p3_load_kvar", "Double");
+		p3_load_kvarField.setDefaultValue(0.0000);
+		p3_load_kvarField.setLength(12);
+		p3_load_kvarField.setPrecision(4);
+		metaData.addField(p3_load_kvarField);
+
 		Field p3_load_kwField = new Field("p3_load_kw", "Double");
 		p3_load_kwField.setDefaultValue(0.0000);
 		p3_load_kwField.setLength(12);
@@ -382,6 +414,7 @@ public abstract class Basemeter_log extends BaseResource {
 		this.timezone = obj.timezone;
 		this.creation_time = obj.creation_time;
 		this.load_kva = obj.load_kva;
+		this.load_kvar = obj.load_kvar;
 		this.load_kw = obj.load_kw;
 		this.voltage = obj.voltage;
 		this.current = obj.current;
@@ -389,6 +422,7 @@ public abstract class Basemeter_log extends BaseResource {
 		this.md = obj.md;
 		this.tdh = obj.tdh;
 		this.p1_load_kva = obj.p1_load_kva;
+		this.p1_load_kvar = obj.p1_load_kvar;
 		this.p1_load_kw = obj.p1_load_kw;
 		this.p1_voltage = obj.p1_voltage;
 		this.p1_current = obj.p1_current;
@@ -400,6 +434,7 @@ public abstract class Basemeter_log extends BaseResource {
 		this.p2_reading_kvah = obj.p2_reading_kvah;
 		this.p2_reading_kwh = obj.p2_reading_kwh;
 		this.p2_load_kva = obj.p2_load_kva;
+		this.p2_load_kvar = obj.p2_load_kvar;
 		this.p2_load_kw = obj.p2_load_kw;
 		this.p2_voltage = obj.p2_voltage;
 		this.p2_current = obj.p2_current;
@@ -411,6 +446,7 @@ public abstract class Basemeter_log extends BaseResource {
 		this.p3_reading_kvah = obj.p3_reading_kvah;
 		this.p3_reading_kwh = obj.p3_reading_kwh;
 		this.p3_load_kva = obj.p3_load_kva;
+		this.p3_load_kvar = obj.p3_load_kvar;
 		this.p3_load_kw = obj.p3_load_kw;
 		this.p3_voltage = obj.p3_voltage;
 		this.p3_current = obj.p3_current;
@@ -427,6 +463,8 @@ public abstract class Basemeter_log extends BaseResource {
 	private void setDefaultValues() {
 		if(load_kva == null)
 			load_kva = 0.0000;
+		if(load_kvar == null)
+			load_kvar = 0.0000;
 		if(load_kw == null)
 			load_kw = 0.0000;
 		if(voltage == null)
@@ -441,6 +479,8 @@ public abstract class Basemeter_log extends BaseResource {
 			tdh = 0.0000;
 		if(p1_load_kva == null)
 			p1_load_kva = 0.0000;
+		if(p1_load_kvar == null)
+			p1_load_kvar = 0.0000;
 		if(p1_load_kw == null)
 			p1_load_kw = 0.0000;
 		if(p1_voltage == null)
@@ -463,6 +503,8 @@ public abstract class Basemeter_log extends BaseResource {
 			p2_reading_kwh = 0.0000;
 		if(p2_load_kva == null)
 			p2_load_kva = 0.0000;
+		if(p2_load_kvar == null)
+			p2_load_kvar = 0.0000;
 		if(p2_load_kw == null)
 			p2_load_kw = 0.0000;
 		if(p2_voltage == null)
@@ -485,6 +527,8 @@ public abstract class Basemeter_log extends BaseResource {
 			p3_reading_kwh = 0.0000;
 		if(p3_load_kva == null)
 			p3_load_kva = 0.0000;
+		if(p3_load_kvar == null)
+			p3_load_kvar = 0.0000;
 		if(p3_load_kw == null)
 			p3_load_kw = 0.0000;
 		if(p3_voltage == null)
@@ -517,6 +561,8 @@ public abstract class Basemeter_log extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(load_kva != null)
 			map.put("load_kva", load_kva);
+		if(load_kvar != null)
+			map.put("load_kvar", load_kvar);
 		if(load_kw != null)
 			map.put("load_kw", load_kw);
 		if(voltage != null)
@@ -531,6 +577,8 @@ public abstract class Basemeter_log extends BaseResource {
 			map.put("tdh", tdh);
 		if(p1_load_kva != null)
 			map.put("p1_load_kva", p1_load_kva);
+		if(p1_load_kvar != null)
+			map.put("p1_load_kvar", p1_load_kvar);
 		if(p1_load_kw != null)
 			map.put("p1_load_kw", p1_load_kw);
 		if(p1_voltage != null)
@@ -553,6 +601,8 @@ public abstract class Basemeter_log extends BaseResource {
 			map.put("p2_reading_kwh", p2_reading_kwh);
 		if(p2_load_kva != null)
 			map.put("p2_load_kva", p2_load_kva);
+		if(p2_load_kvar != null)
+			map.put("p2_load_kvar", p2_load_kvar);
 		if(p2_load_kw != null)
 			map.put("p2_load_kw", p2_load_kw);
 		if(p2_voltage != null)
@@ -575,6 +625,8 @@ public abstract class Basemeter_log extends BaseResource {
 			map.put("p3_reading_kwh", p3_reading_kwh);
 		if(p3_load_kva != null)
 			map.put("p3_load_kva", p3_load_kva);
+		if(p3_load_kvar != null)
+			map.put("p3_load_kvar", p3_load_kvar);
 		if(p3_load_kw != null)
 			map.put("p3_load_kw", p3_load_kw);
 		if(p3_voltage != null)
@@ -613,6 +665,8 @@ public abstract class Basemeter_log extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(load_kva != null)
 			map.put("load_kva", load_kva);
+		if(load_kvar != null)
+			map.put("load_kvar", load_kvar);
 		if(load_kw != null)
 			map.put("load_kw", load_kw);
 		if(voltage != null)
@@ -627,6 +681,8 @@ public abstract class Basemeter_log extends BaseResource {
 			map.put("tdh", tdh);
 		if(p1_load_kva != null)
 			map.put("p1_load_kva", p1_load_kva);
+		if(p1_load_kvar != null)
+			map.put("p1_load_kvar", p1_load_kvar);
 		if(p1_load_kw != null)
 			map.put("p1_load_kw", p1_load_kw);
 		if(p1_voltage != null)
@@ -649,6 +705,8 @@ public abstract class Basemeter_log extends BaseResource {
 			map.put("p2_reading_kwh", p2_reading_kwh);
 		if(p2_load_kva != null)
 			map.put("p2_load_kva", p2_load_kva);
+		if(p2_load_kvar != null)
+			map.put("p2_load_kvar", p2_load_kvar);
 		if(p2_load_kw != null)
 			map.put("p2_load_kw", p2_load_kw);
 		if(p2_voltage != null)
@@ -671,6 +729,8 @@ public abstract class Basemeter_log extends BaseResource {
 			map.put("p3_reading_kwh", p3_reading_kwh);
 		if(p3_load_kva != null)
 			map.put("p3_load_kva", p3_load_kva);
+		if(p3_load_kvar != null)
+			map.put("p3_load_kvar", p3_load_kvar);
 		if(p3_load_kw != null)
 			map.put("p3_load_kw", p3_load_kw);
 		if(p3_voltage != null)
@@ -703,6 +763,7 @@ public abstract class Basemeter_log extends BaseResource {
 		timezone = (String) map.get("timezone");
 		creation_time = (Long) map.get("creation_time");
 		load_kva = (Double) map.get("load_kva");
+		load_kvar = (Double) map.get("load_kvar");
 		load_kw = (Double) map.get("load_kw");
 		voltage = (Double) map.get("voltage");
 		current = (Double) map.get("current");
@@ -710,6 +771,7 @@ public abstract class Basemeter_log extends BaseResource {
 		md = (Double) map.get("md");
 		tdh = (Double) map.get("tdh");
 		p1_load_kva = (Double) map.get("p1_load_kva");
+		p1_load_kvar = (Double) map.get("p1_load_kvar");
 		p1_load_kw = (Double) map.get("p1_load_kw");
 		p1_voltage = (Double) map.get("p1_voltage");
 		p1_current = (Double) map.get("p1_current");
@@ -721,6 +783,7 @@ public abstract class Basemeter_log extends BaseResource {
 		p2_reading_kvah = (Double) map.get("p2_reading_kvah");
 		p2_reading_kwh = (Double) map.get("p2_reading_kwh");
 		p2_load_kva = (Double) map.get("p2_load_kva");
+		p2_load_kvar = (Double) map.get("p2_load_kvar");
 		p2_load_kw = (Double) map.get("p2_load_kw");
 		p2_voltage = (Double) map.get("p2_voltage");
 		p2_current = (Double) map.get("p2_current");
@@ -732,6 +795,7 @@ public abstract class Basemeter_log extends BaseResource {
 		p3_reading_kvah = (Double) map.get("p3_reading_kvah");
 		p3_reading_kwh = (Double) map.get("p3_reading_kwh");
 		p3_load_kva = (Double) map.get("p3_load_kva");
+		p3_load_kvar = (Double) map.get("p3_load_kvar");
 		p3_load_kw = (Double) map.get("p3_load_kw");
 		p3_voltage = (Double) map.get("p3_voltage");
 		p3_current = (Double) map.get("p3_current");
@@ -775,6 +839,10 @@ public abstract class Basemeter_log extends BaseResource {
 		if(load_kvaObj != null)
 			load_kva = new Double(load_kvaObj.toString());
 
+		Object load_kvarObj = map.get("load_kvar");
+		if(load_kvarObj != null)
+			load_kvar = new Double(load_kvarObj.toString());
+
 		Object load_kwObj = map.get("load_kw");
 		if(load_kwObj != null)
 			load_kw = new Double(load_kwObj.toString());
@@ -802,6 +870,10 @@ public abstract class Basemeter_log extends BaseResource {
 		Object p1_load_kvaObj = map.get("p1_load_kva");
 		if(p1_load_kvaObj != null)
 			p1_load_kva = new Double(p1_load_kvaObj.toString());
+
+		Object p1_load_kvarObj = map.get("p1_load_kvar");
+		if(p1_load_kvarObj != null)
+			p1_load_kvar = new Double(p1_load_kvarObj.toString());
 
 		Object p1_load_kwObj = map.get("p1_load_kw");
 		if(p1_load_kwObj != null)
@@ -847,6 +919,10 @@ public abstract class Basemeter_log extends BaseResource {
 		if(p2_load_kvaObj != null)
 			p2_load_kva = new Double(p2_load_kvaObj.toString());
 
+		Object p2_load_kvarObj = map.get("p2_load_kvar");
+		if(p2_load_kvarObj != null)
+			p2_load_kvar = new Double(p2_load_kvarObj.toString());
+
 		Object p2_load_kwObj = map.get("p2_load_kw");
 		if(p2_load_kwObj != null)
 			p2_load_kw = new Double(p2_load_kwObj.toString());
@@ -890,6 +966,10 @@ public abstract class Basemeter_log extends BaseResource {
 		Object p3_load_kvaObj = map.get("p3_load_kva");
 		if(p3_load_kvaObj != null)
 			p3_load_kva = new Double(p3_load_kvaObj.toString());
+
+		Object p3_load_kvarObj = map.get("p3_load_kvar");
+		if(p3_load_kvarObj != null)
+			p3_load_kvar = new Double(p3_load_kvarObj.toString());
 
 		Object p3_load_kwObj = map.get("p3_load_kw");
 		if(p3_load_kwObj != null)
@@ -1058,6 +1138,18 @@ public abstract class Basemeter_log extends BaseResource {
 		this.load_kva = 0.0000;
 	}
 
+	public Double getLoad_kvar() {
+		return load_kvar != null ? load_kvar : 0.0000;
+	}
+
+	public void setLoad_kvar(Double load_kvar) {
+		this.load_kvar = load_kvar;
+	}
+
+	public void unSetLoad_kvar() {
+		this.load_kvar = 0.0000;
+	}
+
 	public Double getLoad_kw() {
 		return load_kw != null ? load_kw : 0.0000;
 	}
@@ -1152,6 +1244,18 @@ public abstract class Basemeter_log extends BaseResource {
 
 	public void unSetP1_load_kva() {
 		this.p1_load_kva = 0.0000;
+	}
+
+	public Double getP1_load_kvar() {
+		return p1_load_kvar != null ? p1_load_kvar : 0.0000;
+	}
+
+	public void setP1_load_kvar(Double p1_load_kvar) {
+		this.p1_load_kvar = p1_load_kvar;
+	}
+
+	public void unSetP1_load_kvar() {
+		this.p1_load_kvar = 0.0000;
 	}
 
 	public Double getP1_load_kw() {
@@ -1302,6 +1406,18 @@ public abstract class Basemeter_log extends BaseResource {
 		this.p2_load_kva = 0.0000;
 	}
 
+	public Double getP2_load_kvar() {
+		return p2_load_kvar != null ? p2_load_kvar : 0.0000;
+	}
+
+	public void setP2_load_kvar(Double p2_load_kvar) {
+		this.p2_load_kvar = p2_load_kvar;
+	}
+
+	public void unSetP2_load_kvar() {
+		this.p2_load_kvar = 0.0000;
+	}
+
 	public Double getP2_load_kw() {
 		return p2_load_kw != null ? p2_load_kw : 0.0000;
 	}
@@ -1448,6 +1564,18 @@ public abstract class Basemeter_log extends BaseResource {
 
 	public void unSetP3_load_kva() {
 		this.p3_load_kva = 0.0000;
+	}
+
+	public Double getP3_load_kvar() {
+		return p3_load_kvar != null ? p3_load_kvar : 0.0000;
+	}
+
+	public void setP3_load_kvar(Double p3_load_kvar) {
+		this.p3_load_kvar = p3_load_kvar;
+	}
+
+	public void unSetP3_load_kvar() {
+		this.p3_load_kvar = 0.0000;
 	}
 
 	public Double getP3_load_kw() {

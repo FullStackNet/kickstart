@@ -26,6 +26,7 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 	private Double kwh = null;
 	private Double load_kva = null;
 	private Double load_kw = null;
+	private Double load_kvar = null;
 	private Double voltage = null;
 	private Double current = null;
 	private Double pf = null;
@@ -43,6 +44,7 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 	public static String FIELD_KWH = "kwh";
 	public static String FIELD_LOAD_KVA = "load_kva";
 	public static String FIELD_LOAD_KW = "load_kw";
+	public static String FIELD_LOAD_KVAR = "load_kvar";
 	public static String FIELD_VOLTAGE = "voltage";
 	public static String FIELD_CURRENT = "current";
 	public static String FIELD_PF = "pf";
@@ -95,6 +97,12 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 		load_kwField.setLength(12);
 		load_kwField.setPrecision(4);
 		metaData.addField(load_kwField);
+
+		Field load_kvarField = new Field("load_kvar", "double");
+		load_kvarField.setDefaultValue(0.0000);
+		load_kvarField.setLength(12);
+		load_kvarField.setPrecision(4);
+		metaData.addField(load_kvarField);
 
 		Field voltageField = new Field("voltage", "double");
 		voltageField.setDefaultValue(0.00);
@@ -162,6 +170,7 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 		this.kwh = obj.kwh;
 		this.load_kva = obj.load_kva;
 		this.load_kw = obj.load_kw;
+		this.load_kvar = obj.load_kvar;
 		this.voltage = obj.voltage;
 		this.current = obj.current;
 		this.pf = obj.pf;
@@ -186,6 +195,8 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 			load_kva = 0.0000;
 		if(load_kw == null)
 			load_kw = 0.0000;
+		if(load_kvar == null)
+			load_kvar = 0.0000;
 		if(voltage == null)
 			voltage = 0.00;
 		if(current == null)
@@ -218,6 +229,8 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 			map.put("load_kva", load_kva);
 		if(load_kw != null)
 			map.put("load_kw", load_kw);
+		if(load_kvar != null)
+			map.put("load_kvar", load_kvar);
 		if(voltage != null)
 			map.put("voltage", voltage);
 		if(current != null)
@@ -258,6 +271,8 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 			map.put("load_kva", load_kva);
 		if(load_kw != null)
 			map.put("load_kw", load_kw);
+		if(load_kvar != null)
+			map.put("load_kvar", load_kvar);
 		if(voltage != null)
 			map.put("voltage", voltage);
 		if(current != null)
@@ -293,6 +308,7 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 		kwh = (Double) map.get("kwh");
 		load_kva = (Double) map.get("load_kva");
 		load_kw = (Double) map.get("load_kw");
+		load_kvar = (Double) map.get("load_kvar");
 		voltage = (Double) map.get("voltage");
 		current = (Double) map.get("current");
 		pf = (Double) map.get("pf");
@@ -333,6 +349,10 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 		Object load_kwObj = map.get("load_kw");
 		if(load_kwObj != null)
 			load_kw = new Double(load_kwObj.toString());
+
+		Object load_kvarObj = map.get("load_kvar");
+		if(load_kvarObj != null)
+			load_kvar = new Double(load_kvarObj.toString());
 
 		Object voltageObj = map.get("voltage");
 		if(voltageObj != null)
@@ -491,6 +511,22 @@ public abstract class Baseappliance_mf_profile extends BaseResource {
 
 	public void unSetLoad_kw() {
 		this.load_kw = 0.0000;
+	}
+
+	public Double getLoad_kvar() {
+		return load_kvar != null ? load_kvar : 0.0000;
+	}
+
+	public void setLoad_kvar(double load_kvar) {
+		this.load_kvar = load_kvar;
+	}
+
+	public void setLoad_kvar(Double load_kvar) {
+		this.load_kvar = load_kvar;
+	}
+
+	public void unSetLoad_kvar() {
+		this.load_kvar = 0.0000;
 	}
 
 	public Double getVoltage() {

@@ -49,6 +49,13 @@
 				'precision': 4,
 				'type':'double'
 			},
+			'load_kvar':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
 			'voltage':
 			{
 				'default':'0.00',
