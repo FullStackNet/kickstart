@@ -37,6 +37,17 @@
 				'length': 128,
 				'type':'String'
 			},
+			'source_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'phase_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+
 			'appliance_mf_profile_id':
 			{
 				'length': 128,

@@ -25,6 +25,8 @@ public abstract class Baseappliance extends BaseResource {
 	private String threshold_templete_name = null;
 	private String controller_name = null;
 	private String controller_id = null;
+	private String source_type = null;
+	private String phase_type = null;
 	private String appliance_mf_profile_id = null;
 	private String appliance_mf_profile_name = null;
 	private Long controller_port = null;
@@ -318,6 +320,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_THRESHOLD_TEMPLETE_NAME = "threshold_templete_name";
 	public static String FIELD_CONTROLLER_NAME = "controller_name";
 	public static String FIELD_CONTROLLER_ID = "controller_id";
+	public static String FIELD_SOURCE_TYPE = "source_type";
+	public static String FIELD_PHASE_TYPE = "phase_type";
 	public static String FIELD_APPLIANCE_MF_PROFILE_ID = "appliance_mf_profile_id";
 	public static String FIELD_APPLIANCE_MF_PROFILE_NAME = "appliance_mf_profile_name";
 	public static String FIELD_CONTROLLER_PORT = "controller_port";
@@ -635,6 +639,14 @@ public abstract class Baseappliance extends BaseResource {
 		Field controller_idField = new Field("controller_id", "String");
 		controller_idField.setLength(128);
 		metaData.addField(controller_idField);
+
+		Field source_typeField = new Field("source_type", "String");
+		source_typeField.setLength(128);
+		metaData.addField(source_typeField);
+
+		Field phase_typeField = new Field("phase_type", "String");
+		phase_typeField.setLength(128);
+		metaData.addField(phase_typeField);
 
 		Field appliance_mf_profile_idField = new Field("appliance_mf_profile_id", "String");
 		appliance_mf_profile_idField.setLength(128);
@@ -2113,6 +2125,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.threshold_templete_name = obj.threshold_templete_name;
 		this.controller_name = obj.controller_name;
 		this.controller_id = obj.controller_id;
+		this.source_type = obj.source_type;
+		this.phase_type = obj.phase_type;
 		this.appliance_mf_profile_id = obj.appliance_mf_profile_id;
 		this.appliance_mf_profile_name = obj.appliance_mf_profile_name;
 		this.controller_port = obj.controller_port;
@@ -2846,6 +2860,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("controller_name", controller_name);
 		if(controller_id != null)
 			map.put("controller_id", controller_id);
+		if(source_type != null)
+			map.put("source_type", source_type);
+		if(phase_type != null)
+			map.put("phase_type", phase_type);
 		if(appliance_mf_profile_id != null)
 			map.put("appliance_mf_profile_id", appliance_mf_profile_id);
 		if(appliance_mf_profile_name != null)
@@ -3438,6 +3456,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("controller_name", controller_name);
 		if(controller_id != null)
 			map.put("controller_id", controller_id);
+		if(source_type != null)
+			map.put("source_type", source_type);
+		if(phase_type != null)
+			map.put("phase_type", phase_type);
 		if(appliance_mf_profile_id != null)
 			map.put("appliance_mf_profile_id", appliance_mf_profile_id);
 		if(appliance_mf_profile_name != null)
@@ -4026,6 +4048,8 @@ public abstract class Baseappliance extends BaseResource {
 		threshold_templete_name = (String) map.get("threshold_templete_name");
 		controller_name = (String) map.get("controller_name");
 		controller_id = (String) map.get("controller_id");
+		source_type = (String) map.get("source_type");
+		phase_type = (String) map.get("phase_type");
 		appliance_mf_profile_id = (String) map.get("appliance_mf_profile_id");
 		appliance_mf_profile_name = (String) map.get("appliance_mf_profile_name");
 		controller_port = (Long) map.get("controller_port");
@@ -4333,6 +4357,14 @@ public abstract class Baseappliance extends BaseResource {
 		Object controller_idObj = map.get("controller_id");
 		if(controller_idObj != null)
 			controller_id = controller_idObj.toString();
+
+		Object source_typeObj = map.get("source_type");
+		if(source_typeObj != null)
+			source_type = source_typeObj.toString();
+
+		Object phase_typeObj = map.get("phase_type");
+		if(phase_typeObj != null)
+			phase_type = phase_typeObj.toString();
 
 		Object appliance_mf_profile_idObj = map.get("appliance_mf_profile_id");
 		if(appliance_mf_profile_idObj != null)
@@ -5559,6 +5591,38 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetController_id() {
 		this.controller_id = null;
+	}
+
+	public String getSource_type() {
+		return source_type;
+	}
+
+	public String getSource_typeEx() {
+		return source_type != null ? source_type : "";
+	}
+
+	public void setSource_type(String source_type) {
+		this.source_type = source_type;
+	}
+
+	public void unSetSource_type() {
+		this.source_type = null;
+	}
+
+	public String getPhase_type() {
+		return phase_type;
+	}
+
+	public String getPhase_typeEx() {
+		return phase_type != null ? phase_type : "";
+	}
+
+	public void setPhase_type(String phase_type) {
+		this.phase_type = phase_type;
+	}
+
+	public void unSetPhase_type() {
+		this.phase_type = null;
 	}
 
 	public String getAppliance_mf_profile_id() {
