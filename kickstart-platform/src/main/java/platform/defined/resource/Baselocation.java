@@ -28,8 +28,11 @@ public abstract class Baselocation extends BaseResource {
 	private String area = null;
 	private String city = null;
 	private String state = null;
+	private String image_url = null;
 	private String country = null;
 	private String pinCode = null;
+	private String main_meter_id = null;
+	private String main_meter_name = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -42,8 +45,11 @@ public abstract class Baselocation extends BaseResource {
 	public static String FIELD_AREA = "area";
 	public static String FIELD_CITY = "city";
 	public static String FIELD_STATE = "state";
+	public static String FIELD_IMAGE_URL = "image_url";
 	public static String FIELD_COUNTRY = "country";
 	public static String FIELD_PINCODE = "pinCode";
+	public static String FIELD_MAIN_METER_ID = "main_meter_id";
+	public static String FIELD_MAIN_METER_NAME = "main_meter_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -90,13 +96,25 @@ public abstract class Baselocation extends BaseResource {
 		stateField.setLength(128);
 		metaData.addField(stateField);
 
+		Field image_urlField = new Field("image_url", "String");
+		image_urlField.setLength(128);
+		metaData.addField(image_urlField);
+
 		Field countryField = new Field("country", "String");
 		countryField.setLength(128);
 		metaData.addField(countryField);
 
 		Field pinCodeField = new Field("pinCode", "String");
-		pinCodeField.setLength(16);
+		pinCodeField.setLength(128);
 		metaData.addField(pinCodeField);
+
+		Field main_meter_idField = new Field("main_meter_id", "String");
+		main_meter_idField.setLength(128);
+		metaData.addField(main_meter_idField);
+
+		Field main_meter_nameField = new Field("main_meter_name", "String");
+		main_meter_nameField.setLength(16);
+		metaData.addField(main_meter_nameField);
 
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(16);
@@ -124,8 +142,11 @@ public abstract class Baselocation extends BaseResource {
 		this.area = obj.area;
 		this.city = obj.city;
 		this.state = obj.state;
+		this.image_url = obj.image_url;
 		this.country = obj.country;
 		this.pinCode = obj.pinCode;
+		this.main_meter_id = obj.main_meter_id;
+		this.main_meter_name = obj.main_meter_name;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -154,10 +175,16 @@ public abstract class Baselocation extends BaseResource {
 			map.put("city", city);
 		if(state != null)
 			map.put("state", state);
+		if(image_url != null)
+			map.put("image_url", image_url);
 		if(country != null)
 			map.put("country", country);
 		if(pinCode != null)
 			map.put("pinCode", pinCode);
+		if(main_meter_id != null)
+			map.put("main_meter_id", main_meter_id);
+		if(main_meter_name != null)
+			map.put("main_meter_name", main_meter_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -185,10 +212,16 @@ public abstract class Baselocation extends BaseResource {
 			map.put("city", city);
 		if(state != null)
 			map.put("state", state);
+		if(image_url != null)
+			map.put("image_url", image_url);
 		if(country != null)
 			map.put("country", country);
 		if(pinCode != null)
 			map.put("pinCode", pinCode);
+		if(main_meter_id != null)
+			map.put("main_meter_id", main_meter_id);
+		if(main_meter_name != null)
+			map.put("main_meter_name", main_meter_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -212,8 +245,11 @@ public abstract class Baselocation extends BaseResource {
 		area = (String) map.get("area");
 		city = (String) map.get("city");
 		state = (String) map.get("state");
+		image_url = (String) map.get("image_url");
 		country = (String) map.get("country");
 		pinCode = (String) map.get("pinCode");
+		main_meter_id = (String) map.get("main_meter_id");
+		main_meter_name = (String) map.get("main_meter_name");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -256,6 +292,10 @@ public abstract class Baselocation extends BaseResource {
 		if(stateObj != null)
 			state = stateObj.toString();
 
+		Object image_urlObj = map.get("image_url");
+		if(image_urlObj != null)
+			image_url = image_urlObj.toString();
+
 		Object countryObj = map.get("country");
 		if(countryObj != null)
 			country = countryObj.toString();
@@ -263,6 +303,14 @@ public abstract class Baselocation extends BaseResource {
 		Object pinCodeObj = map.get("pinCode");
 		if(pinCodeObj != null)
 			pinCode = pinCodeObj.toString();
+
+		Object main_meter_idObj = map.get("main_meter_id");
+		if(main_meter_idObj != null)
+			main_meter_id = main_meter_idObj.toString();
+
+		Object main_meter_nameObj = map.get("main_meter_name");
+		if(main_meter_nameObj != null)
+			main_meter_name = main_meter_nameObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -427,6 +475,22 @@ public abstract class Baselocation extends BaseResource {
 		this.state = null;
 	}
 
+	public String getImage_url() {
+		return image_url;
+	}
+
+	public String getImage_urlEx() {
+		return image_url != null ? image_url : "";
+	}
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
+	public void unSetImage_url() {
+		this.image_url = null;
+	}
+
 	public String getCountry() {
 		return country;
 	}
@@ -457,6 +521,38 @@ public abstract class Baselocation extends BaseResource {
 
 	public void unSetPinCode() {
 		this.pinCode = null;
+	}
+
+	public String getMain_meter_id() {
+		return main_meter_id;
+	}
+
+	public String getMain_meter_idEx() {
+		return main_meter_id != null ? main_meter_id : "";
+	}
+
+	public void setMain_meter_id(String main_meter_id) {
+		this.main_meter_id = main_meter_id;
+	}
+
+	public void unSetMain_meter_id() {
+		this.main_meter_id = null;
+	}
+
+	public String getMain_meter_name() {
+		return main_meter_name;
+	}
+
+	public String getMain_meter_nameEx() {
+		return main_meter_name != null ? main_meter_name : "";
+	}
+
+	public void setMain_meter_name(String main_meter_name) {
+		this.main_meter_name = main_meter_name;
+	}
+
+	public void unSetMain_meter_name() {
+		this.main_meter_name = null;
 	}
 
 	public String getCustomer_id() {

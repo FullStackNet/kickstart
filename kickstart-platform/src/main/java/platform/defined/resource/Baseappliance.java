@@ -27,6 +27,7 @@ public abstract class Baseappliance extends BaseResource {
 	private String controller_id = null;
 	private String source_type = null;
 	private String phase_type = null;
+	private String parent_appliance_id = null;
 	private String appliance_mf_profile_id = null;
 	private String appliance_mf_profile_name = null;
 	private Long controller_port = null;
@@ -322,6 +323,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_CONTROLLER_ID = "controller_id";
 	public static String FIELD_SOURCE_TYPE = "source_type";
 	public static String FIELD_PHASE_TYPE = "phase_type";
+	public static String FIELD_PARENT_APPLIANCE_ID = "parent_appliance_id";
 	public static String FIELD_APPLIANCE_MF_PROFILE_ID = "appliance_mf_profile_id";
 	public static String FIELD_APPLIANCE_MF_PROFILE_NAME = "appliance_mf_profile_name";
 	public static String FIELD_CONTROLLER_PORT = "controller_port";
@@ -647,6 +649,10 @@ public abstract class Baseappliance extends BaseResource {
 		Field phase_typeField = new Field("phase_type", "String");
 		phase_typeField.setLength(128);
 		metaData.addField(phase_typeField);
+
+		Field parent_appliance_idField = new Field("parent_appliance_id", "String");
+		parent_appliance_idField.setLength(128);
+		metaData.addField(parent_appliance_idField);
 
 		Field appliance_mf_profile_idField = new Field("appliance_mf_profile_id", "String");
 		appliance_mf_profile_idField.setLength(128);
@@ -2127,6 +2133,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.controller_id = obj.controller_id;
 		this.source_type = obj.source_type;
 		this.phase_type = obj.phase_type;
+		this.parent_appliance_id = obj.parent_appliance_id;
 		this.appliance_mf_profile_id = obj.appliance_mf_profile_id;
 		this.appliance_mf_profile_name = obj.appliance_mf_profile_name;
 		this.controller_port = obj.controller_port;
@@ -2864,6 +2871,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("source_type", source_type);
 		if(phase_type != null)
 			map.put("phase_type", phase_type);
+		if(parent_appliance_id != null)
+			map.put("parent_appliance_id", parent_appliance_id);
 		if(appliance_mf_profile_id != null)
 			map.put("appliance_mf_profile_id", appliance_mf_profile_id);
 		if(appliance_mf_profile_name != null)
@@ -3460,6 +3469,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("source_type", source_type);
 		if(phase_type != null)
 			map.put("phase_type", phase_type);
+		if(parent_appliance_id != null)
+			map.put("parent_appliance_id", parent_appliance_id);
 		if(appliance_mf_profile_id != null)
 			map.put("appliance_mf_profile_id", appliance_mf_profile_id);
 		if(appliance_mf_profile_name != null)
@@ -4050,6 +4061,7 @@ public abstract class Baseappliance extends BaseResource {
 		controller_id = (String) map.get("controller_id");
 		source_type = (String) map.get("source_type");
 		phase_type = (String) map.get("phase_type");
+		parent_appliance_id = (String) map.get("parent_appliance_id");
 		appliance_mf_profile_id = (String) map.get("appliance_mf_profile_id");
 		appliance_mf_profile_name = (String) map.get("appliance_mf_profile_name");
 		controller_port = (Long) map.get("controller_port");
@@ -4365,6 +4377,10 @@ public abstract class Baseappliance extends BaseResource {
 		Object phase_typeObj = map.get("phase_type");
 		if(phase_typeObj != null)
 			phase_type = phase_typeObj.toString();
+
+		Object parent_appliance_idObj = map.get("parent_appliance_id");
+		if(parent_appliance_idObj != null)
+			parent_appliance_id = parent_appliance_idObj.toString();
 
 		Object appliance_mf_profile_idObj = map.get("appliance_mf_profile_id");
 		if(appliance_mf_profile_idObj != null)
@@ -5623,6 +5639,22 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetPhase_type() {
 		this.phase_type = null;
+	}
+
+	public String getParent_appliance_id() {
+		return parent_appliance_id;
+	}
+
+	public String getParent_appliance_idEx() {
+		return parent_appliance_id != null ? parent_appliance_id : "";
+	}
+
+	public void setParent_appliance_id(String parent_appliance_id) {
+		this.parent_appliance_id = parent_appliance_id;
+	}
+
+	public void unSetParent_appliance_id() {
+		this.parent_appliance_id = null;
 	}
 
 	public String getAppliance_mf_profile_id() {

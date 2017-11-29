@@ -50,12 +50,27 @@
 				'length': 128,
 				'type':'String'
 			},
+			'image_url':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'country':
 			{
 				'length': 128,
 				'type':'String'
 			},
 			'pinCode':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'main_meter_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'main_meter_name':
 			{
 				'length': 16,
 				'type':'String'

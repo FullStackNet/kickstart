@@ -47,7 +47,11 @@
 				'length': 128,
 				'type':'String'
 			},
-
+			'parent_appliance_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'appliance_mf_profile_id':
 			{
 				'length': 128,

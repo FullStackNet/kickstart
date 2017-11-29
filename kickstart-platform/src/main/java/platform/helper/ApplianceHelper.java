@@ -52,6 +52,11 @@ public class ApplianceHelper extends BaseHelper {
 		return ApplianceHelper.getInstance().getByCustomerIdForType(customerId,"VEHICLE");
 
 	}
+
+	public BaseResource[] getCustomerMeters(String customerId) {
+		return ApplianceHelper.getInstance().getByCustomerIdForType(customerId,"METER");
+
+	}
 	public BaseResource[] getUserVehicle(String userId) {
 		return User_mapHelper.getInstance().getApplinaceResources(userId);
 	}
