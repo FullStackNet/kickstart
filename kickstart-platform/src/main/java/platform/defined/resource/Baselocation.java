@@ -33,6 +33,8 @@ public abstract class Baselocation extends BaseResource {
 	private String pinCode = null;
 	private String main_meter_id = null;
 	private String main_meter_name = null;
+	private String group_id = null;
+	private String group_name = null;
 	private String customer_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -50,6 +52,8 @@ public abstract class Baselocation extends BaseResource {
 	public static String FIELD_PINCODE = "pinCode";
 	public static String FIELD_MAIN_METER_ID = "main_meter_id";
 	public static String FIELD_MAIN_METER_NAME = "main_meter_name";
+	public static String FIELD_GROUP_ID = "group_id";
+	public static String FIELD_GROUP_NAME = "group_name";
 	public static String FIELD_CUSTOMER_ID = "customer_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -116,6 +120,14 @@ public abstract class Baselocation extends BaseResource {
 		main_meter_nameField.setLength(16);
 		metaData.addField(main_meter_nameField);
 
+		Field group_idField = new Field("group_id", "String");
+		group_idField.setLength(128);
+		metaData.addField(group_idField);
+
+		Field group_nameField = new Field("group_name", "String");
+		group_nameField.setLength(16);
+		metaData.addField(group_nameField);
+
 		Field customer_idField = new Field("customer_id", "String");
 		customer_idField.setLength(16);
 		metaData.addField(customer_idField);
@@ -147,6 +159,8 @@ public abstract class Baselocation extends BaseResource {
 		this.pinCode = obj.pinCode;
 		this.main_meter_id = obj.main_meter_id;
 		this.main_meter_name = obj.main_meter_name;
+		this.group_id = obj.group_id;
+		this.group_name = obj.group_name;
 		this.customer_id = obj.customer_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -185,6 +199,10 @@ public abstract class Baselocation extends BaseResource {
 			map.put("main_meter_id", main_meter_id);
 		if(main_meter_name != null)
 			map.put("main_meter_name", main_meter_name);
+		if(group_id != null)
+			map.put("group_id", group_id);
+		if(group_name != null)
+			map.put("group_name", group_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -222,6 +240,10 @@ public abstract class Baselocation extends BaseResource {
 			map.put("main_meter_id", main_meter_id);
 		if(main_meter_name != null)
 			map.put("main_meter_name", main_meter_name);
+		if(group_id != null)
+			map.put("group_id", group_id);
+		if(group_name != null)
+			map.put("group_name", group_name);
 		if(customer_id != null)
 			map.put("customer_id", customer_id);
 		if(extra_data != null)
@@ -250,6 +272,8 @@ public abstract class Baselocation extends BaseResource {
 		pinCode = (String) map.get("pinCode");
 		main_meter_id = (String) map.get("main_meter_id");
 		main_meter_name = (String) map.get("main_meter_name");
+		group_id = (String) map.get("group_id");
+		group_name = (String) map.get("group_name");
 		customer_id = (String) map.get("customer_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -311,6 +335,14 @@ public abstract class Baselocation extends BaseResource {
 		Object main_meter_nameObj = map.get("main_meter_name");
 		if(main_meter_nameObj != null)
 			main_meter_name = main_meter_nameObj.toString();
+
+		Object group_idObj = map.get("group_id");
+		if(group_idObj != null)
+			group_id = group_idObj.toString();
+
+		Object group_nameObj = map.get("group_name");
+		if(group_nameObj != null)
+			group_name = group_nameObj.toString();
 
 		Object customer_idObj = map.get("customer_id");
 		if(customer_idObj != null)
@@ -553,6 +585,38 @@ public abstract class Baselocation extends BaseResource {
 
 	public void unSetMain_meter_name() {
 		this.main_meter_name = null;
+	}
+
+	public String getGroup_id() {
+		return group_id;
+	}
+
+	public String getGroup_idEx() {
+		return group_id != null ? group_id : "";
+	}
+
+	public void setGroup_id(String group_id) {
+		this.group_id = group_id;
+	}
+
+	public void unSetGroup_id() {
+		this.group_id = null;
+	}
+
+	public String getGroup_name() {
+		return group_name;
+	}
+
+	public String getGroup_nameEx() {
+		return group_name != null ? group_name : "";
+	}
+
+	public void setGroup_name(String group_name) {
+		this.group_name = group_name;
+	}
+
+	public void unSetGroup_name() {
+		this.group_name = null;
 	}
 
 	public String getCustomer_id() {

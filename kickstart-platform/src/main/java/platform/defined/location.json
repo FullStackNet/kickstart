@@ -75,6 +75,16 @@
 				'length': 16,
 				'type':'String'
 			},
+			'group_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'group_name':
+			{
+				'length': 16,
+				'type':'String'
+			},
 			'customer_id':
 			{
 				'length': 16,

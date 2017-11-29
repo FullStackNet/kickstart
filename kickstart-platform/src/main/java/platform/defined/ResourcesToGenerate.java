@@ -63,6 +63,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("register", "platform.resource.register"),
 		new ResourceMap("login", "platform.resource.login"),
 		new ResourceMap("location", "platform.resource.location"),
+		new ResourceMap("location_group", "platform.resource.location_group"),
 		new ResourceMap("managed_object", "platform.resource.managed_object"),
 		new ResourceMap("notification", "platform.resource.notification"),
 		new ResourceMap("packet", "platform.resource.packet"),
