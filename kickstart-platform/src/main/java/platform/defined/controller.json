@@ -356,6 +356,13 @@
 				'length': 1,
 				'type':'String'
 			},
+			'admin_state':
+			{
+				'default':'UNKNOWN',
+				'length': 32,
+				'type':'String',
+				'comment' : "U-UNKNOWN/O-OUT-OF-SERVICE/I-IN-SERVICE"
+			},
 			'heartbeat_interval':
 			{
 				'name':'heartbeat_interval',
@@ -423,7 +430,7 @@
 			{
 				'name':'packet_capture',
 				'default':'N',
-				'length': 1,
+
 				'type':'String'
 			},
 			'latitute':
@@ -442,9 +449,10 @@
 			{
 				'type':'double'
 			},
-			'mobile_service_number':
+			'mobile_service_provider':
 			{
-				'type':'double'
+				'length': 128,
+				'type':'String'
 			},
 			'deployment_type':
 			{

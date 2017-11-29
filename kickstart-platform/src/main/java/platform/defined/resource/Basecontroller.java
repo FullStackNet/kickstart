@@ -74,6 +74,7 @@ public abstract class Basecontroller extends BaseResource {
 	private Integer deployed_minor_version = null;
 	private Number upgrade_status = null;
 	private String admin_status = null;
+	private String admin_state = null; //U-UNKNOWN/O-OUT-OF-SERVICE/I-IN-SERVICE
 	private Integer heartbeat_interval = null;
 	private Integer data_read_interval = null;
 	private Integer appliances = null;
@@ -93,7 +94,7 @@ public abstract class Basecontroller extends BaseResource {
 	private Double longitute = null;
 	private Double sim_number = null;
 	private Double mobile_number = null;
-	private Double mobile_service_number = null;
+	private String mobile_service_provider = null;
 	private String deployment_type = null;
 	private String school_id = null;
 	private Map<String, Object> extra_data = null;
@@ -153,6 +154,7 @@ public abstract class Basecontroller extends BaseResource {
 	public static String FIELD_DEPLOYED_MINOR_VERSION = "deployed_minor_version";
 	public static String FIELD_UPGRADE_STATUS = "upgrade_status";
 	public static String FIELD_ADMIN_STATUS = "admin_status";
+	public static String FIELD_ADMIN_STATE = "admin_state";
 	public static String FIELD_HEARTBEAT_INTERVAL = "heartbeat_interval";
 	public static String FIELD_DATA_READ_INTERVAL = "data_read_interval";
 	public static String FIELD_APPLIANCES = "appliances";
@@ -172,7 +174,7 @@ public abstract class Basecontroller extends BaseResource {
 	public static String FIELD_LONGITUTE = "longitute";
 	public static String FIELD_SIM_NUMBER = "sim_number";
 	public static String FIELD_MOBILE_NUMBER = "mobile_number";
-	public static String FIELD_MOBILE_SERVICE_NUMBER = "mobile_service_number";
+	public static String FIELD_MOBILE_SERVICE_PROVIDER = "mobile_service_provider";
 	public static String FIELD_DEPLOYMENT_TYPE = "deployment_type";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -420,6 +422,11 @@ public abstract class Basecontroller extends BaseResource {
 		admin_statusField.setLength(1);
 		metaData.addField(admin_statusField);
 
+		Field admin_stateField = new Field("admin_state", "String");
+		admin_stateField.setDefaultValue("UNKNOWN");
+		admin_stateField.setLength(32);
+		metaData.addField(admin_stateField);
+
 		Field heartbeat_intervalField = new Field("heartbeat_interval", "int");
 		heartbeat_intervalField.setDefaultValue(0);
 		metaData.addField(heartbeat_intervalField);
@@ -470,7 +477,6 @@ public abstract class Basecontroller extends BaseResource {
 
 		Field packet_captureField = new Field("packet_capture", "String");
 		packet_captureField.setDefaultValue("N");
-		packet_captureField.setLength(1);
 		metaData.addField(packet_captureField);
 
 		Field latituteField = new Field("latitute", "double");
@@ -485,8 +491,9 @@ public abstract class Basecontroller extends BaseResource {
 		Field mobile_numberField = new Field("mobile_number", "double");
 		metaData.addField(mobile_numberField);
 
-		Field mobile_service_numberField = new Field("mobile_service_number", "double");
-		metaData.addField(mobile_service_numberField);
+		Field mobile_service_providerField = new Field("mobile_service_provider", "String");
+		mobile_service_providerField.setLength(128);
+		metaData.addField(mobile_service_providerField);
 
 		Field deployment_typeField = new Field("deployment_type", "String");
 		deployment_typeField.setDefaultValue("N");
@@ -565,6 +572,7 @@ public abstract class Basecontroller extends BaseResource {
 		this.deployed_minor_version = obj.deployed_minor_version;
 		this.upgrade_status = obj.upgrade_status;
 		this.admin_status = obj.admin_status;
+		this.admin_state = obj.admin_state;
 		this.heartbeat_interval = obj.heartbeat_interval;
 		this.data_read_interval = obj.data_read_interval;
 		this.appliances = obj.appliances;
@@ -584,7 +592,7 @@ public abstract class Basecontroller extends BaseResource {
 		this.longitute = obj.longitute;
 		this.sim_number = obj.sim_number;
 		this.mobile_number = obj.mobile_number;
-		this.mobile_service_number = obj.mobile_service_number;
+		this.mobile_service_provider = obj.mobile_service_provider;
 		this.deployment_type = obj.deployment_type;
 		this.school_id = obj.school_id;
 		this.extra_data = obj.extra_data;
@@ -627,6 +635,8 @@ public abstract class Basecontroller extends BaseResource {
 			upgrade_status = 100.00;
 		if(admin_status == null)
 			admin_status = "N";
+		if(admin_state == null)
+			admin_state = "UNKNOWN";
 		if(heartbeat_interval == null)
 			heartbeat_interval = 0;
 		if(data_read_interval == null)
@@ -755,6 +765,8 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("upgrade_status", upgrade_status);
 		if(admin_status != null)
 			map.put("admin_status", admin_status);
+		if(admin_state != null)
+			map.put("admin_state", admin_state);
 		if(heartbeat_interval != null)
 			map.put("heartbeat_interval", heartbeat_interval);
 		if(data_read_interval != null)
@@ -793,8 +805,8 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("sim_number", sim_number);
 		if(mobile_number != null)
 			map.put("mobile_number", mobile_number);
-		if(mobile_service_number != null)
-			map.put("mobile_service_number", mobile_service_number);
+		if(mobile_service_provider != null)
+			map.put("mobile_service_provider", mobile_service_provider);
 		if(deployment_type != null)
 			map.put("deployment_type", deployment_type);
 		if(school_id != null)
@@ -919,6 +931,8 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("upgrade_status", upgrade_status);
 		if(admin_status != null)
 			map.put("admin_status", admin_status);
+		if(admin_state != null)
+			map.put("admin_state", admin_state);
 		if(heartbeat_interval != null)
 			map.put("heartbeat_interval", heartbeat_interval);
 		if(data_read_interval != null)
@@ -957,8 +971,8 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("sim_number", sim_number);
 		if(mobile_number != null)
 			map.put("mobile_number", mobile_number);
-		if(mobile_service_number != null)
-			map.put("mobile_service_number", mobile_service_number);
+		if(mobile_service_provider != null)
+			map.put("mobile_service_provider", mobile_service_provider);
 		if(deployment_type != null)
 			map.put("deployment_type", deployment_type);
 		if(school_id != null)
@@ -1030,6 +1044,7 @@ public abstract class Basecontroller extends BaseResource {
 		deployed_minor_version = (Integer) map.get("deployed_minor_version");
 		upgrade_status = (Number) map.get("upgrade_status");
 		admin_status = (String) map.get("admin_status");
+		admin_state = (String) map.get("admin_state");
 		heartbeat_interval = (Integer) map.get("heartbeat_interval");
 		data_read_interval = (Integer) map.get("data_read_interval");
 		appliances = (Integer) map.get("appliances");
@@ -1049,7 +1064,7 @@ public abstract class Basecontroller extends BaseResource {
 		longitute = (Double) map.get("longitute");
 		sim_number = (Double) map.get("sim_number");
 		mobile_number = (Double) map.get("mobile_number");
-		mobile_service_number = (Double) map.get("mobile_service_number");
+		mobile_service_provider = (String) map.get("mobile_service_provider");
 		deployment_type = (String) map.get("deployment_type");
 		school_id = (String) map.get("school_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -1277,6 +1292,10 @@ public abstract class Basecontroller extends BaseResource {
 		if(admin_statusObj != null)
 			admin_status = admin_statusObj.toString();
 
+		Object admin_stateObj = map.get("admin_state");
+		if(admin_stateObj != null)
+			admin_state = admin_stateObj.toString();
+
 		Object heartbeat_intervalObj = map.get("heartbeat_interval");
 		if(heartbeat_intervalObj != null)
 			heartbeat_interval = new Integer(heartbeat_intervalObj.toString());
@@ -1353,9 +1372,9 @@ public abstract class Basecontroller extends BaseResource {
 		if(mobile_numberObj != null)
 			mobile_number = new Double(mobile_numberObj.toString());
 
-		Object mobile_service_numberObj = map.get("mobile_service_number");
-		if(mobile_service_numberObj != null)
-			mobile_service_number = new Double(mobile_service_numberObj.toString());
+		Object mobile_service_providerObj = map.get("mobile_service_provider");
+		if(mobile_service_providerObj != null)
+			mobile_service_provider = mobile_service_providerObj.toString();
 
 		Object deployment_typeObj = map.get("deployment_type");
 		if(deployment_typeObj != null)
@@ -2228,6 +2247,18 @@ public abstract class Basecontroller extends BaseResource {
 		this.admin_status = "N";
 	}
 
+	public String getAdmin_state() {
+		return admin_state != null ? admin_state : "UNKNOWN";
+	}
+
+	public void setAdmin_state(String admin_state) {
+		this.admin_state = admin_state;
+	}
+
+	public void unSetAdmin_state() {
+		this.admin_state = "UNKNOWN";
+	}
+
 	public Integer getHeartbeat_interval() {
 		return heartbeat_interval != null ? heartbeat_interval : 0;
 	}
@@ -2576,24 +2607,20 @@ public abstract class Basecontroller extends BaseResource {
 		this.mobile_number = null;
 	}
 
-	public Double getMobile_service_number() {
-		return mobile_service_number;
+	public String getMobile_service_provider() {
+		return mobile_service_provider;
 	}
 
-	public double getMobile_service_numberEx() {
-		return mobile_service_number != null ? mobile_service_number : 0;
+	public String getMobile_service_providerEx() {
+		return mobile_service_provider != null ? mobile_service_provider : "";
 	}
 
-	public void setMobile_service_number(double mobile_service_number) {
-		this.mobile_service_number = mobile_service_number;
+	public void setMobile_service_provider(String mobile_service_provider) {
+		this.mobile_service_provider = mobile_service_provider;
 	}
 
-	public void setMobile_service_number(Double mobile_service_number) {
-		this.mobile_service_number = mobile_service_number;
-	}
-
-	public void unSetMobile_service_number() {
-		this.mobile_service_number = null;
+	public void unSetMobile_service_provider() {
+		this.mobile_service_provider = null;
 	}
 
 	public String getDeployment_type() {

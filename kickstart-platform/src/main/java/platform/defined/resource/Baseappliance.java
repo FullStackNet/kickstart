@@ -26,6 +26,7 @@ public abstract class Baseappliance extends BaseResource {
 	private String controller_name = null;
 	private String controller_id = null;
 	private String source_type = null;
+	private String admin_state = null; //U-UNKNOWN/O-OUT-OF-SERVICE/I-IN-SERVICE
 	private String phase_type = null;
 	private String parent_appliance_id = null;
 	private String appliance_group_id = null;
@@ -324,6 +325,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_CONTROLLER_NAME = "controller_name";
 	public static String FIELD_CONTROLLER_ID = "controller_id";
 	public static String FIELD_SOURCE_TYPE = "source_type";
+	public static String FIELD_ADMIN_STATE = "admin_state";
 	public static String FIELD_PHASE_TYPE = "phase_type";
 	public static String FIELD_PARENT_APPLIANCE_ID = "parent_appliance_id";
 	public static String FIELD_APPLIANCE_GROUP_ID = "appliance_group_id";
@@ -649,6 +651,11 @@ public abstract class Baseappliance extends BaseResource {
 		Field source_typeField = new Field("source_type", "String");
 		source_typeField.setLength(128);
 		metaData.addField(source_typeField);
+
+		Field admin_stateField = new Field("admin_state", "String");
+		admin_stateField.setDefaultValue("UNKNOWN");
+		admin_stateField.setLength(32);
+		metaData.addField(admin_stateField);
 
 		Field phase_typeField = new Field("phase_type", "String");
 		phase_typeField.setLength(128);
@@ -2144,6 +2151,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.controller_name = obj.controller_name;
 		this.controller_id = obj.controller_id;
 		this.source_type = obj.source_type;
+		this.admin_state = obj.admin_state;
 		this.phase_type = obj.phase_type;
 		this.parent_appliance_id = obj.parent_appliance_id;
 		this.appliance_group_id = obj.appliance_group_id;
@@ -2441,6 +2449,8 @@ public abstract class Baseappliance extends BaseResource {
 	}
 
 	private void setDefaultValues() {
+		if(admin_state == null)
+			admin_state = "UNKNOWN";
 		if(power_rating == null)
 			power_rating = 0.0000;
 		if(dg_unit_opening == null)
@@ -2883,6 +2893,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("controller_id", controller_id);
 		if(source_type != null)
 			map.put("source_type", source_type);
+		if(admin_state != null)
+			map.put("admin_state", admin_state);
 		if(phase_type != null)
 			map.put("phase_type", phase_type);
 		if(parent_appliance_id != null)
@@ -3485,6 +3497,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("controller_id", controller_id);
 		if(source_type != null)
 			map.put("source_type", source_type);
+		if(admin_state != null)
+			map.put("admin_state", admin_state);
 		if(phase_type != null)
 			map.put("phase_type", phase_type);
 		if(parent_appliance_id != null)
@@ -4082,6 +4096,7 @@ public abstract class Baseappliance extends BaseResource {
 		controller_name = (String) map.get("controller_name");
 		controller_id = (String) map.get("controller_id");
 		source_type = (String) map.get("source_type");
+		admin_state = (String) map.get("admin_state");
 		phase_type = (String) map.get("phase_type");
 		parent_appliance_id = (String) map.get("parent_appliance_id");
 		appliance_group_id = (String) map.get("appliance_group_id");
@@ -4397,6 +4412,10 @@ public abstract class Baseappliance extends BaseResource {
 		Object source_typeObj = map.get("source_type");
 		if(source_typeObj != null)
 			source_type = source_typeObj.toString();
+
+		Object admin_stateObj = map.get("admin_state");
+		if(admin_stateObj != null)
+			admin_state = admin_stateObj.toString();
 
 		Object phase_typeObj = map.get("phase_type");
 		if(phase_typeObj != null)
@@ -5655,6 +5674,18 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetSource_type() {
 		this.source_type = null;
+	}
+
+	public String getAdmin_state() {
+		return admin_state != null ? admin_state : "UNKNOWN";
+	}
+
+	public void setAdmin_state(String admin_state) {
+		this.admin_state = admin_state;
+	}
+
+	public void unSetAdmin_state() {
+		this.admin_state = "UNKNOWN";
 	}
 
 	public String getPhase_type() {

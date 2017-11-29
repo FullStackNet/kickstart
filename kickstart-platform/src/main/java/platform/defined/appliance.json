@@ -42,6 +42,13 @@
 				'length': 128,
 				'type':'String'
 			},
+			'admin_state':
+			{
+				'default':'UNKNOWN',
+				'length': 32,
+				'type':'String',
+				'comment' : "U-UNKNOWN/O-OUT-OF-SERVICE/I-IN-SERVICE"
+			},
 			'phase_type':
 			{
 				'length': 128,
