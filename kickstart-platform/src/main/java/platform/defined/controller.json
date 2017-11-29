@@ -443,11 +443,13 @@
 			},
 			'sim_number':
 			{
-				'type':'double'
+				'length': 128,
+				'type':'String'
 			},
 			'mobile_number':
 			{
-				'type':'double'
+				'type':'String',
+				'length': 128
 			},
 			'mobile_service_provider':
 			{

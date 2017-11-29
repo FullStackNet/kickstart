@@ -92,8 +92,8 @@ public abstract class Basecontroller extends BaseResource {
 	private String packet_capture = null;
 	private Double latitute = null;
 	private Double longitute = null;
-	private Double sim_number = null;
-	private Double mobile_number = null;
+	private String sim_number = null;
+	private String mobile_number = null;
 	private String mobile_service_provider = null;
 	private String deployment_type = null;
 	private String school_id = null;
@@ -485,10 +485,12 @@ public abstract class Basecontroller extends BaseResource {
 		Field longituteField = new Field("longitute", "double");
 		metaData.addField(longituteField);
 
-		Field sim_numberField = new Field("sim_number", "double");
+		Field sim_numberField = new Field("sim_number", "String");
+		sim_numberField.setLength(128);
 		metaData.addField(sim_numberField);
 
-		Field mobile_numberField = new Field("mobile_number", "double");
+		Field mobile_numberField = new Field("mobile_number", "String");
+		mobile_numberField.setLength(128);
 		metaData.addField(mobile_numberField);
 
 		Field mobile_service_providerField = new Field("mobile_service_provider", "String");
@@ -1062,8 +1064,8 @@ public abstract class Basecontroller extends BaseResource {
 		packet_capture = (String) map.get("packet_capture");
 		latitute = (Double) map.get("latitute");
 		longitute = (Double) map.get("longitute");
-		sim_number = (Double) map.get("sim_number");
-		mobile_number = (Double) map.get("mobile_number");
+		sim_number = (String) map.get("sim_number");
+		mobile_number = (String) map.get("mobile_number");
 		mobile_service_provider = (String) map.get("mobile_service_provider");
 		deployment_type = (String) map.get("deployment_type");
 		school_id = (String) map.get("school_id");
@@ -1366,11 +1368,11 @@ public abstract class Basecontroller extends BaseResource {
 
 		Object sim_numberObj = map.get("sim_number");
 		if(sim_numberObj != null)
-			sim_number = new Double(sim_numberObj.toString());
+			sim_number = sim_numberObj.toString();
 
 		Object mobile_numberObj = map.get("mobile_number");
 		if(mobile_numberObj != null)
-			mobile_number = new Double(mobile_numberObj.toString());
+			mobile_number = mobile_numberObj.toString();
 
 		Object mobile_service_providerObj = map.get("mobile_service_provider");
 		if(mobile_service_providerObj != null)
@@ -2567,19 +2569,15 @@ public abstract class Basecontroller extends BaseResource {
 		this.longitute = null;
 	}
 
-	public Double getSim_number() {
+	public String getSim_number() {
 		return sim_number;
 	}
 
-	public double getSim_numberEx() {
-		return sim_number != null ? sim_number : 0;
+	public String getSim_numberEx() {
+		return sim_number != null ? sim_number : "";
 	}
 
-	public void setSim_number(double sim_number) {
-		this.sim_number = sim_number;
-	}
-
-	public void setSim_number(Double sim_number) {
+	public void setSim_number(String sim_number) {
 		this.sim_number = sim_number;
 	}
 
@@ -2587,19 +2585,15 @@ public abstract class Basecontroller extends BaseResource {
 		this.sim_number = null;
 	}
 
-	public Double getMobile_number() {
+	public String getMobile_number() {
 		return mobile_number;
 	}
 
-	public double getMobile_numberEx() {
-		return mobile_number != null ? mobile_number : 0;
+	public String getMobile_numberEx() {
+		return mobile_number != null ? mobile_number : "";
 	}
 
-	public void setMobile_number(double mobile_number) {
-		this.mobile_number = mobile_number;
-	}
-
-	public void setMobile_number(Double mobile_number) {
+	public void setMobile_number(String mobile_number) {
 		this.mobile_number = mobile_number;
 	}
 
