@@ -89,6 +89,11 @@ public abstract class Basecontroller extends BaseResource {
 	private Double multiple_factor_port3007 = null;
 	private Double multiple_factor_port3000 = null;
 	private String packet_capture = null;
+	private Double latitute = null;
+	private Double longitute = null;
+	private Double sim_number = null;
+	private Double mobile_number = null;
+	private Double mobile_service_number = null;
 	private String deployment_type = null;
 	private String school_id = null;
 	private Map<String, Object> extra_data = null;
@@ -163,6 +168,11 @@ public abstract class Basecontroller extends BaseResource {
 	public static String FIELD_MULTIPLE_FACTOR_PORT3007 = "multiple_factor_port3007";
 	public static String FIELD_MULTIPLE_FACTOR_PORT3000 = "multiple_factor_port3000";
 	public static String FIELD_PACKET_CAPTURE = "packet_capture";
+	public static String FIELD_LATITUTE = "latitute";
+	public static String FIELD_LONGITUTE = "longitute";
+	public static String FIELD_SIM_NUMBER = "sim_number";
+	public static String FIELD_MOBILE_NUMBER = "mobile_number";
+	public static String FIELD_MOBILE_SERVICE_NUMBER = "mobile_service_number";
 	public static String FIELD_DEPLOYMENT_TYPE = "deployment_type";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
@@ -463,6 +473,21 @@ public abstract class Basecontroller extends BaseResource {
 		packet_captureField.setLength(1);
 		metaData.addField(packet_captureField);
 
+		Field latituteField = new Field("latitute", "double");
+		metaData.addField(latituteField);
+
+		Field longituteField = new Field("longitute", "double");
+		metaData.addField(longituteField);
+
+		Field sim_numberField = new Field("sim_number", "double");
+		metaData.addField(sim_numberField);
+
+		Field mobile_numberField = new Field("mobile_number", "double");
+		metaData.addField(mobile_numberField);
+
+		Field mobile_service_numberField = new Field("mobile_service_number", "double");
+		metaData.addField(mobile_service_numberField);
+
 		Field deployment_typeField = new Field("deployment_type", "String");
 		deployment_typeField.setDefaultValue("N");
 		deployment_typeField.setLength(1);
@@ -555,6 +580,11 @@ public abstract class Basecontroller extends BaseResource {
 		this.multiple_factor_port3007 = obj.multiple_factor_port3007;
 		this.multiple_factor_port3000 = obj.multiple_factor_port3000;
 		this.packet_capture = obj.packet_capture;
+		this.latitute = obj.latitute;
+		this.longitute = obj.longitute;
+		this.sim_number = obj.sim_number;
+		this.mobile_number = obj.mobile_number;
+		this.mobile_service_number = obj.mobile_service_number;
 		this.deployment_type = obj.deployment_type;
 		this.school_id = obj.school_id;
 		this.extra_data = obj.extra_data;
@@ -755,6 +785,16 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("multiple_factor_port3000", multiple_factor_port3000);
 		if(packet_capture != null)
 			map.put("packet_capture", packet_capture);
+		if(latitute != null)
+			map.put("latitute", latitute);
+		if(longitute != null)
+			map.put("longitute", longitute);
+		if(sim_number != null)
+			map.put("sim_number", sim_number);
+		if(mobile_number != null)
+			map.put("mobile_number", mobile_number);
+		if(mobile_service_number != null)
+			map.put("mobile_service_number", mobile_service_number);
 		if(deployment_type != null)
 			map.put("deployment_type", deployment_type);
 		if(school_id != null)
@@ -909,6 +949,16 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("multiple_factor_port3000", multiple_factor_port3000);
 		if(packet_capture != null)
 			map.put("packet_capture", packet_capture);
+		if(latitute != null)
+			map.put("latitute", latitute);
+		if(longitute != null)
+			map.put("longitute", longitute);
+		if(sim_number != null)
+			map.put("sim_number", sim_number);
+		if(mobile_number != null)
+			map.put("mobile_number", mobile_number);
+		if(mobile_service_number != null)
+			map.put("mobile_service_number", mobile_service_number);
 		if(deployment_type != null)
 			map.put("deployment_type", deployment_type);
 		if(school_id != null)
@@ -995,6 +1045,11 @@ public abstract class Basecontroller extends BaseResource {
 		multiple_factor_port3007 = (Double) map.get("multiple_factor_port3007");
 		multiple_factor_port3000 = (Double) map.get("multiple_factor_port3000");
 		packet_capture = (String) map.get("packet_capture");
+		latitute = (Double) map.get("latitute");
+		longitute = (Double) map.get("longitute");
+		sim_number = (Double) map.get("sim_number");
+		mobile_number = (Double) map.get("mobile_number");
+		mobile_service_number = (Double) map.get("mobile_service_number");
 		deployment_type = (String) map.get("deployment_type");
 		school_id = (String) map.get("school_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
@@ -1281,6 +1336,26 @@ public abstract class Basecontroller extends BaseResource {
 		Object packet_captureObj = map.get("packet_capture");
 		if(packet_captureObj != null)
 			packet_capture = packet_captureObj.toString();
+
+		Object latituteObj = map.get("latitute");
+		if(latituteObj != null)
+			latitute = new Double(latituteObj.toString());
+
+		Object longituteObj = map.get("longitute");
+		if(longituteObj != null)
+			longitute = new Double(longituteObj.toString());
+
+		Object sim_numberObj = map.get("sim_number");
+		if(sim_numberObj != null)
+			sim_number = new Double(sim_numberObj.toString());
+
+		Object mobile_numberObj = map.get("mobile_number");
+		if(mobile_numberObj != null)
+			mobile_number = new Double(mobile_numberObj.toString());
+
+		Object mobile_service_numberObj = map.get("mobile_service_number");
+		if(mobile_service_numberObj != null)
+			mobile_service_number = new Double(mobile_service_numberObj.toString());
 
 		Object deployment_typeObj = map.get("deployment_type");
 		if(deployment_typeObj != null)
@@ -2419,6 +2494,106 @@ public abstract class Basecontroller extends BaseResource {
 
 	public void unSetPacket_capture() {
 		this.packet_capture = "N";
+	}
+
+	public Double getLatitute() {
+		return latitute;
+	}
+
+	public double getLatituteEx() {
+		return latitute != null ? latitute : 0;
+	}
+
+	public void setLatitute(double latitute) {
+		this.latitute = latitute;
+	}
+
+	public void setLatitute(Double latitute) {
+		this.latitute = latitute;
+	}
+
+	public void unSetLatitute() {
+		this.latitute = null;
+	}
+
+	public Double getLongitute() {
+		return longitute;
+	}
+
+	public double getLongituteEx() {
+		return longitute != null ? longitute : 0;
+	}
+
+	public void setLongitute(double longitute) {
+		this.longitute = longitute;
+	}
+
+	public void setLongitute(Double longitute) {
+		this.longitute = longitute;
+	}
+
+	public void unSetLongitute() {
+		this.longitute = null;
+	}
+
+	public Double getSim_number() {
+		return sim_number;
+	}
+
+	public double getSim_numberEx() {
+		return sim_number != null ? sim_number : 0;
+	}
+
+	public void setSim_number(double sim_number) {
+		this.sim_number = sim_number;
+	}
+
+	public void setSim_number(Double sim_number) {
+		this.sim_number = sim_number;
+	}
+
+	public void unSetSim_number() {
+		this.sim_number = null;
+	}
+
+	public Double getMobile_number() {
+		return mobile_number;
+	}
+
+	public double getMobile_numberEx() {
+		return mobile_number != null ? mobile_number : 0;
+	}
+
+	public void setMobile_number(double mobile_number) {
+		this.mobile_number = mobile_number;
+	}
+
+	public void setMobile_number(Double mobile_number) {
+		this.mobile_number = mobile_number;
+	}
+
+	public void unSetMobile_number() {
+		this.mobile_number = null;
+	}
+
+	public Double getMobile_service_number() {
+		return mobile_service_number;
+	}
+
+	public double getMobile_service_numberEx() {
+		return mobile_service_number != null ? mobile_service_number : 0;
+	}
+
+	public void setMobile_service_number(double mobile_service_number) {
+		this.mobile_service_number = mobile_service_number;
+	}
+
+	public void setMobile_service_number(Double mobile_service_number) {
+		this.mobile_service_number = mobile_service_number;
+	}
+
+	public void unSetMobile_service_number() {
+		this.mobile_service_number = null;
 	}
 
 	public String getDeployment_type() {

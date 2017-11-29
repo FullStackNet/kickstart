@@ -426,6 +426,26 @@
 				'length': 1,
 				'type':'String'
 			},
+			'latitute':
+			{
+				'type':'double'
+			},
+			'longitute':
+			{
+				'type':'double'
+			},
+			'sim_number':
+			{
+				'type':'double'
+			},
+			'mobile_number':
+			{
+				'type':'double'
+			},
+			'mobile_service_number':
+			{
+				'type':'double'
+			},
 			'deployment_type':
 			{
 				'default':'N',
