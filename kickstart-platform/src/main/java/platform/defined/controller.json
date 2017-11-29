@@ -463,6 +463,34 @@
 				'type':'String',
 				'comments' : "IN Bus, In School, In Office"
 			},
+			'gps_sync':
+			{
+				'type':'double'
+			},
+			'gps_satellite_nos':
+			{
+				'type':'long'
+			},
+
+			'csq_signal_strength':
+			{
+				'type':'double'
+			},
+			'mac_uid':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'network_type':
+			{
+				'type':'String',
+				'length': 128
+			},
+			'gprs_connection':
+			{
+				'type':'String',
+				'length': 128
+			},
 			'school_id':
 			{
 				'length': 128,

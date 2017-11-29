@@ -96,6 +96,12 @@ public abstract class Basecontroller extends BaseResource {
 	private String mobile_number = null;
 	private String mobile_service_provider = null;
 	private String deployment_type = null;
+	private Double gps_sync = null;
+	private Long gps_satellite_nos = null;
+	private Double csq_signal_strength = null;
+	private String mac_uid = null;
+	private String network_type = null;
+	private String gprs_connection = null;
 	private String school_id = null;
 	private Map<String, Object> extra_data = null;
 
@@ -176,6 +182,12 @@ public abstract class Basecontroller extends BaseResource {
 	public static String FIELD_MOBILE_NUMBER = "mobile_number";
 	public static String FIELD_MOBILE_SERVICE_PROVIDER = "mobile_service_provider";
 	public static String FIELD_DEPLOYMENT_TYPE = "deployment_type";
+	public static String FIELD_GPS_SYNC = "gps_sync";
+	public static String FIELD_GPS_SATELLITE_NOS = "gps_satellite_nos";
+	public static String FIELD_CSQ_SIGNAL_STRENGTH = "csq_signal_strength";
+	public static String FIELD_MAC_UID = "mac_uid";
+	public static String FIELD_NETWORK_TYPE = "network_type";
+	public static String FIELD_GPRS_CONNECTION = "gprs_connection";
 	public static String FIELD_SCHOOL_ID = "school_id";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -502,6 +514,27 @@ public abstract class Basecontroller extends BaseResource {
 		deployment_typeField.setLength(1);
 		metaData.addField(deployment_typeField);
 
+		Field gps_syncField = new Field("gps_sync", "double");
+		metaData.addField(gps_syncField);
+
+		Field gps_satellite_nosField = new Field("gps_satellite_nos", "long");
+		metaData.addField(gps_satellite_nosField);
+
+		Field csq_signal_strengthField = new Field("csq_signal_strength", "double");
+		metaData.addField(csq_signal_strengthField);
+
+		Field mac_uidField = new Field("mac_uid", "String");
+		mac_uidField.setLength(128);
+		metaData.addField(mac_uidField);
+
+		Field network_typeField = new Field("network_type", "String");
+		network_typeField.setLength(128);
+		metaData.addField(network_typeField);
+
+		Field gprs_connectionField = new Field("gprs_connection", "String");
+		gprs_connectionField.setLength(128);
+		metaData.addField(gprs_connectionField);
+
 		Field school_idField = new Field("school_id", "String");
 		school_idField.setLength(128);
 		metaData.addField(school_idField);
@@ -596,6 +629,12 @@ public abstract class Basecontroller extends BaseResource {
 		this.mobile_number = obj.mobile_number;
 		this.mobile_service_provider = obj.mobile_service_provider;
 		this.deployment_type = obj.deployment_type;
+		this.gps_sync = obj.gps_sync;
+		this.gps_satellite_nos = obj.gps_satellite_nos;
+		this.csq_signal_strength = obj.csq_signal_strength;
+		this.mac_uid = obj.mac_uid;
+		this.network_type = obj.network_type;
+		this.gprs_connection = obj.gprs_connection;
 		this.school_id = obj.school_id;
 		this.extra_data = obj.extra_data;
 	}
@@ -811,6 +850,18 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("mobile_service_provider", mobile_service_provider);
 		if(deployment_type != null)
 			map.put("deployment_type", deployment_type);
+		if(gps_sync != null)
+			map.put("gps_sync", gps_sync);
+		if(gps_satellite_nos != null)
+			map.put("gps_satellite_nos", gps_satellite_nos);
+		if(csq_signal_strength != null)
+			map.put("csq_signal_strength", csq_signal_strength);
+		if(mac_uid != null)
+			map.put("mac_uid", mac_uid);
+		if(network_type != null)
+			map.put("network_type", network_type);
+		if(gprs_connection != null)
+			map.put("gprs_connection", gprs_connection);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(extra_data != null)
@@ -977,6 +1028,18 @@ public abstract class Basecontroller extends BaseResource {
 			map.put("mobile_service_provider", mobile_service_provider);
 		if(deployment_type != null)
 			map.put("deployment_type", deployment_type);
+		if(gps_sync != null)
+			map.put("gps_sync", gps_sync);
+		if(gps_satellite_nos != null)
+			map.put("gps_satellite_nos", gps_satellite_nos);
+		if(csq_signal_strength != null)
+			map.put("csq_signal_strength", csq_signal_strength);
+		if(mac_uid != null)
+			map.put("mac_uid", mac_uid);
+		if(network_type != null)
+			map.put("network_type", network_type);
+		if(gprs_connection != null)
+			map.put("gprs_connection", gprs_connection);
 		if(school_id != null)
 			map.put("school_id", school_id);
 		if(extra_data != null)
@@ -1068,6 +1131,12 @@ public abstract class Basecontroller extends BaseResource {
 		mobile_number = (String) map.get("mobile_number");
 		mobile_service_provider = (String) map.get("mobile_service_provider");
 		deployment_type = (String) map.get("deployment_type");
+		gps_sync = (Double) map.get("gps_sync");
+		gps_satellite_nos = (Long) map.get("gps_satellite_nos");
+		csq_signal_strength = (Double) map.get("csq_signal_strength");
+		mac_uid = (String) map.get("mac_uid");
+		network_type = (String) map.get("network_type");
+		gprs_connection = (String) map.get("gprs_connection");
 		school_id = (String) map.get("school_id");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -1381,6 +1450,30 @@ public abstract class Basecontroller extends BaseResource {
 		Object deployment_typeObj = map.get("deployment_type");
 		if(deployment_typeObj != null)
 			deployment_type = deployment_typeObj.toString();
+
+		Object gps_syncObj = map.get("gps_sync");
+		if(gps_syncObj != null)
+			gps_sync = new Double(gps_syncObj.toString());
+
+		Object gps_satellite_nosObj = map.get("gps_satellite_nos");
+		if(gps_satellite_nosObj != null)
+			gps_satellite_nos = new Long(gps_satellite_nosObj.toString());
+
+		Object csq_signal_strengthObj = map.get("csq_signal_strength");
+		if(csq_signal_strengthObj != null)
+			csq_signal_strength = new Double(csq_signal_strengthObj.toString());
+
+		Object mac_uidObj = map.get("mac_uid");
+		if(mac_uidObj != null)
+			mac_uid = mac_uidObj.toString();
+
+		Object network_typeObj = map.get("network_type");
+		if(network_typeObj != null)
+			network_type = network_typeObj.toString();
+
+		Object gprs_connectionObj = map.get("gprs_connection");
+		if(gprs_connectionObj != null)
+			gprs_connection = gprs_connectionObj.toString();
 
 		Object school_idObj = map.get("school_id");
 		if(school_idObj != null)
@@ -2627,6 +2720,114 @@ public abstract class Basecontroller extends BaseResource {
 
 	public void unSetDeployment_type() {
 		this.deployment_type = "N";
+	}
+
+	public Double getGps_sync() {
+		return gps_sync;
+	}
+
+	public double getGps_syncEx() {
+		return gps_sync != null ? gps_sync : 0;
+	}
+
+	public void setGps_sync(double gps_sync) {
+		this.gps_sync = gps_sync;
+	}
+
+	public void setGps_sync(Double gps_sync) {
+		this.gps_sync = gps_sync;
+	}
+
+	public void unSetGps_sync() {
+		this.gps_sync = null;
+	}
+
+	public Long getGps_satellite_nos() {
+		return gps_satellite_nos;
+	}
+
+	public long getGps_satellite_nosEx() {
+		return gps_satellite_nos != null ? gps_satellite_nos : 0L;
+	}
+
+	public void setGps_satellite_nos(long gps_satellite_nos) {
+		this.gps_satellite_nos = gps_satellite_nos;
+	}
+
+	public void setGps_satellite_nos(Long gps_satellite_nos) {
+		this.gps_satellite_nos = gps_satellite_nos;
+	}
+
+	public void unSetGps_satellite_nos() {
+		this.gps_satellite_nos = null;
+	}
+
+	public Double getCsq_signal_strength() {
+		return csq_signal_strength;
+	}
+
+	public double getCsq_signal_strengthEx() {
+		return csq_signal_strength != null ? csq_signal_strength : 0;
+	}
+
+	public void setCsq_signal_strength(double csq_signal_strength) {
+		this.csq_signal_strength = csq_signal_strength;
+	}
+
+	public void setCsq_signal_strength(Double csq_signal_strength) {
+		this.csq_signal_strength = csq_signal_strength;
+	}
+
+	public void unSetCsq_signal_strength() {
+		this.csq_signal_strength = null;
+	}
+
+	public String getMac_uid() {
+		return mac_uid;
+	}
+
+	public String getMac_uidEx() {
+		return mac_uid != null ? mac_uid : "";
+	}
+
+	public void setMac_uid(String mac_uid) {
+		this.mac_uid = mac_uid;
+	}
+
+	public void unSetMac_uid() {
+		this.mac_uid = null;
+	}
+
+	public String getNetwork_type() {
+		return network_type;
+	}
+
+	public String getNetwork_typeEx() {
+		return network_type != null ? network_type : "";
+	}
+
+	public void setNetwork_type(String network_type) {
+		this.network_type = network_type;
+	}
+
+	public void unSetNetwork_type() {
+		this.network_type = null;
+	}
+
+	public String getGprs_connection() {
+		return gprs_connection;
+	}
+
+	public String getGprs_connectionEx() {
+		return gprs_connection != null ? gprs_connection : "";
+	}
+
+	public void setGprs_connection(String gprs_connection) {
+		this.gprs_connection = gprs_connection;
+	}
+
+	public void unSetGprs_connection() {
+		this.gprs_connection = null;
 	}
 
 	public String getSchool_id() {
