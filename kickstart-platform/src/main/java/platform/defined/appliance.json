@@ -52,6 +52,16 @@
 				'length': 128,
 				'type':'String'
 			},
+			'appliance_group_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'appliance_group_name':
+			{
+				'length': 128,
+				'type':'String'
+			},
 			'appliance_mf_profile_id':
 			{
 				'length': 128,

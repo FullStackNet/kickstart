@@ -28,6 +28,8 @@ public abstract class Baseappliance extends BaseResource {
 	private String source_type = null;
 	private String phase_type = null;
 	private String parent_appliance_id = null;
+	private String appliance_group_id = null;
+	private String appliance_group_name = null;
 	private String appliance_mf_profile_id = null;
 	private String appliance_mf_profile_name = null;
 	private Long controller_port = null;
@@ -324,6 +326,8 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_SOURCE_TYPE = "source_type";
 	public static String FIELD_PHASE_TYPE = "phase_type";
 	public static String FIELD_PARENT_APPLIANCE_ID = "parent_appliance_id";
+	public static String FIELD_APPLIANCE_GROUP_ID = "appliance_group_id";
+	public static String FIELD_APPLIANCE_GROUP_NAME = "appliance_group_name";
 	public static String FIELD_APPLIANCE_MF_PROFILE_ID = "appliance_mf_profile_id";
 	public static String FIELD_APPLIANCE_MF_PROFILE_NAME = "appliance_mf_profile_name";
 	public static String FIELD_CONTROLLER_PORT = "controller_port";
@@ -653,6 +657,14 @@ public abstract class Baseappliance extends BaseResource {
 		Field parent_appliance_idField = new Field("parent_appliance_id", "String");
 		parent_appliance_idField.setLength(128);
 		metaData.addField(parent_appliance_idField);
+
+		Field appliance_group_idField = new Field("appliance_group_id", "String");
+		appliance_group_idField.setLength(128);
+		metaData.addField(appliance_group_idField);
+
+		Field appliance_group_nameField = new Field("appliance_group_name", "String");
+		appliance_group_nameField.setLength(128);
+		metaData.addField(appliance_group_nameField);
 
 		Field appliance_mf_profile_idField = new Field("appliance_mf_profile_id", "String");
 		appliance_mf_profile_idField.setLength(128);
@@ -2134,6 +2146,8 @@ public abstract class Baseappliance extends BaseResource {
 		this.source_type = obj.source_type;
 		this.phase_type = obj.phase_type;
 		this.parent_appliance_id = obj.parent_appliance_id;
+		this.appliance_group_id = obj.appliance_group_id;
+		this.appliance_group_name = obj.appliance_group_name;
 		this.appliance_mf_profile_id = obj.appliance_mf_profile_id;
 		this.appliance_mf_profile_name = obj.appliance_mf_profile_name;
 		this.controller_port = obj.controller_port;
@@ -2873,6 +2887,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("phase_type", phase_type);
 		if(parent_appliance_id != null)
 			map.put("parent_appliance_id", parent_appliance_id);
+		if(appliance_group_id != null)
+			map.put("appliance_group_id", appliance_group_id);
+		if(appliance_group_name != null)
+			map.put("appliance_group_name", appliance_group_name);
 		if(appliance_mf_profile_id != null)
 			map.put("appliance_mf_profile_id", appliance_mf_profile_id);
 		if(appliance_mf_profile_name != null)
@@ -3471,6 +3489,10 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("phase_type", phase_type);
 		if(parent_appliance_id != null)
 			map.put("parent_appliance_id", parent_appliance_id);
+		if(appliance_group_id != null)
+			map.put("appliance_group_id", appliance_group_id);
+		if(appliance_group_name != null)
+			map.put("appliance_group_name", appliance_group_name);
 		if(appliance_mf_profile_id != null)
 			map.put("appliance_mf_profile_id", appliance_mf_profile_id);
 		if(appliance_mf_profile_name != null)
@@ -4062,6 +4084,8 @@ public abstract class Baseappliance extends BaseResource {
 		source_type = (String) map.get("source_type");
 		phase_type = (String) map.get("phase_type");
 		parent_appliance_id = (String) map.get("parent_appliance_id");
+		appliance_group_id = (String) map.get("appliance_group_id");
+		appliance_group_name = (String) map.get("appliance_group_name");
 		appliance_mf_profile_id = (String) map.get("appliance_mf_profile_id");
 		appliance_mf_profile_name = (String) map.get("appliance_mf_profile_name");
 		controller_port = (Long) map.get("controller_port");
@@ -4381,6 +4405,14 @@ public abstract class Baseappliance extends BaseResource {
 		Object parent_appliance_idObj = map.get("parent_appliance_id");
 		if(parent_appliance_idObj != null)
 			parent_appliance_id = parent_appliance_idObj.toString();
+
+		Object appliance_group_idObj = map.get("appliance_group_id");
+		if(appliance_group_idObj != null)
+			appliance_group_id = appliance_group_idObj.toString();
+
+		Object appliance_group_nameObj = map.get("appliance_group_name");
+		if(appliance_group_nameObj != null)
+			appliance_group_name = appliance_group_nameObj.toString();
 
 		Object appliance_mf_profile_idObj = map.get("appliance_mf_profile_id");
 		if(appliance_mf_profile_idObj != null)
@@ -5655,6 +5687,38 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetParent_appliance_id() {
 		this.parent_appliance_id = null;
+	}
+
+	public String getAppliance_group_id() {
+		return appliance_group_id;
+	}
+
+	public String getAppliance_group_idEx() {
+		return appliance_group_id != null ? appliance_group_id : "";
+	}
+
+	public void setAppliance_group_id(String appliance_group_id) {
+		this.appliance_group_id = appliance_group_id;
+	}
+
+	public void unSetAppliance_group_id() {
+		this.appliance_group_id = null;
+	}
+
+	public String getAppliance_group_name() {
+		return appliance_group_name;
+	}
+
+	public String getAppliance_group_nameEx() {
+		return appliance_group_name != null ? appliance_group_name : "";
+	}
+
+	public void setAppliance_group_name(String appliance_group_name) {
+		this.appliance_group_name = appliance_group_name;
+	}
+
+	public void unSetAppliance_group_name() {
+		this.appliance_group_name = null;
 	}
 
 	public String getAppliance_mf_profile_id() {
