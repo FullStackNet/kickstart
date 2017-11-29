@@ -1,0 +1,45 @@
+{
+	"appliance_group_appliance" :
+	{
+		"cluster": "DB_DEVICE",
+		"indexes" : {
+			'id' : {
+				'id' : 1
+			}
+		},
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'appliance_id':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'appliance_name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'group_id':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			},
+			'group_name':
+			{
+				'name':'name',
+				'length': 128,
+				'type':'String'
+			}
+		}
+	}
+}

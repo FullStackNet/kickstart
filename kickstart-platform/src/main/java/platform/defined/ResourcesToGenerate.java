@@ -25,6 +25,8 @@ public class ResourcesToGenerate {
 		new ResourceMap("billing_plan", "platform.resource.billing_plan"),
 		new ResourceMap("appliance_policy_detail", "platform.resource.appliance_policy_detail"),
 		new ResourceMap("appliance_policy", "platform.resource.appliance_policy"),
+		new ResourceMap("appliance_group", "platform.resource.appliance_group"),
+		new ResourceMap("appliance_group_appliance", "platform.resource.appliance_group_appliance"),
 		new ResourceMap("billing_slab_master", "platform.resource.billing_slab_master"),
 		new ResourceMap("billing_slab_detail", "platform.resource.billing_slab_detail"),
 		new ResourceMap("appliance_plan", "platform.resource.appliance_plan"),
