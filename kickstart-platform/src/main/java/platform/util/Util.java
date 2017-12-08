@@ -699,7 +699,8 @@ public class Util {
 			for (Map.Entry<String, String> param : params.entrySet()) {
 				String value = param.getValue();
 				String key = "!!!"+param.getKey()+"!!!";
-				text = text.replaceAll(key, value);
+				if (value != null)
+					text = text.replaceAll(key, value);
 			}
 		}
 		return text;
