@@ -39,8 +39,8 @@ public class BaseBarChartView extends BaseView {
 		
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("<script>" +
-				"google.load('current', {packages:['corechart', 'bar']});\n" +
-			     "google.setOnLoadCallback(drawMultSeries); " +
+				"google.charts.load('current', {packages:['corechart', 'bar']});\n" +
+			     "google.charts.setOnLoadCallback(drawMultSeries); " +
 			     "function drawMultSeries() { "+
 			     "var data = google.visualization.arrayToDataTable([ " + 
 			     "   ['"+mDefinition.getX_axisTitle()+"', '"+mDefinition.getY_axisTitle()+"'], " );
