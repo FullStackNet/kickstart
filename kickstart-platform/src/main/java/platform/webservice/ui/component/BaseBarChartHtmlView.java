@@ -89,7 +89,7 @@ public class BaseBarChartHtmlView extends BaseView {
 		long  step = 10;
 
 		if (min != max) {
-			step = (new Double((max - min)/ 10)).longValue();
+			step = (new Double((max)/ 10)).longValue();
 		}
 
 		Div container = getView();
@@ -103,7 +103,7 @@ public class BaseBarChartHtmlView extends BaseView {
 		Div col1_y_axis = new Div(null,"l-col-1 column-y-axis");
 		UL ul = new UL(null,"chart-column-y-axis text-small");
 		LI li;
-		double current_value = min;
+		double current_value = 0;
 		for(int i=10; i > 0; i--) {
 			current_value = min+(i*step);
 			li  = new LI();
@@ -122,7 +122,7 @@ public class BaseBarChartHtmlView extends BaseView {
 				li = new LI();
 				li.addAttribute("style", "width: 8.2%");
 				SPAN span = new SPAN(null, color);
-				double percentage = (object.getValue()*100)/(last_value-min);
+				double percentage = (object.getValue()*100)/(last_value);
 				span.addAttribute("style", "height: "+percentage+"%");
 				span.setText(""+object.getValue());
 				li.addChild(span);
