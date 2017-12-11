@@ -104,12 +104,13 @@ public class BaseBarChartHtmlView extends BaseView {
 		UL ul = new UL(null,"chart-column-y-axis text-small");
 		LI li;
 		double current_value = min;
-		for(int i=0; i < 10; i++) {
+		for(int i=10; i > 0; i--) {
 			current_value = current_value+(i*step);
 			li  = new LI();
 			li.addChild(new TEXT(""+current_value));
 			ul.addChild(li);
 		}
+		double last_value = (10*step);
 		col1_y_axis.addChild(ul);
 
 		row.addChild(col1_y_axis);
@@ -121,7 +122,7 @@ public class BaseBarChartHtmlView extends BaseView {
 				li = new LI();
 				li.addAttribute("style", "width: 8.2%");
 				SPAN span = new SPAN(null, color);
-				double percentage = (object.getValue()*100)/max;
+				double percentage = (object.getValue()*100)/last_value;
 				span.addAttribute("style", "height: "+percentage+"%");
 				span.setText(""+object.getValue());
 				li.addChild(span);
