@@ -105,7 +105,7 @@ public class BaseBarChartHtmlView extends BaseView {
 		LI li;
 		double current_value = 0;
 		for(int i=10; i > 0; i--) {
-			current_value = min+(i*step);
+			current_value = (i*step);
 			li  = new LI();
 			li.addChild(new TEXT(""+current_value));
 			ul.addChild(li);
