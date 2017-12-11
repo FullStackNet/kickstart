@@ -48,7 +48,7 @@ public class BaseBarChartView extends BaseView {
 			if (i > 0) {
 				buffer.append(",");
 			}
-			buffer.append("['"+data.get(i).getPoint()+"',"+data.get(i).getPoint()+"]");
+			buffer.append("['"+data.get(i).getPoint()+"',"+data.get(i).getValue()+"]");
 		}
 		buffer.append(	     "	]); " +
 			     "   var options = { "
