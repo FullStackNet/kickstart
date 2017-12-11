@@ -110,7 +110,7 @@ public class BaseBarChartHtmlView extends BaseView {
 			li.addChild(new TEXT(""+current_value));
 			ul.addChild(li);
 		}
-		double last_value = (10*step);
+		double last_value = min+(10*step);
 		col1_y_axis.addChild(ul);
 
 		row.addChild(col1_y_axis);
@@ -122,7 +122,7 @@ public class BaseBarChartHtmlView extends BaseView {
 				li = new LI();
 				li.addAttribute("style", "width: 8.2%");
 				SPAN span = new SPAN(null, color);
-				double percentage = (object.getValue()*100)/(last_value-min);
+				double percentage = ((object.getValue()-min)*100)/(last_value-min);
 				span.addAttribute("style", "height: "+percentage+"%");
 				span.setText(""+object.getValue());
 				li.addChild(span);
