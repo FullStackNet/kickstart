@@ -77,6 +77,11 @@ public class BaseBarChartHtmlView extends BaseView {
 						}
 					}
 				}
+				if (object.getValue() != null) {
+					if (object.getValue() >  max) {
+						max = object.getValue();
+					}
+				}
 
 			}
 		}
