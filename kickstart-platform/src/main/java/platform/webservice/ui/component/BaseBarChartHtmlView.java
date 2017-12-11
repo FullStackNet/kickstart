@@ -89,7 +89,7 @@ public class BaseBarChartHtmlView extends BaseView {
 		long  step = 10;
 
 		if (min != max) {
-			step = (new Double(max - min / 10)).longValue();
+			step = (new Double((max - min)/ 10)).longValue();
 		}
 
 		Div container = getView();
