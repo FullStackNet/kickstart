@@ -104,6 +104,7 @@ public class ControllerHelper extends BaseHelper {
 		return ControllerHelper.getInstance().getById(list.toArray(new String[list.size()]), null);
 	}
 
+
 	public BaseResource[] getByLocationId(String locationId) {
 		Expression e = new Expression(controller.FIELD_SITE_ID, REL_OP.EQ, locationId);
 		return getByExpression(e, new String[]{appliance.FIELD_NAME});
