@@ -51,6 +51,10 @@ public class BaseBarChartHtmlView extends BaseView {
 		if (max < 10) {
 			return 10;
 		}
+		if (max < 50) {
+			return 50;
+		}
+
 		if (max < 100) {
 			return 100;
 		}
