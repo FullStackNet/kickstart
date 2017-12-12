@@ -103,7 +103,12 @@ public class ControllerHelper extends BaseHelper {
 		java.util.List<Object> list = _gateway.getControllers();
 		return ControllerHelper.getInstance().getById(list.toArray(new String[list.size()]), null);
 	}
-	
+
+	public BaseResource[] getByLocationId(String locationId) {
+		Expression e = new Expression(controller.FIELD_SITE_ID, REL_OP.EQ, locationId);
+		return getByExpression(e, new String[]{appliance.FIELD_NAME});
+	}
+
 	public BaseResource[] getByApplianceId(String applianceId) {
 		platform.db.Expression e = new platform.db.Expression(controller.FIELD_APPLIANCE_ID,REL_OP.EQ, applianceId);
 		return getByExpression(e);
