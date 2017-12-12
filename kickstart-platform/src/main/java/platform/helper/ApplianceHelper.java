@@ -67,7 +67,34 @@ public class ApplianceHelper extends BaseHelper {
 		Expression e = new Expression(e1, LOG_OP.AND, e2);
 		return getByExpression(e);
 	}
-	
+
+	public BaseResource[] getApplianceByLocation(String locationId) {
+		Expression e = new Expression(appliance.FIELD_LOCATION_ID, REL_OP.EQ, locationId);
+		BaseResource[] appliances = getByExpression(e, new String[]{appliance.FIELD_NAME});
+		if (Util.isEmpty(appliances))
+			return null;
+		for(BaseResource resource : appliances) {
+			appliance _appliance = (appliance) resource;
+			String connected = "U";
+			BaseResource[] _controllers = ControllerHelper.getInstance().getByApplianceId(_appliance.getId());
+			if (!Util.isEmpty(_controllers)) {
+				connected = "Y";
+				controller _controller = (controller)_controllers[0];
+				_appliance.setController_id(_controller.getId());
+				if (_appliance.getLast_update_time() == null) {
+					connected = "U";
+				} else {
+					long diff = System.currentTimeMillis()-_appliance.getLast_update_time();
+					if (diff > (_controller.getHeartbeat_interval()*3*1000L)) {
+						connected = "N";
+					}
+				}
+			}
+			_appliance.setConnected(connected);
+		}
+		return appliances;
+	}
+
 	public BaseResource[] getCommunityAppliance(String communityId) {
 		Expression e = new Expression(appliance.FIELD_COMMUNITY_ID, REL_OP.EQ, communityId);
 		BaseResource[] appliances = getByExpression(e, new String[]{appliance.FIELD_NAME});
