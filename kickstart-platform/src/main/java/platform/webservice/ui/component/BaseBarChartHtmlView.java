@@ -100,7 +100,7 @@ public class BaseBarChartHtmlView extends BaseView {
 	public void buildUI(List<BarChartObject> data,String color) {
 		// TODO Auto-generated method stu
 		double  min = 0.0;
-		double  max = 100;
+		double  max = 0.0;
 		long 	step;
 		if (!Util.isEmpty(data)) {
 			for(BarChartObject object:data)
