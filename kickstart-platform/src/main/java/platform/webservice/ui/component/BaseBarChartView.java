@@ -40,25 +40,25 @@ public class BaseBarChartView extends BaseView {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("<script>" +
 				"google.charts.load('current', {packages:['corechart', 'bar']});\n" +
-			     "google.charts.setOnLoadCallback(drawMultSeries); " +
-			     "function drawMultSeries() { "+
-			     "var data = google.visualization.arrayToDataTable([ " + 
+			     "google.charts.setOnLoadCallback(drawMultSeries);\n " +
+			     "function drawMultSeries() {\n "+
+			     "var data = google.visualization.arrayToDataTable([ \n" +
 			     "   ['"+mDefinition.getX_axisTitle()+"', '"+mDefinition.getY_axisTitle()+"'], " );
 		for(int i=0; i< data.size(); i++) {
 			if (i > 0) {
 				buffer.append(",");
 			}
-			buffer.append("['"+data.get(i).getPoint()+"',"+data.get(i).getValue()+"]");
+			buffer.append("['"+data.get(i).getPoint()+"',"+data.get(i).getValue()+"]\n");
 		}
-		buffer.append(	     "	]); " +
-			     "   var options = { "
+		buffer.append(	     "\n]); " +
+			     "   var options = {\n "
 			     );
 
 		buffer.append(" title :'" + mDefinition.getTitle()+"',chartArea :{width:'100%'},hAxis:{title:'Consumption',minValue:0},vAxis:{title:'Time',minValue:0}"+
-				 "   }; " + 
-			     "   var chart = new google.visualization.BarChar(document.getElementById('"+mDefinition.getId()+"')); "+
-			     "   chart.draw(data, options); " +
-			     "} ");
+				 "   };\n " +
+			     "   var chart = new google.visualization.BarChart(document.getElementById('"+mDefinition.getId()+"')); \n"+
+			     "   chart.draw(data, options);\n " +
+			     "}\n");
 		buffer.append("</script>");
 	    TEXT text = new TEXT(buffer.toString());
 		div.addChild(text);

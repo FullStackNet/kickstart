@@ -41,6 +41,42 @@ import java.util.List;
 public class BaseBarChartHtmlView extends BaseView {
 	UIServletContext mContext;
 	BarChartDefinition mDefinition;
+	double default_max = 100.0;
+	public double getMax(double max) {
+		double return_max =100;
+		if (max == 0.0) {
+			return default_max;
+		}
+		if (max < 10) {
+			return 10;
+		}
+		if (max < 100) {
+			return 100;
+		}
+		if (max < 500) {
+			return 500;
+		}
+		if (max < 1000) {
+			return 1000;
+		}
+
+		if (max < 2000) {
+			return 2000;
+		}
+		if (max < 3000) {
+			return 3000;
+		}
+		if (max < 5000) {
+			return 5000;
+		}
+		if (max < 10000) {
+			return 10000;
+		}
+		if (max < 20000) {
+			return 20000;
+		}
+		return 50000;
+	}
 
 	public BaseBarChartHtmlView(UIServletContext ctx) {
 		super();
@@ -60,23 +96,10 @@ public class BaseBarChartHtmlView extends BaseView {
 		// TODO Auto-generated method stu
 		double  min = 0.0;
 		double  max = 100;
-		boolean zerovalue = false;
+		long 	step;
 		if (!Util.isEmpty(data)) {
 			for(BarChartObject object:data)
 			{
-				if (!zerovalue) {
-					if (object.getValue() != null) {
-						if ((min == 0) || (min > object.getValue()))
-							min = object.getValue();
-					}
-				} else {
-					if (object.getValue() != null) {
-						if (object.getValue() == 0) {
-							zerovalue = true;
-							min = 0.0;
-						}
-					}
-				}
 				if (object.getValue() != null) {
 					if (object.getValue() >  max) {
 						max = object.getValue();
@@ -86,11 +109,9 @@ public class BaseBarChartHtmlView extends BaseView {
 			}
 		}
 
-		long  step = 10;
-
-		if (min != max) {
-			step = (new Double((max-min)/ 10)).longValue();
-		}
+		max = getMax(max);
+		min = 0;
+		step = (long)(max-min)/ 10;
 
 		Div container = getView();
 		container.addAttribute("class","l-container graph-container");
@@ -103,9 +124,9 @@ public class BaseBarChartHtmlView extends BaseView {
 		Div col1_y_axis = new Div(null,"l-col-1 column-y-axis");
 		UL ul = new UL(null,"chart-column-y-axis text-small");
 		LI li;
-		double current_value = min;
+		double current_value = 0;
 		for(int i=10; i > 0; i--) {
-			current_value = min+(i*step);
+			current_value = 0+(i*step);
 			li  = new LI();
 			li.addChild(new TEXT(""+current_value));
 			ul.addChild(li);
