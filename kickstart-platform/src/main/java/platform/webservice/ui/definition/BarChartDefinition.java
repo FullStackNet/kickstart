@@ -12,6 +12,15 @@ public class BarChartDefinition {
 	String title;
 	String x_axisTitle = "";
 	String y_axisTitle = "";
+	String yAxis_type="";
+
+	public String getyAxis_type() {
+		return yAxis_type;
+	}
+
+	public void setyAxis_type(String yAxis_type) {
+		this.yAxis_type = yAxis_type;
+	}
 
 	public String getX_axisTitle() {
 		return x_axisTitle;
@@ -46,7 +55,7 @@ public class BarChartDefinition {
 	}
 
 	public BarChartDefinition() {
-
+		yAxis_type = "LONG";
 	}
 
 	public BarChartDefinition(String id, String name, String className) {
@@ -55,6 +64,7 @@ public class BarChartDefinition {
 		mId = id;
 		mName = name;
 		mClassName = className;
+
 	}
 	
 

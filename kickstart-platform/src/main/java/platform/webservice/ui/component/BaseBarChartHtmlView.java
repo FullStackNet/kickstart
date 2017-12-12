@@ -42,6 +42,7 @@ public class BaseBarChartHtmlView extends BaseView {
 	UIServletContext mContext;
 	BarChartDefinition mDefinition;
 	double default_max = 100.0;
+
 	public double getMax(double max) {
 		double return_max =100;
 		if (max == 0.0) {
@@ -124,11 +125,15 @@ public class BaseBarChartHtmlView extends BaseView {
 		Div col1_y_axis = new Div(null,"l-col-1 column-y-axis");
 		UL ul = new UL(null,"chart-column-y-axis text-small");
 		LI li;
-		double current_value = 0;
+		Double current_value = 0.0;
 		for(int i=10; i > 0; i--) {
-			current_value = 0+(i*step);
+			current_value = 0.0+(i*step);
 			li  = new LI();
-			li.addChild(new TEXT(""+current_value));
+			if ("LONG".equalsIgnoreCase(getDefinition().getyAxis_type())) {
+				li.addChild(new TEXT("" + current_value.longValue()));
+			} else {
+				li.addChild(new TEXT("" + current_value));
+			}
 			ul.addChild(li);
 		}
 		double last_value = min+(10*step);
