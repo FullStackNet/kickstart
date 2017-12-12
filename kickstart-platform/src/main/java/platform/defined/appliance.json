@@ -613,6 +613,13 @@
 				'precision': 4,
 				'type':'double'
 			},
+			'grid_target_month_kwh':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
 			'grid_today_kvah':
 			{
 				'default':'0.0000',

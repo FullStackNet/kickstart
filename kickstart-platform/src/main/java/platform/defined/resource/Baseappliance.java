@@ -112,6 +112,7 @@ public abstract class Baseappliance extends BaseResource {
 	private Double grid_reading_kwh = null;
 	private Double grid_today_kwh = null;
 	private Double grid_current_month_kwh = null;
+	private Double grid_target_month_kwh = null;
 	private Double grid_today_kvah = null;
 	private Double grid_current_month_kvah = null;
 	private Double grid_load_kva = null;
@@ -411,6 +412,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_GRID_READING_KWH = "grid_reading_kwh";
 	public static String FIELD_GRID_TODAY_KWH = "grid_today_kwh";
 	public static String FIELD_GRID_CURRENT_MONTH_KWH = "grid_current_month_kwh";
+	public static String FIELD_GRID_TARGET_MONTH_KWH = "grid_target_month_kwh";
 	public static String FIELD_GRID_TODAY_KVAH = "grid_today_kvah";
 	public static String FIELD_GRID_CURRENT_MONTH_KVAH = "grid_current_month_kvah";
 	public static String FIELD_GRID_LOAD_KVA = "grid_load_kva";
@@ -1055,6 +1057,12 @@ public abstract class Baseappliance extends BaseResource {
 		grid_current_month_kwhField.setLength(12);
 		grid_current_month_kwhField.setPrecision(4);
 		metaData.addField(grid_current_month_kwhField);
+
+		Field grid_target_month_kwhField = new Field("grid_target_month_kwh", "double");
+		grid_target_month_kwhField.setDefaultValue(0.0000);
+		grid_target_month_kwhField.setLength(12);
+		grid_target_month_kwhField.setPrecision(4);
+		metaData.addField(grid_target_month_kwhField);
 
 		Field grid_today_kvahField = new Field("grid_today_kvah", "double");
 		grid_today_kvahField.setDefaultValue(0.0000);
@@ -2237,6 +2245,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.grid_reading_kwh = obj.grid_reading_kwh;
 		this.grid_today_kwh = obj.grid_today_kwh;
 		this.grid_current_month_kwh = obj.grid_current_month_kwh;
+		this.grid_target_month_kwh = obj.grid_target_month_kwh;
 		this.grid_today_kvah = obj.grid_today_kvah;
 		this.grid_current_month_kvah = obj.grid_current_month_kvah;
 		this.grid_load_kva = obj.grid_load_kva;
@@ -2531,6 +2540,8 @@ public abstract class Baseappliance extends BaseResource {
 			grid_today_kwh = 0.0000;
 		if(grid_current_month_kwh == null)
 			grid_current_month_kwh = 0.0000;
+		if(grid_target_month_kwh == null)
+			grid_target_month_kwh = 0.0000;
 		if(grid_today_kvah == null)
 			grid_today_kvah = 0.0000;
 		if(grid_current_month_kvah == null)
@@ -3065,6 +3076,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_today_kwh", grid_today_kwh);
 		if(grid_current_month_kwh != null)
 			map.put("grid_current_month_kwh", grid_current_month_kwh);
+		if(grid_target_month_kwh != null)
+			map.put("grid_target_month_kwh", grid_target_month_kwh);
 		if(grid_today_kvah != null)
 			map.put("grid_today_kvah", grid_today_kvah);
 		if(grid_current_month_kvah != null)
@@ -3669,6 +3682,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("grid_today_kwh", grid_today_kwh);
 		if(grid_current_month_kwh != null)
 			map.put("grid_current_month_kwh", grid_current_month_kwh);
+		if(grid_target_month_kwh != null)
+			map.put("grid_target_month_kwh", grid_target_month_kwh);
 		if(grid_today_kvah != null)
 			map.put("grid_today_kvah", grid_today_kvah);
 		if(grid_current_month_kvah != null)
@@ -4180,6 +4195,7 @@ public abstract class Baseappliance extends BaseResource {
 		grid_reading_kwh = (Double) map.get("grid_reading_kwh");
 		grid_today_kwh = (Double) map.get("grid_today_kwh");
 		grid_current_month_kwh = (Double) map.get("grid_current_month_kwh");
+		grid_target_month_kwh = (Double) map.get("grid_target_month_kwh");
 		grid_today_kvah = (Double) map.get("grid_today_kvah");
 		grid_current_month_kvah = (Double) map.get("grid_current_month_kvah");
 		grid_load_kva = (Double) map.get("grid_load_kva");
@@ -4748,6 +4764,10 @@ public abstract class Baseappliance extends BaseResource {
 		Object grid_current_month_kwhObj = map.get("grid_current_month_kwh");
 		if(grid_current_month_kwhObj != null)
 			grid_current_month_kwh = new Double(grid_current_month_kwhObj.toString());
+
+		Object grid_target_month_kwhObj = map.get("grid_target_month_kwh");
+		if(grid_target_month_kwhObj != null)
+			grid_target_month_kwh = new Double(grid_target_month_kwhObj.toString());
 
 		Object grid_today_kvahObj = map.get("grid_today_kvah");
 		if(grid_today_kvahObj != null)
@@ -7043,6 +7063,22 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetGrid_current_month_kwh() {
 		this.grid_current_month_kwh = 0.0000;
+	}
+
+	public Double getGrid_target_month_kwh() {
+		return grid_target_month_kwh != null ? grid_target_month_kwh : 0.0000;
+	}
+
+	public void setGrid_target_month_kwh(double grid_target_month_kwh) {
+		this.grid_target_month_kwh = grid_target_month_kwh;
+	}
+
+	public void setGrid_target_month_kwh(Double grid_target_month_kwh) {
+		this.grid_target_month_kwh = grid_target_month_kwh;
+	}
+
+	public void unSetGrid_target_month_kwh() {
+		this.grid_target_month_kwh = 0.0000;
 	}
 
 	public Double getGrid_today_kvah() {
