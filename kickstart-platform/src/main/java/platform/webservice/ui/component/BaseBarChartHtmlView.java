@@ -175,6 +175,7 @@ public class BaseBarChartHtmlView extends BaseView {
 		if (!Util.isEmpty(data)) {
 			for(BarChartObject object:data) {
 				li = new LI(null, null);
+				li.addAttribute("style", "width: 8.2%");
 				li.setText(object.getPoint());
 				ul.addChild(li);
 			}
