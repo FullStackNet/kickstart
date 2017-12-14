@@ -169,6 +169,7 @@ public class BaseBarChartHtmlView extends BaseView {
 					SPAN span = new SPAN(null, color);
 					double percentage = ((object.getValue() - min) * 100) / (last_value - min);
 					span.addAttribute("style", "height: " + percentage + "%");
+					span.addAttribute("title", "" + object.getValue());
 					li.addChild(span);
 				}
 				ul.addChild(li);
