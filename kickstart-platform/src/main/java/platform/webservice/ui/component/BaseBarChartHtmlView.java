@@ -150,12 +150,27 @@ public class BaseBarChartHtmlView extends BaseView {
 		if (!Util.isEmpty(data)) {
 			for (BarChartObject object : data) {
 				li = new LI();
-				li.addAttribute("style", "width: 8.2%");
-				SPAN span = new SPAN(null, color);
-				double percentage = ((object.getValue()-min)*100)/(last_value-min);
-				span.addAttribute("style", "height: "+percentage+"%");
-				span.setText(""+object.getValue());
-				li.addChild(span);
+				if (data.size() < 10) {
+					li.addAttribute("style", "width: 8.2%");
+					SPAN span = new SPAN(null, color);
+					double percentage = ((object.getValue() - min) * 100) / (last_value - min);
+					span.addAttribute("style", "height: " + percentage + "%");
+					span.setText("" + object.getValue());
+					li.addChild(span);
+				} else if (data.size() < 13) {
+					li.addAttribute("style", "width: 7.0%");
+					SPAN span = new SPAN(null, color);
+					double percentage = ((object.getValue() - min) * 100) / (last_value - min);
+					span.addAttribute("style", "height: " + percentage + "%");
+					span.setText("" + object.getValue());
+					li.addChild(span);
+				} else  {
+					li.addAttribute("style", "width: 4.0%");
+					SPAN span = new SPAN(null, color);
+					double percentage = ((object.getValue() - min) * 100) / (last_value - min);
+					span.addAttribute("style", "height: " + percentage + "%");
+					li.addChild(span);
+				}
 				ul.addChild(li);
 			}
 		}
