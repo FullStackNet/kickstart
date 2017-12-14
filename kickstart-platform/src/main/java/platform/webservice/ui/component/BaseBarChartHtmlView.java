@@ -194,8 +194,10 @@ public class BaseBarChartHtmlView extends BaseView {
 					li.addAttribute("style", "width: 8.2%");
 				} else if(data.size() < 13) {
 					li.addAttribute("style", "width: 7%");
+				} else if(data.size() < 20) {
+					li.addAttribute("style", "width: 3%");
 				} else {
-					li.addAttribute("style", "width: 4%");
+					li.addAttribute("style", "width: 1%");
 				}
 				li.setText(object.getPoint());
 				ul.addChild(li);
