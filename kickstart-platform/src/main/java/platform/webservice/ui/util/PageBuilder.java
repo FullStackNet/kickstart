@@ -368,12 +368,19 @@ public class PageBuilder {
 			jsFileList.add(new JS("bootstrap.min.js", "/ui/js"));
 		} else {
 		//	fixCssFileList.add(new CSS("bootstrap.min.css", "/ui/css"));
-			fixCssFileList.add(new CSS("bootstrap.min.css", "/ui/css/"));
 			fixCssFileList.add(new CSS("bootstrap-theme.min.css", "/ui/css/"));
 			fixCssFileList.add(new CSS("jquery-ui.css", "http://code.jquery.com/ui/1.11.0/themes/smoothness"));
 			fixCssFileList.add(new CSS("font-awesome.min.css", "/ui/css"));
 			fixCssFileList.add(new CSS("eas_cloud.css", "/ui/css"));
-			fixCssFileList.add(new CSS("ionicons.min.css?v=2.0.1", "/ui/css"));	      
+			fixCssFileList.add(new CSS("ionicons.min.css?v=2.0.1", "/ui/css"));
+		    fixCssFileList.add(new CSS("bootstrap.css", "assets/css"));
+			fixCssFileList.add(new CSS("core.css", "assets/css"));
+			fixCssFileList.add(new CSS("components.css", "assets/css"));
+			fixCssFileList.add(new CSS("colors.css", "assets/css"));
+			fixCssFileList.add(new CSS("https://fonts.googleapis.com/css?family=Raleway:400,600|Lato:400", ""));
+			fixCssFileList.add(new CSS("font-awesome.min.css", "assets/css/chart/font-awesome-4.3.0/css/"));
+			fixCssFileList.add(new CSS("media-graph.css", "assets/css/chart/"));
+
 			jsFileList.add(new JS("jquery-1.11.3.min.js", "http://code.jquery.com"));
 			jsFileList.add(new JS("jquery-ui.min.js", "http://code.jquery.com/ui/1.11.4"));
 			jsFileList.add(new JS("function.js", "/ui/js"));
@@ -381,7 +388,17 @@ public class PageBuilder {
 			jsFileList.add(new JS("DataHandler.js", "/ui/js"));
 			jsFileList.add(new JS("json.js", "/ui/js"));
 			jsFileList.add(new JS("base64.js", "/ui/js"));
-			jsFileList.add(new JS("bootstrap.min.js", "/ui/js"));		
+			jsFileList.add(new JS("jquery.appear.js", "assets/js/charts"));
+			jsFileList.add(new JS("PerfectWidgets.js", "assets/js/charts"));
+			jsFileList.add(new JS("mscorlib.js", "assets/js/charts"));
+			jsFileList.add(new JS("moment.min.js", "assets/js/plugins/ui/moment/"));
+			jsFileList.add(new JS("drilldown.js", "assets/js/plugins/ui/"));
+			jsFileList.add(new JS("nicescroll.min.js", "assets/js/plugins/ui/"));
+			jsFileList.add(new JS("blockui.min.js", "assets/js/plugins/loaders"));
+			jsFileList.add(new JS("bootstrap.min.js", "assets/js/core/libraries"));
+
+
+
 			if (isEditor()) {
 				jsFileList.add(new JS("nicEdit-latest.js", "http://js.nicedit.com"));
 			}
