@@ -179,9 +179,11 @@ public class BaseBarChartHtmlView extends BaseView {
 
 		ul = new UL(null,"graph-grid l-group");
 		ul.addAttribute("style","display:None");
-		for (BarChartObject object : data) {
-			li = new LI();
-			ul.addChild(li);
+		if (!Util.isEmpty(data)) {
+			for (BarChartObject object : data) {
+				li = new LI();
+				ul.addChild(li);
+			}
 		}
 		col11.addChild(ul);
 		row.addChild(col11);
