@@ -68,7 +68,10 @@ public class ApplianceService extends BaseService{
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
 		if (action.equalsIgnoreCase(WebServiceContants.OPERATION_MODIFY)) {
 			update(ctx, resource);
-		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_CLEAN_DATA)) {
+		} else if(action.equalsIgnoreCase(WebServiceContants.OPERATION_DELETE)) {
+			ApplianceHelper.getInstance().deleteById(resource.getId());
+		}
+		else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_CLEAN_DATA)) {
 			ApplianceHelper.getInstance().cleanData(ctx.getUserId(),resource);
 		} else  if (action.equalsIgnoreCase(WebServiceContants.OPERATION_PUSH_CONFIG)) {
 			String userId = ctx.getUserId();

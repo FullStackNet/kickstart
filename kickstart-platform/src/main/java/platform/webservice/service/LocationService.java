@@ -41,6 +41,11 @@ public class LocationService extends BaseService{
 					","+_resource.getCountry()+","+_resource.getPinCode());
 			}
 			update(ctx, _resource);
+		} else if (action.equalsIgnoreCase(WebServiceContants.OPERATION_DELETE)) {
+			location _resource = (location) resource;
+			if (!Util.isEmpty(_resource.getId())) {
+				LocationHelper.getInstance().deleteById(_resource.getId());
+			}
 		}
 	}
 	public void update(ServletContext ctx, BaseResource resource) throws ApplicationException {
