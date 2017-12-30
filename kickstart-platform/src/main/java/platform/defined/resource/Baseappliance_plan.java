@@ -25,10 +25,8 @@ public abstract class Baseappliance_plan extends BaseResource {
 	private String appliance_serialno = null;
 	private String plan_id = null;
 	private String plan_name = null;
-	private Long start_time = null;
-	private Long end_time = null;
-	private String current_plan = null;
-	private Long creation_time = null;
+	private Long start_date = null;
+	private String start_date_str = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -37,10 +35,8 @@ public abstract class Baseappliance_plan extends BaseResource {
 	public static String FIELD_APPLIANCE_SERIALNO = "appliance_serialno";
 	public static String FIELD_PLAN_ID = "plan_id";
 	public static String FIELD_PLAN_NAME = "plan_name";
-	public static String FIELD_START_TIME = "start_time";
-	public static String FIELD_END_TIME = "end_time";
-	public static String FIELD_CURRENT_PLAN = "current_plan";
-	public static String FIELD_CREATION_TIME = "creation_time";
+	public static String FIELD_START_DATE = "start_date";
+	public static String FIELD_START_DATE_STR = "start_date_str";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -76,22 +72,11 @@ public abstract class Baseappliance_plan extends BaseResource {
 		plan_nameField.setLength(128);
 		metaData.addField(plan_nameField);
 
-		Field start_timeField = new Field("start_time", "timestamp");
-		start_timeField.setDefaultValue("CURRENT_TIMESTAMP");
-		metaData.addField(start_timeField);
+		Field start_dateField = new Field("start_date", "long");
+		metaData.addField(start_dateField);
 
-		Field end_timeField = new Field("end_time", "timestamp");
-		end_timeField.setDefaultValue("CURRENT_TIMESTAMP");
-		metaData.addField(end_timeField);
-
-		Field current_planField = new Field("current_plan", "String");
-		current_planField.setLength(1);
-		metaData.addField(current_planField);
-
-		Field creation_timeField = new Field("creation_time", "timestamp");
-		creation_timeField.setRequired(true);
-		creation_timeField.setDefaultValue("CURRENT_TIMESTAMP");
-		metaData.addField(creation_timeField);
+		Field start_date_strField = new Field("start_date_str", "String");
+		metaData.addField(start_date_strField);
 
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
@@ -112,18 +97,13 @@ public abstract class Baseappliance_plan extends BaseResource {
 		this.appliance_serialno = obj.appliance_serialno;
 		this.plan_id = obj.plan_id;
 		this.plan_name = obj.plan_name;
-		this.start_time = obj.start_time;
-		this.end_time = obj.end_time;
-		this.current_plan = obj.current_plan;
-		this.creation_time = obj.creation_time;
+		this.start_date = obj.start_date;
+		this.start_date_str = obj.start_date_str;
 		this.extra_data = obj.extra_data;
 	}
 
 	public ResourceMetaData getMetaData() {
 		return metaData;
-	}
-
-	private void setDefaultValues() {
 	}
 
 	public Map<String, Object> convertResourceToMap() {
@@ -140,23 +120,16 @@ public abstract class Baseappliance_plan extends BaseResource {
 			map.put("plan_id", plan_id);
 		if(plan_name != null)
 			map.put("plan_name", plan_name);
-		if(start_time != null)
-			map.put("start_time", start_time);
-		if(end_time != null)
-			map.put("end_time", end_time);
-		if(current_plan != null)
-			map.put("current_plan", current_plan);
-		if(creation_time != null)
-			map.put("creation_time", creation_time);
+		if(start_date != null)
+			map.put("start_date", start_date);
+		if(start_date_str != null)
+			map.put("start_date_str", start_date_str);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
 	}
 
 	public Map<String, Object> validateAndConvertResourceToMap(boolean add) throws ApplicationException {
-		if(add)
-			setDefaultValues();
-
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		if(id != null)
 			map.put("id", id);
@@ -170,14 +143,10 @@ public abstract class Baseappliance_plan extends BaseResource {
 			map.put("plan_id", plan_id);
 		if(plan_name != null)
 			map.put("plan_name", plan_name);
-		if(start_time != null)
-			map.put("start_time", start_time);
-		if(end_time != null)
-			map.put("end_time", end_time);
-		if(current_plan != null)
-			map.put("current_plan", current_plan);
-		if(validateCreation_time(add))
-			map.put("creation_time", creation_time);
+		if(start_date != null)
+			map.put("start_date", start_date);
+		if(start_date_str != null)
+			map.put("start_date_str", start_date_str);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -196,10 +165,8 @@ public abstract class Baseappliance_plan extends BaseResource {
 		appliance_serialno = (String) map.get("appliance_serialno");
 		plan_id = (String) map.get("plan_id");
 		plan_name = (String) map.get("plan_name");
-		start_time = (Long) map.get("start_time");
-		end_time = (Long) map.get("end_time");
-		current_plan = (String) map.get("current_plan");
-		creation_time = (Long) map.get("creation_time");
+		start_date = (Long) map.get("start_date");
+		start_date_str = (String) map.get("start_date_str");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -229,21 +196,13 @@ public abstract class Baseappliance_plan extends BaseResource {
 		if(plan_nameObj != null)
 			plan_name = plan_nameObj.toString();
 
-		Object start_timeObj = map.get("start_time");
-		if(start_timeObj != null)
-			start_time = new Long(start_timeObj.toString());
+		Object start_dateObj = map.get("start_date");
+		if(start_dateObj != null)
+			start_date = new Long(start_dateObj.toString());
 
-		Object end_timeObj = map.get("end_time");
-		if(end_timeObj != null)
-			end_time = new Long(end_timeObj.toString());
-
-		Object current_planObj = map.get("current_plan");
-		if(current_planObj != null)
-			current_plan = current_planObj.toString();
-
-		Object creation_timeObj = map.get("creation_time");
-		if(creation_timeObj != null)
-			creation_time = new Long(creation_timeObj.toString());
+		Object start_date_strObj = map.get("start_date_str");
+		if(start_date_strObj != null)
+			start_date_str = start_date_strObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -368,53 +327,40 @@ public abstract class Baseappliance_plan extends BaseResource {
 		this.plan_name = null;
 	}
 
-	public Long getStart_time() {
-		return start_time;
+	public Long getStart_date() {
+		return start_date;
 	}
 
-	public void setStart_time(Long start_time) {
-		this.start_time = start_time;
+	public long getStart_dateEx() {
+		return start_date != null ? start_date : 0L;
 	}
 
-
-	public Long getEnd_time() {
-		return end_time;
+	public void setStart_date(long start_date) {
+		this.start_date = start_date;
 	}
 
-	public void setEnd_time(Long end_time) {
-		this.end_time = end_time;
+	public void setStart_date(Long start_date) {
+		this.start_date = start_date;
 	}
 
-
-	public String getCurrent_plan() {
-		return current_plan;
+	public void unSetStart_date() {
+		this.start_date = null;
 	}
 
-	public String getCurrent_planEx() {
-		return current_plan != null ? current_plan : "";
+	public String getStart_date_str() {
+		return start_date_str;
 	}
 
-	public void setCurrent_plan(String current_plan) {
-		this.current_plan = current_plan;
+	public String getStart_date_strEx() {
+		return start_date_str != null ? start_date_str : "";
 	}
 
-	public void unSetCurrent_plan() {
-		this.current_plan = null;
+	public void setStart_date_str(String start_date_str) {
+		this.start_date_str = start_date_str;
 	}
 
-	public Long getCreation_time() {
-		return creation_time;
-	}
-
-	public void setCreation_time(Long creation_time) {
-		this.creation_time = creation_time;
-	}
-
-
-	public boolean validateCreation_time(boolean add) throws ApplicationException {
-		if(add && creation_time == null)
-			throw new ApplicationException(ExceptionSeverity.ERROR, "Requierd validation Failed[creation_time]");
-		return creation_time != null;
+	public void unSetStart_date_str() {
+		this.start_date_str = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
