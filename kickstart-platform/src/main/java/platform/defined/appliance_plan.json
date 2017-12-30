@@ -37,26 +37,11 @@
 				'length': 128,
 				'type':'String'
 			},
-			'start_time': {
-				'name': 'creation_time',
-				'default': 'CURRENT_TIMESTAMP',
-				'type': 'timestamp'
+			'start_date': {
+				'type': 'long'
 			},
-			'end_time': {
-				'name': 'creation_time',
-				'default': 'CURRENT_TIMESTAMP',
-				'type': 'timestamp'
-			},
-			'current_plan':
-			{
-				'length': 1,
-				'type':'String'
-			},
-			'creation_time': {
-				'name': 'creation_time',
-				'default': 'CURRENT_TIMESTAMP',
-				'required': true,
-				'type': 'timestamp'
+			'start_date_str': {
+				'type': 'String'
 			}
 		}
 	}
