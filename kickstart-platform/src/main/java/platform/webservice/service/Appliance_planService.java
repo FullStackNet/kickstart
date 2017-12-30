@@ -22,7 +22,7 @@ public class Appliance_planService extends BaseService{
 
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		appliance_plan _resource = (appliance_plan)resource;
-		appliance _appliance = (appliance) ApplianceHelper.getInstance().getById(_resource.getId());
+		appliance _appliance = (appliance) ApplianceHelper.getInstance().getById(_resource.getAppliance_id());
 		_resource.setAppliance_name(_appliance.getName());
 		_resource.setAppliance_serialno(_appliance.getSerial_no());
 		billing_plan _plan = (billing_plan) Billing_planHelper.getInstance().getById(_resource.getPlan_id());
