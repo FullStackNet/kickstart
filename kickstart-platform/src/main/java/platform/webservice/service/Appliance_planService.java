@@ -8,6 +8,7 @@ import platform.helper.Billing_planHelper;
 import platform.resource.*;
 import platform.util.ApplicationException;
 import platform.util.ExceptionSeverity;
+import platform.util.TimeUtil;
 import platform.webservice.BaseService;
 import platform.webservice.ServletContext;
 import platform.webservice.WebServiceContants;
@@ -26,6 +27,7 @@ public class Appliance_planService extends BaseService{
 		_resource.setAppliance_serialno(_appliance.getSerial_no());
 		billing_plan _plan = (billing_plan) Billing_planHelper.getInstance().getById(_resource.getPlan_id());
 		_resource.setPlan_name(_plan.getName());
+		_resource.setStart_date(TimeUtil.getTimeFromDateString(_appliance.getTimeZone(), _resource.getStart_date_str()));
 		getHelper().add(resource);
 	}
 
