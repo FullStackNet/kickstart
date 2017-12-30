@@ -39,6 +39,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("meter_hourly_log", "platform.resource.meter_hourly_log"),
 		new ResourceMap("meter_daily_log", "platform.resource.meter_daily_log"),
 		new ResourceMap("meter_monthly_log", "platform.resource.meter_monthly_log"),
+			new ResourceMap("meter_bill_log", "platform.resource.meter_bill_log"),
 		new ResourceMap("appliance_make", "platform.resource.appliance_make"),
 		new ResourceMap("appliance_model", "platform.resource.appliance_model"),
 		new ResourceMap("appliance_map", "platform.resource.appliance_map"),

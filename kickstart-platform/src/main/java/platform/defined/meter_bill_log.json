@@ -1,0 +1,91 @@
+{
+	"meter_bill_log" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'name':'id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'appliance_id':
+			{
+				'name':'appliance_id',
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'source':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'process_status':
+			{
+				'length': 16,
+				'type':'String',
+				'comment' : "NP,PR,PD"
+			},
+			'process_time':
+			{
+				'type':'timestamp'
+			},
+			'creation_time':
+			{
+				'type':'timestamp'
+			},
+			'opening_reading':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'current_reading':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'current_consumption':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'current_consumption_month':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'current_amount':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
+			'balance':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			}
+
+		}
+	}
+}
