@@ -9,6 +9,7 @@
 
 package platform.db;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -29,6 +30,7 @@ public class Expression {
 	private Expression leftExpression;
 	private LOG_OP logicalOperator;
 	private Expression rightExpression;
+
 
 	public Expression(String variable, REL_OP relationOperator, Object value) {
 		this.isSimple = true;
