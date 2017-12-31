@@ -16,7 +16,7 @@ import platform.resource.appliance;
 import platform.resource.controller;
 import platform.resource.sensor;
 import platform.util.ApplicationException;
-
+import platform.util.Util;
 
 
 public class AlertHelper extends BaseHelper {
@@ -99,7 +99,11 @@ public class AlertHelper extends BaseHelper {
 		
 		deviceType = _appliance.getType();
 		deviceName = _appliance.getName();
-		site_id = _appliance.getSite_id();
+		if (Util.isEmpty(_appliance.getSite_id())) {
+			site_id = _appliance.getLocation_id();
+		} else {
+			site_id = _appliance.getSite_id();
+		}
 		customer_id = _appliance.getCustomer_id();
 		applianceId = _appliance.getId();
 		applianceName = _appliance.getName();
