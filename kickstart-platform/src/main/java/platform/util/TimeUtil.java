@@ -725,6 +725,9 @@ public class TimeUtil {
 		if ("this_month".equalsIgnoreCase(durationType)) {
 			time = TimeUtil.getStartTimeofThisMonth(timezone);
 		}
+		if ("last_month".equalsIgnoreCase(durationType)) {
+			time = TimeUtil.getStartTimeofLastMonth(timezone);
+		}
 		return time;
 	}
 	public static long getToTime(String durationType,long fromTime,String timezone) {
@@ -740,6 +743,9 @@ public class TimeUtil {
 		}
 		if ("this_month".equalsIgnoreCase(durationType)) {
 			time = System.currentTimeMillis();
+		}
+		if ("last_month".equalsIgnoreCase(durationType)) {
+			time = TimeUtil.getStartTimeofThisMonth(timezone);
 		}
 		return time;
 	}
@@ -785,6 +791,30 @@ public class TimeUtil {
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTimeInMillis()-dayOfMonth*24*60*60*1000L;
+	}
+
+	public static long getStartTimeofLastMonth(String timezone) {
+		if (timezone == null)
+			timezone = "IST";
+
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
+		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+		int month = cal.get(Calendar.MONTH);
+		int year = cal.get(Calendar.MONTH);
+		if (month == 0) {
+			month = 11;
+			year = year -1;
+		} else {
+			month = month -1;
+		}
+		cal.set(Calendar.DAY_OF_MONTH,1);
+		cal.set(Calendar.MONTH,month);
+		cal.set(Calendar.YEAR,year);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
 	}
 
 	public static long getHour(String timezone,long time) {
