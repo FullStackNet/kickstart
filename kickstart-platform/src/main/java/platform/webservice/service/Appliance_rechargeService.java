@@ -34,9 +34,7 @@ public class Appliance_rechargeService extends BaseService{
 	}
 
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
-		if (action.equalsIgnoreCase(WebServiceContants.OPERATION_MODIFY)) {
-			update(ctx, resource);
-		} 
+
 	}
 	public void update(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		getHelper().update(resource);
