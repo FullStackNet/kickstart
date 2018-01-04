@@ -30,6 +30,7 @@ public class ResourcesToGenerate {
 		new ResourceMap("billing_slab_master", "platform.resource.billing_slab_master"),
 		new ResourceMap("billing_slab_detail", "platform.resource.billing_slab_detail"),
 		new ResourceMap("appliance_plan", "platform.resource.appliance_plan"),
+		new ResourceMap("appliance_recharge", "platform.resource.appliance_recharge"),
 		new ResourceMap("alert", "platform.resource.alert"),
 		new ResourceMap("appliance_simulator", "platform.resource.appliance_simulator"),
 		new ResourceMap("appliance_threshold_templete", "platform.resource.appliance_threshold_templete"),

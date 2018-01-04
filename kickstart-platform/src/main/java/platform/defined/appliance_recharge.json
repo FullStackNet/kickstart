@@ -1,0 +1,93 @@
+{
+	"appliance_recharge" :
+	{
+		"cluster": "DB_LOG",
+		"fields":
+		{
+			'id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'location_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'location_name':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'appliance_id':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'appliance_name':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'appliance_serialno':
+			{
+				'length': 128,
+				'required': true,
+				'type':'String'
+			},
+			'recharge_date': {
+				'type': 'long'
+			},
+			'recharge_date_str': {
+				'type': 'String'
+			},
+			'recharge_amount': {
+				'type': 'double'
+			},
+			'recharge_method':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'cheque_number':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'cheque_date':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'bank':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'transction_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'transction_type':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'customer_id':
+			{
+				'length': 128,
+				'type':'String'
+			},
+			'creation_time':
+			{
+				'length': 128,
+				'type':'String'
+			}
+		}
+	}
+}
