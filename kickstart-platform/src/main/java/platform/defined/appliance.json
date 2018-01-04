@@ -558,6 +558,28 @@
 				'precision': 4,
 				'type':'double'
 			},
+			'balance_amount':
+			{
+				'default':'0.00',
+				'length': 12,
+				'precision': 2,
+				'type':'double'
+			},
+			'last_dg_reading_processed_time':
+			{
+				'name':'last_dg_reading_processed_time',
+				'type':'timestamp'
+			},
+			'last_grid_reading_processed_time':
+			{
+				'name':'last_grid_reading_processed_time',
+				'type':'timestamp'
+			},
+			'last_reading_processed_time':
+			{
+				'name':'last_reading_processed_time',
+				'type':'timestamp'
+			},
 			'voltage':
 			{
 				'default':'0',
@@ -1640,9 +1662,9 @@
 				'precision': 4,
 				'type':'double'
 			},
-			'last_processed_db_reading':
+			'last_processed_dg_reading':
 			{
-				'name':'last_processed_db_reading',
+				'name':'last_processed_dg_reading',
 				'default':'0.00',
 				'length': 15,
 				'precision': 4,

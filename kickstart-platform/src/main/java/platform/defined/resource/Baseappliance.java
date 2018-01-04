@@ -104,6 +104,10 @@ public abstract class Baseappliance extends BaseResource {
 	private Long last_dg_reading_updated = null;
 	private Double dg_reading = null;
 	private Double grid_reading = null;
+	private Double balance_amount = null;
+	private Long last_dg_reading_processed_time = null;
+	private Long last_grid_reading_processed_time = null;
+	private Long last_reading_processed_time = null;
 	private Integer voltage = null;
 	private Integer current = null;
 	private Double power = null;
@@ -254,7 +258,7 @@ public abstract class Baseappliance extends BaseResource {
 	private Long lastProcessedTime = null;
 	private String charging_state = null;
 	private Double last_processed_fuel_quantity = null;
-	private Double last_processed_db_reading = null;
+	private Double last_processed_dg_reading = null;
 	private Double last_processed_grid_reading = null;
 	private String langitude = null;
 	private String latitude = null;
@@ -404,6 +408,10 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_LAST_DG_READING_UPDATED = "last_dg_reading_updated";
 	public static String FIELD_DG_READING = "dg_reading";
 	public static String FIELD_GRID_READING = "grid_reading";
+	public static String FIELD_BALANCE_AMOUNT = "balance_amount";
+	public static String FIELD_LAST_DG_READING_PROCESSED_TIME = "last_dg_reading_processed_time";
+	public static String FIELD_LAST_GRID_READING_PROCESSED_TIME = "last_grid_reading_processed_time";
+	public static String FIELD_LAST_READING_PROCESSED_TIME = "last_reading_processed_time";
 	public static String FIELD_VOLTAGE = "voltage";
 	public static String FIELD_CURRENT = "current";
 	public static String FIELD_POWER = "power";
@@ -554,7 +562,7 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_LASTPROCESSEDTIME = "lastProcessedTime";
 	public static String FIELD_CHARGING_STATE = "charging_state";
 	public static String FIELD_LAST_PROCESSED_FUEL_QUANTITY = "last_processed_fuel_quantity";
-	public static String FIELD_LAST_PROCESSED_DB_READING = "last_processed_db_reading";
+	public static String FIELD_LAST_PROCESSED_DG_READING = "last_processed_dg_reading";
 	public static String FIELD_LAST_PROCESSED_GRID_READING = "last_processed_grid_reading";
 	public static String FIELD_LANGITUDE = "langitude";
 	public static String FIELD_LATITUDE = "latitude";
@@ -1011,6 +1019,21 @@ public abstract class Baseappliance extends BaseResource {
 		grid_readingField.setLength(12);
 		grid_readingField.setPrecision(4);
 		metaData.addField(grid_readingField);
+
+		Field balance_amountField = new Field("balance_amount", "double");
+		balance_amountField.setDefaultValue(0.00);
+		balance_amountField.setLength(12);
+		balance_amountField.setPrecision(2);
+		metaData.addField(balance_amountField);
+
+		Field last_dg_reading_processed_timeField = new Field("last_dg_reading_processed_time", "timestamp");
+		metaData.addField(last_dg_reading_processed_timeField);
+
+		Field last_grid_reading_processed_timeField = new Field("last_grid_reading_processed_time", "timestamp");
+		metaData.addField(last_grid_reading_processed_timeField);
+
+		Field last_reading_processed_timeField = new Field("last_reading_processed_time", "timestamp");
+		metaData.addField(last_reading_processed_timeField);
 
 		Field voltageField = new Field("voltage", "int");
 		voltageField.setDefaultValue(0);
@@ -1862,11 +1885,11 @@ public abstract class Baseappliance extends BaseResource {
 		last_processed_fuel_quantityField.setPrecision(4);
 		metaData.addField(last_processed_fuel_quantityField);
 
-		Field last_processed_db_readingField = new Field("last_processed_db_reading", "double");
-		last_processed_db_readingField.setDefaultValue(0.00);
-		last_processed_db_readingField.setLength(15);
-		last_processed_db_readingField.setPrecision(4);
-		metaData.addField(last_processed_db_readingField);
+		Field last_processed_dg_readingField = new Field("last_processed_dg_reading", "double");
+		last_processed_dg_readingField.setDefaultValue(0.00);
+		last_processed_dg_readingField.setLength(15);
+		last_processed_dg_readingField.setPrecision(4);
+		metaData.addField(last_processed_dg_readingField);
 
 		Field last_processed_grid_readingField = new Field("last_processed_grid_reading", "double");
 		last_processed_grid_readingField.setDefaultValue(0.00);
@@ -2237,6 +2260,10 @@ public abstract class Baseappliance extends BaseResource {
 		this.last_dg_reading_updated = obj.last_dg_reading_updated;
 		this.dg_reading = obj.dg_reading;
 		this.grid_reading = obj.grid_reading;
+		this.balance_amount = obj.balance_amount;
+		this.last_dg_reading_processed_time = obj.last_dg_reading_processed_time;
+		this.last_grid_reading_processed_time = obj.last_grid_reading_processed_time;
+		this.last_reading_processed_time = obj.last_reading_processed_time;
 		this.voltage = obj.voltage;
 		this.current = obj.current;
 		this.power = obj.power;
@@ -2387,7 +2414,7 @@ public abstract class Baseappliance extends BaseResource {
 		this.lastProcessedTime = obj.lastProcessedTime;
 		this.charging_state = obj.charging_state;
 		this.last_processed_fuel_quantity = obj.last_processed_fuel_quantity;
-		this.last_processed_db_reading = obj.last_processed_db_reading;
+		this.last_processed_dg_reading = obj.last_processed_dg_reading;
 		this.last_processed_grid_reading = obj.last_processed_grid_reading;
 		this.langitude = obj.langitude;
 		this.latitude = obj.latitude;
@@ -2524,6 +2551,8 @@ public abstract class Baseappliance extends BaseResource {
 			dg_reading = 0.0000;
 		if(grid_reading == null)
 			grid_reading = 0.0000;
+		if(balance_amount == null)
+			balance_amount = 0.00;
 		if(voltage == null)
 			voltage = 0;
 		if(current == null)
@@ -2806,8 +2835,8 @@ public abstract class Baseappliance extends BaseResource {
 			charging_state = "N";
 		if(last_processed_fuel_quantity == null)
 			last_processed_fuel_quantity = 0.00;
-		if(last_processed_db_reading == null)
-			last_processed_db_reading = 0.00;
+		if(last_processed_dg_reading == null)
+			last_processed_dg_reading = 0.00;
 		if(last_processed_grid_reading == null)
 			last_processed_grid_reading = 0.00;
 		if(speed == null)
@@ -3060,6 +3089,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_reading", dg_reading);
 		if(grid_reading != null)
 			map.put("grid_reading", grid_reading);
+		if(balance_amount != null)
+			map.put("balance_amount", balance_amount);
+		if(last_dg_reading_processed_time != null)
+			map.put("last_dg_reading_processed_time", last_dg_reading_processed_time);
+		if(last_grid_reading_processed_time != null)
+			map.put("last_grid_reading_processed_time", last_grid_reading_processed_time);
+		if(last_reading_processed_time != null)
+			map.put("last_reading_processed_time", last_reading_processed_time);
 		if(voltage != null)
 			map.put("voltage", voltage);
 		if(current != null)
@@ -3360,8 +3397,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("charging_state", charging_state);
 		if(last_processed_fuel_quantity != null)
 			map.put("last_processed_fuel_quantity", last_processed_fuel_quantity);
-		if(last_processed_db_reading != null)
-			map.put("last_processed_db_reading", last_processed_db_reading);
+		if(last_processed_dg_reading != null)
+			map.put("last_processed_dg_reading", last_processed_dg_reading);
 		if(last_processed_grid_reading != null)
 			map.put("last_processed_grid_reading", last_processed_grid_reading);
 		if(langitude != null)
@@ -3666,6 +3703,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("dg_reading", dg_reading);
 		if(grid_reading != null)
 			map.put("grid_reading", grid_reading);
+		if(balance_amount != null)
+			map.put("balance_amount", balance_amount);
+		if(last_dg_reading_processed_time != null)
+			map.put("last_dg_reading_processed_time", last_dg_reading_processed_time);
+		if(last_grid_reading_processed_time != null)
+			map.put("last_grid_reading_processed_time", last_grid_reading_processed_time);
+		if(last_reading_processed_time != null)
+			map.put("last_reading_processed_time", last_reading_processed_time);
 		if(voltage != null)
 			map.put("voltage", voltage);
 		if(current != null)
@@ -3966,8 +4011,8 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("charging_state", charging_state);
 		if(last_processed_fuel_quantity != null)
 			map.put("last_processed_fuel_quantity", last_processed_fuel_quantity);
-		if(last_processed_db_reading != null)
-			map.put("last_processed_db_reading", last_processed_db_reading);
+		if(last_processed_dg_reading != null)
+			map.put("last_processed_dg_reading", last_processed_dg_reading);
 		if(last_processed_grid_reading != null)
 			map.put("last_processed_grid_reading", last_processed_grid_reading);
 		if(langitude != null)
@@ -4187,6 +4232,10 @@ public abstract class Baseappliance extends BaseResource {
 		last_dg_reading_updated = (Long) map.get("last_dg_reading_updated");
 		dg_reading = (Double) map.get("dg_reading");
 		grid_reading = (Double) map.get("grid_reading");
+		balance_amount = (Double) map.get("balance_amount");
+		last_dg_reading_processed_time = (Long) map.get("last_dg_reading_processed_time");
+		last_grid_reading_processed_time = (Long) map.get("last_grid_reading_processed_time");
+		last_reading_processed_time = (Long) map.get("last_reading_processed_time");
 		voltage = (Integer) map.get("voltage");
 		current = (Integer) map.get("current");
 		power = (Double) map.get("power");
@@ -4337,7 +4386,7 @@ public abstract class Baseappliance extends BaseResource {
 		lastProcessedTime = (Long) map.get("lastProcessedTime");
 		charging_state = (String) map.get("charging_state");
 		last_processed_fuel_quantity = (Double) map.get("last_processed_fuel_quantity");
-		last_processed_db_reading = (Double) map.get("last_processed_db_reading");
+		last_processed_dg_reading = (Double) map.get("last_processed_dg_reading");
 		last_processed_grid_reading = (Double) map.get("last_processed_grid_reading");
 		langitude = (String) map.get("langitude");
 		latitude = (String) map.get("latitude");
@@ -4732,6 +4781,22 @@ public abstract class Baseappliance extends BaseResource {
 		Object grid_readingObj = map.get("grid_reading");
 		if(grid_readingObj != null)
 			grid_reading = new Double(grid_readingObj.toString());
+
+		Object balance_amountObj = map.get("balance_amount");
+		if(balance_amountObj != null)
+			balance_amount = new Double(balance_amountObj.toString());
+
+		Object last_dg_reading_processed_timeObj = map.get("last_dg_reading_processed_time");
+		if(last_dg_reading_processed_timeObj != null)
+			last_dg_reading_processed_time = new Long(last_dg_reading_processed_timeObj.toString());
+
+		Object last_grid_reading_processed_timeObj = map.get("last_grid_reading_processed_time");
+		if(last_grid_reading_processed_timeObj != null)
+			last_grid_reading_processed_time = new Long(last_grid_reading_processed_timeObj.toString());
+
+		Object last_reading_processed_timeObj = map.get("last_reading_processed_time");
+		if(last_reading_processed_timeObj != null)
+			last_reading_processed_time = new Long(last_reading_processed_timeObj.toString());
 
 		Object voltageObj = map.get("voltage");
 		if(voltageObj != null)
@@ -5333,9 +5398,9 @@ public abstract class Baseappliance extends BaseResource {
 		if(last_processed_fuel_quantityObj != null)
 			last_processed_fuel_quantity = new Double(last_processed_fuel_quantityObj.toString());
 
-		Object last_processed_db_readingObj = map.get("last_processed_db_reading");
-		if(last_processed_db_readingObj != null)
-			last_processed_db_reading = new Double(last_processed_db_readingObj.toString());
+		Object last_processed_dg_readingObj = map.get("last_processed_dg_reading");
+		if(last_processed_dg_readingObj != null)
+			last_processed_dg_reading = new Double(last_processed_dg_readingObj.toString());
 
 		Object last_processed_grid_readingObj = map.get("last_processed_grid_reading");
 		if(last_processed_grid_readingObj != null)
@@ -6936,6 +7001,49 @@ public abstract class Baseappliance extends BaseResource {
 	public void unSetGrid_reading() {
 		this.grid_reading = 0.0000;
 	}
+
+	public Double getBalance_amount() {
+		return balance_amount != null ? balance_amount : 0.00;
+	}
+
+	public void setBalance_amount(double balance_amount) {
+		this.balance_amount = balance_amount;
+	}
+
+	public void setBalance_amount(Double balance_amount) {
+		this.balance_amount = balance_amount;
+	}
+
+	public void unSetBalance_amount() {
+		this.balance_amount = 0.00;
+	}
+
+	public Long getLast_dg_reading_processed_time() {
+		return last_dg_reading_processed_time;
+	}
+
+	public void setLast_dg_reading_processed_time(Long last_dg_reading_processed_time) {
+		this.last_dg_reading_processed_time = last_dg_reading_processed_time;
+	}
+
+
+	public Long getLast_grid_reading_processed_time() {
+		return last_grid_reading_processed_time;
+	}
+
+	public void setLast_grid_reading_processed_time(Long last_grid_reading_processed_time) {
+		this.last_grid_reading_processed_time = last_grid_reading_processed_time;
+	}
+
+
+	public Long getLast_reading_processed_time() {
+		return last_reading_processed_time;
+	}
+
+	public void setLast_reading_processed_time(Long last_reading_processed_time) {
+		this.last_reading_processed_time = last_reading_processed_time;
+	}
+
 
 	public Integer getVoltage() {
 		return voltage != null ? voltage : 0;
@@ -9207,20 +9315,20 @@ public abstract class Baseappliance extends BaseResource {
 		this.last_processed_fuel_quantity = 0.00;
 	}
 
-	public Double getLast_processed_db_reading() {
-		return last_processed_db_reading != null ? last_processed_db_reading : 0.00;
+	public Double getLast_processed_dg_reading() {
+		return last_processed_dg_reading != null ? last_processed_dg_reading : 0.00;
 	}
 
-	public void setLast_processed_db_reading(double last_processed_db_reading) {
-		this.last_processed_db_reading = last_processed_db_reading;
+	public void setLast_processed_dg_reading(double last_processed_dg_reading) {
+		this.last_processed_dg_reading = last_processed_dg_reading;
 	}
 
-	public void setLast_processed_db_reading(Double last_processed_db_reading) {
-		this.last_processed_db_reading = last_processed_db_reading;
+	public void setLast_processed_dg_reading(Double last_processed_dg_reading) {
+		this.last_processed_dg_reading = last_processed_dg_reading;
 	}
 
-	public void unSetLast_processed_db_reading() {
-		this.last_processed_db_reading = 0.00;
+	public void unSetLast_processed_dg_reading() {
+		this.last_processed_dg_reading = 0.00;
 	}
 
 	public Double getLast_processed_grid_reading() {
