@@ -86,7 +86,13 @@ public class BaseHelper {
 				connection.release();	
 		}
 	}
-	
+
+	public ArrayList<Map<String, Object>> getListMapByCustomerId(String customerId,String[] orderby) {
+		Expression e = new Expression("customer_id", REL_OP.EQ, customerId);
+		BaseResource[] resoucres = this.getByExpression(e, orderby);
+		return HelperUtils.convertArray2ListMap(resoucres);
+	}
+
 	public void incrementCounter(String id,String counterName, int incrementBy) throws ApplicationException {
 		DbConnection connection = null;
 		try {

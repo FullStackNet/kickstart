@@ -26,11 +26,15 @@ public class Appliance_rechargeService extends BaseService{
 		_resource.setCustomer_id(ctx.getCustomerId());
 		appliance _appliance = (appliance) ApplianceHelper.getInstance().getById(_resource.getId());
 		if (_appliance != null) {
+			_resource.setAppliance_name(_appliance.getName());
+			_resource.setAppliance_serialno(_appliance.getSerial_no());
+			_resource.setLocation_id(_appliance.getLocation_id());
+			_resource.setLocation_name(_appliance.getLocation_name());
 			appliance _a = new appliance(_appliance.getId());
 			_a.setBalance_amount(_a.getBalance_amount()+_resource.getRecharge_amountEx());
 			ApplianceHelper.getInstance().update(_a);
 		}
-		getHelper().add(resource);
+		getHelper().add(_resource);
 	}
 
 	public void action(ServletContext ctx, BaseResource resource,String action) throws ApplicationException {
