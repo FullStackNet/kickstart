@@ -24,14 +24,14 @@ public class Appliance_rechargeService extends BaseService{
 	public void add(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		appliance_recharge _resource = (appliance_recharge)resource;
 		_resource.setCustomer_id(ctx.getCustomerId());
-		appliance _appliance = (appliance) ApplianceHelper.getInstance().getById(_resource.getId());
+		appliance _appliance = (appliance) ApplianceHelper.getInstance().getById(_resource.getAppliance_id());
 		if (_appliance != null) {
 			_resource.setAppliance_name(_appliance.getName());
 			_resource.setAppliance_serialno(_appliance.getSerial_no());
 			_resource.setLocation_id(_appliance.getLocation_id());
 			_resource.setLocation_name(_appliance.getLocation_name());
 			appliance _a = new appliance(_appliance.getId());
-			_a.setBalance_amount(_a.getBalance_amount()+_resource.getRecharge_amountEx());
+			_a.setBalance_amount(_appliance.getBalance_amount()+_resource.getRecharge_amountEx());
 			ApplianceHelper.getInstance().update(_a);
 		}
 		getHelper().add(_resource);
