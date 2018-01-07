@@ -695,12 +695,17 @@ public class Util {
 		} catch (Exception e) {// Catch exception if any
 			System.err.println("Error: " + e.getMessage());
 		}
-		if (params != null) {
+		if ((params != null) && !Util.isEmpty(text)) {
 			for (Map.Entry<String, String> param : params.entrySet()) {
 				String value = param.getValue();
+				if (Util.isEmpty(param.getKey()))
+					continue;
 				String key = "!!!"+param.getKey()+"!!!";
-				if (value != null)
+				if (Util.isEmpty(value))
 					text = text.replaceAll(key, value);
+				else {
+					text = text.replaceAll(key, "");
+				}
 			}
 		}
 		return text;
