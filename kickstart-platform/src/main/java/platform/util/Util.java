@@ -701,7 +701,7 @@ public class Util {
 				if (Util.isEmpty(param.getKey()))
 					continue;
 				String key = "!!!"+param.getKey()+"!!!";
-				if (Util.isEmpty(value))
+				if (!Util.isEmpty(value))
 					text = text.replaceAll(key, value);
 				else {
 					text = text.replaceAll(key, "");
@@ -732,7 +732,7 @@ public class Util {
 				if (Util.isEmpty(param.getKey()))
 					continue;
 				String key = "!!!"+param.getKey()+"!!!";
-				if (Util.isEmpty(value))
+				if (!Util.isEmpty(value))
 					text = text.replaceAll(key, value);
 				else {
 					text = text.replaceAll(key, "");
