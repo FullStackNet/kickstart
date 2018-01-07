@@ -3,6 +3,7 @@ package platform.webservice.service;
 import java.util.Map;
 
 import platform.exception.ExceptionEnum;
+import platform.helper.ApplianceHelper;
 import platform.helper.Customer_mapHelper;
 import platform.helper.LocationHelper;
 import platform.resource.BaseResource;
@@ -51,8 +52,16 @@ public class LocationService extends BaseService{
 	public void update(ServletContext ctx, BaseResource resource) throws ApplicationException {
 		getHelper().update(resource);
 	}
+
+	private enum QueryTypes {
+		QUERY_GET_BY_CUSTOMER_ID
+	};
 	
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
+		if(QueryTypes.QUERY_GET_BY_CUSTOMER_ID.toString().equals(queryId)) {
+			String customerId = (String) map.get("customerId");
+			return LocationHelper.getInstance().getByCustomerId(customerId);
+		}
 		throw new ApplicationException(ExceptionSeverity.ERROR, ExceptionEnum.INVALID_QUERY);
 	}
 }
