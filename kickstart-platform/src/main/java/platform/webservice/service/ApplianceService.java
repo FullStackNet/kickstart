@@ -279,6 +279,7 @@ public class ApplianceService extends BaseService{
 		QUERY_USER_VEHICLE_SUMMARY,
 		QUERY_USER_VEHICLE_LOCATION,
 		QUERY_GET_BY_ID,
+		QUERY_GET_BY_LOCATION_ID,
 		QUERY_APPLIANCE_METER_CURRENT_DATA,
 		
 	};
@@ -290,6 +291,9 @@ public class ApplianceService extends BaseService{
 	public BaseResource[] getQuery(ServletContext ctx, String queryId, Map<String, Object> map) throws ApplicationException {
 		if(QueryTypes.QUERY_BUS_DETAIL_FOR_SCHOOL_ADMIN.toString().equals(queryId)) {
 			return ApplianceHelper.getInstance().getSchoolBusAdminDetail(ctx.getCustomerId(),null);
+		} else if(QueryTypes.QUERY_GET_BY_LOCATION_ID.toString().equals(queryId)) {
+			String locationId = (String) map.get("locationId");
+			return ApplianceHelper.getInstance().getApplianceByLocation(locationId);
 		} else if(QueryTypes.QUERY_USER_VEHICLE_LOCATION.toString().equals(queryId)) {
 			String appliance_id = (String)map.get("id");
 			BaseResource appliance = ApplianceHelper.getInstance().getApplianceLocation(appliance_id);
