@@ -78,6 +78,13 @@
 				'precision': 4,
 				'type':'double'
 			},
+			'rate':
+			{
+				'default':'0.0000',
+				'length': 12,
+				'precision': 4,
+				'type':'double'
+			},
 			'balance':
 			{
 				'default':'0.0000',

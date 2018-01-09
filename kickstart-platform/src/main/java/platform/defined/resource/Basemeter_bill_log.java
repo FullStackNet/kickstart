@@ -31,6 +31,7 @@ public abstract class Basemeter_bill_log extends BaseResource {
 	private Double current_consumption = null;
 	private Double current_consumption_month = null;
 	private Double current_amount = null;
+	private Double rate = null;
 	private Double balance = null;
 	private Map<String, Object> extra_data = null;
 
@@ -46,6 +47,7 @@ public abstract class Basemeter_bill_log extends BaseResource {
 	public static String FIELD_CURRENT_CONSUMPTION = "current_consumption";
 	public static String FIELD_CURRENT_CONSUMPTION_MONTH = "current_consumption_month";
 	public static String FIELD_CURRENT_AMOUNT = "current_amount";
+	public static String FIELD_RATE = "rate";
 	public static String FIELD_BALANCE = "balance";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
@@ -114,6 +116,12 @@ public abstract class Basemeter_bill_log extends BaseResource {
 		current_amountField.setPrecision(4);
 		metaData.addField(current_amountField);
 
+		Field rateField = new Field("rate", "double");
+		rateField.setDefaultValue(0.0000);
+		rateField.setLength(12);
+		rateField.setPrecision(4);
+		metaData.addField(rateField);
+
 		Field balanceField = new Field("balance", "double");
 		balanceField.setDefaultValue(0.0000);
 		balanceField.setLength(12);
@@ -145,6 +153,7 @@ public abstract class Basemeter_bill_log extends BaseResource {
 		this.current_consumption = obj.current_consumption;
 		this.current_consumption_month = obj.current_consumption_month;
 		this.current_amount = obj.current_amount;
+		this.rate = obj.rate;
 		this.balance = obj.balance;
 		this.extra_data = obj.extra_data;
 	}
@@ -164,6 +173,8 @@ public abstract class Basemeter_bill_log extends BaseResource {
 			current_consumption_month = 0.0000;
 		if(current_amount == null)
 			current_amount = 0.0000;
+		if(rate == null)
+			rate = 0.0000;
 		if(balance == null)
 			balance = 0.0000;
 	}
@@ -194,6 +205,8 @@ public abstract class Basemeter_bill_log extends BaseResource {
 			map.put("current_consumption_month", current_consumption_month);
 		if(current_amount != null)
 			map.put("current_amount", current_amount);
+		if(rate != null)
+			map.put("rate", rate);
 		if(balance != null)
 			map.put("balance", balance);
 		if(extra_data != null)
@@ -230,6 +243,8 @@ public abstract class Basemeter_bill_log extends BaseResource {
 			map.put("current_consumption_month", current_consumption_month);
 		if(current_amount != null)
 			map.put("current_amount", current_amount);
+		if(rate != null)
+			map.put("rate", rate);
 		if(balance != null)
 			map.put("balance", balance);
 		if(extra_data != null)
@@ -256,6 +271,7 @@ public abstract class Basemeter_bill_log extends BaseResource {
 		current_consumption = (Double) map.get("current_consumption");
 		current_consumption_month = (Double) map.get("current_consumption_month");
 		current_amount = (Double) map.get("current_amount");
+		rate = (Double) map.get("rate");
 		balance = (Double) map.get("balance");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -309,6 +325,10 @@ public abstract class Basemeter_bill_log extends BaseResource {
 		Object current_amountObj = map.get("current_amount");
 		if(current_amountObj != null)
 			current_amount = new Double(current_amountObj.toString());
+
+		Object rateObj = map.get("rate");
+		if(rateObj != null)
+			rate = new Double(rateObj.toString());
 
 		Object balanceObj = map.get("balance");
 		if(balanceObj != null)
@@ -517,6 +537,22 @@ public abstract class Basemeter_bill_log extends BaseResource {
 
 	public void unSetCurrent_amount() {
 		this.current_amount = 0.0000;
+	}
+
+	public Double getRate() {
+		return rate != null ? rate : 0.0000;
+	}
+
+	public void setRate(double rate) {
+		this.rate = rate;
+	}
+
+	public void setRate(Double rate) {
+		this.rate = rate;
+	}
+
+	public void unSetRate() {
+		this.rate = 0.0000;
 	}
 
 	public Double getBalance() {
