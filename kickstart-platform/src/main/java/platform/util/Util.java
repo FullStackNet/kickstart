@@ -44,8 +44,8 @@ public class Util {
 			return "" + year + "-" + (year + 1);
 		}
 	}
-	
-	private static final Random generator = new Random();  
+
+	private static final Random generator = new Random();
 
 	public static long nextNumber() {
 		synchronized (uniqueNumber) {
@@ -113,7 +113,7 @@ public class Util {
 	}
 
 	public static void updateString(byte[] packet, int index, String data,
-			int maxLength) {
+									int maxLength) {
 		int i = 0;
 		if (data != null) {
 			byte[] byteData = data.getBytes();
@@ -140,9 +140,9 @@ public class Util {
 	}
 
 	public static boolean isDataSyncNeed(c4t_object _community) {
-		if (_community == null) 
+		if (_community == null)
 			return false;
-		
+
 		if (Util.isEmpty(_community.getServer_url())) {
 			return false;
 		}
@@ -154,12 +154,20 @@ public class Util {
 		}
 		return false;
 	}
-	
+
 	public static short getShort(byte[] packet, int index) {
 		int data;
-		data = (short) (packet[index + 1] & 0xff);
+		data = (int) (packet[index + 1] & 0xff);
 		data = (data << 8);
 		data = (data | (packet[index] & 0xff));
+		System.out.println(data);
+		return (short) data;
+	}
+	public static short getReverseShort(byte[] packet, int index) {
+		int data;
+		data = (short) (packet[index] & 0xff);
+		data = (data << 8);
+		data = (data | (packet[index+1] & 0xff));
 		return (short) data;
 	}
 
@@ -236,6 +244,29 @@ public class Util {
 		data = temp | data;
 
 		temp = (int) (packet[index] & 0xff);
+
+		data = (int) (data | temp);
+
+		return data;
+	}
+
+	public static long getReverseLong(byte[] packet, int index) {
+		long data;
+		long temp;
+
+		temp = (int) (packet[index] & 0xff);
+		temp = (int) (temp << 24);
+		data = temp;
+
+		temp = (int) (packet[index + 1] & 0xff);
+		temp = (int) (temp << 16);
+		data = temp | data;
+
+		temp = (int) (packet[index + 2] & 0xff);
+		temp = (int) (temp << 8);
+		data = temp | data;
+
+		temp = (int) (packet[index+3] & 0xff);
 
 		data = (int) (data | temp);
 
@@ -455,7 +486,7 @@ public class Util {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param value
 	 * @param defaultVal
 	 * @return
@@ -469,7 +500,7 @@ public class Util {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param value
 	 * @param defaultVal
 	 * @return
@@ -483,7 +514,7 @@ public class Util {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param value
 	 * @param defaultVal
 	 * @return
@@ -558,12 +589,12 @@ public class Util {
 	}
 
 	public static String readFileFromLocal(String template,
-			Map<String, String> params) {
+										   Map<String, String> params) {
 		return readFileFromLocal(template, params,"html");
 	}
 
 	public static String readFileFromLocal(String template,
-			Map<String, String> params,String extension) {
+										   Map<String, String> params,String extension) {
 		String messageWithTokens = "";
 		String currentdir = System.getProperty("user.dir");
 		if (currentdir == null) {
@@ -595,7 +626,7 @@ public class Util {
 	}
 
 	public static String readPrintFormat(String template,
-			Map<String, String> params) {
+										 Map<String, String> params) {
 		String messageWithTokens = "";
 		String currentdir = System.getProperty("user.dir");
 		if (currentdir == null) {
@@ -633,16 +664,16 @@ public class Util {
 			try{
 				theDir.mkdir();
 				return true;
-			} 
+			}
 			catch(SecurityException se){
 
-			}        
+			}
 		}
 		return false;
 	}
 
 	public static String readSMSFileFromLocal(String template,
-			Map<String, String> params) {
+											  Map<String, String> params) {
 		String messageWithTokens = "";
 		String currentdir = System.getProperty("user.dir");
 		if (currentdir == null) {
@@ -674,7 +705,7 @@ public class Util {
 	}
 
 	public static String readTempleteFileFromLocal(String template,
-			Map<String, String> params) {
+												   Map<String, String> params) {
 		String text = "";
 		String directory = "context/root/templete/";
 		try {
@@ -743,7 +774,7 @@ public class Util {
 	}
 
 	public static String readNotificationFileFromLocal(String template,
-			Map<String, String> params) {
+													   Map<String, String> params) {
 		String messageWithTokens = "";
 		String currentdir = System.getProperty("user.dir");
 		if (currentdir == null) {
@@ -852,7 +883,7 @@ public class Util {
 	public static boolean isUnspecified(Object object) {
 		if (object == null) return true;
 		if (object.toString().length() == 0) return true;
-		return false;		
+		return false;
 	}
 
 	public static long currentTimeMS() {
@@ -871,7 +902,7 @@ public class Util {
 		long min = 0;
 		long hrs = 0;
 		long day = 0;
-		String str ="";	
+		String str ="";
 		if (second > 60) {
 			min = second/60L;
 			second = second % 60;
@@ -1045,7 +1076,7 @@ public class Util {
 		String str = "";
 		for(int i= 0; i < 32; i++) {
 			int pow = 1 << i;
-			if ((number & pow) == pow) {    
+			if ((number & pow) == pow) {
 				if (!str.equals(""))
 					str = str + ",";
 				str = str + (i+1);
@@ -1169,20 +1200,20 @@ public class Util {
 				md.update(input.getBytes());
 				BigInteger hash = new BigInteger(1, md.digest());
 				result = hash.toString(16);
-				while(result.length() < 32) { 
+				while(result.length() < 32) {
 					result = "0" + result;
 				}
 			} catch (NoSuchAlgorithmException e) {
 				e.printStackTrace();
-			} 
+			}
 
 		}
 		return result;
-	} 
+	}
 
 	public static String doubleMD5(String input){
 		return md5(md5(input));
-	} 
+	}
 
 	public static double getIncrementUnit(long lastUpdate, double mf) {
 		long timediff = (System.currentTimeMillis() - lastUpdate) / 1000;
@@ -1400,7 +1431,7 @@ public class Util {
 	public synchronized static String getRandonToken() {
 
 		long number = 1000 + generator.nextInt(9000);
-		return "" +number;  
+		return "" +number;
 	}
 
 	public static String getClassSectionName(String class_name, String section_name) {
@@ -1415,17 +1446,17 @@ public class Util {
 		return class_name+" "+section_name;
 	}
 
-	public static boolean isNumeric(String str)  
-	{  
-		try  
-		{  
-			Double.parseDouble(str); 
-		}  
-		catch(NumberFormatException nfe)  
-		{  
-			return false;  
-		}  
-		return true;  
+	public static boolean isNumeric(String str)
+	{
+		try
+		{
+			Double.parseDouble(str);
+		}
+		catch(NumberFormatException nfe)
+		{
+			return false;
+		}
+		return true;
 	}
 
 	public static long getAverage(List<Object> list) {
@@ -1444,7 +1475,7 @@ public class Util {
 
 	public static String[] getDayTimeArray() {
 		ArrayList<String> list  = new ArrayList<String>();
-		int hrs = 0; 
+		int hrs = 0;
 		while(hrs < 24) {
 			int min = 0;
 			while (min < 60) {
@@ -1456,7 +1487,7 @@ public class Util {
 		return list.toArray(new String[list.size()]);
 	}
 
-	
+
 	public static synchronized void saveDataInFile(String filename, String data) {
 		FileWriter fileWritter;
 		try {
