@@ -258,8 +258,10 @@ public abstract class Baseappliance extends BaseResource {
 	private Long lastProcessedTime = null;
 	private String charging_state = null;
 	private Double last_processed_fuel_quantity = null;
-	private Double last_processed_dg_reading = null;
+	private Double processed_dg_consumption_monthly = null;
+	private Double processed_grid_consumption_monthly = null;
 	private Double last_processed_grid_reading = null;
+	private Double last_processed_dg_reading = null;
 	private String langitude = null;
 	private String latitude = null;
 	private Integer speed = null;
@@ -562,8 +564,10 @@ public abstract class Baseappliance extends BaseResource {
 	public static String FIELD_LASTPROCESSEDTIME = "lastProcessedTime";
 	public static String FIELD_CHARGING_STATE = "charging_state";
 	public static String FIELD_LAST_PROCESSED_FUEL_QUANTITY = "last_processed_fuel_quantity";
-	public static String FIELD_LAST_PROCESSED_DG_READING = "last_processed_dg_reading";
+	public static String FIELD_PROCESSED_DG_CONSUMPTION_MONTHLY = "processed_dg_consumption_monthly";
+	public static String FIELD_PROCESSED_GRID_CONSUMPTION_MONTHLY = "processed_grid_consumption_monthly";
 	public static String FIELD_LAST_PROCESSED_GRID_READING = "last_processed_grid_reading";
+	public static String FIELD_LAST_PROCESSED_DG_READING = "last_processed_dg_reading";
 	public static String FIELD_LANGITUDE = "langitude";
 	public static String FIELD_LATITUDE = "latitude";
 	public static String FIELD_SPEED = "speed";
@@ -1885,17 +1889,29 @@ public abstract class Baseappliance extends BaseResource {
 		last_processed_fuel_quantityField.setPrecision(4);
 		metaData.addField(last_processed_fuel_quantityField);
 
-		Field last_processed_dg_readingField = new Field("last_processed_dg_reading", "double");
-		last_processed_dg_readingField.setDefaultValue(0.00);
-		last_processed_dg_readingField.setLength(15);
-		last_processed_dg_readingField.setPrecision(4);
-		metaData.addField(last_processed_dg_readingField);
+		Field processed_dg_consumption_monthlyField = new Field("processed_dg_consumption_monthly", "double");
+		processed_dg_consumption_monthlyField.setDefaultValue(0.00);
+		processed_dg_consumption_monthlyField.setLength(15);
+		processed_dg_consumption_monthlyField.setPrecision(4);
+		metaData.addField(processed_dg_consumption_monthlyField);
+
+		Field processed_grid_consumption_monthlyField = new Field("processed_grid_consumption_monthly", "double");
+		processed_grid_consumption_monthlyField.setDefaultValue(0.00);
+		processed_grid_consumption_monthlyField.setLength(15);
+		processed_grid_consumption_monthlyField.setPrecision(4);
+		metaData.addField(processed_grid_consumption_monthlyField);
 
 		Field last_processed_grid_readingField = new Field("last_processed_grid_reading", "double");
 		last_processed_grid_readingField.setDefaultValue(0.00);
 		last_processed_grid_readingField.setLength(15);
 		last_processed_grid_readingField.setPrecision(4);
 		metaData.addField(last_processed_grid_readingField);
+
+		Field last_processed_dg_readingField = new Field("last_processed_dg_reading", "double");
+		last_processed_dg_readingField.setDefaultValue(0.00);
+		last_processed_dg_readingField.setLength(15);
+		last_processed_dg_readingField.setPrecision(4);
+		metaData.addField(last_processed_dg_readingField);
 
 		Field langitudeField = new Field("langitude", "String");
 		langitudeField.setLength(32);
@@ -2414,8 +2430,10 @@ public abstract class Baseappliance extends BaseResource {
 		this.lastProcessedTime = obj.lastProcessedTime;
 		this.charging_state = obj.charging_state;
 		this.last_processed_fuel_quantity = obj.last_processed_fuel_quantity;
-		this.last_processed_dg_reading = obj.last_processed_dg_reading;
+		this.processed_dg_consumption_monthly = obj.processed_dg_consumption_monthly;
+		this.processed_grid_consumption_monthly = obj.processed_grid_consumption_monthly;
 		this.last_processed_grid_reading = obj.last_processed_grid_reading;
+		this.last_processed_dg_reading = obj.last_processed_dg_reading;
 		this.langitude = obj.langitude;
 		this.latitude = obj.latitude;
 		this.speed = obj.speed;
@@ -2835,10 +2853,14 @@ public abstract class Baseappliance extends BaseResource {
 			charging_state = "N";
 		if(last_processed_fuel_quantity == null)
 			last_processed_fuel_quantity = 0.00;
-		if(last_processed_dg_reading == null)
-			last_processed_dg_reading = 0.00;
+		if(processed_dg_consumption_monthly == null)
+			processed_dg_consumption_monthly = 0.00;
+		if(processed_grid_consumption_monthly == null)
+			processed_grid_consumption_monthly = 0.00;
 		if(last_processed_grid_reading == null)
 			last_processed_grid_reading = 0.00;
+		if(last_processed_dg_reading == null)
+			last_processed_dg_reading = 0.00;
 		if(speed == null)
 			speed = 0;
 		if(driveType == null)
@@ -3397,10 +3419,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("charging_state", charging_state);
 		if(last_processed_fuel_quantity != null)
 			map.put("last_processed_fuel_quantity", last_processed_fuel_quantity);
-		if(last_processed_dg_reading != null)
-			map.put("last_processed_dg_reading", last_processed_dg_reading);
+		if(processed_dg_consumption_monthly != null)
+			map.put("processed_dg_consumption_monthly", processed_dg_consumption_monthly);
+		if(processed_grid_consumption_monthly != null)
+			map.put("processed_grid_consumption_monthly", processed_grid_consumption_monthly);
 		if(last_processed_grid_reading != null)
 			map.put("last_processed_grid_reading", last_processed_grid_reading);
+		if(last_processed_dg_reading != null)
+			map.put("last_processed_dg_reading", last_processed_dg_reading);
 		if(langitude != null)
 			map.put("langitude", langitude);
 		if(latitude != null)
@@ -4011,10 +4037,14 @@ public abstract class Baseappliance extends BaseResource {
 			map.put("charging_state", charging_state);
 		if(last_processed_fuel_quantity != null)
 			map.put("last_processed_fuel_quantity", last_processed_fuel_quantity);
-		if(last_processed_dg_reading != null)
-			map.put("last_processed_dg_reading", last_processed_dg_reading);
+		if(processed_dg_consumption_monthly != null)
+			map.put("processed_dg_consumption_monthly", processed_dg_consumption_monthly);
+		if(processed_grid_consumption_monthly != null)
+			map.put("processed_grid_consumption_monthly", processed_grid_consumption_monthly);
 		if(last_processed_grid_reading != null)
 			map.put("last_processed_grid_reading", last_processed_grid_reading);
+		if(last_processed_dg_reading != null)
+			map.put("last_processed_dg_reading", last_processed_dg_reading);
 		if(langitude != null)
 			map.put("langitude", langitude);
 		if(latitude != null)
@@ -4386,8 +4416,10 @@ public abstract class Baseappliance extends BaseResource {
 		lastProcessedTime = (Long) map.get("lastProcessedTime");
 		charging_state = (String) map.get("charging_state");
 		last_processed_fuel_quantity = (Double) map.get("last_processed_fuel_quantity");
-		last_processed_dg_reading = (Double) map.get("last_processed_dg_reading");
+		processed_dg_consumption_monthly = (Double) map.get("processed_dg_consumption_monthly");
+		processed_grid_consumption_monthly = (Double) map.get("processed_grid_consumption_monthly");
 		last_processed_grid_reading = (Double) map.get("last_processed_grid_reading");
+		last_processed_dg_reading = (Double) map.get("last_processed_dg_reading");
 		langitude = (String) map.get("langitude");
 		latitude = (String) map.get("latitude");
 		speed = (Integer) map.get("speed");
@@ -5398,13 +5430,21 @@ public abstract class Baseappliance extends BaseResource {
 		if(last_processed_fuel_quantityObj != null)
 			last_processed_fuel_quantity = new Double(last_processed_fuel_quantityObj.toString());
 
-		Object last_processed_dg_readingObj = map.get("last_processed_dg_reading");
-		if(last_processed_dg_readingObj != null)
-			last_processed_dg_reading = new Double(last_processed_dg_readingObj.toString());
+		Object processed_dg_consumption_monthlyObj = map.get("processed_dg_consumption_monthly");
+		if(processed_dg_consumption_monthlyObj != null)
+			processed_dg_consumption_monthly = new Double(processed_dg_consumption_monthlyObj.toString());
+
+		Object processed_grid_consumption_monthlyObj = map.get("processed_grid_consumption_monthly");
+		if(processed_grid_consumption_monthlyObj != null)
+			processed_grid_consumption_monthly = new Double(processed_grid_consumption_monthlyObj.toString());
 
 		Object last_processed_grid_readingObj = map.get("last_processed_grid_reading");
 		if(last_processed_grid_readingObj != null)
 			last_processed_grid_reading = new Double(last_processed_grid_readingObj.toString());
+
+		Object last_processed_dg_readingObj = map.get("last_processed_dg_reading");
+		if(last_processed_dg_readingObj != null)
+			last_processed_dg_reading = new Double(last_processed_dg_readingObj.toString());
 
 		Object langitudeObj = map.get("langitude");
 		if(langitudeObj != null)
@@ -9315,20 +9355,36 @@ public abstract class Baseappliance extends BaseResource {
 		this.last_processed_fuel_quantity = 0.00;
 	}
 
-	public Double getLast_processed_dg_reading() {
-		return last_processed_dg_reading != null ? last_processed_dg_reading : 0.00;
+	public Double getProcessed_dg_consumption_monthly() {
+		return processed_dg_consumption_monthly != null ? processed_dg_consumption_monthly : 0.00;
 	}
 
-	public void setLast_processed_dg_reading(double last_processed_dg_reading) {
-		this.last_processed_dg_reading = last_processed_dg_reading;
+	public void setProcessed_dg_consumption_monthly(double processed_dg_consumption_monthly) {
+		this.processed_dg_consumption_monthly = processed_dg_consumption_monthly;
 	}
 
-	public void setLast_processed_dg_reading(Double last_processed_dg_reading) {
-		this.last_processed_dg_reading = last_processed_dg_reading;
+	public void setProcessed_dg_consumption_monthly(Double processed_dg_consumption_monthly) {
+		this.processed_dg_consumption_monthly = processed_dg_consumption_monthly;
 	}
 
-	public void unSetLast_processed_dg_reading() {
-		this.last_processed_dg_reading = 0.00;
+	public void unSetProcessed_dg_consumption_monthly() {
+		this.processed_dg_consumption_monthly = 0.00;
+	}
+
+	public Double getProcessed_grid_consumption_monthly() {
+		return processed_grid_consumption_monthly != null ? processed_grid_consumption_monthly : 0.00;
+	}
+
+	public void setProcessed_grid_consumption_monthly(double processed_grid_consumption_monthly) {
+		this.processed_grid_consumption_monthly = processed_grid_consumption_monthly;
+	}
+
+	public void setProcessed_grid_consumption_monthly(Double processed_grid_consumption_monthly) {
+		this.processed_grid_consumption_monthly = processed_grid_consumption_monthly;
+	}
+
+	public void unSetProcessed_grid_consumption_monthly() {
+		this.processed_grid_consumption_monthly = 0.00;
 	}
 
 	public Double getLast_processed_grid_reading() {
@@ -9345,6 +9401,22 @@ public abstract class Baseappliance extends BaseResource {
 
 	public void unSetLast_processed_grid_reading() {
 		this.last_processed_grid_reading = 0.00;
+	}
+
+	public Double getLast_processed_dg_reading() {
+		return last_processed_dg_reading != null ? last_processed_dg_reading : 0.00;
+	}
+
+	public void setLast_processed_dg_reading(double last_processed_dg_reading) {
+		this.last_processed_dg_reading = last_processed_dg_reading;
+	}
+
+	public void setLast_processed_dg_reading(Double last_processed_dg_reading) {
+		this.last_processed_dg_reading = last_processed_dg_reading;
+	}
+
+	public void unSetLast_processed_dg_reading() {
+		this.last_processed_dg_reading = 0.00;
 	}
 
 	public String getLangitude() {

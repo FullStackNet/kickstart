@@ -346,7 +346,7 @@
 				'type':'String',
 				'length': 128
 			},
-			
+
 			'feature_show_sales_price':
 			{
 				'type':'String',
@@ -715,7 +715,7 @@
 			'delivery_time':
 			{
 				'type':'String',
-				 'length': 32	
+				'length': 32
 			},
 			'vat':
 			{
@@ -755,7 +755,7 @@
 			{
 				'type':'String',
 				'length': 32
-				
+
 			},
 			'category_name':
 			{
@@ -924,6 +924,10 @@
 			{
 				'type':'timestamp'
 			},
+			'last_backup_time':
+			{
+				'type':'timestamp'
+			},
 			'last_used':
 			{
 				'type':'timestamp'
@@ -1043,12 +1047,12 @@
 			{
 				'type':'String',
 				'length': 128
-			} , 
+			} ,
 			'valid_imie':
 			{
 				'type':'String',
 				'length': 128
-			} , 
+			} ,
 			'mandi_main_price':
 			{
 				'type':'double'
@@ -1181,7 +1185,16 @@
 			{
 				'type':'String',
 				'length': 128
-			}		 	 			
+			},
+			'import_error_count':
+			{
+				'type':'long'
+			},
+			'import_error':
+			{
+				'type':'String',
+				'length': 128
+			}
 		}
 	}
 }

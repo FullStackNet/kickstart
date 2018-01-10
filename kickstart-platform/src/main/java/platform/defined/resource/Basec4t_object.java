@@ -206,6 +206,7 @@ public abstract class Basec4t_object extends BaseResource {
 	private Integer notification_communication = null;
 	private Long creation_time = null;
 	private Long last_imported_time = null;
+	private Long last_backup_time = null;
 	private Long last_used = null;
 	private Long updation_time = null;
 	private String owner_id = null;
@@ -266,6 +267,8 @@ public abstract class Basec4t_object extends BaseResource {
 	private String repos_password = null;
 	private String configured = null;
 	private String available_time = null;
+	private Long import_error_count = null;
+	private String import_error = null;
 	private Map<String, Object> extra_data = null;
 
 	public static String FIELD_ID = "id";
@@ -455,6 +458,7 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_NOTIFICATION_COMMUNICATION = "notification_communication";
 	public static String FIELD_CREATION_TIME = "creation_time";
 	public static String FIELD_LAST_IMPORTED_TIME = "last_imported_time";
+	public static String FIELD_LAST_BACKUP_TIME = "last_backup_time";
 	public static String FIELD_LAST_USED = "last_used";
 	public static String FIELD_UPDATION_TIME = "updation_time";
 	public static String FIELD_OWNER_ID = "owner_id";
@@ -515,6 +519,8 @@ public abstract class Basec4t_object extends BaseResource {
 	public static String FIELD_REPOS_PASSWORD = "repos_password";
 	public static String FIELD_CONFIGURED = "configured";
 	public static String FIELD_AVAILABLE_TIME = "available_time";
+	public static String FIELD_IMPORT_ERROR_COUNT = "import_error_count";
+	public static String FIELD_IMPORT_ERROR = "import_error";
 	public static String FIELD_EXTRA_DATA = "extra_data";
 
 	private static final long serialVersionUID = 1L;
@@ -1253,6 +1259,9 @@ public abstract class Basec4t_object extends BaseResource {
 		Field last_imported_timeField = new Field("last_imported_time", "timestamp");
 		metaData.addField(last_imported_timeField);
 
+		Field last_backup_timeField = new Field("last_backup_time", "timestamp");
+		metaData.addField(last_backup_timeField);
+
 		Field last_usedField = new Field("last_used", "timestamp");
 		metaData.addField(last_usedField);
 
@@ -1460,6 +1469,13 @@ public abstract class Basec4t_object extends BaseResource {
 		available_timeField.setLength(128);
 		metaData.addField(available_timeField);
 
+		Field import_error_countField = new Field("import_error_count", "long");
+		metaData.addField(import_error_countField);
+
+		Field import_errorField = new Field("import_error", "String");
+		import_errorField.setLength(128);
+		metaData.addField(import_errorField);
+
 		Field extra_dataField = new Field("extra_data", "Map");
 		extra_dataField.setValueType("Object");
 		metaData.addField(extra_dataField);
@@ -1660,6 +1676,7 @@ public abstract class Basec4t_object extends BaseResource {
 		this.notification_communication = obj.notification_communication;
 		this.creation_time = obj.creation_time;
 		this.last_imported_time = obj.last_imported_time;
+		this.last_backup_time = obj.last_backup_time;
 		this.last_used = obj.last_used;
 		this.updation_time = obj.updation_time;
 		this.owner_id = obj.owner_id;
@@ -1720,6 +1737,8 @@ public abstract class Basec4t_object extends BaseResource {
 		this.repos_password = obj.repos_password;
 		this.configured = obj.configured;
 		this.available_time = obj.available_time;
+		this.import_error_count = obj.import_error_count;
+		this.import_error = obj.import_error;
 		this.extra_data = obj.extra_data;
 	}
 
@@ -2103,6 +2122,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(last_imported_time != null)
 			map.put("last_imported_time", last_imported_time);
+		if(last_backup_time != null)
+			map.put("last_backup_time", last_backup_time);
 		if(last_used != null)
 			map.put("last_used", last_used);
 		if(updation_time != null)
@@ -2223,6 +2244,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("configured", configured);
 		if(available_time != null)
 			map.put("available_time", available_time);
+		if(import_error_count != null)
+			map.put("import_error_count", import_error_count);
+		if(import_error != null)
+			map.put("import_error", import_error);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -2604,6 +2629,8 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("creation_time", creation_time);
 		if(last_imported_time != null)
 			map.put("last_imported_time", last_imported_time);
+		if(last_backup_time != null)
+			map.put("last_backup_time", last_backup_time);
 		if(last_used != null)
 			map.put("last_used", last_used);
 		if(updation_time != null)
@@ -2724,6 +2751,10 @@ public abstract class Basec4t_object extends BaseResource {
 			map.put("configured", configured);
 		if(available_time != null)
 			map.put("available_time", available_time);
+		if(import_error_count != null)
+			map.put("import_error_count", import_error_count);
+		if(import_error != null)
+			map.put("import_error", import_error);
 		if(extra_data != null)
 			map.put("extra_data", extra_data);
 		return map;
@@ -2923,6 +2954,7 @@ public abstract class Basec4t_object extends BaseResource {
 		notification_communication = (Integer) map.get("notification_communication");
 		creation_time = (Long) map.get("creation_time");
 		last_imported_time = (Long) map.get("last_imported_time");
+		last_backup_time = (Long) map.get("last_backup_time");
 		last_used = (Long) map.get("last_used");
 		updation_time = (Long) map.get("updation_time");
 		owner_id = (String) map.get("owner_id");
@@ -2983,6 +3015,8 @@ public abstract class Basec4t_object extends BaseResource {
 		repos_password = (String) map.get("repos_password");
 		configured = (String) map.get("configured");
 		available_time = (String) map.get("available_time");
+		import_error_count = (Long) map.get("import_error_count");
+		import_error = (String) map.get("import_error");
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
 
@@ -3736,6 +3770,10 @@ public abstract class Basec4t_object extends BaseResource {
 		if(last_imported_timeObj != null)
 			last_imported_time = new Long(last_imported_timeObj.toString());
 
+		Object last_backup_timeObj = map.get("last_backup_time");
+		if(last_backup_timeObj != null)
+			last_backup_time = new Long(last_backup_timeObj.toString());
+
 		Object last_usedObj = map.get("last_used");
 		if(last_usedObj != null)
 			last_used = new Long(last_usedObj.toString());
@@ -3975,6 +4013,14 @@ public abstract class Basec4t_object extends BaseResource {
 		Object available_timeObj = map.get("available_time");
 		if(available_timeObj != null)
 			available_time = available_timeObj.toString();
+
+		Object import_error_countObj = map.get("import_error_count");
+		if(import_error_countObj != null)
+			import_error_count = new Long(import_error_countObj.toString());
+
+		Object import_errorObj = map.get("import_error");
+		if(import_errorObj != null)
+			import_error = import_errorObj.toString();
 
 		extra_data = (Map<String, Object>) map.get("extra_data");
 	}
@@ -7069,6 +7115,15 @@ public abstract class Basec4t_object extends BaseResource {
 	}
 
 
+	public Long getLast_backup_time() {
+		return last_backup_time;
+	}
+
+	public void setLast_backup_time(Long last_backup_time) {
+		this.last_backup_time = last_backup_time;
+	}
+
+
 	public Long getLast_used() {
 		return last_used;
 	}
@@ -8045,6 +8100,42 @@ public abstract class Basec4t_object extends BaseResource {
 
 	public void unSetAvailable_time() {
 		this.available_time = null;
+	}
+
+	public Long getImport_error_count() {
+		return import_error_count;
+	}
+
+	public long getImport_error_countEx() {
+		return import_error_count != null ? import_error_count : 0L;
+	}
+
+	public void setImport_error_count(long import_error_count) {
+		this.import_error_count = import_error_count;
+	}
+
+	public void setImport_error_count(Long import_error_count) {
+		this.import_error_count = import_error_count;
+	}
+
+	public void unSetImport_error_count() {
+		this.import_error_count = null;
+	}
+
+	public String getImport_error() {
+		return import_error;
+	}
+
+	public String getImport_errorEx() {
+		return import_error != null ? import_error : "";
+	}
+
+	public void setImport_error(String import_error) {
+		this.import_error = import_error;
+	}
+
+	public void unSetImport_error() {
+		this.import_error = null;
 	}
 
 	public Map<String, Object> getExtra_data() {
